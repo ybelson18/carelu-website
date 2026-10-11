@@ -33,7 +33,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     metaDescription:
       'How NC Medicaid covers ABA as Research-Based Behavioral Health Treatment (RB-BHT) under Clinical Coverage Policy 8F — prior authorization, tiered 180/90-day auth cycles, published fee-schedule rates, the HB 696 overhaul, and the Standard/Tailored plan landscape.',
     intro: [
-      'North Carolina is one of the highest-demand ABA states in the country, and NC Medicaid covers ABA as "Research-Based Behavioral Health Treatment" (RB-BHT) under Clinical Coverage Policy 8F. The benefit is available in every delivery channel — NC Medicaid Direct, all five Standard Plans, all four Tailored Plans, and the new Children & Families Specialty Plan — and the plans must pay at least the state fee schedule. But 2025–2026 brought a rate cut and reversal, a major legislative overhaul (HB 696), and a rewritten Clinical Coverage Policy 8F that took effect August 1, 2026, so this is a market where staying current is part of the job.',
+      'North Carolina is one of the highest-demand ABA states in the country, and NC Medicaid covers ABA as "Research-Based Behavioral Health Treatment" (RB-BHT) under Clinical Coverage Policy 8F. The benefit is available in every delivery channel — NC Medicaid Direct, every Standard Plan, every Tailored Plan, and the new Children & Families Specialty Plan — and the plans must pay at least the state fee schedule. But 2025–2026 brought a rate cut and reversal, a major legislative overhaul (HB 696), and a rewritten Clinical Coverage Policy 8F that took effect August 1, 2026, so this is a market where staying current is part of the job.',
     ],
     atGlance: [
       { label: 'Covers ABA?', value: 'Yes — RB-BHT under CCP 8F; under 21 via EPSDT, adults 21+ via a 2021 SPA' },
@@ -51,9 +51,12 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         h2: 'Who qualifies, and through which plan',
         body: [
           'RB-BHT is covered for members under 21 with an ASD diagnosis established using a scientifically validated diagnostic tool, via EPSDT — and, less well known, a State Plan Amendment effective July 1, 2021 extends RB-BHT coverage to adults 21 and older as well. For children under three, a provisional diagnosis is accepted at the time services begin, with a definitive diagnosis expected within six months — a detail worth capturing so young families aren\'t turned away prematurely.',
-          'The benefit exists in every delivery channel: NC Medicaid Direct, the five Standard Plans (Healthy Blue, AmeriHealth Caritas, Carolina Complete Health, UnitedHealthcare Community Plan, WellCare), the four Tailored Plans (Alliance, Trillium, Vaya, Partners — launched July 1, 2024), and the Children & Families Specialty Plan for child-welfare-involved members (launched December 1, 2025). The clinical rules are 8F everywhere; each plan\'s guide below covers its submission mechanics and quirks.',
+          'The benefit exists in every delivery channel: NC Medicaid Direct, the Standard Plans (Healthy Blue, AmeriHealth Caritas, Carolina Complete Health and UnitedHealthcare Community Plan — WellCare of North Carolina merged into Carolina Complete Health on April 1, 2026), the Tailored Plans (launched July 1, 2024 as Alliance, Trillium, Vaya and Partners; Vaya Health and Partners Health Management merged into Vaya Partners on October 1, 2026, so NCDHHS now lists three: Alliance Health, Trillium Health Resources and Vaya Partners), and the Children & Families Specialty Plan for child-welfare-involved members (launched December 1, 2025). The clinical rules are 8F everywhere; each plan\'s guide below covers its submission mechanics and quirks.',
         ],
         cites: [
+          { title: 'NC Medicaid — WellCare NC and Carolina Complete Health merge April 1, 2026 (Provider Playbook)', url: 'https://medicaid.ncdhhs.gov/providers/provider-playbook-medicaid-managed-care/trending-topics/wellcare-north-carolina-and-carolina-complete-health-merge-april-1-2026' },
+          { title: 'NCDHHS — LME/MCO directory (Alliance, Trillium, Vaya Partners)', url: 'https://www.ncdhhs.gov/providers/lme-mco-directory' },
+          { title: 'Vaya Partners — ProviderCENTRAL home (merger notice)', url: 'https://providers.vayapartners.org/' },
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT)', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
           { title: 'Disability Rights NC — autism-related services in NC (incl. 2021 SPA)', url: 'https://disabilityrightsnc.org/resources/autism-related-services-in-nc/' },
           { title: 'NC Medicaid — Tailored Plans', url: 'https://medicaid.ncdhhs.gov/tailored-plans' },
@@ -1581,7 +1584,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     metaDescription:
       'How Alliance Health administers NC Medicaid RB-BHT (ABA) — CCP 8F clinical rules, published fee-schedule rates, and the state\'s strictest documented enforcement on diagnostic instruments and service orders.',
     intro: [
-      'Alliance Health is one of NC\'s four Tailored Plans, and for ABA providers it stands out on two fronts: it publishes an actual rate schedule (the clearest public confirmation of the state fee-schedule floor in action), and its February 2026 RB-BHT guidance spelled out diagnostic-instrument and service-order requirements more explicitly than any other NC plan (that guidance has since been archived; the diagnostic list now to use is the rewritten CCP 8F\'s). Clinically it\'s straight CCP 8F — but its documentation bar is where referrals get screened out.',
+      'Alliance Health is one of NC\'s three Tailored Plans, and for ABA providers it stands out on two fronts: it publishes an actual rate schedule (the clearest public confirmation of the state fee-schedule floor in action), and its February 2026 RB-BHT guidance spelled out diagnostic-instrument and service-order requirements more explicitly than any other NC plan (that guidance has since been archived; the diagnostic list now to use is the rewritten CCP 8F\'s). Clinically it\'s straight CCP 8F — but its documentation bar is where referrals get screened out.',
     ],
     atGlance: [
       { label: 'Plan type', value: 'NC Tailored Plan (public LME/MCO)' },
@@ -1844,7 +1847,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     metaDescription:
       'How Trillium Health Resources administers NC Medicaid RB-BHT (ABA) — its benefit-plan service definition citing CCP 8F, 180-day TAR cycles, adult coverage under the 2021 SPA, and telehealth modifier rules.',
     intro: [
-      'Trillium Health Resources, an eastern-NC Tailored Plan, publishes the single best reference document of the four Tailored Plans: a Medicaid Child Behavioral Health Benefit Plan (revised August 31, 2026) carrying a complete RB-BHT service definition that cites CCP 8F and the 2021 State Plan Amendment as its sources. Nothing in it is clinically distinct from the state baseline — which is exactly what makes it a reliable operational reference for TAR submissions.',
+      'Trillium Health Resources, an eastern-NC Tailored Plan, publishes the single best reference document of the Tailored Plans: a Medicaid Child Behavioral Health Benefit Plan (revised August 31, 2026) carrying a complete RB-BHT service definition that cites CCP 8F and the 2021 State Plan Amendment as its sources. Nothing in it is clinically distinct from the state baseline — which is exactly what makes it a reliable operational reference for TAR submissions.',
     ],
     atGlance: [
       { label: 'Plan type', value: 'NC Tailored Plan (public LME/MCO, eastern NC)' },
@@ -2112,7 +2115,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
   'vaya-health': {
     slug: 'vaya-health',
     family: '',
-    cardDesc: 'Western-NC Tailored Plan; 8F via SARs to Vaya UM — key documents must be pulled manually.',
+    cardDesc: 'Western-NC Tailored Plan, now Vaya Partners (merged with Partners 10/1/2026); 8F via SARs in ProviderCONNECT — key documents must be pulled manually.',
     assessmentPA: {
       value: 'Required — per 8F; Vaya publishes RB-BHT authorization guidelines (v2.0, eff. 9/2025) on its provider portal',
       status: 'verified',
@@ -2147,14 +2150,28 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       'Vaya Health — operating the "Vaya Total Care" Tailored Plan across western North Carolina — administers RB-BHT as straight CCP 8F, with authorization running through service authorization requests (SARs) to Vaya\'s in-house UM team. Its provider-document library previously blocked automated access; as of this review its authorization guidelines are readable directly, and the code-level passthrough thresholds below are confirmed from Vaya\'s own document text rather than inferred.',
     ],
     atGlance: [
-      { label: 'Plan type', value: 'NC Tailored Plan (public LME/MCO, western NC — "Vaya Total Care")' },
+      { label: 'Plan type', value: 'NC Tailored Plan (public LME/MCO) — Vaya Partners since the October 1, 2026 merger of Vaya Health and Partners Health Management' },
       { label: 'Clinical rules', value: 'CCP 8F; Vaya RB-BHT authorization guidelines v2.0 (eff. 9/2025)' },
       { label: 'Prior auth', value: 'Required — SARs to Vaya UM' },
-      { label: 'UM contact', value: '(800) 893-6246 ext. 1513 · UM@vayahealth.com' },
-      { label: 'Portal', value: 'providers.vayahealth.com' },
+      { label: 'UM contact', value: '(800) 893-6246 ext. 1515 (behavioral health) · UM@VayaPartners.org' },
+      { label: 'Portal', value: 'ProviderCONNECT — providers.vayapartners.org/portal' },
       { label: 'Rates', value: '≥100% of the NC Medicaid fee schedule (state floor); Vaya publishes its own rate schedule' },
     ],
     sections: [
+      {
+        h2: 'Vaya Health is now Vaya Partners (October 1, 2026)',
+        body: [
+          'Vaya\'s provider site now opens with: "Vaya Health and Partners Health Management officially merged on October 1, 2026, to become Vaya Partners," and calls providers.vayahealth.com "a legacy website" where "certain forms and resources may remain available" during the transition. NCDHHS\'s LME/MCO directory now lists three Tailored Plans: Alliance Health, Trillium Health Resources and Vaya Partners.',
+          'What changed for an ABA provider: SARs now go "electronically through the Vaya Partners ProviderCONNECT" portal, and the binding rulebook is the Vaya Partners Provider Operations Manual v1.0 (Oct. 1, 2026), which replaces Vaya\'s manual v3.1 (March 2026). Its UM contact is UM@VayaPartners.org or 1-800-893-6246, ext. 1515 (behavioral health); provider support is 1-866-990-9712. The RB-BHT rules below that come from Vaya\'s own authorization guidelines still apply: Vaya Partners\' Authorization Guidelines page still links Vaya\'s RB-BHT guidelines (v2.0).',
+        ],
+        cites: [
+          { title: 'Vaya Partners — ProviderCENTRAL home (merger notice)', url: 'https://providers.vayapartners.org/' },
+          { title: 'Vaya Partners — Prior Authorization (ProviderCENTRAL, checked 10/11/2026)', url: 'https://providers.vayapartners.org/prior-authorization/' },
+          { title: 'Vaya Partners — Provider Operations Manual v1.0 (Oct. 1, 2026)', url: 'https://resources.vayapartners.org/wp-content/uploads/Vaya_Partners_Provider_Operations_Manual_1.0_20261001.pdf' },
+          { title: 'Vaya Partners — Authorization Guidelines page (still links Vaya RB-BHT guidelines v2.0)', url: 'https://providers.vayapartners.org/authorization-guidelines/' },
+          { title: 'NCDHHS — LME/MCO directory (Alliance, Trillium, Vaya Partners)', url: 'https://www.ncdhhs.gov/providers/lme-mco-directory' },
+        ],
+      },
       {
         h2: 'How Vaya administers RB-BHT',
         body: [
@@ -2172,8 +2189,10 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         body: [
           'Closed since July 7, 2026. Vaya\'s Provider Communication Bulletin of July 8, 2026: as directed by S.L. 2026-41, Vaya "will transition Research-based Behavioral Health Treatment (RB-BHT) and Peer Support Services (PSS) to closed network services. Effective July 7, 2026, only contracted providers within the approved closed network may deliver RB-BHT and PSS."',
           'Providers already delivering RB-BHT "should continue operating as contracted and approved." New providers can still ask: "Vaya will evaluate new requests to provide RB-BHT and PSS on a case-by-case basis against our selection criteria, which includes a network need." Questions go to provider.info@vayahealth.com.',
+          'The merged plan keeps it closed: the Vaya Partners Provider Operations Manual (v1.0, Oct. 1, 2026) lists "Research-based Behavioral Health Treatment (RB-BHT)" among the services for which it maintains a closed network, and new closed-network applicants must show "a need for the service the applicant is seeking to provide." Provider questions now go to ProviderInfo@VayaPartners.org.',
         ],
         cites: [
+          { title: 'Vaya Partners — Provider Operations Manual v1.0 (Oct. 1, 2026)', url: 'https://resources.vayapartners.org/wp-content/uploads/Vaya_Partners_Provider_Operations_Manual_1.0_20261001.pdf' },
           { title: 'Vaya Health — Provider Communication Bulletin, Issue 3 (July 8, 2026): Important Changes to RB-BHT and Peer Support Services', url: 'https://providers.vayahealth.com/wp-content/uploads/2026/07/PCB_Issue_3_20260708.pdf' },
           { title: 'Session Law 2026-41 (S.B. 257, Current Operations Appropriations Act of 2026, approved 7/7/2026), §9E.22', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-41.pdf' },
         ],
@@ -2196,20 +2215,23 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         h2: 'Can Vaya Health authorize ABA retroactively?',
         body: [
           'NC Medicaid’s rule binds the plans: CCP 8F (amended 8/1/2026) requires prior approval before RB-BHT services, says services provided without prior authorization “are not considered for payment or reimbursement except in the case of retroactive Medicaid eligibility,” and lists “services provided without prior authorization by the PHP” among the services Medicaid does not cover.',
-          'We have not verified Vaya’s own retrospective-review rule for RB-BHT; ask Vaya UM before treating without an approval.',
+          'Vaya Partners allows it only for late eligibility. Its manual (v1.0, Oct. 1, 2026): "If a member did not have Medicaid at the time the service was provided but later gains eligibility that covers the dates of service, providers may request retrospective authorization by submitting the SAR and all documentation no later than 90 days following the notification of the Medicaid eligibility determination." Its prior-authorization page adds: "Except for requests based on retrospective Medicaid eligibility, all SARs must have a service start date that is on or after the date of SAR submission."',
         ],
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Vaya Partners — Provider Operations Manual v1.0 (Oct. 1, 2026)', url: 'https://resources.vayapartners.org/wp-content/uploads/Vaya_Partners_Provider_Operations_Manual_1.0_20261001.pdf' },
+          { title: 'Vaya Partners — Prior Authorization (ProviderCENTRAL, checked 10/11/2026)', url: 'https://providers.vayapartners.org/prior-authorization/' },
         ],
       },
       {
         h2: 'What is Vaya Health’s timely filing limit and claim payment turnaround?',
         body: [
-          'NC Medicaid sets the floor for every Tailored Plan and LME/MCO, Vaya Health included. Its prompt-payment fact sheet gives Tailored Plans a 365-day timely filing window from July 1, 2024. NC Medicaid Direct claims the LME/MCOs process also moved from 90 to 365 days on July 1, 2024. The window covers the original claim and any corrected claim. State-funded services must be filed within 90 calendar days.',
+          'NC Medicaid sets the floor for every Tailored Plan and LME/MCO, Vaya Health included, and the Vaya Partners manual (v1.0, Oct. 1, 2026) repeats it: Medicaid claims within 365 days of the date of service or discharge, State-funded claims within 90 days, and claims where Vaya Partners pays last within 180 days of the other payer\'s remittance. Its prompt-payment fact sheet gives Tailored Plans a 365-day timely filing window from July 1, 2024. NC Medicaid Direct claims the LME/MCOs process also moved from 90 to 365 days on July 1, 2024. The window covers the original claim and any corrected claim. State-funded services must be filed within 90 calendar days.',
           'Within 18 calendar days of receiving a medical claim the plan must say whether it is clean or pend it for more information. It must pay or deny a clean claim within 30 days, and deny the claim if requested information has not arrived within 90 days. Late payment carries 18% annual interest.',
         ],
         cites: [
           { title: 'NC Medicaid Managed Care Provider Playbook — Prompt Payment fact sheet (Standard Plans, NC Medicaid Direct, Tailored Plans)', url: 'https://medicaid.ncdhhs.gov/provider-playbook-prompt-payment-fact-sheet/download' },
+          { title: 'Vaya Partners — Provider Operations Manual v1.0 (Oct. 1, 2026)', url: 'https://resources.vayapartners.org/wp-content/uploads/Vaya_Partners_Provider_Operations_Manual_1.0_20261001.pdf' },
         ],
       },
     ],
@@ -2282,20 +2304,20 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         ],
       },
       authTurnaround: {
-        value: 'Vaya: "Vaya will issue a decision and provide notice within 14 calendar days of receipt of the request", extendable up to 14 more calendar days, and expedited requests "within 72 hours following acceptance of an expedited request." When information is missing, providers "have up to three business days to submit any requested additional information" or the request is returned. Lead time is explicit: "Submit SARs at least 14 days before the end of the existing authorization … to avoid a gap in authorization or payment." The federal managed-care ceiling for rating periods starting on or after January 1, 2026 is 7 calendar days standard, which reaches NC plans from July 1, 2026 — after Vaya’s March 2026 manual, so expect 7 and confirm with Vaya UM. RB-BHT authorizations run 180 days at 16 hours a week or fewer, 90 above.',
+        value: 'Vaya Partners (manual v1.0, effective Oct. 1, 2026): "For standard reviews, Vaya Partners will issue a decision within seven (7) calendar days," extendable "up to fourteen (14) additional days," and requests meeting expedited criteria are reviewed "within 72 hours." Lead time: submit a SAR "at least seven (7) calendar days prior to the requested service start date," and a concurrent request "seven (7) calendar days prior to the end of the current authorization." When UM asks for more information, "Providers have up to one business day to submit any requested additional information" — incomplete SARs are returned "unable to process." This replaces Vaya Health\'s March 2026 manual (14 calendar days to decide, 14 days\' lead time, three business days for missing information). RB-BHT authorizations run 180 days at 16 hours a week or fewer, 90 above (CCP 8F).',
         status: 'verified',
         cites: [
-          { title: 'Vaya Health — prior authorization page', url: 'https://providers.vayahealth.com/authorization-information/prior-authorization/' },
-          { title: 'Vaya Health — Provider Operations Manual v3.1 (3/5/2026)', url: 'https://providers.vayahealth.com/resources/vaya_provider_operations_manual_3-1_20260305/' },
+          { title: 'Vaya Partners — Provider Operations Manual v1.0 (Oct. 1, 2026)', url: 'https://resources.vayapartners.org/wp-content/uploads/Vaya_Partners_Provider_Operations_Manual_1.0_20261001.pdf' },
+          { title: 'Vaya Partners — Prior Authorization (ProviderCENTRAL, checked 10/11/2026)', url: 'https://providers.vayapartners.org/prior-authorization/' },
           { title: '42 CFR 438.210(d) — Medicaid managed care authorization decision timeframes', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' },
           { title: 'NC Medicaid Standard Plan contract, Amendment 17(18) — "Rating Period" defined as July 1 to June 30', url: 'https://medicaid.ncdhhs.gov/contract-30-190029-dhb-prepaid-health-plan-services-amendment-1718/open' },
         ],
       },
       coordinationOfBenefits: {
-        value: '"Medicaid is the payor of last resort. Providers are required to collect all first- and third-party funds prior to submitting claims to Vaya." Wait a reasonable time for the other payer, keep its RA/EOB or other proof of payment or denial, and bill Vaya only the remaining amount; such claims are due "within 180 days of the date you receive a remittance from a first- or second-party payor." Where the member also uses state-funded services, state funds pay last. The manual does not say whether its own prior authorization is still needed when it pays second; CCP 8F requires prior approval before rendering RB-BHT and carves out no exception for members with other insurance, so get the plan’s authorization on file unless the plan confirms in writing that it is waived. Under federal rules TRICARE pays before Medicaid and CHAMPVA pays first when the child is also Medicaid-eligible.',
+        value: 'Vaya Partners (manual v1.0, Oct. 1, 2026): "Medicaid is the payor of last resort." Collect all first- and third-party funds before billing Vaya Partners, wait a reasonable time for the other payer, keep its RA/EOB or other proof of payment or denial, and bill Vaya Partners only the remaining amount; such claims are due "within 180 days of the date you receive a remittance from a first- or second-party payor." Where the member also uses state-funded services, state funds pay last. The manual does not say whether its own prior authorization is still needed when it pays second; CCP 8F requires prior approval before rendering RB-BHT and carves out no exception for members with other insurance, so get the plan’s authorization on file unless the plan confirms in writing that it is waived. Under federal rules TRICARE pays before Medicaid and CHAMPVA pays first when the child is also Medicaid-eligible.',
         status: 'verified',
         cites: [
-          { title: 'Vaya Health — Provider Operations Manual v3.1 (3/5/2026)', url: 'https://providers.vayahealth.com/resources/vaya_provider_operations_manual_3-1_20260305/' },
+          { title: 'Vaya Partners — Provider Operations Manual v1.0 (Oct. 1, 2026)', url: 'https://resources.vayapartners.org/wp-content/uploads/Vaya_Partners_Provider_Operations_Manual_1.0_20261001.pdf' },
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
           { title: 'TRICARE — Using Other Health Insurance (updated 10/17/2025)', url: 'https://www.tricare.mil/Plans/OHI' },
           { title: 'VA — CHAMPVA Guidebook (updated 1/1/2025), CHAMPVA as secondary payer', url: 'https://www.va.gov/files/2025-12/CHAMPVA-Guidebook.pdf' },
@@ -2355,12 +2377,12 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
-      { q: 'Does Vaya Health cover ABA therapy?', a: 'Yes — as a Tailored Plan, Vaya administers RB-BHT under CCP 8F, with service authorization requests reviewed by its UM team ((800) 893-6246 ext. 1513, UM@vayahealth.com).' },
+      { q: 'Does Vaya Health cover ABA therapy?', a: 'Yes — as a Tailored Plan, Vaya administers RB-BHT under CCP 8F, with service authorization requests reviewed by its UM team. Since the October 1, 2026 merger with Partners Health Management it operates as Vaya Partners: submit SARs in ProviderCONNECT; UM is (800) 893-6246 ext. 1515 (behavioral health) or UM@VayaPartners.org.' },
       { q: 'Does every Vaya ABA request need a full SAR?', a: 'No — 97151 assessment requests up to 32 units per 6 months and 97155 up to a 1-hour-per-10-hours ratio against direct intervention pass through on notification alone. Above either threshold, a complete SAR (service order, treatment plan, validated diagnosis) is required.' },
       { q: 'Is Vaya Health accepting new ABA providers?', a: 'Closed since July 7, 2026. Vaya says only contracted providers in its approved closed network may deliver RB-BHT; current providers continue as contracted, and new requests are reviewed case by case against selection criteria that include network need. Email provider.info@vayahealth.com.' },
       { q: 'What happens to the authorization when switching ABA agencies on Vaya Health?', a: 'Vaya Health applies CCP 8F, which does not say an authorization transfers. CCP 8F treats needing "a different RB-BHT provider agency" as a transition or discharge reason, requires the Treatment Plan to be reviewed on a change in service provider, and will not pay two providers for duplicate services. Expect the new agency to submit its own request, and confirm with Vaya Health utilization management.' },
       { q: 'Can an out-of-state BCBA treat Vaya Health members in North Carolina, including by telehealth?', a: 'North Carolina requires an NC license to practice behavior analysis (G.S. 90-746), with no telehealth exception; temporary and reciprocity licenses exist (G.S. 90-740, 90-741). NC Medicaid no longer enrolls BCBAs as out-of-state providers (G.S. 108C-9(e)), and plan network providers must be enrolled with the state (42 CFR 438.602(b)(1)).' },
-      { q: 'Can Vaya Health authorize ABA retroactively?', a: 'Plan on no outside retroactive Medicaid eligibility (CCP 8F); confirm any retrospective-review option with Vaya UM.' },
+      { q: 'Can Vaya Health authorize ABA retroactively?', a: 'Only for retroactive Medicaid eligibility: Vaya Partners takes a retrospective SAR with all documentation no later than 90 days after the eligibility determination notice. Otherwise every SAR must start on or after the date it is submitted.' },
       { q: 'What is Vaya Health’s timely filing limit for ABA claims?', a: '365 days from the date of service for Tailored Plan and NC Medicaid Direct claims since July 1, 2024, corrected claims included, under NC Medicaid’s rule for LME/MCOs. State-funded services are 90 days. Clean claims must be paid or denied within 30 days.' },
     ],
   },
@@ -2368,7 +2390,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
   'partners-health-management': {
     slug: 'partners-health-management',
     family: '',
-    cardDesc: 'Tailored Plan with the ALL-codes authorization: one auth covers every RB-BHT code via ProAuth.',
+    cardDesc: 'Merged into Vaya Partners on 10/1/2026; legacy Partners issued one ALL-codes RB-BHT authorization via ProAuth.',
     assessmentPA: {
       value: 'Required — per adopted CCP 8F',
       status: 'verified',
@@ -2402,14 +2424,28 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       'Partners Health Management, a Tailored Plan, adopts NC\'s clinical coverage policies outright for medical-necessity decisions — 8F included — and runs the most provider-friendly authorization model in the state: since October 2023, RB-BHT authorizations issue as "ALL codes," meaning one authorization on the base code covers every RB-BHT service code and modifier combination, telehealth included. The flexibility is real; so is the caveat that billing outside the approved treatment plan risks recoupment.',
     ],
     atGlance: [
-      { label: 'Plan type', value: 'NC Tailored Plan (public LME/MCO)' },
+      { label: 'Plan type', value: 'NC Tailored Plan (public LME/MCO) — merged with Vaya Health into Vaya Partners on October 1, 2026' },
       { label: 'Clinical rules', value: 'CCP 8F adopted for medical-necessity decisions' },
       { label: 'Prior auth', value: 'Required — single ALL-codes authorization per member' },
-      { label: 'Portal', value: 'ProAuth (base code as Primary Procedure Code on Prescreen)' },
-      { label: 'UM contact', value: 'UMQuestions@partnersbhm.org' },
+      { label: 'Portal', value: 'Vaya Partners ProviderCONNECT (providers.vayapartners.org/portal); legacy Partners used ProAuth' },
+      { label: 'UM contact', value: 'UM@VayaPartners.org · (800) 893-6246 ext. 1515 (behavioral health)' },
       { label: 'Rates', value: '≥100% of the NC Medicaid fee schedule (state floor)' },
     ],
     sections: [
+      {
+        h2: 'Partners Health Management is now Vaya Partners (October 1, 2026)',
+        body: [
+          'Partners\' own website now opens with: "Vaya Health and Partners Health Management officially merged on October 1, 2026, to become Vaya Partners," and calls itself "a legacy website" where "certain forms and resources may remain available" during the transition. NCDHHS\'s LME/MCO directory now lists Vaya Partners Health, not Partners, alongside Alliance and Trillium.',
+          'For an ABA provider the merged plan\'s rules now govern: "Vaya Partners network providers must submit service authorization requests (SARs) electronically through the Vaya Partners ProviderCONNECT," and the binding rulebook is the Vaya Partners Provider Operations Manual v1.0 (Oct. 1, 2026), which replaces the 2025-2026 Partners manual. UM is UM@VayaPartners.org or 1-800-893-6246, ext. 1515 (behavioral health); provider support is 1-866-990-9712. The Partners-specific practices below (the ALL-codes authorization in ProAuth) come from legacy Partners documents; Vaya Partners has not said whether it keeps them, so ask UM before relying on them.',
+        ],
+        cites: [
+          { title: 'Partners Health Management — legacy site merger banner (checked 10/11/2026)', url: 'https://www.partnersbhm.org/' },
+          { title: 'Vaya Partners — ProviderCENTRAL home (merger notice)', url: 'https://providers.vayapartners.org/' },
+          { title: 'Vaya Partners — Prior Authorization (ProviderCENTRAL, checked 10/11/2026)', url: 'https://providers.vayapartners.org/prior-authorization/' },
+          { title: 'Vaya Partners — Provider Operations Manual v1.0 (Oct. 1, 2026)', url: 'https://resources.vayapartners.org/wp-content/uploads/Vaya_Partners_Provider_Operations_Manual_1.0_20261001.pdf' },
+          { title: 'NCDHHS — LME/MCO directory (Alliance, Trillium, Vaya Partners)', url: 'https://www.ncdhhs.gov/providers/lme-mco-directory' },
+        ],
+      },
       {
         h2: 'The ALL-codes authorization model',
         body: [
@@ -2450,10 +2486,11 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         h2: 'Can Partners authorize ABA retroactively?',
         body: [
           'NC Medicaid’s rule binds the plans: CCP 8F (amended 8/1/2026) requires prior approval before RB-BHT services, says services provided without prior authorization “are not considered for payment or reimbursement except in the case of retroactive Medicaid eligibility,” and lists “services provided without prior authorization by the PHP” among the services Medicaid does not cover.',
-          'We have not verified Partners’ own retrospective-review rule for RB-BHT; ask Partners UM before treating without an approval.',
+          'Since the October 1, 2026 merger the Vaya Partners manual governs, and it allows a retrospective request only for late eligibility: "If a member did not have Medicaid at the time the service was provided but later gains eligibility that covers the dates of service, providers may request retrospective authorization by submitting the SAR and all documentation no later than 90 days following the notification of the Medicaid eligibility determination."',
         ],
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Vaya Partners — Provider Operations Manual v1.0 (Oct. 1, 2026)', url: 'https://resources.vayapartners.org/wp-content/uploads/Vaya_Partners_Provider_Operations_Manual_1.0_20261001.pdf' },
         ],
       },
       {
@@ -2534,9 +2571,11 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         ],
       },
       authTurnaround: {
-        value: 'Partners’ operations manual: "Partners must decide and provide notice within 14 calendar days of receiving a standard request for authorization of service with a possible extension of an additional 14 calendar days", and within 72 hours for expedited requests (expedited concurrent within 24 hours). Its January 2026 bulletin says the CMS prior-authorization timeframes "have been postponed to July 1, 2026" — from then the federal ceiling is 7 calendar days standard, so expect 7 now and confirm with Partners UM. "Services are expected to be requested on or before the start date"; a request submitted more than 30 days before the start date is administratively denied. CCP 8F requires the RB-BHT reauth before the current authorization expires.',
+        value: 'Since the October 1, 2026 merger, Vaya Partners\' manual (v1.0) governs: "For standard reviews, Vaya Partners will issue a decision within seven (7) calendar days," extendable "up to fourteen (14) additional days," and requests meeting expedited criteria are reviewed "within 72 hours." Submit a SAR "at least seven (7) calendar days prior to the requested service start date" (concurrent requests seven calendar days before the current authorization ends; the prior-authorization page caps lead time at 30 days), and answer any request for more information within one business day or the SAR is returned "unable to process." The 2025-2026 Partners manual it replaces allowed 14 calendar days plus a 14-day extension. CCP 8F requires the RB-BHT reauth before the current authorization expires.',
         status: 'verified',
         cites: [
+          { title: 'Vaya Partners — Provider Operations Manual v1.0 (Oct. 1, 2026)', url: 'https://resources.vayapartners.org/wp-content/uploads/Vaya_Partners_Provider_Operations_Manual_1.0_20261001.pdf' },
+          { title: 'Vaya Partners — Prior Authorization (ProviderCENTRAL, checked 10/11/2026)', url: 'https://providers.vayapartners.org/prior-authorization/' },
           { title: 'Partners Health Management — 2025-2026 Provider Operations Manual (rev. 20250623)', url: 'https://providers.partnersbhm.org/wp-content/uploads/partners-provider-operations-manual.pdf' },
           { title: 'Partners — Provider Communication Bulletin #172 (CMS prior-auth timeframes postponed to 7/1/2026)', url: 'https://providers.partnersbhm.org/provider-communication-bulletin-172/' },
           { title: '42 CFR 438.210(d) — Medicaid managed care authorization decision timeframes', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' },
@@ -2544,9 +2583,10 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         ],
       },
       coordinationOfBenefits: {
-        value: '"Federal and state regulations require Medicaid to be the payer of last resort": Medicare and private carriers "must process the claim before Partners processes a Medicaid claim", and "Medicaid claims submitted without third-party information will be denied." Partners pays only the gap up to its contracted rate, and "will not pay for any service that could have been paid for by Medicare or other private insurance plans had the member or provider complied with the plan\'s requirements" — including failure to obtain the other plan’s prior approval — so follow the commercial plan’s ABA precert rules to the letter. Codes on Partners’ TPL/Medicare bypass list skip the other payer; no RB-BHT code is on it. The manual does not say whether its own prior authorization is still needed when it pays second; CCP 8F requires prior approval before rendering RB-BHT and carves out no exception for members with other insurance, so get the plan’s authorization on file unless the plan confirms in writing that it is waived. Under federal rules TRICARE pays before Medicaid and CHAMPVA pays first when the child is also Medicaid-eligible.',
+        value: 'Since the October 1, 2026 merger the Vaya Partners manual (v1.0) governs: "Medicaid is the payor of last resort." Collect all first- and third-party funds before billing Vaya Partners, wait a reasonable time for the other payer, keep its RA/EOB or other proof of payment or denial, and bill only the remaining amount; such claims are due within 180 days of the other payer\'s remittance, and where the member also uses state-funded services, state funds pay last. Under the legacy Partners manual, Partners would "not pay for any service that could have been paid for by Medicare or other private insurance plans had the member or provider complied with the plan\'s requirements" — so follow the commercial plan\'s ABA precert rules to the letter. Neither manual says whether the plan\'s own prior authorization is still needed when it pays second; CCP 8F requires prior approval before rendering RB-BHT and carves out no exception for members with other insurance, so get the plan’s authorization on file unless the plan confirms in writing that it is waived. Under federal rules TRICARE pays before Medicaid and CHAMPVA pays first when the child is also Medicaid-eligible.',
         status: 'verified',
         cites: [
+          { title: 'Vaya Partners — Provider Operations Manual v1.0 (Oct. 1, 2026)', url: 'https://resources.vayapartners.org/wp-content/uploads/Vaya_Partners_Provider_Operations_Manual_1.0_20261001.pdf' },
           { title: 'Partners Health Management — 2025-2026 Provider Operations Manual (rev. 20250623)', url: 'https://providers.partnersbhm.org/wp-content/uploads/partners-provider-operations-manual.pdf' },
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
           { title: 'TRICARE — Using Other Health Insurance (updated 10/17/2025)', url: 'https://www.tricare.mil/Plans/OHI' },
@@ -2609,11 +2649,11 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     faq: [
       { q: 'Does Partners Health Management cover ABA therapy?', a: 'Yes — as a Tailored Plan it adopts CCP 8F for RB-BHT medical-necessity decisions, with prior authorization required per the state baseline.' },
       { q: 'What is the ALL-codes authorization?', a: 'Since October 2023, one Partners authorization on the base code covers all RB-BHT codes and modifiers — no code-by-code requests. Billing must still match the approved treatment plan or risk recoupment.' },
-      { q: 'How do I submit an RB-BHT authorization to Partners?', a: 'Through ProAuth: enter the base code as the Primary Procedure Code on the Prescreen, select the Treatment Type from the dropdown. Questions go to UMQuestions@partnersbhm.org.' },
+      { q: 'How do I submit an RB-BHT authorization to Partners?', a: 'Partners merged into Vaya Partners on October 1, 2026, and Vaya Partners network providers must submit SARs electronically through its ProviderCONNECT portal (UM: UM@VayaPartners.org, (800) 893-6246 ext. 1515). Legacy Partners used ProAuth, with the base code as the Primary Procedure Code on the Prescreen.' },
       { q: 'Is Partners accepting new ABA providers?', a: 'Closed. Partners limits RB-BHT to contracted providers in its approved network; current providers continue as contracted, and new requests are reviewed case by case against selection criteria that include network need. Email CredentialingTeam@partnersbhm.org.' },
       { q: 'What happens to the authorization when switching ABA agencies on Partners?', a: 'Partners applies CCP 8F, which does not say an authorization transfers. CCP 8F treats needing "a different RB-BHT provider agency" as a transition or discharge reason, requires the Treatment Plan to be reviewed on a change in service provider, and will not pay two providers for duplicate services. Expect the new agency to submit its own request, and confirm with Partners utilization management.' },
       { q: 'Can an out-of-state BCBA treat Partners Health Management members in North Carolina, including by telehealth?', a: 'North Carolina requires an NC license to practice behavior analysis (G.S. 90-746), with no telehealth exception; temporary and reciprocity licenses exist (G.S. 90-740, 90-741). NC Medicaid no longer enrolls BCBAs as out-of-state providers (G.S. 108C-9(e)), and plan network providers must be enrolled with the state (42 CFR 438.602(b)(1)).' },
-      { q: 'Can Partners authorize ABA retroactively?', a: 'Plan on no outside retroactive Medicaid eligibility (CCP 8F); confirm any retrospective-review option with Partners UM.' },
+      { q: 'Can Partners authorize ABA retroactively?', a: 'Only for retroactive Medicaid eligibility: under the Vaya Partners manual (in force since the October 1, 2026 merger), submit the SAR and all documentation no later than 90 days after the eligibility determination notice.' },
       { q: 'What is Partners Health Management’s timely filing limit for ABA claims?', a: '365 days from the date of service for Tailored Plan and NC Medicaid Direct claims since July 1, 2024, corrected claims included, under NC Medicaid’s rule for LME/MCOs. State-funded services are 90 days. Clean claims must be paid or denied within 30 days.' },
     ],
   },

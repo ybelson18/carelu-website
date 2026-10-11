@@ -172,7 +172,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           'Yes, in fee-for-service. DMAS’s CPT fee file (updated October 2026) lists 96112, developmental test administration by a physician or qualified health professional, first hour, at $128.05 on the outpatient row and $109.27 on the inpatient row. Add-on 96113 is $57.36 and $46.10. Both rates took effect July 1, 2026, with no prior-authorization flag and no age limit. 96112 is not among the ABA procedure codes in MHS Appendix D, the appendix that sets ABA licensure modifiers and service authorizations. For a Cardinal Care member, check the MCO’s own rules; Humana Healthy Horizons, for one, puts 96112 on its prior-authorization list.',
         ],
         cites: [
-          { title: 'DMAS — procedure fee files (CPT codes), CPT fee file updated 10/6/2026', url: 'https://www.dmas.virginia.gov/for-providers/rates-and-rate-setting/procedure-fee-files-cpt-codes/' },
+          { title: 'DMAS — procedure fee files (CPT codes), CPT fee file updated 10/8/2026 (rates re-checked 10/11/2026)', url: 'https://www.dmas.virginia.gov/for-providers/rates-and-rate-setting/procedure-fee-files-cpt-codes/' },
           { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
           { title: 'Humana Healthy Horizons in Virginia — Prior Authorization and Notification List (eff. 7/1/2025, rev. 9/4/2025)', url: 'https://assets.humana.com/is/content/humana/VA%20Medicaid%20PALpdf' },
         ],
