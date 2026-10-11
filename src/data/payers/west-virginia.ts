@@ -9,6 +9,7 @@ import type { PayerConfig, PayerSource } from './types.js';
    documents from providers.highmark.com. eCFR text was read through the eCFR versioner API. */
 
 const S: Record<string, PayerSource> = {
+  hm97153: { title: 'Highmark provider news — Reimbursement Update: CPT Code 97153 for ABA Therapy in DE, PA, and WV (published Aug. 17, 2026; eff. Oct. 16, 2026)', url: 'https://providers.highmark.com/communications-hub/news-and-updates/reimbursement-update-cpt-code-97153-for-aba-therapy-in-de-pa-wv' },
   aba519: { title: 'BMS Provider Manual Chapter 519, Policy 519.23 — Applied Behavior Analysis (effective April 1, 2020; current posting)', url: 'https://bms.wv.gov/media/40119/download?inline' },
   ch519: { title: 'BMS Provider Manual — Chapter 519 Practitioner Services (policy index)', url: 'https://bms.wv.gov/providers/policy-manuals/chapter-519-practitioner-services' },
   tele519: { title: 'BMS Provider Manual Policy 519.17 — Telehealth Services (effective 1/1/2022)', url: 'https://bms.wv.gov/media/40772/download?inline' },
@@ -251,7 +252,7 @@ export const westVirginiaPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [S.aba519],
       },
-      referral: { value: WV_MCD_REFERRAL, status: 'verified', cites: [S.aba519] },
+      referral: { value: WV_MCD_REFERRAL + ' The order is renewed every year with the PA ("The annual physician’s order for ABA Services to be submitted with all other requirements"), alongside a diagnostic assessment completed within the previous 24 months and an annual functional assessment of adaptive skills. Policy 519.23 names a physician as the signer, publishes no order form of its own, and says nothing about a referring provider on the claim; back-dated authorizations are not allowed.', status: 'verified', cites: [S.aba519] },
       telehealth: { value: WV_MCD_TELE, status: 'verified', cites: [S.teleA, S.tele519, S.aba519] },
       authTurnaround: {
         value: 'W. Va. Code § 9-5-32 requires electronic PA submission and a response "within five business days from the day on the electronic receipt" once complete, or "within two business days" for urgent care. An incomplete request is returned within two business days; the practitioner has three business days to complete it, and BMS decides within two business days after that. Peer-to-peer appeals take no longer than five business days and PA appeals no longer than ten. A BMS-approved PA "is carried over to all other managed care organizations and health insurers for three months" for in-state services. The federal fee-for-service ceiling is 7 calendar days for a standard decision and 72 hours for an expedited one (42 CFR 440.230).',
@@ -892,9 +893,9 @@ export const westVirginiaPayers: Record<string, PayerConfig> = {
         cites: [S.aetnaNPC, S.c3316v],
       },
       concurrentBilling: {
-        value: 'Not addressed in Aetna’s published ABA policies (CPB 0554, CPB 0648, the medical necessity guide).',
+        value: 'Not addressed in Aetna’s published ABA policies (CPB 0554, CPB 0648, the medical necessity guide). The medical necessity guide and the provider manual also say nothing about ABA at the same time as speech or occupational therapy.',
         status: 'unverified',
-        cites: [S.aetnaCPB, S.aetnaGuide],
+        cites: [S.aetnaCPB, S.aetnaGuide, S.aetnaOM],
         verifyVia: 'Aetna provider services, the participating-provider agreement, or a written coding determination from Aetna Behavioral Health.',
         blocker: 'per-case',
       },
@@ -945,9 +946,9 @@ export const westVirginiaPayers: Record<string, PayerConfig> = {
         cites: [S.aetnaCPB648, S.aetnaGuide],
       },
       referral: {
-        value: 'Aetna’s national policies require precertification of all ten ABA codes, not a physician referral.' + MANDATE_REFERRAL_TAIL,
+        value: 'Aetna’s national policies require precertification of all ten ABA codes, not a physician referral. Aetna publishes no ABA order form or validity period, and its provider manual (6/26) says members "may access behavioral health care … through direct access to the behavioral health provider." A PCP referral matters only on plans that require referrals for specialist care; a clean claim then includes "a corresponding referral (whether in paper or electronic format), if required for the applicable claim." The manual names no ABA-specific referring-provider (box 17) requirement.' + MANDATE_REFERRAL_TAIL,
         status: 'verified',
-        cites: [S.aetnaPrecert, S.c3316v],
+        cites: [S.aetnaPrecert, S.c3316v, S.aetnaOM],
       },
       telehealth: {
         value: 'Aetna’s Telemedicine and Direct Patient Contact Payment Policy lists ABA codes payable by telehealth with modifier GT, 95 or FR; on commercial plans 97151, 97153, 97155, 97156 and 97157 are checked. The posted policy shows a last review of June 2021, so treat the list as perishable. Aetna’s provider manual (6/26) says Aetna Behavioral Health offers telehealth "to all commercial fully insured members and to all commercial self-insured plan sponsors, unless those self-insured plan sponsors opt out."' + WV_TELE_TAIL,
@@ -1058,9 +1059,9 @@ export const westVirginiaPayers: Record<string, PayerConfig> = {
         cites: [S.en0499, S.c3316v],
       },
       concurrentBilling: {
-        value: '"Only one provider can bill for a unit of time, with the exception of CPT codes 97153, 97154, and 97155" during direct supervision, when the BCBA or QHP and the technician are both with the patient at the same time.',
+        value: '"Only one provider can bill for a unit of time, with the exception of CPT codes 97153, 97154, and 97155" during direct supervision, when the BCBA or QHP and the technician are both with the patient at the same time. EN0499 also says ABA "is not covered or reimbursable when delivered to the same individual, at the same time as any other treatment modality (e.g., ABA and speech therapy, or ABA and occupational therapy)."',
         status: 'verified',
-        cites: [S.cignaARG],
+        cites: [S.cignaARG, S.en0499],
       },
       dailyLimits: {
         value: 'No per-day cap is published. All ABA codes bill in 15-minute units and only as 97151–97158, 0362T and 0373T. On mandated West Virginia plans, the dollar cap ($30,000 a year for three years, then $2,000 a month) is the binding limit.',
@@ -1107,9 +1108,9 @@ export const westVirginiaPayers: Record<string, PayerConfig> = {
         cites: [S.en0499],
       },
       referral: {
-        value: 'EN0499 requires no referral; assessments need no PA with an autism diagnosis, and treatment needs the ABA PA form.' + MANDATE_REFERRAL_TAIL,
+        value: 'EN0499 requires no referral; assessments need no PA with an autism diagnosis, and treatment needs the ABA PA form. Evernorth publishes no ABA order form or validity period. On the claim, Evernorth’s administrative guidelines (September 2026) define a complete CMS-1500 claim without a referring provider (they require the rendering provider’s name, NPI and license type and the billing provider’s name, address and NPI); any "Referring Provider" reported on an 837 claim "must include the name and NPI."' + MANDATE_REFERRAL_TAIL,
         status: 'verified',
-        cites: [S.cignaARG, S.c3316v],
+        cites: [S.cignaARG, S.c3316v, S.ebhAdmin],
       },
       telehealth: {
         value: '"All ABA CPT codes are covered telehealth services" per the autism resource guide, billed with modifier 95.' + WV_TELE_TAIL,
@@ -1219,16 +1220,14 @@ export const westVirginiaPayers: Record<string, PayerConfig> = {
         cites: [S.optumSCC, S.c3316v],
       },
       concurrentBilling: {
-        value: 'Not addressed. The SCC describe direct case supervision during treatment but do not state the billing consequence.',
-        status: 'unverified',
-        cites: [S.optumSCC],
-        verifyVia: 'Optum National Network Manual and your participating-provider agreement, or a written coding determination from Optum.',
-        blocker: 'per-case',
+        value: 'Yes, with a single-provider exclusion. Optum’s commercial ABA reimbursement policy (2022RP501A, updated June 2026): "Can I report 97153 or 97154 with 97155 concurrently? Yes, as long as the criteria in the descriptors of both codes are met. A single QHP may not report 97153 or 97154 with 97155 concurrently." So the overlap has to be two people: a technician on 97153 and the analyst on 97155. 97155 and 97156 on the same date pay only if "separate, distinct, and clearly documented in the progress notes"; "A single provider can’t bill for both simultaneously." Optum’s ABA documents do not address ABA at the same time as speech, occupational or physical therapy; its ABA FAQ expects the ABA provider to know "the other therapies in which the child is involved, how often those therapies occur" and their goals, and to document that coordination.',
+        status: 'verified',
+        cites: [S.optumSCC, S.optumReimb, { title: 'Optum — Autism/ABA CPT code FAQs (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' }],
       },
       dailyLimits: {
-        value: 'No numeric cap; hours must be justified by documented need, and use below 80% of authorized hours must be explained at review. On mandated West Virginia plans, the dollar cap ($30,000 a year for three years, then $2,000 a month) is the binding limit.',
+        value: 'Optum’s commercial ABA reimbursement policy (2022RP501A, updated June 2026) sets a maximum per day for each code: 97151 32 units (8 hours), 97152 16, 97153 32 (8 hours), 97154 18, 97155 24 (6 hours), 97156 16, 97157 16, 97158 16, 0362T 16 and 0373T 32; "If a provider bills in excess of 32 units per day, claims may be subject to non-reimbursement or recovery," and commercial claims are subject to CMS medically unlikely edits. There is no weekly unit cap: hours must be justified by documented need, and use below 80% of authorized hours must be explained at review. On mandated West Virginia plans, the dollar cap ($30,000 a year for three years, then $2,000 a month) is the binding limit.',
         status: 'verified',
-        cites: [S.optumSCC, S.c3316v],
+        cites: [S.optumSCC, S.c3316v, S.optumReimb],
       },
       noteSignature: {
         value: 'Not addressed in the SCC.',
@@ -1272,9 +1271,9 @@ export const westVirginiaPayers: Record<string, PayerConfig> = {
         cites: [S.optumSCC],
       },
       referral: {
-        value: 'No separate physician referral in the SCC; prior authorization is required.' + MANDATE_REFERRAL_TAIL,
+        value: 'No separate physician referral in the SCC; prior authorization is required. Optum publishes no ABA order form or validity period. On the claim, Optum’s National Network Manual (effective Sept. 1, 2026) lists the Form 1500 fields it needs (member and subscriber, diagnosis, dates and length of session, and the clinician who actually provided the service with credentials, Tax ID and NPI) and does not ask for a referring provider in box 17.' + MANDATE_REFERRAL_TAIL,
         status: 'verified',
-        cites: [S.optumSCC, S.c3316v],
+        cites: [S.optumSCC, S.c3316v, S.optumNNM],
       },
       telehealth: {
         value: 'Optum’s commercial telehealth guide: "For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157," billed with POS 02 or POS 10. The SCC add that telehealth options are "not intended to supplant" in-person service.' + WV_TELE_TAIL,
@@ -1371,6 +1370,25 @@ export const westVirginiaPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.hmPM, S.c3345],
       },
+      {
+        h2: 'BlueCard: out-of-state Blue members and Highmark members treated elsewhere',
+        body: [
+          'Highmark’s provider manual (Chapter 2, Unit 6) says a Highmark participating provider "may render services to patients who are members of other Blue Plans traveling to or living in" West Virginia, and the claim goes to the local plan: the provider "files a claim locally," the local plan forwards it, the home plan adjudicates it "according to the member’s benefits and the provider’s arrangement" with the local plan, and the local plan pays the provider. In West Virginia, Highmark’s indemnity, PPO and POS networks support BlueCard. Verify an out-of-area member’s eligibility through Availity or 800-676-BLUE (2583).',
+          'Outpatient authorization is the member’s side of the street: "your out-of-area Blue Plan patients are responsible for obtaining precertification/preauthorization from their Blue Plan when required for outpatient services. However, you may contact the member’s Blue Plan for authorization on behalf of the member," including through Electronic Provider Access. In the other direction, Highmark’s own prior-authorization requirements "include those services provided by out-of-area providers participating with their local Blue Plan," and "Claims for services on the prior authorization list received without authorization will be denied." So an out-of-state agency treating a Highmark West Virginia member needs Highmark’s ABA authorization, requested through its local plan’s portal. Blue Plan Medicaid members are "not officially part of the BlueCard Program."',
+        ],
+        cites: [
+          S.hmPM,
+        ],
+      },
+      {
+        h2: 'What does Highmark pay for 97153 in West Virginia?',
+        body: [
+          'Highmark published new commercial rates for technician-delivered 97153 effective October 16, 2026, "across applicable Commercial products in Delaware (DE), Pennsylvania (PA), and West Virginia (WV)." The West Virginia PPO rate is $14.53 in an office and $13.78 outside an office (the notice’s table lists rates by state, product and place of service). Highmark says the change follows a review that found 97153 reimbursement "in several markets exceeded prevailing reimbursement relationships" between technician and clinician services, and that it does not change member benefits, medical necessity criteria, authorization requirements, coverage policies or documentation expectations. Rates for other codes are in your participation agreement.',
+        ],
+        cites: [
+          S.hm97153,
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type and employer size', desc: 'Fully insured group (mandate applies) vs. self-funded ERISA or a small employer of 25 or fewer (exempt).' },
@@ -1454,9 +1472,9 @@ export const westVirginiaPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       referral: {
-        value: 'Highmark requires prior authorization, not a referral, for ABA.' + MANDATE_REFERRAL_TAIL,
+        value: 'Highmark requires prior authorization, not a referral, for ABA. Highmark publishes no ABA order form or validity period. Its CMS-1500 instructions use box 17 only when a referring, ordering or supervising provider is involved (one name, in that priority order, with qualifier DN, DK or DQ, and the NPI in 17b); the manual sets no ABA-specific referring-provider requirement.' + MANDATE_REFERRAL_TAIL,
         status: 'verified',
-        cites: [S.hmPAL, S.c3316v],
+        cites: [S.hmPAL, S.c3316v, S.hmPM],
       },
       telehealth: {
         value: 'Highmark lets participating behavioral health providers deliver "virtual" visits when the service falls within the provider’s scope and follows Highmark’s service and security guidelines; it publishes no ABA telehealth code list in the sources read.' + WV_TELE_TAIL,
@@ -1484,6 +1502,8 @@ export const westVirginiaPayers: Record<string, PayerConfig> = {
       { q: 'Does Highmark BCBS West Virginia require prior authorization for ABA?', a: 'Yes. Since March 1, 2026, all ABA codes (97151–97158, 0362T, 0373T) are on Highmark’s prior-authorization list for West Virginia members, reviewed by Highmark Behavioral Health; requirements can vary by plan, and FEP and Medicare are excluded.' },
       { q: 'What is Highmark’s timely filing limit in West Virginia?', a: '365 days from the last date of service unless your contract says otherwise; corrected claims within 15 months of the original claim’s finalization.' },
       { q: 'Does West Virginia’s autism mandate apply to my Highmark plan?', a: 'Only if it is a fully insured group plan from an employer with more than 25 eligible employees. It covers ages 18 months to 18 when diagnosed by age 8, and lets ABA be capped at $30,000 a year for three years, then $2,000 a month.' },
+      { q: 'Can an out-of-state ABA provider treat a Highmark West Virginia member through BlueCard?', a: 'Yes, if it is in its own local Blue plan’s network: it files the claim with that local plan. But Highmark’s prior-authorization list still applies to its members treated by out-of-area providers, and claims without the required authorization are denied, so request Highmark’s ABA authorization through your local plan’s portal before starting.' },
+      { q: 'Is Highmark changing what it pays for 97153 in West Virginia?', a: 'Yes. From October 16, 2026 Highmark’s West Virginia PPO rate for 97153 is $14.53 in an office and $13.78 outside an office, under its August 17, 2026 notice. Authorization, medical necessity and documentation rules do not change.' },
     ],
   },
 };

@@ -16,6 +16,10 @@ import type { PayerConfig, PayerSource } from './types.js';
    service, ABA included, and authorize it themselves. */
 
 const S: Record<string, PayerSource> = {
+  dms641tp: { title: 'Arkansas Medicaid — Form DMS-641 TP, ABA Therapy Services Treatment Prescription (18 months to 21 years)', url: 'https://humanservices.arkansas.gov/wp-content/uploads/DMS-641-TP.pdf' },
+  dms641er: { title: 'Arkansas Medicaid — Form DMS-641 ER, ABA Therapy Services Evaluation Referral (18 months to 21 years)', url: 'https://humanservices.arkansas.gov/wp-content/uploads/DMS-641-ER.pdf' },
+  abcbsBlueCard: { title: 'Arkansas Blue Cross — "What if my only option is an out-of-network doctor? The BlueCard solution" (Blueprint, December 10, 2025)', url: 'https://hub.arkansasbluecross.com/what-if-my-only-option-is-an-out-of-network-doctor-the-bluecard-solution/' },
+  abcbsMHguide: { title: 'Arkansas Blue Cross — Mental health & substance use medical benefit billing guide (September 2026)', url: 'https://assets.contentstack.io/v3/assets/blte81730ee65c02059/blt1c69deefd5457a12/mental-health-and-substance-abuse-med-billing-guide.pdf' },
   abaII: { title: 'Arkansas Medicaid — Applied Behavior Analysis Therapy Provider Manual, Section II (transmittal ABATHERAPY-NEW-23, effective 1-1-25)', url: 'https://humanservices.arkansas.gov/wp-content/uploads/ABATHERAPY_II.docx' },
   abaFee: { title: 'Arkansas Medicaid — Applied Behavior Analysis (ABA) Therapy Fee Schedule, Provider Type 90 (run date 1/1/25)', url: 'https://humanservices.arkansas.gov/wp-content/uploads/ABATHERAPY-fees.pdf' },
   abaPage: { title: 'Arkansas DHS — Applied Behavior Analysis (ABA) Therapy provider manual page (Sections I–V, update log)', url: 'https://humanservices.arkansas.gov/divisions-shared-services/medical-services/helpful-information-for-providers/billing-manuals-rate-sheets/abatherapy-prov/' },
@@ -198,7 +202,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
         cites: [S.abaII],
       },
       concurrentBilling: {
-        value: 'Not settled in writing for 97153 + 97155. The manual says “Unless otherwise specifically provided for in this Arkansas Medicaid manual, concurrent billing is not allowed,” defining it as multiple practitioners billing for the same beneficiary in the same time increment. It also defines 97155 as the BCBA’s in-person observation of a BCaBA’s or RBT’s treatment session, with units counting “time spent supervising, observing and interacting in-person with the beneficiary and BCaBA or RBT … during an ABA therapy treatment session.” It never says in words whether the technician’s 97153 for those same minutes is also billable.',
+        value: 'Not settled in writing for 97153 + 97155. The manual says “Unless otherwise specifically provided for in this Arkansas Medicaid manual, concurrent billing is not allowed,” defining it as multiple practitioners billing for the same beneficiary in the same time increment. It also defines 97155 as the BCBA’s in-person observation of a BCaBA’s or RBT’s treatment session, with units counting “time spent supervising, observing and interacting in-person with the beneficiary and BCaBA or RBT … during an ABA therapy treatment session.” It never says in words whether the technician’s 97153 for those same minutes is also billable. The definition is not limited to ABA codes: concurrent billing is "when multiple practitioners bill Medicaid for services provided to the same beneficiary during the same time increment," and the comprehensive evaluation must list any occupational, physical or speech therapy the child already receives.',
         status: 'unverified',
         cites: [S.abaII],
         verifyVia: 'Arkansas Medicaid Provider Assistance Center or DMS (the ABA manual’s policy office), or Acentra Health Provider Relations (arkansaspr@acentra.com, 888-660-3831 option 3): ask in writing whether 97153 and 97155 may be billed for the same minutes.',
@@ -247,9 +251,9 @@ export const arkansasPayers: Record<string, PayerConfig> = {
         cites: [S.abaII, S.acentraPPT],
       },
       referral: {
-        value: 'Yes, two forms. DMS-641 ER evaluation referral from the assigned Arkansas Medicaid PCP (initial evaluation only), and a DMS-641 TP treatment prescription signed by the assigned PCP for the first course (renewals may be signed by a substitute or same-group physician). A new DMS-641 TP is not needed when the child changes PCPs; a new ER and evaluation are needed if the child loses eligibility and restarts.',
+        value: 'Yes, two forms. DMS-641 ER evaluation referral from the assigned Arkansas Medicaid PCP (initial evaluation only), and a DMS-641 TP treatment prescription signed by the assigned PCP for the first course (renewals may be signed by a substitute or same-group physician). A new DMS-641 TP is not needed when the child changes PCPs; a new ER and evaluation are needed if the child loses eligibility and restarts. Who signs and how long it lasts (ABA manual §§ 212.300–212.400, eff. 1-1-25): the DMS-641 ER may be signed by the assigned PCP, a substitute physician under § 171.600, or an affiliated physician or PCP in the same Medicaid group; the initial DMS-641 TP must be signed and dated by the assigned PCP. "Unless a shorter time is specified on the treatment prescription," a prescription is valid for up to six months for a child from 18 months to 8 years old and up to 12 months from 8 to 21, by age on the prescription date. Comprehensive reevaluations need no new ER, but must fall within 60 days of an expiring DMS-641 TP. Children on a DMS-693 prescription as of January 1, 2025 keep it until it expires. Get the ER from the PCP before the initial evaluation, then the TP with the evaluation results; both forms are posted by DHS.',
         status: 'verified',
-        cites: [S.abaII, S.acentraPPT],
+        cites: [S.abaII, S.acentraPPT, S.dms641er, S.dms641tp],
       },
       telehealth: {
         value: AR_MEDICAID_TELEHEALTH,
@@ -547,9 +551,9 @@ export const arkansasPayers: Record<string, PayerConfig> = {
         cites: [S.csMM, S.abaII],
       },
       referral: {
-        value: 'Yes: “a referral to evaluate in accordance with section 212.300” (DMS-641 ER from the assigned PCP) and “a treatment prescription according to section 212.400” (DMS-641 TP).',
+        value: 'Yes: “a referral to evaluate in accordance with section 212.300” (DMS-641 ER from the assigned PCP) and “a treatment prescription according to section 212.400” (DMS-641 TP). Under the state manual the treatment prescription is valid for up to six months for a child aged 18 months to 8 and up to 12 months for ages 8 to 21, unless the prescriber sets a shorter period, and both DMS-641 forms are posted by DHS.',
         status: 'verified',
-        cites: [S.csMM, S.abaII],
+        cites: [S.csMM, S.abaII, S.dms641er, S.dms641tp],
       },
       telehealth: {
         value: '“Telemedicine Services are covered services and outlined by the State in section 223.000. Services must be appropriate for the individual member and not used as the primary method of treatment.” Under section 223.000 only 97155 and 97156 may be delivered by synchronous telemedicine, with parent consent.',
@@ -695,9 +699,9 @@ export const arkansasPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       referral: {
-        value: 'Empower publishes nothing different, so the state rule applies: a DMS-641 ER evaluation referral and a DMS-641 TP treatment prescription from the member’s assigned PCP.',
+        value: 'Empower publishes nothing different, so the state rule applies: a DMS-641 ER evaluation referral and a DMS-641 TP treatment prescription from the member’s assigned PCP. Under the state manual the treatment prescription is valid for up to six months for a child aged 18 months to 8 and up to 12 months for ages 8 to 21, unless the prescriber sets a shorter period, and both DMS-641 forms are posted by DHS.',
         status: 'verified',
-        cites: [S.empHB, S.abaII],
+        cites: [S.empHB, S.abaII, S.dms641er, S.dms641tp],
       },
       telehealth: {
         value: 'Empower publishes no ABA telehealth rule, so the state rule applies. ' + AR_MEDICAID_TELEHEALTH,
@@ -842,9 +846,9 @@ export const arkansasPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       referral: {
-        value: 'Summit publishes nothing different, so the state rule applies: a DMS-641 ER evaluation referral and a DMS-641 TP treatment prescription from the member’s assigned PCP.',
+        value: 'Summit publishes nothing different, so the state rule applies: a DMS-641 ER evaluation referral and a DMS-641 TP treatment prescription from the member’s assigned PCP. Under the state manual the treatment prescription is valid for up to six months for a child aged 18 months to 8 and up to 12 months for ages 8 to 21, unless the prescriber sets a shorter period, and both DMS-641 forms are posted by DHS.',
         status: 'verified',
-        cites: [S.sccPM, S.abaII],
+        cites: [S.sccPM, S.abaII, S.dms641er, S.dms641tp],
       },
       telehealth: {
         value: 'Summit requires telehealth providers to be “fully licensed or certified to practice in Arkansas” and enrolled in Arkansas Medicaid, and allows virtual care in the home with documented consent. For ABA the state rule applies: only 97155 and 97156 by synchronous telemedicine; all other ABA in person.',
@@ -932,6 +936,17 @@ export const arkansasPayers: Record<string, PayerConfig> = {
         h2: 'Credentialing, licensure and rates',
         body: [AR_LICENSURE_BODY],
         cites: [S.act432, S.bacbLic, S.act196, S.abaFee],
+      },
+      {
+        h2: 'BlueCard: members of other Blue plans in Arkansas, and Arkansas Blue members elsewhere',
+        body: [
+          'Arkansas Blue Cross’s behavioral health billing guide (September 2026), which lists ABA among its provider types and 97151–97158, 0362T and 0373T as reimbursable for behavior analysts, explains BlueCard: these "members may work and/or reside in Arkansas, but Arkansas Blue Cross Blue Shield is not their Home Plan." "Arkansas Blue Cross receives claims and prices them at our network rates, but the claims are forwarded to the home plan for benefits to be applied. This means Arkansas Blue Cross does not determine how benefits are applied or to which provider types benefits are allowed." Some BlueCard claims "may deny as ‘provider not allowed to render these services’ and will need to be written off, per provider contract," so confirm with the home plan that it covers ABA by your credential before treating.',
+          'For Arkansas Blue members treated out of state, Arkansas Blue describes BlueCard as covering "traditional and PPO members": the out-of-state provider "can submit claims to their local plan, which will forward the claims to the member’s home plan for processing." Arkansas Blue’s own ABA policy and prior-approval rules still govern the member’s benefit.',
+        ],
+        cites: [
+          S.abcbsMHguide,
+          S.abcbsBlueCard,
+        ],
       },
     ],
     collect: [
@@ -1032,6 +1047,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
       { q: 'Does Arkansas Blue Cross still cap ABA at $50,000 a year?', a: 'Only for grandfathered plans, per policy 2011053. Non-grandfathered plans follow the policy’s criteria, and the Arkansas Insurance Department does not allow age limits on autism treatment for fully insured plans.' },
       { q: 'Can ABA be delivered by telehealth with Arkansas Blue Cross?', a: 'Direct technician ABA (97153 and similar) is not covered by telehealth. Parent training, supervision and some assessment may be, if the plan allows, up to 50% of services by code.' },
       { q: 'What diagnosis does Arkansas Blue Cross need?', a: 'A multidisciplinary evaluation by a physician specialist, a speech therapist and a child psychologist who are not school employees, including autism-specific testing such as ADOS, ADI-R or CARS.' },
+      { q: 'Can I bill Arkansas Blue Cross for a child covered by another state’s Blue plan?', a: 'Yes, through BlueCard: Arkansas Blue Cross prices the claim at its network rates and forwards it to the child’s home plan, which decides the benefits and which provider types it pays. Some BlueCard ABA claims deny as "provider not allowed to render these services" and must be written off under the provider contract, so check the home plan’s ABA benefit and authorization rules first.' },
     ],
   },
 
@@ -1113,9 +1129,9 @@ export const arkansasPayers: Record<string, PayerConfig> = {
         cites: [S.aetnaNPC, S.act196],
       },
       concurrentBilling: {
-        value: 'Not addressed in Aetna’s published ABA guide or participation criteria.',
+        value: 'Not addressed in Aetna’s published ABA guide or participation criteria. The medical necessity guide and the provider manual also say nothing about ABA at the same time as speech or occupational therapy.',
         status: 'unverified',
-        cites: [S.aetnaGuide],
+        cites: [S.aetnaGuide, S.aetnaOM],
         verifyVia: 'Aetna provider services, the participating-provider agreement, or a written coding determination from Aetna Behavioral Health.',
         blocker: 'per-case',
       },
@@ -1166,9 +1182,9 @@ export const arkansasPayers: Record<string, PayerConfig> = {
         cites: [S.aetnaCPB648, S.aetnaGuide],
       },
       referral: {
-        value: 'Aetna’s national ABA policy requires no physician referral; it requires precertification of all ten ABA codes.' + MANDATE_REFERRAL_TAIL,
+        value: 'Aetna’s national ABA policy requires no physician referral; it requires precertification of all ten ABA codes. Aetna publishes no ABA order form or validity period, and its provider manual (6/26) says members "may access behavioral health care … through direct access to the behavioral health provider." A PCP referral matters only on plans that require referrals for specialist care; a clean claim then includes "a corresponding referral (whether in paper or electronic format), if required for the applicable claim." The manual names no ABA-specific referring-provider (box 17) requirement.' + MANDATE_REFERRAL_TAIL,
         status: 'verified',
-        cites: [S.aetnaPrecert, S.aetnaGuide, S.act196],
+        cites: [S.aetnaPrecert, S.aetnaGuide, S.act196, S.aetnaOM],
       },
       telehealth: {
         value: 'Aetna’s office manual (6/26) says Aetna Behavioral Health “offers telehealth services to all commercial fully insured members and to all commercial self-insured plan sponsors, unless those self-insured plan sponsors opt out,” and providers “must act within the scope of their license and ensure that they have the proper licensure based on state requirements.” We did not find a current Aetna ABA telehealth code list.',
@@ -1274,9 +1290,9 @@ export const arkansasPayers: Record<string, PayerConfig> = {
         cites: [S.en0499],
       },
       concurrentBilling: {
-        value: '“Only one provider can bill for a unit of time, with the exception of CPT codes 97153, 97154, and 97155 (direct supervision when the BCBA/qualified health care provider directs the technician and both are face-to-face with the patient at the same time).”',
+        value: '“Only one provider can bill for a unit of time, with the exception of CPT codes 97153, 97154, and 97155 (direct supervision when the BCBA/qualified health care provider directs the technician and both are face-to-face with the patient at the same time).” EN0499 also says ABA "is not covered or reimbursable when delivered to the same individual, at the same time as any other treatment modality (e.g., ABA and speech therapy, or ABA and occupational therapy)."',
         status: 'verified',
-        cites: [S.cignaARG],
+        cites: [S.cignaARG, S.en0499],
       },
       dailyLimits: {
         value: 'No per-day cap. All ABA codes bill in 15-minute units, and only 97151–97158, 0362T and 0373T may be used.',
@@ -1323,9 +1339,9 @@ export const arkansasPayers: Record<string, PayerConfig> = {
         cites: [S.en0499],
       },
       referral: {
-        value: 'EN0499 requires no referral; assessments need no PA, treatment needs the ABA PA form.' + MANDATE_REFERRAL_TAIL,
+        value: 'EN0499 requires no referral; assessments need no PA, treatment needs the ABA PA form. Evernorth publishes no ABA order form or validity period. On the claim, Evernorth’s administrative guidelines (September 2026) define a complete CMS-1500 claim without a referring provider (they require the rendering provider’s name, NPI and license type and the billing provider’s name, address and NPI); any "Referring Provider" reported on an 837 claim "must include the name and NPI."' + MANDATE_REFERRAL_TAIL,
         status: 'verified',
-        cites: [S.cignaARG, S.en0499, S.act196],
+        cites: [S.cignaARG, S.en0499, S.act196, S.ebhAdmin],
       },
       telehealth: {
         value: '“All ABA CPT codes are covered telehealth services,” and EN0499 allows in-person, telehealth or hybrid delivery chosen on clinical factors. Bill modifier 95; providers “must meet all state requirements to provide virtual behavioral services.”',
@@ -1429,12 +1445,12 @@ export const arkansasPayers: Record<string, PayerConfig> = {
         cites: [S.optumSCC],
       },
       concurrentBilling: {
-        value: 'Yes, with limits: 97153 or 97154 may be reported with 97155 concurrently “as long as the criteria in the descriptors of both codes are met,” but “A single QHP may not report 97153 or 97154 with 97155 concurrently.”',
+        value: 'Yes, with limits: 97153 or 97154 may be reported with 97155 concurrently “as long as the criteria in the descriptors of both codes are met,” but “A single QHP may not report 97153 or 97154 with 97155 concurrently.” Optum’s ABA documents do not address ABA at the same time as speech, occupational or physical therapy; its ABA FAQ expects the ABA provider to know "the other therapies in which the child is involved, how often those therapies occur" and their goals, and to document that coordination.',
         status: 'verified',
-        cites: [S.optumReimb],
+        cites: [S.optumReimb, { title: 'Optum — Autism/ABA CPT code FAQs (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' }],
       },
       dailyLimits: {
-        value: 'No numeric cap in the criteria. Requested hours must be justified at the least restrictive appropriate level, and use below 80% of authorized hours must be explained at continued-service review. The reimbursement policy carries MUE and MFD charts.',
+        value: 'Optum’s commercial ABA reimbursement policy (2022RP501A, updated June 2026) sets a maximum per day for each code: 97151 32 units (8 hours), 97152 16, 97153 32 (8 hours), 97154 18, 97155 24 (6 hours), 97156 16, 97157 16, 97158 16, 0362T 16 and 0373T 32; "If a provider bills in excess of 32 units per day, claims may be subject to non-reimbursement or recovery," and commercial claims are subject to CMS medically unlikely edits. There is no weekly unit cap: requested hours must be justified at the least restrictive appropriate level, and use below 80% of authorized hours must be explained at continued-service review.',
         status: 'verified',
         cites: [S.optumSCC, S.optumReimb],
       },
@@ -1480,9 +1496,9 @@ export const arkansasPayers: Record<string, PayerConfig> = {
         cites: [S.optumSCC],
       },
       referral: {
-        value: 'No separate physician referral; the criteria require prior authorization.' + MANDATE_REFERRAL_TAIL,
+        value: 'No separate physician referral; the criteria require prior authorization. Optum publishes no ABA order form or validity period. On the claim, Optum’s National Network Manual (effective Sept. 1, 2026) lists the Form 1500 fields it needs (member and subscriber, diagnosis, dates and length of session, and the clinician who actually provided the service with credentials, Tax ID and NPI) and does not ask for a referring provider in box 17.' + MANDATE_REFERRAL_TAIL,
         status: 'verified',
-        cites: [S.optumSCC, S.act196],
+        cites: [S.optumSCC, S.act196, S.optumNNM],
       },
       telehealth: {
         value: 'Optum’s Telehealth Billing guide (updated September 2025) says for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157.” Claims must use POS 02 or POS 10; telehealth modifiers alone are not paid. The criteria add that telehealth is “not intended to supplant” in-person service.',

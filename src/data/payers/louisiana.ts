@@ -12,6 +12,10 @@ import type { PayerConfig, PayerSource } from './types.js';
    December 31, 2026 (IB 26-12). */
 
 const S: Record<string, PayerSource> = {
+  lablue537: { title: 'Louisiana Blue — Professional Provider Office Manual, Section 5.37 Telemedicine/Telehealth (current as of January 2026)', url: 'https://providers.lablue.com/-/media/Files/Providers/Professional%20Provider%20Office%20Manual/2026/Prof%20Prov%20Manual%20Section%20537%20Telemedicine%20Telehealth%20pdf.pdf' },
+  lablue530: { title: 'Louisiana Blue — Professional Provider Office Manual, Section 5.30 Ordering/Referring Provider Requirements (January 2026)', url: 'https://providers.lablue.com/-/media/Files/Providers/Professional%20Provider%20Office%20Manual/2026/Prof%20Prov%20Manual%20Section%20530%20Ordering%20Referring%20Provider%20Requirements%20pdf.pdf' },
+  lablue56: { title: 'Louisiana Blue — Professional Provider Office Manual, Section 5.6 Autism (January 2026)', url: 'https://providers.lablue.com/-/media/Files/Providers/Professional%20Provider%20Office%20Manual/2026/Prof%20Prov%20Manual%20Section%2056%20Autism%20pdf.pdf' },
+  lablueBC: { title: 'Louisiana Blue — BlueCard Program Provider Manual (January 2026)', url: 'https://providers.lablue.com/-/media/Files/Providers/BlueCard%20Manual2026%20pdf.pdf' },
   msm: { title: 'LDH Medicaid Services Manual, Chapter 4: Applied Behavior Analysis (issued 08/22/25)', url: 'https://www.lamedicaid.com/provweb1/Providermanuals/manuals/ABA/ABA.pdf' },
   fee: { title: 'Louisiana Medicaid Applied Behavioral Analysis Fee Schedule (dates of service on or after July 1, 2022)', url: 'https://www.lamedicaid.com/provweb1/fee_schedules/ABA_FS_Current.pdf' },
   plans: { title: 'Healthy Louisiana — View health plans (current plan choices)', url: 'https://www.myplan.healthy.la.gov/en/compare-plans' },
@@ -1127,9 +1131,9 @@ export const louisianaPayers: Record<string, PayerConfig> = {
         cites: [S.aetnaNPC, S.rs3708, S.rs3716],
       },
       concurrentBilling: {
-        value: 'Not addressed in Aetna’s published ABA guide, precertification list or participation criteria.',
+        value: 'Not addressed in Aetna’s published ABA guide, precertification list or participation criteria. The medical necessity guide and the provider manual also say nothing about ABA at the same time as speech or occupational therapy.',
         status: 'unverified',
-        cites: [S.aetnaGuide],
+        cites: [S.aetnaGuide, S.aetnaOM],
         verifyVia: 'Aetna provider services, your participation agreement, or a written coding determination from Aetna Behavioral Health.',
         blocker: 'per-case',
       },
@@ -1182,9 +1186,9 @@ export const louisianaPayers: Record<string, PayerConfig> = {
         cites: [S.aetnaGuide],
       },
       referral: {
-        value: 'Aetna’s ABA documents require precertification of all ten ABA codes, not a physician referral.' + LA_MANDATE_REFERRAL_TAIL,
+        value: 'Aetna’s ABA documents require precertification of all ten ABA codes, not a physician referral. Aetna publishes no ABA order form or validity period, and its provider manual (6/26) says members "may access behavioral health care … through direct access to the behavioral health provider." A PCP referral matters only on plans that require referrals for specialist care; a clean claim then includes "a corresponding referral (whether in paper or electronic format), if required for the applicable claim." The manual names no ABA-specific referring-provider (box 17) requirement.' + LA_MANDATE_REFERRAL_TAIL,
         status: 'verified',
-        cites: [S.aetnaPrecert, S.rs1050],
+        cites: [S.aetnaPrecert, S.rs1050, S.aetnaOM],
       },
       telehealth: {
         value: 'Aetna’s provider manual (6/26): Aetna Behavioral Health "offers telehealth services to all commercial fully insured members and to all commercial self-insured plan sponsors, unless those self-insured plan sponsors opt out," and providers "must act within the scope of their license and ensure that they have the proper licensure based on state requirements." Aetna’s current ABA telehealth code list was not published in a document we could read.' + LA_TELE_TAIL,
@@ -1291,9 +1295,9 @@ export const louisianaPayers: Record<string, PayerConfig> = {
         cites: [S.en0499, S.rs3708],
       },
       concurrentBilling: {
-        value: '"Only one provider can bill for a unit of time, with the exception of CPT codes 97153, 97154, and 97155 (direct supervision when the BCBA/qualified health care provider directs the technician and both are face-to-face with the patient at the same time)."',
+        value: '"Only one provider can bill for a unit of time, with the exception of CPT codes 97153, 97154, and 97155 (direct supervision when the BCBA/qualified health care provider directs the technician and both are face-to-face with the patient at the same time)." EN0499 also says ABA "is not covered or reimbursable when delivered to the same individual, at the same time as any other treatment modality (e.g., ABA and speech therapy, or ABA and occupational therapy)."',
         status: 'verified',
-        cites: [S.cignaARG],
+        cites: [S.cignaARG, S.en0499],
       },
       dailyLimits: {
         value: 'No daily unit cap is published in EN0499 or the resource guide; intensity must reflect severity, goals and response to treatment. For fully insured Louisiana plans the mandate allows no visit limits but a $36,000 annual cap.',
@@ -1344,9 +1348,9 @@ export const louisianaPayers: Record<string, PayerConfig> = {
         cites: [S.en0499],
       },
       referral: {
-        value: 'Evernorth requires prior authorization of treatment, not a physician referral.' + LA_MANDATE_REFERRAL_TAIL,
+        value: 'Evernorth requires prior authorization of treatment, not a physician referral. Evernorth publishes no ABA order form or validity period. On the claim, Evernorth’s administrative guidelines (September 2026) define a complete CMS-1500 claim without a referring provider (they require the rendering provider’s name, NPI and license type and the billing provider’s name, address and NPI); any "Referring Provider" reported on an 837 claim "must include the name and NPI."' + LA_MANDATE_REFERRAL_TAIL,
         status: 'verified',
-        cites: [S.cignaARG, S.rs1050],
+        cites: [S.cignaARG, S.rs1050, S.ebhAdmin],
       },
       telehealth: {
         value: 'The resource guide says "All ABA CPT codes are covered telehealth services," and EN0499 allows in-person, telehealth or hybrid delivery chosen on the child’s needs.' + LA_TELE_TAIL,
@@ -1453,9 +1457,9 @@ export const louisianaPayers: Record<string, PayerConfig> = {
         cites: [S.optumSCC, S.rs3708],
       },
       concurrentBilling: {
-        value: '"Can I report 97153 or 97154 with 97155 concurrently? Yes, as long as the criteria in the descriptors of both codes are met. A single QHP may not report 97153 or 97154 with 97155 concurrently." 97155 and 97156 on the same day must be separate, distinct and at different times.',
+        value: '"Can I report 97153 or 97154 with 97155 concurrently? Yes, as long as the criteria in the descriptors of both codes are met. A single QHP may not report 97153 or 97154 with 97155 concurrently." 97155 and 97156 on the same day must be separate, distinct and at different times. Optum’s ABA documents do not address ABA at the same time as speech, occupational or physical therapy; its ABA FAQ expects the ABA provider to know "the other therapies in which the child is involved, how often those therapies occur" and their goals, and to document that coordination.',
         status: 'verified',
-        cites: [S.optumReimb],
+        cites: [S.optumReimb, { title: 'Optum — Autism/ABA CPT code FAQs (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' }],
       },
       dailyLimits: {
         value: 'Optum’s per-day maximums: 97151 32 units, 97152 16, 97153 32, 97154 18, 97155 24, 97156 16, 97157 16, 97158 16, 0362T 16, 0373T 32; claims over 32 units of 97153 a day may be denied or recovered. Fully insured Louisiana plans also carry the mandate’s $36,000 annual cap.',
@@ -1508,9 +1512,9 @@ export const louisianaPayers: Record<string, PayerConfig> = {
         cites: [S.optumSCC],
       },
       referral: {
-        value: 'Optum requires prior authorization, not a physician referral.' + LA_MANDATE_REFERRAL_TAIL,
+        value: 'Optum requires prior authorization, not a physician referral. Optum publishes no ABA order form or validity period. On the claim, Optum’s National Network Manual (effective Sept. 1, 2026) lists the Form 1500 fields it needs (member and subscriber, diagnosis, dates and length of session, and the clinician who actually provided the service with credentials, Tax ID and NPI) and does not ask for a referring provider in box 17.' + LA_MANDATE_REFERRAL_TAIL,
         status: 'verified',
-        cites: [S.optumSCC, S.rs1050],
+        cites: [S.optumSCC, S.rs1050, S.optumNNM],
       },
       telehealth: {
         value: 'For UnitedHealthcare commercial plans, Optum allows ABA telehealth "only" for 97155, 97156 and 97157, and every telehealth claim needs POS 02 or POS 10; modifiers alone are not paid.' + LA_TELE_TAIL,
@@ -1612,6 +1616,17 @@ export const louisianaPayers: Record<string, PayerConfig> = {
         body: [LA_LICENSURE_BODY, LA_PROMPT_PAY],
         cites: [S.rs3702, S.rs3706, S.rs3708, S.rs3715, S.rs3716, S.rs3704, S.rs12234, S.rs3718, S.bacbLic, S.fee, S.rs1832, S.rs1833],
       },
+      {
+        h2: 'BlueCard: out-of-state Blue members and Louisiana Blue members treated elsewhere',
+        body: [
+          'Louisiana Blue’s BlueCard Program Provider Manual (January 2026): "you can submit claims for Blue members visiting you from other areas directly to Louisiana Blue. We are your sole contact for all BCBS claims submissions, payments, adjustments, services and inquiries." BlueCard "applies to all inpatient, outpatient and professional claims," with PPO, POS and HMO products included. Section 5.6 warns that autism benefits "may vary for self-funded groups and BlueCard® members," so verify the home plan’s ABA benefit first.',
+          'Authorizations follow the member’s own plan. In iLinkBlue, enter the member’s prefix under "Authorizations - Out of Area Members" and the router "electronically routes the user to the member’s Blue Plan to retrieve the general medical policy, prior authorization or prior certification information," with pre-service review through Electronic Provider Access. An out-of-state provider treating a Louisiana Blue member works the other way round: it signs in to its own local Blue plan’s portal and "will be routed to iLinkBlue through a BCBS Association router," and files the claim with its local plan. For Louisiana Blue members, "all reviews and authorizations related to the diagnosis and treatment of autism are handled by Louisiana Blue."',
+        ],
+        cites: [
+          S.lablueBC,
+          S.lablue56,
+        ],
+      },
     ],
     collect: [
       { title: 'Plan type and autism benefit', desc: 'Louisiana Blue, HMO Louisiana, FEP, BlueCard or self-funded; check autism coverage and the annual maximum in iLinkBlue.' },
@@ -1683,16 +1698,14 @@ export const louisianaPayers: Record<string, PayerConfig> = {
         cites: [S.labPol],
       },
       referral: {
-        value: 'Louisiana Blue requires authorization with its ABA Treatment Request Form, not a referral; the authorization records a "Referred By" and "Referred To" provider, which can be the same.' + LA_MANDATE_REFERRAL_TAIL,
+        value: 'Louisiana Blue requires authorization with its ABA Treatment Request Form, not a referral; the authorization records a "Referred By" and "Referred To" provider, which can be the same. Louisiana Blue publishes no separate ABA order form or validity period. On the claim, Section 5.30 requires the ordering/referring provider’s name and NPI (CMS-1500 block 17B) only for diagnostic radiology centers, DME suppliers, infusion therapy, laboratories, sleep labs and specialty pharmacy; ABA is not on that list.' + LA_MANDATE_REFERRAL_TAIL,
         status: 'verified',
-        cites: [S.labFAQ, S.labPol, S.rs1050],
+        cites: [S.labFAQ, S.labPol, S.rs1050, S.lablue530],
       },
       telehealth: {
-        value: 'Louisiana Blue sends providers to Section 5.37 Telemedicine/Telehealth of its Professional Provider Office Manual for ABA telehealth, which we did not read.' + LA_TELE_TAIL,
-        status: 'unverified',
-        cites: [S.labBH, S.rs1821, S.rs12234],
-        verifyVia: 'Louisiana Blue Professional Provider Office Manual, Section 5.37 (lablue.com/providers → Resources → Manuals).',
-        blocker: 'document',
+        value: 'Section 5.37 of the Professional Provider Office Manual (current as of January 2026) lists all ABA codes, 97151 through 97158, as direct-to-consumer telehealth codes that "may be billed as audiovisual telehealth services only." Bill modifier GT or 95 and place of service 10 for telehealth from the provider’s own platform; Louisiana Blue "does not consider place of service 02 valid" and such claims may reject. Services must be within "the scope of an individual provider’s license," the provider needs verbal or written consent, and the section’s list of provider types approved for telehealth does not name behavior analysts, so confirm the rendering credential is accepted. The member’s contract must carry telehealth benefits (check iLinkBlue).' + LA_TELE_TAIL,
+        status: 'verified',
+        cites: [S.labBH, S.rs1821, S.rs12234, S.lablue537],
       },
       authTurnaround: {
         value: '"For nonurgent services, Louisiana Blue has up to 15 days to complete but will be completed as soon as possible. Most are completed within five days." Urgent cases: up to 72 hours, most within 24.',
@@ -1712,6 +1725,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       { q: 'Does Louisiana Blue cover ABA for adults?', a: 'Its policy 00816 treats ABA for people 21 and older with autism as investigational, and the state mandate covers under-21s only.' },
       { q: 'How do I bill RLT and SCABA services to Louisiana Blue?', a: 'Through the supervising LBA: SCABA with modifier TF, RLT with a bachelor’s degree with HN, RLT without one with no modifier. The LBA bills directly with TG.' },
       { q: 'Can ABA be delivered at school under Louisiana Blue?', a: 'Yes, under policy 00816’s limits: the technician is there for identified high-support periods, does no academic teaching, and school ABA generally stays under 6 hours a day.' },
+      { q: 'How does BlueCard work for ABA with Louisiana Blue?', a: 'A Louisiana Blue network provider files claims for other Blue plans’ members with Louisiana Blue, which routes them to the member’s home plan; authorization comes from the home plan, reached through iLinkBlue by entering the member’s prefix. An out-of-state provider treating a Louisiana Blue member files with its own local Blue plan and reaches Louisiana Blue’s authorization rules through that plan’s portal. Autism benefits can differ for BlueCard and self-funded members, so check them first.' },
     ],
   },
 };

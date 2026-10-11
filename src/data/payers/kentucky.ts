@@ -9,6 +9,8 @@ import type { PayerConfig, PayerSource } from './types.js';
    aetnabetterhealth.com 403s the Kentucky ABA notice; ch.aetnabetterhealth.com serves it. */
 
 const S: Record<string, PayerSource> = {
+  anthWeekly: { title: 'Anthem Blue Cross and Blue Shield (Kentucky) provider news — Streamlined ABA claim process starts March 1, 2026 (weekly approved units)', url: 'https://providernews.anthem.com/kentucky/articles/streamlined-aba-claim-process-starts-march-1-2026-27885' },
+  anthMCG: { title: 'Anthem Blue Cross and Blue Shield (Kentucky) provider news — MCG care guidelines 27th edition update: ABA reviews move from CG-BEH-02 to MCG B-806-T from June 1, 2024', url: 'https://providernews.anthem.com/kentucky/articles/mcg-care-guidelines-27th-edition-update-17867-17867' },
   kar15005: { title: '907 KAR 15:005 — Definitions for 907 KAR Chapter 15 (approved behavioral health practitioner incl. licensed behavior analyst; registered behavior technician)', url: 'https://apps.legislature.ky.gov/law/kar/titles/907/015/005/' },
   kar15010: { title: '907 KAR 15:010 — Coverage of behavioral health services by individual practitioners, provider groups and multi-specialty groups (Section 3(3)(r) applied behavior analysis; eff. 1-3-2020)', url: 'https://apps.legislature.ky.gov/law/kar/titles/907/015/010/' },
   kar15015: { title: '907 KAR 15:015 — Reimbursement for behavioral health services by individual practitioners and groups (LBA at 60%, LABA at 52.5% of the KY Medicare fee schedule)', url: 'https://apps.legislature.ky.gov/law/kar/titles/907/015/015/' },
@@ -203,9 +205,9 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
     deliveryRules: {
       supervision: { value: KY_MCD_SUPERVISION, status: 'verified', cites: [S.kar15010, S.kar15005] },
       concurrentBilling: {
-        value: 'Allowed for 97155 with 97153. DMS’s December 3, 2025 letter says that "effective December 2, 2025, procedure code 97155 may be billed concurrently with procedure code 97153 when the patient is present, and the qualified health professional is directing the technician who is implementing a modified treatment protocol," and treatment must still be medically necessary and in the plan of care. Separately, 907 KAR 15:010 bars paying more than one provider for a service to the same recipient during the same time period.',
+        value: 'Allowed for 97155 with 97153. DMS’s December 3, 2025 letter says that "effective December 2, 2025, procedure code 97155 may be billed concurrently with procedure code 97153 when the patient is present, and the qualified health professional is directing the technician who is implementing a modified treatment protocol," and treatment must still be medically necessary and in the plan of care. Separately, 907 KAR 15:010 bars paying more than one provider for a service to the same recipient during the same time period. DMS’s behavior analyst provider page repeats it as a duplication rule: "Kentucky Medicaid will not reimburse for a service provided to a beneficiary by more than one provider of any program in which the service is covered during the same time period." Neither source addresses ABA during a speech or occupational therapy session.',
         status: 'verified',
-        cites: [S.abaConcurrent, S.kar15010],
+        cites: [S.abaConcurrent, S.kar15010, S.lbaPage],
       },
       dailyLimits: {
         value: 'No ABA hour or unit cap appears in 907 KAR 15:010 or on the 2026 fee schedule (which has no maximum-units column). DMS applies National Correct Coding Initiative edits to FFS claims. Passport by Molina’s 48-units-a-year threshold is a PA trigger, not a cap.',
@@ -1041,9 +1043,9 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
         cites: [S.aetnaGuide, S.aetnaNPC, S.kar43050],
       },
       concurrentBilling: {
-        value: 'Not addressed in Aetna’s published ABA guide or precertification list.',
+        value: 'Not addressed in Aetna’s published ABA guide or precertification list. The medical necessity guide and the provider manual also say nothing about ABA at the same time as speech or occupational therapy.',
         status: 'unverified',
-        cites: [S.aetnaGuide],
+        cites: [S.aetnaGuide, S.aetnaOM],
         verifyVia: 'Aetna provider services or your participation agreement.',
         blocker: 'per-case',
       },
@@ -1094,9 +1096,9 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
         cites: [S.aetnaCPB648, S.aetnaGuide],
       },
       referral: {
-        value: 'Aetna’s national ABA documents require precertification, not a referral.' + MANDATE_REFERRAL_TAIL,
+        value: 'Aetna’s national ABA documents require precertification, not a referral. Aetna publishes no ABA order form or validity period, and its provider manual (6/26) says members "may access behavioral health care … through direct access to the behavioral health provider." A PCP referral matters only on plans that require referrals for specialist care; a clean claim then includes "a corresponding referral (whether in paper or electronic format), if required for the applicable claim." The manual names no ABA-specific referring-provider (box 17) requirement.' + MANDATE_REFERRAL_TAIL,
         status: 'verified',
-        cites: [S.aetnaPrecert, S.aetnaGuide, S.krs142],
+        cites: [S.aetnaPrecert, S.aetnaGuide, S.krs142, S.aetnaOM],
       },
       telehealth: {
         value: 'Aetna’s provider manual says Aetna Behavioral Health "offers telehealth services to all commercial fully insured members and to all commercial self-insured plan sponsors, unless those self-insured plan sponsors opt out." For fully insured Kentucky plans, KRS 304.17A-138 requires telehealth coverage "equivalent to the coverage for the same service provided in person" (unless a lower rate is contracted), bars requiring the provider to be physically present unless the provider decides it is necessary, bars PA for telehealth "that would not be required if a service were provided in person," and lets the plan require a Kentucky (or compact) license. Aetna’s current ABA telehealth code list is not public.',
@@ -1199,9 +1201,9 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
         cites: [S.en0499, S.kar43050],
       },
       concurrentBilling: {
-        value: '"Only one provider can bill for a unit of time, with the exception of CPT codes 97153, 97154, and 97155 (direct supervision when the BCBA/qualified health care provider directs the technician and both are face-to-face with the patient at the same time)."',
+        value: '"Only one provider can bill for a unit of time, with the exception of CPT codes 97153, 97154, and 97155 (direct supervision when the BCBA/qualified health care provider directs the technician and both are face-to-face with the patient at the same time)." EN0499 also says ABA "is not covered or reimbursable when delivered to the same individual, at the same time as any other treatment modality (e.g., ABA and speech therapy, or ABA and occupational therapy)."',
         status: 'verified',
-        cites: [S.cignaARG],
+        cites: [S.cignaARG, S.en0499],
       },
       dailyLimits: {
         value: 'No per-day cap is published; ABA codes bill in 15-minute units using 97151–97158, 0362T and 0373T only. Kentucky’s mandate bars visit limits in fully insured plans.',
@@ -1248,9 +1250,9 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
         cites: [S.en0499],
       },
       referral: {
-        value: 'EN0499 requires no referral; assessments need no PA with an autism diagnosis, and treatment needs authorization.' + MANDATE_REFERRAL_TAIL,
+        value: 'EN0499 requires no referral; assessments need no PA with an autism diagnosis, and treatment needs authorization. Evernorth publishes no ABA order form or validity period. On the claim, Evernorth’s administrative guidelines (September 2026) define a complete CMS-1500 claim without a referring provider (they require the rendering provider’s name, NPI and license type and the billing provider’s name, address and NPI); any "Referring Provider" reported on an 837 claim "must include the name and NPI."' + MANDATE_REFERRAL_TAIL,
         status: 'verified',
-        cites: [S.cignaARG, S.en0499, S.krs142],
+        cites: [S.cignaARG, S.en0499, S.krs142, S.ebhAdmin],
       },
       telehealth: {
         value: '"All ABA CPT codes are covered telehealth services" (autism resource guide), and EN0499 allows in-person, telehealth or hybrid delivery chosen on clinical factors; bill modifier 95 with POS 02. Fully insured Kentucky plans must also cover telehealth equivalently to in person and may require a Kentucky-licensed provider (KRS 304.17A-138).',
@@ -1352,16 +1354,14 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
         cites: [S.optumSCC, S.kar43050],
       },
       concurrentBilling: {
-        value: 'Not addressed in Optum’s SCC.',
-        status: 'unverified',
-        cites: [S.optumSCC],
-        verifyVia: 'Optum National Network Manual, your agreement, or a written coding determination from Optum.',
-        blocker: 'per-case',
+        value: 'Yes, with a single-provider exclusion. Optum’s commercial ABA reimbursement policy (2022RP501A, updated June 2026): "Can I report 97153 or 97154 with 97155 concurrently? Yes, as long as the criteria in the descriptors of both codes are met. A single QHP may not report 97153 or 97154 with 97155 concurrently." So the overlap has to be two people: a technician on 97153 and the analyst on 97155. 97155 and 97156 on the same date pay only if "separate, distinct, and clearly documented in the progress notes"; "A single provider can’t bill for both simultaneously." Optum’s ABA documents do not address ABA at the same time as speech, occupational or physical therapy; its ABA FAQ expects the ABA provider to know "the other therapies in which the child is involved, how often those therapies occur" and their goals, and to document that coordination.',
+        status: 'verified',
+        cites: [S.optumSCC, S.optumReimb, { title: 'Optum — Autism/ABA CPT code FAQs (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' }],
       },
       dailyLimits: {
-        value: 'No numeric cap; hours must be justified by clinical need, and use below 80 percent of authorized hours over a two-week period must be explained at review. Kentucky’s mandate bars visit limits in fully insured plans.',
+        value: 'Optum’s commercial ABA reimbursement policy (2022RP501A, updated June 2026) sets a maximum per day for each code: 97151 32 units (8 hours), 97152 16, 97153 32 (8 hours), 97154 18, 97155 24 (6 hours), 97156 16, 97157 16, 97158 16, 0362T 16 and 0373T 32; "If a provider bills in excess of 32 units per day, claims may be subject to non-reimbursement or recovery," and commercial claims are subject to CMS medically unlikely edits. There is no weekly unit cap: hours must be justified by clinical need, and use below 80 percent of authorized hours over a two-week period must be explained at review. Kentucky’s mandate bars visit limits in fully insured plans.',
         status: 'verified',
-        cites: [S.optumSCC, S.krs142],
+        cites: [S.optumSCC, S.krs142, S.optumReimb],
       },
       noteSignature: {
         value: 'Not addressed in Optum’s SCC.',
@@ -1405,9 +1405,9 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
         cites: [S.optumSCC],
       },
       referral: {
-        value: 'No separate referral in the SCC; prior authorization is required.' + MANDATE_REFERRAL_TAIL,
+        value: 'No separate referral in the SCC; prior authorization is required. Optum publishes no ABA order form or validity period. On the claim, Optum’s National Network Manual (effective Sept. 1, 2026) lists the Form 1500 fields it needs (member and subscriber, diagnosis, dates and length of session, and the clinician who actually provided the service with credentials, Tax ID and NPI) and does not ask for a referring provider in box 17.' + MANDATE_REFERRAL_TAIL,
         status: 'verified',
-        cites: [S.optumSCC, S.optumSM, S.krs142],
+        cites: [S.optumSCC, S.optumSM, S.krs142, S.optumNNM],
       },
       telehealth: {
         value: 'Optum’s telehealth billing guide (September 2025): "For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157," so the 97151 assessment and 97153 are not on Optum’s commercial telehealth list. For fully insured Kentucky plans, KRS 304.17A-138 requires telehealth coverage equivalent to in person, bars an in-person requirement unless the provider decides it is necessary, and bars PA for telehealth that would not apply in person. Ask Optum how it applies the three-code list to a fully insured Kentucky plan.',
@@ -1456,11 +1456,11 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
       cites: [S.anthemPA],
     },
     dxRequired: {
-      value: 'Anthem’s resource guide frames adaptive behavior treatment as treatment of autism spectrum disorder; its ABA medical necessity criteria were not available to read',
+      value: 'Anthem’s resource guide frames adaptive behavior treatment as treatment of autism spectrum disorder; its ABA medical necessity criteria were not available to read Anthem’s Kentucky provider news says that from June 1, 2024 ABA medical-necessity reviews moved from its public guideline CG-BEH-02 to "MCG B-806-T Behavioral Health Care Applied Behavioral Analysis," a licensed MCG guideline that cannot be read or republished.',
       status: 'unverified',
-      cites: [S.anthemRG],
-      verifyVia: 'Anthem’s clinical UM guideline for adaptive behavior treatment (anthem.com medical policies) or Anthem behavioral health UM via the number on the card.',
-      blocker: 'document',
+      cites: [S.anthemRG, S.anthMCG],
+      verifyVia: 'Anthem behavioral health utilization management (number on the member’s card) or Availity: ask what the MCG B-806-T review needs for this point; the guideline itself is licensed and not public.',
+      blocker: 'licensed',
     },
     payer: 'Anthem Blue Cross and Blue Shield (Kentucky)',
     state: 'KY', kind: 'commercial',
@@ -1518,9 +1518,9 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
         cites: [S.anthemRG],
       },
       dailyLimits: {
-        value: 'Anthem administers NCCI edits, so ABA codes "may have associated MUE limits" aligned with CMS’s published MUEs. Kentucky’s mandate bars visit limits in fully insured plans.',
+        value: 'Anthem administers NCCI edits, so ABA codes "may have associated MUE limits" aligned with CMS’s published MUEs. Kentucky’s mandate bars visit limits in fully insured plans. Since March 1, 2026 Anthem pays commercial ABA "based on weekly approved units rather than total authorized units": claims "should reflect the units rendered within each week, up to the weekly medically necessary limit as approved by prior approval," and units above the weekly limit "will be considered ineligible for reimbursement."',
         status: 'verified',
-        cites: [S.anthemRG, S.krs142],
+        cites: [S.anthemRG, S.krs142, S.anthWeekly],
       },
       noteSignature: {
         value: 'Each entry needs author identification and rendering credentials; entries should be made at or shortly after the service and "should not exceed 30 days," with a "Signature date within 30 days of the date of service." Start and stop times are required, and treatment plans must be reviewed or updated at least every six months.',
@@ -1547,25 +1547,25 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       dxRecency: {
-        value: 'Not stated in the Anthem documents read.',
+        value: 'Not stated in the Anthem documents read. Anthem’s Kentucky provider news says that from June 1, 2024 ABA medical-necessity reviews moved from its public guideline CG-BEH-02 to "MCG B-806-T Behavioral Health Care Applied Behavioral Analysis," a licensed MCG guideline that cannot be read or republished.',
         status: 'unverified',
-        cites: [S.anthemRG],
-        verifyVia: 'Anthem’s clinical UM guideline for adaptive behavior treatment, or Anthem behavioral health UM via the number on the card.',
-        blocker: 'document',
+        cites: [S.anthemRG, S.anthMCG],
+        verifyVia: 'Anthem behavioral health utilization management (number on the member’s card) or Availity: ask what the MCG B-806-T review needs for this point; the guideline itself is licensed and not public.',
+        blocker: 'licensed',
       },
       diagnosingProviders: {
-        value: 'Not stated in the Anthem documents read. Kentucky excludes diagnosis from ABA practice (KRS 319C.010(8)).',
+        value: 'Not stated in the Anthem documents read. Kentucky excludes diagnosis from ABA practice (KRS 319C.010(8)). Anthem’s Kentucky provider news says that from June 1, 2024 ABA medical-necessity reviews moved from its public guideline CG-BEH-02 to "MCG B-806-T Behavioral Health Care Applied Behavioral Analysis," a licensed MCG guideline that cannot be read or republished.',
         status: 'unverified',
-        cites: [S.anthemRG, S.krs319c010],
-        verifyVia: 'Anthem’s clinical UM guideline for adaptive behavior treatment.',
-        blocker: 'document',
+        cites: [S.anthemRG, S.krs319c010, S.anthMCG],
+        verifyVia: 'Anthem behavioral health utilization management (number on the member’s card) or Availity: ask what the MCG B-806-T review needs for this point; the guideline itself is licensed and not public.',
+        blocker: 'licensed',
       },
       diagnosticTools: {
-        value: 'Not stated in the Anthem documents read; the guide stresses standardized assessments for evaluating progress.',
+        value: 'Not stated in the Anthem documents read; the guide stresses standardized assessments for evaluating progress. Anthem’s Kentucky provider news says that from June 1, 2024 ABA medical-necessity reviews moved from its public guideline CG-BEH-02 to "MCG B-806-T Behavioral Health Care Applied Behavioral Analysis," a licensed MCG guideline that cannot be read or republished.',
         status: 'unverified',
-        cites: [S.anthemRG],
-        verifyVia: 'Anthem’s clinical UM guideline for adaptive behavior treatment.',
-        blocker: 'document',
+        cites: [S.anthemRG, S.anthMCG],
+        verifyVia: 'Anthem behavioral health utilization management (number on the member’s card) or Availity: ask what the MCG B-806-T review needs for this point; the guideline itself is licensed and not public.',
+        blocker: 'licensed',
       },
       referral: {
         value: 'Anthem’s ABA documents require precertification, not a referral.' + MANDATE_REFERRAL_TAIL,
@@ -1599,6 +1599,7 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
       { q: 'Is Anthem still a Kentucky Medicaid plan?', a: 'No. Anthem left Kentucky Medicaid managed care on January 1, 2025. Kentucky’s Medicaid MCOs are Aetna Better Health, Humana Healthy Horizons, Passport by Molina, UnitedHealthcare Community Plan and WellCare.' },
       { q: 'Can 97153 and 97155 be billed together with Anthem?', a: 'Only when the technician and the QHP are both face-to-face with the patient at the same time and the QHP is directing the technician.' },
       { q: 'Does Kentucky’s autism mandate apply to my Anthem plan?', a: 'If the plan is fully insured and issued or renewed on or after January 1, 2019, yes: ABA coverage with no age, annual-benefit or visit cap. Self-funded employer plans follow their own documents.' },
+      { q: 'Can unused ABA units be billed in a later week with Anthem in Kentucky?', a: 'No. Since March 1, 2026 Anthem reimburses commercial ABA on weekly approved units, not the total authorization: bill the units delivered in each week up to that week’s approved limit, and units over the weekly limit are not reimbursable.' },
     ],
   },
 };

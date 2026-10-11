@@ -190,7 +190,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       concurrentBilling: {
         value:
-          'Prohibited: Texas Medicaid will not reimburse multiple ABA providers during one ABA session with the child when more than one ABA provider is present. The one exception is when the family and the child are receiving separate services and the child is not present in the family session. Providers may request total authorized hours under either 97153 or 97155 and bill the code matching the service actually delivered, but not both for the same clock time with the child present.',
+          'Prohibited: Texas Medicaid will not reimburse multiple ABA providers during one ABA session with the child when more than one ABA provider is present. The one exception is when the family and the child are receiving separate services and the child is not present in the family session. Providers may request total authorized hours under either 97153 or 97155 and bill the code matching the service actually delivered, but not both for the same clock time with the child present. The autism section does not address ABA billed during a speech, occupational or physical therapy session; it requires the treatment plan to coordinate with an SLP, OT or PT where a co-morbid condition calls for it.',
         status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
@@ -264,11 +264,12 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'Two signed referrals. For the evaluation: a signed, dated referral from the prescribing provider, signed within 60 calendar days prior to or on the anticipated evaluation date. For treatment: a signed, dated referral from a physician or allowed practitioner (MD/DO, PA, NP, or CNS with properly delegated authority) outlining the frequency and duration of treatment, with a signature current to the service dates — on or before the service start date and no older than three months. Since 4/1/2025 the prescriber signature is no longer required on the CCP PA form for the 90-day treatment extension; the initial 180-day treatment plan still needs it.',
+          'Two signed referrals. For the evaluation: a signed, dated referral from the prescribing provider, signed within 60 calendar days prior to or on the anticipated evaluation date. For treatment: a signed, dated referral from a physician or allowed practitioner (MD/DO, PA, NP, or CNS with properly delegated authority) outlining the frequency and duration of treatment, with a signature current to the service dates — on or before the service start date and no older than three months. Since 4/1/2025 the prescriber signature is no longer required on the CCP PA form for the 90-day treatment extension; the initial 180-day treatment plan still needs it. The LBA’s assessment and treatment plan must also name "the referring prescribing provider." On the claim, TMPPM § 6.4.2.4 says "All Texas Medicaid claims for services that require a physician order or referral must include the ordering or referring provider’s NPI," and that prescriber must be enrolled in Texas Medicaid (as a billing or performing provider, or with an ordering/referring-only enrollment); claims without it, or with an unenrolled NPI, "may be subject to retrospective review and denial." On the CMS-1500 the name goes in block 17 with qualifier DN (referring) and the NPI in 17b. TMHP publishes no separate ABA order form; the referral rides with the CCP prior authorization request.',
         status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
           { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
+          { title: 'TMPPM Vol. 1, Section 6: Claims Filing (§ 6.4.2.4 Ordering or Referring Provider NPI; CMS-1500 block 17 instructions)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/1_06_Claims_Filing/1_06_Claims_Filing.htm' },
         ],
       },
       telehealth: {
@@ -314,6 +315,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'Is the Texas Medicaid ABA network open?', a: 'LBAs enroll in Texas Medicaid through TMHP. Each MCO then decides on contracting, and Medicaid enrollment does not guarantee an MCO contract, so ask each plan\'s provider relations about its ABA network.' },
       { q: 'What is the timely filing limit for Texas Medicaid ABA claims?', a: 'Ninety-five days from each date of service, for TMHP fee-for-service claims and for claims to a Texas Medicaid MCO alike. Appeals to TMHP are due within 120 days of the R&S Report disposition date.' },
       { q: 'Does Texas Medicaid require a taxonomy code on the claim?', a: 'Yes. TMHP requires the NPI and taxonomy code for the billing and the performing provider on paper claims, and asks for NPI, taxonomy and benefit code on every claim. A paper claim without them is denied.' },
+      { q: 'Does the referring doctor have to be on Texas Medicaid ABA claims?', a: 'Yes. ABA needs a prescriber referral, and TMPPM § 6.4.2.4 requires every claim for a service that needs a physician order or referral to carry the ordering or referring provider’s NPI (CMS-1500 block 17 with qualifier DN, NPI in 17b). That prescriber must be enrolled in Texas Medicaid, at least as an ordering/referring-only provider; a missing or unenrolled NPI can lead to denial on retrospective review.' },
     ],
   },
 
@@ -4532,10 +4534,12 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       concurrentBilling: {
         value:
-          'Not addressed in CPB 0554 or CPB 0648. Concurrent-billing edits for Aetna commercial claims live in its reimbursement and code-editing policies rather than the clinical bulletins.',
+          'Not addressed in CPB 0554 or CPB 0648. Concurrent-billing edits for Aetna commercial claims live in its reimbursement and code-editing policies rather than the clinical bulletins. The medical necessity guide and the provider manual also say nothing about ABA at the same time as speech or occupational therapy.',
         status: 'unverified',
         cites: [
           { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+          { title: 'Aetna provider manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
         ],
         verifyVia: 'Aetna\'s commercial reimbursement/code-editing policies via Availity, or provider relations.',
         blocker: 'document',
@@ -4628,13 +4632,14 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'Aetna\'s policies do not impose a referral or physician-order requirement of their own; what they require is precertification on form GR-69017-4 for both assessment and treatment. The Texas mandate adds no order requirement either. Referral requirements, where they exist, come from the plan\'s own network rules (for example HMO products).',
+          'Aetna\'s policies do not impose a referral or physician-order requirement of their own; what they require is precertification on form GR-69017-4 for both assessment and treatment. The Texas mandate adds no order requirement either. Referral requirements, where they exist, come from the plan\'s own network rules (for example HMO products). Aetna publishes no ABA order form or validity period, and its provider manual (6/26) says members "may access behavioral health care … through direct access to the behavioral health provider." A PCP referral matters only on plans that require referrals for specialist care; a clean claim then includes "a corresponding referral (whether in paper or electronic format), if required for the applicable claim." The manual names no ABA-specific referring-provider (box 17) requirement. Aetna’s manual adds that "Referrals in Texas are only valid for thirty (30) calendar days."',
         status: 'plan-dependent',
         cites: [
           { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
           { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
           { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
           { title: 'Tex. Ins. Code § 1355.015 (full text + history)', url: 'https://texas.public.law/statutes/tex._ins._code_section_1355.015' },
+          { title: 'Aetna provider manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
         ],
         verifyVia: 'The member\'s plan document and a live benefits verification — HMO products may carry their own referral rules.',
         blocker: 'per-case',
@@ -4901,10 +4906,11 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'EN0499 imposes no referral or physician order. The gate is the confirmed independent-licensure diagnosis plus a full ABA assessment performed by a BCBA, LBA, or independently licensed mental health clinician with documented ABA training. Where the assessment was performed by someone other than the requesting provider, documented collaboration with that professional and confirmation that the results reflect current functioning are required.',
+          'EN0499 imposes no referral or physician order. The gate is the confirmed independent-licensure diagnosis plus a full ABA assessment performed by a BCBA, LBA, or independently licensed mental health clinician with documented ABA training. Where the assessment was performed by someone other than the requesting provider, documented collaboration with that professional and confirmation that the results reflect current functioning are required. Evernorth publishes no ABA order form or validity period. On the claim, Evernorth’s administrative guidelines (September 2026) define a complete CMS-1500 claim without a referring provider (they require the rendering provider’s name, NPI and license type and the billing provider’s name, address and NPI); any "Referring Provider" reported on an 837 claim "must include the name and NPI."',
         status: 'verified',
         cites: [
           { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
         ],
       },
       telehealth: {
@@ -5093,7 +5099,7 @@ export const texasPayers: Record<string, PayerConfig> = {
         ],
       },
       concurrentBilling: {
-        value: 'Yes, with a single-provider exclusion. Optum’s commercial ABA reimbursement policy: “Can I report 97153 or 97154 with 97155 concurrently? A. Yes, as long as the criteria in the descriptors of both codes are met. A single QHP may not report 97153 or 97154 with 97155 concurrently.” So the overlap has to be two people — a technician on 97153 and an analyst on 97155 directing them with the patient present. Optum’s ABA CPT FAQ adds that 97153 and 97156 “may be billed concurrently” as separate services to different family members by different providers. 97155 and 97156 on the same date pay only if “separate, distinct, and clearly documented in the progress notes” — “A single provider can’t bill for both simultaneously.” Team meetings bill only as supervision with the member, supervisor and technician present, and “CPT codes 97153 and 97155 may not be billed for technician training.”',
+        value: 'Yes, with a single-provider exclusion. Optum’s commercial ABA reimbursement policy: “Can I report 97153 or 97154 with 97155 concurrently? A. Yes, as long as the criteria in the descriptors of both codes are met. A single QHP may not report 97153 or 97154 with 97155 concurrently.” So the overlap has to be two people — a technician on 97153 and an analyst on 97155 directing them with the patient present. Optum’s ABA CPT FAQ adds that 97153 and 97156 “may be billed concurrently” as separate services to different family members by different providers. 97155 and 97156 on the same date pay only if “separate, distinct, and clearly documented in the progress notes” — “A single provider can’t bill for both simultaneously.” Team meetings bill only as supervision with the member, supervisor and technician present, and “CPT codes 97153 and 97155 may not be billed for technician training.” Optum’s ABA documents do not address ABA at the same time as speech, occupational or physical therapy; its ABA FAQ expects the ABA provider to know "the other therapies in which the child is involved, how often those therapies occur" and their goals, and to document that coordination.',
         status: 'verified',
         cites: [
           { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
@@ -5175,10 +5181,11 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'Optum imposes no referral or physician order. Prior authorization is the gate — a two-step process on Provider Express, assessment first and then treatment — unless otherwise specified or mandated by contract or law.',
+          'Optum imposes no referral or physician order. Prior authorization is the gate — a two-step process on Provider Express, assessment first and then treatment — unless otherwise specified or mandated by contract or law. Optum publishes no ABA order form or validity period. On the claim, Optum’s National Network Manual (effective Sept. 1, 2026) lists the Form 1500 fields it needs (member and subscriber, diagnosis, dates and length of session, and the clinician who actually provided the service with credentials, Tax ID and NPI) and does not ask for a referring provider in box 17.',
         status: 'verified',
         cites: [
           { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+          { title: 'Optum National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
         ],
       },
       telehealth: {

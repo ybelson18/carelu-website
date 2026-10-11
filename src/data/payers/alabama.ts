@@ -188,11 +188,11 @@ export const alabamaPayers: Record<string, PayerConfig> = {
         cites: [S.ch37, S.admin11],
       },
       concurrentBilling: {
-        value: 'Not addressed. Chapter 37 and the ABA fee schedule list 97153 and 97155 as separate PA-required codes and say nothing about billing them for the same clock time.',
+        value: 'Not addressed. Chapter 37 (October 2026) and the ABA fee schedule list 97153 and 97155 as separate PA-required codes and say nothing about billing them for the same clock time, or about ABA at the same time as speech, occupational or physical therapy; the only overlap rule in the chapter is that 96125 is not billed with autism testing codes 96112 and 96113. Claims pass through NCCI procedure-to-procedure edits.',
         status: 'unverified',
         cites: [S.ch37, S.fee],
-        verifyVia: 'Alabama Medicaid Mental Health Services program area, appliedbehavioranalysis@medicaid.alabama.gov, or the Gainwell Provider Assistance Center, 1-800-688-7989.',
-        blocker: 'document',
+        verifyVia: 'Ask the Alabama Medicaid ABA program in writing (appliedbehavioranalysis@medicaid.alabama.gov), or the Gainwell Provider Assistance Center, 1-800-688-7989, whether 97155 may be billed for the same minutes as a technician’s 97153 and whether ABA may overlap a speech or OT session.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value: 'No daily or annual unit caps for ABA are published in Chapter 37 or on the fee schedule. Units are set per PA, the record must support every unit billed, codes are billed per date of service (no span billing), and claims pass through NCCI procedure-to-procedure and medically-unlikely edits.',
@@ -237,9 +237,9 @@ export const alabamaPayers: Record<string, PayerConfig> = {
         cites: [S.ch37],
       },
       referral: {
-        value: 'Yes. ABA needs an EPSDT screening referral on the Alabama Medicaid Referral Form (Form 362), completed by the screening physician with the screening date and reason for referral, and a physician’s (or non-physician practitioner’s) order. The referral can serve as the order if it meets the rules. Without a completed referral in the record, "payments for these services will be recouped." No separate ACHN PCP referral is needed for specialty care, but EPSDT referrals still are.',
+        value: 'Yes. ABA is an EPSDT-referred service: the child needs an EPSDT screening (periodic or interperiodic well-child visit) and the Alabama Medicaid Referral Form (Form 362), completed by the screening physician "including the screening date that the problem was identified and the reason for referral," plus a physician’s or non-physician practitioner’s order. The referral can be the order: "The EPSDT referral form may be considered as the physicians’ order" when it carries "the date and signature of the provider, the service(s) ordered and the recipient’s name." Hard-copy referrals need the printed or typed name of the primary care physician with an original signature of the physician or a physician or non-physician designee; "stamped or copied signatures will not be accepted." Validity: "the maximum time an EPSDT referral remains valid is 12 months from the date of the EPSDT screening," the screening date "may not be backdated or future dated," and the form must state the number of visits or months to be valid. A new screening and referral are needed when the referral expires or "anytime the diagnosis, plan of care … or treatment changes." Without a completed referral in the record, "payments for these services will be recouped." No separate ACHN PCP referral is needed for specialty care. On the CMS-1500, put the EPSDT referring provider in block 17 and the referring NPI in 17b (used only for lock-in, EPSDT or maternity referrals), and enter "1" in block 24H for a service resulting from an EPSDT referral.',
         status: 'verified',
-        cites: [S.ch37, S.appA, S.ch40, S.admin11],
+        cites: [S.ch37, S.appA, S.ch40, S.admin11, S.ch05],
       },
       telehealth: {
         value: 'Only 97155, 97156 and 97157 (the Chapter 37 table marks every other ABA code "Telehealth Allowed: No"), delivered by live audio-video with modifier GT and a POS of 11 or 12. The provider must enroll with telemedicine specialty 931 (Telemedicine Service Agreement), get the recipient’s consent first, and have trained staff who know the treatment plan "immediately available in-person to the recipient." A parent or guardian must attend for a minor. The provider must be licensed in Alabama (where the patient is) and practice from an Alabama or qualifying bordering-state site. Telemedicine is paid at parity.',
@@ -353,9 +353,9 @@ export const alabamaPayers: Record<string, PayerConfig> = {
         cites: [S.aetnaNPC, S.lic],
       },
       concurrentBilling: {
-        value: 'Not addressed in Aetna’s published ABA documents (CPB 0554, the medical necessity guide, the precertification list).',
+        value: 'Not addressed in Aetna’s published ABA documents (CPB 0554, the medical necessity guide, the precertification list). The medical necessity guide and the provider manual also say nothing about ABA at the same time as speech or occupational therapy.',
         status: 'unverified',
-        cites: [S.aetnaGuide, S.aetnaCPB],
+        cites: [S.aetnaGuide, S.aetnaCPB, S.aetnaOM],
         verifyVia: 'Aetna provider services, the participating-provider agreement, or a written coding determination from Aetna Behavioral Health.',
         blocker: 'per-case',
       },
@@ -406,9 +406,9 @@ export const alabamaPayers: Record<string, PayerConfig> = {
         cites: [S.aetnaCPB648, S.aetnaGuide],
       },
       referral: {
-        value: 'Aetna’s national ABA documents require precertification of all ten ABA codes, not a physician referral.' + MANDATE_REFERRAL_TAIL,
+        value: 'Aetna’s national ABA documents require precertification of all ten ABA codes, not a physician referral. Aetna publishes no ABA order form or validity period, and its provider manual (6/26) says members "may access behavioral health care … through direct access to the behavioral health provider." A PCP referral matters only on plans that require referrals for specialist care; a clean claim then includes "a corresponding referral (whether in paper or electronic format), if required for the applicable claim." The manual names no ABA-specific referring-provider (box 17) requirement.' + MANDATE_REFERRAL_TAIL,
         status: 'verified',
-        cites: [S.aetnaPrecert, S.aetnaGuide, S.rileyWard],
+        cites: [S.aetnaPrecert, S.aetnaGuide, S.rileyWard, S.aetnaOM],
       },
       telehealth: {
         value: 'Aetna’s telemedicine payment policy lists, for commercial plans, 97151, 97153, 97155, 97156 and 97157 with modifier GT, 95 or FR (97152, 97154 and 97158 are checked for Medicare Advantage only). The posted policy shows a last review of June 2021, so treat that list as perishable. Aetna Behavioral Health offers telehealth to fully insured members and to self-insured sponsors unless they opt out, and providers "must … ensure that they have the proper licensure based on state requirements," which in Alabama means an Alabama license. On Riley Ward plans the Act allows mandated ABA to be "provided or supervised, either in person or by telemedicine," by an Alabama-licensed BCBA.',
@@ -573,9 +573,9 @@ export const alabamaPayers: Record<string, PayerConfig> = {
         cites: [S.en0499],
       },
       referral: {
-        value: 'EN0499 requires no referral. Assessments need no PA with an autism diagnosis; treatment needs the assessment and plan on the PA request.' + MANDATE_REFERRAL_TAIL,
+        value: 'EN0499 requires no referral. Assessments need no PA with an autism diagnosis; treatment needs the assessment and plan on the PA request. Evernorth publishes no ABA order form or validity period. On the claim, Evernorth’s administrative guidelines (September 2026) define a complete CMS-1500 claim without a referring provider (they require the rendering provider’s name, NPI and license type and the billing provider’s name, address and NPI); any "Referring Provider" reported on an 837 claim "must include the name and NPI."' + MANDATE_REFERRAL_TAIL,
         status: 'verified',
-        cites: [S.cignaARG, S.en0499, S.rileyWard],
+        cites: [S.cignaARG, S.en0499, S.rileyWard, S.ebhAdmin],
       },
       telehealth: {
         value: 'All ABA CPT codes are covered telehealth services (autism resource guide), and EN0499 allows in-person, telehealth or hybrid delivery. Bill modifier 95. Evernorth says providers "must meet all state requirements to provide virtual" behavioral health, which in Alabama means an Alabama behavior-analyst license.',
@@ -690,16 +690,14 @@ export const alabamaPayers: Record<string, PayerConfig> = {
         cites: [S.optumSCC],
       },
       concurrentBilling: {
-        value: 'Not addressed. The criteria describe direct case supervision during direct treatment but do not say how to bill overlapping time.',
-        status: 'unverified',
-        cites: [S.optumSCC],
-        verifyVia: 'Optum Provider Express, the participating-provider agreement, or a written coding determination from Optum.',
-        blocker: 'per-case',
+        value: 'Yes, with a single-provider exclusion. Optum’s commercial ABA reimbursement policy (2022RP501A, updated June 2026): "Can I report 97153 or 97154 with 97155 concurrently? Yes, as long as the criteria in the descriptors of both codes are met. A single QHP may not report 97153 or 97154 with 97155 concurrently." So the overlap has to be two people: a technician on 97153 and the analyst on 97155. 97155 and 97156 on the same date pay only if "separate, distinct, and clearly documented in the progress notes"; "A single provider can’t bill for both simultaneously." Optum’s ABA documents do not address ABA at the same time as speech, occupational or physical therapy; its ABA FAQ expects the ABA provider to know "the other therapies in which the child is involved, how often those therapies occur" and their goals, and to document that coordination.',
+        status: 'verified',
+        cites: [S.optumSCC, S.optumReimb, { title: 'Optum — Autism/ABA CPT code FAQs (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' }],
       },
       dailyLimits: {
-        value: 'No numeric cap: requested hours must be justified by documented clinical need at the least restrictive level, and use below 80% of authorized hours over two weeks must be explained. On a Riley Ward plan the annual ABA dollar caps by age band apply unless the insurer approves more.',
+        value: 'Optum’s commercial ABA reimbursement policy (2022RP501A, updated June 2026) sets a maximum per day for each code: 97151 32 units (8 hours), 97152 16, 97153 32 (8 hours), 97154 18, 97155 24 (6 hours), 97156 16, 97157 16, 97158 16, 0362T 16 and 0373T 32; "If a provider bills in excess of 32 units per day, claims may be subject to non-reimbursement or recovery," and commercial claims are subject to CMS medically unlikely edits. There is no weekly unit cap: requested hours must be justified by documented clinical need at the least restrictive level, and use below 80% of authorized hours over two weeks must be explained. On a Riley Ward plan the annual ABA dollar caps by age band apply unless the insurer approves more.',
         status: 'verified',
-        cites: [S.optumSCC, S.rileyWard],
+        cites: [S.optumSCC, S.rileyWard, S.optumReimb],
       },
       noteSignature: {
         value: 'Not addressed. The criteria set what must be documented for coverage, not who signs a session note or when.',
@@ -743,9 +741,9 @@ export const alabamaPayers: Record<string, PayerConfig> = {
         cites: [S.optumSCC],
       },
       referral: {
-        value: 'Optum requires prior authorization, not a separate physician referral.' + MANDATE_REFERRAL_TAIL,
+        value: 'Optum requires prior authorization, not a separate physician referral. Optum publishes no ABA order form or validity period. On the claim, Optum’s National Network Manual (effective Sept. 1, 2026) lists the Form 1500 fields it needs (member and subscriber, diagnosis, dates and length of session, and the clinician who actually provided the service with credentials, Tax ID and NPI) and does not ask for a referring provider in box 17.' + MANDATE_REFERRAL_TAIL,
         status: 'verified',
-        cites: [S.optumSCC, S.rileyWard],
+        cites: [S.optumSCC, S.rileyWard, S.optumNNM],
       },
       telehealth: {
         value: 'Three codes. Optum’s Telehealth Billing guide (updated September 2025), commercial: "For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157." Bill POS 02 or 10. The criteria add that telehealth is "not intended to supplant in-person service." The 97151 assessment and technician 97153 must be in person. The Riley Ward Act lets mandated ABA be "provided or supervised … by telemedicine" by an Alabama-licensed BCBA, so ask Optum how it applies its code list to a fully insured Alabama plan.',
@@ -914,7 +912,7 @@ export const alabamaPayers: Record<string, PayerConfig> = {
         cites: [S.lucetPM, S.lucetABA],
       },
       referral: {
-        value: 'Lucet’s Alabama appendix says "some products require a referral from the Member’s primary care physician prior to treatment."' + MANDATE_REFERRAL_TAIL,
+        value: 'Lucet’s Alabama appendix says "some products require a referral from the Member’s primary care physician prior to treatment." Lucet and BCBSAL publish no ABA order form, validity period or referring-provider (box 17) rule in the documents read; the PA request itself goes to Lucet through WebPass.' + MANDATE_REFERRAL_TAIL,
         status: 'plan-dependent',
         cites: [S.lucetPM, S.rileyWard],
         verifyVia: 'BCBSAL benefits check on providers.bcbsal.org: ask whether the member’s product requires a PCP referral for behavioral health.',
@@ -948,6 +946,7 @@ export const alabamaPayers: Record<string, PayerConfig> = {
       { q: 'Who reviews ABA for Blue Cross Blue Shield of Alabama?', a: 'Lucet. Precertification 855-339-9811, benefits 855-339-8558, autism care management 877-563-9347, Provider Relations 888-611-6285.' },
       { q: 'Can an out-of-state or telehealth-only ABA provider treat BCBSAL members?', a: 'BCBSAL’s network rule through Lucet requires a physical Alabama location for each TIN, even for telehealth-only providers, and Alabama requires an Alabama behavior-analyst license. Out-of-state Blue providers serving a BCBSAL member through BlueCard are paid at their local Blue plan’s rate.' },
       { q: 'What is the timely filing limit for BCBS of Alabama ABA claims?', a: 'Lucet’s Alabama appendix says 180 days. Standard medical-necessity appeals are due within two years of the denial, and Lucet decides them within 30 calendar days.' },
+      { q: 'How does BlueCard work for ABA with Blue Cross Blue Shield of Alabama?', a: 'Lucet’s BCBSAL FAQ: when a BCBSAL member uses BlueCard outside Alabama, "providers are paid at the in-network rate of the Blue Cross plan where the service is being rendered," so the out-of-state agency bills its own local Blue plan. ABA still needs BCBSAL prior authorization for every session, and Lucet’s manual says an out-of-state provider contracted with its local Blue plan for different ABA codes is paid only for codes equivalent to BCBSAL’s approved list, to be agreed during clinical review. Agencies inside Alabama joining BCBSAL’s own network must have a physical Alabama location.' },
     ],
   },
 };

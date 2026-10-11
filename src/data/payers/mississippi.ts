@@ -841,9 +841,9 @@ export const mississippiPayers: Record<string, PayerConfig> = {
         cites: [S.aetnaNPC, S.mabRules, S.mandate],
       },
       concurrentBilling: {
-        value: 'Not addressed in Aetna’s ABA medical necessity guide, CPB 0554 or the precertification list.',
+        value: 'Not addressed in Aetna’s ABA medical necessity guide, CPB 0554 or the precertification list. The medical necessity guide and the provider manual also say nothing about ABA at the same time as speech or occupational therapy.',
         status: 'unverified',
-        cites: [S.aetnaGuide, S.aetnaCPB],
+        cites: [S.aetnaGuide, S.aetnaCPB, S.aetnaOM],
         verifyVia: 'Aetna provider services or your participation agreement: ask whether 97153 and 97155 may be billed for the same time.',
         blocker: 'per-case',
       },
@@ -894,9 +894,9 @@ export const mississippiPayers: Record<string, PayerConfig> = {
         cites: [S.aetnaCPB648, S.aetnaGuide],
       },
       referral: {
-        value: 'Aetna’s ABA policies require precertification, not a physician referral.' + MANDATE_REFERRAL_TAIL,
+        value: 'Aetna’s ABA policies require precertification, not a physician referral. Aetna publishes no ABA order form or validity period, and its provider manual (6/26) says members "may access behavioral health care … through direct access to the behavioral health provider." A PCP referral matters only on plans that require referrals for specialist care; a clean claim then includes "a corresponding referral (whether in paper or electronic format), if required for the applicable claim." The manual names no ABA-specific referring-provider (box 17) requirement.' + MANDATE_REFERRAL_TAIL,
         status: 'verified',
-        cites: [S.aetnaPrecert, S.mandate],
+        cites: [S.aetnaPrecert, S.mandate, S.aetnaOM],
       },
       telehealth: {
         value: 'Aetna’s office manual (6/26) says Aetna Behavioral Health "offers telehealth services to all commercial fully insured members and to all commercial self-insured plan sponsors, unless those self-insured plan sponsors opt out," and providers must hold "the proper licensure based on state requirements." ' + MS_TELE_COMMERCIAL + ' Aetna’s ABA telehealth code list was not available in a current document.',
@@ -1008,9 +1008,9 @@ export const mississippiPayers: Record<string, PayerConfig> = {
         cites: [S.en0499],
       },
       concurrentBilling: {
-        value: '"Only one provider can bill for a unit of time, with the exception of CPT codes 97153, 97154, and 97155 (direct supervision when the BCBA/qualified health care provider directs the technician and both are face-to-face with the patient at the same time)."',
+        value: '"Only one provider can bill for a unit of time, with the exception of CPT codes 97153, 97154, and 97155 (direct supervision when the BCBA/qualified health care provider directs the technician and both are face-to-face with the patient at the same time)." EN0499 also says ABA "is not covered or reimbursable when delivered to the same individual, at the same time as any other treatment modality (e.g., ABA and speech therapy, or ABA and occupational therapy)."',
         status: 'verified',
-        cites: [S.cignaARG],
+        cites: [S.cignaARG, S.en0499],
       },
       dailyLimits: {
         value: 'No per-day cap; ABA codes bill in 15-minute units only with 97151–97158, 0362T and 0373T. For fully insured Mississippi plans the mandate permits a 25-hour weekly ABA limit, extendable on medical necessity.',
@@ -1057,9 +1057,9 @@ export const mississippiPayers: Record<string, PayerConfig> = {
         cites: [S.en0499],
       },
       referral: {
-        value: 'EN0499 requires no referral; assessments need no PA with an autism diagnosis when the provider is independently licensed or a BCBA.' + MANDATE_REFERRAL_TAIL,
+        value: 'EN0499 requires no referral; assessments need no PA with an autism diagnosis when the provider is independently licensed or a BCBA. Evernorth publishes no ABA order form or validity period. On the claim, Evernorth’s administrative guidelines (September 2026) define a complete CMS-1500 claim without a referring provider (they require the rendering provider’s name, NPI and license type and the billing provider’s name, address and NPI); any "Referring Provider" reported on an 837 claim "must include the name and NPI."' + MANDATE_REFERRAL_TAIL,
         status: 'verified',
-        cites: [S.cignaARG, S.en0499, S.mandate],
+        cites: [S.cignaARG, S.en0499, S.mandate, S.ebhAdmin],
       },
       telehealth: {
         value: '"All ABA CPT codes are covered telehealth services" (autism resource guide), and EN0499 allows in-person, telehealth or hybrid delivery. Evernorth bills virtual services with modifier 95 and requires the provider to meet the state’s licensure rules, which in Mississippi means a Mississippi license.',
@@ -1169,16 +1169,14 @@ export const mississippiPayers: Record<string, PayerConfig> = {
         cites: [S.optumSCC, S.mabRules],
       },
       concurrentBilling: {
-        value: 'Not addressed: the criteria define direct case supervision as occurring during direct treatment but do not state the billing consequence.',
-        status: 'unverified',
-        cites: [S.optumSCC],
-        verifyVia: 'Optum National Network Manual and your participating-provider agreement, or a written coding determination from Optum.',
-        blocker: 'per-case',
+        value: 'Yes, with a single-provider exclusion. Optum’s commercial ABA reimbursement policy (2022RP501A, updated June 2026): "Can I report 97153 or 97154 with 97155 concurrently? Yes, as long as the criteria in the descriptors of both codes are met. A single QHP may not report 97153 or 97154 with 97155 concurrently." So the overlap has to be two people: a technician on 97153 and the analyst on 97155. 97155 and 97156 on the same date pay only if "separate, distinct, and clearly documented in the progress notes"; "A single provider can’t bill for both simultaneously." Optum’s ABA documents do not address ABA at the same time as speech, occupational or physical therapy; its ABA FAQ expects the ABA provider to know "the other therapies in which the child is involved, how often those therapies occur" and their goals, and to document that coordination.',
+        status: 'verified',
+        cites: [S.optumSCC, S.optumReimb, { title: 'Optum — Autism/ABA CPT code FAQs (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' }],
       },
       dailyLimits: {
-        value: 'No numeric cap in Optum’s criteria; requested hours must be justified, and use below 80% of authorized hours must be explained at review. For fully insured Mississippi plans the mandate permits a 25-hour weekly ABA limit, extendable on medical necessity.',
+        value: 'Optum’s commercial ABA reimbursement policy (2022RP501A, updated June 2026) sets a maximum per day for each code: 97151 32 units (8 hours), 97152 16, 97153 32 (8 hours), 97154 18, 97155 24 (6 hours), 97156 16, 97157 16, 97158 16, 0362T 16 and 0373T 32; "If a provider bills in excess of 32 units per day, claims may be subject to non-reimbursement or recovery," and commercial claims are subject to CMS medically unlikely edits. There is no weekly unit cap: requested hours must be justified, and use below 80% of authorized hours must be explained at review. For fully insured Mississippi plans the mandate permits a 25-hour weekly ABA limit, extendable on medical necessity.',
         status: 'verified',
-        cites: [S.optumSCC, S.mandate],
+        cites: [S.optumSCC, S.mandate, S.optumReimb],
       },
       noteSignature: {
         value: 'Not addressed in Optum’s ABA criteria, which set what must be documented for coverage, not who signs session notes.',
@@ -1222,9 +1220,9 @@ export const mississippiPayers: Record<string, PayerConfig> = {
         cites: [S.optumSCC],
       },
       referral: {
-        value: 'No separate physician referral in Optum’s criteria; prior authorization is required.' + MANDATE_REFERRAL_TAIL,
+        value: 'No separate physician referral in Optum’s criteria; prior authorization is required. Optum publishes no ABA order form or validity period. On the claim, Optum’s National Network Manual (effective Sept. 1, 2026) lists the Form 1500 fields it needs (member and subscriber, diagnosis, dates and length of session, and the clinician who actually provided the service with credentials, Tax ID and NPI) and does not ask for a referring provider in box 17.' + MANDATE_REFERRAL_TAIL,
         status: 'verified',
-        cites: [S.optumSCC, S.mandate],
+        cites: [S.optumSCC, S.mandate, S.optumNNM],
       },
       telehealth: {
         value: 'Optum’s telehealth billing guide (updated September 2025): "For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157," billed POS 02 or POS 10 (POS 11 is not a telehealth POS). The 97151 assessment and 97153 are not on the list, and the criteria say telehealth is "not intended to supplant in" person care. ' + MS_TELE_COMMERCIAL + ' Ask Optum how it applies the three-code list to a fully insured Mississippi plan.',
