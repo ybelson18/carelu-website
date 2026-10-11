@@ -265,11 +265,12 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
         cites: [MQ_MEMO, AC_MP37],
       },
       referral: {
-        value: 'No PA for the diagnostic evaluation, but "QI health plans may require a referral from the PCP." After diagnosis, the diagnosing provider refers the child to a rendering provider, and the plan must help find one on request.',
-        status: 'plan-dependent',
-        cites: [MQ_MEMO],
-        verifyVia: 'The member’s QI plan — ask whether a PCP referral is needed for the diagnostic evaluation and for ABA.',
-        blocker: 'per-case',
+        value:
+          'Med-QUEST requires no physician order or prescription for ABA itself. Under QI-2431, "The QI health plan will issue a PA for ABA when it determines ABA is medically necessary and recommended by a rendering provider," so the licensed behavior analyst\'s assessment and treatment plan is the request. The referrals in the memo come earlier in the chain. The PCP screens at EPSDT visits and "will either perform the diagnostic evaluation or refer to a diagnosing provider." Then "The diagnosing provider will refer members diagnosed with ASD to a rendering provider for assessment and treatment plan development." One plan-level gate: "No PA is required for a diagnostic evaluation. (The QI health plan may require a referral from the PCP.)" Whether a PCP referral is needed before the diagnostic evaluation therefore depends on the QI plan. Treatment plans and progress reports must be resubmitted at least every 26 weeks. Med-QUEST publishes no order template and no validity period.',
+        status: 'verified',
+        cites: [
+          { title: 'Med-QUEST memo QI-2431 / FFS 24-13 (Dec 31, 2024) — Coverage of IBT for children under 21 with ASD: Guidelines for ABA (Attachments A–C)', url: 'https://medquest.hawaii.gov/content/dam/formsanddocuments/provider-memos/qi-memos/qi-memos-2024/QI-2431,%20FFS%2024-13%20Replaces%20QI-2301,%20FFS%2023-01%20Coverage%20of%20IBT%20for%20treatment%20of%20children%20under%2021%20years%20of%20age%20with%20ASD_Guidelines%20for%20ABA._FINAL%20(part%201)%20-%20signed.pdf' },
+        ],
       },
       telehealth: {
         value: 'The ABA memo defers to MQD’s telehealth policy, QI-2527 (Dec 8, 2025): audio-video telehealth billed with modifier 95, GT or GQ, by providers eligible to bill Hawaii Medicaid, for services appropriate to the modality. ABA codes are not on the suggested-code list, though "other codes may also be billed." A provider that cannot offer in-person care must tell the family, each time, that they have a right to it. Place of service and plan limits are set by each QI plan; Optum’s 2022 UnitedHealthcare Community Plan orientation, for example, allowed only 97155 and 97156 by BCBAs, billed with POS 02. Neither QI-2431 nor QI-2527 says whether the 97151 assessment or 97155 supervision may be remote, or caps the remote share of supervision; QI-2527 sends QI providers to their MCO for place-of-service and other billing guidance, so the answer is the plan’s.',
@@ -1206,6 +1207,28 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
           { title: 'HRS § 431:13-108 — Reimbursement for accident and health or sickness insurance benefits (Hawaii Revised Statutes)', url: 'https://www.capitol.hawaii.gov/hrscurrent/Vol09_Ch0431-0435H/HRS0431/HRS_0431-0013-0108.htm' },
         ],
       },
+      {
+        h2: 'Does Aetna need a referring provider on the ABA claim?',
+        body: [
+          'Aetna publishes no requirement to report a referring or ordering provider on an ABA claim. Its office manual defines a clean claim as including “A corresponding referral (whether in paper or electronic format), if required for the applicable claim” plus “All the data elements of the UB-04 or CMS-1500 (or successor standard) forms (including but not limited to member identification number, National Provider Identifier (NPI), date(s) of service, and a complete and accurate breakdown of services).”',
+          'A referral matters only on plans that require PCP referrals for specialist care. Those referrals must be issued before the visit (“Referrals should not be retroactive”), and “In Aetna Open Access® plans, referrals also are not necessary.” Aetna’s behavioral health manual lists direct access as the first way into care: members may reach behavioral health “Through direct access to the behavioral health provider,” through a recommendation from their PCP or another treating provider, or through an EAP referral.',
+        ],
+        cites: [
+          { title: 'Aetna Health Care Professional Toolkit / office manual (2026): clean claims and referral policies', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna Behavioral Health Provider Manual (8/22): access to care', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' },
+        ],
+      },
+      {
+        h2: 'What goes in an Aetna ABA precertification request?',
+        body: [
+          'Since August 1, 2026, one Aetna form — “Outpatient Behavioral Health (BH) – ABA Treatment Request: Required Information for Precertification” (GR-69017-4) — “replaces all other” ABA precertification information forms. It does not start a request. Start the request on Availity (Authorization Add) or by phone, then attach the form and the records to the case, or fax them to FaxHub 833-596-0339 with the reference number.',
+          'Section 1 asks for the member and provider group details; the current DSM-5 diagnosis code(s); the diagnosing provider’s name and credentials; hours per authorization period for the assessment codes 97151, 97152 and 0362T; hours per week for 97153–97158 and 0373T; and whether any hours fall during class. Section 2 asks who supervises the ABA services, and whether the child also gets PT, OT, speech, mental health or school services and whether you coordinate with those providers. It also asks for current impairment areas with supporting severity data.',
+          'Attach the results of a standardized assessment (“i.e. Vineland, ABAS, VB-MAPP”) completed within the past 12 months. Also attach a time-limited, individualized treatment plan with baselines and measurable progress criteria, caregiver goals, titration and discharge criteria with an aftercare plan, and baseline, interim and current data for every goal. The form names CPB 0648 and the ABA Medical Necessity Guide as the review criteria.',
+        ],
+        cites: [
+          { title: 'Aetna — Outpatient Behavioral Health (BH) – ABA Treatment Request: Required Information for Precertification (GR-69017-4, 7-26; effective August 1, 2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Luke’s Law applies) or self-funded employer plan (exempt). Get the employer and group number.' },
@@ -1234,11 +1257,13 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
         cites: [AET_GUIDE, HRS_133],
       },
       noteSignature: {
-        value: 'Not addressed — Aetna’s ABA documents set treatment-plan content, not session-note signature rules.',
-        status: 'unverified',
-        cites: [AET_GUIDE, AET_BHMAN],
-        verifyVia: 'The participating-provider agreement and the Aetna Behavioral Health Provider Manual documentation section.',
-        blocker: 'per-case',
+        value:
+          'Aetna has a general rule, not an ABA-specific one. Its medical-record standards apply to "all participating practitioners," who "agree to maintain medical records in a current, detailed, organized, and comprehensive manner." The core components are: "All entries are dated," "All entries are legible to someone other than the writer," and "All entries in the record must contain the provider\'s signature/initials or electronic identifier." Aetna audits records against these at least every two years, with an 85% performance goal. Aetna\'s ABA documents do not say whether the technician, the supervising BCBA or both sign a session note, or how soon after the session it must be signed. Each person who writes an entry should sign or e-sign and date it.',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna Health Care Professional Toolkit / office manual (2026): medical records — standards and criteria for documentation', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+        ],
       },
       placeOfService: {
         value: 'Outpatient ABA is setting-agnostic in Aetna’s guide, which expects coordination with the school district as applicable. Luke’s Law excludes "services provided outside of the State" and does not reduce IEP or IFSP obligations.',
@@ -1304,6 +1329,8 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
       { q: 'Does Aetna cover ABA therapy in Hawaii?', a: 'Yes — for ASD under Aetna’s national policy, with precertification on every ABA code. Fully insured Hawaii plans also carry Luke’s Law: coverage for children under 14, with ABA capped at $25,000 a year for ages 13 and under.' },
       { q: 'What does Hawaii’s autism mandate require?', a: 'Luke’s Law (HRS § 431:10A-133) requires state-regulated plans to cover autism diagnosis and treatment for individuals under 14, with ABA subject to a $25,000 annual maximum for children 13 and under. Self-funded employer plans are exempt.' },
       { q: 'What does Aetna pay for ABA in Hawaii?', a: 'Commercial rates are negotiated in your provider agreement and not published.' },
+      { q: 'Does Aetna require a referring provider (box 17) on ABA claims?', a: 'Aetna publishes no such requirement for ABA. A referral has to accompany a claim only when the member’s plan requires PCP referrals for specialist care. Behavioral health is a direct-access benefit in Aetna’s behavioral health manual.' },
+      { q: 'Which form does Aetna want with an ABA prior-authorization request?', a: 'Since August 1, 2026, use form GR-69017-4, “ABA Treatment Request: Required Information for Precertification.” Start the request on Availity or by phone first, then attach the completed form plus a standardized assessment from the past 12 months and the treatment plan.' },
     ],
   },
 
@@ -1380,6 +1407,17 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
           { title: 'Cigna for Health Care Professionals — When to File (timely filing policy)', url: 'https://static.cigna.com/assets/chcp/resourceLibrary/clinicalReimbursementPayment/medicalClinicalReimburseWhenToFile.html' },
         ],
       },
+      {
+        h2: 'Does Cigna need a referring provider on the ABA claim?',
+        body: [
+          'No. Evernorth’s administrative guidelines (September 2026) define a complete CMS-1500 claim as the patient’s ID number, name, address and date of birth; the subscriber’s name and address; release of information and assignment of benefits; diagnosis codes and pointer; date and place of service; CPT/HCPCS code and modifier; billed charge, units, TIN and total charge; the “Rendering provider’s name, NPI, and license type”; and the “Billing provider’s name, address, and NPI.” No referring or ordering provider is on that list. If you do report one on an 837, “Any additional provider identification on the claim, such as the “Rendering Provider” or “Referring Provider,” must include the name and NPI when submitted.”',
+          'The ABA-specific paper-claim rules sit in the autism resource guide: use Form CMS-1500, “Print your name in box 31,” and “List only a BCBA or other licensed provider in box 33.” Evernorth does not credential non-licensed or non-certified staff, so their services are billed under the supervising provider.',
+        ],
+        cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191): complete-claim definition and 837 provider identifiers', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+          { title: 'Cigna / Evernorth autism resource guide (March 2025): paper-claim rules', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Luke’s Law applies) or self-funded employer plan (exempt).' },
@@ -1395,9 +1433,13 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
         cites: [CIG_EN0499],
       },
       concurrentBilling: {
-        value: 'Only one provider may bill for a unit of time, "with the exception of CPT codes 97153, 97154, and 97155 (direct supervision when the BCBA/qualified health care provider directs the technician and both are face-to-face with the patient at the same time)."',
+        value:
+          'Only one provider may bill for a unit of time, "with the exception of CPT codes 97153, 97154, and 97155 (direct supervision when the BCBA/qualified health care provider directs the technician and both are face-to-face with the patient at the same time)." Speech, OT and other therapies are a separate rule: EN0499 says ABA "is not covered or reimbursable when delivered to the same individual, at the same time as any other treatment modality (e.g., ABA and speech therapy, or ABA and occupational therapy)." Schedule ABA and other therapies in separate time blocks. ABA built into a speech or OT session is not billable.',
         status: 'verified',
-        cites: [CIG_ARG],
+        cites: [
+          { title: 'Cigna / Evernorth autism resource guide for behavioral health providers (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (effective 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
       },
       dailyLimits: {
         value: 'No per-day unit cap in EN0499 or the resource guide; hours are authorized on medical necessity. On fully insured Hawaii plans Luke’s Law caps ABA at $25,000 a year for children 13 and under.',
@@ -1405,11 +1447,12 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
         cites: [CIG_EN0499, HRS_133],
       },
       noteSignature: {
-        value: 'EN0499 requires documentation of the specific service delivered and the supervisor’s name and credentials, but sets no session-note signature rule.',
-        status: 'unverified',
-        cites: [CIG_EN0499],
-        verifyVia: 'Evernorth Provider Services 800-926-2273 or the provider agreement.',
-        blocker: 'per-case',
+        value:
+          'The person who delivered the service signs the note. EN0499\'s Documentation Expectations require "A separate written record ... for each individual receiving ABA intervention corresponding with each service noted through identified CPT® Code." Each record must include at least the start and end date and time, the location, the focus of service, a detailed description of the intervention, the individuals present, the specific service delivered (direct service, supervision, stakeholder training and so on), and the "Name, credential (if applicable), and signature of ABA provider who rendered the service." EN0499 sets no deadline for signing.',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (effective 5/15/2026): Documentation Expectations', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
       },
       placeOfService: {
         value: 'EN0499 expects treatment across the settings where behaviors occur (including academic settings and telehealth); all ABA codes are covered by telehealth. Luke’s Law excludes "services provided outside of the State."',
@@ -1480,6 +1523,7 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
       { q: 'Does Cigna require RBT certification for ABA technicians?', a: 'Evernorth credentials only certified or licensed clinicians (BCBA, BCBA-D, BCaBA, licensed behavior analyst or other licensure). It does not credential technicians; their services are billed under the supervising provider. EN0499 describes direct supervision of the RBT or BCaBA delivering treatment.' },
       { q: 'Does Cigna pay for ABA delivered at school in Hawaii?', a: 'EN0499 treats school as a possible treatment setting but excludes educational services. It lists school among the settings where treatment goals may be set ("home, clinic, school, community setting"), requires the record to show that ABA in an academic setting still meets the direct-treatment definition, and excludes services "primarily educational or vocational in nature, or related to academic or work performance." Whether school hours are payable on a given plan is a benefit-document question.' },
       { q: 'What is Cigna’s timely filing limit in Hawaii?', a: '90 days from the date of service for a participating provider and 180 days out of network, unless your agreement or applicable law allows longer (Cigna’s When to File policy).' },
+      { q: 'Does Cigna require a referring provider (box 17) on ABA claims?', a: 'No. Evernorth’s complete-claim definition for the CMS-1500 lists the rendering and billing providers but no referring provider. If you report a referring provider on an electronic claim, include both the name and the NPI.' },
     ],
   },
 
@@ -1559,6 +1603,17 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'Optum Behavioral Health — National Provider Network Manual (published 7/1/2026, effective 9/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+        ],
+      },
+      {
+        h2: 'Does UnitedHealthcare need a referring provider on the ABA claim?',
+        body: [
+          'Not for ABA. Optum, which manages UnitedHealthcare’s behavioral benefit, says in its National Network Manual (effective September 1, 2026) that a claim must carry the coding (ICD diagnosis, CPT/HCPCS and modifiers), the member ID number, customary charges, and the provider’s TIN and NPI. Paper Form 1500 claims add the member and subscriber names and dates of birth, the length of session, the type and duration of service, and the clinician’s name, credentials, Tax ID and NPI. A referring provider is not on either list.',
+          'UnitedHealthcare’s 2026 administrative guide requires the referring provider’s name and NPI only on laboratory, DME, imaging and home health claims. For every other claim, it requires “a valid billing NPI, rendering NPI and relevant taxonomy code(s)” and says “we encourage you to submit the referring health care provider’s NPI.” In short, the referring NPI is optional on an ABA claim, and leaving it off is not a denial reason under either document.',
+        ],
+        cites: [
+          { title: 'Optum National Network Manual (BH02330, effective September 1, 2026): claims submission and Form 1500 required fields', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+          { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial), Chapter 10: complete claim and NPI requirements', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
         ],
       },
     ],
@@ -1673,6 +1728,7 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
       { q: 'What is UnitedHealthcare\'s ABA fee schedule in Hawaii?', a: 'There is no public one. Optum pays contracted providers at the rate on the fee schedule in their Optum agreement.' },
       { q: 'Is UnitedHealthcare (Optum) accepting new ABA providers in Hawaii?', a: 'Optum takes ABA applications through the "Join Our Autism/ABA Network" section of Provider Express. Credentialing takes 45 to 120 days after a complete submission, plus a site audit for new agencies. Optum publishes no statement that its network is closed.' },
       { q: 'What is UnitedHealthcare’s timely filing limit for ABA in Hawaii?', a: '90 calendar days from the date of service under Optum’s National Provider Network Manual, unless law or the member’s plan allows longer.' },
+      { q: 'Does UnitedHealthcare require a referring provider (box 17) on ABA claims?', a: 'No. Optum’s claim requirements do not include a referring provider. UnitedHealthcare makes the referring name and NPI mandatory only for lab, DME, imaging and home health claims. For other claims it encourages the referring NPI but does not require it.' },
     ],
   },
 };

@@ -2438,6 +2438,16 @@ export const californiaPayers: Record<string, PayerConfig> = {
           { title: '28 CCR § 1300.71.38 — Provider dispute resolution mechanism (DMHC plans)', url: 'https://www.law.cornell.edu/regulations/california/28-CCR-1300.71.38' },
         ],
       },
+      {
+        h2: 'Out-of-state Blue members in California (BlueCard)',
+        body: [
+          'If you are in Blue Shield’s network and the child’s card is from another Blue plan, Blue Shield of California is your claims door. The July 2026 manual says BlueCard lets professional providers "submit claims for patients from other state Blue Plans, either domestic or international, to Blue Shield of California," and "Blue Shield is your primary contact for BlueCard claims processing, provider correspondence, and inquiries." Paper claims and correspondence that need medical records go to Blue Shield of California, BlueCard Program, P.O. Box 272630, Chico CA 95927-2630, (800) 622-0632.',
+          'Prior authorization follows the member’s home plan, not Blue Shield. Appendix 5-A tells providers to "remind patients that they are responsible for obtaining pre-certification/ authorization for outpatient services from their Blue plan," and that "Failure to obtain required prior authorization or admission review may result in partial or total benefit denial." To check or request it, use the Electronic Provider Access tool ("Pre-service review for out-of-area members" on Provider Connection). Entering the member’s three-character prefix routes you to the home plan’s portal. You can also call BlueCard Eligibility at (800) 676-BLUE (2583) and choose the Behavioral Health pre-certification option. The home plan may contact you directly for clinical information or records before treatment or for concurrent review.',
+        ],
+        cites: [
+          { title: 'Blue Shield of California Independent Physician and Provider Manual (July 2026): BlueCard Program Claims (Section 4) and Appendix 5-A, The BlueCard Program', url: 'https://www.blueshieldca.com/content/dam/bsca/en/provider/docs/7-26-A11421-IPP-Manual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan type on the card', desc: 'DMHC plan (HMO/PPO — PA required) vs. CDI-regulated Blue Shield Life & Health policy vs. self-funded/ASO vs. FEP — each routes differently.' },
@@ -2491,15 +2501,14 @@ export const californiaPayers: Record<string, PayerConfig> = {
         ],
       },
       referral: {
-        value: 'Blue Shield publishes no separate PCP referral requirement for commercial ABA; for HMO members, ABA is on the list of services Blue Shield (not the IPA/medical group) authorizes and pays. The statute still requires BHT "prescribed by a physician and surgeon" or "developed by a psychologist" — BSC3.01’s note that "A board-certified behavioral analyst (BCBA) could prescribe ABA treatment" sits oddly with that, so collect the physician or psychologist prescription.',
-        status: 'plan-dependent',
+        value:
+          'No PCP referral and no separate order form. The HMO manual says "Blue Shield members may refer to behavioral health services by calling the Customer Service number on the back of their ID card," and ABA is authorized by Blue Shield, not the IPA or medical group. Blue Shield\'s commercial ABA prior-authorization form (rev. 07/26) is completed by the requesting qualified autism service provider. It asks for no physician prescription or referral, and an "MD signature [is] REQUIRED for urgent requests only." The order that does exist is the statute\'s. BSC3.01 quotes H&S § 1374.73: the treatment must be "prescribed by a physician and surgeon" or "developed by a psychologist," and provided "under a treatment plan prescribed by a qualified autism service provider." The policy\'s own note that "A board-certified behavioral analyst (BCBA) could prescribe ABA treatment" sits oddly with that statute, so collect the physician or psychologist prescription anyway. In practice the diagnosis comes first. BSC3.01 describes an initial diagnosis "obtained from an appropriate provider (e.g., pediatrician, pediatric neurologist, developmental pediatrician, psychologist)," followed by a functional behavioral assessment. Blue Shield publishes no validity period for a prescription and no prescription template.',
+        status: 'verified',
         cites: [
-          { title: 'Blue Shield HMO IPA/Medical Group Procedures Manual, July 2026', url: 'https://www.blueshieldca.com/content/dam/bsca/en/provider/docs/7-26-A12060-HMO-Manual.pdf' },
+          { title: 'Blue Shield HMO IPA/Medical Group Procedures Manual, July 2026 (behavioral health self-referral)', url: 'https://www.blueshieldca.com/content/dam/bsca/en/provider/docs/7-26-A12060-HMO-Manual.pdf' },
           { title: 'Blue Shield Medical Policy BSC3.01 — BHT for ASD or PDD (eff. 12/1/2025)', url: 'https://www.blueshieldca.com/content/dam/bsca/en/provider/docs/medical-policies/Behavioral-Health-TX-Autism-Spectrum-Disorders.pdf' },
-          { title: 'Health & Safety Code § 1374.73 (as amended by SB 402, eff. 1/1/2026)', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=HSC&sectionNum=1374.73' },
+          { title: 'Blue Shield — Prior Authorization Request Form, Applied Behavior Analysis (Commercial; A57523PRV-TAR-ABA-FF_0726)', url: 'https://www.blueshieldca.com/content/dam/bsca/en/provider/forms/PA-ABA.pdf' },
         ],
-        verifyVia: 'Blue Shield Behavioral Health (877) 263-9952 — ask whether the member’s HMO EOC needs a PCP referral before the ABA request.',
-        blocker: 'per-case',
       },
       telehealth: {
         value: 'Telehealth is a place-of-service choice on the ABA request form (alongside office, home and community), so it is authorized code by code; Blue Shield’s general claim rule is "For Telehealth HIPAA compliant video services, use Modifier 95 in 24d and place of service 02 in 24b." H&S § 1374.14 requires telehealth coverage and payment on the same basis as in person. No ABA-specific list of telehealth-eligible codes is published.',
@@ -2592,6 +2601,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { q: 'How fast does Blue Shield decide an ABA request?', a: 'Five business days for standard requests and 72 hours for urgent ones, per Blue Shield’s ABA form and 2026 manual — the H&S § 1367.01 floor.' },
       { q: 'What does the California autism mandate require?', a: 'Fully insured plans must cover behavioral health treatment, including ABA, for autism with no age or dollar caps, a treatment plan reviewed at least every six months, and — from 2026 — no forced rediagnosis to keep coverage. Self-funded ERISA and Medi-Cal plans are exempt.' },
       { q: 'What is Blue Shield of California’s timely filing limit for ABA claims?', a: 'Twelve months from the date of service unless your contract says otherwise, per Blue Shield’s July 2026 provider manual. Provider disputes are due within 365 days of Blue Shield’s action (or longer if your agreement allows) and are resolved within 45 working days.' },
+      { q: 'I am in Blue Shield of California’s network. How do I handle a child with another state’s Blue plan?', a: 'Bill Blue Shield of California under BlueCard. Get ABA prior authorization from the member’s home plan: use the out-of-area pre-service review tool on Provider Connection with the member’s prefix, or call (800) 676-BLUE and ask for Behavioral Health pre-certification.' },
     ],
   },
 
@@ -2753,13 +2763,15 @@ export const californiaPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       referral: {
-        value: 'No Anthem referral or order requirement for PPO ABA was found; the statute’s requirement that BHT be prescribed by a physician or developed by a psychologist works as the order. HMO members may route through their medical group — confirm on the card.',
+        value:
+          'Anthem sets no referral or physician-order step of its own for commercial ABA. Its commercial BH/ABA group guide goes straight to pre-authorization: "submit an online request at https://Availity.com or fill out the Adaptive Behavioral Treatment Request and fax the completed form to 866-582-2287." The order that applies is the statute\'s: BHT must be prescribed by a physician or developed by a psychologist (H&S § 1374.73), so the diagnosing physician\'s or psychologist\'s recommendation serves as the order. HMO members may be routed through their medical group, so confirm on the card who manages behavioral health.',
         status: 'plan-dependent',
         cites: [
+          { title: 'Anthem Blue Cross — Behavioral Health Guide: Commercial BH and ABA Group Agreement', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_BHG_Groups.pdf' },
           { title: 'Health & Safety Code § 1374.73 (as amended by SB 402, eff. 1/1/2026)', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=HSC&sectionNum=1374.73' },
           { title: 'DMHC — Types of Plans', url: 'https://www.dmhc.ca.gov/HealthCareinCalifornia/TypesofPlans.aspx' },
         ],
-        verifyVia: 'The behavioral health number on the member ID card — for HMO members, whether BH is retained by Anthem or delegated to a medical group.',
+        verifyVia: 'The behavioral health number on the member ID card. For an HMO member, ask whether behavioral health is retained by Anthem or delegated to a medical group, and whether that group requires a PCP referral before the ABA request.',
         blocker: 'per-case',
       },
       telehealth: {
@@ -3225,6 +3237,17 @@ export const californiaPayers: Record<string, PayerConfig> = {
           { title: 'Aetna Provider Manual (6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
         ],
       },
+      {
+        h2: 'Does Aetna need a referring provider on the ABA claim?',
+        body: [
+          'Aetna publishes no requirement to report a referring or ordering provider on an ABA claim. Its office manual defines a clean claim as including “A corresponding referral (whether in paper or electronic format), if required for the applicable claim” plus “All the data elements of the UB-04 or CMS-1500 (or successor standard) forms (including but not limited to member identification number, National Provider Identifier (NPI), date(s) of service, and a complete and accurate breakdown of services).”',
+          'A referral matters only on plans that require PCP referrals for specialist care. Those referrals must be issued before the visit (“Referrals should not be retroactive”), and “In Aetna Open Access® plans, referrals also are not necessary.” Aetna’s behavioral health manual lists direct access as the first way into care: members may reach behavioral health “Through direct access to the behavioral health provider,” through a recommendation from their PCP or another treating provider, or through an EAP referral.',
+        ],
+        cites: [
+          { title: 'Aetna Health Care Professional Toolkit / office manual (2026): clean claims and referral policies', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna Behavioral Health Provider Manual (8/22): access to care', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies; California PA carve-out may apply) vs. self-funded ERISA (national precert rule, mandate does not bind).' },
@@ -3358,14 +3381,14 @@ export const californiaPayers: Record<string, PayerConfig> = {
         ],
       },
       noteSignature: {
-        value: 'No ABA session-note signature rule. Aetna’s California-only record requirements add "the patient’s preferred language" and, if not English, an "offer of a qualified interpreter and, if interpretation services are declined, the enrollee’s refusal," and for pediatric ASD members "documentation of collaboration, consultation and/or continuity of care."',
-        status: 'unverified',
+        value:
+          'Aetna has a general rule, not an ABA-specific one. Its medical-record standards apply to "all participating practitioners," who "agree to maintain medical records in a current, detailed, organized, and comprehensive manner." The core components are: "All entries are dated," "All entries are legible to someone other than the writer," and "All entries in the record must contain the provider\'s signature/initials or electronic identifier." Aetna audits records against these at least every two years, with an 85% performance goal. Aetna\'s ABA documents do not say whether the technician, the supervising BCBA or both sign a session note, or how soon after the session it must be signed. Each person who writes an entry should sign or e-sign and date it. California adds its own items. Aetna\'s state supplement says "California requires that all medical record documentation include" the patient\'s preferred language and "an offer of a qualified interpreter and, if interpretation services are declined, the enrollee\'s refusal." The office manual\'s record audit adds, for California members only: "For pediatric members with an autism spectrum disorder diagnosis, there is documentation of collaboration, consultation and/or continuity of care."',
+        status: 'verified',
         cites: [
-          { title: 'Aetna Provider Manual (6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna Health Care Professional Toolkit / office manual (2026): medical records — standards and criteria for documentation', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
           { title: 'Aetna Provider Manual State Supplement (7/26) — California section', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/ProviderManual-StateSpplmt.pdf' },
         ],
-        verifyVia: 'The participating-provider agreement and Aetna’s documentation standards — who must sign ABA session notes and by when.',
-        blocker: 'per-case',
       },
       placeOfService: {
         value: 'Setting-agnostic for outpatient ABA, with coordination "with existing providers and/or the school district" and tapering toward supports such as school. CPB 0648: "Many Aetna plans exclude coverage of educational services. For example, speech therapy or ABA services during class would be excluded," and GR-69017-4 asks whether hours are requested during class. On fully insured California plans, H&S § 1374.72(h) bars limiting coverage because services could be covered by "special education or an individualized education program."',
@@ -3390,6 +3413,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { q: 'Does Aetna cover ABA therapy in California?', a: 'Yes — for autism under Aetna’s national policy, with California’s mandate (H&S § 1374.73 / Ins. § 10144.51) on fully insured plans. Self-funded employer plans are exempt from the mandate, so verify funding type first.' },
       { q: 'Does Aetna require prior authorization for ABA in California?', a: 'Nationally yes, but Aetna’s California supplement says outpatient behavioral health on fully insured plans has not required prior authorization since March 1, 2024, without mentioning ABA. Call Aetna precertification (1-888-632-3862) for each member and keep the reference number.' },
       { q: 'Does Aetna have a Medi-Cal plan in California?', a: 'No. Aetna Better Health of California stopped operating on January 1, 2024; Medi-Cal ABA runs through the county Medi-Cal plan.' },
+      { q: 'Does Aetna require a referring provider (box 17) on ABA claims?', a: 'Aetna publishes no such requirement for ABA. A referral has to accompany a claim only when the member’s plan requires PCP referrals for specialist care. Behavioral health is a direct-access benefit in Aetna’s behavioral health manual.' },
     ],
   },
 
@@ -3498,6 +3522,17 @@ export const californiaPayers: Record<string, PayerConfig> = {
         cites: [
           { title: '28 CCR § 1300.71 — Claims settlement practices (DMHC plans)', url: 'https://www.law.cornell.edu/regulations/california/28-CCR-1300.71' },
           { title: '28 CCR § 1300.71.38 — Provider dispute resolution mechanism (DMHC plans)', url: 'https://www.law.cornell.edu/regulations/california/28-CCR-1300.71.38' },
+        ],
+      },
+      {
+        h2: 'Does Cigna need a referring provider on the ABA claim?',
+        body: [
+          'No. Evernorth’s administrative guidelines (September 2026) define a complete CMS-1500 claim as the patient’s ID number, name, address and date of birth; the subscriber’s name and address; release of information and assignment of benefits; diagnosis codes and pointer; date and place of service; CPT/HCPCS code and modifier; billed charge, units, TIN and total charge; the “Rendering provider’s name, NPI, and license type”; and the “Billing provider’s name, address, and NPI.” No referring or ordering provider is on that list. If you do report one on an 837, “Any additional provider identification on the claim, such as the “Rendering Provider” or “Referring Provider,” must include the name and NPI when submitted.”',
+          'The ABA-specific paper-claim rules sit in the autism resource guide: use Form CMS-1500, “Print your name in box 31,” and “List only a BCBA or other licensed provider in box 33.” Evernorth does not credential non-licensed or non-certified staff, so their services are billed under the supervising provider.',
+        ],
+        cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191): complete-claim definition and 837 provider identifiers', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+          { title: 'Cigna / Evernorth autism resource guide (March 2025): paper-claim rules', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
         ],
       },
     ],
@@ -3654,6 +3689,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { q: 'What is Cigna\'s ABA fee schedule in California?', a: 'There is no public one. Cigna pays in-network ABA at the rates in your Evernorth agreement; Evernorth directs rate and contract questions to your Provider Relations representative.' },
       { q: 'Is Cigna accepting new ABA providers in California?', a: 'Evernorth says it is committed to expanding its autism network. Apply with the Behavioral Provider Information Form (individuals) or the Screening Application for Autism Clinics (groups); allow up to 90 days, plus 60 to 90 days of individual credentialing for a clinic.' },
       { q: 'Does Cigna pay for ABA delivered at school in California?', a: 'EN0499 treats school as a possible treatment setting but excludes educational services. It lists school among the settings where treatment goals may be set ("home, clinic, school, community setting"), requires the record to show that ABA in an academic setting still meets the direct-treatment definition, and excludes services "primarily educational or vocational in nature, or related to academic or work performance." Whether school hours are payable on a given plan is a benefit-document question.' },
+      { q: 'Does Cigna require a referring provider (box 17) on ABA claims?', a: 'No. Evernorth’s complete-claim definition for the CMS-1500 lists the rendering and billing providers but no referring provider. If you report a referring provider on an electronic claim, include both the name and the NPI.' },
     ],
   },
 
@@ -3768,6 +3804,17 @@ export const californiaPayers: Record<string, PayerConfig> = {
         cites: [
           { title: '28 CCR § 1300.71 — Claims settlement practices (DMHC plans)', url: 'https://www.law.cornell.edu/regulations/california/28-CCR-1300.71' },
           { title: '28 CCR § 1300.71.38 — Provider dispute resolution mechanism (DMHC plans)', url: 'https://www.law.cornell.edu/regulations/california/28-CCR-1300.71.38' },
+        ],
+      },
+      {
+        h2: 'Does UnitedHealthcare need a referring provider on the ABA claim?',
+        body: [
+          'Not for ABA. Optum, which manages UnitedHealthcare’s behavioral benefit, says in its National Network Manual (effective September 1, 2026) that a claim must carry the coding (ICD diagnosis, CPT/HCPCS and modifiers), the member ID number, customary charges, and the provider’s TIN and NPI. Paper Form 1500 claims add the member and subscriber names and dates of birth, the length of session, the type and duration of service, and the clinician’s name, credentials, Tax ID and NPI. A referring provider is not on either list.',
+          'UnitedHealthcare’s 2026 administrative guide requires the referring provider’s name and NPI only on laboratory, DME, imaging and home health claims. For every other claim, it requires “a valid billing NPI, rendering NPI and relevant taxonomy code(s)” and says “we encourage you to submit the referring health care provider’s NPI.” In short, the referring NPI is optional on an ABA claim, and leaving it off is not a denial reason under either document.',
+        ],
+        cites: [
+          { title: 'Optum National Network Manual (BH02330, effective September 1, 2026): claims submission and Form 1500 required fields', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+          { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial), Chapter 10: complete claim and NPI requirements', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
         ],
       },
     ],
@@ -3935,6 +3982,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { q: 'Can the ABA assessment (97151) or BCBA supervision (97155) be done by telehealth with UnitedHealthcare in California?', a: 'Supervision yes, assessment no. For commercial plans Optum allows telehealth only on 97155, 97156 and 97157, after a virtual-visits attestation, billed with POS 02 or 10. The 97151 assessment is not on that list.' },
       { q: 'What is UnitedHealthcare\'s ABA fee schedule in California?', a: 'There is no public one. Optum pays contracted providers at the rate on the fee schedule in their Optum agreement.' },
       { q: 'Is UnitedHealthcare (Optum) accepting new ABA providers in California?', a: 'Optum takes ABA applications through the "Join Our Autism/ABA Network" section of Provider Express. Credentialing takes 45 to 120 days after a complete submission, plus a site audit for new agencies. Optum publishes no statement that its network is closed.' },
+      { q: 'Does UnitedHealthcare require a referring provider (box 17) on ABA claims?', a: 'No. Optum’s claim requirements do not include a referring provider. UnitedHealthcare makes the referring name and NPI mandatory only for lab, DME, imaging and home health claims. For other claims it encourages the referring NPI but does not require it.' },
     ],
   },
 };

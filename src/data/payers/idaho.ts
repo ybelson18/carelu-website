@@ -702,6 +702,28 @@ export const idahoPayers: Record<string, PayerConfig> = {
           { title: 'Idaho Code § 41-5605 — Exceptions', url: 'https://legislature.idaho.gov/statutesrules/idstat/Title41/T41CH56/SECT41-5605/' },
         ],
       },
+      {
+        h2: 'Does Aetna need a referring provider on the ABA claim?',
+        body: [
+          'Aetna publishes no requirement to report a referring or ordering provider on an ABA claim. Its office manual defines a clean claim as including “A corresponding referral (whether in paper or electronic format), if required for the applicable claim” plus “All the data elements of the UB-04 or CMS-1500 (or successor standard) forms (including but not limited to member identification number, National Provider Identifier (NPI), date(s) of service, and a complete and accurate breakdown of services).”',
+          'A referral matters only on plans that require PCP referrals for specialist care. Those referrals must be issued before the visit (“Referrals should not be retroactive”), and “In Aetna Open Access® plans, referrals also are not necessary.” Aetna’s behavioral health manual lists direct access as the first way into care: members may reach behavioral health “Through direct access to the behavioral health provider,” through a recommendation from their PCP or another treating provider, or through an EAP referral.',
+        ],
+        cites: [
+          { title: 'Aetna Health Care Professional Toolkit / office manual (2026): clean claims and referral policies', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna Behavioral Health Provider Manual (8/22): access to care', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' },
+        ],
+      },
+      {
+        h2: 'What goes in an Aetna ABA precertification request?',
+        body: [
+          'Since August 1, 2026, one Aetna form — “Outpatient Behavioral Health (BH) – ABA Treatment Request: Required Information for Precertification” (GR-69017-4) — “replaces all other” ABA precertification information forms. It does not start a request. Start the request on Availity (Authorization Add) or by phone, then attach the form and the records to the case, or fax them to FaxHub 833-596-0339 with the reference number.',
+          'Section 1 asks for the member and provider group details; the current DSM-5 diagnosis code(s); the diagnosing provider’s name and credentials; hours per authorization period for the assessment codes 97151, 97152 and 0362T; hours per week for 97153–97158 and 0373T; and whether any hours fall during class. Section 2 asks who supervises the ABA services, and whether the child also gets PT, OT, speech, mental health or school services and whether you coordinate with those providers. It also asks for current impairment areas with supporting severity data.',
+          'Attach the results of a standardized assessment (“i.e. Vineland, ABAS, VB-MAPP”) completed within the past 12 months. Also attach a time-limited, individualized treatment plan with baselines and measurable progress criteria, caregiver goals, titration and discharge criteria with an aftercare plan, and baseline, interim and current data for every goal. The form names CPB 0648 and the ABA Medical Necessity Guide as the review criteria.',
+        ],
+        cites: [
+          { title: 'Aetna — Outpatient Behavioral Health (BH) – ABA Treatment Request: Required Information for Precertification (GR-69017-4, 7-26; effective August 1, 2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Bulletin 18-02 applies) or self-funded ERISA (outside it). Ask for the employer and check the card.' },
@@ -730,11 +752,13 @@ export const idahoPayers: Record<string, PayerConfig> = {
         cites: [AETNA_GUIDE, ID_BULLETIN],
       },
       noteSignature: {
-        value: 'Not addressed. The guide sets treatment-plan content (defined target behaviors, baselines, quantifiable progress criteria, generalization, transition and titration planning) but not who signs session notes or by when.',
-        status: 'unverified',
-        cites: [AETNA_GUIDE],
-        verifyVia: 'The Aetna participating-provider agreement and the Aetna Behavioral Health Provider Manual documentation section.',
-        blocker: 'per-case',
+        value:
+          'Aetna has a general rule, not an ABA-specific one. Its medical-record standards apply to "all participating practitioners," who "agree to maintain medical records in a current, detailed, organized, and comprehensive manner." The core components are: "All entries are dated," "All entries are legible to someone other than the writer," and "All entries in the record must contain the provider\'s signature/initials or electronic identifier." Aetna audits records against these at least every two years, with an 85% performance goal. Aetna\'s ABA documents do not say whether the technician, the supervising BCBA or both sign a session note, or how soon after the session it must be signed. Each person who writes an entry should sign or e-sign and date it.',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna Health Care Professional Toolkit / office manual (2026): medical records — standards and criteria for documentation', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+        ],
       },
       placeOfService: {
         value: 'Outpatient ABA is setting-agnostic in the guide. In inpatient, residential or partial hospitalization settings the level-of-care criteria apply and "specific authorization for ABA is not needed in addition." The guide expects coordination with the school district and a plan that tapers toward "supports from other sources (school, as an example)." The school-setting protection in the guide is in its Maryland exhibit only. CPB 0648 notes "many Aetna plans exclude coverage of educational services."',
@@ -807,6 +831,8 @@ export const idahoPayers: Record<string, PayerConfig> = {
       { q: 'Can the ABA assessment (97151) be done by telehealth with Aetna?', a: 'On commercial plans, yes: Aetna\'s telemedicine payment policy lists 97151, 97153, 97155, 97156 and 97157 with modifier GT, 95 or FR. 97152, 97154 and 97158 are listed for Medicare Advantage only. Confirm the policy is current and that the plan has a telehealth benefit.' },
       { q: 'What is Aetna’s timely filing limit in Idaho?', a: 'Aetna’s national provider manual (6/26) does not publish a number — the filing limit is the one in your Aetna agreement.' },
       { q: 'How fast must Aetna pay a clean ABA claim in Idaho?', a: 'Idaho law (Idaho Code § 41-5602) requires a fully insured plan to pay or deny an electronic claim within 30 days of receipt (45 for paper) — but only when the claim was filed within 30 days of the service (45 for paper), and a contract with different payment terms overrides it. Self-funded employer plans are not bound by the statute.' },
+      { q: 'Does Aetna require a referring provider (box 17) on ABA claims?', a: 'Aetna publishes no such requirement for ABA. A referral has to accompany a claim only when the member’s plan requires PCP referrals for specialist care. Behavioral health is a direct-access benefit in Aetna’s behavioral health manual.' },
+      { q: 'Which form does Aetna want with an ABA prior-authorization request?', a: 'Since August 1, 2026, use form GR-69017-4, “ABA Treatment Request: Required Information for Precertification.” Start the request on Availity or by phone first, then attach the completed form plus a standardized assessment from the past 12 months and the treatment plan.' },
     ],
   },
 
@@ -888,6 +914,17 @@ export const idahoPayers: Record<string, PayerConfig> = {
           { title: 'Idaho Code § 41-5602 — Prompt payment of claims', url: 'https://legislature.idaho.gov/statutesrules/idstat/Title41/T41CH56/SECT41-5602/' },
           { title: 'Idaho Code § 41-5603 — Interest payments', url: 'https://legislature.idaho.gov/statutesrules/idstat/Title41/T41CH56/SECT41-5603/' },
           { title: 'Idaho Code § 41-5605 — Exceptions', url: 'https://legislature.idaho.gov/statutesrules/idstat/Title41/T41CH56/SECT41-5605/' },
+        ],
+      },
+      {
+        h2: 'Does Cigna need a referring provider on the ABA claim?',
+        body: [
+          'No. Evernorth’s administrative guidelines (September 2026) define a complete CMS-1500 claim as the patient’s ID number, name, address and date of birth; the subscriber’s name and address; release of information and assignment of benefits; diagnosis codes and pointer; date and place of service; CPT/HCPCS code and modifier; billed charge, units, TIN and total charge; the “Rendering provider’s name, NPI, and license type”; and the “Billing provider’s name, address, and NPI.” No referring or ordering provider is on that list. If you do report one on an 837, “Any additional provider identification on the claim, such as the “Rendering Provider” or “Referring Provider,” must include the name and NPI when submitted.”',
+          'The ABA-specific paper-claim rules sit in the autism resource guide: use Form CMS-1500, “Print your name in box 31,” and “List only a BCBA or other licensed provider in box 33.” Evernorth does not credential non-licensed or non-certified staff, so their services are billed under the supervising provider.',
+        ],
+        cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191): complete-claim definition and 837 provider identifiers', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+          { title: 'Cigna / Evernorth autism resource guide (March 2025): paper-claim rules', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
         ],
       },
     ],
@@ -989,6 +1026,7 @@ export const idahoPayers: Record<string, PayerConfig> = {
       { q: 'Does Cigna credential RBTs?', a: 'No. "Evernorth does not credential nonlicensed/noncertified staff. Services for these staff members must be billed under the supervising provider." EN0499 expects the direct work from an RBT or BCaBA under BCBA case supervision.' },
       { q: 'What is Cigna’s timely filing limit in Idaho?', a: 'Evernorth Behavioral Health, which administers Cigna’s ABA benefit, considers claims submitted within 90 days of the date of service unless your provider agreement or a longer state-law limit says otherwise.' },
       { q: 'How fast must Cigna pay a clean ABA claim in Idaho?', a: 'Idaho law (Idaho Code § 41-5602) requires a fully insured plan to pay or deny an electronic claim within 30 days of receipt (45 for paper) — but only when the claim was filed within 30 days of the service (45 for paper), and a contract with different payment terms overrides it. Self-funded employer plans are not bound by the statute.' },
+      { q: 'Does Cigna require a referring provider (box 17) on ABA claims?', a: 'No. Evernorth’s complete-claim definition for the CMS-1500 lists the rendering and billing providers but no referring provider. If you report a referring provider on an electronic claim, include both the name and the NPI.' },
     ],
   },
 
@@ -1067,6 +1105,17 @@ export const idahoPayers: Record<string, PayerConfig> = {
           { title: 'Idaho Code § 41-5602 — Prompt payment of claims', url: 'https://legislature.idaho.gov/statutesrules/idstat/Title41/T41CH56/SECT41-5602/' },
           { title: 'Idaho Code § 41-5603 — Interest payments', url: 'https://legislature.idaho.gov/statutesrules/idstat/Title41/T41CH56/SECT41-5603/' },
           { title: 'Idaho Code § 41-5605 — Exceptions', url: 'https://legislature.idaho.gov/statutesrules/idstat/Title41/T41CH56/SECT41-5605/' },
+        ],
+      },
+      {
+        h2: 'Does UnitedHealthcare need a referring provider on the ABA claim?',
+        body: [
+          'Not for ABA. Optum, which manages UnitedHealthcare’s behavioral benefit, says in its National Network Manual (effective September 1, 2026) that a claim must carry the coding (ICD diagnosis, CPT/HCPCS and modifiers), the member ID number, customary charges, and the provider’s TIN and NPI. Paper Form 1500 claims add the member and subscriber names and dates of birth, the length of session, the type and duration of service, and the clinician’s name, credentials, Tax ID and NPI. A referring provider is not on either list.',
+          'UnitedHealthcare’s 2026 administrative guide requires the referring provider’s name and NPI only on laboratory, DME, imaging and home health claims. For every other claim, it requires “a valid billing NPI, rendering NPI and relevant taxonomy code(s)” and says “we encourage you to submit the referring health care provider’s NPI.” In short, the referring NPI is optional on an ABA claim, and leaving it off is not a denial reason under either document.',
+        ],
+        cites: [
+          { title: 'Optum National Network Manual (BH02330, effective September 1, 2026): claims submission and Form 1500 required fields', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+          { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial), Chapter 10: complete claim and NPI requirements', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
         ],
       },
     ],
@@ -1185,6 +1234,7 @@ export const idahoPayers: Record<string, PayerConfig> = {
       { q: 'Can the ABA assessment be done by telehealth with UnitedHealthcare?', a: 'No, not on commercial plans. Optum\'s telehealth billing guide allows only 97155, 97156 and 97157 by telehealth for ABA, so 97151 and 97152 are delivered in person. Supervision (97155) and caregiver training can be remote once the provider has completed Optum\'s virtual-visits attestation.' },
       { q: 'What is UnitedHealthcare’s timely filing limit in Idaho?', a: 'Optum Behavioral Health, which manages UnitedHealthcare’s ABA benefit, requires claims within 90 calendar days of the date of service unless state or federal law or the member’s plan allows longer (National Network Manual, effective September 1, 2026).' },
       { q: 'How fast must UnitedHealthcare pay a clean ABA claim in Idaho?', a: 'Idaho law (Idaho Code § 41-5602) requires a fully insured plan to pay or deny an electronic claim within 30 days of receipt (45 for paper) — but only when the claim was filed within 30 days of the service (45 for paper), and a contract with different payment terms overrides it. Self-funded employer plans are not bound by the statute.' },
+      { q: 'Does UnitedHealthcare require a referring provider (box 17) on ABA claims?', a: 'No. Optum’s claim requirements do not include a referring provider. UnitedHealthcare makes the referring name and NPI mandatory only for lab, DME, imaging and home health claims. For other claims it encourages the referring NPI but does not require it.' },
     ],
   },
 };

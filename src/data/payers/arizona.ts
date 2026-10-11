@@ -161,6 +161,16 @@ export const arizonaPayers: Record<string, PayerConfig> = {
           { title: 'AHCCCS — Electronic Visit Verification (What is EVV?, updated Oct. 22, 2025)', url: 'https://www.azahcccs.gov/AHCCCS/Initiatives/EVV/' },
         ],
       },
+      {
+        h2: 'Does AHCCCS need a referring or ordering provider on the ABA claim?',
+        body: [
+          'Not for ABA under the fee-for-service billing rules. AHCCCS’s CMS-1500 chapter marks field 17, "Name of Referring Provider or Other Source," as "Required if applicable," with qualifiers DN (referring), DK (ordering) and DQ (supervising). The services that require an ordering provider are listed: laboratory, drugs (J-codes), radiology, temporary K and Q codes, medical and surgical supplies, orthotics, respiratory, DME, prosthetics, enteral and parenteral therapy, vision (V-codes), diabetes self-management and chiropractic services. Behavior analysis codes are not on that list.',
+          'When you do report a provider in field 17, the chapter makes 17b, the provider’s NPI, "Required." This chapter governs AHCCCS fee-for-service claims. Health plans (Mercy Care, UnitedHealthcare Community Plan, AzCH, BUFC, Health Choice, Molina and DDD) publish their own claim manuals, so check the member’s plan before assuming the same answer.',
+        ],
+        cites: [
+          { title: 'AHCCCS FFS Provider Billing Manual, Chapter 5 — Billing on the CMS 1500 (rev. 5/31/2023): fields 17–17b', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSProviderManual/FFS_Chap05.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'ACC plan vs. DDD enrollment', desc: 'The routing question — an ACC card and a DDD Health Plan card mean different payers, portals, and auth pathways.' },
@@ -343,6 +353,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { q: 'What is AHCCCS’s timely filing limit for ABA claims?', a: 'Six months from the date of service (or from the date eligibility is posted, if later) for the first submission, and twelve months to get the claim to clean-claim status. A.R.S. § 36-2904(G) applies the same limits to AHCCCS fee-for-service and to its contracted health plans.' },
       { q: 'Does Arizona Medicaid require EVV for ABA?', a: 'Not as ABA. AMPM 540 limits EVV to personal care and home health services — AHCCCS names attendant care, personal care, homemaker, habilitation, respite and in-home skilled nursing — and a visit is covered only when provider type, service code and place of service all match AHCCCS’s list.' },
       { q: 'How do I dispute a denied AHCCCS ABA claim?', a: 'In writing within twelve months of the date of service (or of eligibility posting), or sixty days after the denial of a timely claim, whichever is later. Fee-for-service disputes go to AHCCCS’s Office of General Counsel; plan members’ disputes go to their health plan. A state fair hearing can be requested within 30 days of an unfavourable decision.' },
+      { q: 'Does AHCCCS require a referring provider (box 17) on ABA claims?', a: 'Not under the fee-for-service CMS-1500 rules. Field 17 is "Required if applicable," and AHCCCS requires an ordering provider only for lab, drugs, radiology, supplies, DME and similar items, not behavior analysis. If you fill field 17, include the NPI in 17b. Health plans may set their own rules.' },
     ],
   },
 
@@ -2321,15 +2332,14 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       cites: [{ title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }, { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
     },
     dxRequired: {
-      value: 'Yes — ASD only (F84.0–F84.9); ABA for other diagnoses considered experimental',
-      status: 'unverified',
+      value:
+        'Yes — a DSM-5 autism spectrum disorder diagnosis "(ICD-10/ F84.0; F84.3 - F84.9) obtained by an appropriate provider" per the ABA Medical Necessity Guide. That list leaves out F84.2 (Rett syndrome). CPB 0648\'s broader autism code list runs F84.0–F84.9, but the ABA guide is the narrower and controlling one for ABA. CPB 0554 calls ABA "experimental, investigational, or unproven" for Down syndrome without ASD and "for all other non-ASD indications."',
+      status: 'verified',
       cites: [
         { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
-        { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+        { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 11/26/2025)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+        { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
       ],
-      verifyVia:
-        'Aetna CPB 0554 / CPB 0648 and the ABA Medical Necessity Guide. The substantive rule — ASD only, ABA for other diagnoses considered experimental — is sourced, but the code range printed here is NOT: the Medical Necessity Guide states "(ICD-10/ F84.0; F84.3 - F84.9)", which omits F84.1 and F84.2. Confirm the governing code set with Aetna before relying on "F84.0-F84.9".',
-      blocker: 'document',
     },
     payer: 'Aetna in Arizona',
     state: 'AZ', kind: 'commercial',
@@ -2423,6 +2433,17 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'A.R.S. § 20-3102 — Timely payment of health care provider claims', url: 'https://www.azleg.gov/ars/20/03102.htm' },
+        ],
+      },
+      {
+        h2: 'Does Aetna need a referring provider on the ABA claim?',
+        body: [
+          'Aetna publishes no requirement to report a referring or ordering provider on an ABA claim. Its office manual defines a clean claim as including “A corresponding referral (whether in paper or electronic format), if required for the applicable claim” plus “All the data elements of the UB-04 or CMS-1500 (or successor standard) forms (including but not limited to member identification number, National Provider Identifier (NPI), date(s) of service, and a complete and accurate breakdown of services).”',
+          'A referral matters only on plans that require PCP referrals for specialist care. Those referrals must be issued before the visit (“Referrals should not be retroactive”), and “In Aetna Open Access® plans, referrals also are not necessary.” Aetna’s behavioral health manual lists direct access as the first way into care: members may reach behavioral health “Through direct access to the behavioral health provider,” through a recommendation from their PCP or another treating provider, or through an EAP referral.',
+        ],
+        cites: [
+          { title: 'Aetna Health Care Professional Toolkit / office manual (2026): clean claims and referral policies', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna Behavioral Health Provider Manual (8/22): access to care', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' },
         ],
       },
     ],
@@ -2546,11 +2567,12 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       },
       noteSignature: {
         value:
-          'Not published in Aetna\'s ABA materials — no rule on who signs a session note or within what window.',
-        status: 'unverified',
-        verifyVia:
-          'The Aetna provider manual and your participation agreement\'s documentation clause.',
-        blocker: 'document',
+          'Aetna has a general rule, not an ABA-specific one. Its medical-record standards apply to "all participating practitioners," who "agree to maintain medical records in a current, detailed, organized, and comprehensive manner." The core components are: "All entries are dated," "All entries are legible to someone other than the writer," and "All entries in the record must contain the provider\'s signature/initials or electronic identifier." Aetna audits records against these at least every two years, with an 85% performance goal. Aetna\'s ABA documents do not say whether the technician, the supervising BCBA or both sign a session note, or how soon after the session it must be signed. Each person who writes an entry should sign or e-sign and date it.',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna Health Care Professional Toolkit / office manual (2026): medical records — standards and criteria for documentation', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+        ],
       },
       placeOfService: {
         value:
@@ -2574,6 +2596,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { q: 'Can an out-of-state BCBA treat Aetna members in Arizona, including by telehealth?', a: 'Arizona requires a license (A.R.S. § 32-2091.02) but lets an out-of-state provider deliver telehealth after registering under A.R.S. § 36-3606. Aetna requires telehealth providers to meet the license requirements “for all states in which members to whom they are providing Telehealth services are located.”' },
       { q: 'What is Aetna’s timely filing limit in Arizona?', a: 'Aetna’s national provider manual (6/26) does not publish a number — the filing limit is the one in your Aetna agreement.' },
       { q: 'How fast must Aetna pay a clean ABA claim in Arizona?', a: 'Arizona law (A.R.S. § 20-3102) gives a fully insured plan 30 days from receipt to adjudicate a clean claim and, unless your contract says otherwise, 30 more days to pay the approved amount, with interest at the legal rate after that. Self-funded employer plans are not bound by the statute.' },
+      { q: 'Does Aetna require a referring provider (box 17) on ABA claims?', a: 'Aetna publishes no such requirement for ABA. A referral has to accompany a claim only when the member’s plan requires PCP referrals for specialist care. Behavioral health is a direct-access benefit in Aetna’s behavioral health manual.' },
     ],
   },
 
@@ -2702,6 +2725,17 @@ export const arizonaPayers: Record<string, PayerConfig> = {
           { title: 'A.R.S. § 20-3102 — Timely payment of health care provider claims', url: 'https://www.azleg.gov/ars/20/03102.htm' },
         ],
       },
+      {
+        h2: 'Does Cigna need a referring provider on the ABA claim?',
+        body: [
+          'No. Evernorth’s administrative guidelines (September 2026) define a complete CMS-1500 claim as the patient’s ID number, name, address and date of birth; the subscriber’s name and address; release of information and assignment of benefits; diagnosis codes and pointer; date and place of service; CPT/HCPCS code and modifier; billed charge, units, TIN and total charge; the “Rendering provider’s name, NPI, and license type”; and the “Billing provider’s name, address, and NPI.” No referring or ordering provider is on that list. If you do report one on an 837, “Any additional provider identification on the claim, such as the “Rendering Provider” or “Referring Provider,” must include the name and NPI when submitted.”',
+          'The ABA-specific paper-claim rules sit in the autism resource guide: use Form CMS-1500, “Print your name in box 31,” and “List only a BCBA or other licensed provider in box 33.” Evernorth does not credential non-licensed or non-certified staff, so their services are billed under the supervising provider.',
+        ],
+        cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191): complete-claim definition and 837 provider identifiers', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+          { title: 'Cigna / Evernorth autism resource guide (March 2025): paper-claim rules', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured group (mandate applies) vs. self-funded ERISA (exempt) vs. individual/small-group (EHB benchmark) — it decides which rulebook governs.' },
@@ -2808,9 +2842,12 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       },
       concurrentBilling: {
         value:
-          'Yes — and Evernorth writes it as an explicit carve-out from its general rule: "Only one provider can bill for a unit of time, with the exception of CPT codes 97153, 97154, and 97155 (direct supervision when the BCBA/qualified health care provider directs the technician and both are face-to-face with the patient at the same time)." Both must be with the patient; analyst time away from the patient is not inside the exception.',
+          'Yes — and Evernorth writes it as an explicit carve-out from its general rule: "Only one provider can bill for a unit of time, with the exception of CPT codes 97153, 97154, and 97155 (direct supervision when the BCBA/qualified health care provider directs the technician and both are face-to-face with the patient at the same time)." Both must be with the patient; analyst time away from the patient is not inside the exception. Speech, OT and other therapies are a separate rule: EN0499 says ABA "is not covered or reimbursable when delivered to the same individual, at the same time as any other treatment modality (e.g., ABA and speech therapy, or ABA and occupational therapy)." Schedule ABA and other therapies in separate time blocks. ABA built into a speech or OT session is not billable.',
         status: 'verified',
-        cites: [{ title: 'Cigna autism resource guide', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
+        cites: [
+          { title: 'Cigna autism resource guide', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (effective 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
       },
       dailyLimits: {
         value:
@@ -2823,12 +2860,11 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       },
       noteSignature: {
         value:
-          'Not published in the autism resource guide — no rule on who signs a session note or when. EN0499 does require the name and credentials of the supervising and stakeholder-training providers to be documented, and dates of administration on every assessment instrument.',
-        status: 'unverified',
-        cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
-        verifyVia:
-          'The Evernorth Behavioral Health provider administrative guide and your participation agreement.',
-        blocker: 'document',
+          'The person who delivered the service signs the note. EN0499\'s Documentation Expectations require "A separate written record ... for each individual receiving ABA intervention corresponding with each service noted through identified CPT® Code." Each record must include at least the start and end date and time, the location, the focus of service, a detailed description of the intervention, the individuals present, the specific service delivered (direct service, supervision, stakeholder training and so on), and the "Name, credential (if applicable), and signature of ABA provider who rendered the service." EN0499 sets no deadline for signing.',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (effective 5/15/2026): Documentation Expectations', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
       },
       placeOfService: {
         value:
@@ -2857,6 +2893,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { q: 'Can an out-of-state BCBA treat Cigna members in Arizona, including by telehealth?', a: 'Arizona requires a license (A.R.S. § 32-2091.02) but lets an out-of-state provider deliver telehealth after registering under A.R.S. § 36-3606. Evernorth (Cigna) requires providers to “meet all state requirements to provide virtual behavioral services, including any licenses”; confirm with Evernorth before a remote start.' },
       { q: 'What is Cigna’s timely filing limit in Arizona?', a: 'Evernorth Behavioral Health, which administers Cigna’s ABA benefit, considers claims submitted within 90 days of the date of service unless your provider agreement or a longer state-law limit says otherwise.' },
       { q: 'How fast must Cigna pay a clean ABA claim in Arizona?', a: 'Arizona law (A.R.S. § 20-3102) gives a fully insured plan 30 days from receipt to adjudicate a clean claim and, unless your contract says otherwise, 30 more days to pay the approved amount, with interest at the legal rate after that. Self-funded employer plans are not bound by the statute.' },
+      { q: 'Does Cigna require a referring provider (box 17) on ABA claims?', a: 'No. Evernorth’s complete-claim definition for the CMS-1500 lists the rendering and billing providers but no referring provider. If you report a referring provider on an electronic claim, include both the name and the NPI.' },
     ],
   },
 
@@ -2987,6 +3024,17 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'A.R.S. § 20-3102 — Timely payment of health care provider claims', url: 'https://www.azleg.gov/ars/20/03102.htm' },
+        ],
+      },
+      {
+        h2: 'Does UnitedHealthcare need a referring provider on the ABA claim?',
+        body: [
+          'Not for ABA. Optum, which manages UnitedHealthcare’s behavioral benefit, says in its National Network Manual (effective September 1, 2026) that a claim must carry the coding (ICD diagnosis, CPT/HCPCS and modifiers), the member ID number, customary charges, and the provider’s TIN and NPI. Paper Form 1500 claims add the member and subscriber names and dates of birth, the length of session, the type and duration of service, and the clinician’s name, credentials, Tax ID and NPI. A referring provider is not on either list.',
+          'UnitedHealthcare’s 2026 administrative guide requires the referring provider’s name and NPI only on laboratory, DME, imaging and home health claims. For every other claim, it requires “a valid billing NPI, rendering NPI and relevant taxonomy code(s)” and says “we encourage you to submit the referring health care provider’s NPI.” In short, the referring NPI is optional on an ABA claim, and leaving it off is not a denial reason under either document.',
+        ],
+        cites: [
+          { title: 'Optum National Network Manual (BH02330, effective September 1, 2026): claims submission and Form 1500 required fields', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+          { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial), Chapter 10: complete claim and NPI requirements', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
         ],
       },
     ],
@@ -3145,6 +3193,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { q: 'Can an out-of-state BCBA treat UnitedHealthcare members in Arizona, including by telehealth?', a: 'Arizona requires a license (A.R.S. § 32-2091.02) but lets an out-of-state provider deliver telehealth after registering under A.R.S. § 36-3606. Optum (UnitedHealthcare): “Providers offering telehealth visits must be licensed in the state where the member is located at the time of service.”' },
       { q: 'What is UnitedHealthcare’s timely filing limit in Arizona?', a: 'Optum Behavioral Health, which manages UnitedHealthcare’s ABA benefit, requires claims within 90 calendar days of the date of service unless state or federal law or the member’s plan allows longer (National Network Manual, effective September 1, 2026).' },
       { q: 'How fast must UnitedHealthcare pay a clean ABA claim in Arizona?', a: 'Arizona law (A.R.S. § 20-3102) gives a fully insured plan 30 days from receipt to adjudicate a clean claim and, unless your contract says otherwise, 30 more days to pay the approved amount, with interest at the legal rate after that. Self-funded employer plans are not bound by the statute.' },
+      { q: 'Does UnitedHealthcare require a referring provider (box 17) on ABA claims?', a: 'No. Optum’s claim requirements do not include a referring provider. UnitedHealthcare makes the referring name and NPI mandatory only for lab, DME, imaging and home health claims. For other claims it encourages the referring NPI but does not require it.' },
     ],
   },
 };

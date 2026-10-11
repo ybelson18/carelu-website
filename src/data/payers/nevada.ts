@@ -266,9 +266,14 @@ export const nevadaPayers: Record<string, PayerConfig> = {
         cites: [S.msm3700, S.fa11f, S.pt85],
       },
       referral: {
-        value: 'Yes. ABA “must be rendered according to the written orders of the Physician, Physician’s Assistant …, Nevada Board of Psychological Examiners or an Advanced Practitioner Registered Nurse (APRN)/Nurse Practitioner (NP)” (MSM 3704.1), certified on FA-11F with the first request. The ordering or referring practitioner must be Medicaid-enrolled and their NPI must be on the claim, or it denies.',
+        value:
+          'Yes. ABA "must be rendered according to the written orders of the Physician, Physician\'s Assistant (NRS 630.271), Nevada Board of Psychological Examiners or an Advanced Practitioner Registered Nurse (APRN)/Nurse Practitioner (NP)" (MSM 3704.1). "The treatment regimen must be designed and signed off on by the qualified ABA provider." Nevada publishes its own order form. FA-11F, "Practitioner Certification Ordering ABA Services," must be completed by "a Physician, Physician\'s Assistant, Advanced Practice Registered Nurse (APRN) or Psychologist acting within their scope of practice." It certifies the diagnosis and the need for ABA, names the diagnostic tool and score (ADOS-2, CARS-2, GARS-3, an FASD category, or DSM-5 criteria with documentation), and carries the practitioner\'s name, credentials, NPI, signature and date of diagnosis. FA-11F goes "with initial requests for ABA services along with FA-11E," and is not resubmitted with continued-service requests. Nevada sets no renewal date because "The diagnosis is to be completed only one time." In practice the diagnosing physician, APRN, PA or psychologist completes FA-11F at or after the diagnostic evaluation. The ordering practitioner must be Medicaid-enrolled. "For any services or supplies that are ordered, prescribed or referred, the NPI of the Nevada Medicaid-enrolled Ordering, Prescribing or Referring (OPR) provider must be included on Nevada Medicaid/Nevada Check Up claims or those claims will be denied." On electronic claims, report it in Loop 2310A; on the Provider Web Portal, use the Referring/Ordering Provider ID field.',
         status: 'verified',
-        cites: [S.msm3700, S.fa11f, S.pt85],
+        cites: [
+          { title: 'Nevada Medicaid Services Manual Chapter 3700 — Applied Behavior Analysis (MTL 08/24, effective April 1, 2024; current)', url: 'https://www.nevadamedicaid.nv.gov/uploadedFiles/dhcfpnvgov/content/Resources/AdminSupport/Manuals/MSM/C3700/MSM_3700_24_04_01.pdf' },
+          { title: 'Nevada Medicaid Form FA-11F — ASD Diagnosis Certification for Requesting Initial ABA Services (updated 06/10/2025)', url: 'https://www.medicaid.nv.gov/Downloads/provider/FA-11F.pdf' },
+          { title: 'Nevada Medicaid — Provider Type 85 Billing Guide, Applied Behavior Analysis (updated 07/27/2026): OPR requirements', url: 'https://www.medicaid.nv.gov/Downloads/provider/NV_BillingGuidelines_PT85.pdf' },
+        ],
       },
       telehealth: {
         value: 'Allowed on parity. MSM 3403 says Nevada Medicaid reimburses telehealth, “Services provided via telehealth have parity with in-person health care services,” the originating site must be in Nevada, and the distant-site provider must be Medicaid-enrolled; the only services MSM 3403.6 requires in person are personal care, home health and private duty nursing. NRS 422.2721 requires the State Plan to pay for telehealth “to the same extent as though provided in person” and bars extra prior authorization for telehealth. Bill POS 10 (home) or 02 plus modifier 95 (audio-video) or 93 (audio-only). No Nevada ABA document lists which ABA codes are clinically appropriate remotely, and the clinician must hold a Nevada license (NRS 629.515).',
@@ -1129,6 +1134,28 @@ export const nevadaPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.nrs689B, S.aetnaOM, S.fee85],
       },
+      {
+        h2: 'Does Aetna need a referring provider on the ABA claim?',
+        body: [
+          'Aetna publishes no requirement to report a referring or ordering provider on an ABA claim. Its office manual defines a clean claim as including “A corresponding referral (whether in paper or electronic format), if required for the applicable claim” plus “All the data elements of the UB-04 or CMS-1500 (or successor standard) forms (including but not limited to member identification number, National Provider Identifier (NPI), date(s) of service, and a complete and accurate breakdown of services).”',
+          'A referral matters only on plans that require PCP referrals for specialist care. Those referrals must be issued before the visit (“Referrals should not be retroactive”), and “In Aetna Open Access® plans, referrals also are not necessary.” Aetna’s behavioral health manual lists direct access as the first way into care: members may reach behavioral health “Through direct access to the behavioral health provider,” through a recommendation from their PCP or another treating provider, or through an EAP referral.',
+        ],
+        cites: [
+          { title: 'Aetna Health Care Professional Toolkit / office manual (2026): clean claims and referral policies', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna Behavioral Health Provider Manual (8/22): access to care', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' },
+        ],
+      },
+      {
+        h2: 'What goes in an Aetna ABA precertification request?',
+        body: [
+          'Since August 1, 2026, one Aetna form — “Outpatient Behavioral Health (BH) – ABA Treatment Request: Required Information for Precertification” (GR-69017-4) — “replaces all other” ABA precertification information forms. It does not start a request. Start the request on Availity (Authorization Add) or by phone, then attach the form and the records to the case, or fax them to FaxHub 833-596-0339 with the reference number.',
+          'Section 1 asks for the member and provider group details; the current DSM-5 diagnosis code(s); the diagnosing provider’s name and credentials; hours per authorization period for the assessment codes 97151, 97152 and 0362T; hours per week for 97153–97158 and 0373T; and whether any hours fall during class. Section 2 asks who supervises the ABA services, and whether the child also gets PT, OT, speech, mental health or school services and whether you coordinate with those providers. It also asks for current impairment areas with supporting severity data.',
+          'Attach the results of a standardized assessment (“i.e. Vineland, ABAS, VB-MAPP”) completed within the past 12 months. Also attach a time-limited, individualized treatment plan with baselines and measurable progress criteria, caregiver goals, titration and discharge criteria with an aftercare plan, and baseline, interim and current data for every goal. The form names CPB 0648 and the ABA Medical Necessity Guide as the review criteria.',
+        ],
+        cites: [
+          { title: 'Aetna — Outpatient Behavioral Health (BH) – ABA Treatment Request: Required Information for Precertification (GR-69017-4, 7-26; effective August 1, 2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured Nevada plan (mandate applies) vs. self-funded ERISA (plan document governs); individual plans may not carry the optional coverage.' },
@@ -1157,11 +1184,13 @@ export const nevadaPayers: Record<string, PayerConfig> = {
         cites: [S.aetnaGuide, S.nrs689B],
       },
       noteSignature: {
-        value: 'Not addressed. Aetna sets treatment-plan content but not who signs a session note or by when.',
-        status: 'unverified',
-        cites: [S.aetnaGuide, S.aetnaOM],
-        verifyVia: 'The participating-provider agreement and the documentation standards in Aetna’s provider manual.',
-        blocker: 'per-case',
+        value:
+          'Aetna has a general rule, not an ABA-specific one. Its medical-record standards apply to "all participating practitioners," who "agree to maintain medical records in a current, detailed, organized, and comprehensive manner." The core components are: "All entries are dated," "All entries are legible to someone other than the writer," and "All entries in the record must contain the provider\'s signature/initials or electronic identifier." Aetna audits records against these at least every two years, with an 85% performance goal. Aetna\'s ABA documents do not say whether the technician, the supervising BCBA or both sign a session note, or how soon after the session it must be signed. Each person who writes an entry should sign or e-sign and date it.',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna Health Care Professional Toolkit / office manual (2026): medical records — standards and criteria for documentation', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+        ],
       },
       placeOfService: {
         value: 'Aetna’s outpatient ABA criteria are setting-neutral and expect coordination with the school district. Nevada’s mandate says nothing in it requires “an insurer to provide reimbursement to a school for services delivered through school services” (NRS 689B.0335(7)).',
@@ -1229,6 +1258,8 @@ export const nevadaPayers: Record<string, PayerConfig> = {
       { q: 'Does Nevada’s autism mandate cap ABA?', a: 'Yes. For state-regulated group, small-employer and HMO plans, ABA is capped at the actuarial equivalent of $72,000 a year, and coverage runs to age 18 (22 if still in high school).' },
       { q: 'How fast must Aetna decide a Nevada ABA prior authorization?', a: 'For a state-regulated plan, NRS 687B.970 requires a response within 2 business days (or the CAQH CORE rule period) and never more than 7 calendar days; a violation deems the request approved. Self-funded plans follow ERISA’s 15 days.' },
       { q: 'Does Aetna require RBT certification for technicians in Nevada?', a: 'Aetna’s network criteria allow supervised paraprofessionals, but Nevada law requires anyone practicing as a technician to be a BACB-certified RBT registered with the Nevada Board of Applied Behavior Analysis, and Aetna requires staff to meet state requirements.' },
+      { q: 'Does Aetna require a referring provider (box 17) on ABA claims?', a: 'Aetna publishes no such requirement for ABA. A referral has to accompany a claim only when the member’s plan requires PCP referrals for specialist care. Behavioral health is a direct-access benefit in Aetna’s behavioral health manual.' },
+      { q: 'Which form does Aetna want with an ABA prior-authorization request?', a: 'Since August 1, 2026, use form GR-69017-4, “ABA Treatment Request: Required Information for Precertification.” Start the request on Availity or by phone first, then attach the completed form plus a standardized assessment from the past 12 months and the treatment plan.' },
     ],
   },
 
@@ -1300,6 +1331,17 @@ export const nevadaPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.ebhAdmin, S.nrs689B, S.fee85],
       },
+      {
+        h2: 'Does Cigna need a referring provider on the ABA claim?',
+        body: [
+          'No. Evernorth’s administrative guidelines (September 2026) define a complete CMS-1500 claim as the patient’s ID number, name, address and date of birth; the subscriber’s name and address; release of information and assignment of benefits; diagnosis codes and pointer; date and place of service; CPT/HCPCS code and modifier; billed charge, units, TIN and total charge; the “Rendering provider’s name, NPI, and license type”; and the “Billing provider’s name, address, and NPI.” No referring or ordering provider is on that list. If you do report one on an 837, “Any additional provider identification on the claim, such as the “Rendering Provider” or “Referring Provider,” must include the name and NPI when submitted.”',
+          'The ABA-specific paper-claim rules sit in the autism resource guide: use Form CMS-1500, “Print your name in box 31,” and “List only a BCBA or other licensed provider in box 33.” Evernorth does not credential non-licensed or non-certified staff, so their services are billed under the supervising provider.',
+        ],
+        cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191): complete-claim definition and 837 provider identifiers', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+          { title: 'Cigna / Evernorth autism resource guide (March 2025): paper-claim rules', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured Nevada plan (mandate applies) vs. self-funded ERISA (plan document governs).' },
@@ -1316,9 +1358,13 @@ export const nevadaPayers: Record<string, PayerConfig> = {
         cites: [S.en0499, S.nrs641D],
       },
       concurrentBilling: {
-        value: '“Only one provider can bill for a unit of time, with the exception of CPT codes 97153, 97154, and 97155 (direct supervision when the BCBA/qualified health care provider directs the technician and both are face-to-face with the patient at the same time).”',
+        value:
+          '“Only one provider can bill for a unit of time, with the exception of CPT codes 97153, 97154, and 97155 (direct supervision when the BCBA/qualified health care provider directs the technician and both are face-to-face with the patient at the same time).” Speech, OT and other therapies are a separate rule: EN0499 says ABA "is not covered or reimbursable when delivered to the same individual, at the same time as any other treatment modality (e.g., ABA and speech therapy, or ABA and occupational therapy)." Schedule ABA and other therapies in separate time blocks. ABA built into a speech or OT session is not billable.',
         status: 'verified',
-        cites: [S.cignaARG],
+        cites: [
+          { title: 'Cigna / Evernorth autism resource guide (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (effective 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
       },
       dailyLimits: {
         value: 'No per-day cap is published; all ABA codes bill in 15-minute units and only with 97151–97158, 0362T and 0373T. For state-regulated Nevada plans the mandate caps ABA at the actuarial equivalent of $72,000 a year and bars visit limits within it.',
@@ -1394,6 +1440,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
       { q: 'Can a BCBA and RBT both bill Cigna for the same time?', a: 'Yes, for 97155 with 97153 (or 97154) when the BCBA is directing the technician and both are face-to-face with the patient at the same time.' },
       { q: 'What does Cigna pay for ABA in Nevada?', a: 'Rates are in Exhibit A of your Evernorth Provider Agreement. Evernorth’s Nevada addendum requires 45 days’ written notice before it changes your fee schedule (not for self-funded plans).' },
       { q: 'Does a BCBA need a Nevada license to bill Cigna?', a: 'Yes. Nevada requires behavior analysts to be licensed by the Board of Applied Behavior Analysis, including for telehealth to a child in Nevada, and Evernorth requires providers to meet state licensure requirements.' },
+      { q: 'Does Cigna require a referring provider (box 17) on ABA claims?', a: 'No. Evernorth’s complete-claim definition for the CMS-1500 lists the rendering and billing providers but no referring provider. If you report a referring provider on an electronic claim, include both the name and the NPI.' },
     ],
   },
 
@@ -1468,6 +1515,17 @@ export const nevadaPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.optumNNM, S.optumReimb, S.nrs689B, S.fee85],
       },
+      {
+        h2: 'Does UnitedHealthcare need a referring provider on the ABA claim?',
+        body: [
+          'Not for ABA. Optum, which manages UnitedHealthcare’s behavioral benefit, says in its National Network Manual (effective September 1, 2026) that a claim must carry the coding (ICD diagnosis, CPT/HCPCS and modifiers), the member ID number, customary charges, and the provider’s TIN and NPI. Paper Form 1500 claims add the member and subscriber names and dates of birth, the length of session, the type and duration of service, and the clinician’s name, credentials, Tax ID and NPI. A referring provider is not on either list.',
+          'UnitedHealthcare’s 2026 administrative guide requires the referring provider’s name and NPI only on laboratory, DME, imaging and home health claims. For every other claim, it requires “a valid billing NPI, rendering NPI and relevant taxonomy code(s)” and says “we encourage you to submit the referring health care provider’s NPI.” In short, the referring NPI is optional on an ABA claim, and leaving it off is not a denial reason under either document.',
+        ],
+        cites: [
+          { title: 'Optum National Network Manual (BH02330, effective September 1, 2026): claims submission and Form 1500 required fields', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+          { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial), Chapter 10: complete claim and NPI requirements', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Which UHC company', desc: 'UHC-branded (Optum manages ABA) vs. Health Plan of Nevada / Sierra (HPN reviews on InterQual). It changes the portal, criteria and phone numbers.' },
@@ -1490,9 +1548,14 @@ export const nevadaPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       dailyLimits: {
-        value: 'No numeric daily cap in Optum’s criteria; hours must be justified by clinical need, and use below 80% of authorized hours must be explained. For state-regulated Nevada plans the mandate caps ABA at the actuarial equivalent of $72,000 a year and bars visit limits within it.',
+        value:
+          'Optum’s commercial ABA reimbursement policy (2022RP501A, which applies to Commercial and Individual Exchange plans) sets a maximum frequency per day for each code: 97151 32 units (8 hrs), 97152 16 (4 hrs), 97153 32 (8 hrs), 97154 18 (4.5 hrs), 97155 24 (6 hrs), 97156 16 (4 hrs), 97157 16 (4 hrs), 97158 16 (4 hrs), 0362T 16 (4 hrs) and 0373T 32 (8 hrs). CMS MUEs otherwise apply, and billing more than 32 units of 97153 in a day "may be subject to non-reimbursement or recovery." There are no weekly unit caps. Weekly hours come from the authorization. No numeric daily cap in Optum’s criteria; hours must be justified by clinical need, and use below 80% of authorized hours must be explained. For state-regulated Nevada plans the mandate caps ABA at the actuarial equivalent of $72,000 a year and bars visit limits within it.',
         status: 'verified',
-        cites: [S.optumSCC, S.nrs689B],
+        cites: [
+          { title: 'Optum — Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; review 04/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+          { title: 'NRS Chapter 689B — Group health insurance (689B.0335 autism, 689B.0369 telehealth, 689B.064 order of benefits, 689B.255 claims)', url: 'https://www.leg.state.nv.us/NRS/NRS-689B.html' },
+        ],
       },
       noteSignature: {
         value: 'Not addressed. Optum’s criteria set coverage documentation, not who signs a session note or by when; HPN publishes nothing.',
@@ -1570,6 +1633,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
       { q: 'Who reviews ABA for Health Plan of Nevada commercial members?', a: 'Since November 1, 2025, HPN’s own Behavioral Health team, using InterQual, for Health Plan of Nevada, Sierra Health and Life and Sierra Health-Care Options. UHC-branded plans use Optum.' },
       { q: 'Does Optum have Nevada-specific ABA criteria?', a: 'No. Optum’s ABA State Mandates supplement does not list Nevada, so the national criteria apply, with Nevada’s mandate layered on for state-regulated plans.' },
       { q: 'Can ABA be delivered by telehealth with UnitedHealthcare in Nevada?', a: 'Optum’s commercial guide allows only 97155, 97156 and 97157 by telehealth. Nevada-insured plans must cover telehealth on the same basis as in person under NRS 689B.0369, so ask Optum how it applies the list to your plan.' },
+      { q: 'Does UnitedHealthcare require a referring provider (box 17) on ABA claims?', a: 'No. Optum’s claim requirements do not include a referring provider. UnitedHealthcare makes the referring name and NPI mandatory only for lab, DME, imaging and home health claims. For other claims it encourages the referring NPI but does not require it.' },
     ],
   },
 
@@ -1653,6 +1717,17 @@ export const nevadaPayers: Record<string, PayerConfig> = {
         h2: 'Claims timing and rates',
         body: [NV_PROMPT_PAY + ' Anthem publishes no Nevada ABA rate table; rates are contractual. The public benchmark is Nevada Medicaid’s 07/2026 PT 85 schedule (97153 $30.10 per 15 minutes billed by a BCBA, $13.01 by an RBT).'],
         cites: [S.nrs689B, S.fee85],
+      },
+      {
+        h2: 'Out-of-state Blue members in Nevada (BlueCard)',
+        body: [
+          'If you are in Anthem’s Nevada network and the child’s card is from another Blue plan, the BlueCard program routes the claim through Anthem. Anthem’s Nevada manual says BlueCard "allows Providers and Facilities to submit Claims for Members from other Blue Plans, domestic and international, to Anthem. Anthem is the sole contact for Claims payment, adjustments, and issue resolution." Bill Anthem, not the member’s home plan.',
+          'The home plan still owns the member’s benefits. Anthem lists "Medical records requested by a Member’s Blue Cross Blue Shield (BlueCard) home plan" among the reasons it may ask for records beyond the claim. Provider disputes on BlueCard claims "are filed directly to the local Blue plan (Nevada)," but when the dispute is about the member’s benefits and you appeal on the member’s behalf, "appeals are coordinated with the Member’s benefit office for final determination."',
+          'Anthem’s manual does not say whose ABA prior-authorization rules apply to a BlueCard member. The detail sits in the separate BlueCard Provider Manual, which the manual says is in the Provider Manual Library. Before the first session, ask the home plan (the number on the member’s card) about its ABA precertification requirements. Do not assume Anthem’s own list applies.',
+        ],
+        cites: [
+          { title: 'Anthem Blue Cross and Blue Shield Nevada Provider and Facility Manual (effective October 1, 2026): BlueCard Program Overview, medical records, provider disputes', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_NV_00015.pdf' },
+        ],
       },
     ],
     collect: [
@@ -1755,6 +1830,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
       { q: 'Does Anthem require prior authorization for ABA in Nevada?', a: 'Anthem’s Nevada commercial list puts inpatient and outpatient behavioral health under Anthem Behavioral Health precertification (800-424-4014), but it does not itemize ABA codes, so confirm per product.' },
       { q: 'Does Nevada cap ABA benefits?', a: 'Yes, for state-regulated plans: ABA up to the actuarial equivalent of $72,000 a year, for children under 18 (22 if still in high school). Self-funded plans follow their own documents.' },
       { q: 'Can a BCBA and RBT both bill Anthem for the same time?', a: 'Yes, 97155 with 97153, but only when both are face-to-face with the patient at the same time and the BCBA is directing the technician.' },
+      { q: 'I am in Anthem’s Nevada network. Can I treat a child with another state’s Blue plan?', a: 'Yes, through BlueCard. Submit the claim to Anthem, which is "the sole contact for Claims payment, adjustments, and issue resolution." The member’s home plan still sets the benefits and may ask for records. Check the home plan’s ABA prior-authorization rules before starting.' },
     ],
   },
 };

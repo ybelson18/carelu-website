@@ -623,10 +623,13 @@ export const utahPayers: Record<string, PayerConfig> = {
       cites: [{ title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }, { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
     },
     dxRequired: {
-      value: 'Yes — ASD only (F84.0–F84.9); ABA for other diagnoses considered experimental',
+      value:
+        'Yes — a DSM-5 autism spectrum disorder diagnosis "(ICD-10/ F84.0; F84.3 - F84.9) obtained by an appropriate provider" per the ABA Medical Necessity Guide. That list leaves out F84.2 (Rett syndrome). CPB 0648\'s broader autism code list runs F84.0–F84.9, but the ABA guide is the narrower and controlling one for ABA. CPB 0554 calls ABA "experimental, investigational, or unproven" for Down syndrome without ASD and "for all other non-ASD indications."',
       status: 'verified',
       cites: [
-        { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+        { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+        { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 11/26/2025)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+        { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
       ],
     },
     payer: 'Aetna in Utah',
@@ -703,6 +706,17 @@ export const utahPayers: Record<string, PayerConfig> = {
           { title: 'Aetna — Provider appeals: state exceptions to the 180-day dispute filing standard', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/provider-appeals.html' },
         ],
       },
+      {
+        h2: 'Does Aetna need a referring provider on the ABA claim?',
+        body: [
+          'Aetna publishes no requirement to report a referring or ordering provider on an ABA claim. Its office manual defines a clean claim as including “A corresponding referral (whether in paper or electronic format), if required for the applicable claim” plus “All the data elements of the UB-04 or CMS-1500 (or successor standard) forms (including but not limited to member identification number, National Provider Identifier (NPI), date(s) of service, and a complete and accurate breakdown of services).”',
+          'A referral matters only on plans that require PCP referrals for specialist care. Those referrals must be issued before the visit (“Referrals should not be retroactive”), and “In Aetna Open Access® plans, referrals also are not necessary.” Aetna’s behavioral health manual lists direct access as the first way into care: members may reach behavioral health “Through direct access to the behavioral health provider,” through a recommendation from their PCP or another treating provider, or through an EAP referral.',
+        ],
+        cites: [
+          { title: 'Aetna Health Care Professional Toolkit / office manual (2026): clean claims and referral policies', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna Behavioral Health Provider Manual (8/22): access to care', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Market segment + funding type', desc: 'Individual or large group fully-insured (mandate applies) vs. small group or self-funded ERISA (exempt) — in Utah this decides everything. Ask for the employer and check the card.' },
@@ -753,14 +767,12 @@ export const utahPayers: Record<string, PayerConfig> = {
       },
       noteSignature: {
         value:
-          'Not addressed in CPB 0554 or CPB 0648.',
-        status: 'unverified',
+          'Aetna has a general rule, not an ABA-specific one. Its medical-record standards apply to "all participating practitioners," who "agree to maintain medical records in a current, detailed, organized, and comprehensive manner." The core components are: "All entries are dated," "All entries are legible to someone other than the writer," and "All entries in the record must contain the provider\'s signature/initials or electronic identifier." Aetna audits records against these at least every two years, with an 85% performance goal. Aetna\'s ABA documents do not say whether the technician, the supervising BCBA or both sign a session note, or how soon after the session it must be signed. Each person who writes an entry should sign or e-sign and date it.',
+        status: 'verified',
         cites: [
-          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
-          { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+          { title: 'Aetna Health Care Professional Toolkit / office manual (2026): medical records — standards and criteria for documentation', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
         ],
-        verifyVia: 'Aetna provider relations or the participating-provider agreement — the clinical bulletins carry no documentation or signature standard.',
-        blocker: 'per-case',
       },
       placeOfService: {
         value:
@@ -829,16 +841,14 @@ export const utahPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'Aetna imposes no referral or physician order of its own — the gate is precertification on form GR-69017-4 for both assessment and treatment, via Availity or phone. The Utah mandate adds no order requirement, but it does put a clock on the practice: the treatment plan is due to the insurer within 14 business days of starting treatment.',
-        status: 'plan-dependent',
+          'Aetna adds no referral or physician-order step of its own. Behavioral health is direct access ("Through direct access to the behavioral health provider"), PCP referrals apply only on plans that require them for specialist care, and the gate is precertification with form GR-69017-4 via Availity or phone. The order requirement comes from state law instead. Under Utah\'s mandate, which reaches fully insured individual and large-group plans, covered "Treatment for autism spectrum disorder" means care "prescribed or ordered for an individual diagnosed with an autism spectrum disorder by a physician or a licensed psychologist described in Subsection (1)(d) who determines the care to be medically necessary." Subsection (1)(d) means a licensed physician board certified in neurology, psychiatry or pediatrics, or a licensed psychologist, either with experience diagnosing ASD. In practice the diagnosing evaluator\'s written recommendation or prescription for ABA is the order to collect. The statute sets no expiry on it. It does require the provider to "submit a treatment plan for autism spectrum disorder to the insurer within 14 business days of starting treatment," and lets the insurer review treatment "not more than once every three months." Self-funded ERISA plans are outside the mandate.',
+        status: 'verified',
         cites: [
           { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
-          { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
-          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
-          { title: 'Utah Code § 31A-22-642 (current, eff. 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.pdf' },
+          { title: 'Aetna Behavioral Health Provider Manual (8/22): access to care', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' },
+          { title: 'Aetna Health Care Professional Toolkit / office manual (2026): referral policies', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Utah Code § 31A-22-642 (current; amended by Ch. 119, 2026 General Session)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/31A-22-S642.html' },
         ],
-        verifyVia: 'The member\'s plan document and a live benefits verification — HMO products may carry their own referral rules.',
-        blocker: 'per-case',
       },
       telehealth: {
         value:
@@ -878,6 +888,7 @@ export const utahPayers: Record<string, PayerConfig> = {
       { q: 'What does Aetna pay for ABA in Utah?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against Utah Medicaid\'s published PRISM rates ($19.67/unit on 97153, $37.51 on 97151/97155/97156, effective 7/1/2026) and treat rate-setting as part of contracting.' },
       { q: 'What is Aetna’s clean-claim payment turnaround in Utah?', a: 'Within 30 days of receiving the claim, extendable once by 15 days with notice (Utah Code § 31A-26-301.6).' },
       { q: 'How long do I have to appeal an Aetna claim decision in Utah?', a: '180 calendar days from the initial claim decision to request a reconsideration, then 60 calendar days from the reconsideration decision to appeal. Fully insured Utah members: 12 months for an initial claim-payment dispute.' },
+      { q: 'Does Aetna require a referring provider (box 17) on ABA claims?', a: 'Aetna publishes no such requirement for ABA. A referral has to accompany a claim only when the member’s plan requires PCP referrals for specialist care. Behavioral health is a direct-access benefit in Aetna’s behavioral health manual.' },
     ],
   },
 
@@ -990,6 +1001,17 @@ export const utahPayers: Record<string, PayerConfig> = {
           { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
         ],
       },
+      {
+        h2: 'Does Cigna need a referring provider on the ABA claim?',
+        body: [
+          'No. Evernorth’s administrative guidelines (September 2026) define a complete CMS-1500 claim as the patient’s ID number, name, address and date of birth; the subscriber’s name and address; release of information and assignment of benefits; diagnosis codes and pointer; date and place of service; CPT/HCPCS code and modifier; billed charge, units, TIN and total charge; the “Rendering provider’s name, NPI, and license type”; and the “Billing provider’s name, address, and NPI.” No referring or ordering provider is on that list. If you do report one on an 837, “Any additional provider identification on the claim, such as the “Rendering Provider” or “Referring Provider,” must include the name and NPI when submitted.”',
+          'The ABA-specific paper-claim rules sit in the autism resource guide: use Form CMS-1500, “Print your name in box 31,” and “List only a BCBA or other licensed provider in box 33.” Evernorth does not credential non-licensed or non-certified staff, so their services are billed under the supervising provider.',
+        ],
+        cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191): complete-claim definition and 837 provider identifiers', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+          { title: 'Cigna / Evernorth autism resource guide (March 2025): paper-claim rules', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Market segment + funding type', desc: 'Individual or large group fully-insured (mandate applies) vs. small group or self-funded ERISA (exempt) — in Utah this decides everything. Ask for the employer and check the card.' },
@@ -1096,11 +1118,11 @@ export const utahPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'EN0499 imposes no referral or physician order — the gate is the confirmed independent-licensure diagnosis plus a full ABA assessment by a BCBA, LBA, or independently licensed mental health clinician with documented ABA training, and where that assessment came from someone other than the requesting provider, documented collaboration plus confirmation that the results reflect current functioning. The Utah mandate adds its own clock: the treatment plan is due to the insurer within 14 business days of starting treatment.',
+          'EN0499 imposes no referral or physician order — the gate is the confirmed independent-licensure diagnosis plus a full ABA assessment by a BCBA, LBA, or independently licensed mental health clinician with documented ABA training, and where that assessment came from someone other than the requesting provider, documented collaboration plus confirmation that the results reflect current functioning. Under Utah\'s mandate, which reaches fully insured individual and large-group plans, covered "Treatment for autism spectrum disorder" means care "prescribed or ordered for an individual diagnosed with an autism spectrum disorder by a physician or a licensed psychologist described in Subsection (1)(d) who determines the care to be medically necessary." Subsection (1)(d) means a licensed physician board certified in neurology, psychiatry or pediatrics, or a licensed psychologist, either with experience diagnosing ASD. In practice the diagnosing evaluator\'s written recommendation or prescription for ABA is the order to collect. The statute sets no expiry on it. It does require the provider to "submit a treatment plan for autism spectrum disorder to the insurer within 14 business days of starting treatment," and lets the insurer review treatment "not more than once every three months." Self-funded ERISA plans are outside the mandate.',
         status: 'verified',
         cites: [
           { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
-          { title: 'Utah Code § 31A-22-642 (current, eff. 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.pdf' },
+          { title: 'Utah Code § 31A-22-642 (current; amended by Ch. 119, 2026 General Session)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/31A-22-S642.html' },
         ],
       },
       telehealth: {
@@ -1148,6 +1170,7 @@ export const utahPayers: Record<string, PayerConfig> = {
       { q: 'Does Cigna pay for ABA delivered at school in Utah?', a: 'EN0499 treats school as a possible treatment setting but excludes educational services. It lists school among the settings where treatment goals may be set ("home, clinic, school, community setting"), requires the record to show that ABA in an academic setting still meets the direct-treatment definition, and excludes services "primarily educational or vocational in nature, or related to academic or work performance." Whether school hours are payable on a given plan is a benefit-document question.' },
       { q: 'What is Cigna’s clean-claim payment turnaround in Utah?', a: 'Within 30 days of receiving the claim, extendable once by 15 days with notice (Utah Code § 31A-26-301.6).' },
       { q: 'What is Cigna’s timely filing limit in Utah?', a: 'Ninety days from the date of service under Evernorth’s administrative guidelines, unless your provider agreement or a longer state-law limit says otherwise.' },
+      { q: 'Does Cigna require a referring provider (box 17) on ABA claims?', a: 'No. Evernorth’s complete-claim definition for the CMS-1500 lists the rendering and billing providers but no referring provider. If you report a referring provider on an electronic claim, include both the name and the NPI.' },
     ],
   },
 
@@ -1255,6 +1278,17 @@ export const utahPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'Utah Code § 31A-26-301.6 — Health care claims practices (eff. 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter26/31A-26-S301.6.html' },
           { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial): timely filing, NPI/taxonomy, claim reconsideration and appeals', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+        ],
+      },
+      {
+        h2: 'Does UnitedHealthcare need a referring provider on the ABA claim?',
+        body: [
+          'Not for ABA. Optum, which manages UnitedHealthcare’s behavioral benefit, says in its National Network Manual (effective September 1, 2026) that a claim must carry the coding (ICD diagnosis, CPT/HCPCS and modifiers), the member ID number, customary charges, and the provider’s TIN and NPI. Paper Form 1500 claims add the member and subscriber names and dates of birth, the length of session, the type and duration of service, and the clinician’s name, credentials, Tax ID and NPI. A referring provider is not on either list.',
+          'UnitedHealthcare’s 2026 administrative guide requires the referring provider’s name and NPI only on laboratory, DME, imaging and home health claims. For every other claim, it requires “a valid billing NPI, rendering NPI and relevant taxonomy code(s)” and says “we encourage you to submit the referring health care provider’s NPI.” In short, the referring NPI is optional on an ABA claim, and leaving it off is not a denial reason under either document.',
+        ],
+        cites: [
+          { title: 'Optum National Network Manual (BH02330, effective September 1, 2026): claims submission and Form 1500 required fields', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+          { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial), Chapter 10: complete claim and NPI requirements', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
         ],
       },
     ],
@@ -1371,11 +1405,11 @@ export const utahPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'Optum imposes no referral or physician order. Prior authorization is the gate — a two-step process on Provider Express, assessment authorized first and then treatment — unless otherwise specified or mandated by contract or law. The Utah mandate adds the 14-business-day treatment-plan deadline after treatment starts.',
+          'Optum imposes no referral or physician order. Prior authorization is the gate — a two-step process on Provider Express, assessment authorized first and then treatment — unless otherwise specified or mandated by contract or law. Under Utah\'s mandate, which reaches fully insured individual and large-group plans, covered "Treatment for autism spectrum disorder" means care "prescribed or ordered for an individual diagnosed with an autism spectrum disorder by a physician or a licensed psychologist described in Subsection (1)(d) who determines the care to be medically necessary." Subsection (1)(d) means a licensed physician board certified in neurology, psychiatry or pediatrics, or a licensed psychologist, either with experience diagnosing ASD. In practice the diagnosing evaluator\'s written recommendation or prescription for ABA is the order to collect. The statute sets no expiry on it. It does require the provider to "submit a treatment plan for autism spectrum disorder to the insurer within 14 business days of starting treatment," and lets the insurer review treatment "not more than once every three months." Self-funded ERISA plans are outside the mandate.',
         status: 'verified',
         cites: [
           { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
-          { title: 'Utah Code § 31A-22-642 (current, eff. 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.pdf' },
+          { title: 'Utah Code § 31A-22-642 (current; amended by Ch. 119, 2026 General Session)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/31A-22-S642.html' },
         ],
       },
       telehealth: {
@@ -1425,6 +1459,7 @@ export const utahPayers: Record<string, PayerConfig> = {
       { q: 'Is UnitedHealthcare (Optum) accepting new ABA providers in Utah?', a: 'Optum takes ABA applications through the "Join Our Autism/ABA Network" section of Provider Express. Credentialing takes 45 to 120 days after a complete submission, plus a site audit for new agencies. Optum publishes no statement that its network is closed.' },
       { q: 'What is UnitedHealthcare’s clean-claim payment turnaround in Utah?', a: 'Within 30 days of receiving the claim, extendable once by 15 days with notice (Utah Code § 31A-26-301.6).' },
       { q: 'Does UnitedHealthcare require a taxonomy code on the claim in Utah?', a: 'Yes. The 2026 administrative guide requires a valid billing NPI, rendering NPI and relevant taxonomy code on all claims and encounters.' },
+      { q: 'Does UnitedHealthcare require a referring provider (box 17) on ABA claims?', a: 'No. Optum’s claim requirements do not include a referring provider. UnitedHealthcare makes the referring name and NPI mandatory only for lab, DME, imaging and home health claims. For other claims it encourages the referring NPI but does not require it.' },
     ],
   },
 };

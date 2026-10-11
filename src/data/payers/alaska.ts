@@ -341,6 +341,28 @@ export const alaskaPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.aetnaOM, S.as21_36_495, S.as21_07, S.fee27],
       },
+      {
+        h2: 'Does Aetna need a referring provider on the ABA claim?',
+        body: [
+          'Aetna publishes no requirement to report a referring or ordering provider on an ABA claim. Its office manual defines a clean claim as including “A corresponding referral (whether in paper or electronic format), if required for the applicable claim” plus “All the data elements of the UB-04 or CMS-1500 (or successor standard) forms (including but not limited to member identification number, National Provider Identifier (NPI), date(s) of service, and a complete and accurate breakdown of services).”',
+          'A referral matters only on plans that require PCP referrals for specialist care. Those referrals must be issued before the visit (“Referrals should not be retroactive”), and “In Aetna Open Access® plans, referrals also are not necessary.” Aetna’s behavioral health manual lists direct access as the first way into care: members may reach behavioral health “Through direct access to the behavioral health provider,” through a recommendation from their PCP or another treating provider, or through an EAP referral.',
+        ],
+        cites: [
+          { title: 'Aetna Health Care Professional Toolkit / office manual (2026): clean claims and referral policies', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna Behavioral Health Provider Manual (8/22): access to care', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' },
+        ],
+      },
+      {
+        h2: 'What goes in an Aetna ABA precertification request?',
+        body: [
+          'Since August 1, 2026, one Aetna form — “Outpatient Behavioral Health (BH) – ABA Treatment Request: Required Information for Precertification” (GR-69017-4) — “replaces all other” ABA precertification information forms. It does not start a request. Start the request on Availity (Authorization Add) or by phone, then attach the form and the records to the case, or fax them to FaxHub 833-596-0339 with the reference number.',
+          'Section 1 asks for the member and provider group details; the current DSM-5 diagnosis code(s); the diagnosing provider’s name and credentials; hours per authorization period for the assessment codes 97151, 97152 and 0362T; hours per week for 97153–97158 and 0373T; and whether any hours fall during class. Section 2 asks who supervises the ABA services, and whether the child also gets PT, OT, speech, mental health or school services and whether you coordinate with those providers. It also asks for current impairment areas with supporting severity data.',
+          'Attach the results of a standardized assessment (“i.e. Vineland, ABAS, VB-MAPP”) completed within the past 12 months. Also attach a time-limited, individualized treatment plan with baselines and measurable progress criteria, caregiver goals, titration and discharge criteria with an aftercare plan, and baseline, interim and current data for every goal. The form names CPB 0648 and the ABA Medical Necessity Guide as the review criteria.',
+        ],
+        cites: [
+          { title: 'Aetna — Outpatient Behavioral Health (BH) – ABA Treatment Request: Required Information for Precertification (GR-69017-4, 7-26; effective August 1, 2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type and employer size', desc: 'Fully insured (AS 21.42.397 applies) vs. self-funded ERISA, and whether the employer is a small group of 20 or fewer (exempt).' },
@@ -369,11 +391,13 @@ export const alaskaPayers: Record<string, PayerConfig> = {
         cites: [S.aetnaGuide, S.as21_42_397],
       },
       noteSignature: {
-        value: 'Not addressed. Aetna sets treatment-plan content requirements but not who signs a session note or by when.',
-        status: 'unverified',
-        cites: [S.aetnaGuide],
-        verifyVia: 'The participating-provider agreement and the Aetna Behavioral Health provider manual section on documentation.',
-        blocker: 'per-case',
+        value:
+          'Aetna has a general rule, not an ABA-specific one. Its medical-record standards apply to "all participating practitioners," who "agree to maintain medical records in a current, detailed, organized, and comprehensive manner." The core components are: "All entries are dated," "All entries are legible to someone other than the writer," and "All entries in the record must contain the provider\'s signature/initials or electronic identifier." Aetna audits records against these at least every two years, with an 85% performance goal. Aetna\'s ABA documents do not say whether the technician, the supervising BCBA or both sign a session note, or how soon after the session it must be signed. Each person who writes an entry should sign or e-sign and date it.',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna Health Care Professional Toolkit / office manual (2026): medical records — standards and criteria for documentation', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+        ],
       },
       placeOfService: {
         value: 'Outpatient ABA is setting-neutral in Aetna’s guide; inpatient, residential or partial hospitalization use that level of care’s criteria. AS 21.42.397(b)(4) requires fully insured plans to cover medically necessary treatment "coordinated with an education program," but coverage "may not be contingent on" that coordination.',
@@ -441,6 +465,8 @@ export const alaskaPayers: Record<string, PayerConfig> = {
       { q: 'What does the Alaska autism mandate require?', a: 'Coverage of autism diagnosis and treatment, including ABA, for individuals under 21, prescribed by a physician, psychologist or APRN and delivered or supervised by an autism service provider, with no limit on the number of visits and no dollar cap in the statute.' },
       { q: 'Does a BCBA need an Alaska license to bill Aetna?', a: 'Yes in practice. Alaska law bars practicing behavior analysis in the state without a license, and Aetna requires providers to meet state requirements. Technicians are exempt from licensure when working under a licensed behavior analyst’s direction.' },
       { q: 'How fast must Aetna pay a clean ABA claim in Alaska?', a: 'For fully insured plans, AS 21.36.495 requires payment or denial within 30 calendar days of a clean claim, with 15 percent annual interest when the insurer misses its deadlines. Self-funded plans follow their own terms.' },
+      { q: 'Does Aetna require a referring provider (box 17) on ABA claims?', a: 'Aetna publishes no such requirement for ABA. A referral has to accompany a claim only when the member’s plan requires PCP referrals for specialist care. Behavioral health is a direct-access benefit in Aetna’s behavioral health manual.' },
+      { q: 'Which form does Aetna want with an ABA prior-authorization request?', a: 'Since August 1, 2026, use form GR-69017-4, “ABA Treatment Request: Required Information for Precertification.” Start the request on Availity or by phone first, then attach the completed form plus a standardized assessment from the past 12 months and the treatment plan.' },
     ],
   },
 
@@ -507,6 +533,17 @@ export const alaskaPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.ebhAdmin, S.cignaARG, S.as21_36_495, S.as21_07, S.fee27],
       },
+      {
+        h2: 'Does Cigna need a referring provider on the ABA claim?',
+        body: [
+          'No. Evernorth’s administrative guidelines (September 2026) define a complete CMS-1500 claim as the patient’s ID number, name, address and date of birth; the subscriber’s name and address; release of information and assignment of benefits; diagnosis codes and pointer; date and place of service; CPT/HCPCS code and modifier; billed charge, units, TIN and total charge; the “Rendering provider’s name, NPI, and license type”; and the “Billing provider’s name, address, and NPI.” No referring or ordering provider is on that list. If you do report one on an 837, “Any additional provider identification on the claim, such as the “Rendering Provider” or “Referring Provider,” must include the name and NPI when submitted.”',
+          'The ABA-specific paper-claim rules sit in the autism resource guide: use Form CMS-1500, “Print your name in box 31,” and “List only a BCBA or other licensed provider in box 33.” Evernorth does not credential non-licensed or non-certified staff, so their services are billed under the supervising provider.',
+        ],
+        cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191): complete-claim definition and 837 provider identifiers', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+          { title: 'Cigna / Evernorth autism resource guide (March 2025): paper-claim rules', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type and employer size', desc: 'Fully insured (AS 21.42.397 applies) vs. self-funded ERISA, and whether the employer is a small group of 20 or fewer (exempt).' },
@@ -523,9 +560,13 @@ export const alaskaPayers: Record<string, PayerConfig> = {
         cites: [S.en0499, S.as08_15],
       },
       concurrentBilling: {
-        value: 'Only one provider may bill for a unit of time, except 97153, 97154 and 97155 during direct supervision, when the BCBA or QHP directs the technician and both are face-to-face with the patient at the same time.',
+        value:
+          'Only one provider may bill for a unit of time, except 97153, 97154 and 97155 during direct supervision, when the BCBA or QHP directs the technician and both are face-to-face with the patient at the same time. Speech, OT and other therapies are a separate rule: EN0499 says ABA "is not covered or reimbursable when delivered to the same individual, at the same time as any other treatment modality (e.g., ABA and speech therapy, or ABA and occupational therapy)." Schedule ABA and other therapies in separate time blocks. ABA built into a speech or OT session is not billable.',
         status: 'verified',
-        cites: [S.cignaARG],
+        cites: [
+          { title: 'Cigna / Evernorth autism resource guide (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (effective 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
       },
       dailyLimits: {
         value: 'No per-day cap is published. All ABA services bill in 15-minute units with 97151–97158, 0362T and 0373T only; intensity must reflect severity, goals and response to treatment. For fully insured Alaska plans, AS 21.42.397(b)(2) bars limiting "the number of visits to an autism service provider."',
@@ -601,6 +642,7 @@ export const alaskaPayers: Record<string, PayerConfig> = {
       { q: 'Does the Cigna ABA assessment need prior authorization in Alaska?', a: 'No, for 97151, 97152 and 0362T with an autism diagnosis when the provider is independently licensed or a BCBA. PA starts at treatment.' },
       { q: 'Does a BCBA need an Alaska license to bill Cigna?', a: 'Alaska law bars practicing behavior analysis in the state without a license, so plan on the Alaska license; the out-of-state route in statute is a temporary license of up to 30 days a year.' },
       { q: 'What does Cigna pay for ABA in Alaska?', a: 'Cigna publishes no ABA rates. Evernorth says your fee schedule is in Exhibit A of your Provider Agreement; call Evernorth Provider Services (800.926.2273). Alaska Medicaid’s rate for 97153 ($31.95 per 15 minutes from July 1, 2026) is the public benchmark.' },
+      { q: 'Does Cigna require a referring provider (box 17) on ABA claims?', a: 'No. Evernorth’s complete-claim definition for the CMS-1500 lists the rendering and billing providers but no referring provider. If you report a referring provider on an electronic claim, include both the name and the NPI.' },
     ],
   },
 
@@ -669,6 +711,17 @@ export const alaskaPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.optumNNM, S.optumReimb, S.as21_36_495, S.as21_07, S.fee27],
       },
+      {
+        h2: 'Does UnitedHealthcare need a referring provider on the ABA claim?',
+        body: [
+          'Not for ABA. Optum, which manages UnitedHealthcare’s behavioral benefit, says in its National Network Manual (effective September 1, 2026) that a claim must carry the coding (ICD diagnosis, CPT/HCPCS and modifiers), the member ID number, customary charges, and the provider’s TIN and NPI. Paper Form 1500 claims add the member and subscriber names and dates of birth, the length of session, the type and duration of service, and the clinician’s name, credentials, Tax ID and NPI. A referring provider is not on either list.',
+          'UnitedHealthcare’s 2026 administrative guide requires the referring provider’s name and NPI only on laboratory, DME, imaging and home health claims. For every other claim, it requires “a valid billing NPI, rendering NPI and relevant taxonomy code(s)” and says “we encourage you to submit the referring health care provider’s NPI.” In short, the referring NPI is optional on an ABA claim, and leaving it off is not a denial reason under either document.',
+        ],
+        cites: [
+          { title: 'Optum National Network Manual (BH02330, effective September 1, 2026): claims submission and Form 1500 required fields', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+          { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial), Chapter 10: complete claim and NPI requirements', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type and employer size', desc: 'Fully insured (AS 21.42.397 applies) vs. self-funded ERISA, and whether the employer is a small group of 20 or fewer (exempt).' },
@@ -691,9 +744,14 @@ export const alaskaPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       dailyLimits: {
-        value: 'No numeric cap. Requested hours must be justified by documented clinical need; at continued-service review, use below 80% of authorized hours over a two-week period must be explained. For fully insured Alaska plans, AS 21.42.397(b)(2) bars limiting "the number of visits to an autism service provider."',
+        value:
+          'Optum’s commercial ABA reimbursement policy (2022RP501A, which applies to Commercial and Individual Exchange plans) sets a maximum frequency per day for each code: 97151 32 units (8 hrs), 97152 16 (4 hrs), 97153 32 (8 hrs), 97154 18 (4.5 hrs), 97155 24 (6 hrs), 97156 16 (4 hrs), 97157 16 (4 hrs), 97158 16 (4 hrs), 0362T 16 (4 hrs) and 0373T 32 (8 hrs). CMS MUEs otherwise apply, and billing more than 32 units of 97153 in a day "may be subject to non-reimbursement or recovery." There are no weekly unit caps. Weekly hours come from the authorization. No numeric cap. Requested hours must be justified by documented clinical need; at continued-service review, use below 80% of authorized hours over a two-week period must be explained. For fully insured Alaska plans, AS 21.42.397(b)(2) bars limiting "the number of visits to an autism service provider."',
         status: 'verified',
-        cites: [S.optumSCC, S.as21_42_397],
+        cites: [
+          { title: 'Optum — Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+          { title: 'AS 21.42.397 — Coverage for autism spectrum disorders', url: 'https://www.akleg.gov/basis/statutes.asp?media=print&secStart=21.42.397&secEnd=21.42.397' },
+        ],
       },
       noteSignature: {
         value: 'Not addressed. The SCC set what must be documented for coverage, not who signs a session note or when.',
@@ -766,6 +824,7 @@ export const alaskaPayers: Record<string, PayerConfig> = {
       { q: 'Does Optum have Alaska-specific ABA criteria?', a: 'No. Optum’s ABA State Mandates supplement (July 2026) covers Arizona, California, Massachusetts, Pennsylvania and Virginia, not Alaska.' },
       { q: 'Is Optum still Alaska Medicaid’s behavioral health administrator?', a: 'No. Optum’s ASO contract with Alaska’s Division of Behavioral Health ended December 31, 2024; Alaska Medicaid claims now go to the state MMIS through HMS Gainwell.' },
       { q: 'Can ABA be delivered by telehealth with UnitedHealthcare in Alaska?', a: 'Optum’s commercial telehealth guide allows only 97155, 97156 and 97157 by telehealth, billed POS 10 or 02. Fully insured Alaska plans must also cover telehealth by Alaska-licensed providers under AS 21.42.422, so ask Optum how it applies the list to your plan.' },
+      { q: 'Does UnitedHealthcare require a referring provider (box 17) on ABA claims?', a: 'No. Optum’s claim requirements do not include a referring provider. UnitedHealthcare makes the referring name and NPI mandatory only for lab, DME, imaging and home health claims. For other claims it encourages the referring NPI but does not require it.' },
     ],
   },
 
@@ -835,6 +894,16 @@ export const alaskaPayers: Record<string, PayerConfig> = {
           'Premera asks for claims within 60 days of service "but no later than 365 calendar days from the date of service," and for most plans denies claims received more than 12 months after the date of service "with no member responsibility." A Level I provider appeal "must be submitted within the same 365-days following the action that prompted the dispute," a Level II within 30 calendar days of the Level I decision, and Premera says it is processing appeals within 30 days.' + AK_PROMPT_PAY,
         ],
         cites: [S.premClaims, S.premPA, S.as21_36_495, S.as21_07],
+      },
+      {
+        h2: 'Out-of-state Blue members in Alaska (BlueCard)',
+        body: [
+          'For a child whose card is from another Blue plan, Premera’s BlueCard resources page sends eligibility, benefits, claims and payment through Availity: "sign in to Availity and select Other Blue Plans Premera BlueExchange (FEP, Shared Admin) as a payer," with the member’s plan prefix, ID number, first and last name and date of birth. Premera’s BlueCard claims customer service team is at 888-261-9562 (6 a.m. to 5 p.m.).',
+          'The member’s home plan sets its own medical policies and pre-authorization rules. Premera links a separate tool to "View medical policies, check pre-certification and pre-authorization requirements, and submit pre-service reviews for out-of-area Blue Plan members." Check the home plan’s ABA requirements there before the first session. Premera’s own code lists apply to Premera members only. Out-of-state Blue Medicaid members are different: "Medicaid members have limited out-of-state benefits, generally covering only emergent situations."',
+        ],
+        cites: [
+          { title: 'Premera Blue Cross Blue Shield of Alaska — BlueCard® Resources (provider page)', url: 'https://www.premera.com/ak/provider/bluecard-resources/' },
+        ],
       },
     ],
     collect: [
@@ -936,6 +1005,7 @@ export const alaskaPayers: Record<string, PayerConfig> = {
       { q: 'Does Premera require prior authorization for ABA in Alaska?', a: 'Yes. ABA is on Premera Alaska’s prior-authorization list for group plans, and the individual-plan code list requires it for 97151, 97153–97156, 97158, 0362T and 0373T. Submit in Availity; phone requests are not accepted. FEP uses its own fax form.' },
       { q: 'What is Premera’s timely filing limit in Alaska?', a: 'No later than 365 calendar days from the date of service; for most plans claims received after 12 months deny with no member responsibility.' },
       { q: 'Can a BCBA licensed in another state treat a Premera member in Alaska?', a: 'Premera’s policy requires state licensure where a state licenses behavior analysts, and Alaska does: practicing in Alaska, including by telehealth to a child in Alaska, needs an Alaska license, apart from a temporary license of up to 30 days a year for someone licensed in a substantially equivalent state.' },
+      { q: 'Can a Premera Alaska network provider treat a child covered by another state’s Blue plan?', a: 'Yes, through BlueCard. Run eligibility and submit claims in Availity under "Other Blue Plans Premera BlueExchange." Check the home plan’s ABA pre-authorization rules with Premera’s out-of-area medical policy and pre-service review tool, since Premera’s own code list does not apply.' },
     ],
   },
 };
