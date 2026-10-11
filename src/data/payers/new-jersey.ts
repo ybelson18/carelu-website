@@ -657,13 +657,6 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { label: 'Published rates', value: '97151/97156 $25.00 · 97155 $21.25 · 97153 $11.20 on the 2020 sheet (state since raised to $15.00 — verify)' },
       { label: 'Unit limits', value: 'State suggested limits adopted verbatim as MUE claim edits' },
       { label: 'Submission', value: 'Availity (provider ID 46320); ABA fax (844) 404-3972' },
-      {
-        h2: 'Does Aetna Better Health of New Jersey require a referring provider on ABA claims?',
-        body: [
-          'Aetna Better Health of New Jersey publishes no rule that every ABA claim must name a referring provider, but it has published what happens when one is named. From October 1, 2026 it enforces the NJ Medicaid (Gainwell) claim edits, including edit 1270: \u201cReferring NPI Same as Billing/Servicing NPI \u2013 The referring provider NPI cannot be the same as the billing and/or servicing provider NPI.\u201d Edits 1269 and 1271 do the same for attending and \u201cOther\u201d provider NPIs. Claims that break them are rejected at EDI or denied on paper, and providers \u201care not permitted to balance-bill the Medicaid beneficiary.\u201d So never put your own agency or BCBA NPI in box 17b; if you report a referring provider, it is the clinician who referred or diagnosed the child. The manual\u2019s prior authorization request list separately asks for the \u201cName, address, phone and fax number and signature, if applicable, of the referring provider.\u201d Claim-edit questions go to the Claims Inquiry/Claims Research department at 1-855-232-3596.',
-        ],
-        cites: [{ title: 'Aetna Better Health of New Jersey — Provider Notification: Upcoming Enforcement of NJ Medicaid Claim Edits (July 16, 2026; effective Oct. 1, 2026)', url: 'https://es.aetnabetterhealth.com/content/dam/aetna/medicaid/newjersey/providers/pdf/abhnj_Self_Referral_Claim_Edits_7-16-26.pdf' }, { title: 'Aetna Better Health of New Jersey — Provider Manual', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/new-jersey-medicaid/provider/pdf/aetna_provider_manual.pdf' }],
-      },
     ],
     sections: [
       {
@@ -718,6 +711,13 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
           { title: 'Aetna Better Health of New Jersey — Provider Manual', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/new-jersey-medicaid/provider/pdf/aetna_provider_manual.pdf' },
           { title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 7.16.5 timely payments; App. B.4.4 ABA service description', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' },
         ],
+      },
+      {
+        h2: 'Does Aetna Better Health of New Jersey require a referring provider on ABA claims?',
+        body: [
+          'Aetna Better Health of New Jersey publishes no rule that every ABA claim must name a referring provider, but it has published what happens when one is named. From October 1, 2026 it enforces the NJ Medicaid (Gainwell) claim edits, including edit 1270: \u201cReferring NPI Same as Billing/Servicing NPI \u2013 The referring provider NPI cannot be the same as the billing and/or servicing provider NPI.\u201d Edits 1269 and 1271 do the same for attending and \u201cOther\u201d provider NPIs. Claims that break them are rejected at EDI or denied on paper, and providers \u201care not permitted to balance-bill the Medicaid beneficiary.\u201d So never put your own agency or BCBA NPI in box 17b; if you report a referring provider, it is the clinician who referred or diagnosed the child. The manual\u2019s prior authorization request list separately asks for the \u201cName, address, phone and fax number and signature, if applicable, of the referring provider.\u201d Claim-edit questions go to the Claims Inquiry/Claims Research department at 1-855-232-3596.',
+        ],
+        cites: [{ title: 'Aetna Better Health of New Jersey — Provider Notification: Upcoming Enforcement of NJ Medicaid Claim Edits (July 16, 2026; effective Oct. 1, 2026)', url: 'https://es.aetnabetterhealth.com/content/dam/aetna/medicaid/newjersey/providers/pdf/abhnj_Self_Referral_Claim_Edits_7-16-26.pdf' }, { title: 'Aetna Better Health of New Jersey — Provider Manual', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/new-jersey-medicaid/provider/pdf/aetna_provider_manual.pdf' }],
       },
     ],
     collect: [
@@ -1104,13 +1104,6 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { label: 'Ages', value: '18 months to 21 years, by medical necessity — no stated hour caps' },
       { label: 'School setting', value: 'Permitted outside normal school hours (newer than the state\'s 2020 rule)' },
       { label: 'Submission', value: 'Provider Express NJ ABA path; BH intake 1-888-362-3368 (opt. 3); payer ID 87726' },
-      {
-        h2: 'Does UnitedHealthcare Community Plan of New Jersey require a referring provider on ABA claims?',
-        body: [
-          'UnitedHealthcare Community Plan of New Jersey\u2019s care provider manual (2025) carries the referring provider in its 837P layout (\u201cReferring Physician Primary Identifier NPI Loop 2310A\u201d) and names \u201cNo referring care provider ID or NPI number\u201d among the \u201cCommon reasons for rejected claims.\u201d It does not say which services need one, and nothing in it ties the requirement to ABA. If an ABA claim rejects for this reason, add the referring or diagnosing clinician\u2019s NPI and resubmit it as a new claim, which is what the manual says to do with a rejected claim.',
-        ],
-        cites: [{ title: 'UnitedHealthcare Community Plan of New Jersey — Care Provider Manual (2025), Chapter 15: Billing and submission', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NJ-Care-Provider-Manual.pdf' }],
-      },
     ],
     sections: [
       {
@@ -1152,6 +1145,13 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
           { title: 'UnitedHealthcare Community Plan of New Jersey — Care Provider Manual (2025)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NJ-Care-Provider-Manual.pdf' },
           { title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 7.16.5 timely payments; App. B.4.4 ABA service description', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' },
         ],
+      },
+      {
+        h2: 'Does UnitedHealthcare Community Plan of New Jersey require a referring provider on ABA claims?',
+        body: [
+          'UnitedHealthcare Community Plan of New Jersey\u2019s care provider manual (2025) carries the referring provider in its 837P layout (\u201cReferring Physician Primary Identifier NPI Loop 2310A\u201d) and names \u201cNo referring care provider ID or NPI number\u201d among the \u201cCommon reasons for rejected claims.\u201d It does not say which services need one, and nothing in it ties the requirement to ABA. If an ABA claim rejects for this reason, add the referring or diagnosing clinician\u2019s NPI and resubmit it as a new claim, which is what the manual says to do with a rejected claim.',
+        ],
+        cites: [{ title: 'UnitedHealthcare Community Plan of New Jersey — Care Provider Manual (2025), Chapter 15: Billing and submission', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NJ-Care-Provider-Manual.pdf' }],
       },
     ],
     collect: [
@@ -1328,13 +1328,6 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { label: 'BH network / UM', value: 'Carelon Behavioral Health — a separate contracting funnel' },
       { label: 'Unit caps / rates', value: 'Unverified — nothing published; confirm directly with the plan' },
       { label: 'Claims', value: 'Availity, payor ID WLPNT; provider services (833) 731-2149' },
-      {
-        h2: 'Does Wellpoint New Jersey require the referring provider on ABA claims?',
-        body: [
-          'Only \u201cif applicable,\u201d and Wellpoint publishes nothing that makes it applicable to ABA. The October 2026 manual\u2019s list of what a clean claim must include ends with the \u201cName of referring physician or source NPI and other non-NPI identifier of the referring, ordering or supervising provider or attending and operating provider name and tax ID, if applicable.\u201d Elsewhere it says \u201cWellpoint does not require a paper referral process,\u201d and that NJ FamilyCare benefits need no Wellpoint referral for \u201cEPSDT services from a Wellpoint provider.\u201d The state\u2019s ABA rule has no physician order in it either: once a qualified healthcare professional diagnoses ASD, \u201cthe MCO shall authorize a QHP to assess the child,\u201d and the managed care contract\u2019s ABA service description lists no referral or order. Wellpoint\u2019s claim edits are not public, so if an ABA claim rejects for a missing referring provider, report the diagnosing clinician in box 17/17b and ask Wellpoint provider services (833-731-2149) to confirm the rule in writing.',
-        ],
-        cites: [{ title: 'Wellpoint New Jersey — Provider Manual (October 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/NJ_WLP_Provider_Manual.pdf' }, { title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 7.16.5 timely payments; App. B.4.4 ABA service description', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' }, { title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }],
-      },
     ],
     sections: [
       {
@@ -1377,6 +1370,13 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
           { title: 'Wellpoint New Jersey — Medicaid Provider Quick Reference Guide (approved July 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/NJ_WLP_CAID_ProviderQRG.pdf' },
           { title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 7.16.5 timely payments; App. B.4.4 ABA service description', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' },
         ],
+      },
+      {
+        h2: 'Does Wellpoint New Jersey require the referring provider on ABA claims?',
+        body: [
+          'Only \u201cif applicable,\u201d and Wellpoint publishes nothing that makes it applicable to ABA. The October 2026 manual\u2019s list of what a clean claim must include ends with the \u201cName of referring physician or source NPI and other non-NPI identifier of the referring, ordering or supervising provider or attending and operating provider name and tax ID, if applicable.\u201d Elsewhere it says \u201cWellpoint does not require a paper referral process,\u201d and that NJ FamilyCare benefits need no Wellpoint referral for \u201cEPSDT services from a Wellpoint provider.\u201d The state\u2019s ABA rule has no physician order in it either: once a qualified healthcare professional diagnoses ASD, \u201cthe MCO shall authorize a QHP to assess the child,\u201d and the managed care contract\u2019s ABA service description lists no referral or order. Wellpoint\u2019s claim edits are not public, so if an ABA claim rejects for a missing referring provider, report the diagnosing clinician in box 17/17b and ask Wellpoint provider services (833-731-2149) to confirm the rule in writing.',
+        ],
+        cites: [{ title: 'Wellpoint New Jersey — Provider Manual (October 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/NJ_WLP_Provider_Manual.pdf' }, { title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 7.16.5 timely payments; App. B.4.4 ABA service description', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' }, { title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }],
       },
     ],
     collect: [
@@ -1566,13 +1566,6 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { label: 'Exempt from mandate', value: 'Self-funded ERISA plans (may exclude ABA entirely)' },
       { label: 'Licensure', value: 'NJ Licensed Applied Behavior Analyst (Consumer Affairs board)' },
       { label: 'Fee schedule', value: 'Not public — Aetna pays the contracted rate in your participation agreement' },
-      {
-        h2: 'Does Aetna (New Jersey) require a referring provider on ABA claims?',
-        body: [
-          'Not as a standing rule. Aetna\u2019s provider manual (June 2026) says a clean claim includes \u201cA corresponding referral (whether in paper or electronic format), if required for the applicable claim,\u201d along with \u201cAll the data elements of the UB-04 or CMS-1500.\u201d For behavioral health, which is where Aetna places ABA, \u201cMembers may access behavioral health care in three ways: Through direct access to the behavioral health provider; Through a recommendation from the primary care physician or other treatment provider; Through a referral from an employee assistance or student assistance program provider.\u201d So box 17 is needed only when the member\u2019s plan requires a referral for the service; in Aetna Open Access plans \u201creferrals also are not necessary.\u201d Where a PCP referral is required, it must be issued before the visit: \u201cReferrals should not be retroactive.\u201d',
-        ],
-        cites: [{ title: 'Aetna — Provider manual (8102800-01-01, 6/26): clean claims, referrals, behavioral health access', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }],
-      },
     ],
     sections: [
       {
@@ -1654,6 +1647,13 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
           { title: '42 U.S.C. 1396b(l) — Medicaid electronic visit verification (LII)', url: 'https://www.law.cornell.edu/uscode/text/42/1396b' },
           { title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 7.16.5 timely payments; App. B.4.4 ABA service description', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' },
         ],
+      },
+      {
+        h2: 'Does Aetna (New Jersey) require a referring provider on ABA claims?',
+        body: [
+          'Not as a standing rule. Aetna\u2019s provider manual (June 2026) says a clean claim includes \u201cA corresponding referral (whether in paper or electronic format), if required for the applicable claim,\u201d along with \u201cAll the data elements of the UB-04 or CMS-1500.\u201d For behavioral health, which is where Aetna places ABA, \u201cMembers may access behavioral health care in three ways: Through direct access to the behavioral health provider; Through a recommendation from the primary care physician or other treatment provider; Through a referral from an employee assistance or student assistance program provider.\u201d So box 17 is needed only when the member\u2019s plan requires a referral for the service; in Aetna Open Access plans \u201creferrals also are not necessary.\u201d Where a PCP referral is required, it must be issued before the visit: \u201cReferrals should not be retroactive.\u201d',
+        ],
+        cites: [{ title: 'Aetna — Provider manual (8102800-01-01, 6/26): clean claims, referrals, behavioral health access', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }],
       },
     ],
     collect: [
@@ -1847,13 +1847,6 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { label: 'Exempt from mandate', value: 'Self-funded ERISA plans (may exclude ABA entirely)' },
       { label: 'Licensure', value: 'NJ Licensed Applied Behavior Analyst (Consumer Affairs board)' },
       { label: 'Fee schedule', value: 'Not public — your ABA fee schedule is Exhibit A of your Evernorth Provider Agreement; fee questions to Evernorth Provider Services, 800.926.2273' },
-      {
-        h2: 'Does Cigna (New Jersey) require a referring provider on ABA claims?',
-        body: [
-          'Not required. Evernorth\u2019s Behavioral Health Administrative Guidelines (September 2026), which govern Cigna behavioral claims including ABA, say for 837 claims: \u201cThe \u2018Billing Provider\u2019 Taxpayer Identification Number (TIN) and NPI are required. Any additional provider identification on the claim, such as the \u2018Rendering Provider\u2019 or \u2018Referring Provider,\u2019 must include the name and NPI when submitted.\u201d So box 17/17b is optional, but if you fill it in, give the referring clinician\u2019s name and NPI together.',
-        ],
-        cites: [{ title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026) — NPI on 837 claims', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }],
-      },
     ],
     sections: [
       {
@@ -1927,6 +1920,13 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
           { title: 'NJ DOBI — Prompt Pay Regulations FAQ (N.J.A.C. 11:22-1)', url: 'https://www.nj.gov/dobi/division_insurance/promptfaqs.htm' },
           { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
         ],
+      },
+      {
+        h2: 'Does Cigna (New Jersey) require a referring provider on ABA claims?',
+        body: [
+          'Not required. Evernorth\u2019s Behavioral Health Administrative Guidelines (September 2026), which govern Cigna behavioral claims including ABA, say for 837 claims: \u201cThe \u2018Billing Provider\u2019 Taxpayer Identification Number (TIN) and NPI are required. Any additional provider identification on the claim, such as the \u2018Rendering Provider\u2019 or \u2018Referring Provider,\u2019 must include the name and NPI when submitted.\u201d So box 17/17b is optional, but if you fill it in, give the referring clinician\u2019s name and NPI together.',
+        ],
+        cites: [{ title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026) — NPI on 837 claims', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }],
       },
     ],
     collect: [
@@ -2125,13 +2125,6 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { label: 'Exempt from mandate', value: 'Self-funded ERISA plans (may exclude ABA entirely)' },
       { label: 'Licensure', value: 'NJ Licensed Applied Behavior Analyst (Consumer Affairs board)' },
       { label: 'Fee schedule', value: 'Not public — Optum pays up to the “Fee Maximum” in your agreement, by credential level (HM/HN/HO/HP modifiers)' },
-      {
-        h2: 'Does UnitedHealthcare (New Jersey) require a referring provider on ABA claims?',
-        body: [
-          'Not for ABA. Optum\u2019s National Network Manual (effective September 1, 2026), which governs UnitedHealthcare behavioral health claims including ABA, lists what a Form 1500 claim should carry: member and subscriber names and dates of birth, member ID, ICD diagnosis, dates of service, length of session, type and duration of service, and the clinician\u2019s name, credentials, tax ID and NPI. A referring provider is not on the list. UnitedHealthcare\u2019s 2026 Administrative Guide asks for a valid billing NPI, rendering NPI and taxonomy on all claims and adds \u201cwe encourage you to submit the referring health care provider\u2019s NPI\u201d; it makes the referring provider\u2019s name and NPI mandatory only on \u201claboratory, DME, imaging and home health claims.\u201d',
-        ],
-        cites: [{ title: 'Optum National Network Manual (BH02330, effective Sept. 1, 2026) — claim submission requirements', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide — Chapter 10, claims and NPI', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }],
-      },
     ],
     sections: [
       {
@@ -2208,6 +2201,13 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
           { title: 'NJ DOBI — Prompt Pay Regulations FAQ (N.J.A.C. 11:22-1)', url: 'https://www.nj.gov/dobi/division_insurance/promptfaqs.htm' },
           { title: '2026 UnitedHealthcare Care Provider Administrative Guide (commercial)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
         ],
+      },
+      {
+        h2: 'Does UnitedHealthcare (New Jersey) require a referring provider on ABA claims?',
+        body: [
+          'Not for ABA. Optum\u2019s National Network Manual (effective September 1, 2026), which governs UnitedHealthcare behavioral health claims including ABA, lists what a Form 1500 claim should carry: member and subscriber names and dates of birth, member ID, ICD diagnosis, dates of service, length of session, type and duration of service, and the clinician\u2019s name, credentials, tax ID and NPI. A referring provider is not on the list. UnitedHealthcare\u2019s 2026 Administrative Guide asks for a valid billing NPI, rendering NPI and taxonomy on all claims and adds \u201cwe encourage you to submit the referring health care provider\u2019s NPI\u201d; it makes the referring provider\u2019s name and NPI mandatory only on \u201claboratory, DME, imaging and home health claims.\u201d',
+        ],
+        cites: [{ title: 'Optum National Network Manual (BH02330, effective Sept. 1, 2026) — claim submission requirements', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide — Chapter 10, claims and NPI', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }],
       },
     ],
     collect: [

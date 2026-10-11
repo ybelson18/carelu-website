@@ -356,13 +356,6 @@ export const nationalBhPayers: Record<string, PayerConfig> = {
       { label: 'Supervision', value: '1–2 hours of direct and indirect supervision authorized per 10 hours of direct care' },
       { label: 'Code gotcha', value: '97152 is “not a covered code”; 97155 overlap with the technician IS accepted' },
       { label: 'Credentialing', value: 'Master’s/doctoral analysts credentialed and recredentialed every 3 years; only credentialed providers may bill' },
-      {
-        h2: 'Does Magellan require a referring provider on ABA claims?',
-        body: [
-          'Yes, on the standard list. Magellan\u2019s Elements of a Clean Claim (National Provider Handbook, rev. 11/23) lists, among \u201cThe required elements of a clean claim\u201d on the CMS-1500, the \u201cName of referring provider or other source (field 17)\u201d and \u201cReferring provider NPI number (field 17b).\u201d It also says \u201cState guidelines may supersede these requirements,\u201d so check the state or client plan addendum for Medicaid and public-sector contracts.',
-        ],
-        cites: [{ title: 'Magellan National Provider Handbook — Elements of a Clean Claim (rev. 11/23)', url: 'https://magellanprovider.com/media/11924/f_cleanclaim.pdf' }],
-      },
     ],
     sections: [
       {
@@ -462,6 +455,13 @@ export const nationalBhPayers: Record<string, PayerConfig> = {
           'On disputes: “Magellan considers all payments final unless notice and claims appeal from the provider is received within 90 days of payment, subject to state and federal regulatory requirements and/or customer guidelines/requirements.” Because Magellan administers benefits for many client plans, check the client’s rules and your contract for a different limit.',
         ],
         cites: [{ title: 'Magellan — 2026 Handbook for the National Provider Network (11/25 v3) (PDF)', url: 'https://www.magellanprovider.com/media/11893/provider_handbook.pdf' }],
+      },
+      {
+        h2: 'Does Magellan require a referring provider on ABA claims?',
+        body: [
+          'Yes, on the standard list. Magellan\u2019s Elements of a Clean Claim (National Provider Handbook, rev. 11/23) lists, among \u201cThe required elements of a clean claim\u201d on the CMS-1500, the \u201cName of referring provider or other source (field 17)\u201d and \u201cReferring provider NPI number (field 17b).\u201d It also says \u201cState guidelines may supersede these requirements,\u201d so check the state or client plan addendum for Medicaid and public-sector contracts.',
+        ],
+        cites: [{ title: 'Magellan National Provider Handbook — Elements of a Clean Claim (rev. 11/23)', url: 'https://magellanprovider.com/media/11924/f_cleanclaim.pdf' }],
       },
     ],
     collect: [

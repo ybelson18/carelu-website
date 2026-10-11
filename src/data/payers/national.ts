@@ -48,13 +48,6 @@ export const nationalPayers: Record<string, PayerConfig> = {
       { label: 'Provider bar', value: 'BACB certification or state BA licensure' },
       { label: 'Telehealth', value: 'Covered for 97151, 97153, 97155, 97156, 97157' },
       { label: 'Reauth cadence', value: 'Commonly ~6 months (verify per plan)' },
-      {
-        h2: 'Does Aetna require a referring provider on ABA claims?',
-        body: [
-          'Not as a standing rule. Aetna\u2019s provider manual (June 2026) says a clean claim includes \u201cA corresponding referral (whether in paper or electronic format), if required for the applicable claim,\u201d along with \u201cAll the data elements of the UB-04 or CMS-1500.\u201d For behavioral health, which is where Aetna places ABA, \u201cMembers may access behavioral health care in three ways: Through direct access to the behavioral health provider; Through a recommendation from the primary care physician or other treatment provider; Through a referral from an employee assistance or student assistance program provider.\u201d So box 17 is needed only when the member\u2019s plan requires a referral for the service; in Aetna Open Access plans \u201creferrals also are not necessary.\u201d Where a PCP referral is required, it must be issued before the visit: \u201cReferrals should not be retroactive.\u201d',
-        ],
-        cites: [{ title: 'Aetna — Provider manual (8102800-01-01, 6/26): clean claims, referrals, behavioral health access', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }],
-      },
     ],
     sections: [
       {
@@ -111,6 +104,13 @@ export const nationalPayers: Record<string, PayerConfig> = {
           'State law changes the 180-day standard for fully insured members. Aetna’s exceptions table gives Maryland 365 days for all providers; New Jersey 90 calendar days from the notice to reach New Jersey’s PICPA arbitration program, and 18 months from first payment to seek an underpayment; North Carolina 2 years from the original claim payment. Self-funded plans stay on the 180-day standard.',
         ],
         cites: [{ title: 'Aetna — The disputes process: reconsiderations and post-service appeals', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' }, { title: 'Aetna — Dispute & appeal process: state exceptions to filing standard', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/provider-appeals.html' }, { title: 'Aetna — Provider manual (8102800-01-01, 6/26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }],
+      },
+      {
+        h2: 'Does Aetna require a referring provider on ABA claims?',
+        body: [
+          'Not as a standing rule. Aetna\u2019s provider manual (June 2026) says a clean claim includes \u201cA corresponding referral (whether in paper or electronic format), if required for the applicable claim,\u201d along with \u201cAll the data elements of the UB-04 or CMS-1500.\u201d For behavioral health, which is where Aetna places ABA, \u201cMembers may access behavioral health care in three ways: Through direct access to the behavioral health provider; Through a recommendation from the primary care physician or other treatment provider; Through a referral from an employee assistance or student assistance program provider.\u201d So box 17 is needed only when the member\u2019s plan requires a referral for the service; in Aetna Open Access plans \u201creferrals also are not necessary.\u201d Where a PCP referral is required, it must be issued before the visit: \u201cReferrals should not be retroactive.\u201d',
+        ],
+        cites: [{ title: 'Aetna — Provider manual (8102800-01-01, 6/26): clean claims, referrals, behavioral health access', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }],
       },
     ],
     collect: [
@@ -310,13 +310,6 @@ export const nationalPayers: Record<string, PayerConfig> = {
       { label: 'Telehealth', value: '"All ABA CPT codes are covered telehealth services"' },
       { label: 'Policy', value: 'EN0499 (eff. 5/15/2026) + autism resource guide' },
       { label: 'Assessment recency', value: 'Standardized assessment within 60 days of treatment start' },
-      {
-        h2: 'Does Cigna require a referring provider on ABA claims?',
-        body: [
-          'Not required. Evernorth\u2019s Behavioral Health Administrative Guidelines (September 2026), which govern Cigna behavioral claims including ABA, say for 837 claims: \u201cThe \u2018Billing Provider\u2019 Taxpayer Identification Number (TIN) and NPI are required. Any additional provider identification on the claim, such as the \u2018Rendering Provider\u2019 or \u2018Referring Provider,\u2019 must include the name and NPI when submitted.\u201d So box 17/17b is optional, but if you fill it in, give the referring clinician\u2019s name and NPI together.',
-        ],
-        cites: [{ title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026) — NPI on 837 claims', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }],
-      },
     ],
     sections: [
       {
@@ -377,6 +370,13 @@ export const nationalPayers: Record<string, PayerConfig> = {
           'Codes and who bills: Evernorth’s ABA billing-code table lists 97151 through 97158 plus 0362T and 0373T, all in 15-minute units. Technicians and BCaBAs may provide 97152, 97153 and 97154, but the bill for those codes goes out under the BCBA-D, BCBA or licensed mental health provider; every other code is both provided and billed by the BCBA-D, BCBA or licensed provider. Precertification is not needed for 97151, 97152 or 0362T with an autism diagnosis when the provider is independently licensed or a BCBA, except when a network exception is requested.',
         ],
         cites: [{ title: 'Evernorth Behavioral Health — Behavioral telehealth billing (COVID-19: Interim Guidance page, updated Jun 23, 2023)', url: 'https://static.evernorth.com/assets/evernorth/provider/resourceLibrary/behavioralResources/doingBusinessWithUs/cbhDbwcCOVID-19.html' }, { title: 'Evernorth — Electronic claim submission (EDI eCourse, ©2021) (PDF)', url: 'https://chk.static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/eCourses/medical/ediOptions/medBehaviorClaimSubmit.pdf' }, { title: 'Evernorth Behavioral Health — Billing Codes for Applied Behavior Analysis (Dec 16, 2022)', url: 'https://static.evernorth.com/assets/evernorth/provider/resourceLibrary/behavioralResources/doingBusinessWithUs/cbhDBwCBillingCodesForABA.html' }],
+      },
+      {
+        h2: 'Does Cigna require a referring provider on ABA claims?',
+        body: [
+          'Not required. Evernorth\u2019s Behavioral Health Administrative Guidelines (September 2026), which govern Cigna behavioral claims including ABA, say for 837 claims: \u201cThe \u2018Billing Provider\u2019 Taxpayer Identification Number (TIN) and NPI are required. Any additional provider identification on the claim, such as the \u2018Rendering Provider\u2019 or \u2018Referring Provider,\u2019 must include the name and NPI when submitted.\u201d So box 17/17b is optional, but if you fill it in, give the referring clinician\u2019s name and NPI together.',
+        ],
+        cites: [{ title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026) — NPI on 837 claims', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }],
       },
     ],
     collect: [
@@ -566,13 +566,6 @@ export const nationalPayers: Record<string, PayerConfig> = {
       { label: 'Code structure', value: '4 clusters; units shift within a cluster' },
       { label: 'Supervision', value: '1–2 hrs per 10 direct hrs; min 1 hr 97155/case/month' },
       { label: 'Utilization flag', value: '<80% of authorized hours (2-week window) gets scrutiny' },
-      {
-        h2: 'Does UnitedHealthcare / Optum require a referring provider on ABA claims?',
-        body: [
-          'Not for ABA. Optum\u2019s National Network Manual (effective September 1, 2026), which governs UnitedHealthcare behavioral health claims including ABA, lists what a Form 1500 claim should carry: member and subscriber names and dates of birth, member ID, ICD diagnosis, dates of service, length of session, type and duration of service, and the clinician\u2019s name, credentials, tax ID and NPI. A referring provider is not on the list. UnitedHealthcare\u2019s 2026 Administrative Guide asks for a valid billing NPI, rendering NPI and taxonomy on all claims and adds \u201cwe encourage you to submit the referring health care provider\u2019s NPI\u201d; it makes the referring provider\u2019s name and NPI mandatory only on \u201claboratory, DME, imaging and home health claims.\u201d',
-        ],
-        cites: [{ title: 'Optum National Network Manual (BH02330, effective Sept. 1, 2026) — claim submission requirements', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide — Chapter 10, claims and NPI', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }],
-      },
     ],
     sections: [
       {
@@ -630,6 +623,13 @@ export const nationalPayers: Record<string, PayerConfig> = {
           'Every ABA line carries a credential modifier under Optum’s reimbursement policy 2022RP501A: HM for an RBT, HN for a BCaBA, HO for a master’s-level BCBA or licensed clinician, HP for a BCBA-D. On joining the network, Optum’s ABA CPT FAQ says “Solo Behavior Analysts/Specialists and Group credentialing can take from 45 to 120 days after submission of all materials,” and a new agency audit “normally” takes up to 90 days to schedule.',
         ],
         cites: [{ title: 'Optum — Behavioral Health Solutions National Network Manual (published Aug. 1, 2025, effective Oct. 1, 2025) (PDF)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/netwManual/2024/NNMJune2024.pdf' }, { title: 'Optum — ABA reimbursement policy 2022RP501A (updated June 2026) (PDF)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' }],
+      },
+      {
+        h2: 'Does UnitedHealthcare / Optum require a referring provider on ABA claims?',
+        body: [
+          'Not for ABA. Optum\u2019s National Network Manual (effective September 1, 2026), which governs UnitedHealthcare behavioral health claims including ABA, lists what a Form 1500 claim should carry: member and subscriber names and dates of birth, member ID, ICD diagnosis, dates of service, length of session, type and duration of service, and the clinician\u2019s name, credentials, tax ID and NPI. A referring provider is not on the list. UnitedHealthcare\u2019s 2026 Administrative Guide asks for a valid billing NPI, rendering NPI and taxonomy on all claims and adds \u201cwe encourage you to submit the referring health care provider\u2019s NPI\u201d; it makes the referring provider\u2019s name and NPI mandatory only on \u201claboratory, DME, imaging and home health claims.\u201d',
+        ],
+        cites: [{ title: 'Optum National Network Manual (BH02330, effective Sept. 1, 2026) — claim submission requirements', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide — Chapter 10, claims and NPI', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }],
       },
     ],
     collect: [

@@ -5,7 +5,7 @@ import type { PayerConfig, PayerSource } from './types.js';
    Anthem left Kentucky Medicaid managed care on January 1, 2025 (DMS MCO contracts page), so
    Kentucky has FIVE Medicaid MCOs, not six; Anthem appears here only as the commercial Blue.
    molinahealthcare.com bot-walls Passport documents (HTTP 200 + ~384 KB error page); the same
-   media paths load as real PDFs from blog.molinahealthcare.com, which is what was read.
+   media paths load as real PDFs from blog.molinahealthcare.com, which is what was read (that host stopped resolving 2026-10-11; the same paths load from myhealthinhand.molinahealthcare.com).
    aetnabetterhealth.com 403s the Kentucky ABA notice; ch.aetnabetterhealth.com serves it. */
 
 const S: Record<string, PayerSource> = {
@@ -54,9 +54,9 @@ const S: Record<string, PayerSource> = {
   humAba: { title: 'Humana Healthy Horizons in Kentucky — Applied Behavior Analysis Reminder (June 5, 2025): ABA claims need an autism-range diagnosis code', url: 'https://assets.humana.com/is/content/humana/ABA%20Services%20Reminder%2006.05.25pdf' },
   humPM: { title: 'Humana Healthy Horizons in Kentucky — Provider Manual 2025 (the edition posted on the documents page in October 2026)', url: 'https://assets.humana.com/is/content/humana/2025_KY_Provider_Manualpdf' },
   // Passport by Molina Healthcare
-  molPM: { title: 'Passport by Molina Healthcare — Medicaid Provider Manual 2026 (last updated 06/22/2026)', url: 'https://blog.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/ky/medicaid/2026-MKY-ProviderManual-DMSApproved_R.ashx' },
-  molEnews: { title: 'Passport by Molina Healthcare — eNews: New Prior Authorization Guidance on July 1, 2025 (May 1, 2025)', url: 'https://blog.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/ky/medicaid/MHKY-New-Prior-Auth-Guidance-eNews-508.pdf' },
-  molDeck: { title: 'Passport by Molina Healthcare — Behavioral Health Authorization training deck (DMS-approved, MHKY 2583)', url: 'https://blog.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/ky/medicaid/BHAuthTrainingDeck-2583-DMSapproved.pdf' },
+  molPM: { title: 'Passport by Molina Healthcare — Medicaid Provider Manual 2026 (last updated 06/22/2026)', url: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/ky/medicaid/2026-MKY-ProviderManual-DMSApproved_R.ashx' },
+  molEnews: { title: 'Passport by Molina Healthcare — eNews: New Prior Authorization Guidance on July 1, 2025 (May 1, 2025)', url: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/ky/medicaid/MHKY-New-Prior-Auth-Guidance-eNews-508.pdf' },
+  molDeck: { title: 'Passport by Molina Healthcare — Behavioral Health Authorization training deck (DMS-approved, MHKY 2583)', url: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/ky/medicaid/BHAuthTrainingDeck-2583-DMSapproved.pdf' },
   // UnitedHealthcare Community Plan of Kentucky
   uhcKyPM: { title: 'UnitedHealthcare Community Plan of Kentucky — 2026 Care Provider Manual (PMI 05202026)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/KY-Care-Provider-Manual.pdf' },
   optKyPA: { title: 'Optum — Prior Authorization Code List, UnitedHealthcare Community Plan of Kentucky (eff. July 15, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/state-prior-auth-lists/ky5034.pdf' },

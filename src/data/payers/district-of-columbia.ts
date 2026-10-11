@@ -809,13 +809,6 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
       { label: 'Exempt from mandate', value: 'Federal employee health plans, Medicare, and self-funded ERISA employer plans' },
       { label: 'Licensure', value: 'DC Board of Psychology licenses behavior analysts (D.C. Law 25-191, 2024); confirm licenses are being issued' },
       { label: 'Fee schedule', value: 'Not public — Aetna pays the contracted rate in your participation agreement' },
-      {
-        h2: 'Does Aetna (DC) require a referring provider on ABA claims?',
-        body: [
-          'Not as a standing rule. Aetna\u2019s provider manual (June 2026) says a clean claim includes \u201cA corresponding referral (whether in paper or electronic format), if required for the applicable claim,\u201d along with \u201cAll the data elements of the UB-04 or CMS-1500.\u201d For behavioral health, which is where Aetna places ABA, \u201cMembers may access behavioral health care in three ways: Through direct access to the behavioral health provider; Through a recommendation from the primary care physician or other treatment provider; Through a referral from an employee assistance or student assistance program provider.\u201d So box 17 is needed only when the member\u2019s plan requires a referral for the service; in Aetna Open Access plans \u201creferrals also are not necessary.\u201d Where a PCP referral is required, it must be issued before the visit: \u201cReferrals should not be retroactive.\u201d',
-        ],
-        cites: [S.aetnaOM],
-      },
     ],
     sections: [
       {
@@ -841,6 +834,13 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
           'D.C. Code § 31-3132 makes an insurer pay a clean claim "within 30 days after the receipt," with interest of 1.5% a month from day 31, 2% from day 61 and 2.5% after day 120, unless it disputes the claim in writing within 30 days and pays any undisputed part. It must allow at least 180 days from the date of service to file. An electronic claim is presumed received within 24 hours. Retroactive denials are limited to 6 months after payment (18 months for coordination-of-benefits cases). Aetna’s provider manual (6/26) ties payment to "the rates and compensation under your agreement," and members cannot be charged more than the contracted rate. Self-funded plans follow their own plan terms.',
         ],
         cites: [S.dc3132, S.dc3133, S.aetnaOM],
+      },
+      {
+        h2: 'Does Aetna (DC) require a referring provider on ABA claims?',
+        body: [
+          'Not as a standing rule. Aetna\u2019s provider manual (June 2026) says a clean claim includes \u201cA corresponding referral (whether in paper or electronic format), if required for the applicable claim,\u201d along with \u201cAll the data elements of the UB-04 or CMS-1500.\u201d For behavioral health, which is where Aetna places ABA, \u201cMembers may access behavioral health care in three ways: Through direct access to the behavioral health provider; Through a recommendation from the primary care physician or other treatment provider; Through a referral from an employee assistance or student assistance program provider.\u201d So box 17 is needed only when the member\u2019s plan requires a referral for the service; in Aetna Open Access plans \u201creferrals also are not necessary.\u201d Where a PCP referral is required, it must be issued before the visit: \u201cReferrals should not be retroactive.\u201d',
+        ],
+        cites: [S.aetnaOM],
       },
     ],
     collect: [
@@ -983,13 +983,6 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
       { label: 'Exempt from mandate', value: 'Federal employee health plans, Medicare, and self-funded ERISA employer plans' },
       { label: 'Licensure', value: 'DC Board of Psychology licenses behavior analysts (D.C. Law 25-191, 2024); confirm licenses are being issued' },
       { label: 'Fee schedule', value: 'Not public — Exhibit A of your Evernorth Provider Agreement; Provider Services 800.926.2273' },
-      {
-        h2: 'Does Cigna (DC) require a referring provider on ABA claims?',
-        body: [
-          'Not required. Evernorth\u2019s Behavioral Health Administrative Guidelines (September 2026), which govern Cigna behavioral claims including ABA, say for 837 claims: \u201cThe \u2018Billing Provider\u2019 Taxpayer Identification Number (TIN) and NPI are required. Any additional provider identification on the claim, such as the \u2018Rendering Provider\u2019 or \u2018Referring Provider,\u2019 must include the name and NPI when submitted.\u201d So box 17/17b is optional, but if you fill it in, give the referring clinician\u2019s name and NPI together.',
-        ],
-        cites: [S.ebhAdmin],
-      },
     ],
     sections: [
       {
@@ -1015,6 +1008,13 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
           'Evernorth’s Administrative Guidelines (September 2026) set a 90-day filing limit but list an exception where "Applicable state law provides for a longer timely filing limit in which case that time limit will apply." D.C. Code § 31-3132 requires a District-regulated insurer to allow "a minimum of 180 days from the date a covered service is rendered" and to pay clean claims within 30 days, with interest of 1.5% a month from day 31, 2% from day 61 and 2.5% after day 120. A self-funded plan is not bound by the District statute, so file within 90 days when in doubt. Rates are in "Exhibit A in your Provider Agreement"; virtual services carry modifier 95, which Evernorth says "will not change the reimbursement."',
         ],
         cites: [S.ebhAdmin, S.dc3132],
+      },
+      {
+        h2: 'Does Cigna (DC) require a referring provider on ABA claims?',
+        body: [
+          'Not required. Evernorth\u2019s Behavioral Health Administrative Guidelines (September 2026), which govern Cigna behavioral claims including ABA, say for 837 claims: \u201cThe \u2018Billing Provider\u2019 Taxpayer Identification Number (TIN) and NPI are required. Any additional provider identification on the claim, such as the \u2018Rendering Provider\u2019 or \u2018Referring Provider,\u2019 must include the name and NPI when submitted.\u201d So box 17/17b is optional, but if you fill it in, give the referring clinician\u2019s name and NPI together.',
+        ],
+        cites: [S.ebhAdmin],
       },
     ],
     collect: [
@@ -1153,13 +1153,6 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
       { label: 'Exempt from mandate', value: 'Federal employee health plans, Medicare, and self-funded ERISA employer plans' },
       { label: 'Licensure', value: 'DC Board of Psychology licenses behavior analysts (D.C. Law 25-191, 2024); confirm licenses are being issued' },
       { label: 'Fee schedule', value: 'Not public — Optum pays up to the “Fee Maximum” in your agreement, by credential (HM/HN/HO/HP modifiers)' },
-      {
-        h2: 'Does UnitedHealthcare (DC) require a referring provider on ABA claims?',
-        body: [
-          'Not for ABA. Optum\u2019s National Network Manual (effective September 1, 2026), which governs UnitedHealthcare behavioral health claims including ABA, lists what a Form 1500 claim should carry: member and subscriber names and dates of birth, member ID, ICD diagnosis, dates of service, length of session, type and duration of service, and the clinician\u2019s name, credentials, tax ID and NPI. A referring provider is not on the list. UnitedHealthcare\u2019s 2026 Administrative Guide asks for a valid billing NPI, rendering NPI and taxonomy on all claims and adds \u201cwe encourage you to submit the referring health care provider\u2019s NPI\u201d; it makes the referring provider\u2019s name and NPI mandatory only on \u201claboratory, DME, imaging and home health claims.\u201d',
-        ],
-        cites: [S.optumNNM, { title: '2026 UnitedHealthcare Care Provider Administrative Guide — Chapter 10, claims and NPI', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }],
-      },
     ],
     sections: [
       {
@@ -1185,6 +1178,13 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
           'Optum’s National Network Manual (effective Sept. 1, 2026) defines the Fee Maximum as "The maximum amount a participating provider may be paid for a specific health care service provided to a member" and says "Reimbursement to clinicians is based upon licensure rather than degree." Its commercial ABA Reimbursement Policy (2022RP501A) puts the credential on every line: HM for an RBT, HN for a BCaBA, HO for a master’s-level BCBA, HP for a doctoral-level provider, with indirect work bundled into the direct codes. For fully insured District plans, D.C. Code § 31-3132 requires payment of clean claims within 30 days (interest after) and at least 180 days to file.',
         ],
         cites: [S.optumNNM, S.optumReimb, S.dc3132],
+      },
+      {
+        h2: 'Does UnitedHealthcare (DC) require a referring provider on ABA claims?',
+        body: [
+          'Not for ABA. Optum\u2019s National Network Manual (effective September 1, 2026), which governs UnitedHealthcare behavioral health claims including ABA, lists what a Form 1500 claim should carry: member and subscriber names and dates of birth, member ID, ICD diagnosis, dates of service, length of session, type and duration of service, and the clinician\u2019s name, credentials, tax ID and NPI. A referring provider is not on the list. UnitedHealthcare\u2019s 2026 Administrative Guide asks for a valid billing NPI, rendering NPI and taxonomy on all claims and adds \u201cwe encourage you to submit the referring health care provider\u2019s NPI\u201d; it makes the referring provider\u2019s name and NPI mandatory only on \u201claboratory, DME, imaging and home health claims.\u201d',
+        ],
+        cites: [S.optumNNM, { title: '2026 UnitedHealthcare Care Provider Administrative Guide — Chapter 10, claims and NPI', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }],
       },
     ],
     collect: [

@@ -396,13 +396,6 @@ export const militaryPayers: Record<string, PayerConfig> = {
       { label: 'Assessment clock', value: 'Assessment must start within 28 days of approval and 97151 completed within 14 days of the first service date' },
       { label: 'Parent training', value: 'Six parent/caregiver sessions every six months; first within 30 days of each treatment authorization' },
       { label: 'Fee schedule', value: 'Published by DHA per locality (eff. 5/1/2026), e.g. Nebraska 97153 by a technician $23.55/15 min' },
-      {
-        h2: 'Does TriWest require the referring provider on ABA claims?',
-        body: [
-          'Not as a claim field. TriWest\u2019s ACD provider guide lists what every ABA claim must carry: the HIPAA taxonomy for each provider type (103K00000X, 106E00000X, 106S00000X), \u201cthe provider\u2019s full name and National Provider Identifier (NPI) \u2026 for all providers authorized under the ACD,\u201d a TIN that matches the authorization, the rendering provider (\u201cthe ABA supervisor, assistant behavior analyst, or BT\u201d), session start and end times in military format on every line, one line per session, GT or 95 for remote parent sessions and 99 on outcome-measure units, and the place of service. A referring provider is not on that list. The referral does its work before the claim: the diagnosing provider\u2019s referral is what TriWest verifies before it authorizes the assessment, and it lasts two years.',
-        ],
-        cites: [{ title: 'TriWest — Autism Care Demonstration Provider Guide (PDF)', url: 'https://tricare.triwest.com/globalassets/tricare/provider/autism-care-demostration-provider-guide.pdf' }],
-      },
     ],
     sections: [
       {
@@ -554,6 +547,13 @@ export const militaryPayers: Record<string, PayerConfig> = {
           'Disputes: a claim reconsideration (allowed amount, OHI, timely filing, no-authorization penalties, denial codes) “must be submitted no later than 90 days from the date of the remittance” on TriWest’s reconsideration form. Appeals cover policy-limitation and medical-necessity denials, must be in writing, and must be “received within 90 days of the date on the remittance advice.” The non-network participating provider may appeal; a network provider needs a written appointment from the family.',
         ],
         cites: [{ title: 'TriWest — Timeliness and EFT/ERA (TRICARE West claims guidelines)', url: 'https://tricare.triwest.com/en/provider/claims-guidelines/timeliness-and-eft-era/' }, { title: 'TriWest — Reconsiderations and Appeals (TRICARE West claims guidelines)', url: 'https://tricare.triwest.com/en/provider/claims-guidelines/reconsiderations-and-appeals/' }, { title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 1 Sec. 3 — TRICARE Processing Standards (Revision C-43, Jun 24, 2025)', url: 'https://manuals.dha.mil/View-Publication/TOT5/FileName/C1S3' }, { title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 18 Sec. 3 — Autism Care Demonstration (Revision C-57, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TOT5/Revision/66/FileName/C18S3' }],
+      },
+      {
+        h2: 'Does TriWest require the referring provider on ABA claims?',
+        body: [
+          'Not as a claim field. TriWest\u2019s ACD provider guide lists what every ABA claim must carry: the HIPAA taxonomy for each provider type (103K00000X, 106E00000X, 106S00000X), \u201cthe provider\u2019s full name and National Provider Identifier (NPI) \u2026 for all providers authorized under the ACD,\u201d a TIN that matches the authorization, the rendering provider (\u201cthe ABA supervisor, assistant behavior analyst, or BT\u201d), session start and end times in military format on every line, one line per session, GT or 95 for remote parent sessions and 99 on outcome-measure units, and the place of service. A referring provider is not on that list. The referral does its work before the claim: the diagnosing provider\u2019s referral is what TriWest verifies before it authorizes the assessment, and it lasts two years.',
+        ],
+        cites: [{ title: 'TriWest — Autism Care Demonstration Provider Guide (PDF)', url: 'https://tricare.triwest.com/globalassets/tricare/provider/autism-care-demostration-provider-guide.pdf' }],
       },
     ],
     collect: [
