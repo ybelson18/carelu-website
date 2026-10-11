@@ -327,6 +327,17 @@ export const vermontPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.bcvtTF, S.bcvtTele, S.pay9418, S.pa9418b, S.mandate, S.erisa, S.ext4063],
       },
+      {
+        h2: 'Out-of-state Blue members: BlueCard',
+        body: [
+          'Blue Cross VT manages prior approval for its own members, FEP members, and New England Health Plan / Access Blue New England (NEHP/ABNE) members whose assigned PCP is in Vermont. "We do not oversee prior approval of other Blue Plan members (BlueCard members)." For any other Blue plan’s member, including an NEHP/ABNE member without a Vermont PCP, "Contact the member’s Blue Cross and Blue Shield Plan. Do not submit PA request to Blue Cross VT." The home plan’s requirements are found through the Medical Policy Router on the Provider Policies page.',
+          'For Blue Cross VT members treated outside Vermont: Blue Cross VT’s April 2026 mental health notice says prior approval or pre-notification "continues to be required if the services are provided by out-of-state (even if that provider/facility is in the BlueCard network)" for the higher levels of care it names.',
+        ],
+        cites: [
+          { title: 'Blue Cross and Blue Shield of Vermont — Prior Approval Authorization (provider page)', url: 'https://www.bluecrossvt.org/providers/prior-approval-authorization' },
+          { title: 'Blue Cross VT — Mental Health and Substance Use Pre-Notification and Prior Approval (publication 4/27/2026)', url: 'https://www.bluecrossvt.org/sites/default/files/2026-04/MHSUD%20Pre-Notification%20and%20Prior%20Approval%20-%20FINAL%20-%20Publication%20Copy%204.27.26.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan type and funding', desc: 'Blue Cross VT fully insured (mandate applies) vs. self-funded ASO, FEP, or NEHP/ABNE, which may have different ABA benefits.' },
@@ -335,7 +346,7 @@ export const vermontPayers: Record<string, PayerConfig> = {
       { title: 'Prior records and school supports', desc: 'Records of prior ASD evaluations or treatment (or the attempt to get them) and the child’s current school supports, such as a 1:1 aide.' },
       { title: 'Referral', desc: 'Vermont-licensed behavior analysts practice only on a referral from a licensed health professional or school official.' },
     ],
-    sources: [S.bcvtPolicy, S.bcvtBlog, S.bcvtNehp, S.bcvtTele, S.bcvtTF, S.mandate, S.defs4011, S.tele4098a, S.ch95, S.ch56, S.bacbLic, S.pay9418, S.pa9418b, S.ext4063, S.cob4024, S.abaSupp, S.erisa, S.gmcb],
+    sources: [S.bcvtPolicy, S.bcvtBlog, S.bcvtNehp, S.bcvtTele, S.bcvtTF, S.mandate, S.defs4011, S.tele4098a, S.ch95, S.ch56, S.bacbLic, S.pay9418, S.pa9418b, S.ext4063, S.cob4024, S.abaSupp, S.erisa, S.gmcb, { title: 'Blue Cross and Blue Shield of Vermont — Prior Approval Authorization (provider page)', url: 'https://www.bluecrossvt.org/providers/prior-approval-authorization' }],
     deliveryRules: {
       supervision: {
         value: 'ABA is "provided by, or … performed under the supervision of" a program manager or lead behavioral therapist who is a BCBA, another state-licensed or certified behavior instructor, or a provider whose legal scope includes behavior analysis. A BCaBA or licensed assistant behavior analyst "may not function as a program manager or lead behavioral therapist and may not provide ABA services without supervision." No numeric ratio is published. Vermont law requires at least five hours a month of off-site case supervision for a licensed assistant behavior analyst.',
@@ -425,6 +436,7 @@ export const vermontPayers: Record<string, PayerConfig> = {
       { q: 'Does Blue Cross VT cover ABA for intellectual disability without autism?', a: 'For moderate or severe intellectual disability, yes (F71, F72), documented by a psychologist’s report with standardized IQ testing. Mild intellectual disability without ASD is not covered.' },
       { q: 'What is Blue Cross VT’s timely filing limit?', a: '180 calendar days from the date of service for professional claims (or from the primary carrier’s processing date when another plan is primary), fully enforced from November 1, 2026. Late claims cannot be billed to the member.' },
       { q: 'Does a BCBA need a Vermont license?', a: 'Yes, to practice ABA in Vermont, including by telehealth. A BCBA can be licensed by endorsement on BACB certification, and clinicians licensed in another state can use Vermont’s telehealth license or registration for limited caseloads.' },
+      { q: 'Does Blue Cross VT authorize ABA for a child with another state’s Blue card?', a: 'No. Blue Cross VT says it does not oversee prior approval for BlueCard members, including NEHP/ABNE members without a Vermont PCP. Contact the member’s own Blue plan, using the Medical Policy Router on Blue Cross VT’s Provider Policies page to find its requirements.' },
     ],
   },
 
@@ -688,9 +700,9 @@ export const vermontPayers: Record<string, PayerConfig> = {
         cites: [S.en0499, S.ch95],
       },
       concurrentBilling: {
-        value: 'Only one provider can bill for a unit of time, except 97153, 97154 and 97155 during direct supervision, when the BCBA or QHP directs the technician and both are face-to-face with the patient at the same time.',
+        value: 'Only one provider can bill for a unit of time, except 97153, 97154 and 97155 during direct supervision, when the BCBA or QHP directs the technician and both are face-to-face with the patient at the same time. Other therapies are a separate rule: EN0499 (eff. 5/15/2026) says \u201cProvision of ABA treatment is not covered or reimbursable when delivered to the same individual, at the same time as any other treatment modality (e.g., ABA and speech therapy, or ABA and occupational therapy).\u201d',
         status: 'verified',
-        cites: [S.cignaARG],
+        cites: [S.cignaARG, S.en0499],
       },
       dailyLimits: {
         value: 'No per-day cap is published. All ABA codes bill in 15-minute units and only with 97151–97158, 0362T and 0373T; intensity must reflect severity, goals and response to treatment.',
@@ -855,11 +867,9 @@ export const vermontPayers: Record<string, PayerConfig> = {
         cites: [S.optumSCC, S.ch95],
       },
       concurrentBilling: {
-        value: 'Not addressed. The SCC define direct case supervision as happening during direct treatment but do not state the billing consequence.',
-        status: 'unverified',
-        cites: [S.optumSCC],
-        verifyVia: 'Optum Provider Express National Network Manual and the participating-provider agreement, or a written coding determination from Optum.',
-        blocker: 'per-case',
+        value: 'Yes for two people, never for one. Optum\u2019s commercial ABA reimbursement policy (2022RP501A, updated June 2026): \u201cCan I report 97153 or 97154 with 97155 concurrently? A. Yes, as long as the criteria in the descriptors of both codes are met. A single QHP may not report 97153 or 97154 with 97155 concurrently.\u201d So the overlap must be a technician on 97153 and an analyst on 97155 directing them with the patient present. 97155 and 97156 on the same date pay only if \u201cseparate, distinct, and clearly documented in the progress notes\u201d; \u201cA single provider can\u2019t bill for both simultaneously (e.g., in the same 15-minute block).\u201d 97155 is not payable for treatment planning while the technician works, and neither 97153 nor 97155 may be billed for technician training. Overlap with speech or OT is not addressed as a billing rule; the ABA criteria say ABA services \u201cdo not duplicate the services provided to or available to the individual by other medical or behavioral services\u201d and ask for documented coordination with OT, speech and PT providers.',
+        status: 'verified',
+        cites: [S.optumReimb, S.optumSCC],
       },
       dailyLimits: {
         value: 'No numeric cap. Hours must be justified by documented clinical need. At continued-service review, use of authorized hours below 80% over a two-week period must be explained with barriers and a plan.',

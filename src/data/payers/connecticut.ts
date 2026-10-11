@@ -507,6 +507,16 @@ export const connecticutPayers: Record<string, PayerConfig> = {
         body: [CT_PROMPT_PAY + ' Anthem publishes no ABA rate table.' + CT_FEE_BENCH],
         cites: [S.s38a816, S.asdFee],
       },
+      {
+        h2: 'Out-of-state Blue members: BlueCard',
+        body: [
+          'A child whose card comes from another state’s Blue plan is a BlueCard member, and Anthem is the local plan. Anthem’s Connecticut provider manual says that "If the Member’s home plan is not with Anthem, the applicable home plan will determine prior authorization requirements". Anthem’s prefix lookup tool identifies the home plan from the three-character prefix on the ID card. For medical policy and prior authorization rules, use Resources > Prior Authorization > "Medical Policy and Prior Authorization for Blue Plans" and enter the prefix. So an out-of-state child’s ABA assessment and treatment are authorized under the home plan’s ABA policy, not Anthem’s.',
+          'On utilization-management appeals the manual says decisions "involving Pre-certification/Pre-authorization are the responsibility of the Blue Plan, insuring or administering benefits for non-Anthem Members (the Member’s Home Plan)". It also says that "Technically, the Member, not the Provider or Facility, is responsible for obtaining the necessary authorization prior to the delivery of non-inpatient admission services". In practice the ABA provider requests it on the family’s behalf. A claim-denial appeal goes to the local Anthem plan as a Claim Payment Dispute.',
+        ],
+        cites: [
+          { title: 'Anthem Blue Cross and Blue Shield — 2026 Connecticut Commercial Provider Manual (effective September 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_CT_00015.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (§ 38a-514b applies) or self-funded ERISA (plan document governs). Ask for the employer and check the card.' },
@@ -515,7 +525,7 @@ export const connecticutPayers: Record<string, PayerConfig> = {
       { title: 'Supervising BCBA’s CT license', desc: 'Behavioral therapy must be provided or supervised by a licensed behavior analyst, physician or psychologist.' },
       { title: 'Other coverage', desc: 'Second parent’s plan, HUSKY, TRICARE or CHAMPVA.' },
     ],
-    sources: [S.anthemCTPA, S.anthemRG, S.s38a514b, S.s38a488b, S.s38a526a, S.s38a591d, S.s38a816, S.ch382a, S.dphBA, S.bacbLic, S.s19a906, S.erisa, S.handbook, S.cfr433, S.tricare, S.champva, S.asdFee],
+    sources: [S.anthemCTPA, S.anthemRG, S.s38a514b, S.s38a488b, S.s38a526a, S.s38a591d, S.s38a816, S.ch382a, S.dphBA, S.bacbLic, S.s19a906, S.erisa, S.handbook, S.cfr433, S.tricare, S.champva, S.asdFee, { title: 'Anthem Blue Cross and Blue Shield — 2026 Connecticut Commercial Provider Manual (effective September 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_CT_00015.pdf' }],
     deliveryRules: {
       supervision: {
         value: 'Anthem recognizes “providers practicing under the direction and supervision of the BCBA” and publishes no ratio of its own. For fully insured Connecticut plans, the mandate defines supervised behavioral therapy as “at least one hour of face-to-face supervision … for each ten hours of behavioral therapy,” by a licensed behavior analyst, physician or psychologist.',
@@ -609,6 +619,7 @@ export const connecticutPayers: Record<string, PayerConfig> = {
       { q: 'Does Connecticut cap ABA benefits?', a: 'No dollar cap. Insured plans cover behavioral therapy for children under 21, rising to under 26 on January 1, 2027, with no visit limits other than for medical necessity. Self-funded plans follow their own documents.' },
       { q: 'Can a BCBA and RBT both bill for the same time with Anthem?', a: 'Yes, 97155 with 97153, but only when both are face-to-face with the patient at the same time and the BCBA is directing the technician.' },
       CT_LIC_FAQ,
+      { q: 'I see a child in Connecticut whose card is from another state’s Blue plan. Who authorizes ABA?', a: 'The child’s home plan. Anthem’s manual says that when the member’s home plan is not Anthem, "the applicable home plan will determine prior authorization requirements." Look the prefix up under Medical Policy and Prior Authorization for Blue Plans on Anthem’s provider site, request authorization from the home plan, and file the claim with Anthem as the local plan.' },
     ],
   },
 
@@ -852,9 +863,9 @@ export const connecticutPayers: Record<string, PayerConfig> = {
         cites: [S.en0499, S.s38a514b],
       },
       concurrentBilling: {
-        value: '“Only one provider can bill for a unit of time, with the exception of CPT codes 97153, 97154, and 97155 (direct supervision when the BCBA/qualified health care provider directs the technician and both are face-to-face with the patient at the same time).”',
+        value: '“Only one provider can bill for a unit of time, with the exception of CPT codes 97153, 97154, and 97155 (direct supervision when the BCBA/qualified health care provider directs the technician and both are face-to-face with the patient at the same time).” Other therapies are a separate rule: EN0499 (eff. 5/15/2026) says \u201cProvision of ABA treatment is not covered or reimbursable when delivered to the same individual, at the same time as any other treatment modality (e.g., ABA and speech therapy, or ABA and occupational therapy).\u201d',
         status: 'verified',
-        cites: [S.cignaARG],
+        cites: [S.cignaARG, S.en0499],
       },
       dailyLimits: {
         value: 'No per-day cap. ABA codes bill in 15-minute units, using only 97151–97158, 0362T and 0373T. Intensity must reflect severity, goals and response to treatment.',

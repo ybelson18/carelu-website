@@ -296,18 +296,14 @@ export const delawarePayers: Record<string, PayerConfig> = {
     family: 'amerihealth',
     cardDesc: 'DSHP MCO that lists ABA among autism services; its pages disagree on the under-18 30-unit cap (DDDS vs DSCYF).',
     assessmentPA: {
-      value: 'Not stated. The prior authorization guide does not name ABA and points to the online list; behavioral health requests use the plan’s BH Prior Authorization Request Form',
-      status: 'unverified',
-      cites: [S.acdePAG, S.acdeBHPA, S.acdePM],
-      verifyVia: 'AmeriHealth Caritas Delaware behavioral health UM (BH PA form via NaviNet or fax 877-234-4273) or Provider Services, 1-855-707-5818: check 97151 and 97152.',
-      blocker: 'document',
+      value: 'Required. AmeriHealth Caritas Delaware\u2019s prior authorization lookup (checked 10/11/2026 for dates of service that day) answers for 97151 and 97152: "This code is not on the Delaware Medicaid Fee Schedule and prior authorization is required. Please submit your request with supporting clinical documentation through Navinet ... or via fax to 1-866-497-1384." 0362T returns the same message',
+      status: 'verified',
+      cites: [{ title: 'AmeriHealth Caritas Delaware — Prior authorization lookup tool, 97151 (checked 10/11/2026)', url: 'https://priorauthlookup.amerihealthcaritas.com/api/CptCodeLookup?planname=acde&cptCode=97151&cptDate=2026-10-11' }, S.acdeBHPA],
     },
     treatmentPA: {
-      value: 'Not stated for ABA codes in the provider manual or PA guide. The provider behavioral health page says ABA beyond 30 units for members under 18 needs prior authorization from DDDS',
-      status: 'unverified',
-      cites: [S.acdePAG, S.acdeBHPA, S.acdeBHprov],
-      verifyVia: 'AmeriHealth Caritas Delaware behavioral health UM (fax 877-234-4273) or Provider Services, 1-855-707-5818: check 97153–97158, 0362T and 0373T.',
-      blocker: 'document',
+      value: 'Required for every ABA code. The prior authorization lookup (checked 10/11/2026) answers "Yes, prior authorization is required" for 97153, 97155 and 97156, and "not on the Delaware Medicaid Fee Schedule and prior authorization is required" for 97154, 97157, 97158 and 0373T; requests go through NaviNet or fax 1-866-497-1384. Separately, the provider behavioral health page says that after 30 behavioral health units in a calendar year for a member under 18, providers "should obtain a prior authorization and payment for future applied behavioral analysis (ABA) services from" DDDS (see the 30-unit section: the member page says DSCYF instead)',
+      status: 'verified',
+      cites: [{ title: 'AmeriHealth Caritas Delaware — Prior authorization lookup tool, 97153 (checked 10/11/2026)', url: 'https://priorauthlookup.amerihealthcaritas.com/api/CptCodeLookup?planname=acde&cptCode=97153&cptDate=2026-10-11' }, S.acdeBHprov],
     },
     dxRequired: {
       value: 'Yes. The plan lists ABA among services "if you have autism spectrum disorder," and the state plan covers ASD services for members with an ASD diagnosis',
@@ -327,7 +323,7 @@ export const delawarePayers: Record<string, PayerConfig> = {
     atGlance: [
       { label: 'Covers ABA?', value: 'Yes, listed among autism services; state plan covers ASD services under 21' },
       { label: 'Under-18 cap', value: 'Provider page: 30 units/year, then ABA via DDDS. Member page: first 30 outpatient hours/year, then DSCYF' },
-      { label: 'Prior auth', value: 'Not listed for ABA in the manual; BH PA form via NaviNet or fax 877-234-4273' },
+      { label: 'Prior auth', value: 'Required for 97151–97158, 0362T and 0373T (plan PA lookup, 10/11/2026); BH PA form via NaviNet or fax 877-234-4273' },
       { label: 'Decision clock', value: 'Manual prints 10 calendar days; federal limit is 7 for rating periods from 1/1/2026' },
       { label: 'Timely filing', value: '120 days from date of service; primary EOB within 60 days' },
       { label: 'Licensure', value: 'None in Delaware; BACB certification governs' },
@@ -449,6 +445,7 @@ export const delawarePayers: Record<string, PayerConfig> = {
       { q: 'Does AmeriHealth Caritas Delaware cover ABA?', a: 'Yes. Its member benefits page lists applied behavior analysis among autism services. The state plan covers ASD services for members under 21.' },
       { q: 'What happens after 30 units for a child under 18?', a: 'The plan’s pages disagree. The provider page says to get prior authorization and payment for further ABA from DDDS after 30 units. The member page says the plan covers the first 30 outpatient hours and DSCYF covers the rest. Ask the plan in writing before planning hours.' },
       { q: 'How do I request ABA authorization from AmeriHealth Caritas Delaware?', a: 'Use the Behavioral Health Prior Authorization Request Form through NaviNet or fax 877-234-4273, with the treatment plan and progress notes.' },
+      { q: 'Does AmeriHealth Caritas Delaware require prior authorization for the ABA assessment (97151)?', a: 'Yes. The plan\u2019s online prior authorization lookup, checked 10/11/2026, says prior authorization is required for 97151 and 97152 and for every ABA treatment code. It also flags 97151, 97152, 97154, 97157, 97158, 0362T and 0373T as "not on the Delaware Medicaid Fee Schedule," so confirm how the plan wants the assessment coded before you submit. The lookup gives NaviNet or fax 1-866-497-1384; the behavioral health PA form gives fax 877-234-4273.' },
       { q: 'What is AmeriHealth Caritas Delaware’s timely filing limit?', a: '120 days from the date of service for in-network claims. Claims with a primary insurer’s EOB are due within 60 days of the EOB date.' },
     ],
   },
@@ -832,6 +829,16 @@ export const delawarePayers: Record<string, PayerConfig> = {
         body: [DE_CLAIMS_BODY],
         cites: [S.m3570A, S.reg1310],
       },
+      {
+        h2: 'Out-of-state Blue members: BlueCard',
+        body: [
+          'Highmark’s provider manual (Chapter 2, Unit 6) covers members of other Blue plans who travel to or live in Delaware, New York, Pennsylvania and West Virginia. "Highmark is your sole contact for claim submission, payment, adjustments, and issue resolution." For outpatient care, "your out-of-area Blue Plan patients are responsible for obtaining precertification/preauthorization from their Blue Plan when required for outpatient services. However, you may contact the member’s Blue Plan for authorization on behalf of the member." Highmark’s router takes the member’s prefix and returns the home plan’s medical policy and precertification information. Electronic Provider Access, BlueExchange and BlueCard Eligibility (800-676-BLUE) handle pre-service review.',
+          'It works the other way too. Highmark’s outpatient prior-authorization requirements "include those services provided by out-of-area providers participating with their local Blue Plan," and "Claims for services on the prior authorization list received without authorization will be denied." So a Highmark member getting ABA from a provider in another state still needs Highmark’s authorization, requested through that provider’s local Blue plan portal. Where Highmark overlaps another Blue (the 21-county central Pennsylvania and Lehigh Valley region, the 5-county southeastern Pennsylvania region and 13-county northeastern New York), claims for Highmark members go to Highmark and claims for the other Blue plan’s members go to that plan, whichever plan you contract with.',
+        ],
+        cites: [
+          { title: 'Highmark Provider Manual — Chapter 2, Unit 6: The BlueCard Program', url: 'https://providers.highmark.com/resources-and-education/highmark-provider-manual/chapter-2-product-information/unit-6-the-bluecard-program' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Delaware mandate applies) vs. self-funded ERISA (plan document governs).' },
@@ -840,7 +847,7 @@ export const delawarePayers: Record<string, PayerConfig> = {
       { title: 'ABA dollars used this plan year', desc: 'Fully insured plans may cap ABA at $38,601.65 per person (April 2026–March 2027).' },
       { title: 'Other coverage', desc: 'Second parent’s plan (birthday rule), Medicaid, TRICARE or CHAMPVA.' },
     ],
-    sources: [S.hmAuth, S.hmBHPA, S.hm97153, S.hmRP046, S.m3366, S.m3570A, S.cap2026, S.pa35, S.reg2102, S.reg1307, S.reg1310, S.bacbLic, S.ch30, S.psych1, S.psych3, S.erisa, S.abaFS, S.gpm, S.tricare, S.champva],
+    sources: [S.hmAuth, S.hmBHPA, S.hm97153, S.hmRP046, S.m3366, S.m3570A, S.cap2026, S.pa35, S.reg2102, S.reg1307, S.reg1310, S.bacbLic, S.ch30, S.psych1, S.psych3, S.erisa, S.abaFS, S.gpm, S.tricare, S.champva, { title: 'Highmark Provider Manual — Chapter 2, Unit 6: The BlueCard Program', url: 'https://providers.highmark.com/resources-and-education/highmark-provider-manual/chapter-2-product-information/unit-6-the-bluecard-program' }],
     deliveryRules: {
       supervision: {
         value: 'Highmark’s Delaware ABA policy could not be retrieved. For fully insured plans, the mandate’s DHSS standards apply: BCBA supervision of behavioral technicians "shall not be less than 1.5:10 per week," with at least 1 hour a week when fewer than 10 hours of ABA are delivered (16 Del. Admin. Code 2102).',
@@ -947,6 +954,7 @@ export const delawarePayers: Record<string, PayerConfig> = {
       { q: 'Does Delaware cap ABA benefits?', a: 'Fully insured plans may cap ABA at a CPI-adjusted maximum, $38,601.65 per person from April 1, 2026 to March 31, 2027, with no visit limits. The mandate covers individuals under 21. Self-funded plans follow their own documents.' },
       { q: 'Does a BCBA need a Delaware license to bill Highmark?', a: 'Delaware issues no behavior-analyst license. The mandate’s DHSS standard deems a BCBA qualified to provide ABA. Highmark still credentials you itself.' },
       { q: 'How long do I have to file a Highmark claim in Delaware?', a: 'Delaware law guarantees at least 180 days from the date of service on state-regulated plans, and a clean claim must be acted on within 30 days.' },
+      { q: 'A Highmark member’s family moved out of state. Do they still need Highmark’s ABA authorization?', a: 'Yes. Highmark’s prior-authorization requirements apply to services from out-of-area providers who participate with their own local Blue plan, and claims for listed services without authorization are denied. The out-of-state provider requests authorization through its local Blue plan’s portal and bills its local plan.' },
     ],
   },
 
@@ -1200,9 +1208,9 @@ export const delawarePayers: Record<string, PayerConfig> = {
         cites: [S.en0499, S.reg2102],
       },
       concurrentBilling: {
-        value: 'Only one provider may bill a unit of time, except 97153, 97154 and 97155 during direct supervision, when the BCBA or QHP directs the technician and both are face-to-face with the patient.',
+        value: 'Only one provider may bill a unit of time, except 97153, 97154 and 97155 during direct supervision, when the BCBA or QHP directs the technician and both are face-to-face with the patient. Other therapies are a separate rule: EN0499 (eff. 5/15/2026) says \u201cProvision of ABA treatment is not covered or reimbursable when delivered to the same individual, at the same time as any other treatment modality (e.g., ABA and speech therapy, or ABA and occupational therapy).\u201d',
         status: 'verified',
-        cites: [S.cignaARG],
+        cites: [S.cignaARG, S.en0499],
       },
       dailyLimits: {
         value: 'No per-day cap. All ABA bills in 15-minute units on 97151–97158, 0362T and 0373T only. Fully insured Delaware plans may apply the mandate’s ABA dollar maximum ($38,601.65 per person from April 1, 2026) but no visit limits.',
@@ -1361,11 +1369,9 @@ export const delawarePayers: Record<string, PayerConfig> = {
         cites: [S.optumSCC, S.reg2102],
       },
       concurrentBilling: {
-        value: 'Not addressed. The criteria define direct case supervision as happening during direct treatment but do not state the billing consequence.',
-        status: 'unverified',
-        cites: [S.optumSCC],
-        verifyVia: 'Optum National Network Manual and the participating-provider agreement, or a written coding determination from Optum.',
-        blocker: 'per-case',
+        value: 'Yes for two people, never for one. Optum\u2019s commercial ABA reimbursement policy (2022RP501A, updated June 2026): \u201cCan I report 97153 or 97154 with 97155 concurrently? A. Yes, as long as the criteria in the descriptors of both codes are met. A single QHP may not report 97153 or 97154 with 97155 concurrently.\u201d So the overlap must be a technician on 97153 and an analyst on 97155 directing them with the patient present. 97155 and 97156 on the same date pay only if \u201cseparate, distinct, and clearly documented in the progress notes\u201d; \u201cA single provider can\u2019t bill for both simultaneously (e.g., in the same 15-minute block).\u201d 97155 is not payable for treatment planning while the technician works, and neither 97153 nor 97155 may be billed for technician training. Overlap with speech or OT is not addressed as a billing rule; the ABA criteria say ABA services \u201cdo not duplicate the services provided to or available to the individual by other medical or behavioral services\u201d and ask for documented coordination with OT, speech and PT providers.',
+        status: 'verified',
+        cites: [S.optumReimb, S.optumSCC],
       },
       dailyLimits: {
         value: 'No numeric cap; hours must be justified by documented need, and use below 80% of authorized hours must be explained at review. Fully insured Delaware plans may apply the mandate’s ABA dollar maximum ($38,601.65 per person from April 1, 2026) but no visit limits.',

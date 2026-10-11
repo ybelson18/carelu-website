@@ -3265,6 +3265,15 @@ export const newYorkPayers: Record<string, PayerConfig> = {
           { title: 'NYSDOH — Electronic Visit Verification (EVV) Applicable Billing Codes (FFS and Managed Care, rev. March 2022)', url: 'https://www.health.ny.gov/health_care/medicaid/redesign/evv/repository/app_billing_codes.htm' },
         ],
       },
+      {
+        h2: 'Out-of-area Blue Medicaid members',
+        body: [
+          'Highmark’s provider manual (Chapter 2, Unit 6) covers members of another Blue plan’s Medicaid product treated in Highmark’s area, which includes New York. Eligibility and prior authorization use the same tools as BlueCard: BlueExchange, BlueCard Eligibility at 800-676-BLUE (2583), and Electronic Provider Access for pre-service review. Claims still go to Highmark as the local plan. But "Medicaid is not officially part of the BlueCard Program since there is no network reciprocity, and the locally negotiated rates do not apply to Medicaid claims": payment is limited to the Medicaid allowed amount set in the member’s home state, and the out-of-area care "generally ... requires authorization." Blue Medicaid ID cards carry no suitcase logo and must say on the back that out-of-area benefits are limited.',
+        ],
+        cites: [
+          { title: 'Highmark Provider Manual — Chapter 2, Unit 6: The BlueCard Program', url: 'https://providers.highmark.com/resources-and-education/highmark-provider-manual/chapter-2-product-information/unit-6-the-bluecard-program' },
+        ],
+      },
     ],
     collect: [
       { title: 'Complete state referral packet', desc: 'Under-21 ASD/Rett dx, referral with severity and DSM-5 checklist — the clinical baseline underneath the plan\'s own PA process.' },
@@ -3280,6 +3289,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { title: 'Highmark WNY Billing FAQ Bulletin (May 2023)', url: 'https://providerpublic.mybcbswny.com/docs/gpp/NYNY_NYW_Training_FAQBilling.pdf' },
       { title: 'NYS DOH Medicaid Managed Care Enrollment Report, July 2026', url: 'https://www.health.ny.gov/health_care/managed_care/reports/enrollment/monthly/2026/docs/en07_26.pdf' },
       { title: 'eMedNY ABA Provider Policy Manual (state baseline)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' },
+      { title: 'Highmark Provider Manual — Chapter 2, Unit 6: The BlueCard Program', url: 'https://providers.highmark.com/resources-and-education/highmark-provider-manual/chapter-2-product-information/unit-6-the-bluecard-program' },
     ],
     intakeGates: {
       ageLimit: {
@@ -3506,6 +3516,17 @@ export const newYorkPayers: Record<string, PayerConfig> = {
           { title: 'NY Insurance Law § 3224-a — Standards for prompt, fair and equitable settlement of claims (NY Senate, rev. 9/19/2025)', url: 'https://www.nysenate.gov/legislation/laws/ISC/3224-A' },
         ],
       },
+      {
+        h2: 'Out-of-state Blue members: BlueCard',
+        body: [
+          'A child whose card comes from another state’s Blue plan is a BlueCard member, and Anthem is the local plan. Anthem’s New York provider manual says that "If the Member’s home plan is not with Anthem, the applicable home plan will determine prior authorization requirements". Anthem’s prefix lookup tool identifies the home plan from the three-character prefix on the ID card. For medical policy and prior authorization rules, use Resources > Prior Authorization > "Medical Policy and Prior Authorization for Blue Plans" and enter the prefix. So an out-of-state child’s ABA assessment and treatment are authorized under the home plan’s ABA policy, not Anthem’s.',
+          'On utilization-management appeals the manual says decisions "involving Pre-certification/Pre-authorization are the responsibility of the Blue Plan, insuring or administering benefits for non-Anthem Members (the Member’s Home Plan)". It also says that "Technically, the Member, not the Provider or Facility, is responsible for obtaining the necessary authorization prior to the delivery of non-inpatient admission services". In practice the ABA provider requests it on the family’s behalf. A claim-denial appeal goes to the local Anthem plan as a Claim Payment Dispute.',
+          'The New York manual adds two claim rules. "Anthem is the sole contact for Claims payment, adjustments and issue resolution" for out-of-area Blue members. And if you contract with Anthem and another Blue plan for the same product type, you may file an out-of-area member’s claim with either one, "However, Anthem and Anthem-affiliate Member Claims must be sent to Anthem for processing."',
+        ],
+        cites: [
+          { title: 'Anthem Blue Cross and Blue Shield — New York Provider Manual (effective July 1, 2026)', url: 'https://www.anthembluecross.com/content/dam/digital/docs/anthembluecross/provider/commercial/manuals/PM_NY_000016.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type, first', desc: 'Fully insured New York plan (the mandate and its no-cap rules apply) vs. self-funded ERISA (preempted; federal parity and the plan document govern). Nothing else on this page is reliable until you know which.' },
@@ -3529,6 +3550,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { title: 'Anthem ABA Provider Resource Guide — New York and 10 other states (June 2025)', url: 'https://www.anthembluecross.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/aba-provider-resource-guide-abc-ny.pdf' },
       { title: 'Anthem — MCG care guidelines 27th edition update (New York, Commercial, Feb 1 2024)', url: 'https://providernews.anthem.com/new-york/articles/mcg-care-guidelines-27th-edition-update-17867-17867' },
       { title: 'Anthem New York — Streamlined ABA claim process starts January 1, 2026', url: 'https://providernews.anthem.com/new-york/articles/streamlined-aba-claim-process-starts-january-1-2026-27878' },
+      { title: 'Anthem Blue Cross and Blue Shield — New York Provider Manual (effective July 1, 2026)', url: 'https://www.anthembluecross.com/content/dam/digital/docs/anthembluecross/provider/commercial/manuals/PM_NY_000016.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -3638,6 +3660,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { q: 'Which criteria does Anthem apply to ABA in New York?', a: 'MCG B-806-T. Anthem notified commercial providers that effective June 1, 2024 it would transition from CG-BEH-02 and MCG W0153 to MCG B-806-T for medical-necessity and clinical-appropriateness reviews. MCG guidelines are proprietary and not published, so build the request around Anthem\'s Treatment Plan Request Form for Autism Spectrum Disorders.' },
       { q: 'How many RBTs can a BCBA supervise for Anthem Blue Cross and Blue Shield commercial members in New York?', a: 'Anthem Blue Cross and Blue Shield publishes no supervisee cap. New York’s licensure law caps a licensed behavior analyst at six certified behavior analyst assistants (Ed. Law § 8802) but sets no number for unlicensed technicians; the six-supervisee cap that counts technicians is a NY Medicaid rule and does not bind commercial plans. The supervisor must hold a NYSED LBA license for mandated ABA to be covered.' },
       { q: 'What is Anthem Blue Cross and Blue Shield’s timely filing limit for ABA claims in New York?', a: 'Check your participation agreement; for insured New York plans Ins. Law § 3224-a sets 120 days from the date of service as the floor unless the contract gives more time, and requires payment of undisputed claims within 30 days (electronic) or 45 days (paper).' },
+      { q: 'I see a child in New York whose card is from another state’s Blue plan. Who authorizes ABA?', a: 'The child’s home plan. Anthem’s manual says that when the member’s home plan is not Anthem, "the applicable home plan will determine prior authorization requirements." Look the prefix up under Medical Policy and Prior Authorization for Blue Plans on Anthem’s provider site, request authorization from the home plan, and file the claim with Anthem as the local plan.' },
     ],
   },
 };

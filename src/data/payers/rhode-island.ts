@@ -690,10 +690,10 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
         cites: [S.thpABA, S.thpK],
       },
       concurrentBilling: {
-        value: 'Not addressed in the RITogether ABA guideline or the claims chapter.',
+        value: 'Not addressed for 97153 with 97155 in the RITogether ABA guideline or the claims chapter. Point32Health\u2019s ABA payment policy (rev. 05/2026), which applies to Tufts Health RITogether, does not reimburse \u201cServices provided concurrent with another treatment modality, such as occupational or speech therapy, where the ABA provider\u2019s role is to escort/accompany the member to the appointment,\u201d and says \u201cSecondary ABA providers must submit procedure codes with the XP modifier.\u201d',
         status: 'unverified',
-        cites: [S.thpABA, S.thpClaims],
-        verifyVia: 'Tufts Health Public Plans Provider Services (Rhode Island), 844-301-4093.',
+        cites: [S.thpABA, S.thpClaims, { title: 'Point32Health Payment Policy \u2014 Applied Behavioral Analysis (ABA) Services (rev. 05/2026)', url: 'https://www.point32health.org/documents/applied-behavioral-analysis-aba-services-pp' }],
+        verifyVia: 'Tufts Health Public Plans Provider Services RI, 844-301-4093 — ask whether a BCBA\u2019s supervision code pays for the same minutes as the technician\u2019s direct-service code.',
         blocker: 'per-case',
       },
       dailyLimits: {
@@ -1029,9 +1029,9 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
         cites: [S.en0499, S.m7],
       },
       concurrentBilling: {
-        value: '"Only one provider can bill for a unit of time, with the exception of CPT codes 97153, 97154, and 97155" during direct supervision, when the BCBA or QHP and the technician are both with the patient at the same time.',
+        value: '"Only one provider can bill for a unit of time, with the exception of CPT codes 97153, 97154, and 97155" during direct supervision, when the BCBA or QHP and the technician are both with the patient at the same time. Other therapies are a separate rule: EN0499 (eff. 5/15/2026) says \u201cProvision of ABA treatment is not covered or reimbursable when delivered to the same individual, at the same time as any other treatment modality (e.g., ABA and speech therapy, or ABA and occupational therapy).\u201d',
         status: 'verified',
-        cites: [S.cignaARG],
+        cites: [S.cignaARG, S.en0499],
       },
       dailyLimits: {
         value: 'No per-day cap is published. ABA bills in 15-minute units with "CPT codes 97151–97158, 0362T, and 0373T ONLY"; intensity must reflect severity, goals and response.',
@@ -1195,11 +1195,9 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
         cites: [S.optumSCC, S.m7],
       },
       concurrentBilling: {
-        value: 'Not addressed. The criteria define direct case supervision as occurring during direct treatment but do not state the billing consequence.',
-        status: 'unverified',
-        cites: [S.optumSCC],
-        verifyVia: 'Optum National Network Manual and the participating-provider agreement, or a written coding determination from Optum.',
-        blocker: 'per-case',
+        value: 'Yes for two people, never for one. Optum\u2019s commercial ABA reimbursement policy (2022RP501A, updated June 2026): \u201cCan I report 97153 or 97154 with 97155 concurrently? A. Yes, as long as the criteria in the descriptors of both codes are met. A single QHP may not report 97153 or 97154 with 97155 concurrently.\u201d So the overlap must be a technician on 97153 and an analyst on 97155 directing them with the patient present. 97155 and 97156 on the same date pay only if \u201cseparate, distinct, and clearly documented in the progress notes\u201d; \u201cA single provider can\u2019t bill for both simultaneously (e.g., in the same 15-minute block).\u201d 97155 is not payable for treatment planning while the technician works, and neither 97153 nor 97155 may be billed for technician training. Overlap with speech or OT is not addressed as a billing rule; the ABA criteria say ABA services \u201cdo not duplicate the services provided to or available to the individual by other medical or behavioral services\u201d and ask for documented coordination with OT, speech and PT providers.',
+        status: 'verified',
+        cites: [S.optumReimb, S.optumSCC],
       },
       dailyLimits: {
         value: 'No numeric cap. Hours must be justified by documented clinical need; at continued-service review, use below 80% of authorized hours over a two-week period must be explained.',
@@ -1350,6 +1348,16 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.bcbsriTF, S.pp, S.ohic14, S.ur6, S.ur7],
       },
+      {
+        h2: 'Out-of-state Blue members: BlueCard',
+        body: [
+          'BCBSRI’s provider FAQ: for patients from other Blue plans, "BCBSRI is your contact for claims payment, problem resolution, and adjustments." BCBSRI prices the claim under your BCBSRI contract and routes it to the member’s Blue plan, which "adjudicates the claim and approves payment based on the member’s benefits." Patients from other plans must get precertification or preauthorization from their own Blue plan, and "Other Blue plans’ preauthorization lists may differ from BCBSRI’s." You may call the number on the back of the card, or BlueCard Eligibility at 1-800-676-2583, and ask to be transferred to utilization review. So the child’s ABA authorization follows the home plan’s list.',
+          'BlueCard Managed Care/POS members (other plans’ HMO members living in Rhode Island) are enrolled in local HMO networks and PCP panels: "you should treat these members as you treat any other BCBSRI Managed Care/POS member, applying the same referral practices and network protocols." Submit claims to BCBSRI with the full prefixed ID. File directly with the member’s plan only if you contract with that plan, the card has no prefix, the benefit is excluded (dental, prescriptions), or the member is FEP.',
+        ],
+        cites: [
+          { title: 'Blue Cross & Blue Shield of Rhode Island — Provider FAQ (BlueCard)', url: 'https://www.bcbsri.com/providers/faq' },
+        ],
+      },
     ],
     collect: [
       { title: 'Group and funding', desc: 'Fully insured group vs. self-funded group that opted out of the mandate (ABA may be excluded); check the Subscriber Agreement.' },
@@ -1358,7 +1366,7 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
       { title: 'Licensed provider', desc: 'Rendering or supervising LBA (or psychologist) licensed in the state where services are delivered.' },
       { title: 'Specialist prescription', desc: 'Rhode Island law has licensed analysts provide ABA only on a prescription from a child psychiatrist, behavioral developmental pediatrician, child neurologist or child-trained psychologist.' },
     ],
-    sources: [S.bcbsriASD, S.bcbsriBH, S.bcbsriTF, S.bcbsriTele, S.bcbsriGrid, S.bcbsriPA, S.ch2011, S.m3, S.m4, S.m7, S.lic, S.lic2, S.lic21, S.pp, S.ohic14, S.ur6, S.ur7, S.cob, S.tm4, S.erisa],
+    sources: [S.bcbsriASD, S.bcbsriBH, S.bcbsriTF, S.bcbsriTele, S.bcbsriGrid, S.bcbsriPA, S.ch2011, S.m3, S.m4, S.m7, S.lic, S.lic2, S.lic21, S.pp, S.ohic14, S.ur6, S.ur7, S.cob, S.tm4, S.erisa, { title: 'Blue Cross & Blue Shield of Rhode Island — Provider FAQ (BlueCard)', url: 'https://www.bcbsri.com/providers/faq' }],
     deliveryRules: {
       supervision: {
         value: 'ABA must be "provided and/or supervised by an individual licensed by the state in which the service is rendered," and an assistant analyst works "under the supervision of a Licensed Applied Behavior Analyst." BCBSRI publishes no numeric ratio. Rhode Island’s licensing law requires an LBA to give aides "close supervision" and to meet assistant analysts in person for initial direction and periodic on-site supervision (§ 5-86-26).',
@@ -1453,6 +1461,7 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
       { q: 'Does BCBSRI require prior authorization for ABA?', a: 'BCBSRI lists no ABA preauthorization: its behavioral health notification list covers inpatient, residential, crisis and partial hospitalization care. Benefits vary by group, so confirm with Behavioral Health UM at 1-800-274-2958.' },
       { q: 'Can ABA be delivered by telehealth with BCBSRI?', a: 'Yes. BCBSRI’s 2026 commercial telemedicine grid covers all ABA codes, 97151–97158, 0362T and 0373T, by video (POS 02/10, modifier 95) and by telephone.' },
       { q: 'What is BCBSRI’s timely filing limit?', a: '180 days from the date of service for commercial claims, or 180 days from the primary insurer’s processing date when BCBSRI is secondary.' },
+      { q: 'A child with an out-of-state Blue card wants ABA in Rhode Island. Whose rules apply?', a: 'The home plan’s. BCBSRI’s FAQ says patients from other Blue plans get preauthorization from their own plan, whose list may differ from BCBSRI’s. Call the number on the card or 1-800-676-2583 and ask for utilization review, then bill BCBSRI with the full prefixed ID.' },
     ],
   },
 };

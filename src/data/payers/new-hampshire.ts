@@ -39,6 +39,10 @@ const S: Record<string, PayerSource> = {
   anthemNHPA: { title: 'Anthem BCBS — New Hampshire Precertification/Prior Authorization List (updated 7/1/26)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/NH_PA_List.pdf' },
   hpMNG: { title: 'Point32Health MNG — Applied Behavioral Analysis (ABA) for Commercial Products and Tufts Health Direct (eff. July 1, 2026)', url: 'https://wwwassets.point32health.org/documents/aba-commercial-iq-comm-mng' },
   hpPP: { title: 'Point32Health Payment Policy — Applied Behavioral Analysis (ABA) Services (rev. 05/2026)', url: 'https://www.point32health.org/documents/applied-behavioral-analysis-aba-services-pp' },
+  hpRef: { title: 'Harvard Pilgrim Health Care Provider Manual — Referral Policy and Procedures (March 2026)', url: 'https://www.point32health.org/documents/d-1-referral-policy-pm' },
+  hpMaxUnits: { title: 'Point32Health Payment Policy — Maximum Units (rev. 09/2026)', url: 'https://www.point32health.org/documents/maximum-units-pp' },
+  hpCoding: { title: 'Point32Health Payment Policy — General Coding and Claims Editing (rev. 10/2026)', url: 'https://www.point32health.org/documents/general-coding-and-claims-editing-pp' },
+  cmsMUE: { title: 'CMS — Medicare NCCI Practitioner Services MUE table, effective 10/1/2026 (97151–97158, 0362T, 0373T)', url: 'https://www.cms.gov/files/zip/medicare-ncci-2026-q4-practitioner-services-mue-table.zip' },
   hpNews: { title: 'Point32Health — Applied behavioral analysis policy and coverage updates (Oct 2025, eff. 1/1/2026)', url: 'https://www.point32health.org/provider/applied-behavioral-analysis-policy-and-coverage-updates-102025' },
   aetnaCPB: { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
   aetnaCPB648: { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
@@ -256,18 +260,14 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
     family: 'amerihealth',
     cardDesc: 'NH Medicaid MCO that lists ABA under EPSDT; PA rules sit in a lookup tool, and its manual still prints a 14-day clock.',
     assessmentPA: {
-      value: 'Not stated in the provider manual: its prior-authorization list does not name ABA, and code-level rules live in the online lookup tool',
-      status: 'unverified',
-      cites: [S.acnhPM, S.acnhPA],
-      verifyVia: 'AmeriHealth Caritas NH Prior Authorization Lookup Tool (amerihealthcaritasnh.com → Provider → Prior Authorization) or the UM line, 1-833-472-2264: check 97151 and 97152.',
-      blocker: 'document',
+      value: 'Required. AmeriHealth Caritas NH\u2019s prior authorization lookup (checked 10/11/2026) answers for 97151: "Yes, prior authorization is required. Please submit your request with supporting clinical documentation via fax to 1-833-469-2264 or through NaviNet." For 97152 and 0362T it answers that the code "is not on the New Hampshire Medicaid Fee Schedule and prior authorization is required"',
+      status: 'verified',
+      cites: [{ title: 'AmeriHealth Caritas New Hampshire — Prior authorization lookup, 97151 (checked 10/11/2026)', url: 'https://priorauthlookup.amerihealthcaritas.com/api/CptCodeLookup?planname=acnh&cptCode=97151&cptDate=2026-10-11' }, S.acnhPA],
     },
     treatmentPA: {
-      value: 'Not stated in the provider manual; check each treatment code in the lookup tool',
-      status: 'unverified',
-      cites: [S.acnhPM, S.acnhPA],
-      verifyVia: 'AmeriHealth Caritas NH Prior Authorization Lookup Tool or UM, 1-833-472-2264 (fax 1-833-469-2264): check 97153–97158, 0362T and 0373T.',
-      blocker: 'document',
+      value: 'Required for every ABA treatment code. The lookup (checked 10/11/2026) answers "Yes, prior authorization is required" for 97153, 97154, 97155, 97156 and 0373T, and "not on the New Hampshire Medicaid Fee Schedule and prior authorization is required" for 97157 and 97158; submit through NaviNet or fax 1-833-469-2264',
+      status: 'verified',
+      cites: [{ title: 'AmeriHealth Caritas New Hampshire — Prior authorization lookup, 97153 (checked 10/11/2026)', url: 'https://priorauthlookup.amerihealthcaritas.com/api/CptCodeLookup?planname=acnh&cptCode=97153&cptDate=2026-10-11' }, S.acnhPA],
     },
     dxRequired: {
       value: 'Yes. The plan covers ABA as part of NH Medicaid’s EPSDT benefit and publishes nothing different, so the state rule applies: ABA "for individuals with" autism spectrum disorder or pervasive developmental disability (He-W 589.04(ag))',
@@ -286,7 +286,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
     ],
     atGlance: [
       { label: 'Covers ABA?', value: 'Yes, as part of EPSDT for members under 21' },
-      { label: 'Prior auth', value: 'Not listed in the manual; check codes in the online lookup tool' },
+      { label: 'Prior auth', value: 'Required for 97151–97158, 0362T and 0373T (plan PA lookup, 10/11/2026); fax 1-833-469-2264 or NaviNet' },
       { label: 'Submit via', value: 'NaviNet (Medical Authorizations) or UM 1-833-472-2264' },
       { label: 'Decision clock', value: 'Manual prints 14 calendar days; federal rule is 7 for rating periods from 1/1/2026' },
       { label: 'Credentialing', value: 'Decision within 30 calendar days for mental health providers (eff. 1/1/2026)' },
@@ -418,7 +418,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
     },
     faq: [
       { q: 'Does AmeriHealth Caritas New Hampshire cover ABA?', a: 'Yes. Its provider manual lists EPSDT "including Applied Behavioral Analysis Coverage" for members under 21.' },
-      { q: 'Does AmeriHealth Caritas NH require prior authorization for ABA?', a: 'The manual’s PA list doesn’t name ABA and points to the online lookup tool for the current list. Check each ABA code there before starting services.' },
+      { q: 'Does AmeriHealth Caritas NH require prior authorization for ABA?', a: 'Yes, for the assessment and every treatment code. The plan\u2019s online lookup, checked 10/11/2026, says prior authorization is required for 97151–97158, 0362T and 0373T. It flags 97152, 97157, 97158 and 0362T as not on the New Hampshire Medicaid fee schedule. Submit through NaviNet or fax 1-833-469-2264. The manual\u2019s own PA list does not name ABA.' },
       { q: 'How long does credentialing take?', a: 'The plan says it notifies mental health providers of the decision within 30 calendar days of a clean and complete application (effective January 1, 2026).' },
       { q: 'Can ABA be delivered by telehealth for this plan’s members?', a: 'Yes, under New Hampshire law. RSA 167:4-d requires NH Medicaid to cover telehealth on the same basis as in-person care, from any site including the home, and names BACB-certified professionals and the staff they supervise. That includes the 97151 assessment and 97155 supervision when medically necessary. The plan publishes no ABA-specific telehealth rule, so ask it which POS and modifier to bill.' },
       { q: 'What is AmeriHealth Caritas New Hampshire’s timely filing limit?', a: '120 calendar days from the date of service; provider appeals within 60 calendar days of the notice.' },
@@ -831,6 +831,16 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
           { title: 'RSA 420-J:8-a — Prompt Payment Required (New Hampshire)', url: 'https://www.gencourt.state.nh.us/rsa/html/XXXVII/420-J/420-J-8-a.htm' },
         ],
       },
+      {
+        h2: 'Out-of-state Blue members: BlueCard',
+        body: [
+          'A child whose card comes from another state’s Blue plan is a BlueCard member, and Anthem is the local plan. Anthem’s New Hampshire provider manual says that "If the Member’s home plan is not with Anthem, the applicable home plan will determine prior authorization requirements". Anthem’s prefix lookup tool identifies the home plan from the three-character prefix on the ID card. For medical policy and prior authorization rules, use Resources > Prior Authorization > "Medical Policy and Prior Authorization for Blue Plans" and enter the prefix. So an out-of-state child’s ABA assessment and treatment are authorized under the home plan’s ABA policy, not Anthem’s.',
+          'On utilization-management appeals the manual says decisions "involving Pre-certification/Pre-authorization are the responsibility of the Blue Plan, insuring or administering benefits for non-Anthem Members (the Member’s Home Plan)". It also says that "Technically, the Member, not the Provider or Facility, is responsible for obtaining the necessary authorization prior to the delivery of non-inpatient admission services". In practice the ABA provider requests it on the family’s behalf. A claim-denial appeal goes to the local Anthem plan as a Claim Payment Dispute.',
+        ],
+        cites: [
+          { title: 'Anthem Blue Cross and Blue Shield — 2026 New Hampshire Commercial Provider Manual (effective July 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_NH_00018.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (RSA 417-E applies) vs. self-funded ERISA (plan document governs). Ask for the employer and check the card.' },
@@ -839,7 +849,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { title: 'Signed treatment plan', desc: 'RSA 417-E:2 lets the insurer require one signed by the PCP or a listed specialist, with frequency and duration.' },
       { title: 'Other coverage', desc: 'Second parent’s plan (birthday rule), Medicaid, TRICARE or CHAMPVA.' },
     ],
-    sources: [S.anthemNHPA, S.anthemRG, S.rsa417E, S.hb569, S.rsa420J, S.ins1904, S.bacbLic, S.erisa, S.fee, S.rsa415J],
+    sources: [S.anthemNHPA, S.anthemRG, S.rsa417E, S.hb569, S.rsa420J, S.ins1904, S.bacbLic, S.erisa, S.fee, S.rsa415J, { title: 'Anthem Blue Cross and Blue Shield — 2026 New Hampshire Commercial Provider Manual (effective July 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_NH_00018.pdf' }],
     deliveryRules: {
       supervision: {
         value: 'Anthem publishes no numeric supervision ratio. It recognizes "providers practicing under the direction and supervision of the BCBA," and allows 97153 alongside 97155 only when the QHP and technician are both face-to-face with the patient and the QHP is directing the technician. The NH mandate itself requires ABA to be provided by, or "under the supervision of," a BACB certificant.',
@@ -902,9 +912,9 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
         blocker: 'licensed',
       },
       referral: {
-        value: 'Anthem’s NH documents require precertification from the rendering provider (HMO) or network provider (PPO), not a physician referral.' + MANDATE_REFERRAL_TAIL,
+        value: 'Anthem’s NH documents require precertification from the rendering provider (HMO) or network provider (PPO), not a physician referral. On the claim, Anthem’s 2026 New Hampshire manual says that after treating a member who self-referred instead of getting a PCP referral, “include the word SELF in Box 17 (Name of Referring Provider or Other Source) of the CMS-1500 claim form.” PCPs need not notify Anthem of in-network referrals, except New England Health Plan “cross-border” referrals to a provider outside New Hampshire.' + MANDATE_REFERRAL_TAIL,
         status: 'verified',
-        cites: [S.anthemNHPA, S.rsa417E],
+        cites: [S.anthemNHPA, { title: 'Anthem Blue Cross and Blue Shield — 2026 New Hampshire Commercial Provider Manual (effective July 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_NH_00018.pdf' }, S.rsa417E],
       },
       telehealth: {
         value: 'Anthem lists POS 10 (telehealth in the member’s home) and 02 (telehealth elsewhere) for ABA, subject to coverage, and refers to its Virtual Visits reimbursement policy, where "Allowed codes may vary." For a fully insured New Hampshire plan, RSA 415-J:3 says an insurer “may not deny coverage on the sole basis that the coverage is provided through telemedicine” and must cover and reimburse it “on the same basis” as in person, with “no restriction on eligible originating or distant sites,” for “all modes of telehealth.” Its list of providers who may use all modes includes “Professionals certified by the national behavior analyst certification board or persons performing services under the supervision of” a BACB certificant “as required by RSA 417-E:2.” Self-funded employer plans are outside the state statute.',
@@ -937,6 +947,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { q: 'Does New Hampshire cap ABA benefits?', a: 'Not in the current law. The 2010 statute allowed caps of $36,000 a year (ages 0–12) and $27,000 (13–21), but that paragraph no longer appears in RSA 417-E:2. Self-funded plans follow their own documents.' },
       { q: 'Can a BCBA and RBT both bill for the same time with Anthem?', a: 'Yes, 97155 with 97153, but only when both are face-to-face with the patient at the same time and the BCBA is directing the technician.' },
       { q: 'What is Anthem’s clean-claim payment turnaround in New Hampshire?', a: 'Fifteen calendar days for a clean electronic claim and 30 for paper (RSA 420-J:8-a), on plans subject to the Managed Care Law. Claims filed more than 90 days after service lose that protection.' },
+      { q: 'I see a child in New Hampshire whose card is from another state’s Blue plan. Who authorizes ABA?', a: 'The child’s home plan. Anthem’s manual says that when the member’s home plan is not Anthem, "the applicable home plan will determine prior authorization requirements." Look the prefix up under Medical Policy and Prior Authorization for Blue Plans on Anthem’s provider site, request authorization from the home plan, and file the claim with Anthem as the local plan.' },
     ],
   },
 
@@ -1022,7 +1033,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { title: 'School services', desc: 'Services covered by the school’s special education resources under an IEP are not paid.' },
       { title: 'Other coverage', desc: 'Second parent’s plan (birthday rule), Medicaid, TRICARE or CHAMPVA.' },
     ],
-    sources: [S.hpMNG, S.hpPP, S.hpNews, S.rsa417E, S.hb569, S.rsa420J, S.ins1904, S.bacbLic, S.erisa, S.fee, S.p32Tele, S.rsa415J],
+    sources: [S.hpMNG, S.hpPP, S.hpRef, S.hpMaxUnits, S.hpCoding, S.cmsMUE, S.hpNews, S.rsa417E, S.hb569, S.rsa420J, S.ins1904, S.bacbLic, S.erisa, S.fee, S.p32Tele, S.rsa415J],
     deliveryRules: {
       supervision: {
         value: 'Point32Health requires InterQual’s "Applied Behavior Analysis (ABA) Program-Applied Behavior Analysis Supervision" subset for supervision requests, but the criteria inside it are licensed and not published.',
@@ -1032,18 +1043,16 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
         blocker: 'licensed',
       },
       concurrentBilling: {
-        value: 'The MNG and payment policy do not address billing 97153 and 97155 for the same time. The payment policy refuses payment where the ABA provider only escorts the member to another therapy.',
+        value: 'Not published. The MNG and the ABA payment policy do not address billing 97153 and 97155 for the same time, and the General Coding and Claims Editing payment policy (rev. 10/2026) has no ABA rule either — it applies generic incidental, mutually-exclusive and unbundling edits through claims-editing software. On other therapies, the ABA payment policy refuses payment for "Services provided concurrent with another treatment modality, such as occupational or speech therapy, where the ABA provider\'s role is to escort/accompany the member to the appointment."',
         status: 'unverified',
-        cites: [S.hpMNG, S.hpPP],
-        verifyVia: 'Point32Health General Coding and Claims Editing payment policy, or the commercial Provider Service Center, 800-708-4414.',
+        cites: [S.hpMNG, S.hpPP, S.hpCoding],
+        verifyVia: 'Harvard Pilgrim\'s Code Auditing Reference Tool (HPHConnect login) for the 97153 + 97155 same-date edit, or the commercial Provider Service Center, 800-708-4414.',
         blocker: 'document',
       },
       dailyLimits: {
-        value: 'No ABA-specific cap is in the MNG or ABA payment policy, which point to a separate Maximum Units payment policy.',
-        status: 'unverified',
-        cites: [S.hpPP],
-        verifyVia: 'Point32Health Maximum Units payment policy (point32health.org, Payment policies).',
-        blocker: 'document',
+        value: 'Harvard Pilgrim applies Medicare\'s per-day MUEs. Point32Health\'s Maximum Units payment policy (rev. 09/2026) says that for Harvard Pilgrim "CMS unit values (MUE) for CPT or HCPCS codes will be utilized when available," with a maximum frequency per day where none exists, and "Additional reimbursement will not be made for those services that exceed the CMS MUE." CMS\'s practitioner MUE table effective 10/1/2026 sets, per date of service: 97151, 8 units; 97152, 16; 97153, 32 (8 hours); 97154, 18; 97155, 24; 97156, 16; 97157, 16; 97158, 16; 0362T, 16; 0373T, 24. Units correctly billed above a maximum frequency per day can be appealed with medical records.',
+        status: 'verified',
+        cites: [S.hpMaxUnits, S.cmsMUE],
       },
       noteSignature: {
         value: 'Not addressed in the ABA MNG or payment policy.',
@@ -1095,11 +1104,9 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
         blocker: 'licensed',
       },
       referral: {
-        value: 'The MNG requires prior authorization, not a physician referral; HMO referral rules for the member’s product are not addressed in the ABA documents.' + MANDATE_REFERRAL_TAIL,
-        status: 'plan-dependent',
-        cites: [S.hpMNG, S.rsa417E],
-        verifyVia: 'Harvard Pilgrim Member Services, 888-333-4742, or Provider Service Center, 800-708-4414: ask whether the member’s product needs a PCP referral for ABA.',
-        blocker: 'per-case',
+        value: 'No PCP referral for ABA. Harvard Pilgrim\'s provider manual (Referral Policy, March 2026) says "Harvard Pilgrim does not require referrals for behavioral health services"; members are pointed to member services to access mental health care, and PPO members never need referrals. What the plan does require is prior authorization under the ABA medical necessity guideline. Harvard Pilgrim publishes no ABA physician-order form. Where a referral is needed for other specialty care, it is shown on the CMS-1500 with the PCP\'s name in box 17 and NPI in box 17b, and standing referrals last 364 days; ABA, as behavioral health, falls outside that rule.' + MANDATE_REFERRAL_TAIL,
+        status: 'verified',
+        cites: [S.hpRef, S.hpMNG, S.rsa417E],
       },
       telehealth: {
         value: 'Covered under Point32Health’s general telehealth policy; the ABA guideline and ABA payment policy add nothing. The Telehealth/Telemedicine payment policy (rev. 07/2026), which applies to Harvard Pilgrim commercial products, reimburses “medically necessary telehealth/telemedicine services consistent with applicable state mandates” when the service is clinically appropriate as a substitute for in-person care, the patient is present and consents, both locations are documented and the platform is HIPAA compliant. It does not pay “Services that require equipment and/or direct hands-on care that cannot be provided remotely.” Bill POS 02 or 10 with modifier 93, 95 or GT; in New Hampshire behavioral health telehealth is paid at 100% of the fee schedule. No ABA code list is published. For a fully insured New Hampshire plan, RSA 415-J:3 says an insurer “may not deny coverage on the sole basis that the coverage is provided through telemedicine” and must cover and reimburse it “on the same basis” as in person, with “no restriction on eligible originating or distant sites,” for “all modes of telehealth.” Its list of providers who may use all modes includes “Professionals certified by the national behavior analyst certification board or persons performing services under the supervision of” a BACB certificant “as required by RSA 417-E:2.” Self-funded employer plans are outside the state statute.',
@@ -1590,11 +1597,9 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
         cites: [S.optumSCC],
       },
       concurrentBilling: {
-        value: 'Not addressed. The SCC define direct case supervision as happening during direct treatment but do not state the billing consequence.',
-        status: 'unverified',
-        cites: [S.optumSCC],
-        verifyVia: 'Optum Provider Express National Network Manual and the participating-provider agreement, or a written coding determination from Optum.',
-        blocker: 'per-case',
+        value: 'Yes for two people, never for one. Optum\u2019s commercial ABA reimbursement policy (2022RP501A, updated June 2026): \u201cCan I report 97153 or 97154 with 97155 concurrently? A. Yes, as long as the criteria in the descriptors of both codes are met. A single QHP may not report 97153 or 97154 with 97155 concurrently.\u201d So the overlap must be a technician on 97153 and an analyst on 97155 directing them with the patient present. 97155 and 97156 on the same date pay only if \u201cseparate, distinct, and clearly documented in the progress notes\u201d; \u201cA single provider can\u2019t bill for both simultaneously (e.g., in the same 15-minute block).\u201d 97155 is not payable for treatment planning while the technician works, and neither 97153 nor 97155 may be billed for technician training. Overlap with speech or OT is not addressed as a billing rule; the ABA criteria say ABA services \u201cdo not duplicate the services provided to or available to the individual by other medical or behavioral services\u201d and ask for documented coordination with OT, speech and PT providers.',
+        status: 'verified',
+        cites: [S.optumReimb, S.optumSCC],
       },
       dailyLimits: {
         value: 'No numeric cap. Requested hours must be justified by documented clinical need at the least restrictive appropriate level. At continued-service review, use below 80% of authorized hours over a two-week period must be explained with barriers and a plan.',

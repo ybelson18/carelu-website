@@ -53,6 +53,10 @@ const S: Record<string, PayerSource> = {
   optumReimb: { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated June 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
   hpMNG: { title: 'Point32Health MNG — Applied Behavioral Analysis (ABA) for Commercial Products and Tufts Health Direct (eff. July 1, 2026)', url: 'https://wwwassets.point32health.org/documents/aba-commercial-iq-comm-mng' },
   hpPP: { title: 'Point32Health Payment Policy — Applied Behavioral Analysis (ABA) Services (rev. 05/2026)', url: 'https://www.point32health.org/documents/applied-behavioral-analysis-aba-services-pp' },
+  hpRef: { title: 'Harvard Pilgrim Health Care Provider Manual — Referral Policy and Procedures (March 2026)', url: 'https://www.point32health.org/documents/d-1-referral-policy-pm' },
+  hpMaxUnits: { title: 'Point32Health Payment Policy — Maximum Units (rev. 09/2026)', url: 'https://www.point32health.org/documents/maximum-units-pp' },
+  hpCoding: { title: 'Point32Health Payment Policy — General Coding and Claims Editing (rev. 10/2026)', url: 'https://www.point32health.org/documents/general-coding-and-claims-editing-pp' },
+  cmsMUE: { title: 'CMS — Medicare NCCI Practitioner Services MUE table, effective 10/1/2026 (97151–97158, 0362T, 0373T)', url: 'https://www.cms.gov/files/zip/medicare-ncci-2026-q4-practitioner-services-mue-table.zip' },
   hpTele: { title: 'Point32Health Payment Policy — Telehealth/Telemedicine (rev. 07/2026; ME behavioral health paid at 100%)', url: 'https://www.point32health.org/documents/telehealth-ent-pp' },
   hpForm: { title: 'Point32Health — Applied Behavioral Analysis Prior Authorization Form (rev. 9/2025; code grid for NH, ME, RI commercial)', url: 'https://www.point32health.org/documents/applied-behavioral-analysis-form' },
 };
@@ -339,6 +343,17 @@ export const mainePayers: Record<string, PayerConfig> = {
         body: [ME_CLAIMS_BODY + ' Anthem’s resource guide also points to its Documentation Standards and Code and Clinical Editing reimbursement policies; it does not state a filing limit, so use the one in your Anthem agreement.'],
         cites: [S.st2436, S.st4303, S.st4304, S.anthemRG],
       },
+      {
+        h2: 'Out-of-state Blue members: BlueCard',
+        body: [
+          'A child whose card comes from another state’s Blue plan is a BlueCard member, and Anthem is the local plan. Anthem’s Maine provider manual says that "If the Member’s home plan is not with Anthem, the applicable home plan will determine prior authorization requirements". Anthem’s prefix lookup tool identifies the home plan from the three-character prefix on the ID card. For medical policy and prior authorization rules, use Resources > Prior Authorization > "Medical Policy and Prior Authorization for Blue Plans" and enter the prefix. So an out-of-state child’s ABA assessment and treatment are authorized under the home plan’s ABA policy, not Anthem’s.',
+          'On utilization-management appeals the manual says decisions "involving Pre-certification/Pre-authorization are the responsibility of the Blue Plan, insuring or administering benefits for non-Anthem Members (the Member’s Home Plan)". It also says that "Technically, the Member, not the Provider or Facility, is responsible for obtaining the necessary authorization prior to the delivery of non-inpatient admission services". In practice the ABA provider requests it on the family’s behalf. A claim-denial appeal goes to the local Anthem plan as a Claim Payment Dispute.',
+          'The Maine manual spells the roles out: the Home Plan "determines all of their benefits and eligibility" and "makes policy and prior certification decisions," while the provider "files Claims with the local Plan," which reimburses the provider. Its contacts are the BlueCard Call Center at (877) 795-1881 and BlueCard Eligibility at (800) 676-2583.',
+        ],
+        cites: [
+          { title: 'Anthem Blue Cross and Blue Shield — 2026 Maine Commercial Provider Manual (effective October 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_ME_00115.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Maine mandate applies) vs. self-funded ERISA (plan document governs).' },
@@ -347,7 +362,7 @@ export const mainePayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis report', desc: 'ASD diagnosis by a licensed physician or psychologist, with the date and clinician.' },
       { title: 'Other coverage', desc: 'Second parent’s plan, MaineCare (pays last), TRICARE or CHAMPVA.' },
     ],
-    sources: [S.anthemMEPA, S.anthemRG, S.st2768, S.st2847T, S.st4259, S.pl597, S.st4304, S.st4316, S.st4303, S.st2436, S.ch790, S.bacbLic, S.t32, S.erisa, S.s1],
+    sources: [S.anthemMEPA, S.anthemRG, S.st2768, S.st2847T, S.st4259, S.pl597, S.st4304, S.st4316, S.st4303, S.st2436, S.ch790, S.bacbLic, S.t32, S.erisa, S.s1, { title: 'Anthem Blue Cross and Blue Shield — 2026 Maine Commercial Provider Manual (effective October 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_ME_00115.pdf' }],
     deliveryRules: {
       supervision: {
         value: 'Anthem publishes no numeric supervision ratio. It recognizes "providers practicing under the direction and supervision of the BCBA," and allows 97153 alongside 97155 only when the QHP and technician are both face-to-face with the patient and the QHP is directing the technician. The Maine mandate requires ABA to be provided by, or supervised by, a person certified by a national board of behavior analysts.',
@@ -410,9 +425,9 @@ export const mainePayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       referral: {
-        value: 'Anthem’s Maine list requires precertification from the rendering provider (HMO) or network provider (PPO), not a physician referral.' + MANDATE_REFERRAL_TAIL,
+        value: 'Anthem’s Maine list requires precertification from the rendering provider (HMO) or network provider (PPO), not a physician referral, and Anthem’s 2026 Maine provider manual says “Members may access behavioral health services through self-referral, through Anthem Behavioral Health (ABH), or by referral from another practitioner or Provider.” Anthem publishes no ABA order form.' + MANDATE_REFERRAL_TAIL,
         status: 'verified',
-        cites: [S.anthemMEPA, S.st2847T],
+        cites: [S.anthemMEPA, { title: 'Anthem Blue Cross and Blue Shield — 2026 Maine Commercial Provider Manual (effective October 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_ME_00115.pdf' }, S.st2847T],
       },
       telehealth: {
         value: 'Anthem lists POS 10 (telehealth in the member’s home) and 02 (telehealth elsewhere) for ABA, subject to coverage, and refers to its Virtual Visits reimbursement policy, where "Allowed codes may vary."' + ME_TELEHEALTH_TAIL,
@@ -441,6 +456,7 @@ export const mainePayers: Record<string, PayerConfig> = {
       { q: 'Does Maine cap ABA benefits?', a: 'The mandate lets fully insured plans cap ABA at $36,000 a year and covers children 10 and under; it bars limits on the number of visits. Self-funded plans follow their own documents.' },
       { q: 'Can a BCBA and RBT both bill for the same time with Anthem?', a: 'Yes, 97155 with 97153, but only when both are face-to-face with the patient at the same time and the BCBA is directing the technician.' },
       { q: 'How fast must Anthem decide an ABA authorization in Maine?', a: 'For a fully insured Maine plan, within 72 hours or 2 business days, whichever is less; a request not decided in time is granted by law. Self-funded plans follow federal ERISA timelines (15 days for pre-service requests).' },
+      { q: 'I see a child in Maine whose card is from another state’s Blue plan. Who authorizes ABA?', a: 'The child’s home plan. Anthem’s manual says that when the member’s home plan is not Anthem, "the applicable home plan will determine prior authorization requirements." Look the prefix up under Medical Policy and Prior Authorization for Blue Plans on Anthem’s provider site, request authorization from the home plan, and file the claim with Anthem as the local plan.' },
     ],
   },
 
@@ -716,9 +732,9 @@ export const mainePayers: Record<string, PayerConfig> = {
         cites: [S.en0499],
       },
       concurrentBilling: {
-        value: '"Only one provider can bill for a unit of time, with the exception of CPT codes 97153, 97154, and 97155 (direct supervision when the BCBA/qualified health care provider directs the technician and both are face-to-face with the patient at the same time)."',
+        value: '"Only one provider can bill for a unit of time, with the exception of CPT codes 97153, 97154, and 97155 (direct supervision when the BCBA/qualified health care provider directs the technician and both are face-to-face with the patient at the same time)." Other therapies are a separate rule: EN0499 (eff. 5/15/2026) says \u201cProvision of ABA treatment is not covered or reimbursable when delivered to the same individual, at the same time as any other treatment modality (e.g., ABA and speech therapy, or ABA and occupational therapy).\u201d',
         status: 'verified',
-        cites: [S.cignaARG],
+        cites: [S.cignaARG, S.en0499],
       },
       dailyLimits: {
         value: 'No per-day cap is published. All ABA codes bill in 15-minute units and only with 97151–97158, 0362T and 0373T. A fully insured Maine plan may cap ABA at $36,000 a year but may not limit visits.',
@@ -882,11 +898,9 @@ export const mainePayers: Record<string, PayerConfig> = {
         cites: [S.optumSCC],
       },
       concurrentBilling: {
-        value: 'Not addressed. The SCC define direct case supervision as happening during direct treatment but do not state the billing consequence.',
-        status: 'unverified',
-        cites: [S.optumSCC],
-        verifyVia: 'Optum Provider Express National Network Manual and the participating-provider agreement, or a written coding determination from Optum.',
-        blocker: 'per-case',
+        value: 'Yes for two people, never for one. Optum\u2019s commercial ABA reimbursement policy (2022RP501A, updated June 2026): \u201cCan I report 97153 or 97154 with 97155 concurrently? A. Yes, as long as the criteria in the descriptors of both codes are met. A single QHP may not report 97153 or 97154 with 97155 concurrently.\u201d So the overlap must be a technician on 97153 and an analyst on 97155 directing them with the patient present. 97155 and 97156 on the same date pay only if \u201cseparate, distinct, and clearly documented in the progress notes\u201d; \u201cA single provider can\u2019t bill for both simultaneously (e.g., in the same 15-minute block).\u201d 97155 is not payable for treatment planning while the technician works, and neither 97153 nor 97155 may be billed for technician training. Overlap with speech or OT is not addressed as a billing rule; the ABA criteria say ABA services \u201cdo not duplicate the services provided to or available to the individual by other medical or behavioral services\u201d and ask for documented coordination with OT, speech and PT providers.',
+        status: 'verified',
+        cites: [S.optumReimb, S.optumSCC],
       },
       dailyLimits: {
         value: 'No numeric cap in the SCC. At continued-service review, use of authorized hours below 80% over a two-week period must be explained with barriers and a plan. A fully insured Maine plan may cap ABA at $36,000 a year but may not limit visits.',
@@ -1046,7 +1060,7 @@ export const mainePayers: Record<string, PayerConfig> = {
       { title: 'HPHConnect access', desc: 'The InterQual questionnaire runs there; register before the first request.' },
       { title: 'Other coverage', desc: 'Second parent’s plan, MaineCare (pays last), TRICARE or CHAMPVA.' },
     ],
-    sources: [S.hpMNG, S.hpPP, S.hpTele, S.hpForm, S.st2768, S.st2847T, S.st4259, S.pl597, S.st4304, S.st4316, S.st4303, S.st2436, S.ch790, S.bacbLic, S.t32, S.erisa, S.s1],
+    sources: [S.hpMNG, S.hpPP, S.hpRef, S.hpMaxUnits, S.hpCoding, S.cmsMUE, S.hpTele, S.hpForm, S.st2768, S.st2847T, S.st4259, S.pl597, S.st4304, S.st4316, S.st4303, S.st2436, S.ch790, S.bacbLic, S.t32, S.erisa, S.s1],
     deliveryRules: {
       supervision: {
         value: 'Point32Health requires InterQual’s "Applied Behavior Analysis (ABA) Program-Applied Behavior Analysis Supervision" subset for supervision requests, but the criteria inside it are licensed and not published. The Maine mandate requires ABA to be provided by, or supervised by, a national-board certificant.',
@@ -1056,18 +1070,16 @@ export const mainePayers: Record<string, PayerConfig> = {
         blocker: 'licensed',
       },
       concurrentBilling: {
-        value: 'The MNG and payment policy do not address billing 97153 and 97155 for the same time. The payment policy refuses payment where the ABA provider only escorts the member to another therapy.',
+        value: 'Not published. The MNG and the ABA payment policy do not address billing 97153 and 97155 for the same time, and the General Coding and Claims Editing payment policy (rev. 10/2026) has no ABA rule either — it applies generic incidental, mutually-exclusive and unbundling edits through claims-editing software. On other therapies, the ABA payment policy refuses payment for "Services provided concurrent with another treatment modality, such as occupational or speech therapy, where the ABA provider\'s role is to escort/accompany the member to the appointment."',
         status: 'unverified',
-        cites: [S.hpMNG, S.hpPP],
-        verifyVia: 'Point32Health General Coding and Claims Editing payment policy, or the commercial Provider Service Center, 800-708-4414.',
+        cites: [S.hpMNG, S.hpPP, S.hpCoding],
+        verifyVia: 'Harvard Pilgrim\'s Code Auditing Reference Tool (HPHConnect login) for the 97153 + 97155 same-date edit, or the commercial Provider Service Center, 800-708-4414.',
         blocker: 'document',
       },
       dailyLimits: {
-        value: 'No ABA-specific cap is in the MNG or ABA payment policy, which point to a separate Maximum Units payment policy. The authorization form requests units per six-month period, not per week.',
-        status: 'unverified',
-        cites: [S.hpPP, S.hpForm],
-        verifyVia: 'Point32Health Maximum Units payment policy (point32health.org, Payment policies).',
-        blocker: 'document',
+        value: 'Harvard Pilgrim applies Medicare\'s per-day MUEs. Point32Health\'s Maximum Units payment policy (rev. 09/2026) says that for Harvard Pilgrim "CMS unit values (MUE) for CPT or HCPCS codes will be utilized when available," with a maximum frequency per day where none exists, and "Additional reimbursement will not be made for those services that exceed the CMS MUE." CMS\'s practitioner MUE table effective 10/1/2026 sets, per date of service: 97151, 8 units; 97152, 16; 97153, 32 (8 hours); 97154, 18; 97155, 24; 97156, 16; 97157, 16; 97158, 16; 0362T, 16; 0373T, 24. Units correctly billed above a maximum frequency per day can be appealed with medical records. The authorization form requests units per six-month period, not per week.',
+        status: 'verified',
+        cites: [S.hpMaxUnits, S.cmsMUE, S.hpForm],
       },
       noteSignature: {
         value: 'Not addressed in the ABA MNG or payment policy.',
@@ -1119,11 +1131,9 @@ export const mainePayers: Record<string, PayerConfig> = {
         blocker: 'licensed',
       },
       referral: {
-        value: 'The MNG requires prior authorization, not a physician referral; HMO referral rules for the member’s product are not addressed in the ABA documents.' + MANDATE_REFERRAL_TAIL,
-        status: 'plan-dependent',
-        cites: [S.hpMNG, S.st2847T],
-        verifyVia: 'Harvard Pilgrim Member Services, 888-333-4742, or Provider Service Center, 800-708-4414: ask whether the member’s product needs a PCP referral for ABA.',
-        blocker: 'per-case',
+        value: 'No PCP referral for ABA. Harvard Pilgrim\'s provider manual (Referral Policy, March 2026) says "Harvard Pilgrim does not require referrals for behavioral health services"; members are pointed to member services to access mental health care, and PPO members never need referrals. What the plan does require is prior authorization under the ABA medical necessity guideline. Harvard Pilgrim publishes no ABA physician-order form. Where a referral is needed for other specialty care, it is shown on the CMS-1500 with the PCP\'s name in box 17 and NPI in box 17b, and standing referrals last 364 days; ABA, as behavioral health, falls outside that rule.' + MANDATE_REFERRAL_TAIL,
+        status: 'verified',
+        cites: [S.hpRef, S.hpMNG, S.st2847T],
       },
       telehealth: {
         value: 'Covered under Point32Health’s Telehealth/Telemedicine payment policy (rev. 07/2026), which applies to Harvard Pilgrim commercial products and pays "medically necessary telehealth/telemedicine services consistent with applicable state mandates" when the service is clinically appropriate as a substitute for in-person care, the patient is present and consents, both locations are documented and the platform is HIPAA compliant. Commercial claims use POS 02 or 10 with modifier 93, 95 or GT, and Maine behavioral health telehealth is paid at 100% of the fee schedule. The ABA documents publish no ABA telehealth code list.' + ME_TELEHEALTH_TAIL,

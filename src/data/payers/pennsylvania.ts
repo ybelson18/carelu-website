@@ -1946,6 +1946,16 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           { title: '31 Pa. Code § 154.18 — Prompt payment', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/031/chapter154/s154.18.html' },
         ],
       },
+      {
+        h2: 'Out-of-state Blue members: BlueCard',
+        body: [
+          'Highmark’s provider manual (Chapter 2, Unit 6) covers members of other Blue plans who travel to or live in Delaware, New York, Pennsylvania and West Virginia. "Highmark is your sole contact for claim submission, payment, adjustments, and issue resolution." For outpatient care, "your out-of-area Blue Plan patients are responsible for obtaining precertification/preauthorization from their Blue Plan when required for outpatient services. However, you may contact the member’s Blue Plan for authorization on behalf of the member." Highmark’s router takes the member’s prefix and returns the home plan’s medical policy and precertification information. Electronic Provider Access, BlueExchange and BlueCard Eligibility (800-676-BLUE) handle pre-service review.',
+          'It works the other way too. Highmark’s outpatient prior-authorization requirements "include those services provided by out-of-area providers participating with their local Blue Plan," and "Claims for services on the prior authorization list received without authorization will be denied." So a Highmark member getting ABA from a provider in another state still needs Highmark’s authorization, requested through that provider’s local Blue plan portal. Where Highmark overlaps another Blue (the 21-county central Pennsylvania and Lehigh Valley region, the 5-county southeastern Pennsylvania region and 13-county northeastern New York), claims for Highmark members go to Highmark and claims for the other Blue plan’s members go to that plan, whichever plan you contract with.',
+        ],
+        cites: [
+          { title: 'Highmark Provider Manual — Chapter 2, Unit 6: The BlueCard Program', url: 'https://providers.highmark.com/resources-and-education/highmark-provider-manual/chapter-2-product-information/unit-6-the-bluecard-program' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type and group size', desc: 'Fully insured large group (51+) or CHIP means Act 62 applies. Self-funded (ASO), individual or small-group means the benefit contract and whether the ASO elected V-37 decide. Ask for the employer name and read the card.' },
@@ -1971,6 +1981,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: 'Act 146 of 2022 — Insurance Company Law Art. XXI amendments incl. § 2155 prior authorization review (Justia)', url: 'https://law.justia.com/codes/pennsylvania/2022/act-146/' },
       { title: 'BACB — U.S. Licensure of Behavior Analysts (PA absent; checked September 2026)', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
       { title: '49 Pa. Code Ch. 18 Subch. N (§§ 18.521–18.527) — Behavior Specialists', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/049/chapter18/chap18toc.html' },
+      { title: 'Highmark Provider Manual — Chapter 2, Unit 6: The BlueCard Program', url: 'https://providers.highmark.com/resources-and-education/highmark-provider-manual/chapter-2-product-information/unit-6-the-bluecard-program' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2113,6 +2124,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { q: 'Does Highmark Wholecare cover ABA?', a: 'No. Highmark Wholecare is a Medicaid physical-health plan. Its handbook says behavioral health services come through the county BH-MCO, which manages ABA (IBHS) for Medicaid children in Pennsylvania.' },
       { q: 'What does Highmark pay for ABA in Pennsylvania?', a: 'Commercial ABA rates are negotiated. One exception is published: from October 16, 2026, CPT 97153 for PA PPO pays $16.59 in the office and $15.73 outside the office. Other codes and products are set by your contract.' },
       { q: 'What is Highmark’s clean-claim payment turnaround in Pennsylvania?', a: 'Within 45 days of receipt of a clean claim (31 Pa. Code § 154.18), for insured plans.' },
+      { q: 'A Highmark member’s family moved out of state. Do they still need Highmark’s ABA authorization?', a: 'Yes. Highmark’s prior-authorization requirements apply to services from out-of-area providers who participate with their own local Blue plan, and claims for listed services without authorization are denied. The out-of-state provider requests authorization through its local Blue plan’s portal and bills its local plan.' },
     ],
   },
 
@@ -2239,6 +2251,16 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: '31 Pa. Code § 154.18 — Prompt payment', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/031/chapter154/s154.18.html' },
+        ],
+      },
+      {
+        h2: 'Out-of-state Blue members: BlueCard',
+        body: [
+          'Capital’s provider manual (Chapter 2, Unit 6, The BlueCard program) covers members of other Blue plans who live in or travel to its 21-county Central Pennsylvania and Lehigh Valley area: "members from other Blue Plans are responsible for obtaining precertification/preauthorization for their services from their Blue Plan." Participating providers must notify the member’s plan within 48 hours of a change to a preservice review. Check eligibility through Capital’s provider portal, a HIPAA 270, or BlueCard Eligibility at 1.800.676.BLUE (2583), which handles "eligibility, benefit, and precertification/referral authorizations only." Claims go to Capital, which pays under your Capital fee schedule. The BlueCard Provider Service Unit is 1.877.892.6298.',
+          'Out-of-area HMO and POS members of other Blue plans "receive the indemnity level of benefits offered through BlueCard Traditional" outside their home plan’s area, and HMO products "may have limited benefits out-of-area" (the back of the card says so). Check benefits before starting an ABA program for such a child. Capital’s CMS-1500 instructions for autism spectrum disorder claims require the full prefix in Block 1a. If a BlueCard member’s card has no prefix, file directly with the member’s Blue plan.',
+        ],
+        cites: [
+          { title: 'Capital Blue Cross — Provider Manual 2026', url: 'https://www.capbluecross.com/wps/portal/cap/provider/provider-hub/provider-manual/provider-manual' },
         ],
       },
     ],
@@ -2405,6 +2427,8 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { q: 'How long does Capital take to decide an ABA request?', a: 'For commercial members, the manual allows up to 15 calendar days for a standard request and 72 hours for an expedited one, with a missing-information notice within 48 hours. CHIP requests are decided within two business days.' },
       { q: 'What does Capital Blue Cross pay for ABA?', a: 'Capital publishes no ABA fee schedule. Commercial ABA rates are negotiated in the Provider Agreement.' },
       { q: 'What is Capital Blue Cross’s clean-claim payment turnaround in Pennsylvania?', a: 'Within 45 days of receipt of a clean claim (31 Pa. Code § 154.18), for insured plans.' },
+      { q: 'Who authorizes ABA for an out-of-state Blue member treated in Capital’s area?', a: 'The member’s own Blue plan. Capital’s manual says members from other Blue plans are responsible for precertification from their plan, which you can request through BlueCard Eligibility at 1.800.676.BLUE. Out-of-area HMO members may have limited benefits, so check before starting. File the claim with Capital, with the prefix in Block 1a.' },
+      { q: 'Does Capital Blue Cross need a referring provider in Box 17 on ABA claims?', a: 'Not according to its autism claim instructions. The 2026 provider manual\u2019s CMS-1500 instructions for autism spectrum disorder cover Blocks 1a (ID with prefix), 2, 11c, 21, 24d (codes, autism diagnosis, modifiers and total time-based units), 24j (rendering NPI), 32, 33 and 33a (billing NPI), and do not call for Block 17. Preauthorization, not a referral, is the gate for ABA.' },
     ],
   },
 
@@ -2530,6 +2554,16 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           { title: '31 Pa. Code § 154.18 — Prompt payment', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/031/chapter154/s154.18.html' },
         ],
       },
+      {
+        h2: 'Out-of-state Blue members: BlueCard',
+        body: [
+          'Members of other Blue plans who live in or travel to Independence’s five-county area (Bucks, Chester, Delaware, Montgomery, Philadelphia) are BlueCard members. Independence’s BlueCard manual section says "they are responsible for obtaining Preapproval from their Home Blue Plan when required," and "You may also contact the out-of-area enrollee’s Plan on the enrollee’s behalf." Request it through the BlueExchange Out of Area transaction in PEAR Practice Management ("PreService Review for Out-of-Area Members"), by calling BlueCard Eligibility at 1-800-676-BLUE and asking for utilization review, or with a HIPAA 278. The child’s ABA authorization therefore follows the home plan’s rules, not Independence’s.',
+          'Claims go to Independence, which sends them to the home plan and pays you. Independence is "your single point of contact for all BlueCard claim inquiries." Enter the ID exactly as on the card, with prefix, up to 17 characters. If you also contract with another area Blue plan (Highmark Blue Shield, Highmark BCBS Delaware, Capital Blue Cross, Horizon), claims for that plan’s own members go to that plan. The manual also lists benefits excluded from BlueCard: stand-alone dental, prescription drugs, the Federal Employee Program (FEP) and, except urgent or emergent claims, Medicare Advantage HMO.',
+        ],
+        cites: [
+          { title: 'Independence Blue Cross — Provider Manual, Section 16: BlueCard (October 2021)', url: 'https://provcomm.ibx.com/pnc-ibc/Manuals/Provider/IBX_Provider_16_BlueCard.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured large group (Act 62 applies), individual/small group (IBX covers ABA by its own policy), or self-funded through Independence Administrators (group-defined benefits). The card and the employer answer this.' },
@@ -2554,6 +2588,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: 'PA Insurance Department Notice 2026-06 — Autism coverage CPI-U adjustment and parity reminder (56 Pa.B. 1396)', url: 'https://www.pacodeandbulletin.gov/secure/pabulletin/data/vol56/56-10/352.html' },
       { title: 'Act 146 of 2022 — Insurance Company Law Art. XXI amendments incl. § 2155 prior authorization review (Justia)', url: 'https://law.justia.com/codes/pennsylvania/2022/act-146/' },
       { title: 'PA State Board of Medicine — Behavior Specialist Licensure Requirements Snapshot', url: 'https://www.pa.gov/agencies/dos/department-and-offices/bpoa/boards-commissions/medicine/behavior-specialist-licensure-snapshot' },
+      { title: 'Independence Blue Cross — Provider Manual, Section 16: BlueCard (October 2021)', url: 'https://provcomm.ibx.com/pnc-ibc/Manuals/Provider/IBX_Provider_16_BlueCard.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2697,6 +2732,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { q: 'Does the ABA assessment need prior authorization with IBX?', a: 'Yes. 97151, 97152 and 0362T are on IBX’s commercial precertification list with every other ABA code, and the PA form has a separate "Assessment request" option.' },
       { q: 'What does IBX pay for ABA?', a: 'Commercial ABA rates are not published; they are negotiated in your IBX provider agreement. The one published rule is that behavioral health delivered by telemedicine is paid at 100% of your contracted fee schedule.' },
       { q: 'What is Independence Blue Cross’s clean-claim payment turnaround in Pennsylvania?', a: 'Within 45 days of receipt of a clean claim (31 Pa. Code § 154.18), for insured plans.' },
+      { q: 'Who authorizes ABA for an out-of-state Blue member I see in the Philadelphia area?', a: 'The member’s home Blue plan. Independence’s BlueCard manual puts preapproval on the home plan; you can request it for the family through PEAR’s BlueExchange pre-service review or 1-800-676-BLUE. You still submit the claim to Independence.' },
     ],
   },
 
