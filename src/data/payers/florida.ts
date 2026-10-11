@@ -93,11 +93,13 @@ export const floridaPayers: Record<string, PayerConfig> = {
       },
       dailyLimits: {
         value:
-          'Florida caps by the week, not the day: “Florida Medicaid covers up to 40 hours per week of BA intervention services as indicated in the recipient’s prior-authorized behavior plan,” and EPSDT lets recipients under 21 exceed the policy and fee-schedule limits when medically necessary. Group adaptive behavior treatment — by protocol or with protocol modification — maxes at six participants. Units are 15 minutes on the CMS 8-minute rule: total minutes divided by 15, with a remainder of 8 minutes or more counting as one unit and a remainder under 8 not reimbursable. The fee schedule adds per-assessment ceilings (97151 to a maximum of 24 units per assessment; reassessment 97151-TS to 18) and caps 97156 telemedicine at two hours a week. No per-code per-day MUE ceiling is published in the coverage policy.',
+          'Florida caps by the week, not the day: “Florida Medicaid covers up to 40 hours per week of BA intervention services as indicated in the recipient’s prior-authorized behavior plan,” and EPSDT lets recipients under 21 exceed the policy and fee-schedule limits when medically necessary. Group adaptive behavior treatment, by protocol or with protocol modification, maxes out at six participants. Units are 15 minutes on the CMS 8-minute rule: total minutes divided by 15, with a remainder of 8 minutes or more counting as one unit and a remainder under 8 not reimbursable. The 2026 fee schedule adds per-assessment ceilings: 97151 up to 24 units per behavior assessment, 97152 up to 8, 0362T up to 16 for an initial assessment or reassessment, and 97151-TS reassessment up to 18. It caps 97156-GT telemedicine at two hours a week. No per-code per-day MUE ceiling is published in the coverage policy or the fee schedule.',
         status: 'verified',
-        cites: [{ title: 'Florida Medicaid Behavior Analysis Services Coverage Policy (Dec 2024, Rule 59G-4.125)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
-        verifyVia:
-          'Which MUE table (CMS Medicaid NCCI vs. Practitioner) a plan’s claim editor applies, and the current per-assessment unit caps — AHCA’s fee-schedule PDFs block automated retrieval, so confirm the live schedule with AHCA or the MMA plan before modelling units.',
+        cites: [
+          { title: 'Florida Medicaid Behavior Analysis Services Coverage Policy (Dec 2024, Rule 59G-4.125)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' },
+          { title: 'AHCA — Behavior Analysis Fee Schedule 2026', url: 'https://ahca.myflorida.com/content/download/28096/file/2026%20BA%20Fee%20Schedule.pdf' },
+        ],
+        verifyVia: 'Which MUE table (CMS Medicaid NCCI vs. Practitioner) a plan’s claim editor applies — ask the MMA plan before modelling daily units.',
       },
       noteSignature: {
         value:
@@ -237,6 +239,18 @@ export const floridaPayers: Record<string, PayerConfig> = {
           { title: 'Fla. Stat. § 641.3155 (2026) — Prompt payment of claims', url: 'https://www.flsenate.gov/Laws/Statutes/2026/641.3155' },
         ],
       },
+      {
+        h2: 'What intake needs on file: the Florida Medicaid BA document list',
+        body: [
+          'The coverage policy sets the list, and every Florida MMA plan applies it underneath its own forms. The referral comes first. "The recipient must be referred by an independent physician or practitioner qualified to assess and diagnose disorders related to functional impairment," and "the referral must include a physician\'s order for behavior analysis services and a comprehensive diagnostic evaluation (CDE)." The CDE must be "led by a licensed practitioner" and "must include assessment findings and treatment recommendations." The "original referral documentation must be maintained in the recipient\'s medical record." No autism diagnosis is required, and the policy sets no expiry on the CDE.',
+          'Before treatment starts, the Lead Analyst runs a behavior assessment. It includes the Vineland-3 Comprehensive Parent Interview Form (plus the Maladaptive Behavior Domain from age 3) and the BASC-3 PRQ (ages 2 through 18). "The complete scoring report, including outcome measure scores, must be submitted with service prior authorization requests." The assessment and behavior plan must be "signed by the Lead Analyst and the recipient\'s parent or guardian." Each must include the reason for referral; medical, developmental and family history; the clinical interview; a review of recent reports; the assessment results; measurable goals with baselines and mastery criteria; caregiver-training goals; units requested per code with their medical necessity; the supervision plan naming the supervisors; and care-coordination, transition, crisis and discharge plans. School-based requests add the IEP. Without one, submit a justification and an IEP timeline, or a 504 plan, or the school\'s name with an explanation.',
+          'Timing matters. Fee-for-service requests go to Acentra (eQSuite) with "documentation substantiating the need for services" uploaded or faxed on its bar-coded cover sheets. A request missing documents is pended, and if they do not arrive "within two business day[s] the review request is Technically Denied." Assessment codes (97151, 97152, 97151-TS) go on a separate request from treatment codes. Reauthorization needs a reassessment and updated plan at least every six months, data tables and graphs for every target behavior, and data on parent or guardian participation. The core instruments are repeated every 12 months.',
+        ],
+        cites: [
+          { title: 'Florida Medicaid Behavior Analysis Services Coverage Policy (Dec 2024, Rule 59G-4.125)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' },
+          { title: 'Acentra Health — Behavior Analysis Provider Manual 2026', url: 'https://fl.acentra.com/wp-content/uploads/sites/14/2026/05/Behavior-Analysis-Provider-Manual-2026.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'MMA plan (or FFS)', desc: 'One of the nine plans, or unenrolled/FFS via Acentra — it decides the entire PA pathway.' },
@@ -275,6 +289,8 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { q: 'Is the Florida Medicaid ABA network open?', a: 'Each MMA plan decides. Florida law lets plans limit their networks “based on credentials, quality indicators, and price” (s. 409.975(1), F.S.), and some plans have paused adding BA practitioners in some regions (Sunshine Health since October 2025, outside Regions A and B, lifted in E and F from March 2026). Ask each plan\u2019s provider relations team.' },
       { q: 'What happens if a Florida Medicaid family changes BA providers?', a: 'AHCA\u2019s policy says “a full assessment may be requested if there is a change in provider,” so the new agency usually requests its own assessment and then a new treatment authorization. An RBT becoming a BCaBA is not grounds for a reassessment. Plan members follow the plan\u2019s process.' },
       { q: 'How fast must a Florida Medicaid plan pay an ABA claim?', a: 'Within 20 days of an electronic claim the plan must pay it or say it is denied or contested, and every claim must be paid or denied within 90 days (120 for paper); late payments carry 12% interest. Section 409.967(2)(j) makes the HMO prompt-pay statute, § 641.3155, binding on every MMA plan.' },
+      { q: 'What documents does Florida Medicaid require at intake for ABA (behavior analysis)?', a: 'Start with a referral from an independent physician or qualifying practitioner: a PCP in family practice, internal medicine or pediatrics; a developmental or neurodevelopmental pediatrician, pediatric neurologist or psychiatrist; or a child psychologist. It must include a physician\'s order for BA services and a Comprehensive Diagnostic Evaluation. No autism diagnosis is required, and the CDE has no expiry. The first authorization adds the Lead Analyst\'s behavior assessment with full Vineland-3 and BASC-3 PRQ scoring reports, a behavior plan signed by the Lead Analyst and parent covering up to six months, units per code with their justification, and the supervision plan. Add the IEP or 504 plan if services are in school. Your MMA plan may add its own form on top.' },
+      { q: 'How recent does the diagnostic evaluation need to be for Florida Medicaid ABA?', a: 'The state policy sets no expiry on the Comprehensive Diagnostic Evaluation and requires no autism diagnosis. What is clocked is the BA assessment: reassessment and an updated behavior plan at least every six months, with the Vineland-3 and BASC-3 PRQ repeated every 12 months. MMA plans can add their own freshness rules on their forms, so check the plan\'s guide.' },
     ],
   },
 
@@ -506,6 +522,7 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { q: 'Is Ambetter the same as Sunshine Health Medicaid?', a: 'No — Ambetter from Sunshine Health is Centene\'s ACA Marketplace (exchange) brand, a fully-insured individual-market product. It is NOT Florida Medicaid, and Florida\'s autism mandate (§ 627.6686) explicitly excludes individual-market plans, so Ambetter\'s ABA coverage rests on ACA/MHPAEA rules and Centene\'s own clinical policy rather than the state mandate or the AHCA Medicaid BA policy. Always confirm which card a family holds.' },
       { q: 'What happens when a Sunshine Health member switches BA providers?', a: 'AHCA\u2019s BA coverage policy, which every MMA plan must follow, says “a full assessment may be requested if there is a change in provider,” and a change in a practitioner\u2019s credential (an RBT becoming a BCaBA) is not grounds for a reassessment. Expect the new agency to request its own assessment and treatment authorization; ask Sunshine Health how it closes the previous provider\u2019s authorization.' },
       { q: 'What is the payment turnaround for Sunshine Health ABA claims?', a: 'Florida law binds Sunshine Health as an MMA plan (§ 409.967(2)(j) → § 641.3155): pay or send a denial/contest notice within 20 days of an electronic claim (40 for paper), pay or deny within 90 days (120 for paper), and 12% interest on late payments. The statute also requires providers to file within 6 months of the date of service.' },
+      { q: 'What documents does Sunshine Health need at intake for ABA?', a: 'The state packet applies: a referral from an independent physician or qualifying practitioner, a physician\'s order for BA services, and the Comprehensive Diagnostic Evaluation, filed with the initial assessment request. Since August 1, 2026, every new BA authorization also needs the original signed PCP Acknowledgement and Care Coordination Form. Sunshine says requests without it "will not be approved." Each request carries the complete Vineland-3 and BASC-3 PRQ scoring reports, and the PA form asks for the most recent and previous scores of each. A family switching providers needs a new initial request with current instruments plus a Change of Provider Form.' },
     ],
   },
 
@@ -750,6 +767,7 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { q: 'Is the CMS Health Plan\u2019s BA network open to new providers?', a: 'Not published as a yes or no. Florida law lets MMA plans “limit the providers in their networks based on credentials, quality indicators, and price” (s. 409.975(1), F.S.), so a plan may decline a new BA group. Ask the CMS Health Plan\u2019s provider relations or contracting team whether it is adding BA groups in your region.' },
       { q: 'What happens when a the CMS Health Plan member switches BA providers?', a: 'AHCA\u2019s BA coverage policy, which every MMA plan must follow, says “a full assessment may be requested if there is a change in provider,” and a change in a practitioner\u2019s credential (an RBT becoming a BCaBA) is not grounds for a reassessment. Expect the new agency to request its own assessment and treatment authorization; ask the CMS Health Plan how it closes the previous provider\u2019s authorization.' },
       { q: 'What is the payment turnaround for Children’s Medical Services Health Plan ABA claims?', a: 'Florida law binds Children’s Medical Services Health Plan as an MMA plan (§ 409.967(2)(j) → § 641.3155): pay or send a denial/contest notice within 20 days of an electronic claim (40 for paper), pay or deny within 90 days (120 for paper), and 12% interest on late payments. The statute also requires providers to file within 6 months of the date of service.' },
+      { q: 'What documents does the CMS Health Plan (Molina) need at intake for ABA?', a: 'Molina\'s checklist for the initial request includes the Comprehensive Diagnostic Evaluation and a signed referral from the member\'s assigned PCP that specifies ABA services. It also needs Vineland-3 and BASC-3 PRQ scoring reports, a behavior plan covering the full period (up to six months), an FBA/BIP for any behavior-reduction goal, and a weekly schedule by code and place of service. Add other services the child receives, caregiver-training goals, the supervision plan and a transition or discharge plan. The CDE has no set expiry, but Molina may ask for a new one after a significant change.' },
     ],
   },
 
@@ -945,6 +963,7 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { q: 'Is Simply Healthcare\u2019s BA network open to new providers?', a: 'Not published as a yes or no. Florida law lets MMA plans “limit the providers in their networks based on credentials, quality indicators, and price” (s. 409.975(1), F.S.), so a plan may decline a new BA group. Ask Simply Healthcare\u2019s provider relations or contracting team whether it is adding BA groups in your region.' },
       { q: 'What happens when a Simply Healthcare member switches BA providers?', a: 'AHCA\u2019s BA coverage policy, which every MMA plan must follow, says “a full assessment may be requested if there is a change in provider,” and a change in a practitioner\u2019s credential (an RBT becoming a BCaBA) is not grounds for a reassessment. Expect the new agency to request its own assessment and treatment authorization; ask Simply Healthcare how it closes the previous provider\u2019s authorization.' },
       { q: 'What is the payment turnaround for Simply Healthcare ABA claims?', a: 'Florida law binds Simply Healthcare as an MMA plan (§ 409.967(2)(j) → § 641.3155): pay or send a denial/contest notice within 20 days of an electronic claim (40 for paper), pay or deny within 90 days (120 for paper), and 12% interest on late payments. The statute also requires providers to file within 6 months of the date of service.' },
+      { q: 'What documents does Simply Healthcare (Carelon) need at intake for ABA?', a: 'Carelon\'s checklist: "a referral for BA therapy by a qualified diagnostician," with the CDE attached and signed by that diagnostician; an up-to-date treatment plan with member-specific data; the completed request form; and the IEP or 504 plan if applicable. The state requirement that the referral include a physician\'s order applies underneath. The treatment plan and data "should be no older than 30 days at the time of submission," with current Vineland and BASC scores.' },
     ],
   },
 
@@ -1142,6 +1161,7 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { q: 'Is UnitedHealthcare Community Plan\u2019s BA network open to new providers?', a: 'Not published as a yes or no. Florida law lets MMA plans “limit the providers in their networks based on credentials, quality indicators, and price” (s. 409.975(1), F.S.), so a plan may decline a new BA group. Ask UnitedHealthcare Community Plan\u2019s provider relations or contracting team whether it is adding BA groups in your region.' },
       { q: 'What happens when a UnitedHealthcare Community Plan member switches BA providers?', a: 'AHCA\u2019s BA coverage policy, which every MMA plan must follow, says “a full assessment may be requested if there is a change in provider,” and a change in a practitioner\u2019s credential (an RBT becoming a BCaBA) is not grounds for a reassessment. Expect the new agency to request its own assessment and treatment authorization; ask UnitedHealthcare Community Plan how it closes the previous provider\u2019s authorization.' },
       { q: 'What is the payment turnaround for UnitedHealthcare Community Plan ABA claims?', a: 'Florida law binds UnitedHealthcare Community Plan as an MMA plan (§ 409.967(2)(j) → § 641.3155): pay or send a denial/contest notice within 20 days of an electronic claim (40 for paper), pay or deny within 90 days (120 for paper), and 12% interest on late payments. The statute also requires providers to file within 6 months of the date of service.' },
+      { q: 'What documents does UnitedHealthcare Community Plan of Florida need at intake for ABA?', a: 'The state packet, unchanged: an independent physician\'s referral with a physician\'s order for BA services, and a Comprehensive Diagnostic Evaluation. Then the Lead Analyst\'s behavior assessment with Vineland-3 and BASC-3 PRQ scoring reports and the behavior plan. UHC\'s difference is the channel. "All behavioral analysis services require prior authorization," submitted on the Provider Express secure portal as "ABA Assessment" or "ABA Treatment." No fax route is advertised.' },
     ],
   },
 
@@ -1537,6 +1557,7 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { q: 'Is Aetna Better Health of Florida\u2019s BA network open to new providers?', a: 'Not published as a yes or no. Florida law lets MMA plans “limit the providers in their networks based on credentials, quality indicators, and price” (s. 409.975(1), F.S.), so a plan may decline a new BA group. Ask Aetna Better Health of Florida\u2019s provider relations or contracting team whether it is adding BA groups in your region. Its guide above names the BA contracting route.' },
       { q: 'What happens when a Aetna Better Health of Florida member switches BA providers?', a: 'AHCA\u2019s BA coverage policy, which every MMA plan must follow, says “a full assessment may be requested if there is a change in provider,” and a change in a practitioner\u2019s credential (an RBT becoming a BCaBA) is not grounds for a reassessment. Expect the new agency to request its own assessment and treatment authorization; ask Aetna Better Health of Florida how it closes the previous provider\u2019s authorization.' },
       { q: 'What is the payment turnaround for Aetna Better Health of Florida ABA claims?', a: 'Florida law binds Aetna Better Health of Florida as an MMA plan (§ 409.967(2)(j) → § 641.3155): pay or send a denial/contest notice within 20 days of an electronic claim (40 for paper), pay or deny within 90 days (120 for paper), and 12% interest on late payments. The statute also requires providers to file within 6 months of the date of service.' },
+      { q: 'What documents does Aetna Better Health of Florida need at intake for ABA?', a: 'ABHFL follows the AHCA coverage policy: an independent physician referral with a physician\'s order for BA services and a Comprehensive Diagnostic Evaluation, then the behavior assessment (Vineland-3 and BASC-3 PRQ) and behavior plan. Initial evaluations are authorized for up to three months and each treatment request for up to six. Its FAQ told providers to submit the original initial assessment with a continuation request. The live submission channel and any ABHFL-specific BA form could not be confirmed publicly.' },
     ],
   },
 
@@ -1721,6 +1742,7 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { q: 'Is Molina\u2019s BA network open to new providers?', a: 'Not published as a yes or no. Florida law lets MMA plans “limit the providers in their networks based on credentials, quality indicators, and price” (s. 409.975(1), F.S.), so a plan may decline a new BA group. Ask Molina\u2019s provider relations or contracting team whether it is adding BA groups in your region.' },
       { q: 'What happens when a Molina member switches BA providers?', a: 'AHCA\u2019s BA coverage policy, which every MMA plan must follow, says “a full assessment may be requested if there is a change in provider,” and a change in a practitioner\u2019s credential (an RBT becoming a BCaBA) is not grounds for a reassessment. Expect the new agency to request its own assessment and treatment authorization; ask Molina how it closes the previous provider\u2019s authorization.' },
       { q: 'What is the payment turnaround for Molina Healthcare of Florida ABA claims?', a: 'Florida law binds Molina Healthcare of Florida as an MMA plan (§ 409.967(2)(j) → § 641.3155): pay or send a denial/contest notice within 20 days of an electronic claim (40 for paper), pay or deny within 90 days (120 for paper), and 12% interest on late payments. The statute also requires providers to file within 6 months of the date of service.' },
+      { q: 'What documents does Molina Healthcare of Florida need at intake for ABA?', a: 'Molina\'s July 2026 guide requires a signed referral from the member\'s assigned PCP that specifies ABA services, with the CDE and Vineland-3/BASC-3 scoring reports. It also needs a behavior plan for the full period (up to six months), an FBA/BIP for any behavior-reduction goal, a weekly schedule by code and place of service, other services the child receives, caregiver-training goals, the supervision plan and a transition or discharge plan. Submit through Availity Essentials.' },
     ],
   },
 
@@ -1912,6 +1934,7 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { q: 'Is Community Care Plan\u2019s BA network open to new providers?', a: 'Not published as a yes or no. Florida law lets MMA plans “limit the providers in their networks based on credentials, quality indicators, and price” (s. 409.975(1), F.S.), so a plan may decline a new BA group. Ask Community Care Plan\u2019s provider relations or contracting team whether it is adding BA groups in your region.' },
       { q: 'What happens when a Community Care Plan member switches BA providers?', a: 'AHCA\u2019s BA coverage policy, which every MMA plan must follow, says “a full assessment may be requested if there is a change in provider,” and a change in a practitioner\u2019s credential (an RBT becoming a BCaBA) is not grounds for a reassessment. Expect the new agency to request its own assessment and treatment authorization; ask Community Care Plan how it closes the previous provider\u2019s authorization.' },
       { q: 'What is the payment turnaround for Community Care Plan ABA claims?', a: 'Florida law binds Community Care Plan as an MMA plan (§ 409.967(2)(j) → § 641.3155): pay or send a denial/contest notice within 20 days of an electronic claim (40 for paper), pay or deny within 90 days (120 for paper), and 12% interest on late payments. The statute also requires providers to file within 6 months of the date of service.' },
+      { q: 'What documents does Community Care Plan need at intake for ABA?', a: 'First on CCP\'s checklist for authorizing the behavior assessment: the prescription or referral form from an independent physician or qualified practitioner, carrying the diagnosis and an order for BA services, plus the CDE. All BA fee-schedule codes need prior authorization from Therapy Network of Florida through its portal. Reassessments are due every six months, and the core instruments annually unless a new behavior emerges or more hours are requested.' },
     ],
   },
 
@@ -2096,6 +2119,7 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { q: 'Is Florida Community Care\u2019s BA network open to new providers?', a: 'Not published as a yes or no. Florida law lets MMA plans “limit the providers in their networks based on credentials, quality indicators, and price” (s. 409.975(1), F.S.), so a plan may decline a new BA group. Ask Florida Community Care\u2019s provider relations or contracting team whether it is adding BA groups in your region.' },
       { q: 'What happens when a Florida Community Care member switches BA providers?', a: 'AHCA\u2019s BA coverage policy, which every MMA plan must follow, says “a full assessment may be requested if there is a change in provider,” and a change in a practitioner\u2019s credential (an RBT becoming a BCaBA) is not grounds for a reassessment. Expect the new agency to request its own assessment and treatment authorization; ask Florida Community Care how it closes the previous provider\u2019s authorization.' },
       { q: 'What is the payment turnaround for Florida Community Care ABA claims?', a: 'Florida law binds Florida Community Care as an MMA plan (§ 409.967(2)(j) → § 641.3155): pay or send a denial/contest notice within 20 days of an electronic claim (40 for paper), pay or deny within 90 days (120 for paper), and 12% interest on late payments. The statute also requires providers to file within 6 months of the date of service.' },
+      { q: 'What documents does Florida Community Care need at intake for ABA?', a: 'The state packet (an independent physician\'s referral and order for BA services plus a CDE), submitted on FCC\'s own ABA Prior Authorization Request Form by fax, email or the provider portal. For members under 21, the form also asks who established the ASD diagnosis: "Documentation must be within the last 24 months by a MD, PhD in Psychology or PsyD. Diagnosis must meet DSM-5 criterion to diagnose ASD. Validated assessment tools must be included." Expect an older diagnostic report to come back.' },
     ],
   },
 
@@ -2150,12 +2174,16 @@ export const floridaPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'Aetna gates ABA with precertification rather than a referral: form GR-69017-4, submitted through Availity or by phone, for both the assessment and treatment. Neither CPB 0554, CPB 0648 nor the ABA Medical Necessity Guide publishes a referral or physician-order requirement — the Guide mentions “involvement of, or referrals to, appropriate health care, community or supplemental resources” as a quality element, not an entry condition. Whether the specific plan needs a PCP referral is a benefit-design question, not a policy one.',
+          'Aetna gates ABA with precertification rather than a referral: form GR-69017-4, submitted through Availity or by phone, for both the assessment and treatment. Neither CPB 0554, CPB 0648 nor the ABA Medical Necessity Guide publishes a referral or physician-order requirement — the Guide mentions “involvement of, or referrals to, appropriate health care, community or supplemental resources” as a quality element, not an entry condition. Whether the specific plan needs a PCP referral is a benefit-design question, not a policy one. Florida\'s mandate adds a physician order on the plans it reaches (fully insured large-group and state-employee plans, with § 641.31098 for HMOs). Coverage "shall be limited to treatment that is prescribed by the insured\'s treating physician in accordance with a treatment plan." That plan "shall include ... a diagnosis, the proposed treatment by type, the frequency and duration of treatment, the anticipated outcomes stated as goals, the frequency with which the treatment plan will be updated, and the signature of the treating physician" (§ 627.6686(4)(a), (7)). The statute names a physician, not a psychologist, and sets no validity period beyond the update frequency written into the plan itself. In practice the order is the treating physician\'s signature on the treatment plan itself. Individual, small-group and self-funded plans are outside the mandate, so for them the order is a plan-document question.',
         status: 'plan-dependent',
+        cites: [
+          { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+          { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (\\u00a92026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+          { title: 'Fla. Stat. § 627.6686 (2026) — Steven A. Geller Autism Coverage Act', url: 'https://www.flsenate.gov/Laws/Statutes/2026/627.6686' },
+        ],
+        verifyVia: 'The member’s benefit document and Aetna precertification at the number on the ID card — ask whether a PCP referral is required in addition to precertification.',
         blocker: 'per-case',
-        cites: [{ title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }, { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (\u00a92026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
-        verifyVia:
-          'The member’s benefit document and Aetna precertification at the number on the ID card — ask whether a PCP referral is required in addition to precertification.',
       },
       telehealth: {
         value:
@@ -2335,6 +2363,7 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { title: 'Fla. Stat. § 627.6131 (2026) — Payment of claims (health insurers)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/627.6131' },
       { title: 'Fla. Stat. § 641.3155 (2026) — Prompt payment of claims (HMOs)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/641.3155' },
       { title: 'Aetna Provider Manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+      { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
     ],
     faq: [
       { q: 'Does Aetna cover ABA therapy in Florida?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Florida\'s Geller Act (§ 627.6686) for covered fully-insured group plans. Individual, small-group, and self-funded employer plans sit outside the mandate, so always verify plan funding type first.' },
@@ -2342,6 +2371,7 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { q: 'What does Aetna pay for ABA in Florida?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the Florida Medicaid BA schedule (97153 at $12.26/unit — among the lowest in the Southeast) and treat rate-setting as part of contracting.' },
       { q: 'What is Aetna’s timely filing limit in Florida?', a: 'Aetna’s national provider manual (6/26) does not publish a number — the filing limit is the one in your Aetna agreement. Florida law separately requires the claim within 6 months of the date of service.' },
       { q: 'How fast must Aetna pay a clean ABA claim in Florida?', a: 'Florida law (§ 627.6131 for insurers, § 641.3155 for HMOs) requires payment or a denial/contest notice within 20 days of an electronic claim (40 for paper) and payment or denial within 90 days (120 for paper), with 12% interest on late payments. Self-funded employer plans are not bound by the statute.' },
+      { q: 'What documents does Aetna need for an ABA authorization in Florida?', a: 'Aetna\'s precertification form GR-69017-4 (7-26), which replaced its other ABA forms from August 1, 2026 (Maryland and Massachusetts excepted), lists them. It asks for the current DSM diagnosis code and the diagnosing provider\'s name and credentials, plus hours by code (assessment codes per authorization period, treatment codes per week) and any hours during class. Supporting documents: "Results of a standardized assessment (i.e. Vineland, ABAS, VB-MAPP) completed within the past 12 months," with the IQ if available. Add a time-limited treatment plan with baselines and measurable targets, FBA or skills-assessment results, data showing severity justifies the hours, measurable caregiver goals, titration and discharge criteria, and coordination with other providers. Start the request on Availity or by phone and attach the form and records.' },
     ],
   },
 
@@ -2378,7 +2408,7 @@ export const floridaPayers: Record<string, PayerConfig> = {
       },
       dxRecency: {
         value:
-          'EN0499 sets no maximum age on the diagnosis, but it requires the date to be on the record and puts the currency burden on the instruments. Required with the diagnosis: “the name, credentials, and type of licensure of the individual who made the diagnosis” and “the date on which the diagnosis was most recently made.” For the assessment instrument, “the instrument used represents the most current version, and does not represent obsolete editions of the assessment (e.g., must be the Vineland-3 vs. Vineland-II)” and “the instrument used assesses the individual’s specific and current abilities and skills,” with the date of administration and the respondent named. A diagnosis termed “provisional,” “proposed,” “potential,” “at risk of” or “rule out” is not a confirmed diagnosis.',
+          'EN0499 sets no maximum age on the diagnosis, but it requires the date to be on the record and puts the currency burden on the instruments. Required with the diagnosis: “the name, credentials, and type of licensure of the individual who made the diagnosis” and “the date on which the diagnosis was most recently made.” For the assessment instrument, “the instrument used represents the most current version, and does not represent obsolete editions of the assessment (e.g., must be the Vineland-3 vs. Vineland-II)” and “the instrument used assesses the individual’s specific and current abilities and skills,” with the date of administration and the respondent named. A diagnosis termed “provisional,” “proposed,” “potential,” “at risk of” or “rule out” is not a confirmed diagnosis. The one hard clock is on the ABA assessment: to start treatment, “administration of the assessment instrument has been completed within 60 days prior to the start of treatment” (EN0499, eff. 5/15/2026).',
         status: 'verified',
         cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
       },
@@ -2396,12 +2426,15 @@ export const floridaPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'No referral requirement is published, and Cigna’s front door is unusually open: assessment codes 97151, 97152 and 0362T need no prior authorization under EN0499, so the assessment can start on the diagnosis alone. The rigour arrives at the treatment step, which requires the completed assessment plus a treatment plan submitted with Cigna’s ABA prior-authorization form. Whether a specific plan layers a PCP referral on top is a benefit-design question.',
+          'No referral requirement is published, and Cigna’s front door is unusually open: assessment codes 97151, 97152 and 0362T need no prior authorization under EN0499, so the assessment can start on the diagnosis alone. The rigour arrives at the treatment step, which requires the completed assessment plus a treatment plan submitted with Cigna’s ABA prior-authorization form. Whether a specific plan layers a PCP referral on top is a benefit-design question. Florida\'s mandate adds a physician order on the plans it reaches (fully insured large-group and state-employee plans, with § 641.31098 for HMOs). Coverage "shall be limited to treatment that is prescribed by the insured\'s treating physician in accordance with a treatment plan." That plan "shall include ... a diagnosis, the proposed treatment by type, the frequency and duration of treatment, the anticipated outcomes stated as goals, the frequency with which the treatment plan will be updated, and the signature of the treating physician" (§ 627.6686(4)(a), (7)). The statute names a physician, not a psychologist, and sets no validity period beyond the update frequency written into the plan itself. In practice the order is the treating physician\'s signature on the treatment plan itself. Individual, small-group and self-funded plans are outside the mandate, so for them the order is a plan-document question.',
         status: 'plan-dependent',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+          { title: 'Cigna autism resource guide', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+          { title: 'Fla. Stat. § 627.6686 (2026) — Steven A. Geller Autism Coverage Act', url: 'https://www.flsenate.gov/Laws/Statutes/2026/627.6686' },
+        ],
+        verifyVia: 'A live benefits verification and Evernorth Provider Services at 800.926.2273 — confirm whether the plan requires a referral in addition to the treatment PA.',
         blocker: 'per-case',
-        cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Cigna autism resource guide', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
-        verifyVia:
-          'A live benefits verification and Evernorth Provider Services at 800.926.2273 — confirm whether the plan requires a referral in addition to the treatment PA.',
       },
       telehealth: {
         value:
@@ -2587,6 +2620,7 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { q: 'How do I join Cigna\u2019s ABA network in Florida?', a: 'Apply to Evernorth: individuals use the Evernorth Behavioral Provider Information Form and autism clinics the Screening Application for Autism Clinics. Allow up to 90 days for the application and another 60 to 90 days to credential each provider after the clinic contract. Technicians are not credentialed; their services bill under the supervising provider.' },
       { q: 'What is Cigna’s timely filing limit in Florida?', a: 'Evernorth Behavioral Health, which administers Cigna’s ABA benefit, considers claims submitted within 90 days of the date of service unless your provider agreement or a longer state-law limit says otherwise. Its Florida addendum requires claims within six months of the date of service under § 641.3155.' },
       { q: 'How fast must Cigna pay a clean ABA claim in Florida?', a: 'Florida law (§ 627.6131 for insurers, § 641.3155 for HMOs) requires payment or a denial/contest notice within 20 days of an electronic claim (40 for paper) and payment or denial within 90 days (120 for paper), with 12% interest on late payments. Self-funded employer plans are not bound by the statute.' },
+      { q: 'What documents does Cigna (Evernorth) need for ABA in Florida?', a: 'EN0499 (effective 5/15/2026) requires a confirmed DSM-5-TR ASD diagnosis from an independently licensed clinician whose scope includes diagnosis. The record must give "the name, credentials, and type of licensure" of the diagnosing clinician and "the date on which the diagnosis was most recently made." A provisional or rule-out diagnosis, or an IDEA educational identification, does not count. For treatment, the BCBA\'s assessment must use a current-edition standardized instrument, completed in full and administered "within 60 days prior to the start of treatment," with score tables. The treatment plan\'s goals must match the deficits it found.' },
     ],
   },
 
@@ -2647,12 +2681,14 @@ export const floridaPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'No referral requirement is published; the gate is authorization. “Prior authorization is required for ABA (unless otherwise specified or mandated by contract or law),” run as Optum’s two-step structure on Provider Express — assessment authorized first, then treatment — with continued-service reviews every 4–6 months. Whether a specific plan also requires a PCP referral is a benefit-design question.',
+          'No referral requirement is published; the gate is authorization. “Prior authorization is required for ABA (unless otherwise specified or mandated by contract or law),” run as Optum’s two-step structure on Provider Express — assessment authorized first, then treatment — with continued-service reviews every 4–6 months. Whether a specific plan also requires a PCP referral is a benefit-design question. Florida\'s mandate adds a physician order on the plans it reaches (fully insured large-group and state-employee plans, with § 641.31098 for HMOs). Coverage "shall be limited to treatment that is prescribed by the insured\'s treating physician in accordance with a treatment plan." That plan "shall include ... a diagnosis, the proposed treatment by type, the frequency and duration of treatment, the anticipated outcomes stated as goals, the frequency with which the treatment plan will be updated, and the signature of the treating physician" (§ 627.6686(4)(a), (7)). The statute names a physician, not a psychologist, and sets no validity period beyond the update frequency written into the plan itself. In practice the order is the treating physician\'s signature on the treatment plan itself. Individual, small-group and self-funded plans are outside the mandate, so for them the order is a plan-document question.',
         status: 'plan-dependent',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+          { title: 'Fla. Stat. § 627.6686 (2026) — Steven A. Geller Autism Coverage Act', url: 'https://www.flsenate.gov/Laws/Statutes/2026/627.6686' },
+        ],
+        verifyVia: 'A live benefits verification plus Provider Express — confirm whether the plan layers a referral requirement on top of the two-step authorization.',
         blocker: 'per-case',
-        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
-        verifyVia:
-          'A live benefits verification plus Provider Express — confirm whether the plan layers a referral requirement on top of the two-step authorization.',
       },
       telehealth: {
         value: 'Three codes, after an attestation. Optum’s Telehealth Billing guide (updated September 2025) is explicit for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157” — virtual supervision of technicians and family training — so technician-delivered 97153 is not payable by telehealth. The provider must first be “an approved Optum virtual visits provider who has attested” (the virtual-visits attestation on Provider Express) and must tell the ABA Care Advocate at authorization. Bill the in-person code with the member’s location as the place of service: POS 10 when the member is at home, POS 02 anywhere else (the older ABA CPT FAQ says POS 02; the 2025 guide requires one of the two on every behavioral-health telehealth claim, and POS 11 or a telehealth modifier alone is not paid). Optum’s criteria add that telehealth is “not intended to supplant in-person service.” Because only 97155, 97156 and 97157 are allowed by telehealth on commercial plans, the 97151 assessment and 97152 supporting assessment must be done in person, while remote BCBA direction of the technician (97155) is allowed.',
@@ -2854,6 +2890,313 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale.' },
       { q: 'What is UnitedHealthcare’s timely filing limit in Florida?', a: 'Optum Behavioral Health, which manages UnitedHealthcare’s ABA benefit, requires claims within 90 calendar days of the date of service unless state or federal law or the member’s plan allows longer (National Network Manual, effective September 1, 2026).' },
       { q: 'How fast must UnitedHealthcare pay a clean ABA claim in Florida?', a: 'Florida law (§ 627.6131 for insurers, § 641.3155 for HMOs) requires payment or a denial/contest notice within 20 days of an electronic claim (40 for paper) and payment or denial within 90 days (120 for paper), with 12% interest on late payments. Self-funded employer plans are not bound by the statute.' },
+      { q: 'What documents does UnitedHealthcare (Optum) need for ABA in Florida?', a: 'Optum\'s ABA Supplemental Clinical Criteria require a valid DSM-5-TR ASD diagnosis from a state-licensed physician, psychologist or other qualified licensed clinician. The diagnosing clinician confirms the diagnosis and severity level "using at least one clinically validated tool," such as the ADOS-2, ADI-R or CARS-2. The ABA provider then completes its own behavioral assessment with baseline measurement on at least one validated tool (for example the VB-MAPP, ABLLS-R, AFLS or Vineland) and builds the treatment plan from it. "Prior authorization is required for ABA (unless otherwise specified or mandated by contract or law)." The criteria set no expiry on the diagnosis.' },
+    ],
+  },
+
+  'florida-blue': {
+    slug: 'florida-blue',
+    family: 'bcbs',
+    cardDesc: 'Florida\'s local Blue; ABA authorized by Lucet under policy 20.5.005, covered without plan limits per Florida Blue, plus the § 627.6686 mandate layer.',
+    assessmentPA: {
+      value:
+        'Required. Lucet reviews the ABA pre-treatment assessment as its own request: the member must have a DSM-based ASD diagnosis from a qualified clinician, and the hours requested must be no more than the assessment needs (Lucet policy 20.5.005). Florida Blue PPO and HMO requests go to Lucet by fax (816-237-2372, "Attn: FL ABA Request") or through WebPass.',
+      status: 'verified',
+      cites: [
+        { title: 'Lucet Medical Policy 20.5.005 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (applies 1/1/2026–12/31/2026)', url: 'https://lucethealth.com/wp-content/uploads/2025/12/2026-Lucet-ABA-for-Treatment-of-ASD.pdf' },
+        { title: 'Lucet — Managed Behavioral Health Provider & Facility Manual (July 2026), incl. Florida Blue PPO and HMO appendices', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+      ],
+    },
+    treatmentPA: {
+      value:
+        'Required. "Applied Behavior Analysis (ABA) requires authorization. Lucet will assign an authorization reference number." Florida Blue\'s manual says group BlueCare, BlueOptions and BlueChoice require authorization for autism-related therapy. Treatment plans are reviewed twice a year, and Lucet asks for reauthorization requests at least two weeks before the current authorization expires.',
+      status: 'verified',
+      cites: [
+        { title: 'Lucet — Managed Behavioral Health Provider & Facility Manual (July 2026), incl. Florida Blue PPO and HMO appendices', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+        { title: 'Lucet Medical Policy 20.5.005 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (applies 1/1/2026–12/31/2026)', url: 'https://lucethealth.com/wp-content/uploads/2025/12/2026-Lucet-ABA-for-Treatment-of-ASD.pdf' },
+        { title: 'Florida Blue — Manual for Physicians and Providers: Provider Participation, Plans and Products, Utilization Management', url: 'https://files.guidewell.com/m/26745a10e23752cf/original/providers-provider-manual-01.pdf' },
+      ],
+    },
+    dxRequired: {
+      value:
+        'Yes, ASD. Lucet\'s policy covers ABA for "members with the diagnosis of Autism Spectrum Disorder." The diagnosis must meet current DSM criteria and be backed by a comprehensive diagnostic evaluation with an ASD-specific standardized assessment. Screening results alone do not count. The Florida mandate also names Down syndrome for ABA on the group plans it reaches, so a Down syndrome request turns on the member\'s plan documents.',
+      status: 'verified',
+      cites: [
+        { title: 'Lucet Medical Policy 20.5.005 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (applies 1/1/2026–12/31/2026)', url: 'https://lucethealth.com/wp-content/uploads/2025/12/2026-Lucet-ABA-for-Treatment-of-ASD.pdf' },
+        { title: 'Lucet — Managed Behavioral Health Provider & Facility Manual (July 2026), incl. Florida Blue PPO and HMO appendices', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+        { title: 'Fla. Stat. § 627.6686 (2024)', url: 'https://www.flsenate.gov/Laws/statutes/2024/627.6686' },
+      ],
+    },
+    payer: 'Florida Blue (Blue Cross and Blue Shield of Florida)',
+    state: 'FL', kind: 'commercial',
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Neither Florida Blue nor Lucet publishes an ABA age limit. Lucet\'s policy says comprehensive ABA "is primarily directed to children ages 3 to 8 years old," and focused ABA has no stated age range. Both describe a treatment model, not a benefit boundary. The age terms that apply come from the Geller Act, and only on the plans it reaches. An eligible individual is "under 18 years of age or 18 years of age or older who is in high school" and "diagnosed as having a developmental disability at 8 years of age or younger." Florida Blue quotes that definition in its own coverage guideline. The mandate binds fully insured large-group and state-employee plans. Individual, individually underwritten and small-employer plans are excluded by the statute, and self-funded ERISA plans are outside state reach.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Lucet Medical Policy 20.5.005 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (applies 1/1/2026–12/31/2026)', url: 'https://lucethealth.com/wp-content/uploads/2025/12/2026-Lucet-ABA-for-Treatment-of-ASD.pdf' },
+          { title: 'Florida Blue Medical Coverage Guideline 01-97000-08 — Treatment of Autism Spectrum Disorders (reviewed 04/24/25)', url: 'https://mcgs.bcbsfl.com/MCG?mcgId=01-97000-08&pv=false' },
+          { title: 'Fla. Stat. § 627.6686 (2024)', url: 'https://www.flsenate.gov/Laws/statutes/2024/627.6686' },
+        ],
+        verifyVia: 'The member\'s plan documents and a Lucet benefits check (866-287-9569): ask whether the plan carries an ABA age limit and whether it is fully insured large group.',
+        blocker: 'per-case',
+      },
+      dxRecency: {
+        value:
+          'No expiry on the diagnosis itself, but Lucet puts clocks on the baseline data behind it. Lucet\'s policy says the developmental and cognitive evaluation, the autism-specific assessment that sets severity, and the neurological evaluation must be "completed no longer than five (5) years prior to or scheduled within ninety (90) days of the pre-treatment assessment." The adaptive behavior assessment must be "completed within 6 months of start date of treatment." Lucet\'s manual adds that one standardized adaptive instrument and one standardized cognitive instrument are "required within 90 days of pre-treatment assessment to establish baseline data."',
+        status: 'verified',
+        cites: [
+          { title: 'Lucet Medical Policy 20.5.005 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (applies 1/1/2026–12/31/2026)', url: 'https://lucethealth.com/wp-content/uploads/2025/12/2026-Lucet-ABA-for-Treatment-of-ASD.pdf' },
+          { title: 'Lucet — Managed Behavioral Health Provider & Facility Manual (July 2026), incl. Florida Blue PPO and HMO appendices', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+        ],
+      },
+      diagnosingProviders: {
+        value:
+          '"A clinician who is licensed and qualified to make such a diagnosis. Such clinicians are usually neurologists, developmental pediatricians, pediatricians, psychiatrists, licensed clinical psychologists or medical doctors experienced in the diagnosis of ASD. State law may define eligible qualified clinicians." The diagnosis must come with "a clinical note of sufficient depth that allows concordance with current DSM criteria." The comprehensive evaluation must rule out conditions that look similar, including neurological, hearing and behavior disorders and other developmental delays.',
+        status: 'verified',
+        cites: [
+          { title: 'Lucet Medical Policy 20.5.005 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (applies 1/1/2026–12/31/2026)', url: 'https://lucethealth.com/wp-content/uploads/2025/12/2026-Lucet-ABA-for-Treatment-of-ASD.pdf' },
+        ],
+      },
+      diagnosticTools: {
+        value:
+          'Lucet\'s manual names the instruments. One diagnostic assessment is "required to meet the diagnostic criteria outlined in the ABA Medical Policy": ADOS-2, ADI-R or a DSM-5 Checklist. One standardized adaptive instrument (Vineland, ABAS, BASC or PDDBI) and one standardized cognitive instrument (for example Bayley, Mullen, DAS, WPPSI or WISC) are required within 90 days of the pre-treatment assessment. Screeners such as the M-CHAT-R/F, CARS-2, GARS, SCQ or SRS-2 "are not appropriate standalone support for an autism diagnosis." Curriculum tools such as the VB-MAPP, ABLLS or AFLS are optional ways to show progress.',
+        status: 'verified',
+        cites: [
+          { title: 'Lucet — Managed Behavioral Health Provider & Facility Manual (July 2026), incl. Florida Blue PPO and HMO appendices', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+          { title: 'Lucet Medical Policy 20.5.005 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (applies 1/1/2026–12/31/2026)', url: 'https://lucethealth.com/wp-content/uploads/2025/12/2026-Lucet-ABA-for-Treatment-of-ASD.pdf' },
+        ],
+      },
+      referral: {
+        value:
+          'No referral or physician order is required for ABA under Lucet\'s policy for Florida. Lucet\'s only prescription requirement is in its Maryland addendum. Florida Blue\'s manual says BlueCare HMO members do not need a PCP referral to see a participating specialist. For myBlue (the individual-market HMO), "A referral for behavioral health services is not needed from the myBlue assigned PCP," but "The referral is not an authorization." The gate is Lucet\'s authorization, and the request needs the diagnostic evaluation behind it. Florida\'s mandate adds a physician order on the plans it reaches (fully insured large-group and state-employee plans, with § 641.31098 for HMOs). Coverage "shall be limited to treatment that is prescribed by the insured\'s treating physician in accordance with a treatment plan." That plan "shall include ... a diagnosis, the proposed treatment by type, the frequency and duration of treatment, the anticipated outcomes stated as goals, the frequency with which the treatment plan will be updated, and the signature of the treating physician" (§ 627.6686(4)(a), (7)). The statute names a physician, not a psychologist, and sets no validity period beyond the update frequency written into the plan itself. In practice the order is the treating physician\'s signature on the treatment plan itself. Individual, small-group and self-funded plans are outside the mandate, so for them the order is a plan-document question.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Lucet Medical Policy 20.5.005 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (applies 1/1/2026–12/31/2026)', url: 'https://lucethealth.com/wp-content/uploads/2025/12/2026-Lucet-ABA-for-Treatment-of-ASD.pdf' },
+          { title: 'Florida Blue — Manual for Physicians and Providers: Provider Participation, Plans and Products, Utilization Management', url: 'https://files.guidewell.com/m/26745a10e23752cf/original/providers-provider-manual-01.pdf' },
+          { title: 'Lucet — Managed Behavioral Health Provider & Facility Manual (July 2026), incl. Florida Blue PPO and HMO appendices', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+          { title: 'Fla. Stat. § 627.6686 (2026) — Steven A. Geller Autism Coverage Act', url: 'https://www.flsenate.gov/Laws/Statutes/2026/627.6686' },
+        ],
+        verifyVia: 'The member\'s plan documents and a Lucet benefits check (866-287-9569): ask whether the plan is subject to the Florida mandate (fully insured large group or state employee plan) and whether a signed physician prescription and treatment plan must be on file before Lucet will authorize treatment.',
+        blocker: 'per-case',
+      },
+      telehealth: {
+        value:
+          'Not set out for ABA. For Florida Blue members, Lucet\'s appendix says only that "Reimbursement for telehealth services is subject to plan guidelines." Lucet\'s manual says 97153, 97154, 97155 and 97158 require face-to-face services with the patient, and 97156 and 97157 with the guardians or caregivers present. It does not say whether face-to-face can be met by video.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Lucet — Managed Behavioral Health Provider & Facility Manual (July 2026), incl. Florida Blue PPO and HMO appendices', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+        ],
+        verifyVia: 'Lucet benefits and eligibility (866-287-9569) or WebPass: ask whether the member\'s plan pays ABA codes by telehealth, which codes, and which modifier and place of service to use.',
+        blocker: 'per-case',
+      },
+      authTurnaround: {
+        value:
+          'Lucet: "Reviews of authorization requests may take up to 15 days," and reauthorization requests should go in "at least two weeks prior to authorization expiration." No Florida statute sets the decision deadline. § 627.42392, Fla. Stat. governs the prior authorization form, not the clock. The federal claims rule sets the floor for employer plans and for non-grandfathered individual and marketplace plans: a pre-service decision "not later than 15 days after receipt of the claim," with one 15-day extension, and urgent care "not later than 72 hours after receipt." Lucet decides expedited medical-necessity appeals within 72 hours and standard appeals within 30 calendar days.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Lucet — Managed Behavioral Health Provider & Facility Manual (July 2026), incl. Florida Blue PPO and HMO appendices', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+          { title: '§ 627.42392, Fla. Stat. — Prior authorization (2026)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/627.42392' },
+          { title: '29 CFR 2560.503-1 — ERISA claims procedure (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+          { title: '45 CFR 147.136 — internal claims and appeals, group and individual coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-45/section-147.136' },
+        ],
+        verifyVia: 'Lucet precertification (866-730-5006): whether the clock starts at receipt or at a complete request, and the plan\'s urgent timeframe.',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value:
+          'For a child covered on both parents\' group plans, Florida\'s COB statute sets the order: "The benefits of the policy or plan of the parent whose birthday, excluding year of birth, falls earlier in a year are determined before" the other parent\'s. For divorced or separated parents, the order is the custodial parent\'s plan, then the custodial parent\'s spouse\'s plan, then the non-custodial parent\'s, unless a court decree assigns health costs to one parent. The statute reaches group policies and group plans issued in Florida. A self-funded employer plan follows its own plan document. Medicaid pays last (Rule 59G-1.052). TRICARE "pays after all other health insurance, except for" Medicaid, and CHAMPVA "is always the secondary payer, except to Medicaid." Get Florida Blue\'s Lucet authorization even when a public program is secondary.',
+        status: 'plan-dependent',
+        cites: [
+          { title: '§ 627.4235, Fla. Stat. — Coordination of benefits', url: 'https://www.flsenate.gov/Laws/Statutes/2025/627.4235' },
+          { title: 'Rule 59G-1.052, F.A.C. — Third-Party Liability Requirements (AHCA)', url: 'https://ahca.myflorida.com/content/download/5929/file/59G_1052_TPL_Requirements.pdf?version=1' },
+          { title: 'TRICARE — Using Other Health Insurance', url: 'https://www.tricare.mil/Plans/OHI' },
+          { title: 'VA — CHAMPVA: Information for Outpatient Providers (IB 10-1587, updated 9/20/2023)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/factsheets/FactSheet_01-20.pdf' },
+        ],
+        verifyVia: 'Ask the family for both parents\' cards and birth dates, and ask the employer whether each plan is fully insured (Florida statute applies) or self-funded (the plan document applies).',
+        blocker: 'per-case',
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value:
+          'No numeric ratio is published. Lucet\'s "Essential Components of ABA Treatment" require "Ongoing direction of technician," "Ongoing, frequent review and analysis of direct observational data," and training technicians, family members and other caregivers on revised protocols. Its policy says that, absent state law, line therapy is provided by an RBT, BCaBA, BCBA or BCBA-D. Lucet recommends caregiver training of one hour for the first 10 hours of direct therapy plus half an hour for each further 10 hours. Florida does not license behavior analysts. The mandate ties covered ABA to s. 393.17 certification or Chapter 490/491 licensure, and Florida Blue\'s manual covers ABA "when rendered by an individual certified per Section 393.17 of the Florida Statutes."',
+        status: 'verified',
+        cites: [
+          { title: 'Lucet — Managed Behavioral Health Provider & Facility Manual (July 2026), incl. Florida Blue PPO and HMO appendices', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+          { title: 'Lucet Medical Policy 20.5.005 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (applies 1/1/2026–12/31/2026)', url: 'https://lucethealth.com/wp-content/uploads/2025/12/2026-Lucet-ABA-for-Treatment-of-ASD.pdf' },
+          { title: 'Florida Blue — Manual for Physicians and Providers: Provider Participation, Plans and Products, Utilization Management', url: 'https://files.guidewell.com/m/26745a10e23752cf/original/providers-provider-manual-01.pdf' },
+          { title: 'Fla. Stat. § 627.6686 (2024)', url: 'https://www.flsenate.gov/Laws/statutes/2024/627.6686' },
+        ],
+      },
+      concurrentBilling: {
+        value:
+          'Not published. Neither Lucet\'s manual nor its ABA policy says whether 97155 and 97153 may both be billed for the same clock time. Lucet points to the ABA Coding Coalition for code usage. Out-of-state providers paid through BlueCard are reimbursed only for "service codes equivalent to the covered ABA service codes" on that list.',
+        status: 'unverified',
+        cites: [
+          { title: 'Lucet — Managed Behavioral Health Provider & Facility Manual (July 2026), incl. Florida Blue PPO and HMO appendices', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+        ],
+        verifyVia: 'Lucet claims inquiries (877-801-1159) or your Lucet contract: ask whether 97155 pays alongside 97153 when the analyst directs the technician face to face.',
+        blocker: 'per-case',
+      },
+      dailyLimits: {
+        value:
+          'No unit cap. Florida Blue\'s manual says that, for the autism benefit, "ABA is covered without limits and authorizations are coordinated under the Mental and Nervous by Lucet Behavioral Health." For large-group plans, "Therapy for Autism and Down Syndrome must continue to be covered even after outpatient therapy limits are met." The hours come from the authorization. Lucet\'s policy describes comprehensive ABA as "25 to 40 total hours of direct services weekly" and focused ABA as "typically ... 10 to 25 total hours." Lucet\'s Florida Blue appendix adds: "All services must be billed in whole units. Partial units will not be paid."',
+        status: 'verified',
+        cites: [
+          { title: 'Florida Blue — Manual for Physicians and Providers: Provider Participation, Plans and Products, Utilization Management', url: 'https://files.guidewell.com/m/26745a10e23752cf/original/providers-provider-manual-01.pdf' },
+          { title: 'Lucet Medical Policy 20.5.005 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (applies 1/1/2026–12/31/2026)', url: 'https://lucethealth.com/wp-content/uploads/2025/12/2026-Lucet-ABA-for-Treatment-of-ASD.pdf' },
+          { title: 'Lucet — Managed Behavioral Health Provider & Facility Manual (July 2026), incl. Florida Blue PPO and HMO appendices', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+        ],
+      },
+      noteSignature: {
+        value:
+          'Lucet\'s medical-record standard: entries must be dated with start and stop times or duration, "clearly identify the rendering provider and be authenticated (signed) by the individual providing the services with a professional degree ... and/or professional credentials." "Only handwritten signatures and eligible EMR signatures qualify." An electronic signature must carry a unique personal identifier and the author\'s name, credentials, date and timestamp, so "a typed signature that lacks the above-listed identifiers would not qualify." Each date of service needs its own entry. "A summary of services for multiple dates of service or multiple members is unacceptable."',
+        status: 'verified',
+        cites: [
+          { title: 'Lucet — Managed Behavioral Health Provider & Facility Manual (July 2026), incl. Florida Blue PPO and HMO appendices', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+        ],
+      },
+      placeOfService: {
+        value:
+          'Setting follows the clinical need. Lucet\'s policy requires treatment "in the setting and intensity that is appropriate for the member\'s clinical needs, determined by where target behaviors are occurring." Comprehensive ABA "should initially occur in a structured setting with 1:1 staffing and should advance to the least restrictive environment." "ABA treatment is not designed to primarily attain academic performance." Lucet\'s manual asks for documentation of treatment participants, procedures and setting. No ABA place-of-service code list is published for Florida Blue.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Lucet Medical Policy 20.5.005 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (applies 1/1/2026–12/31/2026)', url: 'https://lucethealth.com/wp-content/uploads/2025/12/2026-Lucet-ABA-for-Treatment-of-ASD.pdf' },
+          { title: 'Lucet — Managed Behavioral Health Provider & Facility Manual (July 2026), incl. Florida Blue PPO and HMO appendices', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+        ],
+        verifyVia: 'The member\'s plan documents (any educational-services exclusion) and Lucet: ask whether school-based or community hours are payable on that plan.',
+        blocker: 'per-case',
+      },
+      billAsProvider: {
+        value:
+          'Group NPI as billing provider, individual NPI as rendering. Lucet\'s Florida Blue appendix: "The group/type 2 NPI number will be used as the “billing provider” on a claim," and "The individual NPI number will be used as the “rendering provider” on a claim." A practice billing under a tax ID must have a type 2 NPI. The authorization "must be in the name of the BCBA who will be performing the services (e.g., 97151, 97155, 97156, 97157, 97158) or overseeing the technicians performing the services (e.g., 97152, 97153, 97154)." Claims go electronically to payer ID 00590.',
+        status: 'verified',
+        cites: [
+          { title: 'Lucet — Managed Behavioral Health Provider & Facility Manual (July 2026), incl. Florida Blue PPO and HMO appendices', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+        ],
+      },
+    },
+    pill: 'Payer Guide · Florida Blue · Florida',
+    h1: 'Florida Blue ABA coverage: the intake guide.',
+    metaTitle: 'Florida Blue ABA Coverage: Lucet Prior Auth & Florida Mandate Guide | Carelu',
+    metaDescription:
+      'How Florida Blue covers ABA: Lucet authorizes it under medical policy 20.5.005, Florida Blue covers ABA without plan limits under the autism benefit, the Geller Act (§ 627.6686) sets the mandate floor, and BlueCard governs out-of-state members. Includes what intake should collect.',
+    intro: [
+      'Florida Blue (Blue Cross and Blue Shield of Florida, with its HMO, Health Options) is Florida\'s local Blue plan, and it does not review ABA itself. "The management of behavioral health services for Florida Blue and Florida Blue HMO members, including Case Management, is delegated to Lucet Behavioral Health," formerly New Directions. In practice an ABA request is a Lucet request, reviewed against Lucet\'s ABA medical policy, sitting on a Florida Blue benefit and Florida\'s autism mandate.',
+    ],
+    atGlance: [
+      { label: 'Covers ABA?', value: 'Yes, for ASD, reviewed by Lucet (policy 20.5.005). Florida Blue covers ABA "without limits" under the autism benefit' },
+      { label: 'Prior auth', value: 'Required for assessment and treatment. Fax Lucet 816-237-2372 ("Attn: FL ABA Request") or use WebPass' },
+      { label: 'Claims', value: 'Electronic, payer ID 00590. 180-day filing limit. Group NPI billing, individual NPI rendering' },
+      { label: 'State mandate', value: '§ 627.6686, Fla. Stat. (insurers) + § 641.31098 (HMOs), the Geller Act' },
+      { label: 'Mandate age', value: 'Under 18 (or 18+ still in high school), dx of a developmental disability by age 8' },
+      { label: 'Mandate caps', value: '$36,000/yr; $200,000 lifetime (CPI-adjusted; parity-limited)' },
+      { label: 'Exempt from mandate', value: 'Individual, individually underwritten, and small-group plans; self-funded ERISA' },
+      { label: 'Licensure', value: 'None. No FL behavior analyst license; BCBA/FL-CBA credential (s. 393.17)' },
+    ],
+    sections: [
+      {
+        h2: 'Lucet runs the ABA benefit',
+        body: [
+          'Florida Blue delegates behavioral health, ABA included, to Lucet Behavioral Health. Florida Blue\'s coverage guideline 01-97000-08 no longer carries an ABA coverage statement: it was deleted on 01/01/2020, and the guideline now covers PT, OT and speech for autism comorbidities. The ABA criteria live in Lucet\'s medical policy 20.5.005. Florida Blue\'s manual lists ABA under the autism benefit: "Applied Behavior Analysis, when rendered by an individual certified per Section 393.17 of the Florida Statutes," and "ABA is covered without limits and authorizations are coordinated under the Mental and Nervous by Lucet Behavioral Health."',
+          'Lucet\'s Florida Blue PPO and HMO appendices route ABA the same way. Authorizations are faxed to 816-237-2372 ("Attn: FL ABA Request"). Precertification questions go to 866-730-5006 or WebPass, benefits and eligibility to 866-287-9569, and claims inquiries to 877-801-1159. Lucet\'s general ABA rules apply on top. The authorization is issued in the BCBA\'s name, request forms are on WebPass, reviews "may take up to 15 days," and changes go on the ABA Amended Request form. "Some plans do not have a benefit for ABA services," so verify the benefit first.',
+        ],
+        cites: [
+          { title: 'Florida Blue — Manual for Physicians and Providers: Provider Participation, Plans and Products, Utilization Management', url: 'https://files.guidewell.com/m/26745a10e23752cf/original/providers-provider-manual-01.pdf' },
+          { title: 'Florida Blue Medical Coverage Guideline 01-97000-08 — Treatment of Autism Spectrum Disorders (reviewed 04/24/25)', url: 'https://mcgs.bcbsfl.com/MCG?mcgId=01-97000-08&pv=false' },
+          { title: 'Lucet — Managed Behavioral Health Provider & Facility Manual (July 2026), incl. Florida Blue PPO and HMO appendices', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+          { title: 'Lucet — Florida Blue provider page (behavioral health network)', url: 'https://lucethealth.com/providers/plan/florida-blue/' },
+        ],
+      },
+      {
+        h2: 'What Lucet wants at intake and with the first authorization',
+        body: [
+          'For the pre-treatment assessment, Lucet requires a DSM-based ASD diagnosis from a qualified clinician. It must come with "a clinical note of sufficient depth that allows concordance with current DSM criteria," and "a complete diagnostic evaluation must be completed, including an ASD-specific standardized assessment" that rules out look-alike conditions. The hours requested must be no more than the assessment needs.',
+          'The initial treatment request adds psychological testing with formal score reports: autism-specific, adaptive and cognitive. The baseline data must be "completed no longer than five (5) years prior to or scheduled within ninety (90) days of the pre-treatment assessment." It must include a developmental and cognitive evaluation, a severity-rating autism assessment, an adaptive behavior assessment "completed within 6 months of start date of treatment," and a neurological evaluation as part of a comprehensive physical exam. The treatment plan needs measurable goals on core ASD deficits with baselines, mastery criteria and generalization plans; caregiver-training goals; care coordination, safety and discharge planning; and a plan for transferring instructional control to caregivers. Continued authorization adds documented benefit, new or continuing goals, and a revised plan.',
+        ],
+        cites: [
+          { title: 'Lucet Medical Policy 20.5.005 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (applies 1/1/2026–12/31/2026)', url: 'https://lucethealth.com/wp-content/uploads/2025/12/2026-Lucet-ABA-for-Treatment-of-ASD.pdf' },
+          { title: 'Lucet — Managed Behavioral Health Provider & Facility Manual (July 2026), incl. Florida Blue PPO and HMO appendices', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+        ],
+      },
+      {
+        h2: 'The Florida mandate: what it guarantees (and doesn\'t)',
+        body: [
+          'The Steven A. Geller Autism Coverage Act (2008) requires coverage in group plans issued or delivered in Florida after April 1, 2009. In practice that means fully insured large-group plans and the state employee plan under § 627.6686, with companion § 641.31098 reaching large-group HMO contracts. It explicitly excludes individual-market, individually underwritten and small-employer plans. The eligible individual is under 18 (or 18 and older but still in high school) and diagnosed with a developmental disability at 8 years of age or younger. Covered services include well-child ASD screening plus speech, OT, PT and applied behavior analysis, and the mandate covers Down syndrome as well as ASD. ABA benefits cap at $36,000 a year and $200,000 lifetime, adjusted each January 1 for medical CPI. ABA providers must be certified under s. 393.17, Fla. Stat. or licensed under chapters 490/491. Self-funded ERISA plans sit outside state reach. Because ASD treatment is treated as a mental health benefit, MHPAEA\'s ban on dollar limits arguably neutralizes the caps for parity-subject plans. Treat that as analysis, not settled guidance. Florida Blue\'s own manual goes further than the cap: it describes ABA under the autism benefit as covered without limits.',
+        ],
+        cites: [
+          { title: 'Fla. Stat. § 627.6686 (2024)', url: 'https://www.flsenate.gov/Laws/statutes/2024/627.6686' },
+          { title: 'FL Dept. of Financial Services — ASD coverage overview', url: 'https://www.myfloridacfo.com/division/consumers/consumerprotections/autism-spectrum-disorder' },
+          { title: 'Florida Blue — Manual for Physicians and Providers: Provider Participation, Plans and Products, Utilization Management', url: 'https://files.guidewell.com/m/26745a10e23752cf/original/providers-provider-manual-01.pdf' },
+        ],
+      },
+      {
+        h2: 'Claims, appeals and the Florida payment clock',
+        body: [
+          'Lucet\'s Florida Blue appendix: claims "must be filed within 180 days from the date of service," must be "submitted electronically using payer ID – 00590," and clean claims "will be processed within 10 to 30 days," with status on Availity. Practices billing under a tax ID need a type 2 (group) NPI for the billing provider and the individual NPI as rendering. Florida Blue\'s own manual restates the 180-day limit where Florida law applies. Lucet handles standard medical-necessity appeals within 30 calendar days (filed within 180 days of the denial). Expedited appeals are decided within 72 hours and go to Florida Blue at 877-842-9118.',
+          'Florida law sets the payer\'s clock for fully insured plans. An electronic claim must be paid, denied or contested within 20 days, and every claim paid or denied within 90 days of receipt. Failure to do so within 120 days "creates an uncontestable obligation to pay the claim." Overdue payments bear 12% simple interest (§ 627.6131 for insurers, § 641.3155 for HMOs). Self-funded employer plans follow their plan documents and your contract instead.',
+        ],
+        cites: [
+          { title: 'Lucet — Managed Behavioral Health Provider & Facility Manual (July 2026), incl. Florida Blue PPO and HMO appendices', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+          { title: 'Florida Blue — Manual for Physicians and Providers: Claim Submission, Billing Guidelines', url: 'https://files.guidewell.com/m/682cef22c888300d/original/providers-provider-manual-02.pdf' },
+          { title: 'Fla. Stat. § 627.6131 (2026) — Payment of claims (health insurers)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/627.6131' },
+          { title: 'Fla. Stat. § 641.3155 (2026) — Prompt payment of claims (HMOs)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/641.3155' },
+        ],
+      },
+      {
+        h2: 'BlueCard: out-of-state Blue members in Florida, and Florida Blue members out of state',
+        body: [
+          'Under BlueCard, claims go through the treating provider\'s local Blue plan. For a Florida practice treating another state\'s Blue member, that is Florida Blue. Its manual tells providers to select Florida Blue on Availity "under any circumstance where Florida Blue is adjudicating the claim. This includes BlueCard claims where Florida Blue is the host plan." Lucet\'s appendix routes "In-state and Out-of-state (BlueCard) claims review requests" through Availity. Benefits belong to the member\'s home plan. Florida Blue\'s manual gives an example: for a BlueCard member, "You must contact the home plan to determine" whether partial hospitalization is an inpatient or outpatient benefit. When the member\'s Blue plan is unknown, it points to BlueCard Eligibility at (800) 676-BLUE (2583). Lucet\'s manual adds that out-of-state ABA providers contracted with their local Blue under different codes are paid only for codes equivalent to the covered ABA codes.',
+        ],
+        cites: [
+          { title: 'Florida Blue — Manual for Physicians and Providers: Care Review, Coordination of Benefits, Appeals and Grievances', url: 'https://files.guidewell.com/m/810cd58904247aa/original/providers-provider-manual-03.pdf' },
+          { title: 'Florida Blue — Manual for Physicians and Providers: Claim Submission, Billing Guidelines', url: 'https://files.guidewell.com/m/682cef22c888300d/original/providers-provider-manual-02.pdf' },
+          { title: 'Lucet — Managed Behavioral Health Provider & Facility Manual (July 2026), incl. Florida Blue PPO and HMO appendices', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+        ],
+      },
+      {
+        h2: 'Licensure & rates in Florida',
+        body: [
+          'Florida has no state behavior-analyst license and is absent from the BACB\'s list of states with licensure laws. The operative credential is BACB certification (BCBA, BCaBA or RBT). s. 393.17, Fla. Stat. recognizes BACB certification, legacy Florida Certified Behavior Analysts remain recognized, and the Geller Act keys ABA coverage to s. 393.17 certification or Chapter 490/491 licensure. Florida Blue\'s commercial ABA rates are not published. They are set in the Lucet participation agreement, and Lucet\'s portal carries a rate-increase request process. The Florida Medicaid schedule is the local benchmark: 97153 pays $12.26 per 15-minute unit.',
+        ],
+        cites: [
+          { title: 'BACB — U.S. Licensure of Behavior Analysts (FL not listed)', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
+          { title: 'Fla. Stat. § 627.6686 (2024)', url: 'https://www.flsenate.gov/Laws/statutes/2024/627.6686' },
+          { title: 'Lucet — Florida Blue provider page (behavioral health network)', url: 'https://lucethealth.com/providers/plan/florida-blue/' },
+        ],
+      },
+    ],
+    collect: [
+      { title: 'Plan type and funding', desc: 'PPO/BlueOptions, BlueCare HMO, myBlue, or a self-funded group: it decides which rulebook and which mandate apply.' },
+      { title: 'Member ID with prefix', desc: 'Florida Blue or an out-of-state Blue (BlueCard). The prefix routes eligibility, precertification and claims.' },
+      { title: 'Diagnostic evaluation', desc: 'DSM-based ASD diagnosis, diagnosing clinician and credentials, the clinical note, and an ADOS-2, ADI-R or DSM-5 Checklist result.' },
+      { title: 'Baseline testing dates', desc: 'Developmental/cognitive, autism-specific and neurological evaluation within five years (or scheduled within 90 days), and adaptive testing within six months of the treatment start.' },
+      { title: 'Age and diagnosis-age history', desc: 'For mandate plans: under 18 (or in high school), with the developmental-disability diagnosis made by age 8.' },
+    ],
+    sources: [
+      { title: 'Lucet Medical Policy 20.5.005 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (applies 1/1/2026–12/31/2026)', url: 'https://lucethealth.com/wp-content/uploads/2025/12/2026-Lucet-ABA-for-Treatment-of-ASD.pdf' },
+      { title: 'Lucet — Managed Behavioral Health Provider & Facility Manual (July 2026), incl. Florida Blue PPO and HMO appendices', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+      { title: 'Florida Blue — Manual for Physicians and Providers: Provider Participation, Plans and Products, Utilization Management', url: 'https://files.guidewell.com/m/26745a10e23752cf/original/providers-provider-manual-01.pdf' },
+      { title: 'Florida Blue — Manual for Physicians and Providers: Claim Submission, Billing Guidelines', url: 'https://files.guidewell.com/m/682cef22c888300d/original/providers-provider-manual-02.pdf' },
+      { title: 'Florida Blue — Manual for Physicians and Providers: Care Review, Coordination of Benefits, Appeals and Grievances', url: 'https://files.guidewell.com/m/810cd58904247aa/original/providers-provider-manual-03.pdf' },
+      { title: 'Florida Blue Medical Coverage Guideline 01-97000-08 — Treatment of Autism Spectrum Disorders (reviewed 04/24/25)', url: 'https://mcgs.bcbsfl.com/MCG?mcgId=01-97000-08&pv=false' },
+      { title: 'Lucet — Florida Blue provider page (behavioral health network)', url: 'https://lucethealth.com/providers/plan/florida-blue/' },
+      { title: 'Fla. Stat. § 627.6686 (2024)', url: 'https://www.flsenate.gov/Laws/statutes/2024/627.6686' },
+      { title: 'FL Dept. of Financial Services — ASD coverage overview', url: 'https://www.myfloridacfo.com/division/consumers/consumerprotections/autism-spectrum-disorder' },
+      { title: 'BACB — U.S. Licensure of Behavior Analysts (FL not listed)', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
+      { title: 'Fla. Stat. § 627.6131 (2026) — Payment of claims (health insurers)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/627.6131' },
+      { title: 'Fla. Stat. § 641.3155 (2026) — Prompt payment of claims (HMOs)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/641.3155' },
+    ],
+    faq: [
+      { q: 'Does Florida Blue cover ABA therapy?', a: 'Yes, for autism spectrum disorder. Florida Blue delegates the review to Lucet Behavioral Health, which applies its ABA medical policy 20.5.005. Florida Blue\'s manual says ABA under the autism benefit is "covered without limits," with authorizations coordinated by Lucet. Confirm the member\'s plan carries the benefit; Lucet notes some plans do not.' },
+      { q: 'Who authorizes ABA for Florida Blue members?', a: 'Lucet. Fax requests to 816-237-2372 ("Attn: FL ABA Request") or use Lucet\'s WebPass portal. Call 866-730-5006 for precertification questions. Reviews can take up to 15 days, and reauthorizations should go in at least two weeks before the current one expires.' },
+      { q: 'What documents does Florida Blue (Lucet) need for an ABA authorization?', a: 'For the assessment: a DSM-based ASD diagnosis from a qualified clinician, with a clinical note and a complete diagnostic evaluation that includes an ASD-specific standardized assessment such as the ADOS-2, ADI-R or a DSM-5 Checklist. For treatment: formal score reports for autism-specific, adaptive and cognitive testing. Baseline evaluations must be within five years (or scheduled within 90 days of the assessment), adaptive testing within six months of the treatment start. Add a treatment plan with measurable goals, caregiver-training goals, and coordination, safety and discharge planning.' },
+      { q: 'Does Florida Blue need a referral for ABA?', a: 'No referral is required under Lucet\'s policy for Florida. BlueCare HMO members do not need a PCP referral to see a participating specialist, and myBlue members do not need one for behavioral health. Lucet\'s authorization is the gate.' },
+      { q: 'What is Florida Blue\'s timely filing limit for ABA?', a: '180 days from the date of service, filed electronically to payer ID 00590 (Lucet\'s Florida Blue appendix). Clean claims are processed within 10 to 30 days.' },
+      { q: 'What does the Florida autism mandate require?', a: 'For covered group plans: screening, speech, OT, PT and ABA for eligible individuals, meaning under 18 (or 18+ in high school) and diagnosed with a developmental disability by age 8. ABA is capped at $36,000 a year and $200,000 lifetime (CPI-adjusted). It covers Down syndrome as well as ASD. Individual, small-group and self-funded plans sit outside it.' },
+      { q: 'How does BlueCard work with Florida Blue?', a: 'A Florida provider treating another state\'s Blue member files with Florida Blue as the host plan, and the member\'s home plan decides benefits and precertification. A Florida Blue member treated out of state is billed through that provider\'s local Blue, with Florida Blue (through Lucet) as the home plan for authorization.' },
     ],
   },
 };

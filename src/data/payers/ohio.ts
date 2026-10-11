@@ -453,14 +453,14 @@ export const ohioPayers: Record<string, PayerConfig> = {
         ],
       },
       referral: {
-        value: 'No Medicaid-side referral or service-order requirement could be verified for this plan or for the state framework. Ohio’s ordering requirement — a psychologist trained in autism, a developmental pediatrician, or a pediatric clinical nurse specialist or certified nurse practitioner — lives in the commercial insurance mandate at R.C. 3923.84, not in Medicaid.',
+        value:
+          'No referral or physician order appears in CareSource\'s own ABA policy. OH MCD-MM-0028 (eff. 9/1/2026), read in full, lists what initiation needs: a definitive primary ASD diagnosis from a child and adolescent psychiatrist, psychologist, child neurologist or developmental pediatrician; ADOS, ADI-R or CARS-2 results; and, if the evaluation is over 24 months old, a provider letter on DSM symptoms in the past year. It names no ordering or referring practitioner, no order form and no validity period. Ohio\'s ordering requirement (psychologist trained in autism, developmental pediatrician, or pediatric CNS/CNP) is in the commercial mandate at R.C. 3923.84, not Medicaid, and the in-force Medicaid ABA rule text could not be read. So whether CareSource will ask for a referral is a question for the plan. Ask its behavioral health UM line before the first request whether a PCP or diagnosing-provider referral must be attached.',
         status: 'unverified',
         cites: [
-          { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
           { title: 'CareSource — OH MCD-MM-0028 (eff. 9/1/2026)', url: 'https://www.caresource.com/documents/medicaid-oh-policy-medical-mm-0028-20260901' },
-          { title: 'CareSource — OH MCD reimbursement policy PY-1638 (eff. 9/1/2026)', url: 'https://www.caresource.com/documents/medicaid-oh-policy-reimburse-py-1638-20260901' },
+          { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
         ],
-        verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
+        verifyVia: 'CareSource Ohio behavioral health utilization management (provider portal or the number on the member ID card): "Do you require a referral or physician order for ABA, and from whom?" Rules@Medicaid.Ohio.gov or JCARR for the in-force OAC 5160-34-02.',
         blocker: 'per-case',
       },
       telehealth: {
@@ -566,6 +566,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
       { q: 'Why did CareSource reject our claim?', a: 'A distinctive rule, now sited in reimbursement policy PY-1638: treatment documentation must be submitted before claims. Claims without accompanying treatment records are not accepted — check the documentation pipeline first.' },
       { q: 'Does CareSource Ohio still accept H0036 in lieu of ABA CPT codes?', a: 'Not as a blanket rule anymore. As of PY-1638 (eff. 9/1/2026), CareSource will not reimburse H0036 for ABA when a designated ABA CPT code is usable — confirm which code applies before billing.' },
       { q: 'What is CareSource Ohio’s timely filing limit for ABA claims?', a: '365 days from the date of service; claim disputes within 12 months of the date of service or 60 calendar days after the payment or denial, whichever is later (CareSource Ohio provider manual).' },
+      { q: 'What documents does CareSource Ohio need to start ABA?', a: 'Under OH MCD-MM-0028 (eff. 9/1/2026): a definitive primary ASD diagnosis from a child and adolescent psychiatrist, psychologist, child neurologist or developmental pediatrician, with ADOS, ADI-R or CARS-2 results. If the evaluation is more than 24 months old, add a provider letter describing DSM symptoms present in the past year. Then a BCBA behavior assessment (generally 6 to 10 hours per six months). The initial treatment plan must be signed by the parent or guardian and the BCBA and include biopsychosocial history, medications and prescriber, school hours with any IEP or 504 plan (required for consideration), prior ABA history and all behavioral health diagnoses. Medical necessity is reviewed at the start and every six months.' },
     ],
   },
 
@@ -2066,6 +2067,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
       { title: 'Ohio Rev. Code 3901.381 — third-party payer claim payment deadlines, codes.ohio.gov', url: 'https://codes.ohio.gov/ohio-revised-code/section-3901.381' },
       { title: 'Ohio House Bill 453 (136th General Assembly), as introduced — ABA coverage and payment rates', url: 'https://search-prod.lis.state.oh.us/api/v2/general_assembly_136/legislation/hb453/00_IN/html/' },
       { title: 'Ohio Legislature — HB 453 status (introduced 9/15/2025; referred to House Insurance 10/1/2025)', url: 'https://www.legislature.ohio.gov/legislation/136/hb453/status' },
+      { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2204,6 +2206,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
       { q: 'What does Aetna pay for ABA in Ohio?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the Ohio Medicaid fee schedule where one exists, and treat rate-setting as part of contracting.' },
       { q: 'How fast must Aetna pay an ABA claim in Ohio?', a: 'On a plan subject to Ohio law, within 30 days of receiving a claim on the standard form, or 45 days when it needs supporting documentation; a materially deficient claim must be flagged within 15 days (R.C. 3901.381).' },
       { q: 'Is there a minimum rate for 97153 on Aetna plans in Ohio?', a: 'No. Ohio law sets no commercial ABA rate floor; rates come from your contract. House Bill 453 (introduced September 2025, still in the House Insurance Committee) would require commercial plans to pay at least 100% of the Ohio Medicaid fee schedule, but it is not law.' },
+      { q: 'What documents does Aetna need for an ABA authorization in Ohio?', a: 'Aetna\'s precertification form GR-69017-4 (7-26), which replaced its other ABA forms from August 1, 2026 (Maryland and Massachusetts excepted), lists them. It asks for the current DSM diagnosis code and the diagnosing provider\'s name and credentials, plus hours by code (assessment codes per authorization period, treatment codes per week) and any hours during class. Supporting documents: "Results of a standardized assessment (i.e. Vineland, ABAS, VB-MAPP) completed within the past 12 months," with the IQ if available. Add a time-limited treatment plan with baselines and measurable targets, FBA or skills-assessment results, data showing severity justifies the hours, measurable caregiver goals, titration and discharge criteria, and coordination with other providers. Start the request on Availity or by phone and attach the form and records.' },
     ],
   },
 
@@ -2446,6 +2449,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
       { q: 'What does Cigna pay for ABA in Ohio?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the Ohio Medicaid fee schedule where one exists, and treat rate-setting as part of contracting.' },
       { q: 'How fast must Cigna pay an ABA claim in Ohio?', a: 'On a plan subject to Ohio law, within 30 days of receiving a claim on the standard form, or 45 days when it needs supporting documentation; a materially deficient claim must be flagged within 15 days (R.C. 3901.381).' },
       { q: 'Is there a minimum rate for 97153 on Cigna plans in Ohio?', a: 'No. Ohio law sets no commercial ABA rate floor; rates come from your contract. House Bill 453 (introduced September 2025, still in the House Insurance Committee) would require commercial plans to pay at least 100% of the Ohio Medicaid fee schedule, but it is not law.' },
+      { q: 'What documents does Cigna (Evernorth) need for ABA in Ohio?', a: 'EN0499 (effective 5/15/2026) requires a confirmed DSM-5-TR ASD diagnosis from an independently licensed clinician whose scope includes diagnosis. The record must give "the name, credentials, and type of licensure" of the diagnosing clinician and "the date on which the diagnosis was most recently made." A provisional or rule-out diagnosis, or an IDEA educational identification, does not count. For treatment, the BCBA\'s assessment must use a current-edition standardized instrument, completed in full and administered "within 60 days prior to the start of treatment," with score tables. The treatment plan\'s goals must match the deficits it found.' },
     ],
   },
 
@@ -2704,6 +2708,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
       { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale.' },
       { q: 'What is UnitedHealthcare’s timely filing limit for ABA in Ohio?', a: 'Optum’s National Network Manual: 90 calendar days from the date of service unless state law, the plan or your agreement allows longer; reconsideration and appeal together within 12 months.' },
       { q: 'Is there a minimum rate for 97153 on UnitedHealthcare plans in Ohio?', a: 'No. Ohio law sets no commercial ABA rate floor; rates come from your contract. House Bill 453 (introduced September 2025, still in the House Insurance Committee) would require commercial plans to pay at least 100% of the Ohio Medicaid fee schedule, but it is not law.' },
+      { q: 'What documents does UnitedHealthcare (Optum) need for ABA in Ohio?', a: 'Optum\'s ABA Supplemental Clinical Criteria require a valid DSM-5-TR ASD diagnosis from a state-licensed physician, psychologist or other qualified licensed clinician. The diagnosing clinician confirms the diagnosis and severity level "using at least one clinically validated tool," such as the ADOS-2, ADI-R or CARS-2. The ABA provider then completes its own behavioral assessment with baseline measurement on at least one validated tool (for example the VB-MAPP, ABLLS-R, AFLS or Vineland) and builds the treatment plan from it. "Prior authorization is required for ABA (unless otherwise specified or mandated by contract or law)." The criteria set no expiry on the diagnosis.' },
     ],
   },
 
@@ -2826,6 +2831,19 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Ohio Legislature — HB 453 status (introduced 9/15/2025; referred to House Insurance 10/1/2025)', url: 'https://www.legislature.ohio.gov/legislation/136/hb453/status' },
         ],
       },
+      {
+        h2: 'BlueCard: treating an Anthem Ohio member from another state\'s Blue network',
+        body: [
+          'BlueCard is the program that lets an Anthem Ohio member be treated by a Blue-contracted provider in another state. Anthem\'s BlueCard Provider Manual defines it as "a national program that enables members of one BCBS Plan to obtain healthcare service benefits while traveling or living in another BCBS Plan\'s service area." It works through each provider\'s own local plan: "The program lets you submit claims for patients from other BCBS Plans, domestic and international, to your local BCBS Plan. Your local BCBS Plan is your sole contact for claims payment, adjustments and issue resolution."',
+          'So for a practice contracted with another Blue, such as CareFirst in Maryland, treating an Anthem Ohio member, the claim goes to your local Blue, not to Anthem. The manual\'s worked example: "the provider ... files a claim locally," and the local plan "forwards the claim to [the member\'s plan] that adjudicates the claim according to the member\'s benefits and the provider\'s arrangement with" the local plan. Put the member\'s full ID, including the three-character prefix, on the claim. "Claims with incorrect or missing prefixes and member identification numbers cannot be processed." Network status comes from your contract with your local Blue, matched to the member\'s product. A PPO member must see a BlueCard PPO provider "if they want to access PPO in-network benefits."',
+          'Prior authorization stays with the home plan, Anthem. Anthem\'s out-of-area tool (anthem.com, Prior Authorization, "Medical Policy and Prior Authorization for Blue Plans," entered with the member\'s alpha prefix) shows its general precertification rules. The BlueCard manual gives the routes: Electronic Provider Access through your own local Blue\'s portal, which forwards you to the home plan\'s pre-service review tool; a HIPAA 278 transaction; or 1-800-676-BLUE (2583), asking for the utilization review area, which has a Behavioral Health option. ABA is on Anthem\'s commercial precertification list, so obtain it from Anthem before services start. The manual reminds providers that the member is technically "responsible for obtaining pre-certification/preauthorization for out-patient services from their BCBS Plan," and most practices get it for them. Anthem\'s Ohio provider manual adds that appeals of pre-certification decisions for BlueCard members are "the responsibility of the Blue Plan, insuring or administering benefits" (the home plan).',
+        ],
+        cites: [
+          { title: 'Anthem — The BlueCard Program Provider Manual (eff. 1/1/2022; current edition in the Ohio provider manual library)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_MO_OH_WI_00004.pdf' },
+          { title: 'Anthem Blue Cross and Blue Shield — 2026 Ohio Commercial Provider Manual (eff. 8/1/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_OH_00014.pdf' },
+          { title: 'Anthem and CDHP products Precertification/Prior Authorization List — IN, KY, MO, OH, WI (updated January 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/Central_Blues_CDHP_PA_List.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Market segment, first', desc: 'Non-grandfathered individual and small group plans are carved out of R.C. 3923.84 entirely, and self-funded ERISA plans are outside state law. Large-group fully insured is where the mandate actually bites — establish which before you cite any of it.' },
@@ -2851,6 +2869,8 @@ export const ohioPayers: Record<string, PayerConfig> = {
       { title: 'Ohio Rev. Code 3901.381 — third-party payer claim payment deadlines, codes.ohio.gov', url: 'https://codes.ohio.gov/ohio-revised-code/section-3901.381' },
       { title: 'Ohio House Bill 453 (136th General Assembly), as introduced — ABA coverage and payment rates', url: 'https://search-prod.lis.state.oh.us/api/v2/general_assembly_136/legislation/hb453/00_IN/html/' },
       { title: 'Ohio Legislature — HB 453 status (introduced 9/15/2025; referred to House Insurance 10/1/2025)', url: 'https://www.legislature.ohio.gov/legislation/136/hb453/status' },
+      { title: 'Anthem — The BlueCard Program Provider Manual (eff. 1/1/2022; current edition in the Ohio provider manual library)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_MO_OH_WI_00004.pdf' },
+      { title: 'Anthem Blue Cross and Blue Shield — 2026 Ohio Commercial Provider Manual (eff. 8/1/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_OH_00014.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -2989,6 +3009,8 @@ export const ohioPayers: Record<string, PayerConfig> = {
       { q: 'Which criteria does Anthem apply to ABA in Ohio?', a: 'MCG B-806-T. Anthem notified Ohio commercial providers that effective June 1, 2024 it would move from CG-BEH-02 and MCG W0153 to MCG B-806-T for medical-necessity and clinical-appropriateness reviews. MCG guidelines are proprietary and unpublished, so a denial letter still citing CG-BEH-02 is working from a retired document.' },
       { q: 'How fast must Anthem pay an ABA claim in Ohio?', a: 'On a plan subject to Ohio law, within 30 days of receiving a claim on the standard form, or 45 days when it needs supporting documentation; a materially deficient claim must be flagged within 15 days (R.C. 3901.381).' },
       { q: 'Is there a minimum rate for 97153 on Anthem plans in Ohio?', a: 'No. Ohio law sets no commercial ABA rate floor; rates come from your contract. House Bill 453 (introduced September 2025, still in the House Insurance Committee) would require commercial plans to pay at least 100% of the Ohio Medicaid fee schedule, but it is not law.' },
+      { q: 'I am a provider contracted with CareFirst (or another Blue plan outside Ohio). Can I treat an Anthem Ohio member under BlueCard?', a: 'Yes, if the member\'s product gives you network benefits through your local Blue contract. File the claim with your own local Blue plan, with the member\'s three-character prefix. Your local plan sends it to Anthem, which adjudicates it on the member\'s benefits and your local contract. Get ABA precertification from Anthem as the home plan, through Electronic Provider Access in your local Blue\'s portal or by calling 1-800-676-BLUE. Anthem\'s alpha-prefix router on anthem.com shows its general precertification rules. Precertification appeals go to Anthem, and claim questions go to your local Blue.' },
+      { q: 'What is the BlueCard policy for Anthem Ohio members?', a: 'BlueCard sends an out-of-area claim through the treating provider\'s local Blue plan, which routes it to Anthem as the member\'s home plan. Anthem decides benefits and precertification, and the local plan pays the provider under its own contract. When an Ohio provider treats another Blue plan\'s member, Anthem Ohio is the local plan: "Submit all BCBS claims to your local Anthem Plan," and the member\'s plan decides precertification.' },
     ],
   },
 };

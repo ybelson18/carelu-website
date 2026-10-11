@@ -307,6 +307,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { q: 'Can ABA be done by telehealth under Michigan Medicaid?', a: 'Only analyst-level services: 97155, 97156, 97157 and 97158. Technician-delivered 97153/97154, the 97151 assessment and 0362T were removed from the MDHHS telemedicine database in 2023.' },
       { q: 'What is Michigan Medicaid\'s fee schedule for ABA?', a: 'There is no public ABA fee screen. ABA is paid by the PIHP or CMHSP under your network contract, and the Medicaid Provider Manual (Section 18.13) says only that "All PIHPs will reimburse BHT-ABA services at a minimum to the rate outlined with the most recent executed PIHP contract." Ask the PIHP/CMHSP contracting office for its ABA rates.' },
       { q: 'What is the Michigan Medicaid timely filing limit?', a: 'Twelve months from the date of service for claims billed to MDHHS. ABA billed to a PIHP or CMHSP follows that entity’s own claims rules, which this guide has not yet verified.' },
+      { q: 'What documents does Michigan Medicaid need at intake for ABA (BHT)?', a: 'The route runs through the PIHP. A PCP screening, typically at an EPSDT well-child visit, and a full medical and physical exam come first. The PCP refers the child to the PIHP\'s autism access point, and families may also self-refer. The PIHP arranges a comprehensive diagnostic evaluation by a qualified practitioner using valid tools (in practice ADOS-2, ADI-R and the DD-CGAS, plus cognitive and adaptive testing). It also arranges the behavioral assessment. A physician or other licensed practitioner recommends BHT, and PIHP utilization management authorizes it before services start. Re-evaluations are needed no more than every three years unless medically necessary.' },
     ],
   },
 
@@ -1749,6 +1750,17 @@ export const michiganPayers: Record<string, PayerConfig> = {
           { title: 'MCL 500.2006 — timely payment of claims (Michigan Insurance Code)', url: 'https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-500-2006' },
         ],
       },
+      {
+        h2: 'BlueCard: Michigan members treated out of state, and out-of-state members treated in Michigan',
+        body: [
+          'BlueCard is the national program that "enables members of one Blue Cross Blue Shield plan to obtain health care services while traveling or living in another Blue Cross Blue Shield plan\'s service area." Claims run through the treating provider\'s local plan. For a Michigan provider seeing another plan\'s member, Blue Cross says the program "lets you conveniently submit claims for members from other Blue Cross Blue Shield plans ... directly to Blue Cross Blue Shield of Michigan," which is "your single point of contact for all your claims-related questions." Michigan providers verify eligibility with the member\'s home plan through the BlueCard Eligibility Call Center (1-800-676-2583, using the three-character prefix) or Availity. Original professional claims are due to Blue Cross within 180 days of the date of service.',
+          'For a Blue Cross Blue Shield of Michigan member treated outside Michigan, Blue Cross is the home plan, and its ABA prior authorization applies. Its September 2026 requirements list names "Outpatient autism services (applied behavior analysis)" among the behavioral health services that need prior authorization for Blue Cross commercial members. Those reviews "are conducted by Blue Cross Behavioral Health," except for groups on its mental health carve-out list. Non-Michigan providers who are not on Availity submit through Electronic Provider Access, which they reach "through their local Blue plan portal." They can also "look up requirements without an Availity account by logging into their home plan\'s website and selecting an ID card prefix from Michigan."',
+        ],
+        cites: [
+          { title: 'Blue Cross Blue Shield of Michigan — Prior authorization requirements for Michigan and non-Michigan providers (rev. September 2026)', url: 'https://www.bcbsm.com/amslibs/content/dam/public/providers/documents/preauthorization-precertification-requirements.pdf' },
+          { title: 'BCBSM The Record — "Do you know about our BlueCard processes?" (May 2023)', url: 'https://www.bcbsm.com/content/dam/microsites/corpcomm/provider/the_record/2023/may/Record_0523a.html' },
+        ],
+      },
     ],
     collect: [
       { title: 'BCN (HMO) or Blue Cross PPO, and funding type', desc: 'All BCN HMO plans require ABA prior authorization; PPO depends on the group. Self-funded groups may sit outside the mandate.' },
@@ -1779,6 +1791,8 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
       { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
       { title: '38 CFR 17.270 — CHAMPVA is the last payer', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
+      { title: 'Blue Cross Blue Shield of Michigan — Prior authorization requirements for Michigan and non-Michigan providers (rev. September 2026)', url: 'https://www.bcbsm.com/amslibs/content/dam/public/providers/documents/preauthorization-precertification-requirements.pdf' },
+      { title: 'BCBSM The Record — "Do you know about our BlueCard processes?" (May 2023)', url: 'https://www.bcbsm.com/content/dam/microsites/corpcomm/provider/the_record/2023/may/Record_0523a.html' },
     ],
     deliveryRules: {
       supervision: {
@@ -1932,6 +1946,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { q: 'Is prior authorization always required?', a: 'For all BCN HMO plans, yes. For Blue Cross PPO it depends on the group: fully insured groups and select self-funded groups require it. Check the member’s autism coverage.' },
       { q: 'Is there an hour or unit limit?', a: 'Blue Cross says there are no limits for billable ABA services beyond the units authorized. A fully insured plan may still apply the mandate’s annual dollar maximums for members through age 18 if its certificate does.' },
       { q: 'What is Blue Cross Blue Shield of Michigan’s clean-claim payment turnaround in Michigan?', a: 'Within 45 days of receipt for a clean claim on an insured plan (MCL 500.2006(8)), with 12% interest after that. Self-funded plans are not covered.' },
+      { q: 'How does BlueCard work for Blue Cross Blue Shield of Michigan members treated out of state?', a: 'The out-of-state provider files the claim with its own local Blue plan, which routes it to Blue Cross Blue Shield of Michigan as the home plan. Blue Cross still requires prior authorization for outpatient ABA on its commercial plans, conducted by Blue Cross Behavioral Health. A non-Michigan provider submits it through Electronic Provider Access in its local Blue\'s portal, or through Availity if registered. Michigan providers treating another plan\'s member submit claims to Blue Cross Blue Shield of Michigan within 180 days of service.' },
     ],
   },
 
@@ -2636,6 +2651,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
       { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
       { title: '38 CFR 17.270 — CHAMPVA is the last payer', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
+      { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -2788,6 +2804,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { q: 'What does Aetna pay for ABA in Michigan?', a: 'Commercial rates are not published; they are negotiated in the participating-provider agreement.' },
       { q: 'What is Aetna’s clean-claim payment turnaround in Michigan?', a: 'Within 45 days of receipt for a clean claim on an insured plan (MCL 500.2006(8)), with 12% interest after that. Self-funded plans are not covered.' },
       { q: 'How long do I have to appeal an Aetna claim decision in Michigan?', a: '180 calendar days from the initial claim decision to request a reconsideration, then 60 calendar days from the reconsideration decision to appeal.' },
+      { q: 'What documents does Aetna need for an ABA authorization in Michigan?', a: 'Aetna\'s precertification form GR-69017-4 (7-26), which replaced its other ABA forms from August 1, 2026 (Maryland and Massachusetts excepted), lists them. It asks for the current DSM diagnosis code and the diagnosing provider\'s name and credentials, plus hours by code (assessment codes per authorization period, treatment codes per week) and any hours during class. Supporting documents: "Results of a standardized assessment (i.e. Vineland, ABAS, VB-MAPP) completed within the past 12 months," with the IQ if available. Add a time-limited treatment plan with baselines and measurable targets, FBA or skills-assessment results, data showing severity justifies the hours, measurable caregiver goals, titration and discharge criteria, and coordination with other providers. Start the request on Availity or by phone and attach the form and records.' },
     ],
   },
 
@@ -3056,6 +3073,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { q: 'Does Michigan’s mandate apply to my Cigna plan?', a: 'Only to fully insured plans. Many Cigna employer plans are self-funded and exempt; verify funding type first.' },
       { q: 'What is Cigna’s clean-claim payment turnaround in Michigan?', a: 'Within 45 days of receipt for a clean claim on an insured plan (MCL 500.2006(8)), with 12% interest after that. Self-funded plans are not covered.' },
       { q: 'What is Cigna’s timely filing limit in Michigan?', a: 'One year from the date of service for state-regulated plans under Evernorth’s Michigan Regulatory Addendum; 90 days is Evernorth’s general limit.' },
+      { q: 'What documents does Cigna (Evernorth) need for ABA in Michigan?', a: 'EN0499 (effective 5/15/2026) requires a confirmed DSM-5-TR ASD diagnosis from an independently licensed clinician whose scope includes diagnosis. The record must give "the name, credentials, and type of licensure" of the diagnosing clinician and "the date on which the diagnosis was most recently made." A provisional or rule-out diagnosis, or an IDEA educational identification, does not count. For treatment, the BCBA\'s assessment must use a current-edition standardized instrument, completed in full and administered "within 60 days prior to the start of treatment," with score tables. The treatment plan\'s goals must match the deficits it found.' },
     ],
   },
 
@@ -3337,6 +3355,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale.' },
       { q: 'What is UnitedHealthcare’s clean-claim payment turnaround in Michigan?', a: 'Within 45 days of receipt for a clean claim on an insured plan (MCL 500.2006(8)), with 12% interest after that. Self-funded plans are not covered.' },
       { q: 'Does UnitedHealthcare require a taxonomy code on the claim in Michigan?', a: 'Yes. The 2026 administrative guide requires a valid billing NPI, rendering NPI and relevant taxonomy code on all claims and encounters.' },
+      { q: 'What documents does UnitedHealthcare (Optum) need for ABA in Michigan?', a: 'Optum\'s ABA Supplemental Clinical Criteria require a valid DSM-5-TR ASD diagnosis from a state-licensed physician, psychologist or other qualified licensed clinician. The diagnosing clinician confirms the diagnosis and severity level "using at least one clinically validated tool," such as the ADOS-2, ADI-R or CARS-2. The ABA provider then completes its own behavioral assessment with baseline measurement on at least one validated tool (for example the VB-MAPP, ABLLS-R, AFLS or Vineland) and builds the treatment plan from it. "Prior authorization is required for ABA (unless otherwise specified or mandated by contract or law)." The criteria set no expiry on the diagnosis.' },
     ],
   },
 };
