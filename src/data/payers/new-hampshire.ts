@@ -24,7 +24,7 @@ const S: Record<string, PayerSource> = {
   erisa: { title: '29 CFR 2560.503-1 — ERISA claims procedure (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
   tricare: { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
   champva: { title: '38 CFR 17.270 — CHAMPVA is the last payer', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
-  acnhPM: { title: 'AmeriHealth Caritas New Hampshire — Provider Manual (published June 2026)', url: 'https://www.amerihealthcaritasnh.com/content/dam/amerihealth-caritas/acnh/pdf/provider/provider-manual.pdf.coredownload.inline.pdf' },
+  acnhPM: { title: 'AmeriHealth Caritas New Hampshire — Provider Manual (current edition, PDF reissued 10/7/2026; re-read 10/11/2026)', url: 'https://www.amerihealthcaritasnh.com/content/dam/amerihealth-caritas/acnh/pdf/provider/provider-manual.pdf.coredownload.inline.pdf' },
   acnhPA: { title: 'AmeriHealth Caritas New Hampshire — Prior Authorization lookup tool', url: 'https://www.amerihealthcaritasnh.com/provider/resources/prior-auth' },
   nhhfPM: { title: 'NH Healthy Families — Provider Manual (January 2026)', url: 'https://www.nhhealthyfamilies.com/content/dam/centene/NH%20Healthy%20Families/Medicaid/pdfs/NHHF_Provider_Manual_January_2026_CLEAN_version.pdf' },
   nhhfPP07: { title: 'NH Healthy Families Payment Policy NH.PP.07 — Applied Behavioral Analysis (eff. 5/1/2019)', url: 'https://www.nhhealthyfamilies.com/content/dam/centene/NH%20Healthy%20Families/Medicaid/pdfs/Applied-Behavioral-Analysis-Policy-NH-PP-07.pdf' },
@@ -282,7 +282,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
     metaDescription:
       'How AmeriHealth Caritas New Hampshire covers ABA for NH Medicaid members: EPSDT coverage under 21, where the prior-authorization rules actually live, credentialing timelines, turnaround, and what intake should collect.',
     intro: [
-      'AmeriHealth Caritas New Hampshire is one of the three Medicaid Care Management plans DHHS lists. Its June 2026 provider manual names "Early and Periodic Screening, Diagnostic and Treatment Services including Applied Behavioral Analysis Coverage" as a covered service, so ABA for its members goes through the plan, not the state. What the manual does not do is spell out ABA’s prior-authorization rules; those sit in the plan’s online lookup tool.',
+      'AmeriHealth Caritas New Hampshire is one of the three Medicaid Care Management plans DHHS lists. Its provider manual (current edition, reissued October 2026) names "Early and Periodic Screening, Diagnostic and Treatment Services including Applied Behavioral Analysis Coverage" as a covered service, so ABA for its members goes through the plan, not the state. What the manual does not do is spell out ABA’s prior-authorization rules; those sit in the plan’s online lookup tool.',
     ],
     atGlance: [
       { label: 'Covers ABA?', value: 'Yes, as part of EPSDT for members under 21' },
@@ -296,21 +296,21 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       {
         h2: 'Coverage and prior authorization',
         body: [
-          'The manual’s covered-services list includes EPSDT "including Applied Behavioral Analysis Coverage," and for members under 21 it defines medical necessity by the EPSDT standard: any service in section 1905(a) of the Social Security Act "regardless of whether such service is covered under the Medicaid state plan, if that service is necessary to correct or ameliorate" a condition. The manual’s list of services requiring prior authorization names psychological and neuropsychological testing, partial hospitalization and intensive outpatient, but does not name ABA, and it points to the online Prior Authorization Lookup Tool for "the most up-to-date list." Treat the lookup tool as the source for each ABA code rather than reading the manual’s silence as "no PA." Requests go through NaviNet’s Medical Authorizations workflow, by phone to 1-833-472-2264, or by fax to 1-833-469-2264; non-participating providers need prior authorization for everything.',
+          'The manual’s covered-services list includes EPSDT "including Applied Behavioral Analysis Coverage," and for members under 21 it defines medical necessity by the EPSDT standard: any service in section 1905(a) of the Social Security Act "regardless of whether such service is covered under the Medicaid state plan, if that service is necessary to correct or ameliorate" a condition. The manual’s list of services requiring prior authorization names, under behavioral health, mental health outpatient and medication management, transcranial and vagus nerve stimulation, electroconvulsive therapy, mental health partial hospitalization and psychological and neuropsychological testing, but does not name ABA, and it points to the online Prior Authorization Lookup Tool for "the most up-to-date list." Treat the lookup tool as the source for each ABA code rather than reading the manual’s silence as "no PA." Requests go through NaviNet’s Medical Authorizations workflow, by phone to 1-833-472-2264, or by fax to 1-833-469-2264; non-participating providers need prior authorization for everything.',
         ],
         cites: [S.acnhPM, S.acnhPA],
       },
       {
         h2: 'Credentialing and network entry',
         body: [
-          'AmeriHealth Caritas New Hampshire says applicants will be notified of the credentialing decision "within 30 calendar days for PCPs and mental health providers (eff. January 1, 2026), and within 45 calendar days for specialty providers, of receipt of a clean and complete application," and new contracts receive a welcome letter within 30 business days of execution. For new members already in treatment, the plan covers a condition "currently being treated or a prior authorization has been issued for 60 calendar days after the member’s effective date," which protects a family that switches into the plan mid-course. New Hampshire does not license behavior analysts, so expect credentialing to rest on BACB certification.',
+          'AmeriHealth Caritas New Hampshire says applicants will be notified of the credentialing decision "within 30 calendar days for PCPs and mental health providers (eff. January 1, 2026), and within 45 calendar days for specialty providers, of receipt of a clean and complete application," and new contracts receive a welcome letter within 30 business days of execution. For new members already in treatment, the plan covers a condition "currently being treated or a prior authorization has been issued for 60 calendar days after the member’s effective date," which protects a family that switches into the plan mid-course. The manual lists "Behavioral Analyst (BCBA/BCABA)" among the practitioners it credentials. New Hampshire does not license behavior analysts, so expect credentialing to rest on BACB certification.',
         ],
         cites: [S.acnhPM, S.bacbLic],
       },
       {
         h2: 'What are AmeriHealth Caritas New Hampshire’s claim filing, payment and appeal deadlines?',
         body: [
-          'AmeriHealth Caritas NH’s manual: in-network claims "must be submitted to AmeriHealth Caritas New Hampshire within 120 calendar days from the date of service," and claims need the NPI of the ordering, rendering and prescribing provider plus "NPI and Taxonomy." The plan pays or denies 95% of clean claims within 30 calendar days and pays 99% within 90. Provider appeals must be filed in writing "within 60 calendar days" of the plan’s adverse-action notice, with a written resolution within 30 calendar days (extendable by 30).',
+          'AmeriHealth Caritas NH’s manual: in-network claims "must be submitted to AmeriHealth Caritas New Hampshire within 120 calendar days from the date of service," and claims need the NPI of the ordering, rendering and prescribing provider plus "NPI and Taxonomy." The plan pays or denies 95% of clean claims within 30 calendar days and pays 99% within 90. Provider appeals must be filed in writing "within 60 calendar days" of the plan’s adverse-action notice, with a written resolution within 30 calendar days. The plan may extend that deadline by 60 calendar days when it needs more documentation from the provider, and then resolves the appeal within 30 calendar days of receiving it. Peer-to-peer review is offered before an appeal if you call 1-833-472-2264 within five business days of the determination.',
         ],
         cites: [
           { title: 'AmeriHealth Caritas New Hampshire — Provider Manual (Claims Submission Protocols; Provider Appeals)', url: 'https://www.amerihealthcaritasnh.com/content/dam/amerihealth-caritas/acnh/pdf/provider/provider-manual.pdf.coredownload.inline.pdf' },
@@ -404,7 +404,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
         cites: [S.rsa167, S.acnhPM],
       },
       authTurnaround: {
-        value: 'The June 2026 manual still says standard decisions are due "no later than 14 calendar days after AmeriHealth Caritas New Hampshire receives the request" (plus up to 14 more), expedited within 72 hours, and urgent extensions of an ongoing course within 24 hours if asked at least 24 hours before it ends. Federal law has since tightened the standard limit: for rating periods starting on or after January 1, 2026, it "may not exceed 7 calendar days." The manual also says decisions not made on time "constitute a denial" that can be appealed.',
+        value: 'The provider manual (reissued October 2026) still says standard decisions are due "no later than 14 calendar days after AmeriHealth Caritas New Hampshire receives the request" (plus up to 14 more), expedited within 72 hours, and urgent extensions of an ongoing course within 24 hours if asked at least 24 hours before it ends. Federal law has since tightened the standard limit: for rating periods starting on or after January 1, 2026, it "may not exceed 7 calendar days." The manual also says decisions not made on time "constitute a denial" that can be appealed.',
         status: 'plan-dependent',
         cites: [S.acnhPM, S.cfr438],
         verifyVia: 'AmeriHealth Caritas NH UM, 1-833-472-2264: confirm whether the 7-day federal standard applies to your request’s rating period.',
@@ -430,16 +430,14 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
     family: 'centene',
     cardDesc: 'Centene’s NH Medicaid plan: ABA runs on the behavioral health platform (payer ID 68068) with PA via OTR form or portal.',
     assessmentPA: {
-      value: 'Not stated for 97151 in the plan’s published ABA documents; check the code in the Pre-Auth Check tool',
-      status: 'unverified',
-      cites: [S.nhhfPP07, S.nhhfPreAuth],
-      verifyVia: 'NH Healthy Families Medicaid Pre-Auth Check (enter 97151) or Utilization Management, 1-866-769-3085.',
-      blocker: 'document',
+      value: 'Required. NH Healthy Families\u2019 Medicaid Pre-Auth Check (checked 10/11/2026) answers for 97151: "Pre-authorization is required for this NHHF Behavioral Health service." For 97152 (the technician-administered assessment) it answers "This service is not covered under New Hampshire Healthy Families."',
+      status: 'verified',
+      cites: [{ title: 'NH Healthy Families — Medicaid Pre-Auth Check result for 97151 (checked 10/11/2026)', url: 'https://content.centene.com/content/healthyfamilies/en_us/providers/preauth-check/medicaid-pre-auth.preauthtool.json?ver=1.0&q=97151&qualifier=44&productCategory=MEDICAID&apiEnv=PROD' }, S.nhhfPreAuth],
     },
     treatmentPA: {
-      value: 'Yes. "ABA treatment must be billed under the qualified rendering provider and will continue to require prior authorization" (NH.PP.07); request it on the Outpatient Treatment Request form or the behavioral health portal',
+      value: 'Yes. "ABA treatment must be billed under the qualified rendering provider and will continue to require prior authorization" (NH.PP.07); request it on the Outpatient Treatment Request form or the behavioral health portal. The Medicaid Pre-Auth Check (checked 10/11/2026) answers "Pre-authorization is required for this NHHF Behavioral Health service" for 97153, 97155, 97156 and 0373T, and for 97154 "Pre-Authorization is required for all providers. This service is covered only when the member qualifies under the EPSDT benefit."',
       status: 'verified',
-      cites: [S.nhhfPP07, S.nhhfTip],
+      cites: [S.nhhfPP07, S.nhhfTip, { title: 'NH Healthy Families — Medicaid Pre-Auth Check result for 97153 (checked 10/11/2026)', url: 'https://content.centene.com/content/healthyfamilies/en_us/providers/preauth-check/medicaid-pre-auth.preauthtool.json?ver=1.0&q=97153&qualifier=44&productCategory=MEDICAID&apiEnv=PROD' }, S.nhhfPreAuth],
     },
     dxRequired: {
       value: 'Yes. The plan publishes no ABA diagnosis rule of its own, so the state rule applies: ABA "for individuals with" autism spectrum disorder or pervasive developmental disability (He-W 589.04(ag))',
@@ -458,7 +456,8 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
     ],
     atGlance: [
       { label: 'Covers ABA?', value: 'Yes, for NH Medicaid members (EPSDT, under 21)' },
-      { label: 'Treatment PA', value: 'Required (NH.PP.07); Outpatient Treatment Request form or BH portal' },
+      { label: 'Prior auth', value: 'Required for 97151, 97153–97156 and 0373T (Pre-Auth Check, 10/11/2026); OTR form or BH portal' },
+      { label: 'Not covered', value: '97152, 97157, 97158 (Pre-Auth Check, 10/11/2026)' },
       { label: 'Claims', value: 'Behavioral health platform, payer ID 68068, for dates of service from 6/1/2024' },
       { label: 'Codes paid (NH.PP.07)', value: '97151 assessment (up to 32 units), 97153, 97155, 97156; no bundled H2019' },
       { label: 'Decision clock', value: '7 calendar days standard, 72 hours expedited' },
@@ -471,8 +470,9 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
         body: [
           'Payment policy NH.PP.07 (effective May 1, 2019) ended the old bundled H2019 rate and pays ABA in "three (3) distinct components of ABA therapy: direct treatment, supervision, and parent training": 97153 direct treatment, 97155 supervision of a technician, 97156 parent training, plus 97151 for the initial assessment or reassessment, whose maximum rose "from 8 units (2 hours) to 32 units (8) hours." The same policy says "ABA treatment must be billed under the qualified rendering provider and will continue to require prior authorization."',
           'Since June 1, 2024, ABA is adjudicated on the behavioral health platform: Medicaid ABA claims go to payer ID 68068 (Ambetter marketplace ABA to 68069). Prior authorization goes on the Outpatient Treatment Request form or through the behavioral health portal, and new ABA providers enroll with the Behavioral Health Provider Specialty Profile. Existing authorizations were converted without re-authorization.',
+          'The plan\u2019s Medicaid Pre-Auth Check, checked code by code on October 11, 2026, marks 97151, 97153, 97155, 97156 and 0373T "Pre-authorization is required for this NHHF Behavioral Health service," and 97154 group treatment as requiring authorization for all providers and "covered only when the member qualifies under the EPSDT benefit." It answers "This service is not covered under New Hampshire Healthy Families" for 97152, 97157 and 97158, and does not recognise 0362T at all.',
         ],
-        cites: [S.nhhfPP07, S.nhhfTip],
+        cites: [S.nhhfPP07, S.nhhfTip, S.nhhfPreAuth],
       },
       {
         h2: 'Which criteria does NH Healthy Families use for ABA?',
@@ -584,6 +584,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
     },
     faq: [
       { q: 'Does NH Healthy Families cover ABA?', a: 'Yes, for New Hampshire Medicaid members. It pays 97151, 97153, 97155 and 97156 and requires prior authorization for ABA treatment.' },
+      { q: 'Which ABA codes need prior authorization with NH Healthy Families, and which are not covered?', a: 'The plan\u2019s Medicaid Pre-Auth Check, checked October 11, 2026, says pre-authorization is required for 97151, 97153, 97155, 97156 and 0373T, and for 97154 group treatment, which it covers only under the EPSDT benefit. It says 97152, 97157 and 97158 are "not covered under New Hampshire Healthy Families."' },
       { q: 'Where do I send NH Healthy Families ABA claims?', a: 'To the behavioral health platform: payer ID 68068 for Medicaid, for dates of service on or after June 1, 2024.' },
       { q: 'How fast does NH Healthy Families decide an ABA authorization?', a: 'Within 7 calendar days for standard requests and 72 hours for urgent ones, per its January 2026 provider manual.' },
       { q: 'Can ABA be delivered by telehealth for this plan’s members?', a: 'Yes, under New Hampshire law. RSA 167:4-d requires NH Medicaid to cover telehealth on the same basis as in-person care, from any site including the home, and names BACB-certified professionals and the staff they supervise. That includes the 97151 assessment and 97155 supervision when medically necessary. The plan publishes no ABA-specific telehealth rule, so ask it which POS and modifier to bill.' },
