@@ -1136,9 +1136,12 @@ export const iowaPayers: Record<string, PayerConfig> = {
     family: 'bcbs',
     cardDesc: 'Iowa\'s Blue plan; ABA policy and auth list are behind a provider login, so the Iowa mandate (no age or dollar caps since 2026) is the public floor.',
     assessmentPA: {
-      value: 'Not confirmed — Wellmark publishes pre-service review requirements by code in its Authorization Table, which we could not query for 97151/97152',
+      value: 'Not confirmed — Wellmark\'s public Medical Authorization Table (now served at authorization.wellmark.com/authtable/) has no row for 97151 or 97152, nor for any other ABA or behavioral-health code (searched 2026-10-11: 97151–97158, 0362T, 0373T, H2019, 90791 all return nothing), so it does not answer ABA pre-service review; that sits in the login-only Behavioral Health and Chemical Dependency section of the Provider Guide',
       status: 'unverified',
-      verifyVia: 'Wellmark Authorization Table (wellmark.com/authtable) — search 97151 and 97152; or Wellmark Provider Services at the number on the member ID card.',
+      cites: [
+        { title: 'Wellmark — Medical Authorization Table', url: 'https://authorization.wellmark.com/authtable/' },
+      ],
+      verifyVia: 'Wellmark Behavioral Health and Chemical Dependency Provider Guide section (Aug. 2026, provider login), or Wellmark Provider Services at the number on the member ID card — ask whether 97151/97152 need pre-service review on this member\'s plan.',
       blocker: 'document',
     },
     treatmentPA: {
@@ -1147,7 +1150,7 @@ export const iowaPayers: Record<string, PayerConfig> = {
       cites: [
         { title: 'Iowa Code § 514C.31 — Applied behavior analysis for treatment of autism spectrum disorder', url: 'https://www.legis.iowa.gov/docs/code/514C.31.pdf' },
       ],
-      verifyVia: 'Wellmark Authorization Table (wellmark.com/authtable) for 97153/97155/97156, and the Behavioral Health and Chemical Dependency Provider Guide section (Aug. 2026) on Wellmark\'s provider site (login required).',
+      verifyVia: 'The Behavioral Health and Chemical Dependency Provider Guide section (Aug. 2026) on Wellmark\'s provider site (login required), or Wellmark Provider Services. The public Medical Authorization Table (authorization.wellmark.com/authtable/) lists no ABA codes (97153/97155/97156 searched 2026-10-11), so it cannot settle this.',
       blocker: 'document',
     },
     dxRequired: {
@@ -1167,7 +1170,7 @@ export const iowaPayers: Record<string, PayerConfig> = {
     metaDescription:
       'How Wellmark Blue Cross and Blue Shield covers ABA for Iowa families: the Iowa autism mandate after H.F. 330 (no age limit and no dollar cap for plans issued or renewed from 1/1/2026), which Wellmark plans it reaches, Iowa\'s prior-authorization deadlines, behavior-analyst licensure, and what intake must verify because Wellmark\'s ABA policy sits behind a provider login.',
     intro: [
-      'Wellmark Blue Cross and Blue Shield is Iowa\'s dominant commercial carrier, and for ABA it is also the least transparent one: its behavioral health provider guide and code-level authorization table are behind a provider login or a search form we could not query, and its public medical-policy index lists no ABA policy. So the public floor for a Wellmark family is the Iowa mandate itself, which changed on January 1, 2026: H.F. 330 (2025 Iowa Acts ch. 162) struck the mandate\'s age limits and dollar caps for large-group and public-employee plans issued or renewed on or after that date. The first intake question on every Wellmark card is therefore which kind of plan it is.',
+      'Wellmark Blue Cross and Blue Shield is Iowa\'s dominant commercial carrier, and for ABA it is also the least transparent one: its behavioral health provider guide is behind a provider login, its public code-level Medical Authorization Table lists no ABA or behavioral-health codes at all, and its public medical-policy index lists no ABA policy. So the public floor for a Wellmark family is the Iowa mandate itself, which changed on January 1, 2026: H.F. 330 (2025 Iowa Acts ch. 162) struck the mandate\'s age limits and dollar caps for large-group and public-employee plans issued or renewed on or after that date. The first intake question on every Wellmark card is therefore which kind of plan it is.',
     ],
     atGlance: [
       { label: 'Covers ABA?', value: 'Mandated on large-group and public-employee plans; other plans per the plan document — verify per member' },
@@ -1194,12 +1197,12 @@ export const iowaPayers: Record<string, PayerConfig> = {
       {
         h2: 'What Wellmark publishes, and what it does not',
         body: [
-          'Wellmark\'s public medical-policy index is an alphabetical list of medical policies; it contains no ABA policy. The page says InterQual criteria are used "to evaluate whether a medical procedure or equipment is medically necessary," and points to the Authorization Table as "your first stop in learning whether an authorization is required." Behavioral health rules live in the Behavioral Health and Chemical Dependency section of the Wellmark Provider Guide, updated August 2026, which is served from a provider-only location and returned no public copy. We therefore do not state Wellmark\'s ABA criteria, unit limits or telehealth rules on this page. Treat every clinical-policy question as a verification call, and cite the mandate when a plan subject to it applies an age or dollar limit.',
+          'Wellmark\'s public medical-policy index is an alphabetical list of medical policies; it contains no ABA policy. The page says InterQual criteria are used "to evaluate whether a medical procedure or equipment is medically necessary," and points to the Authorization Table as "your first stop in learning whether an authorization is required." That table carries no ABA rows: searched on 2026-10-11, 97151 through 97158, 0362T, 0373T, H2019 and even 90791 return nothing, so it cannot tell you whether ABA needs review. Behavioral health rules live in the Behavioral Health and Chemical Dependency section of the Wellmark Provider Guide, updated August 2026, which is served from a provider-only location and returned no public copy. We therefore do not state Wellmark\'s ABA criteria, unit limits or telehealth rules on this page. Treat every clinical-policy question as a verification call, and cite the mandate when a plan subject to it applies an age or dollar limit.',
         ],
         cites: [
           { title: 'Wellmark — Medical policies for providers', url: 'https://www.wellmark.com/provider/medical-policies-authorizations/medical-policies' },
           { title: 'Wellmark — Provider Guide (section list and update dates)', url: 'https://www.wellmark.com/provider/resources/wellmark-provider-guide' },
-          { title: 'Wellmark — Medical Authorization Table', url: 'https://www.wellmark.com/authtable/' },
+          { title: 'Wellmark — Medical Authorization Table', url: 'https://authorization.wellmark.com/authtable/' },
         ],
       },
       {
