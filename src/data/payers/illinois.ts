@@ -2,7 +2,9 @@ import type { PayerConfig, PayerSource } from './types.js';
 
 /* Illinois — researched October 2026 from primary sources only.
    hfs.illinois.gov, bcbsil.com, ilmeridian.com / ilyouthcare.com, countycare.com and the
-   Molina IL memo host blog.molinahealthcare.com answer plain curl with a browser UA.
+   Molina IL memo host answer plain curl with a browser UA (blog.molinahealthcare.com stopped
+   resolving on 2026-10-11; the same /-/media/ paths load from myhealthinhand.molinahealthcare.com,
+   which is what is now cited). www.ilga.gov now also reads through r.jina.ai (2026-10-11).
    aetnabetterhealth.com 403s and r.jina.ai is refused for it; the ch./es. mirror hosts
    (ch.aetnabetterhealth.com, es.aetnabetterhealth.com) returned the real PDFs.
    ilga.gov itself fails directly (TLS failure through the proxy, 503 to WebFetch, 403 to
@@ -65,9 +67,9 @@ const S: Record<string, PayerSource> = {
   ycPM: { title: 'YouthCare — Provider Manual (September 2026)', url: 'https://www.ilyouthcare.com/content/dam/centene/meridian/il/pdf/YouthCare_ProviderManual_09.28.26.pdf' },
   ycPolicies: { title: 'YouthCare — Clinical and Payment Policies (lists CP.BH.104 and CP.BH.105)', url: 'https://www.ilyouthcare.com/providers/provider-resources/clinical-payment-policies.html' },
   // Molina
-  molMemo: { title: 'Molina Healthcare of Illinois — Provider Memo: Prior Auth Change for Applied Behavioral Analysis (Jan. 22, 2026)', url: 'https://blog.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/il/2026-Provider-Memos/MHIL_Provider_Memo_Applied_Behavioral_Analysis_Initial_PA_Final508.pdf' },
-  molPM: { title: 'Molina Healthcare of Illinois — Medicaid Provider Manual 2026 (last updated 09/2026)', url: 'https://blog.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/il/Provider-Manuals/2026_MHIL_Medicaid_Provider_Manual_V1_Final508.pdf' },
-  molABS22: { title: 'Molina Healthcare of Illinois — Provider Memo: Adaptive Behavioral Support (ABS) Is a Covered Service (updated Nov. 28, 2022)', url: 'https://blog.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/il/2022-Provider-Memos/Provider_Memo_ABS_Services_Covered_11-2022_Final508.pdf' },
+  molMemo: { title: 'Molina Healthcare of Illinois — Provider Memo: Prior Auth Change for Applied Behavioral Analysis (Jan. 22, 2026)', url: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/il/2026-Provider-Memos/MHIL_Provider_Memo_Applied_Behavioral_Analysis_Initial_PA_Final508.pdf' },
+  molPM: { title: 'Molina Healthcare of Illinois — Medicaid Provider Manual 2026 (last updated 09/2026)', url: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/il/Provider-Manuals/2026_MHIL_Medicaid_Provider_Manual_V1_Final508.pdf' },
+  molABS22: { title: 'Molina Healthcare of Illinois — Provider Memo: Adaptive Behavioral Support (ABS) Is a Covered Service (updated Nov. 28, 2022)', url: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/il/2022-Provider-Memos/Provider_Memo_ABS_Services_Covered_11-2022_Final508.pdf' },
   // BCBSIL commercial
   bcbsilCodes: { title: 'BCBSIL — 2026 Commercial Outpatient Behavioral Health Prior Authorization Codes (eff. 1/1/2026, updated August 2026)', url: 'https://www.bcbsil.com/docs/provider/il/claims/um/2026-commercial-bh-pa-code-list.pdf' },
   bcbsilCPCP: { title: 'BCBSIL Clinical Payment and Coding Policy CPCP011 — Applied Behavior Analysis (v1.0, plan effective March 20, 2026)', url: 'https://www.bcbsil.com/docs/provider/il/standards/cpcp/2026/cpcp011-3-20-2026.pdf' },

@@ -1402,9 +1402,9 @@ export const californiaPayers: Record<string, PayerConfig> = {
       value: 'Not on the code list — the Q2 2026 PA Code Matrix lists 97153–97158 and 0373T but not 97151, 97152 or 0362T; however Molina’s ABA department coordinates the FBA and "will work with the ABA provider to get authorization in place," so confirm per case',
       status: 'plan-dependent',
       cites: [
-        { title: 'Molina Healthcare — Medicaid Prior Auth (PA) Code Matrix, eff. Q2 2026', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/ca/Medicaid/PA-Code-Matrix.ashx' },
-        { title: 'Molina Healthcare of California — California PA Code Exceptions, eff. Q2 2026', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/ca/Medicaid/PA-Code-Exceptions.ashx' },
-        { title: 'Molina Healthcare of California — Applied Behavior Analysis Services & ABA Referral Form', url: 'https://www.molinahealthcare.com/providers/ca/medicaid/forms/~/media/Molina/PublicWebsite/PDF/providers/ca/applied-behavior-analysis-referral-form.pdf' },
+        { title: 'Molina Healthcare — Medicaid Prior Auth (PA) Code Matrix, eff. Q2 2026', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/CA/Prior-Auth/PA-Code-Matrix.pdf' },
+        { title: 'Molina Healthcare of California — California PA Code Exceptions, eff. Q2 2026', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/CA/Prior-Auth/PA-Code-Exceptions.pdf' },
+        { title: 'Molina Healthcare of California — Applied Behavior Analysis Services & ABA Referral Form', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/CA/Prior-Auth/ABA-Referral-Form.pdf' },
       ],
       verifyVia: 'Molina’s PA Look-Up Tool or Availity Essentials for 97151/97152/0362T, or the Molina ABA department (PedsCA@molinahealthcare.com) — keep the answer with the case.',
       blocker: 'per-case',
@@ -1413,8 +1413,8 @@ export const californiaPayers: Record<string, PayerConfig> = {
       value: 'Required — ABA is on Molina’s 2026 pre-service review list and the Q2 2026 code matrix (97153–97158, 0373T); the referral form says "ABA services REQUIRE prior authorization"; reassessment at least every 6 months',
       status: 'verified',
       cites: [
-        { title: 'Molina Healthcare — Medicaid Pre-Service Review Guide, eff. 1/1/2026', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/ca/Medicaid/2026-PA-Guide-Request-Form-Medicaid.ashx' },
-        { title: 'Molina Healthcare — Medicaid Prior Auth (PA) Code Matrix, eff. Q2 2026', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/ca/Medicaid/PA-Code-Matrix.ashx' },
+        { title: 'Molina Healthcare — Medicaid Pre-Service Review Guide, eff. 1/1/2026', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/CA/Prior-Auth/2026-PA-Guide-Medicaid.pdf' },
+        { title: 'Molina Healthcare — Medicaid Prior Auth (PA) Code Matrix, eff. Q2 2026', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/CA/Prior-Auth/PA-Code-Matrix.pdf' },
         { title: 'Molina Clinical Policy No. 482 — Applied Behavioral Analysis for ASD (approved 6/10/2026)', url: 'https://www.molinaclinicalpolicy.com/molinaclinicalpolicy/-/media/Molina/PublicWebsite/PDF/Common/Molina-Clinical-Policy/Applied-Behavioral-Analysis-for-Autism-Spectrum-Disorder_R.ashx' },
       ],
     },
@@ -1423,7 +1423,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       status: 'verified',
       cites: [
         { title: 'Molina Clinical Policy No. 482 — Applied Behavioral Analysis for ASD (approved 6/10/2026)', url: 'https://www.molinaclinicalpolicy.com/molinaclinicalpolicy/-/media/Molina/PublicWebsite/PDF/Common/Molina-Clinical-Policy/Applied-Behavioral-Analysis-for-Autism-Spectrum-Disorder_R.ashx' },
-        { title: 'Molina Healthcare of California Medi-Cal Provider Manual 2026', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/ca/Medicaid/2026-CA-MEDI-CAL-PROVIDER-MANUAL.pdf' },
+        { title: 'Molina Healthcare of California Medi-Cal Provider Manual 2026', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/CA/Manual/2026-CA-Medicaid-Provider-Manual.pdf' },
         { title: 'DHCS APL 23-010 (Revised 11/22/2023) — BHT Coverage for Members Under 21', url: 'https://www.dhcs.ca.gov/file/apl23-010-pdf/' },
       ],
     },
@@ -1453,9 +1453,9 @@ export const californiaPayers: Record<string, PayerConfig> = {
           'Molina’s ABA program page and referral form send new families through Molina itself: an MD or licensed clinical psychologist "who has seen the member within the last 12 months" completes the ABA Referral Form (with "most recent clinicals (within 1 year)"), and it goes to PedsCA@molinahealthcare.com or fax (855) 297-3010. "A Molina Case Manager will contact the family … and connect them with the most appropriate provider," and a comprehensive diagnostic evaluation can be coordinated the same way. Molina "will work with the ABA provider to get authorization in place" for the functional behavior assessment. For every other request, "Molina strongly recommends the use of the Availity Essentials portal to submit ALL prior authorization requests"; the behavioral health pre-service form has an "Applied Behavioral Analysis" box, PA fax (800) 811-4804, PA phone (844) 557-8434.',
         ],
         cites: [
-          { title: 'Molina Healthcare of California — Applied Behavior Analysis Services & ABA Referral Form', url: 'https://www.molinahealthcare.com/providers/ca/medicaid/forms/~/media/Molina/PublicWebsite/PDF/providers/ca/applied-behavior-analysis-referral-form.pdf' },
-          { title: 'Molina Healthcare — Medicaid Pre-Service Review Guide, eff. 1/1/2026', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/ca/Medicaid/2026-PA-Guide-Request-Form-Medicaid.ashx' },
-          { title: 'Molina Healthcare of California Medi-Cal Provider Manual 2026', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/ca/Medicaid/2026-CA-MEDI-CAL-PROVIDER-MANUAL.pdf' },
+          { title: 'Molina Healthcare of California — Applied Behavior Analysis Services & ABA Referral Form', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/CA/Prior-Auth/ABA-Referral-Form.pdf' },
+          { title: 'Molina Healthcare — Medicaid Pre-Service Review Guide, eff. 1/1/2026', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/CA/Prior-Auth/2026-PA-Guide-Medicaid.pdf' },
+          { title: 'Molina Healthcare of California Medi-Cal Provider Manual 2026', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/CA/Manual/2026-CA-Medicaid-Provider-Manual.pdf' },
         ],
       },
       {
@@ -1468,6 +1468,15 @@ export const californiaPayers: Record<string, PayerConfig> = {
           { title: 'DHCS APL 23-010 (Revised 11/22/2023) — BHT Coverage for Members Under 21', url: 'https://www.dhcs.ca.gov/file/apl23-010-pdf/' },
         ],
       },
+      {
+        h2: 'Claims: a 90-day filing window',
+        body: [
+          'Molina’s 2026 Medi-Cal manual (last updated June 2026): "Claims must be submitted by the Provider to Molina within 90 calendar days after the discharge for inpatient services or the Date of Service for outpatient services (unless otherwise stated in the contract)." When Molina pays second, the claim is due "within 90 calendar days after the final determination by the primary payer." Claims outside these windows "shall not be eligible for payment." Corrected claims "must be sent within 180 calendar days of the Date of Service." Every claim needs a valid NPI. Check your contract, because it can set a different window.',
+        ],
+        cites: [
+          { title: 'Molina Healthcare of California Medi-Cal Provider Manual 2026', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/CA/Manual/2026-CA-Medicaid-Provider-Manual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Recent physician/psychologist referral', desc: 'Molina’s referral form must come from an MD or clinical psychologist who saw the child in the last 12 months.' },
@@ -1476,11 +1485,11 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'Other coverage', desc: 'Primary insurance is billed first; Molina wants the primary EOB for secondary processing.' },
     ],
     sources: [
-      { title: 'Molina Healthcare of California Medi-Cal Provider Manual 2026', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/ca/Medicaid/2026-CA-MEDI-CAL-PROVIDER-MANUAL.pdf' },
-      { title: 'Molina Healthcare — Medicaid Pre-Service Review Guide, eff. 1/1/2026', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/ca/Medicaid/2026-PA-Guide-Request-Form-Medicaid.ashx' },
-      { title: 'Molina Healthcare — Medicaid Prior Auth (PA) Code Matrix, eff. Q2 2026', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/ca/Medicaid/PA-Code-Matrix.ashx' },
-      { title: 'Molina Healthcare of California — California PA Code Exceptions, eff. Q2 2026', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/ca/Medicaid/PA-Code-Exceptions.ashx' },
-      { title: 'Molina Healthcare of California — Applied Behavior Analysis Services & ABA Referral Form', url: 'https://www.molinahealthcare.com/providers/ca/medicaid/forms/~/media/Molina/PublicWebsite/PDF/providers/ca/applied-behavior-analysis-referral-form.pdf' },
+      { title: 'Molina Healthcare of California Medi-Cal Provider Manual 2026', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/CA/Manual/2026-CA-Medicaid-Provider-Manual.pdf' },
+      { title: 'Molina Healthcare — Medicaid Pre-Service Review Guide, eff. 1/1/2026', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/CA/Prior-Auth/2026-PA-Guide-Medicaid.pdf' },
+      { title: 'Molina Healthcare — Medicaid Prior Auth (PA) Code Matrix, eff. Q2 2026', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/CA/Prior-Auth/PA-Code-Matrix.pdf' },
+      { title: 'Molina Healthcare of California — California PA Code Exceptions, eff. Q2 2026', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/CA/Prior-Auth/PA-Code-Exceptions.pdf' },
+      { title: 'Molina Healthcare of California — Applied Behavior Analysis Services & ABA Referral Form', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/CA/Prior-Auth/ABA-Referral-Form.pdf' },
       { title: 'Molina Clinical Policy No. 482 — Applied Behavioral Analysis for ASD (approved 6/10/2026)', url: 'https://www.molinaclinicalpolicy.com/molinaclinicalpolicy/-/media/Molina/PublicWebsite/PDF/Common/Molina-Clinical-Policy/Applied-Behavioral-Analysis-for-Autism-Spectrum-Disorder_R.ashx' },
       { title: 'DHCS APL 23-010 (Revised 11/22/2023) — BHT Coverage for Members Under 21', url: 'https://www.dhcs.ca.gov/file/apl23-010-pdf/' },
       { title: 'CHHS Open Data — Medi-Cal Managed Care Enrollment Report (August 2026)', url: 'https://data.chhs.ca.gov/dataset/medi-cal-managed-care-enrollment-report' },
@@ -1490,7 +1499,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         value: 'Under 21 for Medi-Cal BHT — the manual lists "Be under 21 years of age." Molina’s Clinical Policy 482 adds a floor, "ASD initiation age is 18 months or older," that APL 23-010 does not contain; EPSDT and the APL set no minimum age, so a younger child with a recommendation is still covered under the state rule.',
         status: 'verified',
         cites: [
-          { title: 'Molina Healthcare of California Medi-Cal Provider Manual 2026', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/ca/Medicaid/2026-CA-MEDI-CAL-PROVIDER-MANUAL.pdf' },
+          { title: 'Molina Healthcare of California Medi-Cal Provider Manual 2026', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/CA/Manual/2026-CA-Medicaid-Provider-Manual.pdf' },
           { title: 'Molina Clinical Policy No. 482 — Applied Behavioral Analysis for ASD (approved 6/10/2026)', url: 'https://www.molinaclinicalpolicy.com/molinaclinicalpolicy/-/media/Molina/PublicWebsite/PDF/Common/Molina-Clinical-Policy/Applied-Behavioral-Analysis-for-Autism-Spectrum-Disorder_R.ashx' },
           { title: 'DHCS APL 23-010 (Revised 11/22/2023) — BHT Coverage for Members Under 21', url: 'https://www.dhcs.ca.gov/file/apl23-010-pdf/' },
         ],
@@ -1500,7 +1509,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'Molina Clinical Policy No. 482 — Applied Behavioral Analysis for ASD (approved 6/10/2026)', url: 'https://www.molinaclinicalpolicy.com/molinaclinicalpolicy/-/media/Molina/PublicWebsite/PDF/Common/Molina-Clinical-Policy/Applied-Behavioral-Analysis-for-Autism-Spectrum-Disorder_R.ashx' },
-          { title: 'Molina Healthcare of California — Applied Behavior Analysis Services & ABA Referral Form', url: 'https://www.molinahealthcare.com/providers/ca/medicaid/forms/~/media/Molina/PublicWebsite/PDF/providers/ca/applied-behavior-analysis-referral-form.pdf' },
+          { title: 'Molina Healthcare of California — Applied Behavior Analysis Services & ABA Referral Form', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/CA/Prior-Auth/ABA-Referral-Form.pdf' },
         ],
       },
       diagnosingProviders: {
@@ -1508,7 +1517,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'Molina Clinical Policy No. 482 — Applied Behavioral Analysis for ASD (approved 6/10/2026)', url: 'https://www.molinaclinicalpolicy.com/molinaclinicalpolicy/-/media/Molina/PublicWebsite/PDF/Common/Molina-Clinical-Policy/Applied-Behavioral-Analysis-for-Autism-Spectrum-Disorder_R.ashx' },
-          { title: 'Molina Healthcare of California — Applied Behavior Analysis Services & ABA Referral Form', url: 'https://www.molinahealthcare.com/providers/ca/medicaid/forms/~/media/Molina/PublicWebsite/PDF/providers/ca/applied-behavior-analysis-referral-form.pdf' },
+          { title: 'Molina Healthcare of California — Applied Behavior Analysis Services & ABA Referral Form', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/CA/Prior-Auth/ABA-Referral-Form.pdf' },
         ],
       },
       diagnosticTools: {
@@ -1522,8 +1531,8 @@ export const californiaPayers: Record<string, PayerConfig> = {
         value: 'Yes — the ABA Referral Form from an MD or licensed clinical psychologist goes to Molina’s ABA department (PedsCA@molinahealthcare.com, fax 855-297-3010), and a Molina case manager connects the family to a provider. In-network specialist referrals otherwise need no PA; non-participating providers need approval for all services.',
         status: 'verified',
         cites: [
-          { title: 'Molina Healthcare of California — Applied Behavior Analysis Services & ABA Referral Form', url: 'https://www.molinahealthcare.com/providers/ca/medicaid/forms/~/media/Molina/PublicWebsite/PDF/providers/ca/applied-behavior-analysis-referral-form.pdf' },
-          { title: 'Molina Healthcare — Medicaid Pre-Service Review Guide, eff. 1/1/2026', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/ca/Medicaid/2026-PA-Guide-Request-Form-Medicaid.ashx' },
+          { title: 'Molina Healthcare of California — Applied Behavior Analysis Services & ABA Referral Form', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/CA/Prior-Auth/ABA-Referral-Form.pdf' },
+          { title: 'Molina Healthcare — Medicaid Pre-Service Review Guide, eff. 1/1/2026', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/CA/Prior-Auth/2026-PA-Guide-Medicaid.pdf' },
         ],
       },
       telehealth: {
@@ -1531,15 +1540,15 @@ export const californiaPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'Molina Clinical Policy No. 482 — Applied Behavioral Analysis for ASD (approved 6/10/2026)', url: 'https://www.molinaclinicalpolicy.com/molinaclinicalpolicy/-/media/Molina/PublicWebsite/PDF/Common/Molina-Clinical-Policy/Applied-Behavioral-Analysis-for-Autism-Spectrum-Disorder_R.ashx' },
-          { title: 'Molina Healthcare of California Medi-Cal Provider Manual 2026', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/ca/Medicaid/2026-CA-MEDI-CAL-PROVIDER-MANUAL.pdf' },
+          { title: 'Molina Healthcare of California Medi-Cal Provider Manual 2026', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/CA/Manual/2026-CA-Medicaid-Provider-Manual.pdf' },
         ],
       },
       authTurnaround: {
         value: 'Molina’s 2026 manual: "Prior authorization decisions are completed within seven calendar days for standard requests, and within 72 hours for expedited requests. Timeframes for standard requests may be extended up to fourteen days." Denials are communicated "within one business day of making the denial decision." Reassessment runs "AT LEAST every 6 months" under Policy 482.',
         status: 'verified',
         cites: [
-          { title: 'Molina Healthcare of California Medi-Cal Provider Manual 2026', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/ca/Medicaid/2026-CA-MEDI-CAL-PROVIDER-MANUAL.pdf' },
-          { title: 'Molina Healthcare — Medicaid Pre-Service Review Guide, eff. 1/1/2026', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/ca/Medicaid/2026-PA-Guide-Request-Form-Medicaid.ashx' },
+          { title: 'Molina Healthcare of California Medi-Cal Provider Manual 2026', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/CA/Manual/2026-CA-Medicaid-Provider-Manual.pdf' },
+          { title: 'Molina Healthcare — Medicaid Pre-Service Review Guide, eff. 1/1/2026', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/CA/Prior-Auth/2026-PA-Guide-Medicaid.pdf' },
           { title: 'Molina Clinical Policy No. 482 — Applied Behavioral Analysis for ASD (approved 6/10/2026)', url: 'https://www.molinaclinicalpolicy.com/molinaclinicalpolicy/-/media/Molina/PublicWebsite/PDF/Common/Molina-Clinical-Policy/Applied-Behavioral-Analysis-for-Autism-Spectrum-Disorder_R.ashx' },
         ],
       },
@@ -1547,7 +1556,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         value: '"Medicaid is always the payer of last resort." Providers "must bill the primary payer and submit a primary explanation of benefits (EOB) to Molina for secondary Claim processing," paid under "the state regulatory COB methodology." Molina pays prenatal and "preventive pediatric care (EPSDT)" first and recovers afterwards — whether that pay-and-chase reaches BHT is not spelled out. Molina does not say whether its own ABA PA is needed while it is secondary; obtain it and confirm with the PA line (844-557-8434).',
         status: 'verified',
         cites: [
-          { title: 'Molina Healthcare of California Medi-Cal Provider Manual 2026', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/ca/Medicaid/2026-CA-MEDI-CAL-PROVIDER-MANUAL.pdf' },
+          { title: 'Molina Healthcare of California Medi-Cal Provider Manual 2026', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/CA/Manual/2026-CA-Medicaid-Provider-Manual.pdf' },
           { title: 'DHCS APL 22-027 — Cost Avoidance and Post-Payment Recovery for Other Health Coverage', url: 'https://www.dhcs.ca.gov/file/apl22-027-pdf/' },
         ],
       },
@@ -1564,7 +1573,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         value: 'Not addressed in the 2026 manual, the PA code matrix or Policy 482; the state documents are silent too.',
         status: 'unverified',
         cites: [
-          { title: 'Molina Healthcare of California Medi-Cal Provider Manual 2026', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/ca/Medicaid/2026-CA-MEDI-CAL-PROVIDER-MANUAL.pdf' },
+          { title: 'Molina Healthcare of California Medi-Cal Provider Manual 2026', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/CA/Manual/2026-CA-Medicaid-Provider-Manual.pdf' },
         ],
         verifyVia: 'Molina California Medi-Cal claims/coding policies via Availity, or Molina provider services.',
         blocker: 'document',
@@ -1578,13 +1587,11 @@ export const californiaPayers: Record<string, PayerConfig> = {
         ],
       },
       noteSignature: {
-        value: 'Not found in Molina’s BHT-specific text.',
-        status: 'unverified',
+        value: 'Molina’s 2026 Medi-Cal manual sets one medical-record standard for every provider type, BHT included: "All staff and Provider notes are signed physically or electronically with either name or initials. All entries are dated." Progress notes must be "clear and thorough." The manual sets no signing deadline and nothing specific to ABA session notes.',
+        status: 'verified',
         cites: [
-          { title: 'Molina Healthcare of California Medi-Cal Provider Manual 2026', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/ca/Medicaid/2026-CA-MEDI-CAL-PROVIDER-MANUAL.pdf' },
+          { title: 'Molina Healthcare of California Medi-Cal Provider Manual 2026', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/CA/Manual/2026-CA-Medicaid-Provider-Manual.pdf' },
         ],
-        verifyVia: 'The medical-record standards section of the Molina 2026 Medi-Cal provider manual (not reviewed for BHT specifics this cycle).',
-        blocker: 'document',
       },
       placeOfService: {
         value: 'Policy 482 requires a "Documented description of service modalities and settings (e.g. home, clinic, community)"; the state rule underneath (APL 23-010) adds school, including remote school sessions, and bars limiting BHT on school attendance.',
@@ -1598,8 +1605,8 @@ export const californiaPayers: Record<string, PayerConfig> = {
         value: 'Molina’s manual publishes rendering-level modifiers for BHT, with the tiers "as defined in the California Health and Safety Code § 1374.73": AH licensed clinician (QAS Provider), HP BCBA-D, HO BCBA (QAS Providers), HN associates — psych associate, AMFT, ACSW, APCC (QAS Professional) — and HM unlicensed/uncertified staff (QAS Paraprofessional). The request form captures requesting and servicing provider NPI/TIN.',
         status: 'verified',
         cites: [
-          { title: 'Molina Healthcare of California Medi-Cal Provider Manual 2026', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/ca/Medicaid/2026-CA-MEDI-CAL-PROVIDER-MANUAL.pdf' },
-          { title: 'Molina Healthcare — Medicaid Pre-Service Review Guide, eff. 1/1/2026', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/ca/Medicaid/2026-PA-Guide-Request-Form-Medicaid.ashx' },
+          { title: 'Molina Healthcare of California Medi-Cal Provider Manual 2026', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/CA/Manual/2026-CA-Medicaid-Provider-Manual.pdf' },
+          { title: 'Molina Healthcare — Medicaid Pre-Service Review Guide, eff. 1/1/2026', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/CA/Prior-Auth/2026-PA-Guide-Medicaid.pdf' },
         ],
       },
     },
@@ -1607,6 +1614,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { q: 'Does Molina Healthcare of California cover ABA?', a: 'Yes — for Medi-Cal members under 21. Molina runs its own ABA department; a physician or clinical psychologist referral goes to PedsCA@molinahealthcare.com and a case manager connects the family to a provider.' },
       { q: 'Does Molina Medi-Cal require an autism diagnosis for ABA?', a: 'Molina’s Clinical Policy 482 asks for one, made with a validated tool such as ADOS-2. The state rule (APL 23-010) covers BHT "regardless of diagnosis" on a physician or psychologist recommendation — cite it if a non-ASD request is denied.' },
       { q: 'Can ABA be done by telehealth with Molina?', a: 'Only the indirect parts under Policy 482 — caregiver training, supervision and similar — alongside in-person services. Direct technician sessions by telehealth are likely to be denied.' },
+      { q: 'What is Molina Healthcare of California’s timely filing limit for ABA claims?', a: '90 calendar days from the date of service, unless your contract says otherwise. If Molina is secondary, you have 90 calendar days from the primary payer’s final determination, and corrected claims are due within 180 calendar days of the date of service (2026 Medi-Cal provider manual).' },
       { q: 'What happens when a family is switching providers or plans with Molina?', a: 'State rule: APL 23-010 requires every Medi-Cal plan to offer continued access to out-of-network BHT providers (continuity of care) for up to 12 months under APL 23-022, so ask Molina for a continuity-of-care arrangement before treatment stops. No state document says whether an existing authorization follows the child to a new agency within the plan; ask the plan before switching.' },
     ],
   },

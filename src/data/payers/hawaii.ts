@@ -24,7 +24,7 @@ import type { PayerConfig, PayerSource } from './types.js';
 
 // ---- Med-QUEST sources ----
 const MQ_MEMO: PayerSource = { title: 'Med-QUEST memo QI-2431 / FFS 24-13 (Dec 31, 2024) — Coverage of IBT for children under 21 with ASD: Guidelines for ABA (Attachments A–C)', url: 'https://medquest.hawaii.gov/content/dam/formsanddocuments/provider-memos/qi-memos/qi-memos-2024/QI-2431,%20FFS%2024-13%20Replaces%20QI-2301,%20FFS%2023-01%20Coverage%20of%20IBT%20for%20treatment%20of%20children%20under%2021%20years%20of%20age%20with%20ASD_Guidelines%20for%20ABA._FINAL%20(part%201)%20-%20signed.pdf' };
-const MQ_INDEX: PayerSource = { title: 'Med-QUEST — provider memo index (QI-2431 still the current ABA memo, checked 9/23/2026)', url: 'https://medquest.hawaii.gov/en/plans-providers/provider-memo.html' };
+const MQ_INDEX: PayerSource = { title: 'Med-QUEST — provider memo index (QI-2431 still the current ABA memo, checked 10/11/2026)', url: 'https://medquest.hawaii.gov/en/plans-providers/provider-memo.html' };
 const MQ_PRES: PayerSource = { title: 'Med-QUEST / Milliman — ABA policy and rates updates presentation (Oct 30, 2024)', url: 'https://medquest.hawaii.gov/content/dam/formsanddocuments/plans-and-providers/fee-for-service/20241030%20-%20ABA%20Policy%20and%20Rates%20Updates%20Presentation.pdf' };
 const MQ_FAQ: PayerSource = { title: 'Med-QUEST — 2024 ABA FAQ on the QI-memo updates (Dec 13, 2024)', url: 'https://medquest.hawaii.gov/content/dam/formsanddocuments/plans-and-providers/fee-for-service/2024%20ABA%20FAQ.pdf' };
 const MQ_TELE: PayerSource = { title: 'Med-QUEST memo QI-2527 / FFS 25-12 / CCS-2509 — Telehealth Implementation (Dec 8, 2025)', url: 'https://medquest.hawaii.gov/content/dam/formsanddocuments/provider-memos/qi-memos/qi-memos-2025/QI-2527%20FFS%2025-12%20CCS-2509%20%20Telehealth%20Implementation%20-%20signed.pdf' };
@@ -33,7 +33,7 @@ const MQ_FEES: PayerSource = { title: 'Med-QUEST — Fee schedules page (ABA Rat
 
 // ---- Plan sources ----
 const AC_MP37: PayerSource = { title: 'AlohaCare Medical Policy MP-37 — Applied Behavior Analysis (ABA) Services (QUEST; eff. 3/22/2026, rev. 5/8/2026)', url: 'https://www.alohacare.org/userfiles/2026%20Updates/Other/321-MP-37_ABA%20Policy%20-%20Applied%20Behavior%20Analysis%20Services%20(003).pdf' };
-const AC_PA: PayerSource = { title: 'AlohaCare — Prior Authorization Lookup Tool (QUEST; 97151–97158, 0362T, 0373T checked 9/23/2026)', url: 'https://www.alohacare.org/PriorAuth/' };
+const AC_PA: PayerSource = { title: 'AlohaCare — Prior Authorization Lookup Tool (QUEST; 97151–97158, 0362T, 0373T checked 10/11/2026)', url: 'https://www.alohacare.org/PriorAuth/' };
 const AC_MAN: PayerSource = { title: 'AlohaCare QUEST (Medicaid) Provider Manual (9/10/2025)', url: 'https://www.alohacare.org/userfiles/2025%20Updates/2025%20Provider%20Publications%20and%20docs/Quest%20Provider%20Manual_9.10.25%20.pdf' };
 const AC_AUTH: PayerSource = { title: 'AlohaCare — Provider authorization page', url: 'https://www.alohacare.org/Providers/Authorization' };
 const OH_PA: PayerSource = { title: 'ʻOhana Health Plan — CMS-0057-F Prior Authorization Requirements, CCS & QI (list effective 12/31/2025)', url: 'https://www.ohanahealthplan.com/content/dam/centene/wellcare/hi/pdfs/provider/HI_OhanaHP_Medicaid_CCS_QI_PriorAuthReq_R.pdf' };
@@ -42,7 +42,7 @@ const OH_AUTH: PayerSource = { title: 'ʻOhana Health Plan — Medicaid authoriz
 const OH_BH: PayerSource = { title: 'ʻOhana Health Plan — Medicaid behavioral health provider page (BH prior-authorization list)', url: 'https://www.ohanahealthplan.com/providers/medicaid/behavioral-health.html' };
 const OH_QRG: PayerSource = { title: 'ʻOhana Health Plan — QUEST Provider Quick Reference Guide (2026)', url: 'https://www.ohanahealthplan.com/content/dam/centene/wellcare/hi/pdfs/provider/HI_Caid_Quest_Provider_Quick_Reference_Guide_2026_R.pdf' };
 const UHCCP_PA: PayerSource = { title: 'UnitedHealthcare Community Plan of Hawaii — Prior authorization requirements (effective June 1, 2026)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/hi/prior-authorization/HI-UHCCP-Prior-Authorization-Effective-6-1-2026.pdf' };
-const UHCCP_MAN: PayerSource = { title: 'UnitedHealthcare Community Plan — 2026 Care Provider Manual, Hawai‘i QUEST', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/HI-Care-Provider-Manual.pdf' };
+const UHCCP_MAN: PayerSource = { title: 'UnitedHealthcare Community Plan — 2026 Care Provider Manual, Hawai‘i QUEST (Doc# PMI 09142026)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/HI-Care-Provider-Manual.pdf' };
 const OPT_HI: PayerSource = { title: 'Optum Provider Express — Hawaii QUEST ABA Program page', url: 'https://public.providerexpress.com/content/ope-provexpr/us/en/clinical-resources/autismABA2/abaHI.html' };
 const OPT_HI_ORIENT: PayerSource = { title: 'Optum — Hawaii QUEST Integration ABA Provider Orientation (BH4131, 05/2022)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/hiABA/hiABAOrientation.pdf' };
 const OPT_HI_QRG: PayerSource = { title: 'Optum — QUEST Integration Health Plan ABA Program Quick Reference Guide (BH4051, 04/2022)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/hiABA/hiABAQRG.pdf' };
@@ -160,7 +160,7 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
         h2: 'The document that governs, and what it is called',
         body: [
           'Med-QUEST issues ABA guidance to the QI plans and to fee-for-service through paired provider memos. The current pair is QI-2431 and FFS 24-13, dated December 31, 2024, titled "Coverage of Intensive Behavioral Therapy (IBT) for Treatment of Children Under 21 Years of Age with Autism Spectrum Disorder (ASD): Guidelines for Applied Behavioral Analysis (ABA)." It restates the EPSDT duty — QI plans must provide medically necessary IBT, "which include ABA, for children under 21 years of age" — and attaches three documents: the access guideline (Attachment A), a process flow chart (Attachment B), and FFS codes and rates (Attachment C). The guideline says it aligns with the current CASP practice guidelines for funders, and that ABA "is not a long-term service and support (LTSS), respite, or home and community-based service (HCBS)."',
-          'Because the guidance is issued to plans rather than adopted as a rule, it changes by memo number. As of September 23, 2026 the Med-QUEST memo index still lists QI-2431 as the current ABA memo; the separate telehealth memo was reissued as QI-2527 on December 8, 2025.',
+          'Because the guidance is issued to plans rather than adopted as a rule, it changes by memo number. As of October 11, 2026 the Med-QUEST memo index still lists QI-2431 as the current ABA memo (the newest memos, QI-2620 to QI-2623, do not touch ABA); the separate telehealth memo was reissued as QI-2527 on December 8, 2025.',
         ],
         cites: [MQ_MEMO, MQ_INDEX],
       },
@@ -196,6 +196,15 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           MQ_MEMO,
+        ],
+      },
+      {
+        h2: 'Appealing a denial for the family: get the member’s written consent first',
+        body: [
+          'Med-QUEST memo QI-2620 (September 25, 2026, effective immediately) applies to every QUEST Integration plan and to fee-for-service. A provider or authorized representative may file a grievance, an appeal, a state-level grievance review or a State Fair Hearing for a member "only with the Member’s written consent." If the consent is missing, the plan should try to get it within 30 calendar days, with three phone calls and one letter. If it still has no consent by day 30, it dismisses the appeal. A late consent restarts the appeal only if it arrives within the 60 calendar days that run from the notice of adverse benefit determination. For an ABA denial, get the parent’s signed consent with the appeal, not after it.',
+        ],
+        cites: [
+          { title: 'Med-QUEST memo QI-2620 / CCS-2604 / FFS 26-08 — Third-party authorizations for grievances and appeals (9/25/2026)', url: 'https://medquest.hawaii.gov/content/dam/formsanddocuments/provider-memos/qi-memos/qi-memos-2026/QI-2620,%20CCS-2604,%20FFS%2026-08%20Third%20party%20authorizations%20(part%201)%20-%20signed.pdf' },
         ],
       },
     ],
@@ -307,7 +316,7 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
     slug: 'alohacare',
     cardDesc: 'QUEST Integration plan, Medicaid-only and Hawaii-based. Has its own ABA policy (MP-37, 2026) and requires PA on every ABA code, including 97151.',
     assessmentPA: {
-      value: 'Required — AlohaCare’s PA lookup lists 97151, 97152 and 0362T as "Prior Auth Required: YES" for QUEST (checked 9/23/2026); the diagnostic evaluation itself needs no PA',
+      value: 'Required — AlohaCare’s PA lookup lists 97151, 97152 and 0362T as "Prior Auth Required: YES" for QUEST (checked 10/11/2026); the diagnostic evaluation itself needs no PA',
       status: 'verified',
       cites: [AC_PA, AC_MP37],
     },
@@ -352,7 +361,7 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
       {
         h2: 'Authorization mechanics',
         body: [
-          'AlohaCare’s PA lookup, which the plan calls the most current source, lists 97151 through 97158, 0362T and 0373T as prior-authorization codes for QUEST, effective since 2018–2019 and confirmed on September 23, 2026. The diagnostic evaluation (for example 90791) needs no authorization. Requests go on the Request for Authorization and Notification form. AlohaCare reviews against its own policies and "nationally developed clinical criteria (such as MCG ...)," and asks for missing information twice before denying: within 2 days and then 7 days for a standard request.',
+          'AlohaCare’s PA lookup, which the plan calls the most current source, lists 97151 through 97158, 0362T and 0373T as prior-authorization codes for QUEST, effective since 2018–2019 and confirmed on October 11, 2026. The diagnostic evaluation (for example 90791) needs no authorization. Requests go on the Request for Authorization and Notification form. AlohaCare reviews against its own policies and "nationally developed clinical criteria (such as MCG ...)," and asks for missing information twice before denying: within 2 days and then 7 days for a standard request.',
           'Timing: the September 2025 provider manual still prints the 14-calendar-day standard (plus a 14-day extension) and 72 hours for expedited requests. The federal managed-care rule has required 7 calendar days for standard decisions since rating periods starting January 1, 2026, so hold AlohaCare to that. AlohaCare’s published 2025 metrics show an average standard turnaround of 107 hours and a median of 28 hours.',
         ],
         cites: [AC_PA, AC_AUTH, AC_MAN, CFR_438_210],
@@ -877,7 +886,7 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
           'UnitedHealthcare Community Plan’s 2026 Hawai‘i QUEST manual: "All primary claims must be filed to us within 1 year from the date of service," claims involving coordination of benefits within 1 year of the other payer’s EOB, and a rejected claim not corrected within 365 days is denied as late. Disputes run in two steps, a claim reconsideration and then an appeal "within 60 days of the date of the health plan’s notice of adverse benefit determination or decision", and the plan allows one year in total to complete both steps, counted from the first EOB.',
         ],
         cites: [
-          { title: 'UnitedHealthcare Community Plan — 2026 Care Provider Manual, Hawai‘i QUEST', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/HI-Care-Provider-Manual.pdf' },
+          { title: 'UnitedHealthcare Community Plan — 2026 Care Provider Manual, Hawai‘i QUEST (Doc# PMI 09142026)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/HI-Care-Provider-Manual.pdf' },
         ],
       },
     ],

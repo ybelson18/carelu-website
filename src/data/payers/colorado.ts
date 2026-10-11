@@ -1289,10 +1289,11 @@ export const coloradoPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'Colorado HB26-1425 — Applied Behavior Analysis Services (Became Law)', url: 'https://leg.colorado.gov/bills/HB26-1425' },
           { title: 'Colorado DORA — Behavior Analyst program page', url: 'https://dpo.colorado.gov/BehaviorAnalyst' },
+          { title: 'Colorado DORA — Behavior Analyst Applications and Forms (applications open mid-Spring 2028)', url: 'https://dpo.colorado.gov/BehaviorAnalyst/Applications' },
         ],
         body: [
           'Colorado has historically not licensed behavior analysts, leaning instead on the statutory "autism services provider" ladder and BACB certification. That changed in 2026: HB26-1425 became law and creates the Colorado Behavior Analyst Licensing Board under the Division of Professions and Occupations at DORA, with authority to license behavior analysts and assistant behavior analysts. The operative date is not now — on and after July 1, 2028, practising or offering applied behavior analysis without a board-issued license is prohibited, and doing so is a class 2 misdemeanor.',
-          'As of this writing the board seats are still listed as vacant on the DORA program page and no license is being issued, so today\'s credentialing conversation with Anthem still runs on national certification plus the statutory ladder. The planning consequence is real, though: every analyst you expect to still be supervising Colorado cases in mid-2028 needs a licensure path, and the regulation carries a sunset review scheduled for September 1, 2031.',
+          'As of October 11, 2026 all five board seats are still listed as vacant on the DORA program page and no license is being issued; DORA says behavior analyst and assistant behavior analyst applications "will be available in mid-Spring 2028" ahead of the July 1, 2028 date. So today\'s credentialing conversation with Anthem still runs on national certification plus the statutory ladder. The planning consequence is real, though: every analyst you expect to still be supervising Colorado cases in mid-2028 needs a licensure path, and the regulation carries a sunset review scheduled for September 1, 2031.',
         ],
       },
       {
