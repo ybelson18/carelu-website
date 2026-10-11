@@ -7,7 +7,11 @@ import type { PayerConfig, PayerSource } from './types.js';
    statute API (same text as the /Statutes pages cited). www.wellmark.com fails the TLS
    handshake to curl and to the r.jina.ai proxy; only its medical-policy index page was
    readable (via r.jina.ai), so Wellmark’s authorization table and provider guide are
-   recorded as document requests rather than guessed. */
+   recorded as document requests rather than guessed.
+   2026-10-11: www.wellmark.com answers curl again. The Authorization Table now lives at
+   authorization.wellmark.com/authtable/ and answers an ASP.NET client callback
+   (__CALLBACKID=__Page, __CALLBACKPARAM=<code>); every ABA code returned "not listed".
+   The Provider Guide PDFs (Behavioral Health, BlueCard) sit behind a login. */
 
 const S: Record<string, PayerSource> = {
   abaManual: { title: 'South Dakota Medicaid Billing and Policy Manual — Applied Behavior Analysis (updated December 2025)', url: 'https://dss.sd.gov/docs/medicaid/providers/billingmanuals/Professional/Applied_Behavioral_Analysis.pdf' },
@@ -29,6 +33,7 @@ const S: Record<string, PayerSource> = {
   sdcl17H: { title: 'SDCL 58-17H — Utilization Review and Benefit Determinations (58-17H-28, -29, -30.1, -43, -46)', url: 'https://sdlegislature.gov/Statutes/58-17H' },
   sdcl17I: { title: 'SDCL 58-17I — Health carrier grievance procedures (58-17I-7, -9)', url: 'https://sdlegislature.gov/Statutes/58-17I' },
   sdcl18A: { title: 'SDCL 58-18A-70 — Coordination of benefits: plan covering a dependent child (birthday rule)', url: 'https://sdlegislature.gov/Statutes/58-18A-70' },
+  arsdEpsdt: { title: 'ARSD 67:16:11:03 — EPSDT covered services under chapter 67:16:11 (screening, orthodontics, private duty nursing, extended home health aide, nutritional supplements, immunizations)', url: 'https://sdlegislature.gov/Rules/Administrative/67:16:11:03' },
   sdcl3638: { title: 'SDCL 36-38 — Behavior Analysts (licensure by the Board of Social Work Examiners, SL 2016, ch 199)', url: 'https://sdlegislature.gov/Statutes/36-38' },
   sdcl3452: { title: 'SDCL 34-52 — Telehealth utilization by health care professionals (34-52-2 licensure)', url: 'https://sdlegislature.gov/Statutes/34-52' },
   bacbLic: { title: 'BACB — U.S. Licensure of Behavior Analysts (South Dakota, 2016)', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
@@ -53,7 +58,8 @@ const S: Record<string, PayerSource> = {
   optumReimb: { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
   optumNNM: { title: 'Optum National Network Manual (BH02330, effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
   wmMP: { title: 'Wellmark — Medical policies for providers (A–Z index, page published Sept. 30, 2026; no ABA or autism policy listed)', url: 'https://www.wellmark.com/provider/medical-policies-authorizations/medical-policies' },
-  wmAuth: { title: 'Wellmark — Authorization Table (code-level pre-service review lookup)', url: 'https://www.wellmark.com/authtable/' },
+  wmAuth: { title: 'Wellmark — Medical Authorization Table (code-level pre-service review lookup; 97151–97158, 0362T and 0373T searched 10/11/2026: not listed)', url: 'https://authorization.wellmark.com/authtable/' },
+  wmTypes: { title: 'Wellmark — Types of authorizations (notification, precertification, prior approval; out-of-area providers)', url: 'https://www.wellmark.com/provider/medical-policies-authorizations/types-of-authorizations' },
   wmGuide: { title: 'Wellmark — Provider guide (Behavioral Health section)', url: 'https://www.wellmark.com/provider/resources/wellmark-provider-guide' },
 };
 
@@ -227,7 +233,7 @@ export const southDakotaPayers: Record<string, PayerConfig> = {
         cites: [S.abaManual],
       },
       referral: {
-        value: 'Yes. ABA "must be ordered by a physician, nurse practitioner, or physician assistant," and for a child in the PCP or Health Home program "the ordering provider must be their Care Management provider." The ordering provider’s NPI goes on the claim (block 17b).',
+        value: 'Yes. ABA "must be ordered by a physician, nurse practitioner, or physician assistant," and if the child is in a Care Management program (PCP or Health Home) "the ordering provider must be their Care Management provider." DSS’s Referrals manual sets what any referral must carry: recipient name, referred-to provider, services or condition, a time-span "not to exceed one year," the referring provider’s name and NPI, and a date and authorized signature. DSS has no required form: a referral letter, a documented phone referral, a customized form or a certificate of medical necessity all work if they hold that information, and both providers keep a copy. The ordering or referring provider goes in CMS-1500 block 17 with the NPI in 17b, and the PA number in block 23. In practice, ask the child’s PCP or Health Home for the order, and renew it before its time-span runs out.',
         status: 'verified',
         cites: [S.abaManual, S.referralManual],
       },
@@ -242,14 +248,16 @@ export const southDakotaPayers: Record<string, PayerConfig> = {
         cites: [S.paManual, S.cfr440, S.abaManual],
       },
       coordinationOfBenefits: {
-        value: 'South Dakota Medicaid "is generally the payer of last resort." Providers must pursue other coverage first and attach the third-party EOB. Two details matter for ABA. First, the claim manual exempts "services for early and periodic screening, diagnosis, and treatment provided under ARSD § 67:16:11" from billing the other payer first, but the ABA manual itself tells providers to pursue third-party payment, so ask DSS which applies to ABA. Second, if the child’s commercial plan denies because you are out of its network, "Medicaid will still process the claim according to the state plan and reimburse the service if it is covered." A claim filed with the primary’s EOB is timely if it reaches DSS within 6 months of the primary’s payment or denial.',
+        value: 'South Dakota Medicaid "is generally the payer of last resort." Providers must pursue other coverage first and attach the third-party EOB. Two details matter for ABA. First, the claim manual exempts "services for early and periodic screening, diagnosis, and treatment provided under ARSD § 67:16:11" from billing the other payer first, but that chapter limits its EPSDT services to screenings, orthodontics, private duty nursing, extended home health aide services, nutritional supplements and immunizations (ARSD 67:16:11:03). ABA is not among them, and the ABA manual tells providers to "pursue the availability of third-party payment sources," so bill the child’s other coverage first. Second, if the child’s commercial plan denies because you are out of its network, "Medicaid will still process the claim according to the state plan and reimburse the service if it is covered." A claim filed with the primary’s EOB is timely if it reaches DSS within 6 months of the primary’s payment or denial.',
         status: 'verified',
-        cites: [S.claimManual, S.abaManual, S.cfr433],
+        cites: [S.claimManual, S.abaManual, S.arsdEpsdt, S.cfr433],
       },
     },
     faq: [
       { q: 'Does South Dakota Medicaid cover ABA therapy?', a: 'Yes, for children 20 years old or younger with an ASD diagnosis from a physician or psychologist, under EPSDT. It must be ordered by a physician, NP or PA and prior authorized by South Dakota Medicaid.' },
       { q: 'Does South Dakota Medicaid use managed care plans for ABA?', a: 'No. DSS authorizes and pays ABA itself. The PCP and Health Home programs are primary care case management, not health plans, but the child’s assigned PCP or Health Home must write the ABA order.' },
+      { q: 'Does the ordering provider go on the ABA claim?', a: 'Yes. The ABA manual says "The ordering or referring provider must be listed in block 17 and their NPI must be listed in 17b," with the prior authorization number in block 23. For a child in the PCP or Health Home program, that provider must be the child’s Care Management provider. An ordering provider who bills nothing can be enrolled through DSS’s streamlined ordering/referring enrollment just by appearing on claims.' },
+      { q: 'Does South Dakota Medicaid have a referral form for ABA?', a: 'No. DSS "does not require providers to use a specific form for referrals." Any written or documented referral works if it has the recipient’s name, the referred-to provider, the services or condition, a time-span of no more than one year, the referring provider’s name and NPI, and a date and signature.' },
       { q: 'How old can the autism diagnosis be?', a: 'No more than 12 months old at the start of services. The PA request must name the diagnostic instrument (for example ADOS-2 or GARS-3) and include a copy.' },
       { q: 'What does South Dakota Medicaid pay for ABA?', a: 'Per 15-minute unit (current state fiscal year): 97151 $35.63, 97152 $21.73, 97153 $21.73, 97154 $5.44, 97155 $39.00, 97156 $22.44, 97157 and 97158 $13.01. Payment is the lesser of your charge or the fee schedule.' },
       { q: 'What is the timely filing limit for South Dakota Medicaid?', a: 'The claim must be received within 6 months following the month of service (for example, May services by the end of November). Denied claims can be resubmitted within 3 months of the denial.' },
@@ -261,20 +269,20 @@ export const southDakotaPayers: Record<string, PayerConfig> = {
   'wellmark-blue-cross-blue-shield-south-dakota': {
     slug: 'wellmark-blue-cross-blue-shield-south-dakota',
     family: 'bcbs',
-    cardDesc: 'South Dakota’s Blue plan: no public ABA medical policy, an auth table we could not open, so the SDCL 58-17 mandate is the public floor.',
+    cardDesc: 'South Dakota’s Blue plan: no public ABA medical policy, no ABA code on its medical Authorization Table, so the member’s plan and the SDCL 58-17 mandate decide.',
     assessmentPA: {
-      value: 'Not confirmed. Wellmark lists pre-service review by code in its Authorization Table, which could not be opened this run. The South Dakota mandate allows "pre-authorization, prior approval, and other care management requirements" for ABA',
-      status: 'unverified',
-      cites: [S.wmAuth, S.sdclAba],
-      verifyVia: 'Wellmark Authorization Table (wellmark.com/authtable): search 97151 and 97152; or Wellmark Provider Services at the number on the member’s card.',
-      blocker: 'document',
+      value: 'Not on Wellmark’s medical Authorization Table: searching 97151 or 97152 returns "not listed on the authorization table therefore there is no medical policy/criteria or preservice requirement at this time" (October 2026). Wellmark also warns that "Some group plans may require additional precertification (e.g., behavioral health)," so check the member’s benefits. The South Dakota mandate allows "pre-authorization, prior approval, and other care management requirements" for ABA',
+      status: 'plan-dependent',
+      cites: [S.wmAuth, S.wmTypes, S.sdclAba],
+      verifyVia: 'Wellmark Provider Portal (member benefits) or the number on the member’s card: ask whether this group plan adds behavioral health precertification for 97151/97152.',
+      blocker: 'per-case',
     },
     treatmentPA: {
-      value: 'Not confirmed. Check 97153–97158, 0362T and 0373T in the Wellmark Authorization Table; the mandate permits pre-authorization',
-      status: 'unverified',
-      cites: [S.wmAuth, S.sdclAba],
-      verifyVia: 'Wellmark Authorization Table (wellmark.com/authtable) for each treatment code, and the Behavioral Health section of the Wellmark Provider Guide (provider site).',
-      blocker: 'document',
+      value: 'Not on Wellmark’s medical Authorization Table: 97153, 97154, 97155, 97156, 97157, 97158, 0362T and 0373T each return "not listed on the authorization table therefore there is no medical policy/criteria or preservice requirement at this time" (October 2026). Some group plans add behavioral health precertification, so check the member’s benefits; the mandate permits pre-authorization',
+      status: 'plan-dependent',
+      cites: [S.wmAuth, S.wmTypes, S.sdclAba],
+      verifyVia: 'Wellmark Provider Portal (member benefits) or the number on the member’s card: ask whether this group plan requires behavioral health precertification for ABA treatment codes.',
+      blocker: 'per-case',
     },
     dxRequired: {
       value: 'Yes for plans under the South Dakota mandate: ABA is covered "for the treatment of autism spectrum disorders," and treatment is care prescribed or ordered for a person diagnosed with ASD "by a licensed physician or psychologist." Wellmark publishes no ABA medical policy of its own',
@@ -289,9 +297,9 @@ export const southDakotaPayers: Record<string, PayerConfig> = {
     h1: 'Wellmark Blue Cross and Blue Shield of South Dakota ABA coverage: the intake guide.',
     metaTitle: 'Wellmark BCBS South Dakota ABA Coverage & Prior Auth Guide | Carelu',
     metaDescription:
-      'How Wellmark Blue Cross and Blue Shield of South Dakota handles ABA: no public ABA medical policy, the Authorization Table to check, South Dakota’s SDCL 58-17-154 autism mandate (annual floors through age 18, ACA individual and small-group plans exempt), licensure and credentialing rules.',
+      'How Wellmark Blue Cross and Blue Shield of South Dakota handles ABA: no public ABA medical policy, no ABA code on the medical Authorization Table, South Dakota’s SDCL 58-17-154 autism mandate (annual floors through age 18, ACA individual and small-group plans exempt), licensure and credentialing rules.',
     intro: [
-      'Wellmark Blue Cross and Blue Shield of South Dakota is the state’s Blue plan, an independent licensee of the Blue Cross and Blue Shield Association alongside Wellmark’s Iowa companies. For ABA, the public record is thin. Wellmark’s A–Z medical-policy index, as posted September 30, 2026, has no applied behavior analysis or autism policy, and its code-level Authorization Table could not be opened this run. That leaves South Dakota’s autism mandate as the documented floor for the plans it reaches.',
+      'Wellmark Blue Cross and Blue Shield of South Dakota is the state’s Blue plan, an independent licensee of the Blue Cross and Blue Shield Association alongside Wellmark’s Iowa companies. For ABA, the public record is thin. Wellmark’s A–Z medical-policy index, as posted September 30, 2026, has no applied behavior analysis or autism policy, and its code-level medical Authorization Table lists none of the ABA codes (checked October 2026), though some group plans add behavioral health precertification. That leaves South Dakota’s autism mandate as the documented floor for the plans it reaches.',
       'Establish plan type on every benefits check. The mandate binds insured large-group and grandfathered plans and local-government self-funded plans. It does not bind self-funded ERISA employer plans that Wellmark administers, the State of South Dakota employee plan, or ACA individual and small-group plans.',
     ],
     atGlance: [
@@ -308,9 +316,10 @@ export const southDakotaPayers: Record<string, PayerConfig> = {
       {
         h2: 'What Wellmark publishes about ABA',
         body: [
-          'Wellmark’s provider medical-policy page lists its policies alphabetically, from ablative nerve procedures to Zevaskyn. No policy on applied behavior analysis, intensive behavioral intervention or autism appears. The same page says Wellmark uses InterQual criteria "to evaluate whether a medical procedure or equipment is medically necessary." It does not say whether ABA is reviewed on InterQual or on an internal guideline, and InterQual is licensed and not public. Code-level pre-service review requirements sit in the Wellmark Authorization Table, and the behavioral health rules in the Wellmark Provider Guide. Neither could be retrieved this run, so this guide does not state Wellmark’s ABA prior-authorization rules. Check them for each code before the first session.',
+          'Wellmark’s provider medical-policy page lists its policies alphabetically, from ablative nerve procedures to Zevaskyn. No policy on applied behavior analysis, intensive behavioral intervention or autism appears. The same page says Wellmark uses InterQual criteria "to evaluate whether a medical procedure or equipment is medically necessary." It does not say whether ABA is reviewed on InterQual or on an internal guideline, and InterQual is licensed and not public. Code-level pre-service review requirements sit in the Wellmark medical Authorization Table. In October 2026 none of the ABA codes was on it: 97151, 97152, 97153, 97154, 97155, 97156, 97157, 97158, 0362T and 0373T each came back "not listed on the authorization table therefore there is no medical policy/criteria or preservice requirement at this time," and a keyword search for "behavior analysis" found nothing either.',
+          'That is not a blanket "no authorization." Wellmark’s guide to authorization types says "Some group plans may require additional precertification (e.g., behavioral health). Please log in to the Provider Portal to view member benefits." Prior approval is never required when Medicare is the member’s primary coverage. The Behavioral Health and Chemical Dependency section of the Wellmark Provider Guide (August 2026) is behind the provider login, so its ABA documentation rules are not stated here. Check the member’s benefits before the first session.',
         ],
-        cites: [S.wmMP, S.wmAuth, S.wmGuide],
+        cites: [S.wmMP, S.wmAuth, S.wmTypes, S.wmGuide],
       },
       {
         h2: 'The South Dakota mandate: what it guarantees',
@@ -342,7 +351,7 @@ export const southDakotaPayers: Record<string, PayerConfig> = {
       { title: 'Child’s age', desc: 'The mandate’s minimum annual benefit falls at ages 7 and 14, and no floor applies at 19+.' },
       { title: 'Other coverage', desc: 'Second parent’s plan (birthday rule), Medicaid, TRICARE or CHAMPVA.' },
     ],
-    sources: [S.wmMP, S.wmAuth, S.wmGuide, S.sdclAba, S.sdcl3638, S.sdcl3452, S.sdclCred, S.sdclTele, S.sdclPrompt, S.sdcl17H, S.sdcl17I, S.sdcl18A, S.bacbLic, S.erisa, S.feeABA, S.claimManual],
+    sources: [S.wmMP, S.wmAuth, S.wmTypes, S.wmGuide, S.sdclAba, S.sdcl3638, S.sdcl3452, S.sdclCred, S.sdclTele, S.sdclPrompt, S.sdcl17H, S.sdcl17I, S.sdcl18A, S.bacbLic, S.erisa, S.feeABA, S.claimManual],
     deliveryRules: {
       supervision: {
         value: 'Wellmark publishes no ABA supervision rule. For plans under the mandate, anyone who "performs or supervises applied behavior analysis" must be a South Dakota-licensed physician or psychologist with documented ABA training, or a licensed behavior analyst (SDCL 58-17-159). State licensure law lets BCaBAs and technicians work under a behavior analyst if they are supervised under BACB requirements (36-38-5(6)).',
@@ -447,7 +456,8 @@ export const southDakotaPayers: Record<string, PayerConfig> = {
     },
     faq: [
       { q: 'Does Wellmark cover ABA therapy in South Dakota?', a: 'On plans subject to South Dakota’s mandate (insured large-group, grandfathered and local-government self-funded plans), yes: ABA for autism must be covered with annual benefits of at least $36,000 through age 6, $25,000 for ages 7–13 and $12,500 for ages 14–18. Self-funded ERISA, ACA individual and small-group plans and the State employee plan follow their own documents.' },
-      { q: 'Does Wellmark require prior authorization for ABA?', a: 'Wellmark lists pre-service review by code in its Authorization Table; check 97151–97158 there or call Provider Services. The South Dakota mandate allows carriers to require pre-authorization for ABA.' },
+      { q: 'Does Wellmark require prior authorization for ABA?', a: 'Not as a rule. None of 97151–97158, 0362T or 0373T is on Wellmark’s medical Authorization Table, which answers each with "no medical policy/criteria or preservice requirement at this time" (October 2026). Wellmark notes that some group plans add behavioral health precertification, so check the member’s benefits in the Provider Portal or call the number on the card. The South Dakota mandate allows carriers to require pre-authorization for ABA.' },
+      { q: 'How does BlueCard work for ABA with Wellmark?', a: 'Wellmark’s authorization page says providers outside Iowa and South Dakota "should log in to their home plan website and navigate to the out-of-state pre-service review information page," and non-Wellmark providers should call the number on the member’s ID card. So a South Dakota provider treating a child with another state’s Blue card follows that home plan’s pre-service rules, and a Wellmark member treated out of state is handled through the provider’s local Blue plan. Wellmark’s BlueCard Program section of its Provider Guide (May 2026) is behind the provider login.' },
       { q: 'Does Wellmark have an ABA medical policy?', a: 'Not a public one: its A–Z medical-policy index (September 2026) lists no ABA or autism policy. Ask Wellmark which criteria it uses for ABA review.' },
       { q: 'Does a BCBA need a South Dakota license to bill Wellmark?', a: 'Yes. South Dakota licenses behavior analysts (SDCL 36-38, Board of Social Work Examiners), practicing without a license is a misdemeanor, and the mandate requires ABA to be performed or supervised by a licensed physician, psychologist or behavior analyst.' },
       { q: 'How fast must Wellmark pay a clean claim?', a: 'For insured plans, South Dakota law requires payment, denial or settlement within 30 calendar days of an electronic clean claim and 45 days of a paper one (SDCL 58-12-20).' },

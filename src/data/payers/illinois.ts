@@ -72,6 +72,8 @@ const S: Record<string, PayerSource> = {
   bcbsilCodes: { title: 'BCBSIL — 2026 Commercial Outpatient Behavioral Health Prior Authorization Codes (eff. 1/1/2026, updated August 2026)', url: 'https://www.bcbsil.com/docs/provider/il/claims/um/2026-commercial-bh-pa-code-list.pdf' },
   bcbsilCPCP: { title: 'BCBSIL Clinical Payment and Coding Policy CPCP011 — Applied Behavior Analysis (v1.0, plan effective March 20, 2026)', url: 'https://www.bcbsil.com/docs/provider/il/standards/cpcp/2026/cpcp011-3-20-2026.pdf' },
   bcbsilPhone: { title: 'BCBSIL — Call for Preservice Requests for Applied Behavior Analysis for Commercial Members (Jan. 15, 2026; eff. April 2026)', url: 'https://www.bcbsil.com/provider/education/education-reference/news/2026/1-15-2026-call-for-preservice-requests-for-applied-behavior-analysis' },
+  bcbsilBC: { title: 'BCBSIL — BlueCard Program (provider page: identifying members, eligibility, pre-certification for out-of-area members)', url: 'https://www.bcbsil.com/provider/claims/claims-eligibility/bluecard-program' },
+  bcbsilBCMan: { title: 'BlueCard Program Provider Manual (Blue Cross Blue Shield Association, BCBSIL edition, June 2026)', url: 'https://www.bcbsil.com/docs/provider/il/standards/bluecard/bluecard-program-manual.pdf' },
   // National carrier policies (fetched this run)
   aetnaCPB: { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
   aetnaCPB648: { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
@@ -306,6 +308,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
     },
     faq: [
       { q: 'Does Illinois Medicaid cover ABA therapy?', a: 'Yes. Since November 1, 2020 HFS covers ABA, now called Adaptive Behavior Support (ABS), for children 0 through 20 with autism, in fee-for-service and in every HealthChoice Illinois plan.' },
+      { q: 'What must the physician order for Illinois Medicaid ABA contain?', a: 'HFS requires a physician order and referral with the first prior authorization request, and it "is valid for one year." It must contain the physician’s NPI, the child’s name and date of birth, the primary diagnosis, the physician’s treatment recommendation, and a signature and date.' },
       { q: 'What does Illinois Medicaid pay for ABA?', a: 'The ABS fee schedule (updated 05/14/2026) pays per 15 minutes: 97153 and 97152 $13.00; 97151, 97155 and 97156 $20.39; 97154 $5.72; 97157 and 97158 $9.00; 0362T and 0373T $46.39. HFS applied the RBT rate to the managed care plans too.' },
       { q: 'Does the ABA assessment need prior authorization in Illinois Medicaid?', a: 'Fee-for-service: only if BATP exceeds six hours (24 units) in 180 days. Each managed care plan has its own rule, and most loosened assessment authorization on January 1, 2026.' },
       { q: 'Can ABA be delivered by telehealth under Illinois Medicaid?', a: 'Yes for 97151, 97155, 97156 and 97157, billed with modifier GT or 93 and POS 02 (not home) or 10 (home). Technician codes such as 97153 are not marked for telehealth.' },
@@ -1809,7 +1812,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       { title: 'Session sign-off process', desc: 'CPCP011 wants a parent or caregiver signature on every session record, with times and the rendering clinician’s credentials.' },
       { title: 'Illinois license numbers', desc: 'IDFPR license for each behavior analyst as well as BACB certification.' },
     ],
-    sources: [S.bcbsilCodes, S.bcbsilPhone, S.bcbsilCPCP, S.bcbsilUM, S.bcbsilPA104, S.ilga356, S.fl356, S.ilga370c, S.pa10428, S.idoiCB2417, S.idfpr, S.ilga6_20, S.ilgaTele, S.bacbLic, S.erisa, S.hfsFee, S.hfsCh100, S.cfr433, S.tricare, S.champva],
+    sources: [S.bcbsilCodes, S.bcbsilBC, S.bcbsilBCMan, S.bcbsilPhone, S.bcbsilCPCP, S.bcbsilUM, S.bcbsilPA104, S.ilga356, S.fl356, S.ilga370c, S.pa10428, S.idoiCB2417, S.idfpr, S.ilga6_20, S.ilgaTele, S.bacbLic, S.erisa, S.hfsFee, S.hfsCh100, S.cfr433, S.tricare, S.champva],
     deliveryRules: {
       supervision: {
         value: 'CPCP011: billable supervision is face to face with one technician; indirect supervision is bundled and not separately paid; CASP’s 10–20% of direct hours for case supervision is cited, and direct supervision “may be authorized … at a minimum of 1 hour per week when less than 10 hours of direct services are authorized.”',
@@ -1899,6 +1902,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'How does BlueCard work for ABA with Blue Cross and Blue Shield of Illinois?', a: 'For an Illinois provider treating a member of another Blue plan, BCBSIL says "The program allows you to submit claims for members from other BCBS Plans to the Illinois Plan," and BCBSIL is "your sole contact for claims payment, problem resolution and adjustments." Identify the member by the suitcase logo and three-character prefix, and verify benefits at BlueCard Eligibility, 800-676-BLUE (2583). Pre-certification follows the member’s own plan: call the same line and "ask to be transferred to the Medical Management Department," or use the out-of-area Pre-Cert/Pre-auth Router to see that plan’s medical policy and requirements; the BlueCard manual (June 2026) tells providers to remind patients they "are responsible for obtaining pre-certification/preauthorization for out-patient services from their BCBS Plan." BCBSIL’s own ABA rules (phone preservice review, CPCP011) apply to BCBSIL members. FEP is not processed through BlueCard.' },
       { q: 'Does Blue Cross Blue Shield of Illinois require prior authorization for ABA?', a: 'For the non-HMO commercial plans on its 2026 list (PPO, Blue Options and others), yes for 97153–97158, 0362T and 0373T. The assessment codes 97151 and 97152 are not on that list; check Availity for the member’s plan.' },
       { q: 'How do I submit an ABA preservice request to BCBSIL?', a: 'Since April 2026, call the customer service number on the member’s ID card; a BCBSIL clinician follows up with a telephonic clinical review. Forms are no longer the primary method.' },
       { q: 'Does BCBSIL require a parent signature on ABA session notes?', a: 'Yes. CPCP011 asks for a parent or caregiver signature for each rendered service, with the code, the rendering provider’s name, signature and credentials, POS, date and start/end times.' },

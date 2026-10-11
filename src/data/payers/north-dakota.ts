@@ -19,6 +19,7 @@ const S: Record<string, PayerSource> = {
   cfsPage: { title: 'ND Health and Human Services — Children’s Waiver Services (Medicaid ABA service; Autism Spectrum Disorder Birth through Age 20 Waiver)', url: 'https://www.hhs.nd.gov/cfs/autism-services' },
   profFee: { title: 'ND Medicaid Professional Services Fee Schedule (data updated as of August 1, 2026; Autism category lines)', url: 'https://www.hhs.nd.gov/sites/default/files/documents/rate-2026-august-professional-fee-schedule.xlsx' },
   aut2025: { title: 'ND Medicaid Autism Services Fee Schedule as of 7/1/2025 (archived)', url: 'https://www.hhs.nd.gov/sites/default/files/documents/website-archive/medical-services/rate-autism-2025-fee-schedule-archive.pdf' },
+  lookup: { title: 'ND Medicaid Procedure Code Look-Up Tool (public Power BI report; ABA lines read 10/11/2026, data extracted 10/4/2026: Max Units, ORP NPI required, service authorization, telehealth)', url: 'https://www.hhs.nd.gov/healthcare/medicaid/provider/look-up-tool' },
   feePage: { title: 'ND HHS — Rates and Fee Schedules', url: 'https://www.hhs.nd.gov/healthcare/medicaid/provider/fee-schedules' },
   manuals: { title: 'ND HHS — Provider Guidelines, Manuals and Policies (ND Medicaid Billing and Policy Manual chapters)', url: 'https://www.hhs.nd.gov/healthcare/medicaid/provider/manuals-and-guidelines' },
   tele: { title: 'ND Medicaid Billing and Policy Manual — Telehealth (updated October 2025)', url: 'https://www.hhs.nd.gov/sites/default/files/documents/medicaid-policies/telehealth.pdf' },
@@ -82,7 +83,7 @@ const ND_TELEHEALTH_TAIL =
   ' For an insured North Dakota policy, N.D.C.C. 26.1-36-09.15 requires coverage "for health services delivered by means of telehealth which is the same as the coverage for health services delivered by in-person means," lets payment be negotiated "in the same manner" as in-person rates, and does not require a provider at the originating site. Its definition of "health care provider" lists licensees under named chapters, including psychologists (43-32), but not behavior analysts (43-64), so whether a behavior analyst’s telehealth falls inside the statute is not settled by its text. Self-funded employer plans are outside the statute.';
 
 const ND_REFERRAL_TAIL =
-  ' North Dakota has no autism statute requiring a referral. Bulletin 2018-1 treats autism treatment as care "prescribed or ordered" by a licensed physician or licensed psychologist who determines it is medically necessary, so expect insured plans to ask for that order.';
+  ' North Dakota has no autism statute requiring a referral. For insured plans, Bulletin 2018-1 defines treatment as "evidence-based care and related equipment prescribed or ordered for an individual diagnosed with an autism spectrum disorder by a licensed physician or a licensed psychologist who determines the care to be medically necessary." The bulletin sets no order form, contents or validity period, so the practical route is a written order or recommendation for ABA from the diagnosing physician or psychologist (often inside the diagnostic report), kept on file. Single-employer self-funded ERISA plans sit outside the bulletin.';
 
 const ND_AGE_TAIL =
   ' North Dakota has no autism statute, and Bulletin 2018-1 sets no age or dollar limit: for insured plans it bars autism-only limits that are more restrictive than those on medical/surgical benefits, and bars excluding ABA as experimental (its ABA paragraph speaks of "children with autism spectrum disorder"). Self-funded ERISA plans are outside the bulletin, so plan funding type decides whether it binds.';
@@ -212,7 +213,7 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
       { title: 'Other insurance', desc: 'ND Medicaid is generally the payer of last resort; bill the commercial plan first and follow its rules (secondary claims have 365 days).' },
       { title: 'Member ID card type', desc: 'A white BCBSND Medicaid Expansion card means an adult 21+; ABA is billed to ND Medicaid fee-for-service under the green ND Medicaid card.' },
     ],
-    sources: [S.abaPol, S.cfsPage, S.covsvc, S.profFee, S.aut2025, S.feePage, S.manuals, S.sa, S.penroll, S.claims, S.bhrehab, S.provreq, S.school, S.tele, S.tf, S.tpl, S.evv, S.elig, S.oos, S.asdWaiver, S.c4364, S.ndac112, S.bacbLic, S.cfr440, S.cfr433, S.bcMEPM],
+    sources: [S.abaPol, S.cfsPage, S.covsvc, S.lookup, S.profFee, S.aut2025, S.feePage, S.manuals, S.sa, S.penroll, S.claims, S.bhrehab, S.provreq, S.school, S.tele, S.tf, S.tpl, S.evv, S.elig, S.oos, S.asdWaiver, S.c4364, S.ndac112, S.bacbLic, S.cfr440, S.cfr433, S.bcMEPM],
     deliveryRules: {
       supervision: {
         value: 'No numeric ratio is published. Skills training "must be supervised by a practitioner qualified to provide Service Oversight" (a licensed BCBA or BCBA-D, a registered behavior analyst, or a licensed clinical psychologist) "operating within North Dakota scope of practice laws." Skills training must include "meeting with the Service Oversight practitioner and the caregiver at least monthly" to review progress and the care plan, and the care plan must show the "Majority requested provided by an RBT." Degreed skills trainers must become an RBT or BCAT within six months of enrollment.',
@@ -227,11 +228,9 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       dailyLimits: {
-        value: 'The ABA policy and the August 2026 fee schedule publish no per-day or per-week unit cap; hours are requested per week and per code on the care plan "With justification of units requested." Code-level limits, if any, would sit in the Procedure Code Look-up Tool, which we could not query.',
-        status: 'unverified',
-        cites: [S.abaPol, S.profFee],
-        verifyVia: 'ND Medicaid Procedure Code Look-up Tool (from the Provider Guidelines page) or Medical Services, dhsautism@nd.gov.',
-        blocker: 'document',
+        value: 'No benefit limit; units come from the authorized care plan. The Covered Services chapter lists ABA with Limits: "No. Services must be included in the plan of care," and a service authorization "annually, and a 180-day update"; hours are requested per week and per code on the care plan "With justification of units requested." Separately, ND Medicaid’s Procedure Code Look-Up Tool (data extracted October 4, 2026) prints a "Max Units" value on each code: 97151 32, 97152 16, 97153 32, 97154 18, 97155 24, 97156 16 and 0373T 32 (97157, 97158 and 0362T are not covered). The tool does not label the period those maximums cover; ask ND Medicaid (proccodelookup@nd.gov) before billing past them on one date.',
+        status: 'verified',
+        cites: [S.covsvc, S.lookup, S.abaPol],
       },
       noteSignature: {
         value: 'Records must be "signed by the ND Medicaid-enrolled provider rendering the service. Claims that do not have signed records are considered non-covered," with start and stop times "required for all time-based codes" and records kept at least seven years. The ABA care plan must carry the "Signature of the BCBA, and date of signature," and skills-training documentation must include "who with, time, where occurred, event, data of goal."',
@@ -271,7 +270,7 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
         cites: [S.abaPol],
       },
       referral: {
-        value: 'Yes, in effect. The Health Tracks screening must carry a recommendation that "support and recommend Autism ABA services," and the department issues a prior approval letter that the family takes "to the provider of their choice." The letter must be attached to each service authorization.',
+        value: 'Yes, in effect, and the order comes from a well-child visit. The family completes a Medicaid wellness visit (Health Tracks/EPSDT screening) with the primary care provider or a public health unit within six months of approval; its recommendation section must "support and recommend Autism ABA services," and HHS asks that the documentation state the autism diagnosis and a "Recommendation stating the individual will benefit from ABA Services." The screening goes to ND Medicaid with the packet, and the department issues a prior approval letter that can be shared "with the provider of their choice." Approval runs twelve months: a new wellness visit (which "can be completed within 6 months prior to due date") is needed for each year’s letter, and the letter must be attached to each service authorization. No separate order form is published.',
         status: 'verified',
         cites: [S.abaPol, S.cfsPage],
       },
@@ -299,6 +298,8 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
       { q: 'What is the timely filing limit for ND Medicaid ABA claims?', a: '180 days from the date of service for an original claim; 365 days when another payer paid first or for a replacement of a timely claim. Payment denials can be reviewed if requested within 30 days.' },
       { q: 'Does EVV apply to ABA in North Dakota?', a: 'No. The fee schedule lists EVV "No" for the ABA codes; EVV covers personal care, home health, 1915(i) and waiver respite and in-home supports, including the Autism waiver’s.' },
       { q: 'Whose NPI goes on a North Dakota Medicaid ABA claim?', a: 'The rendering provider’s. ND Medicaid requires every eligible provider to enroll and bill with their own NPI and bars billing under a supervisor’s NPI; RBTs and other skills trainers are enrolled provider types.' },
+      { q: 'Does an ND Medicaid ABA claim need a referring or ordering provider (box 17)?', a: 'No. ND Medicaid’s Procedure Code Look-Up Tool marks every covered ABA code (97151–97156 and 0373T) "Ordering/Referring/Prescribing Provider NPI required: No." The PCP’s recommendation still matters, but it travels as the Health Tracks screening and the yearly prior approval letter attached to the service authorization, not on the claim.' },
+      { q: 'Can ABA and speech therapy be billed on the same day in North Dakota Medicaid?', a: 'Not by the same agency: the ABA policy says that if one agency provides both speech services and ABA to a child, "only one service may be billed per day." The policy says nothing about two different agencies, and ND Medicaid also will not pay for ABA components that "Duplicate other State Plan services."' },
     ],
   },
 
@@ -465,10 +466,10 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       referral: {
-        value: 'BCBSND says the ordering provider is "typically responsible for obtaining prior authorization"; no ABA referral rule was found.' + ND_REFERRAL_TAIL,
+        value: 'BCBSND publishes no ABA referral rule. Its prior-authorization page says the ordering provider is "typically responsible for obtaining prior authorization"; its provider manual (8-26) lists an "ABA Service for Autism Spectrum Disorder Request" fax form for FEP members only and asks for the NPI of the "referring, ordering or supervising provider" in CMS-1500 item 17b. Network referrals matter on DakotaBlue: care outside the member’s selected network without an Authorized Referral pays at the out-of-network level, and "Only Tier 1 preferred providers can initiate a referral."' + ND_REFERRAL_TAIL,
         status: 'plan-dependent',
-        cites: [S.bcPA, S.bull2018],
-        verifyVia: 'Availity or Provider Service, 800-368-2312: ask whether the plan needs a physician or psychologist order for ABA.',
+        cites: [S.bcPA, S.bcPM, S.bull2018],
+        verifyVia: 'Availity or Provider Service, 800-368-2312: ask whether the member’s plan (DakotaBlue or other) needs an Authorized Referral or a physician or psychologist order for ABA.',
         blocker: 'per-case',
       },
       telehealth: {
@@ -499,6 +500,7 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
       { q: 'What is BCBSND’s timely filing limit?', a: '12 months from the date of service, or the limit in the member’s benefit plan; self-insured plans may differ. Appeals must be filed within 180 days.' },
       { q: 'Is there a North Dakota autism insurance mandate?', a: 'No statute. North Dakota relies on Insurance Department Bulletin 2018-1, which applies federal parity to insured plans and forbids excluding ABA as experimental.' },
       { q: 'Can a BCBA licensed in another state bill BCBSND for a North Dakota child?', a: 'Only with a North Dakota license: N.D.C.C. 43-64-02 requires one to practice ABA in the state, and the Board of Integrative Health Care offers license by endorsement. BCBSND’s telehealth guide covers claim routing for out-of-state clinicians employed by North Dakota groups, not licensure.' },
+      { q: 'How does BlueCard work for ABA with BCBSND?', a: 'BCBSND’s provider manual (8-26): BlueCard lets participating providers "submit claims for members who are enrolled through another Blues Plan to their local BCBS Plan." Verify the out-of-state member on Availity or at BlueCard Eligibility, 800-676-BLUE (2583), using the prefix on the ID card. File the claim with that prefix and ID number to the plan you contract with (your local plan unless you contract directly with the member’s plan); the member’s own plan adjudicates it, and payment is based on your local plan’s arrangement. For authorizations the manual says only "see the member’s ID card," so use the authorization contact printed there. Contiguous-county contracts with Blue Cross of Minnesota change where some claims go, as the manual’s examples show.' },
     ],
   },
 
@@ -642,10 +644,8 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value: 'Aetna’s national ABA documents require no physician referral; what they require is precertification of all ten ABA codes.' + ND_REFERRAL_TAIL,
-        status: 'plan-dependent',
+        status: 'verified',
         cites: [S.aetnaPrecert, S.aetnaGuide, S.bull2018],
-        verifyVia: 'Availity or the precertification line on the card: ask whether the plan requires a physician or psychologist order with the ABA request.',
-        blocker: 'per-case',
       },
       telehealth: {
         value: 'Aetna’s Telemedicine and Direct Patient Contact Payment Policy lists ABA codes payable by telehealth by line of business; 97151, 97153, 97155, 97156 and 97157 carry marks in both the Commercial and Medicare columns, billed with modifier GT, 95 or FR, while 97152, 97154 and 97158 carry a single mark that, like the Medicare-only G0071 line, reads as Medicare Advantage only. The posted policy shows a last review of June 2021, so treat the list as perishable. Aetna’s provider manual (6/26) says Aetna Behavioral Health "offers telehealth services to all commercial fully insured members and to all commercial self-insured plan sponsors, unless those self-insured plan sponsors opt out," and providers "must act within the scope of their license and ensure that they have the proper licensure based on state requirements."' + ND_TELEHEALTH_TAIL,
@@ -817,10 +817,8 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value: 'EN0499 requires no referral or prescription. Assessments 97151, 97152 and 0362T need no PA with an autism diagnosis when the provider is independently licensed or a BCBA.' + ND_REFERRAL_TAIL,
-        status: 'plan-dependent',
+        status: 'verified',
         cites: [S.cignaARG, S.en0499, S.bull2018],
-        verifyVia: 'Evernorth or HealthPartners at benefits verification: ask whether the plan requires a physician or psychologist order.',
-        blocker: 'per-case',
       },
       telehealth: {
         value: '"All ABA CPT codes are covered telehealth services" (autism resource guide), and EN0499 allows "traditional in-person service delivery, telehealth, or a hybrid," chosen on clinical factors; the line-of-sight documentation requirement "does not apply to telehealth services." Evernorth bills virtual services with modifier 95. The clinician still needs a North Dakota license to treat a North Dakota child.',
@@ -989,10 +987,8 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value: 'No separate physician referral in the SCC; ABA requires prior authorization through Optum.' + ND_REFERRAL_TAIL,
-        status: 'plan-dependent',
+        status: 'verified',
         cites: [S.optumSCC, S.bull2018],
-        verifyVia: 'Optum Provider Express or the behavioral health number on the card: ask whether the plan requires a physician or psychologist order.',
-        blocker: 'per-case',
       },
       telehealth: {
         value: 'Three codes. Optum’s Telehealth Billing guide (updated September 2025) says for commercial plans: "For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157." So the 97151 assessment and technician 97153 are not on Optum’s telehealth list. Telehealth claims must use POS 02 or POS 10, reflecting where the member is.' + ND_TELEHEALTH_TAIL,

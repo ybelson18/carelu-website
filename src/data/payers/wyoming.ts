@@ -428,10 +428,10 @@ export const wyomingPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       referral: {
-        value: 'BCBSWY publishes no ABA referral rule in the sources read; its PA requirement is checked per member in Availity.' + MANDATE_REFERRAL_TAIL,
+        value: 'BCBSWY’s Provider Policies and Procedures Manual (revised May 28, 2026) sets no referral or physician-order requirement for ABA: its PA requirement is checked per member in Availity, and FEP members’ ABA is authorized by FEP case management (1-800-210-7257). On the CMS-1500, field 17 (Name of Referring Physician) is "NOT REQUIRED" and 17b takes the NPI "of the referring, ordering or supervising Provider." BCBSWY’s ABA medical policy, which could set its own order or documentation rule, was not readable.' + MANDATE_REFERRAL_TAIL,
         status: 'unverified',
-        cites: [S.bcbsPA, S.doiBull],
-        verifyVia: 'Availity Authorization Pre-Check and BCBSWY Provider Support, 888-359-6592.',
+        cites: [S.bcbsPM, S.bcbsPA, S.doiBull],
+        verifyVia: 'BCBSWY ABA medical policy (bcbswy.com → Providers → Medical Policy, hosted by Highmark), or BCBSWY Provider Support, 888-359-6592: ask whether an ABA request needs a physician or psychologist order and how recent it must be.',
         blocker: 'document',
       },
       telehealth: {
@@ -457,6 +457,7 @@ export const wyomingPayers: Record<string, PayerConfig> = {
       { q: 'Does BCBSWY require prior authorization for ABA?', a: 'BCBSWY does not publish an ABA code list; use Availity’s Authorization Pre-Check for each code. FEP members need authorization from FEP case management (1-800-210-7257).' },
       { q: 'How fast does BCBSWY decide a prior authorization?', a: 'Within 5 calendar days for non-urgent requests and 72 hours for urgent ones, per its provider manual, which matches Wyoming’s prior-authorization statute for fully insured plans.' },
       { q: 'Can an out-of-state BCBA see a BCBSWY member by telehealth?', a: 'BCBSWY says telemedicine providers "must be licensed in Wyoming," and Wyoming licenses behavior analysts, so get a Wyoming license first. Under BlueCard, a distant provider bills the Blue plan where the provider is located.' },
+      { q: 'How does BlueCard work when a Wyoming ABA provider sees another Blue plan’s member?', a: 'BCBSWY’s provider manual (revised May 28, 2026): identify the member by the suitcase logo and the three-character prefix, check eligibility at BlueCard Eligibility, 800-676-BLUE (2583), where the prefix routes the call to the member’s home plan, and submit the claim to BCBSWY, which is "your single point of contact for claims." For prior authorization, call the same line and "ask to be transferred to the Medical Management Department," or use the out-of-area Pre-Cert/Pre-auth Search, which shows the home plan’s medical policy and precertification rules. FEP and Medicare Advantage are excluded from BlueCard; FEP ABA is authorized by FEP case management (1-800-210-7257).' },
       { q: 'Does Wyoming have an autism insurance mandate?', a: 'Not a statute. Wyoming relies on Insurance Department Bulletin 01-2019 (April 2019), which applies the state’s mental health parity law (W.S. 26-20-701) to autism: no autism exclusions, no ABA-is-experimental denials, and no autism-only limits, on fully insured plans with mental health coverage.' },
     ],
   },

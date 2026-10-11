@@ -73,6 +73,8 @@ const S: Record<string, PayerSource> = {
   bcbsmtMNC: { title: 'BCBSMT — Behavioral Health Medical Necessity Criteria (MCG care guidelines)', url: 'https://www.bcbsmt.com/provider/clinical-resources/clinical/behavioral-health-programs/medical-necessity-criteria' },
   bcbsmtTelePage: { title: 'BCBSMT — Telehealth Services (provider page)', url: 'https://www.bcbsmt.com/provider/clinical-resources/clinical/telemedicine-services' },
   bcbsmtManuals: { title: 'BCBSMT — Provider Manuals (available only in Availity Payer Spaces)', url: 'https://www.bcbsmt.com/provider/standards-and-requirements/standards/provider-manuals' },
+  bcbsmtBC: { title: 'BCBSMT — BlueCard Program (provider page)', url: 'https://www.bcbsmt.com/provider/claims-and-eligibility/claims/blue-card' },
+  bcbsmtBCMan: { title: 'BlueCard Program Provider Manual (Blue Cross Blue Shield Association, BCBSMT edition, June 2026)', url: 'https://www.bcbsmt.com/docs/provider/mt/bluecard-provider-manual.pdf' },
 };
 
 /* ---- Shared Montana commercial layer (same facts on every commercial guide) ---- */
@@ -275,6 +277,7 @@ export const montanaPayers: Record<string, PayerConfig> = {
     },
     faq: [
       { q: 'Does Montana Medicaid cover ABA therapy?', a: 'Yes, for members up to age 20 with ASD or DD eligibility, and for children with certain serious emotional disturbances (up to 17, or 20 if in secondary school), when they meet the functional impairment criteria. DPHHS runs the benefit directly.' },
+      { q: 'Who can refer a child for Montana Medicaid ABA?', a: 'A physician, licensed mental health professional, nurse practitioner or psychologist, who documents medical necessity "in the form of a prescription stating the diagnosis for which the member is being referred and that the referral is for ABA services." The prescription goes in with the Intent to Initiate form. For a child whose qualifying diagnosis is SED, later requests for more units need an annual clinical re-assessment by one of those professionals.' },
       { q: 'Does Montana have Medicaid managed care plans for ABA?', a: 'No. DPHHS administers ABA itself: the Developmental Disabilities Program receives the start paperwork, Mountain-Pacific Quality Health reviews additional units, and the BCBA bills the state.' },
       { q: 'Does the ABA assessment need prior authorization in Montana Medicaid?', a: 'No. The first 180 days or 1,260 units, assessment included, start on an Intent to Initiate form and a prescription with no PA. Prior authorization applies to every span after that.' },
       { q: 'What does Montana Medicaid pay for ABA?', a: 'Per 15 minutes on the July 2025 schedule: 97151 $40.41, 97153 $11.36, 97155 and 97156 $20.46, 97152 $11.36, 97154 $3.78, 97157/97158 $6.84; BCaBA lines with the TC modifier pay less. Everything is billed under the BCBA’s NPI.' },
@@ -864,7 +867,7 @@ export const montanaPayers: Record<string, PayerConfig> = {
       { title: 'School and therapy schedule', desc: 'The request form asks for the ABA schedule by location, the school and other-therapy schedule, and whether an IEP or 504 plan is in place.' },
       { title: 'Supervisor license', desc: 'The supervising BCBA must hold an active license in the state where the child is treated.' },
     ],
-    sources: [S.bcbsmtMgmt, S.bcbsmtPA, S.bcbsmtCodes, S.bcbsmtITR, S.bcbsmtCSR, S.bcbsmtTele, S.bcbsmtBH, S.bcbsmtMNC, S.bcbsmtTelePage, S.bcbsmtManuals, S.mca33_22_515, S.mca33_30_102, S.mca33_31_111, S.mca33_22_138, S.mca33_18_232, S.mca33_32_107, S.mca33_32_211, S.mca33_32_212, S.mca37_17_403, S.mca37_17_404, S.mca37_17_405, S.mca37_2_305, S.bacbLic, S.erisa, S.giManual, S.cfr433, S.fee2025],
+    sources: [S.bcbsmtMgmt, S.bcbsmtBC, S.bcbsmtBCMan, S.bcbsmtPA, S.bcbsmtCodes, S.bcbsmtITR, S.bcbsmtCSR, S.bcbsmtTele, S.bcbsmtBH, S.bcbsmtMNC, S.bcbsmtTelePage, S.bcbsmtManuals, S.mca33_22_515, S.mca33_30_102, S.mca33_31_111, S.mca33_22_138, S.mca33_18_232, S.mca33_32_107, S.mca33_32_211, S.mca33_32_212, S.mca37_17_403, S.mca37_17_404, S.mca37_17_405, S.mca37_2_305, S.bacbLic, S.erisa, S.giManual, S.cfr433, S.fee2025],
     deliveryRules: {
       supervision: {
         value: 'Line staff need "on-going supervisory oversight by the BCBA or ABA treatment supervisor for a minimum of 5% of hours directly worked with members," and the supervisor attests to following BACB supervision guidelines with an active license in the state of service. Montana law: a licensed behavior analyst or ABPP-certified behavioral psychologist supervises BCaBAs and technicians (MCA 37-17-405).',
@@ -954,6 +957,7 @@ export const montanaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'How does BlueCard work for ABA with Blue Cross and Blue Shield of Montana?', a: 'BCBSMT’s edition of the BlueCard Program Provider Manual (June 2026): a Montana provider files claims for patients from other Blue plans "to BCBSMT," which routes them to the member’s plan. Pre-service rules come from the member’s plan, and the manual tells providers to remind patients that they "are responsible for obtaining pre-certification/preauthorization for out-patient services from their BCBS Plan." Check them on the out-of-area Medical Policy and Pre-Authorization/Pre-Certification Router using the member’s three-character prefix, or call BlueCard Eligibility at 800-676-BLUE (2583) and ask for the precertification area, which offers a behavioral health option. For BCBSMT’s own members, call 800-447-7828 or use Availity, and BCBSMT’s ABA forms and PA code list apply.' },
       { q: 'Does Blue Cross and Blue Shield of Montana cover ABA?', a: 'Yes, for autism spectrum disorder. BCBSMT says it has covered ABA without age, dollar or visit limits since January 1, 2021 on fully insured, FEP and ASO plans, though ASO groups can opt out.' },
       { q: 'Does BCBSMT require prior authorization for the ABA assessment?', a: '97151 and 97152 are not on its 2026 PA code list, but BCBSMT asks for an ABA Initial Assessment Request two weeks before the assessment. Treatment codes need prior authorization on the Clinical Service Request Form.' },
       { q: 'How recent must the autism diagnosis be for BCBSMT?', a: 'Not older than 36 months, and the skills assessment must be within the last 30 days.' },
