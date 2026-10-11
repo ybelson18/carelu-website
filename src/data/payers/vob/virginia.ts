@@ -447,7 +447,7 @@ const aetnaBetterHealthVaCodeGrid = dmasCodeGrid([AETNA_VA_ABA_DECK]);
 const ANTHEM_HKP_MANUAL_JUN2026: SourceRef = {
   url: 'https://providers.anthem.com/docs/gpp/VA_CAID_ProviderManual.pdf',
   accessDate: '2026-10-07',
-  note: 'Anthem HealthKeepers Plus provider manual (VABCBS-CD-PM-095530-25, June 2026), re-read 10/7/2026: its EDI section names Availity Essentials as the gateway for 837P/837I claims and 270/271 eligibility and prints "Payer ID: 00423", adding that providers using a clearinghouse, billing service or vendor should confirm the payer ID with that vendor.',
+  note: 'Anthem HealthKeepers Plus provider manual (VABCBS-CD-PM-095530-25, effective July 1, 2026), re-read 10/11/2026: its EDI section names Availity Essentials as the gateway for 837P/837I claims and 270/271 eligibility and prints "Payer ID: 00423", adding that providers using a clearinghouse, billing service or vendor should confirm the payer ID with that vendor.',
 };
 
 const anthemHkpEdi: EdiRouting = {
@@ -470,7 +470,7 @@ const anthemHkpEdi: EdiRouting = {
   },
   verifyVia: {
     'payerId.pverify': 'pVerify 002467 = "Anthem Healthkeepers" (Medical, Eligibility=Yes) on the pVerify Mar-2026 list.',
-    'payerId.availity': 'Anthem HealthKeepers Plus manual (June 2026) EDI section: Availity Essentials gateway, "Payer ID: 00423" (verified 10/7/2026). The DMAS Anthem MCO Directory (2025-10-17) notes the published "058916206CMSCOS" is a direct-to-Anthem billing ID, not a clearinghouse ID; a provider using another clearinghouse should confirm the ID it maps to.',
+    'payerId.availity': 'Anthem HealthKeepers Plus manual (effective July 1, 2026) EDI section: Availity Essentials gateway, "Payer ID: 00423" (re-verified 10/11/2026). The DMAS Anthem MCO Directory (2025-10-17) notes the published "058916206CMSCOS" is a direct-to-Anthem billing ID, not a clearinghouse ID; a provider using another clearinghouse should confirm the ID it maps to.',
     'payerId.changeHealthcare': 'Clearinghouse-specific per the DMAS directory; confirm via the Change Healthcare/Optum payer finder for Anthem HealthKeepers Plus (VA Medicaid).',
     supportsRealtime: 'Confirm real-time vs. batch via Availity onboarding.',
   },

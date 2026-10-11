@@ -211,7 +211,7 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
         cites: [S.asdManual, S.asdTraining],
       },
       concurrentBilling: {
-        value: 'Limited. The manual excludes "Concurrent billing of 97153 with any other service" except as detailed in section 8, and "Two enrolled ABA providers billing at the same time under one CPT code." The July 2026 training spells out the exceptions: 97155 may be billed with 97153 when the notes show two providers each delivering a direct service to the member at the same time (not while teaching an RBT the initial protocol), and 97153 may run alongside 97156 when the RBT works with the child in a separate space from the BCBA training the caregiver. 0373T may not be billed with 97155, and 97152 may not be billed with any treatment code.',
+        value: 'Limited. The manual excludes "Concurrent billing of 97153 with any other service" except as detailed in section 8, and "Two enrolled ABA providers billing at the same time under one CPT code." The July 2026 training spells out the exceptions: 97155 may be billed with 97153 when the notes show two providers each delivering a direct service to the member at the same time (not while teaching an RBT the initial protocol), and 97153 may run alongside 97156 when the RBT works with the child in a separate space from the BCBA training the caregiver. 0373T may not be billed with 97155, and 97152 may not be billed with any treatment code. ABA alongside speech, OT or PT: the manual\'s non-covered list is explicit — "Concurrent billing of 97153 with any other service or therapy is excluded except as detailed in Section 8," and Section 8\'s exceptions are ABA-with-ABA only. It also excludes "ABA services while the member is at another medical appointment," and, in the other direction, ABA treatment "that precludes, or requires the member\'s family to stop engaging with other critical supports … speech therapy, occupational therapy, or IDEA recommended school-based curriculum and supports." So speech and ABA can both continue, but not on the same clock time as a billed 97153 unit. The manual also binds providers to the National Correct Coding Initiative edits and related coding policy unless it says otherwise.',
         status: 'verified',
         cites: [S.asdManual, S.asdTraining],
       },
@@ -258,7 +258,7 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
         cites: [S.asdManual],
       },
       referral: {
-        value: 'ASD services "must be recommended by a physician or other licensed practitioner of the healing arts." A member with an established diagnosis may also self-refer to an ABA provider, and a referral form belongs in the record.',
+        value: 'ASD services "must be recommended by a physician or other licensed practitioner of the healing arts within his or her scope of practice under state law." For treatment, the manual recognizes three routes: a physician or LPHA refers a member with a prior-established ASD diagnosis to an ASD-network ABA provider or LIP; the member self-refers on that prior-established diagnosis; or a physician refers a member with presumptive eligibility (Section 8). Referrals "can be done via phone, email, fax and hard copy mail," and the provider\'s record must contain a "Referral form" alongside the BIA and signed IPOC. In practice the recommendation comes from the diagnosing evaluation: the comprehensive diagnostic assessment must list recommendations based on medical necessity, including a "Referral for applied behavior analysis therapy if indicated." The manual sets no validity period for the referral; the July 2026 ASD manual\'s initial-request packet carries the diagnostic assessment (or physician documentation of a Medical Care Home assessment or of presumptive eligibility) instead.',
         status: 'verified',
         cites: [S.asdManual],
       },
@@ -360,9 +360,9 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       concurrentBilling: {
-        value: 'Not addressed in the provider manual or the ASD form.',
+        value: 'Not addressed in the provider manual or the ASD form. On ABA alongside other therapies, Absolute Total Care publishes nothing of its own; the state baseline: the SCDHHS ASD manual\'s non-covered list is explicit — "Concurrent billing of 97153 with any other service or therapy is excluded except as detailed in Section 8," and Section 8\'s exceptions are ABA-with-ABA only. It also excludes "ABA services while the member is at another medical appointment," and, in the other direction, ABA treatment "that precludes, or requires the member\'s family to stop engaging with other critical supports … speech therapy, occupational therapy, or IDEA recommended school-based curriculum and supports." So speech and ABA can both continue, but not on the same clock time as a billed 97153 unit. The manual also binds providers to the National Correct Coding Initiative edits and related coding policy unless it says otherwise.',
         status: 'unverified',
-        cites: [S.atcPM, S.atcASD],
+        cites: [S.asdManual, S.atcPM, S.atcASD],
         verifyVia: 'Absolute Total Care Provider Services, (866) 433-6041, or your provider agreement: ask whether it follows the SCDHHS manual’s 97153/97155 and 97153/97156 concurrent-billing rules.',
         blocker: 'per-case',
       },
@@ -520,7 +520,7 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
         cites: [S.hbPOM, S.asdManual],
       },
       concurrentBilling: {
-        value: 'Healthy Blue publishes no rule of its own. Under the SCDHHS manual it applies, 97153 may not be billed concurrently except as section 8 allows (97155 with 97153 when both providers deliver a direct service; 97153 with 97156 in separate spaces), and two providers may not bill the same code at the same time.',
+        value: 'Healthy Blue publishes no rule of its own. Under the SCDHHS manual it applies, 97153 may not be billed concurrently except as section 8 allows (97155 with 97153 when both providers deliver a direct service; 97153 with 97156 in separate spaces), and two providers may not bill the same code at the same time. On ABA alongside other therapies, Healthy Blue publishes nothing of its own; the state baseline: the SCDHHS ASD manual\'s non-covered list is explicit — "Concurrent billing of 97153 with any other service or therapy is excluded except as detailed in Section 8," and Section 8\'s exceptions are ABA-with-ABA only. It also excludes "ABA services while the member is at another medical appointment," and, in the other direction, ABA treatment "that precludes, or requires the member\'s family to stop engaging with other critical supports … speech therapy, occupational therapy, or IDEA recommended school-based curriculum and supports." So speech and ABA can both continue, but not on the same clock time as a billed 97153 unit. The manual also binds providers to the National Correct Coding Initiative edits and related coding policy unless it says otherwise.',
         status: 'plan-dependent',
         cites: [S.hbPOM, S.asdManual, S.asdTraining],
         verifyVia: 'Healthy Blue Provider Services, 866-757-8286: confirm it pays concurrent 97153/97155 claims under the state rule.',
@@ -673,9 +673,9 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       concurrentBilling: {
-        value: 'Not addressed in the manual or the pre-service review guide.',
+        value: 'Not addressed in the manual or the pre-service review guide. On ABA alongside other therapies, Molina publishes nothing of its own; the state baseline: the SCDHHS ASD manual\'s non-covered list is explicit — "Concurrent billing of 97153 with any other service or therapy is excluded except as detailed in Section 8," and Section 8\'s exceptions are ABA-with-ABA only. It also excludes "ABA services while the member is at another medical appointment," and, in the other direction, ABA treatment "that precludes, or requires the member\'s family to stop engaging with other critical supports … speech therapy, occupational therapy, or IDEA recommended school-based curriculum and supports." So speech and ABA can both continue, but not on the same clock time as a billed 97153 unit. The manual also binds providers to the National Correct Coding Initiative edits and related coding policy unless it says otherwise.',
         status: 'unverified',
-        cites: [S.molPM, S.molPA],
+        cites: [S.asdManual, S.molPM, S.molPA],
         verifyVia: 'Molina SC Provider Services, (855) 237-6178, or your provider agreement.',
         blocker: 'per-case',
       },
@@ -738,11 +738,9 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       referral: {
-        value: 'Not stated by Molina for ABA. The guide says referrals to network specialists need no prior authorization; ABA itself does.',
-        status: 'unverified',
-        cites: [S.molPA],
-        verifyVia: 'Molina SC Provider Services, (855) 237-6178.',
-        blocker: 'per-case',
+        value: 'Follows the South Carolina Medicaid (SCDHHS) rule: ASD services "must be recommended by a physician or other licensed practitioner of the healing arts within his or her scope of practice under state law." For treatment, the manual recognizes three routes: a physician or LPHA refers a member with a prior-established ASD diagnosis to an ASD-network ABA provider or LIP; the member self-refers on that prior-established diagnosis; or a physician refers a member with presumptive eligibility (Section 8). Referrals "can be done via phone, email, fax and hard copy mail," and the provider\'s record must contain a "Referral form" alongside the BIA and signed IPOC. In practice the recommendation comes from the diagnosing evaluation: the comprehensive diagnostic assessment must list recommendations based on medical necessity, including a "Referral for applied behavior analysis therapy if indicated." The manual sets no validity period for the referral; the July 2026 ASD manual\'s initial-request packet carries the diagnostic assessment (or physician documentation of a Medical Care Home assessment or of presumptive eligibility) instead. Molina publishes no ABA-specific referral rule of its own: its 2026 provider manual only lists autism spectrum disorder services as covered, and its pre-service review guide says referrals to network specialists need no prior authorization while ABA itself does.',
+        status: 'verified',
+        cites: [S.asdManual, S.molPM, S.molPA],
       },
       telehealth: {
         value: 'Molina publishes no ABA telehealth rule for South Carolina. The state baseline: ' + SC_TELEHEALTH_STATE,
@@ -837,7 +835,7 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
         cites: [S.shPM, S.asdManual],
       },
       concurrentBilling: {
-        value: 'Select Health publishes no rule of its own; the SCDHHS manual it follows bars concurrent 97153 billing except as section 8 allows (97155 with 97153 when both deliver a direct service; 97153 with 97156 in separate spaces).',
+        value: 'Select Health publishes no rule of its own; the SCDHHS manual it follows bars concurrent 97153 billing except as section 8 allows (97155 with 97153 when both deliver a direct service; 97153 with 97156 in separate spaces). On ABA alongside other therapies, Select Health publishes nothing of its own; the state baseline: the SCDHHS ASD manual\'s non-covered list is explicit — "Concurrent billing of 97153 with any other service or therapy is excluded except as detailed in Section 8," and Section 8\'s exceptions are ABA-with-ABA only. It also excludes "ABA services while the member is at another medical appointment," and, in the other direction, ABA treatment "that precludes, or requires the member\'s family to stop engaging with other critical supports … speech therapy, occupational therapy, or IDEA recommended school-based curriculum and supports." So speech and ABA can both continue, but not on the same clock time as a billed 97153 unit. The manual also binds providers to the National Correct Coding Initiative edits and related coding policy unless it says otherwise.',
         status: 'plan-dependent',
         cites: [S.shPM, S.asdManual, S.asdTraining],
         verifyVia: 'Select Health Behavioral Health UM, 1-866-341-8765: confirm it pays concurrent 97153/97155 claims under the state rule.',
@@ -985,7 +983,7 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
         cites: [S.humPM, S.humABA, S.asdManual],
       },
       concurrentBilling: {
-        value: 'Humana publishes no rule of its own; the SCDHHS manual it follows bars concurrent 97153 billing except as section 8 allows.',
+        value: 'Humana publishes no rule of its own; the SCDHHS manual it follows bars concurrent 97153 billing except as section 8 allows. On ABA alongside other therapies, Humana publishes nothing of its own; the state baseline: the SCDHHS ASD manual\'s non-covered list is explicit — "Concurrent billing of 97153 with any other service or therapy is excluded except as detailed in Section 8," and Section 8\'s exceptions are ABA-with-ABA only. It also excludes "ABA services while the member is at another medical appointment," and, in the other direction, ABA treatment "that precludes, or requires the member\'s family to stop engaging with other critical supports … speech therapy, occupational therapy, or IDEA recommended school-based curriculum and supports." So speech and ABA can both continue, but not on the same clock time as a billed 97153 unit. The manual also binds providers to the National Correct Coding Initiative edits and related coding policy unless it says otherwise.',
         status: 'plan-dependent',
         cites: [S.humPM, S.asdManual, S.asdTraining],
         verifyVia: 'Humana Healthy Horizons in South Carolina, 866-432-0001.',
@@ -1150,9 +1148,9 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
         cites: [S.aetnaNPC, S.aetnaGuide, S.t40c75],
       },
       concurrentBilling: {
-        value: 'Not addressed in Aetna’s published ABA policies (the medical necessity guide, CPB 0554, CPB 0648).',
+        value: 'Not addressed in Aetna’s published ABA policies (the medical necessity guide, CPB 0554, CPB 0648). ABA alongside speech, OT or PT: Aetna\'s ABA medical necessity guide has no same-clock-time rule for ABA with another therapy; it requires "ongoing collaboration and coordination with existing providers and/or the school district, as applicable."',
         status: 'unverified',
-        cites: [S.aetnaGuide, S.aetnaCPB],
+        cites: [S.aetnaGuide, S.aetnaCPB, { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
         verifyVia: 'Aetna provider services, your participating-provider agreement, or a written coding determination from Aetna Behavioral Health.',
         blocker: 'per-case',
       },
@@ -1317,9 +1315,9 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
         cites: [S.en0499],
       },
       concurrentBilling: {
-        value: '"Only one provider can bill for a unit of time, with the exception of CPT codes 97153, 97154, and 97155 (direct supervision when the BCBA/qualified health care provider directs the technician and both are face-to-face with the patient at the same time)."',
+        value: '"Only one provider can bill for a unit of time, with the exception of CPT codes 97153, 97154, and 97155 (direct supervision when the BCBA/qualified health care provider directs the technician and both are face-to-face with the patient at the same time)." ABA alongside speech or occupational therapy: EN0499 (effective 5/15/2026) states that "Provision of ABA treatment is not covered or reimbursable when delivered to the same individual, at the same time as any other treatment modality (e.g., ABA and speech therapy, or ABA and occupational therapy)." Same-day sessions at different times are not barred; overlapping clock time is.',
         status: 'verified',
-        cites: [S.cignaARG],
+        cites: [S.cignaARG, { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (effective 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
       },
       dailyLimits: {
         value: 'No per-day cap is published; "All ABA services must be billed with CPT codes 97151–97158, 0362T, and 0373T ONLY," and intensity must reflect severity and response. A mandated South Carolina group plan may still apply the $73,400 annual behavioral-therapy cap for 2026.',
@@ -1478,9 +1476,9 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
         cites: [S.optumSCC],
       },
       concurrentBilling: {
-        value: 'Not addressed in the SCC, which define direct case supervision as happening during treatment without stating the billing consequence.',
+        value: 'Not addressed in the SCC, which define direct case supervision as happening during treatment without stating the billing consequence. ABA alongside speech, OT or PT: Optum publishes no same-clock-time rule for ABA with another therapy. Its supplemental clinical criteria say "ABA services do not duplicate the services provided to or available to the individual by other medical or behavioral services," and require documented coordination with other allied health providers ("occupational therapy, speech therapy, physical therapy and any other applicable providers") "to reduce the likelihood of unnecessary duplication of services"; Optum\'s ABA CPT FAQ adds that ABA providers should know the child\'s other therapies, how often they occur and their goals, with ongoing communication documented.',
         status: 'unverified',
-        cites: [S.optumSCC],
+        cites: [S.optumSCC, { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'Optum — ABA CPT code FAQs', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' }],
         verifyVia: 'Optum National Network Manual and your participating-provider agreement, or a written coding determination from Optum.',
         blocker: 'per-case',
       },
@@ -1647,9 +1645,9 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
         cites: [S.bcCAM],
       },
       concurrentBilling: {
-        value: '"Two ABA providers billing at the same time" is not medically necessary under CAM 387. The policy does not carve out an exception for 97155 with 97153.',
+        value: '"Two ABA providers billing at the same time" is not medically necessary under CAM 387. The policy does not carve out an exception for 97155 with 97153. ABA alongside other therapies: CAM 387 makes non-duplication a coverage condition — "The ABA services recommended do not duplicate services provided or available to the member by other medical or behavioral health professionals," naming "occupational, physical, and speech therapies" among the examples — but sets no explicit same-clock-time billing rule.',
         status: 'plan-dependent',
-        cites: [S.bcCAM],
+        cites: [S.bcCAM, { title: 'BlueCross BlueShield of South Carolina — CAM 387, Applied Behavioral Analysis Services', url: 'https://www.southcarolinablues.com/web/public/brands/medicalpolicy/external-policies/applied-behavioral-analysis-services/' }],
         verifyVia: 'Companion Benefit Alternatives, 800-868-1032: ask whether 97155 and 97153 may be billed for the same clock time.',
         blocker: 'per-case',
       },

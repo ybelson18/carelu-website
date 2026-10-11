@@ -1333,9 +1333,9 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       },
       concurrentBilling: {
         value:
-          'Not published. Neither CPB 0554 nor CPB 0648 addresses whether 97153 and 97155 may be billed for the same clock time, and Aetna publishes no Tennessee-specific ABA reimbursement policy.',
+          'Not published. Neither CPB 0554 nor CPB 0648 addresses whether 97153 and 97155 may be billed for the same clock time, and Aetna publishes no Tennessee-specific ABA reimbursement policy. ABA alongside speech, OT or PT: Aetna\'s ABA medical necessity guide has no same-clock-time rule for ABA with another therapy; it requires "ongoing collaboration and coordination with existing providers and/or the school district, as applicable."',
         status: 'unverified',
-        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Aetna CPB 0648 \u2014 Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }],
+        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Aetna CPB 0648 \u2014 Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }, { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
         verifyVia:
           'Aetna\u2019s clinical payment, coding and policy changes pages and your participating-provider agreement; confirm with provider services per case before billing the overlap.',
         blocker: 'per-case',
@@ -1825,11 +1825,12 @@ export const tennesseePayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'TN Dept. of Health \u2014 LBA application (T.C.A. \u00a7\u00a7 63-11-301\u2013311)', url: 'https://www.tn.gov/content/dam/tn/health/healthprofboards/behavior-analyst/LBA-Application.pdf' }],
       },
       concurrentBilling: {
-        value: 'Yes, with a single-provider exclusion. Optum’s commercial ABA reimbursement policy: “Can I report 97153 or 97154 with 97155 concurrently? A. Yes, as long as the criteria in the descriptors of both codes are met. A single QHP may not report 97153 or 97154 with 97155 concurrently.” So the overlap has to be two people — a technician on 97153 and an analyst on 97155 directing them with the patient present. Optum’s ABA CPT FAQ adds that 97153 and 97156 “may be billed concurrently” as separate services to different family members by different providers. 97155 and 97156 on the same date pay only if “separate, distinct, and clearly documented in the progress notes” — “A single provider can’t bill for both simultaneously.” Team meetings bill only as supervision with the member, supervisor and technician present, and “CPT codes 97153 and 97155 may not be billed for technician training.”',
+        value: 'Yes, with a single-provider exclusion. Optum’s commercial ABA reimbursement policy: “Can I report 97153 or 97154 with 97155 concurrently? A. Yes, as long as the criteria in the descriptors of both codes are met. A single QHP may not report 97153 or 97154 with 97155 concurrently.” So the overlap has to be two people — a technician on 97153 and an analyst on 97155 directing them with the patient present. Optum’s ABA CPT FAQ adds that 97153 and 97156 “may be billed concurrently” as separate services to different family members by different providers. 97155 and 97156 on the same date pay only if “separate, distinct, and clearly documented in the progress notes” — “A single provider can’t bill for both simultaneously.” Team meetings bill only as supervision with the member, supervisor and technician present, and “CPT codes 97153 and 97155 may not be billed for technician training.” ABA alongside speech, OT or PT: Optum publishes no same-clock-time rule for ABA with another therapy. Its supplemental clinical criteria say "ABA services do not duplicate the services provided to or available to the individual by other medical or behavioral services," and require documented coordination with other allied health providers ("occupational therapy, speech therapy, physical therapy and any other applicable providers") "to reduce the likelihood of unnecessary duplication of services"; Optum\'s ABA CPT FAQ adds that ABA providers should know the child\'s other therapies, how often they occur and their goals, with ongoing communication documented.',
         status: 'verified',
         cites: [
           { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
           { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
         ],
       },
       dailyLimits: {
@@ -1978,9 +1979,9 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'Not stated as a requirement. BCBST\'s ABA forms ask for "diagnostic confirmation like diagnostic reports, doctor\'s orders, etc.," which treats a doctor\'s order as one acceptable piece of evidence rather than a mandatory referral.',
-        status: 'unverified',
-        cites: [{ title: 'BCBST — ABA Therapy Services Assessment Request Form (3/26)', url: 'https://content.bcbst.com/api/public/content/aba_therapy_assessment_request_form.pdf' }],
+          'Not stated as a requirement. BCBST\'s ABA forms ask for "diagnostic confirmation like diagnostic reports, doctor\'s orders, etc.," which treats a doctor\'s order as one acceptable piece of evidence rather than a mandatory referral. BCBST\'s commercial and Medicare Advantage provider administration manual (effective July 1, 2026) has no referral or order requirement in its ABA sections, and the ABA assessment and treatment request forms list "doctor\'s orders" only as one example of diagnostic confirmation. Tennessee\'s statute adds none. So no published service-order rule: at benefits verification ask whether this member\'s plan requires a PCP referral for specialty behavioral services, and bring the diagnostic report (with any physician order) to the assessment request.',
+        status: 'plan-dependent',
+        cites: [{ title: 'BCBST — ABA Therapy Services Assessment Request Form (3/26)', url: 'https://content.bcbst.com/api/public/content/aba_therapy_assessment_request_form.pdf' }, { title: 'BlueCross BlueShield of Tennessee Provider Administration Manual — Commercial and Medicare Advantage (effective July 1, 2026)', url: 'https://content.bcbst.com/api/public/content/prov-bcbst-pam.pdf' }, { title: 'BCBST — ABA Therapy Initiation/Continuation request form', url: 'https://content.bcbst.com/api/public/content/aba_initiation_continuation_for_therapy.pdf' }],
         verifyVia: 'The member\'s benefit summary in Availity — some plan designs require a referral for specialty services.',
         blocker: 'per-case',
       },
