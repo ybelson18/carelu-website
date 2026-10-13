@@ -98,6 +98,8 @@ export interface VobContact {
   // false = the payer won't give benefits by phone: never dial, point to
   // benefitsPortal instead. Omitted = not researched yet.
   benefitsByPhone?: boolean | 'unverified';
+  // Where benefits are given when the phone will not (not the member/provider
+  // portal in `portal`).
   benefitsPortal?: { name: string; url: string };
   // The rep needs a rendering/individual NPI, not the group NPI.
   requiresIndividualNpi?: boolean | 'unverified';
