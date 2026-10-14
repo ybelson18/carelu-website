@@ -38,6 +38,12 @@ export interface EdiRouting {
     mcoCarrierCodes: Record<string, string>; // carrier code -> MCO name
     eligibilitySpanGranularity: string; // monthly / daily / real-time
   };
+  // Whether the card's alpha prefix must go in front of the member ID for
+  // eligibility. Omitted = not researched yet.
+  memberIdPrefix?: 'required-from-card' | 'not-used' | 'unverified';
+  // The payer to run eligibility under when it isn't the plan's own
+  // (Anthem IN Medicaid -> BCBS of Indiana).
+  eligibilityPayer?: { name: string; pverify: string; availity?: string };
   fieldStatus?: Record<string, FieldStatus>;
   verifyVia?: Record<string, string>; // field -> portal/phone/document to confirm
   sources: SourceRef[];
@@ -89,6 +95,14 @@ export interface VobContact {
   hours?: string;
   portal?: { name: string; url: string };
   fax?: string;
+  // false = the payer won't give benefits by phone: never dial, point to
+  // benefitsPortal instead. Omitted = not researched yet.
+  benefitsByPhone?: boolean | 'unverified';
+  // Where benefits are given when the phone will not (not the member/provider
+  // portal in `portal`).
+  benefitsPortal?: { name: string; url: string };
+  // The rep needs a rendering/individual NPI, not the group NPI.
+  requiresIndividualNpi?: boolean | 'unverified';
   // Generated, not scraped: only the fields this guide marks
   // unverified/plan-dependent — the call asks 3 questions, not 30.
   scriptedQuestions: string[];
