@@ -461,8 +461,16 @@ const indianaMedicaidCodeGrid: Record<string, CodeGridEntry> = {
 
 /* ==================== anthem-indiana-medicaid ==================== */
 
+const ANTHEM_IN_BCBS_CHECK: SourceRef = {
+  url: 'https://pverify.com/payer-list/',
+  accessDate: '2026-10-13',
+  note: 'pVerify payer 00034 "BCBS of Indiana": Anthem Indiana Medicaid (Hoosier Healthwise / HIP) members verify when the eligibility check runs under this payer with the 3-letter card prefix in front of the member ID, and fail when run as Anthem (00709). Confirmed on a completed eligibility check, 2026-10-10.',
+};
+
 const anthemInMedicaidEdi: EdiRouting = {
   payerId: { pverify: '00709', availity: 'ANTHEM - IN', changeHealthcare: 'unverified' },
+  memberIdPrefix: 'required-from-card',
+  eligibilityPayer: { name: 'BCBS of Indiana', pverify: '00034' },
   supports270271: 'unverified',
   supportsRealtime: 'unverified',
   bhCarveOut: {
@@ -472,21 +480,25 @@ const anthemInMedicaidEdi: EdiRouting = {
     twoHopRequired: false,
   },
   fieldStatus: {
-    'payerId.pverify': 'verified',
+    'payerId.pverify': 'unverified',
     'payerId.availity': 'inferred',
     'payerId.changeHealthcare': 'unverified',
+    memberIdPrefix: 'verified',
+    'eligibilityPayer.pverify': 'verified',
     supports270271: 'unverified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'inferred',
   },
   verifyVia: {
     'payerId.pverify':
-      'pVerify\'s own table flags "00709 ANTHEM BCBS INDIANA" as Eligibility=No / Claim=No — the ID exists in the directory but pVerify does not currently support automated eligibility or claim status on it. Confirm current support status directly with pVerify before automating.',
+      'pVerify\'s own table flags "00709 ANTHEM BCBS INDIANA" as Eligibility=No / Claim=No (inactive) — the plan\'s own row, but no eligibility check can run on it. Eligibility runs under eligibilityPayer (BCBS of Indiana) instead.',
+    memberIdPrefix: "The card's 3-letter alpha prefix goes in front of the member ID (e.g. YRH + the digits) — checks without it fail, checks with it verify (cited in sources).",
+    'eligibilityPayer.pverify': 'pVerify 00034 "BCBS of Indiana" — a completed eligibility check ran under 00034 with the prefixed member ID (cited in sources).',
     'payerId.availity': 'Same 2012-vintage Availity list staleness finding as every ID below — confirm against a current Availity export.',
     supports270271: 'Not stated directly for this specific MCE entry in either source; confirm via Availity onboarding.',
     'bhCarveOut.administrator': 'No Anthem Indiana Medicaid document reviewed states or disclaims a BH carve-out for ABA specifically — inferred "none" from the UM guideline describing direct PA/claims handling.',
   },
-  sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, ANTHEM_IN_MEDICAID_UM_GUIDELINE],
+  sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, ANTHEM_IN_MEDICAID_UM_GUIDELINE, ANTHEM_IN_BCBS_CHECK],
 };
 
 const anthemInMedicaidCodeGrid: Record<string, CodeGridEntry> = Object.fromEntries(
@@ -854,7 +866,7 @@ const anthemInMedicaidContact: VobContact = {
     'Which of the four Anthem Indiana Medicaid lines of business (HIP, Hoosier Healthwise, Hoosier Care Connect, PathWays) is the member enrolled in? Provider Services routes to a different phone number for each.',
     'Does Availity support real-time (interactive) 270/271 for this member\'s plan, or only batch?',
     'What are the per-code unit caps, POS, and modifier requirements for this member\'s ABA authorization? (Anthem\'s UM guideline doesn\'t restate IHCP\'s statewide code-level table.)',
-    'Has pVerify\'s flagged "00709 Eligibility=No/Claim=No" status changed, or should this check route through Availity instead?',
+    'Please confirm the member ID exactly as printed on the card, including the three-letter prefix.',
   ],
   sources: [IHCP_QRG_CONTACT, ANTHEM_IN_MEDICAID_UM_GUIDELINE],
 };
@@ -949,7 +961,7 @@ const unitedhealthcareIndianaContact: VobContact = {
 
 export const indianaVob: Record<string, VobExtension> = {
   'indiana-medicaid': { edi: indianaMedicaidEdi, codeGrid: indianaMedicaidCodeGrid, stcMap: indianaMedicaidStc, rates: indianaMedicaidRates(), vobContact: indianaMedicaidContact, lastUpdated: ACCESS_DATE },
-  'anthem-indiana-medicaid': { edi: anthemInMedicaidEdi, codeGrid: anthemInMedicaidCodeGrid, stcMap: anthemInMedicaidStc, rates: indianaMedicaidRates(), vobContact: anthemInMedicaidContact, lastUpdated: ACCESS_DATE },
+  'anthem-indiana-medicaid': { edi: anthemInMedicaidEdi, codeGrid: anthemInMedicaidCodeGrid, stcMap: anthemInMedicaidStc, rates: indianaMedicaidRates(), vobContact: anthemInMedicaidContact, lastUpdated: '2026-10-13' },
   'mhs-indiana': { edi: mhsIndianaEdi, codeGrid: mhsIndianaCodeGrid, stcMap: mhsIndianaStc, rates: indianaMedicaidRates(), vobContact: mhsIndianaContact, lastUpdated: ACCESS_DATE },
   'caresource-indiana': { edi: caresourceIndianaEdi, codeGrid: caresourceIndianaCodeGrid, stcMap: caresourceIndianaStc, rates: indianaMedicaidRates(), vobContact: caresourceIndianaContact, lastUpdated: ACCESS_DATE },
   'mdwise-indiana': { edi: mdwiseIndianaEdi, codeGrid: mdwiseIndianaCodeGrid, stcMap: mdwiseIndianaStc, rates: indianaMedicaidRates(), vobContact: mdwiseIndianaContact, lastUpdated: ACCESS_DATE },
