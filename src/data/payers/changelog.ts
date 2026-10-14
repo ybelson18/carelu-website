@@ -3105,4 +3105,15 @@ export const PAYER_CHANGELOG: PayerChangeEntry[] = [
     ],
     totals: { guides: 285, states: 27 },
   },
+  {
+    date: '2026-10-14',
+    type: 'guides-added',
+    summary:
+      'NEW GUIDE: blue-cross-north-carolina (Blue Cross and Blue Shield of North Carolina, commercial). North Carolina had only Healthy Blue (Medicaid) for the Blue plan. Built from Blue Cross NC\'s own pages: its Provider Contact Center phone line stopped taking benefit and eligibility questions on September 1, 2026, so the VOB layer carries the first benefitsByPhone: false + benefitsPortal (Blue e, with Blue e chat) in the directory; the Adaptive Behavioral Treatment corporate medical policy (effective 9/9/2026) and the prior authorization notice (effective 1/1/2022): no PA for the initial evaluation, medical necessity review for treatment via the Blue e Authorization Portal, extension after 6 months, 97151 up to 32 units a year, school setting not covered, 97153/97155 by telehealth since 8/21/2024. pVerify 00216 from the public payer list.',
+    guides: ['blue-cross-north-carolina'],
+    details: [
+      { slug: 'blue-cross-north-carolina', field: 'guide + vob', change: 'Added the commercial Blue Cross NC guide and its VOB entry (edi pVerify 00216; vobContact.benefitsByPhone false, benefitsPortal Blue e; stcMap inherited from the BCBS family default).', sourceUrl: 'https://www.bluecrossnc.com/providers/provider-news/2026/provider-benefit-eligibility-phone-line-closing-09-01-2026' },
+    ],
+    totals: { guides: 286, states: 27 },
+  },
 ];
