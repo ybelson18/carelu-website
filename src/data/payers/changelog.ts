@@ -3156,4 +3156,15 @@ export const PAYER_CHANGELOG: PayerChangeEntry[] = [
     ],
     totals: { guides: 286, states: 27 },
   },
+  {
+    date: '2026-10-16',
+    type: 'guides-added',
+    summary:
+      'Added ASR Health Benefits with employer-group ABA verification guidance, verified provider claims/benefits contacts and the Health Alliance TPA rebrand. Hours, portal, prior-authorization routing and ABA policy remain unverified.',
+    guides: ['asr-health-benefits'],
+    totals: {
+      guides: 287,
+      states: 27,
+    },
+  },
 ];
