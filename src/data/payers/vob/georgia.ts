@@ -417,6 +417,49 @@ function aetnaEntry(): CodeGridEntry {
   };
 }
 
+/* Prefix / benefits-by-phone / individual-NPI sources (2026-10-14) */
+
+const FANOUT_OPTUM_NNM_2026: SourceRef = {
+  url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf',
+  accessDate: '2026-10-14',
+  note: 'Optum (United Behavioral Health) National Provider Network Manual, published July 1 2026, effective Sept 1 2026 (BH02330-1-26-MAN_07012026). Read via r.jina.ai using the AEM path .../NNManual.pdf/jcr:content/renditions/original (plain URL returns a download interstitial). Eligibility Inquiry p.35-36: "You can use the Provider Express secure portal to check a member\'s eligibility. You may also inquire about eligibility by calling the phone number on the member\'s ID card." Items to provide: member name, address, ID number, subscriber name and DOB - NPI not listed. No statement on individual vs group NPI for calls.',
+};
+const FANOUT_AET_ELIG_FLYER: SourceRef = {
+  url: 'https://www.aetna.com/document-library/healthcare-professionals/assets/documents/eligibility.pdf',
+  accessDate: '2026-10-14',
+  note: 'Aetna Eligibility and Benefits Inquiry flyer 83.03.870.1 (2/19), still hosted on aetna.com: "When using the member ID number, prefixes or suffixes are unnecessary. For family-level searches, you only need to enter the member ID." Applies to the electronic inquiry; dated 2019.',
+};
+const FANOUT_AET_GLANCE: SourceRef = {
+  url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/aetna-at-a-glance.pdf',
+  accessDate: '2026-10-14',
+  note: 'Aetna "At a glance" how-to guide for health care professionals, 9011800-01-01 (8/26), Key contacts table: "Provider Contact Center ... Member eligibility and benefits ... 1-800-624-0756 (TTY: 711) for Aetna Medicare Advantage plans and HMO-based plans / 1-888-MDAetna (1-888-632-3862) (TTY: 711) for all other plans". Also: "Behavioral health (provider services) Refer to the member ID card."',
+};
+const FANOUT_CIG_AUTISM: SourceRef = {
+  url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf',
+  accessDate: '2026-10-14',
+  note: 'Evernorth/Cigna Autism resource guide, March 2025 (PCOMM-2025-225): "It is important to confirm a patient\'s ABA eligibility and benefits before performing an assessment. This information can be confirmed by: ... Calling the Autism Care Coordinator team at 877.279.7603". Provider Services 800.926.2273 "handles questions regarding billing, benefits, and eligibility for autism-related treatment, such as ABA."',
+};
+const FANOUT_AGP_GA_PM: SourceRef = {
+  url: 'https://provider.amerigroup.com/docs/gpp/GA_CAID_ProviderManual.pdf',
+  accessDate: '2026-10-14',
+  note: 'Amerigroup Community Care GA Medicaid provider manual (copyright March 2026). Quote: \'If you are unable to access the internet, you may receive claims, eligibility, and referral authorization status over the phone anytime by calling our automated Provider Inquiry line at 800-454-3730.\'',
+};
+const FANOUT_CS_GA_MANUAL: SourceRef = {
+  url: 'https://www.caresource.com/documents/ga-provider-manual/',
+  accessDate: '2026-10-14',
+  note: 'CareSource Georgia Medicaid Provider Manual (served 7/2026). "You can also verify eligibility on the GAMMIS portal at www.mmis.georgia.gov or by calling Provider Services at 1-855-202-1058 and using our interactive voice response system."',
+};
+const FANOUT_PSHP_QRG_2024: SourceRef = {
+  url: 'https://www.pshpgeorgia.com/content/dam/centene/peachstate/pdfs/PSHP-GA-QuickRefGuide-2024.pdf',
+  accessDate: '2026-10-14',
+  note: 'Peach State Health Plan Quick Reference Guide 2024. Under \'Member Eligibility\': "Check member eligibility at mmis.georgia.gov ... You can also call us at: 1-866-874-0633."',
+};
+const FANOUT_GA_GAINWELL_2023: SourceRef = {
+  url: 'https://www.mmis.georgia.gov/portal/Portals/0/StaticContent/Public/ALL/NOTICES/Physician%20Services%20Presentation%20Final%20DCH%20and%20QA%20Approved%2010.31.23%20(2)%20updated%2020231101125720.pdf',
+  accessDate: '2026-10-14',
+  note: 'GA DCH/Gainwell Physician Services presentation, DCH-approved 10/31/2023 (read via r.jina.ai). "There are four ways Georgia Medicaid provides verification of member eligibility: ... 3. Interactive Voice Response System (IVRS) 1-800-766-4456"; IVRS Option 1 = Member Eligibility.',
+};
+
 /* ==================== georgia-medicaid ==================== */
 
 const georgiaMedicaidEdi: EdiRouting = {
@@ -434,6 +477,7 @@ const georgiaMedicaidEdi: EdiRouting = {
     mcoCarrierCodes: {},
     eligibilitySpanGranularity: 'unverified',
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'inferred',
@@ -444,6 +488,7 @@ const georgiaMedicaidEdi: EdiRouting = {
     'medicaid271Notes.mcoSegmentLocation': 'unverified',
     'medicaid271Notes.mcoCarrierCodes': 'unverified',
     'medicaid271Notes.eligibilitySpanGranularity': 'unverified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.availity':
@@ -456,6 +501,7 @@ const georgiaMedicaidEdi: EdiRouting = {
       'GAMMIS 5010 270-271 Companion Guide v2.19 (released 2026-06-16), confirmed present on the GAMMIS portal "Companion Guides and Manuals" listing but published ONLY behind an interactive ASP.NET __doPostBack link (no static URL). Non-portal mirror sweep this pass (REQ-001): the DCH /document/document/<slug>/download path DOES serve other GAMMIS guides (the 837I encounter guide fetched cleanly there) but has NO 270/271 entry (404); the DCH /sites/dch.georgia.gov/files/*.pdf static path is WAF-blocked (403) for all GAMMIS PDFs; no search-indexed static copy exists on dch/mmis.georgia.gov, Gainwell, or Conduent. RE-CHECKED 2026-10-01: re-confirmed v2.19/2026-06-16 directly via the portal\'s TabName=Companion+Guides view and the same __doPostBack-only link — no static URL has appeared. Most precise next step: render the tabId/45 portal postback with a headless browser to capture the file stream, OR request the "GAMMIS 5010 270-271 Companion Guide v2.19" PDF from Georgia Medicaid EDI Services (Gainwell) by email/phone — Gainwell EDI Services (770) 325-9590 or (877) 261-8785, or the general GAMMIS Provider Contact Center 1-800-766-4456. REQ-001 remains open — do NOT fabricate this field.',
     'medicaid271Notes.mcoCarrierCodes': 'Same companion guide / same blocker as mcoSegmentLocation (REQ-001).',
     'medicaid271Notes.eligibilitySpanGranularity': 'Same companion guide / same blocker as mcoSegmentLocation (REQ-001).',
+    memberIdPrefix: 'GA Medicaid Part I Policies and Procedures manual (mmis.georgia.gov) member ID card section',
   },
   sources: [GAMMIS_COMPANION_GUIDE_INDEX, PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, OPTUM_RTE_LIST, OPTUM_INSTITUTIONAL_LIST],
 };
@@ -491,6 +537,7 @@ const amerigroupEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'unverified',
@@ -498,6 +545,7 @@ const amerigroupEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify':
@@ -507,6 +555,7 @@ const amerigroupEdi: EdiRouting = {
     'payerId.changeHealthcare':
       'QA re-check (2026-07-23): no Change Healthcare-specific source was ever cited for this value — it had been copied from the (incorrect) Availity figure. Confirm via Optum/Change Healthcare payer finder.',
     supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding for this payer ID.',
+    memberIdPrefix: 'Amerigroup GA ID card sample / Availity E&B test with and without prefix',
   },
   sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST],
 };
@@ -536,6 +585,7 @@ const caresourceEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'verified',
@@ -543,9 +593,12 @@ const caresourceEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding for this payer ID.',
+    memberIdPrefix:
+      'Sample member ID card in the CareSource GA provider manual, or ask CareSource GA Provider Services whether any alpha prefix is keyed; no source states it',
   },
   sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST],
 };
@@ -575,6 +628,7 @@ const peachStateEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'verified',
@@ -582,9 +636,12 @@ const peachStateEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding for this payer ID.',
+    memberIdPrefix:
+      'Sample member ID card in the Peach State provider manual, or ask Peach State Provider Services whether any alpha prefix is keyed; no source states it',
   },
   sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST],
 };
@@ -616,6 +673,7 @@ const anthemEdi: EdiRouting = {
     abaRidesOn: 'unverified',
     twoHopRequired: 'unverified',
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'verified',
@@ -626,6 +684,7 @@ const anthemEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'verified',
     'bhCarveOut.abaRidesOn': 'unverified',
     'bhCarveOut.twoHopRequired': 'unverified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': "pVerify also separately lists \"00032 BCBS of Georgia\" — confirm which code applies to this specific plan family before automating routing.",
@@ -637,6 +696,7 @@ const anthemEdi: EdiRouting = {
       "Still unverified — no fetched primary source states whether Anthem GA COMMERCIAL ABA is billed to Carelon (BH carve-out, claims payer ID BHOVO) or under Anthem's own medical payer ID (00601). Structural evidence points to a BH carve-out (Carelon holds its own distinct claims payer ID and Anthem's BH quick-reference guide routes behavioral-provider services to Carelon), but some Anthem plans administer ABA on the medical benefit while Carelon only performs authorizations — confirm per plan/group via Anthem GA provider services. The Anthem ABA Provider Resource Guide describes standard CMS-1500 billing with no payer ID or carve-out named.",
     'bhCarveOut.twoHopRequired':
       "Still unverified as a workflow requirement. Primary-source mechanics: a clearinghouse 270 for an Anthem GA member routes to Anthem's OWN eligibility payer ID (Optum lists GABLS / 10032 for Anthem GA) — Carelon has NO clearinghouse real-time-eligibility payer ID, so there is no second clearinghouse hop available. A second hop is possible only via a direct-to-Carelon 270 (BEACON963116116), which returns just STC 30 active/inactive. Whether the VOB workflow needs that second hop hinges on abaRidesOn above: if ABA cost-share rides Anthem medical, a single hop suffices.",
+    memberIdPrefix: 'Whether the card alpha prefix must go in front of the member ID for eligibility; confirm on the first real check.',
   },
   sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, ANTHEM_ABA_GUIDE, CARELON_270_271_CG, OPTUM_ERA_LIST, OPTUM_RTE_LIST, OPTUM_PROFESSIONAL_LIST, OPTUM_INSTITUTIONAL_LIST],
 };
@@ -669,6 +729,7 @@ const aetnaEdi: EdiRouting = {
     abaRidesOn: 'unverified',
     twoHopRequired: 'unverified',
   },
+  memberIdPrefix: 'not-used',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'inferred',
@@ -676,6 +737,7 @@ const aetnaEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'unverified',
+    memberIdPrefix: 'verified',
   },
   verifyVia: {
     'payerId.availity':
@@ -684,8 +746,9 @@ const aetnaEdi: EdiRouting = {
     supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding for this payer ID.',
     'bhCarveOut.administrator':
       'Not researched to a primary source this pass — confirm via Aetna provider services or the ABA precertification process whether Aetna administers ABA in-house or via a separate behavioral-health carve-out for Georgia.',
+    memberIdPrefix: 'Aetna eligibility and benefits inquiry flyer states that prefixes or suffixes are unnecessary when using the member ID number.',
   },
-  sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST],
+  sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, FANOUT_AET_ELIG_FLYER],
 };
 
 const aetnaCodeGrid: Record<string, CodeGridEntry> = {
@@ -713,6 +776,7 @@ const cignaEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'verified',
@@ -723,9 +787,12 @@ const cignaEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'verified',
     'bhCarveOut.abaRidesOn': 'verified',
     'bhCarveOut.twoHopRequired': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding for this payer ID.',
+    memberIdPrefix:
+      'Cigna ID card quick guide (CIG_IDCARD) shows member ID + two-digit suffix, no alpha prefix, but gives no entry rule; confirm with Cigna 800.882.4462 or a test 270.',
   },
   sources: [
     PVERIFY_PAYER_LIST,
@@ -762,6 +829,7 @@ const unitedhealthcareEdi: EdiRouting = {
     abaRidesOn: 'unverified',
     twoHopRequired: 'unverified',
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'unverified',
@@ -772,6 +840,7 @@ const unitedhealthcareEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'unverified',
     'bhCarveOut.abaRidesOn': 'unverified',
     'bhCarveOut.twoHopRequired': 'unverified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.availity': 'No UnitedHealthcare entry of any kind appears in the fetched Availity 837 payer list — confirm directly with Availity onboarding.',
@@ -782,6 +851,8 @@ const unitedhealthcareEdi: EdiRouting = {
       "Provider Express / UHC provider services — UHC's own EDI payer list shows GA Community Plan behavioral claims routing on the same 87726 used for medical, but pVerify separately lists a distinct \"UHG007 United Healthcare - Optum Behavioral Solutions\" code; not resolved which applies for commercial GA ABA specifically.",
     'bhCarveOut.abaRidesOn': 'Same as administratorPayerId.',
     'bhCarveOut.twoHopRequired': 'Same as administratorPayerId.',
+    memberIdPrefix:
+      'No UHC/Optum source addresses an alpha prefix (2026 Admin Guide ID-card legend, 270/271 companion guide, pVerify list all silent). Confirm with a real card plus a pVerify run, or ask UHC Provider Services.',
   },
   sources: [PVERIFY_PAYER_LIST, OPTUM_SCC],
 };
@@ -901,7 +972,9 @@ const georgiaMedicaidContact: VobContact = {
     'Is the ABA cost share a copay or coinsurance, and is it charged per visit or per day?',
     'Which service-type-code bucket does GAMMIS return ABA benefit detail under, and does the deductible or out-of-pocket max apply to it?',
   ],
-  sources: [GAMMIS_2023_PRESENTATION_CONTACT_PAGE],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [GAMMIS_2023_PRESENTATION_CONTACT_PAGE, FANOUT_GA_GAINWELL_2023],
 };
 
 const amerigroupContact: VobContact = {
@@ -917,7 +990,9 @@ const amerigroupContact: VobContact = {
     'Is the ABA cost share a copay or coinsurance, and is it charged per visit or per day?',
     'Which service-type-code bucket does Amerigroup GA return ABA benefit detail under, and does the deductible or out-of-pocket max apply?',
   ],
-  sources: [AMERIGROUP_GA_CONTACT_US],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [AMERIGROUP_GA_CONTACT_US, FANOUT_AGP_GA_PM],
 };
 
 const caresourceContact: VobContact = {
@@ -931,7 +1006,9 @@ const caresourceContact: VobContact = {
     'Does the deductible apply to ABA codes?',
     'Does the out-of-pocket maximum apply to ABA cost share?',
   ],
-  sources: [CARESOURCE_GA_QRG],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [CARESOURCE_GA_QRG, FANOUT_CS_GA_MANUAL],
 };
 
 const peachStateContact: VobContact = {
@@ -947,7 +1024,9 @@ const peachStateContact: VobContact = {
     'Does Peach State follow the statewide GA DCH/CMS daily unit caps for ABA codes, or does it publish its own unit-cap table?',
     'Does eligibility checking return real-time or batch-only 271 responses?',
   ],
-  sources: [PEACH_STATE_GA_QRG_2021],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [PEACH_STATE_GA_QRG_2021, FANOUT_PSHP_QRG_2024],
 };
 
 const anthemContact: VobContact = {
@@ -962,6 +1041,8 @@ const anthemContact: VobContact = {
     "What's the current daily/session unit cap for 97151-97158, 0362T, and 0373T — the ABA Provider Resource Guide defers to \"the current CMS MUE list\" without stating the number?",
     'Which service-type-code bucket does Anthem return ABA benefit detail under, and does the deductible apply to it?',
   ],
+  benefitsByPhone: 'unverified',
+  requiresIndividualNpi: 'unverified',
   sources: [ANTHEM_PROVIDER_CONTACT_US],
 };
 
@@ -978,7 +1059,9 @@ const aetnaContact: VobContact = {
     'What licensure-tier modifiers do you require on ABA claims?',
     'Does eligibility checking return real-time or batch-only 271 responses, and can you confirm the correct Availity/Change Healthcare payer ID (our cited list is a 2012 snapshot)?',
   ],
-  sources: [AETNA_BH_PROVIDER_MANUAL, AETNA_BH_PRECERT_LIST],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [AETNA_BH_PROVIDER_MANUAL, AETNA_BH_PRECERT_LIST, FANOUT_AET_GLANCE],
 };
 
 const cignaContact: VobContact = {
@@ -993,7 +1076,9 @@ const cignaContact: VobContact = {
     'What licensure-tier modifiers do you require on ABA claims?',
     'Does eligibility checking return real-time or batch-only 271 responses?',
   ],
-  sources: [CIGNA_AUTISM_GUIDE_CONTACT],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [CIGNA_AUTISM_GUIDE_CONTACT, FANOUT_CIG_AUTISM],
 };
 
 const unitedhealthcareContact: VobContact = {
@@ -1009,7 +1094,9 @@ const unitedhealthcareContact: VobContact = {
     "What's the Optum ABA prior-authorization process and review cadence for continued services?",
     'Does eligibility checking return real-time or batch-only 271 responses?',
   ],
-  sources: [OPTUM_PROVIDER_EXPRESS_CONTACT_US],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [OPTUM_PROVIDER_EXPRESS_CONTACT_US, FANOUT_OPTUM_NNM_2026],
 };
 
 /* anthem-bcbs-georgia STC map — resolved this pass from Anthem/Elevance's OWN
@@ -1053,36 +1140,36 @@ const anthemGeorgiaStc: StcMap = {
 /* ==================== export ==================== */
 
 export const georgiaVob: Record<string, VobExtension> = {
-  'georgia-medicaid': { edi: georgiaMedicaidEdi, codeGrid: georgiaMedicaidCodeGrid, stcMap: georgiaMedicaidStc, rates: georgiaMedicaidRates, vobContact: georgiaMedicaidContact, lastUpdated: '2026-10-01' },
-  'amerigroup-georgia': { edi: amerigroupEdi, codeGrid: amerigroupCodeGrid, stcMap: amerigroupStc, vobContact: amerigroupContact, lastUpdated: REFRESH_DATE },
-  'caresource-georgia': { edi: caresourceEdi, codeGrid: caresourceCodeGrid, stcMap: caresourceStc, vobContact: caresourceContact, lastUpdated: REFRESH_DATE },
-  'peach-state-georgia': { edi: peachStateEdi, codeGrid: peachStateCodeGrid, stcMap: peachStateStc, vobContact: peachStateContact, lastUpdated: ACCESS_DATE },
+  'georgia-medicaid': { edi: georgiaMedicaidEdi, codeGrid: georgiaMedicaidCodeGrid, stcMap: georgiaMedicaidStc, rates: georgiaMedicaidRates, vobContact: georgiaMedicaidContact, lastUpdated: '2026-10-15'},
+  'amerigroup-georgia': { edi: amerigroupEdi, codeGrid: amerigroupCodeGrid, stcMap: amerigroupStc, vobContact: amerigroupContact, lastUpdated: '2026-10-15'},
+  'caresource-georgia': { edi: caresourceEdi, codeGrid: caresourceCodeGrid, stcMap: caresourceStc, vobContact: caresourceContact, lastUpdated: '2026-10-15'},
+  'peach-state-georgia': { edi: peachStateEdi, codeGrid: peachStateCodeGrid, stcMap: peachStateStc, vobContact: peachStateContact, lastUpdated: '2026-10-15'},
   'anthem-bcbs-georgia': {
     edi: anthemEdi,
     codeGrid: anthemCodeGrid,
     stcMap: anthemGeorgiaStc,
     vobContact: anthemContact,
-    lastUpdated: REFRESH_DATE,
+    lastUpdated: '2026-10-15',
   },
   'aetna-georgia': {
     edi: aetnaEdi,
     codeGrid: aetnaCodeGrid,
     stcMap: inheritFamilyStc(aetnaFamilyStc, 'Inherited from the Aetna family default (docs/vob-build.md Layer 2) — no Georgia-specific 270/271 STC document found.'),
     vobContact: aetnaContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'cigna-georgia': {
     edi: cignaEdi,
     codeGrid: cignaCodeGrid,
     stcMap: inheritFamilyStc(cignaFamilyStc, 'Inherited from the Cigna/Evernorth family default (docs/vob-build.md Layer 2) — national companion guide, no Georgia-specific override found.'),
     vobContact: cignaContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'unitedhealthcare-georgia': {
     edi: unitedhealthcareEdi,
     codeGrid: unitedhealthcareCodeGrid,
     stcMap: inheritFamilyStc(uhcFamilyStc, 'Inherited from the UnitedHealthcare/Optum family default (docs/vob-build.md Layer 2) — national companion guide, no Georgia-specific override found.'),
     vobContact: unitedhealthcareContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
 };

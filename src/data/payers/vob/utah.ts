@@ -192,6 +192,38 @@ const UT_31A_22_642_CURRENT = src(
   'Utah Code Section 31A-22-642 (current, eff. 5/6/2026); already cited in src/data/payers/utah.ts — the state autism mandate governing individual and large-group commercial plans (not small-group, not Medicaid).'
 );
 
+/* Prefix / benefits-by-phone / individual-NPI sources (2026-10-14) */
+const FANOUT_OPTUM_NNM_2026: SourceRef = {
+  url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf',
+  accessDate: '2026-10-14',
+  note: 'Optum (United Behavioral Health) National Provider Network Manual, published July 1 2026, effective Sept 1 2026 (BH02330-1-26-MAN_07012026). Read via r.jina.ai using the AEM path .../NNManual.pdf/jcr:content/renditions/original (plain URL returns a download interstitial). Eligibility Inquiry p.35-36: "You can use the Provider Express secure portal to check a member\'s eligibility. You may also inquire about eligibility by calling the phone number on the member\'s ID card." Items to provide: member name, address, ID number, subscriber name and DOB - NPI not listed. No statement on individual vs group NPI for calls.',
+};
+const FANOUT_AET_ELIG_FLYER: SourceRef = {
+  url: 'https://www.aetna.com/document-library/healthcare-professionals/assets/documents/eligibility.pdf',
+  accessDate: '2026-10-14',
+  note: 'Aetna Eligibility and Benefits Inquiry flyer 83.03.870.1 (2/19), still hosted on aetna.com: "When using the member ID number, prefixes or suffixes are unnecessary. For family-level searches, you only need to enter the member ID." Applies to the electronic inquiry; dated 2019.',
+};
+const FANOUT_AET_GLANCE: SourceRef = {
+  url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/aetna-at-a-glance.pdf',
+  accessDate: '2026-10-14',
+  note: 'Aetna "At a glance" how-to guide for health care professionals, 9011800-01-01 (8/26), Key contacts table: "Provider Contact Center ... Member eligibility and benefits ... 1-800-624-0756 (TTY: 711) for Aetna Medicare Advantage plans and HMO-based plans / 1-888-MDAetna (1-888-632-3862) (TTY: 711) for all other plans". Also: "Behavioral health (provider services) Refer to the member ID card."',
+};
+const FANOUT_CIG_AUTISM: SourceRef = {
+  url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf',
+  accessDate: '2026-10-14',
+  note: 'Evernorth/Cigna Autism resource guide, March 2025 (PCOMM-2025-225): "It is important to confirm a patient\'s ABA eligibility and benefits before performing an assessment. This information can be confirmed by: ... Calling the Autism Care Coordinator team at 877.279.7603". Provider Services 800.926.2273 "handles questions regarding billing, benefits, and eligibility for autism-related treatment, such as ABA."',
+};
+const FANOUT_UT_CARD_FAQ: SourceRef = {
+  url: 'https://medicaid.utah.gov/Documents/pdfs/FINAL_PROVIDER_FAQ_Medicaid%20Member%20Card_2023.pdf',
+  accessDate: '2026-10-14',
+  note: 'Utah Medicaid Member Card FAQ for Providers (2023). "you will need to verify your patients\' Medicaid eligibility through the Eligibility Lookup Tool"; "Q: Can I still call AccessNow for eligibility information? A: No, AccessNow is no longer in service."',
+};
+const FANOUT_SH_NEWPROV: SourceRef = {
+  url: 'https://selecthealth.org/providers/join-our-networks/new-provider-resources',
+  accessDate: '2026-10-14',
+  note: 'Select Health New Provider Resources page. Quote: \'Claims & benefits: Call the provider inquiries line to verify member benefits or claims payment issues. (Monday through Friday: 8:00 am - 5:00 pm) 800-222-6358\'.',
+};
+
 /* -------------------- Utah Medicaid (ASD FFS) codeGrid -------------------- */
 
 interface UtEntryOpts {
@@ -363,6 +395,7 @@ const utahMedicaidEdi: EdiRouting = {
     mcoCarrierCodes: {},
     eligibilitySpanGranularity: 'Real-time (response <=20s) and batch; inquiry DTP03 accepts a single date or a date range not to exceed 3 months (up to 3 years retro); benefit issuance is monthly, out-of-pocket frequency quarterly. Utah Medicaid does NOT return eligibility at the procedure-code level (default STC "30"), so the 271 does not surface that ABA specifically bills FFS — the carve-out is applied from policy, not read off the 271.',
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'unverified',
@@ -375,6 +408,7 @@ const utahMedicaidEdi: EdiRouting = {
     'medicaid271Notes.mcoSegmentLocation': 'verified',
     'medicaid271Notes.mcoCarrierCodes': 'verified',
     'medicaid271Notes.eligibilitySpanGranularity': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify':
@@ -384,6 +418,7 @@ const utahMedicaidEdi: EdiRouting = {
     'payerId.changeHealthcare':
       'No Change Healthcare-specific source was retrievable this pass — confirm via the Optum/Change Healthcare payer finder. The commonly-cited "SKUT0" is a clearinghouse-side routing alias, NOT the PRISM identifier; the companion guide\'s actual trading-partner receiver ID (ISA08) is HT000004-001 for FFS (the ABA line), via UHIN.',
     'medicaid271Notes.mcoCarrierCodes': 'By design there is NO numeric carrier-code table in the Utah 270/271 companion guide — the ACO/MCO is identified by organization name (NM103) in loop 2120C. (Utah ACOs: Health Choice Utah, Healthy U, Molina Healthcare of Utah, SelectHealth Community Care; PMHPs include United Behavioral Health.) Because ABA is a statewide FFS carve-out, an ACO/PMHP appearing on the 271 does NOT redirect ABA — all PAs go to Utah Medicaid FFS regardless.',
+    memberIdPrefix: 'Utah Medicaid Provider Manual Section I (member ID card)',
   },
   sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, UT_PRISM_COMPANION_GUIDE, UT_PRISM_FEE_CSV, UT_ASD_MANUAL_ARCHIVE],
 };
@@ -393,10 +428,13 @@ const utahMedicaidContact: VobContact = {
   hours: 'Mon, Wed, Thu, Fri 8:00am-5:00pm MT; Tue 11:00am-5:00pm MT',
   ivrPath: 'Phone menu: option 3, then 3, then select the appropriate program (per the Prior Authorization line on the provider contact page).',
   portal: { name: 'PRISM', url: 'https://prism.health.utah.gov/' },
+  benefitsByPhone: false,
+  benefitsPortal: { name: 'Utah Medicaid Eligibility Lookup Tool', url: 'https://elt.medicaid.utah.gov/' },
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'Can the initial 97151 behavior-identification assessment be delivered via telehealth, or does it require an in-person visit?',
   ],
-  sources: [UT_MEDICAID_CONTACT_PROVIDERS, UT_PRISM_PORTAL_ACCESS],
+  sources: [UT_MEDICAID_CONTACT_PROVIDERS, UT_PRISM_PORTAL_ACCESS, FANOUT_UT_CARD_FAQ],
 };
 
 /* -------------------- commercial codeGrid factories (national policy) -------------------- */
@@ -482,6 +520,7 @@ const aetnaEdi: EdiRouting = {
     abaRidesOn: 'unverified',
     twoHopRequired: 'unverified',
   },
+  memberIdPrefix: 'not-used',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'inferred',
@@ -489,6 +528,7 @@ const aetnaEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'unverified',
+    memberIdPrefix: 'verified',
   },
   verifyVia: {
     'payerId.availity':
@@ -497,8 +537,9 @@ const aetnaEdi: EdiRouting = {
     supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding for this payer ID.',
     'bhCarveOut.administrator':
       'Not researched to a primary source this pass — confirm via Aetna provider services / ABA precertification whether Aetna administers ABA in-house or via a separate behavioral-health carve-out for Utah. Aetna holds no Utah Medicaid ACO contract, so there is no Medicaid line to confuse an Aetna card with.',
+    memberIdPrefix: 'Aetna eligibility and benefits inquiry flyer: "When using the member ID number, prefixes or suffixes are unnecessary."',
   },
-  sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST],
+  sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, FANOUT_AET_ELIG_FLYER],
 };
 
 const aetnaCodeGrid: Record<string, CodeGridEntry> = {
@@ -516,6 +557,8 @@ const aetnaCodeGrid: Record<string, CodeGridEntry> = {
 
 const aetnaContact: VobContact = {
   portal: { name: 'Availity Essentials', url: 'https://www.availity.com/' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'Does this ABA claim require precertification, and if so what form or process do you use for it?',
     'Are there daily, weekly, or annual unit/hour caps on the treatment codes (97153-97158)?',
@@ -524,7 +567,7 @@ const aetnaContact: VobContact = {
     'Does Aetna administer ABA/behavioral health benefits in-house, or through a separate behavioral-health carve-out for this plan?',
     'Are licensure-tier modifiers (e.g., HN/HO/HM/HP) required on claims, and if so which apply to which codes?',
   ],
-  sources: [AETNA_PRECERT_PAGE, AVAILITY_PAYER_LIST],
+  sources: [AETNA_PRECERT_PAGE, AVAILITY_PAYER_LIST, FANOUT_AET_GLANCE],
 };
 
 /* ==================== cigna-utah (commercial) ==================== */
@@ -539,6 +582,7 @@ const cignaEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'verified',
@@ -549,9 +593,11 @@ const cignaEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'verified',
     'bhCarveOut.abaRidesOn': 'verified',
     'bhCarveOut.twoHopRequired': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding for this payer ID.',
+    memberIdPrefix: 'Cigna ID card quick guide (CIG_IDCARD) shows member ID + two-digit suffix, no alpha prefix, but gives no entry rule; confirm with Cigna 800.882.4462 or a test 270.',
   },
   sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, CIGNA_AUTISM_RESOURCE_GUIDE],
 };
@@ -572,13 +618,15 @@ const cignaCodeGrid: Record<string, CodeGridEntry> = {
 const cignaContact: VobContact = {
   providerServicesPhone: '1 (800) 926-2273 (Evernorth Behavioral Health Provider Advocate team / National Care Center)',
   portal: { name: 'CignaforHCP', url: 'https://cignaforhcp.cigna.com/app/login' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'Are there unit or hour caps on the treatment codes (97153-97158), and if so what are they?',
     'What place-of-service settings are allowed for ABA — home, clinic, school, telehealth?',
     'Is telehealth allowed for any of the ABA codes, and if so which ones?',
     'Are licensure-tier modifiers required on claims, and if so which apply to which codes?',
   ],
-  sources: [EVERNORTH_BH_PROVIDER_SERVICES, CIGNA_PRECERT_PAGE, CIGNA_FOR_HCP_PORTAL],
+  sources: [EVERNORTH_BH_PROVIDER_SERVICES, CIGNA_PRECERT_PAGE, CIGNA_FOR_HCP_PORTAL, FANOUT_CIG_AUTISM],
 };
 
 /* ==================== unitedhealthcare-utah (commercial) ==================== */
@@ -593,6 +641,7 @@ const unitedhealthcareEdi: EdiRouting = {
     abaRidesOn: 'unverified',
     twoHopRequired: 'unverified',
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'inferred',
@@ -603,6 +652,7 @@ const unitedhealthcareEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'unverified',
     'bhCarveOut.abaRidesOn': 'unverified',
     'bhCarveOut.twoHopRequired': 'unverified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.availity':
@@ -613,6 +663,7 @@ const unitedhealthcareEdi: EdiRouting = {
       'Provider Express / UHC provider services — pVerify lists a distinct "UHG007 United Healthcare - Optum Behavioral Solutions" alongside the "00192 United Healthcare" medical entry; not resolved whether commercial Utah ABA rides the 87726 medical ID or routes to Optum Behavioral. UHC holds no Utah Medicaid ACO contract.',
     'bhCarveOut.abaRidesOn': 'Same as administratorPayerId.',
     'bhCarveOut.twoHopRequired': 'Same as administratorPayerId.',
+    memberIdPrefix: 'No UHC/Optum source addresses an alpha prefix (2026 Admin Guide ID-card legend, 270/271 companion guide, pVerify list all silent). Confirm with a real card plus a pVerify run, or ask UHC Provider Services.',
   },
   sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, OPTUM_SCC],
 };
@@ -635,6 +686,8 @@ const unitedhealthcareContact: VobContact = {
   hours: 'Mon-Fri 7:00am-7:00pm CT',
   ivrPath: 'This line covers credentialing/contracting/demographics, not ABA authorization status directly; for PA status use the Provider Express portal or the number on the back of the member\'s ID card (portal technical support: 1-866-209-9320, same hours).',
   portal: { name: 'Provider Express', url: 'https://public.providerexpress.com/' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'Does ABA route through Optum Behavioral Health, or directly through UnitedHealthcare medical benefits for this plan?',
     'What place-of-service settings are allowed for ABA billing — home, clinic, school, telehealth?',
@@ -642,7 +695,7 @@ const unitedhealthcareContact: VobContact = {
     'Do the published daily unit caps apply to this specific plan, or are they plan-dependent?',
     'Which credential-tier modifiers (HN/HM/HO/HP) does this plan require, and do they match the standard national tiers?',
   ],
-  sources: [OPTUM_PROVIDER_EXPRESS_CONTACT, OPTUM_SCC],
+  sources: [OPTUM_PROVIDER_EXPRESS_CONTACT, OPTUM_SCC, FANOUT_OPTUM_NNM_2026],
 };
 
 /* ==================== select-health-utah (closing sweep) ====================
@@ -669,6 +722,7 @@ const selectHealthUtahEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'unverified',
     'payerId.availity': 'inferred',
@@ -676,6 +730,7 @@ const selectHealthUtahEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': 'No pVerify entry for "Select Health" or "SelectHealth Community Care" was independently confirmed this pass — confirm via pVerify onboarding.',
@@ -683,6 +738,7 @@ const selectHealthUtahEdi: EdiRouting = {
       'SX107/HT006873-001 come from a WebSearch summary of Select Health\'s own Payer ID List PDF, corroborated by a second independent source (thepracticebridge.com), but neither was read directly from readable primary-document text this pass — treat as inferred, not verified. IMPORTANT: for a Community Care (Medicaid) member, do NOT use this ID for an ABA eligibility check — route to utah-medicaid\'s own entry (pVerify 01324) instead, since ABA is carved out to state FFS entirely and Select Health never adjudicates it for these members.',
     'payerId.changeHealthcare': 'Not checked against a dedicated Optum/Change Healthcare payer directory this pass.',
     supportsRealtime: 'Confirm real-time vs. batch via UHIN/Availity onboarding for this payer ID.',
+    memberIdPrefix: 'Select Health ID card samples (selecthealth.org/providers/claims/eligibility)',
   },
   sources: [SELECTHEALTH_MEDICAID_SUMMARY, SELECTHEALTH_PRM, SELECTHEALTH_PAYER_ID_LIST, PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST],
 };
@@ -743,6 +799,8 @@ const selectHealthUtahContact: VobContact = {
   providerServicesPhone: '800-222-6358 (general commercial provider support) / 800-442-4566 (24/7 preauthorization help desk)',
   fax: '801-442-0825 (commercial UM intake); Community Care (non-ABA services) 801-442-0625',
   portal: { name: 'Select Health Preauth & Care Plan Tool', url: 'https://selecthealth.org/providers/preauthorization/forms-reports' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'Confirm which product this family is on — SelectHealth Community Care (Medicaid, routes ABA to Utah Medicaid FFS entirely) vs. Select Health commercial (Policy #630, its own PA process) — since the two have completely different ABA workflows.',
     'For commercial members: what POS codes and billing modifiers apply — Policy #630 (now read directly) gives severity-based hour bands and a 6-month review cycle but names no CMS POS numbers or modifier table.',
@@ -750,7 +808,7 @@ const selectHealthUtahContact: VobContact = {
     'Is telehealth allowed for any ABA codes under the commercial Policy #630? The policy itself states no telehealth-specific rule — confirm directly with UM.',
     'What EDI payer ID should be used for a commercial member\'s 270/271 eligibility check — SX107 or HT006873-001 — neither was independently confirmed against readable primary-source text this pass?',
   ],
-  sources: [SELECTHEALTH_PREAUTH_FORMS_PAGE, SELECTHEALTH_ABA_PREAUTH_FORM],
+  sources: [SELECTHEALTH_PREAUTH_FORMS_PAGE, SELECTHEALTH_ABA_PREAUTH_FORM, FANOUT_SH_NEWPROV],
 };
 
 /* ==================== Layer 2 — STC interpretation maps ====================
@@ -820,27 +878,27 @@ const selectHealthUtahStc: StcMap = inheritFamilyStc(
 /* ==================== export ==================== */
 
 export const utahVob: Record<string, VobExtension> = {
-  'utah-medicaid': { edi: utahMedicaidEdi, codeGrid: utahMedicaidCodeGrid, rates: utahMedicaidRates, stcMap: utahMedicaidStc, vobContact: utahMedicaidContact, lastUpdated: ACCESS_DATE },
+  'utah-medicaid': { edi: utahMedicaidEdi, codeGrid: utahMedicaidCodeGrid, rates: utahMedicaidRates, stcMap: utahMedicaidStc, vobContact: utahMedicaidContact, lastUpdated: '2026-10-15' },
   'aetna-utah': {
     edi: aetnaEdi,
     codeGrid: aetnaCodeGrid,
     stcMap: inheritFamilyStc(aetnaFamilyStc, 'Inherited from the Aetna family default (docs/vob-build.md Layer 2) — no Utah-specific 270/271 STC document found.'),
     vobContact: aetnaContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'cigna-utah': {
     edi: cignaEdi,
     codeGrid: cignaCodeGrid,
     stcMap: inheritFamilyStc(cignaFamilyStc, 'Inherited from the Cigna/Evernorth family default (docs/vob-build.md Layer 2) — no Utah-specific 270/271 STC document found.'),
     vobContact: cignaContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'unitedhealthcare-utah': {
     edi: unitedhealthcareEdi,
     codeGrid: unitedhealthcareCodeGrid,
     stcMap: inheritFamilyStc(uhcFamilyStc, 'Inherited from the UnitedHealthcare/Optum family default (docs/vob-build.md Layer 2) — no Utah-specific 270/271 STC document found.'),
     vobContact: unitedhealthcareContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'select-health-utah': {
     edi: selectHealthUtahEdi,
@@ -848,6 +906,6 @@ export const utahVob: Record<string, VobExtension> = {
     rates: selectHealthUtahRates,
     stcMap: selectHealthUtahStc,
     vobContact: selectHealthUtahContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
 };

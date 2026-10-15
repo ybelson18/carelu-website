@@ -620,6 +620,58 @@ function mcoCodeGrid(opts: {
 
 /* ==================== nebraska-medicaid ==================== */
 
+/* Prefix / benefits-by-phone / individual-NPI sources (2026-10-14) */
+const FANOUT_QRG_NE_MCD: SourceRef = {
+  url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/neaba/neNEMedicaidQRG.pdf',
+  accessDate: '2026-10-14',
+  note: 'NE Heritage Health Medicaid ABA QRG (BH4233 07/2022): "Verifying benefits/eligibility by calling the Behavioral Health number located on the back of the member\'s ID card or contacting Nebraska Medicaid Eligibility System (NMES) line at 1-800-642-6092".',
+};
+const FANOUT_OPTUM_NNM_2026: SourceRef = {
+  url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf',
+  accessDate: '2026-10-14',
+  note: 'Optum (United Behavioral Health) National Provider Network Manual, published July 1 2026, effective Sept 1 2026 (BH02330-1-26-MAN_07012026). Read via r.jina.ai using the AEM path .../NNManual.pdf/jcr:content/renditions/original (plain URL returns a download interstitial). Eligibility Inquiry p.35-36: "You can use the Provider Express secure portal to check a member\'s eligibility. You may also inquire about eligibility by calling the phone number on the member\'s ID card." Items to provide: member name, address, ID number, subscriber name and DOB - NPI not listed. No statement on individual vs group NPI for calls.',
+};
+const FANOUT_AET_ELIG_FLYER: SourceRef = {
+  url: 'https://www.aetna.com/document-library/healthcare-professionals/assets/documents/eligibility.pdf',
+  accessDate: '2026-10-14',
+  note: 'Aetna Eligibility and Benefits Inquiry flyer 83.03.870.1 (2/19), still hosted on aetna.com: "When using the member ID number, prefixes or suffixes are unnecessary. For family-level searches, you only need to enter the member ID." Applies to the electronic inquiry; dated 2019.',
+};
+const FANOUT_AET_GLANCE: SourceRef = {
+  url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/aetna-at-a-glance.pdf',
+  accessDate: '2026-10-14',
+  note: 'Aetna "At a glance" how-to guide for health care professionals, 9011800-01-01 (8/26), Key contacts table: "Provider Contact Center ... Member eligibility and benefits ... 1-800-624-0756 (TTY: 711) for Aetna Medicare Advantage plans and HMO-based plans / 1-888-MDAetna (1-888-632-3862) (TTY: 711) for all other plans". Also: "Behavioral health (provider services) Refer to the member ID card."',
+};
+const FANOUT_CIG_AUTISM: SourceRef = {
+  url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf',
+  accessDate: '2026-10-14',
+  note: 'Evernorth/Cigna Autism resource guide, March 2025 (PCOMM-2025-225): "It is important to confirm a patient\'s ABA eligibility and benefits before performing an assessment. This information can be confirmed by: ... Calling the Autism Care Coordinator team at 877.279.7603". Provider Services 800.926.2273 "handles questions regarding billing, benefits, and eligibility for autism-related treatment, such as ABA."',
+};
+const FANOUT_BCBSNE_CALLER: SourceRef = {
+  url: 'https://www.nebraskablue.com/-/media/Files/NebraskaBlueDotCom/Providers/Claims-and-Eligibility/Check-Claims-Status/Provider_Caller_Guide.pdf',
+  accessDate: '2026-10-14',
+  note: 'BCBSNE Provider Caller Guide revised 07/2025. Quotes: \'Required Info: NPI (10 digits) Member ID (9 digits - no alpha prefix)\' / Verify Medical Coverage option \'allows you to hear cost share information, copay information, or verify specific benefits with a representative.\'',
+};
+const FANOUT_NTC_MANUAL_2026: SourceRef = {
+  url: 'https://www.nebraskatotalcare.com/content/dam/centene/Nebraska/PDFs/ProviderRelations/NTC_10_Provider_Manual_03032025_01122026_Final_508.pdf',
+  accessDate: '2026-10-14',
+  note: 'Nebraska Total Care Provider Manual (rev 01/12/2026). "Call our automated member eligibility IVR system. Call 1-844-385-2192 (TTY 711) from any touch-tone phone and follow the appropriate menu options to reach our automated member eligibility-verification system 24 hours a day."',
+};
+const FANOUT_AMB_NE_MANUAL_2026: SourceRef = {
+  url: 'https://www.ambetterhealth.com/content/dam/centene/Nebraska/ambetter/pdf/2026-ne-provider-manual.pdf',
+  accessDate: '2026-10-14',
+  note: 'Ambetter from Nebraska Total Care Provider and Billing Manual 2026. "Other Methods to Verify Benefits, Eligibility and Cost Shares 24/7 Toll Fee Interactive Voice Response (IVR) Line at 1-833-890-0329 (TTY 711)"; Provider Services on the same number.',
+};
+const FANOUT_NE_CARD: SourceRef = {
+  url: 'https://dhhs.ne.gov/Documents/471-000-123.pdf',
+  accessDate: '2026-10-14',
+  note: 'Nebraska DHHS 471-000-123 Explanation of Medicaid ID Card: "The 9-digit case number combined with the two-digit identification number is the unique client\'s Medicaid number."',
+};
+const FANOUT_NE_NMES: SourceRef = {
+  url: 'https://dhhs.ne.gov/Documents/471-000-124.pdf',
+  accessDate: '2026-10-14',
+  note: 'Nebraska DHHS 471-000-124 Instructions for Using NMES, rev. May 15, 2024 (read via r.jina.ai). "NMES is a dial-up (telephone access) computer system by which enrolled Medicaid providers can obtain... Verification of Medicaid eligibility"; "Healthcare Providers must use the billing NPI for inquiry"; "enter the client\'s 11-digit Medicaid number". Also: "NMES does NOT supply prior authorization information, or information on coverage of specific services".',
+};
+
 const nebraskaMedicaidEdi: EdiRouting = {
   payerId: { pverify: '01204', availity: 'unverified', changeHealthcare: 'unverified' },
   supports270271: true,
@@ -636,6 +688,7 @@ const nebraskaMedicaidEdi: EdiRouting = {
     mcoCarrierCodes: {},
     eligibilitySpanGranularity: 'unverified',
   },
+  memberIdPrefix: 'not-used',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'unverified',
@@ -646,6 +699,7 @@ const nebraskaMedicaidEdi: EdiRouting = {
     'medicaid271Notes.mcoSegmentLocation': 'verified',
     'medicaid271Notes.mcoCarrierCodes': 'verified',
     'medicaid271Notes.eligibilitySpanGranularity': 'unverified',
+    memberIdPrefix: 'verified',
   },
   verifyVia: {
     'payerId.availity':
@@ -655,8 +709,9 @@ const nebraskaMedicaidEdi: EdiRouting = {
       'Inferred from the absence of any BH-vendor mention in Nebraska Total Care\'s and Molina\'s own ABA/PA documents, cross-checked against this corpus\'s own Medicaid MCO coverage-gap census (docs/vob-gaps.md, 2026-07-23: "ABA is integrated into each MCO\'s capitated physical+behavioral health contract — not carved out"). UnitedHealthcare Community Plan of Nebraska is the one exception (Optum-managed since 1/1/2017) — see that guide.',
     'medicaid271Notes.eligibilitySpanGranularity':
       'The NE MMIS 270/271 Companion Guide (dated 3/9/2015 — 11+ years old, staleRisk) documents real-time-vs-batch transaction timing in detail but never states whether the returned eligibility span itself is monthly, daily, or tied to the inquiry date. Confirm via the NE Medicaid EDI help desk (866-498- extension per the companion guide\'s EDI Submissions Requirements page) or by inspecting a live 271 response.',
+    memberIdPrefix: 'Nebraska DHHS ID-card guide: the Medicaid number is the 9-digit case number plus the 2-digit ID number; no alpha prefix.',
   },
-  sources: [COMPANION_GUIDE, PVERIFY_LIST, AVAILITY_LIST],
+  sources: [COMPANION_GUIDE, PVERIFY_LIST, AVAILITY_LIST, FANOUT_NE_CARD],
 };
 
 /* ==================== nebraska-total-care ==================== */
@@ -671,6 +726,7 @@ const nebraskaTotalCareEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'unverified',
@@ -678,6 +734,7 @@ const nebraskaTotalCareEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'inferred',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.availity': 'No Nebraska Total Care row appears in the fetched Availity Essentials payer list at all — confirm directly via Availity onboarding.',
@@ -685,6 +742,7 @@ const nebraskaTotalCareEdi: EdiRouting = {
     supportsRealtime: 'pVerify\'s list confirms eligibility support (Elig: Yes) but does not state real-time vs. batch — confirm via pVerify/Availity onboarding for this payer ID.',
     'bhCarveOut.administrator':
       'Inferred from absence — NE.CP.BH.105 names no BH carve-out vendor anywhere in the document; not an explicit "no carve-out" statement. Confirm via Nebraska Total Care provider services.',
+    memberIdPrefix: 'Sample member ID card in the Nebraska Total Care provider manual, or ask Nebraska Total Care Provider Services whether any alpha prefix is keyed; no source states it',
   },
   sources: [PVERIFY_LIST, NTC_POLICY],
 };
@@ -716,6 +774,7 @@ const molinaHealthcareNebraskaEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'unverified',
@@ -723,6 +782,7 @@ const molinaHealthcareNebraskaEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'inferred',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.availity': 'No Molina Healthcare of Nebraska row appears in the fetched Availity Essentials payer list at all — Molina\'s own PA page names Availity Essentials as its preferred channel but publishes no payer ID; confirm directly via Availity onboarding.',
@@ -730,6 +790,7 @@ const molinaHealthcareNebraskaEdi: EdiRouting = {
     supportsRealtime: 'pVerify\'s list confirms eligibility support (Elig: Yes) but does not state real-time vs. batch — confirm via Availity onboarding for this payer ID.',
     'bhCarveOut.administrator':
       'Inferred from absence — Molina\'s NE Medicaid PA page names no BH carve-out vendor and publishes no Nebraska-specific ABA clinical policy at all. Confirm via Molina NE provider services.',
+    memberIdPrefix: 'Sample member ID card in the Molina NE provider manual, or ask Molina NE Provider Services whether any alpha prefix is keyed; no source states it',
   },
   sources: [PVERIFY_LIST, MOLINA_PA_PAGE],
 };
@@ -757,6 +818,7 @@ const unitedhealthcareCommunityPlanNebraskaEdi: EdiRouting = {
     abaRidesOn: 'unverified',
     twoHopRequired: 'unverified',
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'unverified',
     'payerId.availity': 'verified',
@@ -767,6 +829,7 @@ const unitedhealthcareCommunityPlanNebraskaEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'verified',
     'bhCarveOut.abaRidesOn': 'unverified',
     'bhCarveOut.twoHopRequired': 'unverified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify':
@@ -776,6 +839,7 @@ const unitedhealthcareCommunityPlanNebraskaEdi: EdiRouting = {
       'The plan\'s own QRG (BH4233) says to "verify benefits via the behavioral-health number on the member ID card, not the medical line," suggesting distinct BH routing — but claims still bill on the SAME 87726 ID used for UHC medical claims elsewhere, so "which side" ABA rides is genuinely ambiguous rather than unresearched. Same shipped fact already recorded in vob/carveouts.ts — do not contradict it.',
     'bhCarveOut.twoHopRequired':
       "Optum's program is a two-STEP authorization workflow (assessment auth, then treatment auth) — a UM/prior-auth concept, not necessarily an EDI/claims two-hop, since claims share the single 87726 ID. Whether this constitutes a genuine second EDI hop (vs. a single-payer-ID UM process) is unconfirmed; verify with UHC Community Plan of Nebraska / Optum provider services.",
+    memberIdPrefix: 'No UHC/Optum source addresses an alpha prefix (2026 Admin Guide ID-card legend, 270/271 companion guide, pVerify list all silent). Confirm with a real card plus a pVerify run, or ask UHC Provider Services.',
   },
   sources: [OPTUM_QRG, PVERIFY_LIST],
 };
@@ -806,6 +870,7 @@ const aetnaNebraskaEdi: EdiRouting = {
     abaRidesOn: 'unverified',
     twoHopRequired: 'unverified',
   },
+  memberIdPrefix: 'not-used',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'inferred',
@@ -813,6 +878,7 @@ const aetnaNebraskaEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'unverified',
+    memberIdPrefix: 'verified',
   },
   verifyVia: {
     'payerId.availity':
@@ -821,8 +887,9 @@ const aetnaNebraskaEdi: EdiRouting = {
     supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding for this payer ID.',
     'bhCarveOut.administrator':
       'Not researched to a primary source in any of the 19 states this corpus has covered so far (see vob/carveouts.ts\'s single national "unverified" Aetna commercial row) — confirm via Aetna provider services / the precertification line whether Aetna administers ABA in-house or via a named behavioral-health vendor for Nebraska.',
+    memberIdPrefix: 'Aetna\'s eligibility and benefits inquiry flyer states that prefixes or suffixes are unnecessary when using the member ID number.',
   },
-  sources: [PVERIFY_LIST, AVAILITY_LIST],
+  sources: [PVERIFY_LIST, AVAILITY_LIST, FANOUT_AET_ELIG_FLYER],
 };
 
 function aetnaNeEntry(): CodeGridEntry {
@@ -874,6 +941,7 @@ const cignaNebraskaEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'verified',
@@ -884,9 +952,11 @@ const cignaNebraskaEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'verified',
     'bhCarveOut.abaRidesOn': 'verified',
     'bhCarveOut.twoHopRequired': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding for this payer ID.',
+    memberIdPrefix: 'Cigna ID card quick guide (CIG_IDCARD) shows member ID + two-digit suffix, no alpha prefix, but gives no entry rule; confirm with Cigna 800.882.4462 or a test 270.',
   },
   sources: [PVERIFY_LIST, AVAILITY_LIST, CIGNA_AUTISM_GUIDE],
 };
@@ -939,6 +1009,7 @@ const unitedhealthcareNebraskaEdi: EdiRouting = {
     abaRidesOn: 'unverified',
     twoHopRequired: 'unverified',
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'unverified',
@@ -949,6 +1020,7 @@ const unitedhealthcareNebraskaEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'unverified',
     'bhCarveOut.abaRidesOn': 'unverified',
     'bhCarveOut.twoHopRequired': 'unverified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.availity': 'No Nebraska-specific UnitedHealthcare commercial payer ID confirmed — same gap already recorded in vob/carveouts.ts for this family/state. Confirm via Availity onboarding.',
@@ -958,6 +1030,7 @@ const unitedhealthcareNebraskaEdi: EdiRouting = {
       'No Nebraska-specific payer ID confirmed for commercial UHC/Optum — contrast Nebraska Medicaid Community Plan, which has an explicit 87726 (ERA 86047) fact (see that guide). Confirm via Provider Express / UHC provider services.',
     'bhCarveOut.abaRidesOn': 'Same as administratorPayerId.',
     'bhCarveOut.twoHopRequired': 'Same as administratorPayerId.',
+    memberIdPrefix: 'No UHC/Optum source addresses an alpha prefix (2026 Admin Guide ID-card legend, 270/271 companion guide, pVerify list all silent). Confirm with a real card plus a pVerify run, or ask UHC Provider Services.',
   },
   sources: [PVERIFY_LIST, OPTUM_SCC],
 };
@@ -1066,7 +1139,9 @@ const nebraskaMedicaidContact: VobContact = {
     'Does this eligibility response reflect real-time enrollment, or could it lag behind a recent Medicaid managed-care plan change?',
     'Can you confirm ABA benefits are administered directly by Nebraska Medicaid fee-for-service rather than through a separate behavioral health vendor?',
   ],
-  sources: [NE_ELIGIBILITY_VERIFICATION_PAGE, NE_NMES_INSTRUCTIONS, OPTUM_NE_QRG_CONTACT],
+  benefitsByPhone: true,
+  requiresIndividualNpi: false,
+  sources: [NE_ELIGIBILITY_VERIFICATION_PAGE, NE_NMES_INSTRUCTIONS, OPTUM_NE_QRG_CONTACT, FANOUT_NE_NMES],
 };
 
 const nebraskaTotalCareContact: VobContact = {
@@ -1080,7 +1155,9 @@ const nebraskaTotalCareContact: VobContact = {
     'For group adaptive treatment (97154/97158), does Nebraska Total Care apply its own 2-8 participant group size or the state MSD\'s 2-5 ratio for this member\'s authorization?',
     'Is there a specific unit or monthly cap on 97156 (family training) for this member?',
   ],
-  sources: [NTC_CONTACT_PAGE, NTC_FORMS_PAGE, NTC_POLICY],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [NTC_CONTACT_PAGE, NTC_FORMS_PAGE, NTC_POLICY, FANOUT_NTC_MANUAL_2026],
 };
 
 const molinaHealthcareNebraskaContact: VobContact = {
@@ -1093,6 +1170,8 @@ const molinaHealthcareNebraskaContact: VobContact = {
     'The July 2026 service definition caps direct ABA at 6 hours a day and 20 a week — what clinical justification does Molina need to authorize more for this member?',
     'Can you confirm whether ABA benefits are managed directly by Molina or through a separate behavioral health vendor?',
   ],
+  benefitsByPhone: 'unverified',
+  requiresIndividualNpi: 'unverified',
   sources: [MOLINA_PA_PAGE],
 };
 
@@ -1107,7 +1186,9 @@ const unitedhealthcareCommunityPlanNebraskaContact: VobContact = {
     'Is a second authorization/EDI hop required beyond the 87726 payer ID for ABA claims, or does everything route through the same ID?',
     'Does this payer support real-time (vs. batch) 270/271 eligibility responses?',
   ],
-  sources: [OPTUM_NE_QRG_CONTACT, OPTUM_QRG],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [OPTUM_NE_QRG_CONTACT, OPTUM_QRG, FANOUT_QRG_NE_MCD],
 };
 
 const aetnaNebraskaContact: VobContact = {
@@ -1120,7 +1201,9 @@ const aetnaNebraskaContact: VobContact = {
     'Is telehealth allowed for any ABA codes under this plan, and if so, which modifier and POS code should be used?',
     'Does Aetna administer behavioral health/ABA benefits directly, or through a separate behavioral health vendor, for this plan?',
   ],
-  sources: [AETNA_BH_PRECERT_LIST, AVAILITY_LIST],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [AETNA_BH_PRECERT_LIST, AVAILITY_LIST, FANOUT_AET_GLANCE],
 };
 
 const cignaNebraskaContact: VobContact = {
@@ -1135,7 +1218,9 @@ const cignaNebraskaContact: VobContact = {
     'Which telehealth modifier and POS code should be used when billing ABA via telehealth for this plan?',
     'Are there licensure-tier billing modifiers required (e.g., for BCBA- vs. technician-delivered codes) under this plan?',
   ],
-  sources: [CIGNA_CONTACT, CIGNA_AUTISM_GUIDE],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [CIGNA_CONTACT, CIGNA_AUTISM_GUIDE, FANOUT_CIG_AUTISM],
 };
 
 const unitedhealthcareNebraskaContact: VobContact = {
@@ -1148,7 +1233,9 @@ const unitedhealthcareNebraskaContact: VobContact = {
     'Does ABA ride on the medical or the behavioral-health benefit for eligibility purposes, and is a second EDI hop required beyond the primary UHC payer ID?',
     'Can you confirm the correct EDI payer ID for Availity/Change Healthcare submissions for this specific commercial plan?',
   ],
-  sources: [PROVIDER_EXPRESS_CONTACT, OPTUM_SCC],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [PROVIDER_EXPRESS_CONTACT, OPTUM_SCC, FANOUT_OPTUM_NNM_2026],
 };
 
 /* ==================== export ==================== */
@@ -1249,16 +1336,19 @@ const bcbsNebraskaEdi: EdiRouting = {
     abaRidesOn: 'unverified',
     twoHopRequired: 'unverified',
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'unverified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     supportsRealtime: 'Confirm real-time vs. batch at pVerify onboarding.',
     'bhCarveOut.administrator':
       'BCBSNE publishes ABA medical policy (I.178) and takes the preauthorization in NaviNet itself; I.178 also refers to "New Directions\' Provider Manual" for record documentation. Whether a behavioral-health vendor administers any part of ABA was not confirmed — ask on the first call.',
+    memberIdPrefix: 'Required in records and claims; phone IVR takes 9 digits without prefix (BCBSNE_CALLER)',
   },
   sources: [NE_PVERIFY_MAR2026, BCBSNE_GPX014, BCBSNE_I178],
 };
@@ -1271,7 +1361,9 @@ const bcbsNebraskaContact: VobContact = {
     'Will ABA be authorized in the home or school? I.178 says services must be delivered in an office setting or through telehealth.',
     'Does 97155 pay alongside 97153 for the same clock time, and whose NPI should technician time bill under?',
   ],
-  sources: [BCBSNE_I178, BCBSNE_GPX014],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [BCBSNE_I178, BCBSNE_GPX014, FANOUT_BCBSNE_CALLER],
 };
 
 const AMB_CODES = ['97151', '97152', '97153', '97154', '97155', '97156', '97157', '97158', '0362T', '0373T'];
@@ -1299,16 +1391,19 @@ const ambetterNebraskaEdi: EdiRouting = {
     abaRidesOn: 'unverified',
     twoHopRequired: 'unverified',
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'unverified',
     supports270271: 'unverified',
     'bhCarveOut.administrator': 'unverified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify':
       'pVerify has no Nebraska Ambetter row — only a generic "AMBETTER" (01328). Do not use Nebraska Total Care Medicaid id 01205: same brand name, different product and insurer (Celtic). Confirm the Marketplace payer id at EDI onboarding.',
     'bhCarveOut.administrator':
       'Ambetter takes ABA prior authorization through its own portal and UM line (1-833-890-0329); no BH vendor is named for ABA in the 2026 manual or EOC. Confirm on the first call.',
+    memberIdPrefix: 'Sample member ID card in the Ambetter from Nebraska Total Care provider manual, or ask Ambetter from Nebraska Total Care Provider Services whether any alpha prefix is keyed; no source states it',
   },
   sources: [NE_PVERIFY_MAR2026, AMB_NE_MANUAL],
 };
@@ -1345,7 +1440,9 @@ const ambetterNebraskaContact: VobContact = {
     'Is the practice in network for the Ambetter product specifically?',
     'Which ABA codes will Ambetter authorize by telehealth for this member?',
   ],
-  sources: [AMB_NE_MANUAL, AMB_NE_EOC],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [AMB_NE_MANUAL, AMB_NE_EOC, FANOUT_AMB_NE_MANUAL_2026],
 };
 
 export const nebraskaVob: Record<string, VobExtension> = {
@@ -1355,7 +1452,7 @@ export const nebraskaVob: Record<string, VobExtension> = {
     rates: neRateTable(false),
     stcMap: nebraskaMedicaidStc,
     vobContact: nebraskaMedicaidContact,
-    lastUpdated: REFRESH_DATE,
+    lastUpdated: '2026-10-15',
   },
   'nebraska-total-care': {
     edi: nebraskaTotalCareEdi,
@@ -1363,7 +1460,7 @@ export const nebraskaVob: Record<string, VobExtension> = {
     rates: neRateTable(true),
     stcMap: nebraskaTotalCareStc,
     vobContact: nebraskaTotalCareContact,
-    lastUpdated: REFRESH_DATE,
+    lastUpdated: '2026-10-15',
   },
   'molina-healthcare-nebraska': {
     edi: molinaHealthcareNebraskaEdi,
@@ -1371,7 +1468,7 @@ export const nebraskaVob: Record<string, VobExtension> = {
     rates: neRateTable(true),
     stcMap: molinaHealthcareNebraskaStc,
     vobContact: molinaHealthcareNebraskaContact,
-    lastUpdated: REFRESH_DATE,
+    lastUpdated: '2026-10-15',
   },
   'unitedhealthcare-community-plan-nebraska': {
     edi: unitedhealthcareCommunityPlanNebraskaEdi,
@@ -1379,28 +1476,28 @@ export const nebraskaVob: Record<string, VobExtension> = {
     rates: neRateTable(true),
     stcMap: unitedhealthcareCommunityPlanNebraskaStc,
     vobContact: unitedhealthcareCommunityPlanNebraskaContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'aetna-nebraska': {
     edi: aetnaNebraskaEdi,
     codeGrid: aetnaNebraskaCodeGrid,
     stcMap: inheritFamilyStc(aetnaFamilyStc, 'Inherited from the Aetna family default (docs/vob-build.md Layer 2) — no Nebraska-specific 270/271 STC document found.'),
     vobContact: aetnaNebraskaContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'cigna-nebraska': {
     edi: cignaNebraskaEdi,
     codeGrid: cignaNebraskaCodeGrid,
     stcMap: inheritFamilyStc(cignaFamilyStc, 'Inherited from the Cigna/Evernorth family default (docs/vob-build.md Layer 2) — national companion guide, no Nebraska-specific override found.'),
     vobContact: cignaNebraskaContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'unitedhealthcare-nebraska': {
     edi: unitedhealthcareNebraskaEdi,
     codeGrid: unitedhealthcareNebraskaCodeGrid,
     stcMap: inheritFamilyStc(uhcFamilyStc, 'Inherited from the UnitedHealthcare/Optum family default (docs/vob-build.md Layer 2) — national companion guide, no Nebraska-specific override found.'),
     vobContact: unitedhealthcareNebraskaContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'bcbs-nebraska': {
     edi: bcbsNebraskaEdi,
@@ -1410,13 +1507,13 @@ export const nebraskaVob: Record<string, VobExtension> = {
       'Inherited from the BCBS family default (docs/vob-build.md Layer 2). Treat as weak: that default is sourced only from Excellus and Highmark New York material, and BCBS Nebraska is an independent licensee. Everything the default leaves unverified stays unverified here.',
     ),
     vobContact: bcbsNebraskaContact,
-    lastUpdated: REFRESH_DATE,
+    lastUpdated: '2026-10-15',
   },
   'nebraska-total-care-ambetter': {
     edi: ambetterNebraskaEdi,
     codeGrid: ambetterNebraskaCodeGrid,
     stcMap: ambetterNebraskaStc,
     vobContact: ambetterNebraskaContact,
-    lastUpdated: REFRESH_DATE,
+    lastUpdated: '2026-10-15',
   },
 };

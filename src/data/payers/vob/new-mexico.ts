@@ -323,6 +323,38 @@ function cignaCommercialGrid(): Record<string, CodeGridEntry> {
 
 /* ==================== new-mexico-medicaid ==================== */
 
+/* Prefix / benefits-by-phone / individual-NPI sources (2026-10-14) */
+const FANOUT_QRG_NM_MCD: SourceRef = {
+  url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/NMTurquoiseCareABAQRG.pdf',
+  accessDate: '2026-10-14',
+  note: 'NM Turquoise Care ABA Network QRG (BH0000747_12162024): "Verifying benefits/eligibility online at Providerexpress.com or call the Behavioral Health number located on the back of the Member\'s ID card".',
+};
+const FANOUT_OPTUM_NNM_2026: SourceRef = {
+  url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf',
+  accessDate: '2026-10-14',
+  note: 'Optum (United Behavioral Health) National Provider Network Manual, published July 1 2026, effective Sept 1 2026 (BH02330-1-26-MAN_07012026). Read via r.jina.ai using the AEM path .../NNManual.pdf/jcr:content/renditions/original (plain URL returns a download interstitial). Eligibility Inquiry p.35-36: "You can use the Provider Express secure portal to check a member\'s eligibility. You may also inquire about eligibility by calling the phone number on the member\'s ID card." Items to provide: member name, address, ID number, subscriber name and DOB - NPI not listed. No statement on individual vs group NPI for calls.',
+};
+const FANOUT_AET_ELIG_FLYER: SourceRef = {
+  url: 'https://www.aetna.com/document-library/healthcare-professionals/assets/documents/eligibility.pdf',
+  accessDate: '2026-10-14',
+  note: 'Aetna Eligibility and Benefits Inquiry flyer 83.03.870.1 (2/19), still hosted on aetna.com: "When using the member ID number, prefixes or suffixes are unnecessary. For family-level searches, you only need to enter the member ID." Applies to the electronic inquiry; dated 2019.',
+};
+const FANOUT_AET_GLANCE: SourceRef = {
+  url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/aetna-at-a-glance.pdf',
+  accessDate: '2026-10-14',
+  note: 'Aetna "At a glance" how-to guide for health care professionals, 9011800-01-01 (8/26), Key contacts table: "Provider Contact Center ... Member eligibility and benefits ... 1-800-624-0756 (TTY: 711) for Aetna Medicare Advantage plans and HMO-based plans / 1-888-MDAetna (1-888-632-3862) (TTY: 711) for all other plans". Also: "Behavioral health (provider services) Refer to the member ID card."',
+};
+const FANOUT_CIG_AUTISM: SourceRef = {
+  url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf',
+  accessDate: '2026-10-14',
+  note: 'Evernorth/Cigna Autism resource guide, March 2025 (PCOMM-2025-225): "It is important to confirm a patient\'s ABA eligibility and benefits before performing an assessment. This information can be confirmed by: ... Calling the Autism Care Coordinator team at 877.279.7603". Provider Services 800.926.2273 "handles questions regarding billing, benefits, and eligibility for autism-related treatment, such as ABA."',
+};
+const FANOUT_BCBSNM_PRM: SourceRef = {
+  url: 'https://www.bcbsnm.com/docs/provider/nm/medicaid-prm.pdf',
+  accessDate: '2026-10-14',
+  note: 'BCBSNM Medicaid (Turquoise Care) Provider Reference Manual. Quotes: \'If you cannot submit your eligibility and benefit inquiries online, this information can also be easily obtained through BCBSNM\'s Interactive Voice Response (IVR) automated phone system at 1-888-349-3706\' / claims: \'Member\'s ID number (as shown on the member\'s ID card, including the 3-digit alpha prefix: YIF)\'.',
+};
+
 const newMexicoMedicaidEdi: EdiRouting = {
   payerId: { pverify: '00162', availity: 'unverified', changeHealthcare: 'unverified' },
   supports270271: true,
@@ -334,6 +366,7 @@ const newMexicoMedicaidEdi: EdiRouting = {
     eligibilitySpanGranularity:
       'Daily and monthly (834 daily enrollment files + monthly Omnicaid MMIS reconciliation, per the HCA Turquoise Care Systems Manual). The Conduent Eligibility Gateway supports real-time date-range 270/271 with a 1-year past look-back.',
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'unverified',
@@ -344,6 +377,7 @@ const newMexicoMedicaidEdi: EdiRouting = {
     'medicaid271Notes.mcoSegmentLocation': 'unverified',
     'medicaid271Notes.mcoCarrierCodes': 'unverified',
     'medicaid271Notes.eligibilitySpanGranularity': 'inferred',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': 'pVerify code 00162 = "New Mexico Medicaid" (Elig Y / Claim Y); this is pVerify\'s proprietary code, not a standard clearinghouse ID. The Conduent Eligibility Gateway 270/271 payer ID is 00000001234 (NM108=PI/NM109).',
@@ -353,6 +387,7 @@ const newMexicoMedicaidEdi: EdiRouting = {
       'NM 271 MCO-enrollment loop/segment not retrievable this pass — the NM MMIS provider portal (nmmedicaid.portal.conduent.com) is Incapsula-blocked, and NM routes 270/271 through the generic Conduent Eligibility Gateway (no NM-specific MCO segment published). Request the "New Mexico Medicaid 270/271 Companion Guide" from Conduent EDI (egateway@conduent.com) or via the authenticated provider portal.',
     'medicaid271Notes.mcoCarrierCodes':
       'The HCA Turquoise Care Systems Manual lists MCO header names (BCBS/PRESBYTERIAN/UNITED HEALTH/MOLINA Turquoise Care) and TPL/834 constants (TPLBCBS, TPLPRESBYTERIAN, TPLUNITED, TPLMOLINA) — but those govern 834/TPL file exchange, NOT the provider-facing 271, so the 271 carrier-code map is unverified.',
+    memberIdPrefix: 'NM Medicaid provider AVRS/portal guide (new Gainwell-era portal)',
   },
   sources: [PVERIFY_PAYER_LIST, CONDUENT_MEDICAID_PAYER_GUIDE, CONDUENT_COMPANION_GUIDE, TC_SYSTEMS_MANUAL, TURQUOISE_CLAIMS, AVAILITY_PAYER_LIST],
 };
@@ -364,6 +399,7 @@ const bcbsNmEdi: EdiRouting = {
   supports270271: true,
   supportsRealtime: 'unverified',
   bhCarveOut: { administrator: 'none (integrated Turquoise Care)', administratorPayerId: '', abaRidesOn: 'medical', twoHopRequired: false },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'unverified',
@@ -372,12 +408,14 @@ const bcbsNmEdi: EdiRouting = {
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'verified',
     'bhCarveOut.abaRidesOn': 'inferred',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': 'pVerify 00046 = "BCBS of New Mexico" (Elig Y / Claim Y).',
     'payerId.availity': 'No BCBSNM Medicaid row in the 2012 Availity list — confirm current ID via Availity Essentials.',
     'payerId.changeHealthcare': 'Confirm the Medicaid claims payer ID via BCBSNM\'s 270/271 companion guide (bcbsnm.com/docs/provider/nm/nm_eligibility_benefits_270_271.pdf) and Turquoise Care claims section.',
     'bhCarveOut.abaRidesOn': 'BH (incl. ABA) is administered within the integrated Turquoise Care plan (BCBSNM ABA policy CPCP011); no separate BH payer ID surfaced — ABA rides the BCBSNM Medicaid payer ID. Confirm at Turquoise Claims cutover.',
+    memberIdPrefix: 'Stated for claims (YIF prefix); eligibility not stated separately',
   },
   sources: [
     PVERIFY_PAYER_LIST,
@@ -393,6 +431,7 @@ const presbyterianNmEdi: EdiRouting = {
   supports270271: true,
   supportsRealtime: 'unverified',
   bhCarveOut: { administrator: 'none (in-house Turquoise Care BH for Medicaid)', administratorPayerId: '', abaRidesOn: 'medical', twoHopRequired: false },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'unverified',
@@ -401,6 +440,7 @@ const presbyterianNmEdi: EdiRouting = {
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'inferred',
     'bhCarveOut.abaRidesOn': 'inferred',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': 'pVerify BO00106 = "Presbyterian Health Plan"; 02154 = "Presbyterian Health Plan-EDI" (both Elig Y).',
@@ -408,6 +448,7 @@ const presbyterianNmEdi: EdiRouting = {
     'payerId.changeHealthcare': 'Presbyterian Turquoise Care Medicaid GS03 payor ID 77048 / Loop 2010BB NM109 = NMPHP (per phs.org Turquoise Claims page). Claim.MD lists Presbyterian as PREHP.',
     'bhCarveOut.administrator': 'The guide prose establishes Presbyterian handles Turquoise Care (Medicaid) BH in-house (Magellan = Medicare/commercial only). A secondary source referenced "Magellan" for Presbyterian generally, but the primary Turquoise Claims page names no BH administrator — confirm ABA auth/claims are in-house via Presbyterian Provider line (505) 923-5757.',
     'bhCarveOut.abaRidesOn': 'Integrated Turquoise Care; ABA rides the Presbyterian Medicaid payer ID (77048). No separate BH payer ID surfaced.',
+    memberIdPrefix: 'Turquoise Care Practitioner and Provider Manual (phs.org/providers/resources/reference-guides/manuals)',
   },
   sources: [PVERIFY_PAYER_LIST, TURQUOISE_CLAIMS, AVAILITY_PAYER_LIST],
 };
@@ -419,6 +460,7 @@ const molinaNmEdi: EdiRouting = {
   supports270271: true,
   supportsRealtime: 'unverified',
   bhCarveOut: { administrator: 'none (integrated Turquoise Care)', administratorPayerId: '', abaRidesOn: 'medical', twoHopRequired: false },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'unverified',
@@ -427,12 +469,14 @@ const molinaNmEdi: EdiRouting = {
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'verified',
     'bhCarveOut.abaRidesOn': 'inferred',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': 'pVerify 00247 = "Molina Healthcare of New Mexico" (Elig Y / Claim Y).',
     'payerId.availity': 'The 2012 Availity list shows "MOLINA HEALTHCARE NEW MEXICO" (FNM505) — predates Molina\'s 7/1/2024 Turquoise Care entry; treat as legacy. Confirm current ID via Availity Essentials.',
     'payerId.changeHealthcare': 'Confirm the current Turquoise Care claims payer ID / GS03 / NM109 via Molina NM provider EDI page (Molina mandates Availity Essentials for PA).',
     'bhCarveOut.abaRidesOn': 'Integrated Turquoise Care; ABA rides the Molina NM Medicaid payer ID, no two-hop. Verify against the Molina NM provider manual.',
+    memberIdPrefix: 'Sample member ID card in the Molina NM provider manual, or ask Molina NM Provider Services whether any alpha prefix is keyed; no source states it',
   },
   sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST],
 };
@@ -444,6 +488,7 @@ const uhcCommunityNmEdi: EdiRouting = {
   supports270271: true,
   supportsRealtime: true,
   bhCarveOut: { administrator: 'Optum Behavioral Health (network administrator)', administratorPayerId: '87748', abaRidesOn: 'medical', twoHopRequired: false },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'unverified',
     'payerId.availity': 'unverified',
@@ -454,6 +499,7 @@ const uhcCommunityNmEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'unverified',
     'bhCarveOut.abaRidesOn': 'verified',
     'bhCarveOut.twoHopRequired': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': 'No NM-Community-Plan-specific pVerify code exists — only national rows (00192 "United Healthcare"; UHG007 "United Healthcare - Optum Behavioral Solutions").',
@@ -461,6 +507,7 @@ const uhcCommunityNmEdi: EdiRouting = {
     'payerId.changeHealthcare':
       'UNRESOLVED CONFLICT: the Optum NM Turquoise Care ABA QRG cited in the guide prose says claims Payer ID 87726 (ERA 86047); UHC\'s own current affiliate claims payer list shows NM Medicaid = 87748 (87726 = NM Dual SNP, "Former 87726") and 86047 = New Jersey (NM ERA appears under a multi-state row, candidate 04567). Reconcile via the current UHC Community Plan NM ABA/behavioral QRG or UHC EDI support before automating.',
     'bhCarveOut.administratorPayerId': 'Optum is the BH network administrator, but claims route to the UHC Community Plan Medicaid payer ID (87748), not a separate Optum payer ID — no two-hop on claims. ERA ID unresolved (see changeHealthcare).',
+    memberIdPrefix: 'No UHC/Optum source addresses an alpha prefix (2026 Admin Guide ID-card legend, 270/271 companion guide, pVerify list all silent). Confirm with a real card plus a pVerify run, or ask UHC Provider Services.',
   },
   sources: [UHC_CLAIMS_PAYER_LIST, OPTUM_NM_QRG, PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST],
 };
@@ -472,6 +519,7 @@ const aetnaNmEdi: EdiRouting = {
   supports270271: true,
   supportsRealtime: 'unverified',
   bhCarveOut: { administrator: 'Aetna Behavioral Health (in-house)', administratorPayerId: '60054', abaRidesOn: 'medical', twoHopRequired: false },
+  memberIdPrefix: 'not-used',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'inferred',
@@ -482,13 +530,15 @@ const aetnaNmEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'verified',
     'bhCarveOut.abaRidesOn': 'inferred',
     'bhCarveOut.twoHopRequired': 'inferred',
+    memberIdPrefix: 'verified',
   },
   verifyVia: {
     'payerId.availity': 'Availity 2012 list shows "AETNA INSURANCE COMPANY" (F60054) — stale but the 60054 national ID remains current; confirm via Availity Essentials.',
     supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding.',
     'bhCarveOut.administrator': 'Aetna administers ABA in-house on the same 60054 payer ID (no separate BH carve-out ID). Confirm any delegated ABA vendor via NM plan-specific benefits.',
+    memberIdPrefix: 'Aetna\'s eligibility and benefits inquiry flyer states that prefixes or suffixes are unnecessary when using the member ID number.',
   },
-  sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST],
+  sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, FANOUT_AET_ELIG_FLYER],
 };
 
 /* ==================== cigna-new-mexico (commercial) ==================== */
@@ -498,6 +548,7 @@ const cignaNmEdi: EdiRouting = {
   supports270271: true,
   supportsRealtime: 'unverified',
   bhCarveOut: { administrator: 'Evernorth Behavioral Health', administratorPayerId: '62308', abaRidesOn: 'bh', twoHopRequired: false },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'unverified',
@@ -508,11 +559,13 @@ const cignaNmEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'verified',
     'bhCarveOut.abaRidesOn': 'verified',
     'bhCarveOut.twoHopRequired': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': 'pVerify 00004 = "Cigna"; 00510 = "Cigna Behavioral". No "Evernorth" row in pVerify.',
     'payerId.availity': 'Availity 2012 list shows only "CIGNA" (FCIG22) — stale, no Evernorth row. Confirm via Availity Essentials.',
     supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding.',
+    memberIdPrefix: 'Cigna ID card quick guide (CIG_IDCARD) shows member ID + two-digit suffix, no alpha prefix, but gives no entry rule; confirm with Cigna 800.882.4462 or a test 270.',
   },
   sources: [PVERIFY_PAYER_LIST, CIGNA_AUTISM_GUIDE, AVAILITY_PAYER_LIST],
 };
@@ -524,6 +577,7 @@ const uhcNmEdi: EdiRouting = {
   supports270271: true,
   supportsRealtime: 'unverified',
   bhCarveOut: { administrator: 'Optum Behavioral Health', administratorPayerId: '87726', abaRidesOn: 'medical', twoHopRequired: false },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'unverified',
@@ -534,12 +588,14 @@ const uhcNmEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'inferred',
     'bhCarveOut.abaRidesOn': 'inferred',
     'bhCarveOut.twoHopRequired': 'inferred',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': 'pVerify 00192 = "United Healthcare"; UHG007 = "United Healthcare - Optum Behavioral Solutions" (both Elig Y / Claim Y).',
     'payerId.availity': 'Availity 2012 list shows "UNITED HEALTHCARE (UHC)" (F37128/8772T/F16412) — stale. Confirm via Availity Essentials.',
     'payerId.changeHealthcare': '87726 is UHC\'s dominant national commercial claims ID; the commercial NM ABA/ERA behavioral IDs are not separately published — confirm via the UHC commercial NM ABA QRG / Provider Express.',
     'bhCarveOut.administratorPayerId': 'Optum administers commercial ABA authorizations (Provider Express); claims typically route to the UHC medical payer ID 87726 (no two-hop on claims). Confirm the behavioral ERA ID via Provider Express.',
+    memberIdPrefix: 'No UHC/Optum source addresses an alpha prefix (2026 Admin Guide ID-card legend, 270/271 companion guide, pVerify list all silent). Confirm with a real card plus a pVerify run, or ask UHC Provider Services.',
   },
   sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST],
 };
@@ -633,6 +689,8 @@ const newMexicoMedicaidContact: VobContact = {
     'Is there a published per-code daily/weekly unit cap for ABA, or only the program-level hour ranges (comprehensive 30–40 hrs/wk, focused 10–25)?',
     'Are ABA-specific telehealth POS codes or modifiers used for Medicaid FFS billing?',
   ],
+  benefitsByPhone: 'unverified',
+  requiresIndividualNpi: 'unverified',
   sources: [HCA_TPA],
 };
 
@@ -649,7 +707,9 @@ const bcbsNmContact: VobContact = {
     'Are ABA-specific telehealth POS codes or modifiers used for Turquoise Care billing?',
     'What is the current Availity/Change Healthcare payer ID for BCBSNM Medicaid claims?',
   ],
-  sources: [BCBSNM_MEDICAID_PRM],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [BCBSNM_MEDICAID_PRM, FANOUT_BCBSNM_PRM],
 };
 
 const presbyterianNmContact: VobContact = {
@@ -663,6 +723,8 @@ const presbyterianNmContact: VobContact = {
     'Is there a published per-code daily unit cap for ABA beyond the state\'s weekly-hour ranges?',
     'Are ABA-specific telehealth POS codes or modifiers used for Presbyterian Turquoise Care billing?',
   ],
+  benefitsByPhone: 'unverified',
+  requiresIndividualNpi: 'unverified',
   sources: [PHS_AUTHORIZATIONS],
 };
 
@@ -677,6 +739,8 @@ const molinaNmContact: VobContact = {
     'Are ABA-specific telehealth POS codes or modifiers used for Molina Turquoise Care billing?',
     'Is there a published per-code daily unit cap, or only the state\'s program-level weekly-hour guidance?',
   ],
+  benefitsByPhone: 'unverified',
+  requiresIndividualNpi: 'unverified',
   sources: [MOLINA_NM_CONTACT],
 };
 
@@ -690,7 +754,9 @@ const uhcCommunityNmContact: VobContact = {
     'Is there a published per-code daily/weekly unit cap for ABA beyond the state\'s program-level hour ranges?',
     'Are ABA-specific telehealth POS codes or modifiers used for UHC Community Plan billing?',
   ],
-  sources: [OPTUM_NM_QRG],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [OPTUM_NM_QRG, FANOUT_QRG_NM_MCD],
 };
 
 const aetnaNmContact: VobContact = {
@@ -703,7 +769,9 @@ const aetnaNmContact: VobContact = {
     'Confirm whether Aetna supports real-time 270/271 eligibility for this plan.',
     'Is a separate BH carve-out vendor involved for this plan, or does Aetna administer ABA in-house?',
   ],
-  sources: [AETNA_ABA_PRECERT_FORM],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [AETNA_ABA_PRECERT_FORM, FANOUT_AET_GLANCE],
 };
 
 const cignaNmContact: VobContact = {
@@ -716,7 +784,9 @@ const cignaNmContact: VobContact = {
     'What are the specific unit caps, POS restrictions, and telehealth modifier requirements for ABA codes under this member\'s plan?',
     'Confirm whether Cigna/Evernorth supports real-time 270/271 eligibility for this plan.',
   ],
-  sources: [CIGNA_AUTISM_GUIDE],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [CIGNA_AUTISM_GUIDE, FANOUT_CIG_AUTISM],
 };
 
 const uhcNmContact: VobContact = {
@@ -727,7 +797,9 @@ const uhcNmContact: VobContact = {
     'Confirm the claims payer ID for this member\'s ABA benefit, and whether it differs from the standard UHC medical ID (87726).',
     'Confirm whether real-time 270/271 eligibility is supported for this plan.',
   ],
-  sources: [OPTUM_ABA_SCC],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [OPTUM_ABA_SCC, FANOUT_OPTUM_NNM_2026],
 };
 
 /* ==================== export ==================== */
@@ -739,7 +811,7 @@ export const newMexicoVob: Record<string, VobExtension> = {
     rates: NM_MEDICAID_RATES,
     stcMap: newMexicoMedicaidStc,
     vobContact: newMexicoMedicaidContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'blue-cross-blue-shield-new-mexico': {
     edi: bcbsNmEdi,
@@ -747,7 +819,7 @@ export const newMexicoVob: Record<string, VobExtension> = {
     rates: nmMcoFloorRates('BCBSNM'),
     stcMap: bcbsNmStc,
     vobContact: bcbsNmContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'presbyterian-health-plan-new-mexico': {
     edi: presbyterianNmEdi,
@@ -755,7 +827,7 @@ export const newMexicoVob: Record<string, VobExtension> = {
     rates: nmMcoFloorRates('Presbyterian Health Plan'),
     stcMap: presbyterianNmStc,
     vobContact: presbyterianNmContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'molina-healthcare-new-mexico': {
     edi: molinaNmEdi,
@@ -763,7 +835,7 @@ export const newMexicoVob: Record<string, VobExtension> = {
     rates: nmMcoFloorRates('Molina Healthcare of New Mexico'),
     stcMap: molinaNmStc,
     vobContact: molinaNmContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'unitedhealthcare-community-plan-new-mexico': {
     edi: uhcCommunityNmEdi,
@@ -771,27 +843,27 @@ export const newMexicoVob: Record<string, VobExtension> = {
     rates: nmMcoFloorRates('UnitedHealthcare Community Plan of New Mexico'),
     stcMap: uhcCommunityNmStc,
     vobContact: uhcCommunityNmContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'aetna-new-mexico': {
     edi: aetnaNmEdi,
     codeGrid: commercialGrid(nmAetnaEntry),
     stcMap: inheritFamilyStc(aetnaFamilyStc, 'Inherited from the Aetna family default (docs/vob-build.md Layer 2) — no New Mexico-specific 270/271 STC document found.'),
     vobContact: aetnaNmContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'cigna-new-mexico': {
     edi: cignaNmEdi,
     codeGrid: cignaCommercialGrid(),
     stcMap: inheritFamilyStc(cignaFamilyStc, 'Inherited from the Cigna/Evernorth family default (docs/vob-build.md Layer 2) — national companion guide, no New Mexico-specific override found.'),
     vobContact: cignaNmContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'unitedhealthcare-new-mexico': {
     edi: uhcNmEdi,
     codeGrid: commercialGrid(() => nmUhcCommercialEntry('Required — Optum two-step (assessment auth, then treatment auth); reviews every 4–6 months')),
     stcMap: inheritFamilyStc(uhcFamilyStc, 'Inherited from the UnitedHealthcare/Optum family default (docs/vob-build.md Layer 2) — national companion guide, no New Mexico-specific override found.'),
     vobContact: uhcNmContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
 };

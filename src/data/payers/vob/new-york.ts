@@ -405,6 +405,23 @@ function highmarkEntry(code: string): CodeGridEntry {
 
 /* ==================== EDI routing per guide ==================== */
 
+/* Prefix / benefits-by-phone / individual-NPI sources (2026-10-14) */
+const FANOUT_OPTUM_NNM_2026: SourceRef = { url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf', accessDate: '2026-10-14', note: 'Optum (United Behavioral Health) National Provider Network Manual, published July 1 2026, effective Sept 1 2026 (BH02330-1-26-MAN_07012026). Read via r.jina.ai using the AEM path .../NNManual.pdf/jcr:content/renditions/original (plain URL returns a download interstitial). Eligibility Inquiry p.35-36: "You can use the Provider Express secure portal to check a member\'s eligibility. You may also inquire about eligibility by calling the phone number on the member\'s ID card." Items to provide: member name, address, ID number, subscriber name and DOB - NPI not listed. No statement on individual vs group NPI for calls.' };
+const FANOUT_PRES_NY_MCD: SourceRef = { url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/nyaba/NYabaPres.pdf', accessDate: '2026-10-14', note: 'NY Medicaid ABA Provider Orientation, Optum with UHC Community Plan: "Verify benefits/eligibility online at providerexpress.com or call the Behavioral Health number located on the back of the member\'s ID card". Lists Optum 1-866-362-3368.' };
+const FANOUT_AET_ELIG_FLYER: SourceRef = { url: 'https://www.aetna.com/document-library/healthcare-professionals/assets/documents/eligibility.pdf', accessDate: '2026-10-14', note: 'Aetna Eligibility and Benefits Inquiry flyer 83.03.870.1 (2/19), still hosted on aetna.com: "When using the member ID number, prefixes or suffixes are unnecessary. For family-level searches, you only need to enter the member ID." Applies to the electronic inquiry; dated 2019.' };
+const FANOUT_AET_GLANCE: SourceRef = { url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/aetna-at-a-glance.pdf', accessDate: '2026-10-14', note: 'Aetna "At a glance" how-to guide for health care professionals, 9011800-01-01 (8/26), Key contacts table: "Provider Contact Center ... Member eligibility and benefits ... 1-800-624-0756 (TTY: 711) for Aetna Medicare Advantage plans and HMO-based plans / 1-888-MDAetna (1-888-632-3862) (TTY: 711) for all other plans". Also: "Behavioral health (provider services) Refer to the member ID card."' };
+const FANOUT_CIG_AUTISM: SourceRef = { url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf', accessDate: '2026-10-14', note: 'Evernorth/Cigna Autism resource guide, March 2025 (PCOMM-2025-225): "It is important to confirm a patient\'s ABA eligibility and benefits before performing an assessment. This information can be confirmed by: ... Calling the Autism Care Coordinator team at 877.279.7603". Provider Services 800.926.2273 "handles questions regarding billing, benefits, and eligibility for autism-related treatment, such as ABA."' };
+const FANOUT_EXCELLUS_FAQ: SourceRef = { url: 'https://provider.excellusbcbs.com/resources/faq', accessDate: '2026-10-14', note: 'Excellus BCBS provider FAQ (all lines, not Medicaid-specific). Quote: \'Call Customer Care at 1-800-920-8889 and press #2 for Eligibility and Benefits.\' Contact page (provider.excellusbcbs.com/contact) also: \'Contact Customer Care for eligibility/benefits and claims inquiries\'.' };
+const FANOUT_ANTHEM_NY_PM: SourceRef = { url: 'https://providers.anthem.com/docs/gpp/NY_ABC_CAID_ProviderManual.pdf', accessDate: '2026-10-14', note: '2026 NY Anthem BCBS Medicaid Provider Manual. Quote: \'you may receive claims status, eligibility verification, and authorization status over the telephone at any time by calling our toll-free, automated Provider Inquiry line at 800-450-8753.\'' };
+const FANOUT_FIDELIS_NY_MANUAL_2026: SourceRef = { url: 'https://www.fideliscare.org/Portals/0/Providers/ProviderManuals/Provider-Manual-Medicaid-English.pdf', accessDate: '2026-10-14', note: 'Fidelis Care (NY) Provider Manual V26.1-6/1/2026. "The provider can verify the member\'s current eligibility by either using the Fidelis Care Provider Access Online ... accessing Availity Essentials or using the Integrated Voice Response (IVR), by calling 1-888-FIDELIS (1-888-343-3547)."' };
+const FANOUT_NY_MEVS: SourceRef = { url: 'https://www.emedny.org/ProviderManuals/5010/MEVS/MEVS_DVS_Provider_Manual_(5010).pdf', accessDate: '2026-10-14', note: 'eMedNY MEVS/DVS Provider Manual (5010), pages dated October 2025. Sec 3.0: "Verification requests for member eligibility may be entered into eMedNY through a touch-tone telephone... dial 1-800-997-1111." Card: "Member ID # must be two alphas, five numeric and one alpha." ARU prompt: "Enter the National Provider Identifier (NPI)" (type not specified).' };
+const FANOUT_MVP_CONTACT: SourceRef = { url: 'https://www.mvphealthcare.com/providers/contact-us', accessDate: '2026-10-14', note: 'MVP provider contact page. Quote: \'contact us for help with authorization status, pharmacy prior authorization, claims (except status checks), or benefit details. ... Call toll-free at 1-800-684-9286 ... Select option 1 for Member eligibility.\'' };
+const FANOUT_MVP_ELIG: SourceRef = { url: 'https://www.mvphealthcare.com/providers/eligibility-and-benefits', accessDate: '2026-10-14', note: 'MVP Eligibility and Benefits provider page. Quote: \'Access Member coverage 24/7 by calling 1-800-684-9286. Have the Servicing Provider\'s NPI, your Organization\'s Tax ID, and the Member\'s MVP ID and Date of Birth ready.\'' };
+const FANOUT_CDPHP_TIP: SourceRef = { url: 'https://www.cdphp.com/-/media/files/providers/tip-sheet-for-specialists.pdf', accessDate: '2026-10-14', note: 'CDPHP Tip Sheet for Specialists (pub. Apr 2024), Member Eligibility: \'Verify eligibility of all patients by checking the members ID card or accessing the CDPHP secure online network, www.cdphp.com. For further assistance, please call the provider services department.\' PS toll-free 1-800-926-7526.' };
+const FANOUT_HF_PM: SourceRef = { url: 'https://assets.healthfirst.org/pdf_9432a72611d0176a1f6a5503a1d88d94', accessDate: '2026-10-14', note: 'Healthfirst New York Provider Manual, updated 10/1/2026, sec. 4.3 Eligibility Verification. Quote: \'Providers may call Provider Services at 1 (888) 801-1660 to verify member eligibility among other inquiries.\'' };
+const FANOUT_METROPLUS_PM: SourceRef = { url: 'https://metroplus.org/wp-content/uploads/2024/08/PRV-24.075_MPH_2024-Provider-Manual_FINAL_081224.pdf', accessDate: '2026-10-14', note: 'MetroPlusHealth 2024 Provider Manual (updated July 2024; newest full manual found). Quote: \'Eligibility can be verified via the IVR system by calling 800.303.9626 and following the prompts or by visiting the MetroPlusHealth website at metroplus.org.\'' };
+const FANOUT_EMBLEM_FAQ: SourceRef = { url: 'https://www.emblemhealth.com/providers/resources/provider-faq', accessDate: '2026-10-14', note: 'EmblemHealth provider FAQ / eligibility chart (current site). Quote: \'Have your TIN ready before calling the IVR system.\' ... \'Speak to a representative or call the IVR phone system at 866-447-9717.\' Medicaid: \'Providers with eMedNY access may use ePACES to check the enrollment of their Medicaid members\'.' };
+
 const excellusEdi: EdiRouting = {
   payerId: { pverify: '00465', availity: 'unverified', changeHealthcare: 'unverified' },
   supports270271: true,
@@ -415,6 +432,7 @@ const excellusEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'unverified',
@@ -422,12 +440,14 @@ const excellusEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify':
       "Listed as \"BCBS of New York (Excellus)\" (00465, Elig/Claim: Yes) — pVerify also separately lists regional sub-brand entries with no Medicaid designation on any of them: BCBS of Central New York (00330), Univera (00451), BCBS of the Rochester Area (00308), BCBS of Utica-Watertown (00309). No Medicaid-specific Excellus line item exists in this list — confirm which code routes Medicaid Managed Care eligibility checks before automating.",
     'payerId.availity': 'No Excellus/BCBS-New York entry of any kind found in the fetched Availity payer list — confirm directly with Availity onboarding.',
     supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding for this payer ID.',
+    memberIdPrefix: 'Excellus Medicaid ID card guide / provider manual',
   },
   sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, EXCELLUS_PA_PAGE, EMEDNY_MC_DIRECTORY, src('https://provider.excellusbcbs.com/authorizations/sds-portal', 'Excellus provider portal — SDS authorization portal; BH Care Management runs through Excellus directly, not a named UM vendor.')],
 };
@@ -442,6 +462,7 @@ const mvpEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'inferred',
     'payerId.availity': 'verified',
@@ -449,6 +470,7 @@ const mvpEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify':
@@ -456,6 +478,7 @@ const mvpEdi: EdiRouting = {
     'payerId.availity':
       "Verified independent of the (stale, 2012-dated) Availity PDF: MVP's own 2025 Provider Policies document states directly \"EDI submissions use Payee ID 14165,\" which the Availity list also carries as \"14165 MVP HEALTH PLAN.\"",
     supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding for this payer ID.',
+    memberIdPrefix: 'Sample card (11/2020) shows numeric ID + 2-digit suffix, no alpha prefix',
   },
   sources: [
     PVERIFY_PAYER_LIST,
@@ -477,6 +500,7 @@ const cdphpEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'unverified',
     'payerId.availity': 'unverified',
@@ -484,12 +508,14 @@ const cdphpEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify':
       "pVerify lists TWO unresolved candidates for CDPHP: \"00328 Capital District Physicians Health Plan (CDPHP)\" and \"002466 CDPHP(Capital District Physicians Health Plan)\" — both generic (Elig: Yes, Claim: No on both), neither labeled Medicaid vs. commercial. Confirm which code applies to Medicaid Managed Care specifically via pVerify onboarding before automating.",
     'payerId.availity': 'No CDPHP entry of any kind found in the fetched Availity payer list — confirm directly with Availity onboarding.',
     supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding for this payer ID.',
+    memberIdPrefix: 'CDPHP POAM (secure provider site) member ID section',
   },
   sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, CDPHP_POAM_5],
 };
@@ -505,6 +531,7 @@ const independentHealthEdi: EdiRouting = {
     abaRidesOn: 'unverified',
     twoHopRequired: 'unverified',
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'unverified',
@@ -515,6 +542,7 @@ const independentHealthEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'unverified',
     'bhCarveOut.abaRidesOn': 'unverified',
     'bhCarveOut.twoHopRequired': 'unverified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.availity': 'No Independent Health entry of any kind found in the fetched Availity payer list — confirm directly with Availity onboarding.',
@@ -523,6 +551,7 @@ const independentHealthEdi: EdiRouting = {
       'Confirm with Independent Health Provider Services (716-250-7183 / 1-833-891-9372) whether ABA authorizations/claims route to Carelon\'s EDI hop (BHOVO/similar) or bill directly to Independent Health\'s own payer ID (00436) before assuming either.',
     'bhCarveOut.abaRidesOn': 'Same as administratorPayerId.',
     'bhCarveOut.twoHopRequired': 'Same as administratorPayerId.',
+    memberIdPrefix: 'Independent Health provider reference manual (not public/located)',
   },
   sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, IH_BH_STATE_PRODUCTS, IH_MEDISOURCE_HANDBOOK],
 };
@@ -538,6 +567,7 @@ const highmarkWnyEdi: EdiRouting = {
     abaRidesOn: 'unverified',
     twoHopRequired: 'unverified',
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'unverified',
@@ -548,6 +578,7 @@ const highmarkWnyEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'unverified',
     'bhCarveOut.abaRidesOn': 'unverified',
     'bhCarveOut.twoHopRequired': 'unverified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify':
@@ -558,6 +589,7 @@ const highmarkWnyEdi: EdiRouting = {
       'Contact WNYBehavioralHealthTeam@wellpoint.com or Highmark WNY Provider Services to confirm whether Wellpoint or Carelon adjudicates ABA specifically, and get that entity\'s own EDI payer ID before routing.',
     'bhCarveOut.abaRidesOn': 'Same as administratorPayerId.',
     'bhCarveOut.twoHopRequired': 'Same as administratorPayerId.',
+    memberIdPrefix: 'Highmark WNY Medicaid provider manual (not located)',
   },
   sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, HIGHMARK_PROVIDER_MANUAL, EMEDNY_ABA_POLICY],
 };
@@ -572,6 +604,7 @@ const aetnaNyEdi: EdiRouting = {
     abaRidesOn: 'unverified',
     twoHopRequired: 'unverified',
   },
+  memberIdPrefix: 'not-used',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'inferred',
@@ -579,6 +612,7 @@ const aetnaNyEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'unverified',
+    memberIdPrefix: 'verified',
   },
   verifyVia: {
     'payerId.availity':
@@ -586,8 +620,9 @@ const aetnaNyEdi: EdiRouting = {
     supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding for this payer ID.',
     'bhCarveOut.administrator':
       'No NY-specific Aetna document names a BH carve-out administrator (matching this corpus\'s Georgia finding for the same payer) — confirm via Aetna provider services or the ABA precertification form (GR-69017-4) whether Aetna administers ABA in-house or via a separate behavioral-health carve-out for New York.',
+    memberIdPrefix: 'Aetna eligibility flyer: "When using the member ID number, prefixes or suffixes are unnecessary." Enter the member ID without the card prefix.',
   },
-  sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST],
+  sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, FANOUT_AET_ELIG_FLYER],
 };
 
 const cignaNyEdi: EdiRouting = {
@@ -600,6 +635,7 @@ const cignaNyEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'inferred',
@@ -610,6 +646,7 @@ const cignaNyEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'verified',
     'bhCarveOut.abaRidesOn': 'verified',
     'bhCarveOut.twoHopRequired': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.availity':
@@ -617,6 +654,7 @@ const cignaNyEdi: EdiRouting = {
     supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding for this payer ID.',
     'bhCarveOut.administratorPayerId':
       "The Availity payer list ALSO separately lists a distinct \"Cigna Behavioral Health\" line item (codes 2331/CIGNABHVL2/MCCBV and admin aliases F02331/F12345/FMCCBV) — not used here because Cigna's own Autism Resource Guide states verbatim to use 62308 for ABA/autism claims; flagging the alternate entry in case a given clearinghouse routes ABA through it instead.",
+    memberIdPrefix: 'Cigna ID card quick guide (CIG_IDCARD) shows member ID + two-digit suffix, no alpha prefix, but gives no entry rule; confirm with Cigna 800.882.4462 or a test 270.',
   },
   sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, CIGNA_AUTISM_RESOURCE_GUIDE],
 };
@@ -631,6 +669,7 @@ const uhcNyEdi: EdiRouting = {
     abaRidesOn: 'unverified',
     twoHopRequired: 'unverified',
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'inferred',
@@ -641,6 +680,7 @@ const uhcNyEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'verified',
     'bhCarveOut.abaRidesOn': 'unverified',
     'bhCarveOut.twoHopRequired': 'unverified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.availity':
@@ -649,6 +689,7 @@ const uhcNyEdi: EdiRouting = {
     'bhCarveOut.abaRidesOn':
       "pVerify lists a distinct \"UHG007 United Healthcare - Optum Behavioral Solutions\" line (Elig/Claim: Yes) separate from UHC's own 87726/00192 — resolving this corpus's prior Georgia-guide ambiguity on the carve-out's own payer ID, but whether ABA specifically rides that hop vs. UHC's medical ID for NY commercial members is still unconfirmed. Verify via Provider Express / UHC provider services.",
     'bhCarveOut.twoHopRequired': 'Same as abaRidesOn.',
+    memberIdPrefix: 'No UHC/Optum source addresses an alpha prefix (2026 Admin Guide ID-card legend, 270/271 companion guide, pVerify list all silent). Confirm with a real card plus a pVerify run, or ask UHC Provider Services.',
   },
   sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, OPTUM_SCC],
 };
@@ -879,6 +920,7 @@ const newYorkMedicaidEdi: EdiRouting = {
     eligibilitySpanGranularity:
       "Query granularity is by date-of-service, constrained to the CURRENT calendar month only — no future-month requests, no date-range requests (\"if a range is submitted, eligibility determination will be based upon the 'from' date\"). Underlying coverage determinations are month-based per the MEVS/DVS Provider Manual (\"PLAN DATE IS...the first day of the month eligibility information was requested\"). The 271's EB06 Time Period Qualifier carries codes 26/27/29/34 for benefit-amount date ranges, but this companion guide doesn't define those codes in prose.",
   },
+  memberIdPrefix: 'not-used',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'unverified',
@@ -889,6 +931,7 @@ const newYorkMedicaidEdi: EdiRouting = {
     'medicaid271Notes.mcoSegmentLocation': 'verified',
     'medicaid271Notes.mcoCarrierCodes': 'unverified',
     'medicaid271Notes.eligibilitySpanGranularity': 'inferred',
+    memberIdPrefix: 'verified',
   },
   verifyVia: {
     'payerId.availity':
@@ -899,8 +942,9 @@ const newYorkMedicaidEdi: EdiRouting = {
       "No numeric carrier-code-to-MCO-name table exists in the companion guide or the MEVS/DVS Provider Manual — the 271 returns the MCO's name as free text (NM103) rather than a coded lookup. If a crosswalk exists, it would be in the separate \"Information for All Providers – Managed Care Information\" manual (not fetched this pass) — verify there or via the eMedNY EDI helpdesk.",
     'medicaid271Notes.eligibilitySpanGranularity':
       "The companion guide's EB06 Time Period Qualifier codes (26/27/29/34) aren't defined in prose in this document — confirm exact meaning against the X12 005010X279 TR3 codebook or eMedNY EDI helpdesk.",
+    memberIdPrefix: 'eMedNY MEVS manual: the Medicaid member ID is two letters, five digits and one letter, with no separate alpha prefix to add.',
   },
-  sources: [EMEDNY_COMPANION_GUIDE, EMEDNY_MEVS_DVS_MANUAL, PVERIFY_PAYER_LIST_A],
+  sources: [EMEDNY_COMPANION_GUIDE, EMEDNY_MEVS_DVS_MANUAL, PVERIFY_PAYER_LIST_A, FANOUT_NY_MEVS],
 };
 
 function nyMedicaidFfsEntry(
@@ -1026,6 +1070,7 @@ const fidelisEdi: EdiRouting = {
   supports270271: true,
   supportsRealtime: 'unverified',
   bhCarveOut: { administrator: 'unverified', administratorPayerId: 'unverified', abaRidesOn: 'unverified', twoHopRequired: 'unverified' },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'verified',
@@ -1033,11 +1078,13 @@ const fidelisEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'unverified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding for this payer ID.',
     'bhCarveOut.administrator':
       "Not researched to a primary source this pass (out of the confirmed-delegator scope in the build spec, which named only Healthfirst/EmblemHealth/MetroPlus) — confirm via Fidelis provider services whether ABA/BH claims route on Fidelis's own medical ID (11315) or a separate Centene-affiliated BH vendor.",
+    memberIdPrefix: 'Sample member ID card in the Fidelis Care NY provider manual, or ask Fidelis Care NY Provider Services whether any alpha prefix is keyed; no source states it',
   },
   sources: [PVERIFY_PAYER_LIST_A, AVAILITY_PAYER_LIST_A, OPTUM_INSTITUTIONAL_PAYER_LIST],
 };
@@ -1098,6 +1145,7 @@ const uhcCommunityPlanEdi: EdiRouting = {
     abaRidesOn: 'bh',
     twoHopRequired: 'unverified',
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'unverified',
     'payerId.availity': 'unverified',
@@ -1108,6 +1156,7 @@ const uhcCommunityPlanEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'unverified',
     'bhCarveOut.abaRidesOn': 'verified',
     'bhCarveOut.twoHopRequired': 'unverified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': 'No NY-specific UHC Community Plan entry found in pVerify\'s list — only generic/other-state rows (00192, UHG001). Confirm directly with pVerify onboarding before automating.',
@@ -1118,6 +1167,7 @@ const uhcCommunityPlanEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId':
       "Optum's own payer lists show OptumHealth Behavioral Solutions (the BH product) using the SAME national ID (87726) as UHC's general medical claims — no NY-specific separate BH ID was found. Given the medical-claims ID conflict above (NYU01 vs. 87726), it's unresolved whether ABA/BH claims for this specific plan use NYU01 or 87726. Confirm via Provider Express / UHC provider services.",
     'bhCarveOut.twoHopRequired': 'Same open question as administratorPayerId — confirm via Provider Express.',
+    memberIdPrefix: 'No UHC/Optum source addresses an alpha prefix (2026 Admin Guide ID-card legend, 270/271 companion guide, pVerify list all silent). Confirm with a real card plus a pVerify run, or ask UHC Provider Services.',
   },
   sources: [PVERIFY_PAYER_LIST_A, AVAILITY_PAYER_LIST_A, UHC_ERA_PAYER_LIST, UHC_CLAIMS_PAYER_LIST, OPTUM_INSTITUTIONAL_PAYER_LIST, OPTUM_NY_ABA_ORIENTATION],
 };
@@ -1192,6 +1242,7 @@ const anthemHealthPlusEdi: EdiRouting = {
   supports270271: true,
   supportsRealtime: 'unverified',
   bhCarveOut: { administrator: 'unverified', administratorPayerId: 'unverified', abaRidesOn: 'unverified', twoHopRequired: 'unverified' },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'unverified',
     'payerId.availity': 'verified',
@@ -1199,6 +1250,7 @@ const anthemHealthPlusEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'unverified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify':
@@ -1206,6 +1258,7 @@ const anthemHealthPlusEdi: EdiRouting = {
     supportsRealtime: 'Confirm real-time vs. batch via Availity onboarding for these payer IDs.',
     'bhCarveOut.administrator':
       "Anthem's own 245-page NY Medicaid Provider Manual is internally ambiguous: its Behavioral Health chapter uses in-house program language throughout (\"The Anthem Behavioral Health program\"), and its quick-reference table lists an identical phone number for BH precertification and physical-health precertification (800-450-8753) — both suggesting in-house administration. But a separate \"additional digital applications\" listing in the same manual names \"Services through Carelon Behavioral Health\" as an available Availity Essentials app, without specifying which line(s) of business it covers. The manual's own ASD-specific section (under CHPlus) names no administrator and requires no PA. Confirm directly with Anthem provider services before building this as either a carve-out or a non-carve-out fact.",
+    memberIdPrefix: 'Manual has no prefix statement; check ID card / Availity',
   },
   sources: [PVERIFY_PAYER_LIST_A, ANTHEM_NY_MEDICAID_PROVIDER_MANUAL, OPTUM_INSTITUTIONAL_PAYER_LIST],
 };
@@ -1270,6 +1323,7 @@ const healthfirstEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'verified',
@@ -1277,11 +1331,13 @@ const healthfirstEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding for this payer ID.',
     'bhCarveOut.administrator':
       "This CORRECTS the build spec's assumption that Healthfirst delegates BH — Healthfirst's own 3/1/2026 NY Provider Manual states verbatim \"Healthfirst manages the Behavioral Health services for all of its members,\" with zero \"Beacon\"/\"Carelon\" hits across 196 pages. One caveat: the same manual elsewhere references \"the delegated Behavioral Health Care management organization,\" but the chart it points to names no vendor — likely vestigial language. If a future policy update contradicts this, re-verify via Healthfirst Provider Services (1-888-801-1660).",
+    memberIdPrefix: 'Healthfirst sample ID cards at healthfirst.org',
   },
   sources: [PVERIFY_PAYER_LIST_A, AVAILITY_PAYER_LIST_A, OPTUM_INSTITUTIONAL_PAYER_LIST, HEALTHFIRST_PROVIDER_MANUAL],
 };
@@ -1348,6 +1404,7 @@ const metroplusEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'verified',
@@ -1355,11 +1412,13 @@ const metroplusEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding for this payer ID.',
     'bhCarveOut.administrator':
       "This CORRECTS the build spec's assumption that MetroPlus delegates BH — MetroPlus's own press release confirms it in-sourced BH from Beacon Health Options effective 10/1/2021 (\"Participating behavioral health providers now work directly with MetroPlusHealth\"), corroborated by zero Beacon/Carelon hits across its 2025 Provider Manual and 2026 BH/HCBS PA grid.",
+    memberIdPrefix: 'MetroPlus provider manual ID card section',
   },
   sources: [PVERIFY_PAYER_LIST_A, AVAILITY_PAYER_LIST_A, METROPLUS_MANUAL_2025],
 };
@@ -1429,6 +1488,7 @@ const emblemhealthEdi: EdiRouting = {
     abaRidesOn: 'unverified',
     twoHopRequired: 'unverified',
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'unverified',
     'payerId.availity': 'unverified',
@@ -1438,6 +1498,7 @@ const emblemhealthEdi: EdiRouting = {
     'bhCarveOut.administrator': 'verified',
     'bhCarveOut.administratorPayerId': 'unverified',
     'bhCarveOut.abaRidesOn': 'unverified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify':
@@ -1451,6 +1512,7 @@ const emblemhealthEdi: EdiRouting = {
     'bhCarveOut.abaRidesOn':
       "Carelon IS confirmed as EmblemHealth's BH administrator generally, INCLUDING for Medicaid/HARP (\"covered behavioral health benefits are managed by Carelon Behavioral Health\") — but NO EmblemHealth document specifically states ABA claims route through Carelon. The ABA benefit page names no administrator and enumerates no CPT codes at all; EmblemHealth's two master pre-authorization lists (610 + 226 pages, both read in full) contain zero ABA/CPT-97xxx hits, which is consistent with — but not proof of — Carelon routing. Confirm directly.",
     'bhCarveOut.twoHopRequired': 'Same open question as abaRidesOn — confirm directly with EmblemHealth or Carelon provider services.',
+    memberIdPrefix: 'Emblem IDs are 11-digit K-IDs (the K is part of the ID, not a prefix to add); confirm Medicaid card format',
   },
   sources: [PVERIFY_PAYER_LIST_A, AVAILITY_PAYER_LIST_A, OPTUM_INSTITUTIONAL_PAYER_LIST, EMBLEM_BH_MANUAL, EMBLEM_CARELON_RENAME],
 };
@@ -1516,6 +1578,7 @@ const molinaEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'unverified',
     'payerId.availity': 'verified',
@@ -1523,6 +1586,7 @@ const molinaEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify':
@@ -1532,6 +1596,7 @@ const molinaEdi: EdiRouting = {
     'payerId.changeHealthcare':
       'Confirmed via a strong primary source (Molina\'s own Provider Quick Reference Guide: "Clearinghouse: SSI/Claimsnet — Payer ID 16146") and cross-listed in Optum\'s own Institutional Claims Payer List — but Molina\'s own document names its designated clearinghouse as "SSI/Claimsnet," not explicitly Optum/Change Healthcare, so the cross-listing may reflect interoperability rather than Optum being the primary designated gateway. Verify directly.',
     supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding.',
+    memberIdPrefix: 'Sample member ID card in the Molina NY provider manual, or ask Molina NY Provider Services whether any alpha prefix is keyed; no source states it',
   },
   sources: [PVERIFY_PAYER_LIST_A, AVAILITY_PAYER_LIST_A, MOLINA_BEACON_TRANSITION_LETTER],
 };
@@ -1618,6 +1683,8 @@ const excellusContact: VobContact = {
   ivrPath: 'Press #2 for Eligibility and Benefits (same number listed as "Medical Provider Customer Care" on the Provider FAQ page and as general Customer Care on the Contact Us page).',
   hours: 'Mon-Thu 8:00 a.m.-5:00 p.m. ET; Fri 9:00 a.m.-5:00 p.m. ET (closed 12:00-1:00 p.m. ET weekdays)',
   portal: { name: 'Excellus Provider Website', url: 'https://provider.excellusbcbs.com' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'Which Excellus BCBS payer ID (00465 vs. the regional sub-brand codes) should we use for ABA eligibility checks, and does Excellus support real-time 270/271 responses?',
     'Is ABA subject to a hard per-code prior authorization, or just a general medical-necessity review "when applicable"?',
@@ -1629,6 +1696,7 @@ const excellusContact: VobContact = {
   sources: [
     src('https://provider.excellusbcbs.com/resources/faq', 'Excellus Provider FAQ page, re-fetched this pass — confirms "Medical Provider Customer Care" at 1-800-920-8889, press #2 for Eligibility and Benefits.'),
     src('https://provider.excellusbcbs.com/contact', 'Excellus Provider Contact Us page, re-fetched this pass — confirms the same 1-800-920-8889 number as general Customer Care, with hours Mon-Thu 8-5 ET / Fri 9-5 ET (closed noon-1 weekdays).'),
+    FANOUT_EXCELLUS_FAQ,
   ],
 };
 
@@ -1637,6 +1705,8 @@ const mvpContact: VobContact = {
   ivrPath: 'TTY 711. Select option 1 for member eligibility, or option 3 then option 1 for claims status.',
   hours: 'Mon-Fri 8:30 a.m.-5:00 p.m. ET',
   portal: { name: 'Availity Essentials', url: 'https://essentials.availity.com' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: true,
   scriptedQuestions: [
     "What's the daily/annual unit cap for MVP's ABA codes (97151-97158), and what's the cap period?",
     'Is ABA telehealth currently reimbursable under MVP, given the payment policy cites an expired CMS waiver (3/31/2025) — and if so, what POS/modifier applies?',
@@ -1645,7 +1715,7 @@ const mvpContact: VobContact = {
     'Which STC bucket (MH/A4/A6/etc.) does MVP return ABA benefits under on a 270/271 check?',
     'Which pVerify payer ID should be used for Medicaid Managed Care eligibility checks — is 00156 CHP-specific, or is there a separate general MMC ID?',
   ],
-  sources: [src('https://www.mvphealthcare.com/providers/contact-us', "MVP Provider Contact Us page, fetched this pass — confirms main provider line 1-800-684-9286 (TTY 711), Mon-Fri 8:30 a.m.-5 p.m. ET, option 1 for eligibility, option 3-then-1 for claims status, and Availity Essentials as MVP's EDI/authorization portal.")],
+  sources: [src('https://www.mvphealthcare.com/providers/contact-us', "MVP Provider Contact Us page, fetched this pass — confirms main provider line 1-800-684-9286 (TTY 711), Mon-Fri 8:30 a.m.-5 p.m. ET, option 1 for eligibility, option 3-then-1 for claims status, and Availity Essentials as MVP's EDI/authorization portal."), FANOUT_MVP_CONTACT, FANOUT_MVP_ELIG],
 };
 
 const cdphpContact: VobContact = {
@@ -1653,6 +1723,8 @@ const cdphpContact: VobContact = {
   ivrPath: 'Behavioral Health Access Center (also reachable locally at 518-641-3600).',
   hours: 'Mon-Fri 8:00 a.m.-6:00 p.m. ET',
   portal: { name: 'CDPHP Secure Provider Site', url: 'https://provider.cdphp.com' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'Does ABA require prior authorization via the Behavioral Health Access Center, and if so what documentation is needed?',
     "What are the per-code unit/hour caps and cap periods for 97151-97158, given CDPHP states \"not subject to a maximum benefit\" but defers specifics to the secure portal?",
@@ -1665,6 +1737,7 @@ const cdphpContact: VobContact = {
   sources: [
     src('https://www.cdphp.com/customer-support/call-cdphp/providers', 'CDPHP Provider Customer Support page, fetched this pass — confirms the Behavioral Health Access Center at 1-888-320-9584, Mon-Fri 8 a.m.-6 p.m.'),
     src('https://www.cdphp.com/providers', "CDPHP Providers landing page, fetched this pass — confirms the \"Secure Provider Site\" at provider.cdphp.com for claims status, patient eligibility, and related lookups."),
+    FANOUT_CDPHP_TIP,
   ],
 };
 
@@ -1672,6 +1745,8 @@ const independentHealthContact: VobContact = {
   providerServicesPhone: '1-855-481-7038',
   ivrPath: 'Listed as "Authorizations, Referrals or Clinical Matters" (Provider Relations/Contracting uses a separate line, 1-844-265-7592).',
   portal: { name: 'Independent Health (myIH)', url: 'https://www.myih.com' },
+  benefitsByPhone: 'unverified',
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     "Does ABA route through Carelon Behavioral Health or bill directly to Independent Health's own payer ID (00436) — what payer ID should we use for eligibility/claims?",
     'Is prior authorization required for ABA codes, and if so what is the process?',
@@ -1694,6 +1769,8 @@ const highmarkContact: VobContact = {
   fax: '1-800-964-3627',
   ivrPath: 'TTY 711. General line for provider questions, claims issues, behavioral health inquiries, and prior authorization requests.',
   portal: { name: 'Availity Essentials', url: 'https://apps.availity.com' },
+  benefitsByPhone: 'unverified',
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     "Does ABA authorization/claims route through Wellpoint Partnership Plan or Carelon Behavioral Health — which entity's payer ID should we use?",
     'Is the 2020/2022 telehealth bulletin (POS 02, modifier 95 or GT for 97151/97153/97155-97157) still current, and does telehealth apply to 97152, 97154, 97158, 0362T, or 0373T?',
@@ -1713,6 +1790,8 @@ const aetnaNyContact: VobContact = {
   providerServicesPhone: '1-888-632-3862',
   ivrPath: 'Non-Medicare (commercial) provider line — select the precertification prompt for ABA precert (form GR-69017-4).',
   portal: { name: 'Availity Essentials', url: 'https://www.availity.com' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'Does Aetna administer ABA/behavioral health in-house, or through a separate BH carve-out vendor — and if a carve-out, what is the payer ID?',
     'What per-code daily/unit caps apply to 97151-97158, 0362T, and 0373T?',
@@ -1724,12 +1803,15 @@ const aetnaNyContact: VobContact = {
   ],
   sources: [
     src('https://www.aetna.com/about-us/contact-aetna.html', 'Aetna Contact Us page, fetched this pass — confirms non-Medicare provider/precertification line 1-888-632-3862 (select precertification prompt); behavioral-health-specific lines route by the member ID card rather than a single published number.'),
+    FANOUT_AET_GLANCE,
   ],
 };
 
 const cignaNyContact: VobContact = {
   providerServicesPhone: '1-800-926-2273',
   ivrPath: 'Select prompt #5 for providers, then choose from claims, eligibility, authorization, online services, or personal updates.',
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     "Does ABA route through Evernorth/Cigna Behavioral Health at payer ID 62308, or the separate \"Cigna Behavioral Health\" clearinghouse entry — does that affect eligibility routing?",
     'Is the ABA cost share a copay or coinsurance for this specific plan (the family default is plan-dependent)?',
@@ -1744,6 +1826,7 @@ const cignaNyContact: VobContact = {
       'https://static.evernorth.com/assets/evernorth/provider/resourceLibrary/behavioralResources/doingBusinessWithUs/cbhProviderServiceCenter.html',
       'Evernorth Behavioral Health Provider Service Center page, fetched this pass — confirms 1.800.926.2273, select prompt #5 for providers, then choose among claims/eligibility/authorization/online services/personal updates; Provider Advocates staffed from Evernorth\'s National Care Center (Bloomington, MN). No portal URL or hours published on this page.'
     ),
+    FANOUT_CIG_AUTISM,
   ],
 };
 
@@ -1751,6 +1834,8 @@ const uhcNyContact: VobContact = {
   providerServicesPhone: '877-842-3210',
   ivrPath: 'General commercial provider services line. For behavioral health/substance-use benefits specifically, call Optum Behavioral Health at 877-614-0484 (24/7).',
   portal: { name: 'UHCprovider.com', url: 'https://www.uhcprovider.com' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     "Does ABA ride on UHC's medical payer ID (87726) or the Optum Behavioral Health carve-out (UHG007) for eligibility/claims routing — is a two-hop check required?",
     'Are the national Optum unit caps (e.g., 32 units/day for 97151/97153) and modifiers (HN/HO/HP) confirmed for New York specifically, or is there a state override?',
@@ -1762,6 +1847,7 @@ const uhcNyContact: VobContact = {
   ],
   sources: [
     src('https://www.uhcprovider.com/en/contact-us.html', 'UHCprovider.com Contact Us page, fetched this pass — "Frequently requested contacts" section confirms 877-842-3210 for general commercial provider services and 877-614-0484 for 24/7 Optum Behavioral Health/substance-use support.'),
+    FANOUT_OPTUM_NNM_2026,
   ],
 };
 
@@ -1771,6 +1857,8 @@ const newYorkMedicaidContact: VobContact = {
   hours:
     'Non-pharmacy billing, claims, provider enrollment: Mon-Fri 7:30 a.m.-6:00 p.m. ET (excl. holidays). Eligibility, POS, DVS, pharmacy claims: Mon-Fri 7:00 a.m.-10:00 p.m. ET (excl. holidays), 8:30 a.m.-5:30 p.m. ET holidays/weekends.',
   portal: { name: 'ePACES', url: 'https://epaces.emedny.org' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'Are CPT codes 0362T, 0373T, or 99366 billable under NY Medicaid FFS — they are absent from the published fee schedule and policy manual?',
     'Is ABA service delivery itself (not just LBA supervision) billable via telehealth under FFS Medicaid, and if so what code/modifier applies?',
@@ -1783,6 +1871,7 @@ const newYorkMedicaidContact: VobContact = {
   sources: [
     src('https://www.emedny.org/contacts/emedny.aspx', 'eMedNY Contacts page, fetched this pass — confirms Call Center 1-800-343-9000 with the two-tier hours above (health.ny.gov itself 403s automated fetches, per docs/vob-gaps.md; eMedNY.org was fetchable directly).'),
     src('https://www.emedny.org/', 'eMedNY homepage, fetched this pass — confirms ePACES (epaces.emedny.org) as the provider self-service portal for electronic transactions, alongside eXchange and the Provider Enrollment/PSP portals.'),
+    FANOUT_NY_MEVS,
   ],
 };
 
@@ -1790,6 +1879,8 @@ const fidelisContact: VobContact = {
   providerServicesPhone: '1-888-343-3547',
   ivrPath: '1-888-FIDELIS. TTY 711.',
   portal: { name: 'Fidelis Care Provider Portal', url: 'https://providers.fideliscare.org' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     "Does ABA/BH claims routing use Fidelis's own medical payer ID (11315), or a separate Centene-affiliated behavioral-health vendor?",
     'Is there an enforceable hourly ceiling for Comprehensive (30-40 hrs/wk) vs. Focused (10-25 hrs/wk) ABA, or is intensity purely individualized?',
@@ -1799,13 +1890,15 @@ const fidelisContact: VobContact = {
     "Which STC bucket does Fidelis's 271 response return ABA benefit detail under, and is the cost share a copay or coinsurance?",
     'Is the ABA copay/coinsurance charged per-visit or per-day, and does the deductible apply?',
   ],
-  sources: [src('https://www.fideliscare.org/Provider/Contact-Provider-Relations', 'Fidelis Care Contact Provider Relations page, fetched this pass — confirms 1-888-FIDELIS (1-888-343-3547), TTY 711, and the providers.fideliscare.org provider portal; no dedicated ABA fax or published hours found on this page.')],
+  sources: [src('https://www.fideliscare.org/Provider/Contact-Provider-Relations', 'Fidelis Care Contact Provider Relations page, fetched this pass — confirms 1-888-FIDELIS (1-888-343-3547), TTY 711, and the providers.fideliscare.org provider portal; no dedicated ABA fax or published hours found on this page.'), FANOUT_FIDELIS_NY_MANUAL_2026],
 };
 
 const uhcCommunityPlanContact: VobContact = {
   providerServicesPhone: '866-362-3368',
   ivrPath: '24/7 chat available via the provider portal; behavioral health providers are separately directed to enroll/verify through Provider Express (providerexpress.com) for Community Plan Behavioral Health.',
   portal: { name: 'UnitedHealthcare Provider Portal', url: 'https://secure.uhcprovider.com' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     "What is the correct clearinghouse payer ID for UnitedHealthcare Community Plan of NY eligibility checks — UHC's own documents conflict (NYU01 vs. 87726)?",
     'Does ABA/BH claims routing use United Behavioral Health of NY (Optum BH) with a payer ID separate from the medical ID, and is a two-hop eligibility check required?',
@@ -1820,6 +1913,7 @@ const uhcCommunityPlanContact: VobContact = {
       'https://www.uhcprovider.com/en/health-plans-by-state/new-york-health-plans/ny-comm-plan-home.html',
       'UnitedHealthcare Community Plan of New York provider page, fetched this pass — confirms 866-362-3368 and 24/7 chat via the provider portal (secure.uhcprovider.com); behavioral health routes to Community Plan Behavioral Health via Provider Express enrollment, with no separate BH phone published on this page.'
     ),
+    FANOUT_PRES_NY_MCD,
   ],
 };
 
@@ -1828,6 +1922,8 @@ const anthemHealthPlusContact: VobContact = {
   fax: '800-964-3627',
   hours: 'Mon-Fri 9:00 a.m.-5:00 p.m.',
   portal: { name: 'Availity Essentials', url: 'https://apps.availity.com' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'Are CPT codes 0362T and 0373T covered under Medicaid — the 2023 FAQ says no, but the 2026 provider-newsletter and treatment-plan-form materials suggest otherwise?',
     'Does Anthem/Elevance administer ABA/BH in-house, or route through Carelon Behavioral Health — what payer ID applies?',
@@ -1837,13 +1933,15 @@ const anthemHealthPlusContact: VobContact = {
     'Which pVerify payer ID applies specifically to Anthem HealthPlus (Empire BCBS HealthPlus), given three ambiguous candidate entries?',
     "Which STC bucket does Anthem return ABA benefit detail under, and does the plan's deductible apply to ABA?",
   ],
-  sources: [src('https://providers.anthem.com/new-york-provider/contact-us', 'Anthem New York Provider Contact Us page, fetched this pass — confirms Anthem Provider Services 800-450-8753, fax 800-964-3627, hours Mon-Fri 9 a.m.-5 p.m., and Availity Essentials as the 24/7 portal for claims/prior authorization.')],
+  sources: [src('https://providers.anthem.com/new-york-provider/contact-us', 'Anthem New York Provider Contact Us page, fetched this pass — confirms Anthem Provider Services 800-450-8753, fax 800-964-3627, hours Mon-Fri 9 a.m.-5 p.m., and Availity Essentials as the 24/7 portal for claims/prior authorization.'), FANOUT_ANTHEM_NY_PM],
 };
 
 const healthfirstContact: VobContact = {
   providerServicesPhone: '1-888-801-1660',
   hours: 'Mon-Fri 8:30 a.m.-5:30 p.m.',
   portal: { name: 'Healthfirst for Providers (Availity Essentials for authorization submission)', url: 'https://hfproviders.org' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'What does the updated ABA authorization policy (effective 10/7/2026, announced 7/7/2026) actually change — can the full text be sent in advance?',
     "Are CPT codes 0362T and 0373T covered — they don't appear on the 2026 Prior Authorization Code List?",
@@ -1858,6 +1956,7 @@ const healthfirstContact: VobContact = {
       'https://hfproviders.org/resource-posts/prior-auth-through-availity',
       'Healthfirst for Providers page, fetched this pass — confirms Provider Services 1-888-801-1660, Mon-Fri 8:30 a.m.-5:30 p.m., and Availity Essentials as the required channel for authorization/referral submission (the legacy hfproviderportal.org Online Authorization Tool retired 5/15/2025).'
     ),
+    FANOUT_HF_PM,
   ],
 };
 
@@ -1865,6 +1964,8 @@ const metroplusContact: VobContact = {
   providerServicesPhone: '1-800-303-9626',
   hours: 'Mon-Fri 8:00 a.m.-6:00 p.m. ET',
   portal: { name: 'MetroPlusHealth Provider Portal', url: 'https://providers.metroplus.org' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'Does the 680-hour/calendar-year ABA cap (stated for Child Health Plus) also apply to core Medicaid Managed Care members, or is there no cap on that line?',
     'Is prior authorization required per individual ABA CPT code, or just at the category level?',
@@ -1874,13 +1975,15 @@ const metroplusContact: VobContact = {
     'Which STC bucket does MetroPlus return ABA benefit detail under, and is the cost share a copay or coinsurance?',
     'Does MetroPlus support real-time 270/271 eligibility responses for payer ID 00659?',
   ],
-  sources: [src('https://metroplus.org/providers/join-our-network/contact-us/', 'MetroPlusHealth Provider Contact Us page, fetched this pass — confirms Provider Services 1-800-303-9626, Mon-Fri 8 a.m.-6 p.m. ET, and providers.metroplus.org as the provider portal.')],
+  sources: [src('https://metroplus.org/providers/join-our-network/contact-us/', 'MetroPlusHealth Provider Contact Us page, fetched this pass — confirms Provider Services 1-800-303-9626, Mon-Fri 8 a.m.-6 p.m. ET, and providers.metroplus.org as the provider portal.'), FANOUT_METROPLUS_PM],
 };
 
 const emblemhealthContact: VobContact = {
   providerServicesPhone: '800-397-1630',
   ivrPath: 'General EmblemHealth line. For behavioral health specifically (incl. ABA), call Carelon Behavioral Health directly at 888-447-2526.',
   portal: { name: 'Carelon Behavioral Health Provider Portal', url: 'https://plan.carelonbehavioralhealth.com' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'Which EmblemHealth entity (GHI, HIP, or EmblemHealth Insurance Co.) underwrites this Medicaid line, and what is the correct payer ID for eligibility/claims?',
     "Does ABA specifically route through Carelon Behavioral Health, or does EmblemHealth adjudicate it directly — what is Carelon's payer ID if applicable?",
@@ -1895,6 +1998,7 @@ const emblemhealthContact: VobContact = {
       'https://www.emblemhealth.com/content/dam/emblemhealth/pdfs/provider-manual/behavioral-health-services.pdf',
       'EmblemHealth Provider Manual Ch. 26 Behavioral Health Services, re-fetched this pass — confirms Carelon Behavioral Health at 888-447-2526 (provider directory: plan.carelonbehavioralhealth.com) and EmblemHealth\'s own general line 800-397-1630; neither number is labeled ABA-specific.'
     ),
+    FANOUT_EMBLEM_FAQ,
   ],
 };
 
@@ -1902,6 +2006,8 @@ const molinaContact: VobContact = {
   providerServicesPhone: '(877) 872-4716',
   fax: '(844) 879-4509 (Main); (866) 879-4742 (UM/prior authorization)',
   portal: { name: 'Molina Provider Portal', url: 'https://provider.molinahealthcare.com' },
+  benefitsByPhone: 'unverified',
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'Is prior authorization required for 97154, 97156, 97157, 97158, 0362T, and 0373T — the 2021 provider notice only named 97151/97152/97153/97155?',
     'What are the per-code daily/annual unit caps for ABA services?',
@@ -1922,46 +2028,46 @@ export const newYorkVob: Record<string, VobExtension> = {
     codeGrid: excellusCodeGrid,
     stcMap: inheritFamilyStc(bcbsFamilyStc, 'Inherited from the independent-BCBS-licensee family default (docs/vob-build.md Layer 2) — no Excellus-specific 270/271 STC document found.'),
     vobContact: excellusContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
-  'mvp-health-plan-new-york': { edi: mvpEdi, codeGrid: mvpCodeGrid, stcMap: nyMcoUnverifiedStc('MVP Health Plan'), vobContact: mvpContact, lastUpdated: ACCESS_DATE },
-  'cdphp-new-york': { edi: cdphpEdi, codeGrid: cdphpCodeGrid, stcMap: nyMcoUnverifiedStc('CDPHP'), vobContact: cdphpContact, lastUpdated: ACCESS_DATE },
-  'independent-health-new-york': { edi: independentHealthEdi, codeGrid: independentHealthCodeGrid, stcMap: nyMcoUnverifiedStc('Independent Health'), vobContact: independentHealthContact, lastUpdated: ACCESS_DATE },
+  'mvp-health-plan-new-york': { edi: mvpEdi, codeGrid: mvpCodeGrid, stcMap: nyMcoUnverifiedStc('MVP Health Plan'), vobContact: mvpContact, lastUpdated: '2026-10-15'},
+  'cdphp-new-york': { edi: cdphpEdi, codeGrid: cdphpCodeGrid, stcMap: nyMcoUnverifiedStc('CDPHP'), vobContact: cdphpContact, lastUpdated: '2026-10-15'},
+  'independent-health-new-york': { edi: independentHealthEdi, codeGrid: independentHealthCodeGrid, stcMap: nyMcoUnverifiedStc('Independent Health'), vobContact: independentHealthContact, lastUpdated: '2026-10-15'},
   'highmark-western-new-york': {
     edi: highmarkWnyEdi,
     codeGrid: highmarkCodeGrid,
     stcMap: inheritFamilyStc(bcbsFamilyStc, 'Inherited from the independent-BCBS-licensee family default (docs/vob-build.md Layer 2) — no Highmark WNY-specific 270/271 STC document found.'),
     vobContact: highmarkContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'aetna-new-york': {
     edi: aetnaNyEdi,
     codeGrid: aetnaNyCodeGrid,
     stcMap: inheritFamilyStc(aetnaFamilyStc, 'Inherited from the Aetna family default (docs/vob-build.md Layer 2) — no New York-specific 270/271 STC document found.'),
     vobContact: aetnaNyContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'cigna-new-york': {
     edi: cignaNyEdi,
     codeGrid: cignaNyCodeGrid,
     stcMap: inheritFamilyStc(cignaFamilyStc, 'Inherited from the Cigna/Evernorth family default (docs/vob-build.md Layer 2) — national companion guide, no New York-specific override found.'),
     vobContact: cignaNyContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'unitedhealthcare-new-york': {
     edi: uhcNyEdi,
     codeGrid: uhcNyCodeGrid,
     stcMap: inheritFamilyStc(uhcFamilyStc, 'Inherited from the UnitedHealthcare/Optum family default (docs/vob-build.md Layer 2) — national companion guide, no New York-specific override found.'),
     vobContact: uhcNyContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
 
-  'new-york-medicaid': { edi: newYorkMedicaidEdi, codeGrid: newYorkMedicaidCodeGrid, rates: newYorkMedicaidRates, stcMap: newYorkMedicaidStc, vobContact: newYorkMedicaidContact, lastUpdated: ACCESS_DATE },
-  'fidelis-care-new-york': { edi: fidelisEdi, codeGrid: fidelisCodeGrid, stcMap: nyMcoUnverifiedStc('Fidelis Care'), vobContact: fidelisContact, lastUpdated: ACCESS_DATE },
-  'unitedhealthcare-community-plan-new-york': { edi: uhcCommunityPlanEdi, codeGrid: uhcCommunityPlanCodeGrid, stcMap: nyMcoUnverifiedStc('UnitedHealthcare Community Plan of New York'), vobContact: uhcCommunityPlanContact, lastUpdated: ACCESS_DATE },
-  'anthem-healthplus-new-york': { edi: anthemHealthPlusEdi, codeGrid: anthemHealthPlusCodeGrid, stcMap: nyMcoUnverifiedStc('Anthem HealthPlus'), vobContact: anthemHealthPlusContact, lastUpdated: ACCESS_DATE },
-  'healthfirst-new-york': { edi: healthfirstEdi, codeGrid: healthfirstCodeGrid, stcMap: nyMcoUnverifiedStc('Healthfirst'), vobContact: healthfirstContact, lastUpdated: ACCESS_DATE },
-  'metroplus-health-new-york': { edi: metroplusEdi, codeGrid: metroplusCodeGrid, stcMap: nyMcoUnverifiedStc('MetroPlus Health'), vobContact: metroplusContact, lastUpdated: ACCESS_DATE },
-  'emblemhealth-new-york': { edi: emblemhealthEdi, codeGrid: emblemhealthCodeGrid, stcMap: nyMcoUnverifiedStc('EmblemHealth'), vobContact: emblemhealthContact, lastUpdated: ACCESS_DATE },
-  'molina-healthcare-new-york': { edi: molinaEdi, codeGrid: molinaCodeGrid, stcMap: nyMcoUnverifiedStc('Molina Healthcare of New York'), vobContact: molinaContact, lastUpdated: ACCESS_DATE },
+  'new-york-medicaid': { edi: newYorkMedicaidEdi, codeGrid: newYorkMedicaidCodeGrid, rates: newYorkMedicaidRates, stcMap: newYorkMedicaidStc, vobContact: newYorkMedicaidContact, lastUpdated: '2026-10-15'},
+  'fidelis-care-new-york': { edi: fidelisEdi, codeGrid: fidelisCodeGrid, stcMap: nyMcoUnverifiedStc('Fidelis Care'), vobContact: fidelisContact, lastUpdated: '2026-10-15'},
+  'unitedhealthcare-community-plan-new-york': { edi: uhcCommunityPlanEdi, codeGrid: uhcCommunityPlanCodeGrid, stcMap: nyMcoUnverifiedStc('UnitedHealthcare Community Plan of New York'), vobContact: uhcCommunityPlanContact, lastUpdated: '2026-10-15'},
+  'anthem-healthplus-new-york': { edi: anthemHealthPlusEdi, codeGrid: anthemHealthPlusCodeGrid, stcMap: nyMcoUnverifiedStc('Anthem HealthPlus'), vobContact: anthemHealthPlusContact, lastUpdated: '2026-10-15'},
+  'healthfirst-new-york': { edi: healthfirstEdi, codeGrid: healthfirstCodeGrid, stcMap: nyMcoUnverifiedStc('Healthfirst'), vobContact: healthfirstContact, lastUpdated: '2026-10-15'},
+  'metroplus-health-new-york': { edi: metroplusEdi, codeGrid: metroplusCodeGrid, stcMap: nyMcoUnverifiedStc('MetroPlus Health'), vobContact: metroplusContact, lastUpdated: '2026-10-15'},
+  'emblemhealth-new-york': { edi: emblemhealthEdi, codeGrid: emblemhealthCodeGrid, stcMap: nyMcoUnverifiedStc('EmblemHealth'), vobContact: emblemhealthContact, lastUpdated: '2026-10-15'},
+  'molina-healthcare-new-york': { edi: molinaEdi, codeGrid: molinaCodeGrid, stcMap: nyMcoUnverifiedStc('Molina Healthcare of New York'), vobContact: molinaContact, lastUpdated: '2026-10-15'},
 };

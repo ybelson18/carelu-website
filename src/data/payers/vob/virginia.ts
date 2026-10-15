@@ -365,6 +365,17 @@ function dmasCodeGrid(extraTreatmentSources: SourceRef[] = [], extraAssessmentSo
 
 /* ==================== virginia-medicaid ==================== */
 
+/* Prefix / benefits-by-phone / individual-NPI sources (2026-10-14) */
+const FANOUT_MAN_VA_MCD: SourceRef = { url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/VA-UHCCP-Care-Provider-Manual.pdf', accessDate: '2026-10-14', note: 'Care Provider Manual, UHC Community Plan of Virginia (Feb 2026): "Provider Services at 1-844-284-0146 is the primary contact... They can answer your questions about Medicaid benefits, eligibility, claim decisions..."' };
+const FANOUT_OPTUM_NNM_2026: SourceRef = { url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf', accessDate: '2026-10-14', note: 'Optum (United Behavioral Health) National Provider Network Manual, published July 1 2026, effective Sept 1 2026 (BH02330-1-26-MAN_07012026). Read via r.jina.ai using the AEM path .../NNManual.pdf/jcr:content/renditions/original (plain URL returns a download interstitial). Eligibility Inquiry p.35-36: "You can use the Provider Express secure portal to check a member\'s eligibility. You may also inquire about eligibility by calling the phone number on the member\'s ID card." Items to provide: member name, address, ID number, subscriber name and DOB - NPI not listed. No statement on individual vs group NPI for calls.' };
+const FANOUT_ABHVA_MAN: SourceRef = { url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/virginia/provider/pdf/abhva_provider_manual.pdf', accessDate: '2026-10-14', note: 'Aetna Better Health of Virginia Provider Manual, contract year July 1, 2025 - June 30, 2026 (site 403 here and via r.jina.ai; read from Wayback capture 20260614065410): "Member eligibility can be verified through one of the following ways: Aetna Better Health\'s Secure Web Portal ... Aetna Better Health Member Services: 1-800-279-1878".' };
+const FANOUT_AET_ELIG_FLYER: SourceRef = { url: 'https://www.aetna.com/document-library/healthcare-professionals/assets/documents/eligibility.pdf', accessDate: '2026-10-14', note: 'Aetna Eligibility and Benefits Inquiry flyer 83.03.870.1 (2/19), still hosted on aetna.com: "When using the member ID number, prefixes or suffixes are unnecessary. For family-level searches, you only need to enter the member ID." Applies to the electronic inquiry; dated 2019.' };
+const FANOUT_AET_GLANCE: SourceRef = { url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/aetna-at-a-glance.pdf', accessDate: '2026-10-14', note: 'Aetna "At a glance" how-to guide for health care professionals, 9011800-01-01 (8/26), Key contacts table: "Provider Contact Center ... Member eligibility and benefits ... 1-800-624-0756 (TTY: 711) for Aetna Medicare Advantage plans and HMO-based plans / 1-888-MDAetna (1-888-632-3862) (TTY: 711) for all other plans". Also: "Behavioral health (provider services) Refer to the member ID card."' };
+const FANOUT_CIG_AUTISM: SourceRef = { url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf', accessDate: '2026-10-14', note: 'Evernorth/Cigna Autism resource guide, March 2025 (PCOMM-2025-225): "It is important to confirm a patient\'s ABA eligibility and benefits before performing an assessment. This information can be confirmed by: ... Calling the Autism Care Coordinator team at 877.279.7603". Provider Services 800.926.2273 "handles questions regarding billing, benefits, and eligibility for autism-related treatment, such as ABA."' };
+const FANOUT_ANTHEM_VA_PM: SourceRef = { url: 'https://providers.anthem.com/docs/gpp/VA_CAID_ProviderManual.pdf', accessDate: '2026-10-14', note: '2026 Virginia Anthem HealthKeepers Plus Medicaid Provider Manual. Quote: \'telephonic verification may be obtained through the automated Provider Inquiry Line at 800-901-0020 for Anthem HealthKeepers Plus.\'' };
+const FANOUT_VA_MEDICALL: SourceRef = { url: 'https://vamedicaid.dmas.virginia.gov/node/3800', accessDate: '2026-10-14', note: 'DMAS Provider Contact Information & Resources (read via r.jina.ai). "Providers may validate Medicaid eligibility by using the MediCall automated phone system at 1-800-884-9730, or 1-804-965-9732." MediCall row: "have Medicaid Provider ID Number available."' };
+const FANOUT_SENTARA_SCP_CONTACT: SourceRef = { url: 'https://www.sentarahealthplans.com/en/providers/contact-us-sentara-community-plan', accessDate: '2026-10-14', note: 'Sentara Community Plan provider contact page. Quote: \'Provider Relations and Eligibility Verification 1-844-512-3172\'. General Sentara provider contact page also lists \'24-Hour Interactive Voice Response 757-552-7474 or 1-800-229-8822, option 2\'.' };
+
 const virginiaMedicaidEdi: EdiRouting = {
   payerId: { pverify: '00197', availity: 'AIDVA', changeHealthcare: 'unverified' },
   supports270271: true,
@@ -382,6 +393,7 @@ const virginiaMedicaidEdi: EdiRouting = {
     eligibilitySpanGranularity:
       "Queried by specific date, not a monthly/daily span flag: the 270 sends DTP01='291' (plan date) and the 271 echoes DTP01='472' (eligibility/benefit date). Real-time (single inquiry, ~60-sec response) and batch (up to 100,000 requests/day, 271 ~6 a.m. next day) both supported. v2.2 (eff. 7/1/2026) adds DTP01='458' (member renewal / case-review date) in Loop 2110C. Explicit monthly-vs-daily characterization is not stated in the guide.",
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'unverified',
@@ -392,6 +404,7 @@ const virginiaMedicaidEdi: EdiRouting = {
     'medicaid271Notes.mcoSegmentLocation': 'verified',
     'medicaid271Notes.mcoCarrierCodes': 'unverified',
     'medicaid271Notes.eligibilitySpanGranularity': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.availity': 'Availity short name VA_MCAID = "AIDVA" appears only in the stale 2012 Availity snapshot; confirm against a current Availity Essentials export.',
@@ -399,6 +412,7 @@ const virginiaMedicaidEdi: EdiRouting = {
     'medicaid271Notes.mcoSegmentLocation':
       'DMAS MES EDI support (MESEDISupport@dmas.virginia.gov, or Conduent EDI 1-866-352-0766 / Virginia.EDISupport@Conduent.com): request a production 271 sample and ask specifically where the member\'s Cardinal Care MCO is reported (MSG aid-category vs. a benefit-related-entity loop vs. not returned via the FFS 271).',
     'medicaid271Notes.mcoCarrierCodes': 'Same DMAS MES EDI support — the carrier/MCO code crosswalk is not in the 270/271 guide (likely in the 834 enrollment materials).',
+    memberIdPrefix: 'DMAS Provider Manual Chapter III (member eligibility / ID card)',
   },
   sources: [VA_MES_270271_CG, DMAS_SA_ACENTRA, DMAS_SSO_BULLETIN, DMAS_ANG_TERMINATION_BULLETIN, PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST],
 };
@@ -415,6 +429,7 @@ const aetnaBetterHealthVaEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'verified',
@@ -422,12 +437,14 @@ const aetnaBetterHealthVaEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': 'pVerify 000935 = "AETNA BETTER HEALTH VIRGINIA" (Medical, Eligibility=Yes) on the pVerify Mar-2026 list.',
     'payerId.availity': 'Health Plan Payer ID 128VA per the DMAS Aetna MCO Directory (2024-03-07) and Aetna Better Health VA claims guidance (also the Office Ally / Change Healthcare submission ID).',
     'payerId.changeHealthcare': 'Change Healthcare submissions also use 128VA per Aetna Better Health VA claims guidance.',
     supportsRealtime: 'Confirm real-time vs. batch via the plan\'s EDI onboarding for 128VA.',
+    memberIdPrefix: 'ABHVA manual says the card shows "Member/state Medicaid ID number" but gives no prefix rule; confirm with 1-800-279-1878.',
   },
   sources: [AETNA_VA_ABA_DECK, PVERIFY_PAYER_LIST],
 };
@@ -446,6 +463,7 @@ const anthemHkpEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'unverified',
@@ -453,12 +471,14 @@ const anthemHkpEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': 'pVerify 002467 = "Anthem Healthkeepers" (Medical, Eligibility=Yes) on the pVerify Mar-2026 list.',
     'payerId.availity': 'The DMAS Anthem MCO Directory (2025-10-17) states the clearinghouse payer ID must be obtained from your clearinghouse — the published "058916206CMSCOS" is a direct-to-Anthem billing ID, not a clearinghouse ID. Anthem uses Availity as its exclusive EDI gateway; confirm the specific 270/271 payer ID via Availity Essentials / the Anthem VA EDI page.',
     'payerId.changeHealthcare': 'Clearinghouse-specific per the DMAS directory; confirm via the Change Healthcare/Optum payer finder for Anthem HealthKeepers Plus (VA Medicaid).',
     supportsRealtime: 'Confirm real-time vs. batch via Availity onboarding.',
+    memberIdPrefix: 'Manual has no prefix statement; check ID card / Availity',
   },
   sources: [ANTHEM_VA_ABA_GRID, PVERIFY_PAYER_LIST],
 };
@@ -545,6 +565,7 @@ const humanaVaEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'inferred',
     'payerId.availity': 'unverified',
@@ -552,12 +573,14 @@ const humanaVaEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': 'pVerify has no VA-specific Humana row; 00112 = generic "Humana" (Medical, Eligibility=Yes). Confirm the Humana Healthy Horizons Virginia-specific mapping via pVerify payer search (plan entered VA 7/1/2025, replacing Molina).',
     'payerId.availity': 'QA 2026-07-23 downgraded verified->unverified: 61101 appears in NEITHER cited source (the Humana VA PAL carries no payer IDs; the pVerify list carries Humana only as 00112). 61101 is Humana\'s widely-used universal ID but is not document-backed by a cited/reachable source here — confirm on Humana\'s official VA Medicaid claims page before treating as verified.',
     'payerId.changeHealthcare': 'Same as payerId.availity: 61101 not present in either cited source; QA 2026-07-23 downgraded verified->unverified. Confirm via Humana\'s VA Medicaid claims page.',
     supportsRealtime: 'Confirm real-time vs. batch via Availity onboarding for 61101.',
+    memberIdPrefix: 'Sample member ID card in the Humana Healthy Horizons VA provider manual, or ask Humana Healthy Horizons VA Provider Services whether any alpha prefix is keyed; no source states it',
   },
   sources: [HUMANA_VA_PAL, PVERIFY_PAYER_LIST],
 };
@@ -608,6 +631,7 @@ const sentaraEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'verified',
@@ -615,12 +639,14 @@ const sentaraEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': 'pVerify 002478 = "SENTARA HEALTH PLANS" (Medical, Eligibility=Yes); legacy "Optima/Sentara" 00310 also exists. Directory entries under "Optima" are stale.',
     'payerId.availity': 'Payer ID 54154 per the DMAS Sentara MCO Directory (2025-10-29); corroborated by the 2012 Availity row "OPTIMA HEALTH PLAN → 54154."',
     'payerId.changeHealthcare': 'Payer ID 54154 per the DMAS Sentara MCO Directory; legacy Virginia Premier (VP) group runout claims go to CHC ID VAPRM.',
     supportsRealtime: 'Confirm real-time vs. batch via the plan\'s EDI onboarding; the PAL lookup tool at pal.sentarahealthplans.com answers code-level questions.',
+    memberIdPrefix: 'Sentara Community Plan provider manual ID card section',
   },
   sources: [SENTARA_VA_SA_FORM, PVERIFY_PAYER_LIST],
 };
@@ -639,6 +665,7 @@ const uhcCpVaEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'inferred',
     'payerId.availity': 'verified',
@@ -649,6 +676,7 @@ const uhcCpVaEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'verified',
     'bhCarveOut.abaRidesOn': 'verified',
     'bhCarveOut.twoHopRequired': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': 'pVerify has no VA-specific UHC Community Plan row; UHG001 = generic "UnitedHealth Group - Community Plan" (Eligibility=Yes). Confirm the VA-specific mapping via pVerify payer search.',
@@ -656,6 +684,7 @@ const uhcCpVaEdi: EdiRouting = {
     'payerId.changeHealthcare': 'UHC universal medical ID 87726 per the DMAS directory (also the UHC affiliates EDI payer list).',
     'bhCarveOut.abaRidesOn': 'The DMAS UHC directory lists "Professional Mental Health — 87726," i.e. ABA/BH claims ride the SAME 87726 medical payer ID; Optum administers the panel/authorizations (Provider Express, Optum BH 1-888-872-4205) but does not change claim routing — so no second EDI hop.',
     supportsRealtime: 'Confirm real-time vs. batch via the plan\'s EDI onboarding for 87726.',
+    memberIdPrefix: 'No UHC/Optum source addresses an alpha prefix (2026 Admin Guide ID-card legend, 270/271 companion guide, pVerify list all silent). Confirm with a real card plus a pVerify run, or ask UHC Provider Services.',
   },
   sources: [UHC_VA_PA_LIST, UHC_VA_MANUAL, PVERIFY_PAYER_LIST],
 };
@@ -674,6 +703,7 @@ const aetnaVaEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'not-used',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'inferred',
@@ -681,6 +711,7 @@ const aetnaVaEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'inferred',
+    memberIdPrefix: 'verified',
   },
   verifyVia: {
     'payerId.pverify': 'pVerify 00001 = "Aetna" (Medical, Eligibility=Yes).',
@@ -688,8 +719,9 @@ const aetnaVaEdi: EdiRouting = {
     'payerId.changeHealthcare': 'Change Healthcare/Optum professional-claims list confirms 60054 = "Aetna Health Plan - PPO" (supports 270/271).',
     'bhCarveOut.administrator': 'Aetna Behavioral Health rides the same medical payer ID (no second hop); confirm the VA-specific ABA precertification path via Aetna provider services.',
     supportsRealtime: 'Confirm real-time vs. batch via Availity onboarding for 60054.',
+    memberIdPrefix: 'Aetna eligibility flyer: "When using the member ID number, prefixes or suffixes are unnecessary." Enter the member ID without the card prefix.',
   },
-  sources: [AETNA_CPB0554, AETNA_CPB0648, PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST],
+  sources: [AETNA_CPB0554, AETNA_CPB0648, PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, FANOUT_AET_ELIG_FLYER],
 };
 
 /* Commercial national policy — no coding/reimbursement mechanics published. */
@@ -743,6 +775,7 @@ const cignaVaEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'inferred',
@@ -753,12 +786,14 @@ const cignaVaEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'verified',
     'bhCarveOut.abaRidesOn': 'verified',
     'bhCarveOut.twoHopRequired': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': 'pVerify 00004 = "Cigna" (Medical, Eligibility=Yes); pVerify also lists "Cigna Behavioral" 00510.',
     'payerId.availity': 'Evernorth payer ID 62308 per the Cigna Autism Resource Guide (same ID as Cigna medical — no separate Evernorth EDI hop); inferred pending a current Availity export.',
     'payerId.changeHealthcare': 'Change Healthcare/Optum professional-claims list confirms 62308 = "CIGNA - PPO" (supports 270/271).',
     supportsRealtime: 'Confirm real-time vs. batch via the clearinghouse onboarding for 62308.',
+    memberIdPrefix: 'Cigna ID card quick guide (CIG_IDCARD) shows member ID + two-digit suffix, no alpha prefix, but gives no entry rule; confirm with Cigna 800.882.4462 or a test 270.',
   },
   sources: [CIGNA_AUTISM_GUIDE, CIGNA_EN0499, PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST],
 };
@@ -811,6 +846,7 @@ const uhcVaEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'inferred',
@@ -821,6 +857,7 @@ const uhcVaEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'verified',
     'bhCarveOut.abaRidesOn': 'verified',
     'bhCarveOut.twoHopRequired': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': 'pVerify 00192 = "United Healthcare" (Medical, Eligibility=Yes); pVerify also lists a distinct "United Healthcare - Optum Behavioral Solutions" UHG007.',
@@ -828,6 +865,7 @@ const uhcVaEdi: EdiRouting = {
     'payerId.changeHealthcare': 'Change Healthcare/Optum lists 87726 = "UnitedHealthcare" (supports 270/271); corroborated by the UHC affiliates EDI payer list.',
     'bhCarveOut.abaRidesOn': 'ABA administered through Optum Behavioral Health (Provider Express, two-step auth) but claims ride the medical 87726 payer ID — no second EDI hop. Confirm the Optum credentialing path via Provider Express.',
     supportsRealtime: 'Confirm real-time vs. batch via Availity onboarding for 87726.',
+    memberIdPrefix: 'No UHC/Optum source addresses an alpha prefix (2026 Admin Guide ID-card legend, 270/271 companion guide, pVerify list all silent). Confirm with a real card plus a pVerify run, or ask UHC Provider Services.',
   },
   sources: [OPTUM_SCC, OPTUM_ABA_STATE_MANDATES, PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST],
 };
@@ -938,6 +976,8 @@ const virginiaMedicaidContact: VobContact = {
   hours: 'Atrezzo accepts SA submissions 24/7; phone-support hours for the general DMAS Provider Services line are not published in the cited source.',
   portal: { name: 'DMAS MES provider portal — ICAM login to Acentra Atrezzo ANG (eff. 8/1/2026)', url: 'https://vamedicaid.dmas.virginia.gov/node/3785' },
   fax: '1-877-OKBYFAX (652-9329) — Acentra Health service-authorization fax',
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'Which Cardinal Care MCO is this member enrolled in right now? Our eligibility read can\'t reliably map that off the FFS 271.',
     'Is this member\'s ABA benefit currently running through FFS Medicaid, or have they transitioned to one of the five Cardinal Care MCOs?',
@@ -945,7 +985,7 @@ const virginiaMedicaidContact: VobContact = {
     'Can you read me the aid-category / benefit-plan code shown for this member so we can confirm plan assignment?',
     'Since legacy Atrezzo access ended 7/31/2026, has our office completed the move to DMAS Identity, Credentials and Access Management (ICAM) for ANG login, or do we still need to complete that transition?',
   ],
-  sources: [DMAS_PROVIDER_CONTACT, DMAS_SA_ACENTRA, DMAS_SSO_BULLETIN, DMAS_ANG_TERMINATION_BULLETIN],
+  sources: [DMAS_PROVIDER_CONTACT, DMAS_SA_ACENTRA, DMAS_SSO_BULLETIN, DMAS_ANG_TERMINATION_BULLETIN, FANOUT_VA_MEDICALL],
 };
 
 const aetnaBetterHealthVaContact: VobContact = {
@@ -953,27 +993,33 @@ const aetnaBetterHealthVaContact: VobContact = {
   hours: 'Monday-Friday, 8 AM-6 PM',
   portal: { name: 'Availity', url: 'https://apps.availity.com/availity/web/public.elegant.login' },
   fax: '(833) 757-1583 — behavioral health/ABA prior-authorization fax',
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'What places of service are approved under this member\'s authorization — home, school, community, or telehealth?',
     'Does Aetna Better Health of Virginia reimburse these ABA codes at the DMAS fee-schedule rate, or is there a different contracted rate?',
   ],
-  sources: [AETNA_BH_VA_CONTACT, AETNA_VA_ABA_DECK],
+  sources: [AETNA_BH_VA_CONTACT, AETNA_VA_ABA_DECK, FANOUT_ABHVA_MAN],
 };
 
 const anthemHkpContact: VobContact = {
   providerServicesPhone: '800-901-0020 (TTY/TDD: 711)',
   portal: { name: 'Availity Essentials', url: 'https://www.availity.com' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'For codes other than 97151, 97153, 97155, and 97156, is telehealth reimbursed, or is in-person required?',
     'Does Anthem HealthKeepers Plus pay these ABA codes at the DMAS fee-schedule rate, or is there a plan-specific rate?',
   ],
-  sources: [ANTHEM_VA_CONTACT, ANTHEM_VA_ABA_GRID],
+  sources: [ANTHEM_VA_CONTACT, ANTHEM_VA_ABA_GRID, FANOUT_ANTHEM_VA_PM],
 };
 
 const humanaVaContact: VobContact = {
   providerServicesPhone: '844-881-4482',
   hours: 'Monday-Friday, 7 a.m.-7 p.m. Eastern time',
   portal: { name: 'Humana provider portal', url: 'https://provider.humana.com/medicaid/virginia-medicaid' },
+  benefitsByPhone: 'unverified',
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'Can you confirm prior authorization is on file for 0362T before we schedule? Humana requires PA on this code even though the state baseline doesn\'t.',
     'What places of service are approved under this member\'s authorization — home, school, community, or telehealth?',
@@ -987,11 +1033,13 @@ const sentaraContact: VobContact = {
   hours: '8 a.m.-6 p.m. Monday-Friday (Medicaid line)',
   portal: { name: 'Availity', url: 'https://www.availity.com' },
   fax: '(844) 895-3231 or (757) 963-9620 — ABA-specific, Non-Urgent BH Outpatient fax (eff. 8/1/2025); the general Behavioral Health Provider Services fax (757-552-7499) on Sentara\'s Contact Us page is a different line and not the one named for ABA forms',
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'What places of service are approved under this member\'s authorization — home, school, community, or telehealth?',
     'Does Sentara Community Plan pay these ABA codes at the DMAS fee-schedule rate, or is there a plan-specific contracted rate?',
   ],
-  sources: [SENTARA_VA_CONTACT, SENTARA_VA_SA_FORM, SENTARA_VA_BH_FAX_FORMS],
+  sources: [SENTARA_VA_CONTACT, SENTARA_VA_SA_FORM, SENTARA_VA_BH_FAX_FORMS, FANOUT_SENTARA_SCP_CONTACT],
 };
 
 const uhcCpVaContact: VobContact = {
@@ -999,17 +1047,21 @@ const uhcCpVaContact: VobContact = {
   ivrPath:
     'General UHC Provider Services line above; ABA/behavioral-health authorization and benefits are Optum-administered — ask for Optum Behavioral Health / Provider Express, or call 877-614-0484 directly.',
   portal: { name: 'Optum Provider Express', url: 'https://public.providerexpress.com/content/ope-provexpr/us/en.html' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'What places of service are approved under this member\'s authorization — home, school, community, or telehealth?',
     'Does UnitedHealthcare Community Plan pay these ABA codes at the DMAS fee-schedule rate, or is there a plan-specific contracted rate?',
   ],
-  sources: [UHC_PROVIDER_CONTACT, UHC_VA_MANUAL, OPTUM_PROVIDER_EXPRESS_HOME],
+  sources: [UHC_PROVIDER_CONTACT, UHC_VA_MANUAL, OPTUM_PROVIDER_EXPRESS_HOME, FANOUT_MAN_VA_MCD],
 };
 
 const aetnaVaContact: VobContact = {
   providerServicesPhone: '1-888-632-3862 (TTY: 711) — Aetna Provider Service Center',
   ivrPath: 'Select the precertification prompt for ABA/behavioral-health authorization; the member\'s ID card may list a plan-specific number instead.',
   portal: { name: 'Availity', url: 'https://apps.availity.com/availity/web/public.elegant.login' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'Is this member\'s plan fully insured or self-funded (ERISA)? The Virginia ABA mandate (Va. Code § 38.2-3418.17) only applies to fully-insured plans.',
     'Are there unit caps or annual/lifetime dollar limits on ABA services under this specific plan?',
@@ -1017,12 +1069,14 @@ const aetnaVaContact: VobContact = {
     'Is telehealth (GT/95) reimbursed for ABA codes, and if so which ones?',
     'Are licensure-tier modifiers (BCBA vs RBT) required for reimbursement under this plan?',
   ],
-  sources: [AETNA_PROVIDER_SERVICE_CENTER, AETNA_AVAILITY_PAGE, AETNA_CPB0554, AETNA_CPB0648],
+  sources: [AETNA_PROVIDER_SERVICE_CENTER, AETNA_AVAILITY_PAGE, AETNA_CPB0554, AETNA_CPB0648, FANOUT_AET_GLANCE],
 };
 
 const cignaVaContact: VobContact = {
   providerServicesPhone: '1-800-926-2273 — Evernorth/Cigna Behavioral Health provider services (general Cigna provider line: 1-800-88CIGNA / 882-4462)',
   portal: { name: 'CignaforHCP', url: 'https://cignaforhcp.cigna.com/app/login' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'Is this member\'s Cigna plan fully insured or self-funded (ASO)? Fully-insured Virginia plans aren\'t subject to EN0499 — coverage runs off the plan document and the state mandate instead.',
     'Since there\'s no published PA panel for this plan type, is prior authorization required for ABA, and through what process?',
@@ -1030,13 +1084,15 @@ const cignaVaContact: VobContact = {
     'Which places of service and telehealth modifiers are covered?',
     'Are licensure-tier billing requirements (BCBA/RBT) in place under this plan?',
   ],
-  sources: [CIGNA_PROVIDER_SERVICES_CONTACT, CIGNA_EN0499],
+  sources: [CIGNA_PROVIDER_SERVICES_CONTACT, CIGNA_EN0499, FANOUT_CIG_AUTISM],
 };
 
 const uhcVaContact: VobContact = {
   providerServicesPhone: '877-842-3210',
   ivrPath: 'ABA/behavioral-health benefits and authorization are Optum-administered — ask for Optum Behavioral Health / Provider Express, or call 877-614-0484 directly.',
   portal: { name: 'Optum Provider Express', url: 'https://public.providerexpress.com/content/ope-provexpr/us/en.html' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'Is this member\'s plan fully insured or self-funded (ERISA)? Optum\'s ABA State Mandates criteria apply only to Virginia fully-insured HMO/insurance plans.',
     'What unit caps or session limits apply to 97153 and related treatment codes under this plan?',
@@ -1044,37 +1100,37 @@ const uhcVaContact: VobContact = {
     'Are licensure-tier modifiers (BCBA/RBT) required for reimbursement?',
     'How often are continued-service reviews required — every 4-6 months, or plan-specific?',
   ],
-  sources: [UHC_PROVIDER_CONTACT, OPTUM_SCC, OPTUM_ABA_STATE_MANDATES, OPTUM_PROVIDER_EXPRESS_HOME],
+  sources: [UHC_PROVIDER_CONTACT, OPTUM_SCC, OPTUM_ABA_STATE_MANDATES, OPTUM_PROVIDER_EXPRESS_HOME, FANOUT_OPTUM_NNM_2026],
 };
 
 /* ==================== export ==================== */
 
 export const virginiaVob: Record<string, VobExtension> = {
-  'virginia-medicaid': { edi: virginiaMedicaidEdi, codeGrid: dmasCodeGrid(), stcMap: virginiaMedicaidStc, rates: virginiaMedicaidRates, vobContact: virginiaMedicaidContact, lastUpdated: ACCESS_DATE },
-  'aetna-better-health-virginia': { edi: aetnaBetterHealthVaEdi, codeGrid: aetnaBetterHealthVaCodeGrid, stcMap: aetnaBetterHealthVaStc, rates: mcoRates('Aetna Better Health of Virginia'), vobContact: aetnaBetterHealthVaContact, lastUpdated: ACCESS_DATE },
-  'anthem-healthkeepers-plus': { edi: anthemHkpEdi, codeGrid: anthemHkpCodeGrid, stcMap: anthemHkpStc, rates: mcoRates('Anthem HealthKeepers Plus'), vobContact: anthemHkpContact, lastUpdated: ACCESS_DATE },
-  'humana-healthy-horizons-virginia': { edi: humanaVaEdi, codeGrid: humanaVaCodeGrid, stcMap: humanaVaStc, rates: mcoRates('Humana Healthy Horizons in Virginia'), vobContact: humanaVaContact, lastUpdated: ACCESS_DATE },
-  'sentara-community-plan': { edi: sentaraEdi, codeGrid: sentaraCodeGrid, stcMap: sentaraStc, rates: mcoRates('Sentara Community Plan'), vobContact: sentaraContact, lastUpdated: ACCESS_DATE },
-  'unitedhealthcare-community-plan-virginia': { edi: uhcCpVaEdi, codeGrid: uhcCpVaCodeGrid, stcMap: uhcCpVaStc, rates: mcoRates('UnitedHealthcare Community Plan of Virginia'), vobContact: uhcCpVaContact, lastUpdated: ACCESS_DATE },
+  'virginia-medicaid': { edi: virginiaMedicaidEdi, codeGrid: dmasCodeGrid(), stcMap: virginiaMedicaidStc, rates: virginiaMedicaidRates, vobContact: virginiaMedicaidContact, lastUpdated: '2026-10-15'},
+  'aetna-better-health-virginia': { edi: aetnaBetterHealthVaEdi, codeGrid: aetnaBetterHealthVaCodeGrid, stcMap: aetnaBetterHealthVaStc, rates: mcoRates('Aetna Better Health of Virginia'), vobContact: aetnaBetterHealthVaContact, lastUpdated: '2026-10-15'},
+  'anthem-healthkeepers-plus': { edi: anthemHkpEdi, codeGrid: anthemHkpCodeGrid, stcMap: anthemHkpStc, rates: mcoRates('Anthem HealthKeepers Plus'), vobContact: anthemHkpContact, lastUpdated: '2026-10-15'},
+  'humana-healthy-horizons-virginia': { edi: humanaVaEdi, codeGrid: humanaVaCodeGrid, stcMap: humanaVaStc, rates: mcoRates('Humana Healthy Horizons in Virginia'), vobContact: humanaVaContact, lastUpdated: '2026-10-15'},
+  'sentara-community-plan': { edi: sentaraEdi, codeGrid: sentaraCodeGrid, stcMap: sentaraStc, rates: mcoRates('Sentara Community Plan'), vobContact: sentaraContact, lastUpdated: '2026-10-15'},
+  'unitedhealthcare-community-plan-virginia': { edi: uhcCpVaEdi, codeGrid: uhcCpVaCodeGrid, stcMap: uhcCpVaStc, rates: mcoRates('UnitedHealthcare Community Plan of Virginia'), vobContact: uhcCpVaContact, lastUpdated: '2026-10-15'},
   'aetna-virginia': {
     edi: aetnaVaEdi,
     codeGrid: aetnaVaCodeGrid,
     stcMap: inheritFamilyStc(aetnaFamilyStc, 'Inherited from the Aetna family default (docs/vob-build.md Layer 2) — no Virginia-specific 270/271 STC document found.'),
     vobContact: aetnaVaContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'cigna-virginia': {
     edi: cignaVaEdi,
     codeGrid: cignaVaCodeGrid,
     stcMap: inheritFamilyStc(cignaFamilyStc, 'Inherited from the Cigna/Evernorth family default (docs/vob-build.md Layer 2) — national companion guide, no Virginia-specific override found.'),
     vobContact: cignaVaContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'unitedhealthcare-virginia': {
     edi: uhcVaEdi,
     codeGrid: uhcVaCodeGrid,
     stcMap: inheritFamilyStc(uhcFamilyStc, 'Inherited from the UnitedHealthcare/Optum family default (docs/vob-build.md Layer 2) — national companion guide, no Virginia-specific override found.'),
     vobContact: uhcVaContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
 };

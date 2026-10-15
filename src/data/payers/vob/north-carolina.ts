@@ -323,6 +323,64 @@ const northCarolinaMedicaidRates: RateTable = {
   sources: [NC_RATE_REVERSAL_BLOG, ALLIANCE_RATE_SCHEDULE, CCP_8F_CURRENT],
 };
 
+/* Prefix / benefits-by-phone / individual-NPI sources (2026-10-14) */
+
+const FANOUT_QRG_NC_MCD: SourceRef = {
+  url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/ncaba/ncABA-QRG.pdf',
+  accessDate: '2026-10-14',
+  note: 'UHC Community Plan of North Carolina ABA QRG (BH01063_04172025): "Verifying benefits/eligibility online at providerexpress.com or call the Behavioral Health number located on the back of the member\'s ID card". 866-633-4449 listed as Customer Service Center for claim status.',
+};
+const FANOUT_OPTUM_NNM_2026: SourceRef = {
+  url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf',
+  accessDate: '2026-10-14',
+  note: 'Optum (United Behavioral Health) National Provider Network Manual, published July 1 2026, effective Sept 1 2026 (BH02330-1-26-MAN_07012026). Read via r.jina.ai using the AEM path .../NNManual.pdf/jcr:content/renditions/original (plain URL returns a download interstitial). Eligibility Inquiry p.35-36: "You can use the Provider Express secure portal to check a member\'s eligibility. You may also inquire about eligibility by calling the phone number on the member\'s ID card." Items to provide: member name, address, ID number, subscriber name and DOB - NPI not listed. No statement on individual vs group NPI for calls.',
+};
+const FANOUT_AET_ELIG_FLYER: SourceRef = {
+  url: 'https://www.aetna.com/document-library/healthcare-professionals/assets/documents/eligibility.pdf',
+  accessDate: '2026-10-14',
+  note: 'Aetna Eligibility and Benefits Inquiry flyer 83.03.870.1 (2/19), still hosted on aetna.com: "When using the member ID number, prefixes or suffixes are unnecessary. For family-level searches, you only need to enter the member ID." Applies to the electronic inquiry; dated 2019.',
+};
+const FANOUT_AET_GLANCE: SourceRef = {
+  url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/aetna-at-a-glance.pdf',
+  accessDate: '2026-10-14',
+  note: 'Aetna "At a glance" how-to guide for health care professionals, 9011800-01-01 (8/26), Key contacts table: "Provider Contact Center ... Member eligibility and benefits ... 1-800-624-0756 (TTY: 711) for Aetna Medicare Advantage plans and HMO-based plans / 1-888-MDAetna (1-888-632-3862) (TTY: 711) for all other plans". Also: "Behavioral health (provider services) Refer to the member ID card."',
+};
+const FANOUT_CIG_AUTISM: SourceRef = {
+  url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf',
+  accessDate: '2026-10-14',
+  note: 'Evernorth/Cigna Autism resource guide, March 2025 (PCOMM-2025-225): "It is important to confirm a patient\'s ABA eligibility and benefits before performing an assessment. This information can be confirmed by: ... Calling the Autism Care Coordinator team at 877.279.7603". Provider Services 800.926.2273 "handles questions regarding billing, benefits, and eligibility for autism-related treatment, such as ABA."',
+};
+const FANOUT_HBNC_PM: SourceRef = {
+  url: 'https://provider.healthybluenc.com/docs/gpp/NCNC_CAID_ProviderManual.pdf',
+  accessDate: '2026-10-14',
+  note: '2026 NC Healthy Blue Medicaid Provider Manual. Quotes: \'Healthy Blue Standard Plan members will have a prefix of GJN.\' / claims must include \'Member\'s ID number including alpha prefix\' / \'Healthy Blue Provider Services supports provider inquiries about a variety of topics including but not limited to member eligibility and benefits\' (Provider Services 844-594-5072).',
+};
+const FANOUT_ACNC_MANUAL: SourceRef = {
+  url: 'https://apps.amerihealthcaritasnc.com/assets/pdf/provider/provider-manual.pdf',
+  accessDate: '2026-10-14',
+  note: 'AmeriHealth Caritas NC Provider Manual (served 10/2026). "Calling Provider Services at 1-888-738-0004 and utilize the automated real-time eligibility service without speaking to a representative, just follow the prompts for Member Eligibility."',
+};
+const FANOUT_CCH_MANUAL_2026: SourceRef = {
+  url: 'https://network.carolinacompletehealth.com/content/dam/centene/carolinacompletehealth/pdfs/CCHE_PRV15_Provider_Manual_2026.pdf',
+  accessDate: '2026-10-14',
+  note: 'Carolina Complete Health 2026 Provider Manual (served 10/2026). "Call our automated beneficiary eligibility IVR system. Call 1-833-552-3876 from any touch tone phone and follow the appropriate menu options to reach our automated beneficiary eligibility-verification system"',
+};
+const FANOUT_NC_AVRS_2021: SourceRef = {
+  url: 'https://www.nctracks.nc.gov/content/public/providers/provider-communications/2021-Announcements/Prepaid-Health-Plan-Information-Added-to-NCTracks-Automated-Voice-Response-System.html',
+  accessDate: '2026-10-14',
+  note: 'NCTracks announcement (2021). "NCTracks accepts beneficiary enrollment and eligibility inquiries through the Automated Voice Response System (AVRS) which can be reached at 800-723-4337." Step 4: "The system will ask for the NPI" (type not specified).',
+};
+const FANOUT_VAYA_POM: SourceRef = {
+  url: 'https://providers.vayahealth.com/wp-content/uploads/2025/07/Provider_Operations_Manual_3.0_DRAFT.pdf',
+  accessDate: '2026-10-14',
+  note: 'Vaya Provider Operations Manual 3.0 (posted as DRAFT, Jul 2025; Vaya site says updated POM effective Oct 1 2025). Contact table: \'Member Eligibility and Enrollment  Phone: 1-800-893-6246, ext. 2355  Email: EandE@vayahealth.com\'.',
+};
+const FANOUT_PARTNERS_CCH_DECK: SourceRef = {
+  url: 'https://network.carolinacompletehealth.com/content/dam/centene/carolinacompletehealth/pdfs/Partners-CCHN-TP-General-Info-session-1-6-2026_.pdf',
+  accessDate: '2026-10-14',
+  note: 'Partners Tailored Plan / Carolina Complete Health Network joint provider info session (Jan 2026), hosted on CCH site. Quote: \'Check member eligibility through one of the methods below: 1. NCTracks 2. Secure web portal: ...providerconnect/ 3. Provider Line: 1-877-398-4145.\'',
+};
+
 const northCarolinaMedicaidEdi: EdiRouting = {
   payerId: { pverify: '00164', availity: 'unverified', changeHealthcare: 'NCMCD' },
   supports270271: true,
@@ -352,6 +410,7 @@ const northCarolinaMedicaidEdi: EdiRouting = {
     eligibilitySpanGranularity:
       'Real-time, CAQH-CORE-compliant 270/271 exchange (Companion Guide §1.2); returned eligibility periods are date-range based rather than a simple monthly/daily flag — inquiries may span up to 36 months of history in 1-12 month segments (13 if the current month is included), with Medicaid (DHB) allowing lookahead through the end of the next month.',
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'unverified',
@@ -362,12 +421,14 @@ const northCarolinaMedicaidEdi: EdiRouting = {
     'medicaid271Notes.mcoSegmentLocation': 'verified',
     'medicaid271Notes.mcoCarrierCodes': 'verified',
     'medicaid271Notes.eligibilitySpanGranularity': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.availity':
       "The only fetchable Availity public payer-list PDF is dated 2012 and predates NC's Medicaid managed-care transformation — no current NC Medicaid entry found in it. Confirm directly via Availity Essentials onboarding.",
     'payerId.changeHealthcare':
       "NCMCD (alpha) is Optum's code on both its Professional Claims and Real-Time Eligibility payer lists — use this for 270/271. A SEPARATE numeric code, 12K23, appears on Optum's Institutional Claims list; do not use 12K23 for eligibility checks.",
+    memberIdPrefix: 'NCTracks Recipient Eligibility Verification job aid / NC Medicaid ID card description',
   },
   sources: [NCTRACKS_270_271_CG, PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, OPTUM_PROFESSIONAL_CLAIMS_LIST, OPTUM_RTE_LIST, OPTUM_INSTITUTIONAL_LIST],
 };
@@ -431,6 +492,7 @@ const healthyBlueEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'verified',
@@ -438,6 +500,7 @@ const healthyBlueEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'inferred',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify':
@@ -447,6 +510,7 @@ const healthyBlueEdi: EdiRouting = {
     supportsRealtime: 'Confirm real-time vs. batch via Availity onboarding for this payer ID.',
     'bhCarveOut.administrator':
       "No BH carve-out administrator is named anywhere in the Healthy Blue NC Provider Manual for RB-BHT — inferred as none (billed as a standard Medicaid medical benefit) absent evidence of a separate administrator; confirm via Healthy Blue provider services.",
+    memberIdPrefix: 'Source states GJN prefix on card and prefix required on claims; eligibility not stated separately',
   },
   sources: [HEALTHY_BLUE_PROVIDER_MANUAL, PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, OPTUM_PROFESSIONAL_CLAIMS_LIST, OPTUM_RTE_LIST],
 };
@@ -509,6 +573,7 @@ const amerihealthEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'unverified',
     'payerId.availity': 'unverified',
@@ -516,6 +581,7 @@ const amerihealthEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'inferred',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify':
@@ -526,6 +592,8 @@ const amerihealthEdi: EdiRouting = {
     supportsRealtime: 'Confirm real-time vs. batch via Availity/Optum onboarding for this payer ID.',
     'bhCarveOut.administrator':
       "No BH carve-out administrator is named anywhere in AmeriHealth's UM Guide for RB-BHT — inferred as none absent evidence of a separate administrator; confirm via AmeriHealth UM at (888) 738-0004.",
+    memberIdPrefix:
+      'Sample member ID card in the AmeriHealth Caritas NC provider manual, or ask AmeriHealth Caritas NC Provider Services whether any alpha prefix is keyed; no source states it',
   },
   sources: [AMERIHEALTH_UM_GUIDE, PVERIFY_PAYER_LIST, OPTUM_RTE_LIST, OPTUM_INSTITUTIONAL_LIST, OPTUM_PROFESSIONAL_CLAIMS_LIST],
 };
@@ -588,6 +656,7 @@ const carolinaCompleteHealthEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'verified',
@@ -595,12 +664,15 @@ const carolinaCompleteHealthEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'inferred',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.availity': "Confirmed via CCH's own Electronic Claim Submission Provider Guide: \"CCH's preferred clearinghouse is Availity... Payer ID 68069.\" Claims-context confirmation; CCH uses the single 68069 code across transactions on the Availity connection.",
     supportsRealtime: 'Confirm real-time vs. batch via Availity/Optum onboarding for this payer ID.',
     'bhCarveOut.administrator':
       'No BH carve-out administrator is named for RB-BHT in CCH\'s behavioral-health provider materials — inferred as none absent evidence of a separate administrator; confirm via provider services (833) 552-3876.',
+    memberIdPrefix:
+      'Sample member ID card in the Carolina Complete Health provider manual, or ask Carolina Complete Health Provider Services whether any alpha prefix is keyed; no source states it',
   },
   sources: [CCH_BEHAVIORAL_HEALTH_PAGE, CCH_MERGER_PAGE, CCH_EDI_GUIDE, PVERIFY_PAYER_LIST, OPTUM_RTE_LIST, OPTUM_PROFESSIONAL_CLAIMS_LIST,
     src(
@@ -670,6 +742,7 @@ const unitedhealthcareCommunityPlanEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'unverified',
     'payerId.availity': 'unverified',
@@ -680,12 +753,15 @@ const unitedhealthcareCommunityPlanEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'verified',
     'bhCarveOut.abaRidesOn': 'verified',
     'bhCarveOut.twoHopRequired': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify':
       "No NC-specific \"UnitedHealthcare Community Plan of North Carolina\" line exists in pVerify's list — only generic \"United Healthcare\" (00192) and \"United Healthcare - Optum Behavioral Solutions\" (UHG007), neither state-tagged. Confirm which (if either) pVerify actually routes NC eligibility checks through.",
     'payerId.availity': 'No Availity-specific confirmation found; confirm directly via Availity onboarding.',
     supportsRealtime: 'Confirm real-time vs. batch via Optum/Provider Express onboarding for this payer ID.',
+    memberIdPrefix:
+      'No UHC/Optum source addresses an alpha prefix (2026 Admin Guide ID-card legend, 270/271 companion guide, pVerify list all silent). Confirm with a real card plus a pVerify run, or ask UHC Provider Services.',
   },
   sources: [UHC_NC_ABA_QRG, PVERIFY_PAYER_LIST, OPTUM_PROFESSIONAL_CLAIMS_LIST, OPTUM_RTE_LIST],
 };
@@ -750,6 +826,7 @@ const wellcareEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'unverified',
@@ -757,6 +834,7 @@ const wellcareEdi: EdiRouting = {
     supports270271: 'unverified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'inferred',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify':
@@ -765,6 +843,8 @@ const wellcareEdi: EdiRouting = {
       'Optum\'s generic "Wellcare Health Plans"/"Wellcare HMO Inc." code (14163) is explicitly restricted by Optum\'s own Real-Time Eligibility list to "NJ,TX" only — NOT valid for NC. No NC-specific WellCare code was found on any current Optum list.',
     supports270271:
       'The plan is merged/sunset as of 4/1/2026 — current eligibility lookups should route to Carolina Complete Health\'s payer ID (68069) instead. Flagged unverified rather than false since some legacy-claims transactional activity may persist within the 2-year post-merger access window per the CCH merger page.',
+    memberIdPrefix:
+      'Sample member ID card in the Carolina Complete Health (WellCare NC successor) provider manual, or ask Carolina Complete Health (WellCare NC successor) Provider Services whether any alpha prefix is keyed; no source states it',
   },
   sources: [WELLCARE_PROVIDER_RESOURCES, PVERIFY_PAYER_LIST, OPTUM_RTE_LIST, CCH_MERGER_PAGE, NCDHHS_MERGER_PLAYBOOK],
 };
@@ -1096,6 +1176,7 @@ const allianceEdi: EdiRouting = {
     abaRidesOn: 'bh',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'unverified',
     'payerId.availity': 'unverified',
@@ -1104,6 +1185,7 @@ const allianceEdi: EdiRouting = {
     'bhCarveOut.administrator': 'inferred',
     'bhCarveOut.abaRidesOn': 'inferred',
     'bhCarveOut.twoHopRequired': 'inferred',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': 'Alliance Health does not appear on pVerify’s March-2026 national payer list under any name variant — confirm via pVerify onboarding directly.',
@@ -1112,6 +1194,8 @@ const allianceEdi: EdiRouting = {
       'Multiple independent clearinghouse-adjacent payer-ID directories (Office Ally-family listings, practice-management EHR payer finders) consistently show "Alliance Behavioral Health, payer ID 23071" — but none is Change Healthcare’s, pVerify’s, or Availity’s own official list, and Alliance’s own EDI/claims pages return 403 to automated retrieval. Confirm 23071 and its clearinghouse directly with Alliance Provider Support ((855) 759-9700 / Claims@AllianceHealthPlan.org) before automating routing on it.',
     supports270271: 'Same as above — Alliance’s own EDI/Trading-Partner-Agreement pages block automated access (403); confirm directly.',
     'bhCarveOut.administrator': 'Alliance is itself the LME/MCO administering behavioral health (including RB-BHT) directly — inferred from its role as a Tailored Plan, not from a document naming "no carve-out" explicitly.',
+    memberIdPrefix:
+      'Alliance manual only says card shows \'Medicaid Identification Number\'; confirm with Alliance Provider Services 855-759-9700 or NCTracks eligibility inquiry',
   },
   sources: [PVERIFY_PAYER_LIST_NCB, AVAILITY_PAYER_LIST_NCB],
 };
@@ -1173,6 +1257,7 @@ const trilliumEdi: EdiRouting = {
     abaRidesOn: 'bh',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'unverified',
     'payerId.availity': 'unverified',
@@ -1181,12 +1266,14 @@ const trilliumEdi: EdiRouting = {
     'bhCarveOut.administrator': 'inferred',
     'bhCarveOut.abaRidesOn': 'inferred',
     'bhCarveOut.twoHopRequired': 'inferred',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': 'Trillium does not appear on pVerify’s national payer list under any name variant.',
     'payerId.availity': 'Trillium does not appear on the Availity Essentials 837 payer list either.',
     supports270271: 'Confirm 270/271 eligibility routing directly with Trillium — its own Claims Submission Protocol documents 837 claims routing (Change Healthcare 56089, The SSI Group 43071) but not eligibility-check routing specifically.',
     'bhCarveOut.administrator': 'Trillium is itself the LME/MCO administering behavioral health (including RB-BHT) directly — inferred from its role as a Tailored Plan and from its own claims protocol routing BH claims in-house (not to a third-party administrator).',
+    memberIdPrefix: 'Trillium TP Provider Manual (trilliumhealthresources.org) - PDF unreachable (blocked/empty via proxy)',
   },
   sources: [PVERIFY_PAYER_LIST_NCB, AVAILITY_PAYER_LIST_NCB, TRILLIUM_CLAIMS_PROTOCOL, TRILLIUM_BENEFIT_PLAN],
 };
@@ -1248,6 +1335,7 @@ const vayaEdi: EdiRouting = {
     abaRidesOn: 'bh',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'unverified',
     'payerId.availity': 'unverified',
@@ -1256,6 +1344,7 @@ const vayaEdi: EdiRouting = {
     'bhCarveOut.administrator': 'inferred',
     'bhCarveOut.abaRidesOn': 'inferred',
     'bhCarveOut.twoHopRequired': 'inferred',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': 'Vaya does not appear on pVerify’s national payer list under any name variant.',
@@ -1263,6 +1352,7 @@ const vayaEdi: EdiRouting = {
     'payerId.changeHealthcare':
       'Vaya IS confirmed on Office Ally — a third clearinghouse not named in this schema — as payer ID 13010, directly from Office Ally’s own pre-enrollment instructions PDF. Not pVerify’s, Availity’s, or (confirmed) Change Healthcare’s own ID; confirm the clearinghouse-specific mapping with Vaya EDI (EDI@vayahealth.com) or (828) 586-5501 ext. 5227/3313 before automating routing.',
     supports270271: 'Confirm 270/271 eligibility routing directly — Vaya publishes separate "EDI 270 and 271 Companion Guide" and "EDI Real-Time 270 and 271 Companion Guide" documents (referenced on its claims-submission page) whose content was not retrieved this pass.',
+    memberIdPrefix: 'Vaya POM / ID card sample; NC Medicaid ID used in NCTracks',
   },
   sources: [PVERIFY_PAYER_LIST_NCB, AVAILITY_PAYER_LIST_NCB, VAYA_OFFICEALLY_ENROLLMENT],
 };
@@ -1367,6 +1457,7 @@ const partnersEdi: EdiRouting = {
     abaRidesOn: 'bh',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'unverified',
     'payerId.availity': 'unverified',
@@ -1375,6 +1466,7 @@ const partnersEdi: EdiRouting = {
     'bhCarveOut.administrator': 'inferred',
     'bhCarveOut.abaRidesOn': 'inferred',
     'bhCarveOut.twoHopRequired': 'inferred',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': 'Partners does not appear on pVerify’s national payer list under any name variant.',
@@ -1382,6 +1474,7 @@ const partnersEdi: EdiRouting = {
     'payerId.changeHealthcare':
       "Payer ID 68069, which surfaces in several search results for “Partners,” is confirmed by Partners' OWN FAQ with Carolina Complete Health to be CCH's payer ID for PHYSICAL health claims delegated under the Tailored-Plan/Centene arrangement — NOT a behavioral-health or RB-BHT payer ID (RB-BHT is a BH service). Availity independently lists 68069 as \"Centene Corporation.\" Partners' own BH claims route through ProAuth (authorization) and Alpha+ (claims), with no clearinghouse payer ID found in any document retrieved this pass — confirm directly via ClaimsDepartment@PartnersBHM.org before assuming a routing.",
     supports270271: 'Same as above — confirm directly with Partners EDI/claims support.',
+    memberIdPrefix: 'Partners provider manual / ID card sample',
   },
   sources: [PVERIFY_PAYER_LIST_NCB, AVAILITY_PAYER_LIST_NCB, PARTNERS_CCH_FAQ],
 };
@@ -1443,6 +1536,7 @@ const aetnaEdiNC: EdiRouting = {
     abaRidesOn: 'unverified',
     twoHopRequired: 'unverified',
   },
+  memberIdPrefix: 'not-used',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'inferred',
@@ -1450,6 +1544,7 @@ const aetnaEdiNC: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'unverified',
+    memberIdPrefix: 'verified',
   },
   verifyVia: {
     'payerId.availity':
@@ -1458,8 +1553,9 @@ const aetnaEdiNC: EdiRouting = {
     supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding for this payer ID.',
     'bhCarveOut.administrator':
       'Not researched to a primary source this pass (same gap as the Georgia build) — confirm via Aetna provider services or the ABA precertification process whether Aetna administers ABA in-house or via a separate behavioral-health carve-out for North Carolina.',
+    memberIdPrefix: 'Aetna eligibility and benefits inquiry flyer states that prefixes or suffixes are unnecessary when using the member ID number.',
   },
-  sources: [PVERIFY_PAYER_LIST_NCB, AVAILITY_PAYER_LIST_NCB],
+  sources: [PVERIFY_PAYER_LIST_NCB, AVAILITY_PAYER_LIST_NCB, FANOUT_AET_ELIG_FLYER],
 };
 
 const aetnaCodeGridNC: Record<string, CodeGridEntry> = {
@@ -1479,6 +1575,7 @@ const cignaEdiNC: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'verified',
@@ -1489,9 +1586,12 @@ const cignaEdiNC: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'verified',
     'bhCarveOut.abaRidesOn': 'verified',
     'bhCarveOut.twoHopRequired': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding for this payer ID.',
+    memberIdPrefix:
+      'Cigna ID card quick guide (CIG_IDCARD) shows member ID + two-digit suffix, no alpha prefix, but gives no entry rule; confirm with Cigna 800.882.4462 or a test 270.',
   },
   sources: [PVERIFY_PAYER_LIST_NCB, AVAILITY_PAYER_LIST_NCB, CIGNA_AUTISM_RESOURCE_GUIDE],
 };
@@ -1521,6 +1621,7 @@ const unitedhealthcareEdiNC: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'verified',
@@ -1531,6 +1632,7 @@ const unitedhealthcareEdiNC: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'inferred',
     'bhCarveOut.abaRidesOn': 'inferred',
     'bhCarveOut.twoHopRequired': 'inferred',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding for this payer ID.',
@@ -1538,6 +1640,8 @@ const unitedhealthcareEdiNC: EdiRouting = {
       "Confirmed for MEDICAID: Optum's own “UnitedHealthcare Community Plan of North Carolina ABA Program Quick Reference Guide” states verbatim “Claims Payer ID 87726” (same as medical) for autism/ABA claims, addressed to Optum Behavioral Health. Applied to this COMMERCIAL guide as inferred cross-LOB pattern evidence, not a commercial-specific confirmation — pVerify separately lists a distinct “UHG007 United Healthcare - Optum Behavioral Solutions” payer ID not reconciled against 87726 for commercial NC. Confirm directly via Provider Express / UHC provider services before automating commercial routing.",
     'bhCarveOut.abaRidesOn': 'Same as administratorPayerId.',
     'bhCarveOut.twoHopRequired': 'Same as administratorPayerId.',
+    memberIdPrefix:
+      'No UHC/Optum source addresses an alpha prefix (2026 Admin Guide ID-card legend, 270/271 companion guide, pVerify list all silent). Confirm with a real card plus a pVerify run, or ask UHC Provider Services.',
   },
   sources: [PVERIFY_PAYER_LIST_NCB, AVAILITY_PAYER_LIST_NCB, OPTUM_SCC, UHC_NC_MEDICAID_ABA_QRG],
 };
@@ -1706,7 +1810,9 @@ const northCarolinaMedicaidContact: VobContact = {
     'Is there a copay or coinsurance for RB-BHT, and if so is it charged per-visit or per-day?',
     'Since NCTracks\' own 271 does not return DMH/behavioral-health benefit detail, which LME-MCO or plan should I contact directly to confirm this member\'s RB-BHT benefit and cost share?',
   ],
-  sources: [NCTRACKS_CONTACT_INFO],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [NCTRACKS_CONTACT_INFO, FANOUT_NC_AVRS_2021],
 };
 
 /* ==================== healthy-blue-north-carolina ==================== */
@@ -1725,7 +1831,9 @@ const healthyBlueContact: VobContact = {
     'Is the ABA cost share a copay or coinsurance, and is it charged per-visit or per-day?',
     'Does the deductible apply to RB-BHT, and is there an out-of-pocket max that applies?',
   ],
-  sources: [HEALTHY_BLUE_PROVIDER_MANUAL],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [HEALTHY_BLUE_PROVIDER_MANUAL, FANOUT_HBNC_PM],
 };
 
 /* ==================== amerihealth-caritas-north-carolina ==================== */
@@ -1744,7 +1852,9 @@ const amerihealthContact: VobContact = {
     'What telehealth modifiers and place-of-service codes are approved for RB-BHT?',
     'Is the RB-BHT cost share a copay or coinsurance, charged per-visit or per-day, and does the deductible apply?',
   ],
-  sources: [AMERIHEALTH_UM_GUIDE],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [AMERIHEALTH_UM_GUIDE, FANOUT_ACNC_MANUAL],
 };
 
 /* ==================== carolina-complete-health ==================== */
@@ -1760,7 +1870,9 @@ const carolinaCompleteHealthContact: VobContact = {
     'What telehealth modifiers and place-of-service codes are approved for RB-BHT?',
     'Is the ABA cost share a copay or coinsurance, charged per-visit or per-day, and does it apply to the deductible?',
   ],
-  sources: [CCH_BEHAVIORAL_HEALTH_PAGE],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [CCH_BEHAVIORAL_HEALTH_PAGE, FANOUT_CCH_MANUAL_2026],
 };
 
 /* ==================== unitedhealthcare-community-plan-north-carolina ==================== */
@@ -1777,7 +1889,9 @@ const unitedhealthcareCommunityPlanContact: VobContact = {
     'What telehealth mechanics and place-of-service codes are approved for RB-BHT under the Optum-managed network?',
     'Is the ABA cost share a copay or coinsurance, and does the deductible apply?',
   ],
-  sources: [UHC_NC_ABA_QRG],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [UHC_NC_ABA_QRG, FANOUT_QRG_NC_MCD],
 };
 
 /* ==================== wellcare-north-carolina (merged 4/1/2026; contact routes to Carolina Complete Health) ==================== */
@@ -1796,7 +1910,9 @@ const wellcareContact: VobContact = {
     'What were the unit caps and cap periods for 97151-97157 under WNC.CP.109, and do they still apply post-merger?',
     'Is there a copay or coinsurance for RB-BHT, and if so is it per-visit or per-day?',
   ],
-  sources: [CCH_BEHAVIORAL_HEALTH_PAGE, CCH_MERGER_PAGE, NCDHHS_MERGER_PLAYBOOK],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [CCH_BEHAVIORAL_HEALTH_PAGE, CCH_MERGER_PAGE, NCDHHS_MERGER_PLAYBOOK, FANOUT_CCH_MANUAL_2026],
 };
 
 /* ==================== alliance-health-north-carolina ==================== */
@@ -1813,6 +1929,8 @@ const allianceContact: VobContact = {
     'Is there a copay or coinsurance for RB-BHT, and if so is it per-visit or per-day?',
     'Since Alliance is the LME-MCO itself, what STC bucket or benefit detail does a 270/271 eligibility check actually return for RB-BHT?',
   ],
+  benefitsByPhone: 'unverified',
+  requiresIndividualNpi: 'unverified',
   sources: [ALLIANCE_RBBHT_GUIDANCE, ALLIANCE_RBBHT_COVER_SHEET],
 };
 
@@ -1830,6 +1948,8 @@ const trilliumContact: VobContact = {
     'Does the deductible apply to RB-BHT, and is there an out-of-pocket max?',
     'What STC bucket does Trillium return ABA benefit detail under on a 270/271 eligibility response?',
   ],
+  benefitsByPhone: 'unverified',
+  requiresIndividualNpi: 'unverified',
   sources: [TRILLIUM_CLAIMS_PROTOCOL],
 };
 
@@ -1848,7 +1968,9 @@ const vayaContact: VobContact = {
     'Does the deductible apply to RB-BHT, and is there an out-of-pocket max?',
     'What STC bucket does Vaya return ABA benefit detail under on a 270/271 eligibility response?',
   ],
-  sources: [VAYA_CONTACT_PAGE],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [VAYA_CONTACT_PAGE, FANOUT_VAYA_POM],
 };
 
 /* ==================== partners-health-management ==================== */
@@ -1863,7 +1985,9 @@ const partnersContact: VobContact = {
     'Does the deductible apply to RB-BHT, and is there an out-of-pocket max?',
     'What STC bucket does Partners return ABA benefit detail under on a 270/271 eligibility response?',
   ],
-  sources: [PARTNERS_PROVIDER_NETWORK_CONTACTS],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [PARTNERS_PROVIDER_NETWORK_CONTACTS, FANOUT_PARTNERS_CCH_DECK],
 };
 
 /* ==================== aetna-north-carolina (commercial) ==================== */
@@ -1882,7 +2006,9 @@ const aetnaContactNC: VobContact = {
     'What form or process is used for ABA precertification?',
     'Does the plan\'s out-of-pocket max apply to ABA services?',
   ],
-  sources: [AETNA_CONTACT_PAGE],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [AETNA_CONTACT_PAGE, FANOUT_AET_GLANCE],
 };
 
 /* ==================== cigna-north-carolina (commercial) ==================== */
@@ -1903,7 +2029,9 @@ const cignaContactNC: VobContact = {
     'What place-of-service settings and telehealth modifiers (GT/95) are accepted for ABA claims?',
     'Do you support real-time or only batch 270/271 for this payer ID?',
   ],
-  sources: [CIGNA_AUTISM_RESOURCE_GUIDE, EVERNORTH_ABA_PA_FORM],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [CIGNA_AUTISM_RESOURCE_GUIDE, EVERNORTH_ABA_PA_FORM, FANOUT_CIG_AUTISM],
 };
 
 /* ==================== unitedhealthcare-north-carolina (commercial) ==================== */
@@ -1920,7 +2048,9 @@ const unitedhealthcareContactNC: VobContact = {
     'Does the plan\'s out-of-pocket max apply to ABA services?',
     'What telehealth modifiers and place-of-service settings are accepted for ABA billing under this plan?',
   ],
-  sources: [OPTUM_PROVIDER_EXPRESS_SUPPORT],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [OPTUM_PROVIDER_EXPRESS_SUPPORT, FANOUT_OPTUM_NNM_2026],
 };
 
 /* ==================== export ====================
@@ -1977,18 +2107,21 @@ const medcostEdi: EdiRouting = {
     abaRidesOn: 'unverified',
     twoHopRequired: 'unverified',
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'unverified',
     'payerId.availity': 'verified',
     supports270271: 'unverified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'plan-dependent',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': 'pVerify GetAllPayers directory (credentialed API; LeadTrap PayerDirectoryService). LeadTrap harvested 00439 "MedCost Benefit Services" on 2026-08-17; pverify.com/payer-list is Cloudflare-walled to this refresh.',
     'payerId.availity': 'Claims payer ID per the October 2025 Provider Manual — confirm Availity also routes 270/271 eligibility on 56162.',
     supports270271: 'Ask Availity or MedCost whether 270/271 eligibility runs on 56162; MedCost\'s own eligibility tool is the MBS provider portal (healthx).',
     'bhCarveOut.administrator': 'Not a research gap: whether behavioral health is carved out, and to whom, is the employer plan sponsor\'s decision. Ask per group.',
+    memberIdPrefix: 'MedCost manual ID-card section describes logos only, no ID format; check an MBS card sample',
   },
   sources: [MEDCOST_PROVIDER_MANUAL, MEDCOST_PAYER_PARTNERS],
 };
@@ -2055,6 +2188,8 @@ const medcostContact: VobContact = {
     'Does this group carry Comprehensive Outpatient Review, and do 97153-97158 need precertification?',
     'What ABA hour, visit, age or dollar limits does the plan document apply, and is telehealth covered?',
   ],
+  benefitsByPhone: 'unverified',
+  requiresIndividualNpi: 'unverified',
   sources: [MEDCOST_PAYER_PARTNERS, MEDCOST_PRECERT],
 };
 
@@ -2123,6 +2258,7 @@ const blueCrossNcContact: VobContact = {
     'Is this plan fully insured or self-funded (ASO)? The policy covers ABA under N.C.G.S. § 58-3-192, and ASO groups opt into the autism benefit.',
     'Confirm no prior authorization for the initial evaluation (97151, up to 32 units a year) and that treatment needs the ABA/ABT request form + plan in Blue e, with an extension after 6 months.',
   ],
+  requiresIndividualNpi: 'unverified',
   sources: [BCNC_PHONE_LINE_CLOSING, BCNC_ABOUT_BLUE_E, BCNC_ABT_PA_NOTICE],
 };
 
@@ -2134,7 +2270,7 @@ export const northCarolinaVob: Record<string, VobExtension> = {
     rates: northCarolinaMedicaidRates,
     stcMap: northCarolinaMedicaidStc,
     vobContact: northCarolinaMedicaidContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'healthy-blue-north-carolina': {
     edi: healthyBlueEdi,
@@ -2142,7 +2278,7 @@ export const northCarolinaVob: Record<string, VobExtension> = {
     rates: healthyBlueRates,
     stcMap: ncStandardPlanUnverifiedStc('Healthy Blue'),
     vobContact: healthyBlueContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'amerihealth-caritas-north-carolina': {
     edi: amerihealthEdi,
@@ -2150,7 +2286,7 @@ export const northCarolinaVob: Record<string, VobExtension> = {
     rates: amerihealthRates,
     stcMap: ncStandardPlanUnverifiedStc('AmeriHealth Caritas North Carolina'),
     vobContact: amerihealthContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'carolina-complete-health': {
     edi: carolinaCompleteHealthEdi,
@@ -2158,7 +2294,7 @@ export const northCarolinaVob: Record<string, VobExtension> = {
     rates: carolinaCompleteHealthRates,
     stcMap: ncStandardPlanUnverifiedStc('Carolina Complete Health'),
     vobContact: carolinaCompleteHealthContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'unitedhealthcare-community-plan-north-carolina': {
     edi: unitedhealthcareCommunityPlanEdi,
@@ -2166,7 +2302,7 @@ export const northCarolinaVob: Record<string, VobExtension> = {
     rates: unitedhealthcareCommunityPlanRates,
     stcMap: ncStandardPlanUnverifiedStc('UnitedHealthcare Community Plan of North Carolina'),
     vobContact: unitedhealthcareCommunityPlanContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'wellcare-north-carolina': {
     edi: wellcareEdi,
@@ -2174,7 +2310,7 @@ export const northCarolinaVob: Record<string, VobExtension> = {
     rates: wellcareRates,
     stcMap: ncStandardPlanUnverifiedStc('WellCare of North Carolina'),
     vobContact: wellcareContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   // ---- SPLIT B: Tailored Plans + commercial ----
   'alliance-health-north-carolina': {
@@ -2183,7 +2319,7 @@ export const northCarolinaVob: Record<string, VobExtension> = {
     rates: allianceRates,
     stcMap: ncTailoredPlanUnverifiedStc('Alliance Health'),
     vobContact: allianceContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'trillium-health-resources': {
     edi: trilliumEdi,
@@ -2191,7 +2327,7 @@ export const northCarolinaVob: Record<string, VobExtension> = {
     rates: trilliumRates,
     stcMap: ncTailoredPlanUnverifiedStc('Trillium Health Resources'),
     vobContact: trilliumContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'vaya-health': {
     edi: vayaEdi,
@@ -2199,7 +2335,7 @@ export const northCarolinaVob: Record<string, VobExtension> = {
     rates: vayaRates,
     stcMap: ncTailoredPlanUnverifiedStc('Vaya Health'),
     vobContact: vayaContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'partners-health-management': {
     edi: partnersEdi,
@@ -2207,35 +2343,35 @@ export const northCarolinaVob: Record<string, VobExtension> = {
     rates: partnersRates,
     stcMap: ncTailoredPlanUnverifiedStc('Partners Health Management'),
     vobContact: partnersContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'aetna-north-carolina': {
     edi: aetnaEdiNC,
     codeGrid: aetnaCodeGridNC,
     stcMap: inheritFamilyStc(aetnaFamilyStc, 'Inherited from the Aetna family default (docs/vob-build.md Layer 2) — no North Carolina-specific 270/271 STC document found.'),
     vobContact: aetnaContactNC,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'cigna-north-carolina': {
     edi: cignaEdiNC,
     codeGrid: cignaCodeGridNC,
     stcMap: inheritFamilyStc(cignaFamilyStc, 'Inherited from the Cigna/Evernorth family default (docs/vob-build.md Layer 2) — national companion guide, no North Carolina-specific override found.'),
     vobContact: cignaContactNC,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'unitedhealthcare-north-carolina': {
     edi: unitedhealthcareEdiNC,
     codeGrid: unitedhealthcareCodeGridNC,
     stcMap: inheritFamilyStc(uhcFamilyStc, 'Inherited from the UnitedHealthcare/Optum family default (docs/vob-build.md Layer 2) — national companion guide, no North Carolina-specific override found.'),
     vobContact: unitedhealthcareContactNC,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   medcost: {
     edi: medcostEdi,
     codeGrid: medcostCodeGrid,
     stcMap: medcostStc,
     vobContact: medcostContact,
-    lastUpdated: REFRESH_ACCESS_DATE_20260927,
+    lastUpdated: '2026-10-15',
   },
   'blue-cross-north-carolina': {
     edi: blueCrossNcEdi,
@@ -2244,6 +2380,6 @@ export const northCarolinaVob: Record<string, VobExtension> = {
       'Inherited from the BCBS family default (docs/vob-build.md Layer 2). Treat as weak: that default comes from New York Blue plans, and Blue Cross NC is an independent licensee. Everything the default leaves unverified stays unverified here.',
     ),
     vobContact: blueCrossNcContact,
-    lastUpdated: BCNC_DATE,
+    lastUpdated: '2026-10-15',
   },
 };

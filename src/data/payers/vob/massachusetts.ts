@@ -414,6 +414,53 @@ function buildGrid(entryFn: (code: string) => CodeGridEntry): Record<string, Cod
 const CARELON_MULTI_ID_NOTE =
   '43324 (claim.md) / BHOVO (Stedi) / 00831 (pVerify) / ISA Receiver ID BEACON963116116 (Carelon national companion guide) — genuinely multiple identifiers across clearinghouses for the same Carelon/Beacon entity, not resolved to one canonical number.';
 
+/* Prefix / benefits-by-phone / individual-NPI sources (2026-10-14) */
+const FANOUT_OPTUM_NNM_2026: SourceRef = {
+  url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf',
+  accessDate: '2026-10-14',
+  note: 'Optum (United Behavioral Health) National Provider Network Manual, published July 1 2026, effective Sept 1 2026 (BH02330-1-26-MAN_07012026). Read via r.jina.ai using the AEM path .../NNManual.pdf/jcr:content/renditions/original (plain URL returns a download interstitial). Eligibility Inquiry p.35-36: "You can use the Provider Express secure portal to check a member\'s eligibility. You may also inquire about eligibility by calling the phone number on the member\'s ID card." Items to provide: member name, address, ID number, subscriber name and DOB - NPI not listed. No statement on individual vs group NPI for calls.',
+};
+const FANOUT_AET_ELIG_FLYER: SourceRef = {
+  url: 'https://www.aetna.com/document-library/healthcare-professionals/assets/documents/eligibility.pdf',
+  accessDate: '2026-10-14',
+  note: 'Aetna Eligibility and Benefits Inquiry flyer 83.03.870.1 (2/19), still hosted on aetna.com: "When using the member ID number, prefixes or suffixes are unnecessary. For family-level searches, you only need to enter the member ID." Applies to the electronic inquiry; dated 2019.',
+};
+const FANOUT_AET_GLANCE: SourceRef = {
+  url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/aetna-at-a-glance.pdf',
+  accessDate: '2026-10-14',
+  note: 'Aetna "At a glance" how-to guide for health care professionals, 9011800-01-01 (8/26), Key contacts table: "Provider Contact Center ... Member eligibility and benefits ... 1-800-624-0756 (TTY: 711) for Aetna Medicare Advantage plans and HMO-based plans / 1-888-MDAetna (1-888-632-3862) (TTY: 711) for all other plans". Also: "Behavioral health (provider services) Refer to the member ID card."',
+};
+const FANOUT_CIG_AUTISM: SourceRef = {
+  url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf',
+  accessDate: '2026-10-14',
+  note: 'Evernorth/Cigna Autism resource guide, March 2025 (PCOMM-2025-225): "It is important to confirm a patient\'s ABA eligibility and benefits before performing an assessment. This information can be confirmed by: ... Calling the Autism Care Coordinator team at 877.279.7603". Provider Services 800.926.2273 "handles questions regarding billing, benefits, and eligibility for autism-related treatment, such as ABA."',
+};
+const FANOUT_MA_HOWTO: SourceRef = {
+  url: 'https://www.mass.gov/how-to/eligibility-verification-for-masshealth-providers',
+  accessDate: '2026-10-14',
+  note: 'Mass.gov \'Eligibility Verification for MassHealth Providers\'. What you need: "12-digit member ID"; EVS via POSC. Lists only the Online method; no AVR mentioned on this page.',
+};
+const FANOUT_MA_SUB5: SourceRef = {
+  url: 'https://www.mass.gov/doc/subchapter-5-administrative-and-billing-instructions-for-all-masshealth-providers/download',
+  accessDate: '2026-10-14',
+  note: 'MassHealth All Provider Manuals Subchapter 5 (page header Transmittal ALL-165, date 05/26/09; current copy on mass.gov). "Providers without Internet access can call the automated voice response (AVR) system at 1-800-554-0042 or call the eligibility operator at 1-800-841-2900."',
+};
+const FANOUT_FALLON_BEACON_MANUAL: SourceRef = {
+  url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/ma/behavioral-health-policy-and-procedure-manual-for-providers-fallon.pdf',
+  accessDate: '2026-10-14',
+  note: 'Beacon (Carelon) Provider Manual - Fallon Health (rev. Sept 2021; PDF dated 2023). Eligibility verification: "Via Telephone o 800.554.0042 - MassHealth\'s Automated Voice Response (AVR) o 888.421.8861 - Beacon Member Services o 800.868.5200 - Fallon Member Services".',
+};
+const FANOUT_WELLSENSE_MA_MANUAL: SourceRef = {
+  url: 'https://www.wellsense.org/hubfs/Provider/Provider%20Manual/MA_Provider_Manual.pdf',
+  accessDate: '2026-10-14',
+  note: 'WellSense MA Provider Manual, effective Jan. 1, 2026 (read via r.jina.ai). Step two: "Use our Interactive Voice Response (IVR) line by calling 888-566-0008 and selecting option 1." Also: "A live representative from your office contacts our provider line at 888-566-0008 to verify WellSense member benefits and eligibility".',
+};
+const FANOUT_THPP_PROVIDERS_CH: SourceRef = {
+  url: 'https://www.point32health.org/documents/thpp-03-providers-pm',
+  accessDate: '2026-10-14',
+  note: 'Tufts Health Public Plans Provider Manual, Providers chapter (2026). "Verify member eligibility the day services are rendered using... the online secure Provider portal or by calling the Tufts Health Public Plans Interactive Voice Response (IVR) system at 888-257-1985 (Massachusetts)".',
+};
+
 const massHealthMedicaidEdi: EdiRouting = {
   payerId: { pverify: '00133', availity: 'unverified', changeHealthcare: 'unverified' },
   supports270271: true,
@@ -430,6 +477,7 @@ const massHealthMedicaidEdi: EdiRouting = {
     mcoCarrierCodes: {},
     eligibilitySpanGranularity: 'Both real-time (single-patient inquiries) and batch supported, contingent on a Trading Partner Agreement on file; system availability 24/7 except scheduled maintenance.',
   },
+  memberIdPrefix: 'not-used',
   fieldStatus: {
     'payerId.pverify': 'inferred',
     'payerId.availity': 'unverified',
@@ -443,6 +491,7 @@ const massHealthMedicaidEdi: EdiRouting = {
     'medicaid271Notes.mcoSegmentLocation': 'verified',
     'medicaid271Notes.mcoCarrierCodes': 'verified',
     'medicaid271Notes.eligibilitySpanGranularity': 'verified',
+    memberIdPrefix: 'verified',
   },
   verifyVia: {
     'payerId.pverify':
@@ -455,8 +504,9 @@ const massHealthMedicaidEdi: EdiRouting = {
       'QA 2026-07-23 downgraded verified->unverified: whether a second EDI hop is required varies by which administrator the member\'s plan uses (the administrator field itself says routing "varies by plan"), and the cited companion guide does not address BH claim-routing hops — resolve per the plan-specific guide.',
     'bhCarveOut.abaRidesOn':
       'Varies by which of the six administrators the member\'s specific plan uses (MBHP/Carelon and Fallon/Carelon ride BH; WellSense folds into its own medical claims post-insourcing; Tufts and MGB have their own distinct arrangements) — see the plan-specific guides rather than treating the state program as one carve-out.',
+    memberIdPrefix: 'Mass.gov eligibility verification asks only for the 12-digit member ID; no alpha prefix is used.',
   },
-  sources: [MASSHEALTH_270_271_CG, PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, CLAIM_MD_CARELON, STEDI_CARELON, CARELON_NATIONAL_270271_CG],
+  sources: [MASSHEALTH_270_271_CG, PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, CLAIM_MD_CARELON, STEDI_CARELON, CARELON_NATIONAL_270271_CG, FANOUT_MA_HOWTO],
 };
 
 const massHealthMedicaidCodeGrid = buildGrid((code) => stateBaselineEntry(code, 'verified'));
@@ -473,6 +523,7 @@ const mbhpEdi: EdiRouting = {
     abaRidesOn: 'bh',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'unverified',
@@ -483,11 +534,13 @@ const mbhpEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'verified',
     'bhCarveOut.abaRidesOn': 'verified',
     'bhCarveOut.twoHopRequired': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.availity': 'No MBHP row found in the (stale, 2012) Availity payer list retrieved this pass — confirm directly via Availity onboarding, or via the claim.md (43324) / Stedi (BHOVO) IDs already confirmed.',
     'payerId.changeHealthcare': 'Not researched this pass — confirm via Optum/Change Healthcare payer finder.',
     supportsRealtime: "Carelon's national 270-271 companion guide (a distinct, non-MA-specific document) states Carelon does not support real-time eligibility transactions — not independently confirmed for MBHP's Massachusetts line specifically this pass.",
+    memberIdPrefix: 'MBHP provider manual (masspartnership.com, unreachable from here)',
   },
   sources: [PVERIFY_PAYER_LIST, CLAIM_MD_CARELON, STEDI_CARELON, CARELON_NATIONAL_270271_CG],
 };
@@ -506,6 +559,7 @@ const fallonEdi: EdiRouting = {
     abaRidesOn: 'bh',
     twoHopRequired: true,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'unverified',
@@ -516,12 +570,14 @@ const fallonEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'inferred',
     'bhCarveOut.abaRidesOn': 'verified',
     'bhCarveOut.twoHopRequired': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': "pVerify also separately lists a 'Fallon Community Health Plan (Exception)' entry (01099) — confirm which code applies before automating routing.",
     'payerId.availity': 'No Fallon row found in the (stale, 2012) Availity payer list retrieved this pass — confirm directly via Availity onboarding.',
     'bhCarveOut.administratorPayerId':
       "Carelon/Beacon's own Fallon-specific provider manual (Sept 2021, stale) confirms EDI submission structurally (\"use Beacon's Emdeon Payer ID\") but does not print the actual numeric ID anywhere in its text — confirm directly with Carelon provider services.",
+    memberIdPrefix: 'Fallon provider manual member ID section / first real check',
   },
   sources: [PVERIFY_PAYER_LIST, FALLON_CARELON_MANUAL, CLAIM_MD_CARELON, STEDI_CARELON],
 };
@@ -546,6 +602,7 @@ const hneEdi: EdiRouting = {
     abaRidesOn: 'bh',
     twoHopRequired: true,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'inferred',
@@ -556,11 +613,13 @@ const hneEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'inferred',
     'bhCarveOut.abaRidesOn': 'verified',
     'bhCarveOut.twoHopRequired': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.availity':
       'Sourced from the stale (2012) Availity payer list — downgraded to inferred pending reconfirmation against a current Availity export (same treatment already applied in vob/georgia.ts for the identical staleness finding).',
     'payerId.changeHealthcare': 'Not researched this pass — confirm via Optum/Change Healthcare payer finder.',
+    memberIdPrefix: 'HNE provider manual (healthnewengland.org)',
   },
   sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, CLAIM_MD_CARELON, STEDI_CARELON],
 };
@@ -585,6 +644,7 @@ const wellsenseEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'unverified',
     'payerId.availity': 'verified',
@@ -595,6 +655,7 @@ const wellsenseEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'inferred',
     'bhCarveOut.abaRidesOn': 'inferred',
     'bhCarveOut.twoHopRequired': 'inferred',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify':
@@ -606,6 +667,7 @@ const wellsenseEdi: EdiRouting = {
       "WellSense's own EDI Claims Companion Guide (March 2024) still names Beacon Health Strategies for BH claims — that document PRE-DATES the 1/1/2026 insourcing and is now out of date on this specific point; no post-insourcing WellSense EDI document was found confirming the current BH routing mechanics.",
     'bhCarveOut.abaRidesOn': 'Inferred from the insourcing announcement, not confirmed against a post-1/1/2026 WellSense billing document.',
     'bhCarveOut.twoHopRequired': 'Same as abaRidesOn.',
+    memberIdPrefix: 'WellSense MA Provider Manual member ID card table / first real check',
   },
   sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, WELLSENSE_EDI_CG],
 };
@@ -624,6 +686,7 @@ const tuftsEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'unverified',
     'payerId.availity': 'inferred',
@@ -631,6 +694,7 @@ const tuftsEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': 'Not found on pVerify\'s payer-list page this pass — likely truncation (the live page is very large), confirm directly.',
@@ -638,6 +702,7 @@ const tuftsEdi: EdiRouting = {
       'Sourced from the stale (2012) Availity payer list — downgraded to inferred pending reconfirmation. Note: Tufts/Point32Health\'s own 270-271 companion guide (May 2017) documents a SEPARATE, non-payer-ID identifier for real-time eligibility — CAQH CORE ReceiverID 170558746 — which is not interchangeable with the 04298 clearinghouse payer ID; confirm which your integration actually needs.',
     'payerId.changeHealthcare': 'Not researched this pass — confirm via Optum/Change Healthcare payer finder.',
     supportsRealtime: 'Tufts\' own 270-271 companion guide (2017, stale) describes a direct SOAP/CORE connection rather than standard clearinghouse real-time eligibility — not independently confirmed as still current.',
+    memberIdPrefix: 'Tufts Health Public Plans manual member ID card section / first real check',
   },
   sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, TUFTS_270_271_CG],
 };
@@ -656,6 +721,7 @@ const mgbEdi: EdiRouting = {
     abaRidesOn: 'bh',
     twoHopRequired: true,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'unverified',
@@ -666,11 +732,13 @@ const mgbEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'verified',
     'bhCarveOut.abaRidesOn': 'verified',
     'bhCarveOut.twoHopRequired': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.availity': 'No Mass General Brigham Health Plan / AllWays row found in the (stale, 2012) Availity payer list — confirm directly via Availity onboarding.',
     'bhCarveOut.administratorPayerId':
       "87726 is the SAME number as UnitedHealthcare's national medical payer ID (confirmed via UHC's own 5/13/2026 payer list). How a clearinghouse distinguishes MGB's medical claims from its Optum BH claims when the ID is shared (taxonomy code? submitter ID?) was not confirmed this pass — verify directly with Optum/UHC EDI support before automating routing.",
+    memberIdPrefix: 'MGB ACO Provider Manual member ID card section / first real check',
   },
   sources: [PVERIFY_PAYER_LIST, MGB_CLAIMS_PAGE, UHC_PAYER_LIST_2026],
 };
@@ -700,6 +768,7 @@ const aetnaEdi: EdiRouting = {
     abaRidesOn: 'unverified',
     twoHopRequired: 'unverified',
   },
+  memberIdPrefix: 'not-used',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'inferred',
@@ -707,6 +776,7 @@ const aetnaEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'unverified',
+    memberIdPrefix: 'verified',
   },
   verifyVia: {
     'payerId.availity':
@@ -714,8 +784,9 @@ const aetnaEdi: EdiRouting = {
     'payerId.changeHealthcare': 'Not researched this pass — confirm via Optum/Change Healthcare payer finder.',
     'bhCarveOut.administrator':
       'Not researched to a primary source this pass — confirm via Aetna provider services or the ABA precertification process whether Aetna administers ABA in-house or via a separate behavioral-health carve-out for Massachusetts.',
+    memberIdPrefix: 'Aetna\'s eligibility and benefits inquiry flyer states that prefixes or suffixes are unnecessary when using the member ID number.',
   },
-  sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST],
+  sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, FANOUT_AET_ELIG_FLYER],
 };
 
 const aetnaCodeGrid = buildGrid(() => aetnaEntry());
@@ -732,6 +803,7 @@ const cignaEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'inferred',
     'payerId.availity': 'verified',
@@ -742,9 +814,11 @@ const cignaEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'verified',
     'bhCarveOut.abaRidesOn': 'verified',
     'bhCarveOut.twoHopRequired': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': "pVerify also separately lists 'Cigna Behavioral' (00510) — confirm which code applies to ABA claims specifically before automating routing.",
+    memberIdPrefix: 'Cigna ID card quick guide (CIG_IDCARD) shows member ID + two-digit suffix, no alpha prefix, but gives no entry rule; confirm with Cigna 800.882.4462 or a test 270.',
   },
   sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, CIGNA_AUTISM_GUIDE],
 };
@@ -774,6 +848,7 @@ const unitedhealthcareEdi: EdiRouting = {
     abaRidesOn: 'unverified',
     twoHopRequired: 'unverified',
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'unverified',
     'payerId.availity': 'inferred',
@@ -784,6 +859,7 @@ const unitedhealthcareEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'verified',
     'bhCarveOut.abaRidesOn': 'unverified',
     'bhCarveOut.twoHopRequired': 'unverified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify':
@@ -793,6 +869,7 @@ const unitedhealthcareEdi: EdiRouting = {
     'bhCarveOut.abaRidesOn':
       "UHC's national medical claims and Optum Behavioral Health carve-out currently share the SAME payer ID (87726) per UHC's own 5/13/2026 payer list ('Other OptumHealth Behavioral Solutions ... 87726 ... former payer id 33053'). How a clearinghouse distinguishes medical vs. BH claims when the ID is identical was not confirmed this pass — verify via Provider Express / UHC EDI support before automating routing.",
     'bhCarveOut.twoHopRequired': 'Same open question as abaRidesOn.',
+    memberIdPrefix: 'No UHC/Optum source addresses an alpha prefix (2026 Admin Guide ID-card legend, 270/271 companion guide, pVerify list all silent). Confirm with a real card plus a pVerify run, or ask UHC Provider Services.',
   },
   sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, UHC_PAYER_LIST_2026],
 };
@@ -974,7 +1051,9 @@ const massHealthMedicaidContact: VobContact = {
     'Are there any per-code unit caps beyond the published group-code caps (97154/97157) that apply to this member?',
     'What billing modifiers, if any, does this plan require on ABA claims?',
   ],
-  sources: [MASSHEALTH_EVS_CONTACT, BEACON_FALLON_MANUAL_CONTACT],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [MASSHEALTH_EVS_CONTACT, BEACON_FALLON_MANUAL_CONTACT, FANOUT_MA_SUB5],
 };
 
 const mbhpContact: VobContact = {
@@ -988,6 +1067,8 @@ const mbhpContact: VobContact = {
     'Are there any per-code daily or weekly unit caps beyond the published group-code (97154) cap?',
     'What billing modifiers does MBHP require on ABA claims (licensure tier, telehealth, or otherwise)?',
   ],
+  benefitsByPhone: 'unverified',
+  requiresIndividualNpi: 'unverified',
   sources: [BEACON_FALLON_MANUAL_CONTACT, CLAIM_MD_CARELON, STEDI_CARELON],
 };
 
@@ -1002,7 +1083,9 @@ const fallonContact: VobContact = {
     'Does Fallon support real-time single-patient 270/271 eligibility checks, or only batch?',
     'Are there any Fallon-specific per-code unit caps or billing modifiers that differ from the statewide Carelon/MBHP baseline?',
   ],
-  sources: [BEACON_FALLON_MANUAL_CONTACT, FALLON_CARELON_MANUAL, CLAIM_MD_CARELON],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [BEACON_FALLON_MANUAL_CONTACT, FALLON_CARELON_MANUAL, CLAIM_MD_CARELON, FANOUT_FALLON_BEACON_MANUAL],
 };
 
 const hneContact: VobContact = {
@@ -1015,6 +1098,8 @@ const hneContact: VobContact = {
     'Does HNE / BeHealthy Partnership support real-time 270/271 eligibility checks?',
     'Are there HNE-specific per-code unit caps, POS restrictions, or billing modifiers that differ from the statewide MBHP baseline?',
   ],
+  benefitsByPhone: 'unverified',
+  requiresIndividualNpi: 'unverified',
   sources: [BEACON_FALLON_MANUAL_CONTACT],
 };
 
@@ -1030,7 +1115,9 @@ const wellsenseContact: VobContact = {
     "What is WellSense's current pVerify payer ID (the file on hand only has the legacy 'Boston Medical Center Healthnet Plan' listing)?",
     'Are there WellSense-specific per-code unit caps, POS rules, or billing modifiers for ABA codes 97151-97158/0362T/0373T?',
   ],
-  sources: [WELLSENSE_MA_QRG, WELLSENSE_EDI_CG],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [WELLSENSE_MA_QRG, WELLSENSE_EDI_CG, FANOUT_WELLSENSE_MA_MANUAL],
 };
 
 const tuftsContact: VobContact = {
@@ -1043,7 +1130,9 @@ const tuftsContact: VobContact = {
     "What are the per-code daily/weekly unit caps for ABA codes 97151-97158/0362T/0373T under Tufts's own InterQual-based medical necessity guideline?",
     'What POS codes and telehealth billing modifiers does Tufts require for ABA?',
   ],
-  sources: [TUFTS_CONTACT_US_PAGE, TUFTS_270_271_CG],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [TUFTS_CONTACT_US_PAGE, TUFTS_270_271_CG, FANOUT_THPP_PROVIDERS_CH],
 };
 
 const mgbContact: VobContact = {
@@ -1056,6 +1145,8 @@ const mgbContact: VobContact = {
     "Do MGB's ABA unit caps and modifiers match Optum's national reimbursement policy, or does MGB have a plan-specific override?",
     'For Early Intervention (under-3) MassHealth members, does the 30 hr/week ABA cap and 1:10 supervision ratio apply through MGB the same way it does through MBHP?',
   ],
+  benefitsByPhone: 'unverified',
+  requiresIndividualNpi: 'unverified',
   sources: [MGB_PROVIDER_CONTACT, MGB_CLAIMS_PAGE],
 };
 
@@ -1071,7 +1162,9 @@ const aetnaContact: VobContact = {
     'What POS codes and telehealth modifiers does Aetna require for ABA billing?',
     'What licensure-tier billing modifiers, if any, does Aetna require on ABA claims?',
   ],
-  sources: [AETNA_BH_PROVIDER_MANUAL],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [AETNA_BH_PROVIDER_MANUAL, FANOUT_AET_GLANCE],
 };
 
 const cignaContact: VobContact = {
@@ -1083,7 +1176,9 @@ const cignaContact: VobContact = {
     'What POS codes and telehealth billing modifiers does Evernorth require for ABA?',
     "Which pVerify payer ID applies to Cigna ABA claims specifically - 00004, or the separate 'Cigna Behavioral' 00510 listing?",
   ],
-  sources: [CIGNA_AUTISM_GUIDE],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [CIGNA_AUTISM_GUIDE, FANOUT_CIG_AUTISM],
 };
 
 const unitedhealthcareContact: VobContact = {
@@ -1098,38 +1193,40 @@ const unitedhealthcareContact: VobContact = {
     "Do UHC's ABA unit caps and modifiers match Optum's national reimbursement policy, or is there a Massachusetts-specific override?",
     'What POS codes and telehealth billing modifiers does UHC/Optum require for ABA in Massachusetts?',
   ],
-  sources: [PROVIDER_EXPRESS_CONTACT_PAGE, UHC_PAYER_LIST_2026, OPTUM_REIMBURSEMENT_POLICY],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [PROVIDER_EXPRESS_CONTACT_PAGE, UHC_PAYER_LIST_2026, OPTUM_REIMBURSEMENT_POLICY, FANOUT_OPTUM_NNM_2026],
 };
 
 /* ==================== export ==================== */
 
 export const massachusettsVob: Record<string, VobExtension> = {
-  'masshealth-massachusetts-medicaid': { edi: massHealthMedicaidEdi, codeGrid: massHealthMedicaidCodeGrid, rates: massHealthRates, stcMap: massHealthMedicaidStc, vobContact: massHealthMedicaidContact, lastUpdated: ACCESS_DATE },
-  'mbhp-massachusetts': { edi: mbhpEdi, codeGrid: mbhpCodeGrid, stcMap: mbhpStc, vobContact: mbhpContact, lastUpdated: ACCESS_DATE },
-  'fallon-health-massachusetts': { edi: fallonEdi, codeGrid: fallonCodeGrid, stcMap: fallonStc, vobContact: fallonContact, lastUpdated: ACCESS_DATE },
-  'health-new-england-massachusetts': { edi: hneEdi, codeGrid: hneCodeGrid, stcMap: hneStc, vobContact: hneContact, lastUpdated: ACCESS_DATE },
-  'wellsense-massachusetts': { edi: wellsenseEdi, codeGrid: wellsenseCodeGrid, stcMap: wellsenseStc, vobContact: wellsenseContact, lastUpdated: ACCESS_DATE },
-  'tufts-health-together': { edi: tuftsEdi, codeGrid: tuftsCodeGrid, stcMap: tuftsStc, vobContact: tuftsContact, lastUpdated: ACCESS_DATE },
-  'mass-general-brigham-health-plan': { edi: mgbEdi, codeGrid: mgbCodeGrid, stcMap: mgbStc, vobContact: mgbContact, lastUpdated: ACCESS_DATE },
+  'masshealth-massachusetts-medicaid': { edi: massHealthMedicaidEdi, codeGrid: massHealthMedicaidCodeGrid, rates: massHealthRates, stcMap: massHealthMedicaidStc, vobContact: massHealthMedicaidContact, lastUpdated: '2026-10-15' },
+  'mbhp-massachusetts': { edi: mbhpEdi, codeGrid: mbhpCodeGrid, stcMap: mbhpStc, vobContact: mbhpContact, lastUpdated: '2026-10-15' },
+  'fallon-health-massachusetts': { edi: fallonEdi, codeGrid: fallonCodeGrid, stcMap: fallonStc, vobContact: fallonContact, lastUpdated: '2026-10-15' },
+  'health-new-england-massachusetts': { edi: hneEdi, codeGrid: hneCodeGrid, stcMap: hneStc, vobContact: hneContact, lastUpdated: '2026-10-15' },
+  'wellsense-massachusetts': { edi: wellsenseEdi, codeGrid: wellsenseCodeGrid, stcMap: wellsenseStc, vobContact: wellsenseContact, lastUpdated: '2026-10-15' },
+  'tufts-health-together': { edi: tuftsEdi, codeGrid: tuftsCodeGrid, stcMap: tuftsStc, vobContact: tuftsContact, lastUpdated: '2026-10-15' },
+  'mass-general-brigham-health-plan': { edi: mgbEdi, codeGrid: mgbCodeGrid, stcMap: mgbStc, vobContact: mgbContact, lastUpdated: '2026-10-15' },
   'aetna-massachusetts': {
     edi: aetnaEdi,
     codeGrid: aetnaCodeGrid,
     stcMap: inheritFamilyStc(aetnaFamilyStc, 'Inherited from the Aetna family default (docs/vob-build.md Layer 2) — no Massachusetts-specific 270/271 STC document found.'),
     vobContact: aetnaContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'cigna-massachusetts': {
     edi: cignaEdi,
     codeGrid: cignaCodeGrid,
     stcMap: inheritFamilyStc(cignaFamilyStc, 'Inherited from the Cigna/Evernorth family default (docs/vob-build.md Layer 2) — national companion guide, no Massachusetts-specific override found.'),
     vobContact: cignaContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'unitedhealthcare-massachusetts': {
     edi: unitedhealthcareEdi,
     codeGrid: unitedhealthcareCodeGrid,
     stcMap: inheritFamilyStc(uhcFamilyStc, 'Inherited from the UnitedHealthcare/Optum family default (docs/vob-build.md Layer 2) — national companion guide, no Massachusetts-specific override found.'),
     vobContact: unitedhealthcareContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
 };
