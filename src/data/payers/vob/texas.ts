@@ -476,6 +476,11 @@ function mcoUnverifiedRates(planName: string): RateTable {
 }
 
 /* Prefix / benefits-by-phone / individual-NPI sources (2026-10-14) */
+const FANOUT_PHONE_EL_PASO_HEALTH: SourceRef = { url: 'https://www.elpasohealth.com/pdf/PT.OT.ST%20Specialty%20Training.pdf', accessDate: '2026-10-15', note: 'El Paso Health provider training deck (2025): "Forms of Eligibility Verification - El Paso Health Provider Web Portal - Telephonically: STAR+PLUS: 1-833-742-3127 STAR & CHIP: 1-877-532-3778". 1-888-310-3434 does not appear. (Full provider manual unreadable via proxy.)' };
+const FANOUT_PHONE_BAYLOR_SCOTT_WHITE_TEXAS: SourceRef = { url: 'https://rightcare.swhp.org/-/media/project/bsw/sites/rightcare/documents/provider-manual.pdf', accessDate: '2026-10-15', note: 'RightCare from Scott and White Health Plan 2026 Provider Manual, resources table: "Eligibility Verification (IVR Line) 1-800-925-9126 -- or -- 1-855-TX-RIGHT (1-855-897-4448)"; "RightCare Medical Management 1-855-691-SWHP (1-855-691-7947)"; "RightCare Behavioral Health Management 1-855-395-9652".' };
+const FANOUT_PHONE_DRISCOLL_HEALTH_PLAN: SourceRef = { url: 'https://driscollhealthplan.com/wp-content/uploads/DHP-Provider-Manual-September-2026.pdf', accessDate: '2026-10-15', note: 'Driscoll Health Plan Provider Manual (Rev 9/2026): "Eligibility can be verified via: ... DHP\'s automated IVR system (1-877-324-3627); or Calling Customer Service and speaking with a Customer Service Representative (1-877-324-3627)"; "Provider Services CHIP, STAR, STAR Kids 877-324-3627"; "Preauthorization and Referrals (CHIP/STAR/STAR Kids) - Utilization Management Dept.: 1-877-455-1053".' };
+const FANOUT_PHONE_COOK_CHILDRENS_HEALTH_PLAN: SourceRef = { url: 'https://www.cookchp.org/siteassets/documents/pdfs/provider-manual/star-chip-chip-perinatal-provider-manual-021326.pdf', accessDate: '2026-10-15', note: 'Cook Children\'s Health Plan STAR/CHIP/CHIP Perinatal Provider Manual (revised 02/13/26), Quick Reference: "For Verification of Eligibility and Benefits Toll Free: 888-243-3312".' };
+const FANOUT_PHONE_TEXAS_CHILDRENS_HEALTH_PLAN: SourceRef = { url: 'https://www.texaschildrenshealthplan.org/providers/provider-resources/quick-reference-guide', accessDate: '2026-10-15', note: 'TCHP Provider Quick Reference Guide (live): "Customer Service - Claim inquiry, questions, and information... Eligibility/benefits questions on all products. Phone: 832-828-1004 Toll free: 1-800-731-8527 Telephone TouCHPoint: 832-828-1007". 1-877-213-5508 does not appear.' };
 
 const FANOUT_MAN_TX_MCD: SourceRef = {
   url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/TX-UHCCP-Care-Provider-Manual.pdf',
@@ -1343,7 +1348,7 @@ const superiorContact: VobContact = {
 };
 
 const tchpContact: VobContact = {
-  providerServicesPhone: '832-828-1004 (toll-free 1-877-213-5508)',
+  providerServicesPhone: '832-828-1004 (toll-free 1-800-731-8527) — Texas Children\'s Health Plan Customer Service (eligibility/benefits questions on all products)',
   hours: '8 a.m.–5 p.m. Central Time, Monday–Friday; after-hours/weekend/holiday calls route to an answering service with next-business-day callback',
   portal: { name: "Texas Children's Link (EpicCare Link)", url: 'https://epiccarelink.texaschildrens.org' },
   fax: '832-825-8750',
@@ -1360,8 +1365,7 @@ const tchpContact: VobContact = {
   sources: [
     src('https://www.texaschildrenshealthplan.org/providers/provider-resources/quick-reference-guide', 'TCHP Provider Quick Reference Guide page, fetched this pass — Provider Services 832-828-1004 / 1-800-731-8527, fax 832-825-8750, portal "Texas Children\'s Link" via epiccarelink.texaschildrens.org.'),
     src('https://www.texaschildrenshealthplan.org/contact-us', 'TCHP Contact Us page, fetched this pass — Provider Services Hotline 832-828-1004 / toll-free 1-877-213-5508, hours 8 a.m.–5 p.m. CT Monday–Friday with after-hours answering service; Telephone TouCHPoint automated line 832-828-1007, fax 832-825-8777.'),
-    FANOUT_TCHP_QRG,
-  ],
+    FANOUT_TCHP_QRG, FANOUT_PHONE_TEXAS_CHILDRENS_HEALTH_PLAN],
 };
 
 const wellpointContact: VobContact = {
@@ -1454,10 +1458,10 @@ const communityFirstContact: VobContact = {
 };
 
 const driscollContact: VobContact = {
-  providerServicesPhone: '1-877-455-1053',
+  providerServicesPhone: '1-877-324-3627 — Driscoll Health Plan Provider Services, CHIP/STAR/STAR Kids, Nueces & Hidalgo (automated IVR and representatives for eligibility)',
   fax: '1-866-741-5650',
   portal: { name: 'Driscoll Prior Authorization Requirement Portal (Autism/ABA Services)', url: 'https://webapps.driscollhealthplan.com/priorauthcheck/?s=Autism+(ABA)+Services' },
-  ivrPath: 'Regional Provider Services lines also exist: Hidalgo service area 1-855-425-3247, Nueces service area 1-877-324-3627.',
+  ivrPath: 'Preauthorization and referrals (CHIP/STAR/STAR Kids): Utilization Management 1-877-455-1053.',
   scriptedQuestions: [
     'Which payer ID is correct — pVerify 01090 or 002472 — for Driscoll eligibility checks?',
     "Does Driscoll's Availity STAR/STAR Kids eligibility route through the CHIP-specific code (74284/DCHCH), or is there a separate STAR/STAR Kids code?",
@@ -1468,7 +1472,7 @@ const driscollContact: VobContact = {
   ],
   benefitsByPhone: true,
   requiresIndividualNpi: 'unverified',
-  sources: [src('https://driscollhealthplan.com/for-providers/', 'Driscoll Health Plan "For Providers" page, fetched this pass — CHIP/STAR/STAR Kids prior authorization & referrals 1-877-455-1053 (also 1-866-741-5650), Hidalgo Provider Services 1-855-425-3247, Nueces Provider Services 1-877-324-3627, DHP Provider Portal at dhpproviderportal.com, PA lookup portal at driscollhealthplan.com/priorauthcheck.'), FANOUT_DHP_PM],
+  sources: [src('https://driscollhealthplan.com/for-providers/', 'Driscoll Health Plan "For Providers" page, fetched this pass — CHIP/STAR/STAR Kids prior authorization & referrals 1-877-455-1053 (also 1-866-741-5650), Hidalgo Provider Services 1-855-425-3247, Nueces Provider Services 1-877-324-3627, DHP Provider Portal at dhpproviderportal.com, PA lookup portal at driscollhealthplan.com/priorauthcheck.'), FANOUT_DHP_PM, FANOUT_PHONE_DRISCOLL_HEALTH_PLAN],
 };
 
 const aetnaTxCommercialContact: VobContact = {
@@ -1567,7 +1571,7 @@ const bcbstxMedicaidContact: VobContact = {
 };
 
 const cchpContact: VobContact = {
-  providerServicesPhone: '1-888-243-3312 (Provider Relations — credentialing, contracting, demographics)',
+  providerServicesPhone: '1-888-243-3312 — Cook Children\'s Health Plan toll-free line for verification of eligibility and benefits (also claims, prior authorization)',
   hours: 'Monday-Friday, 8:00 a.m.-5:00 p.m. (excluding state holidays)',
   fax: '682-885-8402 (STAR/CHIP PA); 682-303-0005 or 844-843-0005 (STAR Kids PA, portal-access-pending only)',
   ivrPath: 'General Member Services: 1-800-964-2247 — determination letters are delivered via the EpicCare Link In Basket only, never faxed; fax is for submission while portal access is pending.',
@@ -1585,8 +1589,7 @@ const cchpContact: VobContact = {
     src('https://www.cookchp.org/join/contact-us/', "Cook Children's Health Plan — Contact Us page, fetched this pass — Provider Relations toll-free 1-888-243-3312, Mon-Fri 8am-5pm (excl. state holidays), TTY 7-1-1/1-800-735-2988; General Member Services 1-800-964-2247."),
     CCHP_ABA_TRAINING,
     CCHP_ACUTE_PA_TRAINING,
-    FANOUT_COOK_PM,
-  ],
+    FANOUT_COOK_PM, FANOUT_PHONE_COOK_CHILDRENS_HEALTH_PLAN],
 };
 
 const pchpContact: VobContact = {
@@ -1611,7 +1614,7 @@ const pchpContact: VobContact = {
 };
 
 const ephContact: VobContact = {
-  providerServicesPhone: '1-888-310-3434 (general correspondence)',
+  providerServicesPhone: '1-877-532-3778 (STAR & CHIP) / 1-833-742-3127 (STAR+PLUS) — El Paso Health telephonic eligibility verification',
   fax: '915-298-7866 / 1-844-298-7866 (outpatient/elective ABA PA); 915-532-2286 (general provider services)',
   portal: { name: 'El Paso Health Provider Portal', url: 'https://secure.healthx.com/elpasoprovider' },
   ivrPath: 'Telephonic PA requests (STAR): 915-532-3778.',
@@ -1628,8 +1631,7 @@ const ephContact: VobContact = {
     src('http://elpasohealth.com/contact-us.html', 'El Paso Health — Contact Us page, fetched this pass — general correspondence 1-888-310-3434 (fax 915-532-2877); general provider services fax 915-532-2286; PA (outpatient/elective) fax 915-298-7866 / 1-844-298-7866, telephonic STAR requests 915-532-3778.'),
     EPH_ABA_CHECKLIST,
     EPH_QRG,
-    FANOUT_EPH_TRAINING,
-  ],
+    FANOUT_EPH_TRAINING, FANOUT_PHONE_EL_PASO_HEALTH],
 };
 
 const firstcareContact: VobContact = {
@@ -1708,7 +1710,7 @@ const rightcareEdi: EdiRouting = {
 
 const rightcareContact: VobContact = {
   fax: 'Medical Management/PA: 1-512-383-8703 or 1-800-292-1349; Behavioral Health Management: 1-844-436-8779',
-  providerServicesPhone: '1-855-691-7947 (Medical Management/PA) or 1-855-395-9652 (Behavioral Health Management) — confirm which routes ABA specifically',
+  providerServicesPhone: '1-855-691-7947 (Medical Management/PA) or 1-855-395-9652 (Behavioral Health Management) — confirm which routes ABA specifically; eligibility verification: 1-855-897-4448 (1-855-TX-RIGHT) — RightCare eligibility verification IVR and Provider Relations',
   ivrPath: 'General Provider Relations: 1-855-TX-RIGHT (1-855-897-4448).',
   portal: { name: 'RightCare Self-Service Portal', url: 'https://rightcare.swhp.org/providers' },
   scriptedQuestions: [
@@ -1720,7 +1722,7 @@ const rightcareContact: VobContact = {
   ],
   benefitsByPhone: true,
   requiresIndividualNpi: 'unverified',
-  sources: [RIGHTCARE_PROVIDER_MANUAL, TMHP_BSW_EXIT_NEWS, FANOUT_RIGHTCARE_PM],
+  sources: [RIGHTCARE_PROVIDER_MANUAL, TMHP_BSW_EXIT_NEWS, FANOUT_RIGHTCARE_PM, FANOUT_PHONE_BAYLOR_SCOTT_WHITE_TEXAS],
 };
 
 const rightcareCodeGrid: Record<string, CodeGridEntry> = tmppmCodeGrid({

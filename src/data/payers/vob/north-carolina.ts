@@ -324,6 +324,7 @@ const northCarolinaMedicaidRates: RateTable = {
 };
 
 /* Prefix / benefits-by-phone / individual-NPI sources (2026-10-14) */
+const FANOUT_PHONE_AMERIHEALTH_CARITAS_NORTH_CAROLINA: SourceRef = { url: 'https://apps.amerihealthcaritasnc.com/assets/pdf/provider/provider-manual.pdf', accessDate: '2026-10-15', note: 'AmeriHealth Caritas NC Provider Manual: "Calling Provider Services at 1-888-738-0004 and utilize the automated real-time eligibility service without speaking to a representative, just follow the prompts for Member Eligibility." Hours table: "Provider Services 1-888-738-0004 ... Monday - Saturday: 7 am - 6 pm ET". 1-833-900-2262 = Utilization Management / PA call center.' };
 
 const FANOUT_QRG_NC_MCD: SourceRef = {
   url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/ncaba/ncABA-QRG.pdf',
@@ -1839,8 +1840,8 @@ const healthyBlueContact: VobContact = {
 /* ==================== amerihealth-caritas-north-carolina ==================== */
 
 const amerihealthContact: VobContact = {
-  providerServicesPhone: '1-833-900-2262',
-  hours: 'Monday–Friday, 8 a.m.–5 p.m. (Behavioral Health Utilization Management)',
+  providerServicesPhone: '1-888-738-0004 — AmeriHealth Caritas NC Provider Services (automated real-time member eligibility)',
+  hours: 'Monday–Saturday, 7 a.m.–6 p.m. ET (Provider Services)',
   fax: '1-833-893-2262',
   ivrPath:
     'BH UM direct line 1-833-900-2262 handles RB-BHT prior-authorization questions during business hours; after hours, weekends, and holidays route to Member Services at 1-855-375-8811. Fax the completed Prior Authorization Request Form to 1-833-893-2262 (Inpatient Concurrent Review uses a separate fax, 1-833-894-2262).',
@@ -1854,7 +1855,7 @@ const amerihealthContact: VobContact = {
   ],
   benefitsByPhone: true,
   requiresIndividualNpi: 'unverified',
-  sources: [AMERIHEALTH_UM_GUIDE, FANOUT_ACNC_MANUAL],
+  sources: [AMERIHEALTH_UM_GUIDE, FANOUT_ACNC_MANUAL, FANOUT_PHONE_AMERIHEALTH_CARITAS_NORTH_CAROLINA],
 };
 
 /* ==================== carolina-complete-health ==================== */

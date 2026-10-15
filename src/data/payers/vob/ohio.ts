@@ -540,6 +540,10 @@ const ODM_MCO_CARRIER_CODES: Record<string, string> = {
 };
 
 /* Prefix / benefits-by-phone / individual-NPI sources (2026-10-14) */
+const FANOUT_PHONE_AMERIHEALTH_CARITAS_OHIO: SourceRef = { url: 'https://www.amerihealthcaritasoh.com/assets/pdf/provider/provider-manual.pdf', accessDate: '2026-10-15', note: 'AmeriHealth Caritas Ohio Provider Manual (published January 2026): "Providers may call the Provider Services Call Center to check member eligibility at 1-833-644-6001." (833) 735-7700 = Utilization Management / PA.' };
+const FANOUT_PHONE_BUCKEYE_HEALTH_PLAN: SourceRef = { url: 'https://www.buckeyehealthplan.com/content/dam/centene/Buckeye/WebsitePDFs/Manuals/Buckeye_Provider%20Manual_BHP%20MEDICAID%20Provider%20Manual%202026_FINAL_amd%201.6.26-2-6kr.pdf', accessDate: '2026-10-15', note: 'Buckeye Medicaid Provider Manual 2026: "If you cannot confirm a member\'s eligibility using the method above, call our toll-free number at 1-866-296-8731 to speak to a live representative... to verify eligibility prior to rendering services." (800) 224-1991 does not appear.' };
+const FANOUT_PHONE_ANTHEM_OHIO_MEDICAID: SourceRef = { url: 'https://providers.anthem.com/docs/gpp/OH_CAID_ProviderManual.pdf', accessDate: '2026-10-15', note: 'Anthem Ohio Medicaid Provider Manual (OHBCBS-CD-PM-093342-25, Oct 2025): "telephonic verification may be obtained through the automated Provider Inquiry Line at 844-912-1226, Monday through Friday, 7 a.m. to 8 p.m. ET." Also "Provider Services Phone: 844-912-1226".' };
+const FANOUT_PHONE_AETNA_OHIO: SourceRef = { url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/aetna-at-a-glance.pdf', accessDate: '2026-10-15', note: 'Aetna "At a glance" 9011800-01-01 (8/26), Key contacts: "Provider Contact Center ... Member eligibility and benefits ... Prior authorization 1-800-624-0756 (TTY: 711) for Aetna Medicare Advantage plans and HMO-based plans 1-888-MDAetna (1-888-632-3862) (TTY: 711) for all other plans"; "Behavioral health (provider services) 1-888-632-3862".' };
 const FANOUT_MAN_OH_MCD: SourceRef = { url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/OH-Care-Provider-Manual.pdf', accessDate: '2026-10-14', note: 'Care Provider Manual, UHC Community Plan of Ohio (Dec 2025): "Provider Services at 1-800-600-9007 is the primary contact for care providers... They can answer your questions about Medicaid benefits, eligibility, claim decision..."' };
 const FANOUT_OPTUM_NNM_2026: SourceRef = { url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf', accessDate: '2026-10-14', note: 'Optum (United Behavioral Health) National Provider Network Manual, published July 1 2026, effective Sept 1 2026 (BH02330-1-26-MAN_07012026). Read via r.jina.ai using the AEM path .../NNManual.pdf/jcr:content/renditions/original (plain URL returns a download interstitial). Eligibility Inquiry p.35-36: "You can use the Provider Express secure portal to check a member\'s eligibility. You may also inquire about eligibility by calling the phone number on the member\'s ID card." Items to provide: member name, address, ID number, subscriber name and DOB - NPI not listed. No statement on individual vs group NPI for calls.' };
 const FANOUT_AET_ELIG_FLYER: SourceRef = { url: 'https://www.aetna.com/document-library/healthcare-professionals/assets/documents/eligibility.pdf', accessDate: '2026-10-14', note: 'Aetna Eligibility and Benefits Inquiry flyer 83.03.870.1 (2/19), still hosted on aetna.com: "When using the member ID number, prefixes or suffixes are unnecessary. For family-level searches, you only need to enter the member ID." Applies to the electronic inquiry; dated 2019.' };
@@ -952,7 +956,7 @@ const caresourceContact: VobContact = {
 };
 
 const buckeyeContact: VobContact = {
-  providerServicesPhone: '(800) 224-1991',
+  providerServicesPhone: '1-866-296-8731 — Buckeye Health Plan Provider Services (verify eligibility with a live representative)',
   fax: '(866) 694-3649',
   portal: { name: 'Buckeye Provider Portal', url: 'https://provider.buckeyehealthplan.com' },
   benefitsByPhone: true,
@@ -962,7 +966,7 @@ const buckeyeContact: VobContact = {
     'Do you enforce a per-code daily unit cap on top of CP.BH.104\'s aggregate hour limits (<=6 hrs/day, <=30 hrs/wk)?',
     'What POS code should be used when billing a telehealth ABA session?',
   ],
-  sources: [BUCKEYE_PA_FORM, BUCKEYE_PROVIDER_PORTAL, FANOUT_BUCKEYE_MANUAL_2026],
+  sources: [BUCKEYE_PA_FORM, BUCKEYE_PROVIDER_PORTAL, FANOUT_BUCKEYE_MANUAL_2026, FANOUT_PHONE_BUCKEYE_HEALTH_PLAN],
 };
 
 const molinaContact: VobContact = {
@@ -983,6 +987,7 @@ const molinaContact: VobContact = {
 };
 
 const anthemOhioContact: VobContact = {
+  providerServicesPhone: '844-912-1226 — Anthem Ohio Medicaid Provider Services / automated Provider Inquiry Line (telephonic eligibility verification)',
   // No providerServicesPhone shipped: the Anthem OH Medicaid contact-us page
   // surfaces only member-services numbers, and the cited GPP/Carelon PDFs
   // resolved to unreadable embedded-font assets this pass (consistent with
@@ -997,7 +1002,7 @@ const anthemOhioContact: VobContact = {
     'Is telehealth allowed for ABA services, and what modifier/POS number applies?',
     'Does Anthem Ohio Medicaid apply any hours-per-week ceiling or per-code daily unit cap to ABA, and in which current guideline is it written?',
   ],
-  sources: [ANTHEM_MANUAL, FANOUT_ANTHEM_OH_PM],
+  sources: [ANTHEM_MANUAL, FANOUT_ANTHEM_OH_PM, FANOUT_PHONE_ANTHEM_OHIO_MEDICAID],
 };
 
 const uhcCommunityContact: VobContact = {
@@ -1016,7 +1021,7 @@ const uhcCommunityContact: VobContact = {
 };
 
 const amerihealthContact: VobContact = {
-  providerServicesPhone: '(833) 735-7700',
+  providerServicesPhone: '1-833-644-6001 — AmeriHealth Caritas Ohio Provider Services Call Center (member eligibility)',
   fax: '(833) 329-6411',
   portal: { name: 'NaviNet (Jiva UM)', url: 'https://navinet.navimedix.com/' },
   benefitsByPhone: true,
@@ -1026,7 +1031,7 @@ const amerihealthContact: VobContact = {
     'Is telehealth approved for any ABA code, and if so what modifier is required?',
     'Do you require a licensure-tier billing modifier for RBT- vs. BCBA-delivered codes?',
   ],
-  sources: [AMERIHEALTH_BH_PAGE, AMERIHEALTH_NAVINET, FANOUT_ACOH_MANUAL],
+  sources: [AMERIHEALTH_BH_PAGE, AMERIHEALTH_NAVINET, FANOUT_ACOH_MANUAL, FANOUT_PHONE_AMERIHEALTH_CARITAS_OHIO],
 };
 
 const humanaContact: VobContact = {
@@ -1044,6 +1049,7 @@ const humanaContact: VobContact = {
 };
 
 const aetnaOhioContact: VobContact = {
+  providerServicesPhone: '1-888-632-3862 (TTY: 711) — Aetna Provider Contact Center (member eligibility and benefits, prior authorization; also behavioral health provider services); HMO-based plans: 1-800-624-0756',
   // No providerServicesPhone/fax shipped: every Aetna PDF fetched this pass
   // (BH precert list, BH provider manual) resolved to unreadable
   // embedded-font/binary content, and the HTML precert/contact-us pages
@@ -1059,7 +1065,7 @@ const aetnaOhioContact: VobContact = {
     'Do you require a licensure-tier modifier (HN/HO/HM/HP) on ABA claims?',
     `Is this member's plan fully-insured or self-funded? ${OHIO_MANDATE_NOTE}`,
   ],
-  sources: [AETNA_PRECERT_PAGE, FANOUT_AET_GLANCE],
+  sources: [AETNA_PRECERT_PAGE, FANOUT_AET_GLANCE, FANOUT_PHONE_AETNA_OHIO],
 };
 
 const cignaOhioContact: VobContact = {

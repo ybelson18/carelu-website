@@ -187,6 +187,7 @@ const UHC_PROVIDER_CONTACT_PAGE = src(
 );
 
 /* Prefix / benefits-by-phone / individual-NPI sources (2026-10-14) */
+const FANOUT_PHONE_UNITEDHEALTHCARE_COMMUNITY_PLAN_KANSAS: SourceRef = { url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/KS-AdminGuide.pdf', accessDate: '2026-10-15', note: 'UHC Community Plan of Kansas (KanCare) 2026 Care Provider Manual: "Determine eligibility in the following ways: Access the portal through UHCprovider.com/eligibility; Provider Services at 1-877-542-9235 Monday-Friday, 7 a.m.-5 p.m. CT".' };
 const FANOUT_MAN_KS_MCD: SourceRef = {
   url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/KS-AdminGuide.pdf',
   accessDate: '2026-10-14',
@@ -542,8 +543,8 @@ const uhcCommunityPlanKansasCodeGrid: Record<string, CodeGridEntry> = Object.fro
 );
 
 const uhcCommunityPlanKansasVobContact: VobContact = {
-  providerServicesPhone: '1-877-614-0484 (Optum Behavioral Health — ask for the Kansas ABA Network Manager); direct KanCare Networks & Contracts contact: 1-913-608-3064 (Carolan Wishall)',
-  hours: '8 a.m.–5 p.m. CT, Monday–Friday, per the named UnitedHealthcare KanCare Networks & Contracts contact. Optum’s general behavioral-health line (same 877-614-0484 number) is staffed 24/7 nationally, per UHCprovider.com.',
+  providerServicesPhone: '1-877-542-9235 — UnitedHealthcare Community Plan of Kansas (KanCare) Provider Services (eligibility and benefits)',
+  hours: 'Monday–Friday, 7 a.m.–5 p.m. CT',
   portal: { name: 'UHCprovider.com — Kansas Community Plan', url: 'https://www.uhcprovider.com/en/health-plans-by-state/kansas-health-plans/ks-comm-plan-home.html' },
   benefitsByPhone: true,
   requiresIndividualNpi: 'unverified',
@@ -553,7 +554,7 @@ const uhcCommunityPlanKansasVobContact: VobContact = {
     'Is eligibility checking real-time or batch for payer ID UHG002?',
     'What POS codes and telehealth modifiers does Optum accept for CCTS/IIS billing in Kansas?',
   ],
-  sources: [UHC_KS_GETTING_STARTED, UHC_PROVIDER_CONTACT_PAGE, FANOUT_MAN_KS_MCD],
+  sources: [UHC_KS_GETTING_STARTED, UHC_PROVIDER_CONTACT_PAGE, FANOUT_MAN_KS_MCD, FANOUT_PHONE_UNITEDHEALTHCARE_COMMUNITY_PLAN_KANSAS],
 };
 
 /* ==================== healthy-blue-kansas ==================== */

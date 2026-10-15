@@ -536,6 +536,8 @@ function mcoEntry(
 }
 
 /* Prefix / benefits-by-phone / individual-NPI sources (2026-10-14) */
+const FANOUT_PHONE_FLORIDA_MEDICAID: SourceRef = { url: 'https://ahca.myflorida.com/provider/support.html', accessDate: '2026-10-15', note: 'AHCA Provider Support (read via r.jina.ai): "Automated Voice Response System (AVRS) Self-service options including eligibility verification. 1-800-239-7560"; "Provider Services Main Line 1-800-289-7799 Option 4: Provider Enrollment Option 7: Provider Services Contact Center"; fiscal agent line is for "claim status, claims processing... provider enrollment".' };
+const FANOUT_PHONE_SIMPLY_HEALTHCARE_FLORIDA: SourceRef = { url: 'https://provider.simplyhealthcareplans.com/docs/gpp/FLFL_SMH_FHKProviderManual.pdf', accessDate: '2026-10-15', note: 'Simply Healthcare FL SMMC/FHK Provider Manual (Oct 1 2026): "Provider Services 844-405-4296"; "Automated Provider Services line for member eligibility 844-405-4296"; "Our representatives are available Monday to Friday, 8 a.m. to 7 p.m. ET (excluding state holidays)." 1-800-397-1630 does not appear.' };
 
 const FANOUT_QRG_FL_MCD: SourceRef = {
   url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/flaba/FLABAQRG.pdf',
@@ -1859,8 +1861,8 @@ const cmsHealthPlanContact: VobContact = {
 };
 
 const simplyContact: VobContact = {
-  providerServicesPhone: '1-800-397-1630',
-  hours: 'Carelon National Provider Service Line: Monday–Friday, 8 a.m.–8 p.m. Eastern. (Availity Client Services, a separate line, keeps the same hours: 1-800-282-4548.)',
+  providerServicesPhone: '844-405-4296 — Simply Healthcare Provider Services (automated member eligibility line)',
+  hours: 'Monday–Friday, 8 a.m.–7 p.m. ET (excluding state holidays)',
   fax: '1-800-370-1116',
   portal: { name: 'Availity Essentials (claims); Carelon eServices (authorizations)', url: 'https://www.availity.com/' },
   scriptedQuestions: [
@@ -1873,7 +1875,7 @@ const simplyContact: VobContact = {
   ],
   benefitsByPhone: true,
   requiresIndividualNpi: 'unverified',
-  sources: [SIMPLY_CARELON_TRAINING, FANOUT_SIMPLY_FL_PM],
+  sources: [SIMPLY_CARELON_TRAINING, FANOUT_SIMPLY_FL_PM, FANOUT_PHONE_SIMPLY_HEALTHCARE_FLORIDA],
 };
 
 const uhcCommunityPlanContact: VobContact = {
@@ -1984,8 +1986,8 @@ const floridaCommunityCareContact: VobContact = {
 };
 
 const floridaMedicaidContact: VobContact = {
-  providerServicesPhone: '1-800-289-7799',
-  ivrPath: 'Option 4: Provider Enrollment Unit. Option 7: Medicaid Secure Portal (Web Portal) access.',
+  providerServicesPhone: '1-800-239-7560 — Florida Medicaid Automated Voice Response System (AVRS), self-service eligibility verification',
+  ivrPath: 'Live help: Provider Services Main Line 1-800-289-7799 (Option 4: Provider Enrollment; Option 7: Provider Services Contact Center).',
   portal: { name: 'Acentra Health eQSuite (Florida Medicaid Behavior Analysis FFS authorizations)', url: 'https://fl.acentra.com/behavior-analysis/' },
   scriptedQuestions: [
     'What payer ID do you use for pVerify and Change Healthcare 270/271 eligibility checks for Florida Medicaid (vs. Availity’s 77027)?',
@@ -1996,7 +1998,7 @@ const floridaMedicaidContact: VobContact = {
   ],
   benefitsByPhone: true,
   requiresIndividualNpi: 'unverified',
-  sources: [FLMMIS_CONTACT_PAGE, ACENTRA_BA_PORTAL_REUSED, FANOUT_FL_AHCA_SUPPORT],
+  sources: [FLMMIS_CONTACT_PAGE, ACENTRA_BA_PORTAL_REUSED, FANOUT_FL_AHCA_SUPPORT, FANOUT_PHONE_FLORIDA_MEDICAID],
 };
 
 const aetnaFlContact: VobContact = {

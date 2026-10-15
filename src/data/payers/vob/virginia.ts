@@ -366,6 +366,8 @@ function dmasCodeGrid(extraTreatmentSources: SourceRef[] = [], extraAssessmentSo
 /* ==================== virginia-medicaid ==================== */
 
 /* Prefix / benefits-by-phone / individual-NPI sources (2026-10-14) */
+const FANOUT_PHONE_SENTARA_COMMUNITY_PLAN: SourceRef = { url: 'https://www.sentarahealthplans.com/en/providers/contact-us-sentara-community-plan', accessDate: '2026-10-15', note: 'Sentara Community Plan provider Contact Us (live): "Provider Relations and Eligibility Verification 1-844-512-3172"; Behavioral Health (clinical care services) 1-888-946-1168.' };
+const FANOUT_PHONE_UNITEDHEALTHCARE_COMMUNITY_PLAN_VIRGINIA: SourceRef = { url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/VA-UHCCP-Care-Provider-Manual.pdf', accessDate: '2026-10-15', note: 'UHC Community Plan of Virginia 2026 Care Provider Manual (Doc PMG 20260225): "Provider Services at 1-844-284-0146 is the primary contact for care providers... They can answer your questions about Medicaid benefits, eligibility, claim decisions..."' };
 const FANOUT_MAN_VA_MCD: SourceRef = { url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/VA-UHCCP-Care-Provider-Manual.pdf', accessDate: '2026-10-14', note: 'Care Provider Manual, UHC Community Plan of Virginia (Feb 2026): "Provider Services at 1-844-284-0146 is the primary contact... They can answer your questions about Medicaid benefits, eligibility, claim decisions..."' };
 const FANOUT_OPTUM_NNM_2026: SourceRef = { url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf', accessDate: '2026-10-14', note: 'Optum (United Behavioral Health) National Provider Network Manual, published July 1 2026, effective Sept 1 2026 (BH02330-1-26-MAN_07012026). Read via r.jina.ai using the AEM path .../NNManual.pdf/jcr:content/renditions/original (plain URL returns a download interstitial). Eligibility Inquiry p.35-36: "You can use the Provider Express secure portal to check a member\'s eligibility. You may also inquire about eligibility by calling the phone number on the member\'s ID card." Items to provide: member name, address, ID number, subscriber name and DOB - NPI not listed. No statement on individual vs group NPI for calls.' };
 const FANOUT_ABHVA_MAN: SourceRef = { url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/virginia/provider/pdf/abhva_provider_manual.pdf', accessDate: '2026-10-14', note: 'Aetna Better Health of Virginia Provider Manual, contract year July 1, 2025 - June 30, 2026 (site 403 here and via r.jina.ai; read from Wayback capture 20260614065410): "Member eligibility can be verified through one of the following ways: Aetna Better Health\'s Secure Web Portal ... Aetna Better Health Member Services: 1-800-279-1878".' };
@@ -1029,7 +1031,7 @@ const humanaVaContact: VobContact = {
 };
 
 const sentaraContact: VobContact = {
-  providerServicesPhone: '757-552-7174 or 1-800-648-8420 (Behavioral Health Provider Services)',
+  providerServicesPhone: '757-552-7174 or 1-800-648-8420 (Behavioral Health Provider Services); eligibility verification: 1-844-512-3172 — Sentara Community Plan Provider Relations and Eligibility Verification',
   hours: '8 a.m.-6 p.m. Monday-Friday (Medicaid line)',
   portal: { name: 'Availity', url: 'https://www.availity.com' },
   fax: '(844) 895-3231 or (757) 963-9620 — ABA-specific, Non-Urgent BH Outpatient fax (eff. 8/1/2025); the general Behavioral Health Provider Services fax (757-552-7499) on Sentara\'s Contact Us page is a different line and not the one named for ABA forms',
@@ -1039,13 +1041,11 @@ const sentaraContact: VobContact = {
     'What places of service are approved under this member\'s authorization — home, school, community, or telehealth?',
     'Does Sentara Community Plan pay these ABA codes at the DMAS fee-schedule rate, or is there a plan-specific contracted rate?',
   ],
-  sources: [SENTARA_VA_CONTACT, SENTARA_VA_SA_FORM, SENTARA_VA_BH_FAX_FORMS, FANOUT_SENTARA_SCP_CONTACT],
+  sources: [SENTARA_VA_CONTACT, SENTARA_VA_SA_FORM, SENTARA_VA_BH_FAX_FORMS, FANOUT_SENTARA_SCP_CONTACT, FANOUT_PHONE_SENTARA_COMMUNITY_PLAN],
 };
 
 const uhcCpVaContact: VobContact = {
-  providerServicesPhone: '877-842-3210',
-  ivrPath:
-    'General UHC Provider Services line above; ABA/behavioral-health authorization and benefits are Optum-administered — ask for Optum Behavioral Health / Provider Express, or call 877-614-0484 directly.',
+  providerServicesPhone: '1-844-284-0146 — UnitedHealthcare Community Plan of Virginia Provider Services (Medicaid benefits and eligibility)',
   portal: { name: 'Optum Provider Express', url: 'https://public.providerexpress.com/content/ope-provexpr/us/en.html' },
   benefitsByPhone: true,
   requiresIndividualNpi: 'unverified',
@@ -1053,7 +1053,7 @@ const uhcCpVaContact: VobContact = {
     'What places of service are approved under this member\'s authorization — home, school, community, or telehealth?',
     'Does UnitedHealthcare Community Plan pay these ABA codes at the DMAS fee-schedule rate, or is there a plan-specific contracted rate?',
   ],
-  sources: [UHC_PROVIDER_CONTACT, UHC_VA_MANUAL, OPTUM_PROVIDER_EXPRESS_HOME, FANOUT_MAN_VA_MCD],
+  sources: [UHC_PROVIDER_CONTACT, UHC_VA_MANUAL, OPTUM_PROVIDER_EXPRESS_HOME, FANOUT_MAN_VA_MCD, FANOUT_PHONE_UNITEDHEALTHCARE_COMMUNITY_PLAN_VIRGINIA],
 };
 
 const aetnaVaContact: VobContact = {

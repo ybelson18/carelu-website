@@ -621,6 +621,8 @@ function mcoCodeGrid(opts: {
 /* ==================== nebraska-medicaid ==================== */
 
 /* Prefix / benefits-by-phone / individual-NPI sources (2026-10-14) */
+const FANOUT_PHONE_NEBRASKA_TOTAL_CARE_AMBETTER: SourceRef = { url: 'https://www.ambetterhealth.com/content/dam/centene/Nebraska/ambetter/pdf/2026-ne-provider-manual.pdf', accessDate: '2026-10-15', note: 'Ambetter NE 2026 Provider and Billing Manual: "Other Methods to Verify Benefits, Eligibility and Cost Shares 24/7 Toll Fee Interactive Voice Response (IVR) Line at 1-833-890-0329 (TTY 711)"; contact table "Provider Services 1-833-890-0329 (TTY 711)".' };
+const FANOUT_PHONE_BCBS_NEBRASKA: SourceRef = { url: 'https://www.nebraskablue.com/-/media/Files/NebraskaBlueDotCom/Providers/Claims-and-Eligibility/Check-Claims-Status/Provider_Caller_Guide.pdf', accessDate: '2026-10-15', note: 'BCBSNE Provider Caller Guide (rev. 07/2025): "Contact Us: (800)-635-0579"; "To Verify Medical Coverage ... allows you to hear cost share information, copay information, or verify specific benefits with a representative." Provider Reference Directory: "Eligibility and Benefits: ... Phone: 800-635-0579".' };
 const FANOUT_QRG_NE_MCD: SourceRef = {
   url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/neaba/neNEMedicaidQRG.pdf',
   accessDate: '2026-10-14',
@@ -1354,6 +1356,7 @@ const bcbsNebraskaEdi: EdiRouting = {
 };
 
 const bcbsNebraskaContact: VobContact = {
+  providerServicesPhone: '800-635-0579 — BCBS Nebraska provider line and IVR (eligibility, benefits, cost share; press 0 for a representative)',
   portal: { name: 'NaviNet (BCBSNE preauthorization and precertification)', url: 'https://navinet.navimedix.com/plan-central/bcbsnebraska' },
   scriptedQuestions: [
     'Is this plan fully insured, self-funded, or an ACA individual/small-group plan? Medical Policy I.178 covers ABA only where the Nebraska mandate applies or the plan explicitly covers ABA.',
@@ -1363,7 +1366,7 @@ const bcbsNebraskaContact: VobContact = {
   ],
   benefitsByPhone: true,
   requiresIndividualNpi: 'unverified',
-  sources: [BCBSNE_I178, BCBSNE_GPX014, FANOUT_BCBSNE_CALLER],
+  sources: [BCBSNE_I178, BCBSNE_GPX014, FANOUT_BCBSNE_CALLER, FANOUT_PHONE_BCBS_NEBRASKA],
 };
 
 const AMB_CODES = ['97151', '97152', '97153', '97154', '97155', '97156', '97157', '97158', '0362T', '0373T'];
@@ -1432,7 +1435,7 @@ const ambetterNebraskaStc: StcMap = {
 };
 
 const ambetterNebraskaContact: VobContact = {
-  providerServicesPhone: '1-833-890-0329 (Utilization Management; TTY 711)',
+  providerServicesPhone: '1-833-890-0329 (TTY 711) — Ambetter from Nebraska Total Care Provider Services and 24/7 IVR (benefits, eligibility, cost shares)',
   portal: { name: 'Ambetter Health secure provider portal (Nebraska)', url: 'https://www.ambetterhealth.com/en/ne/' },
   scriptedQuestions: [
     'Is this member on the Ambetter Marketplace product or the Heritage Health Medicaid plan?',
@@ -1442,7 +1445,7 @@ const ambetterNebraskaContact: VobContact = {
   ],
   benefitsByPhone: true,
   requiresIndividualNpi: 'unverified',
-  sources: [AMB_NE_MANUAL, AMB_NE_EOC, FANOUT_AMB_NE_MANUAL_2026],
+  sources: [AMB_NE_MANUAL, AMB_NE_EOC, FANOUT_AMB_NE_MANUAL_2026, FANOUT_PHONE_NEBRASKA_TOTAL_CARE_AMBETTER],
 };
 
 export const nebraskaVob: Record<string, VobExtension> = {

@@ -176,6 +176,7 @@ const UHC_PROVIDER_EXPRESS_PRIOR_AUTH = src(
 );
 
 /* Prefix / benefits-by-phone / individual-NPI sources (2026-10-14) */
+const FANOUT_PHONE_AETNA_MARYLAND: SourceRef = { url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/aetna-at-a-glance.pdf', accessDate: '2026-10-15', note: 'Aetna "At a glance" 9011800-01-01 (8/26), Key contacts: "Provider Contact Center ... Member eligibility and benefits ... Prior authorization 1-800-624-0756 (TTY: 711) for Aetna Medicare Advantage plans and HMO-based plans 1-888-MDAetna (1-888-632-3862) (TTY: 711) for all other plans"; "Behavioral health (provider services) 1-888-632-3862".' };
 const FANOUT_OPTUM_NNM_2026: SourceRef = {
   url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf',
   accessDate: '2026-10-14',
@@ -469,6 +470,7 @@ const aetnaMdCodeGrid: Record<string, CodeGridEntry> = {
 };
 
 const aetnaMdVobContact: VobContact = {
+  providerServicesPhone: '1-888-632-3862 (TTY: 711) — Aetna Provider Contact Center (member eligibility and benefits, prior authorization; also behavioral health provider services); HMO-based plans: 1-800-624-0756',
   portal: { name: 'Availity Essentials (Aetna provider portal)', url: 'https://www.availity.com/aetnaproviders' },
   benefitsByPhone: true,
   requiresIndividualNpi: 'unverified',
@@ -480,7 +482,7 @@ const aetnaMdVobContact: VobContact = {
     'Does Aetna administer ABA benefits in-house or through a separate behavioral-health carve-out administrator for this Maryland plan?',
     "Since Aetna's national ABA precertification form (GR-69017-4) explicitly excludes Maryland, what is the correct Maryland-specific precertification process or form, and what phone/fax should we use?",
   ],
-  sources: [AETNA_BH_ABA_PRECERT_FORM, FANOUT_AET_GLANCE],
+  sources: [AETNA_BH_ABA_PRECERT_FORM, FANOUT_AET_GLANCE, FANOUT_PHONE_AETNA_MARYLAND],
 };
 
 /* ==================== cigna-maryland ==================== */

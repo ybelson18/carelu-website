@@ -406,6 +406,8 @@ function highmarkEntry(code: string): CodeGridEntry {
 /* ==================== EDI routing per guide ==================== */
 
 /* Prefix / benefits-by-phone / individual-NPI sources (2026-10-14) */
+const FANOUT_PHONE_EMBLEMHEALTH_NEW_YORK: SourceRef = { url: 'https://www.emblemhealth.com/providers/resources/provider-faq', accessDate: '2026-10-15', note: 'EmblemHealth provider FAQ (live), eligibility chart: "Check eligibility by signing into our secure provider portal ... Speak to a representative or call the IVR phone system at 866-447-9717"; "Providers with eMedNY access may use ePACES to check the enrollment of their Medicaid members". 800-397-1630 (Carelon national line) does not appear.' };
+const FANOUT_PHONE_CDPHP_NEW_YORK: SourceRef = { url: 'https://www.cdphp.com/customer-support/call-cdphp/providers', accessDate: '2026-10-15', note: 'CDPHP Provider Service Phone Numbers (live): "Provider Services - All counties and regions (518) 641-3500 or 1-800-926-7526 Mon. - Fri. 8 a.m. to 5 p.m."; "Behavioral Health Access Center 1-888-320-9584 Mon. - Fri. 8 a.m. to 6 p.m." Tip Sheet for Specialists: "Verify eligibility of all patients by checking the member\'s ID card or accessing the CDPHP secure online network... For further assistance, please call the provider services department."' };
 const FANOUT_OPTUM_NNM_2026: SourceRef = { url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf', accessDate: '2026-10-14', note: 'Optum (United Behavioral Health) National Provider Network Manual, published July 1 2026, effective Sept 1 2026 (BH02330-1-26-MAN_07012026). Read via r.jina.ai using the AEM path .../NNManual.pdf/jcr:content/renditions/original (plain URL returns a download interstitial). Eligibility Inquiry p.35-36: "You can use the Provider Express secure portal to check a member\'s eligibility. You may also inquire about eligibility by calling the phone number on the member\'s ID card." Items to provide: member name, address, ID number, subscriber name and DOB - NPI not listed. No statement on individual vs group NPI for calls.' };
 const FANOUT_PRES_NY_MCD: SourceRef = { url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/nyaba/NYabaPres.pdf', accessDate: '2026-10-14', note: 'NY Medicaid ABA Provider Orientation, Optum with UHC Community Plan: "Verify benefits/eligibility online at providerexpress.com or call the Behavioral Health number located on the back of the member\'s ID card". Lists Optum 1-866-362-3368.' };
 const FANOUT_AET_ELIG_FLYER: SourceRef = { url: 'https://www.aetna.com/document-library/healthcare-professionals/assets/documents/eligibility.pdf', accessDate: '2026-10-14', note: 'Aetna Eligibility and Benefits Inquiry flyer 83.03.870.1 (2/19), still hosted on aetna.com: "When using the member ID number, prefixes or suffixes are unnecessary. For family-level searches, you only need to enter the member ID." Applies to the electronic inquiry; dated 2019.' };
@@ -1719,9 +1721,9 @@ const mvpContact: VobContact = {
 };
 
 const cdphpContact: VobContact = {
-  providerServicesPhone: '1-888-320-9584',
-  ivrPath: 'Behavioral Health Access Center (also reachable locally at 518-641-3600).',
-  hours: 'Mon-Fri 8:00 a.m.-6:00 p.m. ET',
+  providerServicesPhone: '(518) 641-3500 or 1-800-926-7526 — CDPHP Provider Services (eligibility help, all counties and regions)',
+  ivrPath: 'Behavioral Health Access Center: 1-888-320-9584 (Mon–Fri 8 a.m.–6 p.m.; local 518-641-3600).',
+  hours: 'Mon–Fri 8 a.m.–5 p.m. ET (Provider Services)',
   portal: { name: 'CDPHP Secure Provider Site', url: 'https://provider.cdphp.com' },
   benefitsByPhone: true,
   requiresIndividualNpi: 'unverified',
@@ -1737,8 +1739,7 @@ const cdphpContact: VobContact = {
   sources: [
     src('https://www.cdphp.com/customer-support/call-cdphp/providers', 'CDPHP Provider Customer Support page, fetched this pass — confirms the Behavioral Health Access Center at 1-888-320-9584, Mon-Fri 8 a.m.-6 p.m.'),
     src('https://www.cdphp.com/providers', "CDPHP Providers landing page, fetched this pass — confirms the \"Secure Provider Site\" at provider.cdphp.com for claims status, patient eligibility, and related lookups."),
-    FANOUT_CDPHP_TIP,
-  ],
+    FANOUT_CDPHP_TIP, FANOUT_PHONE_CDPHP_NEW_YORK],
 };
 
 const independentHealthContact: VobContact = {
@@ -1979,7 +1980,7 @@ const metroplusContact: VobContact = {
 };
 
 const emblemhealthContact: VobContact = {
-  providerServicesPhone: '800-397-1630',
+  providerServicesPhone: '866-447-9717 — EmblemHealth provider IVR / Provider Customer Care (eligibility)',
   ivrPath: 'General EmblemHealth line. For behavioral health specifically (incl. ABA), call Carelon Behavioral Health directly at 888-447-2526.',
   portal: { name: 'Carelon Behavioral Health Provider Portal', url: 'https://plan.carelonbehavioralhealth.com' },
   benefitsByPhone: true,
@@ -1998,8 +1999,7 @@ const emblemhealthContact: VobContact = {
       'https://www.emblemhealth.com/content/dam/emblemhealth/pdfs/provider-manual/behavioral-health-services.pdf',
       'EmblemHealth Provider Manual Ch. 26 Behavioral Health Services, re-fetched this pass — confirms Carelon Behavioral Health at 888-447-2526 (provider directory: plan.carelonbehavioralhealth.com) and EmblemHealth\'s own general line 800-397-1630; neither number is labeled ABA-specific.'
     ),
-    FANOUT_EMBLEM_FAQ,
-  ],
+    FANOUT_EMBLEM_FAQ, FANOUT_PHONE_EMBLEMHEALTH_NEW_YORK],
 };
 
 const molinaContact: VobContact = {

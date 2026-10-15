@@ -327,6 +327,7 @@ function azUhcEntry(pa: string): CodeGridEntry {
 /* ==================== arizona-ahcccs ==================== */
 
 /* Prefix / benefits-by-phone / individual-NPI sources (2026-10-14) */
+const FANOUT_PHONE_AETNA_ARIZONA: SourceRef = { url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/aetna-at-a-glance.pdf', accessDate: '2026-10-15', note: 'Aetna "At a glance" 9011800-01-01 (8/26), Key contacts: "Provider Contact Center ... Member eligibility and benefits ... Prior authorization 1-800-624-0756 (TTY: 711) for Aetna Medicare Advantage plans and HMO-based plans 1-888-MDAetna (1-888-632-3862) (TTY: 711) for all other plans"; "Behavioral health (provider services) 1-888-632-3862".' };
 const FANOUT_ORIENT_AZ_MCD: SourceRef = {
   url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf',
   accessDate: '2026-10-14',
@@ -918,6 +919,7 @@ const dddContact: VobContact = {
 };
 
 const aetnaAzContact: VobContact = {
+  providerServicesPhone: '1-888-632-3862 (TTY: 711) — Aetna Provider Contact Center (member eligibility and benefits, prior authorization; also behavioral health provider services); HMO-based plans: 1-800-624-0756',
   portal: { name: 'Availity (Aetna secure provider portal)', url: 'https://www.availity.com' },
   ivrPath: 'Precertification is verified via the number on the member’s ID card or submitted through the Availity provider portal — no single AZ-commercial ABA precertification line is published by Aetna.',
   scriptedQuestions: [
@@ -928,7 +930,7 @@ const aetnaAzContact: VobContact = {
   ],
   benefitsByPhone: true,
   requiresIndividualNpi: 'unverified',
-  sources: [AETNA_PRECERT_PAGE, FANOUT_AET_GLANCE],
+  sources: [AETNA_PRECERT_PAGE, FANOUT_AET_GLANCE, FANOUT_PHONE_AETNA_ARIZONA],
 };
 
 const cignaAzContact: VobContact = {

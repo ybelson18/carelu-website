@@ -154,6 +154,7 @@ const OPTUM_CONTACT_US = src(
 );
 
 /* Prefix / benefits-by-phone / individual-NPI sources (2026-10-14) */
+const FANOUT_PHONE_MISSOURI_MEDICAID: SourceRef = { url: 'https://dss.mo.gov/mhd/hot-tips/interactive-voice-response-ivr-system', accessDate: '2026-10-15', note: 'MO HealthNet IVR hot tip (dss.mo.gov, page dated 11/17/2015, still live; read via r.jina.ai): "Providers can access the MO HealthNet Division (MHD) Interactive Voice Response (IVR) system by calling (573) 751-2896. The IVR allows active MHD provider inquiries for the following options: MHD participant eligibility..."' };
 const FANOUT_OPTUM_NNM_2026: SourceRef = {
   url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf',
   accessDate: '2026-10-14',
@@ -336,6 +337,7 @@ const missouriMedicaidStc: StcMap = {
    rather than guessed. */
 
 const missouriMedicaidContact: VobContact = {
+  providerServicesPhone: '(573) 751-2896 — MO HealthNet Interactive Voice Response (IVR) for participant eligibility',
   fax: '(573) 635-6516 — MHD Behavioral Health Services Help Desk; fax (or e-signed fax) the Applied Behavior Analysis Request for Precertification form (2575-045) here.',
   portal: { name: 'eMOMED (MO HealthNet Provider Portal)', url: 'https://www.emomed.com' },
   benefitsByPhone: true,
@@ -344,7 +346,7 @@ const missouriMedicaidContact: VobContact = {
     "Can you confirm this member's current MO HealthNet eligibility span and that ABA benefits bill fee-for-service regardless of any managed-care plan (Healthy Blue, Home State Health, UnitedHealthcare Community Plan, Show Me Healthy Kids) shown on the 271?",
     'Is there an active ABA precertification on file for this member, and if so, what is the expiration date (precerts run up to 6 months)?',
   ],
-  sources: [MO_BHSM, MYDSS_HOT_TIP, MYDSS_BH_SERVICES_PAGE, FANOUT_MO_IVR],
+  sources: [MO_BHSM, MYDSS_HOT_TIP, MYDSS_BH_SERVICES_PAGE, FANOUT_MO_IVR, FANOUT_PHONE_MISSOURI_MEDICAID],
 };
 
 /* ==================== commercial guides (Layers 1 + 3 only) ==================== */

@@ -408,6 +408,7 @@ function uhcCommercialEntry(unitCap: string, modifiers: string[]): CodeGridEntry
 /* ==================== indiana-medicaid ==================== */
 
 /* Prefix / benefits-by-phone / individual-NPI sources (2026-10-14) */
+const FANOUT_PHONE_INDIANA_MEDICAID: SourceRef = { url: 'https://www.in.gov/medicaid/providers/files/modules/member-eligibility-and-benefit-coverage.pdf', accessDate: '2026-10-15', note: 'IHCP Member Eligibility and Benefit Coverage module (published Oct. 13, 2026): "Virtual assistant (GABBY) at 800-457-4584, option 2. (Customer Assistance representatives do not provide eligibility verification information.)"' };
 const FANOUT_MAN_IN_MCD: SourceRef = { url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/Indiana_Provider_Manual.pdf', accessDate: '2026-10-14', note: 'Indiana Hoosier Care Connect Provider Manual, UHC Community Plan of Indiana (June 2025; HCC product only). Provider Services 877-610-9785. "Determine eligibility in the following ways: Provider Portal... UnitedHealthcare Provider Services is available from 8 a.m. - 6 p.m. Eastern Time..."' };
 const FANOUT_OPTUM_NNM_2026: SourceRef = { url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf', accessDate: '2026-10-14', note: 'Optum (United Behavioral Health) National Provider Network Manual, published July 1 2026, effective Sept 1 2026 (BH02330-1-26-MAN_07012026). Read via r.jina.ai using the AEM path .../NNManual.pdf/jcr:content/renditions/original (plain URL returns a download interstitial). Eligibility Inquiry p.35-36: "You can use the Provider Express secure portal to check a member\'s eligibility. You may also inquire about eligibility by calling the phone number on the member\'s ID card." Items to provide: member name, address, ID number, subscriber name and DOB - NPI not listed. No statement on individual vs group NPI for calls.' };
 const FANOUT_AET_ELIG_FLYER: SourceRef = { url: 'https://www.aetna.com/document-library/healthcare-professionals/assets/documents/eligibility.pdf', accessDate: '2026-10-14', note: 'Aetna Eligibility and Benefits Inquiry flyer 83.03.870.1 (2/19), still hosted on aetna.com: "When using the member ID number, prefixes or suffixes are unnecessary. For family-level searches, you only need to enter the member ID." Applies to the electronic inquiry; dated 2019.' };
@@ -881,7 +882,7 @@ const uhcCommunityPlanIndianaStc = inMedicaidUnverifiedStc('Confirm via Optum Be
    unverified/plan-dependent — never a fact already verified above. */
 
 const indianaMedicaidContact: VobContact = {
-  providerServicesPhone: '800-457-4584 (IHCP Provider Customer Assistance, Gainwell Technologies)',
+  providerServicesPhone: '800-457-4584 — IHCP virtual assistant GABBY, option 2, for eligibility verification (Customer Assistance representatives do not give eligibility)',
   portal: { name: 'IHCP Provider Healthcare Portal', url: 'https://portal.indianamedicaid.com' },
   benefitsByPhone: true,
   requiresIndividualNpi: 'unverified',
@@ -890,7 +891,7 @@ const indianaMedicaidContact: VobContact = {
     'Does this member\'s 270/271 route through a Change Healthcare payer ID, or only pVerify/Availity? (unconfirmed for IHCP)',
     'If the member is on comprehensive ABA (modifier UA), how many hours/units remain of the 4,000-hour lifetime allocation?',
   ],
-  sources: [IHCP_QRG_CONTACT, FANOUT_IN_ELIG_MODULE],
+  sources: [IHCP_QRG_CONTACT, FANOUT_IN_ELIG_MODULE, FANOUT_PHONE_INDIANA_MEDICAID],
 };
 
 const anthemInMedicaidContact: VobContact = {

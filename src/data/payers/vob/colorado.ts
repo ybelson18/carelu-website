@@ -158,6 +158,8 @@ const PROVIDER_EXPRESS_CO_CONTACT = src(
 );
 
 /* Prefix / benefits-by-phone / individual-NPI sources (2026-10-14) */
+const FANOUT_PHONE_COLORADO_MEDICAID: SourceRef = { url: 'https://hcpf.colorado.gov/provider-help', accessDate: '2026-10-15', note: 'HCPF Provider Help (live): Health First Colorado - "Claims Submission and Billing Questions / Member Eligibility / Provider Enrollment Assistance / Provider Web Portal Technical Support - Provider Services Call Center (OptumInsight) 1-833-468-0362"; "8:00 a.m. - 5:00 p.m. MT Monday - Friday". (720) 689-6340 is listed for Acentra ColoradoPAR (prior authorization).' };
+const FANOUT_PHONE_AETNA_COLORADO: SourceRef = { url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/aetna-at-a-glance.pdf', accessDate: '2026-10-15', note: 'Aetna "At a glance" 9011800-01-01 (8/26), Key contacts: "Provider Contact Center ... Member eligibility and benefits ... Prior authorization 1-800-624-0756 (TTY: 711) for Aetna Medicare Advantage plans and HMO-based plans 1-888-MDAetna (1-888-632-3862) (TTY: 711) for all other plans"; "Behavioral health (provider services) 1-888-632-3862".' };
 const FANOUT_OPTUM_NNM_2026: SourceRef = {
   url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf',
   accessDate: '2026-10-14',
@@ -600,7 +602,7 @@ const coloradoMedicaidStc: StcMap = {
    cap), the 7/1/2026 HB26-1410 rate-reset watchlist item, and supportsRealtime
    (unverified in edi). */
 const coloradoMedicaidContact: VobContact = {
-  providerServicesPhone: '(720) 689-6340 — Acentra Customer Service Line (ColoradoPAR UM/PAR questions, which includes PBT/ABA)',
+  providerServicesPhone: '1-833-468-0362 — Health First Colorado Provider Services Call Center (OptumInsight): member eligibility, claims, billing',
   fax: '(800) 922-3508 — Acentra Provider Fax Line (toll-free)',
   portal: { name: 'Atrezzo (Acentra provider portal, via ColoradoPAR.com)', url: 'https://coloradopar.com' },
   benefitsByPhone: true,
@@ -611,7 +613,7 @@ const coloradoMedicaidContact: VobContact = {
     'Are the rates you\'re quoting the post-10/1/2025 fee schedule, or has the 7/1/2026 rate reset under HB26-1410 already taken effect for this date of service?',
     'Does this practice\'s EDI setup return eligibility in real time, or should we expect the batch turnaround the companion guide describes ("within 30 minutes or less")?',
   ],
-  sources: [CO_PBT_BILLING_MANUAL, HCPF_PAR_CONTACT_PAGE, ACENTRA_ATREZZO_HELP_CONTACT, FANOUT_CO_PROVIDER_HELP],
+  sources: [CO_PBT_BILLING_MANUAL, HCPF_PAR_CONTACT_PAGE, ACENTRA_ATREZZO_HELP_CONTACT, FANOUT_CO_PROVIDER_HELP, FANOUT_PHONE_COLORADO_MEDICAID],
 };
 
 /* aetna-colorado: phone/fax verified this pass directly from Aetna's own ABA
@@ -621,7 +623,7 @@ const coloradoMedicaidContact: VobContact = {
    'unverified' on every aetnaEntry()), and bhCarveOut.administrator
    ('unverified' in edi). */
 const aetnaContact: VobContact = {
-  providerServicesPhone: '1-800-624-0756 (TTY: 711) — Aetna Precertification Department for ABA/behavioral health precert requests (alt: 1-888-632-3862, TTY: 711)',
+  providerServicesPhone: '1-888-632-3862 (TTY: 711) — Aetna Provider Contact Center (member eligibility and benefits, prior authorization; also behavioral health provider services); HMO-based plans: 1-800-624-0756',
   ivrPath: 'Submit via Availity when possible. If not using Availity, call the Precertification Department directly at the number above. For questions about completing the ABA Treatment Request form itself (not a coverage decision), call 1-800-424-4047 (TTY: 711) instead.',
   fax: '833-596-0339 (FaxHub — clinical documentation supporting an ABA precert only, per Aetna\'s form: "for clinical information only")',
   portal: { name: 'Availity', url: 'https://www.availity.com' },
@@ -634,7 +636,7 @@ const aetnaContact: VobContact = {
     'Is telehealth covered for any ABA codes, and if so which modifier (GT/95) should we bill?',
     'Does Aetna administer this member\'s ABA benefit directly, or is it carved out to a separate behavioral health vendor?',
   ],
-  sources: [AETNA_ABA_PRECERT_FORM, AETNA_PRECERT_PAGE, FANOUT_AET_GLANCE],
+  sources: [AETNA_ABA_PRECERT_FORM, AETNA_PRECERT_PAGE, FANOUT_AET_GLANCE, FANOUT_PHONE_AETNA_COLORADO],
 };
 
 /* cigna-colorado: both numbers and the portal are mined straight out of the

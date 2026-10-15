@@ -285,6 +285,8 @@ function njBaselineGrid(extraSources: SourceRef[] = []): Record<string, CodeGrid
 /* ==================== new-jersey-medicaid ==================== */
 
 /* Prefix / benefits-by-phone / individual-NPI sources (2026-10-14) */
+const FANOUT_PHONE_WELLPOINT_NEW_JERSEY: SourceRef = { url: 'https://provider.wellpoint.com/docs/gpp/NJ_WLP_CAID_ProviderQRG.pdf', accessDate: '2026-10-15', note: 'Wellpoint NJ Medicaid Provider QRG: "Medicaid Provider Services: 833-731-2149 ... Our Provider Services team offers prior authorization/notification services, care and disease management, automated member eligibility, claims status"; "Live agents are available weekdays from 8 a.m. to 8 p.m., and the interactive voice response (IVR) system is available 24 hours a day".' };
+const FANOUT_PHONE_AETNA_NEW_JERSEY: SourceRef = { url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/aetna-at-a-glance.pdf', accessDate: '2026-10-15', note: 'Aetna "At a glance" 9011800-01-01 (8/26), Key contacts: "Provider Contact Center ... Member eligibility and benefits ... Prior authorization 1-800-624-0756 (TTY: 711) for Aetna Medicare Advantage plans and HMO-based plans 1-888-MDAetna (1-888-632-3862) (TTY: 711) for all other plans"; "Behavioral health (provider services) 1-888-632-3862".' };
 const FANOUT_MAN_NJ_MCD: SourceRef = { url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NJ-Care-Provider-Manual.pdf', accessDate: '2026-10-14', note: 'Care Provider Manual, UHC Community Plan of New Jersey (May 2026): "UnitedHealthcare Community Plan of New Jersey Provider Services 1-888-362-3368 - Assist care providers... Confirm a patient\'s eligibility - Ask about covered benefits - Check claim status".' };
 const FANOUT_OPTUM_NNM_2026: SourceRef = { url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf', accessDate: '2026-10-14', note: 'Optum (United Behavioral Health) National Provider Network Manual, published July 1 2026, effective Sept 1 2026 (BH02330-1-26-MAN_07012026). Read via r.jina.ai using the AEM path .../NNManual.pdf/jcr:content/renditions/original (plain URL returns a download interstitial). Eligibility Inquiry p.35-36: "You can use the Provider Express secure portal to check a member\'s eligibility. You may also inquire about eligibility by calling the phone number on the member\'s ID card." Items to provide: member name, address, ID number, subscriber name and DOB - NPI not listed. No statement on individual vs group NPI for calls.' };
 const FANOUT_ABHNJ_QRG: SourceRef = { url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/newjersey/pdf/ProviderQuickReference-NJ.pdf', accessDate: '2026-10-14', note: 'Aetna Better Health of New Jersey Participating Provider Quick Reference Guide (undated; site 403, read from Wayback capture 20240814 of the /newjersey/providers/pdf/ copy; same PDF linked from NJ provider contact page captured 2025-03-28): "Eligibility Verification - Please contact us at 1-855-232-3596 or log into our Secure Web Portal to verify eligibility."' };
@@ -937,8 +939,8 @@ const uhcCpNjContact: VobContact = {
 };
 
 const wellpointContact: VobContact = {
-  providerServicesPhone: '1-800-454-3730',
-  hours: 'Carelon National Provider Services Line (contracting, 800-397-1630): Mon-Fri 8am-8pm ET',
+  providerServicesPhone: '833-731-2149 — Wellpoint NJ Medicaid Provider Services (automated member eligibility, claims status, prior authorization)',
+  hours: 'Live agents weekdays 8 a.m.–8 p.m.; IVR 24/7',
   portal: { name: 'Availity Essentials', url: 'https://www.availity.com' },
   fax: '844-442-8007',
   benefitsByPhone: true,
@@ -948,10 +950,11 @@ const wellpointContact: VobContact = {
     'Is eligibility checking real-time or batch through Availity?',
     'Is ABA network contracting still routed through Carelon Behavioral Health, or has that changed?',
   ],
-  sources: [DMAHS_BH_CONTACTS, WELLPOINT_NJ_EDI, FANOUT_WP_NJ_QRG],
+  sources: [DMAHS_BH_CONTACTS, WELLPOINT_NJ_EDI, FANOUT_WP_NJ_QRG, FANOUT_PHONE_WELLPOINT_NEW_JERSEY],
 };
 
 const aetnaNjCommercialContact: VobContact = {
+  providerServicesPhone: '1-888-632-3862 (TTY: 711) — Aetna Provider Contact Center (member eligibility and benefits, prior authorization; also behavioral health provider services); HMO-based plans: 1-800-624-0756',
   portal: { name: 'Availity Essentials', url: 'https://www.availity.com' },
   benefitsByPhone: true,
   requiresIndividualNpi: 'unverified',
@@ -962,7 +965,7 @@ const aetnaNjCommercialContact: VobContact = {
     'Are there modifier requirements (licensure tier, telehealth) for billing?',
     'Is eligibility checking real-time or batch?',
   ],
-  sources: [AVAILITY_PAYER_LIST, FANOUT_AET_GLANCE],
+  sources: [AVAILITY_PAYER_LIST, FANOUT_AET_GLANCE, FANOUT_PHONE_AETNA_NEW_JERSEY],
 };
 // Note: Aetna's own precertification page states precert numbers are printed
 // on the member's ID card, not published as one universal line — so no

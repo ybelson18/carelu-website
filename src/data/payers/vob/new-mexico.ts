@@ -324,6 +324,9 @@ function cignaCommercialGrid(): Record<string, CodeGridEntry> {
 /* ==================== new-mexico-medicaid ==================== */
 
 /* Prefix / benefits-by-phone / individual-NPI sources (2026-10-14) */
+const FANOUT_PHONE_PRESBYTERIAN_HEALTH_PLAN_NEW_MEXICO: SourceRef = { url: 'https://www.phs.org/providers/contact-us', accessDate: '2026-10-15', note: 'Presbyterian provider Contact Us (live): "Provider Care Unit Claims, Appeals & Grievance and Prior Authorization questions (505) 923-5757 or 1 (888) 923-5757 Mon. - Fri., 8:00 a.m. to 5:00 p.m."; "The PROVIDERConnect Provider Portal also serves as a way to... submit inquiries... about general information, eligibility...".' };
+const FANOUT_PHONE_BLUE_CROSS_BLUE_SHIELD_NEW_MEXICO: SourceRef = { url: 'https://www.bcbsnm.com/docs/provider/nm/medicaid-prm.pdf', accessDate: '2026-10-15', note: 'BCBSNM Medicaid Provider Reference Manual (updated July 2026): "this information can also be easily obtained through BCBSNM\'s Interactive Voice Response (IVR) automated phone system at 1-888-349-3706, available Monday through Friday, 5 a.m. to 10:30 p.m., MT". 1-877-232-5518 appears only for supportive housing, CCM referrals and preauthorization.' };
+const FANOUT_PHONE_AETNA_NEW_MEXICO: SourceRef = { url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/aetna-at-a-glance.pdf', accessDate: '2026-10-15', note: 'Aetna "At a glance" 9011800-01-01 (8/26), Key contacts: "Provider Contact Center ... Member eligibility and benefits ... Prior authorization 1-800-624-0756 (TTY: 711) for Aetna Medicare Advantage plans and HMO-based plans 1-888-MDAetna (1-888-632-3862) (TTY: 711) for all other plans"; "Behavioral health (provider services) 1-888-632-3862".' };
 const FANOUT_QRG_NM_MCD: SourceRef = {
   url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/NMTurquoiseCareABAQRG.pdf',
   accessDate: '2026-10-14',
@@ -695,7 +698,7 @@ const newMexicoMedicaidContact: VobContact = {
 };
 
 const bcbsNmContact: VobContact = {
-  providerServicesPhone: '1-877-232-5518',
+  providerServicesPhone: '1-888-349-3706 — BCBSNM Medicaid (Turquoise Care) eligibility and benefits IVR / Provider Service Unit',
   fax: '888-530-9809 (Behavioral Health preauthorization — outpatient service requests only)',
   ivrPath: 'Eligibility & Benefit IVR: 1-888-349-3706 (self-service eligibility/benefits lookup)',
   hours: 'IVR: Mon–Fri 5:00 a.m.–10:30 p.m. MT, Sat 5:00 a.m.–2:30 p.m. MT',
@@ -709,13 +712,13 @@ const bcbsNmContact: VobContact = {
   ],
   benefitsByPhone: true,
   requiresIndividualNpi: 'unverified',
-  sources: [BCBSNM_MEDICAID_PRM, FANOUT_BCBSNM_PRM],
+  sources: [BCBSNM_MEDICAID_PRM, FANOUT_BCBSNM_PRM, FANOUT_PHONE_BLUE_CROSS_BLUE_SHIELD_NEW_MEXICO],
 };
 
 const presbyterianNmContact: VobContact = {
-  providerServicesPhone: '505-923-5757 (or 1-888-923-5757 toll-free)',
+  providerServicesPhone: '505-923-5757 (or 1-888-923-5757 toll-free) — Presbyterian Provider Care Unit (claims, appeals, prior authorization questions); eligibility inquiries go through the PROVIDERConnect portal',
   fax: '(505) 843-3019 (Turquoise Care behavioral health/ABA authorization fax)',
-  hours: 'Available during and after normal business hours (per phs.org)',
+  hours: 'Mon–Fri, 8:00 a.m.–5:00 p.m.',
   portal: { name: 'myPRES', url: 'https://mypres.phs.org/' },
   scriptedQuestions: [
     'Confirm Turquoise Care (Medicaid) behavioral health/ABA authorizations are handled in-house — not routed to Magellan (which is Presbyterian\'s Medicare/commercial BH vendor only).',
@@ -725,7 +728,7 @@ const presbyterianNmContact: VobContact = {
   ],
   benefitsByPhone: 'unverified',
   requiresIndividualNpi: 'unverified',
-  sources: [PHS_AUTHORIZATIONS],
+  sources: [PHS_AUTHORIZATIONS, FANOUT_PHONE_PRESBYTERIAN_HEALTH_PLAN_NEW_MEXICO],
 };
 
 const molinaNmContact: VobContact = {
@@ -760,7 +763,7 @@ const uhcCommunityNmContact: VobContact = {
 };
 
 const aetnaNmContact: VobContact = {
-  providerServicesPhone: '1-800-424-4047',
+  providerServicesPhone: '1-888-632-3862 (TTY: 711) — Aetna Provider Contact Center (member eligibility and benefits, prior authorization; also behavioral health provider services); HMO-based plans: 1-800-624-0756',
   fax: '833-596-0339 (FaxHub — supporting clinical information only, not new precert requests)',
   portal: { name: 'Availity', url: 'https://availity.com/aetnaproviders' },
   scriptedQuestions: [
@@ -771,7 +774,7 @@ const aetnaNmContact: VobContact = {
   ],
   benefitsByPhone: true,
   requiresIndividualNpi: 'unverified',
-  sources: [AETNA_ABA_PRECERT_FORM, FANOUT_AET_GLANCE],
+  sources: [AETNA_ABA_PRECERT_FORM, FANOUT_AET_GLANCE, FANOUT_PHONE_AETNA_NEW_MEXICO],
 };
 
 const cignaNmContact: VobContact = {

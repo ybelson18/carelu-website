@@ -193,6 +193,8 @@ const UT_31A_22_642_CURRENT = src(
 );
 
 /* Prefix / benefits-by-phone / individual-NPI sources (2026-10-14) */
+const FANOUT_PHONE_UTAH_MEDICAID: SourceRef = { url: 'https://medicaid.utah.gov/contact-information-providers/', accessDate: '2026-10-15', note: 'Utah Medicaid Contact Information for Providers (live): "(801) 538-6155 ... toll-free (800) 662-9651 ... For Prior Authorizations choose option 3, 3"; "Claim Inquiries... call Medicaid Information Line: 1-800-662-9651". Member Card FAQ (medicaid.utah.gov/Documents/pdfs/FINAL_PROVIDER_FAQ_Medicaid Member Card_2023.pdf): "Q: Can I still call AccessNow for eligibility information? A: No, AccessNow is no longer in service."' };
+const FANOUT_PHONE_AETNA_UTAH: SourceRef = { url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/aetna-at-a-glance.pdf', accessDate: '2026-10-15', note: 'Aetna "At a glance" 9011800-01-01 (8/26), Key contacts: "Provider Contact Center ... Member eligibility and benefits ... Prior authorization 1-800-624-0756 (TTY: 711) for Aetna Medicare Advantage plans and HMO-based plans 1-888-MDAetna (1-888-632-3862) (TTY: 711) for all other plans"; "Behavioral health (provider services) 1-888-632-3862".' };
 const FANOUT_OPTUM_NNM_2026: SourceRef = {
   url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf',
   accessDate: '2026-10-14',
@@ -424,7 +426,7 @@ const utahMedicaidEdi: EdiRouting = {
 };
 
 const utahMedicaidContact: VobContact = {
-  providerServicesPhone: '(801) 538-6155 (toll-free 1-800-662-9651 from UT/ID/WY/CO/NM/AZ/NV)',
+  providerServicesPhone: '(801) 538-6155 (toll-free 1-800-662-9651 from UT/ID/WY/CO/NM/AZ/NV) — Utah Medicaid Information Line (prior authorization option 3, 3; claim inquiries); not an eligibility line: eligibility is online-only via the Eligibility Lookup Tool',
   hours: 'Mon, Wed, Thu, Fri 8:00am-5:00pm MT; Tue 11:00am-5:00pm MT',
   ivrPath: 'Phone menu: option 3, then 3, then select the appropriate program (per the Prior Authorization line on the provider contact page).',
   portal: { name: 'PRISM', url: 'https://prism.health.utah.gov/' },
@@ -434,7 +436,7 @@ const utahMedicaidContact: VobContact = {
   scriptedQuestions: [
     'Can the initial 97151 behavior-identification assessment be delivered via telehealth, or does it require an in-person visit?',
   ],
-  sources: [UT_MEDICAID_CONTACT_PROVIDERS, UT_PRISM_PORTAL_ACCESS, FANOUT_UT_CARD_FAQ],
+  sources: [UT_MEDICAID_CONTACT_PROVIDERS, UT_PRISM_PORTAL_ACCESS, FANOUT_UT_CARD_FAQ, FANOUT_PHONE_UTAH_MEDICAID],
 };
 
 /* -------------------- commercial codeGrid factories (national policy) -------------------- */
@@ -556,6 +558,7 @@ const aetnaCodeGrid: Record<string, CodeGridEntry> = {
 };
 
 const aetnaContact: VobContact = {
+  providerServicesPhone: '1-888-632-3862 (TTY: 711) — Aetna Provider Contact Center (member eligibility and benefits, prior authorization; also behavioral health provider services); HMO-based plans: 1-800-624-0756',
   portal: { name: 'Availity Essentials', url: 'https://www.availity.com/' },
   benefitsByPhone: true,
   requiresIndividualNpi: 'unverified',
@@ -567,7 +570,7 @@ const aetnaContact: VobContact = {
     'Does Aetna administer ABA/behavioral health benefits in-house, or through a separate behavioral-health carve-out for this plan?',
     'Are licensure-tier modifiers (e.g., HN/HO/HM/HP) required on claims, and if so which apply to which codes?',
   ],
-  sources: [AETNA_PRECERT_PAGE, AVAILITY_PAYER_LIST, FANOUT_AET_GLANCE],
+  sources: [AETNA_PRECERT_PAGE, AVAILITY_PAYER_LIST, FANOUT_AET_GLANCE, FANOUT_PHONE_AETNA_UTAH],
 };
 
 /* ==================== cigna-utah (commercial) ==================== */

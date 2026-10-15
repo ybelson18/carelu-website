@@ -415,6 +415,8 @@ const CARELON_MULTI_ID_NOTE =
   '43324 (claim.md) / BHOVO (Stedi) / 00831 (pVerify) / ISA Receiver ID BEACON963116116 (Carelon national companion guide) — genuinely multiple identifiers across clearinghouses for the same Carelon/Beacon entity, not resolved to one canonical number.';
 
 /* Prefix / benefits-by-phone / individual-NPI sources (2026-10-14) */
+const FANOUT_PHONE_MASSHEALTH_MASSACHUSETTS_MEDICAID: SourceRef = { url: 'https://www.mass.gov/doc/subchapter-5-administrative-and-billing-instructions-for-all-masshealth-providers/download', accessDate: '2026-10-15', note: 'MassHealth All Provider Manuals Subchapter 5 (current mass.gov copy, transmittal ALL-165, 05/26/09): "Providers without Internet access can call the automated voice response (AVR) system at 1-800-554-0042 or call the eligibility operator at 1-800-841-2900." WellSense MA manual (2026): "Call MassHealth\'s automated voice response (AVR) at 800-554-0042." The mass.gov EVS Overview page the current text cites has no phone content.' };
+const FANOUT_PHONE_WELLSENSE_MASSACHUSETTS: SourceRef = { url: 'https://www.wellsense.org/hubfs/Provider/Provider%20Manual/MA_Provider_Manual.pdf', accessDate: '2026-10-15', note: 'WellSense MA Provider Manual (effective Jan. 1, 2026): "Use our Interactive Voice Response (IVR) line by calling 888-566-0008 and selecting option 1"; "During business hours (8 a.m. to 6 p.m., Mon.-Fri.) speak directly with a Provider Service Representative by calling 888-566-0008 and selecting option 3." 1-866-444-5155 does not appear.' };
 const FANOUT_OPTUM_NNM_2026: SourceRef = {
   url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf',
   accessDate: '2026-10-14',
@@ -1041,7 +1043,7 @@ const massHealthMedicaidContact: VobContact = {
   providerServicesPhone: '1-800-841-2900',
   hours: 'Monday-Friday, 8:00 a.m.-5:00 p.m. ET (MassHealth Customer Service for Providers); the Eligibility Verification System itself is available 24/7',
   ivrPath:
-    "Automated Voice Response (AVR) eligibility line: 1-800-554-0042 (24/7) - independently confirmed by both mass.gov's EVS overview page and the Carelon/Beacon Fallon manual. For a live representative, call the main number above. TTY/TDD: 711.",
+    'Automated Voice Response (AVR) eligibility line: 1-800-554-0042 (24/7), per MassHealth All Provider Manuals Subchapter 5 and the 2026 WellSense MA Provider Manual. For a live representative (eligibility operator), call the main number above. TTY/TDD: 711.',
   portal: { name: 'MassHealth Provider Online Service Center (POSC) / Eligibility Verification System (EVS)', url: 'https://newmmis-portal.ehs.state.ma.us/EHSProviderPortal/providerLanding/providerLanding.jsf' },
   fax: '617-988-8910',
   scriptedQuestions: [
@@ -1053,7 +1055,7 @@ const massHealthMedicaidContact: VobContact = {
   ],
   benefitsByPhone: true,
   requiresIndividualNpi: 'unverified',
-  sources: [MASSHEALTH_EVS_CONTACT, BEACON_FALLON_MANUAL_CONTACT, FANOUT_MA_SUB5],
+  sources: [MASSHEALTH_EVS_CONTACT, BEACON_FALLON_MANUAL_CONTACT, FANOUT_MA_SUB5, FANOUT_PHONE_MASSHEALTH_MASSACHUSETTS_MEDICAID],
 };
 
 const mbhpContact: VobContact = {
@@ -1104,9 +1106,9 @@ const hneContact: VobContact = {
 };
 
 const wellsenseContact: VobContact = {
-  providerServicesPhone: '1-866-444-5155',
+  providerServicesPhone: '888-566-0008 — WellSense Provider Service Center (IVR eligibility; live representative for benefits and eligibility)',
   ivrPath:
-    'This is Carelon Behavioral Health\'s line, per WellSense\'s current MA Provider Quick Reference Guide ("Behavioral Health Services: Call Carelon Behavioral Health, LLC"). For general (non-BH) provider services, call 1-888-566-0008. This QRG still listing Carelon is in tension with the 1/1/2026 in-house BH insourcing already noted in this guide\'s edi layer - confirm current BH routing before relying on either number.',
+    'Option 1: IVR eligibility check. Option 3: Provider Service Representative (8 a.m.–6 p.m., Mon–Fri).',
   portal: { name: 'WellSense Provider Portal (HealthTrio)', url: 'https://www.wellsense.org' },
   fax: '617-951-3464',
   scriptedQuestions: [
@@ -1117,7 +1119,7 @@ const wellsenseContact: VobContact = {
   ],
   benefitsByPhone: true,
   requiresIndividualNpi: 'unverified',
-  sources: [WELLSENSE_MA_QRG, WELLSENSE_EDI_CG, FANOUT_WELLSENSE_MA_MANUAL],
+  sources: [WELLSENSE_MA_QRG, WELLSENSE_EDI_CG, FANOUT_WELLSENSE_MA_MANUAL, FANOUT_PHONE_WELLSENSE_MASSACHUSETTS],
 };
 
 const tuftsContact: VobContact = {
