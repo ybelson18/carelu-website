@@ -602,7 +602,7 @@ const coloradoMedicaidStc: StcMap = {
    cap), the 7/1/2026 HB26-1410 rate-reset watchlist item, and supportsRealtime
    (unverified in edi). */
 const coloradoMedicaidContact: VobContact = {
-  providerServicesPhone: '1-833-468-0362 — Health First Colorado Provider Services Call Center (OptumInsight): member eligibility, claims, billing',
+  providerServicesPhone: '(720) 689-6340 — Acentra Customer Service Line (ColoradoPAR UM/PAR questions, which includes PBT/ABA); eligibility verification: 1-833-468-0362 — Health First Colorado Provider Services Call Center (OptumInsight)',
   fax: '(800) 922-3508 — Acentra Provider Fax Line (toll-free)',
   portal: { name: 'Atrezzo (Acentra provider portal, via ColoradoPAR.com)', url: 'https://coloradopar.com' },
   benefitsByPhone: true,
@@ -623,7 +623,7 @@ const coloradoMedicaidContact: VobContact = {
    'unverified' on every aetnaEntry()), and bhCarveOut.administrator
    ('unverified' in edi). */
 const aetnaContact: VobContact = {
-  providerServicesPhone: '1-888-632-3862 (TTY: 711) — Aetna Provider Contact Center (member eligibility and benefits, prior authorization; also behavioral health provider services); HMO-based plans: 1-800-624-0756',
+  providerServicesPhone: '1-800-624-0756 (TTY: 711) — Aetna Precertification Department for ABA/behavioral health precert requests (alt: 1-888-632-3862, TTY: 711)',
   ivrPath: 'Submit via Availity when possible. If not using Availity, call the Precertification Department directly at the number above. For questions about completing the ABA Treatment Request form itself (not a coverage decision), call 1-800-424-4047 (TTY: 711) instead.',
   fax: '833-596-0339 (FaxHub — clinical documentation supporting an ABA precert only, per Aetna\'s form: "for clinical information only")',
   portal: { name: 'Availity', url: 'https://www.availity.com' },

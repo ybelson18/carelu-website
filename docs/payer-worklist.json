@@ -12114,6 +12114,34 @@
       "blocker": "per-case",
       "addedAt": "2026-10-15",
       "addedBy": "directory fan-out 2026-10-15 (phone re-check)"
+    },
+    {
+      "id": "VC-753",
+      "priority": 2,
+      "status": "open",
+      "slug": "simply-healthcare-florida, amerihealth-caritas-north-carolina",
+      "topic": "phone",
+      "question": "Does the plan Provider Services line answer ABA questions (prior auth, telehealth, unit caps), or only automated eligibility?",
+      "claim": "The guides dial each plan Provider Services line (Simply 844-405-4296, AmeriHealth Caritas NC 1-888-738-0004).",
+      "challenge": "The plan materials describe these lines as automated member eligibility; no ABA, behavioral-health or prior-auth line was confirmed. The previous numbers belonged to other plans.",
+      "resolve": "Find the plan behavioral-health or prior-auth line in the current provider manual, or confirm on a call that a representative answers ABA benefit questions.",
+      "blocker": "per-case",
+      "addedAt": "2026-10-15",
+      "addedBy": "directory fan-out 2026-10-15 (phone re-check)"
+    },
+    {
+      "id": "VC-754",
+      "priority": 2,
+      "status": "open",
+      "slug": "missouri-medicaid",
+      "topic": "phone",
+      "question": "Which MO HealthNet line answers ABA benefit questions by phone?",
+      "claim": "No provider phone is listed; the guide gives the Behavioral Health Services Help Desk fax.",
+      "challenge": "The only published phone line found is the participant-eligibility IVR (573-751-2896), which cannot answer ABA questions. Benefits by phone is left unverified.",
+      "resolve": "Confirm a live line for ABA questions (for example the Behavioral Health Services Help Desk) from the MO HealthNet provider manual.",
+      "blocker": "per-case",
+      "addedAt": "2026-10-15",
+      "addedBy": "directory fan-out 2026-10-15 (phone re-check)"
     }
   ],
   "documentRequests": [

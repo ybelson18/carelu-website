@@ -1840,7 +1840,7 @@ const healthyBlueContact: VobContact = {
 /* ==================== amerihealth-caritas-north-carolina ==================== */
 
 const amerihealthContact: VobContact = {
-  providerServicesPhone: '1-888-738-0004 — AmeriHealth Caritas NC Provider Services (automated real-time member eligibility)',
+  providerServicesPhone: '1-888-738-0004 — AmeriHealth Caritas NC Provider Services',
   hours: 'Monday–Saturday, 7 a.m.–6 p.m. ET (Provider Services)',
   fax: '1-833-893-2262',
   ivrPath:

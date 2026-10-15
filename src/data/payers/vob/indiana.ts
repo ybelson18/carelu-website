@@ -882,7 +882,7 @@ const uhcCommunityPlanIndianaStc = inMedicaidUnverifiedStc('Confirm via Optum Be
    unverified/plan-dependent — never a fact already verified above. */
 
 const indianaMedicaidContact: VobContact = {
-  providerServicesPhone: '800-457-4584 — IHCP virtual assistant GABBY, option 2, for eligibility verification (Customer Assistance representatives do not give eligibility)',
+  providerServicesPhone: '800-457-4584 (IHCP Provider Customer Assistance, Gainwell Technologies)',
   portal: { name: 'IHCP Provider Healthcare Portal', url: 'https://portal.indianamedicaid.com' },
   benefitsByPhone: true,
   requiresIndividualNpi: 'unverified',

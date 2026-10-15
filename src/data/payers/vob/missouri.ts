@@ -337,10 +337,9 @@ const missouriMedicaidStc: StcMap = {
    rather than guessed. */
 
 const missouriMedicaidContact: VobContact = {
-  providerServicesPhone: '(573) 751-2896 — MO HealthNet Interactive Voice Response (IVR) for participant eligibility',
   fax: '(573) 635-6516 — MHD Behavioral Health Services Help Desk; fax (or e-signed fax) the Applied Behavior Analysis Request for Precertification form (2575-045) here.',
   portal: { name: 'eMOMED (MO HealthNet Provider Portal)', url: 'https://www.emomed.com' },
-  benefitsByPhone: true,
+  benefitsByPhone: 'unverified',
   requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     "Can you confirm this member's current MO HealthNet eligibility span and that ABA benefits bill fee-for-service regardless of any managed-care plan (Healthy Blue, Home State Health, UnitedHealthcare Community Plan, Show Me Healthy Kids) shown on the 271?",

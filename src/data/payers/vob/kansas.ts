@@ -543,7 +543,7 @@ const uhcCommunityPlanKansasCodeGrid: Record<string, CodeGridEntry> = Object.fro
 );
 
 const uhcCommunityPlanKansasVobContact: VobContact = {
-  providerServicesPhone: '1-877-542-9235 — UnitedHealthcare Community Plan of Kansas (KanCare) Provider Services (eligibility and benefits)',
+  providerServicesPhone: '1-877-614-0484 (Optum Behavioral Health — ask for the Kansas ABA Network Manager); direct KanCare Networks & Contracts contact: 1-913-608-3064 (Carolan Wishall); eligibility verification: 1-877-542-9235 — UnitedHealthcare Community Plan of Kansas (KanCare) Provider Services',
   hours: 'Monday–Friday, 7 a.m.–5 p.m. CT',
   portal: { name: 'UHCprovider.com — Kansas Community Plan', url: 'https://www.uhcprovider.com/en/health-plans-by-state/kansas-health-plans/ks-comm-plan-home.html' },
   benefitsByPhone: true,

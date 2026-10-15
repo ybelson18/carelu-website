@@ -1861,7 +1861,7 @@ const cmsHealthPlanContact: VobContact = {
 };
 
 const simplyContact: VobContact = {
-  providerServicesPhone: '844-405-4296 — Simply Healthcare Provider Services (automated member eligibility line)',
+  providerServicesPhone: '844-405-4296 — Simply Healthcare Provider Services',
   hours: 'Monday–Friday, 8 a.m.–7 p.m. ET (excluding state holidays)',
   fax: '1-800-370-1116',
   portal: { name: 'Availity Essentials (claims); Carelon eServices (authorizations)', url: 'https://www.availity.com/' },
@@ -1986,8 +1986,8 @@ const floridaCommunityCareContact: VobContact = {
 };
 
 const floridaMedicaidContact: VobContact = {
-  providerServicesPhone: '1-800-239-7560 — Florida Medicaid Automated Voice Response System (AVRS), self-service eligibility verification',
-  ivrPath: 'Live help: Provider Services Main Line 1-800-289-7799 (Option 4: Provider Enrollment; Option 7: Provider Services Contact Center).',
+  providerServicesPhone: '1-800-289-7799 — Florida Medicaid Provider Services; eligibility verification: 1-800-239-7560 — Automated Voice Response System (AVRS)',
+  ivrPath: 'Option 4: Provider Enrollment Unit. Option 7: Medicaid Secure Portal (Web Portal) access.',
   portal: { name: 'Acentra Health eQSuite (Florida Medicaid Behavior Analysis FFS authorizations)', url: 'https://fl.acentra.com/behavior-analysis/' },
   scriptedQuestions: [
     'What payer ID do you use for pVerify and Change Healthcare 270/271 eligibility checks for Florida Medicaid (vs. Availity’s 77027)?',

@@ -892,7 +892,7 @@ const tenncareMedicaidContact: VobContact = {
 
 const blueCareContact: VobContact = {
   providerServicesPhone:
-    '1-800-468-9736 — BlueCare Provider Service Line (member eligibility, claims status, copayment)',
+    '1-800-924-7141 — BlueCare Tennessee Provider Service Line, also listed as the Prior Authorization (Medical and Behavioral Health) phone number in the Provider Administration Manual\\\'s own "Contact Us" table; eligibility verification: 1-800-468-9736 — BlueCare Provider Service Line (member eligibility, claims status, copayment)',
   ivrPath: '(423) 535-5717, option 2 — reaches BlueCare\'s in-house behavioral health/UM team (BHABA@bcbst.com) for ABA-specific PA questions',
   fax: '1-800-292-5311 (BlueCare/TennCareSelect prior-authorization fax; CoverKids uses a separate fax, 1-800-851-2491)',
   portal: { name: 'BlueCare online provider tool (bluecare.bcbst.com) / Availity', url: 'https://bluecare.bcbst.com' },
@@ -908,7 +908,7 @@ const blueCareContact: VobContact = {
 
 const uhcCommunityPlanContact: VobContact = {
   providerServicesPhone:
-    '1-800-690-1606 — UnitedHealthcare Community Plan of Tennessee Provider Services (eligibility; also Optum Behavioral Health and ABA authorization)',
+    '(800) 690-1606 — the dedicated ABA authorization line, per the Tri-MCO ABA Overview of Updates ("For authorization requests, questions or submission, please contact: 800-690-1606"); UnitedHealthcare Community Plan of TN\\\'s general Provider Services line is (877) 222-6720, per the Universal Request form\\\'s "Additional MCO Contact Information" table',
   fax: '(877) 217-6068',
   portal: { name: 'Provider Express', url: 'https://public.providerexpress.com' },
   scriptedQuestions: [

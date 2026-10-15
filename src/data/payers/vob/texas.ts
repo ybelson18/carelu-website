@@ -1458,10 +1458,10 @@ const communityFirstContact: VobContact = {
 };
 
 const driscollContact: VobContact = {
-  providerServicesPhone: '1-877-324-3627 — Driscoll Health Plan Provider Services, CHIP/STAR/STAR Kids, Nueces & Hidalgo (automated IVR and representatives for eligibility)',
+  providerServicesPhone: '1-877-455-1053 — Driscoll Health Plan prior authorization and referrals (CHIP/STAR/STAR Kids); eligibility verification: 1-877-324-3627 — Provider Services, Nueces & Hidalgo',
   fax: '1-866-741-5650',
   portal: { name: 'Driscoll Prior Authorization Requirement Portal (Autism/ABA Services)', url: 'https://webapps.driscollhealthplan.com/priorauthcheck/?s=Autism+(ABA)+Services' },
-  ivrPath: 'Preauthorization and referrals (CHIP/STAR/STAR Kids): Utilization Management 1-877-455-1053.',
+  ivrPath: 'Regional Provider Services lines also exist: Hidalgo service area 1-855-425-3247, Nueces service area 1-877-324-3627.',
   scriptedQuestions: [
     'Which payer ID is correct — pVerify 01090 or 002472 — for Driscoll eligibility checks?',
     "Does Driscoll's Availity STAR/STAR Kids eligibility route through the CHIP-specific code (74284/DCHCH), or is there a separate STAR/STAR Kids code?",
