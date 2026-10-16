@@ -539,6 +539,23 @@ const ODM_MCO_CARRIER_CODES: Record<string, string> = {
   '60054': 'Aetna OhioRISE — 2100A NM109 MCE claims payer ID (OhioRISE, not ABA)',
 };
 
+/* Prefix / benefits-by-phone / individual-NPI sources (2026-10-14) */
+const FANOUT_PHONE_AMERIHEALTH_CARITAS_OHIO: SourceRef = { url: 'https://www.amerihealthcaritasoh.com/assets/pdf/provider/provider-manual.pdf', accessDate: '2026-10-15', note: 'AmeriHealth Caritas Ohio Provider Manual (published January 2026): "Providers may call the Provider Services Call Center to check member eligibility at 1-833-644-6001." (833) 735-7700 = Utilization Management / PA.' };
+const FANOUT_PHONE_BUCKEYE_HEALTH_PLAN: SourceRef = { url: 'https://www.buckeyehealthplan.com/content/dam/centene/Buckeye/WebsitePDFs/Manuals/Buckeye_Provider%20Manual_BHP%20MEDICAID%20Provider%20Manual%202026_FINAL_amd%201.6.26-2-6kr.pdf', accessDate: '2026-10-15', note: 'Buckeye Medicaid Provider Manual 2026: "If you cannot confirm a member\'s eligibility using the method above, call our toll-free number at 1-866-296-8731 to speak to a live representative... to verify eligibility prior to rendering services." (800) 224-1991 does not appear.' };
+const FANOUT_PHONE_ANTHEM_OHIO_MEDICAID: SourceRef = { url: 'https://providers.anthem.com/docs/gpp/OH_CAID_ProviderManual.pdf', accessDate: '2026-10-15', note: 'Anthem Ohio Medicaid Provider Manual (OHBCBS-CD-PM-093342-25, Oct 2025): "telephonic verification may be obtained through the automated Provider Inquiry Line at 844-912-1226, Monday through Friday, 7 a.m. to 8 p.m. ET." Also "Provider Services Phone: 844-912-1226".' };
+const FANOUT_PHONE_AETNA_OHIO: SourceRef = { url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/aetna-at-a-glance.pdf', accessDate: '2026-10-15', note: 'Aetna "At a glance" 9011800-01-01 (8/26), Key contacts: "Provider Contact Center ... Member eligibility and benefits ... Prior authorization 1-800-624-0756 (TTY: 711) for Aetna Medicare Advantage plans and HMO-based plans 1-888-MDAetna (1-888-632-3862) (TTY: 711) for all other plans"; "Behavioral health (provider services) 1-888-632-3862".' };
+const FANOUT_MAN_OH_MCD: SourceRef = { url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/OH-Care-Provider-Manual.pdf', accessDate: '2026-10-14', note: 'Care Provider Manual, UHC Community Plan of Ohio (Dec 2025): "Provider Services at 1-800-600-9007 is the primary contact for care providers... They can answer your questions about Medicaid benefits, eligibility, claim decision..."' };
+const FANOUT_OPTUM_NNM_2026: SourceRef = { url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf', accessDate: '2026-10-14', note: 'Optum (United Behavioral Health) National Provider Network Manual, published July 1 2026, effective Sept 1 2026 (BH02330-1-26-MAN_07012026). Read via r.jina.ai using the AEM path .../NNManual.pdf/jcr:content/renditions/original (plain URL returns a download interstitial). Eligibility Inquiry p.35-36: "You can use the Provider Express secure portal to check a member\'s eligibility. You may also inquire about eligibility by calling the phone number on the member\'s ID card." Items to provide: member name, address, ID number, subscriber name and DOB - NPI not listed. No statement on individual vs group NPI for calls.' };
+const FANOUT_AET_ELIG_FLYER: SourceRef = { url: 'https://www.aetna.com/document-library/healthcare-professionals/assets/documents/eligibility.pdf', accessDate: '2026-10-14', note: 'Aetna Eligibility and Benefits Inquiry flyer 83.03.870.1 (2/19), still hosted on aetna.com: "When using the member ID number, prefixes or suffixes are unnecessary. For family-level searches, you only need to enter the member ID." Applies to the electronic inquiry; dated 2019.' };
+const FANOUT_AET_GLANCE: SourceRef = { url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/aetna-at-a-glance.pdf', accessDate: '2026-10-14', note: 'Aetna "At a glance" how-to guide for health care professionals, 9011800-01-01 (8/26), Key contacts table: "Provider Contact Center ... Member eligibility and benefits ... 1-800-624-0756 (TTY: 711) for Aetna Medicare Advantage plans and HMO-based plans / 1-888-MDAetna (1-888-632-3862) (TTY: 711) for all other plans". Also: "Behavioral health (provider services) Refer to the member ID card."' };
+const FANOUT_CIG_AUTISM: SourceRef = { url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf', accessDate: '2026-10-14', note: 'Evernorth/Cigna Autism resource guide, March 2025 (PCOMM-2025-225): "It is important to confirm a patient\'s ABA eligibility and benefits before performing an assessment. This information can be confirmed by: ... Calling the Autism Care Coordinator team at 877.279.7603". Provider Services 800.926.2273 "handles questions regarding billing, benefits, and eligibility for autism-related treatment, such as ABA."' };
+const FANOUT_ANTHEM_OH_PM: SourceRef = { url: 'https://providers.anthem.com/docs/gpp/OH_CAID_ProviderManual.pdf', accessDate: '2026-10-14', note: 'Anthem Ohio Medicaid provider manual (PDF published Nov 2025). Quote: \'telephonic verification may be obtained through the automated Provider Inquiry Line at 844-912-1226, Monday through Friday, 7 a.m. to 8 p.m. ET.\'' };
+const FANOUT_CS_OH_MANUAL: SourceRef = { url: 'https://www.caresource.com/documents/oh-provider-manual', accessDate: '2026-10-14', note: 'CareSource Ohio Medicaid Provider Manual (served 11/2025). "Call Provider Services at 1-800-488-0134 and tell our IVR system you want to verify member eligibility. You will be directed to our automated member-eligibility verification system."' };
+const FANOUT_BUCKEYE_MANUAL_2026: SourceRef = { url: 'https://www.buckeyehealthplan.com/content/dam/centene/Buckeye/WebsitePDFs/Manuals/Buckeye_Provider%20Manual_BHP%20MEDICAID%20Provider%20Manual%202026_FINAL_amd%201.6.26-2-6kr.pdf', accessDate: '2026-10-14', note: 'Buckeye Medicaid Provider Manual 2026. "If you cannot confirm a member\'s eligibility using the method above, call our toll-free number at 1-866-296-8731 to speak to a live representative ... to verify eligibility prior to rendering services."' };
+const FANOUT_ACOH_MANUAL: SourceRef = { url: 'https://www.amerihealthcaritasoh.com/assets/pdf/provider/provider-manual.pdf', accessDate: '2026-10-14', note: 'AmeriHealth Caritas Ohio Provider Manual (served 1/2026). "Providers may call the Provider Services Call Center to check member eligibility at 1-833-644-6001."' };
+const FANOUT_HUMANA_OH_MANUAL_2025: SourceRef = { url: 'https://assets.humana.com/is/content/humana/2025_OH_Provider_Manualpdf', accessDate: '2026-10-14', note: 'Humana Healthy Horizons in Ohio 2025 Provider Manual, ID card section: "Provider services - Use this toll-free phone number if you have questions or need to verify eligibility." Provider Services 877-856-5707. Also plan ID "Do not use this number to bill ... (begins with a \'H\')".' };
+const FANOUT_OH_MYCARE_HELPDESK: SourceRef = { url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Providers/MyCareOhio/Next_Generation_MyCare_Program_Provider_Help_Desk_One-Pager.pdf', accessDate: '2026-10-14', note: 'ODM Next Generation MyCare Provider Help Desk one-pager (OMES era). ODM Integrated Helpdesk 800-686-1516: "Interactive Voice Response System (IVR) provides 24/7/365 access to information regarding client eligibility, claim and payment status, and provider information."' };
+
 const ohioMedicaidEdi: EdiRouting = {
   payerId: { pverify: '00165', availity: 'unverified', changeHealthcare: 'unverified' },
   supports270271: true,
@@ -556,6 +573,7 @@ const ohioMedicaidEdi: EdiRouting = {
     eligibilitySpanGranularity:
       "Monthly — EB06 Time Period Qualifier '34' (Month); coverage reported through the last day of the queried month. Transaction supports real-time and batch.",
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'unverified',
@@ -566,12 +584,14 @@ const ohioMedicaidEdi: EdiRouting = {
     'medicaid271Notes.mcoSegmentLocation': 'verified',
     'medicaid271Notes.mcoCarrierCodes': 'verified',
     'medicaid271Notes.eligibilitySpanGranularity': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.availity':
       "The Availity list (2012-dated) shows only ATADMIN 'F#####' administrator records for the OH MCOs, not submission IDs; ODM FFS's own envelope trading-partner ID is 'MMISODJFS' (ISA06/08) per the companion guide. Confirm the current Availity submission ID with Availity onboarding.",
     'payerId.changeHealthcare':
       'Change Healthcare medical CPID list is login-gated; not retrievable this pass. For eligibility, ODM FI routing uses the trading-partner code MMISODJFS. Confirm the CHC CPID via authenticated clearinghouse enrollment.',
+    memberIdPrefix: 'ODM provider billing guidance on Medicaid ID (12-digit billing number) - not fetched',
   },
   sources: [ODM_COMPANION_GUIDE, PVERIFY_PAYER_LIST, ODM_RULE_PACKAGE, OHIORISE_MSP, AVAILITY_PAYER_LIST],
 };
@@ -581,6 +601,7 @@ const caresourceEdi: EdiRouting = {
   supports270271: true,
   supportsRealtime: true,
   bhCarveOut: { administrator: 'none', administratorPayerId: '', abaRidesOn: 'medical', twoHopRequired: false },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'unverified',
@@ -588,12 +609,14 @@ const caresourceEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'inferred',
     'bhCarveOut.administrator': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': 'pVerify lists 01360 (CareSource Ohio) and a separate 00776 (CareSource Ohio Medicaid MCE) — confirm which pVerify routes OH Medicaid ABA eligibility through before automating.',
     'payerId.availity': 'Availity shows only an ATADMIN admin record (F31114) for CareSource of Ohio, not a submission ID — confirm with Availity onboarding.',
     'payerId.changeHealthcare': 'ODM FI eligibility routing uses trading partner / MCE payer ID 0003150 (companion guide); a distinct Change Healthcare CPID was not retrievable this pass.',
     supportsRealtime: 'Real-time eligibility confirmed via the ODM FI companion guide (whole 270/271 flow); confirm plan-level real-time vs. batch via the clearinghouse.',
+    memberIdPrefix: 'Sample member ID card in the CareSource OH provider manual, or ask CareSource OH Provider Services whether any alpha prefix is keyed; no source states it',
   },
   sources: [PVERIFY_PAYER_LIST, ODM_COMPANION_GUIDE, CARESOURCE_MM0028],
 };
@@ -603,6 +626,7 @@ const buckeyeEdi: EdiRouting = {
   supports270271: true,
   supportsRealtime: true,
   bhCarveOut: { administrator: 'none', administratorPayerId: '', abaRidesOn: 'medical', twoHopRequired: false },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'unverified',
@@ -610,10 +634,12 @@ const buckeyeEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'inferred',
     'bhCarveOut.administrator': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.availity': 'Availity shows only an ATADMIN admin record (F32004), not a submission ID — confirm with Availity onboarding.',
     'payerId.changeHealthcare': 'ODM FI trading partner / MCE payer ID 0004202 (companion guide); a distinct Change Healthcare CPID was not separately confirmed.',
+    memberIdPrefix: 'Sample member ID card in the Buckeye provider manual, or ask Buckeye Provider Services whether any alpha prefix is keyed; no source states it',
   },
   sources: [PVERIFY_PAYER_LIST, ODM_COMPANION_GUIDE],
 };
@@ -623,6 +649,7 @@ const molinaEdi: EdiRouting = {
   supports270271: true,
   supportsRealtime: true,
   bhCarveOut: { administrator: 'none', administratorPayerId: '', abaRidesOn: 'medical', twoHopRequired: false },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'unverified',
@@ -630,10 +657,12 @@ const molinaEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'inferred',
     'bhCarveOut.administrator': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': 'pVerify lists 00151 (Molina Healthcare of Ohio) and a separate 00849 (Molina Ohio Medicaid MCE) — confirm which routes OH Medicaid ABA eligibility.',
     'payerId.changeHealthcare': "Molina OH claims payer ID 20149 is from the claim.md clearinghouse directory (Molina uses Change Healthcare/Optum as its clearinghouse) — a secondary source, shipped inferred; ODM FI eligibility routing uses trading partner 0007316.",
+    memberIdPrefix: 'Sample member ID card in the Molina OH provider manual, or ask Molina OH Provider Services whether any alpha prefix is keyed; no source states it',
   },
   sources: [PVERIFY_PAYER_LIST, ODM_COMPANION_GUIDE, MOLINA_EDI_CLAIMMD],
 };
@@ -648,6 +677,7 @@ const anthemOhioEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: true,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'unverified',
@@ -658,12 +688,14 @@ const anthemOhioEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'verified',
     'bhCarveOut.abaRidesOn': 'verified',
     'bhCarveOut.twoHopRequired': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.availity': 'Confirm the current Availity submission ID with Availity onboarding (2012 list unreliable for OH MCOs).',
     'payerId.changeHealthcare': 'ODM FI MCE payer ID 0002937 (companion guide) — ABA claims ride the ODM FI to Anthem\'s medical payer ID, NOT a Carelon payer ID.',
     'bhCarveOut.twoHopRequired':
       'Carelon is a UM/prior-authorization hop only (Carelon "provides utilization management services on behalf of the health plan"); ABA CLAIMS have no second hop — they route through the ODM FI to Anthem MCE payer ID 0002937. twoHopRequired=true reflects the authorization hop; there is NO separate BH claims payer ID.',
+    memberIdPrefix: 'Manual has no prefix statement; check ID card / Availity',
   },
   sources: [PVERIFY_PAYER_LIST, ODM_COMPANION_GUIDE, CARELON_ANTHEM_QRG],
 };
@@ -678,6 +710,7 @@ const uhcCommunityEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'unverified',
     'payerId.availity': 'unverified',
@@ -688,12 +721,14 @@ const uhcCommunityEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'verified',
     'bhCarveOut.abaRidesOn': 'inferred',
     'bhCarveOut.twoHopRequired': 'inferred',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': 'pVerify has no distinct "UHC Community Plan of Ohio" row — only generic Community-Plan codes (BO00075/UHG001) or national UHC 00192. Confirm via pVerify support before automating.',
     'payerId.availity': 'Confirm the current Availity submission ID with Availity onboarding.',
     'bhCarveOut.administrator':
       'Optum administers UHC Community Plan BH/ABA UM; the ODM FI MCE claims payer ID is 88337 (companion guide, verified). Whether ABA claims specifically ride 88337 vs a distinct Optum BH ID for OH Medicaid is inferred from the FI table (no second hop found) — confirm via Provider Express / UHC provider services.',
+    memberIdPrefix: 'No UHC/Optum source addresses an alpha prefix (2026 Admin Guide ID-card legend, 270/271 companion guide, pVerify list all silent). Confirm with a real card plus a pVerify run, or ask UHC Provider Services.',
   },
   sources: [ODM_COMPANION_GUIDE, PVERIFY_PAYER_LIST, OPTUM_OH_LOCG],
 };
@@ -703,6 +738,7 @@ const amerihealthEdi: EdiRouting = {
   supports270271: true,
   supportsRealtime: true,
   bhCarveOut: { administrator: 'none (state-rule-driven; BH administrator not named on the plan\'s BH PA page)', administratorPayerId: '', abaRidesOn: 'medical', twoHopRequired: false },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'unverified',
@@ -710,11 +746,13 @@ const amerihealthEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'inferred',
     'bhCarveOut.administrator': 'inferred',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.availity': 'AmeriHealth Caritas Ohio postdates the 2012 Availity list (absent) — confirm with Availity onboarding.',
     'payerId.changeHealthcare': 'ODM FI MCE claims payer ID 842435374 (companion guide, verified); a distinct Change Healthcare CPID was not separately confirmed.',
     'bhCarveOut.administrator': 'The plan\'s BH PA page confirms ABA needs PA but names no BH administrator — confirm in-house vs. delegated via the ACO provider manual.',
+    memberIdPrefix: 'Sample member ID card in the AmeriHealth Caritas OH provider manual, or ask AmeriHealth Caritas OH Provider Services whether any alpha prefix is keyed; no source states it',
   },
   sources: [PVERIFY_PAYER_LIST, ODM_COMPANION_GUIDE, AMERIHEALTH_BH_PAGE],
 };
@@ -724,6 +762,7 @@ const humanaOhioEdi: EdiRouting = {
   supports270271: true,
   supportsRealtime: true,
   bhCarveOut: { administrator: 'none — in-house Humana behavioral health', administratorPayerId: '', abaRidesOn: 'medical', twoHopRequired: false },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'unverified',
@@ -731,10 +770,12 @@ const humanaOhioEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'inferred',
     'bhCarveOut.administrator': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.availity': 'Humana Healthy Horizons Ohio postdates the 2012 Availity list (absent) — confirm with Availity onboarding.',
     'payerId.changeHealthcare': 'ODM FI MCE claims payer ID 61103 (companion guide, verified); a distinct Change Healthcare CPID was not separately confirmed.',
+    memberIdPrefix: 'Sample member ID card in the Humana Healthy Horizons OH provider manual, or ask Humana Healthy Horizons OH Provider Services whether any alpha prefix is keyed; no source states it',
   },
   sources: [PVERIFY_PAYER_LIST, ODM_COMPANION_GUIDE, HUMANA_OH_PAL],
 };
@@ -754,6 +795,7 @@ const aetnaOhioEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'not-used',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'inferred',
@@ -764,13 +806,15 @@ const aetnaOhioEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'inferred',
     'bhCarveOut.abaRidesOn': 'inferred',
     'bhCarveOut.twoHopRequired': 'inferred',
+    memberIdPrefix: 'verified',
   },
   verifyVia: {
     'payerId.availity': '60054 is Aetna\'s long-standing national ID, present in the fetched Availity list but that list is 2012-dated — ships inferred pending a current export (matches aetna-florida/aetna-georgia).',
     supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding.',
     'bhCarveOut.administrator': 'Aetna administers ABA under the member\'s BH benefit as an internal function; no separate BH claims payer ID is published (national claims ride 60054). Confirm via Aetna provider services / the ABA precertification process.',
+    memberIdPrefix: 'Aetna eligibility flyer: "When using the member ID number, prefixes or suffixes are unnecessary." Enter the member ID without the card prefix.',
   },
-  sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, AETNA_ABA_CLAIMS],
+  sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, AETNA_ABA_CLAIMS, FANOUT_AET_ELIG_FLYER],
 };
 
 function aetnaOhEntry(): CodeGridEntry {
@@ -793,6 +837,7 @@ const cignaOhioEdi: EdiRouting = {
   supports270271: true,
   supportsRealtime: 'unverified',
   bhCarveOut: { administrator: 'Evernorth Behavioral Health', administratorPayerId: '62308', abaRidesOn: 'medical', twoHopRequired: false },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'verified',
@@ -803,8 +848,9 @@ const cignaOhioEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'verified',
     'bhCarveOut.abaRidesOn': 'verified',
     'bhCarveOut.twoHopRequired': 'verified',
+    memberIdPrefix: 'unverified',
   },
-  verifyVia: { supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding.' },
+  verifyVia: { supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding.', memberIdPrefix: 'Cigna ID card quick guide (CIG_IDCARD) shows member ID + two-digit suffix, no alpha prefix, but gives no entry rule; confirm with Cigna 800.882.4462 or a test 270.' },
   sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, CIGNA_AUTISM_RESOURCE_GUIDE],
 };
 
@@ -828,6 +874,7 @@ const uhcOhioEdi: EdiRouting = {
   supports270271: true,
   supportsRealtime: 'unverified',
   bhCarveOut: { administrator: 'Optum Behavioral Health', administratorPayerId: '87726', abaRidesOn: 'medical', twoHopRequired: false },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'inferred',
@@ -838,10 +885,12 @@ const uhcOhioEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'verified',
     'bhCarveOut.abaRidesOn': 'verified',
     'bhCarveOut.twoHopRequired': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.availity': '87726 confirmed as the Optum/UHC claims payer ID via Optum Provider Express\'s EDI page (verified); the Availity occurrence is from the 2012 export, so the Availity source ships inferred.',
     supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding.',
+    memberIdPrefix: 'No UHC/Optum source addresses an alpha prefix (2026 Admin Guide ID-card legend, 270/271 companion guide, pVerify list all silent). Confirm with a real card plus a pVerify run, or ask UHC Provider Services.',
   },
   sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, OPTUM_EDI_PAGE],
 };
@@ -882,6 +931,8 @@ const ohioMedicaidContact: VobContact = {
   providerServicesPhone: '(800) 686-1516',
   hours: 'Not posted on the PNM contact page — confirm at time of call',
   portal: { name: 'ODM PNM (Provider Network Management) Module', url: 'https://ohpnm.omes.maximus.com/OH_PNM_PROD/Account/Login.aspx' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'For members under 21, is PA still required on assessment codes 97151/97152/0362T, or has the 5160-34-03 rewrite\'s assessment-PA exemption (up to 10 hrs/180 days) taken effect yet?',
     'What place-of-service settings (home, school, clinic, telehealth) are currently approved for ABA billing?',
@@ -889,29 +940,33 @@ const ohioMedicaidContact: VobContact = {
     'Do ABA claims need a practitioner-tier billing modifier (Independent COBA/BCBA/BCBA-D vs. BCaBA vs. RBT), or is tier reflected some other way on the claim?',
     'This member shows OhioRISE enrollment on the eligibility response — can you confirm ABA claims should route to their underlying medical MCO (or FFS), not OhioRISE?',
   ],
-  sources: [ODM_PNM_CONTACT],
+  sources: [ODM_PNM_CONTACT, FANOUT_OH_MYCARE_HELPDESK],
 };
 
 const caresourceContact: VobContact = {
   providerServicesPhone: '(800) 488-0134',
   portal: { name: 'CareSource Provider Portal', url: 'https://providerportal.caresource.com/OH/User/Login.aspx' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'What POS code should we use for home-based vs. clinic-based ABA sessions?',
     'Is there a specific telehealth modifier (e.g., GT/95) required when billing parent-training/supervision or 1:1 ABA delivered via telehealth?',
   ],
-  sources: [CARESOURCE_MM0028, CARESOURCE_PROVIDER_PORTAL],
+  sources: [CARESOURCE_MM0028, CARESOURCE_PROVIDER_PORTAL, FANOUT_CS_OH_MANUAL],
 };
 
 const buckeyeContact: VobContact = {
-  providerServicesPhone: '(800) 224-1991',
+  providerServicesPhone: '1-866-296-8731 — Buckeye Health Plan Provider Services (verify eligibility with a live representative)',
   fax: '(866) 694-3649',
   portal: { name: 'Buckeye Provider Portal', url: 'https://provider.buckeyehealthplan.com' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'Can you confirm whether assessment codes 97151/97152 are currently PA-exempt for in-network providers per the current PA list/pre-auth tool — CP.BH.104 itself doesn\'t state this waiver?',
     'Do you enforce a per-code daily unit cap on top of CP.BH.104\'s aggregate hour limits (<=6 hrs/day, <=30 hrs/wk)?',
     'What POS code should be used when billing a telehealth ABA session?',
   ],
-  sources: [BUCKEYE_PA_FORM, BUCKEYE_PROVIDER_PORTAL],
+  sources: [BUCKEYE_PA_FORM, BUCKEYE_PROVIDER_PORTAL, FANOUT_BUCKEYE_MANUAL_2026, FANOUT_PHONE_BUCKEYE_HEALTH_PLAN],
 };
 
 const molinaContact: VobContact = {
@@ -920,6 +975,8 @@ const molinaContact: VobContact = {
   // not a document Molina states as current — per the never-guess rule this
   // ships as a scripted question, not a phone field.
   portal: { name: 'Availity Essentials (PA submission mandatory since 1/1/2026)', url: 'https://www.availity.com' },
+  benefitsByPhone: 'unverified',
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'Can you confirm the current behavioral-health prior-authorization phone line — the number on your public PA page carries its own "confirm in the portal" caveat?',
     'What POS codes are approved for ABA billing (home, school, clinic, telehealth)?',
@@ -930,65 +987,77 @@ const molinaContact: VobContact = {
 };
 
 const anthemOhioContact: VobContact = {
+  providerServicesPhone: '844-912-1226 — Anthem Ohio Medicaid Provider Services / automated Provider Inquiry Line (telephonic eligibility verification)',
   // No providerServicesPhone shipped: the Anthem OH Medicaid contact-us page
   // surfaces only member-services numbers, and the cited GPP/Carelon PDFs
   // resolved to unreadable embedded-font assets this pass (consistent with
   // the file's existing ANTHEM_CUMG/ANTHEM_MANUAL finding) — no provider
   // phone was personally read in a legible document this pass.
   portal: { name: 'Availity Essentials / Interactive Care Reviewer', url: 'https://www.availity.com' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'Is prior authorization the same process for assessment codes (97151/97152/0362T) as for treatment codes, or is there a separate assessment pathway?',
     'What POS codes are approved for ABA (home, school, clinic, telehealth)?',
     'Is telehealth allowed for ABA services, and what modifier/POS number applies?',
     'Does Anthem Ohio Medicaid apply any hours-per-week ceiling or per-code daily unit cap to ABA, and in which current guideline is it written?',
   ],
-  sources: [ANTHEM_MANUAL],
+  sources: [ANTHEM_MANUAL, FANOUT_ANTHEM_OH_PM, FANOUT_PHONE_ANTHEM_OHIO_MEDICAID],
 };
 
 const uhcCommunityContact: VobContact = {
   providerServicesPhone: '(800) 600-9007',
   hours: 'Mon-Fri, 8 a.m.-5 p.m.',
   portal: { name: 'UnitedHealthcare Provider Portal', url: 'https://secure.uhcprovider.com/' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'What POS code should be used for a telehealth ABA session?',
     'Is a specific modifier required when ABA is delivered via telehealth?',
     'Is there a numeric daily/weekly unit cap on treatment codes, or is it fully individualized against authorized hours?',
     'Do you require a licensure-tier billing modifier (HN/HO/HM/HP)?',
   ],
-  sources: [UHC_COMMUNITY_OH_CONTACT],
+  sources: [UHC_COMMUNITY_OH_CONTACT, FANOUT_MAN_OH_MCD],
 };
 
 const amerihealthContact: VobContact = {
-  providerServicesPhone: '(833) 735-7700',
+  providerServicesPhone: '1-833-644-6001 — AmeriHealth Caritas Ohio Provider Services Call Center (member eligibility)',
   fax: '(833) 329-6411',
   portal: { name: 'NaviNet (Jiva UM)', url: 'https://navinet.navimedix.com/' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'What POS codes are accepted for ABA billing (home, clinic, school, telehealth)?',
     'Is telehealth approved for any ABA code, and if so what modifier is required?',
     'Do you require a licensure-tier billing modifier for RBT- vs. BCBA-delivered codes?',
   ],
-  sources: [AMERIHEALTH_BH_PAGE, AMERIHEALTH_NAVINET],
+  sources: [AMERIHEALTH_BH_PAGE, AMERIHEALTH_NAVINET, FANOUT_ACOH_MANUAL, FANOUT_PHONE_AMERIHEALTH_CARITAS_OHIO],
 };
 
 const humanaContact: VobContact = {
   providerServicesPhone: '(877) 856-5707',
   portal: { name: 'Availity Essentials', url: 'https://www.availity.com' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'What POS codes are approved for ABA (home, school, clinic, telehealth)?',
     'Is telehealth allowed for any ABA code, and what modifier/POS number applies?',
     'Since every ABA code including assessments requires prior authorization here, what\'s the current turnaround time for a decision?',
     'Do you require a licensure-tier billing modifier?',
   ],
-  sources: [HUMANA_OH_PAL],
+  sources: [HUMANA_OH_PAL, FANOUT_HUMANA_OH_MANUAL_2025],
 };
 
 const aetnaOhioContact: VobContact = {
+  providerServicesPhone: '1-888-632-3862 (TTY: 711) — Aetna Provider Contact Center (member eligibility and benefits, prior authorization; also behavioral health provider services); HMO-based plans: 1-800-624-0756',
   // No providerServicesPhone/fax shipped: every Aetna PDF fetched this pass
   // (BH precert list, BH provider manual) resolved to unreadable
   // embedded-font/binary content, and the HTML precert/contact-us pages
   // publish no phone number (member ID card is the stated fallback) — no
   // number was personally read in a legible document.
   portal: { name: 'Availity', url: 'https://www.availity.com' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'What is the precertification process/form for ABA codes 97151-97158, 0362T, and 0373T?',
     'What is the daily or weekly unit cap for each ABA code?',
@@ -996,13 +1065,15 @@ const aetnaOhioContact: VobContact = {
     'Do you require a licensure-tier modifier (HN/HO/HM/HP) on ABA claims?',
     `Is this member's plan fully-insured or self-funded? ${OHIO_MANDATE_NOTE}`,
   ],
-  sources: [AETNA_PRECERT_PAGE],
+  sources: [AETNA_PRECERT_PAGE, FANOUT_AET_GLANCE, FANOUT_PHONE_AETNA_OHIO],
 };
 
 const cignaOhioContact: VobContact = {
   providerServicesPhone: '(800) 882-4462',
   fax: '(866) 873-8279',
   portal: { name: 'CignaforHCP', url: 'https://cignaforhcp.cigna.com' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'Does ABA require prior authorization on this specific plan, and what is the process?',
     'What are the daily or weekly unit caps for each ABA code?',
@@ -1010,19 +1081,21 @@ const cignaOhioContact: VobContact = {
     'Do you require a licensure-tier billing modifier?',
     `Is this member's plan fully-insured or self-funded? ${OHIO_MANDATE_NOTE}`,
   ],
-  sources: [CIGNA_PRECERT_PAGE],
+  sources: [CIGNA_PRECERT_PAGE, FANOUT_CIG_AUTISM],
 };
 
 const uhcOhioContact: VobContact = {
   providerServicesPhone: '(877) 842-3210',
   portal: { name: 'UnitedHealthcare Provider Portal / Provider Express', url: 'https://secure.uhcprovider.com/' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'What is the current review cadence/process for an Optum ABA prior-authorization request?',
     'What POS code and modifier should be used for a telehealth ABA session?',
     'Do the national unit caps and HN/HM/HO/HP modifier tiers in Optum\'s ABA Reimbursement Policy (2022RP501A) apply as published for this Ohio plan?',
     `Is this member's plan fully-insured or self-funded? ${OHIO_MANDATE_NOTE}`,
   ],
-  sources: [UHC_CONTACT_PAGE],
+  sources: [UHC_CONTACT_PAGE, FANOUT_OPTUM_NNM_2026],
 };
 
 /* ==================== Layer 2 — STC interpretation maps ====================
@@ -1073,33 +1146,33 @@ const humanaOhioStc = ohioMedicaidUnverifiedStc('Confirm via Humana Healthy Hori
 /* ==================== export ==================== */
 
 export const ohioVob: Record<string, VobExtension> = {
-  'ohio-medicaid': { edi: ohioMedicaidEdi, codeGrid: buildGrid(ohioMedicaidEntry), rates: OHIO_MEDICAID_RATES, stcMap: ohioMedicaidStc, vobContact: ohioMedicaidContact, lastUpdated: ACCESS_DATE },
-  'caresource-ohio': { edi: caresourceEdi, codeGrid: buildGrid(careSourceEntry), rates: ohioMcoUnverifiedRates('CareSource Ohio'), stcMap: caresourceOhioStc, vobContact: caresourceContact, lastUpdated: ACCESS_DATE },
-  'buckeye-health-plan': { edi: buckeyeEdi, codeGrid: buildGrid(buckeyeEntry), rates: ohioMcoUnverifiedRates('Buckeye Health Plan'), stcMap: buckeyeStc, vobContact: buckeyeContact, lastUpdated: ACCESS_DATE },
-  'molina-healthcare-ohio': { edi: molinaEdi, codeGrid: buildGrid(molinaEntry), rates: ohioMcoUnverifiedRates('Molina Healthcare of Ohio'), stcMap: molinaOhioStc, vobContact: molinaContact, lastUpdated: ACCESS_DATE },
-  'anthem-ohio-medicaid': { edi: anthemOhioEdi, codeGrid: buildGrid(anthemEntry), rates: ohioMcoUnverifiedRates('Anthem BCBS Ohio Medicaid'), stcMap: anthemOhioMedicaidStc, vobContact: anthemOhioContact, lastUpdated: ACCESS_DATE },
-  'unitedhealthcare-community-plan-ohio': { edi: uhcCommunityEdi, codeGrid: buildGrid(uhcCommunityEntry), rates: ohioMcoUnverifiedRates('UnitedHealthcare Community Plan of Ohio'), stcMap: uhcCommunityOhioStc, vobContact: uhcCommunityContact, lastUpdated: ACCESS_DATE },
-  'amerihealth-caritas-ohio': { edi: amerihealthEdi, codeGrid: buildGrid(amerihealthEntry), rates: ohioMcoUnverifiedRates('AmeriHealth Caritas Ohio'), stcMap: amerihealthOhioStc, vobContact: amerihealthContact, lastUpdated: ACCESS_DATE },
-  'humana-healthy-horizons-ohio': { edi: humanaOhioEdi, codeGrid: buildGrid(humanaEntry), rates: ohioMcoUnverifiedRates('Humana Healthy Horizons in Ohio'), stcMap: humanaOhioStc, vobContact: humanaContact, lastUpdated: ACCESS_DATE },
+  'ohio-medicaid': { edi: ohioMedicaidEdi, codeGrid: buildGrid(ohioMedicaidEntry), rates: OHIO_MEDICAID_RATES, stcMap: ohioMedicaidStc, vobContact: ohioMedicaidContact, lastUpdated: '2026-10-15'},
+  'caresource-ohio': { edi: caresourceEdi, codeGrid: buildGrid(careSourceEntry), rates: ohioMcoUnverifiedRates('CareSource Ohio'), stcMap: caresourceOhioStc, vobContact: caresourceContact, lastUpdated: '2026-10-15'},
+  'buckeye-health-plan': { edi: buckeyeEdi, codeGrid: buildGrid(buckeyeEntry), rates: ohioMcoUnverifiedRates('Buckeye Health Plan'), stcMap: buckeyeStc, vobContact: buckeyeContact, lastUpdated: '2026-10-15'},
+  'molina-healthcare-ohio': { edi: molinaEdi, codeGrid: buildGrid(molinaEntry), rates: ohioMcoUnverifiedRates('Molina Healthcare of Ohio'), stcMap: molinaOhioStc, vobContact: molinaContact, lastUpdated: '2026-10-15'},
+  'anthem-ohio-medicaid': { edi: anthemOhioEdi, codeGrid: buildGrid(anthemEntry), rates: ohioMcoUnverifiedRates('Anthem BCBS Ohio Medicaid'), stcMap: anthemOhioMedicaidStc, vobContact: anthemOhioContact, lastUpdated: '2026-10-15'},
+  'unitedhealthcare-community-plan-ohio': { edi: uhcCommunityEdi, codeGrid: buildGrid(uhcCommunityEntry), rates: ohioMcoUnverifiedRates('UnitedHealthcare Community Plan of Ohio'), stcMap: uhcCommunityOhioStc, vobContact: uhcCommunityContact, lastUpdated: '2026-10-15'},
+  'amerihealth-caritas-ohio': { edi: amerihealthEdi, codeGrid: buildGrid(amerihealthEntry), rates: ohioMcoUnverifiedRates('AmeriHealth Caritas Ohio'), stcMap: amerihealthOhioStc, vobContact: amerihealthContact, lastUpdated: '2026-10-15'},
+  'humana-healthy-horizons-ohio': { edi: humanaOhioEdi, codeGrid: buildGrid(humanaEntry), rates: ohioMcoUnverifiedRates('Humana Healthy Horizons in Ohio'), stcMap: humanaOhioStc, vobContact: humanaContact, lastUpdated: '2026-10-15'},
   'aetna-ohio': {
     edi: aetnaOhioEdi,
     codeGrid: aetnaOhioCodeGrid,
     stcMap: inheritFamilyStc(aetnaFamilyStc, 'Inherited from the Aetna family default (docs/vob-build.md Layer 2) — no Ohio-specific 270/271 STC document found.'),
     vobContact: aetnaOhioContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'cigna-ohio': {
     edi: cignaOhioEdi,
     codeGrid: cignaOhioCodeGrid,
     stcMap: inheritFamilyStc(cignaFamilyStc, 'Inherited from the Cigna/Evernorth family default (docs/vob-build.md Layer 2) — national companion guide, no Ohio-specific override found.'),
     vobContact: cignaOhioContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'unitedhealthcare-ohio': {
     edi: uhcOhioEdi,
     codeGrid: uhcOhioCodeGrid,
     stcMap: inheritFamilyStc(uhcFamilyStc, 'Inherited from the UnitedHealthcare/Optum family default (docs/vob-build.md Layer 2) — national companion guide, no Ohio-specific override found.'),
     vobContact: uhcOhioContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
 };

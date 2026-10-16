@@ -475,6 +475,99 @@ function mcoUnverifiedRates(planName: string): RateTable {
   };
 }
 
+/* Prefix / benefits-by-phone / individual-NPI sources (2026-10-14) */
+const FANOUT_PHONE_EL_PASO_HEALTH: SourceRef = { url: 'https://www.elpasohealth.com/pdf/PT.OT.ST%20Specialty%20Training.pdf', accessDate: '2026-10-15', note: 'El Paso Health provider training deck (2025): "Forms of Eligibility Verification - El Paso Health Provider Web Portal - Telephonically: STAR+PLUS: 1-833-742-3127 STAR & CHIP: 1-877-532-3778". 1-888-310-3434 does not appear. (Full provider manual unreadable via proxy.)' };
+const FANOUT_PHONE_BAYLOR_SCOTT_WHITE_TEXAS: SourceRef = { url: 'https://rightcare.swhp.org/-/media/project/bsw/sites/rightcare/documents/provider-manual.pdf', accessDate: '2026-10-15', note: 'RightCare from Scott and White Health Plan 2026 Provider Manual, resources table: "Eligibility Verification (IVR Line) 1-800-925-9126 -- or -- 1-855-TX-RIGHT (1-855-897-4448)"; "RightCare Medical Management 1-855-691-SWHP (1-855-691-7947)"; "RightCare Behavioral Health Management 1-855-395-9652".' };
+const FANOUT_PHONE_DRISCOLL_HEALTH_PLAN: SourceRef = { url: 'https://driscollhealthplan.com/wp-content/uploads/DHP-Provider-Manual-September-2026.pdf', accessDate: '2026-10-15', note: 'Driscoll Health Plan Provider Manual (Rev 9/2026): "Eligibility can be verified via: ... DHP\'s automated IVR system (1-877-324-3627); or Calling Customer Service and speaking with a Customer Service Representative (1-877-324-3627)"; "Provider Services CHIP, STAR, STAR Kids 877-324-3627"; "Preauthorization and Referrals (CHIP/STAR/STAR Kids) - Utilization Management Dept.: 1-877-455-1053".' };
+const FANOUT_PHONE_COOK_CHILDRENS_HEALTH_PLAN: SourceRef = { url: 'https://www.cookchp.org/siteassets/documents/pdfs/provider-manual/star-chip-chip-perinatal-provider-manual-021326.pdf', accessDate: '2026-10-15', note: 'Cook Children\'s Health Plan STAR/CHIP/CHIP Perinatal Provider Manual (revised 02/13/26), Quick Reference: "For Verification of Eligibility and Benefits Toll Free: 888-243-3312".' };
+const FANOUT_PHONE_TEXAS_CHILDRENS_HEALTH_PLAN: SourceRef = { url: 'https://www.texaschildrenshealthplan.org/providers/provider-resources/quick-reference-guide', accessDate: '2026-10-15', note: 'TCHP Provider Quick Reference Guide (live): "Customer Service - Claim inquiry, questions, and information... Eligibility/benefits questions on all products. Phone: 832-828-1004 Toll free: 1-800-731-8527 Telephone TouCHPoint: 832-828-1007". 1-877-213-5508 does not appear.' };
+
+const FANOUT_MAN_TX_MCD: SourceRef = {
+  url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/TX-UHCCP-Care-Provider-Manual.pdf',
+  accessDate: '2026-10-14',
+  note: '2026 Texas Care Provider Manual, UHC Community Plan of Texas: "Provider Services at 1-888-887-9003 works closely with all departments... and can answer your questions about Medicaid benefits, eligibility, claim decisions..."',
+};
+const FANOUT_OPTUM_NNM_2026: SourceRef = {
+  url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf',
+  accessDate: '2026-10-14',
+  note: 'Optum (United Behavioral Health) National Provider Network Manual, published July 1 2026, effective Sept 1 2026 (BH02330-1-26-MAN_07012026). Read via r.jina.ai using the AEM path .../NNManual.pdf/jcr:content/renditions/original (plain URL returns a download interstitial). Eligibility Inquiry p.35-36: "You can use the Provider Express secure portal to check a member\'s eligibility. You may also inquire about eligibility by calling the phone number on the member\'s ID card." Items to provide: member name, address, ID number, subscriber name and DOB - NPI not listed. No statement on individual vs group NPI for calls.',
+};
+const FANOUT_AET_ELIG_FLYER: SourceRef = {
+  url: 'https://www.aetna.com/document-library/healthcare-professionals/assets/documents/eligibility.pdf',
+  accessDate: '2026-10-14',
+  note: 'Aetna Eligibility and Benefits Inquiry flyer 83.03.870.1 (2/19), still hosted on aetna.com: "When using the member ID number, prefixes or suffixes are unnecessary. For family-level searches, you only need to enter the member ID." Applies to the electronic inquiry; dated 2019.',
+};
+const FANOUT_AET_GLANCE: SourceRef = {
+  url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/aetna-at-a-glance.pdf',
+  accessDate: '2026-10-14',
+  note: 'Aetna "At a glance" how-to guide for health care professionals, 9011800-01-01 (8/26), Key contacts table: "Provider Contact Center ... Member eligibility and benefits ... 1-800-624-0756 (TTY: 711) for Aetna Medicare Advantage plans and HMO-based plans / 1-888-MDAetna (1-888-632-3862) (TTY: 711) for all other plans". Also: "Behavioral health (provider services) Refer to the member ID card."',
+};
+const FANOUT_CIG_AUTISM: SourceRef = {
+  url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf',
+  accessDate: '2026-10-14',
+  note: 'Evernorth/Cigna Autism resource guide, March 2025 (PCOMM-2025-225): "It is important to confirm a patient\'s ABA eligibility and benefits before performing an assessment. This information can be confirmed by: ... Calling the Autism Care Coordinator team at 877.279.7603". Provider Services 800.926.2273 "handles questions regarding billing, benefits, and eligibility for autism-related treatment, such as ABA."',
+};
+const FANOUT_WP_TX_PM: SourceRef = {
+  url: 'https://provider.wellpoint.com/docs/gpp/TX_WLP_CAID_ProviderManual.pdf',
+  accessDate: '2026-10-14',
+  note: 'Wellpoint Texas Medicaid/CHIP provider manual (PDF published Aug 2024). Quote: \'If you are unable to access the internet, you may receive claims, eligibility, and prior authorization status over the phone at any time by calling our automated Provider Inquiry Line at 833-731-2162.\'',
+};
+const FANOUT_BCBSTX_MCD_PM: SourceRef = {
+  url: 'https://bcbstx.com/docs/provider/tx/provider-medicaid/education/tx-medicaid-star-chip-starkids-provider-manual-handbook-2025.pdf',
+  accessDate: '2026-10-14',
+  note: 'BCBSTX Medicaid STAR/CHIP/STAR Kids provider manual (June 2025). Quotes: \'You can verify a patient\'s eligibility and benefits through the Availity tool. You can also call 1-877-560-8055 for STAR and CHIP and 1-877-784-6802 for STAR Kids.\' / \'Inclusion of the alpha prefix at the beginning of the member\'s nine-digit BCBSTX ID number is encouraged for claims, but not required.\' / \'the IVR system accepts either your billing NPI or your federal TIN for provider identification.\'',
+};
+const FANOUT_SHP_MANUAL: SourceRef = {
+  url: 'https://www.superiorhealthplan.com/content/dam/centene/Superior/Provider/PDFs/medicaid-provider-manual.pdf',
+  accessDate: '2026-10-14',
+  note: 'Superior HealthPlan Provider Manual (STAR/CHIP/STAR+PLUS/STAR Kids/STAR Health; served 10/2026). Superior Resources: "Calling Superior\'s member hotline will provide an interactive IVR or you can also contact a live agent: STAR and CHIP 1-800-783-5386 STAR+PLUS 1-877-277-9772 STAR Kids 1-844-590-4883 STAR Health 1-866-912-6283"',
+};
+const FANOUT_TCHP_QRG: SourceRef = {
+  url: 'https://www.texaschildrenshealthplan.org/providers/provider-resources/quick-reference-guide',
+  accessDate: '2026-10-14',
+  note: 'Texas Children\'s Health Plan Provider Quick Reference Guide. \'Customer Service ... Eligibility/benefits questions on all products. Phone: 832-828-1004 Toll free: 1-800-731-8527 Telephone TouCHPoint: 832-828-1007\'.',
+};
+const FANOUT_CFHP_CLEARINGHOUSE: SourceRef = {
+  url: 'https://medicaid.communityfirsthealthplans.com/?p=250180',
+  accessDate: '2026-10-14',
+  note: 'Community First Health Plans provider notice (Nov 2023). Quote: \'Community First Health Plans does not accept eligibility requests via any clearinghouse. To verify Member eligibility, refer to our ... Provider Quick Reference Guide and get in touch with the Member Services department corresponding to your specific line of business.\'',
+};
+const FANOUT_DHP_PM: SourceRef = {
+  url: 'https://driscollhealthplan.com/wp-content/uploads/DHP-Provider-Manual-September-2026.pdf',
+  accessDate: '2026-10-14',
+  note: 'Driscoll Health Plan Provider Manual Rev 9/2026. Quote: \'Eligibility can be verified via: DHP Provider Portal ...; DHP\'s automated IVR system (1-877-324-3627); or Calling Customer Service and speaking with a Customer Service Representative (1-877-324-3627)\'.',
+};
+const FANOUT_CHC_PM: SourceRef = {
+  url: 'https://provider.communityhealthchoice.org/wp-content/uploads/sites/2/2025/10/HHS-Provider-Manual.pdf',
+  accessDate: '2026-10-14',
+  note: 'Community Health Choice Provider Manual, Harris Service Area, Oct 2025. Quote: \'Providers must verify Member eligibility via our provider portal or by calling Member Services at 713.295.2294 or 1.888.760.2600 prior to each visit.\' Quick reference also lists Provider Services 713.295.2300 for \'Benefit Coverage and Eligibility Verification\'.',
+};
+const FANOUT_COOK_PM: SourceRef = {
+  url: 'https://www.cookchp.org/siteassets/documents/pdfs/provider-manual/star-chip-chip-perinatal-provider-manual-021326.pdf',
+  accessDate: '2026-10-14',
+  note: 'Cook Children\'s Health Plan STAR/CHIP/CHIP Perinatal Provider Manual (Feb 2026). Quick Reference: \'For Verification of Eligibility and Benefits Toll Free: 888-243-3312\'; Verifying Health Plan Eligibility: \'Telephone verification o Member Services (local): 682-885-2247 o Member Services (toll-free): 800-964-2247\'.',
+};
+const FANOUT_EPH_TRAINING: SourceRef = {
+  url: 'https://www.elpasohealth.com/pdf/PT.OT.ST%20Specialty%20Training.pdf',
+  accessDate: '2026-10-14',
+  note: 'El Paso Health provider training deck (pub. Jul 2025). Quote: \'Forms of Eligibility Verification - El Paso Health Provider Web Portal - Telephonically: STAR+PLUS: 1-833-742-3127, STAR & CHIP: 1-877-532-3778\'. (Full provider manual PDF unreadable via proxy.)',
+};
+const FANOUT_FIRSTCARE_PM: SourceRef = {
+  url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR-CHIP-Provider-Manual.pdf',
+  accessDate: '2026-10-14',
+  note: 'FirstCare 2026 STAR and CHIP Provider Manual. Quote: \'Customer Service Department (Member Eligibility and Benefit Questions) STAR 1-800-431-7798 CHIP and CHIP Perinatal 1-877-639-CHIP (2447)\'.',
+};
+const FANOUT_RIGHTCARE_PM: SourceRef = {
+  url: 'https://rightcare.swhp.org/-/media/project/bsw/sites/rightcare/documents/provider-manual.pdf',
+  accessDate: '2026-10-14',
+  note: 'RightCare from Scott and White Health Plan 2026 Provider Manual (pub. Jun 2026). Contact table: \'Eligibility Verification (IVR Line) 1-800-925-9126 -- or -- 1-855-TX-RIGHT (1-855-897-4448)\'.',
+};
+const FANOUT_DELL_FORMS: SourceRef = {
+  url: 'https://dellchildrenshealthplan.com/for-providers/manuals-forms/',
+  accessDate: '2026-10-14',
+  note: 'Dell Children\'s Health Plan provider manuals & forms page. Quote: \'Provider Services 1-844-781-2343 (TTY 7-1-1) Monday-Friday 8 a.m.-5 p.m. Claim status, eligibility, general questions and authorizations.\'',
+};
+
 /* ==================== texas-medicaid ==================== */
 
 const texasMedicaidEdi: EdiRouting = {
@@ -502,6 +595,7 @@ const texasMedicaidEdi: EdiRouting = {
     eligibilitySpanGranularity:
       "Date range, not a fixed monthly bucket — DTP*356 (coverage begin) and DTP*357 (coverage end) in D8 (CCYYMMDD) format on the 'Covered Managed Care' EB segment carry the actual enrollment span, which can run for any number of days/months per the companion guide's own example (20141001–20150430).",
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'unverified',
@@ -512,12 +606,14 @@ const texasMedicaidEdi: EdiRouting = {
     'medicaid271Notes.mcoSegmentLocation': 'verified',
     'medicaid271Notes.mcoCarrierCodes': 'verified',
     'medicaid271Notes.eligibilitySpanGranularity': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.availity': "No distinct \"Texas Medicaid\"/\"TMHP\" FFS entry appears in Availity's public 837/270-271 payer list (searched in full) — FFS Medicaid eligibility is more commonly checked directly with TMHP than via Availity as a clearinghouse; confirm via Availity onboarding if a code exists.",
     'payerId.changeHealthcare': 'Optum/Change Healthcare payer finder — not checked this pass.',
     'medicaid271Notes.mcoCarrierCodes':
       "The table above is the verified PROGRAM code table (STAR/STAR Kids/STAR Health/CHIP), populated in EB05 — it is NOT a per-MCO health-plan lookup (e.g., there is no fixed code for \"Superior\" vs. \"Wellpoint\" in this companion guide). The actual MCO name rides as free text in REF02 when REF01=18; if a fixed MCO-code crosswalk exists elsewhere, it wasn't located in this document — confirm via the TMHP EDI Help Desk (1-888-863-3638, option 4).",
+    memberIdPrefix: 'TMPPM Vol 1 Section 4 Client Eligibility (tmhp.com)',
   },
   sources: [COMPANION_GUIDE_270_271, PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST],
 };
@@ -529,6 +625,7 @@ const superiorEdi: EdiRouting = {
   supports270271: true,
   supportsRealtime: 'unverified',
   bhCarveOut: { administrator: 'none', administratorPayerId: '', abaRidesOn: 'medical', twoHopRequired: false },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'verified',
@@ -536,11 +633,14 @@ const superiorEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding for this payer ID.',
     'payerId.availity':
       "Availity's list also carries several Centene-corporate entries (SHP11/FSHP11/DSHP11 \"SUPERIOR HEALTH/CENTENE CORP\") alongside the clean-name match used here (39188, \"Superior Health Plan of Texas\") — confirm 39188 is correct for professional (837P) 270/271 eligibility specifically, not just claims.",
+    memberIdPrefix:
+      'Sample member ID card in the Superior HealthPlan provider manual, or ask Superior HealthPlan Provider Services whether any alpha prefix is keyed; no source states it',
   },
   sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, SUPERIOR_ABA_LAUNCH, TMHP_AUTISM_BENEFIT_RELEASE],
 };
@@ -552,6 +652,7 @@ const tchpEdi: EdiRouting = {
   supports270271: true,
   supportsRealtime: 'unverified',
   bhCarveOut: { administrator: 'none', administratorPayerId: '', abaRidesOn: 'medical', twoHopRequired: false },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'verified',
@@ -559,11 +660,13 @@ const tchpEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding for this payer ID.',
     'payerId.availity':
       "Availity separately lists \"TEXAS CHILDRENS HEALTH PLAN COMM\" (76048/TXCHLDCOMM) as a distinct commercial product — TXCSM (\"TEXAS CHILDRENS HEALTH PLAN STAR\") is the Medicaid-line code used here; do not conflate the two when routing.",
+    memberIdPrefix: 'TCHP FY26 STAR/CHIP Provider Manual (PDF blocked/unreadable via proxy)',
   },
   sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, TCHP_GUIDELINE],
 };
@@ -575,6 +678,7 @@ const wellpointEdi: EdiRouting = {
   supports270271: true,
   supportsRealtime: 'unverified',
   bhCarveOut: { administrator: 'none', administratorPayerId: '', abaRidesOn: 'medical', twoHopRequired: false },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'unverified',
@@ -582,11 +686,13 @@ const wellpointEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.availity':
       "Availity's public list has no entry branded \"Wellpoint\" for Texas — only pre-rebrand \"Amerigroup\" entries split by region (26374 Houston, 26375 Ft. Worth, 26378 Multiple States, 27518 generic). The January 2024 Amerigroup-to-Wellpoint rebrand changed no PA or claims processes per texas.ts's own verified prose, so one of these Amerigroup-branded codes likely still routes eligibility, but which regional code applies is not resolvable from the payer list alone — confirm via Availity Essentials onboarding or the plan's Prior Authorization Requirements page.",
     supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding for this payer ID.',
+    memberIdPrefix: 'Manual silent; TX Medicaid ID or Wellpoint ID - test in Availity',
   },
   sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, WELLPOINT_TX_BH_DOC],
 };
@@ -603,6 +709,7 @@ const uhcCommunityEdi: EdiRouting = {
     abaRidesOn: 'bh',
     twoHopRequired: true,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'verified',
@@ -613,6 +720,7 @@ const uhcCommunityEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'unverified',
     'bhCarveOut.abaRidesOn': 'verified',
     'bhCarveOut.twoHopRequired': 'inferred',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify':
@@ -622,6 +730,8 @@ const uhcCommunityEdi: EdiRouting = {
       "UHC's STAR Kids PA list confirms ABA is NOT on the medical PA pipeline and routes to the designated BH network (888-887-9003) — but no distinct EDI payer ID for that BH network was confirmed for Texas specifically. pVerify's \"UHG007 United Healthcare - Optum Behavioral Solutions\" is an unconfirmed candidate. Confirm via uhcprovider.com or the BH line directly.",
     'bhCarveOut.twoHopRequired':
       "Inferred true because prior authorization demonstrably requires a second contact (Optum BH, 888-887-9003) distinct from UHC's medical PA tool — but whether the 270/271 ELIGIBILITY check itself requires a second EDI hop (vs. only the UM/PA step) was not independently confirmed.",
+    memberIdPrefix:
+      'No UHC/Optum source addresses an alpha prefix (2026 Admin Guide ID-card legend, 270/271 companion guide, pVerify list all silent). Confirm with a real card plus a pVerify run, or ask UHC Provider Services.',
   },
   sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, UHC_STAR_KIDS_PA_LIST, UHC_TX_PA_PAGE, OPTUM_STATE_MANDATES],
 };
@@ -633,6 +743,7 @@ const aetnaBetterHealthEdi: EdiRouting = {
   supports270271: true,
   supportsRealtime: 'unverified',
   bhCarveOut: { administrator: 'none', administratorPayerId: '', abaRidesOn: 'medical', twoHopRequired: false },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'verified',
@@ -640,11 +751,13 @@ const aetnaBetterHealthEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify':
       "pVerify separately lists \"AETNA BETTER HEALTH (TX) CHIP\" (000945) as a distinct product from the Medicaid line (000944) used here — confirm the member's line of business before routing.",
     supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding for this payer ID.',
+    memberIdPrefix: 'Current TX provider manual 403-blocked here; only a 2022 copy is archived. Read the current manual.',
   },
   sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, AETNA_BH_TX_MANUAL, TMHP_AUTISM_BENEFIT_RELEASE],
 };
@@ -656,6 +769,7 @@ const molinaEdi: EdiRouting = {
   supports270271: true,
   supportsRealtime: 'unverified',
   bhCarveOut: { administrator: 'none', administratorPayerId: '', abaRidesOn: 'medical', twoHopRequired: false },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'verified',
@@ -663,9 +777,12 @@ const molinaEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding for this payer ID.',
+    memberIdPrefix:
+      'Sample member ID card in the Molina TX provider manual, or ask Molina TX Provider Services whether any alpha prefix is keyed; no source states it',
   },
   sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, MOLINA_TX_PA_PAGE],
 };
@@ -677,6 +794,7 @@ const communityFirstEdi: EdiRouting = {
   supports270271: true,
   supportsRealtime: 'unverified',
   bhCarveOut: { administrator: 'none', administratorPayerId: '', abaRidesOn: 'medical', twoHopRequired: false },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'verified',
@@ -684,11 +802,14 @@ const communityFirstEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify':
       "pVerify lists two candidates — \"01390 Community First Health Plans\" (used here) and \"06106 Community First Health Plan\" — not resolved to one; confirm which routes eligibility before automating.",
     supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding for this payer ID.',
+    memberIdPrefix:
+      'CFHP Provider Quick Reference Guide 2026 (medicaid.communityfirsthealthplans.com/wp-content/uploads/sites/2/2026/02/CFHP-ProviderQuickReferenceGuide-2026.pdf)',
   },
   sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, COMMUNITY_FIRST_BILLING_GUIDELINES],
 };
@@ -700,6 +821,7 @@ const driscollEdi: EdiRouting = {
   supports270271: true,
   supportsRealtime: 'unverified',
   bhCarveOut: { administrator: 'none', administratorPayerId: '', abaRidesOn: 'medical', twoHopRequired: false },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'unverified',
@@ -707,6 +829,7 @@ const driscollEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify':
@@ -714,6 +837,7 @@ const driscollEdi: EdiRouting = {
     'payerId.availity':
       "Availity's public list only surfaces a CHIP-specific product (\"DRISCOLL CHILDRENS PLAN-CHIP\", 74284/DCHCH) — no distinct STAR/STAR Kids code was found, and it's unconfirmed whether the CHIP code also serves the Medicaid lines. Confirm via Availity Essentials onboarding.",
     supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding for this payer ID.',
+    memberIdPrefix: 'DHP Provider Manual sec. 3 / ID card sample',
   },
   sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, DRISCOLL_PA_PORTAL],
 };
@@ -725,6 +849,7 @@ const aetnaTxCommercialEdi: EdiRouting = {
   supports270271: true,
   supportsRealtime: 'unverified',
   bhCarveOut: { administrator: 'unverified', administratorPayerId: 'unverified', abaRidesOn: 'unverified', twoHopRequired: 'unverified' },
+  memberIdPrefix: 'not-used',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'verified',
@@ -732,6 +857,7 @@ const aetnaTxCommercialEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'unverified',
+    memberIdPrefix: 'verified',
   },
   verifyVia: {
     supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding for this payer ID.',
@@ -739,8 +865,9 @@ const aetnaTxCommercialEdi: EdiRouting = {
       'Not researched to a primary source this pass — confirm via Aetna provider services or the ABA precertification form (GR-69017-4) whether Aetna administers ABA in-house or via a separate BH carve-out for Texas commercial business.',
     'payerId.pverify':
       "pVerify separately lists \"TEXAS HEALTH AETNA\" (00875) — a distinct Texas Health Resources/Aetna joint-venture plan, not standard Aetna commercial. Don't route a Texas Health Aetna card on 00001.",
+    memberIdPrefix: 'Aetna eligibility and benefits inquiry flyer states that prefixes or suffixes are unnecessary when using the member ID number.',
   },
-  sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, AETNA_CPB0554, AETNA_CPB0648],
+  sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, AETNA_CPB0554, AETNA_CPB0648, FANOUT_AET_ELIG_FLYER],
 };
 
 const aetnaTxCommercialCodeGrid: Record<string, CodeGridEntry> = Object.fromEntries(
@@ -781,6 +908,7 @@ const cignaTxCommercialEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'verified',
@@ -791,8 +919,9 @@ const cignaTxCommercialEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'verified',
     'bhCarveOut.abaRidesOn': 'verified',
     'bhCarveOut.twoHopRequired': 'verified',
+    memberIdPrefix: 'unverified',
   },
-  verifyVia: { supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding for this payer ID.' },
+  verifyVia: { supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding for this payer ID.', memberIdPrefix: 'Cigna ID card quick guide (CIG_IDCARD) shows member ID + two-digit suffix, no alpha prefix, but gives no entry rule; confirm with Cigna 800.882.4462 or a test 270.' },
   sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, CIGNA_AUTISM_RESOURCE_GUIDE],
 };
 
@@ -860,6 +989,7 @@ const uhcTxCommercialEdi: EdiRouting = {
     abaRidesOn: 'unverified',
     twoHopRequired: 'unverified',
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'verified',
@@ -870,6 +1000,7 @@ const uhcTxCommercialEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'unverified',
     'bhCarveOut.abaRidesOn': 'unverified',
     'bhCarveOut.twoHopRequired': 'unverified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding for this payer ID.',
@@ -877,6 +1008,8 @@ const uhcTxCommercialEdi: EdiRouting = {
       "Provider Express / UHC provider services — UHC administers ABA nationally via Optum's two-step Provider Express authorization, but no distinct Texas-commercial EDI payer ID for that BH pipeline was confirmed. pVerify's \"UHG007 United Healthcare - Optum Behavioral Solutions\" is an unconfirmed candidate.",
     'bhCarveOut.abaRidesOn': 'Same as administratorPayerId.',
     'bhCarveOut.twoHopRequired': 'Same as administratorPayerId.',
+    memberIdPrefix:
+      'No UHC/Optum source addresses an alpha prefix (2026 Admin Guide ID-card legend, 270/271 companion guide, pVerify list all silent). Confirm with a real card plus a pVerify run, or ask UHC Provider Services.',
   },
   sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, OPTUM_SCC, OPTUM_STATE_MANDATES],
 };
@@ -931,6 +1064,7 @@ const chcEdi: EdiRouting = {
   supports270271: true,
   supportsRealtime: 'unverified',
   bhCarveOut: { administrator: 'none', administratorPayerId: '', abaRidesOn: 'medical', twoHopRequired: false },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'inferred',
     'payerId.availity': 'verified',
@@ -938,6 +1072,7 @@ const chcEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': "pVerify's payer-list page (JS-rendered) shows 01071 \"Community Health Choice\" (Eligibility: Yes) — confirmed via repeated matching queries, not an independent raw-HTML grep; slightly lower confidence than the Availity figure.",
@@ -945,6 +1080,7 @@ const chcEdi: EdiRouting = {
       "Two authoritative-looking values conflict and neither is picked as a default: (1) 60495, per CHC's own EDI page, which names Change Healthcare directly but doesn't specify claims- vs. eligibility-specific; (2) 48145, per Optum's official Real-Time (270/271) Eligibility Payer List, a document specifically scoped to eligibility — and it matches the Availity ID exactly. Confirm directly with Change Healthcare/Optum or CHC provider services (713-295-2273) before routing.",
     supports270271: 'Availity master payer list (48145, INITLOAD) confirms Availity Essentials routing; also rides the centralized TMHP 270/271 feed described in texasMedicaidEdi.medicaid271Notes.',
     'bhCarveOut.administrator': "CHC's own ABA Medical Review Guideline describes CHC's own UM machinery throughout (frequency tiers, attendance rule, named exclusions) with no external BH vendor named anywhere.",
+    memberIdPrefix: 'CHC manual says to check both the CHC Member ID card and the Your Texas Benefits Medicaid card; ID format not stated',
   },
   sources: [CHC_ABA_GUIDELINE, CHC_HHS_MANUAL, CHC_STAR_QRG, CHC_STARPLUS_QRG, PVERIFY_PAYER_LIST_PAGE, AVAILITY_PAYER_LIST, CHC_EDI_PAGE, OPTUM_RT_ELIGIBILITY_PAYER_LIST],
 };
@@ -954,6 +1090,7 @@ const bcbstxMedicaidEdi: EdiRouting = {
   supports270271: true,
   supportsRealtime: 'unverified',
   bhCarveOut: { administrator: 'none', administratorPayerId: '', abaRidesOn: 'medical', twoHopRequired: false },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'inferred',
     'payerId.availity': 'inferred',
@@ -961,6 +1098,7 @@ const bcbstxMedicaidEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify':
@@ -972,8 +1110,9 @@ const bcbstxMedicaidEdi: EdiRouting = {
     supports270271: 'Rides the same centralized TMHP 270/271 feed as every other MCO in this file; also has distinct clearinghouse-side codes across all three networks researched (see payerId fields).',
     'bhCarveOut.administrator':
       "As recently as a 7/5/2023-dated PA summary, BCBSTX directed providers to Magellan for Texas Medicaid behavioral health — a carve-out. BCBSTX announced 'insourcing' of Medicaid behavioral health on 5/10/2024, and every current-generation document found (PA checklist rev. 4/26/2024, Sept. 2024 UM training) routes ABA to BCBSTX's own BH intake fax/Availity, with no Magellan reference. Shipped 'none' for the CURRENT state; if a legacy document still references Magellan, treat it as superseded per BCBSTX's own 2024 announcement.",
+    memberIdPrefix: 'The BCBSTX Medicaid manual makes the prefix optional for claims only; it does not establish the eligibility rule. Confirm the member ID format for 270/271 or pVerify eligibility with BCBSTX Provider Services before omitting a card prefix.',
   },
-  sources: [BCBSTX_MEDICAID_NEWS, BCBSTX_ABA_CHECKLIST, BCBSTX_MEDICAID_MANUAL, BCBSTX_PA_CODE_GRID, PVERIFY_PAYER_LIST_PAGE, BCBSTX_MEDICAID_ELIGIBILITY_PAGE, OPTUM_RT_ELIGIBILITY_PAYER_LIST],
+  sources: [BCBSTX_MEDICAID_NEWS, BCBSTX_ABA_CHECKLIST, BCBSTX_MEDICAID_MANUAL, BCBSTX_PA_CODE_GRID, PVERIFY_PAYER_LIST_PAGE, BCBSTX_MEDICAID_ELIGIBILITY_PAGE, OPTUM_RT_ELIGIBILITY_PAYER_LIST, FANOUT_BCBSTX_MCD_PM],
 };
 
 const cchpEdi: EdiRouting = {
@@ -981,6 +1120,7 @@ const cchpEdi: EdiRouting = {
   supports270271: true,
   supportsRealtime: 'unverified',
   bhCarveOut: { administrator: 'none', administratorPayerId: '', abaRidesOn: 'medical', twoHopRequired: false },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'inferred',
     'payerId.availity': 'verified',
@@ -988,12 +1128,14 @@ const cchpEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': "pVerify's payer-list page shows a single 01077 \"Cook Children's Health Plan\" entry (Eligibility: Yes), no CHIP/STAR split — confirmed via repeated matching queries, not an independent raw-HTML grep.",
     'payerId.availity': "Availity's own master list independently confirms both codes, matching Cook Children's own EDI page verbatim (\"CHIP Payor ID is CCHP1 and STAR/STAR Kids Payor ID is CCHP9\") — strong agreement between two independent sources.",
     supports270271: "Confirmed via Availity's master payer list; also rides the centralized TMHP 270/271 feed as every other MCO in this file.",
     'bhCarveOut.administrator': "Cook Children's own 123-page ABA provider training and Acute PA training describe the plan's own EpicCare Link authorization pipeline throughout, with no external BH vendor named anywhere.",
+    memberIdPrefix: 'Cook STAR/CHIP manual ID card section',
   },
   sources: [CCHP_ABA_TRAINING, CCHP_ACUTE_PA_TRAINING, CCHP_PA_SEARCH, CCHP_CCP_FORM, PVERIFY_PAYER_LIST_PAGE, AVAILITY_PAYER_LIST, CCHP_EDI_PAGE, OPTUM_RT_ELIGIBILITY_PAYER_LIST],
 };
@@ -1003,6 +1145,7 @@ const pchpEdi: EdiRouting = {
   supports270271: true,
   supportsRealtime: 'unverified',
   bhCarveOut: { administrator: 'none', administratorPayerId: '', abaRidesOn: 'medical', twoHopRequired: false },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'unverified',
     'payerId.availity': 'verified',
@@ -1010,6 +1153,7 @@ const pchpEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': 'Searched pVerify\'s payer-list page twice for "Parkland" in any form — no matching row exists. Confirm via pVerify onboarding if this changes.',
@@ -1019,6 +1163,7 @@ const pchpEdi: EdiRouting = {
     supports270271: 'Confirmed via Availity/Optum payer lists; also rides the centralized TMHP 270/271 feed as every other MCO in this file.',
     'bhCarveOut.administrator':
       "PCHP transitioned behavioral health administration from Carelon Behavioral Health to direct in-house administration effective 9/1/2025 — providers who had contracted with Carelon for PCHP's BH network had to re-contract directly with PCHP. Shipped 'none' for the CURRENT state; PCHP's own 218-page provider manual (last revised Sept. 2024) still describes a Carelon relationship and is treated as materially out of date for BH/ABA per PCHP's own transition announcement.",
+    memberIdPrefix: 'Parkland provider manual not found on providers.parklandhealthplan.com',
   },
   sources: [PCHP_PA_REQUIREMENTS, PCHP_BH_TRANSITION, PCHP_BH_NETWORK_PAGE, PCHP_ABA_OVERVIEW, PVERIFY_PAYER_LIST_PAGE, AVAILITY_PAYER_LIST, PCHP_EDI_PAGE, OPTUM_RT_ELIGIBILITY_PAYER_LIST],
 };
@@ -1032,6 +1177,7 @@ const ephEdi: EdiRouting = {
   supports270271: true,
   supportsRealtime: 'unverified',
   bhCarveOut: { administrator: 'none', administratorPayerId: '', abaRidesOn: 'medical', twoHopRequired: false },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'inferred',
     'payerId.availity': 'verified',
@@ -1039,6 +1185,7 @@ const ephEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify':
@@ -1048,6 +1195,7 @@ const ephEdi: EdiRouting = {
     'payerId.changeHealthcare': "El Paso Health's own payer-ID document states explicitly its clearinghouse agreement is with Availity and TriZetto Provider Solutions (TPS) only, with no mention of Change Healthcare or Optum anywhere; also confirmed absent from Optum's official Real-Time Eligibility Payer List — a verified absence, not an unresearched gap.",
     supports270271: "Confirmed via Availity's master payer list and El Paso Health's own EDI documentation; also rides the centralized TMHP 270/271 feed as every other MCO in this file.",
     'bhCarveOut.administrator': "El Paso Health's own ABA Request Checklist and 2026 documentation memos describe the plan's own PA pipeline (portal, fax, phone) throughout, with no external BH vendor named anywhere.",
+    memberIdPrefix: 'El Paso Health provider manual https://www.elpasohealth.com/pdf/providermanual.pdf (unreadable via proxy)',
   },
   sources: [EPH_ABA_CHECKLIST, EPH_DOC_MEMO, EPH_DX_MEMO, EPH_QRG, PVERIFY_PAYER_LIST_PAGE, AVAILITY_PAYER_LIST, EPH_PAYER_ID_PDF, OPTUM_RT_ELIGIBILITY_PAYER_LIST],
 };
@@ -1057,6 +1205,7 @@ const firstcareEdi: EdiRouting = {
   supports270271: true,
   supportsRealtime: 'unverified',
   bhCarveOut: { administrator: 'none', administratorPayerId: '', abaRidesOn: 'medical', twoHopRequired: false },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'inferred',
     'payerId.availity': 'verified',
@@ -1064,6 +1213,7 @@ const firstcareEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'inferred',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': "pVerify's payer-list page shows a single generic 01105 \"FirstCare\" entry (Eligibility: Yes) with no Medicaid-specific split — confirmed via repeated matching queries, not an independent raw-HTML grep. IMPORTANT: TMHP and Texas HHS both confirmed (7/17/2026 and 7/21/2026 respectively) that Baylor Scott & White/FirstCare is exiting Texas Medicaid managed care effective 9/1/2026 — TMHP will not accept claims with dates of service after 8/31/2026. Treat this MCO's Medicaid line as expiring, not a stable long-term payer, regardless of any payer ID confirmed here.",
@@ -1071,6 +1221,7 @@ const firstcareEdi: EdiRouting = {
     supports270271: "Confirmed via Availity's master payer list; also rides the centralized TMHP 270/271 feed as every other MCO in this file — through 8/31/2026, per the confirmed Medicaid exit above.",
     'bhCarveOut.administrator':
       'FirstCare\'s Medicaid PA code list files ABA under "Therapy services," not "Behavioral health," and no external BH vendor is named for ABA specifically — but FirstCare\'s own contact tables list separate Medical PA (1-800-884-4905) and Behavioral Health PA (1-855-395-9652) lines, and which one actually processes ABA requests is not resolved in FirstCare\'s own documents. Shipped \'none\' (no third-party vendor) as inferred rather than verified, given that internal-routing ambiguity.',
+    memberIdPrefix: 'FirstCare STAR/CHIP manual ID card section',
   },
   sources: [
     FIRSTCARE_PA_LIST,
@@ -1174,6 +1325,8 @@ const texasMedicaidContact: VobContact = {
     'Are CPT codes 97152, 97157, 0362T, and 0373T billable under THSteps-CCP Autism Services at all, under a different program, or not covered?',
     'Is there a daily or weekly unit cap for 97156 (parent/caregiver training) or 99366 (interdisciplinary team meeting)?',
   ],
+  benefitsByPhone: 'unverified',
+  requiresIndividualNpi: 'unverified',
   sources: [src('https://www.tmhp.com/contact', 'TMHP Contact page, fetched this pass — Contact Center 800-925-9126, hours 7 a.m.–7 p.m. CT Monday–Friday; lists Authorizations, Eligibility, and EDI/TexMedConnect among its menu options.')],
 };
 
@@ -1189,11 +1342,13 @@ const superiorContact: VobContact = {
     "Are CPT codes 97152, 97157, 0362T, and 0373T billable under Superior's Autism Services benefit?",
     'Is there a daily/weekly unit cap for 97156 (parent/caregiver training) or 99366 (team meeting)?',
   ],
-  sources: [src('https://www.superiorhealthplan.com/contact-us/phone-directory.html', "Superior HealthPlan Phone Directory, fetched this pass — main Provider Services line 1-877-391-5921, 8 a.m.–5 p.m. CT Monday–Friday (STAR Health to 6 p.m. CT), covering CHIP/STAR/STAR Health/STAR Kids/STAR+PLUS.")],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [src('https://www.superiorhealthplan.com/contact-us/phone-directory.html', "Superior HealthPlan Phone Directory, fetched this pass — main Provider Services line 1-877-391-5921, 8 a.m.–5 p.m. CT Monday–Friday (STAR Health to 6 p.m. CT), covering CHIP/STAR/STAR Health/STAR Kids/STAR+PLUS."), FANOUT_SHP_MANUAL],
 };
 
 const tchpContact: VobContact = {
-  providerServicesPhone: '832-828-1004 (toll-free 1-877-213-5508)',
+  providerServicesPhone: '832-828-1004 (toll-free 1-800-731-8527) — Texas Children\'s Health Plan Customer Service (eligibility/benefits questions on all products)',
   hours: '8 a.m.–5 p.m. Central Time, Monday–Friday; after-hours/weekend/holiday calls route to an answering service with next-business-day callback',
   portal: { name: "Texas Children's Link (EpicCare Link)", url: 'https://epiccarelink.texaschildrens.org' },
   fax: '832-825-8750',
@@ -1205,10 +1360,12 @@ const tchpContact: VobContact = {
     "Are CPT codes 97152, 97157, 0362T, and 0373T billable under TCHP's Autism Services benefit?",
     'Is there a daily/weekly unit cap for 97156 (parent/caregiver training) or 99366 (team meeting)?',
   ],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   sources: [
     src('https://www.texaschildrenshealthplan.org/providers/provider-resources/quick-reference-guide', 'TCHP Provider Quick Reference Guide page, fetched this pass — Provider Services 832-828-1004 / 1-800-731-8527, fax 832-825-8750, portal "Texas Children\'s Link" via epiccarelink.texaschildrens.org.'),
     src('https://www.texaschildrenshealthplan.org/contact-us', 'TCHP Contact Us page, fetched this pass — Provider Services Hotline 832-828-1004 / toll-free 1-877-213-5508, hours 8 a.m.–5 p.m. CT Monday–Friday with after-hours answering service; Telephone TouCHPoint automated line 832-828-1007, fax 832-825-8777.'),
-  ],
+    FANOUT_TCHP_QRG, FANOUT_PHONE_TEXAS_CHILDRENS_HEALTH_PLAN],
 };
 
 const wellpointContact: VobContact = {
@@ -1222,7 +1379,9 @@ const wellpointContact: VobContact = {
     "Are CPT codes 97152, 97157, 0362T, and 0373T billable under Wellpoint's Autism Services benefit?",
     'Is there a daily/weekly unit cap for 97156 (parent/caregiver training) or 99366 (team meeting)?',
   ],
-  sources: [src('https://www.wellpoint.com/tx/provider/state-federal/contact-us', "Wellpoint TX Provider Contact Us page, fetched this pass — Medicaid/CHIP Provider Services 1-833-731-2162, fax 1-800-964-3627; page names Availity Essentials for self-service claims/eligibility; no hours-of-operation text found on this page for this specific line (confirmed via a second targeted fetch).")],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [src('https://www.wellpoint.com/tx/provider/state-federal/contact-us', "Wellpoint TX Provider Contact Us page, fetched this pass — Medicaid/CHIP Provider Services 1-833-731-2162, fax 1-800-964-3627; page names Availity Essentials for self-service claims/eligibility; no hours-of-operation text found on this page for this specific line (confirmed via a second targeted fetch)."), FANOUT_WP_TX_PM],
 };
 
 const uhcCommunityContact: VobContact = {
@@ -1238,7 +1397,9 @@ const uhcCommunityContact: VobContact = {
     "Are CPT codes 97152, 97157, 0362T, and 0373T billable under this plan's Autism Services benefit?",
     'Is there a daily/weekly unit cap for 97156 (parent/caregiver training) or 99366 (team meeting)?',
   ],
-  sources: [src('https://www.uhcprovider.com/en/health-plans-by-state/texas-health-plans/tx-comm-plan-home/tx-cp-contact-us.html', 'UHC Community Plan of Texas Contact Us page, fetched this pass — Provider Services 888-887-9003, Monday–Friday 8 a.m.–6 p.m. CST; UnitedHealthcare Provider Portal at uhcprovider.com; Optum behavioral-health court-ordered-services line 877-614-0484 listed separately (not the general ABA routing number).')],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [src('https://www.uhcprovider.com/en/health-plans-by-state/texas-health-plans/tx-comm-plan-home/tx-cp-contact-us.html', 'UHC Community Plan of Texas Contact Us page, fetched this pass — Provider Services 888-887-9003, Monday–Friday 8 a.m.–6 p.m. CST; UnitedHealthcare Provider Portal at uhcprovider.com; Optum behavioral-health court-ordered-services line 877-614-0484 listed separately (not the general ABA routing number).'), FANOUT_MAN_TX_MCD],
 };
 
 const aetnaBetterHealthContact: VobContact = {
@@ -1252,6 +1413,8 @@ const aetnaBetterHealthContact: VobContact = {
     "Are CPT codes 97152, 97157, 0362T, and 0373T billable under this plan's Autism Services benefit?",
     'Is there a daily/weekly unit cap for 97156 (parent/caregiver training) or 99366 (team meeting)?',
   ],
+  benefitsByPhone: 'unverified',
+  requiresIndividualNpi: 'unverified',
   sources: [src('https://www.aetnabetterhealth.com/texas/providers/contact-us.html', "Aetna Better Health of Texas Provider Contact Us page, fetched this pass (independently reachable even though the plan's provider-manual PDF blocks automated retrieval, per this guide's edi source notes) — STAR Bexar 1-800-248-7767, STAR Tarrant 1-800-306-8612, both 8 a.m.–5 p.m. Monday–Friday; Provider Portal & Claims via Availity (apps.availity.com).")],
 };
 
@@ -1267,6 +1430,8 @@ const molinaContact: VobContact = {
     'Is there a daily/weekly unit cap for 97156 (parent/caregiver training) or 99366 (team meeting)?',
     "Where can we find Molina's code-level PA requirements (Behavioral Health and Medical Prior Authorization Code Matrix), and are 97151–97158 all subject to the standard TMPPM rules or does Molina apply its own overlay?",
   ],
+  benefitsByPhone: 'unverified',
+  requiresIndividualNpi: 'unverified',
   sources: [src('https://www.molinahealthcare.com/providers/tx/medicaid/resource/services.aspx', "Molina Healthcare of Texas provider services page, fetched this pass (independently reachable even though Molina's PA guide PDFs sit behind bot protection, per this guide's edi source notes) — UM Department (855) 322-4080, hours Monday–Friday 8 a.m.–5 p.m. local time; portal is Availity Essentials (www.availity.com/molinahealthcare).")],
 };
 
@@ -1282,15 +1447,18 @@ const communityFirstContact: VobContact = {
     "Are CPT codes 97152, 97157, 0362T, and 0373T billable under Community First's Autism Services benefit?",
     'Is there a daily/weekly unit cap for 97156 (parent/caregiver training) or 99366 (team meeting)?',
   ],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   sources: [
     src('https://medicaid.communityfirsthealthplans.com/contact-us/', 'Community First Health Plans (Medicaid) Contact Us page, fetched this pass — Provider Relations 210-358-6294, STAR/CHIP toll-free 1-800-434-2347, hours 8:30 a.m.–5 p.m. Monday–Friday; Provider Portal at cfhpprovider.healthtrioconnect.com.'),
     src('https://medicaid.communityfirsthealthplans.com/provider-prior-authorizations/', 'Community First Health Plans prior-authorization page, fetched this pass — PA assistance line 210-358-6050 local / 1-800-434-2347 toll-free, same 8:30 a.m.–5 p.m. Monday–Friday hours; portal named HealthTrio Connect.'),
     src('https://communityfirsthealthplans.com/provider-news/coming-soon-a-better-provider-experience-with-the-new-community-first-health-plans-provider-portal-powered-by-availity/', 'Community First Provider News, September 24, 2026, fetched 2026-09-27 — Availity becomes the Community First Provider Portal platform "launching January 2, 2027"; existing Availity logins will work; "No action is required at this time"; Provider Relations 210-358-6030.'),
+    FANOUT_CFHP_CLEARINGHOUSE,
   ],
 };
 
 const driscollContact: VobContact = {
-  providerServicesPhone: '1-877-455-1053',
+  providerServicesPhone: '1-877-455-1053 — Driscoll Health Plan prior authorization and referrals (CHIP/STAR/STAR Kids); eligibility verification: 1-877-324-3627 — Provider Services, Nueces & Hidalgo',
   fax: '1-866-741-5650',
   portal: { name: 'Driscoll Prior Authorization Requirement Portal (Autism/ABA Services)', url: 'https://webapps.driscollhealthplan.com/priorauthcheck/?s=Autism+(ABA)+Services' },
   ivrPath: 'Regional Provider Services lines also exist: Hidalgo service area 1-855-425-3247, Nueces service area 1-877-324-3627.',
@@ -1302,7 +1470,9 @@ const driscollContact: VobContact = {
     "Is the ABA copay or coinsurance charged per visit or per day, and does the plan's out-of-pocket maximum apply?",
     'Are CPT codes 0362T and 0373T billable under Driscoll\'s Autism Services benefit, and is there a daily/weekly unit cap for 97156 or 99366?',
   ],
-  sources: [src('https://driscollhealthplan.com/for-providers/', 'Driscoll Health Plan "For Providers" page, fetched this pass — CHIP/STAR/STAR Kids prior authorization & referrals 1-877-455-1053 (also 1-866-741-5650), Hidalgo Provider Services 1-855-425-3247, Nueces Provider Services 1-877-324-3627, DHP Provider Portal at dhpproviderportal.com, PA lookup portal at driscollhealthplan.com/priorauthcheck.')],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [src('https://driscollhealthplan.com/for-providers/', 'Driscoll Health Plan "For Providers" page, fetched this pass — CHIP/STAR/STAR Kids prior authorization & referrals 1-877-455-1053 (also 1-866-741-5650), Hidalgo Provider Services 1-855-425-3247, Nueces Provider Services 1-877-324-3627, DHP Provider Portal at dhpproviderportal.com, PA lookup portal at driscollhealthplan.com/priorauthcheck.'), FANOUT_DHP_PM, FANOUT_PHONE_DRISCOLL_HEALTH_PLAN],
 };
 
 const aetnaTxCommercialContact: VobContact = {
@@ -1316,7 +1486,9 @@ const aetnaTxCommercialContact: VobContact = {
     'What POS settings (home/office/school/telehealth) and modifiers (HN/HO/HM/HP, GT/95) does Aetna require for ABA billing in Texas?',
     'Does Aetna support real-time 270/271 eligibility for payer ID 00001, and confirm this isn\'t the Texas Health Aetna joint-venture plan (00875)?',
   ],
-  sources: [src('https://www.aetna.com/about-us/contact-aetna.html', "Aetna Contact Aetna page, fetched this pass — Healthcare Provider Service Centers: non-Medicare 1-888-632-3862, Medicare 1-800-624-0756; no ABA- or Texas-specific provider line found (Aetna directs precertification callers to the number on the member's ID card). Hours not stated for this specific line on this page.")],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [src('https://www.aetna.com/about-us/contact-aetna.html', "Aetna Contact Aetna page, fetched this pass — Healthcare Provider Service Centers: non-Medicare 1-888-632-3862, Medicare 1-800-624-0756; no ABA- or Texas-specific provider line found (Aetna directs precertification callers to the number on the member's ID card). Hours not stated for this specific line on this page."), FANOUT_AET_GLANCE],
 };
 
 const cignaTxCommercialContact: VobContact = {
@@ -1332,7 +1504,9 @@ const cignaTxCommercialContact: VobContact = {
     'What POS settings and modifiers (telehealth 95/GT, licensure tiers) does Cigna/Evernorth require for ABA billing?',
     'Does Cigna support real-time (vs. batch) 270/271 eligibility for payer ID 00004?',
   ],
-  sources: [src('https://static.evernorth.com/assets/evernorth/provider/resourceLibrary/behavioralResources/doingBusinessWithUs/cbhProviderServiceCenter.html', 'Evernorth Behavioral Health Provider Service Center page, fetched this pass — 1-800-926-2273, prompt #5 for providers with sub-options for claims/eligibility/authorization/online services/personal updates; hours and fax not stated on this page.')],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [src('https://static.evernorth.com/assets/evernorth/provider/resourceLibrary/behavioralResources/doingBusinessWithUs/cbhProviderServiceCenter.html', 'Evernorth Behavioral Health Provider Service Center page, fetched this pass — 1-800-926-2273, prompt #5 for providers with sub-options for claims/eligibility/authorization/online services/personal updates; hours and fax not stated on this page.'), FANOUT_CIG_AUTISM],
 };
 
 const uhcTxCommercialContact: VobContact = {
@@ -1347,7 +1521,9 @@ const uhcTxCommercialContact: VobContact = {
     "Does the plan's out-of-pocket maximum apply to ABA services?",
     'Is there a daily unit cap for 99366 (interdisciplinary team meeting)?',
   ],
-  sources: [src('https://www.uhcprovider.com/en/contact-us.html', 'UHCprovider.com Contact Us page, fetched this pass — general national provider services 877-842-3210, Behavioral Health & Substance Use (Optum) 877-614-0484 (24/7), UnitedHealthcare Provider Portal at uhcprovider.com; hours not stated for the 877-842-3210 line on this page.')],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [src('https://www.uhcprovider.com/en/contact-us.html', 'UHCprovider.com Contact Us page, fetched this pass — general national provider services 877-842-3210, Behavioral Health & Substance Use (Optum) 877-614-0484 (24/7), UnitedHealthcare Provider Portal at uhcprovider.com; hours not stated for the 877-842-3210 line on this page.'), FANOUT_OPTUM_NNM_2026],
 };
 
 /* ==================== closing sweep: vobContact for the 6 gap-fill TX MCO guides ==================== */
@@ -1364,8 +1540,11 @@ const chcContact: VobContact = {
     'Are CPT codes 97152, 97157, 0362T, and 0373T billable under CHC\'s Autism Services benefit at all, or only 97151/97153-97156/97158 per the Medical Review Guideline?',
     'Is ABA confirmed covered for CHC Marketplace members the same way it is for STAR, and is it excluded for CHIP members as the HHS Provider Manual states?',
   ],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   sources: [
     src('https://provider.communityhealthchoice.org/contact-community/', 'Community Health Choice — Contact Community (provider) page, fetched this pass — Provider Services 713.295.2300 (local) / 1.888.435.2850 (toll-free), Mon-Fri 8am-5pm; general fax 713.295.2283; Behavioral Health PA fax: inpatient 713.576.0932, outpatient 713.576.0939; Provider Portal at providerportal.communityhealthchoice.org.'),
+    FANOUT_CHC_PM,
   ],
 };
 
@@ -1382,14 +1561,17 @@ const bcbstxMedicaidContact: VobContact = {
     'Is CPT 99366 billable under this plan\'s Autism Services benefit — it does not appear on BCBSTX\'s own PA code grid or provider manual?',
     'Since BCBSTX insourced Medicaid behavioral health from Magellan in 2024, confirm ABA PA still routes to the 1-888-530-9809 BH intake fax or Availity, not a Magellan channel.',
   ],
+  benefitsByPhone: true,
+  requiresIndividualNpi: false,
   sources: [
     src('https://www.bcbstx.com/provider/medicaid/contact', 'BCBS Texas — Provider Medicaid Contact Us page (confirmed via search this pass) — Medicaid (STAR)/CHIP Customer Service 1-877-560-8055, STAR Kids 1-877-784-6802, hours 8am-5pm CST; Provider Relations/Network 1-855-212-1615; eligibility/claims via Availity (availity.com).'),
     BCBSTX_ABA_CHECKLIST,
+    FANOUT_BCBSTX_MCD_PM,
   ],
 };
 
 const cchpContact: VobContact = {
-  providerServicesPhone: '1-888-243-3312 (Provider Relations — credentialing, contracting, demographics)',
+  providerServicesPhone: '1-888-243-3312 — Cook Children\'s Health Plan toll-free line for verification of eligibility and benefits (also claims, prior authorization)',
   hours: 'Monday-Friday, 8:00 a.m.-5:00 p.m. (excluding state holidays)',
   fax: '682-885-8402 (STAR/CHIP PA); 682-303-0005 or 844-843-0005 (STAR Kids PA, portal-access-pending only)',
   ivrPath: 'General Member Services: 1-800-964-2247 — determination letters are delivered via the EpicCare Link In Basket only, never faxed; fax is for submission while portal access is pending.',
@@ -1401,11 +1583,13 @@ const cchpContact: VobContact = {
     'Is CPT 99366 billable beyond the F84.0-only, twice-per-year, 3-licensed-professional-minimum rule already confirmed in Cook Children\'s own ABA training?',
     'Does the 8-hour/day combined direct-treatment cap across 97153/97154/97155/97158 confirmed in Cook Children\'s own training match the statewide TMPPM cap exactly, or does the plan apply a stricter overlay?',
   ],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   sources: [
     src('https://www.cookchp.org/join/contact-us/', "Cook Children's Health Plan — Contact Us page, fetched this pass — Provider Relations toll-free 1-888-243-3312, Mon-Fri 8am-5pm (excl. state holidays), TTY 7-1-1/1-800-735-2988; General Member Services 1-800-964-2247."),
     CCHP_ABA_TRAINING,
     CCHP_ACUTE_PA_TRAINING,
-  ],
+    FANOUT_COOK_PM, FANOUT_PHONE_COOK_CHILDRENS_HEALTH_PLAN],
 };
 
 const pchpContact: VobContact = {
@@ -1420,6 +1604,8 @@ const pchpContact: VobContact = {
     'PCHP\'s own PA Requirements list names 97152 and 97157 under "Applied Behavior Analysis," contradicting the statewide TMPPM code set — what are the unit caps, POS, and modifiers for these two codes specifically?',
     'Is CPT 99366 billable under this plan\'s Autism Services benefit?',
   ],
+  benefitsByPhone: 'unverified',
+  requiresIndividualNpi: 'unverified',
   sources: [
     src('https://parklandhealthplan.com/phone-directory', 'Parkland Community Health Plan — Important Phone Numbers page, fetched this pass — Member Services STAR 1-888-672-2277, CHIP/CHIP Perinate 1-888-814-2352, hours 8am-5pm CST Mon-Fri; Provider Portal at providers.parklandhealthplan.com.'),
     PCHP_PA_REQUIREMENTS,
@@ -1428,7 +1614,7 @@ const pchpContact: VobContact = {
 };
 
 const ephContact: VobContact = {
-  providerServicesPhone: '1-888-310-3434 (general correspondence)',
+  providerServicesPhone: '1-877-532-3778 (STAR & CHIP) / 1-833-742-3127 (STAR+PLUS) — El Paso Health telephonic eligibility verification',
   fax: '915-298-7866 / 1-844-298-7866 (outpatient/elective ABA PA); 915-532-2286 (general provider services)',
   portal: { name: 'El Paso Health Provider Portal', url: 'https://secure.healthx.com/elpasoprovider' },
   ivrPath: 'Telephonic PA requests (STAR): 915-532-3778.',
@@ -1439,11 +1625,13 @@ const ephContact: VobContact = {
     'Are CPT codes 97152, 97157, 0362T, and 0373T billable under El Paso Health\'s Autism Services benefit at all?',
     'Is CPT 99366 billable under this plan\'s Autism Services benefit?',
   ],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   sources: [
     src('http://elpasohealth.com/contact-us.html', 'El Paso Health — Contact Us page, fetched this pass — general correspondence 1-888-310-3434 (fax 915-532-2877); general provider services fax 915-532-2286; PA (outpatient/elective) fax 915-298-7866 / 1-844-298-7866, telephonic STAR requests 915-532-3778.'),
     EPH_ABA_CHECKLIST,
     EPH_QRG,
-  ],
+    FANOUT_EPH_TRAINING, FANOUT_PHONE_EL_PASO_HEALTH],
 };
 
 const firstcareContact: VobContact = {
@@ -1457,9 +1645,12 @@ const firstcareContact: VobContact = {
     'Since FirstCare files ABA under "Therapy services" rather than "Behavioral health," confirm whether ABA PA routes through the Medical PA line or the Behavioral Health PA line (1-855-395-9652).',
     'Are CPT codes 97152, 97157, 0362T, and 0373T billable under FirstCare\'s Medicaid Autism Services benefit, or only under its separate commercial Medical Coverage Policy #206?',
   ],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   sources: [
     src('https://www.firstcare.com/en/providers', "FirstCare — Providers page and related UM policy content (confirmed via search this pass) — STAR Medicaid customer service 800.431.STAR (7798); Utilization Management Mon-Fri 6am-6pm CT, weekends/holidays 9am-12pm CT, online authorization submission 24/7 via the FirstCare Self-Service Portal (my.firstcare.com/Web)."),
     TMHP_FIRSTCARE_EXIT_NEWS,
+    FANOUT_FIRSTCARE_PM,
   ],
 };
 
@@ -1493,6 +1684,7 @@ const rightcareEdi: EdiRouting = {
     abaRidesOn: 'unverified',
     twoHopRequired: 'unverified',
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'unverified',
     'payerId.availity': 'unverified',
@@ -1502,6 +1694,7 @@ const rightcareEdi: EdiRouting = {
     'bhCarveOut.administrator': 'verified',
     'bhCarveOut.abaRidesOn': 'unverified',
     'bhCarveOut.twoHopRequired': 'unverified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': 'No pVerify or Availity entry for "RightCare," "Scott and White Health Plan," or "Baylor Scott & White" was confirmed this pass (the plan\'s own provider manual and network flyers are image/graphics-heavy PDFs that did not yield extractable EDI text) — confirm via RightCare Provider Relations (1-855-897-4448) or pVerify/Availity onboarding. Given the confirmed 8/31/2026 Medicaid exit, treat any answer as good only through that date.',
@@ -1510,13 +1703,14 @@ const rightcareEdi: EdiRouting = {
     supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding for this payer ID.',
     'bhCarveOut.abaRidesOn': 'RightCare\'s own PA code list does not separate ABA from general PT/OT/rehab codes by routing channel — confirm with RightCare directly (Medical Management 1-855-691-7947 vs. Behavioral Health Management 1-855-395-9652) before your first request.',
     'bhCarveOut.twoHopRequired': 'Depends on the answer to abaRidesOn above.',
+    memberIdPrefix: 'RightCare manual says ID card shows \'member\'s Medicaid ID number\' but no format/prefix rule',
   },
   sources: [RIGHTCARE_PA_LIST, RIGHTCARE_POLICY_206, RIGHTCARE_PROVIDER_MANUAL, PVERIFY_PAYER_LIST_PAGE, AVAILITY_PAYER_LIST],
 };
 
 const rightcareContact: VobContact = {
   fax: 'Medical Management/PA: 1-512-383-8703 or 1-800-292-1349; Behavioral Health Management: 1-844-436-8779',
-  providerServicesPhone: '1-855-691-7947 (Medical Management/PA) or 1-855-395-9652 (Behavioral Health Management) — confirm which routes ABA specifically',
+  providerServicesPhone: '1-855-691-7947 (Medical Management/PA) or 1-855-395-9652 (Behavioral Health Management) — confirm which routes ABA specifically; eligibility verification: 1-855-897-4448 (1-855-TX-RIGHT) — RightCare eligibility verification IVR and Provider Relations',
   ivrPath: 'General Provider Relations: 1-855-TX-RIGHT (1-855-897-4448).',
   portal: { name: 'RightCare Self-Service Portal', url: 'https://rightcare.swhp.org/providers' },
   scriptedQuestions: [
@@ -1526,7 +1720,9 @@ const rightcareContact: VobContact = {
     'Is the ABA copay or coinsurance charged per visit or per day, and does the plan\'s out-of-pocket maximum apply?',
     'Does a RightCare-specific authorization-period length apply (vs. the general TMPPM baseline), and does DeWitt County fall within the MRSA Central service area for this plan specifically?',
   ],
-  sources: [RIGHTCARE_PROVIDER_MANUAL, TMHP_BSW_EXIT_NEWS],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [RIGHTCARE_PROVIDER_MANUAL, TMHP_BSW_EXIT_NEWS, FANOUT_RIGHTCARE_PM, FANOUT_PHONE_BAYLOR_SCOTT_WHITE_TEXAS],
 };
 
 const rightcareCodeGrid: Record<string, CodeGridEntry> = tmppmCodeGrid({
@@ -1566,6 +1762,7 @@ const dellChildrensEdi: EdiRouting = {
     abaRidesOn: 'bh',
     twoHopRequired: true,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'unverified',
     'payerId.availity': 'unverified',
@@ -1576,6 +1773,7 @@ const dellChildrensEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'unverified',
     'bhCarveOut.abaRidesOn': 'verified',
     'bhCarveOut.twoHopRequired': 'inferred',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': 'No pVerify entry for "Dell Children\'s Health Plan" was confirmed this pass — confirm via pVerify onboarding or the plan\'s General Provider Services line (1-844-781-2343).',
@@ -1584,6 +1782,7 @@ const dellChildrensEdi: EdiRouting = {
     supportsRealtime: 'Confirm real-time vs. batch via the plan\'s EDI Gateway (Change Healthcare) onboarding.',
     'bhCarveOut.administratorPayerId': 'Confirm with Magellan Healthcare (1-800-424-1764) or via magellanhealth.com — no distinct EDI payer ID for the Magellan BH carve-out was confirmed this pass.',
     'bhCarveOut.twoHopRequired': 'Inferred true because ABA prior authorization demonstrably requires contacting Magellan separately from the plan\'s general medical PA channel — but whether the 270/271 ELIGIBILITY check itself requires a second EDI hop to Magellan (vs. only the PA/UM step) was not independently confirmed.',
+    memberIdPrefix: 'Dell FY27 Provider Manual (PDF unreachable: DNS/proxy failure)',
   },
   sources: [DELL_PROVIDER_MANUAL, DELL_BH_PAGE, MAGELLAN_TX_STATE_PAGE, PVERIFY_PAYER_LIST_PAGE, AVAILITY_PAYER_LIST],
 };
@@ -1600,7 +1799,9 @@ const dellChildrensContact: VobContact = {
     'What EDI payer ID should be used for this member\'s 270/271 eligibility check, given the plan\'s stated use of Change Healthcare as its EDI Gateway?',
     'Is the ABA copay or coinsurance charged per visit or per day, and does the plan\'s out-of-pocket maximum apply?',
   ],
-  sources: [DELL_BH_PAGE, DELL_MANUALS_FORMS, MAGELLAN_TX_STATE_PAGE],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [DELL_BH_PAGE, DELL_MANUALS_FORMS, MAGELLAN_TX_STATE_PAGE, FANOUT_DELL_FORMS],
 };
 
 function dellPaListDiscrepancyCode(code: string): CodeGridEntry {
@@ -1641,7 +1842,7 @@ export const texasVob: Record<string, VobExtension> = {
     rates: TX_MEDICAID_RATES,
     stcMap: texasMedicaidStc,
     vobContact: texasMedicaidContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'superior-healthplan-texas': {
     edi: superiorEdi,
@@ -1651,7 +1852,7 @@ export const texasVob: Record<string, VobExtension> = {
     rates: mcoUnverifiedRates('Superior HealthPlan'),
     stcMap: txMcoInferredStc('Superior HealthPlan'),
     vobContact: superiorContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'texas-childrens-health-plan': {
     edi: tchpEdi,
@@ -1661,7 +1862,7 @@ export const texasVob: Record<string, VobExtension> = {
     rates: mcoUnverifiedRates("Texas Children's Health Plan"),
     stcMap: txMcoInferredStc("Texas Children's Health Plan"),
     vobContact: tchpContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'wellpoint-texas': {
     edi: wellpointEdi,
@@ -1671,7 +1872,7 @@ export const texasVob: Record<string, VobExtension> = {
     rates: mcoUnverifiedRates('Wellpoint (formerly Amerigroup Texas)'),
     stcMap: txMcoInferredStc('Wellpoint'),
     vobContact: wellpointContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'unitedhealthcare-community-plan-texas': {
     edi: uhcCommunityEdi,
@@ -1681,7 +1882,7 @@ export const texasVob: Record<string, VobExtension> = {
     rates: mcoUnverifiedRates('UnitedHealthcare Community Plan of Texas'),
     stcMap: txMcoInferredStc('UnitedHealthcare Community Plan of Texas'),
     vobContact: uhcCommunityContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'aetna-better-health-texas': {
     edi: aetnaBetterHealthEdi,
@@ -1691,7 +1892,7 @@ export const texasVob: Record<string, VobExtension> = {
     rates: mcoUnverifiedRates('Aetna Better Health of Texas'),
     stcMap: txMcoInferredStc('Aetna Better Health of Texas'),
     vobContact: aetnaBetterHealthContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'molina-healthcare-texas': {
     edi: molinaEdi,
@@ -1701,7 +1902,7 @@ export const texasVob: Record<string, VobExtension> = {
     rates: mcoUnverifiedRates('Molina Healthcare of Texas'),
     stcMap: txMcoInferredStc('Molina Healthcare of Texas'),
     vobContact: molinaContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'community-first-health-plans': {
     edi: communityFirstEdi,
@@ -1711,7 +1912,7 @@ export const texasVob: Record<string, VobExtension> = {
     rates: mcoUnverifiedRates('Community First Health Plans'),
     stcMap: txMcoInferredStc('Community First Health Plans'),
     vobContact: communityFirstContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'driscoll-health-plan': {
     edi: driscollEdi,
@@ -1725,28 +1926,28 @@ export const texasVob: Record<string, VobExtension> = {
     rates: mcoUnverifiedRates('Driscoll Health Plan'),
     stcMap: txMcoInferredStc('Driscoll Health Plan'),
     vobContact: driscollContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'aetna-texas': {
     edi: aetnaTxCommercialEdi,
     codeGrid: aetnaTxCommercialCodeGrid,
     stcMap: inheritFamilyStc(aetnaFamilyStc, 'Inherited from the Aetna family default (docs/vob-build.md Layer 2) — no Texas-specific 270/271 STC document found.'),
     vobContact: aetnaTxCommercialContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'cigna-texas': {
     edi: cignaTxCommercialEdi,
     codeGrid: cignaTxCommercialCodeGrid,
     stcMap: inheritFamilyStc(cignaFamilyStc, 'Inherited from the Cigna/Evernorth family default (docs/vob-build.md Layer 2) — national companion guide, no Texas-specific override found.'),
     vobContact: cignaTxCommercialContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'unitedhealthcare-texas': {
     edi: uhcTxCommercialEdi,
     codeGrid: uhcTxCommercialCodeGrid,
     stcMap: inheritFamilyStc(uhcFamilyStc, 'Inherited from the UnitedHealthcare/Optum family default (docs/vob-build.md Layer 2) — national companion guide, no Texas-specific override found.'),
     vobContact: uhcTxCommercialContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
 
   /* ==================== gap-fill: 6 new TX MCO guides ==================== */
@@ -1760,7 +1961,7 @@ export const texasVob: Record<string, VobExtension> = {
     rates: mcoUnverifiedRates('Community Health Choice'),
     stcMap: txMcoInferredStc('Community Health Choice'),
     vobContact: chcContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'bcbs-texas-medicaid': {
     edi: bcbstxMedicaidEdi,
@@ -1771,7 +1972,7 @@ export const texasVob: Record<string, VobExtension> = {
     rates: mcoUnverifiedRates('Blue Cross Blue Shield of Texas (Medicaid)'),
     stcMap: txMcoInferredStc('Blue Cross Blue Shield of Texas (Medicaid)'),
     vobContact: bcbstxMedicaidContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'cook-childrens-health-plan': {
     edi: cchpEdi,
@@ -1782,7 +1983,7 @@ export const texasVob: Record<string, VobExtension> = {
     rates: mcoUnverifiedRates("Cook Children's Health Plan"),
     stcMap: txMcoInferredStc("Cook Children's Health Plan"),
     vobContact: cchpContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'parkland-community-health-plan': {
     edi: pchpEdi,
@@ -1796,7 +1997,7 @@ export const texasVob: Record<string, VobExtension> = {
     rates: mcoUnverifiedRates('Parkland Community Health Plan'),
     stcMap: txMcoInferredStc('Parkland Community Health Plan'),
     vobContact: pchpContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'el-paso-health': {
     edi: ephEdi,
@@ -1807,7 +2008,7 @@ export const texasVob: Record<string, VobExtension> = {
     rates: mcoUnverifiedRates('El Paso Health'),
     stcMap: txMcoInferredStc('El Paso Health'),
     vobContact: ephContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'firstcare-health-plans': {
     edi: firstcareEdi,
@@ -1817,7 +2018,7 @@ export const texasVob: Record<string, VobExtension> = {
     rates: mcoUnverifiedRates('FirstCare Health Plans'),
     stcMap: txMcoInferredStc('FirstCare Health Plans'),
     vobContact: firstcareContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
 
   /* ==================== closing sweep: 2 final TX gap-fill guides ==================== */
@@ -1828,7 +2029,7 @@ export const texasVob: Record<string, VobExtension> = {
     rates: mcoUnverifiedRates('RightCare (Baylor Scott & White Health Plan)'),
     stcMap: txMcoInferredStc('RightCare (Baylor Scott & White Health Plan)'),
     vobContact: rightcareContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'dell-childrens-health-plan': {
     edi: dellChildrensEdi,
@@ -1836,6 +2037,6 @@ export const texasVob: Record<string, VobExtension> = {
     rates: mcoUnverifiedRates("Dell Children's Health Plan"),
     stcMap: txMcoInferredStc("Dell Children's Health Plan"),
     vobContact: dellChildrensContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
 };

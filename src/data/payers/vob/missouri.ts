@@ -153,6 +153,34 @@ const OPTUM_CONTACT_US = src(
   "Optum Provider Express 'Contact Us' page — Provider Services 1-877-614-0484 (Mon-Fri 7 AM-7 PM CT) covers credentialing/recredentialing, contracting/fee schedules, network status, and provider demographic changes; it does NOT cover member eligibility/benefits. The page directs member-specific eligibility, benefits, and authorization inquiries to \"the number on the back of the member's ID card\" — no separate universal ABA/behavioral-benefits line is published. Names the 'Provider Express secure portal' as the provider website."
 );
 
+/* Prefix / benefits-by-phone / individual-NPI sources (2026-10-14) */
+const FANOUT_PHONE_MISSOURI_MEDICAID: SourceRef = { url: 'https://dss.mo.gov/mhd/hot-tips/interactive-voice-response-ivr-system', accessDate: '2026-10-15', note: 'MO HealthNet IVR hot tip (dss.mo.gov, page dated 11/17/2015, still live; read via r.jina.ai): "Providers can access the MO HealthNet Division (MHD) Interactive Voice Response (IVR) system by calling (573) 751-2896. The IVR allows active MHD provider inquiries for the following options: MHD participant eligibility..."' };
+const FANOUT_OPTUM_NNM_2026: SourceRef = {
+  url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf',
+  accessDate: '2026-10-14',
+  note: 'Optum (United Behavioral Health) National Provider Network Manual, published July 1 2026, effective Sept 1 2026 (BH02330-1-26-MAN_07012026). Read via r.jina.ai using the AEM path .../NNManual.pdf/jcr:content/renditions/original (plain URL returns a download interstitial). Eligibility Inquiry p.35-36: "You can use the Provider Express secure portal to check a member\'s eligibility. You may also inquire about eligibility by calling the phone number on the member\'s ID card." Items to provide: member name, address, ID number, subscriber name and DOB - NPI not listed. No statement on individual vs group NPI for calls.',
+};
+const FANOUT_AET_ELIG_FLYER: SourceRef = {
+  url: 'https://www.aetna.com/document-library/healthcare-professionals/assets/documents/eligibility.pdf',
+  accessDate: '2026-10-14',
+  note: 'Aetna Eligibility and Benefits Inquiry flyer 83.03.870.1 (2/19), still hosted on aetna.com: "When using the member ID number, prefixes or suffixes are unnecessary. For family-level searches, you only need to enter the member ID." Applies to the electronic inquiry; dated 2019.',
+};
+const FANOUT_AET_GLANCE: SourceRef = {
+  url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/aetna-at-a-glance.pdf',
+  accessDate: '2026-10-14',
+  note: 'Aetna "At a glance" how-to guide for health care professionals, 9011800-01-01 (8/26), Key contacts table: "Provider Contact Center ... Member eligibility and benefits ... 1-800-624-0756 (TTY: 711) for Aetna Medicare Advantage plans and HMO-based plans / 1-888-MDAetna (1-888-632-3862) (TTY: 711) for all other plans". Also: "Behavioral health (provider services) Refer to the member ID card."',
+};
+const FANOUT_CIG_AUTISM: SourceRef = {
+  url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf',
+  accessDate: '2026-10-14',
+  note: 'Evernorth/Cigna Autism resource guide, March 2025 (PCOMM-2025-225): "It is important to confirm a patient\'s ABA eligibility and benefits before performing an assessment. This information can be confirmed by: ... Calling the Autism Care Coordinator team at 877.279.7603". Provider Services 800.926.2273 "handles questions regarding billing, benefits, and eligibility for autism-related treatment, such as ABA."',
+};
+const FANOUT_MO_IVR: SourceRef = {
+  url: 'https://dss.mo.gov/mhd/hot-tips/interactive-voice-response-ivr-system',
+  accessDate: '2026-10-14',
+  note: 'MO HealthNet IVR hot tip (read via r.jina.ai). "Providers can access the MO HealthNet Division (MHD) Interactive Voice Response (IVR) system by calling (573) 751-2896"; option "MHD participant eligibility"; "The 10-digit National Provider Identification (NPI) number must be entered" (type not specified).',
+};
+
 /* ==================== missouri-medicaid (Layers 1 + 3 + 4) ==================== */
 
 const missouriMedicaidEdi: EdiRouting = {
@@ -175,6 +203,7 @@ const missouriMedicaidEdi: EdiRouting = {
     eligibilitySpanGranularity:
       'Real-time (1) or batch (99); DTP date-range spans keyed to calendar-month boundaries, with day-specific eligibility also supported. Monthly ME-segment coverage is the default granularity.',
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'unverified',
@@ -185,6 +214,7 @@ const missouriMedicaidEdi: EdiRouting = {
     'medicaid271Notes.mcoSegmentLocation': 'verified',
     'medicaid271Notes.mcoCarrierCodes': 'verified',
     'medicaid271Notes.eligibilitySpanGranularity': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.availity':
@@ -193,6 +223,7 @@ const missouriMedicaidEdi: EdiRouting = {
       'Change Healthcare\'s medical payer list is login-gated; no primary source retrieved this pass. Confirm the Change Healthcare CPID via authenticated clearinghouse enrollment.',
     'medicaid271Notes.mcoCarrierCodes':
       'No carrier-code->MCO-name table is published in the eMOMED companion guide; plan-code values resolve from the MO HealthNet database / the Health Plan Record Layout Manual §C-45. Obtain that manual for the plan-code definitions if a named-MCO map is required.',
+    memberIdPrefix: 'MO HealthNet Provider Manual Section 1 (participant DCN on ID card)',
   },
   sources: [MO_COMPANION_GUIDE, PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, MO_MC_POLICY, HEALTHY_BLUE_MANUAL],
 };
@@ -308,11 +339,13 @@ const missouriMedicaidStc: StcMap = {
 const missouriMedicaidContact: VobContact = {
   fax: '(573) 635-6516 — MHD Behavioral Health Services Help Desk; fax (or e-signed fax) the Applied Behavior Analysis Request for Precertification form (2575-045) here.',
   portal: { name: 'eMOMED (MO HealthNet Provider Portal)', url: 'https://www.emomed.com' },
+  benefitsByPhone: 'unverified',
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     "Can you confirm this member's current MO HealthNet eligibility span and that ABA benefits bill fee-for-service regardless of any managed-care plan (Healthy Blue, Home State Health, UnitedHealthcare Community Plan, Show Me Healthy Kids) shown on the 271?",
     'Is there an active ABA precertification on file for this member, and if so, what is the expiration date (precerts run up to 6 months)?',
   ],
-  sources: [MO_BHSM, MYDSS_HOT_TIP, MYDSS_BH_SERVICES_PAGE],
+  sources: [MO_BHSM, MYDSS_HOT_TIP, MYDSS_BH_SERVICES_PAGE, FANOUT_MO_IVR, FANOUT_PHONE_MISSOURI_MEDICAID],
 };
 
 /* ==================== commercial guides (Layers 1 + 3 only) ==================== */
@@ -336,6 +369,7 @@ const aetnaMissouriEdi: EdiRouting = {
     abaRidesOn: 'unverified',
     twoHopRequired: 'unverified',
   },
+  memberIdPrefix: 'not-used',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'inferred',
@@ -343,6 +377,7 @@ const aetnaMissouriEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'unverified',
+    memberIdPrefix: 'verified',
   },
   verifyVia: {
     'payerId.availity':
@@ -351,8 +386,9 @@ const aetnaMissouriEdi: EdiRouting = {
     supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding for this payer ID.',
     'bhCarveOut.administrator':
       'No primary source names a separate Aetna BH/ABA claims administrator or payer ID; Aetna behavioral health is generally administered in-house on the national commercial payer ID (60054), but this was not confirmed to a primary source this pass. Confirm via Aetna provider services / the ABA precertification process.',
+    memberIdPrefix: 'Aetna eligibility and benefits inquiry flyer: "When using the member ID number, prefixes or suffixes are unnecessary."',
   },
-  sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST],
+  sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, FANOUT_AET_ELIG_FLYER],
 };
 
 function aetnaMoEntry(): CodeGridEntry {
@@ -402,6 +438,8 @@ const aetnaMissouriContact: VobContact = {
   providerServicesPhone:
     "1-800-624-0756 (HMO-based & Aetna Medicare Advantage plans) or 1-888-632-3862 / 1-888-MD-AETNA (all other plans) — Aetna Provider Service Center; self-service options include verifying patient coverage/benefits and getting medical precertification information. Behavioral-health-specific provider services routes to the number on the member's ID card — no separate universal BH/ABA line is published.",
   portal: { name: 'Availity (Aetna Payer Space)', url: 'https://www.availity.com/aetnaproviders' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     "Is ABA billed on Aetna's standard medical payer ID, or does a separate behavioral-health administrator/payer ID handle ABA claims for this member's plan?",
     'Does this group support real-time (vs. batch) 270/271 eligibility responses?',
@@ -409,7 +447,7 @@ const aetnaMissouriContact: VobContact = {
     "Which places of service (home, school, clinic, telehealth) are approved for this member's ABA benefit, and what billing modifiers are required for out-of-clinic delivery?",
     'Is this a fully-insured Missouri plan subject to the RSMo 376.1224 $40,000/year ABA cap, or a self-funded ERISA plan exempt from the state mandate — and if capped, what is the current adjusted annual maximum?',
   ],
-  sources: [AETNA_QUICK_REF_GUIDE],
+  sources: [AETNA_QUICK_REF_GUIDE, FANOUT_AET_GLANCE],
 };
 
 /* ---- cigna-missouri ---- */
@@ -424,6 +462,7 @@ const cignaMissouriEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'verified',
@@ -434,9 +473,11 @@ const cignaMissouriEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'verified',
     'bhCarveOut.abaRidesOn': 'verified',
     'bhCarveOut.twoHopRequired': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding for this payer ID.',
+    memberIdPrefix: 'Cigna ID card quick guide (CIG_IDCARD) shows member ID + two-digit suffix, no alpha prefix, but gives no entry rule; confirm with Cigna 800.882.4462 or a test 270.',
   },
   sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, CIGNA_AUTISM_RESOURCE_GUIDE],
 };
@@ -490,6 +531,8 @@ const cignaMissouriContact: VobContact = {
     name: 'Evernorth provider website — Procedure Code Benefit Tool (real-time eligibility/benefit check) and Coverage Confirmation Grid (secure-email benefit verification, 1-business-day turnaround)',
     url: 'https://provider.evernorth.com',
   },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'Does this plan require prior authorization for ABA treatment codes (97153-97158), or only for the initial assessment codes (97151/97152/0362T)?',
     'What are the daily/session unit caps for ABA treatment codes under this specific plan?',
@@ -497,7 +540,7 @@ const cignaMissouriContact: VobContact = {
     'Is this a fully-insured Missouri plan subject to the RSMo 376.1224 $40,000/year ABA cap, or a self-funded ERISA plan exempt from the state mandate — and if capped, what is the current adjusted annual maximum?',
     'Does this payer ID support real-time (vs. batch) 270/271 eligibility responses for this group?',
   ],
-  sources: [CIGNA_AUTISM_RESOURCE_GUIDE],
+  sources: [CIGNA_AUTISM_RESOURCE_GUIDE, FANOUT_CIG_AUTISM],
 };
 
 /* ---- unitedhealthcare-missouri ---- */
@@ -512,6 +555,7 @@ const uhcMissouriEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'inferred',
@@ -522,11 +566,13 @@ const uhcMissouriEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'verified',
     'bhCarveOut.abaRidesOn': 'verified',
     'bhCarveOut.twoHopRequired': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.availity':
       '87726 confirmed as the Optum/UHC claims payer ID directly from Optum Provider Express\'s EDI page (verified); the Availity-list occurrence is from the stale 2012 export, so this field ships \'inferred\' on the Availity source specifically. pVerify separately lists a distinct "UHG007 United Healthcare - Optum Behavioral Solutions" code — 87726 is the correct single-hop ID for ABA per Optum\'s own page.',
     supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding for this payer ID.',
+    memberIdPrefix: 'No UHC/Optum source addresses an alpha prefix (2026 Admin Guide ID-card legend, 270/271 companion guide, pVerify list all silent). Confirm with a real card plus a pVerify run, or ask UHC Provider Services.',
   },
   sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, OPTUM_EDI_PAGE],
 };
@@ -578,6 +624,8 @@ const uhcMissouriContact: VobContact = {
     "1-877-614-0484 (Optum Provider Express Provider Services, Mon-Fri 7 AM-7 PM CT — credentialing/recredentialing, contracting/fee schedules, network status, provider demographic changes; NOT member eligibility). Member-specific eligibility/benefits/ABA-authorization calls route to the number on the back of the member's ID card — Optum publishes no separate universal ABA benefits line.",
   hours: '1-877-614-0484 line: Mon-Fri 7 AM-7 PM CT.',
   portal: { name: 'Provider Express secure portal', url: 'https://public.providerexpress.com' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     "Which places of service (home, school, clinic, telehealth) are approved for this member's ABA benefit, and are billing modifiers required for out-of-clinic delivery?",
     'Does telehealth apply to any ABA codes for this specific plan, and if so, is a GT/95 modifier required?',
@@ -586,7 +634,7 @@ const uhcMissouriContact: VobContact = {
     'Does this payer ID support real-time (vs. batch) 270/271 eligibility responses for this group?',
     'Is this a fully-insured Missouri plan subject to the RSMo 376.1224 $40,000/year ABA cap, or self-funded/ERISA-exempt?',
   ],
-  sources: [OPTUM_CONTACT_US],
+  sources: [OPTUM_CONTACT_US, FANOUT_OPTUM_NNM_2026],
 };
 
 /* ==================== export ==================== */
@@ -598,27 +646,27 @@ export const missouriVob: Record<string, VobExtension> = {
     stcMap: missouriMedicaidStc,
     rates: MO_MEDICAID_RATES,
     vobContact: missouriMedicaidContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'aetna-missouri': {
     edi: aetnaMissouriEdi,
     codeGrid: aetnaMissouriCodeGrid,
     stcMap: inheritFamilyStc(aetnaFamilyStc, 'Inherited from the Aetna family default (docs/vob-build.md Layer 2) — no Missouri-specific 270/271 STC document found.'),
     vobContact: aetnaMissouriContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'cigna-missouri': {
     edi: cignaMissouriEdi,
     codeGrid: cignaMissouriCodeGrid,
     stcMap: inheritFamilyStc(cignaFamilyStc, 'Inherited from the Cigna/Evernorth family default (docs/vob-build.md Layer 2) — national companion guide, no Missouri-specific override found.'),
     vobContact: cignaMissouriContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'unitedhealthcare-missouri': {
     edi: uhcMissouriEdi,
     codeGrid: uhcMissouriCodeGrid,
     stcMap: inheritFamilyStc(uhcFamilyStc, 'Inherited from the UnitedHealthcare/Optum family default (docs/vob-build.md Layer 2) — national companion guide, no Missouri-specific override found.'),
     vobContact: uhcMissouriContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
 };
