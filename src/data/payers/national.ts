@@ -943,6 +943,239 @@ export const nationalPayers: Record<string, PayerConfig> = {
     ],
   },
 
+  'asr-health-benefits': {
+    slug: 'asr-health-benefits',
+    payer: 'ASR Health Benefits',
+    state: 'US',
+    kind: 'commercial',
+    cardDesc:
+      'Administrator of employer-funded health plans; verify ABA benefits for the employer group.',
+    pill: 'Payer Guide - ASR Health Benefits',
+    h1: 'ASR Health Benefits ABA coverage: the intake guide.',
+    metaTitle:
+      'ASR Health Benefits ABA Coverage - Employer Plans and Prior Auth',
+    metaDescription:
+      'Verify ASR Health Benefits ABA coverage by employer group, collect the plan document, and confirm diagnosis and prior-authorization requirements with ASR.',
+    assessmentPA: {
+      value:
+        'Plan-dependent - confirm whether ABA assessment requires prior authorization for this employer group.',
+      status: 'plan-dependent',
+      cites: [
+        {
+          title: 'ASR Health Benefits - About Us',
+          url: 'https://www.asrhealthbenefits.com/about-us/',
+        },
+        {
+          title: 'ASR Health Benefits - Contact Us',
+          url: 'https://www.asrhealthbenefits.com/contact-us/',
+        },
+      ],
+      verifyVia:
+        'Obtain the employer group plan document and confirm its ABA requirements with ASR Claims Department at (800) 968-2449 or (616) 957-1751.',
+      blocker: 'per-case',
+    },
+    treatmentPA: {
+      value:
+        'Plan-dependent - confirm whether ABA treatment requires prior authorization and who handles requests for this employer group.',
+      status: 'plan-dependent',
+      cites: [
+        {
+          title: 'ASR Health Benefits - About Us',
+          url: 'https://www.asrhealthbenefits.com/about-us/',
+        },
+        {
+          title: 'ASR Health Benefits - Contact Us',
+          url: 'https://www.asrhealthbenefits.com/contact-us/',
+        },
+      ],
+      verifyVia:
+        'Obtain the employer group plan document and confirm its ABA requirements with ASR Claims Department at (800) 968-2449 or (616) 957-1751.',
+      blocker: 'per-case',
+    },
+    dxRequired: {
+      value:
+        'Plan-dependent - the employer plan document and adopted medical policy determine the diagnosis requirement.',
+      status: 'plan-dependent',
+      cites: [
+        {
+          title: 'ASR Health Benefits - About Us',
+          url: 'https://www.asrhealthbenefits.com/about-us/',
+        },
+        {
+          title: 'ASR Health Benefits - Contact Us',
+          url: 'https://www.asrhealthbenefits.com/contact-us/',
+        },
+      ],
+      verifyVia:
+        'Obtain the employer group plan document and confirm its ABA requirements with ASR Claims Department at (800) 968-2449 or (616) 957-1751.',
+      blocker: 'per-case',
+    },
+    intro: [
+      'ASR Health Benefits administers employer-funded health plans. In May 2026 it announced its new name, Health Alliance TPA by Henry Ford Health. The announcement says the name change does not change member coverage, benefits or provider networks. This guide keeps the ASR Health Benefits name used on existing cards and payer records.',
+      'Verify ABA benefits for the specific employer group. The administrator name or network logo alone does not establish coverage, medical-necessity criteria or prior-authorization requirements.',
+    ],
+    atGlance: [
+      {
+        label: 'Administrator',
+        value:
+          'ASR Health Benefits; rebranding as Health Alliance TPA by Henry Ford Health',
+      },
+      {
+        label: 'Provider claims and benefits',
+        value: 'Claims Department: (800) 968-2449 / (616) 957-1751',
+      },
+      {
+        label: 'ABA coverage and prior authorization',
+        value:
+          'Plan-dependent; confirm against the employer group plan document',
+      },
+    ],
+    sections: [
+      {
+        h2: 'Start with the employer group',
+        body: [
+          'Collect the employer name and group number, then obtain the plan document. Confirm whether ABA is covered, which diagnoses qualify, and whether assessment and treatment need separate authorization. Record any age, hour, visit or dollar limits for this group.',
+        ],
+        cites: [
+          {
+            title: 'ASR Health Benefits - About Us',
+            url: 'https://www.asrhealthbenefits.com/about-us/',
+          },
+          {
+            title: 'ASR Health Benefits - Contact Us',
+            url: 'https://www.asrhealthbenefits.com/contact-us/',
+          },
+        ],
+      },
+      {
+        h2: 'Provider claims and benefits questions',
+        body: [
+          'ASR lists its Claims Department for provider claims or benefits questions: (800) 968-2449 or (616) 957-1751. These are not verified prior-authorization numbers. Ask which department or vendor handles ABA authorization for this employer group.',
+          'Provider phone hours, the eligibility portal and ABA authorization contacts have not been verified for this guide. Confirm them before relying on a contact route.',
+        ],
+        cites: [
+          {
+            title: 'ASR Health Benefits - Contact Us',
+            url: 'https://www.asrhealthbenefits.com/contact-us/',
+          },
+        ],
+      },
+      {
+        h2: 'Confirm the network separately',
+        body: [
+          'ASR lists multiple provider networks. Confirm the network printed on the member card and participation for this plan; network participation does not establish which ABA policy the employer group uses.',
+        ],
+        cites: [
+          {
+            title: 'ASR Health Benefits - Home',
+            url: 'https://www.asrhealthbenefits.com/',
+          },
+        ],
+      },
+    ],
+    collect: [
+      {
+        title: 'Employer name and group number',
+        desc: 'Use both to identify the employer plan whose ABA benefits must be checked.',
+      },
+      {
+        title: 'Member ID and both sides of the card',
+        desc: 'Capture the administrator, network and plan-specific contact details.',
+      },
+      {
+        title: 'Plan document and ABA terms',
+        desc: 'Obtain coverage, diagnosis, referral, prior-authorization, age and service-limit requirements for this employer group.',
+      },
+      {
+        title: 'Plan funding and other coverage',
+        desc: 'Confirm plan type and other insurance before relying on state coverage rules or deciding payer order.',
+      },
+    ],
+    sources: [
+      {
+        title: 'ASR Health Benefits - About Us',
+        url: 'https://www.asrhealthbenefits.com/about-us/',
+      },
+      {
+        title: 'ASR Health Benefits - Contact Us',
+        url: 'https://www.asrhealthbenefits.com/contact-us/',
+      },
+      {
+        title:
+          'ASR Health Benefits rebrands as Health Alliance TPA by Henry Ford Health',
+        url: 'https://www.hap.org/news/2026/05/asr-health-benefits-rebrands-as-health-alliance-tpa-by-henry-ford-health',
+      },
+      {
+        title: 'ASR Health Benefits - Home',
+        url: 'https://www.asrhealthbenefits.com/',
+      },
+    ],
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Plan-dependent - confirm any age limit in the employer plan document.',
+        status: 'plan-dependent',
+        cites: [
+          {
+            title: 'ASR Health Benefits - About Us',
+            url: 'https://www.asrhealthbenefits.com/about-us/',
+          },
+          {
+            title: 'ASR Health Benefits - Contact Us',
+            url: 'https://www.asrhealthbenefits.com/contact-us/',
+          },
+        ],
+        verifyVia:
+          'Obtain the employer group plan document and confirm its ABA requirements with ASR Claims Department at (800) 968-2449 or (616) 957-1751.',
+        blocker: 'per-case',
+      },
+      dxRecency: {
+        value: 'Diagnosis recency has not been verified.',
+        status: 'unverified',
+        cites: [
+          {
+            title: 'ASR Health Benefits - About Us',
+            url: 'https://www.asrhealthbenefits.com/about-us/',
+          },
+          {
+            title: 'ASR Health Benefits - Contact Us',
+            url: 'https://www.asrhealthbenefits.com/contact-us/',
+          },
+        ],
+        verifyVia:
+          'Ask ASR for the diagnosis recency requirement and the applicable group plan criteria.',
+        blocker: 'document',
+      },
+      referral: {
+        value:
+          'Plan-dependent - confirm whether this employer group requires a physician referral or order for ABA.',
+        status: 'plan-dependent',
+        cites: [
+          {
+            title: 'ASR Health Benefits - About Us',
+            url: 'https://www.asrhealthbenefits.com/about-us/',
+          },
+          {
+            title: 'ASR Health Benefits - Contact Us',
+            url: 'https://www.asrhealthbenefits.com/contact-us/',
+          },
+        ],
+        verifyVia:
+          'Obtain the employer group plan document and confirm its ABA requirements with ASR Claims Department at (800) 968-2449 or (616) 957-1751.',
+        blocker: 'per-case',
+      },
+    },
+    faq: [
+      {
+        q: 'Does ASR Health Benefits cover ABA?',
+        a: 'Coverage depends on the employer group plan. Obtain its plan document and confirm ABA coverage, diagnosis requirements and authorization before scheduling services.',
+      },
+      {
+        q: 'Is Health Alliance TPA the same administrator as ASR Health Benefits?',
+        a: 'ASR announced its rebrand to Health Alliance TPA by Henry Ford Health in May 2026. The announcement says member coverage, benefits and provider networks are unchanged by the name change.',
+      },
+    ],
+  },
   'humana': {
     slug: 'humana',
     cardDesc: 'Humana finished leaving employer group medical in 2025 — route a bare "Humana" card to Medicaid, Medicare Advantage or TRICARE East first.',

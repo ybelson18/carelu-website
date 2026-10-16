@@ -12170,6 +12170,58 @@
       "blocker": "per-case",
       "addedAt": "2026-10-16",
       "addedBy": "PR review correction"
+    },
+    {
+      "id": "VC-757",
+      "priority": 2,
+      "status": "open",
+      "slug": "asr-health-benefits",
+      "topic": "provider-hours",
+      "question": "What are ASR provider Claims Department phone hours and time zone?",
+      "claim": "Not verified in the ASR guide.",
+      "challenge": "The reviewed public pages do not establish this operational detail.",
+      "resolve": "Obtain a primary ASR source or the applicable employer plan document; do not infer from a network logo.",
+      "addedAt": "2026-10-16",
+      "addedBy": "ASR guide coverage"
+    },
+    {
+      "id": "VC-758",
+      "priority": 2,
+      "status": "open",
+      "slug": "asr-health-benefits",
+      "topic": "provider-portal",
+      "question": "Which provider portal supports eligibility and benefits, and how do providers enroll?",
+      "claim": "Not verified in the ASR guide.",
+      "challenge": "The reviewed public pages do not establish this operational detail.",
+      "resolve": "Obtain a primary ASR source or the applicable employer plan document; do not infer from a network logo.",
+      "addedAt": "2026-10-16",
+      "addedBy": "ASR guide coverage"
+    },
+    {
+      "id": "VC-759",
+      "priority": 2,
+      "status": "open",
+      "slug": "asr-health-benefits",
+      "topic": "prior-authorization",
+      "question": "Which department or vendor handles ABA prior authorization for each employer group, and how are requests submitted?",
+      "claim": "Not verified in the ASR guide.",
+      "challenge": "The reviewed public pages do not establish this operational detail.",
+      "resolve": "Obtain a primary ASR source or the applicable employer plan document; do not infer from a network logo.",
+      "addedAt": "2026-10-16",
+      "addedBy": "ASR guide coverage"
+    },
+    {
+      "id": "VC-760",
+      "priority": 2,
+      "status": "open",
+      "slug": "asr-health-benefits",
+      "topic": "aba-policy",
+      "question": "Does ASR publish an ABA policy or apply employer-selected criteria, and where can providers obtain the applicable policy?",
+      "claim": "Not verified in the ASR guide.",
+      "challenge": "The reviewed public pages do not establish this operational detail.",
+      "resolve": "Obtain a primary ASR source or the applicable employer plan document; do not infer from a network logo.",
+      "addedAt": "2026-10-16",
+      "addedBy": "ASR guide coverage"
     }
   ],
   "documentRequests": [
