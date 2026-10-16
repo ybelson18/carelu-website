@@ -12142,6 +12142,34 @@
       "blocker": "per-case",
       "addedAt": "2026-10-15",
       "addedBy": "directory fan-out 2026-10-15 (phone re-check)"
+    },
+    {
+      "id": "VC-755",
+      "priority": 2,
+      "status": "open",
+      "slug": "bcbs-texas-medicaid",
+      "topic": "member-id-prefix",
+      "question": "Must the card alpha prefix be included for 270/271 or pVerify eligibility?",
+      "claim": "The eligibility prefix rule is unverified.",
+      "challenge": "The Medicaid provider manual makes the prefix optional for claims; this does not establish an eligibility entry rule.",
+      "resolve": "Confirm the eligibility member ID format in payer EDI guidance or with BCBSTX Provider Services.",
+      "blocker": "document",
+      "addedAt": "2026-10-16",
+      "addedBy": "PR review correction"
+    },
+    {
+      "id": "VC-756",
+      "priority": 2,
+      "status": "open",
+      "slug": "mvp-health-plan-new-york",
+      "topic": "individual-npi",
+      "question": "Does the servicing provider NPI requested on eligibility calls have to be an individual NPI?",
+      "claim": "The individual-versus-group NPI requirement is unverified.",
+      "challenge": "The provider page requests a servicing provider NPI and organization tax ID, without explicitly excluding group NPIs.",
+      "resolve": "Confirm with MVP Provider Services whether a group NPI is accepted for eligibility inquiries.",
+      "blocker": "per-case",
+      "addedAt": "2026-10-16",
+      "addedBy": "PR review correction"
     }
   ],
   "documentRequests": [

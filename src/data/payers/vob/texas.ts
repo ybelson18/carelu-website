@@ -1090,7 +1090,7 @@ const bcbstxMedicaidEdi: EdiRouting = {
   supports270271: true,
   supportsRealtime: 'unverified',
   bhCarveOut: { administrator: 'none', administratorPayerId: '', abaRidesOn: 'medical', twoHopRequired: false },
-  memberIdPrefix: 'not-used',
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'inferred',
     'payerId.availity': 'inferred',
@@ -1098,7 +1098,7 @@ const bcbstxMedicaidEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'verified',
-    memberIdPrefix: 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify':
@@ -1110,7 +1110,7 @@ const bcbstxMedicaidEdi: EdiRouting = {
     supports270271: 'Rides the same centralized TMHP 270/271 feed as every other MCO in this file; also has distinct clearinghouse-side codes across all three networks researched (see payerId fields).',
     'bhCarveOut.administrator':
       "As recently as a 7/5/2023-dated PA summary, BCBSTX directed providers to Magellan for Texas Medicaid behavioral health — a carve-out. BCBSTX announced 'insourcing' of Medicaid behavioral health on 5/10/2024, and every current-generation document found (PA checklist rev. 4/26/2024, Sept. 2024 UM training) routes ABA to BCBSTX's own BH intake fax/Availity, with no Magellan reference. Shipped 'none' for the CURRENT state; if a legacy document still references Magellan, treat it as superseded per BCBSTX's own 2024 announcement.",
-    memberIdPrefix: 'BCBSTX Medicaid provider manual states the alpha prefix on the nine-digit member ID is encouraged for claims but not required.',
+    memberIdPrefix: 'The BCBSTX Medicaid manual makes the prefix optional for claims only; it does not establish the eligibility rule. Confirm the member ID format for 270/271 or pVerify eligibility with BCBSTX Provider Services before omitting a card prefix.',
   },
   sources: [BCBSTX_MEDICAID_NEWS, BCBSTX_ABA_CHECKLIST, BCBSTX_MEDICAID_MANUAL, BCBSTX_PA_CODE_GRID, PVERIFY_PAYER_LIST_PAGE, BCBSTX_MEDICAID_ELIGIBILITY_PAGE, OPTUM_RT_ELIGIBILITY_PAYER_LIST, FANOUT_BCBSTX_MCD_PM],
 };
