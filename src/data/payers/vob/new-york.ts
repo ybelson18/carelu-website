@@ -1708,8 +1708,9 @@ const mvpContact: VobContact = {
   hours: 'Mon-Fri 8:30 a.m.-5:00 p.m. ET',
   portal: { name: 'Availity Essentials', url: 'https://essentials.availity.com' },
   benefitsByPhone: true,
-  requiresIndividualNpi: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
+    "For the servicing provider NPI requested on eligibility calls, can we use the group NPI, or must it be an individual NPI?",
     "What's the daily/annual unit cap for MVP's ABA codes (97151-97158), and what's the cap period?",
     'Is ABA telehealth currently reimbursable under MVP, given the payment policy cites an expired CMS waiver (3/31/2025) — and if so, what POS/modifier applies?',
     'Is the cost share for ABA charged per-visit or per-day, and is it a copay or coinsurance?',
