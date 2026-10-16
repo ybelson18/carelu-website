@@ -427,7 +427,7 @@ const cignaContact: VobContact = {
 const unitedhealthcareOptumContact: VobContact = {
   providerServicesPhone: '1-877-614-0484 (Provider Express — Behavioral Health/ABA)',
   hours: 'Mon-Fri 7:00am-7:00pm CT',
-  ivrPath: 'Provider Express secure-portal technical support runs a separate line, 1-866-209-9320, same hours — use 877-614-0484 for BH/ABA authorization and eligibility questions, not portal login issues.',
+  ivrPath:    "Voice menu - SAY every answer; keypad entries are often not heard. Listen to the current menu and adapt if it differs. When asked what service you want, say \"ABA benefits\". When asked for your tax ID, say its nine digits one at a time. When asked for the member ID, say each character; confirm the read-back only if correct, otherwise correct it. When asked for the date of birth including the four-digit year, say the supplied date as a month name, day, and full year. When asked in which state services are provided, say the confirmed service state supplied in the call context. If it is unavailable, do not substitute the member residence or payer-guide state: say \"representative\"; if that fails, ask how the practice can complete verification and end the call instead of looping. Never invent missing identifiers. Stay on hold when being connected to a behavioral-health representative; decline the survey. Portal technical support (1-866-209-9320) is a separate line, never use it for benefits.",
   portal: { name: 'Provider Express', url: 'https://public.providerexpress.com/' },
   scriptedQuestions: [
     'Does ABA route through Optum Behavioral Health, or directly through UnitedHealthcare medical benefits for this specific plan?',
