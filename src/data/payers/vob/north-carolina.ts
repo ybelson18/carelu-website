@@ -79,7 +79,7 @@
      with "Mbr not valid on DOS."
    ================================================================ */
 import type { VobExtension, EdiRouting, CodeGridEntry, RateTable, SourceRef, StcMap, VobContact } from './types.js';
-import { cignaFamilyStc, uhcFamilyStc, aetnaFamilyStc, inheritFamilyStc } from './stc-defaults.js';
+import { cignaFamilyStc, uhcFamilyStc, aetnaFamilyStc, bcbsFamilyStc, inheritFamilyStc } from './stc-defaults.js';
 
 const ACCESS_DATE = '2026-07-23';
 /* Monthly-refresh cycle date for sources fetched/re-verified this pass
@@ -2058,6 +2058,74 @@ const medcostContact: VobContact = {
   sources: [MEDCOST_PAYER_PARTNERS, MEDCOST_PRECERT],
 };
 
+/* ==================== blue-cross-north-carolina (commercial) ====================
+   Added 2026-10-14 for the benefits-by-phone rule. Blue Cross NC's site
+   (bluecrossnc.com / bcbsnc.com) answers 406 to direct requests from outside
+   the US; the pages were read through a text proxy (r.jina.ai) that day.
+   The pVerify code is from pVerify's own public payer list. */
+const BCNC_DATE = '2026-10-14';
+
+const BCNC_PHONE_LINE_CLOSING = srcAt(
+  'https://www.bluecrossnc.com/providers/provider-news/2026/provider-benefit-eligibility-phone-line-closing-09-01-2026',
+  BCNC_DATE,
+  'Blue Cross NC provider news, "Provider Benefit and Eligibility Phone Line Closing September 1, 2026": from that date Blue Cross NC "will no longer offer benefit and eligibility inquiries through the Provider Contact Center phone line"; Blue e is the primary resource for verifying member coverage and benefits, and Blue e chat (introduced in December) gives real-time help with what Blue e tools do not resolve. No phone number and no Availity mention on the page.',
+);
+const BCNC_ABOUT_BLUE_E = srcAt(
+  'https://www.bcbsnc.com/providers/about-blue-e',
+  BCNC_DATE,
+  'Blue Cross NC "About Blue e" — "Your resource for member eligibility, electronic claims entry, and more." Access is limited to providers and practice/hospital administrators registered and credentialed with Blue Cross NC, via the Blue e registration form; no separate login URL is given on the page.',
+);
+const BCNC_ABT_PA_NOTICE = srcAt(
+  'https://www.bluecrossnc.com/providers/provider-news/2021/prior-authorization-adaptive-behavioral-treatment-autism',
+  BCNC_DATE,
+  'Blue Cross NC provider news, prior authorization for Adaptive Behavioral Treatment (effective 1/1/2022, all commercial plans with the benefit): "No prior authorization is required for the initial evaluation"; services after it need a medical necessity review (ABA/ABT request form + treatment plan via the Blue e Authorization Portal); extension requested after 6 months.',
+);
+const BCNC_PVERIFY_LIST = srcAt(
+  'https://pverify.com/wp-content/uploads/2026/03/pVerifyPayers_All-Payers-List-3-2026.pdf',
+  BCNC_DATE,
+  'pVerify public payer list (March 2026), read 2026-10-14: 00216 "Blue Cross Blue Shield North Carolina" (Medical). Healthy Blue NC is a separate row, 00700.',
+);
+
+const blueCrossNcEdi: EdiRouting = {
+  payerId: { pverify: '00216', availity: 'unverified', changeHealthcare: 'unverified' },
+  supports270271: true,
+  supportsRealtime: 'unverified',
+  bhCarveOut: {
+    administrator: 'unverified',
+    administratorPayerId: 'unverified',
+    abaRidesOn: 'unverified',
+    twoHopRequired: 'unverified',
+  },
+  memberIdPrefix: 'unverified',
+  fieldStatus: {
+    'payerId.pverify': 'verified',
+    supports270271: 'inferred',
+    supportsRealtime: 'unverified',
+    'bhCarveOut.administrator': 'unverified',
+    memberIdPrefix: 'unverified',
+  },
+  verifyVia: {
+    supports270271: 'pVerify lists 00216 as a medical eligibility payer; confirm on the first real check.',
+    supportsRealtime: 'Confirm real-time vs. batch on the first real check.',
+    'bhCarveOut.administrator':
+      'Blue Cross NC takes the ABA/ABT prior authorization itself in the Blue e Authorization Portal (provider news, effective 1/1/2022); whether a behavioral-health vendor handles any part was not confirmed. Check in Blue e.',
+    memberIdPrefix: 'Whether the card\'s alpha prefix must go in front of the member ID for eligibility; check on the first real check.',
+  },
+  sources: [BCNC_PVERIFY_LIST, BCNC_ABT_PA_NOTICE],
+};
+
+const blueCrossNcContact: VobContact = {
+  benefitsByPhone: false,
+  benefitsPortal: { name: 'Blue e (Blue Cross NC provider portal; Blue e chat for questions it cannot answer)', url: 'https://www.bcbsnc.com/providers/about-blue-e' },
+  portal: { name: 'Blue e (Blue Cross NC provider portal; prior authorization via the Blue e Authorization Portal)', url: 'https://www.bcbsnc.com/providers/about-blue-e' },
+  scriptedQuestions: [
+    'Benefits are not given by phone since 9/1/2026: check ABA coverage, cost share and limits in Blue e, and ask Blue e chat what the portal does not show.',
+    'Is this plan fully insured or self-funded (ASO)? The policy covers ABA under N.C.G.S. § 58-3-192, and ASO groups opt into the autism benefit.',
+    'Confirm no prior authorization for the initial evaluation (97151, up to 32 units a year) and that treatment needs the ABA/ABT request form + plan in Blue e, with an extension after 6 months.',
+  ],
+  sources: [BCNC_PHONE_LINE_CLOSING, BCNC_ABOUT_BLUE_E, BCNC_ABT_PA_NOTICE],
+};
+
 export const northCarolinaVob: Record<string, VobExtension> = {
   // ---- SPLIT A: NC Medicaid Direct + Standard Plans ----
   'north-carolina-medicaid': {
@@ -2168,5 +2236,14 @@ export const northCarolinaVob: Record<string, VobExtension> = {
     stcMap: medcostStc,
     vobContact: medcostContact,
     lastUpdated: REFRESH_ACCESS_DATE_20260927,
+  },
+  'blue-cross-north-carolina': {
+    edi: blueCrossNcEdi,
+    stcMap: inheritFamilyStc(
+      bcbsFamilyStc,
+      'Inherited from the BCBS family default (docs/vob-build.md Layer 2). Treat as weak: that default comes from New York Blue plans, and Blue Cross NC is an independent licensee. Everything the default leaves unverified stays unverified here.',
+    ),
+    vobContact: blueCrossNcContact,
+    lastUpdated: BCNC_DATE,
   },
 };

@@ -3543,4 +3543,237 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { q: 'Can an out-of-state BCBA treat MedCost members in North Carolina, including by telehealth?', a: 'North Carolina requires an NC license to practice behavior analysis (G.S. 90-746), with no telehealth exception; temporary and reciprocity licenses exist (G.S. 90-740, 90-741). We have not verified this plan’s own credentialing rule for out-of-state BCBAs; ask provider relations.' },
     ],
   },
+  'blue-cross-north-carolina': {
+    slug: 'blue-cross-north-carolina',
+    family: 'bcbs',
+    cardDesc: 'Blue Cross NC commercial plans. Benefits and eligibility come from the Blue e portal, not the phone (line closed 9/1/2026); ABA runs under the Adaptive Behavioral Treatment policy with prior authorization after the initial evaluation.',
+    assessmentPA: {
+      value: 'Not required for the initial evaluation. Blue Cross NC\'s provider notice (effective January 1, 2022, all commercial plans with the benefit): "No prior authorization is required for the initial evaluation to determine if ABT services are warranted." The policy covers 97151 up to 8 hours (32 units) a year; more needs documentation.',
+      status: 'verified',
+      cites: [
+        { title: 'Blue Cross NC: Prior Authorization for Adaptive Behavioral Treatment for Autism (provider news, effective 1/1/2022)', url: 'https://www.bluecrossnc.com/providers/provider-news/2021/prior-authorization-adaptive-behavioral-treatment-autism' },
+        { title: 'Blue Cross NC: Adaptive Behavioral Treatment corporate medical policy (effective 9/9/2026)', url: 'https://www.bluecrossnc.com/providers/policies-guidelines-codes/commercial/behavioral-health/updates/adaptive-behavioral-treatment' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required. After the initial evaluation, services need a medical necessity review: submit the ABA/ABT request form with the proposed treatment plan through the Blue e Authorization Portal, and request an extension after 6 months. The policy requires the assessment and treatment plan to be updated at least every six months.',
+      status: 'verified',
+      cites: [
+        { title: 'Blue Cross NC: Prior Authorization for Adaptive Behavioral Treatment for Autism (provider news, effective 1/1/2022)', url: 'https://www.bluecrossnc.com/providers/provider-news/2021/prior-authorization-adaptive-behavioral-treatment-autism' },
+        { title: 'Blue Cross NC: Adaptive Behavioral Treatment corporate medical policy (effective 9/9/2026)', url: 'https://www.bluecrossnc.com/providers/policies-guidelines-codes/commercial/behavioral-health/updates/adaptive-behavioral-treatment' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes. The policy covers Adaptive Behavior Treatment for autism spectrum disorder; the initial request must include a complete diagnostic evaluation (it names ADOS, ADI-R, PEDS and the Brigance Inventory as examples), and the diagnosis date goes in the treatment plan. The diagnosis comes from a licensed professional who may practice independently and whose board puts diagnostics in scope.',
+      status: 'verified',
+      cites: [
+        { title: 'Blue Cross NC: Adaptive Behavioral Treatment corporate medical policy (effective 9/9/2026)', url: 'https://www.bluecrossnc.com/providers/policies-guidelines-codes/commercial/behavioral-health/updates/adaptive-behavioral-treatment' },
+      ],
+    },
+    payer: 'Blue Cross Blue Shield of North Carolina',
+    state: 'NC', kind: 'commercial',
+    pill: 'Payer Guide · Blue Cross NC · North Carolina',
+    h1: 'Blue Cross NC ABA coverage in North Carolina: the intake guide.',
+    metaTitle: 'Blue Cross NC ABA Coverage: Benefits Through Blue e, Prior Authorization & Mandate | Carelu',
+    metaDescription:
+      'How ABA works on a Blue Cross and Blue Shield of North Carolina commercial card: benefits and eligibility come from the Blue e portal (the phone line closed September 1, 2026), the initial evaluation needs no prior authorization, treatment does, and the N.C.G.S. § 58-3-192 mandate shapes the benefit.',
+    intro: [
+      'Blue Cross and Blue Shield of North Carolina (Blue Cross NC) is the state\'s Blue plan for commercial members. Its Medicaid plan, Healthy Blue, has its own guide. For intake, two things matter first: since September 1, 2026 benefits and eligibility are checked in the Blue e provider portal, not by phone, and whether the plan is fully insured or self-funded decides whether the North Carolina autism mandate reaches it.',
+      'ABA is covered as Adaptive Behavioral Treatment under Blue Cross NC\'s corporate medical policy (notification 7/15/2026, effective 9/9/2026). The initial evaluation needs no prior authorization; treatment does, with a review every six months.',
+    ],
+    atGlance: [
+      { label: 'Benefits and eligibility', value: 'Blue e provider portal; Blue e chat for what the portal cannot answer. The Provider Contact Center phone line stopped taking benefit and eligibility questions on September 1, 2026' },
+      { label: 'ABA policy', value: 'Adaptive Behavioral Treatment for Autism Spectrum Disorders (notified 7/15/2026, effective 9/9/2026; codes 97151-97158, 0362T, 0373T)' },
+      { label: 'Assessment PA', value: 'Not required for the initial evaluation; 97151 up to 8 hours / 32 units a year' },
+      { label: 'Treatment PA', value: 'Required: ABA/ABT request form + treatment plan in the Blue e Authorization Portal; extension after 6 months' },
+      { label: 'Ordering', value: 'In NC, ordered by a licensed physician or licensed psychologist' },
+      { label: 'School setting', value: 'Services in a school or education setting are not covered' },
+      { label: 'Telehealth', value: '97153 and 97155 allowed by telehealth since 8/21/2024 (commercial, IPP Host, FEP)' },
+      { label: 'pVerify payer code', value: '00216 (Blue Cross Blue Shield North Carolina)' },
+      { label: 'State mandate', value: 'N.C.G.S. § 58-3-192; the policy relates only to benefits covered under it, and ASO (self-funded) groups opt in' },
+      { label: 'Mandate age', value: 'Member page: covered up to age 19 under state law; the statute allows a limit at 18 and younger' },
+      { label: 'Licensure', value: 'NC Licensed Behavior Analyst (NCBALB)' },
+    ],
+    sections: [
+      {
+        h2: 'Check benefits in Blue e, not by phone',
+        body: [
+          'Blue Cross NC\'s provider notice "Provider Benefit and Eligibility Phone Line Closing September 1, 2026" says that from that date it "will no longer offer benefit and eligibility inquiries through the Provider Contact Center phone line." Blue e, its provider portal ("Your resource for member eligibility, electronic claims entry, and more"), is the primary resource for verifying coverage and benefits, and Blue e chat, introduced in December, gives real-time help with questions the portal\'s tools do not resolve. The notice asks offices to update their workflows accordingly. Blue e access is limited to providers and administrators registered and credentialed with Blue Cross NC, through its registration form. Older contact pages still list benefit phone numbers; do not plan intake around them.',
+        ],
+        cites: [
+          { title: 'Blue Cross NC: Provider Benefit and Eligibility Phone Line Closing September 1, 2026 (provider news)', url: 'https://www.bluecrossnc.com/providers/provider-news/2026/provider-benefit-eligibility-phone-line-closing-09-01-2026' },
+          { title: 'Blue Cross NC: About Blue e', url: 'https://www.bcbsnc.com/providers/about-blue-e' },
+        ],
+      },
+      {
+        h2: 'Prior authorization: none for the evaluation, required for treatment',
+        body: [
+          'Blue Cross NC\'s provider notice, effective January 1, 2022 for all commercial plans with the benefit, says "No prior authorization is required for the initial evaluation to determine if ABT services are warranted." After the evaluation, requesting services takes a medical necessity review: the provider submits the ABA/ABT request form with the proposed treatment plan through the Blue e Authorization Portal, Blue Cross NC verifies provider credentials and units, and an authorization extension is requested after 6 months. The corporate medical policy adds that the skill acquisition assessment must be administered within 60 days of the authorization start date, that assessments and treatment plans are updated at least every six months, and that 97151 is medically necessary up to 8 hours or 32 units a year, with documentation required beyond that. Hours of treatment have no fixed cap in the policy; they must be justified clinically.',
+        ],
+        cites: [
+          { title: 'Blue Cross NC: Prior Authorization for Adaptive Behavioral Treatment for Autism (provider news, effective 1/1/2022)', url: 'https://www.bluecrossnc.com/providers/provider-news/2021/prior-authorization-adaptive-behavioral-treatment-autism' },
+          { title: 'Blue Cross NC: Adaptive Behavioral Treatment corporate medical policy (effective 9/9/2026)', url: 'https://www.bluecrossnc.com/providers/policies-guidelines-codes/commercial/behavioral-health/updates/adaptive-behavioral-treatment' },
+        ],
+      },
+      {
+        h2: 'What the policy requires',
+        body: [
+          'The initial request must include a complete diagnostic evaluation; the policy names the ADOS, ADI-R, PEDS and the Brigance Diagnostic Inventory of Early Development II as examples, from a licensed professional allowed to practice independently whose board puts diagnostics in scope. In North Carolina, assessments and interventions must be ordered by a licensed physician or licensed psychologist; outside the state, the ordering rule of the state where the member is treated applies. Unlicensed paraprofessionals must be supervised by a listed licensed professional with documented ongoing supervision; the policy sets no ratio. Services given in a school or education setting are not covered, and services provided at the same time as occupational, speech, physical or psychotherapy are excluded. The policy applies to benefits under N.C.G.S. § 58-3-192, and it refers to ASO (self-funded) client groups that opt into the mandated autism benefit.',
+        ],
+        cites: [
+          { title: 'Blue Cross NC: Adaptive Behavioral Treatment corporate medical policy (effective 9/9/2026)', url: 'https://www.bluecrossnc.com/providers/policies-guidelines-codes/commercial/behavioral-health/updates/adaptive-behavioral-treatment' },
+        ],
+      },
+      {
+        h2: 'Telehealth',
+        body: [
+          'Since August 21, 2024, Blue Cross NC\'s Telehealth Reimbursement Policy allows 97153 (technician-delivered treatment) and 97155 (protocol modification by the qualified provider, who may direct a technician at the same time) by telehealth, on commercial, IPP Host and FEP plans but not IPP Home, Medicare Advantage or Experience Health. The notice requires "the appropriate telehealth place of service, procedure code and modifier combination" for payment but does not list them.',
+        ],
+        cites: [
+          { title: 'Blue Cross NC: Additional Autism Services Allowed as Telehealth (provider news, 8/21/2024)', url: 'https://www.bluecrossnc.com/providers/provider-news/2024/additional-autism-services-allowed-as-telehealth' },
+        ],
+      },
+      {
+        h2: 'The North Carolina mandate, and when it applies',
+        body: [
+          'N.C.G.S. § 58-3-192 requires health benefit plans to cover the screening, diagnosis and treatment of autism spectrum disorder, including "adaptive behavior treatment", which must be ordered by a licensed physician or licensed psychologist. Adaptive behavior treatment may be capped at $40,000 a year, indexed to CPI from 2017, and may be limited to people 18 or younger; Blue Cross NC\'s member page puts it as covered "for members up to age 19". The mandate does not apply to non-grandfathered individual and small-group plans that must cover essential health benefits, and "health benefit plan" (G.S. 58-3-167) excludes the State Health Plan and reaches other benefit arrangements only "to the extent permitted by" ERISA, which is why Blue Cross NC\'s policy speaks of self-funded groups opting in. Establish the funding type first.',
+        ],
+        cites: [
+          { title: 'N.C.G.S. § 58-3-192 — coverage for autism spectrum disorder', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_58/GS_58-3-192.html' },
+          { title: 'N.C.G.S. § 58-3-167 — "health benefit plan" defined', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_58/GS_58-3-167.html' },
+          { title: 'Blue Cross NC: Services for autism (member page)', url: 'https://www.bcbsnc.com/members/find-care/autism-services' },
+        ],
+      },
+      {
+        h2: 'Licensure in North Carolina',
+        body: [
+          'North Carolina licenses the practice of behavior analysis (G.S. 90-746), with no telehealth exception; temporary and reciprocity licenses exist for analysts licensed elsewhere (G.S. 90-740, 90-741). Plan on an NC license before treating a child located in North Carolina, including by video.',
+        ],
+        cites: [
+          { title: 'N.C.G.S. Chapter 90, Article 43 — behavior analyst licensure (G.S. 90-740, 90-741, 90-745, 90-746)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_90/Article_43.html' },
+          { title: 'NCBALB — Requirements for Licensure', url: 'https://ncbehavioranalystboard.org/requirements-for-licensure/' },
+        ],
+      },
+    ],
+    collect: [
+      { title: 'ID card, front and back', desc: 'Member ID with its prefix, group number, and whether the card is Blue Cross NC commercial, Healthy Blue (Medicaid), FEP or another Blue plan.' },
+      { title: 'Employer name; fully insured or self-funded', desc: 'Decides whether the North Carolina mandate reaches the plan, and whether an ASO group opted into the autism benefit.' },
+      { title: 'Diagnostic evaluation', desc: 'A complete diagnostic evaluation (ADOS, ADI-R, PEDS or Brigance named as examples) from a licensed professional who may practice independently; the diagnosis date goes in the treatment plan.' },
+      { title: 'Order from a licensed physician or psychologist', desc: 'Required in North Carolina for assessments and interventions.' },
+      { title: 'Benefits from Blue e', desc: 'Coverage, cost share and any ABA limits, checked in the Blue e portal; the phone line no longer answers these.' },
+    ],
+    sources: [
+      { title: 'Blue Cross NC: Provider Benefit and Eligibility Phone Line Closing September 1, 2026 (provider news)', url: 'https://www.bluecrossnc.com/providers/provider-news/2026/provider-benefit-eligibility-phone-line-closing-09-01-2026' },
+      { title: 'Blue Cross NC: About Blue e', url: 'https://www.bcbsnc.com/providers/about-blue-e' },
+      { title: 'Blue Cross NC: Prior Authorization for Adaptive Behavioral Treatment for Autism (provider news, effective 1/1/2022)', url: 'https://www.bluecrossnc.com/providers/provider-news/2021/prior-authorization-adaptive-behavioral-treatment-autism' },
+      { title: 'Blue Cross NC: Adaptive Behavioral Treatment corporate medical policy (effective 9/9/2026)', url: 'https://www.bluecrossnc.com/providers/policies-guidelines-codes/commercial/behavioral-health/updates/adaptive-behavioral-treatment' },
+      { title: 'Blue Cross NC: Additional Autism Services Allowed as Telehealth (provider news, 8/21/2024)', url: 'https://www.bluecrossnc.com/providers/provider-news/2024/additional-autism-services-allowed-as-telehealth' },
+      { title: 'Blue Cross NC: Services for autism (member page)', url: 'https://www.bcbsnc.com/members/find-care/autism-services' },
+      { title: 'pVerify payer list (March 2026)', url: 'https://pverify.com/wp-content/uploads/2026/03/pVerifyPayers_All-Payers-List-3-2026.pdf' },
+      { title: 'N.C.G.S. § 58-3-192 — coverage for autism spectrum disorder', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_58/GS_58-3-192.html' },
+      { title: 'N.C.G.S. § 58-3-167 — "health benefit plan" defined', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_58/GS_58-3-167.html' },
+      { title: 'NCBALB — Requirements for Licensure', url: 'https://ncbehavioranalystboard.org/requirements-for-licensure/' },
+      { title: 'N.C.G.S. Chapter 90, Article 43 — behavior analyst licensure (G.S. 90-740, 90-741, 90-745, 90-746)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_90/Article_43.html' },
+    ],
+    intakeGates: {
+      ageLimit: {
+        value: 'Blue Cross NC\'s member page: under North Carolina law, Adaptive Behavioral Treatment is "covered for members up to age 19 who are diagnosed with autism spectrum disorder." The statute itself allows a limit at 18 and younger, a quantitative limit federal parity law constrains on group plans; the corporate medical policy states no age limit. Confirm the member\'s own benefit in Blue e.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Blue Cross NC: Services for autism (member page)', url: 'https://www.bcbsnc.com/members/find-care/autism-services' },
+          { title: 'N.C.G.S. § 58-3-192 — coverage for autism spectrum disorder', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_58/GS_58-3-192.html' },
+        ],
+        verifyVia: 'Check the member\'s ABA benefit and any age limit in Blue e.',
+        blocker: 'per-case',
+      },
+      dxRecency: {
+        value: 'The policy sets no age for the diagnosis; the diagnosis date must be documented in the treatment plan. The skill acquisition assessment must be administered within 60 days of the authorization start date.',
+        status: 'verified',
+        cites: [
+          { title: 'Blue Cross NC: Adaptive Behavioral Treatment corporate medical policy (effective 9/9/2026)', url: 'https://www.bluecrossnc.com/providers/policies-guidelines-codes/commercial/behavioral-health/updates/adaptive-behavioral-treatment' },
+        ],
+      },
+      diagnosingProviders: {
+        value: 'A licensed healthcare professional licensed to practice independently, whose licensure board considers diagnostics within their scope.',
+        status: 'verified',
+        cites: [
+          { title: 'Blue Cross NC: Adaptive Behavioral Treatment corporate medical policy (effective 9/9/2026)', url: 'https://www.bluecrossnc.com/providers/policies-guidelines-codes/commercial/behavioral-health/updates/adaptive-behavioral-treatment' },
+        ],
+      },
+      diagnosticTools: {
+        value: 'The initial request must include a complete diagnostic evaluation; the policy gives the ADOS, ADI-R, PEDS and the Brigance Diagnostic Inventory of Early Development II as examples, not a closed list.',
+        status: 'verified',
+        cites: [
+          { title: 'Blue Cross NC: Adaptive Behavioral Treatment corporate medical policy (effective 9/9/2026)', url: 'https://www.bluecrossnc.com/providers/policies-guidelines-codes/commercial/behavioral-health/updates/adaptive-behavioral-treatment' },
+        ],
+      },
+      referral: {
+        value: 'In North Carolina, assessments and interventions must be ordered by a licensed physician or licensed psychologist; outside the state, the ordering rule of the state where the member receives treatment applies.',
+        status: 'verified',
+        cites: [
+          { title: 'Blue Cross NC: Adaptive Behavioral Treatment corporate medical policy (effective 9/9/2026)', url: 'https://www.bluecrossnc.com/providers/policies-guidelines-codes/commercial/behavioral-health/updates/adaptive-behavioral-treatment' },
+          { title: 'N.C.G.S. § 58-3-192 — coverage for autism spectrum disorder', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_58/GS_58-3-192.html' },
+        ],
+      },
+      telehealth: {
+        value: '97153 and 97155 are allowed by telehealth since August 21, 2024 on commercial, IPP Host and FEP plans (not IPP Home, Medicare Advantage or Experience Health). The notice requires the appropriate telehealth place of service, code and modifier combination but does not list them.',
+        status: 'verified',
+        cites: [
+          { title: 'Blue Cross NC: Additional Autism Services Allowed as Telehealth (provider news, 8/21/2024)', url: 'https://www.bluecrossnc.com/providers/provider-news/2024/additional-autism-services-allowed-as-telehealth' },
+        ],
+      },
+      authTurnaround: {
+        value: 'Blue Cross NC publishes no ABA-specific turnaround, so the clock depends on the plan type. A self-funded private employer plan follows the ERISA claims rule: a pre-service decision "not later than 15 days after receipt of the claim by the plan", extendable once by up to 15 days, and an urgent one "not later than 72 hours after receipt". A fully insured North Carolina policy follows G.S. 58-50-61(f): prospective and concurrent determinations within "three business days after the insurer obtains all necessary information". Extensions are requested after 6 months.',
+        status: 'plan-dependent',
+        cites: [
+          { title: '29 CFR 2560.503-1(f) — ERISA claims procedure: group health plan decision timeframes', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+          { title: 'N.C.G.S. § 58-50-61 — utilization review (prospective/concurrent determinations)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_58/GS_58-50-61.html' },
+          { title: 'Blue Cross NC: Prior Authorization for Adaptive Behavioral Treatment for Autism (provider news, effective 1/1/2022)', url: 'https://www.bluecrossnc.com/providers/provider-news/2021/prior-authorization-adaptive-behavioral-treatment-autism' },
+        ],
+        verifyVia: 'Ask in Blue e chat for the expected ABA review turnaround and how early to request the 6-month extension.',
+        blocker: 'per-case',
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value: 'Unlicensed paraprofessionals must be supervised by a listed licensed professional and receive documented ongoing supervision; the policy sets no ratio or hours.',
+        status: 'verified',
+        cites: [
+          { title: 'Blue Cross NC: Adaptive Behavioral Treatment corporate medical policy (effective 9/9/2026)', url: 'https://www.bluecrossnc.com/providers/policies-guidelines-codes/commercial/behavioral-health/updates/adaptive-behavioral-treatment' },
+        ],
+      },
+      concurrentBilling: {
+        value: 'Not stated for 97153 with 97155. The policy excludes ABT provided at the same time as occupational therapy, speech and language therapy, physical therapy or psychotherapy.',
+        status: 'unverified',
+        cites: [
+          { title: 'Blue Cross NC: Adaptive Behavioral Treatment corporate medical policy (effective 9/9/2026)', url: 'https://www.bluecrossnc.com/providers/policies-guidelines-codes/commercial/behavioral-health/updates/adaptive-behavioral-treatment' },
+        ],
+        verifyVia: 'Ask in Blue e chat whether 97155 pays alongside 97153 for the same clock time.',
+        blocker: 'per-case',
+      },
+      dailyLimits: {
+        value: '97151 is medically necessary up to 8 hours or 32 units a year; more needs documentation. Treatment hours have no fixed cap in the policy and must be justified by clinical factors; where the mandate applies, the plan may cap adaptive behavior treatment at $40,000 a year (CPI-indexed from 2017).',
+        status: 'verified',
+        cites: [
+          { title: 'Blue Cross NC: Adaptive Behavioral Treatment corporate medical policy (effective 9/9/2026)', url: 'https://www.bluecrossnc.com/providers/policies-guidelines-codes/commercial/behavioral-health/updates/adaptive-behavioral-treatment' },
+          { title: 'N.C.G.S. § 58-3-192 — coverage for autism spectrum disorder', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_58/GS_58-3-192.html' },
+        ],
+      },
+      placeOfService: {
+        value: 'Services administered in a school or education setting are not covered. Home, clinic and daycare are not addressed; 97153 and 97155 may be delivered by telehealth.',
+        status: 'verified',
+        cites: [
+          { title: 'Blue Cross NC: Adaptive Behavioral Treatment corporate medical policy (effective 9/9/2026)', url: 'https://www.bluecrossnc.com/providers/policies-guidelines-codes/commercial/behavioral-health/updates/adaptive-behavioral-treatment' },
+          { title: 'Blue Cross NC: Additional Autism Services Allowed as Telehealth (provider news, 8/21/2024)', url: 'https://www.bluecrossnc.com/providers/provider-news/2024/additional-autism-services-allowed-as-telehealth' },
+        ],
+      },
+    },
+    faq: [
+      { q: 'Can I verify Blue Cross NC ABA benefits by phone?', a: 'No. From September 1, 2026 the Provider Contact Center phone line no longer takes benefit and eligibility questions. Use the Blue e provider portal, and Blue e chat for questions the portal cannot answer.' },
+      { q: 'Does Blue Cross NC require prior authorization for ABA?', a: 'Not for the initial evaluation. Treatment after the evaluation needs a medical necessity review: submit the ABA/ABT request form with the treatment plan in the Blue e Authorization Portal, and request an extension after 6 months.' },
+      { q: 'Is Healthy Blue the same as Blue Cross NC?', a: 'No. Healthy Blue is Blue Cross NC\'s NC Medicaid plan and follows NC Medicaid rules; it has its own guide. This page is for commercial Blue Cross NC plans.' },
+      { q: 'Does the North Carolina autism mandate apply to a Blue Cross NC plan?', a: 'On a fully insured plan the mandate applies, and Blue Cross NC\'s policy relates only to benefits covered under it. A self-funded (ASO) group has to opt into the autism benefit, and non-grandfathered individual and small-group plans are outside the mandate. Establish the funding type first.' },
+      { q: 'Does Blue Cross NC cover ABA in school?', a: 'No. The policy says services administered in a school or education setting are not covered.' },
+    ],
+  },
 };

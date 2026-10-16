@@ -578,6 +578,17 @@
   },
   "newPayers": [
     {
+      "slug": "blue-cross-north-carolina",
+      "payer": "Blue Cross and Blue Shield of North Carolina",
+      "state": "NC",
+      "kind": "commercial",
+      "priority": 1,
+      "status": "shipped",
+      "family": "bcbs",
+      "note": "Benefits are not given by phone since 9/1/2026 (Blue e only); first guide with benefitsByPhone: false. Open on the VOB layer: Availity/Change payer ids, member ID prefix rule, BH carve-out, concurrent 97153+97155 billing.",
+      "shippedAt": "2026-10-14"
+    },
+    {
       "slug": "carelon-behavioral-health",
       "payer": "Carelon Behavioral Health (formerly Beacon)",
       "state": "US",
