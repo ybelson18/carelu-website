@@ -108,9 +108,27 @@ const CHUNKS: Chunk[] = Object.values(payers).flatMap((p) => {
   function vobChunks(slug: string) {
     const v = vob[slug];
     if (!v) return [];
-    const src = (refs?: SourceRef[]) =>
-      (refs ?? []).slice(0, 3).map((r) => ({ title: r.note ?? new URL(r.url).hostname, url: r.url }));
+    const src = (refs?: SourceRef[], limit = 3) =>
+      (refs ?? []).slice(0, limit).map((r) => ({ title: r.note ?? new URL(r.url).hostname, url: r.url }));
     const out = [];
+    const e = v.edi;
+    if (e && (e.eligibilityPayer || e.memberIdPrefix)) {
+      const note = (key: string) => e.verifyVia?.[key] ? ` Verification note: ${e.verifyVia[key]}` : '';
+      const prefix = e.memberIdPrefix === 'required-from-card'
+        ? 'Required: include the prefix exactly as printed on the card'
+        : e.memberIdPrefix === 'not-used' ? 'Not used for eligibility' : 'Unverified';
+      out.push({
+        payer: p.payer, state: p.state ?? '', slug,
+        title: 'Eligibility routing: payer ID override and member ID alpha prefix',
+        text: [
+          e.eligibilityPayer && `Eligibility payer: ${e.eligibilityPayer.name}`,
+          e.eligibilityPayer && `Eligibility payer ID (pVerify): ${e.eligibilityPayer.pverify} (${e.fieldStatus?.['eligibilityPayer.pverify'] ?? 'unverified'}).${note('eligibilityPayer.pverify')}`,
+          e.eligibilityPayer?.availity && `Eligibility payer ID (Availity): ${e.eligibilityPayer.availity} (${e.fieldStatus?.['eligibilityPayer.availity'] ?? 'unverified'}).${note('eligibilityPayer.availity')}`,
+          e.memberIdPrefix && `Member ID prefix: ${prefix} (${e.fieldStatus?.memberIdPrefix ?? 'unverified'}).${note('memberIdPrefix')}`,
+        ].filter(Boolean).join('. '),
+        sources: src(e.sources, Infinity),
+      });
+    }
     if (v.codeGrid && Object.keys(v.codeGrid).length > 0) {
       const rows = Object.entries(v.codeGrid).map(([code, e]) =>
         `${code}: covered ${e.covered}; PA ${e.paRequired}; units ${e.unitCap} per ${e.capPeriod}; ` +
@@ -135,17 +153,20 @@ const CHUNKS: Chunk[] = Object.values(payers).flatMap((p) => {
       });
     }
     const c = v.vobContact;
-    if (c && (c.providerServicesPhone || c.portal || c.fax)) {
+    if (c && (c.providerServicesPhone || c.portal || c.fax || c.benefitsPortal || c.benefitsByPhone !== undefined || c.requiresIndividualNpi !== undefined)) {
       out.push({
         payer: p.payer, state: p.state ?? '', slug,
-        title: 'Provider services contact: phone, portal, fax, IVR (for verifying benefits)',
+        title: 'Provider services contact: benefits by phone, benefits portal, individual NPI, fax, IVR',
         text: [
+          c.benefitsByPhone !== undefined && `Benefits by phone: ${typeof c.benefitsByPhone === 'boolean' ? (c.benefitsByPhone ? 'Yes' : 'No') : 'Unverified'}`,
+          c.benefitsPortal && `Benefits portal: ${c.benefitsPortal.name} <${c.benefitsPortal.url}>`,
+          c.requiresIndividualNpi !== undefined && `Individual NPI required: ${typeof c.requiresIndividualNpi === 'boolean' ? (c.requiresIndividualNpi ? 'Yes' : 'No') : 'Unverified'}`,
           c.providerServicesPhone && `Provider services phone: ${c.providerServicesPhone}`,
           c.ivrPath && `IVR path: ${c.ivrPath}`, c.hours && `Hours: ${c.hours}`,
           c.portal && `Portal: ${c.portal.name} <${c.portal.url}>`, c.fax && `Fax: ${c.fax}`,
-          c.scriptedQuestions.length && `Ask on the call: ${c.scriptedQuestions.join(' ')}`,
+          c.scriptedQuestions.length && `${c.benefitsByPhone === false ? 'Resolve through the benefits portal' : 'Ask on the call'}: ${c.scriptedQuestions.join(' ')}`,
         ].filter(Boolean).join('. '),
-        sources: src(c.sources),
+        sources: src(c.sources, Infinity),
       });
     }
     return out;

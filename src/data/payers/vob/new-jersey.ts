@@ -291,6 +291,20 @@ function njBaselineGrid(extraSources: SourceRef[] = []): Record<string, CodeGrid
 
 /* ==================== new-jersey-medicaid ==================== */
 
+/* Prefix / benefits-by-phone / individual-NPI sources (2026-10-14) */
+const FANOUT_PHONE_WELLPOINT_NEW_JERSEY: SourceRef = { url: 'https://provider.wellpoint.com/docs/gpp/NJ_WLP_CAID_ProviderQRG.pdf', accessDate: '2026-10-15', note: 'Wellpoint NJ Medicaid Provider QRG: "Medicaid Provider Services: 833-731-2149 ... Our Provider Services team offers prior authorization/notification services, care and disease management, automated member eligibility, claims status"; "Live agents are available weekdays from 8 a.m. to 8 p.m., and the interactive voice response (IVR) system is available 24 hours a day".' };
+const FANOUT_PHONE_AETNA_NEW_JERSEY: SourceRef = { url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/aetna-at-a-glance.pdf', accessDate: '2026-10-15', note: 'Aetna "At a glance" 9011800-01-01 (8/26), Key contacts: "Provider Contact Center ... Member eligibility and benefits ... Prior authorization 1-800-624-0756 (TTY: 711) for Aetna Medicare Advantage plans and HMO-based plans 1-888-MDAetna (1-888-632-3862) (TTY: 711) for all other plans"; "Behavioral health (provider services) 1-888-632-3862".' };
+const FANOUT_MAN_NJ_MCD: SourceRef = { url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NJ-Care-Provider-Manual.pdf', accessDate: '2026-10-14', note: 'Care Provider Manual, UHC Community Plan of New Jersey (May 2026): "UnitedHealthcare Community Plan of New Jersey Provider Services 1-888-362-3368 - Assist care providers... Confirm a patient\'s eligibility - Ask about covered benefits - Check claim status".' };
+const FANOUT_OPTUM_NNM_2026: SourceRef = { url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf', accessDate: '2026-10-14', note: 'Optum (United Behavioral Health) National Provider Network Manual, published July 1 2026, effective Sept 1 2026 (BH02330-1-26-MAN_07012026). Read via r.jina.ai using the AEM path .../NNManual.pdf/jcr:content/renditions/original (plain URL returns a download interstitial). Eligibility Inquiry p.35-36: "You can use the Provider Express secure portal to check a member\'s eligibility. You may also inquire about eligibility by calling the phone number on the member\'s ID card." Items to provide: member name, address, ID number, subscriber name and DOB - NPI not listed. No statement on individual vs group NPI for calls.' };
+const FANOUT_ABHNJ_QRG: SourceRef = { url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/newjersey/pdf/ProviderQuickReference-NJ.pdf', accessDate: '2026-10-14', note: 'Aetna Better Health of New Jersey Participating Provider Quick Reference Guide (undated; site 403, read from Wayback capture 20240814 of the /newjersey/providers/pdf/ copy; same PDF linked from NJ provider contact page captured 2025-03-28): "Eligibility Verification - Please contact us at 1-855-232-3596 or log into our Secure Web Portal to verify eligibility."' };
+const FANOUT_AET_ELIG_FLYER: SourceRef = { url: 'https://www.aetna.com/document-library/healthcare-professionals/assets/documents/eligibility.pdf', accessDate: '2026-10-14', note: 'Aetna Eligibility and Benefits Inquiry flyer 83.03.870.1 (2/19), still hosted on aetna.com: "When using the member ID number, prefixes or suffixes are unnecessary. For family-level searches, you only need to enter the member ID." Applies to the electronic inquiry; dated 2019.' };
+const FANOUT_AET_GLANCE: SourceRef = { url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/aetna-at-a-glance.pdf', accessDate: '2026-10-14', note: 'Aetna "At a glance" how-to guide for health care professionals, 9011800-01-01 (8/26), Key contacts table: "Provider Contact Center ... Member eligibility and benefits ... 1-800-624-0756 (TTY: 711) for Aetna Medicare Advantage plans and HMO-based plans / 1-888-MDAetna (1-888-632-3862) (TTY: 711) for all other plans". Also: "Behavioral health (provider services) Refer to the member ID card."' };
+const FANOUT_CIG_AUTISM: SourceRef = { url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf', accessDate: '2026-10-14', note: 'Evernorth/Cigna Autism resource guide, March 2025 (PCOMM-2025-225): "It is important to confirm a patient\'s ABA eligibility and benefits before performing an assessment. This information can be confirmed by: ... Calling the Autism Care Coordinator team at 877.279.7603". Provider Services 800.926.2273 "handles questions regarding billing, benefits, and eligibility for autism-related treatment, such as ABA."' };
+const FANOUT_HORIZON_NJH_PM: SourceRef = { url: 'https://www.horizonnjhealth.com/securecms-documents/605/ProviderManual.pdf', accessDate: '2026-10-14', note: 'Horizon NJ Health Provider Administrative Manual (approved July 14, 2026). Quotes: \'Participating Horizon NJ Health physicians are not required to include the alpha-prefix when referring to a member ID number.\' / \'To confirm eligibility, visit Availity Essentials or call 1-800-682-9091 at the time of service.\'' };
+const FANOUT_WP_NJ_QRG: SourceRef = { url: 'https://provider.wellpoint.com/docs/gpp/NJ_WLP_CAID_ProviderQRG.pdf', accessDate: '2026-10-14', note: 'Wellpoint NJ Medicaid Provider Quick Reference Guide (Oct 2026). Quote: \'Medicaid Provider Services: 833-731-2149 ... Our Provider Services team offers prior authorization/notification services, care and disease management, automated member eligibility, claims status\'.' };
+const FANOUT_NJ_10_49_2_12: SourceRef = { url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-10-49-2-12', accessDate: '2026-10-14', note: 'N.J.A.C. 10:49-2.12: "A Medicaid or NJ FamilyCare Eligibility Identification Number consists of 12 digits"; HBID card shows "a 16-digit Card Control Number (CCN)".' };
+const FANOUT_NJ_10_49_2_11: SourceRef = { url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-10-49-2-11', accessDate: '2026-10-14', note: 'N.J.A.C. 10:49-2.11 (NJ Medicaid administrative code, LII copy). "the provider can verify eligibility by calling the Unisys Recipient Eligibility Verification System (REVS). REVS is accessed by dialing 1(800) 676-6562".' };
+
 const newJerseyMedicaidEdi: EdiRouting = {
   payerId: { pverify: '00161', availity: 'unverified', changeHealthcare: 'NJMCD' },
   supports270271: true,
@@ -308,6 +322,7 @@ const newJerseyMedicaidEdi: EdiRouting = {
     eligibilitySpanGranularity:
       "Real-time (MEVS). Inquiry span up to 3 calendar months and not beyond the end of the month following the current month; \"eligibility for claim payment is not guaranteed beyond the end of the current month\" — i.e. a monthly guarantee — with begin/end dates returned as CCYYMMDD spans in DTP (single segment 2100C DTP03; multiple segments 2110C DTP03).",
   },
+  memberIdPrefix: 'not-used',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'unverified',
@@ -318,13 +333,15 @@ const newJerseyMedicaidEdi: EdiRouting = {
     'medicaid271Notes.mcoSegmentLocation': 'verified',
     'medicaid271Notes.mcoCarrierCodes': 'unverified',
     'medicaid271Notes.eligibilitySpanGranularity': 'verified',
+    memberIdPrefix: 'verified',
   },
   verifyVia: {
     'payerId.availity': 'No distinct NJ Medicaid FFS line in the stale 2012 Availity list; confirm via a current Availity Essentials export or the NJMMIS 5010 companion guide.',
     'medicaid271Notes.mcoCarrierCodes':
       'The 3-digit Managed Care Plan Code → MCO-name crosswalk is NOT published in the 270/271 companion guide (its Appendix 3 lists only eligibility-category names, none of the 5 MCOs). Obtain the plan-code reference from NJMMIS "Rate and Code Information" or the 834 enrollment / encounter (837/835) companion materials, or by mapping REF03 (plan name) / 2120C NM103 on a live 271.',
+    memberIdPrefix: 'N.J.A.C. 10:49-2.12: the Medicaid/NJ FamilyCare eligibility ID is 12 digits; no alpha prefix is used.',
   },
-  sources: [NJMMIS_270271_CG, DMAHS_NEWSLETTER_V30N06, NJMMIS_ABA_PACKET, PVERIFY_PAYER_LIST, OPTUM_PROF_CLAIMS_LIST],
+  sources: [NJMMIS_270271_CG, DMAHS_NEWSLETTER_V30N06, NJMMIS_ABA_PACKET, PVERIFY_PAYER_LIST, OPTUM_PROF_CLAIMS_LIST, FANOUT_NJ_10_49_2_12],
 };
 
 /* ==================== horizon-nj-health ==================== */
@@ -339,6 +356,7 @@ const horizonEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'not-used',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'inferred',
@@ -346,14 +364,16 @@ const horizonEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'verified',
+    memberIdPrefix: 'verified',
   },
   verifyVia: {
     'payerId.pverify': 'pVerify 00297 = "Horizon New Jersey Health" (verified).',
     'payerId.availity': 'Payor ID 22326 per Horizon\'s ABA overview and claims materials; appears as "Horizon Mercy" in the stale 2012 Availity list — confirm against a current export.',
     'payerId.changeHealthcare': 'Change Healthcare/Optum lists 22326 (Horizon\'s legacy "Mercy Health Plan of New Jersey" line; supports 270/271).',
     supportsRealtime: 'Confirm real-time vs. batch via NaviNet/Availity onboarding for 22326.',
+    memberIdPrefix: 'Horizon NJ Health provider manual: participating providers "are not required to include the alpha-prefix when referring to a member ID number."',
   },
-  sources: [HORIZON_ABA_OVERVIEW, PVERIFY_PAYER_LIST, OPTUM_PROF_CLAIMS_LIST],
+  sources: [HORIZON_ABA_OVERVIEW, PVERIFY_PAYER_LIST, OPTUM_PROF_CLAIMS_LIST, FANOUT_HORIZON_NJH_PM],
 };
 
 /* Horizon layers a stricter process on the state baseline: 32-unit/30-day
@@ -389,6 +409,7 @@ const aetnaBetterHealthNjEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'verified',
@@ -396,12 +417,14 @@ const aetnaBetterHealthNjEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': 'pVerify 000942 = "AETNA BETTER HEALTH (NJ)" (legacy line "Aetna Better Health NJ-REV" 00921 also exists).',
     'payerId.availity': 'Provider/claims ID 46320 per the Aetna Better Health of NJ provider QRG (Availity / Office Ally).',
     'payerId.changeHealthcare': 'Change Healthcare/Optum lists 46320 = "Aetna Better Health of New Jersey" (supports 270/271).',
     supportsRealtime: 'Confirm real-time vs. batch via Availity onboarding for 46320.',
+    memberIdPrefix: 'No ABHNJ statement found; NJ manual PDF 403-blocked and not archived; confirm with Provider Services 1-855-232-3596.',
   },
   sources: [AETNA_NJ_RATE_SHEET, PVERIFY_PAYER_LIST, OPTUM_PROF_CLAIMS_LIST],
 };
@@ -432,6 +455,7 @@ const fidelisEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'inferred',
@@ -439,12 +463,14 @@ const fidelisEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'inferred',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': 'pVerify 00803 = "FIDELIS CARE NEW JERSEY" (Eligibility=Yes / claim-status No).',
     'payerId.availity': '14163 is the Centene/WellCare national payer ID (appears as "WELLCARE HEALTH PLANS" in the stale 2012 Availity list) — the NJ Centene line is branded WellCare. Confirm against a current Availity export.',
     'payerId.changeHealthcare': 'Change Healthcare/Optum lists 14163 = "Wellcare HMO, Inc." (Centene/WellCare family; supports 270/271). NOTE: "Fidelis Care" is Centene\'s NEW YORK brand — do NOT use the NY line 11315 for NJ.',
     supportsRealtime: 'Confirm real-time vs. batch via Availity onboarding for 14163.',
+    memberIdPrefix: 'Sample member ID card in the Fidelis Care NJ provider manual, or ask Fidelis Care NJ Provider Services whether any alpha prefix is keyed; no source states it',
   },
   sources: [FIDELIS_NJ_AUTH, PVERIFY_PAYER_LIST, OPTUM_PROF_CLAIMS_LIST],
 };
@@ -478,6 +504,7 @@ const uhcCpNjEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'inferred',
     'payerId.availity': 'inferred',
@@ -488,6 +515,7 @@ const uhcCpNjEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'verified',
     'bhCarveOut.abaRidesOn': 'verified',
     'bhCarveOut.twoHopRequired': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': 'pVerify has no NJ-specific UHC Community Plan row; UHG001 = generic "UnitedHealth Group - Community Plan." Confirm the NJ-specific mapping via pVerify payer search.',
@@ -495,6 +523,7 @@ const uhcCpNjEdi: EdiRouting = {
     'payerId.changeHealthcare': 'Change Healthcare/Optum lists 86047 = "UnitedHealthcare Community Plan / NJ" (former 86001; supports 270/271). UHC docs: claims payer ID 87726, ERA 86047 — same plan.',
     'bhCarveOut.abaRidesOn': 'ABA network contracted separately through Optum/Provider Express, but claims ride the medical payer ID (87726 claims / 86047 NJ community-plan line) — no separate Optum BH claims payer ID, no second EDI hop.',
     supportsRealtime: 'Confirm real-time vs. batch via Provider Express / Availity onboarding.',
+    memberIdPrefix: 'No UHC/Optum source addresses an alpha prefix (2026 Admin Guide ID-card legend, 270/271 companion guide, pVerify list all silent). Confirm with a real card plus a pVerify run, or ask UHC Provider Services.',
   },
   sources: [OPTUM_ABA_STATE_MANDATES, PVERIFY_PAYER_LIST, OPTUM_PROF_CLAIMS_LIST],
 };
@@ -525,6 +554,7 @@ const wellpointEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'verified',
@@ -535,6 +565,7 @@ const wellpointEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'verified',
     'bhCarveOut.abaRidesOn': 'verified',
     'bhCarveOut.twoHopRequired': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': 'pVerify 06067 = "WELLPOINT - AMERIGROUP" (legacy "AMERIGROUP" 00025 / "AMERIGROUP (CLAIMS)" 00705).',
@@ -542,6 +573,7 @@ const wellpointEdi: EdiRouting = {
     'payerId.changeHealthcare': 'Change Healthcare uses the legacy "Amerigroup - New Jersey" line 28806 (NOT WLPNT) — and Optum shows 270/271 = N on that line, so prefer the Availity/WLPNT path for eligibility.',
     'bhCarveOut.administrator': 'Carelon provides utilization-management/authorization services only ("an independent company providing utilization management services on behalf of the health plan"); BH/ABA CLAIMS still submit to WLPNT via Availity — no separate Carelon claims payer ID. ABA network contracting runs through Carelon (provider.relations.NJ@carelon.com).',
     supportsRealtime: 'Confirm real-time vs. batch via Availity onboarding for WLPNT.',
+    memberIdPrefix: 'Wellpoint NJ Medicaid manual (current URL not found) / ID card',
   },
   sources: [WELLPOINT_NJ_EDI, PVERIFY_PAYER_LIST, OPTUM_PROF_CLAIMS_LIST, DMAHS_BH_CONTACTS],
 };
@@ -573,6 +605,7 @@ const aetnaNjCommercialEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'not-used',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'inferred',
@@ -580,6 +613,7 @@ const aetnaNjCommercialEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'inferred',
+    memberIdPrefix: 'verified',
   },
   verifyVia: {
     'payerId.pverify': 'pVerify 00001 = "Aetna" (Medical, Eligibility=Yes).',
@@ -587,8 +621,9 @@ const aetnaNjCommercialEdi: EdiRouting = {
     'payerId.changeHealthcare': 'Change Healthcare/Optum lists 60054 = "Aetna Health Plan - PPO" (supports 270/271).',
     'bhCarveOut.administrator': 'Aetna Behavioral Health rides the same medical payer ID (no second hop); confirm the ABA precertification path via Aetna provider services.',
     supportsRealtime: 'Confirm real-time vs. batch via Availity onboarding for 60054.',
+    memberIdPrefix: 'Aetna eligibility flyer: "When using the member ID number, prefixes or suffixes are unnecessary." Enter the member ID without the card prefix.',
   },
-  sources: [AETNA_CPB0554, AETNA_CPB0648, PVERIFY_PAYER_LIST, OPTUM_PROF_CLAIMS_LIST, AVAILITY_PAYER_LIST],
+  sources: [AETNA_CPB0554, AETNA_CPB0648, PVERIFY_PAYER_LIST, OPTUM_PROF_CLAIMS_LIST, AVAILITY_PAYER_LIST, FANOUT_AET_ELIG_FLYER],
 };
 
 function aetnaCommercialEntry(): CodeGridEntry {
@@ -630,6 +665,7 @@ const cignaNjEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'inferred',
@@ -640,12 +676,14 @@ const cignaNjEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'verified',
     'bhCarveOut.abaRidesOn': 'verified',
     'bhCarveOut.twoHopRequired': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': 'pVerify 00004 = "Cigna" (Medical, Eligibility=Yes); "Cigna Behavioral" 00510 also listed.',
     'payerId.availity': 'Evernorth payer ID 62308 per the Cigna Autism Resource Guide (same ID as Cigna medical); inferred pending a current Availity export.',
     'payerId.changeHealthcare': 'Change Healthcare/Optum lists 62308 = "CIGNA - PPO" (supports 270/271). NOTE: EN0499 is Evernorth\'s ABA COVERAGE-POLICY number, not a payer ID — "EN0499 applies to NJ" means the policy governs (no carve-out); routing stays on 62308.',
     supportsRealtime: 'Confirm real-time vs. batch via the clearinghouse onboarding for 62308.',
+    memberIdPrefix: 'Cigna ID card quick guide (CIG_IDCARD) shows member ID + two-digit suffix, no alpha prefix, but gives no entry rule; confirm with Cigna 800.882.4462 or a test 270.',
   },
   sources: [CIGNA_AUTISM_GUIDE, CIGNA_EN0499, PVERIFY_PAYER_LIST, OPTUM_PROF_CLAIMS_LIST, AVAILITY_PAYER_LIST],
 };
@@ -697,6 +735,7 @@ const uhcNjCommercialEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'inferred',
@@ -707,6 +746,7 @@ const uhcNjCommercialEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'verified',
     'bhCarveOut.abaRidesOn': 'verified',
     'bhCarveOut.twoHopRequired': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': 'pVerify 00192 = "United Healthcare" (Medical, Eligibility=Yes); "United Healthcare - Optum Behavioral Solutions" UHG007 also listed.',
@@ -714,6 +754,7 @@ const uhcNjCommercialEdi: EdiRouting = {
     'payerId.changeHealthcare': 'Change Healthcare/Optum lists 87726 = "UnitedHealthcare" (supports 270/271).',
     'bhCarveOut.abaRidesOn': 'ABA administered through Optum Behavioral Health (Provider Express, two-step auth) but claims ride the medical 87726 payer ID — no second EDI hop.',
     supportsRealtime: 'Confirm real-time vs. batch via Availity onboarding for 87726.',
+    memberIdPrefix: 'No UHC/Optum source addresses an alpha prefix (2026 Admin Guide ID-card legend, 270/271 companion guide, pVerify list all silent). Confirm with a real card plus a pVerify run, or ask UHC Provider Services.',
   },
   sources: [OPTUM_SCC, PVERIFY_PAYER_LIST, OPTUM_PROF_CLAIMS_LIST, AVAILITY_PAYER_LIST],
 };
@@ -834,12 +875,14 @@ const njMedicaidContact: VobContact = {
   ivrPath:
     'Gainwell Technologies Provider Services (general FFS line). For ABA/DIR-specific questions, DMAHS runs a dedicated Autism Line: 609-588-8522 (MAHS.ASDinquiries@dhs.nj.gov).',
   portal: { name: 'NJMMIS', url: 'https://www.njmmis.com' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'Which of the 5 MCOs (or FFS) is this member enrolled in, and what is the 3-digit Managed Care Plan Code shown in their eligibility response? (our companion guide has no code-to-MCO crosswalk)',
     'Can you confirm today\'s per-15-minute rate for 97151, 97152, 97154, 97157, 97158, 0362T, and 0373T? (our reference for these 7 codes is the 2020 launch schedule, not the current CY2026 listing)',
     'Is the member still in the FFS pending-MCO-enrollment window (no PA required), or already enrolled with an MCO (assessment + treatment PA)?',
   ],
-  sources: [DMAHS_BH_CONTACTS, NJMMIS_270271_CG],
+  sources: [DMAHS_BH_CONTACTS, NJMMIS_270271_CG, FANOUT_NJ_10_49_2_11],
 };
 
 const horizonContact: VobContact = {
@@ -848,13 +891,15 @@ const horizonContact: VobContact = {
     'Prior-auth progress requests and continued-stay requests: 800-626-2212 (or via Availity). Claims Contact line above is 1-800-682-9091 (email BHMedicaid_@horizonblue.com).',
   portal: { name: 'Availity Essentials', url: 'https://apps.availity.com/web/onboarding/availity-fr-ui/#/login' },
   fax: '732-938-1444',
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'Is this member on NJ FamilyCare/TotalCare or a Horizon commercial/ASO plan? (The January 2026 ABA medical-policy revision applies only to commercial/ASO; the H0032 retirement applies to NJ FamilyCare and TotalCare.)',
     'What is today\'s paid rate for the ABA codes — Horizon aligned BH fees to the state\'s 3/1/2024 rate increase, but we don\'t have it broken out by code?',
     'Which places of service are approved under this member\'s authorization (home, office, school, community, telehealth)?',
     'Is eligibility checking real-time or batch through your clearinghouse?',
   ],
-  sources: [DMAHS_BH_CONTACTS, HORIZON_ABA_OVERVIEW],
+  sources: [DMAHS_BH_CONTACTS, HORIZON_ABA_OVERVIEW, FANOUT_HORIZON_NJH_PM],
 };
 
 const aetnaBetterHealthNjContact: VobContact = {
@@ -863,17 +908,21 @@ const aetnaBetterHealthNjContact: VobContact = {
   hours: 'Mon-Fri 8am-5pm (general contact line also answers 24/7 per the Aetna Better Health NJ portal page)',
   portal: { name: 'Availity Essentials', url: 'https://www.aetnabetterhealth.com/newjersey/providers/portal.html' },
   fax: '844-404-3972',
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'Can you confirm the current contracted rate for 97153 — our reference (Aetna\'s 2020 sheet) still shows $11.20, but the state raised the FFS rate to $15.00 in 2022?',
     'What are today\'s rates for 97151, 97152, 97154, 97157, 97158, 0362T, and 0373T?',
     'Which places of service are approved under this member\'s ABA authorization?',
   ],
-  sources: [DMAHS_BH_CONTACTS, AETNA_BH_NJ_PORTAL, AETNA_NJ_RATE_SHEET],
+  sources: [DMAHS_BH_CONTACTS, AETNA_BH_NJ_PORTAL, AETNA_NJ_RATE_SHEET, FANOUT_ABHNJ_QRG],
 };
 
 const fidelisContact: VobContact = {
   fax: '888-339-2677',
   portal: { name: 'Fidelis Care Provider Portal', url: 'https://provider.fideliscarenj.com' },
+  benefitsByPhone: 'unverified',
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'Does Fidelis enforce the state\'s suggested daily unit limits as hard claim edits, or does it apply different unit caps?',
     'Is there a distinct BH/ABA carve-out administrator, or does ABA process through Fidelis\'s standard Centene/WellCare BH structure?',
@@ -886,29 +935,36 @@ const uhcCpNjContact: VobContact = {
   providerServicesPhone: '1-888-362-3368',
   ivrPath: 'Enter TIN # → select option 3 (intake) → enter member ID/DOB → select "Mental Health."',
   portal: { name: 'Provider Express', url: 'https://www.providerexpress.com' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'Does Optum apply any unit or hour caps beyond the state\'s daily MUE table for this member?',
     'Is eligibility checking real-time or batch?',
     'Can you confirm the correct pVerify payer code for this NJ Community Plan line? (our mapping is inferred, not payer-confirmed)',
   ],
-  sources: [DMAHS_BH_CONTACTS, OPTUM_ABA_STATE_MANDATES],
+  sources: [DMAHS_BH_CONTACTS, OPTUM_ABA_STATE_MANDATES, FANOUT_MAN_NJ_MCD],
 };
 
 const wellpointContact: VobContact = {
-  providerServicesPhone: '1-800-454-3730',
-  hours: 'Carelon National Provider Services Line (contracting, 800-397-1630): Mon-Fri 8am-8pm ET',
+  providerServicesPhone: '833-731-2149 — Wellpoint NJ Medicaid Provider Services (automated member eligibility, claims status, prior authorization)',
+  hours: 'Live agents weekdays 8 a.m.–8 p.m.; IVR 24/7',
   portal: { name: 'Availity Essentials', url: 'https://www.availity.com' },
   fax: '844-442-8007',
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'Does Wellpoint enforce the state\'s daily MUE unit limits as claim edits, or apply different caps?',
     'Is eligibility checking real-time or batch through Availity?',
     'Is ABA network contracting still routed through Carelon Behavioral Health, or has that changed?',
   ],
-  sources: [DMAHS_BH_CONTACTS, WELLPOINT_NJ_EDI],
+  sources: [DMAHS_BH_CONTACTS, WELLPOINT_NJ_EDI, FANOUT_WP_NJ_QRG, FANOUT_PHONE_WELLPOINT_NEW_JERSEY],
 };
 
 const aetnaNjCommercialContact: VobContact = {
+  providerServicesPhone: '1-888-632-3862 (TTY: 711) — Aetna Provider Contact Center (member eligibility and benefits, prior authorization; also behavioral health provider services); HMO-based plans: 1-800-624-0756',
   portal: { name: 'Availity Essentials', url: 'https://www.availity.com' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'What is the member\'s plan funding type — fully-insured (P.L. 2009, c.115 mandate applies) or self-funded (ERISA, mandate-exempt)?',
     'Are there unit or hour caps on ABA codes for this member\'s specific plan?',
@@ -916,7 +972,7 @@ const aetnaNjCommercialContact: VobContact = {
     'Are there modifier requirements (licensure tier, telehealth) for billing?',
     'Is eligibility checking real-time or batch?',
   ],
-  sources: [AVAILITY_PAYER_LIST],
+  sources: [AVAILITY_PAYER_LIST, FANOUT_AET_GLANCE, FANOUT_PHONE_AETNA_NEW_JERSEY],
 };
 // Note: Aetna's own precertification page states precert numbers are printed
 // on the member's ID card, not published as one universal line — so no
@@ -926,38 +982,42 @@ const cignaNjContact: VobContact = {
   providerServicesPhone: '1-800-926-2273',
   ivrPath: 'Select prompt #5 for providers, then choose among claims / eligibility / authorization / online services / personal updates.',
   portal: { name: 'Evernorth Provider Portal', url: 'https://provider.evernorth.com/app/login' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'What is the member\'s plan funding type — fully-insured (P.L. 2009, c.115 mandate applies) or self-funded (ERISA)?',
     'Are there unit or hour caps on the treatment codes (97153-97158, 0373T) for this member\'s plan?',
     'Which places of service are approved, and is telehealth allowed for this member?',
     'Is eligibility checking real-time or batch through your clearinghouse?',
   ],
-  sources: [EVERNORTH_BH_PROVIDER_SVC, EVERNORTH_PROVIDER_PORTAL],
+  sources: [EVERNORTH_BH_PROVIDER_SVC, EVERNORTH_PROVIDER_PORTAL, FANOUT_CIG_AUTISM],
 };
 
 const uhcNjCommercialContact: VobContact = {
   providerServicesPhone: '877-614-0484',
   hours: '24/7 (per UHC provider services contact page)',
   portal: { name: 'Provider Express', url: 'https://www.providerexpress.com' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'What is the member\'s plan funding type — fully-insured or self-funded?',
     'Are there unit or hour caps on ABA codes under the Supplemental Clinical Criteria for this plan?',
     'Which places of service and telehealth options are approved?',
     'Is eligibility checking real-time or batch?',
   ],
-  sources: [UHC_PROVIDER_CONTACT, OPTUM_SCC],
+  sources: [UHC_PROVIDER_CONTACT, OPTUM_SCC, FANOUT_OPTUM_NNM_2026],
 };
 
 /* ==================== export ==================== */
 
 export const newJerseyVob: Record<string, VobExtension> = {
-  'new-jersey-medicaid': { edi: newJerseyMedicaidEdi, stcMap: newJerseyMedicaidStc, codeGrid: njBaselineGrid([NJMMIS_ABA_PACKET]), rates: newJerseyMedicaidRates, vobContact: njMedicaidContact, lastUpdated: ACCESS_DATE },
-  'horizon-nj-health': { edi: horizonEdi, stcMap: horizonStc, codeGrid: horizonCodeGrid, rates: mcoBaselineRates('Horizon NJ Health', 'Horizon aligned BH fees to the DMAHS rate increase for DOS on/after 3/1/2024, but the specific ABA amounts are unverified'), vobContact: horizonContact, lastUpdated: ACCESS_DATE },
-  'aetna-better-health-new-jersey': { edi: aetnaBetterHealthNjEdi, stcMap: aetnaBetterHealthNjStc, codeGrid: aetnaBetterHealthNjCodeGrid, rates: aetnaNjRates, vobContact: aetnaBetterHealthNjContact, lastUpdated: ACCESS_DATE },
-  'fidelis-care-new-jersey': { edi: fidelisEdi, stcMap: fidelisStc, codeGrid: fidelisCodeGrid, rates: mcoBaselineRates('Fidelis Care NJ'), vobContact: fidelisContact, lastUpdated: ACCESS_DATE },
-  'unitedhealthcare-community-plan-new-jersey': { edi: uhcCpNjEdi, stcMap: uhcCpNjStc, codeGrid: uhcCpNjCodeGrid, rates: mcoBaselineRates('UnitedHealthcare Community Plan NJ'), vobContact: uhcCpNjContact, lastUpdated: ACCESS_DATE },
-  'wellpoint-new-jersey': { edi: wellpointEdi, stcMap: wellpointStc, codeGrid: wellpointCodeGrid, rates: mcoBaselineRates('Wellpoint NJ'), vobContact: wellpointContact, lastUpdated: ACCESS_DATE },
-  'aetna-new-jersey': { edi: aetnaNjCommercialEdi, stcMap: inheritFamilyStc(aetnaFamilyStc, 'Inherited from the Aetna family default (docs/vob-build.md Layer 2) — no New Jersey-specific 270/271 STC document found.'), codeGrid: aetnaNjCommercialCodeGrid, vobContact: aetnaNjCommercialContact, lastUpdated: ACCESS_DATE },
-  'cigna-new-jersey': { edi: cignaNjEdi, stcMap: inheritFamilyStc(cignaFamilyStc, 'Inherited from the Cigna/Evernorth family default (docs/vob-build.md Layer 2) — national companion guide, no New Jersey-specific override found.'), codeGrid: cignaNjCodeGrid, vobContact: cignaNjContact, lastUpdated: ACCESS_DATE },
-  'unitedhealthcare-new-jersey': { edi: uhcNjCommercialEdi, stcMap: inheritFamilyStc(uhcFamilyStc, 'Inherited from the UnitedHealthcare/Optum family default (docs/vob-build.md Layer 2) — national companion guide, no New Jersey-specific override found.'), codeGrid: uhcNjCommercialCodeGrid, vobContact: uhcNjCommercialContact, lastUpdated: ACCESS_DATE },
+  'new-jersey-medicaid': { edi: newJerseyMedicaidEdi, stcMap: newJerseyMedicaidStc, codeGrid: njBaselineGrid([NJMMIS_ABA_PACKET]), rates: newJerseyMedicaidRates, vobContact: njMedicaidContact, lastUpdated: '2026-10-15'},
+  'horizon-nj-health': { edi: horizonEdi, stcMap: horizonStc, codeGrid: horizonCodeGrid, rates: mcoBaselineRates('Horizon NJ Health', 'Horizon aligned BH fees to the DMAHS rate increase for DOS on/after 3/1/2024, but the specific ABA amounts are unverified'), vobContact: horizonContact, lastUpdated: '2026-10-15'},
+  'aetna-better-health-new-jersey': { edi: aetnaBetterHealthNjEdi, stcMap: aetnaBetterHealthNjStc, codeGrid: aetnaBetterHealthNjCodeGrid, rates: aetnaNjRates, vobContact: aetnaBetterHealthNjContact, lastUpdated: '2026-10-15'},
+  'fidelis-care-new-jersey': { edi: fidelisEdi, stcMap: fidelisStc, codeGrid: fidelisCodeGrid, rates: mcoBaselineRates('Fidelis Care NJ'), vobContact: fidelisContact, lastUpdated: '2026-10-15'},
+  'unitedhealthcare-community-plan-new-jersey': { edi: uhcCpNjEdi, stcMap: uhcCpNjStc, codeGrid: uhcCpNjCodeGrid, rates: mcoBaselineRates('UnitedHealthcare Community Plan NJ'), vobContact: uhcCpNjContact, lastUpdated: '2026-10-15'},
+  'wellpoint-new-jersey': { edi: wellpointEdi, stcMap: wellpointStc, codeGrid: wellpointCodeGrid, rates: mcoBaselineRates('Wellpoint NJ'), vobContact: wellpointContact, lastUpdated: '2026-10-15'},
+  'aetna-new-jersey': { edi: aetnaNjCommercialEdi, stcMap: inheritFamilyStc(aetnaFamilyStc, 'Inherited from the Aetna family default (docs/vob-build.md Layer 2) — no New Jersey-specific 270/271 STC document found.'), codeGrid: aetnaNjCommercialCodeGrid, vobContact: aetnaNjCommercialContact, lastUpdated: '2026-10-15'},
+  'cigna-new-jersey': { edi: cignaNjEdi, stcMap: inheritFamilyStc(cignaFamilyStc, 'Inherited from the Cigna/Evernorth family default (docs/vob-build.md Layer 2) — national companion guide, no New Jersey-specific override found.'), codeGrid: cignaNjCodeGrid, vobContact: cignaNjContact, lastUpdated: '2026-10-15'},
+  'unitedhealthcare-new-jersey': { edi: uhcNjCommercialEdi, stcMap: inheritFamilyStc(uhcFamilyStc, 'Inherited from the UnitedHealthcare/Optum family default (docs/vob-build.md Layer 2) — national companion guide, no New Jersey-specific override found.'), codeGrid: uhcNjCommercialCodeGrid, vobContact: uhcNjCommercialContact, lastUpdated: '2026-10-15'},
 };

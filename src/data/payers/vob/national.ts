@@ -132,6 +132,29 @@ const OPTUM_PROVIDER_EXPRESS_CONTACT = src(
   'Optum "Provider Express — Contact Us" page — Provider Services: "1-877-614-0484," Mon-Fri 7am-7pm CT (credentialing, contracting, network status, provider demographics — not itself an ABA/PA line); Provider Express secure-portal technical support "1-866-209-9320," same hours. No dedicated ABA/BH prior-authorization phone or fax published on this page — PA runs through the Provider Express portal or the number on the member\'s ID card. Already independently fetched and cited (2026-07-23) in vob/utah.ts.'
 );
 
+/* Prefix / benefits-by-phone / individual-NPI sources (2026-10-14) */
+
+const FANOUT_OPTUM_NNM_2026: SourceRef = {
+  url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf',
+  accessDate: '2026-10-14',
+  note: 'Optum (United Behavioral Health) National Provider Network Manual, published July 1 2026, effective Sept 1 2026 (BH02330-1-26-MAN_07012026). Read via r.jina.ai using the AEM path .../NNManual.pdf/jcr:content/renditions/original (plain URL returns a download interstitial). Eligibility Inquiry p.35-36: "You can use the Provider Express secure portal to check a member\'s eligibility. You may also inquire about eligibility by calling the phone number on the member\'s ID card." Items to provide: member name, address, ID number, subscriber name and DOB - NPI not listed. No statement on individual vs group NPI for calls.',
+};
+const FANOUT_AET_ELIG_FLYER: SourceRef = {
+  url: 'https://www.aetna.com/document-library/healthcare-professionals/assets/documents/eligibility.pdf',
+  accessDate: '2026-10-14',
+  note: 'Aetna Eligibility and Benefits Inquiry flyer 83.03.870.1 (2/19), still hosted on aetna.com: "When using the member ID number, prefixes or suffixes are unnecessary. For family-level searches, you only need to enter the member ID." Applies to the electronic inquiry; dated 2019.',
+};
+const FANOUT_AET_GLANCE: SourceRef = {
+  url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/aetna-at-a-glance.pdf',
+  accessDate: '2026-10-14',
+  note: 'Aetna "At a glance" how-to guide for health care professionals, 9011800-01-01 (8/26), Key contacts table: "Provider Contact Center ... Member eligibility and benefits ... 1-800-624-0756 (TTY: 711) for Aetna Medicare Advantage plans and HMO-based plans / 1-888-MDAetna (1-888-632-3862) (TTY: 711) for all other plans". Also: "Behavioral health (provider services) Refer to the member ID card."',
+};
+const FANOUT_CIG_AUTISM: SourceRef = {
+  url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf',
+  accessDate: '2026-10-14',
+  note: 'Evernorth/Cigna Autism resource guide, March 2025 (PCOMM-2025-225): "It is important to confirm a patient\'s ABA eligibility and benefits before performing an assessment. This information can be confirmed by: ... Calling the Autism Care Coordinator team at 877.279.7603". Provider Services 800.926.2273 "handles questions regarding billing, benefits, and eligibility for autism-related treatment, such as ABA."',
+};
+
 /* ==================== aetna (national commercial) ==================== */
 
 const aetnaEdi: EdiRouting = {
@@ -139,6 +162,7 @@ const aetnaEdi: EdiRouting = {
   supports270271: true,
   supportsRealtime: 'unverified',
   bhCarveOut: { administrator: 'unverified', administratorPayerId: 'unverified', abaRidesOn: 'unverified', twoHopRequired: 'unverified' },
+  memberIdPrefix: 'not-used',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'verified',
@@ -146,6 +170,7 @@ const aetnaEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'unverified',
+    memberIdPrefix: 'verified',
   },
   verifyVia: {
     supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding for this payer ID.',
@@ -153,8 +178,9 @@ const aetnaEdi: EdiRouting = {
       "No BH carve-out administrator is named for Aetna commercial ABA in any of the 19 states' guides in this corpus (see vob/carveouts.ts AETNA_COMMERCIAL_ROWS 'US' row) — Aetna's national policies (CPB 0648 for ASD; CPB 0554 for non-ASD indications) and ABA Medical Necessity Guide govern directly, with precertification via Availity (BH precertification list; form GR-69017-4). Whether an internal Aetna BH unit or a named vendor adjudicates that precert was not confirmable from any primary source. Confirm via Aetna provider services precert line.",
     'payerId.pverify':
       "00001 is the generic national pVerify \"Aetna\" entry, reused from vob/texas.ts's aetna-texas commercial entry. pVerify separately lists \"TEXAS HEALTH AETNA\" (00875) and other regional joint-venture plans as distinct products — confirm the member's specific plan before routing.",
+    memberIdPrefix: 'Aetna eligibility and benefits inquiry flyer states that prefixes or suffixes are unnecessary when using the member ID number.',
   },
-  sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, AETNA_CPB0554, AETNA_CPB0648, AETNA_PRECERT_LIST_ABA, AETNA_ABA_FORM_GR69017],
+  sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, AETNA_CPB0554, AETNA_CPB0648, AETNA_PRECERT_LIST_ABA, AETNA_ABA_FORM_GR69017, FANOUT_AET_ELIG_FLYER],
 };
 
 const AETNA_TELEHEALTH_CODES = new Set(['97151', '97153', '97155', '97156', '97157']);
@@ -208,6 +234,7 @@ const cignaEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'verified',
@@ -218,8 +245,9 @@ const cignaEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'verified',
     'bhCarveOut.abaRidesOn': 'verified',
     'bhCarveOut.twoHopRequired': 'verified',
+    memberIdPrefix: 'unverified',
   },
-  verifyVia: { supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding for this payer ID.' },
+  verifyVia: { supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding for this payer ID.', memberIdPrefix: 'Cigna ID card quick guide (CIG_IDCARD) shows member ID + two-digit suffix, no alpha prefix, but gives no entry rule; confirm with Cigna 800.882.4462 or a test 270.' },
   sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, CIGNA_AUTISM_RESOURCE_GUIDE],
 };
 
@@ -277,6 +305,7 @@ const unitedhealthcareOptumEdi: EdiRouting = {
     abaRidesOn: 'unverified',
     twoHopRequired: 'unverified',
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'verified',
@@ -287,6 +316,7 @@ const unitedhealthcareOptumEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'unverified',
     'bhCarveOut.abaRidesOn': 'unverified',
     'bhCarveOut.twoHopRequired': 'unverified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding for this payer ID.',
@@ -295,6 +325,8 @@ const unitedhealthcareOptumEdi: EdiRouting = {
     'bhCarveOut.abaRidesOn': 'Same as administratorPayerId — genuinely state-dependent, not a national default.',
     'bhCarveOut.twoHopRequired':
       "Optum's own SCC describes a two-step UM/authorization workflow (assessment auth, then treatment auth) — that is distinct from whether the 270/271 ELIGIBILITY check itself requires a second EDI hop, which is not confirmed nationally.",
+    memberIdPrefix:
+      'No UHC/Optum source addresses an alpha prefix (2026 Admin Guide ID-card legend, 270/271 companion guide, pVerify list all silent). Confirm with a real card plus a pVerify run, or ask UHC Provider Services.',
   },
   sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, OPTUM_SCC],
 };
@@ -372,7 +404,9 @@ const aetnaContact: VobContact = {
     'What place-of-service settings (home/office/school/telehealth) does this plan allow for ABA, and what modifiers does it require?',
     'Is 99366 (interdisciplinary team meeting) a covered, billable benefit under this plan?',
   ],
-  sources: [AETNA_BH_PRECERT_LIST],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [AETNA_BH_PRECERT_LIST, FANOUT_AET_GLANCE],
 };
 
 const cignaContact: VobContact = {
@@ -385,13 +419,15 @@ const cignaContact: VobContact = {
     'What place-of-service settings does this plan allow for ABA, and what modifiers (beyond the confirmed telehealth-everywhere policy) does it require?',
     'Does this plan support real-time (vs. batch) 270/271 eligibility for payer ID 00004?',
   ],
-  sources: [CIGNA_EBH_ADMIN_GUIDE],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [CIGNA_EBH_ADMIN_GUIDE, FANOUT_CIG_AUTISM],
 };
 
 const unitedhealthcareOptumContact: VobContact = {
   providerServicesPhone: '1-877-614-0484 (Provider Express — Behavioral Health/ABA)',
   hours: 'Mon-Fri 7:00am-7:00pm CT',
-  ivrPath: 'Provider Express secure-portal technical support runs a separate line, 1-866-209-9320, same hours — use 877-614-0484 for BH/ABA authorization and eligibility questions, not portal login issues.',
+  ivrPath:    "Voice menu - SAY every answer; keypad entries are often not heard. Listen to the current menu and adapt if it differs. When asked what service you want, say \"ABA benefits\". When asked for your tax ID, say its nine digits one at a time. When asked for the member ID, say each character; confirm the read-back only if correct, otherwise correct it. When asked for the date of birth including the four-digit year, say the supplied date as a month name, day, and full year. When asked in which state services are provided, say the confirmed service state supplied in the call context. If it is unavailable, do not substitute the member residence or payer-guide state: say \"representative\"; if that fails, ask how the practice can complete verification and end the call instead of looping. Never invent missing identifiers. Stay on hold when being connected to a behavioral-health representative; decline the survey. Portal technical support (1-866-209-9320) is a separate line, never use it for benefits.",
   portal: { name: 'Provider Express', url: 'https://public.providerexpress.com/' },
   scriptedQuestions: [
     'Does ABA route through Optum Behavioral Health, or directly through UnitedHealthcare medical benefits for this specific plan?',
@@ -400,7 +436,9 @@ const unitedhealthcareOptumContact: VobContact = {
     'What place-of-service settings are allowed for ABA, and is telehealth permitted beyond tele-supervision/virtual family training?',
     'Is 99366 (interdisciplinary team meeting) a covered, billable benefit under this plan?',
   ],
-  sources: [OPTUM_PROVIDER_EXPRESS_CONTACT, PROVIDER_EXPRESS_SUPPORT_PAGE],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [OPTUM_PROVIDER_EXPRESS_CONTACT, PROVIDER_EXPRESS_SUPPORT_PAGE, FANOUT_OPTUM_NNM_2026],
 };
 
 /* ==================== export ==================== */
@@ -415,20 +453,20 @@ export const nationalVob: Record<string, VobExtension> = {
     // borrowing the national pattern, not the national pattern itself.
     stcMap: aetnaFamilyStc,
     vobContact: aetnaContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   cigna: {
     edi: cignaEdi,
     codeGrid: cignaCodeGrid,
     stcMap: cignaFamilyStc,
     vobContact: cignaContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'unitedhealthcare-optum': {
     edi: unitedhealthcareOptumEdi,
     codeGrid: unitedhealthcareOptumCodeGrid,
     stcMap: uhcFamilyStc,
     vobContact: unitedhealthcareOptumContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
 };

@@ -326,6 +326,59 @@ function azUhcEntry(pa: string): CodeGridEntry {
 
 /* ==================== arizona-ahcccs ==================== */
 
+/* Prefix / benefits-by-phone / individual-NPI sources (2026-10-14) */
+const FANOUT_PHONE_AETNA_ARIZONA: SourceRef = { url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/aetna-at-a-glance.pdf', accessDate: '2026-10-15', note: 'Aetna "At a glance" 9011800-01-01 (8/26), Key contacts: "Provider Contact Center ... Member eligibility and benefits ... Prior authorization 1-800-624-0756 (TTY: 711) for Aetna Medicare Advantage plans and HMO-based plans 1-888-MDAetna (1-888-632-3862) (TTY: 711) for all other plans"; "Behavioral health (provider services) 1-888-632-3862".' };
+const FANOUT_ORIENT_AZ_MCD: SourceRef = {
+  url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf',
+  accessDate: '2026-10-14',
+  note: 'Arizona AHCCCS Autism/ABA Provider Orientation, Optum with UHC Community Plan of AZ (BH4129 05/2022): "Call the number on the back of the member\'s insurance card to see if member is eligible for your services or verify on provider portal"; "Check benefit coverage... on provider portal or by calling the number on the member\'s insurance card."',
+};
+const FANOUT_OPTUM_NNM_2026: SourceRef = {
+  url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf',
+  accessDate: '2026-10-14',
+  note: 'Optum (United Behavioral Health) National Provider Network Manual, published July 1 2026, effective Sept 1 2026 (BH02330-1-26-MAN_07012026). Read via r.jina.ai using the AEM path .../NNManual.pdf/jcr:content/renditions/original (plain URL returns a download interstitial). Eligibility Inquiry p.35-36: "You can use the Provider Express secure portal to check a member\'s eligibility. You may also inquire about eligibility by calling the phone number on the member\'s ID card." Items to provide: member name, address, ID number, subscriber name and DOB - NPI not listed. No statement on individual vs group NPI for calls.',
+};
+const FANOUT_MC_IVR: SourceRef = {
+  url: 'https://www.mercycareaz.org/content/dam/mercycare/pdf/MC_IVR_Flyer.pdf',
+  accessDate: '2026-10-14',
+  note: 'Mercy Care IVR flyer MC1077 (IVR launched Sept 2018; site 403, read from Wayback capture 20260420213918): "You can: Access member benefits and eligibility information" ... "have the following information ready when you call: Billing TIN ... Billing NPI ... Member ID number" ... "Mercy Care: 602-263-3000 or toll-free, 1-800-624-3879."',
+};
+const FANOUT_AET_ELIG_FLYER: SourceRef = {
+  url: 'https://www.aetna.com/document-library/healthcare-professionals/assets/documents/eligibility.pdf',
+  accessDate: '2026-10-14',
+  note: 'Aetna Eligibility and Benefits Inquiry flyer 83.03.870.1 (2/19), still hosted on aetna.com: "When using the member ID number, prefixes or suffixes are unnecessary. For family-level searches, you only need to enter the member ID." Applies to the electronic inquiry; dated 2019.',
+};
+const FANOUT_AET_GLANCE: SourceRef = {
+  url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/aetna-at-a-glance.pdf',
+  accessDate: '2026-10-14',
+  note: 'Aetna "At a glance" how-to guide for health care professionals, 9011800-01-01 (8/26), Key contacts table: "Provider Contact Center ... Member eligibility and benefits ... 1-800-624-0756 (TTY: 711) for Aetna Medicare Advantage plans and HMO-based plans / 1-888-MDAetna (1-888-632-3862) (TTY: 711) for all other plans". Also: "Behavioral health (provider services) Refer to the member ID card."',
+};
+const FANOUT_CIG_AUTISM: SourceRef = {
+  url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf',
+  accessDate: '2026-10-14',
+  note: 'Evernorth/Cigna Autism resource guide, March 2025 (PCOMM-2025-225): "It is important to confirm a patient\'s ABA eligibility and benefits before performing an assessment. This information can be confirmed by: ... Calling the Autism Care Coordinator team at 877.279.7603". Provider Services 800.926.2273 "handles questions regarding billing, benefits, and eligibility for autism-related treatment, such as ABA."',
+};
+const FANOUT_AZ_HC_ELIG: SourceRef = {
+  url: 'https://assets.azblue.com/m/2f23756dddee042e/original/BCBS_HCM_Eligibility-Fax-Blast-2026-02.pdf',
+  accessDate: '2026-10-14',
+  note: 'BCBSAZ Health Choice notice \'Available Options for Verifying Member Eligibility\' (Feb 2026). Quote: \'If the above methods are unavailable: Blue Cross Blue Shield of Arizona Health Choice Member Services at (480) 968-6866 or (800) 322-8670 for quick eligibility verification.\'',
+};
+const FANOUT_AZCH_ELIG_PAGE: SourceRef = {
+  url: 'https://www.azcompletehealth.com/providers/resources/eligibility-verification.html',
+  accessDate: '2026-10-14',
+  note: 'Arizona Complete Health Eligibility Verification page. All Lines of Business: "Arizona Complete Health\'s telephone verification through the Provider Services Center (to be used as the last resort)." Also lists the secure provider portal.',
+};
+const FANOUT_AZ_AHCCCS_CONTACTS: SourceRef = {
+  url: 'https://www.azahcccs.gov/shared/AHCCCScontacts.html',
+  accessDate: '2026-10-14',
+  note: 'AHCCCS Contacts page (read via r.jina.ai). "Verify AHCCCS Member Eligibility & Enrollment - Visit AHCCCS Online - Phone: 602.417.7670 (toll-free: 1.800.794.6862)".',
+};
+const FANOUT_BANNER_BUFC_MANUAL: SourceRef = {
+  url: 'https://www.bannerhealth.com/bhpprovider/-/media/files/project/bhpprovider/manuals-and-directories/manuals/prov-bufc-prov-manual_eff07092026_en.pdf',
+  accessDate: '2026-10-14',
+  note: 'Banner-University Family Care Provider Manual eff. 07/09/2026 (read via r.jina.ai). "To verify a member\'s eligibility, please call: Banner - University Family Care/ACC: 800-582-8686, TTY 711". Also lists AHCCCS IVR (602) 417-7200 / (800) 331-5090.',
+};
+
 const ahcccsEdi: EdiRouting = {
   payerId: { pverify: '00027', availity: 'unverified', changeHealthcare: 'AZMCD' },
   supports270271: true,
@@ -348,6 +401,7 @@ const ahcccsEdi: EdiRouting = {
     eligibilitySpanGranularity:
       'Daily — dates use D8 (single CCYYMMDD) or RD8 (date range) via DTP*291/307/292; EB repeats up to 20 occurrences and overlapping enrollments are possible. Real-time and batch both offered (AHCCCS EDI Technical Documents page).',
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'unverified',
@@ -358,12 +412,14 @@ const ahcccsEdi: EdiRouting = {
     'medicaid271Notes.mcoSegmentLocation': 'verified',
     'medicaid271Notes.mcoCarrierCodes': 'unverified',
     'medicaid271Notes.eligibilitySpanGranularity': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': 'pVerify 00027 = "Arizona Medicaid (AHCCCS)" (Elig Y / Claim Y). Optum/Change Healthcare ID = AZMCD.',
     'payerId.availity': 'The public Availity list (2012 vintage) has no current AHCCCS row — confirm via Availity Essentials.',
     'medicaid271Notes.mcoCarrierCodes':
       'Downgraded to unverified 2026-07-23: re-fetch of the AHCCCS 270/271 CG v4.0 confirmed 7 of the 9 shipped codes present in the guide\'s worked 271 examples (010306 MERCY CARE PLAN, 010422 AZ COMPLETE HEALTH CARE, 010166 DCS/CMDP, 010115 CRS FULLY INTEGRATED, 999125 CRS PARTIAL BH, 008715 AHCCCS QMB-ONLY, 008040 AHCCCS SLMB-PART B BUY-IN), but 999998 (AHCCCS American Indian HP FFS) and 008690 (FFS Temporary) were NOT found anywhere in the fetched guide — those two are miscited. The guide also does NOT publish a full appendix mapping every plan — UHCCP/APIPA, Banner-UFC, BCBSAZ Health Choice, and Molina-AZ 6-digit codes are NOT enumerated there either (the segment FORMAT is confirmed; the specific per-plan codes are not). Confirm 999998/008690 against a current AHCCCS carrier-code source before quoting.',
+    memberIdPrefix: 'AHCCCS Fee-For-Service Provider Billing Manual Ch. 2 (member ID format); a 2018 AHCCCS deck says \'9 Digit ID\' but IDs are commonly printed with a leading letter',
   },
   sources: [PVERIFY_PAYER_LIST, OPTUM_RTE_LIST, AHCCCS_COMPANION_GUIDE, AHCCCS_EDI_TECH_DOCS, AVAILITY_PAYER_LIST],
 };
@@ -375,6 +431,7 @@ const mercyCareEdi: EdiRouting = {
   supports270271: true,
   supportsRealtime: 'unverified',
   bhCarveOut: { administrator: 'none (integrated — Aetna Medicaid Administrators)', administratorPayerId: '', abaRidesOn: 'medical', twoHopRequired: false },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'inferred',
@@ -383,11 +440,13 @@ const mercyCareEdi: EdiRouting = {
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'verified',
     'bhCarveOut.abaRidesOn': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': 'pVerify 00841 = "Mercy Care Arizona" (Elig Y). Related: 00842 "Mercy Care Plan (AHCCCS)", 06053 "Mercy Care RBHA".',
     'payerId.availity': 'Availity 86052 = "Mercy Care" (2012 list, but 86052 remains the current claims ID); Optum RTE = AEMED "Schaller Anderson Mercy Care".',
     'bhCarveOut.abaRidesOn': 'BH integrated since 10/1/2018 (ACC) / 10/1/2019 (DDD); ABA rides medical on 86052 — no two-hop.',
+    memberIdPrefix: 'No Mercy Care statement found; manual chapters 403-blocked; confirm in the Mercy Care Provider Manual.',
   },
   sources: [PVERIFY_PAYER_LIST, MERCY_CARE_CLAIMS, AVAILITY_PAYER_LIST, OPTUM_RTE_LIST],
 };
@@ -399,6 +458,7 @@ const uhcCommunityAzEdi: EdiRouting = {
   supports270271: true,
   supportsRealtime: true,
   bhCarveOut: { administrator: 'Optum Behavioral Health (network administrator; integrated)', administratorPayerId: '03432', abaRidesOn: 'medical', twoHopRequired: false },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'verified',
@@ -408,10 +468,12 @@ const uhcCommunityAzEdi: EdiRouting = {
     'bhCarveOut.administrator': 'verified',
     'bhCarveOut.administratorPayerId': 'verified',
     'bhCarveOut.abaRidesOn': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.changeHealthcare': 'Optum RTE = 03432 "Arizona Physicians IPA - Community and State" (Loop 2100B must contain the NPI); Optum AZ ABA orientation confirms claims Payer ID 03432. pVerify 00205 = "Arizona Physician\'s IPA - UHC Community Plan"; Availity 3432/F03432 "ARIZONA PHYSICIANS IPA".',
     'bhCarveOut.abaRidesOn': 'Optum administers the BH network but claims route to 03432 (integrated) — no two-hop.',
+    memberIdPrefix: 'No UHC/Optum source addresses an alpha prefix (2026 Admin Guide ID-card legend, 270/271 companion guide, pVerify list all silent). Confirm with a real card plus a pVerify run, or ask UHC Provider Services.',
   },
   sources: [OPTUM_RTE_LIST, UHC_AZ_ORIENT, PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST],
 };
@@ -423,6 +485,7 @@ const azchEdi: EdiRouting = {
   supports270271: true,
   supportsRealtime: true,
   bhCarveOut: { administrator: 'none (integrated — Centene)', administratorPayerId: '', abaRidesOn: 'medical', twoHopRequired: false },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'unverified',
@@ -431,10 +494,12 @@ const azchEdi: EdiRouting = {
     supportsRealtime: 'verified',
     'bhCarveOut.administrator': 'verified',
     'bhCarveOut.abaRidesOn': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.changeHealthcare': 'AzCH\'s own electronic-transactions page: Payer ID 68069 (Medicaid, Medicare and Exchange) across all clearinghouses. pVerify 01348 = "ARIZONA COMPLETE HEALTH" (predecessors 00356 Cenpatico-AZ, 00353 Bridgeway).',
     'payerId.availity': 'AzCH not present in the 2012 Availity list (only predecessors Bridgeway 68054 / Cenpatico 68048) — confirm via Availity Essentials; the plan\'s own page routes to 68069 regardless of clearinghouse.',
+    memberIdPrefix: 'Sample member ID card in the AZ Complete Health provider manual, or ask AZ Complete Health Provider Services whether any alpha prefix is keyed; no source states it',
   },
   sources: [AZCH_EDI, PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST],
 };
@@ -446,6 +511,7 @@ const bannerEdi: EdiRouting = {
   supports270271: true,
   supportsRealtime: true,
   bhCarveOut: { administrator: 'none (integrated — Banner / UA Health Plans)', administratorPayerId: '', abaRidesOn: 'medical', twoHopRequired: false },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'unverified',
@@ -454,10 +520,12 @@ const bannerEdi: EdiRouting = {
     supportsRealtime: 'verified',
     'bhCarveOut.administrator': 'verified',
     'bhCarveOut.abaRidesOn': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.changeHealthcare': 'Optum RTE 66901 = "Banner University Family Care" is the ELIGIBILITY (270/271) ID (verified). The CLAIMS payer ID appears as 09830 in clearinghouse directories but Banner\'s own submissions page could not be fetched (header-overflow) — treat claims 09830 as unverified-from-primary; confirm via bannerhealth.com/bhpprovider/resources/claims/submissions.',
     'payerId.availity': 'The 2012 Availity list shows only legacy "UNIVERSITY FAMILY CARE - MARICOPA" (9908) / "BANNER HEALTH PLAN" (SX145) — confirm current B-UFC/ACC ID via Availity Essentials.',
+    memberIdPrefix: 'Banner B-UFC provider manual member ID card section / first real check',
   },
   sources: [OPTUM_RTE_LIST, PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST],
 };
@@ -469,6 +537,7 @@ const healthChoiceEdi: EdiRouting = {
   supports270271: true,
   supportsRealtime: 'unverified',
   bhCarveOut: { administrator: 'none (integrated — BCBSAZ)', administratorPayerId: '', abaRidesOn: 'medical', twoHopRequired: false },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'verified',
@@ -477,11 +546,13 @@ const healthChoiceEdi: EdiRouting = {
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'verified',
     'bhCarveOut.abaRidesOn': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': 'pVerify 00233 = "Health Choice Arizona" (Elig Y / Claim Y); 06042 = "Health Choice Pathway". Now branded "Blue Cross Blue Shield of Arizona Health Choice".',
     'payerId.availity': 'Availity 62179 = "HEALTHCHOICE OF ARIZONA"; azblue.com Medicaid EDI confirms Payer ID 62179 via Availity. Optum RTE = HECHA.',
     supportsRealtime: 'azblue.com confirms 270/271 support; confirm real-time vs. batch via the clearinghouse.',
+    memberIdPrefix: 'BCBSAZ Health Choice provider manual / ID card',
   },
   sources: [AZBLUE_MEDICAID_EDI, PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, OPTUM_RTE_LIST],
 };
@@ -493,6 +564,7 @@ const molinaAzEdi: EdiRouting = {
   supports270271: true,
   supportsRealtime: 'unverified',
   bhCarveOut: { administrator: 'none (integrated — Molina Complete Care of AZ)', administratorPayerId: '', abaRidesOn: 'medical', twoHopRequired: false },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'unverified',
@@ -501,11 +573,13 @@ const molinaAzEdi: EdiRouting = {
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'verified',
     'bhCarveOut.abaRidesOn': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': 'pVerify 00847 = "MOLINA COMPLETE CARE OF ARIZONA MEDICAID" (Elig Y).',
     'payerId.availity': 'No Molina-AZ row in the 2012 Availity list (Molina entered AZ later). Molina\'s AZ EDI page contracts The SSI Group clearinghouse and references Availity but does not print a payer ID — a candidate "A4353" surfaced only in a third-party doc, NOT a Molina primary source → unverified. Confirm via Molina AZ "Clearinghouse Information" page / Availity Essentials.',
     'payerId.changeHealthcare': 'No Molina-AZ entry in the Optum RTE list — confirm via Molina AZ EDI.',
+    memberIdPrefix: 'Sample member ID card in the Molina AZ provider manual, or ask Molina AZ Provider Services whether any alpha prefix is keyed; no source states it',
   },
   sources: [PVERIFY_PAYER_LIST, src('https://www.molinahealthcare.com/providers/az/medicaid/resource/edi.aspx', 'Molina Healthcare of Arizona EDI page — supports 837/835/278/270-271/276-277; clearinghouse The SSI Group; payer ID not printed (directs to Clearinghouse Information).'), AVAILITY_PAYER_LIST],
 };
@@ -523,6 +597,7 @@ const dddEdi: EdiRouting = {
     mcoCarrierCodes: {},
     eligibilitySpanGranularity: 'Daily (same AHCCCS 271 mechanics as arizona-ahcccs).',
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'unverified',
     supports270271: 'verified',
@@ -532,11 +607,13 @@ const dddEdi: EdiRouting = {
     'bhCarveOut.twoHopRequired': 'verified',
     'medicaid271Notes.mcoSegmentLocation': 'verified',
     'medicaid271Notes.mcoCarrierCodes': 'unverified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': 'DES/DDD has NO standalone EDI payer ID — ABA claims/eligibility ride the member\'s DDD Health Plan (Mercy Care DD → 86052 or UHCCP DD → 03432 per DDD Health Plan assignment). Verify which DDD Health Plan the member chose from their card.',
     'medicaid271Notes.mcoCarrierCodes':
       'The AHCCCS companion guide does not publish DDD-plan 6-digit carrier codes or explicit ABA claim-routing rules; the DDD Health Plan arrangement (Mercy Care DD / UHCCP DD) is established by the DES DDD Health Plans documents, not the 270/271 CG.',
+    memberIdPrefix: 'DDD Provider Manual Ch. 25 Enrollment Verification (des.az.gov, blocked from here)',
   },
   sources: [DES_DDD_HEALTH_PLANS, AHCCCS_COMPANION_GUIDE, MERCY_CARE_CLAIMS, UHC_AZ_ORIENT],
 };
@@ -548,6 +625,7 @@ const aetnaAzEdi: EdiRouting = {
   supports270271: true,
   supportsRealtime: 'unverified',
   bhCarveOut: { administrator: 'Aetna Behavioral Health (in-house)', administratorPayerId: '60054', abaRidesOn: 'medical', twoHopRequired: false },
+  memberIdPrefix: 'not-used',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'unverified',
@@ -557,12 +635,14 @@ const aetnaAzEdi: EdiRouting = {
     'bhCarveOut.administrator': 'inferred',
     'bhCarveOut.administratorPayerId': 'inferred',
     'bhCarveOut.abaRidesOn': 'inferred',
+    memberIdPrefix: 'verified',
   },
   verifyVia: {
     'payerId.pverify': 'pVerify 00001 = "Aetna" (Elig Y / Claim Y). Note: "we have Aetna" in AZ often means a Mercy Care (Medicaid) member — see mercy-care-arizona.',
     'payerId.changeHealthcare': '60054 is Aetna\'s standard national commercial/EDI ID (Aetna administers ABA in-house on the same ID), but it was not in the required pVerify/Availity/Optum primary PDFs this pass — confirm via Aetna EDI / Availity Essentials.',
+    memberIdPrefix: 'Aetna\'s eligibility and benefits inquiry flyer states that prefixes or suffixes are unnecessary when using the member ID number.',
   },
-  sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST],
+  sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, FANOUT_AET_ELIG_FLYER],
 };
 
 /* ==================== cigna-arizona (commercial) ==================== */
@@ -572,6 +652,7 @@ const cignaAzEdi: EdiRouting = {
   supports270271: true,
   supportsRealtime: 'unverified',
   bhCarveOut: { administrator: 'Evernorth Behavioral Health', administratorPayerId: '62308', abaRidesOn: 'bh', twoHopRequired: false },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'unverified',
@@ -582,10 +663,12 @@ const cignaAzEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'verified',
     'bhCarveOut.abaRidesOn': 'verified',
     'bhCarveOut.twoHopRequired': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': 'pVerify 00004 = "Cigna"; 00510 = "Cigna Behavioral". No "Evernorth" row in pVerify.',
     'payerId.availity': 'No clean Cigna/Evernorth row in the 2012 Availity list — confirm via Availity Essentials.',
+    memberIdPrefix: 'Cigna ID card quick guide (CIG_IDCARD) shows member ID + two-digit suffix, no alpha prefix, but gives no entry rule; confirm with Cigna 800.882.4462 or a test 270.',
   },
   sources: [PVERIFY_PAYER_LIST, CIGNA_AUTISM_GUIDE, AVAILITY_PAYER_LIST],
 };
@@ -597,6 +680,7 @@ const uhcAzEdi: EdiRouting = {
   supports270271: true,
   supportsRealtime: 'unverified',
   bhCarveOut: { administrator: 'Optum Behavioral Health', administratorPayerId: '87726', abaRidesOn: 'medical', twoHopRequired: false },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'unverified',
@@ -606,11 +690,13 @@ const uhcAzEdi: EdiRouting = {
     'bhCarveOut.administrator': 'verified',
     'bhCarveOut.administratorPayerId': 'inferred',
     'bhCarveOut.abaRidesOn': 'inferred',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': 'pVerify 00192 = "United Healthcare"; UHG007 = "United Healthcare - Optum Behavioral Solutions". Note: "we have UnitedHealthcare" in AZ often means the UHC Community Plan (Medicaid/DDD) — see unitedhealthcare-community-plan-arizona.',
     'payerId.changeHealthcare': '87726 is UHC\'s dominant national commercial ID; the AZ commercial ABA/behavioral ERA IDs are not separately published — confirm via uhcprovider.com EDI / Provider Express.',
     'bhCarveOut.administratorPayerId': 'Optum administers commercial ABA authorizations; claims typically route to the UHC medical ID 87726 (no two-hop on claims).',
+    memberIdPrefix: 'No UHC/Optum source addresses an alpha prefix (2026 Admin Guide ID-card legend, 270/271 companion guide, pVerify list all silent). Confirm with a real card plus a pVerify run, or ask UHC Provider Services.',
   },
   sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST],
 };
@@ -727,7 +813,9 @@ const ahcccsContact: VobContact = {
     'What’s the current rate for 97156 and 97157 — are they still paid “By Report”?',
     'Are 0362T and 0373T covered and separately reimbursed for this member, since neither is on the ABA fee schedule?',
   ],
-  sources: [AHCCCS_CONTACTS_PAGE],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [AHCCCS_CONTACTS_PAGE, FANOUT_AZ_AHCCCS_CONTACTS],
 };
 
 const mercyCareContact: VobContact = {
@@ -738,7 +826,9 @@ const mercyCareContact: VobContact = {
     'What POS codes (home, clinic, school, community) does Mercy Care actually accept on ABA claims?',
     'What’s the current authorized rate for 97156/97157, since they’re “By Report” at the state level?',
   ],
-  sources: [MERCY_CARE_ABA],
+  benefitsByPhone: true,
+  requiresIndividualNpi: false,
+  sources: [MERCY_CARE_ABA, FANOUT_MC_IVR],
 };
 
 const uhcCommunityAzContact: VobContact = {
@@ -753,7 +843,9 @@ const uhcCommunityAzContact: VobContact = {
     'What POS codes are accepted for home vs. clinic ABA sessions?',
     'What’s the current rate for 97156/97157, since AHCCCS lists them “By Report”?',
   ],
-  sources: [UHC_AZ_ORIENT],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [UHC_AZ_ORIENT, FANOUT_ORIENT_AZ_MCD],
 };
 
 const azchContact: VobContact = {
@@ -764,7 +856,9 @@ const azchContact: VobContact = {
     'Is telehealth allowed for ABA codes, and does it need a particular modifier?',
     'What POS codes (home, school, community) do you accept for ABA billing?',
   ],
-  sources: [AZCH_CONTACT_US],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [AZCH_CONTACT_US, FANOUT_AZCH_ELIG_PAGE],
 };
 
 const bannerContact: VobContact = {
@@ -777,7 +871,9 @@ const bannerContact: VobContact = {
     'Is there a unit or hour cap per day or week for ABA treatment codes?',
     'Is telehealth allowed for ABA, and does it require a specific POS or modifier?',
   ],
-  sources: [BANNER_PROVIDER_CONTACT],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [BANNER_PROVIDER_CONTACT, FANOUT_BANNER_BUFC_MANUAL],
 };
 
 const healthChoiceContact: VobContact = {
@@ -791,7 +887,9 @@ const healthChoiceContact: VobContact = {
     'Is telehealth allowed for ABA codes, and what modifier is required?',
     'What POS codes do you accept for home vs. clinic ABA visits?',
   ],
-  sources: [AZBLUE_PA_GUIDELINES_FETCHED, HEALTHCHOICEAZ_PORTAL_CONTACT],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [AZBLUE_PA_GUIDELINES_FETCHED, HEALTHCHOICEAZ_PORTAL_CONTACT, FANOUT_AZ_HC_ELIG],
 };
 
 const molinaAzContact: VobContact = {
@@ -804,6 +902,8 @@ const molinaAzContact: VobContact = {
     'Is telehealth allowed for ABA codes, and what modifier is required?',
     'What POS codes do you accept for ABA billing?',
   ],
+  benefitsByPhone: 'unverified',
+  requiresIndividualNpi: 'unverified',
   sources: [MOLINA_AZ_PA_GUIDE_CONTACT],
 };
 
@@ -813,10 +913,13 @@ const dddContact: VobContact = {
     'Which DDD Health Plan is the member enrolled in — Mercy Care DD or UHCCP DD?',
     ...AHCCCS_DDD_GRID_QUESTIONS,
   ],
+  benefitsByPhone: 'unverified',
+  requiresIndividualNpi: 'unverified',
   sources: [DES_DDD_HEALTH_PLANS],
 };
 
 const aetnaAzContact: VobContact = {
+  providerServicesPhone: '1-888-632-3862 (TTY: 711) — Aetna Provider Contact Center (member eligibility and benefits, prior authorization; also behavioral health provider services); HMO-based plans: 1-800-624-0756',
   portal: { name: 'Availity (Aetna secure provider portal)', url: 'https://www.availity.com' },
   ivrPath: 'Precertification is verified via the number on the member’s ID card or submitted through the Availity provider portal — no single AZ-commercial ABA precertification line is published by Aetna.',
   scriptedQuestions: [
@@ -825,7 +928,9 @@ const aetnaAzContact: VobContact = {
     'Is there a unit or hour cap per day or week for treatment codes, and over what period?',
     'What credential-tier modifiers does Aetna require on ABA claims?',
   ],
-  sources: [AETNA_PRECERT_PAGE],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [AETNA_PRECERT_PAGE, FANOUT_AET_GLANCE, FANOUT_PHONE_AETNA_ARIZONA],
 };
 
 const cignaAzContact: VobContact = {
@@ -839,7 +944,9 @@ const cignaAzContact: VobContact = {
     'Is there a unit or hour cap per day or week, and what capPeriod applies?',
     'What credential-tier modifiers does Evernorth require on ABA claims?',
   ],
-  sources: [CIGNA_AUTISM_GUIDE],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [CIGNA_AUTISM_GUIDE, FANOUT_CIG_AUTISM],
 };
 
 const uhcAzContact: VobContact = {
@@ -853,20 +960,22 @@ const uhcAzContact: VobContact = {
     'Is there a unit or hour cap per day or week for treatment codes, and over what period?',
     'What credential-tier modifiers does Optum require on ABA claims?',
   ],
-  sources: [UHC_AZ_ORIENT],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [UHC_AZ_ORIENT, FANOUT_OPTUM_NNM_2026],
 };
 
 /* ==================== export ==================== */
 
 export const arizonaVob: Record<string, VobExtension> = {
-  'arizona-ahcccs': { edi: ahcccsEdi, codeGrid: ahcccsGrid(), stcMap: ahcccsStc, rates: AZ_AHCCCS_RATES, vobContact: ahcccsContact, lastUpdated: ACCESS_DATE },
+  'arizona-ahcccs': { edi: ahcccsEdi, codeGrid: ahcccsGrid(), stcMap: ahcccsStc, rates: AZ_AHCCCS_RATES, vobContact: ahcccsContact, lastUpdated: '2026-10-15' },
   'mercy-care-arizona': {
     edi: mercyCareEdi,
     codeGrid: mercyUhcGrid('6-month authorization periods; 0362T/0373T are required billing codes.', MERCY_CARE_ABA),
     stcMap: mercyCareStc,
     rates: azBenchmarkRates('Mercy Care'),
     vobContact: mercyCareContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'unitedhealthcare-community-plan-arizona': {
     edi: uhcCommunityAzEdi,
@@ -874,7 +983,7 @@ export const arizonaVob: Record<string, VobExtension> = {
     stcMap: uhcCommunityAzStc,
     rates: azBenchmarkRates('UnitedHealthcare Community Plan of Arizona'),
     vobContact: uhcCommunityAzContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'arizona-complete-health': {
     edi: azchEdi,
@@ -897,7 +1006,7 @@ export const arizonaVob: Record<string, VobExtension> = {
     })(),
     rates: azBenchmarkRates('Arizona Complete Health'),
     vobContact: azchContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'banner-university-family-care': {
     edi: bannerEdi,
@@ -905,7 +1014,7 @@ export const arizonaVob: Record<string, VobExtension> = {
     stcMap: bannerStc,
     rates: azBenchmarkRates('Banner-University Family Care'),
     vobContact: bannerContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'health-choice-arizona': {
     edi: healthChoiceEdi,
@@ -913,7 +1022,7 @@ export const arizonaVob: Record<string, VobExtension> = {
     stcMap: healthChoiceStc,
     rates: azBenchmarkRates('Blue Cross Blue Shield of Arizona Health Choice'),
     vobContact: healthChoiceContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'molina-healthcare-arizona': {
     edi: molinaAzEdi,
@@ -921,7 +1030,7 @@ export const arizonaVob: Record<string, VobExtension> = {
     stcMap: molinaAzStc,
     rates: azBenchmarkRates('Molina Healthcare of Arizona'),
     vobContact: molinaAzContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'arizona-ddd': {
     edi: dddEdi,
@@ -944,27 +1053,27 @@ export const arizonaVob: Record<string, VobExtension> = {
     })(),
     rates: azBenchmarkRates('the member\'s DDD Health Plan (Mercy Care DD / UHCCP DD)'),
     vobContact: dddContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'aetna-arizona': {
     edi: aetnaAzEdi,
     codeGrid: azCommercialGrid(azAetnaEntry, 'Required — precertification (assessment and treatment): Aetna\'s behavioral health precertification list (eff. 8/1/2024) names 97151-97158, 0362T and 0373T, and form GR-69017-4 (7-26) supplies the clinical information; ASD only (CPB 0648; CPB 0554 makes non-ASD indications experimental).'),
     stcMap: inheritFamilyStc(aetnaFamilyStc, 'Inherited from the Aetna family default (docs/vob-build.md Layer 2) — no Arizona-specific 270/271 STC document found.'),
     vobContact: aetnaAzContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'cigna-arizona': {
     edi: cignaAzEdi,
     codeGrid: azCommercialGrid(azCignaEntry, 'Required — assessment + treatment plan with the ABA PA form (EN0499)', 'Not required (per EN0499)', ['97151', '97152', '0362T']),
     stcMap: inheritFamilyStc(cignaFamilyStc, 'Inherited from the Cigna/Evernorth family default (docs/vob-build.md Layer 2) — national companion guide, no Arizona-specific override found.'),
     vobContact: cignaAzContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'unitedhealthcare-arizona': {
     edi: uhcAzEdi,
     codeGrid: azCommercialGrid(azUhcEntry, 'Required — Optum two-step (assessment auth, then treatment auth); reviews every 4–6 months'),
     stcMap: inheritFamilyStc(uhcFamilyStc, 'Inherited from the UnitedHealthcare/Optum family default (docs/vob-build.md Layer 2) — national companion guide, no Arizona-specific override found.'),
     vobContact: uhcAzContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
 };

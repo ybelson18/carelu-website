@@ -407,6 +407,17 @@ function uhcCommercialEntry(unitCap: string, modifiers: string[]): CodeGridEntry
 
 /* ==================== indiana-medicaid ==================== */
 
+/* Prefix / benefits-by-phone / individual-NPI sources (2026-10-14) */
+const FANOUT_PHONE_INDIANA_MEDICAID: SourceRef = { url: 'https://www.in.gov/medicaid/providers/files/modules/member-eligibility-and-benefit-coverage.pdf', accessDate: '2026-10-15', note: 'IHCP Member Eligibility and Benefit Coverage module (published Oct. 13, 2026): "Virtual assistant (GABBY) at 800-457-4584, option 2. (Customer Assistance representatives do not provide eligibility verification information.)"' };
+const FANOUT_MAN_IN_MCD: SourceRef = { url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/Indiana_Provider_Manual.pdf', accessDate: '2026-10-14', note: 'Indiana Hoosier Care Connect Provider Manual, UHC Community Plan of Indiana (June 2025; HCC product only). Provider Services 877-610-9785. "Determine eligibility in the following ways: Provider Portal... UnitedHealthcare Provider Services is available from 8 a.m. - 6 p.m. Eastern Time..."' };
+const FANOUT_OPTUM_NNM_2026: SourceRef = { url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf', accessDate: '2026-10-14', note: 'Optum (United Behavioral Health) National Provider Network Manual, published July 1 2026, effective Sept 1 2026 (BH02330-1-26-MAN_07012026). Read via r.jina.ai using the AEM path .../NNManual.pdf/jcr:content/renditions/original (plain URL returns a download interstitial). Eligibility Inquiry p.35-36: "You can use the Provider Express secure portal to check a member\'s eligibility. You may also inquire about eligibility by calling the phone number on the member\'s ID card." Items to provide: member name, address, ID number, subscriber name and DOB - NPI not listed. No statement on individual vs group NPI for calls.' };
+const FANOUT_AET_ELIG_FLYER: SourceRef = { url: 'https://www.aetna.com/document-library/healthcare-professionals/assets/documents/eligibility.pdf', accessDate: '2026-10-14', note: 'Aetna Eligibility and Benefits Inquiry flyer 83.03.870.1 (2/19), still hosted on aetna.com: "When using the member ID number, prefixes or suffixes are unnecessary. For family-level searches, you only need to enter the member ID." Applies to the electronic inquiry; dated 2019.' };
+const FANOUT_AET_GLANCE: SourceRef = { url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/aetna-at-a-glance.pdf', accessDate: '2026-10-14', note: 'Aetna "At a glance" how-to guide for health care professionals, 9011800-01-01 (8/26), Key contacts table: "Provider Contact Center ... Member eligibility and benefits ... 1-800-624-0756 (TTY: 711) for Aetna Medicare Advantage plans and HMO-based plans / 1-888-MDAetna (1-888-632-3862) (TTY: 711) for all other plans". Also: "Behavioral health (provider services) Refer to the member ID card."' };
+const FANOUT_CIG_AUTISM: SourceRef = { url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf', accessDate: '2026-10-14', note: 'Evernorth/Cigna Autism resource guide, March 2025 (PCOMM-2025-225): "It is important to confirm a patient\'s ABA eligibility and benefits before performing an assessment. This information can be confirmed by: ... Calling the Autism Care Coordinator team at 877.279.7603". Provider Services 800.926.2273 "handles questions regarding billing, benefits, and eligibility for autism-related treatment, such as ABA."' };
+const FANOUT_ANTHEM_IN_PM: SourceRef = { url: 'https://providers.anthem.com/docs/gpp/IN_CAID_ProviderManual.pdf', accessDate: '2026-10-14', note: 'Anthem Indiana Medicaid provider manual (PDF published Apr 2025). Quote (PathWays section): \'Please call Indiana PathWays for Aging Provider Services at 833-569-4739 for precertification/notification, health plan network information, individual eligibility, claims information\'. Also claims: \'Claims forms should include the member\'s ID number and a three-letter alpha prefix.\' (YRH, YRK).' };
+const FANOUT_CS_IN_MANUAL: SourceRef = { url: 'https://caresource.com/documents/in-hip-hhw-health-partner-manual', accessDate: '2026-10-14', note: 'CareSource Indiana Medicaid Provider Manual (served 4/2025). "We also provide telephone based self-service applications that allow you to verify member eligibility. Provider Services 1-844-607-2831"' };
+const FANOUT_IN_ELIG_MODULE: SourceRef = { url: 'https://www.in.gov/medicaid/providers/files/modules/member-eligibility-and-benefit-coverage.pdf', accessDate: '2026-10-14', note: 'IHCP Provider Reference Module \'Member Eligibility and Benefit Coverage\', v8.6 published Oct. 13, 2026. EVS options include "Virtual assistant (GABBY) at 800-457-4584, option 2. (Customer Assistance representatives do not provide eligibility verification information.)" ID: "Each IHCP member is issued a 12-digit identification number that is referred to as the Member ID."' };
+
 const indianaMedicaidEdi: EdiRouting = {
   payerId: { pverify: '00116', availity: 'IHCP', changeHealthcare: 'unverified' },
   supports270271: true,
@@ -424,6 +435,7 @@ const indianaMedicaidEdi: EdiRouting = {
     eligibilitySpanGranularity:
       'Date-range (DTP02=RD8 format, CCYYMMDD-CCYYMMDD start/end) rather than a single-day snapshot — the 271 reports a Managed Care Eligibility Date span, not a monthly or daily flag.',
   },
+  memberIdPrefix: 'not-used',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'inferred',
@@ -434,6 +446,7 @@ const indianaMedicaidEdi: EdiRouting = {
     'medicaid271Notes.mcoSegmentLocation': 'verified',
     'medicaid271Notes.mcoCarrierCodes': 'verified',
     'medicaid271Notes.eligibilitySpanGranularity': 'verified',
+    memberIdPrefix: 'verified',
   },
   verifyVia: {
     'payerId.availity': 'Same 2012-vintage Availity list staleness finding as every other Indiana guide — the value "IHCP" is sourced from the Availity 837 payer list (footer "As of 08/08/2012"); downgraded from \'verified\' to \'inferred\' pending a current Availity export, consistent with the file rule and the sibling guides.',
@@ -442,8 +455,9 @@ const indianaMedicaidEdi: EdiRouting = {
       'No IHCP source states an ABA-specific BH carve-out exists or doesn\'t; inferred "none" from every reviewed MCE guide describing ABA as billed directly under IHCP/MCE medical claims, not routed to a named BH administrator (contrast with unitedhealthcare-community-plan-indiana below, which DOES carve ABA to Optum). Confirm with FSSA/Gainwell EDI helpdesk if automating.',
     'medicaid271Notes.mcoCarrierCodes':
       'The companion guide identifies MCEs by free-text name (EB05) plus an entity identifier (NM109), not a fixed numeric carrier-code table — this field ships empty by design, not as an unretrieved lookup. If a numeric crosswalk exists elsewhere (e.g., a Gainwell trading-partner spec), request it via INXIXTradingPartner@gainwelltechnologies.com.',
+    memberIdPrefix: 'IHCP eligibility module: each member has a 12-digit Member ID; no alpha prefix is used.',
   },
-  sources: [IHCP_COMPANION_GUIDE, PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST],
+  sources: [IHCP_COMPANION_GUIDE, PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, FANOUT_IN_ELIG_MODULE],
 };
 
 const indianaMedicaidCodeGrid: Record<string, CodeGridEntry> = {
@@ -461,8 +475,16 @@ const indianaMedicaidCodeGrid: Record<string, CodeGridEntry> = {
 
 /* ==================== anthem-indiana-medicaid ==================== */
 
+const ANTHEM_IN_BCBS_CHECK: SourceRef = {
+  url: 'https://pverify.com/payer-list/',
+  accessDate: '2026-10-13',
+  note: 'pVerify payer 00034 "BCBS of Indiana": Anthem Indiana Medicaid (Hoosier Healthwise / HIP) members verify when the eligibility check runs under this payer with the 3-letter card prefix in front of the member ID, and fail when run as Anthem (00709). Confirmed on a completed eligibility check, 2026-10-10.',
+};
+
 const anthemInMedicaidEdi: EdiRouting = {
   payerId: { pverify: '00709', availity: 'ANTHEM - IN', changeHealthcare: 'unverified' },
+  memberIdPrefix: 'required-from-card',
+  eligibilityPayer: { name: 'BCBS of Indiana', pverify: '00034' },
   supports270271: 'unverified',
   supportsRealtime: 'unverified',
   bhCarveOut: {
@@ -472,21 +494,25 @@ const anthemInMedicaidEdi: EdiRouting = {
     twoHopRequired: false,
   },
   fieldStatus: {
-    'payerId.pverify': 'verified',
+    'payerId.pverify': 'unverified',
     'payerId.availity': 'inferred',
     'payerId.changeHealthcare': 'unverified',
+    memberIdPrefix: 'verified',
+    'eligibilityPayer.pverify': 'verified',
     supports270271: 'unverified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'inferred',
   },
   verifyVia: {
     'payerId.pverify':
-      'pVerify\'s own table flags "00709 ANTHEM BCBS INDIANA" as Eligibility=No / Claim=No — the ID exists in the directory but pVerify does not currently support automated eligibility or claim status on it. Confirm current support status directly with pVerify before automating.',
+      'pVerify\'s own table flags "00709 ANTHEM BCBS INDIANA" as Eligibility=No / Claim=No (inactive) — the plan\'s own row, but no eligibility check can run on it. Eligibility runs under eligibilityPayer (BCBS of Indiana) instead.',
+    memberIdPrefix: "The card's 3-letter alpha prefix goes in front of the member ID (e.g. YRH + the digits) — checks without it fail, checks with it verify (cited in sources).",
+    'eligibilityPayer.pverify': 'pVerify 00034 "BCBS of Indiana" — a completed eligibility check ran under 00034 with the prefixed member ID (cited in sources).',
     'payerId.availity': 'Same 2012-vintage Availity list staleness finding as every ID below — confirm against a current Availity export.',
     supports270271: 'Not stated directly for this specific MCE entry in either source; confirm via Availity onboarding.',
     'bhCarveOut.administrator': 'No Anthem Indiana Medicaid document reviewed states or disclaims a BH carve-out for ABA specifically — inferred "none" from the UM guideline describing direct PA/claims handling.',
   },
-  sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, ANTHEM_IN_MEDICAID_UM_GUIDELINE],
+  sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, ANTHEM_IN_MEDICAID_UM_GUIDELINE, ANTHEM_IN_BCBS_CHECK],
 };
 
 const anthemInMedicaidCodeGrid: Record<string, CodeGridEntry> = Object.fromEntries(
@@ -508,6 +534,7 @@ const mhsIndianaEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'unverified',
@@ -515,12 +542,14 @@ const mhsIndianaEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'inferred',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.availity': 'No MHS/Managed Health Services Indiana entry found in the fetched Availity 837 payer list — confirm directly with Availity onboarding.',
     'payerId.changeHealthcare': 'Optum/Change Healthcare payer finder — not located this pass.',
     supportsRealtime: 'Confirm real-time vs. batch via pVerify onboarding for this payer ID.',
     'bhCarveOut.administrator': 'No MHS document reviewed states or disclaims a BH carve-out for ABA specifically — inferred "none" from the OTR form describing direct PA/claims handling.',
+    memberIdPrefix: 'Sample member ID card in the MHS Indiana provider manual, or ask MHS Indiana Provider Services whether any alpha prefix is keyed; no source states it',
   },
   sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, MHS_OTR_FORM],
 };
@@ -544,6 +573,7 @@ const caresourceIndianaEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'inferred',
@@ -551,12 +581,14 @@ const caresourceIndianaEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'inferred',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.availity': 'Same 2012-vintage Availity list staleness finding as every ID above — confirm against a current Availity export. (Availity also lists an "F37311" institutional variant of this same ID.)',
     'payerId.changeHealthcare': 'Optum/Change Healthcare payer finder — not located this pass.',
     supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding for this payer ID.',
     'bhCarveOut.administrator': 'CareSource\'s own prior-auth page describes direct PA/claims handling with no named BH administrator — inferred "none".',
+    memberIdPrefix: 'Sample member ID card in the CareSource IN provider manual, or ask CareSource IN Provider Services whether any alpha prefix is keyed; no source states it',
   },
   sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, CARESOURCE_IN_PA_PAGE],
 };
@@ -584,6 +616,7 @@ const mdwiseIndianaEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'unverified',
@@ -591,12 +624,14 @@ const mdwiseIndianaEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'inferred',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify':
       'HISTORICAL ONLY — MDwise ended as an Indiana Medicaid MCE effective 1/1/2026 (FSSA press release); these IDs should NOT be used to route a live eligibility check. Route current requests to anthem-indiana-medicaid, caresource-indiana, or mhs-indiana instead, per the member\'s reassigned plan.',
     'payerId.availity': 'No MDwise entry found in the fetched Availity 837 payer list; moot given the MCE exit.',
     supportsRealtime: 'Moot given the MCE exit — not pursued further this pass.',
+    memberIdPrefix: 'Sample member ID card in the MDwise (historical) provider manual, or ask MDwise (historical) Provider Services whether any alpha prefix is keyed; no source states it',
   },
   sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, MDWISE_BH_REFERENCE_GUIDE, FSSA_MDWISE_EXIT],
 };
@@ -623,6 +658,7 @@ const uhcCommunityPlanIndianaEdi: EdiRouting = {
     abaRidesOn: 'bh',
     twoHopRequired: true,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'unverified',
     'payerId.availity': 'unverified',
@@ -633,6 +669,7 @@ const uhcCommunityPlanIndianaEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'unverified',
     'bhCarveOut.abaRidesOn': 'inferred',
     'bhCarveOut.twoHopRequired': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': 'Indiana-specific UHC Community Plan pVerify ID not located this pass (contrast with Kansas below, which has a confirmed state-specific "UHG002" entry) — confirm via Provider Express / UHC provider services.',
@@ -640,6 +677,7 @@ const uhcCommunityPlanIndianaEdi: EdiRouting = {
     supports270271: 'Confirm via pVerify/Availity onboarding.',
     'bhCarveOut.administratorPayerId': 'Confirm via Provider Express whether ABA claims route on a distinct Optum BH payer ID or the same 87726 used for UHC medical.',
     'bhCarveOut.abaRidesOn': 'Optum manages the ABA network/credentialing/PA per the IHCP Works deck, but claims may still route on the shared medical payer ID — the medical/BH split for the EDI hop itself is not confirmed.',
+    memberIdPrefix: 'No UHC/Optum source addresses an alpha prefix (2026 Admin Guide ID-card legend, 270/271 companion guide, pVerify list all silent). Confirm with a real card plus a pVerify run, or ask UHC Provider Services.',
   },
   sources: [PVERIFY_PAYER_LIST, UHC_IHCP_WORKS_DECK],
 };
@@ -663,6 +701,7 @@ const aetnaIndianaEdi: EdiRouting = {
     abaRidesOn: 'unverified',
     twoHopRequired: 'unverified',
   },
+  memberIdPrefix: 'not-used',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'inferred',
@@ -670,14 +709,16 @@ const aetnaIndianaEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'unverified',
+    memberIdPrefix: 'verified',
   },
   verifyVia: {
     'payerId.availity': 'Same 2012-vintage Availity list staleness finding as georgia.ts/aetna-florida — downgraded to inferred pending a current Availity export.',
     'payerId.changeHealthcare': 'Same staleness finding as payerId.availity.',
     supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding for this payer ID.',
     'bhCarveOut.administrator': 'Not researched to a primary source this pass — confirm via Aetna provider services or the ABA precertification process whether Aetna administers ABA in-house or via a BH carve-out for Indiana commercial plans.',
+    memberIdPrefix: 'Aetna eligibility flyer: "When using the member ID number, prefixes or suffixes are unnecessary." Enter the member ID without the card prefix.',
   },
-  sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST],
+  sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, FANOUT_AET_ELIG_FLYER],
 };
 
 const aetnaIndianaCodeGrid: Record<string, CodeGridEntry> = {
@@ -698,6 +739,7 @@ const cignaIndianaEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'verified',
@@ -708,9 +750,11 @@ const cignaIndianaEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'verified',
     'bhCarveOut.abaRidesOn': 'verified',
     'bhCarveOut.twoHopRequired': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding for this payer ID.',
+    memberIdPrefix: 'Cigna ID card quick guide (CIG_IDCARD) shows member ID + two-digit suffix, no alpha prefix, but gives no entry rule; confirm with Cigna 800.882.4462 or a test 270.',
   },
   sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, CIGNA_AUTISM_RESOURCE_GUIDE],
 };
@@ -740,6 +784,7 @@ const unitedhealthcareIndianaEdi: EdiRouting = {
     abaRidesOn: 'unverified',
     twoHopRequired: 'unverified',
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'unverified',
@@ -750,6 +795,7 @@ const unitedhealthcareIndianaEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'unverified',
     'bhCarveOut.abaRidesOn': 'unverified',
     'bhCarveOut.twoHopRequired': 'unverified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.availity': 'No plain "UnitedHealthcare" entry (distinct from "United Healthcare" 87726) confirmed in the fetched Availity list for this exact ID pairing — confirm directly with Availity onboarding.',
@@ -758,6 +804,7 @@ const unitedhealthcareIndianaEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': "Provider Express / UHC provider services — confirm whether ABA claims route on a distinct Optum BH payer ID or the shared 87726 medical ID.",
     'bhCarveOut.abaRidesOn': 'Same as administratorPayerId.',
     'bhCarveOut.twoHopRequired': 'Same as administratorPayerId.',
+    memberIdPrefix: 'No UHC/Optum source addresses an alpha prefix (2026 Admin Guide ID-card legend, 270/271 companion guide, pVerify list all silent). Confirm with a real card plus a pVerify run, or ask UHC Provider Services.',
   },
   sources: [PVERIFY_PAYER_LIST, OPTUM_SCC],
 };
@@ -837,12 +884,14 @@ const uhcCommunityPlanIndianaStc = inMedicaidUnverifiedStc('Confirm via Optum Be
 const indianaMedicaidContact: VobContact = {
   providerServicesPhone: '800-457-4584 (IHCP Provider Customer Assistance, Gainwell Technologies)',
   portal: { name: 'IHCP Provider Healthcare Portal', url: 'https://portal.indianamedicaid.com' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'Which service location(s) — home, clinic, school, telehealth — are authorized on this member\'s approved ABA PA? (IHCP publishes no per-code POS list.)',
     'Does this member\'s 270/271 route through a Change Healthcare payer ID, or only pVerify/Availity? (unconfirmed for IHCP)',
     'If the member is on comprehensive ABA (modifier UA), how many hours/units remain of the 4,000-hour lifetime allocation?',
   ],
-  sources: [IHCP_QRG_CONTACT],
+  sources: [IHCP_QRG_CONTACT, FANOUT_IN_ELIG_MODULE, FANOUT_PHONE_INDIANA_MEDICAID],
 };
 
 const anthemInMedicaidContact: VobContact = {
@@ -850,13 +899,15 @@ const anthemInMedicaidContact: VobContact = {
     'Varies by line of business — HIP: 844-533-1995 / Hoosier Care Connect: 844-284-1798 / Hoosier Healthwise: 866-408-6132 / PathWays: 833-569-4739 (Anthem Indiana Medicaid Provider Services)',
   fax: 'Physical Health (Inpatient & Outpatient): 866-406-2803 / Behavioral Health Inpatient: 877-434-7578 / Behavioral Health Outpatient: 866-877-5229',
   portal: { name: 'Availity Essentials', url: 'https://Availity.com' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'Which of the four Anthem Indiana Medicaid lines of business (HIP, Hoosier Healthwise, Hoosier Care Connect, PathWays) is the member enrolled in? Provider Services routes to a different phone number for each.',
     'Does Availity support real-time (interactive) 270/271 for this member\'s plan, or only batch?',
     'What are the per-code unit caps, POS, and modifier requirements for this member\'s ABA authorization? (Anthem\'s UM guideline doesn\'t restate IHCP\'s statewide code-level table.)',
-    'Has pVerify\'s flagged "00709 Eligibility=No/Claim=No" status changed, or should this check route through Availity instead?',
+    'Please confirm the member ID exactly as printed on the card, including the three-letter prefix.',
   ],
-  sources: [IHCP_QRG_CONTACT, ANTHEM_IN_MEDICAID_UM_GUIDELINE],
+  sources: [IHCP_QRG_CONTACT, ANTHEM_IN_MEDICAID_UM_GUIDELINE, FANOUT_ANTHEM_IN_PM],
 };
 
 const mhsIndianaContact: VobContact = {
@@ -865,6 +916,8 @@ const mhsIndianaContact: VobContact = {
     'General office 8 a.m.–5 p.m. ET, closed holidays; Member & Provider Services 8 a.m.–8 p.m.; Referrals & Authorizations 8 a.m.–5 p.m. (closed 12–1 p.m.)',
   portal: { name: 'MHS Secure Provider Portal', url: 'https://www.mhsindiana.com/login' },
   fax: 'Physical Health Referrals/PA: 866-912-4245 / Behavioral Health Inpatient: 844-288-2591 / Behavioral Health Outpatient: 866-694-3649',
+  benefitsByPhone: 'unverified',
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'Does MHS\'s payer ID (00379) support real-time 270/271, or only batch — and is there a distinct Availity or Change Healthcare ID?',
     'What are the per-code unit caps, POS, and modifier requirements for this member\'s ABA authorization? (MHS\'s OTR form defers to IHCP criteria without its own table.)',
@@ -877,12 +930,14 @@ const caresourceIndianaContact: VobContact = {
   providerServicesPhone: '844-607-2831 (CareSource Indiana Medicaid Provider Services / Prior Authorization)',
   fax: '844-432-8924 (CareSource general/PA fax)',
   portal: { name: 'CareSource Provider Portal', url: 'https://providerportal.caresource.com/IN' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'Does CareSource\'s Indiana Medicaid payer ID support real-time 270/271, and is there a distinct Change Healthcare ID?',
     'What are the per-code unit caps, POS, and modifier requirements for this member\'s ABA authorization? (CareSource\'s PA page defers to IHCP criteria without its own table.)',
     'Does CareSource administer ABA directly or via a named BH administrator for this member\'s plan?',
   ],
-  sources: [CARESOURCE_IN_PA_PAGE, IHCP_QRG_CONTACT],
+  sources: [CARESOURCE_IN_PA_PAGE, IHCP_QRG_CONTACT, FANOUT_CS_IN_MANUAL],
 };
 
 const mdwiseIndianaContact: VobContact = {
@@ -890,6 +945,8 @@ const mdwiseIndianaContact: VobContact = {
     '1-833-654-9192 (MDwise Provider Customer Service Unit) — HISTORICAL ONLY: MDwise ended as an Indiana Medicaid MCE effective 1/1/2026; do not use to route a live 2026+ eligibility check',
   fax: '1-463-426-5854 (historical Provider Customer Service Unit fax)',
   portal: { name: 'myMDwise Provider Portal (historical)', url: 'https://www.mdwise.org/for-providers/mymdwise-provider-portal' },
+  benefitsByPhone: 'unverified',
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'If a member\'s ID card still shows MDwise, confirm their reassigned MCE (Anthem, CareSource, or MHS) before proceeding — MDwise ended as an Indiana Medicaid MCE effective 1/1/2026.',
   ],
@@ -903,58 +960,66 @@ const uhcCommunityPlanIndianaContact: VobContact = {
     'For ABA-specific issues, ask to be routed to Optum Behavioral Health (800-888-2998) or the Indiana Autism/ABA Network Management Provider Advocate (715-833-6538) rather than general medical Provider Services.',
   fax: '844-897-6514 (Optum Behavioral Health / prior authorization fax)',
   portal: { name: 'Provider Express (Optum Behavioral Health)', url: 'https://public.providerexpress.com' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'What is the correct pVerify/Availity payer ID for Indiana Community Plan 270/271 eligibility checks? (No Indiana-specific ID confirmed yet.)',
     'Do ABA claims route on Optum\'s own BH payer ID, or the shared UHC medical ID (87726)?',
     'What are the per-code unit caps, POS, and modifier requirements for this member\'s ABA authorization? (Only the statewide IHCP pattern is on file, not a UHC/Optum-specific table.)',
   ],
-  sources: [UHC_IN_COMM_PLAN_CONTACT],
+  sources: [UHC_IN_COMM_PLAN_CONTACT, FANOUT_MAN_IN_MCD],
 };
 
 const aetnaIndianaContact: VobContact = {
   providerServicesPhone: '1-888-632-3862 (Aetna commercial precertification / Provider Services, TTY 711)',
   portal: { name: 'Availity Essentials', url: 'https://Availity.com' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'Does Aetna administer ABA in-house or via a behavioral-health carve-out for this member\'s Indiana commercial plan?',
     'What are the per-code unit caps, POS, telehealth allowance, and licensure-tier modifiers for ABA codes? (No Indiana-specific coding table is published.)',
     'Is precertification actually required for this member? Aetna\'s national BH precertification list states its precertification programs don\'t apply to fully insured members in Indiana — confirm the member\'s funding type (fully insured vs. self-funded) before assuming PA applies.',
   ],
-  sources: [AETNA_BH_PRECERT_LIST],
+  sources: [AETNA_BH_PRECERT_LIST, FANOUT_AET_GLANCE],
 };
 
 const cignaIndianaContact: VobContact = {
   providerServicesPhone:
     '800-882-4462 (Cigna Provider Services, general) / 800-926-2273 (Evernorth Behavioral Health — route ABA-specific calls here)',
   portal: { name: 'CignaforHCP / Provider.Evernorth.com', url: 'https://cignaforhcp.cigna.com' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'Does Cigna/Evernorth support real-time (interactive) 270/271 for this payer ID, or only batch?',
     'What are the per-code unit caps, POS, telehealth allowance, and modifier requirements for ABA codes? (EN0499 is a national medical-necessity policy only — no coding/reimbursement mechanics published.)',
   ],
-  sources: [CIGNA_CONTACT_US, CIGNA_AUTISM_RESOURCE_GUIDE],
+  sources: [CIGNA_CONTACT_US, CIGNA_AUTISM_RESOURCE_GUIDE, FANOUT_CIG_AUTISM],
 };
 
 const unitedhealthcareIndianaContact: VobContact = {
   providerServicesPhone: '877-842-3210 (UnitedHealthcare commercial Provider Services — national line; no Indiana-specific override located)',
   ivrPath: 'For ABA/behavioral health, ask for the 24/7 behavioral health and substance use support line (877-614-0484, Optum) or Provider Express instead of general medical Provider Services.',
   portal: { name: 'UnitedHealthcare Provider Portal / Provider Express', url: 'https://www.uhcprovider.com' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'Do ABA claims route on a distinct Optum Behavioral Health payer ID, or the shared UHC medical ID (87726), for this member\'s plan?',
     'What is the telehealth allowance and what POS codes apply to ABA services? (Neither is published in Optum\'s national reimbursement policy for Indiana specifically.)',
     'Is a two-hop EDI routing (medical → BH) required for this member\'s eligibility check?',
   ],
-  sources: [UHC_NATIONAL_CONTACT_US, OPTUM_SCC],
+  sources: [UHC_NATIONAL_CONTACT_US, OPTUM_SCC, FANOUT_OPTUM_NNM_2026],
 };
 
 /* ==================== export ==================== */
 
 export const indianaVob: Record<string, VobExtension> = {
-  'indiana-medicaid': { edi: indianaMedicaidEdi, codeGrid: indianaMedicaidCodeGrid, stcMap: indianaMedicaidStc, rates: indianaMedicaidRates(), vobContact: indianaMedicaidContact, lastUpdated: ACCESS_DATE },
-  'anthem-indiana-medicaid': { edi: anthemInMedicaidEdi, codeGrid: anthemInMedicaidCodeGrid, stcMap: anthemInMedicaidStc, rates: indianaMedicaidRates(), vobContact: anthemInMedicaidContact, lastUpdated: ACCESS_DATE },
-  'mhs-indiana': { edi: mhsIndianaEdi, codeGrid: mhsIndianaCodeGrid, stcMap: mhsIndianaStc, rates: indianaMedicaidRates(), vobContact: mhsIndianaContact, lastUpdated: ACCESS_DATE },
-  'caresource-indiana': { edi: caresourceIndianaEdi, codeGrid: caresourceIndianaCodeGrid, stcMap: caresourceIndianaStc, rates: indianaMedicaidRates(), vobContact: caresourceIndianaContact, lastUpdated: ACCESS_DATE },
-  'mdwise-indiana': { edi: mdwiseIndianaEdi, codeGrid: mdwiseIndianaCodeGrid, stcMap: mdwiseIndianaStc, rates: indianaMedicaidRates(), vobContact: mdwiseIndianaContact, lastUpdated: ACCESS_DATE },
-  'unitedhealthcare-community-plan-indiana': { edi: uhcCommunityPlanIndianaEdi, codeGrid: uhcCommunityPlanIndianaCodeGrid, stcMap: uhcCommunityPlanIndianaStc, rates: indianaMedicaidRates(), vobContact: uhcCommunityPlanIndianaContact, lastUpdated: ACCESS_DATE },
-  'aetna-indiana': { edi: aetnaIndianaEdi, codeGrid: aetnaIndianaCodeGrid, stcMap: inheritFamilyStc(aetnaFamilyStc, 'Inherited from the Aetna family default (docs/vob-build.md Layer 2) — no Indiana-specific 270/271 STC document found.'), vobContact: aetnaIndianaContact, lastUpdated: ACCESS_DATE },
-  'cigna-indiana': { edi: cignaIndianaEdi, codeGrid: cignaIndianaCodeGrid, stcMap: inheritFamilyStc(cignaFamilyStc, 'Inherited from the Cigna/Evernorth family default (docs/vob-build.md Layer 2) — national companion guide, no Indiana-specific override found.'), vobContact: cignaIndianaContact, lastUpdated: ACCESS_DATE },
-  'unitedhealthcare-indiana': { edi: unitedhealthcareIndianaEdi, codeGrid: unitedhealthcareIndianaCodeGrid, stcMap: inheritFamilyStc(uhcFamilyStc, 'Inherited from the UnitedHealthcare/Optum family default (docs/vob-build.md Layer 2) — national companion guide, no Indiana-specific override found.'), vobContact: unitedhealthcareIndianaContact, lastUpdated: ACCESS_DATE },
+  'indiana-medicaid': { edi: indianaMedicaidEdi, codeGrid: indianaMedicaidCodeGrid, stcMap: indianaMedicaidStc, rates: indianaMedicaidRates(), vobContact: indianaMedicaidContact, lastUpdated: '2026-10-15'},
+  'anthem-indiana-medicaid': { edi: anthemInMedicaidEdi, codeGrid: anthemInMedicaidCodeGrid, stcMap: anthemInMedicaidStc, rates: indianaMedicaidRates(), vobContact: anthemInMedicaidContact, lastUpdated: '2026-10-15'},
+  'mhs-indiana': { edi: mhsIndianaEdi, codeGrid: mhsIndianaCodeGrid, stcMap: mhsIndianaStc, rates: indianaMedicaidRates(), vobContact: mhsIndianaContact, lastUpdated: '2026-10-15'},
+  'caresource-indiana': { edi: caresourceIndianaEdi, codeGrid: caresourceIndianaCodeGrid, stcMap: caresourceIndianaStc, rates: indianaMedicaidRates(), vobContact: caresourceIndianaContact, lastUpdated: '2026-10-15'},
+  'mdwise-indiana': { edi: mdwiseIndianaEdi, codeGrid: mdwiseIndianaCodeGrid, stcMap: mdwiseIndianaStc, rates: indianaMedicaidRates(), vobContact: mdwiseIndianaContact, lastUpdated: '2026-10-15'},
+  'unitedhealthcare-community-plan-indiana': { edi: uhcCommunityPlanIndianaEdi, codeGrid: uhcCommunityPlanIndianaCodeGrid, stcMap: uhcCommunityPlanIndianaStc, rates: indianaMedicaidRates(), vobContact: uhcCommunityPlanIndianaContact, lastUpdated: '2026-10-15'},
+  'aetna-indiana': { edi: aetnaIndianaEdi, codeGrid: aetnaIndianaCodeGrid, stcMap: inheritFamilyStc(aetnaFamilyStc, 'Inherited from the Aetna family default (docs/vob-build.md Layer 2) — no Indiana-specific 270/271 STC document found.'), vobContact: aetnaIndianaContact, lastUpdated: '2026-10-15'},
+  'cigna-indiana': { edi: cignaIndianaEdi, codeGrid: cignaIndianaCodeGrid, stcMap: inheritFamilyStc(cignaFamilyStc, 'Inherited from the Cigna/Evernorth family default (docs/vob-build.md Layer 2) — national companion guide, no Indiana-specific override found.'), vobContact: cignaIndianaContact, lastUpdated: '2026-10-15'},
+  'unitedhealthcare-indiana': { edi: unitedhealthcareIndianaEdi, codeGrid: unitedhealthcareIndianaCodeGrid, stcMap: inheritFamilyStc(uhcFamilyStc, 'Inherited from the UnitedHealthcare/Optum family default (docs/vob-build.md Layer 2) — national companion guide, no Indiana-specific override found.'), vobContact: unitedhealthcareIndianaContact, lastUpdated: '2026-10-15'},
 };

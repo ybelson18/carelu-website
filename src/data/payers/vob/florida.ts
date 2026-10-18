@@ -535,6 +535,61 @@ function mcoEntry(
   };
 }
 
+/* Prefix / benefits-by-phone / individual-NPI sources (2026-10-14) */
+const FANOUT_PHONE_FLORIDA_MEDICAID: SourceRef = { url: 'https://ahca.myflorida.com/provider/support.html', accessDate: '2026-10-15', note: 'AHCA Provider Support (read via r.jina.ai): "Automated Voice Response System (AVRS) Self-service options including eligibility verification. 1-800-239-7560"; "Provider Services Main Line 1-800-289-7799 Option 4: Provider Enrollment Option 7: Provider Services Contact Center"; fiscal agent line is for "claim status, claims processing... provider enrollment".' };
+const FANOUT_PHONE_SIMPLY_HEALTHCARE_FLORIDA: SourceRef = { url: 'https://provider.simplyhealthcareplans.com/docs/gpp/FLFL_SMH_FHKProviderManual.pdf', accessDate: '2026-10-15', note: 'Simply Healthcare FL SMMC/FHK Provider Manual (Oct 1 2026): "Provider Services 844-405-4296"; "Automated Provider Services line for member eligibility 844-405-4296"; "Our representatives are available Monday to Friday, 8 a.m. to 7 p.m. ET (excluding state holidays)." 1-800-397-1630 does not appear.' };
+
+const FANOUT_QRG_FL_MCD: SourceRef = {
+  url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/flaba/FLABAQRG.pdf',
+  accessDate: '2026-10-14',
+  note: 'FL SMMC Behavioral Analysis Program QRG, UHC Community Plan of Florida via Optum (BH01355-1-25-QRG_07162025): "It takes less than 2 minutes to check a member\'s benefits and eligibility using the secure portal... You may also call the number on the back of the member\'s ID card."',
+};
+const FANOUT_OPTUM_NNM_2026: SourceRef = {
+  url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf',
+  accessDate: '2026-10-14',
+  note: 'Optum (United Behavioral Health) National Provider Network Manual, published July 1 2026, effective Sept 1 2026 (BH02330-1-26-MAN_07012026). Read via r.jina.ai using the AEM path .../NNManual.pdf/jcr:content/renditions/original (plain URL returns a download interstitial). Eligibility Inquiry p.35-36: "You can use the Provider Express secure portal to check a member\'s eligibility. You may also inquire about eligibility by calling the phone number on the member\'s ID card." Items to provide: member name, address, ID number, subscriber name and DOB - NPI not listed. No statement on individual vs group NPI for calls.',
+};
+const FANOUT_AET_ELIG_FLYER: SourceRef = {
+  url: 'https://www.aetna.com/document-library/healthcare-professionals/assets/documents/eligibility.pdf',
+  accessDate: '2026-10-14',
+  note: 'Aetna Eligibility and Benefits Inquiry flyer 83.03.870.1 (2/19), still hosted on aetna.com: "When using the member ID number, prefixes or suffixes are unnecessary. For family-level searches, you only need to enter the member ID." Applies to the electronic inquiry; dated 2019.',
+};
+const FANOUT_AET_GLANCE: SourceRef = {
+  url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/aetna-at-a-glance.pdf',
+  accessDate: '2026-10-14',
+  note: 'Aetna "At a glance" how-to guide for health care professionals, 9011800-01-01 (8/26), Key contacts table: "Provider Contact Center ... Member eligibility and benefits ... 1-800-624-0756 (TTY: 711) for Aetna Medicare Advantage plans and HMO-based plans / 1-888-MDAetna (1-888-632-3862) (TTY: 711) for all other plans". Also: "Behavioral health (provider services) Refer to the member ID card."',
+};
+const FANOUT_CIG_AUTISM: SourceRef = {
+  url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf',
+  accessDate: '2026-10-14',
+  note: 'Evernorth/Cigna Autism resource guide, March 2025 (PCOMM-2025-225): "It is important to confirm a patient\'s ABA eligibility and benefits before performing an assessment. This information can be confirmed by: ... Calling the Autism Care Coordinator team at 877.279.7603". Provider Services 800.926.2273 "handles questions regarding billing, benefits, and eligibility for autism-related treatment, such as ABA."',
+};
+const FANOUT_SIMPLY_FL_PM: SourceRef = {
+  url: 'https://provider.simplyhealthcareplans.com/docs/gpp/FLFL_SMH_FHKProviderManual.pdf?v=202609231916',
+  accessDate: '2026-10-14',
+  note: '2026 FL Medicaid Managed Care and Florida Healthy Kids Provider Manual (Simply). Quote: \'If you\'re unable to access the internet, you may receive claims, eligibility, and authorization status over the phone by calling our toll-free, automated Provider Services line at 844-405-4296.\'',
+};
+const FANOUT_SUNSHINE_MANUAL_2026: SourceRef = {
+  url: 'https://www.sunshinehealth.com/content/dam/centene/Sunshine/pdfs/Provider%20Manual.pdf',
+  accessDate: '2026-10-14',
+  note: 'Sunshine Health Provider Manual (2026; ID cards redesigned 4/17/2026). "Providers may call provider services at 1-844-477-8313 and follow the prompts to use the 24/7 toll-free interactive voice response (IVR) lines to verify member eligibility. The automated system prompts providers to enter the NPI and Tax ID number"',
+};
+const FANOUT_MOLINA_FL_HANDBOOK: SourceRef = {
+  url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/FL/Manuals/09-09-26-MHFL-Molina-Provider-Handbook-CMS-and-SMMC-508.pdf',
+  accessDate: '2026-10-14',
+  note: 'Molina Healthcare of Florida Medicaid Provider Manual covering SMMC and CMS Plan members (09-09-26). "Providers who contract with Molina may verify a Member\'s eligibility by checking the following: Availity Essentials Portal; Molina Provider Services automated IVR system at (855) 322-4076"',
+};
+const FANOUT_FL_AHCA_SUPPORT: SourceRef = {
+  url: 'https://ahca.myflorida.com/provider/support.html',
+  accessDate: '2026-10-14',
+  note: 'AHCA Provider Support telephone directory (read via r.jina.ai). "Automated Voice Response System (AVRS) Self-service options including eligibility verification. 1-800-239-7560".',
+};
+const FANOUT_FCC_BA: SourceRef = {
+  url: 'https://fcchealthplan.com/ba-services/',
+  accessDate: '2026-10-14',
+  note: 'Florida Community Care BA services provider page. Quote: \'Providers may verify Enrollee eligibility in the following ways: Florida Community Care Provider Portal ... Call 833-322-7526\'.',
+};
+
 /* ==================== florida-medicaid (state FFS) ==================== */
 
 const floridaMedicaidEdi: EdiRouting = {
@@ -554,6 +609,7 @@ const floridaMedicaidEdi: EdiRouting = {
     eligibilitySpanGranularity:
       'Date range (RD8 format, CCYYMMDD-CCYYMMDD) via the Loop 2110C DTP segment (qualifier 307=Eligibility) for most repetitions; a few repetitions (e.g., Well Baby Care) use a single date (D8, qualifier 472=Service) instead. Not a fixed monthly bucket — driven by date-of-service.',
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'unverified',
     'payerId.availity': 'inferred',
@@ -564,6 +620,7 @@ const floridaMedicaidEdi: EdiRouting = {
     'medicaid271Notes.mcoSegmentLocation': 'verified',
     'medicaid271Notes.mcoCarrierCodes': 'verified',
     'medicaid271Notes.eligibilitySpanGranularity': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify':
@@ -571,6 +628,7 @@ const floridaMedicaidEdi: EdiRouting = {
     'payerId.availity':
       "77027 is Florida Medicaid's own X12 payer ID per the FLMMIS companion guide (confirmed primary source); Availity's own current live payer list was not independently reachable (the fetched URL served a stale 2012 export that happens to list 77027 too) — confirm 77027 is still what Availity routes 270/271 through before automating on it.",
     'payerId.changeHealthcare': 'No Change Healthcare-specific payer directory was reachable this pass — confirm via Optum/Change Healthcare onboarding.',
+    memberIdPrefix: 'FL Medicaid General Provider Handbook / FMMIS recipient ID description',
   },
   sources: [FLMMIS_270_271_CG, FLMMIS_CG_INDEX, PVERIFY_PAYER_LIST_FL, AVAILITY_PAYER_LIST_STALE],
 };
@@ -649,6 +707,7 @@ const sunshineEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'inferred',
@@ -656,6 +715,7 @@ const sunshineEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.availity':
@@ -663,6 +723,8 @@ const sunshineEdi: EdiRouting = {
     'payerId.changeHealthcare':
       "Sunshine's own page names Change Healthcare as an active trading partner using the same 68069 ID as Availity, but no independent Change Healthcare-specific payer directory was reachable to cross-confirm.",
     supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding for this payer ID — neither Sunshine\'s page nor the BA QRG specifies.',
+    memberIdPrefix:
+      'Sample member ID card in the Sunshine Health provider manual, or ask Sunshine Health Provider Services whether any alpha prefix is keyed; no source states it',
   },
   sources: [PVERIFY_PAYER_LIST_FL, SUNSHINE_EDI_PAGE, SUNSHINE_BA_QRG, AVAILITY_PAYER_LIST_STALE],
 };
@@ -677,6 +739,7 @@ const cmsHealthPlanEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'unverified',
     'payerId.availity': 'verified',
@@ -684,6 +747,7 @@ const cmsHealthPlanEdi: EdiRouting = {
     supports270271: 'inferred',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify':
@@ -691,6 +755,8 @@ const cmsHealthPlanEdi: EdiRouting = {
     'payerId.changeHealthcare': 'Molina\'s CMS materials name payer ID 51062 for EDI claims through any clearinghouse and Change Healthcare/ECHO for payments; a Change Healthcare eligibility directory entry was not checked.',
     supports270271: 'Molina\'s CMS training directs eligibility and benefits checks to Availity (or (855) 322-4076); a 270/271 companion guide for the CMS Plan was not reviewed.',
     supportsRealtime: 'Confirm real-time vs. batch via Availity onboarding for payer ID 51062.',
+    memberIdPrefix:
+      'Sample member ID card in the Molina FL (CMS Plan) provider manual, or ask Molina FL (CMS Plan) Provider Services whether any alpha prefix is keyed; no source states it',
   },
   sources: [MOLINA_CMS_TRANSITION_FAQ, MOLINA_CMS_BA_TRAINING, MOLINA_FL_BA_QRG_2026],
 };
@@ -769,6 +835,7 @@ const simplyEdi: EdiRouting = {
     abaRidesOn: 'bh',
     twoHopRequired: true,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'verified',
@@ -779,12 +846,14 @@ const simplyEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'unverified',
     'bhCarveOut.abaRidesOn': 'verified',
     'bhCarveOut.twoHopRequired': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.changeHealthcare': 'No Change Healthcare-specific payer directory was reachable to confirm a distinct ID for Simply FL.',
     supportsRealtime: "Simply's EDI page confirms 270/271 is a supported transaction type via Availity's EDI Gateway but doesn't state real-time vs. batch.",
     'bhCarveOut.administratorPayerId':
       "pVerify lists a NATIONAL \"Carelon Behavioral Health\" entry (002465), but no Florida-specific Carelon EDI payer ID was confirmed — Carelon's own national Provider Handbook directs providers to look up the state-specific ID via Carelon's website or Availity's payer list rather than printing one itself, and Availity's own payer list has no distinct Carelon/CBH line item (Carelon claims for Simply appear to route through Availity without a separately documented Carelon-specific code). A commonly-cited \"BHOVO\" code could not be verified against any primary Carelon source. Confirm directly with Carelon's EDI helpdesk (1-888-247-9311 / e-supportservices@carelonbehavioralhealth.com) or Availity onboarding.",
+    memberIdPrefix: 'Simply FL manual has no prefix statement; check ID card sample / Availity',
   },
   sources: [PVERIFY_PAYER_LIST_FL, SIMPLY_EDI_PAGE, SIMPLY_CARELON_TRAINING, CARELON_PROVIDER_HANDBOOK],
 };
@@ -866,6 +935,7 @@ const uhcCommunityPlanEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'unverified',
     'payerId.availity': 'verified',
@@ -876,6 +946,7 @@ const uhcCommunityPlanEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'verified',
     'bhCarveOut.abaRidesOn': 'verified',
     'bhCarveOut.twoHopRequired': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify':
@@ -884,6 +955,8 @@ const uhcCommunityPlanEdi: EdiRouting = {
     supports270271:
       "UHC's own FL BAP QRG describes eligibility/benefits verification ONLY via the Provider Express portal or phone — it does not mention 270/271 EDI eligibility for this specific program, though UnitedHealthcare broadly supports 270/271 nationally. Confirm whether FL Medicaid BA eligibility specifically runs through EDI or is portal/phone-only.",
     supportsRealtime: "Not stated for this program; UHC's QRG describes the portal check as taking \"less than 2 minutes,\" consistent with real-time but not an explicit EDI claim.",
+    memberIdPrefix:
+      'No UHC/Optum source addresses an alpha prefix (2026 Admin Guide ID-card legend, 270/271 companion guide, pVerify list all silent). Confirm with a real card plus a pVerify run, or ask UHC Provider Services.',
   },
   sources: [UHC_FL_BAP_QRG, OPTUM_FLABA_QRG, AVAILITY_PAYER_LIST_STALE],
 };
@@ -957,6 +1030,7 @@ const humanaEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'unverified',
     'payerId.availity': 'verified',
@@ -964,6 +1038,7 @@ const humanaEdi: EdiRouting = {
     supports270271: 'unverified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify':
@@ -972,6 +1047,8 @@ const humanaEdi: EdiRouting = {
     supports270271:
       "Humana's ABA flyer addresses only claims (payer ID 61101) and PA submission channels (Availity, IVR, fax) — it does not separately confirm 61101 is used for 270/271 eligibility, though that's the common pattern for Availity-routed payers.",
     supportsRealtime: 'Not addressed in any Humana FL BA document reviewed.',
+    memberIdPrefix:
+      'Sample member ID card in the Humana Healthy Horizons FL provider manual, or ask Humana Healthy Horizons FL Provider Services whether any alpha prefix is keyed; no source states it',
   },
   sources: [HUMANA_ABA_FLYER],
 };
@@ -1115,6 +1192,7 @@ const aetnaBetterHealthFlEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'verified',
@@ -1125,6 +1203,7 @@ const aetnaBetterHealthFlEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'inferred',
     'bhCarveOut.abaRidesOn': 'inferred',
     'bhCarveOut.twoHopRequired': 'inferred',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.changeHealthcare': 'Optum/Change Healthcare payer directory — not checked this pass.',
@@ -1133,6 +1212,7 @@ const aetnaBetterHealthFlEdi: EdiRouting = {
       "Confirm directly with ABHFL provider services or BSN (info@bsnnet.com, 305-907-7470) whether BA claims specifically require a routing marker distinct from the standard 128FL EDI ID — neither BSN's site nor the ABHFL Quick Reference Guide states one exists, but this is an absence of evidence, not confirmation.",
     'bhCarveOut.abaRidesOn': 'Same as administratorPayerId.',
     'bhCarveOut.twoHopRequired': 'Same as administratorPayerId.',
+    memberIdPrefix: 'ABHFL MMA/LTC provider manual 403-blocked here and Wayback copies truncated; read the current manual.',
   },
   sources: [PVERIFY_PAYER_LIST, ABHFL_QRG, BSN_PROVIDER_SITE],
 };
@@ -1177,6 +1257,7 @@ const molinaFlEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'verified',
@@ -1184,10 +1265,13 @@ const molinaFlEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.changeHealthcare': 'Optum/Change Healthcare payer directory — not checked this pass.',
     supportsRealtime: 'Confirm real-time vs. batch via Availity onboarding for payer ID 51062.',
+    memberIdPrefix:
+      'Sample member ID card in the Molina FL provider manual, or ask Molina FL Provider Services whether any alpha prefix is keyed; no source states it',
   },
   sources: [PVERIFY_PAYER_LIST, MOLINA_FL_HANDBOOK],
 };
@@ -1269,6 +1353,7 @@ const communityCarePlanFlEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: true,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'unverified',
     'payerId.availity': 'verified',
@@ -1279,12 +1364,14 @@ const communityCarePlanFlEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'verified',
     'bhCarveOut.abaRidesOn': 'inferred',
     'bhCarveOut.twoHopRequired': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': 'Not found under "Therapy Network," "TNFL," or "Community Care Plan" in either pVerify payer list checked this pass — confirm directly with pVerify onboarding.',
     supports270271: "TNFL's own BA manual documents claims (837) submission in detail but does not confirm 270/271 real-time eligibility support specifically — confirm via Availity onboarding.",
     'bhCarveOut.abaRidesOn':
       "TNFL's manual treats BA claims as standard professional/institutional (837P/837I) claims, not a distinct behavioral-health service-type bucket — inferred as 'medical' rather than confirmed verbatim.",
+    memberIdPrefix: 'CCP provider manual not located on ccpcares.org',
   },
   sources: [CCP_TNFL_BA_MANUAL],
 };
@@ -1359,6 +1446,7 @@ const floridaCommunityCareEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'unverified',
     'payerId.availity': 'verified',
@@ -1369,6 +1457,7 @@ const floridaCommunityCareEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'inferred',
     'bhCarveOut.abaRidesOn': 'inferred',
     'bhCarveOut.twoHopRequired': 'inferred',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': 'Not found under "Florida Community Care" or "FLCCR" in either pVerify payer list checked this pass — confirm directly with pVerify onboarding.',
@@ -1377,6 +1466,7 @@ const floridaCommunityCareEdi: EdiRouting = {
       "Confirm directly with FCC's Utilization Department (FCCUMDepartment@FCCHealthPlan.com, 1-833-322-7526) or BSN whether BA claims specifically require routing distinct from FLCCR — neither source states one exists, but this is an absence of evidence, not confirmation.",
     'bhCarveOut.abaRidesOn': 'Same as administratorPayerId.',
     'bhCarveOut.twoHopRequired': 'Same as administratorPayerId.',
+    memberIdPrefix: 'FCC provider handbook https://fcchealthplan.com/wp-content/uploads/2025/01/2M2609-FCC-Prov-Manual-r3.pdf (not read)',
   },
   sources: [FCC_BA_PAGE, BSN_PROVIDER_SITE],
 };
@@ -1421,6 +1511,7 @@ const aetnaFlEdi: EdiRouting = {
     abaRidesOn: 'unverified',
     twoHopRequired: 'unverified',
   },
+  memberIdPrefix: 'not-used',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'inferred',
@@ -1428,6 +1519,7 @@ const aetnaFlEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'unverified',
+    memberIdPrefix: 'verified',
   },
   verifyVia: {
     'payerId.pverify': 'National Aetna payer ID, not FL-specific — same ID already verified for vob/georgia.ts via the same pVerify master list.',
@@ -1437,8 +1529,9 @@ const aetnaFlEdi: EdiRouting = {
     supportsRealtime: 'Confirm real-time vs. batch via Availity onboarding for payer ID 60054.',
     'bhCarveOut.administrator':
       "Checked Aetna's own June 2022 OfficeLink Updates \"Applied behavior analysis (ABA) treatment and claims\" page directly — it describes only the ABA Medical Necessity Guide and names no claims administrator, in-house or third-party. A broader search found no named ABA/BH carve-out vendor for Aetna commercial nationally (unlike Cigna/Evernorth or UHC/Optum) — but absence of a named carve-out is not confirmation of in-house administration. Confirm via Aetna provider services or the national BH Provider Manual.",
+    memberIdPrefix: 'Aetna eligibility and benefits inquiry flyer states that prefixes or suffixes are unnecessary when using the member ID number.',
   },
-  sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST_STALE, AETNA_ABA_CLAIMS_PAGE],
+  sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST_STALE, AETNA_ABA_CLAIMS_PAGE, FANOUT_AET_ELIG_FLYER],
 };
 
 function aetnaFlCodeEntry(): CodeGridEntry {
@@ -1489,6 +1582,7 @@ const cignaFlEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'verified',
@@ -1499,9 +1593,12 @@ const cignaFlEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'verified',
     'bhCarveOut.abaRidesOn': 'verified',
     'bhCarveOut.twoHopRequired': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     supportsRealtime: 'Confirm real-time vs. batch via Availity onboarding for payer ID 62308.',
+    memberIdPrefix:
+      'Cigna ID card quick guide (CIG_IDCARD) shows member ID + two-digit suffix, no alpha prefix, but gives no entry rule; confirm with Cigna 800.882.4462 or a test 270.',
   },
   sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST_STALE, CIGNA_AUTISM_RESOURCE_GUIDE],
 };
@@ -1554,6 +1651,7 @@ const unitedhealthcareFlEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'verified',
@@ -1564,11 +1662,14 @@ const unitedhealthcareFlEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'verified',
     'bhCarveOut.abaRidesOn': 'verified',
     'bhCarveOut.twoHopRequired': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     supportsRealtime: 'Confirm real-time vs. batch via Availity onboarding for payer ID 87726.',
     'bhCarveOut.administratorPayerId':
       "pVerify separately lists a distinct \"UHG007 United Healthcare - Optum Behavioral Solutions\" code (this file's PVERIFY_PAYER_LIST, March 2026 snapshot) — this may be used for real-time 270/271 eligibility specifically even though claims settle on 87726 (confirmed directly via Optum's own Provider Express EDI page); confirm which ID a live eligibility check actually returns before automating on 87726 alone.",
+    memberIdPrefix:
+      'No UHC/Optum source addresses an alpha prefix (2026 Admin Guide ID-card legend, 270/271 companion guide, pVerify list all silent). Confirm with a real card plus a pVerify run, or ask UHC Provider Services.',
   },
   sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST_STALE, OPTUM_PROVIDER_EXPRESS_EDI, OPTUM_SCC],
 };
@@ -1737,7 +1838,9 @@ const sunshineContact: VobContact = {
     'Does the member’s out-of-pocket maximum apply to ABA benefits?',
     'For telehealth-delivered 97156, should claims use the GT modifier or POS 02 with no modifier — your general telehealth billing notice and your BA-specific clinical policy appear to conflict?',
   ],
-  sources: [SUNSHINE_BA_QRG],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [SUNSHINE_BA_QRG, FANOUT_SUNSHINE_MANUAL_2026],
 };
 
 const cmsHealthPlanContact: VobContact = {
@@ -1752,12 +1855,14 @@ const cmsHealthPlanContact: VobContact = {
     'Is the authorization written as weekly hours, and what is the weekly unit limit per code from November 1, 2026?',
     'Is 97151 billable without authorization for our contract status (participating vs. non-participating)?',
   ],
-  sources: [MOLINA_CMS_BA_TRAINING, MOLINA_CMS_TRANSITION_FAQ],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [MOLINA_CMS_BA_TRAINING, MOLINA_CMS_TRANSITION_FAQ, FANOUT_MOLINA_FL_HANDBOOK],
 };
 
 const simplyContact: VobContact = {
-  providerServicesPhone: '1-800-397-1630',
-  hours: 'Carelon National Provider Service Line: Monday–Friday, 8 a.m.–8 p.m. Eastern. (Availity Client Services, a separate line, keeps the same hours: 1-800-282-4548.)',
+  providerServicesPhone: '844-405-4296 — Simply Healthcare Provider Services',
+  hours: 'Monday–Friday, 8 a.m.–7 p.m. ET (excluding state holidays)',
   fax: '1-800-370-1116',
   portal: { name: 'Availity Essentials (claims); Carelon eServices (authorizations)', url: 'https://www.availity.com/' },
   scriptedQuestions: [
@@ -1768,7 +1873,9 @@ const simplyContact: VobContact = {
     'Is any copay charged per visit or per day, and does the out-of-pocket max apply to ABA?',
     'What’s the cap period for 0373T?',
   ],
-  sources: [SIMPLY_CARELON_TRAINING],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [SIMPLY_CARELON_TRAINING, FANOUT_SIMPLY_FL_PM, FANOUT_PHONE_SIMPLY_HEALTHCARE_FLORIDA],
 };
 
 const uhcCommunityPlanContact: VobContact = {
@@ -1782,7 +1889,9 @@ const uhcCommunityPlanContact: VobContact = {
     'Is any copay charged per visit or per day, and does the out-of-pocket max apply to ABA?',
     'What’s the cap period for 0373T?',
   ],
-  sources: [UHC_FL_BAP_QRG],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [UHC_FL_BAP_QRG, FANOUT_QRG_FL_MCD],
 };
 
 const humanaContact: VobContact = {
@@ -1798,6 +1907,8 @@ const humanaContact: VobContact = {
     'Is any copay charged per visit or per day, and does the out-of-pocket max apply to ABA?',
     'What’s the cap period for 0373T?',
   ],
+  benefitsByPhone: 'unverified',
+  requiresIndividualNpi: 'unverified',
   sources: [HUMANA_ABA_FLYER],
 };
 
@@ -1815,6 +1926,8 @@ const aetnaBetterHealthFlContact: VobContact = {
     'Is any copay charged per visit or per day, and does the out-of-pocket max apply to ABA?',
     'What’s the cap period for 0373T?',
   ],
+  benefitsByPhone: 'unverified',
+  requiresIndividualNpi: 'unverified',
   sources: [ABHFL_QRG],
 };
 
@@ -1829,7 +1942,9 @@ const molinaFlContact: VobContact = {
     'Is any copay charged per visit or per day, and does the out-of-pocket max apply to ABA?',
     'What’s the cap period for 0373T?',
   ],
-  sources: [MOLINA_FL_CONTACT_PAGE],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [MOLINA_FL_CONTACT_PAGE, FANOUT_MOLINA_FL_HANDBOOK],
 };
 
 const communityCarePlanFlContact: VobContact = {
@@ -1845,6 +1960,8 @@ const communityCarePlanFlContact: VobContact = {
     'Is any copay charged per visit or per day, and does the out-of-pocket max apply to ABA?',
     'What’s the cap period for 0373T?',
   ],
+  benefitsByPhone: 'unverified',
+  requiresIndividualNpi: 'unverified',
   sources: [CCP_TNFL_BA_MANUAL],
 };
 
@@ -1863,11 +1980,13 @@ const floridaCommunityCareContact: VobContact = {
     'Is any copay charged per visit or per day, and does the out-of-pocket max apply to ABA?',
     'What’s the cap period for 0373T?',
   ],
-  sources: [FCC_BA_PAGE],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [FCC_BA_PAGE, FANOUT_FCC_BA],
 };
 
 const floridaMedicaidContact: VobContact = {
-  providerServicesPhone: '1-800-289-7799',
+  providerServicesPhone: '1-800-289-7799 — Florida Medicaid Provider Services; eligibility verification: 1-800-239-7560 — Automated Voice Response System (AVRS)',
   ivrPath: 'Option 4: Provider Enrollment Unit. Option 7: Medicaid Secure Portal (Web Portal) access.',
   portal: { name: 'Acentra Health eQSuite (Florida Medicaid Behavior Analysis FFS authorizations)', url: 'https://fl.acentra.com/behavior-analysis/' },
   scriptedQuestions: [
@@ -1877,7 +1996,9 @@ const floridaMedicaidContact: VobContact = {
     'Does the member’s out-of-pocket maximum apply to ABA benefits?',
     'What’s the cap period for 0373T (adaptive behavior treatment with protocol modification, 2+ techs)?',
   ],
-  sources: [FLMMIS_CONTACT_PAGE, ACENTRA_BA_PORTAL_REUSED],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [FLMMIS_CONTACT_PAGE, ACENTRA_BA_PORTAL_REUSED, FANOUT_FL_AHCA_SUPPORT, FANOUT_PHONE_FLORIDA_MEDICAID],
 };
 
 const aetnaFlContact: VobContact = {
@@ -1892,7 +2013,9 @@ const aetnaFlContact: VobContact = {
     'Is any copay charged per visit or per day, and does the out-of-pocket max apply to ABA?',
     'What payer ID do you use for Availity and Change Healthcare eligibility checks, and do you support real-time 270/271?',
   ],
-  sources: [AETNA_BH_PRECERT_LIST],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [AETNA_BH_PRECERT_LIST, FANOUT_AET_GLANCE],
 };
 
 const cignaFlContact: VobContact = {
@@ -1907,7 +2030,9 @@ const cignaFlContact: VobContact = {
     'What places of service are allowed, and is telehealth covered for any ABA code?',
     'Are there required billing modifiers for ABA codes?',
   ],
-  sources: [EVERNORTH_PROVIDER_SERVICE_CENTER],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [EVERNORTH_PROVIDER_SERVICE_CENTER, FANOUT_CIG_AUTISM],
 };
 
 const unitedhealthcareFlContact: VobContact = {
@@ -1922,25 +2047,27 @@ const unitedhealthcareFlContact: VobContact = {
     'Does the out-of-pocket maximum apply to ABA benefits?',
     'What places of service are allowed for ABA, and is telehealth covered for any code?',
   ],
-  sources: [UHC_PROVIDER_CONTACT_PAGE],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [UHC_PROVIDER_CONTACT_PAGE, FANOUT_OPTUM_NNM_2026],
 };
 
 /* ==================== export ==================== */
 
 export const floridaVob: Record<string, VobExtension> = {
-  'florida-medicaid': { edi: floridaMedicaidEdi, codeGrid: floridaMedicaidCodeGrid, rates: floridaMedicaidRates, stcMap: floridaMedicaidStc, vobContact: floridaMedicaidContact, lastUpdated: ACCESS_DATE },
-  'sunshine-health-florida': { edi: sunshineEdi, codeGrid: sunshineCodeGrid, stcMap: flMcoUnverifiedStc('Sunshine Health'), vobContact: sunshineContact, lastUpdated: ACCESS_DATE },
-  'cms-health-plan-florida': { edi: cmsHealthPlanEdi, codeGrid: cmsPlanMolinaCodeGrid, stcMap: flMcoUnverifiedStc('CMS Plan (Molina Healthcare of Florida)'), vobContact: cmsHealthPlanContact, lastUpdated: '2026-09-27' },
-  'simply-healthcare-florida': { edi: simplyEdi, codeGrid: simplyCodeGrid, stcMap: flMcoUnverifiedStc('Simply Healthcare'), vobContact: simplyContact, lastUpdated: ACCESS_DATE },
-  'unitedhealthcare-community-plan-florida': { edi: uhcCommunityPlanEdi, codeGrid: uhcCodeGrid, stcMap: flMcoUnverifiedStc('UnitedHealthcare Community Plan of Florida'), vobContact: uhcCommunityPlanContact, lastUpdated: ACCESS_DATE },
-  'humana-healthy-horizons-florida': { edi: humanaEdi, codeGrid: humanaCodeGrid, stcMap: flMcoUnverifiedStc('Humana Healthy Horizons'), vobContact: humanaContact, lastUpdated: ACCESS_DATE },
+  'florida-medicaid': { edi: floridaMedicaidEdi, codeGrid: floridaMedicaidCodeGrid, rates: floridaMedicaidRates, stcMap: floridaMedicaidStc, vobContact: floridaMedicaidContact, lastUpdated: '2026-10-15'},
+  'sunshine-health-florida': { edi: sunshineEdi, codeGrid: sunshineCodeGrid, stcMap: flMcoUnverifiedStc('Sunshine Health'), vobContact: sunshineContact, lastUpdated: '2026-10-15'},
+  'cms-health-plan-florida': { edi: cmsHealthPlanEdi, codeGrid: cmsPlanMolinaCodeGrid, stcMap: flMcoUnverifiedStc('CMS Plan (Molina Healthcare of Florida)'), vobContact: cmsHealthPlanContact, lastUpdated: '2026-10-15'},
+  'simply-healthcare-florida': { edi: simplyEdi, codeGrid: simplyCodeGrid, stcMap: flMcoUnverifiedStc('Simply Healthcare'), vobContact: simplyContact, lastUpdated: '2026-10-15'},
+  'unitedhealthcare-community-plan-florida': { edi: uhcCommunityPlanEdi, codeGrid: uhcCodeGrid, stcMap: flMcoUnverifiedStc('UnitedHealthcare Community Plan of Florida'), vobContact: uhcCommunityPlanContact, lastUpdated: '2026-10-15'},
+  'humana-healthy-horizons-florida': { edi: humanaEdi, codeGrid: humanaCodeGrid, stcMap: flMcoUnverifiedStc('Humana Healthy Horizons'), vobContact: humanaContact, lastUpdated: '2026-10-15'},
   'aetna-better-health-florida': {
     edi: aetnaBetterHealthFlEdi,
     codeGrid: aetnaBetterHealthFlCodeGrid,
     rates: { ...floridaMedicaidRates, source: `${floridaMedicaidRates.source}. No ABHFL-specific rate schedule is publicly posted — MCOs must not impose limits more stringent than this state schedule, which serves as the reference baseline (AHCA BA Coverage Policy §1.2).` },
     stcMap: flMcoUnverifiedStc('Aetna Better Health of Florida'),
     vobContact: aetnaBetterHealthFlContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'molina-healthcare-florida': {
     edi: molinaFlEdi,
@@ -1948,7 +2075,7 @@ export const floridaVob: Record<string, VobExtension> = {
     rates: { ...floridaMedicaidRates, source: `${floridaMedicaidRates.source}. No Molina-specific rate schedule is publicly posted — MCOs must not impose limits more stringent than this state schedule, which serves as the reference baseline (AHCA BA Coverage Policy §1.2).` },
     stcMap: flMcoUnverifiedStc('Molina Healthcare of Florida'),
     vobContact: molinaFlContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'community-care-plan-florida': {
     edi: communityCarePlanFlEdi,
@@ -1956,7 +2083,7 @@ export const floridaVob: Record<string, VobExtension> = {
     rates: { ...floridaMedicaidRates, source: `${floridaMedicaidRates.source}. TNFL's own BA manual defers explicitly to "the Florida BA Fee Schedule" without restating rates — this table is that state schedule, used as the reference baseline.` },
     stcMap: flMcoUnverifiedStc('Community Care Plan (Therapy Network of Florida)'),
     vobContact: communityCarePlanFlContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'florida-community-care': {
     edi: floridaCommunityCareEdi,
@@ -1964,27 +2091,27 @@ export const floridaVob: Record<string, VobExtension> = {
     rates: { ...floridaMedicaidRates, source: `${floridaMedicaidRates.source}. No FCC-specific rate schedule is publicly posted — MCOs must not impose limits more stringent than this state schedule, which serves as the reference baseline (AHCA BA Coverage Policy §1.2).` },
     stcMap: flMcoUnverifiedStc('Florida Community Care'),
     vobContact: floridaCommunityCareContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'aetna-florida': {
     edi: aetnaFlEdi,
     codeGrid: aetnaFlCodeGrid,
     stcMap: inheritFamilyStc(aetnaFamilyStc, 'Inherited from the Aetna family default (docs/vob-build.md Layer 2) — no Florida-specific 270/271 STC document found.'),
     vobContact: aetnaFlContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'cigna-florida': {
     edi: cignaFlEdi,
     codeGrid: cignaFlCodeGrid,
     stcMap: inheritFamilyStc(cignaFamilyStc, 'Inherited from the Cigna/Evernorth family default (docs/vob-build.md Layer 2) — national companion guide, no Florida-specific override found.'),
     vobContact: cignaFlContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'unitedhealthcare-florida': {
     edi: unitedhealthcareFlEdi,
     codeGrid: unitedhealthcareFlCodeGrid,
     stcMap: inheritFamilyStc(uhcFamilyStc, 'Inherited from the UnitedHealthcare/Optum family default (docs/vob-build.md Layer 2) — national companion guide, no Florida-specific override found.'),
     vobContact: unitedhealthcareFlContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
 };

@@ -200,6 +200,16 @@ function renderVob(v: VobExtension, payerName: string): string[] {
     for (const [name, val, key] of ids) {
       if (!isBlank(val)) items.push(`- **Payer ID (${name}):** ${clean(val)}${vobNote(vv, key)}`);
     }
+    if (e.eligibilityPayer) {
+      const p = e.eligibilityPayer;
+      if (!isBlank(p.name)) items.push(`- **Eligibility payer:** ${clean(p.name)}`);
+      if (!isBlank(p.pverify)) items.push(`- **Eligibility payer ID (pVerify):** ${clean(p.pverify)}${vobNote(vv, 'eligibilityPayer.pverify')}`);
+      if (!isBlank(p.availity)) items.push(`- **Eligibility payer ID (Availity):** ${clean(p.availity)}${vobNote(vv, 'eligibilityPayer.availity')}`);
+    }
+    if (e.memberIdPrefix === 'required-from-card' || e.memberIdPrefix === 'not-used') {
+      const prefix = e.memberIdPrefix === 'required-from-card' ? 'Required: include the prefix exactly as printed on the card' : 'Not used for eligibility';
+      items.push(`- **Member ID prefix:** ${prefix}${vobNote(vv, 'memberIdPrefix')}`);
+    }
     if (!isBlank(e.supports270271)) items.push(`- **Supports 270/271 eligibility:** ${yesNo(e.supports270271)}${vobNote(vv, 'supports270271')}`);
     if (!isBlank(e.supportsRealtime)) items.push(`- **Real-time eligibility:** ${yesNo(e.supportsRealtime)}${vobNote(vv, 'supportsRealtime')}`);
     const bh = e.bhCarveOut;
@@ -300,6 +310,9 @@ function renderVob(v: VobExtension, payerName: string): string[] {
   if (v.vobContact) {
     const c = v.vobContact;
     const items: string[] = [];
+    if (typeof c.benefitsByPhone === 'boolean') items.push(`- **Benefits by phone:** ${yesNo(c.benefitsByPhone)}`);
+    if (c.benefitsPortal && !isBlank(c.benefitsPortal.url)) items.push(`- **Benefits portal:** [${clean(c.benefitsPortal.name) || c.benefitsPortal.url}](${c.benefitsPortal.url})`);
+    if (typeof c.requiresIndividualNpi === 'boolean') items.push(`- **Individual NPI required:** ${yesNo(c.requiresIndividualNpi)}`);
     if (!isBlank(c.providerServicesPhone)) items.push(`- **Provider services phone:** ${clean(c.providerServicesPhone)}`);
     if (!isBlank(c.ivrPath)) items.push(`- **Phone menu path:** ${clean(c.ivrPath)}`);
     if (!isBlank(c.hours)) items.push(`- **Hours:** ${clean(c.hours)}`);
@@ -309,7 +322,10 @@ function renderVob(v: VobExtension, payerName: string): string[] {
     if (items.length || qs.length) {
       out.push('### Contacts');
       if (items.length) out.push(items.join('\n'));
-      if (qs.length) out.push('Questions to ask on a verification call:\n\n' + qs.map((q) => `- ${clean(q)}`).join('\n'));
+      if (qs.length) {
+        const heading = c.benefitsByPhone === false ? 'Questions to resolve through the benefits portal:' : 'Questions to ask on a verification call:';
+        out.push(heading + '\n\n' + qs.map((q) => `- ${clean(q)}`).join('\n'));
+      }
     }
     addSrc(c.sources);
   }

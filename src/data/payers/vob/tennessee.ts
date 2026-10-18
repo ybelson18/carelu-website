@@ -331,6 +331,45 @@ const tenncareMedicaidCodeGrid: Record<string, CodeGridEntry> = {
   '0373T': tenncareEntry('0373T'),
 };
 
+/* Prefix / benefits-by-phone / individual-NPI sources (2026-10-14) */
+const FANOUT_PHONE_BLUECARE_TENNESSEE: SourceRef = { url: 'https://content.bcbst.com/api/public/content/prov-bct-pam.pdf', accessDate: '2026-10-15', note: 'BlueCare Tennessee Provider Administration Manual (H3259_W14_P2_100126v2): "Providers may verify current BlueCare Tennessee Member eligibility, claims status information, copayment amount... by calling one of the following Provider Service lines, Monday through Friday, 8 a.m. to 6 p.m. (ET): BlueCare 1-800-468-9736". 1-800-924-7141 is listed for CoverKids, prior authorization and credentialing.' };
+const FANOUT_PHONE_UNITEDHEALTHCARE_COMMUNITY_PLAN_TENNESSEE: SourceRef = { url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/TN-TennCare-Care-Provider-Administrative-Manual.pdf', accessDate: '2026-10-15', note: 'UHC Community Plan of Tennessee TennCare Care Provider Manual (Doc PMI 07202026): "Verify eligibility using the UnitedHealthcare Provider Portal at UHCprovider.com/eligibility or by calling Provider Services at 1-800-690-1606." Same number listed for Optum Behavioral Health. 877-222-6720 does not appear in the manual.' };
+const FANOUT_MAN_TN_MCD: SourceRef = {
+  url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/TN-TennCare-Care-Provider-Administrative-Manual.pdf',
+  accessDate: '2026-10-14',
+  note: 'Care Provider Manual for TennCare, UHC Community Plan of Tennessee (Aug 2026): "Verify eligibility using the UnitedHealthcare Provider Portal at UHCprovider.com/eligibility or by calling Provider Services at 1-800-690-1606."',
+};
+const FANOUT_OPTUM_NNM_2026: SourceRef = {
+  url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf',
+  accessDate: '2026-10-14',
+  note: 'Optum (United Behavioral Health) National Provider Network Manual, published July 1 2026, effective Sept 1 2026 (BH02330-1-26-MAN_07012026). Read via r.jina.ai using the AEM path .../NNManual.pdf/jcr:content/renditions/original (plain URL returns a download interstitial). Eligibility Inquiry p.35-36: "You can use the Provider Express secure portal to check a member\'s eligibility. You may also inquire about eligibility by calling the phone number on the member\'s ID card." Items to provide: member name, address, ID number, subscriber name and DOB - NPI not listed. No statement on individual vs group NPI for calls.',
+};
+const FANOUT_AET_ELIG_FLYER: SourceRef = {
+  url: 'https://www.aetna.com/document-library/healthcare-professionals/assets/documents/eligibility.pdf',
+  accessDate: '2026-10-14',
+  note: 'Aetna Eligibility and Benefits Inquiry flyer 83.03.870.1 (2/19), still hosted on aetna.com: "When using the member ID number, prefixes or suffixes are unnecessary. For family-level searches, you only need to enter the member ID." Applies to the electronic inquiry; dated 2019.',
+};
+const FANOUT_AET_GLANCE: SourceRef = {
+  url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/aetna-at-a-glance.pdf',
+  accessDate: '2026-10-14',
+  note: 'Aetna "At a glance" how-to guide for health care professionals, 9011800-01-01 (8/26), Key contacts table: "Provider Contact Center ... Member eligibility and benefits ... 1-800-624-0756 (TTY: 711) for Aetna Medicare Advantage plans and HMO-based plans / 1-888-MDAetna (1-888-632-3862) (TTY: 711) for all other plans". Also: "Behavioral health (provider services) Refer to the member ID card."',
+};
+const FANOUT_CIG_AUTISM: SourceRef = {
+  url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf',
+  accessDate: '2026-10-14',
+  note: 'Evernorth/Cigna Autism resource guide, March 2025 (PCOMM-2025-225): "It is important to confirm a patient\'s ABA eligibility and benefits before performing an assessment. This information can be confirmed by: ... Calling the Autism Care Coordinator team at 877.279.7603". Provider Services 800.926.2273 "handles questions regarding billing, benefits, and eligibility for autism-related treatment, such as ABA."',
+};
+const FANOUT_BCT_PAM: SourceRef = {
+  url: 'https://content.bcbst.com/api/public/content/prov-bct-pam.pdf',
+  accessDate: '2026-10-14',
+  note: 'BlueCare Tennessee Provider Administration Manual (changes eff. Oct 1, 2026; covers BlueCare and TennCare Select). Quotes: \'Providers may verify current BlueCare Tennessee Member eligibility, claims status information, copayment amount... by calling one of the following Provider Service lines... BlueCare 1-800-468-9736 TennCare Select 1-800-276-1978\' / claims: \'please provide the Member ID as shown on the Member\'s ID card, including the three-letter alpha prefix (ZEC or ZED)\' / IVR: \'When accessing the eligibility lines enter the numerical portions of the Member ID\'.',
+};
+const FANOUT_WP_TN_PM: SourceRef = {
+  url: 'https://provider.wellpoint.com/docs/gpp/TN_WLP_CAID_ProviderManual.pdf',
+  accessDate: '2026-10-14',
+  note: '2025 TN Wellpoint Medicaid Provider Manual (PDF updated Oct 2026). Quote: \'telephonic verification may be obtained on the automated Provider Inquiry Line at 833-731-2154.\'',
+};
+
 const tenncareMedicaidEdi: EdiRouting = {
   payerId: { pverify: '00185', availity: 'unverified', changeHealthcare: 'unverified' },
   supports270271: true,
@@ -347,6 +386,7 @@ const tenncareMedicaidEdi: EdiRouting = {
     mcoCarrierCodes: {},
     eligibilitySpanGranularity: 'unverified',
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'unverified',
@@ -357,6 +397,7 @@ const tenncareMedicaidEdi: EdiRouting = {
     'medicaid271Notes.mcoSegmentLocation': 'unverified',
     'medicaid271Notes.mcoCarrierCodes': 'unverified',
     'medicaid271Notes.eligibilitySpanGranularity': 'unverified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.availity':
@@ -366,6 +407,7 @@ const tenncareMedicaidEdi: EdiRouting = {
       'TennCare\'s public "EDI Front Matter" (V8.0, Feb 2026) confirms 270/271 is handled directly by TennCare (not an MCC transaction) via batch SFTP or real-time SOAP, but the loop/segment carrying MCO enrollment/carrier-code detail lives in the actual TennCare Companion Guide (TCCG) — described in the Front Matter as "available to registered Trading Partners upon request," not a public download. Request the TCCG via EDI.TennCare@tn.gov.',
     'medicaid271Notes.mcoCarrierCodes': 'Same — request the TCCG from EDI.TennCare@tn.gov.',
     'medicaid271Notes.eligibilitySpanGranularity': 'Same — request the TCCG from EDI.TennCare@tn.gov.',
+    memberIdPrefix: 'TennCare provider/TCOS guide (Recipient ID format)',
   },
   sources: [TENNCARE_EDI_FRONT_MATTER, PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST],
 };
@@ -430,6 +472,7 @@ const blueCareEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'unverified',
     'payerId.availity': 'unverified',
@@ -437,6 +480,7 @@ const blueCareEdi: EdiRouting = {
     supports270271: 'unverified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'inferred',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify':
@@ -449,6 +493,7 @@ const blueCareEdi: EdiRouting = {
     supportsRealtime: 'Same reasoning as supports270271 — confirm via pVerify/Availity onboarding.',
     'bhCarveOut.administrator':
       'BCBST provider services, (423) 535-5717 option 2, or BHABA@bcbst.com (both already cited in tennessee.ts) — this guide found no primary source stating "no carve-out" in so many words, only its absence across a 563-page manual\'s Behavioral Health sections, so the field is not upgraded to a fully confirmed "none."',
+    memberIdPrefix: 'Required on claims (ZEC/ZED); phone eligibility line takes numeric part only',
   },
   sources: [BLUECARE_PAM, PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, TENNCARE_EDI_FRONT_MATTER],
 };
@@ -500,6 +545,7 @@ const uhcCommunityPlanEdi: EdiRouting = {
     abaRidesOn: 'unverified',
     twoHopRequired: 'unverified',
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'unverified',
@@ -510,6 +556,7 @@ const uhcCommunityPlanEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'unverified',
     'bhCarveOut.abaRidesOn': 'unverified',
     'bhCarveOut.twoHopRequired': 'unverified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.availity':
@@ -520,6 +567,7 @@ const uhcCommunityPlanEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'Same as administrator.',
     'bhCarveOut.abaRidesOn': 'Same as administrator.',
     'bhCarveOut.twoHopRequired': 'Same as administrator.',
+    memberIdPrefix: 'No UHC/Optum source addresses an alpha prefix (2026 Admin Guide ID-card legend, 270/271 companion guide, pVerify list all silent). Confirm with a real card plus a pVerify run, or ask UHC Provider Services.',
   },
   sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, UHC_CLAIMS_PAYER_LIST, UHC_TN_ABA_PROGRAM_DESC],
 };
@@ -563,6 +611,7 @@ const wellpointEdi: EdiRouting = {
     abaRidesOn: 'unverified',
     twoHopRequired: 'unverified',
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'unverified',
     'payerId.availity': 'verified',
@@ -570,6 +619,7 @@ const wellpointEdi: EdiRouting = {
     supports270271: 'unverified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'unverified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify':
@@ -580,6 +630,7 @@ const wellpointEdi: EdiRouting = {
     supportsRealtime: 'Same reasoning as supports270271.',
     'bhCarveOut.administrator':
       'Same caveat already recorded in vob/carveouts.ts\'s anthem/TN row: no Carelon or other BH vendor named; ABA submissions go through Availity\'s Interactive Care Reviewer using the universal tri-MCO form. Verify via Wellpoint TN provider services (833-731-2154).',
+    memberIdPrefix: 'Manual has no prefix statement; check ID card / Availity',
   },
   sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, WELLPOINT_TN_EDI_PAGE, TN_UNIVERSAL_REQUEST_FORM, TN_OVERVIEW_UPDATES],
 };
@@ -632,6 +683,7 @@ const aetnaEdi: EdiRouting = {
     abaRidesOn: 'unverified',
     twoHopRequired: 'unverified',
   },
+  memberIdPrefix: 'not-used',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'inferred',
@@ -639,6 +691,7 @@ const aetnaEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'unverified',
+    memberIdPrefix: 'verified',
   },
   verifyVia: {
     'payerId.availity':
@@ -647,8 +700,9 @@ const aetnaEdi: EdiRouting = {
     supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding for this payer ID.',
     'bhCarveOut.administrator':
       'No BH carve-out administrator is named for Aetna commercial ABA in any of the 19 states\' guides researched across this corpus, TN included — matches vob/carveouts.ts\'s aetna/US commercial row exactly. Verify via Aetna provider services precert line.',
+    memberIdPrefix: 'Aetna\'s eligibility and benefits inquiry flyer states that prefixes or suffixes are unnecessary when using the member ID number.',
   },
-  sources: [AETNA_PRECERT_LIST_ABA, AETNA_ABA_FORM_GR69017, AETNA_CPB0554, AETNA_CPB0648, PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST],
+  sources: [AETNA_PRECERT_LIST_ABA, AETNA_ABA_FORM_GR69017, AETNA_CPB0554, AETNA_CPB0648, PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, FANOUT_AET_ELIG_FLYER],
 };
 
 /* -------------------- cigna-tennessee (commercial) -------------------- */
@@ -698,6 +752,7 @@ const cignaEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'verified',
@@ -708,9 +763,11 @@ const cignaEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'verified',
     'bhCarveOut.abaRidesOn': 'verified',
     'bhCarveOut.twoHopRequired': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding for this payer ID.',
+    memberIdPrefix: 'Cigna ID card quick guide (CIG_IDCARD) shows member ID + two-digit suffix, no alpha prefix, but gives no entry rule; confirm with Cigna 800.882.4462 or a test 270.',
   },
   sources: [CIGNA_EN0499, CIGNA_AUTISM_GUIDE, PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST],
 };
@@ -763,6 +820,7 @@ const unitedhealthcareEdi: EdiRouting = {
     abaRidesOn: 'unverified',
     twoHopRequired: 'unverified',
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'inferred',
@@ -770,6 +828,7 @@ const unitedhealthcareEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'unverified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.availity':
@@ -778,6 +837,7 @@ const unitedhealthcareEdi: EdiRouting = {
     supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding for this payer ID.',
     'bhCarveOut.administrator':
       'No Tennessee-specific payer ID or side (medical vs. BH) confirmed for commercial UHC/Optum — matches vob/carveouts.ts\'s unitedhealthcare/TN commercial row exactly. Verify via Provider Express / UHC provider services.',
+    memberIdPrefix: 'No UHC/Optum source addresses an alpha prefix (2026 Admin Guide ID-card legend, 270/271 companion guide, pVerify list all silent). Confirm with a real card plus a pVerify run, or ask UHC Provider Services.',
   },
   sources: [OPTUM_SCC, PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST],
 };
@@ -825,12 +885,14 @@ const tenncareMedicaidContact: VobContact = {
     'What is the negotiated per-unit rate for 97151-97158 (and 0362T/0373T where covered) under this member\'s MCO provider contract, since TennCare publishes no statewide ABA fee schedule?',
     'Can you confirm which loop/segment carries this member\'s MCO enrollment on the 271 response, or should we route this eligibility question to the assigned MCO directly?',
   ],
+  benefitsByPhone: 'unverified',
+  requiresIndividualNpi: 'unverified',
   sources: [TENNCARE_EDI_FRONT_MATTER],
 };
 
 const blueCareContact: VobContact = {
   providerServicesPhone:
-    '1-800-924-7141 — BlueCare Tennessee Provider Service Line, also listed as the Prior Authorization (Medical and Behavioral Health) phone number in the Provider Administration Manual\'s own "Contact Us" table',
+    '1-800-924-7141 — BlueCare Tennessee Provider Service Line, also listed as the Prior Authorization (Medical and Behavioral Health) phone number in the Provider Administration Manual\\\'s own "Contact Us" table; eligibility verification: 1-800-468-9736 — BlueCare Provider Service Line (member eligibility, claims status, copayment)',
   ivrPath: '(423) 535-5717, option 2 — reaches BlueCare\'s in-house behavioral health/UM team (BHABA@bcbst.com) for ABA-specific PA questions',
   fax: '1-800-292-5311 (BlueCare/TennCareSelect prior-authorization fax; CoverKids uses a separate fax, 1-800-851-2491)',
   portal: { name: 'BlueCare online provider tool (bluecare.bcbst.com) / Availity', url: 'https://bluecare.bcbst.com' },
@@ -839,12 +901,14 @@ const blueCareContact: VobContact = {
     'What modifier, if any, does BlueCare want on 0362T/0373T claims — its own code table gives a CPT description but no modifier for these two codes?',
     'Can eligibility/benefits for this member be checked in real time through a clearinghouse, or only via Availity\'s standard batch process?',
   ],
-  sources: [BLUECARE_PAM, TN_UNIVERSAL_REQUEST_FORM],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [BLUECARE_PAM, TN_UNIVERSAL_REQUEST_FORM, FANOUT_BCT_PAM, FANOUT_PHONE_BLUECARE_TENNESSEE],
 };
 
 const uhcCommunityPlanContact: VobContact = {
   providerServicesPhone:
-    '(800) 690-1606 — the dedicated ABA authorization line, per the Tri-MCO ABA Overview of Updates ("For authorization requests, questions or submission, please contact: 800-690-1606"); UnitedHealthcare Community Plan of TN\'s general Provider Services line is (877) 222-6720, per the Universal Request form\'s "Additional MCO Contact Information" table',
+    '(800) 690-1606 — the dedicated ABA authorization line, per the Tri-MCO ABA Overview of Updates ("For authorization requests, questions or submission, please contact: 800-690-1606"); UnitedHealthcare Community Plan of TN\\\'s general Provider Services line is (877) 222-6720, per the Universal Request form\\\'s "Additional MCO Contact Information" table',
   fax: '(877) 217-6068',
   portal: { name: 'Provider Express', url: 'https://public.providerexpress.com' },
   scriptedQuestions: [
@@ -852,7 +916,9 @@ const uhcCommunityPlanContact: VobContact = {
     'Does this member\'s plan cover 0362T and 0373T in addition to the shared tri-MCO 97151-97158 code set?',
     'Can eligibility be checked in real time, or only via batch, for this payer ID?',
   ],
-  sources: [TN_OVERVIEW_UPDATES, TN_UNIVERSAL_REQUEST_FORM],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [TN_OVERVIEW_UPDATES, TN_UNIVERSAL_REQUEST_FORM, FANOUT_MAN_TN_MCD, FANOUT_PHONE_UNITEDHEALTHCARE_COMMUNITY_PLAN_TENNESSEE],
 };
 
 const wellpointContact: VobContact = {
@@ -865,7 +931,9 @@ const wellpointContact: VobContact = {
     'Does this member\'s plan cover 0362T and 0373T in addition to the shared tri-MCO 97151-97158 code set?',
     'Can eligibility for this member be checked in real time through Availity, or does it require a batch request?',
   ],
-  sources: [WELLPOINT_TN_EDI_PAGE, TN_UNIVERSAL_REQUEST_FORM, TN_OVERVIEW_UPDATES],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [WELLPOINT_TN_EDI_PAGE, TN_UNIVERSAL_REQUEST_FORM, TN_OVERVIEW_UPDATES, FANOUT_WP_TN_PM],
 };
 
 const aetnaContact: VobContact = {
@@ -879,7 +947,9 @@ const aetnaContact: VobContact = {
     'Is telehealth allowed for any ABA codes under this plan, and if so what modifier/POS applies?',
     'Is ABA administered on the medical side, or carved out to a separate behavioral health vendor?',
   ],
-  sources: [AETNA_BH_PRECERT_LIST],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [AETNA_BH_PRECERT_LIST, FANOUT_AET_GLANCE],
 };
 
 const cignaContact: VobContact = {
@@ -890,7 +960,9 @@ const cignaContact: VobContact = {
     'What place-of-service codes and modifiers should be used when billing 97151-97158 and 0362T/0373T?',
     'Is telehealth allowed for any ABA codes under this plan?',
   ],
-  sources: [CIGNA_EBH_ADMIN_GUIDE],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [CIGNA_EBH_ADMIN_GUIDE, FANOUT_CIG_AUTISM],
 };
 
 const unitedhealthcareContact: VobContact = {
@@ -903,7 +975,9 @@ const unitedhealthcareContact: VobContact = {
     'What place-of-service codes apply for in-clinic vs. home vs. telehealth ABA sessions?',
     'Is telehealth allowed for any ABA codes, and under what conditions?',
   ],
-  sources: [PROVIDER_EXPRESS_SUPPORT_PAGE, OPTUM_SCC],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [PROVIDER_EXPRESS_SUPPORT_PAGE, OPTUM_SCC, FANOUT_OPTUM_NNM_2026],
 };
 
 /* ==================== closing sweep: tenncare-select ====================
@@ -949,6 +1023,7 @@ const tenncareSelectEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'unverified',
     'payerId.availity': 'unverified',
@@ -956,6 +1031,7 @@ const tenncareSelectEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'inferred',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify':
@@ -964,6 +1040,7 @@ const tenncareSelectEdi: EdiRouting = {
     'payerId.changeHealthcare': 'Not checked against a dedicated Optum/Change Healthcare payer directory this pass.',
     supportsRealtime:
       "TennCare's own EDI Front Matter positions 270/271 as a state-run (not MCC/MCO) transaction — practical fallback: pVerify's state-level \"00185 Tennessee Medicaid (TennCare)\" entry (Elig=Yes) confirms TennCare enrollment; cross-reference the member's MCO card for TennCare Select assignment. Confirm directly via pVerify/Availity onboarding.",
+    memberIdPrefix: 'Required on claims (ZEC/ZED); phone eligibility line takes numeric part only',
   },
   sources: [TENNCARE_SELECT_CONTRACT, TENNCARE_SELECT_MCPAR, BLUECARE_PAM, TENNCARE_EDI_FRONT_MATTER, PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, FINTHRIVE_PAYER_LIST_SNIPPET],
 };
@@ -1002,7 +1079,9 @@ const tenncareSelectContact: VobContact = {
     'What is the negotiated per-unit rate for the ABA code set under this member\'s TennCare Select provider contract, since TennCare publishes no statewide ABA fee schedule?',
     'What EDI payer ID should be used for this member\'s 270/271 eligibility check — no TennCare-Select-specific code was confirmed this pass?',
   ],
-  sources: [TENNCARE_SELECT_CONTRACT, BLUECARE_PAM],
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
+  sources: [TENNCARE_SELECT_CONTRACT, BLUECARE_PAM, FANOUT_BCT_PAM],
 };
 
 /* ==================== Layer 2 — STC interpretation maps ====================
@@ -1067,7 +1146,7 @@ export const tennesseeVob: Record<string, VobExtension> = {
     stcMap: tenncareMedicaidStc,
     rates: tenncareMedicaidRates,
     vobContact: tenncareMedicaidContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'bluecare-tennessee': {
     edi: blueCareEdi,
@@ -1075,7 +1154,7 @@ export const tennesseeVob: Record<string, VobExtension> = {
     stcMap: blueCareStc,
     rates: blueCareRates,
     vobContact: blueCareContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'unitedhealthcare-community-plan-tennessee': {
     edi: uhcCommunityPlanEdi,
@@ -1083,7 +1162,7 @@ export const tennesseeVob: Record<string, VobExtension> = {
     stcMap: uhcCommunityPlanStc,
     rates: uhcCommunityPlanRates,
     vobContact: uhcCommunityPlanContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'wellpoint-tennessee': {
     edi: wellpointEdi,
@@ -1091,28 +1170,28 @@ export const tennesseeVob: Record<string, VobExtension> = {
     stcMap: wellpointStc,
     rates: wellpointRates,
     vobContact: wellpointContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'aetna-tennessee': {
     edi: aetnaEdi,
     codeGrid: aetnaCodeGrid,
     stcMap: inheritFamilyStc(aetnaFamilyStc, 'Inherited from the Aetna family default (docs/vob-build.md Layer 2) — no Tennessee-specific 270/271 STC document found.'),
     vobContact: aetnaContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'cigna-tennessee': {
     edi: cignaEdi,
     codeGrid: cignaCodeGrid,
     stcMap: inheritFamilyStc(cignaFamilyStc, 'Inherited from the Cigna/Evernorth family default (docs/vob-build.md Layer 2) — national companion guide, no Tennessee-specific override found.'),
     vobContact: cignaContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'unitedhealthcare-tennessee': {
     edi: unitedhealthcareEdi,
     codeGrid: unitedhealthcareCodeGrid,
     stcMap: inheritFamilyStc(uhcFamilyStc, 'Inherited from the UnitedHealthcare/Optum family default (docs/vob-build.md Layer 2) — national companion guide, no Tennessee-specific override found.'),
     vobContact: unitedhealthcareContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'tenncare-select': {
     edi: tenncareSelectEdi,
@@ -1120,6 +1199,6 @@ export const tennesseeVob: Record<string, VobExtension> = {
     stcMap: tenncareSelectStc,
     rates: tenncareSelectRates,
     vobContact: tenncareSelectContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
 };

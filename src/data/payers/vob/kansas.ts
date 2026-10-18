@@ -186,6 +186,44 @@ const UHC_PROVIDER_CONTACT_PAGE = src(
   'UHCprovider.com official Contact Us page — lists "24/7 behavioral health and substance use support line 877-614-0484" (national, applies across UnitedHealthcare commercial plans); confirmed verbatim on a direct fetch this pass. The same number also appears in the Kansas-specific UHC/Optum KanCare getting-started guide as the Optum Behavioral Health contracting line, suggesting one shared Optum BH switchboard.',
 );
 
+/* Prefix / benefits-by-phone / individual-NPI sources (2026-10-14) */
+const FANOUT_PHONE_UNITEDHEALTHCARE_COMMUNITY_PLAN_KANSAS: SourceRef = { url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/KS-AdminGuide.pdf', accessDate: '2026-10-15', note: 'UHC Community Plan of Kansas (KanCare) 2026 Care Provider Manual: "Determine eligibility in the following ways: Access the portal through UHCprovider.com/eligibility; Provider Services at 1-877-542-9235 Monday-Friday, 7 a.m.-5 p.m. CT".' };
+const FANOUT_MAN_KS_MCD: SourceRef = {
+  url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/KS-AdminGuide.pdf',
+  accessDate: '2026-10-14',
+  note: 'Care Provider Manual, UHC Community Plan of KanCare (2026): "Determine eligibility in the following ways: Access the portal through UHCprovider.com/eligibility; Provider Services at 1-877-542-9235 Monday-Friday, 7 a.m.-5 p.m. CT; Kansas Medical Assistance Program (KMAP)".',
+};
+const FANOUT_OPTUM_NNM_2026: SourceRef = {
+  url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf',
+  accessDate: '2026-10-14',
+  note: 'Optum (United Behavioral Health) National Provider Network Manual, published July 1 2026, effective Sept 1 2026 (BH02330-1-26-MAN_07012026). Read via r.jina.ai using the AEM path .../NNManual.pdf/jcr:content/renditions/original (plain URL returns a download interstitial). Eligibility Inquiry p.35-36: "You can use the Provider Express secure portal to check a member\'s eligibility. You may also inquire about eligibility by calling the phone number on the member\'s ID card." Items to provide: member name, address, ID number, subscriber name and DOB - NPI not listed. No statement on individual vs group NPI for calls.',
+};
+const FANOUT_AET_ELIG_FLYER: SourceRef = {
+  url: 'https://www.aetna.com/document-library/healthcare-professionals/assets/documents/eligibility.pdf',
+  accessDate: '2026-10-14',
+  note: 'Aetna Eligibility and Benefits Inquiry flyer 83.03.870.1 (2/19), still hosted on aetna.com: "When using the member ID number, prefixes or suffixes are unnecessary. For family-level searches, you only need to enter the member ID." Applies to the electronic inquiry; dated 2019.',
+};
+const FANOUT_AET_GLANCE: SourceRef = {
+  url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/aetna-at-a-glance.pdf',
+  accessDate: '2026-10-14',
+  note: 'Aetna "At a glance" how-to guide for health care professionals, 9011800-01-01 (8/26), Key contacts table: "Provider Contact Center ... Member eligibility and benefits ... 1-800-624-0756 (TTY: 711) for Aetna Medicare Advantage plans and HMO-based plans / 1-888-MDAetna (1-888-632-3862) (TTY: 711) for all other plans". Also: "Behavioral health (provider services) Refer to the member ID card."',
+};
+const FANOUT_CIG_AUTISM: SourceRef = {
+  url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf',
+  accessDate: '2026-10-14',
+  note: 'Evernorth/Cigna Autism resource guide, March 2025 (PCOMM-2025-225): "It is important to confirm a patient\'s ABA eligibility and benefits before performing an assessment. This information can be confirmed by: ... Calling the Autism Care Coordinator team at 877.279.7603". Provider Services 800.926.2273 "handles questions regarding billing, benefits, and eligibility for autism-related treatment, such as ABA."',
+};
+const FANOUT_SUNFLOWER_QRG: SourceRef = {
+  url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/pdfs/Sunflower-QRG.pdf',
+  accessDate: '2026-10-14',
+  note: 'Sunflower Provider Quick Reference Guide (served 1/2026). Lists "ON THE PHONE: ... Member eligibility/verifcation" and "Customer Service: 877-644-4623 Provider Services & IVR Eligibility Inquiry"; also "You can validate eligibility & benefts ... via Availity Essentials."',
+};
+const FANOUT_KS_AVRS_FLOW: SourceRef = {
+  url: 'https://portal-uatc.kmap-state-ks.us/Documents/Provider/Provider%20Documents/AVRS%20Call%20Flow.pdf',
+  accessDate: '2026-10-14',
+  note: 'KMAP AVRS Call Flow, \'Updated: 02.2018\', served from KMAP\'s UAT host (production copy unreachable). "AVRS 1-800-933-6593"; "Enter KMAP ID and PIN OR NPI* and PIN."; "1-Eligibility Press 1: Enter BID number. Enter dates of service."',
+};
+
 /* -------------------- Layer 4: shared KanCare rate table -------------------- */
 /* Kansas's State Plan CCTS/IIS rates for 9715x codes are genuinely unverified beyond
    the 2019 anchor (see file header). Reused across kansas-medicaid,
@@ -352,6 +390,7 @@ const kansasMedicaidEdi: EdiRouting = {
     mcoCarrierCodes: {},
     eligibilitySpanGranularity: 'unverified',
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'unverified',
@@ -362,6 +401,7 @@ const kansasMedicaidEdi: EdiRouting = {
     'medicaid271Notes.mcoSegmentLocation': 'verified',
     'medicaid271Notes.mcoCarrierCodes': 'verified',
     'medicaid271Notes.eligibilitySpanGranularity': 'unverified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': 'pVerify\'s own table flags "00128 Kansas Medicaid" as Eligibility=Yes / Claim=No — eligibility checks are supported, claim-status checks are not, per pVerify\'s own table.',
@@ -371,6 +411,7 @@ const kansasMedicaidEdi: EdiRouting = {
     'medicaid271Notes.mcoCarrierCodes':
       'The 2017 companion guide identifies MCOs by free-text description (EB05) only, not a numeric carrier-code table — ships empty by design. Note the document is dated May 2, 2017 (staleRisk) — a current KMAP EDI helpdesk confirmation (1-800-933-6593, option 4) would be needed to confirm no newer revision exists.',
     'medicaid271Notes.eligibilitySpanGranularity': 'Not stated in the 2017 companion guide — confirm via KMAP EDI helpdesk or a live 271 sample transaction.',
+    memberIdPrefix: 'KMAP General Benefits provider manual (beneficiary ID section)',
   },
   sources: [KMAP_COMPANION_GUIDE, PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST],
 };
@@ -390,6 +431,8 @@ const kansasMedicaidVobContact: VobContact = {
   ivrPath: 'Option 8 = KMAP Provider Service Number (recipient eligibility, claim status, billing/payment, secure-website questions, including Direct Data Entry claims). Option 4 routes to EDI Customer Service instead — use that only for trading-partner/270-271 connectivity issues, not benefit questions.',
   hours: 'Real-time 270/271 responses average under 2 seconds 90% of the time between 7:00 a.m. and 7:00 p.m. Central Time, 7 days/week, per the companion guide’s system-availability note — not confirmed to be identical to Customer Service phone hours.',
   portal: { name: 'KMAP secure website', url: 'https://portal.kmap-state-ks.us' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'What is the current per-unit reimbursement rate for 97152, 97153, 97154, 97155, 97156, and 97158 under the State Plan CCTS/IIS benefit?',
     'What POS codes and telehealth modifiers are accepted for CCTS/IIS billing?',
@@ -397,7 +440,7 @@ const kansasMedicaidVobContact: VobContact = {
     'What eligibility-span granularity does a live 271 return — monthly, daily, or real-time?',
     'Does KMAP pay ABA claims directly, or is there a behavioral-health carve-out administrator for autism services specifically?',
   ],
-  sources: [KMAP_COMPANION_GUIDE],
+  sources: [KMAP_COMPANION_GUIDE, FANOUT_KS_AVRS_FLOW],
 };
 
 /* ==================== sunflower-health-plan-kansas ==================== */
@@ -412,6 +455,7 @@ const sunflowerKansasEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'unverified',
@@ -419,12 +463,14 @@ const sunflowerKansasEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'inferred',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.availity': 'No Sunflower/Kansas entry found in the fetched Availity 837 payer list — confirm directly with Availity onboarding.',
     'payerId.changeHealthcare': 'Optum/Change Healthcare payer finder — not located this pass.',
     supportsRealtime: 'Confirm real-time vs. batch via pVerify onboarding for this payer ID.',
     'bhCarveOut.administrator': 'KS.CP.01 describes direct PA/claims handling with no named BH administrator for ABA — inferred "none".',
+    memberIdPrefix: 'Sample member ID card in the Sunflower provider manual, or ask Sunflower Provider Services whether any alpha prefix is keyed; no source states it',
   },
   sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, SUNFLOWER_KS_CP01],
 };
@@ -441,13 +487,15 @@ const sunflowerKansasVobContact: VobContact = {
   hours: 'Monday–Friday, 8 a.m.–5 p.m. CT for Provider Relations/Customer Service; the same toll-free number also serves as Sunflower’s 24/7 member nurse line.',
   portal: { name: 'Availity Essentials', url: 'https://www.availity.com' },
   fax: '844-824-7705 (Behavioral Health prior-authorization fax, per the plan’s Provider Quick Reference Guide)',
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'Are Sunflower’s ABA unit caps, POS allowances, and telehealth modifiers the same as the state KanCare CCTS/IIS baseline, or does Sunflower apply its own limits?',
     'What is the current per-unit reimbursement rate for 97152 through 97158 under Sunflower’s KanCare contract?',
     'Does eligibility checking return real-time or batch results for payer ID 01285?',
     'Is ABA administered directly by Sunflower, or through a behavioral-health carve-out vendor?',
   ],
-  sources: [SUNFLOWER_KS_QRG],
+  sources: [SUNFLOWER_KS_QRG, FANOUT_SUNFLOWER_QRG],
 };
 
 /* ==================== unitedhealthcare-community-plan-kansas ==================== */
@@ -462,6 +510,7 @@ const uhcCommunityPlanKansasEdi: EdiRouting = {
     abaRidesOn: 'bh',
     twoHopRequired: true,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'unverified',
@@ -472,6 +521,7 @@ const uhcCommunityPlanKansasEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'unverified',
     'bhCarveOut.abaRidesOn': 'inferred',
     'bhCarveOut.twoHopRequired': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify':
@@ -480,6 +530,7 @@ const uhcCommunityPlanKansasEdi: EdiRouting = {
     supportsRealtime: 'Confirm real-time vs. batch via pVerify onboarding for this payer ID.',
     'bhCarveOut.administratorPayerId': 'Confirm via Provider Express whether ABA claims route on a distinct Optum BH payer ID or the shared UHG002 medical ID — providers enroll with KMAP first, then Optum retrieves the application to begin credentialing (~60 days), which suggests a UM/credentialing hop separate from the claims payer ID, but this is not directly confirmed.',
     'bhCarveOut.abaRidesOn': 'Same as administratorPayerId.',
+    memberIdPrefix: 'No UHC/Optum source addresses an alpha prefix (2026 Admin Guide ID-card legend, 270/271 companion guide, pVerify list all silent). Confirm with a real card plus a pVerify run, or ask UHC Provider Services.',
   },
   sources: [PVERIFY_PAYER_LIST, OPTUM_KS_MEDICAID_CRITERIA, UHC_KS_GETTING_STARTED],
 };
@@ -492,16 +543,18 @@ const uhcCommunityPlanKansasCodeGrid: Record<string, CodeGridEntry> = Object.fro
 );
 
 const uhcCommunityPlanKansasVobContact: VobContact = {
-  providerServicesPhone: '1-877-614-0484 (Optum Behavioral Health — ask for the Kansas ABA Network Manager); direct KanCare Networks & Contracts contact: 1-913-608-3064 (Carolan Wishall)',
-  hours: '8 a.m.–5 p.m. CT, Monday–Friday, per the named UnitedHealthcare KanCare Networks & Contracts contact. Optum’s general behavioral-health line (same 877-614-0484 number) is staffed 24/7 nationally, per UHCprovider.com.',
+  providerServicesPhone: '1-877-614-0484 (Optum Behavioral Health — ask for the Kansas ABA Network Manager); direct KanCare Networks & Contracts contact: 1-913-608-3064 (Carolan Wishall); eligibility verification: 1-877-542-9235 — UnitedHealthcare Community Plan of Kansas (KanCare) Provider Services',
+  hours: 'Monday–Friday, 7 a.m.–5 p.m. CT',
   portal: { name: 'UHCprovider.com — Kansas Community Plan', url: 'https://www.uhcprovider.com/en/health-plans-by-state/kansas-health-plans/ks-comm-plan-home.html' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'Does ABA claims routing use a distinct Optum Behavioral Health payer ID, or the shared UHG002 medical payer ID?',
     'What is the current KanCare autism-services rate for 97152 through 97158 that Optum has committed to matching?',
     'Is eligibility checking real-time or batch for payer ID UHG002?',
     'What POS codes and telehealth modifiers does Optum accept for CCTS/IIS billing in Kansas?',
   ],
-  sources: [UHC_KS_GETTING_STARTED, UHC_PROVIDER_CONTACT_PAGE],
+  sources: [UHC_KS_GETTING_STARTED, UHC_PROVIDER_CONTACT_PAGE, FANOUT_MAN_KS_MCD, FANOUT_PHONE_UNITEDHEALTHCARE_COMMUNITY_PLAN_KANSAS],
 };
 
 /* ==================== healthy-blue-kansas ==================== */
@@ -520,6 +573,7 @@ const healthyBlueKansasEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'unverified',
     'payerId.availity': 'unverified',
@@ -527,6 +581,7 @@ const healthyBlueKansasEdi: EdiRouting = {
     supports270271: 'unverified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'inferred',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify':
@@ -534,6 +589,7 @@ const healthyBlueKansasEdi: EdiRouting = {
     'payerId.availity': 'No Healthy Blue or KanCare-flavored entry found anywhere in the fetched Availity 837 payer list — the biggest EDI gap of the three KanCare MCOs.',
     supports270271: 'Not confirmed this pass — Healthy Blue Kansas publishes the least ABA-specific/EDI-specific detail of the three MCOs (per kansas.ts guide prose); confirm via Availity or the plan\'s provider services line.',
     'bhCarveOut.administrator': 'No Healthy Blue Kansas document reviewed states or disclaims a BH carve-out for ABA specifically — inferred "none" from internal Anthem BH staff running UM per the guide\'s own prose (no external ABA vendor identified).',
+    memberIdPrefix: 'Healthy Blue KS provider manual / ID card',
   },
   sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, HEALTHY_BLUE_KS_PA_PAGE],
 };
@@ -549,6 +605,8 @@ const healthyBlueKansasVobContact: VobContact = {
   providerServicesPhone: "1-877-563-9347 (Healthy Blue Kansas ABA line) — carried over from this corpus's existing citation of the plan's Prior Authorization Requirements page; a fresh re-fetch of that page this pass did not reproduce this number (only pharmacy and BH fax numbers were found), so confirm it's still current before relying on it.",
   portal: { name: 'Availity', url: 'https://apps.availity.com/availity/web/public.elegant.login' },
   fax: '1-866-852-8978 (behavioral-health outpatient fax)',
+  benefitsByPhone: 'unverified',
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'Does Healthy Blue Kansas support real-time 270/271 eligibility checks, and what payer ID applies to this KanCare plan specifically (not generic BCBS Kansas)?',
     'What are Healthy Blue’s ABA unit caps, POS allowances, and telehealth modifier rules for CCTS/IIS codes?',
@@ -570,6 +628,7 @@ const aetnaKansasEdi: EdiRouting = {
     abaRidesOn: 'unverified',
     twoHopRequired: 'unverified',
   },
+  memberIdPrefix: 'not-used',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'inferred',
@@ -577,14 +636,16 @@ const aetnaKansasEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'unverified',
     'bhCarveOut.administrator': 'unverified',
+    memberIdPrefix: 'verified',
   },
   verifyVia: {
     'payerId.availity': 'Same 2012-vintage Availity list staleness finding as georgia.ts/indiana.ts — downgraded to inferred pending a current Availity export.',
     'payerId.changeHealthcare': 'Same staleness finding as payerId.availity.',
     supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding for this payer ID.',
     'bhCarveOut.administrator': 'Not researched to a primary source this pass — confirm via Aetna provider services whether Aetna administers ABA in-house or via a BH carve-out for Kansas commercial plans. (Not to be confused with Aetna Better Health of Kansas, the former KanCare Medicaid plan that lost its contract 1/1/2025 — this is the commercial line only.)',
+    memberIdPrefix: 'Aetna eligibility and benefits inquiry flyer: "When using the member ID number, prefixes or suffixes are unnecessary."',
   },
-  sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST],
+  sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, FANOUT_AET_ELIG_FLYER],
 };
 
 const aetnaKansasCodeGrid: Record<string, CodeGridEntry> = {
@@ -596,13 +657,15 @@ const aetnaKansasCodeGrid: Record<string, CodeGridEntry> = {
 const aetnaKansasVobContact: VobContact = {
   providerServicesPhone: '1-888-632-3862 (Commercial plans precertification line; TTY 711) — national number from the current precertification list; no Kansas-specific line published',
   portal: { name: 'Availity', url: 'https://www.availity.com' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'Does Aetna administer ABA claims in-house or through a behavioral-health carve-out vendor for Kansas commercial plans?',
     'What are the per-code unit caps, POS codes, and telehealth modifiers for CPT 97151–97158/0362T/0373T on this member’s plan?',
     'Is eligibility/benefits checking real-time or batch for this payer ID?',
     'Does this plan require a separate behavioral-health benefits check (a two-hop verification) in addition to medical eligibility?',
   ],
-  sources: [AETNA_PRECERT_LIST_2026],
+  sources: [AETNA_PRECERT_LIST_2026, FANOUT_AET_GLANCE],
 };
 
 /* ==================== cigna-kansas (commercial — Layers 1+3 only) ==================== */
@@ -617,6 +680,7 @@ const cignaKansasEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'verified',
@@ -627,9 +691,11 @@ const cignaKansasEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'verified',
     'bhCarveOut.abaRidesOn': 'verified',
     'bhCarveOut.twoHopRequired': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding for this payer ID.',
+    memberIdPrefix: 'Cigna ID card quick guide (CIG_IDCARD) shows member ID + two-digit suffix, no alpha prefix, but gives no entry rule; confirm with Cigna 800.882.4462 or a test 270.',
   },
   sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, CIGNA_AUTISM_RESOURCE_GUIDE],
 };
@@ -652,11 +718,13 @@ const cignaKansasVobContact: VobContact = {
   ivrPath: 'For autism/ABA-specific benefits, eligibility, and authorization questions, ask for the Autism Care Coordinator team instead (877.279.7603) — a nonclinical team dedicated to ABA.',
   hours: 'Provider Services: Monday–Friday, 7:00 a.m.–7:00 p.m. CT. Autism Care Coordinator team: Monday–Friday, 8:30 a.m.–5:00 p.m. CT.',
   portal: { name: 'Evernorth Provider Portal', url: 'https://provider.evernorth.com' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'What are the per-code unit caps, POS codes, and telehealth modifiers for 97151–97158/0362T/0373T on this member’s plan?',
     'Is eligibility/benefits checking real-time or batch through pVerify/Availity for payer ID 62308?',
   ],
-  sources: [CIGNA_AUTISM_RESOURCE_GUIDE],
+  sources: [CIGNA_AUTISM_RESOURCE_GUIDE, FANOUT_CIG_AUTISM],
 };
 
 /* ==================== unitedhealthcare-kansas (commercial — Layers 1+3 only) ==================== */
@@ -671,6 +739,7 @@ const unitedhealthcareKansasEdi: EdiRouting = {
     abaRidesOn: 'unverified',
     twoHopRequired: 'unverified',
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'unverified',
@@ -681,6 +750,7 @@ const unitedhealthcareKansasEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'unverified',
     'bhCarveOut.abaRidesOn': 'unverified',
     'bhCarveOut.twoHopRequired': 'unverified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.availity': 'No plain "UnitedHealthcare" (distinct from Kansas KanCare-specific "UHG002") entry confirmed for this exact ID pairing in the fetched Availity list — confirm directly with Availity onboarding.',
@@ -689,6 +759,7 @@ const unitedhealthcareKansasEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': "Provider Express / UHC provider services — confirm whether ABA claims route on a distinct Optum BH payer ID or the shared 87726 medical ID.",
     'bhCarveOut.abaRidesOn': 'Same as administratorPayerId. Note Optum\'s Kansas-specific criteria section is a Medicaid-only supplement (governs unitedhealthcare-community-plan-kansas, not this commercial guide) — commercial Kansas members follow the national Supplemental Clinical Criteria.',
     'bhCarveOut.twoHopRequired': 'Same as administratorPayerId.',
+    memberIdPrefix: 'No UHC/Optum source addresses an alpha prefix (2026 Admin Guide ID-card legend, 270/271 companion guide, pVerify list all silent). Confirm with a real card plus a pVerify run, or ask UHC Provider Services.',
   },
   sources: [PVERIFY_PAYER_LIST, OPTUM_SCC],
 };
@@ -710,13 +781,15 @@ const unitedhealthcareKansasVobContact: VobContact = {
   providerServicesPhone: '877-614-0484 (Optum Behavioral Health — 24/7 behavioral health and substance use support line; national number, no Kansas-specific commercial line published)',
   hours: '24/7',
   portal: { name: 'Provider Express', url: 'https://public.providerexpress.com' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'Does ABA claims routing use a distinct Optum Behavioral Health payer ID, or the shared UHC 87726 medical payer ID, for this commercial plan?',
     'Are the national Optum unit-cap/modifier tiers (HN/HO/HM/HP) confirmed for this specific Kansas commercial plan, or does it carry its own override?',
     'What POS codes are accepted for telehealth ABA delivery under this plan?',
     'Is eligibility checking real-time or batch for this payer ID?',
   ],
-  sources: [OPTUM_SCC, UHC_PROVIDER_CONTACT_PAGE],
+  sources: [OPTUM_SCC, UHC_PROVIDER_CONTACT_PAGE, FANOUT_OPTUM_NNM_2026],
 };
 
 /* ==================== Layer 2 — STC interpretation maps ====================
@@ -796,11 +869,11 @@ const unitedhealthcareKansasStc = inheritFamilyStc(uhcFamilyStc, 'Inherited from
 /* ==================== export ==================== */
 
 export const kansasVob: Record<string, VobExtension> = {
-  'kansas-medicaid': { edi: kansasMedicaidEdi, codeGrid: kansasMedicaidCodeGrid, stcMap: kansasMedicaidStc, rates: kansasMedicaidRates(), vobContact: kansasMedicaidVobContact, lastUpdated: ACCESS_DATE },
-  'sunflower-health-plan-kansas': { edi: sunflowerKansasEdi, codeGrid: sunflowerKansasCodeGrid, stcMap: sunflowerKansasStc, rates: kansasMedicaidRates(), vobContact: sunflowerKansasVobContact, lastUpdated: ACCESS_DATE },
-  'unitedhealthcare-community-plan-kansas': { edi: uhcCommunityPlanKansasEdi, codeGrid: uhcCommunityPlanKansasCodeGrid, stcMap: uhcCommunityPlanKansasStc, rates: kansasMedicaidRates(), vobContact: uhcCommunityPlanKansasVobContact, lastUpdated: ACCESS_DATE },
-  'healthy-blue-kansas': { edi: healthyBlueKansasEdi, codeGrid: healthyBlueKansasCodeGrid, stcMap: healthyBlueKansasStc, rates: kansasMedicaidRates(), vobContact: healthyBlueKansasVobContact, lastUpdated: ACCESS_DATE },
-  'aetna-kansas': { edi: aetnaKansasEdi, codeGrid: aetnaKansasCodeGrid, stcMap: aetnaKansasStc, vobContact: aetnaKansasVobContact, lastUpdated: ACCESS_DATE },
-  'cigna-kansas': { edi: cignaKansasEdi, codeGrid: cignaKansasCodeGrid, stcMap: cignaKansasStc, vobContact: cignaKansasVobContact, lastUpdated: ACCESS_DATE },
-  'unitedhealthcare-kansas': { edi: unitedhealthcareKansasEdi, codeGrid: unitedhealthcareKansasCodeGrid, stcMap: unitedhealthcareKansasStc, vobContact: unitedhealthcareKansasVobContact, lastUpdated: ACCESS_DATE },
+  'kansas-medicaid': { edi: kansasMedicaidEdi, codeGrid: kansasMedicaidCodeGrid, stcMap: kansasMedicaidStc, rates: kansasMedicaidRates(), vobContact: kansasMedicaidVobContact, lastUpdated: '2026-10-15' },
+  'sunflower-health-plan-kansas': { edi: sunflowerKansasEdi, codeGrid: sunflowerKansasCodeGrid, stcMap: sunflowerKansasStc, rates: kansasMedicaidRates(), vobContact: sunflowerKansasVobContact, lastUpdated: '2026-10-15' },
+  'unitedhealthcare-community-plan-kansas': { edi: uhcCommunityPlanKansasEdi, codeGrid: uhcCommunityPlanKansasCodeGrid, stcMap: uhcCommunityPlanKansasStc, rates: kansasMedicaidRates(), vobContact: uhcCommunityPlanKansasVobContact, lastUpdated: '2026-10-15' },
+  'healthy-blue-kansas': { edi: healthyBlueKansasEdi, codeGrid: healthyBlueKansasCodeGrid, stcMap: healthyBlueKansasStc, rates: kansasMedicaidRates(), vobContact: healthyBlueKansasVobContact, lastUpdated: '2026-10-15' },
+  'aetna-kansas': { edi: aetnaKansasEdi, codeGrid: aetnaKansasCodeGrid, stcMap: aetnaKansasStc, vobContact: aetnaKansasVobContact, lastUpdated: '2026-10-15' },
+  'cigna-kansas': { edi: cignaKansasEdi, codeGrid: cignaKansasCodeGrid, stcMap: cignaKansasStc, vobContact: cignaKansasVobContact, lastUpdated: '2026-10-15' },
+  'unitedhealthcare-kansas': { edi: unitedhealthcareKansasEdi, codeGrid: unitedhealthcareKansasCodeGrid, stcMap: unitedhealthcareKansasStc, vobContact: unitedhealthcareKansasVobContact, lastUpdated: '2026-10-15' },
 };

@@ -181,6 +181,34 @@ const UHC_PROVIDER_EXPRESS_PRIOR_AUTH = src(
   "Optum Provider Express \"Prior Authorization and Notification Information\" page — directs providers to the secure Provider Express portal (or the number on the member's ID card) for eligibility/PA verification; confirms no dedicated ABA/behavioral-health phone number is published here either."
 );
 
+/* Prefix / benefits-by-phone / individual-NPI sources (2026-10-14) */
+const FANOUT_PHONE_AETNA_MARYLAND: SourceRef = { url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/aetna-at-a-glance.pdf', accessDate: '2026-10-15', note: 'Aetna "At a glance" 9011800-01-01 (8/26), Key contacts: "Provider Contact Center ... Member eligibility and benefits ... Prior authorization 1-800-624-0756 (TTY: 711) for Aetna Medicare Advantage plans and HMO-based plans 1-888-MDAetna (1-888-632-3862) (TTY: 711) for all other plans"; "Behavioral health (provider services) 1-888-632-3862".' };
+const FANOUT_OPTUM_NNM_2026: SourceRef = {
+  url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf',
+  accessDate: '2026-10-14',
+  note: 'Optum (United Behavioral Health) National Provider Network Manual, published July 1 2026, effective Sept 1 2026 (BH02330-1-26-MAN_07012026). Read via r.jina.ai using the AEM path .../NNManual.pdf/jcr:content/renditions/original (plain URL returns a download interstitial). Eligibility Inquiry p.35-36: "You can use the Provider Express secure portal to check a member\'s eligibility. You may also inquire about eligibility by calling the phone number on the member\'s ID card." Items to provide: member name, address, ID number, subscriber name and DOB - NPI not listed. No statement on individual vs group NPI for calls.',
+};
+const FANOUT_AET_ELIG_FLYER: SourceRef = {
+  url: 'https://www.aetna.com/document-library/healthcare-professionals/assets/documents/eligibility.pdf',
+  accessDate: '2026-10-14',
+  note: 'Aetna Eligibility and Benefits Inquiry flyer 83.03.870.1 (2/19), still hosted on aetna.com: "When using the member ID number, prefixes or suffixes are unnecessary. For family-level searches, you only need to enter the member ID." Applies to the electronic inquiry; dated 2019.',
+};
+const FANOUT_AET_GLANCE: SourceRef = {
+  url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/aetna-at-a-glance.pdf',
+  accessDate: '2026-10-14',
+  note: 'Aetna "At a glance" how-to guide for health care professionals, 9011800-01-01 (8/26), Key contacts table: "Provider Contact Center ... Member eligibility and benefits ... 1-800-624-0756 (TTY: 711) for Aetna Medicare Advantage plans and HMO-based plans / 1-888-MDAetna (1-888-632-3862) (TTY: 711) for all other plans". Also: "Behavioral health (provider services) Refer to the member ID card."',
+};
+const FANOUT_CIG_AUTISM: SourceRef = {
+  url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf',
+  accessDate: '2026-10-14',
+  note: 'Evernorth/Cigna Autism resource guide, March 2025 (PCOMM-2025-225): "It is important to confirm a patient\'s ABA eligibility and benefits before performing an assessment. This information can be confirmed by: ... Calling the Autism Care Coordinator team at 877.279.7603". Provider Services 800.926.2273 "handles questions regarding billing, benefits, and eligibility for autism-related treatment, such as ABA."',
+};
+const FANOUT_MD_EVS: SourceRef = {
+  url: 'https://health.maryland.gov/mmcp/provider/Pages/evs.aspx',
+  accessDate: '2026-10-14',
+  note: 'Maryland Medicaid EVS page (read via r.jina.ai). "Providers may also call the Maryland Medicaid EVS at 1-866-710-1447. You will need a NPI or provider number to access the system."',
+};
+
 /* -------------------- Layer 4: Maryland Medicaid ABA rates -------------------- */
 
 const marylandMedicaidRates: RateTable = {
@@ -343,6 +371,7 @@ const marylandMedicaidEdi: EdiRouting = {
     mcoCarrierCodes: {},
     eligibilitySpanGranularity: 'Single calendar date (DTP01=307, format D8) — Maryland requires eligibility verification on the actual date of service, not a forward-looking span.',
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'unverified',
     'payerId.availity': 'unverified',
@@ -356,6 +385,7 @@ const marylandMedicaidEdi: EdiRouting = {
     'medicaid271Notes.mcoSegmentLocation': 'verified',
     'medicaid271Notes.mcoCarrierCodes': 'verified',
     'medicaid271Notes.eligibilitySpanGranularity': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': "pVerify's payer-list page returned a Cloudflare bot-block on direct retrieval this pass — confirm Maryland Medicaid's pVerify ID directly via pVerify support/onboarding, not automated scraping.",
@@ -364,6 +394,7 @@ const marylandMedicaidEdi: EdiRouting = {
       "A candidate 'MDMCD' ID surfaced via an Optum/UHC-affiliated payer list, but the exact source URL/page for that specific line could not be independently re-confirmed this pass — treat as a lead, not a shipped fact.",
     supportsRealtime:
       'This value (true) describes Maryland MMIS\'s OWN 270/271 per the 2013 companion guide (single-subscriber real-time inquiries supported). It does NOT describe the Carelon/BHOMD hop — Carelon\'s national companion guide states it does not support real-time eligibility transactions (batch only); no Maryland-specific Carelon companion guide was found to confirm this for the BHOMD line specifically. Treat the BHASO hop as batch-only pending direct confirmation.',
+    memberIdPrefix: 'Maryland Medicaid EVS user guide (recipient ID format)',
   },
   sources: [MD_270_271_CG_2013, PT_54_25, CARELON_MD_ASO_FAQ, CARELON_NATIONAL_270271_CG, CLAIM_MD_BHOMD, CARELON_BHOMD_837P_CG, PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, UHC_PAYER_LIST_2026],
 };
@@ -386,6 +417,8 @@ const marylandMedicaidVobContact: VobContact = {
   ivrPath: 'Option 1, then Option 4 — ABA department (per the ABA Provider Manual\'s Carelon Call Center menu; the manual quotes this path in its Sentinel Event reporting section, but it\'s the same general Carelon Call Center number given elsewhere in the manual for billing/precertification/registration).',
   hours: 'Weekdays 8 a.m.–5 p.m. (Carelon Call Center, per the ABA Provider Manual); Carelon\'s own Maryland provider page separately describes 24/7 clinical staff coverage for participant/provider calls generally.',
   portal: { name: 'Carelon ProviderConnect', url: 'https://providerportal.carelonbehavioralhealth.com/index.html#/login' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     "What is the exact daily unit cap for 97152, since the fee schedule gives a rate ($19.17) but the manual doesn't state an explicit daily cap for this code?",
     'Is the Carelon/BHOMD eligibility and benefits hop for ABA claims processed in real time, or batch/next-day only?',
@@ -393,7 +426,7 @@ const marylandMedicaidVobContact: VobContact = {
     'What modifier, if any, should be appended to indicate rendering-provider credential tier (BCBA vs. BCaBA vs. RBT/BT) if a claim denies on that basis?',
     'Which clearinghouse payer ID should our EDI vendor use for Maryland Medicaid 270/271 eligibility inquiries (pVerify, Availity, or Change Healthcare)?',
   ],
-  sources: [MD_ABA_MANUAL, CARELON_MD_PROVIDER_CONTACT, CARELON_MD_PROVIDERCONNECT_PORTAL],
+  sources: [MD_ABA_MANUAL, CARELON_MD_PROVIDER_CONTACT, CARELON_MD_PROVIDERCONNECT_PORTAL, FANOUT_MD_EVS],
 };
 
 /* ==================== aetna-maryland ==================== */
@@ -408,6 +441,7 @@ const aetnaMdEdi: EdiRouting = {
     abaRidesOn: 'unverified',
     twoHopRequired: 'unverified',
   },
+  memberIdPrefix: 'not-used',
   fieldStatus: {
     'payerId.pverify': 'unverified',
     'payerId.availity': 'verified',
@@ -415,13 +449,15 @@ const aetnaMdEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'verified',
     'bhCarveOut.administrator': 'unverified',
+    memberIdPrefix: 'verified',
   },
   verifyVia: {
     'payerId.pverify': "pVerify's payer-list page returned a Cloudflare bot-block this pass — a prior fetch surfaced '00001' but could not be independently re-verified against the live page, so it ships unverified rather than trusted.",
     'bhCarveOut.administrator':
       'Not researched to a primary source this pass — confirm via Aetna provider services or the ABA precertification process whether Aetna administers ABA in-house or via a separate behavioral-health carve-out for Maryland.',
+    memberIdPrefix: 'Aetna eligibility and benefits inquiry flyer: "When using the member ID number, prefixes or suffixes are unnecessary."',
   },
-  sources: [AVAILITY_PAYER_LIST, UHC_PAYER_LIST_2026, PVERIFY_PAYER_LIST],
+  sources: [AVAILITY_PAYER_LIST, UHC_PAYER_LIST_2026, PVERIFY_PAYER_LIST, FANOUT_AET_ELIG_FLYER],
 };
 
 const aetnaMdCodeGrid: Record<string, CodeGridEntry> = {
@@ -438,7 +474,10 @@ const aetnaMdCodeGrid: Record<string, CodeGridEntry> = {
 };
 
 const aetnaMdVobContact: VobContact = {
+  providerServicesPhone: '1-888-632-3862 (TTY: 711) — Aetna Provider Contact Center (member eligibility and benefits, prior authorization; also behavioral health provider services); HMO-based plans: 1-800-624-0756',
   portal: { name: 'Availity Essentials (Aetna provider portal)', url: 'https://www.availity.com/aetnaproviders' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'What are the daily or weekly unit caps for ABA codes 97151–97158, 0362T, and 0373T under this member\'s plan?',
     'Which places of service (home, office, school, telehealth) are authorized for ABA under this plan?',
@@ -447,7 +486,7 @@ const aetnaMdVobContact: VobContact = {
     'Does Aetna administer ABA benefits in-house or through a separate behavioral-health carve-out administrator for this Maryland plan?',
     "Since Aetna's national ABA precertification form (GR-69017-4) explicitly excludes Maryland, what is the correct Maryland-specific precertification process or form, and what phone/fax should we use?",
   ],
-  sources: [AETNA_BH_ABA_PRECERT_FORM],
+  sources: [AETNA_BH_ABA_PRECERT_FORM, FANOUT_AET_GLANCE, FANOUT_PHONE_AETNA_MARYLAND],
 };
 
 /* ==================== cigna-maryland ==================== */
@@ -462,6 +501,7 @@ const cignaMdEdi: EdiRouting = {
     abaRidesOn: 'medical',
     twoHopRequired: false,
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'unverified',
     'payerId.availity': 'verified',
@@ -472,9 +512,11 @@ const cignaMdEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'verified',
     'bhCarveOut.abaRidesOn': 'verified',
     'bhCarveOut.twoHopRequired': 'verified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': "pVerify's payer-list page returned a Cloudflare bot-block this pass — a prior fetch surfaced '00004' but could not be independently re-verified against the live page, so it ships unverified rather than trusted.",
+    memberIdPrefix: 'Cigna ID card quick guide (CIG_IDCARD) shows member ID + two-digit suffix, no alpha prefix, but gives no entry rule; confirm with Cigna 800.882.4462 or a test 270.',
   },
   sources: [AVAILITY_PAYER_LIST, UHC_PAYER_LIST_2026, CIGNA_AUTISM_GUIDE, PVERIFY_PAYER_LIST],
 };
@@ -496,13 +538,15 @@ const cignaMdVobContact: VobContact = {
   providerServicesPhone: '877.279.7603',
   hours: 'Monday–Friday, 8:30 a.m.–5:00 p.m. CT (Autism Care Coordinator team — benefits, eligibility, and authorization questions). A separate Provider Services department at 800.926.2273 handles billing/demographic questions, Monday–Friday 7:00 a.m.–7:00 p.m. CT.',
   portal: { name: 'Evernorth provider website (Procedure Code Benefit Tool)', url: 'https://provider.evernorth.com' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     "What are the daily or weekly unit caps for this member's plan across the ABA code set (97151–97158, 0362T, 0373T)?",
     'Which places of service (home, office, school, telehealth) are authorized under this plan?',
     'Are telehealth modifiers (GT or 95) accepted for any ABA codes, and if so which ones?',
     'Are licensure-tier billing modifiers required to distinguish BCBA vs. BCaBA vs. RBT/BT rendering providers?',
   ],
-  sources: [CIGNA_AUTISM_GUIDE],
+  sources: [CIGNA_AUTISM_GUIDE, FANOUT_CIG_AUTISM],
 };
 
 /* ==================== unitedhealthcare-maryland ==================== */
@@ -517,6 +561,7 @@ const unitedhealthcareMdEdi: EdiRouting = {
     abaRidesOn: 'unverified',
     twoHopRequired: 'unverified',
   },
+  memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'unverified',
     'payerId.availity': 'verified',
@@ -527,6 +572,7 @@ const unitedhealthcareMdEdi: EdiRouting = {
     'bhCarveOut.administratorPayerId': 'verified',
     'bhCarveOut.abaRidesOn': 'unverified',
     'bhCarveOut.twoHopRequired': 'unverified',
+    memberIdPrefix: 'unverified',
   },
   verifyVia: {
     'payerId.pverify': "pVerify's payer-list page returned a Cloudflare bot-block this pass — confirm directly via pVerify support/onboarding.",
@@ -535,6 +581,7 @@ const unitedhealthcareMdEdi: EdiRouting = {
     'bhCarveOut.abaRidesOn':
       "UHC's national medical claims and Optum Behavioral Health carve-out currently share the SAME payer ID (87726) per UHC's own payer list ('Other OptumHealth Behavioral Solutions ... 87726 ... former payer id 33053') — how a clearinghouse distinguishes medical vs. BH claims when the ID is identical (taxonomy code? submitter ID?) was not confirmed this pass. Verify via Provider Express / UHC EDI support before automating routing.",
     'bhCarveOut.twoHopRequired': 'Same open question as abaRidesOn — confirm directly with UHC/Optum EDI support.',
+    memberIdPrefix: 'No UHC/Optum source addresses an alpha prefix (2026 Admin Guide ID-card legend, 270/271 companion guide, pVerify list all silent). Confirm with a real card plus a pVerify run, or ask UHC Provider Services.',
   },
   sources: [AVAILITY_PAYER_LIST, UHC_PAYER_LIST_2026, PVERIFY_PAYER_LIST],
 };
@@ -554,6 +601,8 @@ const unitedhealthcareMdCodeGrid: Record<string, CodeGridEntry> = {
 
 const unitedhealthcareMdVobContact: VobContact = {
   portal: { name: 'Provider Express', url: 'https://www.providerexpress.com' },
+  benefitsByPhone: true,
+  requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'Which places of service (home, office, school, telehealth) are authorized for ABA under this plan?',
     'Is telehealth allowed for any ABA codes, and which modifier (GT or 95) applies?',
@@ -562,7 +611,7 @@ const unitedhealthcareMdVobContact: VobContact = {
     "Can you confirm the current daily unit caps per code (97151–97158, 0362T, 0373T) for this specific plan, since Optum's national reimbursement policy is being used as a proxy?",
     'What is the direct phone number for ABA benefits and prior-authorization verification, since none is published on Provider Express?',
   ],
-  sources: [UHC_PROVIDER_EXPRESS_CONTACT, UHC_PROVIDER_EXPRESS_PRIOR_AUTH],
+  sources: [UHC_PROVIDER_EXPRESS_CONTACT, UHC_PROVIDER_EXPRESS_PRIOR_AUTH, FANOUT_OPTUM_NNM_2026],
 };
 
 /* ==================== Layer 2 — STC interpretation maps ====================
@@ -621,27 +670,27 @@ export const marylandVob: Record<string, VobExtension> = {
     rates: marylandMedicaidRates,
     stcMap: marylandMedicaidStc,
     vobContact: marylandMedicaidVobContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'aetna-maryland': {
     edi: aetnaMdEdi,
     codeGrid: aetnaMdCodeGrid,
     stcMap: inheritFamilyStc(aetnaFamilyStc, 'Inherited from the Aetna family default (docs/vob-build.md Layer 2) — no Maryland-specific 270/271 STC document found.'),
     vobContact: aetnaMdVobContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'cigna-maryland': {
     edi: cignaMdEdi,
     codeGrid: cignaMdCodeGrid,
     stcMap: inheritFamilyStc(cignaFamilyStc, 'Inherited from the Cigna/Evernorth family default (docs/vob-build.md Layer 2) — national companion guide, no Maryland-specific override found.'),
     vobContact: cignaMdVobContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
   'unitedhealthcare-maryland': {
     edi: unitedhealthcareMdEdi,
     codeGrid: unitedhealthcareMdCodeGrid,
     stcMap: inheritFamilyStc(uhcFamilyStc, 'Inherited from the UnitedHealthcare/Optum family default (docs/vob-build.md Layer 2) — national companion guide, no Maryland-specific override found.'),
     vobContact: unitedhealthcareMdVobContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: '2026-10-15',
   },
 };
