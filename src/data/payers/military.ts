@@ -126,6 +126,26 @@ export const militaryPayers: Record<string, PayerConfig> = {
         ],
       },
       {
+        h2: 'Does TRICARE require electronic visit verification (EVV) for ABA?',
+        cites: [
+          { title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 18 Sec. 3 — Autism Care Demonstration (Revision C-57, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TOT5/Revision/66/FileName/C18S3' },
+        ],
+        body: [
+          'No. The Autism Care Demonstration chapter of the TRICARE Operations Manual (Revision C-57, June 24, 2026) never mentions electronic visit verification. Its proof-of-service rule is the progress note. Each session note needs the beneficiary’s full name, “The date and time of session to include start and end time,” the location, the length of the session, the rendering provider’s legible name, type and dated signature, the authorized ABA supervisor’s name and the names of everyone present. Paid claims must also show the rendering provider and NPI “per unique claim line (i.e., every session must be identified as its own unique line on any claim submitted).”',
+        ],
+      },
+      {
+        h2: 'Does TRICARE East require graphs at the six-month reassessment?',
+        cites: [
+          { title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 18 Sec. 3 — Autism Care Demonstration (Revision C-57, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TOT5/Revision/66/FileName/C18S3' },
+          { title: 'Humana Military — ACD authorization process', url: 'https://www.humanamilitary.com/provider/managedcare/acoe/authorizationprocess' },
+        ],
+        body: [
+          'The TRICARE Operations Manual (Ch. 18 Sec. 3, Revision C-57, June 24, 2026) makes graphs one of two accepted formats, not a requirement. Each reassessment and treatment plan (TP) update must describe “progress toward short and long-term treatment goals for the identified targets in each domain utilizing either graphic representation of ABA TP progress or an objective measurement tool consistent with the baseline assessment.” The update is due every six months and must include: the date and time it was completed; the ABA provider who did it; an “Evaluation of progress on each treatment target (i.e., Met, Not Met, Discontinued)”; the interventions that did not work and how the TP changed; and new targets, objectives and goals, with changes based on “the cumulative six month assessment of the PDDBI and other outcome measures.” Parent/caregiver engagement is a required goal, reassessed every six months. The authorized ABA supervisor and the parent/caregiver both sign. The reassessment, PDDBI included, must be “conducted, completed, and submitted no later than 30 calendar days prior to the end of the current authorization.”',
+          'Humana Military’s BCBA reviewers check “Baseline data, progress summaries and ongoing data collection,” along with goals, parent training goals, behavior intervention plans, outcome measure scores, the discharge plan and the CPT codes requested. Requests for ongoing treatment may go in up to 60 days ahead. Filing less than 30 days before the current authorization expires “may result in non-reimbursement.” The six-month package is the updated TP, the PDDBI parent and teacher forms, and the PSI-4 short form or the SIPA. Once a year it also includes the SRS-2 and the Vineland-3.',
+        ],
+      },
+      {
         h2: 'Where ABA may be delivered — and where it may not',
         cites: [
           { title: 'TRICARE — Autism Care Demonstration Q&A', url: 'https://tricare.mil/Plans/SpecialPrograms/ACD/QandA' },
@@ -281,6 +301,8 @@ export const militaryPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does TRICARE require EVV for ABA sessions?', a: 'No. The TRICARE Operations Manual’s Autism Care Demonstration chapter has no electronic visit verification requirement. Proof of service is the session progress note, with start and end times, location, length, the rendering provider’s signature and the supervisor’s name, plus one claim line per session carrying the rendering provider’s NPI.' },
+      { q: 'Does TRICARE require graphs for ABA reassessments?', a: 'Graphs are one of two accepted formats, not a requirement. The TRICARE Operations Manual asks each six-month reassessment and treatment plan update to show progress on every target “utilizing either graphic representation of ABA TP progress or an objective measurement tool consistent with the baseline assessment.” It must also mark each target Met, Not Met or Discontinued, name the interventions that changed, and carry the PDDBI and the other outcome measures due that period. The supervisor and the parent sign it, and it goes in at least 30 days before the authorization ends.' },
       { q: 'Does TRICARE East cover ABA therapy?', a: 'Yes, but not through the regular medical benefit. ABA is covered under the Comprehensive Autism Care Demonstration, a separate program currently authorized through Dec. 31, 2028 and administered in the East Region by Humana Military. Every ABA service requires prior authorization.' },
       { q: 'What outcome measures does the Autism Care Demonstration require?', a: 'Four: the PDDBI (baseline and every six months, with the ABA supervisor completing the teacher form), the Vineland-3 (baseline and annually), the SRS-2 (baseline and annually), and the PSI-4 short form for ages birth through 12 or the SIPA for ages 11 to 19 (baseline and every six months). They must be received before a treatment authorization will issue.' },
       { q: 'What happens if the outcome measures are not submitted?', a: 'The authorization does not issue. Humana Military will put an ACD team associate on resolving the barrier, but states that if the barriers cannot be resolved, ABA services will not be able to be authorized.' },
@@ -433,6 +455,26 @@ export const militaryPayers: Record<string, PayerConfig> = {
           'TriWest states the rule flatly: all beneficiaries need complete and valid outcome measure scores for ABA service requests to be approved. The PDDBI parent form is due before treatment and every six months; the PDDBI teacher form, completed by the treating ABA supervisor, is required with the first reassessment and every six months after. The Vineland-3 and the SRS-2 are due before treatment starts and annually. The PSI-4 short form (birth through 12 years 11 months) or the SIPA (11 through 19 years 11 months) is due before treatment and every six months — for ages 11 to 12 years 11 months either is acceptable; above that, only the SIPA. TRICARE West will accept outcome measures administered up to one year before ABA starts for a beneficiary new to the ACD.',
           'Only the scores go in, not the questionnaires: submit the full publisher report or a clearly written hand-scored protocol with summary score sheets, labelled as parent or teacher form, with the respondent’s name and relationship to the beneficiary. Outcome measures other than the PDDBI may be authorized to the ABA provider without a separate diagnosing-provider referral, under CPT 97151 with modifier 99 and one unit per measure — but they must be requested through a treatment plan update, and requests made outside that update are cancelled. They are also not split between providers.',
           'The review itself is substantive. TriWest’s clinical team reviews the treatment plan against goals, requested hours, location of services and outcome measure scores, and weighs level of support needed, treatment effectiveness, dose response, duration and discharge planning. If changes are required, the provider has 10 calendar days to submit a modified plan for a second review. Reauthorization requests may be filed up to 60 days in advance but no later than 30 days before the current authorization expires.',
+        ],
+      },
+      {
+        h2: 'Does TRICARE require electronic visit verification (EVV) for ABA?',
+        cites: [
+          { title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 18 Sec. 3 — Autism Care Demonstration (Revision C-57, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TOT5/Revision/66/FileName/C18S3' },
+        ],
+        body: [
+          'No. The Autism Care Demonstration chapter of the TRICARE Operations Manual (Revision C-57, June 24, 2026) never mentions electronic visit verification. Its proof-of-service rule is the progress note. Each session note needs the beneficiary’s full name, “The date and time of session to include start and end time,” the location, the length of the session, the rendering provider’s legible name, type and dated signature, the authorized ABA supervisor’s name and the names of everyone present. Paid claims must also show the rendering provider and NPI “per unique claim line (i.e., every session must be identified as its own unique line on any claim submitted).”',
+        ],
+      },
+      {
+        h2: 'Does TRICARE West require graphs at the six-month reassessment?',
+        cites: [
+          { title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 18 Sec. 3 — Autism Care Demonstration (Revision C-57, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TOT5/Revision/66/FileName/C18S3' },
+          { title: 'TriWest — Autism Care Demonstration Provider Guide (PDF)', url: 'https://tricare.triwest.com/globalassets/tricare/provider/autism-care-demostration-provider-guide.pdf' },
+        ],
+        body: [
+          'The TRICARE Operations Manual (Ch. 18 Sec. 3, Revision C-57, June 24, 2026) makes graphs one of two accepted formats, not a requirement. Each reassessment and treatment plan (TP) update must describe “progress toward short and long-term treatment goals for the identified targets in each domain utilizing either graphic representation of ABA TP progress or an objective measurement tool consistent with the baseline assessment.” The update is due every six months and must include: the date and time it was completed; the ABA provider who did it; an “Evaluation of progress on each treatment target (i.e., Met, Not Met, Discontinued)”; the interventions that did not work and how the TP changed; and new targets, objectives and goals, with changes based on “the cumulative six month assessment of the PDDBI and other outcome measures.” Parent/caregiver engagement is a required goal, reassessed every six months. The authorized ABA supervisor and the parent/caregiver both sign. The reassessment, PDDBI included, must be “conducted, completed, and submitted no later than 30 calendar days prior to the end of the current authorization.”',
+          'TriWest’s ACD Provider Guide (September 2026 file) puts it the same way: “The ABA supervisor should update the behavior plan when needed and show progress in graphs or summaries for goals. This includes tracking skills learned or reducing problem behaviors.” The updated plan “must follow the same structure as the initial plan.” It lists new behaviors and goals and any changes based on the PDDBI and other outcome measures. It explains the barriers where scores have not improved, and it covers parent/caregiver training goals, generalization and discharge planning. It must also show how many parent/caregiver sessions took place in the period: at least six are required every six months. If the update goes in 60 to 30 days before the end date and fewer than six have happened, it should say how many more are planned.',
         ],
       },
       {
@@ -644,6 +686,8 @@ export const militaryPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does TRICARE require EVV for ABA sessions?', a: 'No. The TRICARE Operations Manual’s Autism Care Demonstration chapter has no electronic visit verification requirement. Proof of service is the session progress note, with start and end times, location, length, the rendering provider’s signature and the supervisor’s name, plus one claim line per session carrying the rendering provider’s NPI.' },
+      { q: 'Does TRICARE require graphs for ABA reassessments?', a: 'Graphs are one of two accepted formats, not a requirement. The TRICARE Operations Manual asks each six-month reassessment and treatment plan update to show progress on every target “utilizing either graphic representation of ABA TP progress or an objective measurement tool consistent with the baseline assessment.” It must also mark each target Met, Not Met or Discontinued, name the interventions that changed, and carry the PDDBI and the other outcome measures due that period. The supervisor and the parent sign it, and it goes in at least 30 days before the authorization ends. TriWest’s provider guide asks the supervisor to “show progress in graphs or summaries for goals.”' },
       { q: 'Does TRICARE West (TriWest) require the referring provider on ABA claims?', a: 'TriWest\u2019s ACD provider guide does not list one among the claim requirements. It requires each provider\u2019s taxonomy, name and NPI, a TIN matching the authorization, the rendering provider, session times on every line, one line per session, the right modifiers and the place of service. The referral is checked when TriWest authorizes care, not on the claim.' },
       { q: 'Who administers TRICARE West now?', a: 'TriWest Healthcare Alliance, under contracts that began Jan. 1, 2025. Six states — Arkansas, Illinois, Louisiana, Oklahoma, Texas and Wisconsin — moved from the East Region to the West on that date. TRICARE resolves the boundary by ZIP code lookup.' },
       { q: 'Can ABA be delivered in a school in the West Region?', a: 'Yes, but narrowly. Only the authorized ABA supervisor may deliver, under CPT 97153, with a current IEP submitted alongside the treatment plan, specific school-setting goals targeting core ASD symptoms, a short expected duration and a planned fade. Providers may not duplicate IEP services or target academic goals.' },
@@ -786,6 +830,8 @@ export const militaryPayers: Record<string, PayerConfig> = {
           'What is excluded: ABA for any diagnosis other than ASD; diagnoses and referrals from nurse practitioners or physician assistants; training of the technicians; billing for e-mails, driving, or office and therapeutic supplies; \u201cBilling for multiple providers\u2019 time during one ABA session with a child when more than one ABA provider is present\u201d; educational ABA and school tuition; restraints; custodial, personal and child care; group ABA with three or more children and one or two providers; and indirect supervision.',
           'Claims: the claims chapter (Ch. 3 Sec. 1.1) asks for the provider\u2019s name and address, remittance address, the physical location where services were rendered, the individual provider\u2019s professional status, TIN and NPI. A referring provider and a taxonomy code are not on that list; the referring provider\u2019s name belongs in the assessment and treatment plan.',
           'Licensure: \u201cIf a state requires licensure or certification, the ABA provider is required to possess that state licensure or certification to be a CHAMPVA-authorized provider,\u201d and where the state does not license, current BCBA or BCBA-D certification from the BACB qualifies.',
+          'Renewals and progress data: the manual sets no progress-report format and does not ask for graphs. On the plan itself it says pre-authorization “must include an ABA TP,” that it “may be granted for one year of ABA services” once the TP is received, and that “The TP and updates shall contain signatures by the authorized ABA supervisor and the parent/caregiver.” The TP is defined as setting out “the identified behaviors targeted for improvement, the ABA specialized interventions to achieve improvement, and the short-term and long-term ABA TP objectives and goals.” Assessments and TPs must also carry the date of the initial assessment and TP and the referring provider’s name. Ask the CHAMPVA pre-authorization reviewer if the yearly renewal needs anything more.',
+          'Codes and EVV: Section 18.6 publishes no ABA CPT code list, so the codes are whatever the pre-authorization approves. What it rules out is group ABA (“three or more children with one or two providers”), “Indirect supervision” and billing for more than one provider’s time in a session. It contains no electronic visit verification requirement.',
         ],
       },
       {
@@ -961,6 +1007,8 @@ export const militaryPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does CHAMPVA require EVV or exclude any ABA codes?', a: 'The CHAMPVA Operational Policy Manual’s ABA section has no EVV requirement and no ABA code list. It excludes group ABA (three or more children with one or two providers), indirect supervision, and billing more than one provider’s time in one session. Bill the codes and units on the pre-authorization.' },
+      { q: 'Does CHAMPVA require graphs for an ABA renewal?', a: 'No format is published. The CHAMPVA Operational Policy Manual requires an ABA treatment plan with the target behaviors, the interventions and the short- and long-term objectives and goals. Pre-authorization can then run for one year, and the plan and each update must be signed by the ABA supervisor and the parent or caregiver. Ask the pre-authorization reviewer whether the renewal needs anything beyond that.' },
       { q: 'Does CHAMPVA require a taxonomy code on ABA claims?', a: 'CHAMPVA publishes no taxonomy rule. Its Operational Policy Manual claims chapter lists the provider information a claim needs (name and address, remittance address, physical location of service, professional status, TIN and NPI) and taxonomy is not among them. Ask the pre-authorization unit if a claim rejects.' },
       { q: 'Does CHAMPVA cover ABA therapy?', a: 'Yes. Applied behavior analysis appears in the CHAMPVA Guidebook as a covered behavioral health benefit, with pre-authorization required for treatment only, not for the evaluation.' },
       { q: 'Is CHAMPVA the same as TRICARE?', a: 'No. CHAMPVA is a VA program and TRICARE is the Department of Defense program. They are mutually exclusive: a person eligible for or enrolled in TRICARE cannot receive CHAMPVA benefits. None of the TRICARE Autism Care Demonstration rules apply to CHAMPVA.' },
@@ -1062,6 +1110,25 @@ export const militaryPayers: Record<string, PayerConfig> = {
           'Four baseline outcome measures must be completed by the family and the provider team before ABA services can begin: the PDDBI, the Vineland Adaptive Behavior Scales, the Social Responsiveness Scale, and either the Parent Stress Index or the Stress Index for Parents of Adolescents. After baseline, the cadence is mixed — DHA states the four measures must be completed "every six months or every 12 months," with the PDDBI and the PSI-4-SF or SIPA on the six-month cycle, and the Vineland-3 and SRS-2 annually. The ABA provider completes the PDDBI teacher form, and the SRS-2 interview or teacher form annually.',
           'This is the operational core of the ACD and it does not soften because a nonprofit health system rather than a defense contractor is holding the file. Build the measure calendar at intake: baseline before the first treatment authorization, the six-month package before each reauthorization, the annual additions on schedule, and the two-year referral renewal booked with the diagnosing provider well in advance.',
           'One USFHP-specific difference to set expectations on: DHA states that families enrolled in USFHP do not get an Autism Services Navigator. In the regional contractor model the ASN is the family’s coordinator and the person who chases a stuck outcome measure. Under USFHP that coordination falls to the plan and to the ABA provider, which in practice means your team owns the deadlines.',
+        ],
+      },
+      {
+        h2: 'Does TRICARE require electronic visit verification (EVV) for ABA?',
+        cites: [
+          { title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 18 Sec. 3 — Autism Care Demonstration (Revision C-57, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TOT5/Revision/66/FileName/C18S3' },
+        ],
+        body: [
+          'No. The Autism Care Demonstration chapter of the TRICARE Operations Manual (Revision C-57, June 24, 2026) never mentions electronic visit verification. Its proof-of-service rule is the progress note. Each session note needs the beneficiary’s full name, “The date and time of session to include start and end time,” the location, the length of the session, the rendering provider’s legible name, type and dated signature, the authorized ABA supervisor’s name and the names of everyone present. Paid claims must also show the rendering provider and NPI “per unique claim line (i.e., every session must be identified as its own unique line on any claim submitted).”',
+        ],
+      },
+      {
+        h2: 'Are graphs required at the six-month ABA reassessment?',
+        cites: [
+          { title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 18 Sec. 3 — Autism Care Demonstration (Revision C-57, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TOT5/Revision/66/FileName/C18S3' },
+        ],
+        body: [
+          'The TRICARE Operations Manual (Ch. 18 Sec. 3, Revision C-57, June 24, 2026) makes graphs one of two accepted formats, not a requirement. Each reassessment and treatment plan (TP) update must describe “progress toward short and long-term treatment goals for the identified targets in each domain utilizing either graphic representation of ABA TP progress or an objective measurement tool consistent with the baseline assessment.” The update is due every six months and must include: the date and time it was completed; the ABA provider who did it; an “Evaluation of progress on each treatment target (i.e., Met, Not Met, Discontinued)”; the interventions that did not work and how the TP changed; and new targets, objectives and goals, with changes based on “the cumulative six month assessment of the PDDBI and other outcome measures.” Parent/caregiver engagement is a required goal, reassessed every six months. The authorized ABA supervisor and the parent/caregiver both sign. The reassessment, PDDBI included, must be “conducted, completed, and submitted no later than 30 calendar days prior to the end of the current authorization.”',
+          'The manual names USFHP Designated Providers among the contractors it binds (it excludes them only from the Autism Services Navigator and a few education provisions). So this TP-update standard applies to the plan’s ABA reviews too. Ask the plan whether it adds a form or template of its own.',
         ],
       },
       {
@@ -1208,6 +1275,8 @@ export const militaryPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does TRICARE require EVV for ABA sessions?', a: 'No. The TRICARE Operations Manual’s Autism Care Demonstration chapter has no electronic visit verification requirement. Proof of service is the session progress note, with start and end times, location, length, the rendering provider’s signature and the supervisor’s name, plus one claim line per session carrying the rendering provider’s NPI.' },
+      { q: 'Does TRICARE require graphs for ABA reassessments?', a: 'Graphs are one of two accepted formats, not a requirement. The TRICARE Operations Manual asks each six-month reassessment and treatment plan update to show progress on every target “utilizing either graphic representation of ABA TP progress or an objective measurement tool consistent with the baseline assessment.” It must also mark each target Met, Not Met or Discontinued, name the interventions that changed, and carry the PDDBI and the other outcome measures due that period. The supervisor and the parent sign it, and it goes in at least 30 days before the authorization ends. The manual binds USFHP Designated Providers, so the same standard applies here.' },
       { q: 'Is Johns Hopkins USFHP the same as TRICARE?', a: 'It is a TRICARE Prime option — one of six Uniformed Services Family Health Plans administered by nonprofit health systems. Members get TRICARE Prime benefits and Prime cost-sharing, but through the plan’s own network, and cannot use TRICARE network providers or military hospitals and clinics except for emergency care.' },
       { q: 'Who authorizes ABA for a Johns Hopkins USFHP member?', a: 'The plan. DHA directs the ASD diagnosing provider to submit the ABA referral to the regional contractor or the US Family Health Plan provider — for a USFHP member that is Johns Hopkins, not Humana Military.' },
       { q: 'Does the Autism Care Demonstration apply to USFHP members?', a: 'Yes. ABA for TRICARE beneficiaries is covered under the ACD regardless of plan, and the referral, six-month authorization cycle, two-year referral renewal and four outcome measures all apply. Johns Hopkins requires its ABA providers to attest to completing its ACD-ABA training.' },
@@ -1305,6 +1374,25 @@ export const militaryPayers: Record<string, PayerConfig> = {
         ],
       },
       {
+        h2: 'Does TRICARE require electronic visit verification (EVV) for ABA?',
+        cites: [
+          { title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 18 Sec. 3 — Autism Care Demonstration (Revision C-57, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TOT5/Revision/66/FileName/C18S3' },
+        ],
+        body: [
+          'No. The Autism Care Demonstration chapter of the TRICARE Operations Manual (Revision C-57, June 24, 2026) never mentions electronic visit verification. Its proof-of-service rule is the progress note. Each session note needs the beneficiary’s full name, “The date and time of session to include start and end time,” the location, the length of the session, the rendering provider’s legible name, type and dated signature, the authorized ABA supervisor’s name and the names of everyone present. Paid claims must also show the rendering provider and NPI “per unique claim line (i.e., every session must be identified as its own unique line on any claim submitted).”',
+        ],
+      },
+      {
+        h2: 'Are graphs required at the six-month ABA reassessment?',
+        cites: [
+          { title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 18 Sec. 3 — Autism Care Demonstration (Revision C-57, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TOT5/Revision/66/FileName/C18S3' },
+        ],
+        body: [
+          'The TRICARE Operations Manual (Ch. 18 Sec. 3, Revision C-57, June 24, 2026) makes graphs one of two accepted formats, not a requirement. Each reassessment and treatment plan (TP) update must describe “progress toward short and long-term treatment goals for the identified targets in each domain utilizing either graphic representation of ABA TP progress or an objective measurement tool consistent with the baseline assessment.” The update is due every six months and must include: the date and time it was completed; the ABA provider who did it; an “Evaluation of progress on each treatment target (i.e., Met, Not Met, Discontinued)”; the interventions that did not work and how the TP changed; and new targets, objectives and goals, with changes based on “the cumulative six month assessment of the PDDBI and other outcome measures.” Parent/caregiver engagement is a required goal, reassessed every six months. The authorized ABA supervisor and the parent/caregiver both sign. The reassessment, PDDBI included, must be “conducted, completed, and submitted no later than 30 calendar days prior to the end of the current authorization.”',
+          'The manual names USFHP Designated Providers among the contractors it binds (it excludes them only from the Autism Services Navigator and a few education provisions). So this TP-update standard applies to the plan’s ABA reviews too. Ask the plan whether it adds a form or template of its own.',
+        ],
+      },
+      {
         h2: 'Provider standards the plan enforces',
         cites: [
           { title: 'Martin’s Point — USFHP Training for ABA Providers: TRICARE Autism Care Demonstration (PDF)', url: 'https://martinspoint.org/-/media/Files/Documents-and-Forms/Provider-and-Internal-Forms/Provider-Documents/Provider-Education/TRICARE-ACD-Provider-Training.ashx' },
@@ -1329,6 +1417,16 @@ export const militaryPayers: Record<string, PayerConfig> = {
           'Martin’s Point lists as non-reimbursable: behavior technician training, non-ABA services, travel time unless authorized, academic services and school-based ABA, services provided by family members, and services rendered by a non-authorized ABA provider. Note the tension worth resolving in writing before you schedule anything: the plan’s training lists school-based ABA among the exclusions, while DHA’s ACD Q&A says technician-delivered school ABA is not covered but a BCBA may be authorized for a focused, time-limited, contractor-approved goal. Treat school delivery for a Martin’s Point member as a plan-level question and get the answer from the plan, not from another contractor’s guidance.',
           'On claims: all claims must be submitted electronically with the correct HIPAA taxonomy codes and the ABA provider’s valid NPI. Contractors audit provider records annually, monitor documentation and billing compliance, and watch for high-dollar claims and inconsistent billing — providers with irregularities face recoupment or additional monitoring. ABA is coordinated care, not a silo: providers are expected to coordinate with OT, PT and speech, and to align ABA with the comprehensive care plan.',
           'Costs are TRICARE Prime costs, because USFHP carries Prime out-of-pocket amounts. ABA bills as outpatient specialty care and one copayment covers all ABA services on a single day — currently $0 for active duty family members and $39 for retirees and others for network specialty care. There are no yearly or lifetime dollar caps on ABA under the ACD.',
+        ],
+      },
+      {
+        h2: 'Martin’s Point USFHP: timely filing, corrected claims and disputes',
+        cites: [
+          { title: 'Martin’s Point Provider Manual — Claims (updated January 1, 2026)', url: 'https://www.martinspoint.org/For-Providers/Provider-Manual/Claims' },
+        ],
+        body: [
+          'Filing limit: Martin’s Point’s provider manual says participating providers “must submit service claims within 60, 90, 120, or 180 calendar days of the date of each service, in accordance with the provider’s participating agreement.” Its dispute table shows 120 days from the date of service “unless otherwise stated in Provider Agreement.” For non-participating providers, “timely filing requirements for a clean claim is one year from the date of service.” A non-participating corrected claim is due within 65 calendar days of the first remittance. Secondary (COB) claims are due “within 120 calendar days from the remittance date of the primary payer’s payment or denial,” on paper with the primary’s EOP. Members may not be billed for a claim filed late.',
+          'Corrections and disputes: send a corrected claim, not a dispute, when you are changing codes, modifiers, dates or charges. Participating providers request adjustments within 60, 90, 120 or 180 days of the original remittance, per contract; non-participating providers within 60 days. A first-level dispute on the Provider Claims Dispute Form is due within 120 days of the original claim remittance. A second-level dispute is due within 30 days of the plan’s first-level response. A claim denied for lack of authorization is not disputed. For USFHP, submit the retro authorization request online (“USFHP Retro Authorization Requests: These requests must be submitted via ProAuth”). The manual publishes no clean-claim payment deadline or weekly cutoff. Provider Inquiry: 1-888-732-7364.',
         ],
       },
       {
@@ -1463,6 +1561,9 @@ export const militaryPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'What is Martin’s Point USFHP’s timely filing limit for ABA claims?', a: 'Participating providers file within the 60, 90, 120 or 180 days their agreement sets. The dispute table shows 120 days from the date of service unless the agreement says otherwise. Non-participating providers have one year. Secondary claims are due within 120 days of the primary payer’s remittance. A first-level dispute is due within 120 days of the original remittance, and a second-level dispute within 30 days of the first response.' },
+      { q: 'Does TRICARE require EVV for ABA sessions?', a: 'No. The TRICARE Operations Manual’s Autism Care Demonstration chapter has no electronic visit verification requirement. Proof of service is the session progress note, with start and end times, location, length, the rendering provider’s signature and the supervisor’s name, plus one claim line per session carrying the rendering provider’s NPI.' },
+      { q: 'Does TRICARE require graphs for ABA reassessments?', a: 'Graphs are one of two accepted formats, not a requirement. The TRICARE Operations Manual asks each six-month reassessment and treatment plan update to show progress on every target “utilizing either graphic representation of ABA TP progress or an objective measurement tool consistent with the baseline assessment.” It must also mark each target Met, Not Met or Discontinued, name the interventions that changed, and carry the PDDBI and the other outcome measures due that period. The supervisor and the parent sign it, and it goes in at least 30 days before the authorization ends. The manual binds USFHP Designated Providers, so the same standard applies here.' },
       { q: 'Does Martin’s Point US Family Health Plan cover ABA?', a: 'Yes. Martin’s Point states that the US Family Health Plan is contracted with the Defense Health Agency to administer Autism Care Demonstration benefits in accordance with TRICARE’s program manuals. The ACD has been in effect since 2014 and expires Dec. 31, 2028 unless extended.' },
       { q: 'Which assessment tools will Martin’s Point accept for the ASD diagnosis?', a: 'The STAT, ADOS-2, ADI-R, CARS-2 or GARS-3. The GARS-3 alone is not sufficient — an approved ASD diagnosing provider must also submit a diagnostic evaluation. A general observation interview alone is not a valid diagnostic tool. For children under 12 months the diagnosing provider may choose an appropriate age-based tool.' },
       { q: 'How much parent training does the plan require?', a: 'Six parent/caregiver training sessions every six months, to teach treatment protocols. Parent/caregiver involvement is mandatory and the treatment plan must document it.' },
