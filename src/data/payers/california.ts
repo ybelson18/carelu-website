@@ -127,9 +127,10 @@ export const californiaPayers: Record<string, PayerConfig> = {
       {
         h2: 'Fee-for-service claims: the six-month billing limit and appeals',
         body: [
-          'For BHT billed directly to fee-for-service Medi-Cal, "Original (or initial) Medi-Cal claims must be received by Medi-Cal within six months following the month in which services were rendered." Without an allowed delay reason, claims received in months seven to nine are paid at 75 percent, months ten to twelve at 50 percent, and after month twelve they are denied (W&I § 14115). A denied claim can be followed up with a Claims Inquiry Form within six months of the Remittance Advice, and an appeal is due within 90 days of the RAD or the claims-inquiry response. Members in a Medi-Cal managed care plan are billed to that plan under its own filing rules, not this one.',
+          'For BHT billed directly to fee-for-service Medi-Cal, "Original (or initial) Medi-Cal claims must be received by Medi-Cal within six months following the month in which services were rendered." Without an allowed delay reason, claims received in months seven to nine are paid at 75 percent, months ten to twelve at 50 percent, and after month twelve they are denied (W&I § 14115). A denied claim can be followed up with a Claims Inquiry Form within six months of the Remittance Advice, and an appeal is due within 90 days of the RAD or the claims-inquiry response. Members in a Medi-Cal managed care plan are billed to that plan under its own filing rules, not this one. Since January 1, 2026 state law requires Medi-Cal managed care plans to pay a complete claim within 30 calendar days of receipt, with 15% annual interest from day 31 (AB 3275 applied H&S § 1371 to Medi-Cal plans through W&I § 14093.08). DHCS sets no weekly submission cutoff for plan claims.',
         ],
         cites: [
+          { title: 'AB 3275 (Ch. 763, Stats. 2024) — claim reimbursement within 30 calendar days from 1/1/2026 (H&S § 1371, Ins. Code § 10123.13, W&I § 14093.08)', url: 'https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240AB3275' },
           { title: 'Medi-Cal Provider Manual — Claim Submission and Timeliness Overview (claim sub), updated 2024–2025', url: 'https://mcweb.apps.prd.cammis.medi-cal.ca.gov/file/manual?fn=claimsub.pdf' },
           { title: 'Medi-Cal Provider Manual — Behavioral Health Treatment (bht), Nov 2025', url: 'https://mcweb.apps.prd.cammis.medi-cal.ca.gov/file/manual?fn=bht.pdf' },
         ],
@@ -143,6 +144,9 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'School services / IEP', desc: 'Any ABA in the IEP — plans cannot count school hours against BHT, but they coordinate to avoid true duplication.' },
     ],
     sources: [
+      { title: 'AB 3275 (Ch. 763, Stats. 2024) — claim reimbursement within 30 calendar days from 1/1/2026 (H&S § 1371, Ins. Code § 10123.13, W&I § 14093.08)', url: 'https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240AB3275' },
+      { title: 'CMS — Medicaid NCCI Edit Files (practitioner MUE table effective 10/1/2026)', url: 'https://www.cms.gov/medicare/coding-billing/ncci-medicaid/medicaid-ncci-edit-files' },
+      { title: 'CMS — NCCI for Medicaid (methodologies required for Medicaid fee-for-service; optional for MCOs)', url: 'https://www.cms.gov/medicare/coding-billing/ncci-medicaid' },
       { title: 'DHCS APL 23-010 (Revised 11/22/2023) — BHT Coverage for Members Under 21', url: 'https://www.dhcs.ca.gov/file/apl23-010-pdf/' },
       { title: 'Medi-Cal State Plan — Limitations on Att. 3.1-A, item 13c BHT (TN CA-24-0031, eff. 1/1/2025)', url: 'https://www.dhcs.ca.gov/file/limitations-to-attachment-3-1-a-pdf/' },
       { title: 'Medi-Cal State Plan — Supplement 6 to Att. 3.1-A, BHT Services Chart (TN CA-26-0012, eff. 1/1/2026)', url: 'https://www.dhcs.ca.gov/file/supplement-6-to-attachment-3-1-a-pdf/' },
@@ -259,10 +263,12 @@ export const californiaPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       dailyLimits: {
-        value: 'No hour caps — by rule. APL 23-010: "Blanket limitations or restrictions on benefits and services, such as caps on number of hours, are prohibited," and plans "must not reduce the number of Medically Necessary BHT hours … by the hours the Member spends at school." No per-day unit ceiling is published in the state documents; any claim-level unit edits are the plan’s (or CA-MMIS’s for fee-for-service).',
+        value: 'No hour caps — by rule. APL 23-010: "Blanket limitations or restrictions on benefits and services, such as caps on number of hours, are prohibited," and plans "must not reduce the number of Medically Necessary BHT hours … by the hours the Member spends at school." No per-day unit ceiling is published in the state documents; any claim-level unit edits are the plan’s (or CA-MMIS’s for fee-for-service). At the federal level, CMS requires the Medicaid NCCI edits on fee-for-service claims, applied “separately to each line of a claim” (the public practitioner MUE table effective 10/1/2026 allows 97153 32 units, 97151 32, 97152 16, 97154 18, 97155 24, 97156–97158 16 each, 0362T 16 and 0373T 32), and calls them “desirable but optional” for managed care plans.',
         status: 'verified',
         cites: [
           { title: 'DHCS APL 23-010 (Revised 11/22/2023) — BHT Coverage for Members Under 21', url: 'https://www.dhcs.ca.gov/file/apl23-010-pdf/' },
+          { title: 'CMS — NCCI for Medicaid (methodologies required for Medicaid fee-for-service; optional for MCOs)', url: 'https://www.cms.gov/medicare/coding-billing/ncci-medicaid' },
+          { title: 'CMS — Medicaid NCCI Edit Files (practitioner MUE table effective 10/1/2026)', url: 'https://www.cms.gov/medicare/coding-billing/ncci-medicaid/medicaid-ncci-edit-files' },
         ],
       },
       noteSignature: {
@@ -367,10 +373,11 @@ export const californiaPayers: Record<string, PayerConfig> = {
       {
         h2: 'Claims: filing limit, payment and provider disputes',
         body: [
-          'L.A. Care’s 2026 Universal Provider Manual sets the Medi-Cal (MCLA) timely filing limit at "Within 180 calendar days from the date of service," with late claims denied unless the provider shows good cause, and secondary (COB) claims due within 180 calendar days of the primary’s determination. Clean claims are processed within 30 calendar days (DHCS and DMHC standard). Billing for services not authorized, or not on the authorization, "may result in a denial of the service and/or the entire claim," and authorizations are valid only if the member is eligible on the date of service.',
+          'L.A. Care’s 2026 Universal Provider Manual sets the Medi-Cal (MCLA) timely filing limit at "Within 180 calendar days from the date of service," with late claims denied unless the provider shows good cause, and secondary (COB) claims due within 180 calendar days of the primary’s determination. Clean claims are processed within 30 calendar days (DHCS and DMHC standard), which since January 1, 2026 is also the statutory deadline for Medi-Cal plans, with 15% annual interest from day 31 (AB 3275). Billing for services not authorized, or not on the authorization, "may result in a denial of the service and/or the entire claim," and authorizations are valid only if the member is eligible on the date of service.',
           'Provider disputes — "a written notice challenging, appealing or requesting reconsideration of a claim’s initial determination" — must be filed "within 365 calendar days of the health plan’s last action." L.A. Care acknowledges within 15 working days and sends a written determination within 45 business days for Medi-Cal. A second-level dispute goes to L.A. Care (P.O. Box 811610, Los Angeles, CA 90081) marked "Second Level Dispute"; once a dispute is upheld twice, the provider "is advised to seek relief with the DMHC."',
         ],
         cites: [
+          { title: 'AB 3275 (Ch. 763, Stats. 2024) — claim reimbursement within 30 calendar days from 1/1/2026 (H&S § 1371, Ins. Code § 10123.13, W&I § 14093.08)', url: 'https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240AB3275' },
           { title: 'L.A. Care — 2026 Universal Provider Manual (LA4289)', url: 'https://www.lacare.org/sites/default/files/la4289_upm_202512.pdf' },
         ],
       },
@@ -383,6 +390,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'Other coverage', desc: 'Commercial insurance pays first; L.A. Care needs the primary’s RA or denial for secondary claims.' },
     ],
     sources: [
+      { title: 'AB 3275 (Ch. 763, Stats. 2024) — claim reimbursement within 30 calendar days from 1/1/2026 (H&S § 1371, Ins. Code § 10123.13, W&I § 14093.08)', url: 'https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240AB3275' },
       { title: 'L.A. Care — 2026 Universal Provider Manual (LA4289)', url: 'https://www.lacare.org/sites/default/files/la4289_upm_202512.pdf' },
       { title: 'L.A. Care — 2026 Universal Provider Manual Errata v3 (9/23/2026)', url: 'https://www.lacare.org/sites/default/files/la8085_upm_errata_list_v3_20260923.pdf' },
       { title: 'L.A. Care — BHT/ABA Authorization Request Form LA5480 (05/26)', url: 'https://www.lacare.org/sites/default/files/la5480_bht_authorization_form_202605.pdf' },
@@ -588,6 +596,16 @@ export const californiaPayers: Record<string, PayerConfig> = {
           { title: 'CalViva Health — ABA Prior Authorization Request Form (24-990)', url: 'https://providerlibrary.healthnetcalifornia.com/content/dam/centene/healthnet/pdfs/providerlibrary/500232-ABA-Prior-Auth-Request-Form-CVH.pdf' },
         ],
       },
+      {
+        h2: 'Claims: COB deadline and payment clock',
+        body: [
+          'Health Net’s Medi-Cal provider library states the coordination-of-benefits deadline: “COB claims must be submitted within 180 days following the date that the member and provider receive the other coverage’s Explanation of Benefits (EOB),” and Medi-Cal “is always the payer of last resort, including Medicare and TRICARE.” Since January 1, 2026 state law requires Medi-Cal managed care plans to pay a complete claim within 30 calendar days of receipt, with 15% annual interest from day 31 (AB 3275 applied H&S § 1371 to Medi-Cal plans through W&I § 14093.08). Health Net’s Medi-Cal timely-filing table for initial claims is rendered in the browser and could not be read at this review, so take the initial filing limit from your contract or Health Net provider services.',
+        ],
+        cites: [
+          { title: 'Health Net Medi-Cal — Coordination of Benefits Overview (last updated 9/25/2026)', url: 'https://providerlibrary.healthnetcalifornia.com/medi-cal/provider-manual/coordination-benefits/overview-medi-cal.html' },
+          { title: 'AB 3275 (Ch. 763, Stats. 2024) — claim reimbursement within 30 calendar days from 1/1/2026 (H&S § 1371, Ins. Code § 10123.13, W&I § 14093.08)', url: 'https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240AB3275' },
+        ],
+      },
     ],
     collect: [
       { title: 'Recommendation under a year old', desc: 'From an MD/DO or licensed clinical psychologist — must be less than one year old when there is no autism diagnosis.' },
@@ -597,6 +615,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'Other coverage', desc: 'Primary insurance billed first; if it does not cover ABA, Health Net’s authorization applies.' },
     ],
     sources: [
+      { title: 'AB 3275 (Ch. 763, Stats. 2024) — claim reimbursement within 30 calendar days from 1/1/2026 (H&S § 1371, Ins. Code § 10123.13, W&I § 14093.08)', url: 'https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240AB3275' },
       { title: 'Health Net CA.CP.BH.104 — Applied Behavior Analysis (Medi-Cal), eff. 4/20/2026', url: 'https://www.healthnet.com/content/dam/centene/healthnet/pdfs/general/ca/policies/CA.CP.BH.104.pdf' },
       { title: 'Health Net CA.CP.BH.105 — ABA Documentation Requirements (rev. 7/2026)', url: 'https://www.healthnet.com/content/dam/centene/healthnet/pdfs/general/ca/policies/CA.CP.BH.105.pdf' },
       { title: 'Health Net provider notice 26-196 — Updated ABA Medical Necessity Criteria for Medi-Cal', url: 'https://providerlibrary.healthnetcalifornia.com/news/26-196-updated-aba-medical-necessity-criteria-for-medi-cal--effe.html' },
@@ -797,10 +816,11 @@ export const californiaPayers: Record<string, PayerConfig> = {
       {
         h2: 'Claims: filing limit, payment and provider disputes',
         body: [
-          'IEHP’s Medi-Cal claims policy (MC_20A, January 2024 edition): contracted providers submit claims "within the timely filing period specified in their Provider contract," which "must allow a minimum of 90 days from the date of service"; non-contracted providers have one year from the date of service, with full reimbursement only for claims received within 180 days after the month of service. Claims paid late carry interest of 15% per annum from the first calendar day after the 45th working day.',
+          'IEHP’s Medi-Cal claims policy (MC_20A, January 2024 edition): contracted providers submit claims "within the timely filing period specified in their Provider contract," which "must allow a minimum of 90 days from the date of service"; non-contracted providers have one year from the date of service, with full reimbursement only for claims received within 180 days after the month of service. Claims paid late carry interest of 15% per annum from the first calendar day after the 45th working day. That 2024 chapter predates the current rule: Since January 1, 2026 state law requires Medi-Cal managed care plans to pay a complete claim within 30 calendar days of receipt, with 15% annual interest from day 31 (AB 3275 applied H&S § 1371 to Medi-Cal plans through W&I § 14093.08).',
           'Provider disputes can be filed within 365 days of payment or denial; they are acknowledged within two working days (electronic) or 15 working days (paper) and resolved within 45 working days. A dispute over a timely-filing denial must include proof of timely filing or documented good cause.',
         ],
         cites: [
+          { title: 'AB 3275 (Ch. 763, Stats. 2024) — claim reimbursement within 30 calendar days from 1/1/2026 (H&S § 1371, Ins. Code § 10123.13, W&I § 14093.08)', url: 'https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240AB3275' },
           { title: 'IEHP Provider Policy and Procedure Manual — Medi-Cal Section 20, Claims Processing (MC_20A, 01/24 edition)', url: 'https://www.providerservices.iehp.org/content/dam/provider-services/en/documents/providers/provider-manual/2024/medi-cal/approved/20%20-%20CLAIMS%20PROCESSING_01-01-24%20APPROVED.pdf' },
         ],
       },
@@ -813,6 +833,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'Age', desc: 'Authorizations stop at 21 — start transition planning 60 days before.' },
     ],
     sources: [
+      { title: 'AB 3275 (Ch. 763, Stats. 2024) — claim reimbursement within 30 calendar days from 1/1/2026 (H&S § 1371, Ins. Code § 10123.13, W&I § 14093.08)', url: 'https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240AB3275' },
       { title: 'IEHP Medi-Cal Provider Policy MC_12K3 — Behavioral Health Treatment (2024 chapter 12)', url: 'https://www.providerservices.iehp.org/content/dam/provider-services/en/documents/providers/provider-manual/2024/medi-cal/redline/12%20-%20COORDINATION%20OF%20CARE_03-28-24_REDLINE_.pdf' },
       { title: 'IEHP UM Authorization Guideline UM_BH 08 — Behavioral Health Treatment (rev. 11/25/2024)', url: 'https://www.providerservices.iehp.org/content/dam/provider-services-rd/en/documents/providers/provider-resources/um-criteria/behavior-health/2024/20241125%20-UM_BH%2008%20-Behavioral%20Health%20Treatment%20(BHT)%20Criteria.pdf' },
       { title: 'IEHP — Behavioral Health Treatment (BHT) Reminders (notice, 3/31/2025)', url: 'https://www.providerservices.iehp.org/content/dam/provider-services-rd/en/documents/providers/plan-updates/provider_notices/2025/03---march/20250331%20-%20Behavioral%20Health%20Treatment%20(BHT)%20Reminders.pdf' },
@@ -1018,6 +1039,17 @@ export const californiaPayers: Record<string, PayerConfig> = {
           { title: 'CalOptima Health Provider Manual (September 2026)', url: 'https://cop-p-001.sitecorecontenthub.cloud/api/public/content/dfb55018403942c29e96ed08aaae05d3?v=07622d8f' },
         ],
       },
+      {
+        h2: 'Claims: filing limit, corrected claims and payment',
+        body: [
+          'CalOptima Health’s September 2026 provider manual: for CalOptima Health Direct and CHCN members, and members of a shared-risk group, “A provider will submit a claim for covered services … within 365 calendar days after the month of the date of service” (policy FF.2001); the claims chapter repeats that providers have “one year from the date of service to submit a claim,” and a late claim is denied unless the provider documents why it was timely (for example, retroactive eligibility). Members in an HMO or PHC health network are billed to that network instead. A corrected claim goes on paper or EDI with frequency code 7, the original claim number and DCN, every procedure for that date of service on one claim, and no appeal form attached.',
+          'Since January 1, 2026 state law requires Medi-Cal managed care plans to pay a complete claim within 30 calendar days of receipt, with 15% annual interest from day 31 (AB 3275 applied H&S § 1371 to Medi-Cal plans through W&I § 14093.08). CalOptima publishes no weekly submission cutoff or check-run day.',
+        ],
+        cites: [
+          { title: 'CalOptima Health Provider Manual (September 2026)', url: 'https://cop-p-001.sitecorecontenthub.cloud/api/public/content/dfb55018403942c29e96ed08aaae05d3?v=07622d8f' },
+          { title: 'AB 3275 (Ch. 763, Stats. 2024) — claim reimbursement within 30 calendar days from 1/1/2026 (H&S § 1371, Ins. Code § 10123.13, W&I § 14093.08)', url: 'https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240AB3275' },
+        ],
+      },
     ],
     collect: [
       { title: 'Recommendation from the right clinician', desc: 'MD/surgeon or licensed clinical psychologist; NP/PA only with an MD signature; LMFT/LCSW/LPCC/educational psychologist not accepted.' },
@@ -1027,6 +1059,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'Other coverage', desc: 'CalOptima pays last; bill the other plan first.' },
     ],
     sources: [
+      { title: 'AB 3275 (Ch. 763, Stats. 2024) — claim reimbursement within 30 calendar days from 1/1/2026 (H&S § 1371, Ins. Code § 10123.13, W&I § 14093.08)', url: 'https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240AB3275' },
       { title: 'CalOptima Health Policy GG.1548 — Authorization and Monitoring of BHT Services (rev. 5/1/2026)', url: 'https://cop-p-001.sitecorecontenthub.cloud/api/public/content/0d314641f2bb498ab36e9cfa9edb2d03?v=b5a3e682' },
       { title: 'CalOptima Health — BHT Authorization Request Form (BHT-ARF)', url: 'https://cop-p-001.sitecorecontenthub.cloud/api/public/content/bb9b1cb1ddd2488abb6234820a58d2dc?v=6a735958' },
       { title: 'CalOptima Health — BHT and ABA Providers FAQ (v1, 1/6/2023)', url: 'https://cop-p-001.sitecorecontenthub.cloud/api/public/content/efd407fb7cbe458fa8b665cf286fcc06?v=84dadc68' },
@@ -1153,6 +1186,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'What is CalOptima Health’s timely filing limit for BHT claims?', a: 'One year: claims for CalOptima Health Direct, CHCN and shared-risk members are due within 365 calendar days after the month of service, per the September 2026 provider manual. Since January 1, 2026 state law requires payment of a complete claim within 30 calendar days.' },
       { q: 'Does CalOptima Health cover ABA therapy?', a: 'Yes — Behavioral Health Treatment for Medi-Cal members under 21 in Orange County, with or without an autism diagnosis, run by CalOptima’s own Behavioral Health department.' },
       { q: 'Who can write the ABA recommendation for CalOptima?', a: 'A licensed physician, surgeon or licensed clinical psychologist — in one dated, signed document that also carries the diagnosis. LMFTs, LCSWs, LPCCs and educational psychologists are not accepted, and NP/PA recommendations need an MD signature.' },
       { q: 'How fast does CalOptima decide?', a: 'Seven calendar days for routine requests (no more than 14) and 72 hours for expedited ones; a missed deadline counts as a denial.' },
@@ -1471,9 +1505,10 @@ export const californiaPayers: Record<string, PayerConfig> = {
       {
         h2: 'Claims: a 90-day filing window',
         body: [
-          'Molina’s 2026 Medi-Cal manual (last updated June 2026): "Claims must be submitted by the Provider to Molina within 90 calendar days after the discharge for inpatient services or the Date of Service for outpatient services (unless otherwise stated in the contract)." When Molina pays second, the claim is due "within 90 calendar days after the final determination by the primary payer." Claims outside these windows "shall not be eligible for payment." Corrected claims "must be sent within 180 calendar days of the Date of Service." Every claim needs a valid NPI. Check your contract, because it can set a different window.',
+          'Molina’s 2026 Medi-Cal manual (last updated June 2026): "Claims must be submitted by the Provider to Molina within 90 calendar days after the discharge for inpatient services or the Date of Service for outpatient services (unless otherwise stated in the contract)." When Molina pays second, the claim is due "within 90 calendar days after the final determination by the primary payer." Claims outside these windows "shall not be eligible for payment." Corrected claims "must be sent within 180 calendar days of the Date of Service." Every claim needs a valid NPI. Check your contract, because it can set a different window. The manual’s claims chapter puts non-participating providers at 180 calendar days and restates the 2026 payment rule: “Beginning January 1, 2026, if a complete Claim is not reimbursed within 30 calendar days after receipt, interest accrues at a rate of 15 percent per year,” and a plan that fails to include the interest owes the greater of $15 or 10% of it. No weekly cutoff or check-run day is published.',
         ],
         cites: [
+          { title: 'AB 3275 (Ch. 763, Stats. 2024) — claim reimbursement within 30 calendar days from 1/1/2026 (H&S § 1371, Ins. Code § 10123.13, W&I § 14093.08)', url: 'https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240AB3275' },
           { title: 'Molina Healthcare of California Medi-Cal Provider Manual 2026', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/CA/Manual/2026-CA-Medicaid-Provider-Manual.pdf' },
         ],
       },
@@ -1485,6 +1520,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'Other coverage', desc: 'Primary insurance is billed first; Molina wants the primary EOB for secondary processing.' },
     ],
     sources: [
+      { title: 'AB 3275 (Ch. 763, Stats. 2024) — claim reimbursement within 30 calendar days from 1/1/2026 (H&S § 1371, Ins. Code § 10123.13, W&I § 14093.08)', url: 'https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240AB3275' },
       { title: 'Molina Healthcare of California Medi-Cal Provider Manual 2026', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/CA/Manual/2026-CA-Medicaid-Provider-Manual.pdf' },
       { title: 'Molina Healthcare — Medicaid Pre-Service Review Guide, eff. 1/1/2026', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/CA/Prior-Auth/2026-PA-Guide-Medicaid.pdf' },
       { title: 'Molina Healthcare — Medicaid Prior Auth (PA) Code Matrix, eff. Q2 2026', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/CA/Prior-Auth/PA-Code-Matrix.pdf' },
@@ -1692,9 +1728,12 @@ export const californiaPayers: Record<string, PayerConfig> = {
       {
         h2: 'Claims: filing limit and provider disputes',
         body: [
-          'Kaiser’s 2026 Southern California HMO provider manual says KP follows "the Knox-Keene Act, Medicare, or Medi-Cal requirements for claim processing, as applicable" and instructs: "Submit all claims for services provided to KP Members within 90 calendar days after the date of service or discharge, unless a different submission period is specified in your Agreement or required by law." Provider dispute notices "must be received by KP within 365 calendar days from our action" and are resolved within 45 business days.',
+          'Kaiser’s 2026 Southern California HMO provider manual says KP follows "the Knox-Keene Act, Medicare, or Medi-Cal requirements for claim processing, as applicable" and instructs: "Submit all claims for services provided to KP Members within 90 calendar days after the date of service or discharge, unless a different submission period is specified in your Agreement or required by law." Provider dispute notices "must be received by KP within 365 calendar days from our action" and are resolved within 45 business days. Corrected claims in California run on “same limits applicable to the original claim … from the date of the original Remittance Advice,” sent with frequency code 7 or 8 and the original KP claim number. KP publishes no weekly submission cutoff or check-run day. Under the DMHC claims rule a licensed HMO may not set a filing deadline under 90 days for contracted providers (180 for non-contracted), must give a secondary payer at least 90 days from the primary payer’s action, and must pay a complete claim within 30 calendar days of receipt: since January 1, 2026 AB 3275 applies H&S § 1371 to Medi-Cal managed care plans (W&I § 14093.08), with 15% annual interest from day 31.',
         ],
         cites: [
+          { title: 'AB 3275 (Ch. 763, Stats. 2024) — claim reimbursement within 30 calendar days from 1/1/2026 (H&S § 1371, Ins. Code § 10123.13, W&I § 14093.08)', url: 'https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240AB3275' },
+          { title: 'KP HMO Provider Manual 2026 — Section 5, Claim Billing and Payment Policies and Procedures', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/hmo-billing-and-payment-en.pdf' },
+          { title: '28 CCR § 1300.71 — Claims settlement practices (DMHC plans)', url: 'https://www.law.cornell.edu/regulations/california/28-CCR-1300.71' },
           { title: 'KP Southern California HMO Provider Manual 2026 (rev. 10-25)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/scal/ever/hmo-provider-manual-2026-en-scal.pdf' },
         ],
       },
@@ -1707,6 +1746,9 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'Other coverage', desc: 'Get the primary plan’s authorization and keep Kaiser’s.' },
     ],
     sources: [
+      { title: 'AB 3275 (Ch. 763, Stats. 2024) — claim reimbursement within 30 calendar days from 1/1/2026 (H&S § 1371, Ins. Code § 10123.13, W&I § 14093.08)', url: 'https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240AB3275' },
+      { title: '28 CCR § 1300.71 — Claims settlement practices (DMHC plans)', url: 'https://www.law.cornell.edu/regulations/california/28-CCR-1300.71' },
+      { title: 'KP HMO Provider Manual 2026 — Section 5, Claim Billing and Payment Policies and Procedures', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/hmo-billing-and-payment-en.pdf' },
       { title: 'Kaiser Permanente Medi-Cal Member Handbook — 2026 Combined EOC (Northern and Southern California)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/health-plan-documents/eoc/ca/medicaid/evidence-of-coverage-medi-cal-2026.pdf' },
       { title: 'KP — Contracted Provider Quick Reference Guide to Medi-Cal Managed Care (NCAL, 2026 supplement)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/quick-reference-guide-to-the-managed-medi-cal-program-as-of-en.pdf' },
       { title: 'KFHP-SCAL — UM Criteria for BHT Services for Medi-Cal Members under EPSDT (UM Criteria 2024)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/health-plan-documents/notice/utilization-management/bht-epsdt-um-criteria-medi-cal-scal-en.pdf' },
@@ -1919,12 +1961,13 @@ export const californiaPayers: Record<string, PayerConfig> = {
       {
         h2: 'Claims: billing limit, payment standard and disputes',
         body: [
-          'Partnership’s claims policy CLPM-05: "Partnership Healthplan of California (Partnership) has a 12 month billing limit. Providers have 365 days from the date of service to submit claims to Partnership for payment consideration." Under CLPM-15, 95% of clean claims are paid or denied within 45 working days, 90% of clean claims from individual or group practitioners are paid within 30 days of receipt and 99% within 90 days, and late payments on complete claims carry interest at 15% per annum.',
+          'Partnership’s claims policy CLPM-05 (reviewed 9/1/2026): “Partnership Healthplan of California (Partnership) has a one-year billing limit. Providers have 365 days from the date of service to submit claims to Partnership for payment consideration. Claims received on the 366th day from the date of service will be denied.” The exception is other primary coverage: bill Medicare or the other plan within one year of the month of service, and if its EOB arrives after the 365 days have run, you have 60 days from the EOB date to bill Partnership. Over-one-year exceptions (retroactive eligibility, court orders, hearings) carry delay reason code 10. Under CLPM-15, 95% of clean claims are paid or denied within 45 working days, 90% of clean claims from individual or group practitioners are paid within 30 days of receipt and 99% within 90 days, and late payments on complete claims carry interest at 15% per annum. Since January 1, 2026 state law also requires Medi-Cal managed care plans to pay a complete claim within 30 calendar days of receipt, with 15% annual interest from day 31 (AB 3275: H&S § 1371 applied to Medi-Cal plans by W&I § 14093.08); CLPM-15 has not yet been rewritten to say so.',
           'Disputes (CLPM-41): providers "have 365 calendar days to dispute a claim from the original date on the Partnership RA"; Partnership acknowledges within 2 working days for electronic submissions (15 for paper) and sends a Claims Dispute Response Letter within 45 working days.',
         ],
         cites: [
-          { title: 'Partnership HealthPlan CLPM-05 — Partnership HealthPlan of California Billing Limit (approved 9/1/2025)', url: 'https://public.powerdms.com/PHC/documents/3548907' },
+          { title: 'Partnership HealthPlan CLPM-05 — Partnership HealthPlan of California Billing Limit (reviewed and approved 9/1/2026)', url: 'https://public.powerdms.com/PHC/documents/3548907' },
           { title: 'Partnership HealthPlan CLPM-15 — Claims Processing and Payment Standards (last reviewed 4/23/2026)', url: 'https://public.powerdms.com/PHC/documents/3548943' },
+          { title: 'AB 3275 (Ch. 763, Stats. 2024) — claim reimbursement within 30 calendar days from 1/1/2026 (H&S § 1371, Ins. Code § 10123.13, W&I § 14093.08)', url: 'https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240AB3275' },
           { title: 'Partnership HealthPlan CLPM-41 — Provider Claims Dispute Resolution Mechanism (approved 9/1/2025)', url: 'https://public.powerdms.com/PHC/documents/3548969' },
         ],
       },
@@ -1937,12 +1980,13 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'Other coverage', desc: 'Primary insurer billed first; attach its EOB/RA.' },
     ],
     sources: [
+      { title: 'AB 3275 (Ch. 763, Stats. 2024) — claim reimbursement within 30 calendar days from 1/1/2026 (H&S § 1371, Ins. Code § 10123.13, W&I § 14093.08)', url: 'https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240AB3275' },
       { title: 'Partnership MCUP3126 — Behavioral Health Treatment (BHT) for Members Under 21 (reviewed 4/8/2026)', url: 'https://public.powerdms.com/PHC/documents/1850144' },
       { title: 'Partnership MCUP3041 — Treatment Authorization Request (TAR) Review Process (reviewed 8/12/2026)', url: 'https://public.powerdms.com/PHC/documents/1850203' },
       { title: 'Partnership MCUP3041 Attachment A — Partnership TAR Requirements (rev. 8/12/2026)', url: 'https://public.powerdms.com/PHC/documents/1850202' },
       { title: 'Partnership — Behavioral Health Therapy (BHT) Fax Cover Sheet', url: 'https://edge.sitecorecloud.io/partnershipae75-partnership4b61-production30f9-46fc/media/Project/partnership-sites/partnershiphp/files/PDF/BHTFaxCover.pdf' },
       { title: 'Partnership MCUP3113 — Telehealth Services (reviewed 2/11/2026)', url: 'https://public.powerdms.com/PHC/documents/1850086' },
-      { title: 'Partnership CLPM-32 — Other Primary Coverage (9/1/2025)', url: 'https://public.powerdms.com/PHC/documents/3548960' },
+      { title: 'Partnership CLPM-32 — Other Primary Coverage (reviewed 9/1/2026)', url: 'https://public.powerdms.com/PHC/documents/3548960' },
       { title: 'Partnership CLPM-13 — Partnership Medi-Cal Reimbursement', url: 'https://public.powerdms.com/PHC/documents/3548941' },
       { title: 'Partnership MPCR303 — Applied Behavioral Health and SUD Provider Credentialing', url: 'https://public.powerdms.com/PHC/documents/1849967' },
       { title: 'Partnership MPBP8003 — Mental Health Services (reviewed 6/10/2026; Carelon delegation)', url: 'https://public.powerdms.com/PHC/documents/3443929' },
@@ -2010,7 +2054,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         value: '"The primary carrier must be billed first … A copy of the EOB or RA from the primary carrier should be attached … Partnership /Medi-Cal is always the payer of the last resort." Partnership accepts retro TARs "within 60 calendar days of a denial from the primary insurance carrier" — which means it still expects its own authorization when it ends up paying behind another plan.',
         status: 'verified',
         cites: [
-          { title: 'Partnership CLPM-32 — Other Primary Coverage (9/1/2025)', url: 'https://public.powerdms.com/PHC/documents/3548960' },
+          { title: 'Partnership CLPM-32 — Other Primary Coverage (reviewed 9/1/2026)', url: 'https://public.powerdms.com/PHC/documents/3548960' },
           { title: 'Partnership MCUP3041 — Treatment Authorization Request (TAR) Review Process (reviewed 8/12/2026)', url: 'https://public.powerdms.com/PHC/documents/1850203' },
         ],
       },
@@ -2128,13 +2172,13 @@ export const californiaPayers: Record<string, PayerConfig> = {
         h2: 'How a Kaiser child actually gets to ABA',
         body: [
           'The 2026 EOC puts BHT among the few mental health services that need a referral: "a Plan Physician must refer you before you can get Behavioral Health Treatment for Autism Spectrum Disorder." Kaiser’s Northern California physician site walks through the path: "Your child’s doctor will send a referral to the PDCP for a BHT evaluation"; a partner agency — the primary partner is Catalight Care Services — calls to book an initial 1–2 hour assessment that "will determine whether BHT is an appropriate treatment"; then "a comprehensive treatment assessment with a BHT provider from a partner agency in the network." Families can name a prior provider and Kaiser will "determine if your provider is an authorized network provider." BHT "is typically done for 12 months at a time," with progress reviewed "in the middle and at the end of each period." For the contracted agency the NCAL provider manual is blunt: "Prior authorization is required as a condition of payment," services arrive as a written "Authorization for Medical Care," and anything more goes back through "the referring physician."',
-          'Kaiser’s March 2026 member notice on prior authorization does not list BHT — "The Health Plan does not require prior authorization once members are referred to a service" — because the gate is the Medical Group referral and authorization, not a Health Plan UM review. Southern California publishes no equivalent BHT pathway page or professional provider manual; ask SCAL Behavioral Health UM (1-866-465-7296) or the SCAL network team (SCAL-BH-Panel@kp.org).',
+          'Kaiser’s September 2026 member notice on prior authorization does not list BHT — "The Health Plan does not require prior authorization once members are referred to a service" — because the gate is the Medical Group referral and authorization, not a Health Plan UM review. Southern California publishes no equivalent BHT pathway page or professional provider manual; ask SCAL Behavioral Health UM (1-866-465-7296) or the SCAL network team (SCAL-BH-Panel@kp.org).',
         ],
         cites: [
           { title: 'Kaiser Permanente 2026 Combined Membership Agreement / EOC — Gold 80 HMO (NCAL + SCAL)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/health-plan-documents/eoc/ca/individual-family/2026/on-gold-80-ca-en.pdf' },
           { title: 'TPMG My Doctor Online (NCAL) — Interventions and Services for Children With ASD', url: 'https://mydoctor.kaiserpermanente.org/ncal/structured-content/interventions-and-services-for-children-with-autism-spectrum-disorder-asd-2263667' },
           { title: 'KP Northern California HMO Provider Manual 2026 — Section 4, Utilization Management', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/hmo-utilization-management-and-resource-management-en.pdf' },
-          { title: 'Kaiser Permanente — Utilization Management Process notice (March 2026, NCAL + SCAL)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/health-plan-documents/notice/utilization-management-process-ca.pdf' },
+          { title: 'Kaiser Permanente — Utilization Management Process notice (September 2026, NCAL + SCAL)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/health-plan-documents/notice/utilization-management-process-ca.pdf' },
           { title: 'KP Southern California HMO Provider Manual 2026 (rev. 10-25)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/scal/ever/hmo-provider-manual-2026-en-scal.pdf' },
         ],
       },
@@ -2169,9 +2213,10 @@ export const californiaPayers: Record<string, PayerConfig> = {
       {
         h2: 'Claims: filing limit and provider disputes',
         body: [
-          'Kaiser’s 2026 HMO Provider Manual (Section 5, Claim Billing and Payment) says that in Northern and Southern California KP follows the Knox-Keene Act and instructs: "Submit all claims for services provided to KP Members within 90 calendar days after the date of service or discharge, unless a different submission period is specified in your Agreement or required by law." Professional claims go on the CMS-1500 with the KP authorization number for any prior-authorized service; COB information for California is due within 90 calendar days of the primary carrier’s EOB. Provider dispute notices "must be received by KP within 365 calendar days from our action," are acknowledged within 15 business days (two for online submissions), and are resolved within 45 business days. The DMHC floor underneath bars deadlines shorter than 90 days for contracted providers (180 for non-contracted) and requires payment of a complete claim within 30 working days (45 for an HMO).',
+          'Kaiser’s 2026 HMO Provider Manual (Section 5, Claim Billing and Payment) says that in Northern and Southern California KP follows the Knox-Keene Act and instructs: "Submit all claims for services provided to KP Members within 90 calendar days after the date of service or discharge, unless a different submission period is specified in your Agreement or required by law." Professional claims go on the CMS-1500 with the KP authorization number for any prior-authorized service; COB information for California is due within 90 calendar days of the primary carrier’s EOB. Provider dispute notices "must be received by KP within 365 calendar days from our action," are acknowledged within 15 business days (two for online submissions), and are resolved within 45 business days. The DMHC floor underneath bars deadlines shorter than 90 days for contracted providers (180 for non-contracted) and requires payment of a complete claim within 30 calendar days of receipt since January 1, 2026 (H&S § 1371 as amended by AB 3275; the regulation’s 30 working days, 45 for an HMO, no longer control), with 15% annual interest from day 31. Corrected claims in California run on “same limits applicable to the original claim … from the date of the original Remittance Advice,” sent with frequency code 7 or 8 and the original KP claim number. KP publishes no weekly submission cutoff or check-run day.',
         ],
         cites: [
+          { title: 'AB 3275 (Ch. 763, Stats. 2024) — claim reimbursement within 30 calendar days from 1/1/2026 (H&S § 1371, Ins. Code § 10123.13, W&I § 14093.08)', url: 'https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240AB3275' },
           { title: 'KP HMO Provider Manual 2026 — Section 5, Claim Billing and Payment Policies and Procedures', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/hmo-billing-and-payment-en.pdf' },
           { title: 'KP Southern California HMO Provider Manual 2026 (rev. 10-25)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/scal/ever/hmo-provider-manual-2026-en-scal.pdf' },
           { title: '28 CCR § 1300.71 — Claims settlement practices (DMHC plans)', url: 'https://www.law.cornell.edu/regulations/california/28-CCR-1300.71' },
@@ -2187,8 +2232,9 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'Authorization letter', desc: 'Visits, dates and expiration — agencies work only inside the written Authorization for Medical Care.' },
     ],
     sources: [
+      { title: 'AB 3275 (Ch. 763, Stats. 2024) — claim reimbursement within 30 calendar days from 1/1/2026 (H&S § 1371, Ins. Code § 10123.13, W&I § 14093.08)', url: 'https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240AB3275' },
       { title: 'Kaiser Permanente 2026 Combined Membership Agreement / EOC — Gold 80 HMO (NCAL + SCAL)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/health-plan-documents/eoc/ca/individual-family/2026/on-gold-80-ca-en.pdf' },
-      { title: 'Kaiser Permanente — Utilization Management Process notice (March 2026, NCAL + SCAL)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/health-plan-documents/notice/utilization-management-process-ca.pdf' },
+      { title: 'Kaiser Permanente — Utilization Management Process notice (September 2026, NCAL + SCAL)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/health-plan-documents/notice/utilization-management-process-ca.pdf' },
       { title: 'TPMG My Doctor Online (NCAL) — Interventions and Services for Children With ASD', url: 'https://mydoctor.kaiserpermanente.org/ncal/structured-content/interventions-and-services-for-children-with-autism-spectrum-disorder-asd-2263667' },
       { title: 'TPMG My Doctor Online (NCAL) — Evaluation for ASD in Children', url: 'https://mydoctor.kaiserpermanente.org/ncal/structured-content/evaluation-for-autism-spectrum-disorder-in-children-2259863' },
       { title: 'KP Northern California HMO Provider Manual 2026 — Section 4, Utilization Management', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/hmo-utilization-management-and-resource-management-en.pdf' },
@@ -2257,10 +2303,10 @@ export const californiaPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       authTurnaround: {
-        value: 'Kaiser’s March 2026 UM notice: "A decision will be made no later than five (5) business days after receiving your provider’s request … Decisions about urgent services will be made no later than 72 hours" — the H&S § 1367.01(h) floor, which also requires the decision to reach the requesting provider within 24 hours. Self-funded employer plans Kaiser administers follow 29 CFR 2560.503-1 instead (15 days pre-service, one 15-day extension, 72 hours urgent). Reauthorization: NCAL authorizations typically run 12 months with a mid-point review; the statute requires treatment-plan review at least every six months.',
+        value: 'Kaiser’s September 2026 UM notice: "A decision will be made no later than five (5) business days after receiving your provider’s request … Decisions about urgent services will be made no later than 72 hours" — the H&S § 1367.01(h) floor, which also requires the decision to reach the requesting provider within 24 hours. Self-funded employer plans Kaiser administers follow 29 CFR 2560.503-1 instead (15 days pre-service, one 15-day extension, 72 hours urgent). Reauthorization: NCAL authorizations typically run 12 months with a mid-point review; the statute requires treatment-plan review at least every six months.',
         status: 'verified',
         cites: [
-          { title: 'Kaiser Permanente — Utilization Management Process notice (March 2026, NCAL + SCAL)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/health-plan-documents/notice/utilization-management-process-ca.pdf' },
+          { title: 'Kaiser Permanente — Utilization Management Process notice (September 2026, NCAL + SCAL)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/health-plan-documents/notice/utilization-management-process-ca.pdf' },
           { title: 'Health & Safety Code § 1367.01 — utilization review timelines', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=HSC&sectionNum=1367.01' },
           { title: '29 CFR 2560.503-1 — ERISA claims procedure', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
           { title: 'TPMG My Doctor Online (NCAL) — Interventions and Services for Children With ASD', url: 'https://mydoctor.kaiserpermanente.org/ncal/structured-content/interventions-and-services-for-children-with-autism-spectrum-disorder-asd-2263667' },
@@ -2438,9 +2484,10 @@ export const californiaPayers: Record<string, PayerConfig> = {
         h2: 'Claims: filing limit and provider disputes',
         body: [
           'Blue Shield’s July 2026 Independent Physician and Provider Manual: "you must submit your claims to Blue Shield within 12 months of the date of service(s) unless otherwise stated by contract"; claims filed later without an explanation may be denied, and members are not responsible for charges denied for late filing. Clean claims must identify the rendering provider.',
-          'Provider disputes must be submitted "within 365 days, or the time specified in the provider’s Blue Shield agreement, whichever is greater," of Blue Shield’s contest, denial, notice or payment; Blue Shield acknowledges paper disputes within 15 working days (electronic within two) and "will resolve disputes within 45 working days." The DMHC rule underneath: no filing deadline shorter than 90 days for contracted providers (180 for non-contracted) and payment of a complete claim within 30 working days (45 for HMO lines).',
+          'Provider disputes must be submitted "within 365 days, or the time specified in the provider’s Blue Shield agreement, whichever is greater," of Blue Shield’s contest, denial, notice or payment; Blue Shield acknowledges paper disputes within 15 working days (electronic within two) and "will resolve disputes within 45 working days." The DMHC rule underneath: no filing deadline shorter than 90 days for contracted providers (180 for non-contracted) and, since January 1, 2026, payment of a complete claim within 30 calendar days of receipt, with 15% annual interest from day 31 (H&S § 1371 as amended by AB 3275; the regulation’s 30 and 45 working days no longer control).',
         ],
         cites: [
+          { title: 'AB 3275 (Ch. 763, Stats. 2024) — claim reimbursement within 30 calendar days from 1/1/2026 (H&S § 1371, Ins. Code § 10123.13, W&I § 14093.08)', url: 'https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240AB3275' },
           { title: 'Blue Shield Independent Physician and Provider Manual (PPO / direct HMO), July 2026', url: 'https://www.blueshieldca.com/content/dam/bsca/en/provider/docs/7-26-A11421-IPP-Manual.pdf' },
           { title: '28 CCR § 1300.71 — Claims settlement practices (DMHC plans)', url: 'https://www.law.cornell.edu/regulations/california/28-CCR-1300.71' },
           { title: '28 CCR § 1300.71.38 — Provider dispute resolution mechanism (DMHC plans)', url: 'https://www.law.cornell.edu/regulations/california/28-CCR-1300.71.38' },
@@ -2465,6 +2512,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'Other coverage', desc: 'Birthday rule between parents; Blue Shield pays before TRICARE/CHAMPVA and Medi-Cal.' },
     ],
     sources: [
+      { title: 'AB 3275 (Ch. 763, Stats. 2024) — claim reimbursement within 30 calendar days from 1/1/2026 (H&S § 1371, Ins. Code § 10123.13, W&I § 14093.08)', url: 'https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240AB3275' },
       { title: 'Blue Shield Medical Policy BSC3.01 — BHT for ASD or PDD (eff. 12/1/2025)', url: 'https://www.blueshieldca.com/content/dam/bsca/en/provider/docs/medical-policies/Behavioral-Health-TX-Autism-Spectrum-Disorders.pdf' },
       { title: 'Blue Shield — Prior Authorization Request Form, Applied Behavioral Analysis (Commercial, 12/2025)', url: 'https://www.blueshieldca.com/content/dam/bsca/en/provider/forms/PA-ABA.pdf' },
       { title: 'Blue Shield of California — Prior Authorization List (eff. 10/1/2026)', url: 'https://www.blueshieldca.com/content/dam/bsca/en/provider/docs/BSC-Prior-Auth-List.pdf' },
@@ -2704,9 +2752,10 @@ export const californiaPayers: Record<string, PayerConfig> = {
         h2: 'Claims: filing limit, payment clock and disputes',
         body: [
           'Anthem’s behavioral health group guide says: "Submit original claims within 90 days of performed services" (payer ID 47198, CMS-1500, the rendering provider’s individual NPI, ICD-10 autism diagnosis), adding that when behavioral health is carved out to another plan the filing limit may differ. Disagreements with an adjudicated claim go on the Provider Dispute Resolution Request form after customer service or an Availity secure message fails.',
-          'For Blue Cross of California (the DMHC-licensed entity), the regulator sets the outer limits: a plan may not impose a filing deadline "less than 90 days for contracted providers and 180 days for non-contracted providers after the date of service"; it must pay a complete claim within 30 working days of receipt (45 working days for an HMO line, though PPO/POS lines of an HMO stay at 30); and providers have 365 days from the plan’s action to file a provider dispute, which the plan must decide within 45 working days (28 CCR §§ 1300.71, 1300.71.38). CDI-regulated Anthem Blue Cross Life and Health policies follow the Insurance Code instead, and self-funded plans their own plan document.',
+          'For Blue Cross of California (the DMHC-licensed entity), the regulator sets the outer limits: a plan may not impose a filing deadline "less than 90 days for contracted providers and 180 days for non-contracted providers after the date of service"; since January 1, 2026 it must pay a complete claim within 30 calendar days of receipt, with 15% annual interest from day 31 (H&S § 1371 as amended by AB 3275 — the regulation’s 30 and 45 working days no longer control); and providers have 365 days from the plan’s action to file a provider dispute, which the plan must decide within 45 working days (28 CCR §§ 1300.71, 1300.71.38). CDI-regulated Anthem Blue Cross Life and Health policies follow the Insurance Code instead (Ins. Code § 10123.13, also 30 calendar days since 2026), and self-funded plans their own plan document.',
         ],
         cites: [
+          { title: 'AB 3275 (Ch. 763, Stats. 2024) — claim reimbursement within 30 calendar days from 1/1/2026 (H&S § 1371, Ins. Code § 10123.13, W&I § 14093.08)', url: 'https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240AB3275' },
           { title: 'Anthem Blue Cross — Behavioral Health Guide: Commercial BH and ABA Group Agreement (CABC-CM-082371-25)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_BHG_Groups.pdf' },
           { title: '28 CCR § 1300.71 — Claims settlement practices (DMHC plans)', url: 'https://www.law.cornell.edu/regulations/california/28-CCR-1300.71' },
           { title: '28 CCR § 1300.71.38 — Provider dispute resolution mechanism (DMHC plans)', url: 'https://www.law.cornell.edu/regulations/california/28-CCR-1300.71.38' },
@@ -2721,6 +2770,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'Rendering NPIs', desc: 'Claims need the individual NPI of the rendering provider.' },
     ],
     sources: [
+      { title: 'AB 3275 (Ch. 763, Stats. 2024) — claim reimbursement within 30 calendar days from 1/1/2026 (H&S § 1371, Ins. Code § 10123.13, W&I § 14093.08)', url: 'https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240AB3275' },
       { title: 'Anthem Blue Cross — Local PPO Precertification/Prior Authorization List, California Commercial (updated 9/22/2026, eff. 10/1/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_PPO_PA_List.pdf' },
       { title: 'Anthem Blue Cross — Behavioral Health Guide: Commercial BH and ABA Group Agreement (CABC-CM-082371-25)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_BHG_Groups.pdf' },
       { title: 'Health & Safety Code § 1374.73 (as amended by SB 402, eff. 1/1/2026)', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=HSC&sectionNum=1374.73' },
@@ -2878,7 +2928,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { q: 'What does the California autism mandate require?', a: 'Fully insured plans must cover behavioral health treatment, including ABA, for autism with no age or dollar caps, a treatment plan reviewed at least every six months, and — from 2026 — no forced rediagnosis to keep coverage. Self-funded ERISA and Medi-Cal plans are exempt.' },
       { q: 'What are Anthem Blue Cross of California’s ABA prior auth and diagnostic requirements?', a: 'Every ABA code needs precertification — 97151, 97152, 0362T for the assessment and 97153–97158, 0373T plus the QAS H-codes for treatment — and Anthem itself, not Carelon, is the responsible reviewer on the October 2026 list, using AACAP criteria for fully insured plans and MCG B-806-T for self-funded ones. Claims bill on an autism diagnosis and the mandate needs a physician prescription or psychologist-developed plan. Anthem California publishes no diagnosing-credential list, no required instrument and no recency window for commercial members; for fully insured contracts renewed from 2026 it may not demand a rediagnosis to keep coverage. The commercial Adaptive Behavioral Treatment Request form (fax 866-582-2287, or ICR on Availity) carries the document checklist.' },
       { q: 'Whose NPI goes on an Anthem Blue Cross California ABA claim when a technician delivers the session?', a: 'The rendering NPI should be the provider named on the authorization, and Anthem’s California ABA Provider Resource Guide says technician-delivered ABA "must show the supervising BCBA or other QHP in box 31," with HM/HN/HO modifiers for the technician’s education level.' },
-      { q: 'What is Anthem Blue Cross of California’s timely filing limit for ABA claims?', a: 'Anthem’s behavioral health group guide says to submit original claims within 90 days of the service. For the DMHC-licensed plan, state regulation bars deadlines shorter than 90 days for contracted providers (180 for non-contracted) and requires payment of a complete claim within 30 working days (45 for HMO lines).' },
+      { q: 'What is Anthem Blue Cross of California’s timely filing limit for ABA claims?', a: 'Anthem’s behavioral health group guide says to submit original claims within 90 days of the service. For the DMHC-licensed plan, state regulation bars deadlines shorter than 90 days for contracted providers (180 for non-contracted) and, since January 1, 2026, payment of a complete claim within 30 calendar days of receipt (H&S § 1371 as amended by AB 3275).' },
     ],
   },
 
@@ -2976,9 +3026,10 @@ export const californiaPayers: Record<string, PayerConfig> = {
       {
         h2: 'Claims: what California law guarantees on filing, payment and disputes',
         body: [
-          'Health Net does not publish an ABA-specific filing limit in the documents read; the number sits in the provider agreement. For Health Net’s DMHC-licensed products (its HMOs and any DMHC-regulated PPO/EPO), state regulation sets the floor: no claim deadline "less than 90 days for contracted providers and 180 days for non-contracted providers after the date of service"; payment of a complete claim within 30 working days of receipt (45 working days for an HMO line, with PPO/POS lines of an HMO at 30); and at least 365 days from the plan’s action to file a provider dispute, which must be decided within 45 working days (28 CCR §§ 1300.71, 1300.71.38). CDI-regulated insurance policies and self-funded ERISA plans are outside these DMHC rules.',
+          'Health Net does not publish an ABA-specific filing limit in the documents read; the number sits in the provider agreement. For Health Net’s DMHC-licensed products (its HMOs and any DMHC-regulated PPO/EPO), state regulation sets the floor: no claim deadline "less than 90 days for contracted providers and 180 days for non-contracted providers after the date of service"; payment of a complete claim within 30 calendar days of receipt since January 1, 2026, with 15% annual interest from day 31 (H&S § 1371 as amended by AB 3275; the regulation’s 30 and 45 working days no longer control); and at least 365 days from the plan’s action to file a provider dispute, which must be decided within 45 working days (28 CCR §§ 1300.71, 1300.71.38). CDI-regulated insurance policies are outside these DMHC rules but face the same 30-calendar-day payment clock under Ins. Code § 10123.13 since 2026; self-funded ERISA plans follow their plan documents.',
         ],
         cites: [
+          { title: 'AB 3275 (Ch. 763, Stats. 2024) — claim reimbursement within 30 calendar days from 1/1/2026 (H&S § 1371, Ins. Code § 10123.13, W&I § 14093.08)', url: 'https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240AB3275' },
           { title: '28 CCR § 1300.71 — Claims settlement practices (DMHC plans)', url: 'https://www.law.cornell.edu/regulations/california/28-CCR-1300.71' },
           { title: '28 CCR § 1300.71.38 — Provider dispute resolution mechanism (DMHC plans)', url: 'https://www.law.cornell.edu/regulations/california/28-CCR-1300.71.38' },
         ],
@@ -2992,6 +3043,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'Other coverage', desc: 'Birthday rule between parents; Health Net pays before TRICARE/CHAMPVA and Medi-Cal.' },
     ],
     sources: [
+      { title: 'AB 3275 (Ch. 763, Stats. 2024) — claim reimbursement within 30 calendar days from 1/1/2026 (H&S § 1371, Ins. Code § 10123.13, W&I § 14093.08)', url: 'https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240AB3275' },
       { title: 'Health Net — Commercial Group Exit and Transition Information (updated 9/22/2026)', url: 'https://www.healthnet.com/content/healthnet/en_us/commercial-group-transition.html' },
       { title: 'Health Net — Prior Authorization Requirements, California Commercial (eff. 7/1/2026)', url: 'https://providerlibrary.healthnetcalifornia.com/hmo/prior-authorization-requirements---hmo-ppo-epo-hsp.html' },
       { title: 'Health Net — ABA Prior Authorization Request Form (24-992)', url: 'https://providerlibrary.healthnetcalifornia.com/content/dam/centene/healthnet/pdfs/providerlibrary/500234-ABA-Prior-Auth-Request-Form-MCL.pdf' },
@@ -3237,9 +3289,10 @@ export const californiaPayers: Record<string, PayerConfig> = {
       {
         h2: 'Claims: what California law guarantees on filing, payment and disputes',
         body: [
-          'Aetna does not publish an ABA-specific filing limit in the documents read; the number sits in the provider agreement. Aetna’s national provider manual says claim disputes "Must be submitted within contractual timeframes." For Aetna’s DMHC-licensed products (its HMOs and any DMHC-regulated PPO/EPO), state regulation sets the floor: no claim deadline "less than 90 days for contracted providers and 180 days for non-contracted providers after the date of service"; payment of a complete claim within 30 working days of receipt (45 working days for an HMO line, with PPO/POS lines of an HMO at 30); and at least 365 days from the plan’s action to file a provider dispute, which must be decided within 45 working days (28 CCR §§ 1300.71, 1300.71.38). CDI-regulated insurance policies and self-funded ERISA plans are outside these DMHC rules.',
+          'Aetna does not publish an ABA-specific filing limit in the documents read; the number sits in the provider agreement. Aetna’s national provider manual says claim disputes "Must be submitted within contractual timeframes." For Aetna’s DMHC-licensed products (its HMOs and any DMHC-regulated PPO/EPO), state regulation sets the floor: no claim deadline "less than 90 days for contracted providers and 180 days for non-contracted providers after the date of service"; payment of a complete claim within 30 calendar days of receipt since January 1, 2026, with 15% annual interest from day 31 (H&S § 1371 as amended by AB 3275; the regulation’s 30 and 45 working days no longer control); and at least 365 days from the plan’s action to file a provider dispute, which must be decided within 45 working days (28 CCR §§ 1300.71, 1300.71.38). CDI-regulated insurance policies are outside these DMHC rules but face the same 30-calendar-day payment clock under Ins. Code § 10123.13 since 2026; self-funded ERISA plans follow their plan documents.',
         ],
         cites: [
+          { title: 'AB 3275 (Ch. 763, Stats. 2024) — claim reimbursement within 30 calendar days from 1/1/2026 (H&S § 1371, Ins. Code § 10123.13, W&I § 14093.08)', url: 'https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240AB3275' },
           { title: '28 CCR § 1300.71 — Claims settlement practices (DMHC plans)', url: 'https://www.law.cornell.edu/regulations/california/28-CCR-1300.71' },
           { title: '28 CCR § 1300.71.38 — Provider dispute resolution mechanism (DMHC plans)', url: 'https://www.law.cornell.edu/regulations/california/28-CCR-1300.71.38' },
           { title: 'Aetna Provider Manual (6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
@@ -3265,6 +3318,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'Physician or psychologist prescription', desc: 'The California mandate keys covered BHT to a physician prescription or a psychologist-developed plan.' },
     ],
     sources: [
+      { title: 'AB 3275 (Ch. 763, Stats. 2024) — claim reimbursement within 30 calendar days from 1/1/2026 (H&S § 1371, Ins. Code § 10123.13, W&I § 14093.08)', url: 'https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240AB3275' },
       { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
       { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
       { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
@@ -3525,9 +3579,10 @@ export const californiaPayers: Record<string, PayerConfig> = {
       {
         h2: 'Claims: what California law guarantees on filing, payment and disputes',
         body: [
-          'Cigna does not publish an ABA-specific filing limit in the documents read; the number sits in the provider agreement. For Cigna’s DMHC-licensed products (its HMOs and any DMHC-regulated PPO/EPO), state regulation sets the floor: no claim deadline "less than 90 days for contracted providers and 180 days for non-contracted providers after the date of service"; payment of a complete claim within 30 working days of receipt (45 working days for an HMO line, with PPO/POS lines of an HMO at 30); and at least 365 days from the plan’s action to file a provider dispute, which must be decided within 45 working days (28 CCR §§ 1300.71, 1300.71.38). CDI-regulated insurance policies and self-funded ERISA plans are outside these DMHC rules.',
+          'Cigna does not publish an ABA-specific filing limit in the documents read; the number sits in the provider agreement. For Cigna’s DMHC-licensed products (its HMOs and any DMHC-regulated PPO/EPO), state regulation sets the floor: no claim deadline "less than 90 days for contracted providers and 180 days for non-contracted providers after the date of service"; payment of a complete claim within 30 calendar days of receipt since January 1, 2026, with 15% annual interest from day 31 (H&S § 1371 as amended by AB 3275; the regulation’s 30 and 45 working days no longer control); and at least 365 days from the plan’s action to file a provider dispute, which must be decided within 45 working days (28 CCR §§ 1300.71, 1300.71.38). CDI-regulated insurance policies are outside these DMHC rules but face the same 30-calendar-day payment clock under Ins. Code § 10123.13 since 2026; self-funded ERISA plans follow their plan documents.',
         ],
         cites: [
+          { title: 'AB 3275 (Ch. 763, Stats. 2024) — claim reimbursement within 30 calendar days from 1/1/2026 (H&S § 1371, Ins. Code § 10123.13, W&I § 14093.08)', url: 'https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240AB3275' },
           { title: '28 CCR § 1300.71 — Claims settlement practices (DMHC plans)', url: 'https://www.law.cornell.edu/regulations/california/28-CCR-1300.71' },
           { title: '28 CCR § 1300.71.38 — Provider dispute resolution mechanism (DMHC plans)', url: 'https://www.law.cornell.edu/regulations/california/28-CCR-1300.71.38' },
         ],
@@ -3552,6 +3607,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'Other coverage', desc: 'Birthday rule between parents; Cigna pays before Medi-Cal, TRICARE and CHAMPVA.' },
     ],
     sources: [
+      { title: 'AB 3275 (Ch. 763, Stats. 2024) — claim reimbursement within 30 calendar days from 1/1/2026 (H&S § 1371, Ins. Code § 10123.13, W&I § 14093.08)', url: 'https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240AB3275' },
       { title: 'Evernorth Coverage Policy EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
       { title: 'Cigna — Autism resource guide (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
       { title: 'Evernorth — Applied Behavior Analysis Prior Authorization Form (rev. July 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/applied-behavior-analysis.pdf' },
@@ -3807,9 +3863,10 @@ export const californiaPayers: Record<string, PayerConfig> = {
       {
         h2: 'Claims: what California law guarantees on filing, payment and disputes',
         body: [
-          'UnitedHealthcare does not publish an ABA-specific filing limit in the documents read; the number sits in the provider agreement. For UnitedHealthcare’s DMHC-licensed products (its HMOs and any DMHC-regulated PPO/EPO), state regulation sets the floor: no claim deadline "less than 90 days for contracted providers and 180 days for non-contracted providers after the date of service"; payment of a complete claim within 30 working days of receipt (45 working days for an HMO line, with PPO/POS lines of an HMO at 30); and at least 365 days from the plan’s action to file a provider dispute, which must be decided within 45 working days (28 CCR §§ 1300.71, 1300.71.38). CDI-regulated insurance policies and self-funded ERISA plans are outside these DMHC rules.',
+          'UnitedHealthcare does not publish an ABA-specific filing limit in the documents read; the number sits in the provider agreement. For UnitedHealthcare’s DMHC-licensed products (its HMOs and any DMHC-regulated PPO/EPO), state regulation sets the floor: no claim deadline "less than 90 days for contracted providers and 180 days for non-contracted providers after the date of service"; payment of a complete claim within 30 calendar days of receipt since January 1, 2026, with 15% annual interest from day 31 (H&S § 1371 as amended by AB 3275; the regulation’s 30 and 45 working days no longer control); and at least 365 days from the plan’s action to file a provider dispute, which must be decided within 45 working days (28 CCR §§ 1300.71, 1300.71.38). CDI-regulated insurance policies are outside these DMHC rules but face the same 30-calendar-day payment clock under Ins. Code § 10123.13 since 2026; self-funded ERISA plans follow their plan documents.',
         ],
         cites: [
+          { title: 'AB 3275 (Ch. 763, Stats. 2024) — claim reimbursement within 30 calendar days from 1/1/2026 (H&S § 1371, Ins. Code § 10123.13, W&I § 14093.08)', url: 'https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240AB3275' },
           { title: '28 CCR § 1300.71 — Claims settlement practices (DMHC plans)', url: 'https://www.law.cornell.edu/regulations/california/28-CCR-1300.71' },
           { title: '28 CCR § 1300.71.38 — Provider dispute resolution mechanism (DMHC plans)', url: 'https://www.law.cornell.edu/regulations/california/28-CCR-1300.71.38' },
         ],
@@ -3834,6 +3891,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'Other coverage', desc: 'Birthday rule between parents; UHC pays before Medi-Cal, TRICARE and CHAMPVA.' },
     ],
     sources: [
+      { title: 'AB 3275 (Ch. 763, Stats. 2024) — claim reimbursement within 30 calendar days from 1/1/2026 (H&S § 1371, Ins. Code § 10123.13, W&I § 14093.08)', url: 'https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240AB3275' },
       { title: 'Optum — ABA Supplemental Clinical Criteria (BH803ABASCC, interim review 4/21/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
       { title: 'Optum — ABA State Mandates (BH 803ABA STM72026, eff. July 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
       { title: 'CASP ABA Practice Guidelines for the Treatment of ASD, 3rd ed. (posted by Optum as California Commercial ABA criteria)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/ourNetworkMain/welcomeNtwk/CA/ca_hpc_aba_guidelines.pdf' },
