@@ -203,8 +203,10 @@ export const washingtonPayers: Record<string, PayerConfig> = {
         h2: 'Claims operations: timely filing, EVV, telehealth billing and appeals',
         body: [
           'Fee-for-service claims must be submitted with a transaction control number assigned "within three hundred sixty-five calendar days" of the date of service, and a claim may be resubmitted or adjusted within 24 months of the service date (WAC 182-502-0150). Bill all units of a code for one date of service on a single line: two lines of the same code for the same day deny as duplicates. Known third parties must be billed first and their timely filing limits met as well. HCA’s January 2026 ABA billing guide does not mention electronic visit verification. For telemedicine, use POS 02 or 10 and modifier 95 for a nonfacility distant site (Telemedicine Policy and Billing Guide, January 2026). An MCO member who disagrees with the plan’s appeal decision may request a state hearing "within one hundred twenty calendar days" of the plan’s appeal resolution, and must ask within ten days to keep a reduced or terminated service going during the hearing (WAC 182-526-0200).',
+          'Payment cycle for fee-for-service claims: HCA’s claims page says the ProviderOne submission “deadline is every Tuesday at 5 p.m. for payment the following Monday,” and providers “may see a Friday date on their remittance advice.” Apple Health MCO claims follow each plan’s own payment schedule.',
+          'Federal rules bind Apple Health’s own fee-for-service payments: the agency "must pay 90 percent of all clean claims from practitioners, who are in individual or group practice or who practice in shared health facilities, within 30 days of the date of receipt" and 99 percent within 90 days, with the date of receipt being the agency’s date stamp and the date of payment the date of the check or other payment (42 CFR 447.45(d)(2), (3), (5), (6)). The same rule makes 12 months from the date of service the outer limit any state may allow for filing (42 CFR 447.45(d)(1)). Managed care plans are held to the same 90/99 percent clean-claim standard through their state contracts (42 CFR 447.46).',
         ],
-        cites: [S.wac0150, S.abaBG, S.teleBG, S.wac526],
+        cites: [{ title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, { title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: 'HCA — Prior authorization, claims, and billing (ProviderOne claims submission deadlines)', url: 'https://www.hca.wa.gov/billers-providers-partners/prior-authorization-claims-and-billing' }, S.wac0150, S.abaBG, S.teleBG, S.wac526],
       },
       {
         h2: 'Does Apple Health require a referring or ordering provider on the ABA claim?',
@@ -236,7 +238,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       { title: 'Other insurance', desc: 'If private coverage has an ABA benefit that is not exhausted, HCA PA is not required; bill the private plan first.' },
       { title: 'Forms', desc: 'HCA 13-400 assessment and plan (or equivalent) and HCA 12-411 Level of Support; HCA 13-835 cover sheet for faxed FFS requests.' },
     ],
-    sources: [S.wac531a, S.abaBG, S.abaFee, S.coeList, S.hcaMC, S.hcaTA, S.teleBG, S.wac0165, S.wac0200, S.wac0150, S.wac526, S.rcw18380, S.wac246805, S.bacbLic, S.cfr440, S.cfr433, { title: 'HCA — ProviderOne Billing and Resource Guide (September 2025 edition, posted February 2026): Providers required to enroll; DDE claim questions', url: 'https://www.hca.wa.gov/assets/billers-and-providers/providerone-billing-and-resource-guide.pdf' }],
+    sources: [{ title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, { title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: 'HCA — Prior authorization, claims, and billing (ProviderOne claims submission deadlines)', url: 'https://www.hca.wa.gov/billers-providers-partners/prior-authorization-claims-and-billing' }, S.wac531a, S.abaBG, S.abaFee, S.coeList, S.hcaMC, S.hcaTA, S.teleBG, S.wac0165, S.wac0200, S.wac0150, S.wac526, S.rcw18380, S.wac246805, S.bacbLic, S.cfr440, S.cfr433, { title: 'HCA — ProviderOne Billing and Resource Guide (September 2025 edition, posted February 2026): Providers required to enroll; DDE claim questions', url: 'https://www.hca.wa.gov/assets/billers-and-providers/providerone-billing-and-resource-guide.pdf' }],
     deliveryRules: {
       supervision: {
         value: AH_SUPERVISION,
@@ -251,9 +253,9 @@ export const washingtonPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       dailyLimits: {
-        value: '97151: 28 units per assessment, 2 assessments per calendar year. 0362T: 2-hour assessments, 3 per calendar year per client per provider. Inpatient 97153 and 0373T: 780 units per calendar year. Day treatment (H2020): at least half of the 3-hour day for 12 hours a week, up to 15 hours a week (3 hours a day, 5 days), normally 48 service days. Other treatment units are set by the authorization; extra units go through a limitation extension.',
+        value: '97151: 28 units per assessment, 2 assessments per calendar year. 0362T: 2-hour assessments, 3 per calendar year per client per provider. Inpatient 97153 and 0373T: 780 units per calendar year. Day treatment (H2020): at least half of the 3-hour day for 12 hours a week, up to 15 hours a week (3 hours a day, 5 days), normally 48 service days. Other treatment units are set by the authorization; extra units go through a limitation extension.' + ' Underneath the program rule sit federal claim edits, which are a different thing from the authorization: section 6507 of the Affordable Care Act requires state Medicaid programs to apply CMS’s Medicaid NCCI methodologies, including medically unlikely edits (MUEs), to fee-for-service claims (a state may ask CMS to deactivate an individual edit; for managed care plans it is optional). CMS’s published Medicaid MUE table for practitioner services, dates of service October 1 – December 31, 2026, sets the per-provider, per-member, per-day values at 97151 32 units, 97152 16, 97153 32, 97154 18, 97155 24, 97156 16, 97157 16, 97158 16, 0362T 16 and 0373T 32. HCA’s own limits above are authorization and fee-schedule limits.',
         status: 'verified',
-        cites: [S.abaFee, S.abaBG, S.wac531a],
+        cites: [{ title: 'CMS — NCCI for Medicaid (ACA § 6507: states must apply compatible NCCI methodologies to Medicaid fee-for-service claims; optional for MCOs; deactivation requests)', url: 'https://www.cms.gov/medicare/coding-billing/ncci-medicaid' }, { title: 'CMS — Medicaid NCCI MUE edit file, practitioner services, effective October 1, 2026 (dates of service 10/1–12/31/2026)', url: 'https://www.cms.gov/medicare/coding-billing/ncci-medicaid/medicaid-ncci-edit-files' }, S.abaFee, S.abaBG, S.wac531a],
       },
       noteSignature: {
         value: 'The LBAT must sign the treatment plan and get the family’s signed approval. A CBT must document each visit (target behavior, interventions, response, technique changes, plan for next visit, graphed data) and "Maintain signed and dated documentation of family’s confirmation that a visit occurred." Daily documentation must include the client’s name, date, time in the program, clinicians, goals and strategies, format, data, and "The signature, title and credentials of the person completing the daily documentation"; supervision notes and a service log (dates, times, type and location of service) must be kept.',
@@ -314,6 +316,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'What is the weekly billing cutoff for Apple Health fee-for-service claims?', a: 'Tuesday at 5 p.m. for payment the following Monday (HCA’s ProviderOne schedule). MCO claims follow each plan’s own schedule.' },
       { q: 'Does Washington Apple Health cover ABA therapy?', a: 'Yes, under chapter 182-531A WAC, for autism spectrum disorder or another intellectual or developmental disability for which ABA is effective, with no age limit. A Center of Excellence must evaluate the client and prescribe ABA first.' },
       { q: 'What is a Center of Excellence (COE) in Washington?', a: 'An individual provider, not a facility, who completes the comprehensive diagnostic evaluation and writes the ABA prescription. Developmental pediatricians, neurologists, pediatric neurologists, pediatric psychiatrists, psychiatrists and psychologists experienced with autism qualify; ARNPs, physicians, PAs and naturopaths qualify after HCA’s COE training and designation.' },
       { q: 'Does the ABA assessment need prior authorization?', a: 'Not for fee-for-service clients: 97151 and 0362T carry no PA on HCA’s fee schedule. Treatment does: 97153, 0373T, 97154, 97158 and the H2020 day program. MCO members follow their plan’s rules, and some MCOs require PA for the COE evaluation itself.' },
@@ -545,6 +548,13 @@ export const washingtonPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.hcaTA, S.hcaMC, S.abaBG],
       },
+      {
+        h2: 'Claim filing and payment rules at Coordinated Care',
+        body: [
+          'Coordinated Care’s Apple Health provider manual (July 2026) asks providers to make "their best effort" to submit claims within 180 calendar days of the date of service or the primary plan’s EOP, but it "will honor original claims and encounters within three hundred sixty-five (365) calendar days from date of service and secondary claims within three hundred sixty-five (365) calendar days from primary date of payment." A rejected claim does not stop the clock: the received date is the date a clean claim enters the system and gets a claim number. Corrected claims, reconsiderations and disputes are due "within 24 months of the date of service" (30 months where coordination of benefits with another carrier is involved), marked as corrected through the portal, a clearinghouse or a red-and-white paper form. When Coordinated Care is secondary, it requires its own prior authorization only if none was obtained from the primary payer, and a primary denial for lack of authorization is denied here too. Payment: Coordinated Care adjudicates "95% of clean claims within thirty (30) calendar days of receipt" and "99% of clean claims within ninety (90) calendar days of receipt," citing 42 CFR 447.46 and WAC 284-170-421. No weekly payment cycle or submission cutoff is published.',
+        ],
+        cites: [{ title: 'Coordinated Care of Washington — Apple Health Provider Manual (July 2026): §§ 19 (prompt pay), 19.4 (corrected claims), 19.10 (timely filing), 11.13 (secondary payer)', url: 'https://www.coordinatedcarehealth.com/content/dam/centene/Coordinated%20Care/provider/PDFs/508-CoordinatedCareProviderManual.pdf' }, { title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }],
+      },
     ],
     collect: [
       { title: 'Which product', desc: 'Apple Health managed care, or Apple Health Core Connections for foster care, adoption support and alumni (ProviderOne shows "Coordinated Care Healthy Options Foster Care").' },
@@ -552,7 +562,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       { title: 'HCA 13-400 and 12-411', desc: 'LBAT assessment and behavior change plan, and the Level of Support form.' },
       { title: 'Other services', desc: 'School, speech, OT and other providers, so the plan can show coordination and no duplication.' },
     ],
-    sources: [S.ccBH104, S.hcaTA, S.hcaMC, S.wac531a, S.abaBG, S.teleBG, S.cfr438, S.cfr433],
+    sources: [{ title: 'Coordinated Care of Washington — Apple Health Provider Manual (July 2026): §§ 19 (prompt pay), 19.4 (corrected claims), 19.10 (timely filing), 11.13 (secondary payer)', url: 'https://www.coordinatedcarehealth.com/content/dam/centene/Coordinated%20Care/provider/PDFs/508-CoordinatedCareProviderManual.pdf' }, { title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, S.ccBH104, S.hcaTA, S.hcaMC, S.wac531a, S.abaBG, S.teleBG, S.cfr438, S.cfr433],
     deliveryRules: {
       supervision: {
         value: 'WA.CP.BH.104: "Supervision by a Lead Behavioral Analysis Therapist of care provided by a Certified Behavioral Therapist (CBT) should occur at a minimum of five percent of the total direct care per week (e.g., one hour of supervision per twenty hours of care)," and treatment must be "delivered or supervised by an ABA-credentialed professional."',
@@ -636,6 +646,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'What is Coordinated Care’s timely filing limit for ABA claims?', a: '365 calendar days from the date of service for original claims, and 365 days from the primary payer’s payment for secondary claims (the manual asks for best effort within 180 days). Corrected claims and disputes: within 24 months of the date of service.' },
       { q: 'Does Coordinated Care of Washington cover ABA?', a: 'Yes, for Apple Health managed care members and for Apple Health Core Connections foster care members, under clinical policy WA.CP.BH.104 (effective March 1, 2026).' },
       { q: 'What does Coordinated Care need for an initial ABA request?', a: 'The COE’s comprehensive diagnostic evaluation and treatment plan, the LBAT’s HCA 13-400 assessment and behavior change plan, and the HCA 12-411 Level of Support form, on Coordinated Care’s ABA prior authorization form.' },
       { q: 'How often does Coordinated Care re-review ABA?', a: 'Continuation needs an updated assessment and treatment plan every six months, or sooner if clinically appropriate, with progress data from multiple settings.' },
@@ -691,6 +702,13 @@ export const washingtonPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.hcaTA, S.wac531a, S.abaBG],
       },
+      {
+        h2: 'Claim filing and payment rules at Molina',
+        body: [
+          'Federal Medicaid rules set the payment floor for every managed care plan: a state’s contract with an MCO "must provide that the organization will meet the requirements of § 447.45(d)(2) and (d)(3)" (42 CFR 447.46) — pay 90 percent of clean claims from practitioners within 30 days of receipt and 99 percent within 90 days — unless the plan and the provider agree in writing to an alternative schedule stipulated in the contract. A "clean claim" is one that "can be processed without obtaining additional information from the provider of the service or from a third party" (42 CFR 447.45(b)). Molina’s own Washington timely-filing, corrected-claim and secondary-claim limits sit in its Apple Health provider manual claims chapter, which returned a "Page Not Found" page when fetched for this guide; take them from your Molina agreement or Provider Services until it can be read.',
+        ],
+        cites: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }],
+      },
     ],
     collect: [
       { title: 'Member ID', desc: 'Confirm Molina Apple Health (not Molina Marketplace or Medicare) on the date of service.' },
@@ -698,7 +716,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       { title: 'Group affiliation', desc: 'Molina authorizes at the group level: confirm the rendering clinicians are on the group’s Molina roster.' },
       { title: 'Other insurance', desc: 'Medicaid pays last; bill the commercial plan first.' },
     ],
-    sources: [S.hcaTA, S.hcaMC, S.wac531a, S.abaBG, S.abaFee, S.teleBG, S.cfr438, S.cfr433],
+    sources: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, S.hcaTA, S.hcaMC, S.wac531a, S.abaBG, S.abaFee, S.teleBG, S.cfr438, S.cfr433],
     deliveryRules: {
       supervision: {
         value: 'Molina’s own ABA policy could not be read. The state rule: ' + AH_SUPERVISION,
@@ -794,6 +812,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'How fast must Molina Washington pay a clean ABA claim?', a: 'Its state contract must hold it to the federal Medicaid standard: 90% of clean practitioner claims paid within 30 days of receipt and 99% within 90 days (42 CFR 447.46, 447.45), unless the provider contract sets an alternative schedule. Its own filing limit comes from the provider manual or your agreement.' },
       { q: 'Does Molina Healthcare of Washington require prior authorization for ABA?', a: 'Molina says PA is typically required and to check each code in its Prior Auth Look-up Tool. Authorizations are generally issued to the group, so any clinician affiliated with the group can render the service.' },
       { q: 'Do CBTs and LABAs need to be credentialed with Molina?', a: 'No. Molina credentials BCBAs individually; CBTs and LABAs are added to the group by roster or mini-application. All must still be enrolled with HCA.' },
     ],
@@ -1159,8 +1178,10 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       },
       {
         h2: 'Claims operations in Washington: prompt pay, prior-authorization clocks, appeals',
-        body: [WA_CLAIMS_BODY],
-        cites: [S.wac431, S.rcw43830, S.rcw43535],
+        body: [WA_CLAIMS_BODY,
+          'Aetna’s provider manual (edition 6/26) publishes no numeric filing deadline: a clean claim is one "received in a timely manner," so the operative limit is the one in your Aetna agreement or state law. The manual says a clean claim "Doesn’t involve coordination of benefits," and that COB, corrected and voided claims can all be submitted through Availity at no charge; it sets no separate deadline for corrected or secondary claims and publishes no weekly payment cycle or submission cutoff.',
+        ],
+        cites: [{ title: 'Aetna — Provider manual (8102800-01-01, 6/26): Clean claims; Coordination of benefits; electronic claims', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }, S.wac431, S.rcw43830, S.rcw43535],
       },
       {
         h2: 'What is Aetna’s fee schedule for ABA?',
@@ -1199,6 +1220,13 @@ export const washingtonPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
         ],
+      },
+      {
+        h2: 'What must an Aetna ABA reauthorization request contain, and are graphs required?',
+        body: [
+          'Aetna’s ABA medical necessity guide (©2026) says "A member\'s progress is to be evaluated every six months," and a member not making progress "will be transitioned to other appropriate services"; coverage ends when medical necessity is no longer met or when standardized improvement thresholds (for example, two or more standard deviations in multiple domains) are reached. The guide does not specify a graph or data-presentation format for the reassessment; send the updated treatment plan with measurable progress against each goal and the standardized scores the termination criteria are tested against.',
+        ],
+        cites: [{ title: 'Aetna — Applied behavior analysis medical necessity guide (©2026): Termination of coverage', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
       },
     ],
     collect: [
@@ -1296,6 +1324,8 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Aetna require graphs for ABA reassessments?', a: 'Aetna’s guide requires a progress evaluation every six months but does not prescribe graphs; send measurable progress against each goal and the standardized scores its termination criteria use.' },
+      { q: 'What is Aetna’s timely filing limit for ABA claims, and when does it pay?', a: 'Aetna publishes no numeric filing limit; it comes from your Aetna agreement or state law. COB, corrected and voided claims go through Availity; no weekly payment cutoff is published.' },
       { q: 'Does Aetna cover ABA therapy in Washington?', a: 'Yes, under its national ABA guide for ASD. For fully insured Washington plans, the state’s mental health parity law requires coverage of medically necessary treatment for DSM conditions on par with medical care; self-funded employer plans follow their own documents.' },
       { q: 'Does Washington have an autism insurance mandate?', a: 'Not a stand-alone one. ABA is required through Washington’s mental health parity statutes and, for individual and small-group plans, the essential health benefit rule that lists behavioral treatment for a DSM diagnosis. A new parity statute, RCW 48.43.766, takes over on January 1, 2027.' },
       { q: 'Can a BCBA licensed in another state treat an Aetna member in Washington?', a: 'Only with Washington authorization. Washington requires a DOH license (or a 180-day temporary license for nonresidents licensed elsewhere, or reciprocity) to practice ABA, and its telehealth act lets an out-of-state practitioner treat a patient in Washington only with a Washington license, apart from consultations, assessments without treatment, and short continuity-of-care follow-up.' },
@@ -1365,8 +1395,11 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       },
       {
         h2: 'Claims operations in Washington: prompt pay, prior-authorization clocks, appeals',
-        body: [WA_CLAIMS_BODY],
-        cites: [S.wac431, S.rcw43830, S.rcw43535],
+        body: [WA_CLAIMS_BODY,
+          'Cigna’s ABA claims run through Evernorth Behavioral Health, whose administrative guidelines (September 2026) set the filing rules. Initial claims: Evernorth "will only consider claims submitted within 90 days of the date of service or as otherwise defined in your Provider Agreement," and a longer state-law limit applies where one exists. Secondary claims: for coordination of benefits the 90 days run from "the primary payer’s processing date as stated on an explanation of benefits [EOB] or explanation of payment [EOP]," and the primary payer’s EOP goes in with the claim unless the COB data is sent electronically; Medicaid gets three years. A claim returned for more information gets a fresh 90 days from the date of the request. Corrected or replacement claims carry frequency code 7 (replace) or 8 (void) in box 22, not a "Corrected Claim" stamp; no separate corrected-claim deadline is published. Appeals are due in writing within 180 calendar days of the initial payment or denial decision. Evernorth publishes no weekly payment cycle or submission cutoff; it offers ERA and EFT "to help reduce your payment cycle."',
+          'Which codes: Evernorth’s autism resource guide (March 2025) says "All ABA services must be billed with CPT codes 97151–97158, 0362T, and 0373T ONLY," so state HCPCS ABA codes such as H0031, H0032, H2014 or H2019 are not billable to Cigna for ABA. The same guide says "All ABA CPT codes are covered telehealth services."',
+        ],
+        cites: [{ title: 'Cigna/Evernorth Autism Resource Guide (PCOMM-2025-225, March 2025): billing codes', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026): Claims filing deadline, Coordination of benefits, corrected claims, ERA, Appeals', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }, S.wac431, S.rcw43830, S.rcw43535],
       },
       {
         h2: 'What is Cigna’s fee schedule for ABA?',
@@ -1397,6 +1430,13 @@ export const washingtonPayers: Record<string, PayerConfig> = {
           { title: 'Cigna/Evernorth Autism Resource Guide (PCOMM-2025-225, March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
         ],
       },
+      {
+        h2: 'What must a Cigna ABA reauthorization request contain, and are graphs required?',
+        body: [
+          'Evernorth’s EN0499 (effective May 15, 2026) sets what a continued-treatment request must show: an updated treatment plan covering current deficits and progress in every targeted area; "Quantitative baseline, interim and current data ... with dates reported from when the data were collected" for every behavior and skill, across all settings; current data collected "within no more than 60 days prior to the start date of the continued treatment request" and within 60 days before the request is received; data showing "ongoing and sustained progress"; and a reliable, valid, standardized assessment completed no more than one year before the continued-treatment start date. Where progress is not shown, the request must name the barriers and the protocol changes made. EN0499 asks for dated quantitative data, not for graphs as such; graphs are a common way to present it, but the policy does not require them.',
+        ],
+        cites: [{ title: 'Evernorth Coverage Policy EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026): Criteria for Continued Treatment with ABA', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured Washington plan (state parity law applies) vs. self-funded ERISA (plan document governs).' },
@@ -1405,7 +1445,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       { title: 'Standardized assessment timing', desc: 'Instrument administered within 60 days before treatment starts.' },
       { title: 'Clinician licenses', desc: 'Washington DOH license for the LBA billing the services.' },
     ],
-    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.rcw44341, S.rcw46291, S.rcw21241, S.wac5642, S.hb1432, S.rcw43766, S.rcw18380, S.wac246805, S.rcw18134, S.bacbLic, S.wac431, S.rcw43830, S.rcw43535, S.wac51205, S.erisa, S.abaFee, { title: 'Cigna/Evernorth Autism Resource Guide (PCOMM-2025-225, March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }],
+    sources: [{ title: 'Evernorth Coverage Policy EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026): Criteria for Continued Treatment with ABA', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, S.en0499, S.cignaARG, S.ebhAdmin, S.rcw44341, S.rcw46291, S.rcw21241, S.wac5642, S.hb1432, S.rcw43766, S.rcw18380, S.wac246805, S.rcw18134, S.bacbLic, S.wac431, S.rcw43830, S.rcw43535, S.wac51205, S.erisa, S.abaFee, { title: 'Cigna/Evernorth Autism Resource Guide (PCOMM-2025-225, March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }],
     deliveryRules: {
       supervision: {
         value: 'Case supervision is by a BCBA, a licensed behavior analyst, or an independently licensed mental health professional with ABA training, at one to two hours of direct plus indirect supervision per ten hours of direct treatment; at 10 hours a week or less, at least one to two hours a week (EN0499). Washington’s DOH rule adds two face-to-face contacts a month with each CBT and direct supervision of at least 5 percent of the CBT’s monthly hours (WAC 246-805-330).',
@@ -1487,6 +1527,9 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Cigna require graphs for ABA reassessments?', a: 'Not graphs as such. EN0499 requires dated quantitative baseline, interim and current data (current data no more than 60 days old), an updated plan and a standardized assessment no more than a year old; graphs are a common way to show the data, but the policy does not require them.' },
+      { q: 'Does Cigna accept H0031 or H0032 for ABA?', a: 'CPT 97151–97158, 0362T and 0373T only; HCPCS H-codes such as H0031/H0032 are not billable for ABA (Evernorth autism resource guide).' },
+      { q: 'What is Cigna’s timely filing limit for ABA claims, and when does it pay?', a: 'Ninety days from the date of service under Evernorth’s administrative guidelines (or your agreement or a longer state-law limit); secondary claims get 90 days from the primary payer’s EOB/EOP date. Corrected claims use frequency code 7 or 8; no weekly payment cutoff is published.' },
       { q: 'Does Cigna cover ABA therapy in Washington?', a: 'Yes, under national policy EN0499 for ASD. Fully insured Washington plans are also bound by the state’s mental health parity law; self-funded employer plans follow their own documents.' },
       { q: 'Does the Cigna ABA assessment need prior authorization in Washington?', a: 'No, for 97151, 97152 and 0362T with an autism diagnosis when the provider is independently licensed or a BCBA. PA starts at treatment.' },
       { q: 'Does a BCBA need a Washington license to bill Cigna?', a: 'Yes, to practice in Washington. Chapter 18.380 RCW requires a DOH license (or temporary license) to practice ABA in the state, whatever the payer.' },
@@ -1556,8 +1599,11 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       },
       {
         h2: 'Claims operations in Washington: prompt pay, prior-authorization clocks, appeals',
-        body: [WA_CLAIMS_BODY],
-        cites: [S.wac431, S.rcw43830, S.rcw43535],
+        body: [WA_CLAIMS_BODY,
+          'UnitedHealthcare’s ABA claims run through Optum Behavioral Health, whose National Network Manual (effective September 1, 2026) sets the deadlines. "All information necessary to process claims must be received by Optum no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan," and "Any corrections or additions to a claim should be made within 90 days of initial claim receipt." The member may not be billed for a late claim. Payment: claims with all required information and any required authorization "will be paid within 45 calendar days after Optum receives the claim, or as required by state and federal laws," which may exclude claims needing a coordination-of-benefits determination; when Optum is secondary it pays up to the Optum contracted rate. UnitedHealthcare’s 2026 administrative guide adds that a corrected claim (frequency code 7, with the original claim number) must arrive within the same timely-filing limit as the original. No weekly payment cycle or submission cutoff is published.',
+          'Which codes: Optum’s commercial ABA reimbursement policy (2022RP501A, updated June 2026) lists the reimbursable codes for the commercial ABA program as 97151–97158, 0362T and 0373T, each in 15-minute units with a credential modifier (HM, HN, HO or HP); no HCPCS H-code (H0031, H0032, H2014, H2019) is on that list.',
+        ],
+        cites: [{ title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026): reimbursable codes', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): Coordination of Benefits; Timely Filing; Payment Timelines', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial): Timely filing of corrected claims; Subrogation and COB', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, S.wac431, S.rcw43830, S.rcw43535],
       },
       {
         h2: 'What is UnitedHealthcare’s fee schedule for ABA?',
@@ -1588,6 +1634,13 @@ export const washingtonPayers: Record<string, PayerConfig> = {
           { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
         ],
       },
+      {
+        h2: 'What must a UnitedHealthcare ABA reauthorization request contain, and are graphs required?',
+        body: [
+          'Optum’s ABA Supplemental Clinical Criteria (interim review April 2026) say that "With each clinical review for continued ABA treatment, the provider must submit updated documentation" showing progress "for each targeted symptom and behavior, including progress toward defined goals, including the same modes of measurement that were utilized for baseline measurement." Progress "should include rate and percentage of mastered programs, rates of mastered targets, change scores for any outcome measures, updated standardized adaptive measures, and change scores for skills-based assessments," with movement from baseline shown on validated, norm-referenced assessments and, where applicable, the caregiver’s own progress. Inadequate progress over six months calls for an analysis of the reasons and modified interventions, and the review looks at use below 80 percent of authorized hours over two weeks. The criteria do not require graphs as such.',
+        ],
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026): Continued Service Criteria', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+      },
     ],
     collect: [
       { title: 'Which UnitedHealthcare product', desc: 'Commercial (this guide) vs. UnitedHealthcare Community Plan Apple Health (COE pathway and Washington Medicaid criteria).' },
@@ -1595,7 +1648,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis with a validated tool', desc: 'DSM-5-TR ASD and severity level, confirmed with a validated tool (ADI-R, ADOS-2 and others).' },
       { title: 'Clinician licenses', desc: 'Washington DOH license for the LBA; technician credential (CBT; Optum’s HM line names the RBT).' },
     ],
-    sources: [S.optumSCC, S.optumSM, S.optumWA, S.optumTele, S.optumReimb, S.optumNNM, S.rcw44341, S.rcw46291, S.rcw21241, S.wac5642, S.hb1432, S.rcw43766, S.rcw18380, S.wac246805, S.rcw18134, S.bacbLic, S.wac431, S.rcw43830, S.rcw43735, S.rcw43535, S.wac51205, S.erisa, S.abaFee, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial) — services not requiring a referral', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: 'Optum — ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+    sources: [{ title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): Coordination of Benefits; Timely Filing; Payment Timelines', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }, S.optumSCC, S.optumSM, S.optumWA, S.optumTele, S.optumReimb, S.optumNNM, S.rcw44341, S.rcw46291, S.rcw21241, S.wac5642, S.hb1432, S.rcw43766, S.rcw18380, S.wac246805, S.rcw18134, S.bacbLic, S.wac431, S.rcw43830, S.rcw43735, S.rcw43535, S.wac51205, S.erisa, S.abaFee, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial) — services not requiring a referral', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: 'Optum — ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
     deliveryRules: {
       supervision: {
         value: 'Consistent with CASP standards, direct case supervision is required at 1–2 hours for every 10 hours of direct treatment. Technicians work under a BCBA or licensed behavioral health clinician and "should be registered behavior technicians (RBT) or another appropriately certified behavior technician as allowable by state mandate" (Optum SCC). In Washington the state credential is the DOH CBT, supervised under WAC 246-805-330 (two face-to-face contacts a month; 5 percent direct supervision monthly).',
@@ -1610,9 +1663,9 @@ export const washingtonPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       dailyLimits: {
-        value: 'No numeric cap. Hours must be justified by documented clinical need at the least restrictive appropriate level; use below 80 percent of authorized hours over two weeks must be explained at review.',
+        value: 'Two layers. Claim edits: Optum’s commercial ABA reimbursement policy (2022RP501A, updated June 2026), which applies to Commercial and Individual Exchange plans, sets a maximum frequency per day for every code: 97151 32 units (8 hrs), 97152 16 (4 hrs), 97153 32 (8 hrs), 97154 18 (4.5 hrs), 97155 24 (6 hrs), 97156 16 (4 hrs), 97157 16 (4 hrs), 97158 16 (4 hrs), 0362T 16 (4 hrs), 0373T 32 (8 hrs); “MUE’s apply, per CMS guidelines,” and 97153 billed above 32 units a day may be subject to non-reimbursement or recovery. Authorization: there is no weekly hour cap; hours must be justified by documented clinical need at the least restrictive appropriate level, and use below 80 percent of authorized hours over two weeks must be explained at review.',
         status: 'verified',
-        cites: [S.optumSCC],
+        cites: [{ title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, S.optumSCC],
       },
       noteSignature: {
         value: 'Not addressed. The SCC set what must be documented for coverage, not who signs a session note or when.',
@@ -1681,6 +1734,9 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare require graphs for ABA reassessments?', a: 'Optum’s criteria require updated progress data in the same measures used at baseline (mastery rates, change scores, updated standardized adaptive measures) at every continued review; they do not require graphs as such.' },
+      { q: 'Does UnitedHealthcare accept H0031 or H0032 for ABA?', a: 'Optum’s commercial ABA reimbursement policy lists only CPT 97151–97158, 0362T and 0373T as reimbursable ABA codes, each with a credential modifier; no H-code (H0031, H0032, H2014, H2019) is on the list.' },
+      { q: 'What is UnitedHealthcare’s timely filing limit for ABA claims, and when does it pay?', a: 'Optum requires everything needed to process the claim within 90 calendar days of the date of service and corrections within 90 days of first receipt; clean, authorized claims are paid within 45 calendar days or as state law requires. No weekly payment cutoff is published.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in Washington?', a: 'Yes, under Optum’s national ABA criteria for ASD on commercial plans. Fully insured Washington plans are also bound by the state’s mental health parity law. UnitedHealthcare Community Plan, the Apple Health plan, uses separate Washington Medicaid criteria.' },
       { q: 'Does Optum have Washington-specific ABA criteria for commercial plans?', a: 'No. Washington is not in Optum’s July 2026 ABA State Mandates document. Optum’s Washington criteria apply to Apple Health members of UnitedHealthcare Community Plan.' },
       { q: 'Can ABA be delivered by telehealth with UnitedHealthcare commercial in Washington?', a: 'Optum’s commercial telehealth guide allows only 97155, 97156 and 97157 by telehealth, billed POS 02 or 10. Fully insured Washington plans are also subject to RCW 48.43.735, so ask Optum how it applies the list to your member’s plan.' },

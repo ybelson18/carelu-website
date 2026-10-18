@@ -155,8 +155,9 @@ export const idahoPayers: Record<string, PayerConfig> = {
         body: [
           'Twelve months. IDAPA 16.03.26.025.01.d conditions payment on “not more than twelve (12) months” having elapsed since the service; for a participant found retroactively eligible, the claim must be submitted within twelve months of the eligibility determination. Medicare crossover claims are excluded from the limit.',
           'Disputes run in three steps. A Claim Review Request to Gainwell — used, among other things, when the provider disagrees with a timely-filing denial — must be submitted within two years of the date of service, by mail on Gainwell’s form. A reconsideration request goes to the reviewing agent within 28 days of the mailing date of the Notice of Decision, and a formal appeal must be filed in writing within 28 days of the decision letter.',
+          'Federal rules bind Idaho Medicaid’s own fee-for-service payments: the agency "must pay 90 percent of all clean claims from practitioners, who are in individual or group practice or who practice in shared health facilities, within 30 days of the date of receipt" and 99 percent within 90 days, with the date of receipt being the agency’s date stamp and the date of payment the date of the check or other payment (42 CFR 447.45(d)(2), (3), (5), (6)). The same rule makes 12 months from the date of service the outer limit any state may allow for filing (42 CFR 447.45(d)(1)). Managed care plans are held to the same 90/99 percent clean-claim standard through their state contracts (42 CFR 447.46).',
         ],
-        cites: [
+        cites: [{ title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, { title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, 
           { title: 'IDAPA 16.03.26 — Medicaid Plan Benefits, Section 025 (Conditions for Payment; eff. 7-1-26)', url: 'https://proddfmmainsa.blob.core.windows.net/dfm-admin-website/rules/current/16/160326.pdf' },
           { title: 'Idaho Medicaid Provider Handbook — General Information and Requirements for Providers (Dec. 23, 2025), Section 4: Appeals', url: 'https://www.idmedicaid.com/General%20Information/General%20Information%20and%20Requirements%20for%20Providers.pdf' },
         ],
@@ -169,7 +170,7 @@ export const idahoPayers: Record<string, PayerConfig> = {
       { title: 'Other insurance', desc: 'Medicaid pays last. Record any employer plan, TRICARE or CHAMPVA and bill it first.' },
       { title: 'Age and CHIS history', desc: 'Birth through the month of the 21st birthday. Ask whether the child used CHIS in the last 365 days, because a longer gap means a new order and screening.' },
     ],
-    sources: [ID_RULE, ID_HB, ID_GEN, ID_FS_DDA, ID_FS_IND, ID_MAG, ID_TEL, ID_TEL_EXP, ID_TEL_SIG, ID_DHW_CHIS, CFR_440_230, CFR_433_139, BACB_LIC, { title: 'IDAPA 16.03.26 — Medicaid Plan Benefits, Section 025 (Conditions for Payment; eff. 7-1-26)', url: 'https://proddfmmainsa.blob.core.windows.net/dfm-admin-website/rules/current/16/160326.pdf' }, { title: 'Idaho Medicaid Provider Handbook — General Information and Requirements for Providers (Dec. 23, 2025), Section 4: Appeals', url: 'https://www.idmedicaid.com/General%20Information/General%20Information%20and%20Requirements%20for%20Providers.pdf' }],
+    sources: [{ title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, { title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, ID_RULE, ID_HB, ID_GEN, ID_FS_DDA, ID_FS_IND, ID_MAG, ID_TEL, ID_TEL_EXP, ID_TEL_SIG, ID_DHW_CHIS, CFR_440_230, CFR_433_139, BACB_LIC, { title: 'IDAPA 16.03.26 — Medicaid Plan Benefits, Section 025 (Conditions for Payment; eff. 7-1-26)', url: 'https://proddfmmainsa.blob.core.windows.net/dfm-admin-website/rules/current/16/160326.pdf' }, { title: 'Idaho Medicaid Provider Handbook — General Information and Requirements for Providers (Dec. 23, 2025), Section 4: Appeals', url: 'https://www.idmedicaid.com/General%20Information/General%20Information%20and%20Requirements%20for%20Providers.pdf' }],
     deliveryRules: {
       supervision: {
         value:
@@ -185,9 +186,9 @@ export const idahoPayers: Record<string, PayerConfig> = {
       },
       dailyLimits: {
         value:
-          'No per-day or per-week unit ceiling is published for CHIS. Hours are whatever the ACTP justifies and Telligen authorizes, and providers "may not seek reimbursement for more than the total number of units/hours of authorized services per week." Providers can ask for the weekly total to be used interchangeably across provider qualification types. Structural limits: group services run at one staff to two or three participants; crisis intervention is short-term, 30 days or less; the screening is billable once for a maximum of one hour (four units); and pending the initial PA, services are capped at 24 hours within 30 calendar days.',
+          'No per-day or per-week unit ceiling is published for CHIS. Hours are whatever the ACTP justifies and Telligen authorizes, and providers "may not seek reimbursement for more than the total number of units/hours of authorized services per week." Providers can ask for the weekly total to be used interchangeably across provider qualification types. Structural limits: group services run at one staff to two or three participants; crisis intervention is short-term, 30 days or less; the screening is billable once for a maximum of one hour (four units); and pending the initial PA, services are capped at 24 hours within 30 calendar days.' + ' Underneath the program rule sit federal claim edits, a different thing from the authorization: section 6507 of the Affordable Care Act requires state Medicaid programs to apply CMS’s Medicaid NCCI methodologies, including medically unlikely edits (MUEs), to fee-for-service claims. Because CHIS bills HCPCS codes rather than 97151–97158, the CPT ABA edits do not apply; on CMS’s published Medicaid MUE table for practitioner services (dates of service October 1 – December 31, 2026) H0005 (group behavioral intervention), H0032 (assessment and treatment plan) and H2000 (screening) carry a value of 1 unit per day, while H2014, H0004, H2019 and H2011 have no MUE entry. Idaho publishes no per-code edit of its own; the authorization sets the weekly units.',
         status: 'verified',
-        cites: [ID_RULE, ID_HB],
+        cites: [{ title: 'CMS — NCCI for Medicaid (ACA § 6507: states must apply compatible NCCI methodologies to Medicaid fee-for-service claims; optional for MCOs; deactivation requests)', url: 'https://www.cms.gov/medicare/coding-billing/ncci-medicaid' }, { title: 'CMS — Medicaid NCCI MUE edit file, practitioner services, effective October 1, 2026 (dates of service 10/1–12/31/2026)', url: 'https://www.cms.gov/medicare/coding-billing/ncci-medicaid/medicaid-ncci-edit-files' }, ID_RULE, ID_HB],
       },
       noteSignature: {
         value:
@@ -686,6 +687,7 @@ export const idahoPayers: Record<string, PayerConfig> = {
         h2: 'Claims: filing deadline and disputes',
         body: [
           'Aetna’s national provider manual (edition 6/26) publishes no numeric filing limit: it defines a clean claim as one “received in a timely manner,” so the operative deadline is the one in your Aetna agreement. Claim disputes go through Availity — the claim must be in Finalized status, then “Dispute Claim” from the Claim Status transaction — and Aetna runs one level of provider appeal for payment decisions; medical-necessity appeals go through the member appeal process.',
+          'On the claim mechanics the same manual says a clean claim "Doesn’t involve coordination of benefits," and that COB, corrected and voided claims can all be submitted through Availity at no charge; it sets no separate deadline for corrected or secondary claims and publishes no weekly payment cycle or submission cutoff.',
         ],
         cites: [
           { title: 'Aetna Provider Manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
@@ -723,6 +725,13 @@ export const idahoPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'Aetna — Outpatient Behavioral Health (BH) – ABA Treatment Request: Required Information for Precertification (GR-69017-4, 7-26; effective August 1, 2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
         ],
+      },
+      {
+        h2: 'What must an Aetna ABA reauthorization request contain, and are graphs required?',
+        body: [
+          'Aetna’s ABA medical necessity guide (©2026) says "A member\'s progress is to be evaluated every six months," and a member not making progress "will be transitioned to other appropriate services"; coverage ends when medical necessity is no longer met or when standardized improvement thresholds (for example, two or more standard deviations in multiple domains) are reached. The guide does not specify a graph or data-presentation format for the reassessment; send the updated treatment plan with measurable progress against each goal and the standardized scores the termination criteria are tested against.',
+        ],
+        cites: [{ title: 'Aetna — Applied behavior analysis medical necessity guide (©2026): Termination of coverage', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
       },
     ],
     collect: [
@@ -824,6 +833,7 @@ export const idahoPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Aetna require graphs for ABA reassessments?', a: 'Aetna’s guide requires a progress evaluation every six months but does not prescribe graphs; send measurable progress against each goal and the standardized scores its termination criteria use.' },
       { q: 'Does Aetna cover ABA therapy in Idaho?', a: 'Yes, for ASD under Aetna’s national ABA guide. On state-regulated plans Idaho’s Bulletin 18-02 also bars excluding autism treatment when the plan covers rehabilitative or habilitative services. Self-funded employer plans set their own terms.' },
       { q: 'Does the Aetna ABA assessment need precertification?', a: 'Yes. Aetna’s behavioral health precertification list includes 97151 and 97152 along with all treatment codes.' },
       { q: 'Does Idaho have an autism insurance mandate?', a: 'No statute. Idaho relies on DOI Bulletin 18-02 (2018): no autism exclusion where rehab or habilitative services are covered, and no separate dollar or visit limits. It sets no age limit and does not reach self-funded ERISA plans.' },
@@ -900,8 +910,10 @@ export const idahoPayers: Record<string, PayerConfig> = {
         h2: 'Claims: filing deadline and disputes',
         body: [
           'Cigna’s behavioral benefits, ABA included, are administered by Evernorth Behavioral Health, whose administrative guidelines (revised September 2026) “will only consider claims submitted within 90 days of the date of service or as otherwise defined in your Provider Agreement” — a longer state-law limit overrides it, the clock resets to the date Cigna asks for more information, and Medicaid-secondary claims get three years. Appeals must be started in writing within 180 calendar days of the payment or denial decision.',
+          'More of Evernorth’s filing rules (administrative guidelines, September 2026): for a secondary claim the 90 days run from "the primary payer’s processing date as stated on an explanation of benefits [EOB] or explanation of payment [EOP]," and the primary EOP goes in with the claim unless the COB data is sent electronically; Medicaid gets three years; a claim returned for more information gets a fresh 90 days from the date of the request. Corrected or replacement claims carry frequency code 7 (replace) or 8 (void) in box 22, not a "Corrected Claim" stamp, and no separate corrected-claim deadline is published. Evernorth publishes no weekly payment cycle or submission cutoff; it offers ERA and EFT "to help reduce your payment cycle."',
+          'Which codes: Evernorth’s autism resource guide (March 2025) says "All ABA services must be billed with CPT codes 97151–97158, 0362T, and 0373T ONLY," so state HCPCS ABA codes such as H0031, H0032, H2014 or H2019 are not billable to Cigna for ABA. The same guide says "All ABA CPT codes are covered telehealth services."',
         ],
-        cites: [
+        cites: [{ title: 'Cigna/Evernorth Autism Resource Guide (PCOMM-2025-225, March 2025): billing codes', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, 
           { title: 'Evernorth Behavioral Health Administrative Guidelines (rev. Sept. 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
         ],
       },
@@ -927,6 +939,13 @@ export const idahoPayers: Record<string, PayerConfig> = {
           { title: 'Cigna / Evernorth autism resource guide (March 2025): paper-claim rules', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
         ],
       },
+      {
+        h2: 'What must a Cigna ABA reauthorization request contain, and are graphs required?',
+        body: [
+          'Evernorth’s EN0499 (effective May 15, 2026) sets what a continued-treatment request must show: an updated treatment plan covering current deficits and progress in every targeted area; "Quantitative baseline, interim and current data ... with dates reported from when the data were collected" for every behavior and skill, across all settings; current data collected "within no more than 60 days prior to the start date of the continued treatment request" and within 60 days before the request is received; data showing "ongoing and sustained progress"; and a reliable, valid, standardized assessment completed no more than one year before the continued-treatment start date. Where progress is not shown, the request must name the barriers and the protocol changes made. EN0499 asks for dated quantitative data, not for graphs as such; graphs are a common way to present it, but the policy does not require them.',
+        ],
+        cites: [{ title: 'Evernorth Coverage Policy EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026): Criteria for Continued Treatment with ABA', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Bulletin 18-02 applies) or self-funded ERISA (outside it).' },
@@ -935,7 +954,7 @@ export const idahoPayers: Record<string, PayerConfig> = {
       { title: 'Member ID + card photo', desc: 'Confirm the plan covers ABA, since the assessment PA waiver depends on it.' },
       { title: 'Prescription', desc: 'Bulletin 18-02 frames coverage around care prescribed or ordered by a licensed physician or psychologist.' },
     ],
-    sources: [CIGNA_EN0499, CIGNA_ARG, ID_BULLETIN, BACB_LIC, ID_3930, ERISA_503, ID_COB_RULE, { title: 'Idaho Code § 41-5602 — Prompt payment of claims', url: 'https://legislature.idaho.gov/statutesrules/idstat/Title41/T41CH56/SECT41-5602/' }, { title: 'Idaho Code § 41-5603 — Interest payments', url: 'https://legislature.idaho.gov/statutesrules/idstat/Title41/T41CH56/SECT41-5603/' }, { title: 'Idaho Code § 41-5605 — Exceptions', url: 'https://legislature.idaho.gov/statutesrules/idstat/Title41/T41CH56/SECT41-5605/' }, { title: 'Evernorth Behavioral Health Administrative Guidelines (rev. Sept. 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }],
+    sources: [{ title: 'Evernorth Coverage Policy EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026): Criteria for Continued Treatment with ABA', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Cigna/Evernorth Autism Resource Guide (PCOMM-2025-225, March 2025): billing codes', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, CIGNA_EN0499, CIGNA_ARG, ID_BULLETIN, BACB_LIC, ID_3930, ERISA_503, ID_COB_RULE, { title: 'Idaho Code § 41-5602 — Prompt payment of claims', url: 'https://legislature.idaho.gov/statutesrules/idstat/Title41/T41CH56/SECT41-5602/' }, { title: 'Idaho Code § 41-5603 — Interest payments', url: 'https://legislature.idaho.gov/statutesrules/idstat/Title41/T41CH56/SECT41-5603/' }, { title: 'Idaho Code § 41-5605 — Exceptions', url: 'https://legislature.idaho.gov/statutesrules/idstat/Title41/T41CH56/SECT41-5605/' }, { title: 'Evernorth Behavioral Health Administrative Guidelines (rev. Sept. 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }],
     deliveryRules: {
       supervision: {
         value: 'Case supervision is performed by a BCBA, a Licensed Behavior Analyst, or an independently licensed mental health professional with documented ABA training. Direct and indirect case supervision run at "the generally accepted standard of care of one to two hours per ten hours of direct treatment," and when direct treatment is 10 hours a week or less, at least one to two hours a week of direct case supervision is provided. The supervisor’s name and credentials must be documented.',
@@ -1019,6 +1038,8 @@ export const idahoPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Cigna require graphs for ABA reassessments?', a: 'Not graphs as such. EN0499 requires dated quantitative baseline, interim and current data (current data no more than 60 days old), an updated plan and a standardized assessment no more than a year old; graphs are a common way to show the data, but the policy does not require them.' },
+      { q: 'Does Cigna accept H0031 or H0032 for ABA?', a: 'CPT 97151–97158, 0362T and 0373T only; HCPCS H-codes such as H0031/H0032 are not billable for ABA (Evernorth autism resource guide).' },
       { q: 'Does Cigna cover ABA therapy in Idaho?', a: 'Yes, under EN0499 for ASD, with no Idaho carve-out in the current policy. On state-regulated plans Idaho’s Bulletin 18-02 also bars autism-treatment exclusions where rehab or habilitative services are covered.' },
       { q: 'Does the Cigna ABA assessment need prior authorization in Idaho?', a: 'No. Assessment codes 97151, 97152 and 0362T need no PA with an autism diagnosis when the provider is independently licensed or a BCBA and the plan covers ABA. PA applies at the treatment step.' },
       { q: 'Can Cigna ABA be delivered by telehealth?', a: 'Yes. Evernorth’s autism resource guide says all ABA CPT codes are covered telehealth services.' },
@@ -1091,8 +1112,10 @@ export const idahoPayers: Record<string, PayerConfig> = {
         h2: 'Claims: filing deadline and disputes',
         body: [
           'UnitedHealthcare’s ABA benefit is managed by Optum Behavioral Health, whose National Network Manual (effective September 1, 2026) requires everything needed to process a claim to reach Optum “no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan,” with corrections within 90 days of first receipt. Clean, authorized claims are “generally” paid within 45 calendar days of receipt or as state or federal law requires. Disputes run in two steps — reconsideration, then appeal — with 12 months in total for both unless state law or your participation agreement sets a different deadline.',
+          'Optum’s National Network Manual (effective September 1, 2026) also sets the payment clock: claims with all required information and any required authorization "will be paid within 45 calendar days after Optum receives the claim, or as required by state and federal laws," which may exclude claims needing a coordination-of-benefits determination, and when Optum is secondary it pays up to the Optum contracted rate. UnitedHealthcare’s 2026 administrative guide adds that a corrected claim (frequency code 7, with the original claim number) must arrive within the same timely-filing limit as the original. No weekly payment cycle or submission cutoff is published.',
+          'Which codes: Optum’s commercial ABA reimbursement policy (2022RP501A, updated June 2026) lists the reimbursable codes for the commercial ABA program as 97151–97158, 0362T and 0373T, each in 15-minute units with a credential modifier (HM, HN, HO or HP); no HCPCS H-code (H0031, H0032, H2014, H2019) is on that list.',
         ],
-        cites: [
+        cites: [{ title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026): reimbursable codes', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial): Timely filing of corrected claims; Subrogation and COB', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, 
           { title: 'Optum Behavioral Health National Network Manual (published July 1, 2026; effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
         ],
       },
@@ -1118,6 +1141,13 @@ export const idahoPayers: Record<string, PayerConfig> = {
           { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial), Chapter 10: complete claim and NPI requirements', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
         ],
       },
+      {
+        h2: 'What must a UnitedHealthcare ABA reauthorization request contain, and are graphs required?',
+        body: [
+          'Optum’s ABA Supplemental Clinical Criteria (interim review April 2026) say that "With each clinical review for continued ABA treatment, the provider must submit updated documentation" showing progress "for each targeted symptom and behavior, including progress toward defined goals, including the same modes of measurement that were utilized for baseline measurement." Progress "should include rate and percentage of mastered programs, rates of mastered targets, change scores for any outcome measures, updated standardized adaptive measures, and change scores for skills-based assessments," with movement from baseline shown on validated, norm-referenced assessments and, where applicable, the caregiver’s own progress. Inadequate progress over six months calls for an analysis of the reasons and modified interventions, and the review looks at use below 80 percent of authorized hours over two weeks. The criteria do not require graphs as such.',
+        ],
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026): Continued Service Criteria', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Bulletin 18-02 applies) or self-funded ERISA (outside it).' },
@@ -1126,7 +1156,7 @@ export const idahoPayers: Record<string, PayerConfig> = {
       { title: 'Baseline measure', desc: 'Treatment intensity must be set from a validated baseline tool, such as VB-MAPP, ABLLS-R, Vineland or SRS.' },
       { title: 'Prescription', desc: 'Bulletin 18-02 frames coverage around care prescribed or ordered by a licensed physician or psychologist.' },
     ],
-    sources: [OPTUM_SCC, OPTUM_SM, OPTUM_PE, ID_BULLETIN, BACB_LIC, ID_3930, ERISA_503, ID_COB_RULE, { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' }, { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' }, { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' }, { title: 'Idaho Code § 41-5602 — Prompt payment of claims', url: 'https://legislature.idaho.gov/statutesrules/idstat/Title41/T41CH56/SECT41-5602/' }, { title: 'Idaho Code § 41-5603 — Interest payments', url: 'https://legislature.idaho.gov/statutesrules/idstat/Title41/T41CH56/SECT41-5603/' }, { title: 'Idaho Code § 41-5605 — Exceptions', url: 'https://legislature.idaho.gov/statutesrules/idstat/Title41/T41CH56/SECT41-5605/' }, { title: 'Optum Behavioral Health National Network Manual (published July 1, 2026; effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }],
+    sources: [{ title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial): Timely filing of corrected claims; Subrogation and COB', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, OPTUM_SCC, OPTUM_SM, OPTUM_PE, ID_BULLETIN, BACB_LIC, ID_3930, ERISA_503, ID_COB_RULE, { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' }, { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' }, { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' }, { title: 'Idaho Code § 41-5602 — Prompt payment of claims', url: 'https://legislature.idaho.gov/statutesrules/idstat/Title41/T41CH56/SECT41-5602/' }, { title: 'Idaho Code § 41-5603 — Interest payments', url: 'https://legislature.idaho.gov/statutesrules/idstat/Title41/T41CH56/SECT41-5603/' }, { title: 'Idaho Code § 41-5605 — Exceptions', url: 'https://legislature.idaho.gov/statutesrules/idstat/Title41/T41CH56/SECT41-5605/' }, { title: 'Optum Behavioral Health National Network Manual (published July 1, 2026; effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }],
     deliveryRules: {
       supervision: {
         value: 'Consistent with CASP standards of care, "direct case supervision is required 1–2 hours for every 10 hours of direct" treatment. Technicians must be under the supervision of a BCBA or licensed behavioral health clinician and should be RBTs or another appropriately certified technician. Optum does not recommend that parents serve as RBTs for their own child.',
@@ -1226,6 +1256,8 @@ export const idahoPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare require graphs for ABA reassessments?', a: 'Optum’s criteria require updated progress data in the same measures used at baseline (mastery rates, change scores, updated standardized adaptive measures) at every continued review; they do not require graphs as such.' },
+      { q: 'Does UnitedHealthcare accept H0031 or H0032 for ABA?', a: 'Optum’s commercial ABA reimbursement policy lists only CPT 97151–97158, 0362T and 0373T as reimbursable ABA codes, each with a credential modifier; no H-code (H0031, H0032, H2014, H2019) is on the list.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in Idaho?', a: 'Yes, for ASD under Optum’s ABA Supplemental Clinical Criteria. Optum’s State Mandates supplement has no Idaho entry, so the national criteria apply. On state-regulated plans Idaho’s Bulletin 18-02 also bars autism-treatment exclusions.' },
       { q: 'Does the UnitedHealthcare ABA assessment need authorization?', a: 'Yes. In Provider Express, ABA assessment and ABA treatment are requested as separate authorizations.' },
       { q: 'Is there a UnitedHealthcare Medicaid plan for ABA in Idaho?', a: 'No. Idaho Medicaid has no managed-care plan for children’s ABA. It is fee-for-service CHIS through the state, so a UnitedHealthcare card on an Idaho child is a commercial or employer plan.' },

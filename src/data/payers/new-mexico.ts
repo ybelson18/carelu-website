@@ -143,8 +143,9 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
         h2: 'What is the New Mexico Medicaid timely filing limit?',
         body: [
           'For fee-for-service claims, 8.302.2.11 NMAC: "Claims for services must be received within 90 calendar days of the date of service unless an alternative filing limit is stated." When another payer is primary, the claim must arrive within 90 calendar days of that payer’s payment or denial, never more than 210 days from the date of service. Filing limits are not waived for a provider’s misunderstanding, short staffing or failure to track pending claims. Turquoise Care members’ claims go to their MCO under that plan’s manual.',
+          'Federal rules bind New Mexico Medicaid’s own fee-for-service payments: the agency "must pay 90 percent of all clean claims from practitioners, who are in individual or group practice or who practice in shared health facilities, within 30 days of the date of receipt" and 99 percent within 90 days, with the date of receipt being the agency’s date stamp and the date of payment the date of the check or other payment (42 CFR 447.45(d)(2), (3), (5), (6)). The same rule makes 12 months from the date of service the outer limit any state may allow for filing (42 CFR 447.45(d)(1)). Managed care plans are held to the same 90/99 percent clean-claim standard through their state contracts (42 CFR 447.46).',
         ],
-        cites: [
+        cites: [{ title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, { title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, 
           { title: '8.302.2.11 NMAC — Billing and claims filing limitations (srca.nm.gov)', url: 'https://www.srca.nm.gov/parts/title08/08.302.0002.html' },
         ],
       },
@@ -156,7 +157,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { title: 'Stage 1 evaluation status', desc: 'Has an Autism Evaluation Provider done the CDE/targeted/risk evaluation and ISP? If yes, Stage 2 assessment can book immediately — no PA.' },
       { title: 'Planned weekly intensity', desc: 'Comprehensive programs under 20 hrs/week trigger the PA quirk — plan hours (and the family\'s real availability) before the treatment request.' },
     ],
-    sources: [
+    sources: [{ title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, { title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, 
       { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
       { title: 'MAD Supplement 24-13 — Applied Behavior Analysis (ABA) Guidance (9/17/2024)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
       { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
@@ -255,9 +256,9 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       dailyLimits: {
-        value: 'MAD publishes no per-day unit ceiling for ABA. The limits that bite are authorization-gated intensity thresholds, and one of them inverts the usual logic: per the guide’s reading of Supplement 24-13 (3.17.1(A)), comprehensive treatment rendered at LESS than 20 hours a week on average requires prior authorization from the MCO or the third-party assessor — scrutiny lands on under-dosed programmes rather than high-hour ones. Contemplated bands are 30–40 hours a week for comprehensive, 10–25 for focused, and 10–40 for adult comprehensive services. Requests above two hours of case supervision, or two hours of clinical management, per 10 hours of stage-three intervention also require PA, and the PA request must document hours allocated to other services in the ISP so the UR contractor can judge whether the requested intensity is feasible.',
+        value: 'MAD publishes no per-day unit ceiling for ABA. The limits that bite are authorization-gated intensity thresholds, and one of them inverts the usual logic: per the guide’s reading of Supplement 24-13 (3.17.1(A)), comprehensive treatment rendered at LESS than 20 hours a week on average requires prior authorization from the MCO or the third-party assessor — scrutiny lands on under-dosed programmes rather than high-hour ones. Contemplated bands are 30–40 hours a week for comprehensive, 10–25 for focused, and 10–40 for adult comprehensive services. Requests above two hours of case supervision, or two hours of clinical management, per 10 hours of stage-three intervention also require PA, and the PA request must document hours allocated to other services in the ISP so the UR contractor can judge whether the requested intensity is feasible.' + ' Underneath the program rule sit federal claim edits, which are a different thing from the authorization: section 6507 of the Affordable Care Act requires state Medicaid programs to apply CMS’s Medicaid NCCI methodologies, including medically unlikely edits (MUEs), to fee-for-service claims (a state may ask CMS to deactivate an individual edit; for managed care plans it is optional). CMS’s published Medicaid MUE table for practitioner services, dates of service October 1 – December 31, 2026, sets the per-provider, per-member, per-day values at 97151 32 units, 97152 16, 97153 32, 97154 18, 97155 24, 97156 16, 97157 16, 97158 16, 0362T 16 and 0373T 32. MAD publishes no per-code edit of its own; the authorization sets the units.',
         status: 'verified',
-        cites: [
+        cites: [{ title: 'CMS — NCCI for Medicaid (ACA § 6507: states must apply compatible NCCI methodologies to Medicaid fee-for-service claims; optional for MCOs; deactivation requests)', url: 'https://www.cms.gov/medicare/coding-billing/ncci-medicaid' }, { title: 'CMS — Medicaid NCCI MUE edit file, practitioner services, effective October 1, 2026 (dates of service 10/1–12/31/2026)', url: 'https://www.cms.gov/medicare/coding-billing/ncci-medicaid/medicaid-ncci-edit-files' }, 
           { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
           { title: 'MAD Supplement 24-13 — Applied Behavior Analysis (ABA) Guidance (9/17/2024)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
         ],
@@ -896,7 +897,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
           'The state standard applies to every Turquoise Care MCO. MAD Supplement 24-13 (9/17/2024) is the state\'s ABA guidance. After the 97151 assessment, the BA "must select goals for intervention and determine how these goals will be measured." Goal development covers a list of skill areas: "adaptive and self-care skills, attending and social referencing, cognitive functioning, community participation, coping and tolerance skills, emotional development, family relationships, language and communication, play and leisure skills, pre-academic skills, self-advocacy and independence, self-management, social relationships, and vocational skills." Baseline performance should be measured and "treatment goals should be developed for each critical domain and specified in terms that are observable and measurable" (3.14.3). Targets are prioritized by risk to safety, independence and health (3.14.2). The required treatment-plan elements (3.19.1) include a Family Set goal, baseline data on each target behavior/symptom, interventions with approximate units per target, goals with objective progress measures for the authorization period, and measurable discharge criteria. The domains are developmental skill areas, not DSM-5 criteria. DSM or ICD is used for eligibility, and the ASD support level (Level 2/3) informs dosage. 8.321.2.13 NMAC makes the BA responsible for "selection and measurement of goals."',
         ],
         cites: [
-          { title: 'Molina Healthcare of New Mexico Turquoise Care Provider Manual (2024 edition, last updated May 2024)', url: 'https://medicare.centralhealthplan.com/-/media/Molina/PublicWebsite/PDF/Providers/NM_2024/Medicaid/Provider-Manual.pdf' },
+          { title: 'Molina Healthcare of New Mexico Turquoise Care Provider Manual (2024 edition, last updated May 2024)', url: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/NM_2024/Medicaid/Provider-Manual.pdf' },
           { title: 'MAD Supplement 24-13 — Applied Behavior Analysis (ABA) Guidance (9/17/2024)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
           { title: '8.321.2.13 NMAC — Applied Behavior Analysis (srca.nm.gov)', url: 'https://www.srca.nm.gov/parts/title08/08.321.0002.html' },
         ],
@@ -908,7 +909,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
           'The state standard, which applies to every Turquoise Care MCO: Supplement 24-13 says "Every Treatment Plan must include ample units of ABA Stage 3 97156 and 97157" (3.17.1(C)). Every plan must "Include a goal of working with the Family Set" and be "Family Set-focused... with a focus on family engagement, training, and support" (3.19.1). If family members cannot attend in person, the BA must offer alternatives such as telemedicine. 97156 needs no prior authorization, with a "Maximum number of units per 97156 for entire Family Set: thirty-two 15-minute units per week," billed once for the whole Family Set. The CMS Medicaid MUE limits 97156 to sixteen 15-minute units per day, and 97157 (also no PA) to "up to sixteen 15-minute units or four hours per day." Adult recipients may receive up to thirty-two units of either code when medically warranted. Family Sets may start 97156/97157 once the recipient\'s assessment is scheduled. If the family cannot attend at the agreed level, "inadequate family participation" is a listed reason for poor response, and the BA must offer alternatives.',
         ],
         cites: [
-          { title: 'Molina Healthcare of New Mexico Turquoise Care Provider Manual (2024 edition, last updated May 2024)', url: 'https://medicare.centralhealthplan.com/-/media/Molina/PublicWebsite/PDF/Providers/NM_2024/Medicaid/Provider-Manual.pdf' },
+          { title: 'Molina Healthcare of New Mexico Turquoise Care Provider Manual (2024 edition, last updated May 2024)', url: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/NM_2024/Medicaid/Provider-Manual.pdf' },
           { title: 'MAD Supplement 24-13 — Applied Behavior Analysis (ABA) Guidance (9/17/2024)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
         ],
       },
@@ -916,9 +917,10 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
         h2: 'What is Molina New Mexico’s timely filing limit?',
         body: [
           'Molina’s Turquoise Care provider manual (2024 edition, the latest readable copy) sets clean-claim timely filing at "90 calendar days after the discharge for inpatient services or the Date of Service for outpatient services," and claims outside the timelines "will not be eligible for payment."',
+          'The same manual sets the rest of the claim clock. When Molina is not the primary payer, claims are due “within (90) calendar days after final determination by the primary payer,” and secondary claims within one year of the date of service when the primary carrier’s limit is one year and within 90 days of the other carrier’s EOB. “Corrected Claims must be sent within 90calendar days of the most recent adjudicated date of the claim,” through Availity or an EDI clearinghouse. Molina “will process the Claim within thirty (30) calendar days after receipt of Clean Claims” unless the contract sets another schedule, and pays monthly interest on an electronic clean claim not paid within 30 calendar days, from the 31st day. Participating providers must enroll in EFT and ERA; no weekly payment cycle or submission cutoff is published.',
         ],
         cites: [
-          { title: 'Molina Healthcare of New Mexico Turquoise Care Provider Manual (2024 edition), § 13 Claims and Compensation', url: 'https://medicare.centralhealthplan.com/-/media/Molina/PublicWebsite/PDF/Providers/NM_2024/Medicaid/Provider-Manual.pdf' },
+          { title: 'Molina Healthcare of New Mexico Turquoise Care Provider Manual (2024 edition), § 13 Claims and Compensation', url: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/NM_2024/Medicaid/Provider-Manual.pdf' },
         ],
       },
     ],
@@ -935,7 +937,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (MCO rate floor)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
       { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
       { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
-      { title: 'Molina Healthcare of New Mexico Turquoise Care Provider Manual (2024 edition, last updated May 2024)', url: 'https://medicare.centralhealthplan.com/-/media/Molina/PublicWebsite/PDF/Providers/NM_2024/Medicaid/Provider-Manual.pdf' },
+      { title: 'Molina Healthcare of New Mexico Turquoise Care Provider Manual (2024 edition, last updated May 2024)', url: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/NM_2024/Medicaid/Provider-Manual.pdf' },
       { title: '8.321.2.13 NMAC — Applied Behavior Analysis (srca.nm.gov)', url: 'https://www.srca.nm.gov/parts/title08/08.321.0002.html' },
     ],
     intakeGates: {
@@ -1173,8 +1175,9 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
         h2: 'What are UnitedHealthcare Community Plan of New Mexico’s claim dispute deadlines?',
         body: [
           'The 2026 Turquoise Care manual defers timely filing to the provider agreement ("If you don’t know your timely filing limit, refer to your Provider Agreement"), and treats a rejected claim not corrected within 90 days of the date of service as late billed. Disputes run in two steps: a claim reconsideration within 90 calendar days, answered within 30 calendar days, then a formal appeal within 60 calendar days of the occurrence, also answered within 30.',
+          'Federal Medicaid rules set the payment floor for every managed care plan: a state’s contract with an MCO "must provide that the organization will meet the requirements of § 447.45(d)(2) and (d)(3)" (42 CFR 447.46) — pay 90 percent of clean claims from practitioners within 30 days of receipt and 99 percent within 90 days — unless the plan and the provider agree in writing to an alternative schedule stipulated in the contract. A "clean claim" is one that "can be processed without obtaining additional information from the provider of the service or from a third party" (42 CFR 447.45(b)).',
         ],
-        cites: [
+        cites: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, 
           { title: 'UnitedHealthcare Community Plan of New Mexico — 2026 Turquoise Care Care Provider Manual, Chapters 11–12', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NM-UHCCP-Provider-Manual.pdf' },
         ],
       },
@@ -1185,7 +1188,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { title: 'Planned weekly intensity', desc: 'The state\'s under-20-hrs/week comprehensive-treatment PA quirk applies within the state criteria — plan hours deliberately.' },
       { title: 'Clean-claims cadence', desc: 'The 6-months-from-DOS filing deadline makes billing hygiene an intake-to-revenue concern, not just a back-office one.' },
     ],
-    sources: [
+    sources: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, 
       { title: 'Optum Provider Express — New Mexico ABA Program', url: 'https://public.providerexpress.com/content/ope-provexpr/us/en/clinical-resources/autismABA2/abaNM.html' },
       { title: 'NM Turquoise Care ABA Network Quick Reference Guide (BH0000747_12162024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/NMTurquoiseCareABAQRG.pdf' },
       { title: 'MAD Supplement 24-13 — ABA Guidance (state criteria)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
@@ -1369,7 +1372,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       status: 'verified',
       cites: [
         { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
-        { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 11/26/2025)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+        { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
         { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
       ],
     },
@@ -1459,6 +1462,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
         body: [
           'New Mexico’s rule 13.10.28.9 NMAC requires a health carrier to reimburse a clean claim "within 30 days of the date of receipt if the clean claim has been submitted electronically or within 45 days of the date of receipt if the clean claim has been submitted manually," with interest on overdue clean claims, and to notify the provider within the same 30/45 days if it disputes liability.',
           'Aetna disputes run in two steps: a reconsideration "within 180 calendar days of the initial claim decision," then an appeal "within 60 calendar days of the reconsideration decision," with a written decision within 60 business days. Aetna’s manual sets no fixed timely-filing number: a clean claim is one "received in a timely manner," and the deadline comes from the participation agreement or state law.',
+          'On the claim mechanics the same manual says a clean claim "Doesn’t involve coordination of benefits," and that COB, corrected and voided claims can all be submitted through Availity at no charge; it sets no separate deadline for corrected or secondary claims and publishes no weekly payment cycle or submission cutoff.',
         ],
         cites: [
           { title: '13.10.28.9 NMAC — Payment of claims, overdue claims and interest (srca.nm.gov)', url: 'https://www.srca.nm.gov/parts/title13/13.010.0028.html' },
@@ -1477,6 +1481,13 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
           { title: 'Aetna Health Care Professional Toolkit / office manual (2026): clean claims and referral policies', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
           { title: 'Aetna Behavioral Health Provider Manual (8/22): access to care', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' },
         ],
+      },
+      {
+        h2: 'What must an Aetna ABA reauthorization request contain, and are graphs required?',
+        body: [
+          'Aetna’s ABA medical necessity guide (©2026) says "A member\'s progress is to be evaluated every six months," and a member not making progress "will be transitioned to other appropriate services"; coverage ends when medical necessity is no longer met or when standardized improvement thresholds (for example, two or more standard deviations in multiple domains) are reached. The guide does not specify a graph or data-presentation format for the reassessment; send the updated treatment plan with measurable progress against each goal and the standardized scores the termination criteria are tested against.',
+        ],
+        cites: [{ title: 'Aetna — Applied behavior analysis medical necessity guide (©2026): Termination of coverage', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
       },
     ],
     collect: [
@@ -1620,6 +1631,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Aetna require graphs for ABA reassessments?', a: 'Aetna’s guide requires a progress evaluation every six months but does not prescribe graphs; send measurable progress against each goal and the standardized scores its termination criteria use.' },
       { q: 'Does Aetna cover ABA therapy in New Mexico?', a: 'Yes — under the carrier\'s national policy for ASD, layered on New Mexico\'s mandate (NMSA § 59A-22-49) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the New Mexico autism mandate require?', a: 'Coverage of ASD screening and treatment — including ABA — per a physician-prescribed plan, with no age-based denial and no annual or lifetime dollar limits since 2019\'s HB 322 repealed the old caps. Self-funded ERISA and limited-benefit plans are exempt.' },
       { q: 'What does Aetna pay for ABA in New Mexico?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against New Mexico\'s published Medicaid fee schedule (LOD #53), which functions as a public rate floor on the Medicaid side.' },
@@ -1751,8 +1763,10 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
         body: [
           'New Mexico’s rule 13.10.28.9 NMAC requires a health carrier to reimburse a clean claim "within 30 days of the date of receipt if the clean claim has been submitted electronically or within 45 days of the date of receipt if the clean claim has been submitted manually," with interest on overdue clean claims, and to notify the provider within the same 30/45 days if it disputes liability.',
           'Evernorth "will only consider claims submitted within 90 days of the date of service or as otherwise defined in your Provider Agreement," and a longer state-law limit applies where one exists. Appeals are initiated in writing within 180 calendar days of the initial payment or denial decision, and most are resolved within 60 calendar days.',
+          'More of Evernorth’s filing rules (administrative guidelines, September 2026): for a secondary claim the 90 days run from "the primary payer’s processing date as stated on an explanation of benefits [EOB] or explanation of payment [EOP]," and the primary EOP goes in with the claim unless the COB data is sent electronically; Medicaid gets three years; a claim returned for more information gets a fresh 90 days from the date of the request. Corrected or replacement claims carry frequency code 7 (replace) or 8 (void) in box 22, not a "Corrected Claim" stamp, and no separate corrected-claim deadline is published. Evernorth publishes no weekly payment cycle or submission cutoff; it offers ERA and EFT "to help reduce your payment cycle."',
+          'Which codes: Evernorth’s autism resource guide (March 2025) says "All ABA services must be billed with CPT codes 97151–97158, 0362T, and 0373T ONLY," so state HCPCS ABA codes such as H0031, H0032, H2014 or H2019 are not billable to Cigna for ABA. The same guide says "All ABA CPT codes are covered telehealth services."',
         ],
-        cites: [
+        cites: [{ title: 'Cigna/Evernorth Autism Resource Guide (PCOMM-2025-225, March 2025): billing codes', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, 
           { title: '13.10.28.9 NMAC — Payment of claims, overdue claims and interest (srca.nm.gov)', url: 'https://www.srca.nm.gov/parts/title13/13.010.0028.html' },
           { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
         ],
@@ -1767,6 +1781,13 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
           { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191): complete-claim definition and 837 provider identifiers', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
           { title: 'Cigna / Evernorth autism resource guide (March 2025): paper-claim rules', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
         ],
+      },
+      {
+        h2: 'What must a Cigna ABA reauthorization request contain, and are graphs required?',
+        body: [
+          'Evernorth’s EN0499 (effective May 15, 2026) sets what a continued-treatment request must show: an updated treatment plan covering current deficits and progress in every targeted area; "Quantitative baseline, interim and current data ... with dates reported from when the data were collected" for every behavior and skill, across all settings; current data collected "within no more than 60 days prior to the start date of the continued treatment request" and within 60 days before the request is received; data showing "ongoing and sustained progress"; and a reliable, valid, standardized assessment completed no more than one year before the continued-treatment start date. Where progress is not shown, the request must name the barriers and the protocol changes made. EN0499 asks for dated quantitative data, not for graphs as such; graphs are a common way to present it, but the policy does not require them.',
+        ],
+        cites: [{ title: 'Evernorth Coverage Policy EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026): Criteria for Continued Treatment with ABA', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
       },
     ],
     collect: [
@@ -1900,6 +1921,8 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Cigna require graphs for ABA reassessments?', a: 'Not graphs as such. EN0499 requires dated quantitative baseline, interim and current data (current data no more than 60 days old), an updated plan and a standardized assessment no more than a year old; graphs are a common way to show the data, but the policy does not require them.' },
+      { q: 'Does Cigna accept H0031 or H0032 for ABA?', a: 'CPT 97151–97158, 0362T and 0373T only; HCPCS H-codes such as H0031/H0032 are not billable for ABA (Evernorth autism resource guide).' },
       { q: 'Does Cigna cover ABA therapy in New Mexico?', a: 'Yes — under national policy EN0499 for ASD, layered on New Mexico\'s mandate (NMSA § 59A-22-49) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'Does the Cigna assessment need prior authorization in New Mexico?', a: 'No — EN0499 requires no PA on assessment codes 97151, 97152, and 0362T, and we confirmed the current policy contains no New Mexico carve-out (unlike Virginia). PA lands at the treatment step.' },
       { q: 'What does the New Mexico autism mandate require?', a: 'Coverage of ASD screening and treatment — including ABA — per a physician-prescribed plan, with no age-based denial and no annual or lifetime dollar limits since 2019\'s HB 322 repealed the old caps. Self-funded ERISA and limited-benefit plans are exempt.' },
@@ -2036,8 +2059,10 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
         body: [
           'New Mexico’s rule 13.10.28.9 NMAC requires a health carrier to reimburse a clean claim "within 30 days of the date of receipt if the clean claim has been submitted electronically or within 45 days of the date of receipt if the clean claim has been submitted manually," with interest on overdue clean claims, and to notify the provider within the same 30/45 days if it disputes liability.',
           'UnitedHealthcare’s 2026 administrative guide publishes no single timely-filing number ("Timely filing limits vary based on state requirements and contracts"; check your agreement). It requires "a valid billing NPI, rendering NPI and relevant taxonomy code(s) on all claims," and encourages, but does not require, the referring provider’s NPI. Most claims are adjudicated within 15 days, up to 45. Claim reconsiderations and appeals are due within 12 months of the original EOB or PRA.',
+          'UnitedHealthcare’s ABA claims run through Optum Behavioral Health, whose National Network Manual (effective September 1, 2026) sets the deadlines. "All information necessary to process claims must be received by Optum no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan," and "Any corrections or additions to a claim should be made within 90 days of initial claim receipt." The member may not be billed for a late claim. Payment: claims with all required information and any required authorization "will be paid within 45 calendar days after Optum receives the claim, or as required by state and federal laws," which may exclude claims needing a coordination-of-benefits determination; when Optum is secondary it pays up to the Optum contracted rate. UnitedHealthcare’s 2026 administrative guide adds that a corrected claim (frequency code 7, with the original claim number) must arrive within the same timely-filing limit as the original. No weekly payment cycle or submission cutoff is published.',
+          'Which codes: Optum’s commercial ABA reimbursement policy (2022RP501A, updated June 2026) lists the reimbursable codes for the commercial ABA program as 97151–97158, 0362T and 0373T, each in 15-minute units with a credential modifier (HM, HN, HO or HP); no HCPCS H-code (H0031, H0032, H2014, H2019) is on that list.',
         ],
-        cites: [
+        cites: [{ title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026): reimbursable codes', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): Coordination of Benefits; Timely Filing; Payment Timelines', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }, 
           { title: '13.10.28.9 NMAC — Payment of claims, overdue claims and interest (srca.nm.gov)', url: 'https://www.srca.nm.gov/parts/title13/13.010.0028.html' },
           { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial): timely filing, NPI/taxonomy, claim reconsideration and appeals', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
         ],
@@ -2053,6 +2078,13 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
           { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial), Chapter 10: complete claim and NPI requirements', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
         ],
       },
+      {
+        h2: 'What must a UnitedHealthcare ABA reauthorization request contain, and are graphs required?',
+        body: [
+          'Optum’s ABA Supplemental Clinical Criteria (interim review April 2026) say that "With each clinical review for continued ABA treatment, the provider must submit updated documentation" showing progress "for each targeted symptom and behavior, including progress toward defined goals, including the same modes of measurement that were utilized for baseline measurement." Progress "should include rate and percentage of mastered programs, rates of mastered targets, change scores for any outcome measures, updated standardized adaptive measures, and change scores for skills-based assessments," with movement from baseline shown on validated, norm-referenced assessments and, where applicable, the caregiver’s own progress. Inadequate progress over six months calls for an analysis of the reasons and modified interventions, and the review looks at use below 80 percent of authorized hours over two weeks. The criteria do not require graphs as such.',
+        ],
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026): Continued Service Criteria', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -2061,7 +2093,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis report', desc: 'DSM-5-TR ASD diagnosis with a validated tool (ADI-R, ADOS-2, etc.) — Optum asks for the instrument, not just the label.' },
       { title: 'Age', desc: 'No mandate age limit in New Mexico — adult inquiries on fully-insured plans are viable, not edge cases.' },
     ],
-    sources: [
+    sources: [{ title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): Coordination of Benefits; Timely Filing; Payment Timelines', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial): Timely filing of corrected claims; Subrogation and COB', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, 
       { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
       { title: 'Optum — ABA State Mandates supplemental criteria (BH 803ABA, Jan 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
       { title: 'Optum Provider Express — New Mexico ABA Program', url: 'https://public.providerexpress.com/content/ope-provexpr/us/en/clinical-resources/autismABA2/abaNM.html' },
@@ -2191,6 +2223,9 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare require graphs for ABA reassessments?', a: 'Optum’s criteria require updated progress data in the same measures used at baseline (mastery rates, change scores, updated standardized adaptive measures) at every continued review; they do not require graphs as such.' },
+      { q: 'Does UnitedHealthcare accept H0031 or H0032 for ABA?', a: 'Optum’s commercial ABA reimbursement policy lists only CPT 97151–97158, 0362T and 0373T as reimbursable ABA codes, each with a credential modifier; no H-code (H0031, H0032, H2014, H2019) is on the list.' },
+      { q: 'What is UnitedHealthcare’s timely filing limit for ABA claims, and when does it pay?', a: 'Optum requires everything needed to process the claim within 90 calendar days of the date of service and corrections within 90 days of first receipt; clean, authorized claims are paid within 45 calendar days or as state law requires. No weekly payment cutoff is published.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in New Mexico?', a: 'Yes — under the carrier\'s national policy for ASD, layered on New Mexico\'s mandate (NMSA § 59A-22-49) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'Does Optum have New Mexico-specific commercial ABA criteria?', a: 'No — we checked the current ABA State Mandates supplemental criteria in full and New Mexico is not listed. The standard national two-step authorization applies to commercial members. Optum\'s NM-specific machinery lives on the Medicaid side, in the Turquoise Care ABA Program.' },
       { q: 'What does the New Mexico autism mandate require?', a: 'Coverage of ASD screening and treatment — including ABA — per a physician-prescribed plan, with no age-based denial and no annual or lifetime dollar limits since 2019\'s HB 322 repealed the old caps. Self-funded ERISA and limited-benefit plans are exempt.' },

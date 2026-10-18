@@ -12,10 +12,10 @@ import type { PayerConfig, PayerSource } from './types.js';
 
 const S: Record<string, PayerSource> = {
   msm3700: { title: 'Nevada Medicaid Services Manual Chapter 3700 — Applied Behavior Analysis (MTL 08/24, effective April 1, 2024; current)', url: 'https://www.nevadamedicaid.nv.gov/uploadedFiles/dhcfpnvgov/content/Resources/AdminSupport/Manuals/MSM/C3700/MSM_3700_24_04_01.pdf' },
-  pt85: { title: 'Nevada Medicaid — Provider Type 85 Billing Guide, Applied Behavior Analysis (updated 07/27/2026)', url: 'https://www.medicaid.nv.gov/Downloads/provider/NV_BillingGuidelines_PT85.pdf' },
+  pt85: { title: 'Nevada Medicaid — Provider Type 85 Billing Guide, Applied Behavior Analysis (updated 10/13/2026)', url: 'https://www.medicaid.nv.gov/Downloads/provider/NV_BillingGuidelines_PT85.pdf' },
   fee85: { title: 'Nevada Medicaid — Provider Type 85 ABA Reimbursement Schedule (rate data as of 07/2026)', url: 'https://www.nevadamedicaid.nv.gov/siteassets/content/resources/rates/pt-85-fee-schedule-072026.xlsx' },
   feePage: { title: 'Nevada Medicaid — Fee Schedules (rates by provider type)', url: 'https://www.nevadamedicaid.nv.gov/Resources/Rates/FeeSchedules/' },
-  fa11e: { title: 'Nevada Medicaid Form FA-11E — Applied Behavior Analysis (ABA) Authorization Request (updated 07/13/2026)', url: 'https://www.medicaid.nv.gov/Downloads/provider/FA-11E.pdf' },
+  fa11e: { title: 'Nevada Medicaid Form FA-11E — Applied Behavior Analysis (ABA) Authorization Request (updated 10/14/2026)', url: 'https://www.medicaid.nv.gov/Downloads/provider/FA-11E.pdf' },
   fa11f: { title: 'Nevada Medicaid Form FA-11F — ASD Diagnosis Certification for Requesting Initial ABA Services (updated 06/10/2025)', url: 'https://www.medicaid.nv.gov/Downloads/provider/FA-11F.pdf' },
   billMan: { title: 'Nevada Medicaid and Nevada Check Up Billing Manual (updated July 10, 2026)', url: 'https://www.medicaid.nv.gov/Downloads/provider/nv_billing_general.pdf' },
   teleBill: { title: 'Nevada Medicaid — Telehealth Billing Instructions (updated 08/03/2026)', url: 'https://www.medicaid.nv.gov/Downloads/provider/NV_Billing_Telehealth.pdf' },
@@ -53,7 +53,7 @@ const S: Record<string, PayerSource> = {
   sshpChk: { title: 'SilverSummit Healthplan — ABA Outpatient Treatment Request Checklist (June 29, 2026)', url: 'https://www.silversummithealthplan.com/content/dam/centene/Nevada/Notifications/2026-documents/SSHP_Provider_ABA%20Treatment%20Request%20Checklist_Digital_2026-06-29_FINAL.pdf' },
   sshpPM: { title: 'SilverSummit Healthplan — 2026 Provider Manual (updated 01-01-2026)', url: 'https://www.silversummithealthplan.com/content/dam/centene/Nevada/Notifications/2026-documents/4%20SSHP%20NV%20Provider%20manual%202025-11-19.pdf' },
   sshpRev: { title: 'SilverSummit Healthplan — Notice of revision to Clinical Policy CP.BH.104, Applied Behavior Analysis (June 5, 2026; DOS from 05/30/2026)', url: 'https://www.silversummithealthplan.com/content/dam/centene/Nevada/Notifications/2026-documents/ABA%20revisions.pdf' },
-  aetnaCPB: { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 11/26/2025)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+  aetnaCPB: { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
   aetnaCPB648: { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
   aetnaGuide: { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
   aetnaPrecert: { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
@@ -189,8 +189,9 @@ export const nevadaPayers: Record<string, PayerConfig> = {
         body: [
           'Bill each service “with the National Provider Identifier (NPI) of the actual provider of the service, not the supervising clinician,” and add modifier UD on claims and PA requests for BCaBA (specialty 312) and RBT (specialty 314) services. Date-span billing is not permitted, and the NPI of the Medicaid-enrolled ordering or referring practitioner must be on the claim or it will deny. Only PT 85 (ABA), PT 60 (School Health Services) and PT 47 (tribal and IHS clinics) may bill ABA codes, and a PT 85 group NPI “must be unique to the group.” Timely filing: in-state claims without other insurance “must be received within 180 days of the date of service or date of eligibility decision”; claims with other insurance and claims from out-of-state providers have 365 days. A denied claim can be appealed through Secure Correspondence “no later than 30 calendar days from the date on the remittance advice.”',
           'Telehealth is billed with POS 02 (outside the home) or 10 (in the home) plus modifier 95 for real-time audio-video or 93 for audio-only; the home cannot bill the Q3014 facility fee. MSM 3400 gives telehealth “parity with in-person health care services” and lists only personal care, home health and private duty nursing as in-person-only; neither MSM 3400 nor the PT 85 guide names an ABA code that may not be delivered remotely. Neither MSM 3700 nor the PT 85 guide mentions electronic visit verification for ABA; Nevada Medicaid’s EVV program page is labelled EVV-PCA. ABA cannot be paid on the same day as Basic Skills Training or Psychosocial Rehabilitation (MSM 3704.2C(16)).',
+          'Federal rules bind Nevada Medicaid’s own fee-for-service payments: the agency "must pay 90 percent of all clean claims from practitioners, who are in individual or group practice or who practice in shared health facilities, within 30 days of the date of receipt" and 99 percent within 90 days, with the date of receipt being the agency’s date stamp and the date of payment the date of the check or other payment (42 CFR 447.45(d)(2), (3), (5), (6)). The same rule makes 12 months from the date of service the outer limit any state may allow for filing (42 CFR 447.45(d)(1)). Managed care plans are held to the same 90/99 percent clean-claim standard through their state contracts (42 CFR 447.46).',
         ],
-        cites: [S.pt85, S.msm3700, S.billMan, S.teleBill, S.msm3400],
+        cites: [{ title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, { title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, S.pt85, S.msm3700, S.billMan, S.teleBill, S.msm3400],
       },
       {
         h2: 'Can an out-of-state BCBA treat a Nevada Medicaid member, including by telehealth?',
@@ -209,7 +210,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
       { title: 'Parent signature', desc: 'FA-11E and the treatment plan need it; a parent or designated adult must be present for home-based training and supervision visits.' },
       { title: 'Other insurance', desc: 'Medicaid pays last; follow the primary’s rules or Medicaid denies too. Claims with other insurance have 365 days.' },
     ],
-    sources: [S.msm3700, S.pt85, S.fee85, S.feePage, S.fa11e, S.fa11f, S.billMan, S.teleBill, S.msm3400, S.msm3600, S.abaPage, S.plans, S.smc, S.prtf, S.wa3315, S.nrs422, S.nrs641D, S.nrs629, S.bacbLic, S.cfr440, S.cfr433],
+    sources: [{ title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, { title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, S.msm3700, S.pt85, S.fee85, S.feePage, S.fa11e, S.fa11f, S.billMan, S.teleBill, S.msm3400, S.msm3600, S.abaPage, S.plans, S.smc, S.prtf, S.wa3315, S.nrs422, S.nrs641D, S.nrs629, S.bacbLic, S.cfr440, S.cfr433],
     deliveryRules: {
       supervision: {
         value: 'Supervision follows NRS 641D.610 and “must be overseen by a Licensed Psychologist, BCBA-D or BCBA who has experience in the treatment of autism, although the actual supervision may be provided by a BCaBA at their direction” (MSM 3704.3A). “The maximum number of units that can be used for supervision is 20% of the total number of hours of direct therapy services provided, unless clinical documentation is submitted that supports a need for additional units” (MSM 3704.2A(1)(j)); the PT 85 guide repeats that supervision is allowed up to 20% of treatment hours. The treatment plan must be developed and approved by a licensed psychologist, BCBA-D or BCBA, who “is responsible for all aspects of clinical direction, supervision, and case management.”',
@@ -224,9 +225,9 @@ export const nevadaPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       dailyLimits: {
-        value: 'Providers are limited to 12 hours of ABA per day and recipients to 40 hours per week (MSM 3704.2A(4)); the PT 85 guide applies the 40-hour cap to 0373T and 97153–97158 “regardless of NPI” and the 12-hour cap per servicing provider to 0362T, 0373T, 97151–97153 and 97155–97156. Delivery-model limits count 97153, 97155 and 0373T together: focused 15–25 hours a week, comprehensive 25–40. Code limits: 97151 one 16-unit session and 97152/0362T one 4-unit session per 180 days; 97156 4 units a week; 97157 one 4-unit session a month. “All session limits may be exceeded with prior authorization and documented medical necessity.”',
+        value: 'Providers are limited to 12 hours of ABA per day and recipients to 40 hours per week (MSM 3704.2A(4)); the PT 85 guide applies the 40-hour cap to 0373T and 97153–97158 “regardless of NPI” and the 12-hour cap per servicing provider to 0362T, 0373T, 97151–97153 and 97155–97156. Delivery-model limits count 97153, 97155 and 0373T together: focused 15–25 hours a week, comprehensive 25–40. Code limits: 97151 one 16-unit session and 97152/0362T one 4-unit session per 180 days; 97156 4 units a week; 97157 one 4-unit session a month. “All session limits may be exceeded with prior authorization and documented medical necessity.”' + ' Those are program limits enforced through the authorization. Separately, the PT 85 guide (updated 10/13/2026) says Nevada’s MMIS “uses NCCI Edits in the processing of Nevada Medicaid claims” and loads CMS’s quarterly medically unlikely edits; CMS’s published Medicaid MUE table for dates of service October 1 – December 31, 2026 sets per-provider, per-member, per-day values of 97151 32 units, 97152 16, 97153 32, 97154 18, 97155 24, 97156 16, 97157 16, 97158 16, 0362T 16 and 0373T 32.',
         status: 'verified',
-        cites: [S.msm3700, S.pt85],
+        cites: [{ title: 'CMS — Medicaid NCCI MUE edit file, practitioner services, effective October 1, 2026 (dates of service 10/1–12/31/2026)', url: 'https://www.cms.gov/medicare/coding-billing/ncci-medicaid/medicaid-ncci-edit-files' }, S.msm3700, S.pt85],
       },
       noteSignature: {
         value: 'A progress note is required for each day services were delivered, legible, with the recipient’s name (and whether it was group), place of service, date, actual start and end times, “The name of the provider who delivered the service,” their credentials and “The signature of the provider who delivered the service” (MSM 3704.4G). No signing deadline is stated.',
@@ -272,7 +273,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'Nevada Medicaid Services Manual Chapter 3700 — Applied Behavior Analysis (MTL 08/24, effective April 1, 2024; current)', url: 'https://www.nevadamedicaid.nv.gov/uploadedFiles/dhcfpnvgov/content/Resources/AdminSupport/Manuals/MSM/C3700/MSM_3700_24_04_01.pdf' },
           { title: 'Nevada Medicaid Form FA-11F — ASD Diagnosis Certification for Requesting Initial ABA Services (updated 06/10/2025)', url: 'https://www.medicaid.nv.gov/Downloads/provider/FA-11F.pdf' },
-          { title: 'Nevada Medicaid — Provider Type 85 Billing Guide, Applied Behavior Analysis (updated 07/27/2026): OPR requirements', url: 'https://www.medicaid.nv.gov/Downloads/provider/NV_BillingGuidelines_PT85.pdf' },
+          { title: 'Nevada Medicaid — Provider Type 85 Billing Guide, Applied Behavior Analysis (updated 10/13/2026): OPR requirements', url: 'https://www.medicaid.nv.gov/Downloads/provider/NV_BillingGuidelines_PT85.pdf' },
         ],
       },
       telehealth: {
@@ -511,6 +512,13 @@ export const nevadaPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.nrs641D, S.nrs629, S.csMM],
       },
+      {
+        h2: 'Claim filing and payment rules at CareSource',
+        body: [
+          'Federal Medicaid rules set the payment floor for every managed care plan: a state’s contract with an MCO "must provide that the organization will meet the requirements of § 447.45(d)(2) and (d)(3)" (42 CFR 447.46) — pay 90 percent of clean claims from practitioners within 30 days of receipt and 99 percent within 90 days — unless the plan and the provider agree in writing to an alternative schedule stipulated in the contract. A "clean claim" is one that "can be processed without obtaining additional information from the provider of the service or from a third party" (42 CFR 447.45(b)). CareSource’s Nevada timely-filing, corrected-claim and secondary-claim limits were not in the documents read for this guide (its ABA medical and reimbursement policies are silent on them); take them from your CareSource agreement or Provider Services.',
+        ],
+        cites: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }],
+      },
     ],
     collect: [
       { title: 'Member ID', desc: 'Confirm CareSource on the date of service.' },
@@ -520,7 +528,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
       { title: 'School schedule and IEP', desc: 'The initial plan asks for school placement, weekly school hours and any IEP.' },
       { title: 'Other insurance', desc: 'Medicaid is the payer of last resort; the primary’s determination is required.' },
     ],
-    sources: [S.csMM, S.csPY, S.plans, S.msm3700, S.msm3600, S.pt85, S.msm3400, S.cfr438, S.cfr433, S.nrs641D, S.nrs629],
+    sources: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, S.csMM, S.csPY, S.plans, S.msm3700, S.msm3600, S.pt85, S.msm3400, S.cfr438, S.cfr433, S.nrs641D, S.nrs629],
     deliveryRules: {
       supervision: {
         value: 'RBT services “must be supervised by a qualified RBT supervisor (ie, BCBA, BCBA-D, licensed psychologist …) and obtain ongoing supervision for a minimum of 5% of the hours spent providing ABA services per month”; BCaBAs must be supervised by a BCBA, BCBA-D or qualified psychologist. Supervision units are capped at 20% of direct therapy hours unless documentation supports more, and the licensed psychologist, BCBA-D or BCBA “is responsible for all aspects of clinical direction, supervision, and case management.”',
@@ -602,6 +610,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'How fast must CareSource Nevada pay a clean ABA claim?', a: 'Its state contract must hold it to the federal Medicaid standard: 90% of clean practitioner claims paid within 30 days of receipt and 99% within 90 days (42 CFR 447.46, 447.45), unless the provider contract sets an alternative schedule. Its own filing limit comes from the provider manual or your agreement.' },
       { q: 'Does CareSource Nevada need prior authorization for the ABA assessment?', a: 'No. Initial assessments and reassessments need no medical necessity review, limited to one every 180 days. Treatment is reviewed before it starts and every 6 months.' },
       { q: 'Is an old autism evaluation accepted by CareSource Nevada?', a: 'Yes, but if it is more than 24 months old, add a provider letter describing DSM symptoms present in the past year.' },
       { q: 'Why was my CareSource Nevada ABA claim rejected?', a: 'One common cause: CareSource will not accept ABA claims until it has the signed treatment documentation (parent or guardian signature). Each claim line must also be a single date of service.' },
@@ -661,6 +670,13 @@ export const nevadaPayers: Record<string, PayerConfig> = {
         body: [NV_OOS_BODY],
         cites: [S.nrs641D, S.nrs629, S.msm3700],
       },
+      {
+        h2: 'Claim filing and payment rules at Health Plan of Nevada',
+        body: [
+          'Federal Medicaid rules set the payment floor for every managed care plan: a state’s contract with an MCO "must provide that the organization will meet the requirements of § 447.45(d)(2) and (d)(3)" (42 CFR 447.46) — pay 90 percent of clean claims from practitioners within 30 days of receipt and 99 percent within 90 days — unless the plan and the provider agree in writing to an alternative schedule stipulated in the contract. A "clean claim" is one that "can be processed without obtaining additional information from the provider of the service or from a third party" (42 CFR 447.45(b)). HPN’s own Medicaid timely-filing, corrected-claim and secondary-claim limits were not in the documents read for this guide; take them from your HPN agreement or Provider Services (702-242-7088).',
+        ],
+        cites: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }],
+      },
     ],
     collect: [
       { title: 'Member ID', desc: 'Confirm Health Plan of Nevada Medicaid (not HPN commercial) on the date of service.' },
@@ -668,7 +684,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
       { title: 'Treatment plan and assessment', desc: 'HPN reviews on InterQual; send the full assessment and plan with the request.' },
       { title: 'Other insurance', desc: 'Medicaid is the payer of last resort; bill the primary first.' },
     ],
-    sources: [S.hpnNews, S.hpnPA, S.hpnForm, S.plans, S.msm3700, S.msm3600, S.pt85, S.fa11f, S.msm3400, S.nrs422, S.cfr438, S.cfr433, S.nrs641D, S.nrs629],
+    sources: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, S.hpnNews, S.hpnPA, S.hpnForm, S.plans, S.msm3700, S.msm3600, S.pt85, S.fa11f, S.msm3400, S.nrs422, S.cfr438, S.cfr433, S.nrs641D, S.nrs629],
     deliveryRules: {
       supervision: {
         value: 'HPN publishes no ABA supervision rule. ' + ST_SUPERVISION,
@@ -756,6 +772,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'How fast must Health Plan of Nevada pay a clean ABA claim?', a: 'Its state contract must hold it to the federal Medicaid standard: 90% of clean practitioner claims paid within 30 days of receipt and 99% within 90 days (42 CFR 447.46, 447.45), unless the provider contract sets an alternative schedule. Its own filing limit comes from the provider manual or your agreement.' },
       { q: 'Does Health Plan of Nevada Medicaid require prior authorization for ABA?', a: 'Yes. Since November 17, 2025, prior authorization is required for all ABA therapy services, regardless of billed charges, reviewed by HPN’s Behavioral Health team on InterQual.' },
       { q: 'Is Health Plan of Nevada the same as UnitedHealthcare?', a: 'HPN is a UnitedHealthcare company, but its ABA reviews are done by HPN’s own Behavioral Health team on InterQual, not the Optum criteria UnitedHealthcare uses elsewhere.' },
       { q: 'Can an adult get ABA through Health Plan of Nevada Medicaid?', a: 'Nevada Medicaid covers ABA at any age, but HPN’s posted ABA form still certifies ages 0–21. Confirm with HPN Provider Services before starting an adult.' },
@@ -967,6 +984,13 @@ export const nevadaPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.nrs641D, S.nrs629, S.sshpPM],
       },
+      {
+        h2: 'Claim filing and payment rules at SilverSummit',
+        body: [
+          'Federal Medicaid rules set the payment floor for every managed care plan: a state’s contract with an MCO "must provide that the organization will meet the requirements of § 447.45(d)(2) and (d)(3)" (42 CFR 447.46) — pay 90 percent of clean claims from practitioners within 30 days of receipt and 99 percent within 90 days — unless the plan and the provider agree in writing to an alternative schedule stipulated in the contract. A "clean claim" is one that "can be processed without obtaining additional information from the provider of the service or from a third party" (42 CFR 447.45(b)). SilverSummit’s 2026 provider manual sends claim instructions to a separate SilverSummit Healthplan Billing Guide, which was not found on its provider resources page for this guide; take the filing limits from that guide or your agreement.',
+        ],
+        cites: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }],
+      },
     ],
     collect: [
       { title: 'Member ID', desc: 'Confirm SilverSummit Medicaid (not Ambetter) on the date of service.' },
@@ -975,7 +999,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
       { title: 'School schedule and IEP', desc: 'Coordination with school and IEP status for school-aged members.' },
       { title: 'Other insurance', desc: 'Medicaid pays last; bill the primary first.' },
     ],
-    sources: [S.sshpChk, S.sshpPM, S.sshpRev, S.plans, S.msm3700, S.msm3600, S.pt85, S.fa11e, S.fa11f, S.msm3400, S.nrs422, S.cfr438, S.cfr433, S.nrs641D, S.nrs629],
+    sources: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, S.sshpChk, S.sshpPM, S.sshpRev, S.plans, S.msm3700, S.msm3600, S.pt85, S.fa11e, S.fa11f, S.msm3400, S.nrs422, S.cfr438, S.cfr433, S.nrs641D, S.nrs629],
     deliveryRules: {
       supervision: {
         value: 'SilverSummit’s checklist asks for the training and treatment plan but sets no supervision ratio of its own; it reviews against MSM 3700. ' + ST_SUPERVISION,
@@ -1057,6 +1081,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'How fast must SilverSummit pay a clean ABA claim?', a: 'Its state contract must hold it to the federal Medicaid standard: 90% of clean practitioner claims paid within 30 days of receipt and 99% within 90 days (42 CFR 447.46, 447.45), unless the provider contract sets an alternative schedule. Its own filing limit comes from the provider manual or your agreement.' },
       { q: 'What forms does SilverSummit need for an ABA request?', a: 'The state forms: FA-11E for every request and FA-11F with the first, plus a full treatment plan, since SilverSummit says FA-11E alone does not replace it.' },
       { q: 'Does SilverSummit authorize ABA retroactively?', a: 'Not for routine sessions. Behavioral health retro authorizations are granted only in rare cases such as eligibility issues, requested within 180 days of service with a cover letter.' },
       { q: 'How long does SilverSummit take to decide an ABA request?', a: 'The manual lists 2 business days for non-urgent pre-service decisions but tells behavioral health practitioners to allow up to 14 business days; federal rules cap standard Medicaid decisions at 7 calendar days for 2026 contracts.' },
@@ -1156,6 +1181,21 @@ export const nevadaPayers: Record<string, PayerConfig> = {
           { title: 'Aetna — Outpatient Behavioral Health (BH) – ABA Treatment Request: Required Information for Precertification (GR-69017-4, 7-26; effective August 1, 2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
         ],
       },
+      {
+        h2: 'Claim filing and payment rules in Nevada',
+        body: [
+          'Nevada sets the payment clock for state-regulated plans. A group or blanket insurer "shall approve or deny a claim ... within 21 days after the insurer receives the claim, if the claim is submitted electronically, or 30 days after the insurer receives the claim, if the claim is not submitted electronically," must pay an approved claim within the same period, and owes interest at 10 percent a year after that (NRS 689B.255; the individual-market rule, NRS 689A.410, is the same). A request for more information must come within 20 working days, and the clock restarts on receipt of it. The HMO section that used to carry the same rule (NRS 695C.185) is shown as repealed in 2025, so for an HMO product check the contract. Self-funded employer plans follow ERISA instead.',
+          'Aetna’s provider manual (edition 6/26) publishes no numeric filing deadline: a clean claim is one "received in a timely manner," so the operative limit is the one in your Aetna agreement or state law. The manual says a clean claim "Doesn’t involve coordination of benefits," and that COB, corrected and voided claims can all be submitted through Availity at no charge; it sets no separate deadline for corrected or secondary claims and publishes no weekly payment cycle or submission cutoff.',
+        ],
+        cites: [{ title: 'NRS 689B.255 — Group health insurance: approval or denial of claims, payment and interest', url: 'https://www.leg.state.nv.us/NRS/NRS-689B.html' }, { title: 'NRS 689A.410 — Individual health insurance: approval or denial of claims, payment and interest', url: 'https://www.leg.state.nv.us/NRS/NRS-689A.html' }, { title: 'NRS chapter 695C — Health maintenance organizations (NRS 695C.185 shown as repealed by ch. 366, Statutes of Nevada 2025)', url: 'https://www.leg.state.nv.us/NRS/NRS-695C.html' }, { title: 'Aetna — Provider manual (8102800-01-01, 6/26): Clean claims; Coordination of benefits; electronic claims', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }],
+      },
+      {
+        h2: 'What must an Aetna ABA reauthorization request contain, and are graphs required?',
+        body: [
+          'Aetna’s ABA medical necessity guide (©2026) says "A member\'s progress is to be evaluated every six months," and a member not making progress "will be transitioned to other appropriate services"; coverage ends when medical necessity is no longer met or when standardized improvement thresholds (for example, two or more standard deviations in multiple domains) are reached. The guide does not specify a graph or data-presentation format for the reassessment; send the updated treatment plan with measurable progress against each goal and the standardized scores the termination criteria are tested against.',
+        ],
+        cites: [{ title: 'Aetna — Applied behavior analysis medical necessity guide (©2026): Termination of coverage', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured Nevada plan (mandate applies) vs. self-funded ERISA (plan document governs); individual plans may not carry the optional coverage.' },
@@ -1164,7 +1204,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis report', desc: 'DSM-5 ASD, diagnosing provider and credentials, evaluation date.' },
       { title: 'Standardized functional measure', desc: 'From the past 12 months (Vineland-3, ABAS, VB-MAPP or ABLLS).' },
     ],
-    sources: [S.aetnaGuide, S.aetnaCPB, S.aetnaCPB648, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.aetnaTele, S.nrs689B, S.nrs695C, S.nrs689C, S.nrs689A, S.nrs687B, S.nrs641D, S.nrs629, S.bacbLic, S.erisa, S.cfr433, S.billMan, S.tricare, S.fee85],
+    sources: [{ title: 'NRS 689B.255 — Group health insurance: approval or denial of claims, payment and interest', url: 'https://www.leg.state.nv.us/NRS/NRS-689B.html' }, { title: 'NRS 689A.410 — Individual health insurance: approval or denial of claims, payment and interest', url: 'https://www.leg.state.nv.us/NRS/NRS-689A.html' }, { title: 'NRS chapter 695C — Health maintenance organizations (NRS 695C.185 shown as repealed by ch. 366, Statutes of Nevada 2025)', url: 'https://www.leg.state.nv.us/NRS/NRS-695C.html' }, S.aetnaGuide, S.aetnaCPB, S.aetnaCPB648, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.aetnaTele, S.nrs689B, S.nrs695C, S.nrs689C, S.nrs689A, S.nrs687B, S.nrs641D, S.nrs629, S.bacbLic, S.erisa, S.cfr433, S.billMan, S.tricare, S.fee85],
     deliveryRules: {
       supervision: {
         value: 'Aetna’s guide requires services “provided directly or billed by licensed behavior analysts (in states with behavior analyst licensure laws), board-certified behavior analysts, or licensed psychologists,” with supervision of unlicensed staff “in line with practice standards.” Its participation criteria (5/26) require “A minimum of one hour of face-to-face supervision” of an unlicensed or noncertified paraprofessional “for each 10 hours of applied behavior analysis,” plus the supervisor “onsite with the child at least one hour a month,” and say all BCBAs, BCaBAs and paraprofessionals “must meet state requirements.” In Nevada that means NRS 641D.610: BCaBAs and RBTs practice only under a licensed behavior analyst (or qualified psychologist; RBTs also under a qualified licensed BCaBA).',
@@ -1254,6 +1294,9 @@ export const nevadaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Aetna require graphs for ABA reassessments?', a: 'Aetna’s guide requires a progress evaluation every six months but does not prescribe graphs; send measurable progress against each goal and the standardized scores its termination criteria use.' },
+      { q: 'How fast must a Nevada insurer pay a clean ABA claim?', a: 'A group or individual insurer must approve or deny within 21 days of an electronic claim (30 days on paper) and pay within the same period, with 10% annual interest after that (NRS 689B.255, 689A.410). Self-funded employer plans follow ERISA instead.' },
+      { q: 'What is Aetna’s timely filing limit for ABA claims, and when does it pay?', a: 'Aetna publishes no numeric filing limit; it comes from your Aetna agreement or state law. COB, corrected and voided claims go through Availity; no weekly payment cutoff is published.' },
       { q: 'Does Aetna cover ABA therapy in Nevada?', a: 'Yes, for ASD under its national ABA guide, with Nevada’s mandate layered on for state-regulated plans. Self-funded employer plans follow their own documents.' },
       { q: 'Does Nevada’s autism mandate cap ABA?', a: 'Yes. For state-regulated group, small-employer and HMO plans, ABA is capped at the actuarial equivalent of $72,000 a year, and coverage runs to age 18 (22 if still in high school).' },
       { q: 'How fast must Aetna decide a Nevada ABA prior authorization?', a: 'For a state-regulated plan, NRS 687B.970 requires a response within 2 business days (or the CAQH CORE rule period) and never more than 7 calendar days; a violation deems the request approved. Self-funded plans follow ERISA’s 15 days.' },
@@ -1342,6 +1385,22 @@ export const nevadaPayers: Record<string, PayerConfig> = {
           { title: 'Cigna / Evernorth autism resource guide (March 2025): paper-claim rules', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
         ],
       },
+      {
+        h2: 'Claim filing and payment rules in Nevada',
+        body: [
+          'Nevada sets the payment clock for state-regulated plans. A group or blanket insurer "shall approve or deny a claim ... within 21 days after the insurer receives the claim, if the claim is submitted electronically, or 30 days after the insurer receives the claim, if the claim is not submitted electronically," must pay an approved claim within the same period, and owes interest at 10 percent a year after that (NRS 689B.255; the individual-market rule, NRS 689A.410, is the same). A request for more information must come within 20 working days, and the clock restarts on receipt of it. The HMO section that used to carry the same rule (NRS 695C.185) is shown as repealed in 2025, so for an HMO product check the contract. Self-funded employer plans follow ERISA instead.',
+          'Cigna’s ABA claims run through Evernorth Behavioral Health, whose administrative guidelines (September 2026) set the filing rules. Initial claims: Evernorth "will only consider claims submitted within 90 days of the date of service or as otherwise defined in your Provider Agreement," and a longer state-law limit applies where one exists. Secondary claims: for coordination of benefits the 90 days run from "the primary payer’s processing date as stated on an explanation of benefits [EOB] or explanation of payment [EOP]," and the primary payer’s EOP goes in with the claim unless the COB data is sent electronically; Medicaid gets three years. A claim returned for more information gets a fresh 90 days from the date of the request. Corrected or replacement claims carry frequency code 7 (replace) or 8 (void) in box 22, not a "Corrected Claim" stamp; no separate corrected-claim deadline is published. Appeals are due in writing within 180 calendar days of the initial payment or denial decision. Evernorth publishes no weekly payment cycle or submission cutoff; it offers ERA and EFT "to help reduce your payment cycle."',
+          'Which codes: Evernorth’s autism resource guide (March 2025) says "All ABA services must be billed with CPT codes 97151–97158, 0362T, and 0373T ONLY," so state HCPCS ABA codes such as H0031, H0032, H2014 or H2019 are not billable to Cigna for ABA. The same guide says "All ABA CPT codes are covered telehealth services."',
+        ],
+        cites: [{ title: 'Cigna/Evernorth Autism Resource Guide (PCOMM-2025-225, March 2025): billing codes', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'NRS 689B.255 — Group health insurance: approval or denial of claims, payment and interest', url: 'https://www.leg.state.nv.us/NRS/NRS-689B.html' }, { title: 'NRS 689A.410 — Individual health insurance: approval or denial of claims, payment and interest', url: 'https://www.leg.state.nv.us/NRS/NRS-689A.html' }, { title: 'NRS chapter 695C — Health maintenance organizations (NRS 695C.185 shown as repealed by ch. 366, Statutes of Nevada 2025)', url: 'https://www.leg.state.nv.us/NRS/NRS-695C.html' }, { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026): Claims filing deadline, Coordination of benefits, corrected claims, ERA, Appeals', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }],
+      },
+      {
+        h2: 'What must a Cigna ABA reauthorization request contain, and are graphs required?',
+        body: [
+          'Evernorth’s EN0499 (effective May 15, 2026) sets what a continued-treatment request must show: an updated treatment plan covering current deficits and progress in every targeted area; "Quantitative baseline, interim and current data ... with dates reported from when the data were collected" for every behavior and skill, across all settings; current data collected "within no more than 60 days prior to the start date of the continued treatment request" and within 60 days before the request is received; data showing "ongoing and sustained progress"; and a reliable, valid, standardized assessment completed no more than one year before the continued-treatment start date. Where progress is not shown, the request must name the barriers and the protocol changes made. EN0499 asks for dated quantitative data, not for graphs as such; graphs are a common way to present it, but the policy does not require them.',
+        ],
+        cites: [{ title: 'Evernorth Coverage Policy EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026): Criteria for Continued Treatment with ABA', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured Nevada plan (mandate applies) vs. self-funded ERISA (plan document governs).' },
@@ -1350,7 +1409,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
       { title: 'Standardized assessment timing', desc: 'Instrument administered within 60 days before treatment starts.' },
       { title: 'Treatment plan', desc: 'Nevada lets the insurer request and review a treatment plan.' },
     ],
-    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.nrs689B, S.nrs695C, S.nrs689C, S.nrs689A, S.nrs687B, S.nrs641D, S.nrs629, S.bacbLic, S.erisa, S.cfr433, S.billMan, S.tricare, S.fee85],
+    sources: [{ title: 'NRS 689B.255 — Group health insurance: approval or denial of claims, payment and interest', url: 'https://www.leg.state.nv.us/NRS/NRS-689B.html' }, { title: 'NRS 689A.410 — Individual health insurance: approval or denial of claims, payment and interest', url: 'https://www.leg.state.nv.us/NRS/NRS-689A.html' }, { title: 'NRS chapter 695C — Health maintenance organizations (NRS 695C.185 shown as repealed by ch. 366, Statutes of Nevada 2025)', url: 'https://www.leg.state.nv.us/NRS/NRS-695C.html' }, { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026): Claims filing deadline, Coordination of benefits, corrected claims, ERA, Appeals', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }, S.en0499, S.cignaARG, S.ebhAdmin, S.nrs689B, S.nrs695C, S.nrs689C, S.nrs689A, S.nrs687B, S.nrs641D, S.nrs629, S.bacbLic, S.erisa, S.cfr433, S.billMan, S.tricare, S.fee85],
     deliveryRules: {
       supervision: {
         value: 'Case supervision is by a BCBA, Licensed Behavior Analyst, or independently licensed clinician with ABA training; direct plus indirect case supervision runs “one to two hours per ten hours of direct treatment,” and at 10 hours a week or less at least one to two hours a week of direct case supervision. In Nevada, BCaBAs and RBTs may practice only under supervision meeting NRS 641D.610.',
@@ -1436,6 +1495,10 @@ export const nevadaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Cigna require graphs for ABA reassessments?', a: 'Not graphs as such. EN0499 requires dated quantitative baseline, interim and current data (current data no more than 60 days old), an updated plan and a standardized assessment no more than a year old; graphs are a common way to show the data, but the policy does not require them.' },
+      { q: 'Does Cigna accept H0031 or H0032 for ABA?', a: 'CPT 97151–97158, 0362T and 0373T only; HCPCS H-codes such as H0031/H0032 are not billable for ABA (Evernorth autism resource guide).' },
+      { q: 'How fast must a Nevada insurer pay a clean ABA claim?', a: 'A group or individual insurer must approve or deny within 21 days of an electronic claim (30 days on paper) and pay within the same period, with 10% annual interest after that (NRS 689B.255, 689A.410). Self-funded employer plans follow ERISA instead.' },
+      { q: 'What is Cigna’s timely filing limit for ABA claims, and when does it pay?', a: 'Ninety days from the date of service under Evernorth’s administrative guidelines (or your agreement or a longer state-law limit); secondary claims get 90 days from the primary payer’s EOB/EOP date. Corrected claims use frequency code 7 or 8; no weekly payment cutoff is published.' },
       { q: 'Does the Cigna ABA assessment need prior authorization in Nevada?', a: 'No, for 97151, 97152 and 0362T with an autism diagnosis when the provider is independently licensed or a BCBA and the policy covers ABA. PA starts at treatment.' },
       { q: 'Can a BCBA and RBT both bill Cigna for the same time?', a: 'Yes, for 97155 with 97153 (or 97154) when the BCBA is directing the technician and both are face-to-face with the patient at the same time.' },
       { q: 'What does Cigna pay for ABA in Nevada?', a: 'Rates are in Exhibit A of your Evernorth Provider Agreement. Evernorth’s Nevada addendum requires 45 days’ written notice before it changes your fee schedule (not for self-funded plans).' },
@@ -1526,6 +1589,22 @@ export const nevadaPayers: Record<string, PayerConfig> = {
           { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial), Chapter 10: complete claim and NPI requirements', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
         ],
       },
+      {
+        h2: 'Claim filing and payment rules in Nevada',
+        body: [
+          'Nevada sets the payment clock for state-regulated plans. A group or blanket insurer "shall approve or deny a claim ... within 21 days after the insurer receives the claim, if the claim is submitted electronically, or 30 days after the insurer receives the claim, if the claim is not submitted electronically," must pay an approved claim within the same period, and owes interest at 10 percent a year after that (NRS 689B.255; the individual-market rule, NRS 689A.410, is the same). A request for more information must come within 20 working days, and the clock restarts on receipt of it. The HMO section that used to carry the same rule (NRS 695C.185) is shown as repealed in 2025, so for an HMO product check the contract. Self-funded employer plans follow ERISA instead.',
+          'UnitedHealthcare’s ABA claims run through Optum Behavioral Health, whose National Network Manual (effective September 1, 2026) sets the deadlines. "All information necessary to process claims must be received by Optum no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan," and "Any corrections or additions to a claim should be made within 90 days of initial claim receipt." The member may not be billed for a late claim. Payment: claims with all required information and any required authorization "will be paid within 45 calendar days after Optum receives the claim, or as required by state and federal laws," which may exclude claims needing a coordination-of-benefits determination; when Optum is secondary it pays up to the Optum contracted rate. UnitedHealthcare’s 2026 administrative guide adds that a corrected claim (frequency code 7, with the original claim number) must arrive within the same timely-filing limit as the original. No weekly payment cycle or submission cutoff is published.',
+          'Which codes: Optum’s commercial ABA reimbursement policy (2022RP501A, updated June 2026) lists the reimbursable codes for the commercial ABA program as 97151–97158, 0362T and 0373T, each in 15-minute units with a credential modifier (HM, HN, HO or HP); no HCPCS H-code (H0031, H0032, H2014, H2019) is on that list.',
+        ],
+        cites: [{ title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026): reimbursable codes', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: 'NRS 689B.255 — Group health insurance: approval or denial of claims, payment and interest', url: 'https://www.leg.state.nv.us/NRS/NRS-689B.html' }, { title: 'NRS 689A.410 — Individual health insurance: approval or denial of claims, payment and interest', url: 'https://www.leg.state.nv.us/NRS/NRS-689A.html' }, { title: 'NRS chapter 695C — Health maintenance organizations (NRS 695C.185 shown as repealed by ch. 366, Statutes of Nevada 2025)', url: 'https://www.leg.state.nv.us/NRS/NRS-695C.html' }, { title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): Coordination of Benefits; Timely Filing; Payment Timelines', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial): Timely filing of corrected claims; Subrogation and COB', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }],
+      },
+      {
+        h2: 'What must a UnitedHealthcare ABA reauthorization request contain, and are graphs required?',
+        body: [
+          'Optum’s ABA Supplemental Clinical Criteria (interim review April 2026) say that "With each clinical review for continued ABA treatment, the provider must submit updated documentation" showing progress "for each targeted symptom and behavior, including progress toward defined goals, including the same modes of measurement that were utilized for baseline measurement." Progress "should include rate and percentage of mastered programs, rates of mastered targets, change scores for any outcome measures, updated standardized adaptive measures, and change scores for skills-based assessments," with movement from baseline shown on validated, norm-referenced assessments and, where applicable, the caregiver’s own progress. Inadequate progress over six months calls for an analysis of the reasons and modified interventions, and the review looks at use below 80 percent of authorized hours over two weeks. The criteria do not require graphs as such.',
+        ],
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026): Continued Service Criteria', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+      },
     ],
     collect: [
       { title: 'Which UHC company', desc: 'UHC-branded (Optum manages ABA) vs. Health Plan of Nevada / Sierra (HPN reviews on InterQual). It changes the portal, criteria and phone numbers.' },
@@ -1533,7 +1612,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
       { title: 'Child’s age and school status', desc: 'The mandate stops at 18, or 22 if the child is still enrolled in high school.' },
       { title: 'Diagnosis with a validated tool', desc: 'DSM-5 ASD and severity level with a validated tool (ADI-R, ADOS-2, CARS-2 and others).' },
     ],
-    sources: [S.optumSCC, S.optumSM, S.optumTele, S.optumNNM, S.optumReimb, S.hpnNews, S.nrs689B, S.nrs695C, S.nrs689C, S.nrs689A, S.nrs687B, S.nrs641D, S.nrs629, S.bacbLic, S.erisa, S.cfr433, S.billMan, S.tricare, S.fee85],
+    sources: [{ title: 'NRS 689A.410 — Individual health insurance: approval or denial of claims, payment and interest', url: 'https://www.leg.state.nv.us/NRS/NRS-689A.html' }, { title: 'NRS chapter 695C — Health maintenance organizations (NRS 695C.185 shown as repealed by ch. 366, Statutes of Nevada 2025)', url: 'https://www.leg.state.nv.us/NRS/NRS-695C.html' }, { title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): Coordination of Benefits; Timely Filing; Payment Timelines', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial): Timely filing of corrected claims; Subrogation and COB', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, S.optumSCC, S.optumSM, S.optumTele, S.optumNNM, S.optumReimb, S.hpnNews, S.nrs689B, S.nrs695C, S.nrs689C, S.nrs689A, S.nrs687B, S.nrs641D, S.nrs629, S.bacbLic, S.erisa, S.cfr433, S.billMan, S.tricare, S.fee85],
     deliveryRules: {
       supervision: {
         value: 'Optum: “Consistent with CASP standards of care, direct case supervision is required 1–2 hours for every 10 hours of direct treatment per week”; technicians work under a BCBA or licensed clinician, and Optum does not recommend parents serving as their own child’s RBT. In Nevada, BCaBAs and RBTs practice only under supervision meeting NRS 641D.610. HPN/Sierra publish no ratio of their own (InterQual is licensed).',
@@ -1630,6 +1709,10 @@ export const nevadaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare require graphs for ABA reassessments?', a: 'Optum’s criteria require updated progress data in the same measures used at baseline (mastery rates, change scores, updated standardized adaptive measures) at every continued review; they do not require graphs as such.' },
+      { q: 'Does UnitedHealthcare accept H0031 or H0032 for ABA?', a: 'Optum’s commercial ABA reimbursement policy lists only CPT 97151–97158, 0362T and 0373T as reimbursable ABA codes, each with a credential modifier; no H-code (H0031, H0032, H2014, H2019) is on the list.' },
+      { q: 'How fast must a Nevada insurer pay a clean ABA claim?', a: 'A group or individual insurer must approve or deny within 21 days of an electronic claim (30 days on paper) and pay within the same period, with 10% annual interest after that (NRS 689B.255, 689A.410). Self-funded employer plans follow ERISA instead.' },
+      { q: 'What is UnitedHealthcare’s timely filing limit for ABA claims, and when does it pay?', a: 'Optum requires everything needed to process the claim within 90 calendar days of the date of service and corrections within 90 days of first receipt; clean, authorized claims are paid within 45 calendar days or as state law requires. No weekly payment cutoff is published.' },
       { q: 'Who reviews ABA for Health Plan of Nevada commercial members?', a: 'Since November 1, 2025, HPN’s own Behavioral Health team, using InterQual, for Health Plan of Nevada, Sierra Health and Life and Sierra Health-Care Options. UHC-branded plans use Optum.' },
       { q: 'Does Optum have Nevada-specific ABA criteria?', a: 'No. Optum’s ABA State Mandates supplement does not list Nevada, so the national criteria apply, with Nevada’s mandate layered on for state-regulated plans.' },
       { q: 'Can ABA be delivered by telehealth with UnitedHealthcare in Nevada?', a: 'Optum’s commercial guide allows only 97155, 97156 and 97157 by telehealth. Nevada-insured plans must cover telehealth on the same basis as in person under NRS 689B.0369, so ask Optum how it applies the list to your plan.' },
@@ -1729,6 +1812,13 @@ export const nevadaPayers: Record<string, PayerConfig> = {
           { title: 'Anthem Blue Cross and Blue Shield Nevada Provider and Facility Manual (effective October 1, 2026): BlueCard Program Overview, medical records, provider disputes', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_NV_00015.pdf' },
         ],
       },
+      {
+        h2: 'Claim filing and payment rules in Nevada',
+        body: [
+          'Nevada sets the payment clock for state-regulated plans. A group or blanket insurer "shall approve or deny a claim ... within 21 days after the insurer receives the claim, if the claim is submitted electronically, or 30 days after the insurer receives the claim, if the claim is not submitted electronically," must pay an approved claim within the same period, and owes interest at 10 percent a year after that (NRS 689B.255; the individual-market rule, NRS 689A.410, is the same). A request for more information must come within 20 working days, and the clock restarts on receipt of it. The HMO section that used to carry the same rule (NRS 695C.185) is shown as repealed in 2025, so for an HMO product check the contract. Self-funded employer plans follow ERISA instead. Anthem’s own commercial timely-filing limit for Nevada is not in the documents read for this guide; take it from your Anthem agreement.',
+        ],
+        cites: [{ title: 'NRS 689B.255 — Group health insurance: approval or denial of claims, payment and interest', url: 'https://www.leg.state.nv.us/NRS/NRS-689B.html' }, { title: 'NRS 689A.410 — Individual health insurance: approval or denial of claims, payment and interest', url: 'https://www.leg.state.nv.us/NRS/NRS-689A.html' }, { title: 'NRS chapter 695C — Health maintenance organizations (NRS 695C.185 shown as repealed by ch. 366, Statutes of Nevada 2025)', url: 'https://www.leg.state.nv.us/NRS/NRS-695C.html' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured Nevada plan (mandate applies) vs. self-funded ERISA (plan document governs).' },
@@ -1737,7 +1827,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis report', desc: 'ASD diagnosis, diagnosing clinician and date.' },
       { title: 'Other coverage', desc: 'Second parent’s plan (birthday rule), Medicaid or TRICARE.' },
     ],
-    sources: [S.anthemNVPA, S.anthemRG, S.nrs689B, S.nrs695C, S.nrs689C, S.nrs689A, S.nrs687B, S.nrs641D, S.nrs629, S.bacbLic, S.erisa, S.cfr433, S.billMan, S.tricare, S.fee85],
+    sources: [{ title: 'NRS 689B.255 — Group health insurance: approval or denial of claims, payment and interest', url: 'https://www.leg.state.nv.us/NRS/NRS-689B.html' }, { title: 'NRS 689A.410 — Individual health insurance: approval or denial of claims, payment and interest', url: 'https://www.leg.state.nv.us/NRS/NRS-689A.html' }, { title: 'NRS chapter 695C — Health maintenance organizations (NRS 695C.185 shown as repealed by ch. 366, Statutes of Nevada 2025)', url: 'https://www.leg.state.nv.us/NRS/NRS-695C.html' }, S.anthemNVPA, S.anthemRG, S.nrs689B, S.nrs695C, S.nrs689C, S.nrs689A, S.nrs687B, S.nrs641D, S.nrs629, S.bacbLic, S.erisa, S.cfr433, S.billMan, S.tricare, S.fee85],
     deliveryRules: {
       supervision: {
         value: 'Anthem publishes no numeric supervision ratio; it allows 97153 alongside 97155 only when the QHP and technician are both face-to-face with the patient and the QHP is directing the technician. In Nevada, BCaBAs and RBTs practice only under supervision meeting NRS 641D.610, which incorporates BACB supervision requirements.',
@@ -1827,6 +1917,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'How fast must Anthem pay a clean ABA claim in Nevada?', a: 'For a state-regulated group or individual plan, within 21 days of an electronic claim (30 days on paper), with 10% annual interest after that (NRS 689B.255, 689A.410). Self-funded plans follow ERISA. Take Anthem’s own filing limit from your agreement.' },
       { q: 'Does Anthem require prior authorization for ABA in Nevada?', a: 'Anthem’s Nevada commercial list puts inpatient and outpatient behavioral health under Anthem Behavioral Health precertification (800-424-4014), but it does not itemize ABA codes, so confirm per product.' },
       { q: 'Does Nevada cap ABA benefits?', a: 'Yes, for state-regulated plans: ABA up to the actuarial equivalent of $72,000 a year, for children under 18 (22 if still in high school). Self-funded plans follow their own documents.' },
       { q: 'Can a BCBA and RBT both bill Anthem for the same time?', a: 'Yes, 97155 with 97153, but only when both are face-to-face with the patient at the same time and the BCBA is directing the technician.' },

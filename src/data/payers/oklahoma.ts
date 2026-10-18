@@ -302,9 +302,9 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
         ],
       },
       dailyLimits: {
-        value: 'No per-day unit cap is published. Limits are authorization-based: units granted for 1–6 months, intensity guidelines (>30, 20–30, 10–20 and 5–10 or fewer hours a week) with anything above them sent to physician and BCBA consultant review, and the FBA capped at 32 units (8 hours), requestable once every six months. Services are one-on-one only, except family adaptive behavior treatment guidance.',
+        value: 'No per-day unit cap is published. Limits are authorization-based: units granted for 1–6 months, intensity guidelines (>30, 20–30, 10–20 and 5–10 or fewer hours a week) with anything above them sent to physician and BCBA consultant review, and the FBA capped at 32 units (8 hours), requestable once every six months. Services are one-on-one only, except family adaptive behavior treatment guidance.' + ' Underneath the program rule sit federal claim edits, which are a different thing from the authorization: section 6507 of the Affordable Care Act requires state Medicaid programs to apply CMS’s Medicaid NCCI methodologies, including medically unlikely edits (MUEs), to fee-for-service claims (a state may ask CMS to deactivate an individual edit; for managed care plans it is optional). CMS’s published Medicaid MUE table for practitioner services, dates of service October 1 – December 31, 2026, sets the per-provider, per-member, per-day values at 97151 32 units, 97152 16, 97153 32, 97154 18, 97155 24, 97156 16, 97157 16, 97158 16, 0362T 16 and 0373T 32. OHCA publishes no per-code edit of its own; the authorization sets the units.',
         status: 'verified',
-        cites: [
+        cites: [{ title: 'CMS — NCCI for Medicaid (ACA § 6507: states must apply compatible NCCI methodologies to Medicaid fee-for-service claims; optional for MCOs; deactivation requests)', url: 'https://www.cms.gov/medicare/coding-billing/ncci-medicaid' }, { title: 'CMS — Medicaid NCCI MUE edit file, practitioner services, effective October 1, 2026 (dates of service 10/1–12/31/2026)', url: 'https://www.cms.gov/medicare/coding-billing/ncci-medicaid/medicaid-ncci-edit-files' }, 
           { title: 'OAC 317:30-5-313 — Medical necessity criteria, covered services, frequency and duration [Revised 09-01-25]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/medical-providers-fee-for-service/individual-providers-and-specialties/applied-behavior-analysis-services/medical-necessity-criteria-and-covered-services-for-members-under-twenty-one-years-of-age-and-frequency-and-duration.html' },
           { title: 'OAC 317:30-5-314 — Prior authorization, service limitations, and exclusions to treatment [Revised 09-01-25]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/medical-providers-fee-for-service/individual-providers-and-specialties/applied-behavior-analysis-services/prior-authorization-service-limitations-and-exclusions-to-treatment.html' },
           { title: 'OAC 317:30-5-316 — ABA reimbursement methodology [Revised 09-01-25]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/medical-providers-fee-for-service/individual-providers-and-specialties/applied-behavior-analysis-services/reimbursement-methodology.html' },
@@ -1201,7 +1201,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       cites: [
         { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
         { title: 'Aetna Provider Manual (form 8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
-        { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 11/26/2025)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+        { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
       ],
     },
     treatmentPA: {
@@ -1218,7 +1218,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       status: 'verified',
       cites: [
         { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026, 7244850-01-01)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
-        { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 11/26/2025)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+        { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
       ],
     },
     payer: 'Aetna in Oklahoma',
@@ -1246,7 +1246,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
           'Aetna covers ABA for autism spectrum disorder and considers it experimental for Down syndrome without ASD and for every other non-ASD indication (CPB 0554). The working criteria are in the ABA medical necessity guide: a DSM-5 ASD diagnosis from an appropriate provider, services "provided directly or billed by the appropriately licensed provider," functional impairment on a standardized scale "in the past 12 months" at least one standard deviation below the mean (or a significant risk of harm), a measurable treatment plan that tapers toward other supports, and progress "evaluated every six months." Typical intensity is 10–25 hours a week for comprehensive ABA (ages 0–7, 1–2 years) and 1–20 hours for focused ABA at any age — typical, not a cap. Precertification covers every ABA code, assessment included, and runs through the number on the member’s ID card. We found no Oklahoma-specific Aetna ABA policy or exhibit; the national documents plus the state mandate are the whole picture.',
         ],
         cites: [
-          { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 11/26/2025)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
           { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026, 7244850-01-01)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
           { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
           { title: 'Aetna Provider Manual (form 8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
@@ -1280,10 +1280,18 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
         h2: 'How fast must Aetna pay a clean ABA claim in Oklahoma?',
         body: [
           'On fully insured coverage, Oklahoma’s prompt-pay statute requires every insurer, HMOs included, to "reimburse all clean claims of an insured, an assignee of the insured, or a health care provider within forty-five (45) calendar days after receipt of a paper claim and thirty (30) calendar days after receipt of an electronic claim." A claim with defects must be flagged in writing within 30 calendar days, naming the part that is holding it up and what is needed; once the information arrives, the insurer pays or denies within the same 45 or 30 days. A denial must be explained in writing within 30 days, with where to send an appeal, and an overdue payment "shall bear simple interest at the rate of ten percent (10%) per year" (36 O.S. § 1219). The statute reaches entities the Insurance Commissioner regulates, so a self-funded employer plan administered by Aetna is outside it and follows its plan document.',
+          'Aetna’s provider manual (edition 6/26) publishes no numeric filing deadline: a clean claim is one "received in a timely manner," so the operative limit is the one in your Aetna agreement or state law. The manual says a clean claim "Doesn’t involve coordination of benefits," and that COB, corrected and voided claims can all be submitted through Availity at no charge; it sets no separate deadline for corrected or secondary claims and publishes no weekly payment cycle or submission cutoff.',
         ],
-        cites: [
+        cites: [{ title: 'Aetna — Provider manual (8102800-01-01, 6/26): Clean claims; Coordination of benefits; electronic claims', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }, 
           { title: '36 O.S. § 1219 — Time for processing claims; interest on late payment; notice of denial — OSCN', url: 'https://www.oscn.net/applications/oscn/DeliverDocument.asp?CiteID=86431' },
         ],
+      },
+      {
+        h2: 'What must an Aetna ABA reauthorization request contain, and are graphs required?',
+        body: [
+          'Aetna’s ABA medical necessity guide (©2026) says "A member\'s progress is to be evaluated every six months," and a member not making progress "will be transitioned to other appropriate services"; coverage ends when medical necessity is no longer met or when standardized improvement thresholds (for example, two or more standard deviations in multiple domains) are reached. The guide does not specify a graph or data-presentation format for the reassessment; send the updated treatment plan with measurable progress against each goal and the standardized scores the termination criteria are tested against.',
+        ],
+        cites: [{ title: 'Aetna — Applied behavior analysis medical necessity guide (©2026): Termination of coverage', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
       },
     ],
     collect: [
@@ -1294,7 +1302,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       { title: 'Physician or doctoral psychologist order', desc: 'For insured plans the mandate covers treatment prescribed or ordered by a licensed physician or licensed doctoral-level psychologist.' },
     ],
     sources: [
-      { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 11/26/2025)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+      { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
       { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
       { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026, 7244850-01-01)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
       { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
@@ -1399,7 +1407,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
         value: 'Not addressed in CPB 0554, CPB 0648 or the ABA medical necessity guide; same-time 97153/97155 billing is a coding-policy and contract question. The medical necessity guide and the provider manual also say nothing about ABA at the same time as speech or occupational therapy.',
         status: 'unverified',
         cites: [
-          { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 11/26/2025)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
           { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026, 7244850-01-01)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
           { title: 'Aetna provider manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
         ],
@@ -1441,6 +1449,8 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Aetna require graphs for ABA reassessments?', a: 'Aetna’s guide requires a progress evaluation every six months but does not prescribe graphs; send measurable progress against each goal and the standardized scores its termination criteria use.' },
+      { q: 'What is Aetna’s timely filing limit for ABA claims, and when does it pay?', a: 'Aetna publishes no numeric filing limit; it comes from your Aetna agreement or state law. COB, corrected and voided claims go through Availity; no weekly payment cutoff is published.' },
       { q: 'Does Aetna cover ABA therapy in Oklahoma?', a: 'Yes, for autism spectrum disorder under Aetna’s national policy, with precertification for every ABA code. Insured Oklahoma plans also carry Nick’s Law; self-funded employer plans follow their plan document.' },
       { q: 'Does Oklahoma’s autism mandate still cap ABA hours or age?', a: 'No. Since SB 1240 took effect on November 1, 2022, 36 O.S. § 6060.21 has no age window, no visit limits, and no ABA-specific hour or dollar cap; the old 25 hours a week and $25,000 a year cap is repealed.' },
       { q: 'What does Aetna pay for ABA in Oklahoma?', a: 'Commercial rates are negotiated in the participating-provider agreement and are not published. SoonerCare’s July 2026 fee schedule ($17.35 per unit of 97153, $23.55 for 97151, 97155 and 97156) is the public benchmark.' },
@@ -1549,10 +1559,19 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
         h2: 'What is Cigna’s timely filing limit for ABA claims?',
         body: [
           'Cigna’s timely filing policy, for claims submitted directly to Cigna: it will consider "Participating provider claims submitted three (3) months [90 days] after the date of service" and out-of-network claims submitted six months (180 days) after the date of service. The limit is longer where applicable law requires it or your provider agreement allows more time, and in coordination-of-benefits cases it runs from the processing date on the primary carrier’s EOB.',
+          'More of Evernorth’s filing rules (administrative guidelines, September 2026): for a secondary claim the 90 days run from "the primary payer’s processing date as stated on an explanation of benefits [EOB] or explanation of payment [EOP]," and the primary EOP goes in with the claim unless the COB data is sent electronically; Medicaid gets three years; a claim returned for more information gets a fresh 90 days from the date of the request. Corrected or replacement claims carry frequency code 7 (replace) or 8 (void) in box 22, not a "Corrected Claim" stamp, and no separate corrected-claim deadline is published. Evernorth publishes no weekly payment cycle or submission cutoff; it offers ERA and EFT "to help reduce your payment cycle."',
+          'Which codes: Evernorth’s autism resource guide (March 2025) says "All ABA services must be billed with CPT codes 97151–97158, 0362T, and 0373T ONLY," so state HCPCS ABA codes such as H0031, H0032, H2014 or H2019 are not billable to Cigna for ABA. The same guide says "All ABA CPT codes are covered telehealth services."',
         ],
-        cites: [
+        cites: [{ title: 'Cigna/Evernorth Autism Resource Guide (PCOMM-2025-225, March 2025): billing codes', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026): Claims filing deadline, Coordination of benefits, corrected claims, ERA, Appeals', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }, 
           { title: 'Cigna for Health Care Professionals — When to File (timely filing policy)', url: 'https://static.cigna.com/assets/chcp/resourceLibrary/clinicalReimbursementPayment/medicalClinicalReimburseWhenToFile.html' },
         ],
+      },
+      {
+        h2: 'What must a Cigna ABA reauthorization request contain, and are graphs required?',
+        body: [
+          'Evernorth’s EN0499 (effective May 15, 2026) sets what a continued-treatment request must show: an updated treatment plan covering current deficits and progress in every targeted area; "Quantitative baseline, interim and current data ... with dates reported from when the data were collected" for every behavior and skill, across all settings; current data collected "within no more than 60 days prior to the start date of the continued treatment request" and within 60 days before the request is received; data showing "ongoing and sustained progress"; and a reliable, valid, standardized assessment completed no more than one year before the continued-treatment start date. Where progress is not shown, the request must name the barriers and the protocol changes made. EN0499 asks for dated quantitative data, not for graphs as such; graphs are a common way to present it, but the policy does not require them.',
+        ],
+        cites: [{ title: 'Evernorth Coverage Policy EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026): Criteria for Continued Treatment with ABA', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
       },
     ],
     collect: [
@@ -1697,6 +1716,8 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Cigna require graphs for ABA reassessments?', a: 'Not graphs as such. EN0499 requires dated quantitative baseline, interim and current data (current data no more than 60 days old), an updated plan and a standardized assessment no more than a year old; graphs are a common way to show the data, but the policy does not require them.' },
+      { q: 'Does Cigna accept H0031 or H0032 for ABA?', a: 'CPT 97151–97158, 0362T and 0373T only; HCPCS H-codes such as H0031/H0032 are not billable for ABA (Evernorth autism resource guide).' },
       { q: 'Does Cigna cover ABA therapy in Oklahoma?', a: 'Yes, for a confirmed autism diagnosis under Evernorth EN0499. Insured Oklahoma plans also carry Nick’s Law (no age limit, no hour or dollar cap); self-funded plans follow their plan document.' },
       { q: 'Does the ABA assessment need prior authorization with Cigna?', a: 'No. 97151, 97152 and 0362T need no PA with an autism diagnosis when the provider is a BCBA or independently licensed and the plan covers ABA. Treatment does need the ABA prior authorization form.' },
       { q: 'Can ABA be delivered by telehealth under Cigna?', a: 'Yes. Evernorth’s autism resource guide says all ABA CPT codes are covered telehealth services.' },
@@ -1812,10 +1833,19 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
         h2: 'What is the timely filing limit for UnitedHealthcare ABA claims?',
         body: [
           'UnitedHealthcare commercial ABA runs through Optum Behavioral Health, whose National Provider Network Manual (effective 9/1/2026) says "All information necessary to process claims must be received by Optum no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan." Corrections are due within 90 days of the first claim’s receipt, and the member cannot be billed for a late claim. Clean claims are "Generally" paid within 45 calendar days. To dispute a decision, request reconsideration and then appeal; the two steps together must be filed within 12 months unless state law or your agreement sets a different deadline.',
+          'Optum’s National Network Manual (effective September 1, 2026) also sets the payment clock: claims with all required information and any required authorization "will be paid within 45 calendar days after Optum receives the claim, or as required by state and federal laws," which may exclude claims needing a coordination-of-benefits determination, and when Optum is secondary it pays up to the Optum contracted rate. UnitedHealthcare’s 2026 administrative guide adds that a corrected claim (frequency code 7, with the original claim number) must arrive within the same timely-filing limit as the original. No weekly payment cycle or submission cutoff is published.',
+          'Which codes: Optum’s commercial ABA reimbursement policy (2022RP501A, updated June 2026) lists the reimbursable codes for the commercial ABA program as 97151–97158, 0362T and 0373T, each in 15-minute units with a credential modifier (HM, HN, HO or HP); no HCPCS H-code (H0031, H0032, H2014, H2019) is on that list.',
         ],
-        cites: [
+        cites: [{ title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026): reimbursable codes', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial): Timely filing of corrected claims; Subrogation and COB', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, 
           { title: 'Optum Behavioral Health — National Provider Network Manual (published 7/1/2026, effective 9/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
         ],
+      },
+      {
+        h2: 'What must a UnitedHealthcare ABA reauthorization request contain, and are graphs required?',
+        body: [
+          'Optum’s ABA Supplemental Clinical Criteria (interim review April 2026) say that "With each clinical review for continued ABA treatment, the provider must submit updated documentation" showing progress "for each targeted symptom and behavior, including progress toward defined goals, including the same modes of measurement that were utilized for baseline measurement." Progress "should include rate and percentage of mastered programs, rates of mastered targets, change scores for any outcome measures, updated standardized adaptive measures, and change scores for skills-based assessments," with movement from baseline shown on validated, norm-referenced assessments and, where applicable, the caregiver’s own progress. Inadequate progress over six months calls for an analysis of the reasons and modified interventions, and the review looks at use below 80 percent of authorized hours over two weeks. The criteria do not require graphs as such.',
+        ],
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026): Continued Service Criteria', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
       },
     ],
     collect: [
@@ -1825,7 +1855,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       { title: 'Family availability', desc: 'Optum reviews utilization under 80% of authorized hours over two weeks. Set hours the family can actually keep.' },
       { title: 'School and IEP status', desc: 'Optum will not pay a 1:1 classroom aide or IDEA-covered services, but covers school coordination, teacher training and observation.' },
     ],
-    sources: [
+    sources: [{ title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial): Timely filing of corrected claims; Subrogation and COB', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, 
       { title: 'Optum ABA Supplemental Clinical Criteria BH803ABASCC (interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
       { title: 'Optum FAQ — Autism/ABA using CPT codes (BH00083-24)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
       { title: 'Optum Provider Express — Applied Behavior Analysis providers page (state list has no Oklahoma page)', url: 'https://public.providerexpress.com/content/ope-provexpr/us/en/clinical-resources/autismABA2.html' },
@@ -1976,6 +2006,8 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare require graphs for ABA reassessments?', a: 'Optum’s criteria require updated progress data in the same measures used at baseline (mastery rates, change scores, updated standardized adaptive measures) at every continued review; they do not require graphs as such.' },
+      { q: 'Does UnitedHealthcare accept H0031 or H0032 for ABA?', a: 'Optum’s commercial ABA reimbursement policy lists only CPT 97151–97158, 0362T and 0373T as reimbursable ABA codes, each with a credential modifier; no H-code (H0031, H0032, H2014, H2019) is on the list.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in Oklahoma?', a: 'Yes, for ASD under Optum’s ABA Supplemental Clinical Criteria, with prior authorization for assessment and treatment. Insured Oklahoma plans also carry Nick’s Law; self-funded plans follow their plan document.' },
       { q: 'Can I bill 97153 and 97155 at the same time with UnitedHealthcare?', a: 'Yes. Optum’s CPT FAQ allows concurrent billing of technician (97153) and supervisor (97155) time when supervision is provided.' },
       { q: 'How often does Optum review ABA treatment?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale.' },

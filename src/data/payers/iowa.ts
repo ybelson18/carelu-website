@@ -161,8 +161,9 @@ export const iowaPayers: Record<string, PayerConfig> = {
         h2: 'What is Iowa Medicaid’s timely filing limit?',
         body: [
           'For claims paid by Iowa Medicaid itself, 365 days: no payment is made when more than 365 days have passed between the date of service and the date the initial claim is received, except for retroactive eligibility (365 days from the first notice of eligibility) or third-party collection delays. Adjustments and resubmissions must arrive within 365 days of the claim’s last adjudication, and no claim is paid more than two years after the date of service (441 IAC 80.3). Members enrolled in an IA Health Link MCO follow that plan’s own filing limit (see the plan guides).',
+          'Federal rules bind Iowa Medicaid’s own fee-for-service payments: the agency "must pay 90 percent of all clean claims from practitioners, who are in individual or group practice or who practice in shared health facilities, within 30 days of the date of receipt" and 99 percent within 90 days, with the date of receipt being the agency’s date stamp and the date of payment the date of the check or other payment (42 CFR 447.45(d)(2), (3), (5), (6)). The same rule makes 12 months from the date of service the outer limit any state may allow for filing (42 CFR 447.45(d)(1)). Managed care plans are held to the same 90/99 percent clean-claim standard through their state contracts (42 CFR 447.46).',
         ],
-        cites: [
+        cites: [{ title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, { title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, 
           { title: 'Iowa Admin. Code 441—80.3 — Time limit for submission of claims (eff. 7/1/26)', url: 'https://www.legis.iowa.gov/docs/iac/chapter/441.80.pdf' },
         ],
       },
@@ -174,7 +175,7 @@ export const iowaPayers: Record<string, PayerConfig> = {
       { title: 'Other insurance', desc: 'Medicaid pays last. Iowa Total Care wants the primary payer\'s authorization decided first.' },
       { title: 'Supervising licensed behavior analyst', desc: 'RBT and LaBA services bill under the supervising LBA with the right HN/HO/HP modifier. Capture the supervision relationship at onboarding.' },
     ],
-    sources: [
+    sources: [{ title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, { title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, 
       { title: 'Iowa Admin. Code r. 441—77.31 — Behavioral health services providers (ARC 0314D, eff. 7/1/2026)', url: 'https://www.legis.iowa.gov/docs/iac/chapter/441.77.pdf' },
       { title: 'Iowa Admin. Code ch. 441—79 (rules 79.1, 79.3, 79.9; IAC 9/2/26)', url: 'https://www.legis.iowa.gov/docs/iac/chapter/441.79.pdf' },
       { title: 'Iowa Medicaid Outpatient Prior Authorization Form 470-5595 (Rev. 12/25)', url: 'https://hhs.iowa.gov/media/6157/download?inline' },
@@ -216,9 +217,9 @@ export const iowaPayers: Record<string, PayerConfig> = {
       },
       dailyLimits: {
         value:
-          'No state per-day or per-week ABA ceiling was found. The Type 62 fee schedule lists rates and modifiers but no unit limits, and chapter 78 carries no ABA section. Iowa Total Care caps planned treatment at six hours a day and 30 hours a week unless documentation justifies more (CP.BH.104).',
+          'No state per-day or per-week ABA ceiling was found. The Type 62 fee schedule lists rates and modifiers but no unit limits, and chapter 78 carries no ABA section. Iowa Total Care caps planned treatment at six hours a day and 30 hours a week unless documentation justifies more (CP.BH.104).' + ' Underneath the program rule sit federal claim edits, which are a different thing from the authorization: section 6507 of the Affordable Care Act requires state Medicaid programs to apply CMS’s Medicaid NCCI methodologies, including medically unlikely edits (MUEs), to fee-for-service claims (a state may ask CMS to deactivate an individual edit; for managed care plans it is optional). CMS’s published Medicaid MUE table for practitioner services, dates of service October 1 – December 31, 2026, sets the per-provider, per-member, per-day values at 97151 32 units, 97152 16, 97153 32, 97154 18, 97155 24, 97156 16, 97157 16, 97158 16, 0362T 16 and 0373T 32. Iowa Medicaid publishes no per-code edit of its own.',
         status: 'unverified',
-        cites: [
+        cites: [{ title: 'CMS — NCCI for Medicaid (ACA § 6507: states must apply compatible NCCI methodologies to Medicaid fee-for-service claims; optional for MCOs; deactivation requests)', url: 'https://www.cms.gov/medicare/coding-billing/ncci-medicaid' }, { title: 'CMS — Medicaid NCCI MUE edit file, practitioner services, effective October 1, 2026 (dates of service 10/1–12/31/2026)', url: 'https://www.cms.gov/medicare/coding-billing/ncci-medicaid/medicaid-ncci-edit-files' }, 
           { title: 'Iowa Medicaid fee schedule — Provider Type 62 Behavioral Health (CSV, read 9/24/2026)', url: 'https://secureapp.dhs.state.ia.us/MedicaidFeeSched/C62.csv' },
         ],
         verifyVia: 'Iowa Medicaid Informational Letter 1976 (ABA) and each MCO\'s authorization letter, which states the approved units.',
@@ -987,6 +988,13 @@ export const iowaPayers: Record<string, PayerConfig> = {
           { title: 'Molina Clinical Policy 482 — Applied Behavioral Analysis for ASD (approved 6/10/2026)', url: 'https://www.molinaclinicalpolicy.com/molinaclinicalpolicy/-/media/Molina/PublicWebsite/PDF/Common/Molina-Clinical-Policy/Applied-Behavioral-Analysis-for-Autism-Spectrum-Disorder_R.ashx' },
         ],
       },
+      {
+        h2: 'Claim filing and payment rules at Molina',
+        body: [
+          'Federal Medicaid rules set the payment floor for every managed care plan: a state’s contract with an MCO "must provide that the organization will meet the requirements of § 447.45(d)(2) and (d)(3)" (42 CFR 447.46) — pay 90 percent of clean claims from practitioners within 30 days of receipt and 99 percent within 90 days — unless the plan and the provider agree in writing to an alternative schedule stipulated in the contract. A "clean claim" is one that "can be processed without obtaining additional information from the provider of the service or from a third party" (42 CFR 447.45(b)). Molina Iowa’s own timely-filing, corrected-claim and secondary-claim limits sit in its provider manual, which could not be retrieved for this guide (molinahealthcare.com returns a "Page Not Found" page to automated requests); take them from your agreement or Provider Services.',
+        ],
+        cites: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }],
+      },
     ],
     collect: [
       { title: 'PCP developmental-concern documentation', desc: 'MCP 482 wants the PCP\'s record of early concerns, screenings and referrals in the packet.' },
@@ -994,7 +1002,7 @@ export const iowaPayers: Record<string, PayerConfig> = {
       { title: 'Current-quarter PA code list', desc: 'Molina updates the PA Codification List quarterly. Check the ABA codes before each submission.' },
       { title: 'Medicaid line vs. Hawki', desc: 'ABA is not a Hawki benefit.' },
     ],
-    sources: [
+    sources: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, 
       { title: 'Molina Clinical Policy 482 — Applied Behavioral Analysis for ASD (approved 6/10/2026)', url: 'https://www.molinaclinicalpolicy.com/molinaclinicalpolicy/-/media/Molina/PublicWebsite/PDF/Common/Molina-Clinical-Policy/Applied-Behavioral-Analysis-for-Autism-Spectrum-Disorder_R.ashx' },
       { title: 'Molina Healthcare of Iowa — Medicaid 2026 Provider Manual', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/ia/2026-Medicaid/News-and-Updates-Page/MHIA-Medicaid-Provider-Manual-2026.ashx' },
       { title: 'Molina Healthcare of Iowa — Authorizations (Medicaid)', url: 'https://www.molinahealthcare.com/providers/ia/medicaid/claims/priorauth.aspx' },
@@ -1123,6 +1131,7 @@ export const iowaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'How fast must Molina Iowa pay a clean ABA claim?', a: 'Its state contract must hold it to the federal Medicaid standard: 90% of clean practitioner claims paid within 30 days of receipt and 99% within 90 days (42 CFR 447.46, 447.45), unless the provider contract sets an alternative schedule. Its own filing limit comes from the provider manual or your agreement.' },
       { q: 'Does Molina Healthcare of Iowa cover ABA therapy?', a: 'Yes for IA Health Link Medicaid and Iowa Health and Wellness Plan members; its 2026 manual lists behavioral health intervention services including applied behavior analysis as covered. Not for Hawki members.' },
       { q: 'What criteria does Molina use for ABA in Iowa?', a: 'Molina Clinical Policy 482 (approved June 10, 2026): start age 18 months or older, a DSM-5 diagnosis by a multidisciplinary team with at least one validated tool, PCP documentation, BCBA-developed plan, reassessment every six months, and extra review above 25 direct hours a week. Iowa Medicaid rules take precedence where they differ.' },
       { q: 'How do I submit a prior authorization to Molina Healthcare of Iowa?', a: 'Through Availity Essentials (encouraged) or by fax to the Molina Iowa UM line (877) 319-6828. Standard decisions come within seven calendar days of a complete request.' },
@@ -1523,6 +1532,7 @@ export const iowaPayers: Record<string, PayerConfig> = {
         h2: 'Claims: filing deadline and disputes',
         body: [
           'Aetna’s national provider manual (edition 6/26) publishes no numeric filing limit: it defines a clean claim as one “received in a timely manner,” so the operative deadline is the one in your Aetna agreement. Claim disputes go through Availity — the claim must be in Finalized status, then “Dispute Claim” from the Claim Status transaction — and Aetna runs one level of provider appeal for payment decisions; medical-necessity appeals go through the member appeal process.',
+          'On the claim mechanics the same manual says a clean claim "Doesn’t involve coordination of benefits," and that COB, corrected and voided claims can all be submitted through Availity at no charge; it sets no separate deadline for corrected or secondary claims and publishes no weekly payment cycle or submission cutoff.',
         ],
         cites: [
           { title: 'Aetna Provider Manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
@@ -1537,6 +1547,13 @@ export const iowaPayers: Record<string, PayerConfig> = {
           { title: 'Iowa Code § 507B.4A (2026) — Prompt payment of claims', url: 'https://www.legis.iowa.gov/docs/code/507B.4A.pdf' },
           { title: 'Iowa Admin. Code 191—15.32 — Prompt payment of certain health claims', url: 'https://www.legis.iowa.gov/docs/iac/chapter/191.15.pdf' },
         ],
+      },
+      {
+        h2: 'What must an Aetna ABA reauthorization request contain, and are graphs required?',
+        body: [
+          'Aetna’s ABA medical necessity guide (©2026) says "A member\'s progress is to be evaluated every six months," and a member not making progress "will be transitioned to other appropriate services"; coverage ends when medical necessity is no longer met or when standardized improvement thresholds (for example, two or more standard deviations in multiple domains) are reached. The guide does not specify a graph or data-presentation format for the reassessment; send the updated treatment plan with measurable progress against each goal and the standardized scores the termination criteria are tested against.',
+        ],
+        cites: [{ title: 'Aetna — Applied behavior analysis medical necessity guide (©2026): Termination of coverage', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
       },
     ],
     collect: [
@@ -1683,6 +1700,7 @@ export const iowaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Aetna require graphs for ABA reassessments?', a: 'Aetna’s guide requires a progress evaluation every six months but does not prescribe graphs; send measurable progress against each goal and the standardized scores its termination criteria use.' },
       { q: 'Does Aetna cover ABA therapy in Iowa?', a: 'Yes, for autism under Aetna\'s national criteria, with precertification for every ABA code. Large-group and public-employee plans must cover ABA under Iowa Code § 514C.31 or § 514C.28; individual, small-group and self-funded plans follow their plan documents.' },
       { q: 'Does the Iowa autism mandate cap ABA hours or dollars?', a: 'Not for plans issued or renewed on or after January 1, 2026: H.F. 330 removed the age limits and the age-banded dollar maximums, and visit limits were already barred. Medical necessity still sets the hours.' },
       { q: 'What does Aetna pay for ABA in Iowa?', a: 'Commercial rates are negotiated in your participation agreement and not published. Iowa Medicaid\'s fee schedule ($28.59 per 15 minutes for 97153 by a BCBA; $17.16 by a technician) is a public benchmark.' },
@@ -1799,8 +1817,10 @@ export const iowaPayers: Record<string, PayerConfig> = {
         h2: 'Claims: filing deadline and disputes',
         body: [
           'Cigna’s behavioral benefits, ABA included, are administered by Evernorth Behavioral Health, whose administrative guidelines (revised September 2026) “will only consider claims submitted within 90 days of the date of service or as otherwise defined in your Provider Agreement” — a longer state-law limit overrides it, the clock resets to the date Cigna asks for more information, and Medicaid-secondary claims get three years. Appeals must be started in writing within 180 calendar days of the payment or denial decision.',
+          'More of Evernorth’s filing rules (administrative guidelines, September 2026): for a secondary claim the 90 days run from "the primary payer’s processing date as stated on an explanation of benefits [EOB] or explanation of payment [EOP]," and the primary EOP goes in with the claim unless the COB data is sent electronically; Medicaid gets three years; a claim returned for more information gets a fresh 90 days from the date of the request. Corrected or replacement claims carry frequency code 7 (replace) or 8 (void) in box 22, not a "Corrected Claim" stamp, and no separate corrected-claim deadline is published. Evernorth publishes no weekly payment cycle or submission cutoff; it offers ERA and EFT "to help reduce your payment cycle."',
+          'Which codes: Evernorth’s autism resource guide (March 2025) says "All ABA services must be billed with CPT codes 97151–97158, 0362T, and 0373T ONLY," so state HCPCS ABA codes such as H0031, H0032, H2014 or H2019 are not billable to Cigna for ABA. The same guide says "All ABA CPT codes are covered telehealth services."',
         ],
-        cites: [
+        cites: [{ title: 'Cigna/Evernorth Autism Resource Guide (PCOMM-2025-225, March 2025): billing codes', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, 
           { title: 'Evernorth Behavioral Health Administrative Guidelines (rev. Sept. 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
         ],
       },
@@ -1813,6 +1833,13 @@ export const iowaPayers: Record<string, PayerConfig> = {
           { title: 'Iowa Code § 507B.4A (2026) — Prompt payment of claims', url: 'https://www.legis.iowa.gov/docs/code/507B.4A.pdf' },
           { title: 'Iowa Admin. Code 191—15.32 — Prompt payment of certain health claims', url: 'https://www.legis.iowa.gov/docs/iac/chapter/191.15.pdf' },
         ],
+      },
+      {
+        h2: 'What must a Cigna ABA reauthorization request contain, and are graphs required?',
+        body: [
+          'Evernorth’s EN0499 (effective May 15, 2026) sets what a continued-treatment request must show: an updated treatment plan covering current deficits and progress in every targeted area; "Quantitative baseline, interim and current data ... with dates reported from when the data were collected" for every behavior and skill, across all settings; current data collected "within no more than 60 days prior to the start date of the continued treatment request" and within 60 days before the request is received; data showing "ongoing and sustained progress"; and a reliable, valid, standardized assessment completed no more than one year before the continued-treatment start date. Where progress is not shown, the request must name the barriers and the protocol changes made. EN0499 asks for dated quantitative data, not for graphs as such; graphs are a common way to present it, but the policy does not require them.',
+        ],
+        cites: [{ title: 'Evernorth Coverage Policy EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026): Criteria for Continued Treatment with ABA', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
       },
     ],
     collect: [
@@ -1948,6 +1975,8 @@ export const iowaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Cigna require graphs for ABA reassessments?', a: 'Not graphs as such. EN0499 requires dated quantitative baseline, interim and current data (current data no more than 60 days old), an updated plan and a standardized assessment no more than a year old; graphs are a common way to show the data, but the policy does not require them.' },
+      { q: 'Does Cigna accept H0031 or H0032 for ABA?', a: 'CPT 97151–97158, 0362T and 0373T only; HCPCS H-codes such as H0031/H0032 are not billable for ABA (Evernorth autism resource guide).' },
       { q: 'Does Cigna cover ABA therapy in Iowa?', a: 'Yes, for autism under Evernorth/Cigna coverage policy EN0499. Large-group and public-employee plans must cover ABA under Iowa\'s mandate; individual, small-group and self-funded plans follow their plan documents.' },
       { q: 'Does the ABA assessment need prior authorization with Cigna?', a: 'No. Evernorth no longer requires PA for 97151, 97152 or 0362T with an autism diagnosis when the provider is independently licensed or a BCBA and the plan covers ABA. Treatment needs the ABA Prior Authorization Form.' },
       { q: 'How much supervision does Cigna expect?', a: 'One to two hours of case supervision per ten hours of direct treatment, and at least one to two hours a week when direct treatment is ten hours or less.' },
@@ -2061,8 +2090,10 @@ export const iowaPayers: Record<string, PayerConfig> = {
         h2: 'Claims: filing deadline and disputes',
         body: [
           'UnitedHealthcare’s ABA benefit is managed by Optum Behavioral Health, whose National Network Manual (effective September 1, 2026) requires everything needed to process a claim to reach Optum “no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan,” with corrections within 90 days of first receipt. Clean, authorized claims are “generally” paid within 45 calendar days of receipt or as state or federal law requires. Disputes run in two steps — reconsideration, then appeal — with 12 months in total for both unless state law or your participation agreement sets a different deadline.',
+          'Optum’s National Network Manual (effective September 1, 2026) also sets the payment clock: claims with all required information and any required authorization "will be paid within 45 calendar days after Optum receives the claim, or as required by state and federal laws," which may exclude claims needing a coordination-of-benefits determination, and when Optum is secondary it pays up to the Optum contracted rate. UnitedHealthcare’s 2026 administrative guide adds that a corrected claim (frequency code 7, with the original claim number) must arrive within the same timely-filing limit as the original. No weekly payment cycle or submission cutoff is published.',
+          'Which codes: Optum’s commercial ABA reimbursement policy (2022RP501A, updated June 2026) lists the reimbursable codes for the commercial ABA program as 97151–97158, 0362T and 0373T, each in 15-minute units with a credential modifier (HM, HN, HO or HP); no HCPCS H-code (H0031, H0032, H2014, H2019) is on that list.',
         ],
-        cites: [
+        cites: [{ title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026): reimbursable codes', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial): Timely filing of corrected claims; Subrogation and COB', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, 
           { title: 'Optum Behavioral Health National Network Manual (published July 1, 2026; effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
         ],
       },
@@ -2075,6 +2106,13 @@ export const iowaPayers: Record<string, PayerConfig> = {
           { title: 'Iowa Code § 507B.4A (2026) — Prompt payment of claims', url: 'https://www.legis.iowa.gov/docs/code/507B.4A.pdf' },
           { title: 'Iowa Admin. Code 191—15.32 — Prompt payment of certain health claims', url: 'https://www.legis.iowa.gov/docs/iac/chapter/191.15.pdf' },
         ],
+      },
+      {
+        h2: 'What must a UnitedHealthcare ABA reauthorization request contain, and are graphs required?',
+        body: [
+          'Optum’s ABA Supplemental Clinical Criteria (interim review April 2026) say that "With each clinical review for continued ABA treatment, the provider must submit updated documentation" showing progress "for each targeted symptom and behavior, including progress toward defined goals, including the same modes of measurement that were utilized for baseline measurement." Progress "should include rate and percentage of mastered programs, rates of mastered targets, change scores for any outcome measures, updated standardized adaptive measures, and change scores for skills-based assessments," with movement from baseline shown on validated, norm-referenced assessments and, where applicable, the caregiver’s own progress. Inadequate progress over six months calls for an analysis of the reasons and modified interventions, and the review looks at use below 80 percent of authorized hours over two weeks. The criteria do not require graphs as such.',
+        ],
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026): Continued Service Criteria', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
       },
     ],
     collect: [
@@ -2219,6 +2257,8 @@ export const iowaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare require graphs for ABA reassessments?', a: 'Optum’s criteria require updated progress data in the same measures used at baseline (mastery rates, change scores, updated standardized adaptive measures) at every continued review; they do not require graphs as such.' },
+      { q: 'Does UnitedHealthcare accept H0031 or H0032 for ABA?', a: 'Optum’s commercial ABA reimbursement policy lists only CPT 97151–97158, 0362T and 0373T as reimbursable ABA codes, each with a credential modifier; no H-code (H0031, H0032, H2014, H2019) is on the list.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in Iowa?', a: 'Yes, for autism under Optum\'s ABA criteria, with prior authorization. Large-group and public-employee plans must cover ABA under Iowa\'s mandate; individual, small-group and self-funded plans follow their plan documents.' },
       { q: 'Can ABA be delivered by telehealth with UnitedHealthcare?', a: 'Only supervision (97155) and caregiver training (97156), billed with POS 02, and only after the provider completes Optum\'s virtual-visits attestation.' },
       { q: 'How many hours a day of 97153 will Optum pay?', a: 'Up to 32 units (8 hours) a day under the commercial ABA reimbursement policy; claims above that may be denied or recovered.' },

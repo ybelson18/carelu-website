@@ -210,8 +210,10 @@ export const oregonPayers: Record<string, PayerConfig> = {
         h2: 'Claims operations: timely filing, payment and other insurance',
         body: [
           'Open-card claims "must be filed within 12 months of the date of service," and a denied claim filed on time may be resubmitted within 18 months (OAR 410-120-1300). CCO claims run on a shorter clock: OAR 410-141-3565 sets initial claims "within no more than 120 days of the date of service" (365 days for exceptions including retroactive eligibility, Medicare as primary and third-party liability) and requires CCOs to "pay or deny at least 90 percent of valid claims within 30 days of receipt and at least 99 percent of valid claims within 90 days of receipt." A provider enrolled with OHA bills under its OHA provider number or NPI, and using a billing provider does not relieve "the performing provider’s responsibility for the truth and accuracy of submitted information" (OAR 410-120-1280). We did not find an OHA statement applying electronic visit verification to ABA; ask OHA Provider Services (800-336-6016).',
+          'For CCO claims the same rule requires each CCO to allow corrections and resubmissions of a timely claim for "a minimum of 180 days after the initial adjudication date," and bars a CCO from requiring providers "to delay claims submission." That rule publishes no weekly payment cycle or submission cutoff.',
+          'Federal rules bind OHA’s own fee-for-service payments: the agency "must pay 90 percent of all clean claims from practitioners, who are in individual or group practice or who practice in shared health facilities, within 30 days of the date of receipt" and 99 percent within 90 days, with the date of receipt being the agency’s date stamp and the date of payment the date of the check or other payment (42 CFR 447.45(d)(2), (3), (5), (6)). The same rule makes 12 months from the date of service the outer limit any state may allow for filing (42 CFR 447.45(d)(1)). Managed care plans are held to the same 90/99 percent clean-claim standard through their state contracts (42 CFR 447.46).',
         ],
-        cites: [S.oar1300, S.oar3565, S.oar1280, S.fee],
+        cites: [{ title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, { title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.oar1300, S.oar3565, S.oar1280, S.fee],
       },
       {
         h2: 'Does OHP require a referring provider on the ABA claim?',
@@ -232,7 +234,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       { title: 'Physical exam + hearing test', desc: 'Well-child exam within 1 year (ages 1–6) or 2 years (6–18); hearing test within 1 year (2–5) or 2 years (6–18). Needed before ABA starts.' },
       { title: 'Other insurance', desc: 'Commercial coverage pays first; OHP is the payer of last resort.' },
     ],
-    sources: [S.oar0760, S.oar0770, S.oar0650, S.oar0620, S.oar0850, S.fee, S.feePage, S.gn, S.herc, S.epsdt, S.acentra, S.policyBHS, S.plans, S.lane, S.oar3835, S.oar3565, S.oar1300, S.oar1280, S.ors676, S.oar824lic, S.oar824sup, S.oar824def, S.hlo, S.bacbLic, S.cfr440, S.cfr438, S.cfr433, { title: 'OAR 410-120-1260 — Provider Enrollment (OHA; DMAP 34-2024, eff. 01/18/2024)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-120-1260' }],
+    sources: [{ title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, { title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.oar0760, S.oar0770, S.oar0650, S.oar0620, S.oar0850, S.fee, S.feePage, S.gn, S.herc, S.epsdt, S.acentra, S.policyBHS, S.plans, S.lane, S.oar3835, S.oar3565, S.oar1300, S.oar1280, S.ors676, S.oar824lic, S.oar824sup, S.oar824def, S.hlo, S.bacbLic, S.cfr440, S.cfr438, S.cfr433, { title: 'OAR 410-120-1260 — Provider Enrollment (OHA; DMAP 34-2024, eff. 01/18/2024)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-120-1260' }],
     deliveryRules: {
       supervision: {
         value: STATE_SUPERVISION,
@@ -247,9 +249,9 @@ export const oregonPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       dailyLimits: {
-        value: 'No unit or hour cap is published: the fee schedule has no maximum-units column for ABA. Guideline Note 75 says "The evidence does not lead to a direct determination of optimal intensity" (EIBI studies ranged 15–40 hours a week; effective less-intensive interventions usually ran up to 16 hours a week), and OAR 410-172-0770(3) requires services beyond the guideline note when medically appropriate. Hours are set per authorization.',
+        value: 'No unit or hour cap is published: the fee schedule has no maximum-units column for ABA. Guideline Note 75 says "The evidence does not lead to a direct determination of optimal intensity" (EIBI studies ranged 15–40 hours a week; effective less-intensive interventions usually ran up to 16 hours a week), and OAR 410-172-0770(3) requires services beyond the guideline note when medically appropriate. Hours are set per authorization.' + ' Underneath the program rule sit federal claim edits, which are a different thing from the authorization: section 6507 of the Affordable Care Act requires state Medicaid programs to apply CMS’s Medicaid NCCI methodologies, including medically unlikely edits (MUEs), to fee-for-service claims (a state may ask CMS to deactivate an individual edit; for managed care plans it is optional). CMS’s published Medicaid MUE table for practitioner services, dates of service October 1 – December 31, 2026, sets the per-provider, per-member, per-day values at 97151 32 units, 97152 16, 97153 32, 97154 18, 97155 24, 97156 16, 97157 16, 97158 16, 0362T 16 and 0373T 32. OHA publishes no per-code edit of its own; the authorization sets the units.',
         status: 'verified',
-        cites: [S.fee, S.gn, S.oar0770],
+        cites: [{ title: 'CMS — NCCI for Medicaid (ACA § 6507: states must apply compatible NCCI methodologies to Medicaid fee-for-service claims; optional for MCOs; deactivation requests)', url: 'https://www.cms.gov/medicare/coding-billing/ncci-medicaid' }, { title: 'CMS — Medicaid NCCI MUE edit file, practitioner services, effective October 1, 2026 (dates of service 10/1–12/31/2026)', url: 'https://www.cms.gov/medicare/coding-billing/ncci-medicaid/medicaid-ncci-edit-files' }, S.fee, S.gn, S.oar0770],
       },
       noteSignature: {
         value: 'OAR 410-172-0620(4): "The record shall be annotated each time a service is provided and be signed or initialed by the individual providing the service." Records must show the service, its extent, the dates and "the individual who provided the service." The rule sets no signing deadline.',
@@ -379,8 +381,9 @@ export const oregonPayers: Record<string, PayerConfig> = {
         h2: 'Claims and other insurance',
         body: [
           'CareOregon requires valid behavioral health claims "within 120 calendar days of the date of service," with exceptions for retroactive eligibility and when Medicare or another third party is primary. Medicaid is the payer of last resort: providers "must bill all other insurance resources before billing Medicaid." The OHP rates and licensure rules in the Oregon Health Plan guide apply; Health Share and CareOregon contract their own rates.',
+          'OAR 410-141-3565 adds two rules every CCO must follow: a timely claim that needs correction or resubmission gets "a minimum of 180 days after the initial adjudication date," and the CCO "shall pay or deny at least 90 percent of valid claims within 30 days of receipt and at least 99 percent of valid claims within 90 days of receipt." No weekly payment cycle or submission cutoff is published.',
         ],
-        cites: [S.coBHPM, S.oar3565],
+        cites: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.coBHPM, S.oar3565],
       },
     ],
     collect: [
@@ -390,7 +393,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       { title: 'School and other services', desc: 'IEP / Early Intervention, speech and OT hours, and any prior ABA providers.' },
       { title: 'Other insurance', desc: 'Bill commercial coverage first; Medicaid is the payer of last resort.' },
     ],
-    sources: [S.coUM, S.coBHPM, S.hsBH, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, S.gn],
+    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.coUM, S.coBHPM, S.hsBH, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, S.gn],
     deliveryRules: {
       supervision: {
         value: 'CareOregon’s handbook and manual publish no ABA supervision ratio of their own, so the state rule applies. ' + STATE_SUPERVISION,
@@ -534,6 +537,13 @@ export const oregonPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.trilAuth, S.trilPM, S.oar3565],
       },
+      {
+        h2: 'Claim filing and payment rules for Trillium',
+        body: [
+          'OHA’s managed-care billing rule binds every CCO, Trillium included (OAR 410-141-3565, effective January 1, 2025). Initial claims are due "within no more than 120 days of the date of service," or within 365 days for pregnancy, retroactive eligibility, Medicare as primary payer, third-party liability and other delays not caused by the provider; a CCO "may negotiate terms within this timeframe," so your contract can set a shorter limit but not a longer one. For a timely claim that needs correction or resubmission, the CCO must allow "a minimum of 180 days after the initial adjudication date." Other insurance "must be exhausted prior to payment." On payment, CCOs "shall pay or deny at least 90 percent of valid claims within 30 days of receipt and at least 99 percent of valid claims within 90 days of receipt," make an initial determination on 99 percent within 60 days, and "may not require providers to delay claims submission." The rule sets no weekly payment cycle or submission cutoff. Trillium’s 2026 provider manual adds its own clock for fixes: "All corrected claims, requests for redetermination, or claim disputes must be received within 180 calendar days from the date of the Explanation of Payment (EOP)," and Trillium finalizes them within 45 business days of receipt. The manual points to the separate Trillium OHP Billing Guide for initial-claim instructions, which was not read for this guide.',
+        ],
+        cites: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, { title: 'Trillium Community Health Plan — Provider Manual 2026 (Requests for Redetermination)', url: 'https://www.trilliumohp.com/content/dam/centene/trillium/ProviderResources/ProviderManuals/ProviderManual%202026_FINAL_R.pdf' }],
+      },
     ],
     collect: [
       { title: 'Member ID', desc: 'Confirm Trillium on the date of service; Lane members moved from PacificSource on 2/1/2026.' },
@@ -542,7 +552,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       { title: 'Caregiver sign-off', desc: 'Parent signature showing participation in and understanding of the plan.' },
       { title: 'Other insurance', desc: 'Bill commercial coverage first; OHP is the payer of last resort.' },
     ],
-    sources: [S.trilAuth, S.trilTip, S.trilPM, S.trilRes, S.plans, S.lane, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt],
+    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, { title: 'Trillium Community Health Plan — Provider Manual 2026 (Requests for Redetermination)', url: 'https://www.trilliumohp.com/content/dam/centene/trillium/ProviderResources/ProviderManuals/ProviderManual%202026_FINAL_R.pdf' }, S.trilAuth, S.trilTip, S.trilPM, S.trilRes, S.plans, S.lane, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt],
     deliveryRules: {
       supervision: {
         value: 'Trillium’s ABA checklist and handbook publish no supervision ratio, so the state rule applies. ' + STATE_SUPERVISION,
@@ -622,6 +632,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'What is Trillium’s timely filing limit for ABA claims?', a: '120 days from the date of service under OAR 410-141-3565 (365 days for exceptions such as retroactive eligibility, Medicare or other insurance primary); your contract may set a shorter limit. Corrections and resubmissions get at least 180 days from the initial adjudication. Trillium’s manual allows corrected claims within 180 calendar days of the EOP.' },
       { q: 'Does Trillium cover ABA for OHP members in Lane County?', a: 'Yes. Trillium is the CCO for Lane County; most former PacificSource Lane members moved to Trillium on February 1, 2026.' },
       { q: 'What does Trillium need for an initial ABA request?', a: 'Its ABA checklist: diagnostic evaluation and recommendation, history, prior services, codes and dates, weekly schedule, assessment data, measurable goals, FBA/BIP for reduction targets, caregiver goals, crisis, generalization and transition plans, and parent and provider signatures.' },
       { q: 'How long does Trillium have to decide an ABA authorization?', a: '7 calendar days for standard requests and 72 hours for urgent ones, with one possible 14-day extension.' },
@@ -675,6 +686,13 @@ export const oregonPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.psABA, S.psNews],
       },
+      {
+        h2: 'Claim filing and payment rules for PacificSource Community Solutions',
+        body: [
+          'OHA’s managed-care billing rule binds every CCO, PacificSource Community Solutions included (OAR 410-141-3565, effective January 1, 2025). Initial claims are due "within no more than 120 days of the date of service," or within 365 days for pregnancy, retroactive eligibility, Medicare as primary payer, third-party liability and other delays not caused by the provider; a CCO "may negotiate terms within this timeframe," so your contract can set a shorter limit but not a longer one. For a timely claim that needs correction or resubmission, the CCO must allow "a minimum of 180 days after the initial adjudication date." Other insurance "must be exhausted prior to payment." On payment, CCOs "shall pay or deny at least 90 percent of valid claims within 30 days of receipt and at least 99 percent of valid claims within 90 days of receipt," make an initial determination on 99 percent within 60 days, and "may not require providers to delay claims submission." The rule sets no weekly payment cycle or submission cutoff.',
+        ],
+        cites: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }],
+      },
     ],
     collect: [
       { title: 'Member ID and region', desc: 'Confirm PacificSource Community Solutions (Central Oregon, Columbia Gorge or Marion-Polk). Lane members are now with Trillium.' },
@@ -683,7 +701,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       { title: 'Treatment plan with functional assessment', desc: 'From an Oregon-licensed behavior analyst or other qualified licensee; requested in up to six-month increments.' },
       { title: 'Other insurance', desc: 'Bill commercial coverage first; OHP is the payer of last resort.' },
     ],
-    sources: [S.psABA, S.psNews, S.plans, S.lane, S.oar0760, S.oar0770, S.oar0650, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, S.gn],
+    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.psABA, S.psNews, S.plans, S.lane, S.oar0760, S.oar0770, S.oar0650, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, S.gn],
     deliveryRules: {
       supervision: {
         value: 'PacificSource’s commercial criteria require treatment "supervised and managed by a Board-Certified Behavior Analyst (BCBA)"; its Medicaid section adds no ratio, so the OHP rule applies. ' + STATE_SUPERVISION,
@@ -763,6 +781,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'What is PacificSource Community Solutions’s timely filing limit for ABA claims?', a: '120 days from the date of service under OAR 410-141-3565 (365 days for exceptions such as retroactive eligibility, Medicare or other insurance primary); your contract may set a shorter limit. Corrections and resubmissions get at least 180 days from the initial adjudication.' },
       { q: 'Does PacificSource Community Solutions require prior authorization for the ABA assessment?', a: 'Not if 97151 is billed for 32 units (8 hours) or fewer. Above 32 units it needs PA and MD review.' },
       { q: 'How long are PacificSource ABA authorizations?', a: 'Requests can be made in increments of up to six months.' },
       { q: 'Does PacificSource still cover OHP members in Lane County?', a: 'No. PacificSource did not renew its Lane County CCO contract after 2025; most Lane members moved to Trillium on February 1, 2026.' },
@@ -815,6 +834,13 @@ export const oregonPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.coUM, S.jccForms, S.abaForm, S.oar3835],
       },
+      {
+        h2: 'Claim filing and payment rules for Jackson Care Connect',
+        body: [
+          'OHA’s managed-care billing rule binds every CCO, Jackson Care Connect included (OAR 410-141-3565, effective January 1, 2025). Initial claims are due "within no more than 120 days of the date of service," or within 365 days for pregnancy, retroactive eligibility, Medicare as primary payer, third-party liability and other delays not caused by the provider; a CCO "may negotiate terms within this timeframe," so your contract can set a shorter limit but not a longer one. For a timely claim that needs correction or resubmission, the CCO must allow "a minimum of 180 days after the initial adjudication date." Other insurance "must be exhausted prior to payment." On payment, CCOs "shall pay or deny at least 90 percent of valid claims within 30 days of receipt and at least 99 percent of valid claims within 90 days of receipt," make an initial determination on 99 percent within 60 days, and "may not require providers to delay claims submission." The rule sets no weekly payment cycle or submission cutoff.',
+        ],
+        cites: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }],
+      },
     ],
     collect: [
       { title: 'Member ID', desc: 'Confirm Jackson Care Connect (AllCare CCO also serves Jackson County).' },
@@ -823,7 +849,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       { title: 'Age and hours', desc: 'Age 13+ or more than 25 hours a week triggers Medical Director review.' },
       { title: 'Other insurance', desc: 'Bill commercial coverage first; OHP is the payer of last resort.' },
     ],
-    sources: [S.coUM, S.jccForms, S.abaForm, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt],
+    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.coUM, S.jccForms, S.abaForm, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt],
     deliveryRules: {
       supervision: {
         value: 'CareOregon publishes no ABA supervision ratio, so the state rule applies. ' + STATE_SUPERVISION,
@@ -903,6 +929,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'What is Jackson Care Connect’s timely filing limit for ABA claims?', a: '120 days from the date of service under OAR 410-141-3565 (365 days for exceptions such as retroactive eligibility, Medicare or other insurance primary); your contract may set a shorter limit. Corrections and resubmissions get at least 180 days from the initial adjudication.' },
       { q: 'Does Jackson Care Connect require prior authorization for the ABA assessment?', a: 'Submit an authorization through CareOregon Connect, but CareOregon approves JCC assessment requests without requiring clinical documentation.' },
       { q: 'How fast does JCC decide an ABA request?', a: 'CareOregon’s July 2026 handbook sets 7 calendar days for standard requests and 72 hours for expedited ones. The older JCC ABA form’s 14-day figure is out of date.' },
       { q: 'Who reviews JCC ABA requests for teenagers?', a: 'A CareOregon Medical Director reviews requests for members 13 or older and requests above 25 hours a week.' },
@@ -955,6 +982,13 @@ export const oregonPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.coUM, S.cpForms, S.abaForm, S.oar3835],
       },
+      {
+        h2: 'Claim filing and payment rules for Columbia Pacific CCO',
+        body: [
+          'OHA’s managed-care billing rule binds every CCO, Columbia Pacific CCO included (OAR 410-141-3565, effective January 1, 2025). Initial claims are due "within no more than 120 days of the date of service," or within 365 days for pregnancy, retroactive eligibility, Medicare as primary payer, third-party liability and other delays not caused by the provider; a CCO "may negotiate terms within this timeframe," so your contract can set a shorter limit but not a longer one. For a timely claim that needs correction or resubmission, the CCO must allow "a minimum of 180 days after the initial adjudication date." Other insurance "must be exhausted prior to payment." On payment, CCOs "shall pay or deny at least 90 percent of valid claims within 30 days of receipt and at least 99 percent of valid claims within 90 days of receipt," make an initial determination on 99 percent within 60 days, and "may not require providers to delay claims submission." The rule sets no weekly payment cycle or submission cutoff.',
+        ],
+        cites: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }],
+      },
     ],
     collect: [
       { title: 'Member ID', desc: 'Confirm Columbia Pacific CCO on the date of service.' },
@@ -963,7 +997,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       { title: 'Age and hours', desc: 'Age 13+ or more than 25 hours a week triggers Medical Director review.' },
       { title: 'Other insurance', desc: 'Bill commercial coverage first; OHP is the payer of last resort.' },
     ],
-    sources: [S.coUM, S.cpForms, S.abaForm, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt],
+    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.coUM, S.cpForms, S.abaForm, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt],
     deliveryRules: {
       supervision: {
         value: 'CareOregon publishes no ABA supervision ratio, so the state rule applies. ' + STATE_SUPERVISION,
@@ -1043,6 +1077,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'What is Columbia Pacific CCO’s timely filing limit for ABA claims?', a: '120 days from the date of service under OAR 410-141-3565 (365 days for exceptions such as retroactive eligibility, Medicare or other insurance primary); your contract may set a shorter limit. Corrections and resubmissions get at least 180 days from the initial adjudication.' },
       { q: 'Does Columbia Pacific CCO require prior authorization for the ABA assessment?', a: 'Submit an authorization through CareOregon Connect; CareOregon approves CPCCO assessment requests without requiring clinical documentation.' },
       { q: 'Who handles Columbia Pacific ABA authorizations?', a: 'CareOregon’s behavioral health utilization management team (503-416-3404).' },
     ],
@@ -1094,6 +1129,13 @@ export const oregonPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.ihnPAL, S.ihnCodes, S.ihnUM, S.oar3835, S.ihnBH, S.fee],
       },
+      {
+        h2: 'Claim filing and payment rules for IHN-CCO',
+        body: [
+          'OHA’s managed-care billing rule binds every CCO, IHN-CCO included (OAR 410-141-3565, effective January 1, 2025). Initial claims are due "within no more than 120 days of the date of service," or within 365 days for pregnancy, retroactive eligibility, Medicare as primary payer, third-party liability and other delays not caused by the provider; a CCO "may negotiate terms within this timeframe," so your contract can set a shorter limit but not a longer one. For a timely claim that needs correction or resubmission, the CCO must allow "a minimum of 180 days after the initial adjudication date." Other insurance "must be exhausted prior to payment." On payment, CCOs "shall pay or deny at least 90 percent of valid claims within 30 days of receipt and at least 99 percent of valid claims within 90 days of receipt," make an initial determination on 99 percent within 60 days, and "may not require providers to delay claims submission." The rule sets no weekly payment cycle or submission cutoff.',
+        ],
+        cites: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }],
+      },
     ],
     collect: [
       { title: 'Member ID', desc: 'Confirm IHN-CCO (Benton, Lincoln or Linn county) on the date of service.' },
@@ -1101,7 +1143,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       { title: 'Diagnostic evaluation and referral', desc: 'Meets OAR 410-172-0770; referral from a physician, psychologist, or developmental-medicine NP/PA.' },
       { title: 'Other insurance', desc: 'Bill commercial coverage first; OHP is the payer of last resort.' },
     ],
-    sources: [S.ihnPAL, S.ihnCodes, S.ihnUM, S.ihnBH, S.ihnAuth, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, S.gn],
+    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.ihnPAL, S.ihnCodes, S.ihnUM, S.ihnBH, S.ihnAuth, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, S.gn],
     deliveryRules: {
       supervision: {
         value: 'IHN publishes no ABA supervision rule, so the state rule applies. ' + STATE_SUPERVISION,
@@ -1185,6 +1227,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'What is IHN-CCO’s timely filing limit for ABA claims?', a: '120 days from the date of service under OAR 410-141-3565 (365 days for exceptions such as retroactive eligibility, Medicare or other insurance primary); your contract may set a shorter limit. Corrections and resubmissions get at least 180 days from the initial adjudication.' },
       { q: 'Does IHN-CCO require prior authorization for the ABA assessment?', a: 'Yes. IHN’s 2026 code list includes 97151 and 97152 under ABA services, so request approval before the assessment.' },
       { q: 'What does IHN-CCO pay for ABA?', a: 'Contracted rates, which IHN says it keeps no lower than the OHA fee-for-service behavioral health rate for ABA. The OHA open-card rate for 97153 is $14.70 per 15 minutes.' },
     ],
@@ -1238,6 +1281,13 @@ export const oregonPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.uhaFAQ, S.oar3835, S.plans],
       },
+      {
+        h2: 'Claim filing and payment rules for Umpqua Health Alliance',
+        body: [
+          'OHA’s managed-care billing rule binds every CCO, Umpqua Health Alliance included (OAR 410-141-3565, effective January 1, 2025). Initial claims are due "within no more than 120 days of the date of service," or within 365 days for pregnancy, retroactive eligibility, Medicare as primary payer, third-party liability and other delays not caused by the provider; a CCO "may negotiate terms within this timeframe," so your contract can set a shorter limit but not a longer one. For a timely claim that needs correction or resubmission, the CCO must allow "a minimum of 180 days after the initial adjudication date." Other insurance "must be exhausted prior to payment." On payment, CCOs "shall pay or deny at least 90 percent of valid claims within 30 days of receipt and at least 99 percent of valid claims within 90 days of receipt," make an initial determination on 99 percent within 60 days, and "may not require providers to delay claims submission." The rule sets no weekly payment cycle or submission cutoff.',
+        ],
+        cites: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }],
+      },
     ],
     collect: [
       { title: 'Member ID', desc: 'Confirm Umpqua Health Alliance; some Douglas ZIP codes are served by AllCare or Trillium.' },
@@ -1245,7 +1295,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       { title: 'Rate expectation', desc: 'Requests without a stated rate are reviewed at the OHA (DMAP) rate; ask for an SFA/SCA if you need more.' },
       { title: 'Other insurance', desc: 'If commercial is primary and its auth rules are met, Umpqua does not require its own PA.' },
     ],
-    sources: [S.uhaFAQ, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, S.gn],
+    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.uhaFAQ, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, S.gn],
     deliveryRules: {
       supervision: {
         value: 'Umpqua publishes no ABA supervision rule, so the state rule applies. ' + STATE_SUPERVISION,
@@ -1327,6 +1377,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'What is Umpqua Health Alliance’s timely filing limit for ABA claims?', a: '120 days from the date of service under OAR 410-141-3565 (365 days for exceptions such as retroactive eligibility, Medicare or other insurance primary); your contract may set a shorter limit. Corrections and resubmissions get at least 180 days from the initial adjudication.' },
       { q: 'Does Umpqua Health Alliance require prior authorization for ABA?', a: 'Yes. ABA is on its behavioral health PA list, in network and out, with six-month authorizations. Check the PA Grid for the assessment codes.' },
       { q: 'What if Umpqua is the secondary insurance?', a: 'Umpqua does not require its own PA when the primary insurer’s authorization guidelines are met.' },
       { q: 'Can I get a retro authorization from Umpqua?', a: 'Umpqua reviews retro requests up to 90 days from the date of service; later requests go through the provider appeal process.' },
@@ -1379,6 +1430,13 @@ export const oregonPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.eoPM, S.eoPA, S.eoBH, S.eoAuth],
       },
+      {
+        h2: 'Claim filing and payment rules for EOCCO',
+        body: [
+          'OHA’s managed-care billing rule binds every CCO, EOCCO included (OAR 410-141-3565, effective January 1, 2025). Initial claims are due "within no more than 120 days of the date of service," or within 365 days for pregnancy, retroactive eligibility, Medicare as primary payer, third-party liability and other delays not caused by the provider; a CCO "may negotiate terms within this timeframe," so your contract can set a shorter limit but not a longer one. For a timely claim that needs correction or resubmission, the CCO must allow "a minimum of 180 days after the initial adjudication date." Other insurance "must be exhausted prior to payment." On payment, CCOs "shall pay or deny at least 90 percent of valid claims within 30 days of receipt and at least 99 percent of valid claims within 90 days of receipt," make an initial determination on 99 percent within 60 days, and "may not require providers to delay claims submission." The rule sets no weekly payment cycle or submission cutoff.',
+        ],
+        cites: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }],
+      },
     ],
     collect: [
       { title: 'Member ID', desc: 'Confirm EOCCO on the date of service.' },
@@ -1387,7 +1445,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       { title: 'Well-child, hearing and vision', desc: 'Well-child visit records plus audio and vision screening.' },
       { title: 'Other insurance', desc: 'Bill commercial coverage first; OHP is the payer of last resort.' },
     ],
-    sources: [S.eoPM, S.eoPA, S.eoBH, S.eoAuth, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt],
+    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.eoPM, S.eoPA, S.eoBH, S.eoAuth, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt],
     deliveryRules: {
       supervision: {
         value: 'EOCCO and GOBHI publish no ABA supervision ratio, so the state rule applies. ' + STATE_SUPERVISION,
@@ -1469,6 +1527,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'What is EOCCO’s timely filing limit for ABA claims?', a: '120 days from the date of service under OAR 410-141-3565 (365 days for exceptions such as retroactive eligibility, Medicare or other insurance primary); your contract may set a shorter limit. Corrections and resubmissions get at least 180 days from the initial adjudication.' },
       { q: 'Who provides ABA for Eastern Oregon CCO members?', a: 'GOBHI runs an ABA program for EOCCO children with autism; referrals go through gobhi.org/applied-behavior-analysis.' },
       { q: 'Does EOCCO require prior authorization for ABA?', a: 'Yes. Its September 2026 Prior Authorization List includes every ABA code from 97151 to 97158.' },
       { q: 'What does EOCCO need before ABA starts?', a: 'A diagnosis from an MD, FNP or psychiatrist experienced with ASD in children, a PCP prescription for ABA, well-child visit records, and audio and vision screening.' },
@@ -1521,6 +1580,13 @@ export const oregonPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.ycList, S.ycPA, S.ycABA],
       },
+      {
+        h2: 'Claim filing and payment rules for Yamhill Community Care',
+        body: [
+          'OHA’s managed-care billing rule binds every CCO, Yamhill Community Care included (OAR 410-141-3565, effective January 1, 2025). Initial claims are due "within no more than 120 days of the date of service," or within 365 days for pregnancy, retroactive eligibility, Medicare as primary payer, third-party liability and other delays not caused by the provider; a CCO "may negotiate terms within this timeframe," so your contract can set a shorter limit but not a longer one. For a timely claim that needs correction or resubmission, the CCO must allow "a minimum of 180 days after the initial adjudication date." Other insurance "must be exhausted prior to payment." On payment, CCOs "shall pay or deny at least 90 percent of valid claims within 30 days of receipt and at least 99 percent of valid claims within 90 days of receipt," make an initial determination on 99 percent within 60 days, and "may not require providers to delay claims submission." The rule sets no weekly payment cycle or submission cutoff.',
+        ],
+        cites: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }],
+      },
     ],
     collect: [
       { title: 'Member ID', desc: 'Confirm YCCO; some Polk and Washington ZIP codes belong to it.' },
@@ -1529,7 +1595,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       { title: 'Program setting and hours', desc: 'Home, clinic, school or other, with hours per week by code.' },
       { title: 'Other insurance', desc: 'Bill commercial coverage first; OHP is the payer of last resort.' },
     ],
-    sources: [S.ycPA, S.ycABA, S.ycList, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt],
+    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.ycPA, S.ycABA, S.ycList, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt],
     deliveryRules: {
       supervision: {
         value: 'YCCO’s ABA form describes 97153 as technician treatment "receiving 1 hour of supervision for every 5 to 10 hours of direct treatment." The state floor also applies: interventionists supervised at least 5 percent of service hours, with direct supervision monthly (OAR 824-040-0010); assistant behavior analysts and interventionists are not directly payable (OAR 410-172-0760(4)).',
@@ -1607,6 +1673,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'What is Yamhill Community Care’s timely filing limit for ABA claims?', a: '120 days from the date of service under OAR 410-141-3565 (365 days for exceptions such as retroactive eligibility, Medicare or other insurance primary); your contract may set a shorter limit. Corrections and resubmissions get at least 180 days from the initial adjudication.' },
       { q: 'Does Yamhill Community Care require prior authorization for the ABA assessment?', a: 'Yes. 97151 and 97152 are on YCCO’s PA list; the initial 97151 is limited to 32 units unless documented need supports more.' },
       { q: 'How do I submit an ABA request to YCCO?', a: 'Through the CIM portal or by faxing the YCCO ABA PA form with its addendum and a complete treatment plan to 503-850-9398. Providers must start every request themselves.' },
     ],
@@ -1799,8 +1866,9 @@ export const oregonPayers: Record<string, PayerConfig> = {
         body: [
           'Advanced Health’s Behavioral Health Authorization Request asks providers to "Mark one" of Hospital Inpatient, Residential, ABA or Out of Network OP visit, and to fax it to Medical Management at 541-269-7147 with a behavioral health treatment plan, assessment and supporting documentation; the instructions add that "In-network providers do not require prior authorization for outpatient visits." The provider manual (2026–2027, rev. 3.2026) says Advanced Health processes standard authorization requests "no later than 7 calendar days following receipt of the request," extendable by up to 14 days, and that "An authorization may be required if Advanced Health is secondary to primary health coverage," with Advanced Health as "a payer of last resort unless the Member also has Indian Health coverage."',
           'Claims must reach Advanced Health "within 120 days from the date of service," or within 365 days for pregnancy, retroactive eligibility, secondary/tertiary claims and other approved delays.',
+          'OAR 410-141-3565 adds two rules every CCO must follow: a timely claim that needs correction or resubmission gets "a minimum of 180 days after the initial adjudication date," and the CCO "shall pay or deny at least 90 percent of valid claims within 30 days of receipt and at least 99 percent of valid claims within 90 days of receipt." No weekly payment cycle or submission cutoff is published.',
         ],
-        cites: [S.ahBH, S.ahPM],
+        cites: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.ahBH, S.ahPM],
       },
     ],
     collect: [
@@ -1809,7 +1877,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       { title: 'Diagnostic evaluation and referral', desc: 'Meets OAR 410-172-0770; referral from a physician, psychologist, or developmental-medicine NP/PA.' },
       { title: 'Other insurance', desc: 'Bill the primary first; Advanced Health may still require an authorization as secondary.' },
     ],
-    sources: [S.ahBH, S.ahPM, S.ahRes, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, S.gn],
+    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.ahBH, S.ahPM, S.ahRes, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, S.gn],
     deliveryRules: {
       supervision: {
         value: 'Advanced Health publishes no ABA supervision rule, so the state rule applies. ' + STATE_SUPERVISION,
@@ -1946,6 +2014,13 @@ export const oregonPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.acDP, S.fee, S.plans, S.oar0770, S.gn, S.oar3835, S.oar3565],
       },
+      {
+        h2: 'Claim filing and payment rules for AllCare CCO',
+        body: [
+          'OHA’s managed-care billing rule binds every CCO, AllCare CCO included (OAR 410-141-3565, effective January 1, 2025). Initial claims are due "within no more than 120 days of the date of service," or within 365 days for pregnancy, retroactive eligibility, Medicare as primary payer, third-party liability and other delays not caused by the provider; a CCO "may negotiate terms within this timeframe," so your contract can set a shorter limit but not a longer one. For a timely claim that needs correction or resubmission, the CCO must allow "a minimum of 180 days after the initial adjudication date." Other insurance "must be exhausted prior to payment." On payment, CCOs "shall pay or deny at least 90 percent of valid claims within 30 days of receipt and at least 99 percent of valid claims within 90 days of receipt," make an initial determination on 99 percent within 60 days, and "may not require providers to delay claims submission." The rule sets no weekly payment cycle or submission cutoff.',
+        ],
+        cites: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }],
+      },
     ],
     collect: [
       { title: 'Member ID', desc: 'Confirm AllCare CCO (Jackson County members may instead have Jackson Care Connect).' },
@@ -1953,7 +2028,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       { title: 'Diagnostic evaluation and referral', desc: 'Meets OAR 410-172-0770; referral from a physician, psychologist, or developmental-medicine NP/PA.' },
       { title: 'Other insurance', desc: 'Bill commercial coverage first; OHP is the payer of last resort.' },
     ],
-    sources: [S.acDP, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, S.gn],
+    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.acDP, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, S.gn],
     deliveryRules: {
       supervision: {
         value: 'AllCare publishes no ABA supervision rule, so the state rule applies. ' + STATE_SUPERVISION,
@@ -2103,8 +2178,9 @@ export const oregonPayers: Record<string, PayerConfig> = {
         body: [
           OR_CLAIMS_BODY,
           'Aetna publishes no ABA rate table. Its provider manual (6/26) says "The rates and compensation under your agreement are subject to the Aetna coding/claim edit policies," and that where you have both an intermediary contract and a direct agreement "your direct Aetna rates will apply unless we specifically notify you otherwise." For a public benchmark, Oregon’s OHP fee-for-service schedule pays 97153 at $14.70 per 15 minutes.',
+          'Aetna’s provider manual (edition 6/26) publishes no numeric filing deadline: a clean claim is one "received in a timely manner," so the operative limit is the one in your Aetna agreement or state law. The manual says a clean claim "Doesn’t involve coordination of benefits," and that COB, corrected and voided claims can all be submitted through Availity at no charge; it sets no separate deadline for corrected or secondary claims and publishes no weekly payment cycle or submission cutoff.',
         ],
-        cites: [S.ors743B, S.ors743A, S.erisa, S.aetnaOM, S.fee],
+        cites: [{ title: 'Aetna — Provider manual (8102800-01-01, 6/26): Clean claims; Coordination of benefits; electronic claims', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }, S.ors743B, S.ors743A, S.erisa, S.aetnaOM, S.fee],
       },
       {
         h2: 'Does Aetna require a referring provider on the ABA claim (box 17)?',
@@ -2136,6 +2212,13 @@ export const oregonPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
         ],
+      },
+      {
+        h2: 'What must an Aetna ABA reauthorization request contain, and are graphs required?',
+        body: [
+          'Aetna’s ABA medical necessity guide (©2026) says "A member\'s progress is to be evaluated every six months," and a member not making progress "will be transitioned to other appropriate services"; coverage ends when medical necessity is no longer met or when standardized improvement thresholds (for example, two or more standard deviations in multiple domains) are reached. The guide does not specify a graph or data-presentation format for the reassessment; send the updated treatment plan with measurable progress against each goal and the standardized scores the termination criteria are tested against.',
+        ],
+        cites: [{ title: 'Aetna — Applied behavior analysis medical necessity guide (©2026): Termination of coverage', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
       },
     ],
     collect: [
@@ -2233,6 +2316,8 @@ export const oregonPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Aetna require graphs for ABA reassessments?', a: 'Aetna’s guide requires a progress evaluation every six months but does not prescribe graphs; send measurable progress against each goal and the standardized scores its termination criteria use.' },
+      { q: 'What is Aetna’s timely filing limit for ABA claims, and when does it pay?', a: 'Aetna publishes no numeric filing limit; it comes from your Aetna agreement or state law. COB, corrected and voided claims go through Availity; no weekly payment cutoff is published.' },
       { q: 'Does Aetna cover ABA therapy in Oregon?', a: 'Yes, for ASD under its national ABA guide, with Oregon’s ABA mandate and ORS 743A.168 parity layered on for state-regulated plans. Self-funded employer plans follow their own documents.' },
       { q: 'What does Oregon’s autism mandate require?', a: 'The 2013 law requires coverage of ASD diagnosis and of medically necessary treatment, including ABA up to 25 hours a week, when ABA is first requested before age 9. It does not limit ABA owed under the ORS 743A.168 parity law at older ages or higher hours.' },
       { q: 'How fast must an Oregon insurer decide an ABA prior authorization?', a: 'Within 30 calendar days under the ABA mandate (other utilization review decisions are due within 2 business days under ORS 743B.423). Self-funded ERISA plans have 15 days for pre-service claims.' },
@@ -2310,8 +2395,10 @@ export const oregonPayers: Record<string, PayerConfig> = {
         body: [
           OR_CLAIMS_BODY,
           'Evernorth publishes no ABA rate table: its guidelines send providers to "Exhibit A in your Provider Agreement" for the fee schedule and eligible ABA codes. For a public benchmark, Oregon’s OHP fee-for-service schedule pays 97153 at $14.70 per 15 minutes.',
+          'Cigna’s ABA claims run through Evernorth Behavioral Health, whose administrative guidelines (September 2026) set the filing rules. Initial claims: Evernorth "will only consider claims submitted within 90 days of the date of service or as otherwise defined in your Provider Agreement," and a longer state-law limit applies where one exists. Secondary claims: for coordination of benefits the 90 days run from "the primary payer’s processing date as stated on an explanation of benefits [EOB] or explanation of payment [EOP]," and the primary payer’s EOP goes in with the claim unless the COB data is sent electronically; Medicaid gets three years. A claim returned for more information gets a fresh 90 days from the date of the request. Corrected or replacement claims carry frequency code 7 (replace) or 8 (void) in box 22, not a "Corrected Claim" stamp; no separate corrected-claim deadline is published. Appeals are due in writing within 180 calendar days of the initial payment or denial decision. Evernorth publishes no weekly payment cycle or submission cutoff; it offers ERA and EFT "to help reduce your payment cycle."',
+          'Which codes: Evernorth’s autism resource guide (March 2025) says "All ABA services must be billed with CPT codes 97151–97158, 0362T, and 0373T ONLY," so state HCPCS ABA codes such as H0031, H0032, H2014 or H2019 are not billable to Cigna for ABA. The same guide says "All ABA CPT codes are covered telehealth services."',
         ],
-        cites: [S.ors743B, S.ors743A, S.erisa, S.ebhAdmin, S.fee],
+        cites: [{ title: 'Cigna/Evernorth Autism Resource Guide (PCOMM-2025-225, March 2025): billing codes', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026): Claims filing deadline, Coordination of benefits, corrected claims, ERA, Appeals', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }, S.ors743B, S.ors743A, S.erisa, S.ebhAdmin, S.fee],
       },
       {
         h2: 'Does Cigna require a referring provider on the ABA claim (box 17)?',
@@ -2324,6 +2411,13 @@ export const oregonPayers: Record<string, PayerConfig> = {
           { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
         ],
       },
+      {
+        h2: 'What must a Cigna ABA reauthorization request contain, and are graphs required?',
+        body: [
+          'Evernorth’s EN0499 (effective May 15, 2026) sets what a continued-treatment request must show: an updated treatment plan covering current deficits and progress in every targeted area; "Quantitative baseline, interim and current data ... with dates reported from when the data were collected" for every behavior and skill, across all settings; current data collected "within no more than 60 days prior to the start date of the continued treatment request" and within 60 days before the request is received; data showing "ongoing and sustained progress"; and a reliable, valid, standardized assessment completed no more than one year before the continued-treatment start date. Where progress is not shown, the request must name the barriers and the protocol changes made. EN0499 asks for dated quantitative data, not for graphs as such; graphs are a common way to present it, but the policy does not require them.',
+        ],
+        cites: [{ title: 'Evernorth Coverage Policy EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026): Criteria for Continued Treatment with ABA', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Oregon law and the Evernorth Oregon addendum apply) vs. self-funded ERISA.' },
@@ -2332,7 +2426,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       { title: 'Other therapies schedule', desc: 'Cigna will not pay ABA delivered at the same time as speech or OT.' },
       { title: 'Oregon license numbers', desc: 'Behavior analyst license and interventionist registrations for the team.' },
     ],
-    sources: [S.en0499, S.ebhAdmin, S.ors743A, S.ors743B, S.ors676, S.oar824lic, S.oar824sup, S.hlo, S.bacbLic, S.oar836, S.oar1280, S.erisa, S.cfr433, S.tricare, S.champva, S.fee, { title: 'Cigna/Evernorth Autism Resource Guide (PCOMM-2025-225, March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }],
+    sources: [{ title: 'Evernorth Coverage Policy EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026): Criteria for Continued Treatment with ABA', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, S.en0499, S.ebhAdmin, S.ors743A, S.ors743B, S.ors676, S.oar824lic, S.oar824sup, S.hlo, S.bacbLic, S.oar836, S.oar1280, S.erisa, S.cfr433, S.tricare, S.champva, S.fee, { title: 'Cigna/Evernorth Autism Resource Guide (PCOMM-2025-225, March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }],
     deliveryRules: {
       supervision: {
         value: 'Case supervision by a BCBA, LBA or independently licensed clinician with ABA training, with direct and indirect supervision "consistent with the general accepted standard of care of one to two hours per ten hours of direct treatment," and at least one to two hours a week of direct case supervision when direct treatment is 10 hours a week or less. Direct case supervision means the BCBA is face to face with the patient and the RBT or BCaBA during treatment. In Oregon the interventionist must also be registered and supervised for at least 5 percent of service hours (OAR 824-040-0010).',
@@ -2420,6 +2514,9 @@ export const oregonPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Cigna require graphs for ABA reassessments?', a: 'Not graphs as such. EN0499 requires dated quantitative baseline, interim and current data (current data no more than 60 days old), an updated plan and a standardized assessment no more than a year old; graphs are a common way to show the data, but the policy does not require them.' },
+      { q: 'Does Cigna accept H0031 or H0032 for ABA?', a: 'CPT 97151–97158, 0362T and 0373T only; HCPCS H-codes such as H0031/H0032 are not billable for ABA (Evernorth autism resource guide).' },
+      { q: 'What is Cigna’s timely filing limit for ABA claims, and when does it pay?', a: 'Ninety days from the date of service under Evernorth’s administrative guidelines (or your agreement or a longer state-law limit); secondary claims get 90 days from the primary payer’s EOB/EOP date. Corrected claims use frequency code 7 or 8; no weekly payment cutoff is published.' },
       { q: 'Does Cigna cover ABA therapy in Oregon?', a: 'Yes, for ASD under Evernorth’s EN0499, with Oregon’s ABA mandate and ORS 743A.168 parity applying to state-regulated plans.' },
       { q: 'How long does Cigna/Evernorth take to credential an Oregon ABA provider?', a: 'Its Oregon addendum commits to a decision no later than 90 days after a complete application, averaging no more than 60 days.' },
       { q: 'Does Cigna require session notes to be signed?', a: 'Yes. EN0499 requires each session note to include the name, credential and signature of the ABA provider who rendered the service.' },
@@ -2491,8 +2588,10 @@ export const oregonPayers: Record<string, PayerConfig> = {
         body: [
           OR_CLAIMS_BODY,
           'Optum’s commercial ABA Reimbursement Policy (updated June 2026) requires a credential modifier on every line: HM for an RBT, HN for a BCaBA, HO for a master’s-level BCBA or licensed clinician, HP for a BCBA-D or doctoral-level licensee; indirect work has no separate code and is bundled. It lists maximum units per day (97151 32, 97152 16, 97153 32, 97154 18, 97155 24, 97156–97158 16, 0362T 16, 0373T 32). Optum’s network manual defines the "Fee Maximum" as "The maximum amount a participating provider may be paid for a specific health care service," and says "Reimbursement to clinicians is based upon licensure rather than degree." For a public benchmark, Oregon’s OHP fee-for-service schedule pays 97153 at $14.70 per 15 minutes.',
+          'UnitedHealthcare’s ABA claims run through Optum Behavioral Health, whose National Network Manual (effective September 1, 2026) sets the deadlines. "All information necessary to process claims must be received by Optum no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan," and "Any corrections or additions to a claim should be made within 90 days of initial claim receipt." The member may not be billed for a late claim. Payment: claims with all required information and any required authorization "will be paid within 45 calendar days after Optum receives the claim, or as required by state and federal laws," which may exclude claims needing a coordination-of-benefits determination; when Optum is secondary it pays up to the Optum contracted rate. UnitedHealthcare’s 2026 administrative guide adds that a corrected claim (frequency code 7, with the original claim number) must arrive within the same timely-filing limit as the original. No weekly payment cycle or submission cutoff is published.',
+          'Which codes: Optum’s commercial ABA reimbursement policy (2022RP501A, updated June 2026) lists the reimbursable codes for the commercial ABA program as 97151–97158, 0362T and 0373T, each in 15-minute units with a credential modifier (HM, HN, HO or HP); no HCPCS H-code (H0031, H0032, H2014, H2019) is on that list.',
         ],
-        cites: [S.ors743B, S.ors743A, S.erisa, S.optumReimb, S.optumNNM, S.fee],
+        cites: [{ title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026): reimbursable codes', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): Coordination of Benefits; Timely Filing; Payment Timelines', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial): Timely filing of corrected claims; Subrogation and COB', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, S.ors743B, S.ors743A, S.erisa, S.optumReimb, S.optumNNM, S.fee],
       },
       {
         h2: 'Does UnitedHealthcare require a referring provider on the ABA claim (box 17)?',
@@ -2516,6 +2615,13 @@ export const oregonPayers: Record<string, PayerConfig> = {
           { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
         ],
       },
+      {
+        h2: 'What must a UnitedHealthcare ABA reauthorization request contain, and are graphs required?',
+        body: [
+          'Optum’s ABA Supplemental Clinical Criteria (interim review April 2026) say that "With each clinical review for continued ABA treatment, the provider must submit updated documentation" showing progress "for each targeted symptom and behavior, including progress toward defined goals, including the same modes of measurement that were utilized for baseline measurement." Progress "should include rate and percentage of mastered programs, rates of mastered targets, change scores for any outcome measures, updated standardized adaptive measures, and change scores for skills-based assessments," with movement from baseline shown on validated, norm-referenced assessments and, where applicable, the caregiver’s own progress. Inadequate progress over six months calls for an analysis of the reasons and modified interventions, and the review looks at use below 80 percent of authorized hours over two weeks. The criteria do not require graphs as such.',
+        ],
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026): Continued Service Criteria', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Oregon law applies) vs. self-funded ERISA (plan document governs).' },
@@ -2523,7 +2629,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       { title: 'Baseline measurement', desc: 'VB-MAPP, ABLLS-R, AFLS, Vineland or similar to justify intensity.' },
       { title: 'Credential per staff member', desc: 'Each claim line needs the right modifier (HM RBT, HN BCaBA, HO BCBA, HP BCBA-D) plus Oregon licensure/registration.' },
     ],
-    sources: [S.optumSCC, S.optumSM, S.optumReimb, S.optumTele, S.optumNNM, S.ors743A, S.ors743B, S.ors676, S.oar824lic, S.oar824sup, S.hlo, S.bacbLic, S.oar836, S.oar1280, S.erisa, S.cfr433, S.tricare, S.champva, S.fee, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial) — services not requiring a referral', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: 'Optum — ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+    sources: [{ title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): Coordination of Benefits; Timely Filing; Payment Timelines', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }, S.optumSCC, S.optumSM, S.optumReimb, S.optumTele, S.optumNNM, S.ors743A, S.ors743B, S.ors676, S.oar824lic, S.oar824sup, S.hlo, S.bacbLic, S.oar836, S.oar1280, S.erisa, S.cfr433, S.tricare, S.champva, S.fee, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial) — services not requiring a referral', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: 'Optum — ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
     deliveryRules: {
       supervision: {
         value: 'Consistent with CASP standards, direct case supervision is required 1–2 hours for every 10 hours of direct treatment per week. Technicians work under a BCBA or licensed behavioral health clinician and should be RBTs or otherwise certified "as allowable by state mandate"; Optum does not recommend parents serving as their own child’s RBT. In Oregon, interventionists must also be registered and supervised for at least 5 percent of service hours (OAR 824-040-0010).',
@@ -2609,6 +2715,9 @@ export const oregonPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare require graphs for ABA reassessments?', a: 'Optum’s criteria require updated progress data in the same measures used at baseline (mastery rates, change scores, updated standardized adaptive measures) at every continued review; they do not require graphs as such.' },
+      { q: 'Does UnitedHealthcare accept H0031 or H0032 for ABA?', a: 'Optum’s commercial ABA reimbursement policy lists only CPT 97151–97158, 0362T and 0373T as reimbursable ABA codes, each with a credential modifier; no H-code (H0031, H0032, H2014, H2019) is on the list.' },
+      { q: 'What is UnitedHealthcare’s timely filing limit for ABA claims, and when does it pay?', a: 'Optum requires everything needed to process the claim within 90 calendar days of the date of service and corrections within 90 days of first receipt; clean, authorized claims are paid within 45 calendar days or as state law requires. No weekly payment cutoff is published.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in Oregon?', a: 'Yes, under Optum’s national ABA criteria for ASD, with Oregon’s ABA mandate and ORS 743A.168 parity applying to state-regulated plans.' },
       { q: 'Does Optum have Oregon-specific ABA criteria?', a: 'No. Optum’s ABA State Mandates supplement (July 2026) has no Oregon entry.' },
       { q: 'Can 97153 and 97155 be billed at the same time with UnitedHealthcare?', a: 'Yes, by different people: Optum allows 97153 or 97154 concurrently with 97155 when both code descriptors are met, but a single QHP may not report both for the same time.' },
