@@ -66,9 +66,12 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         h2: 'Authorization & treatment plan',
         body: [
           'Prior authorization is required for all RB-BHT services — including the assessment. Authorization length is tiered by intensity, which is the detail most often missed: CCP §5.1 gives up to 180 calendar days for treatment plans of 16 hours or fewer per week, but only up to 90 calendar days when the plan exceeds 16 hours a week — so most comprehensive programmes reauthorise quarterly, not twice a year. The reauth must be submitted before the current authorization expires. The treatment plan is developed by a Licensed Qualified Autism Service Provider (LQASP), and the 8/1/2026 rewrite replaced the old fixed review-and-annual-rewrite cycle (subsection 5.3.4 was retitled "Treatment Plan Reviews and Updates" and "Annual Rewriting" removed): the responsible professional must review the plan at each goal\'s target date or expiration — each goal reviewed separately, with short-range goals never exceeding 12 months from the date of the plan — and whenever the beneficiary\'s needs change, the service provider changes, or a new service is added. In practice the plan is also reviewed, modified and resubmitted at every reauthorization (every 180 days at ≤16 hrs/week, every 90 above). At least 10% of all services provided by a paraprofessional must involve observation and direction of that paraprofessional by an LQASP. As with any long review cadence, the baseline data collected at intake is what every future review is measured against.',
+          'What a reauthorization must contain: CCP 8F §5.1.1 requires the treatment plan to be “reviewed, modified, and submitted for reauthorization” at least every 180 days (16 hours a week or fewer) or every 90 days (above 16), and before the current authorization expires. The decision rests on “the medical necessity documented in the Treatment Plan, the authorization request form, and supporting documentation.” The policy’s continued-stay criteria (§3.2.7) ask for documentation of progress toward the plan’s goals, or of the modifications made when progress has stalled. Every goal must carry “current baselines and measurement methods for each goal, including starting points, progress milestones and target dates, and intervals for frequency of measurement” (§5.3.3.3), and an adaptive behavior assessment must have been done within the last 3 years. CCP 8F does not say the data must be graphed; tables or graphs both meet the rule, as long as each goal shows its baseline and current measurement.',
+          'Code set: RB-BHT bills only under the CPT codes in Attachment A, 97151–97157, in 15-minute units. 97158, 0362T and 0373T are not in the table. No HCPCS H-code is an RB-BHT code: H0031 appears in NC Medicaid’s health-plan billing guidance only as a general behavioral health assessment code, and nothing in 8F lets H0031, H0032, H2014 or H2019 be billed for ABA. 96112 (developmental test administration) is not an RB-BHT code either. The billing guidance lists it among the procedure codes shared by physical and behavioral health, so it bills as developmental testing, outside 8F and its RB-BHT authorization.',
         ],
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT)', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026), Appendix A procedure-code tables', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
         ],
       },
       {
@@ -125,7 +128,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
           { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
-          { title: 'BACB — RBT Handbook (updated 6/2026)', url: 'https://www.bacb.com/wp-content/uploads/2025/08/RBTHandbook_260116-a.pdf' },
+          { title: 'BACB — RBT Handbook (updated 6/2026; file reposted 10/16/2026)', url: 'https://www.bacb.com/rbt-handbook' },
           { title: 'G.S. 122C-80 — criminal history record checks (MH/DD/SA providers)', url: 'https://codes.findlaw.com/nc/chapter-122c-mental-health-developmental-disabilities-and-substance-abuse-act-of-1985/nc-gen-st-sect-122c-80/' },
           { title: 'G.S. 131E-256 — Health Care Personnel Registry', url: 'https://codes.findlaw.com/nc/chapter-131e-health-care-facilities-and-services/nc-gen-st-sect-131e-256/' },
           { title: 'NCBALB — Requirements for Licensure', url: 'https://ncbehavioranalystboard.org/requirements-for-licensure/' },
@@ -170,10 +173,17 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           'NC Medicaid sets the claim clock for every plan that pays RB-BHT. Its prompt-payment fact sheet gives Standard Plans a 365-day timely filing window (since July 1, 2023) and Tailored Plans the same 365 days (since July 1, 2024). For NC Medicaid Direct, the LME/MCO window moved from 90 to 365 days on July 1, 2024. The window covers the original claim and any corrected claim. State-funded services stay at 90 calendar days.',
           'Plans must tell the provider within 18 calendar days whether a medical claim is clean or pend it for information. They must pay or deny a clean claim within 30 days, deny the claim if requested information has not arrived within 90 days, and pay 18% annual interest on late payments.',
           'Electronic Visit Verification is not an RB-BHT requirement. NC Medicaid’s EVV page says the Cures Act requires EVV for Personal Care Services and Home Health Care Services, and lists PCS, CAP/C, CAP/DA, Home Health and the Innovations and TBI waivers as the services that use it. RB-BHT is not on that list.',
+          'NC Medicaid Direct claims go through NCTracks, which must receive them “within 365 days of the first date of service.” Payment is weekly: “NC Medicaid has checkwrites 50 weeks of the calendar year – no checkwrites occur the week of June 30 and the week of Christmas.” Claims are processed in real time, and the submission cutoff for each checkwrite is printed on the NCTracks checkwrite schedule (Quick Links on the NCTracks provider portal). In 2026 the last checkwrite of the state fiscal year was June 23 and the next was July 7. Payment is by EFT only; claims for a provider without valid EFT details suspend for 45 days and then deny.',
+          'Taxonomy: every health plan must “validate the taxonomy code submitted on the claim” against the provider’s NC Medicaid enrollment record and “price claims based on the taxonomy code submitted on the claim” (billing guidance §3.22), so bill the taxonomy you are enrolled under in NCTracks.',
+          'Referring or ordering NPI: not required on an RB-BHT claim. NC Medicaid’s OPR guidance lists the claim types that need an ordering NPI (home infusion, private duty nursing, labs, IDTF, CAP, radiology, DME, LEA) or a referring NPI (home infusion, specialized therapy, hospice, home health, PDN, dialysis, CAP, LEA), and RB-BHT is not on either list. The physician or psychologist who signs the service order must still be enrolled in NC Medicaid (42 CFR 455.410).',
         ],
         cites: [
           { title: 'NC Medicaid Managed Care Provider Playbook — Prompt Payment fact sheet (Standard Plans, NC Medicaid Direct, Tailored Plans)', url: 'https://medicaid.ncdhhs.gov/provider-playbook-prompt-payment-fact-sheet/download' },
           { title: 'NC Medicaid — Electronic Visit Verification (EVV)', url: 'https://medicaid.ncdhhs.gov/providers/programs-and-services/long-term-care/electronic-visit-verification' },
+          { title: 'NC Medicaid — Claims and Billing (time limits for filing claims; checkwrites)', url: 'https://medicaid.ncdhhs.gov/providers/claims-and-billing' },
+          { title: 'NCTracks — Reminder: No Checkwrite on June 30, 2026 (weekly payment cycle, 50 checkwrites a year)', url: 'https://www.nctracks.nc.gov/content/public/providers/provider-communications/2026----Announcements/Reminder--No-Checkwrite-on-June-30--2026.html' },
+          { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026): §3.22 Taxonomy, §3.52 EVV', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
+          { title: 'NC Medicaid — Federal Regulation Guidelines for Ordering, Prescribing or Referring (OPR) Providers (modified 7/1/2026)', url: 'https://medicaid.ncdhhs.gov/providers/claims-and-billing/federal-regulation-guidelines-ordering-prescribing-or-referring-opr-providers' },
         ],
       },
     ],
@@ -185,6 +195,12 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Supervisor credentials & location', desc: 'Out-of-state LQASP/C-QP enrollment closes August 2, 2026 — all must enroll as in-state providers. RBT/ABAT certification is mandatory for paraprofessionals; the 120-day grace period also started August 1, 2026 for existing uncertified staff, not just new hires.' },
     ],
     sources: [
+      { title: 'NC Medicaid — Federal Regulation Guidelines for Ordering, Prescribing or Referring (OPR) Providers (modified 7/1/2026)', url: 'https://medicaid.ncdhhs.gov/providers/claims-and-billing/federal-regulation-guidelines-ordering-prescribing-or-referring-opr-providers' },
+      { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026), Appendix A procedure-code tables', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
+      { title: 'NCTracks — Reminder: No Checkwrite on June 30, 2026 (weekly payment cycle, 50 checkwrites a year)', url: 'https://www.nctracks.nc.gov/content/public/providers/provider-communications/2026----Announcements/Reminder--No-Checkwrite-on-June-30--2026.html' },
+      { title: 'NC Medicaid — Claims and Billing (time limits for filing claims; checkwrites)', url: 'https://medicaid.ncdhhs.gov/providers/claims-and-billing' },
+      { title: 'CMS — Medicaid NCCI MUE table, practitioner services (effective 10/1/2026–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' },
+      { title: 'NC Medicaid — National Correct Coding Initiative fact sheet (April 2024)', url: 'https://medicaid.ncdhhs.gov/documents/national-correct-coding-initiative-ncci-fact-sheet/open' },
       { title: 'NC Medicaid — 8F RB-BHT for ASD (policy page)', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd' },
       { title: 'NCDHHS — BH rate floor bulletin', url: 'https://medicaid.ncdhhs.gov/blog/2023/11/15/nc-medicaid-behavioral-health-services-rate-increases' },
       { title: 'Alliance Health — Standard Rate Schedule (RB-BHT)', url: 'https://www.alliancehealthplan.org/document-library/97251' },
@@ -192,7 +208,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'NC Health News — new ABA rules coverage (7/2026; 20% telehealth-cap figure superseded by the finalized 50%)', url: 'https://www.northcarolinahealthnews.org/2026/07/15/autism-aba-therapy-medicaid-new-rules/' },
       { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
       { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
-      { title: 'BACB — RBT Handbook (updated 6/2026)', url: 'https://www.bacb.com/wp-content/uploads/2025/08/RBTHandbook_260116-a.pdf' },
+      { title: 'BACB — RBT Handbook (updated 6/2026; file reposted 10/16/2026)', url: 'https://www.bacb.com/rbt-handbook' },
       { title: 'G.S. 122C-80 — criminal history record checks', url: 'https://codes.findlaw.com/nc/chapter-122c-mental-health-developmental-disabilities-and-substance-abuse-act-of-1985/nc-gen-st-sect-122c-80/' },
       { title: 'G.S. 131E-256 — Health Care Personnel Registry', url: 'https://codes.findlaw.com/nc/chapter-131e-health-care-facilities-and-services/nc-gen-st-sect-131e-256/' },
       { title: 'NCBALB — Requirements for Licensure', url: 'https://ncbehavioranalystboard.org/requirements-for-licensure/' },
@@ -248,12 +264,13 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         ],
       },
       telehealth: {
-        value: 'Per code, under Attachment A of the 8/1/2026 policy. Telehealth billable with modifier GT: 97151, with clinical justification recorded in the treatment plan; and 97155, capped at a maximum of 50% of total 97155 billing per beneficiary per 180-calendar-day period, with clinical justification in the treatment plan if more telehealth units are needed. Not telehealth billable at all: 97152, 97153 and 97154. 97156 and 97157 are telehealth eligible and are additionally the only telephonic (audio-only, modifier KX) services, allowed where the caregiver’s physical or behavioral health status, or an access barrier such as transportation or technology, prevents in-person or telehealth participation. Telehealth and telephonic claims are filed with the provider’s usual place-of-service code, and delivery follows Clinical Coverage Policy 1-H. Supervision by video is allowed within that 97155 cap: observation for modification of intervention and technician direction may be given with the observing provider "in the same room or observing via telehealth" while the paraprofessional delivers in-person treatment. For 97151, what the policy asks for is clinical justification in the beneficiary’s Treatment Plan (the plan must include, if applicable, clinical justification for use of telehealth or telephone); CCP 8F does not separately require the telehealth modality to be named in the prior approval, and 97151 and 97152 need neither a service order nor a Treatment Plan for prior approval. The statute behind the rewrite is stricter on assessments: S.L. 2026-1 §3C.18(a)(5), as amended by S.L. 2026-41, says patient assessments are required to be conducted in person and assessments conducted via telehealth shall not be reimbursed unless exceptions are developed. So document the justification in the plan and ask the plan’s UM whether it wants the modality on the request. NC Medicaid’s bulletin adds that beneficiaries are not required to use telehealth and must be allowed in-person services on request.',
+        value: 'Per code, under Attachment A of the 8/1/2026 policy. Telehealth billable with modifier GT: 97151, with clinical justification recorded in the treatment plan; and 97155, capped at a maximum of 50% of total 97155 billing per beneficiary per 180-calendar-day period, with clinical justification in the treatment plan if more telehealth units are needed. Not telehealth billable at all: 97152, 97153 and 97154. 97156 and 97157 are telehealth eligible and are additionally the only telephonic (audio-only, modifier KX) services, allowed where the caregiver’s physical or behavioral health status, or an access barrier such as transportation or technology, prevents in-person or telehealth participation. Telehealth and telephonic claims are filed with the provider’s usual place-of-service code, and delivery follows Clinical Coverage Policy 1-H. Supervision by video is allowed within that 97155 cap: observation for modification of intervention and technician direction may be given with the observing provider "in the same room or observing via telehealth" while the paraprofessional delivers in-person treatment. For 97151, what the policy asks for is clinical justification in the beneficiary’s Treatment Plan (the plan must include, if applicable, clinical justification for use of telehealth or telephone); CCP 8F does not separately require the telehealth modality to be named in the prior approval, and 97151 and 97152 need neither a service order nor a Treatment Plan for prior approval. The statute behind the rewrite is stricter on assessments: S.L. 2026-1 §3C.18(a)(5), as amended by S.L. 2026-41, says patient assessments are required to be conducted in person and assessments conducted via telehealth shall not be reimbursed unless exceptions are developed. So document the justification in the plan and ask the plan’s UM whether it wants the modality on the request. NC Medicaid’s bulletin adds that beneficiaries are not required to use telehealth and must be allowed in-person services on request. The state’s billing guidance to its health plans turns this into a claim edit: “CPT codes 97152–97154 can only be billed for services provided in person,” and “Claims submitted with Modifier GT (Telehealth) for 97152 - 97154 are not reimbursable and should be denied” (v36 §3.54.1).',
         status: 'verified',
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
           { title: 'Session Law 2026-41 (S.B. 257), §9E.22(a) — amends S.L. 2026-1 §3C.18(a) (in-person assessments; 6-month / 3-month plan reapproval)', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-41.pdf' },
           { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
+          { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026), §3.54.1 RB-BHT in-person requirement', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
         ],
       },
       authTurnaround: {
@@ -283,7 +300,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     },
     deliveryRules: {
       supervision: {
-        value: 'At least ten percent of all services delivered by a paraprofessional must involve observation and direction of that paraprofessional by a Licensed Qualified Autism Service Provider (LQASP). For a beneficiary receiving more than 200 hours of paraprofessional-delivered RB-BHT in a 180-calendar-day period, the ratio of LQASP-delivered to paraprofessional-delivered hours must be no less than 1:10 (10%) and no more than 2:10 (20%), measured over the authorization period and documented in the treatment plan; any plan requesting a ratio outside that band needs written clinical justification. Incidental supervision — ensuring competent, ethical practice, adherence to employer policy, ongoing skill development and personal support — is not billable.',
+        value: 'At least ten percent of all services delivered by a paraprofessional must involve observation and direction of that paraprofessional by a Licensed Qualified Autism Service Provider (LQASP). For a beneficiary receiving more than 200 hours of paraprofessional-delivered RB-BHT in a 180-calendar-day period, the ratio of LQASP-delivered to paraprofessional-delivered hours must be no less than 1:10 (10%) and no more than 2:10 (20%), measured over the authorization period and documented in the treatment plan; any plan requesting a ratio outside that band needs written clinical justification. Incidental supervision — ensuring competent, ethical practice, adherence to employer policy, ongoing skill development and personal support — is not billable. CCP 8F sets no caseload cap: nothing in the policy limits how many paraprofessionals one LQASP may supervise. The binding numbers are the 10% observation floor and the 10–20% hours band per beneficiary.',
         status: 'verified',
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
@@ -297,10 +314,13 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         ],
       },
       dailyLimits: {
-        value: 'CCP 8F publishes no per-day unit ceiling — every RB-BHT code bills in 15-minute units and Attachment A carries no daily maximum. The binding limits are per authorization period: treatment plans at 16 hours per week or fewer get up to 180 calendar days initial and reauthorize at least every 180 days, while plans above 16 hours per week get up to 90 calendar days and must be reviewed, modified and resubmitted at least every 90 days. Within a 180-day period, 97155 telehealth is capped at 50% of total 97155 billing, the LQASP-to-paraprofessional ratio band is 10–20% once paraprofessional hours pass 200, and a minimum of six caregiver training sessions must be completed. Hours spent in educational settings and receiving IEP services are excluded from the treatment-hour calculation.',
+        value: 'Two different ceilings. Per day, a claim edit: NC Medicaid applies the CMS Medicaid National Correct Coding Initiative to professional claims, including Medically Unlikely Edits — units-of-service edits that define for each CPT or HCPCS code "the number of units of service that is unlikely to be correct" — and its billing guidance tells every health plan to apply NCCI and MUE edits as well (§3.6.2). The public CMS Medicaid NCCI practitioner MUE table for dates of service 10/1–12/31/2026 sets these maxima per beneficiary per date of service: 97151 32 units, 97152 16, 97153 32 (8 hours), 97154 18, 97155 24, 97156 16, 97157 16, 97158 16, 0362T 16 and 0373T 32. Units above the MUE on one date of service deny as a claim edit whatever the authorization allows; the authorization, not the MUE, is the real weekly limit. Per authorization period: CCP 8F itself publishes no per-day unit ceiling — every RB-BHT code bills in 15-minute units and Attachment A carries no daily maximum. The binding limits are per authorization period: treatment plans at 16 hours per week or fewer get up to 180 calendar days initial and reauthorize at least every 180 days, while plans above 16 hours per week get up to 90 calendar days and must be reviewed, modified and resubmitted at least every 90 days. Within a 180-day period, 97155 telehealth is capped at 50% of total 97155 billing, the LQASP-to-paraprofessional ratio band is 10–20% once paraprofessional hours pass 200, and a minimum of six caregiver training sessions must be completed. Hours spent in educational settings and receiving IEP services are excluded from the treatment-hour calculation.',
         status: 'verified',
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'NC Medicaid — National Correct Coding Initiative fact sheet (April 2024)', url: 'https://medicaid.ncdhhs.gov/documents/national-correct-coding-initiative-ncci-fact-sheet/open' },
+          { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026), §3.6.2 NCCI and MUE edits', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
+          { title: 'CMS — Medicaid NCCI MUE table, practitioner services (effective 10/1/2026–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' },
         ],
       },
       noteSignature: {
@@ -327,6 +347,8 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does NC Medicaid accept H0031 or H0032 for ABA?', a: 'No. RB-BHT is billed only with CPT 97151–97157 under CCP 8F Attachment A. H-codes such as H0031 belong to other behavioral health services, and 97158, 0362T and 0373T are not covered either.' },
+      { q: 'Does NC Medicaid require graphs for an RB-BHT reauthorization?', a: 'Not by name. CCP 8F requires a reviewed and modified treatment plan with current baselines, measurement methods, progress milestones and target dates for each goal, plus documentation that supports continued medical necessity. Graphs are a common way to show that, but the policy does not require them.' },
       { q: 'Does North Carolina Medicaid cover ABA therapy?', a: 'Yes — as Research-Based Behavioral Health Treatment (RB-BHT) under Clinical Coverage Policy 8F, in every delivery channel (Medicaid Direct, Standard Plans, Tailored Plans, and the Children & Families Specialty Plan). All RB-BHT services require prior authorization, including the assessment.' },
       { q: 'What does NC Medicaid pay for ABA?', a: 'Published per-15-minute rates, effective 10/1/2025: 97151 $30.56, 97153 $20.81, 97155 $32.22, 97156 $23.70 — and every managed-care plan must pay at least 100% of the state fee schedule unless the provider agrees otherwise.' },
       { q: 'What does HB 696 change for ABA providers?', a: 'In-person assessments (telehealth assessments aren\'t reimbursed absent a documented exception); no new out-of-state BCBA/LQASP/C-QP supervisor enrollments, with all LQASPs/C-QPs required to enroll as in-state providers by August 2, 2026; RBT/ABAT certification for paraprofessionals, with a 120-day grace period that started August 1, 2026 for existing uncertified staff as well as new hires (claims for non-certified paraprofessionals aren\'t reimbursed after the window); telehealth removed entirely for 97152, 97153, and 97154; a 50% cap on telehealth for 97155 (per beneficiary, per 180-calendar-day period — not the 20% some earlier reporting described); a codified 10% LQASP observation floor; and a move to 90-day initial-and-reauthorization periods for plans above 16 hours/week. These provisions are codified in the rewritten Clinical Coverage Policy 8F, effective August 1, 2026. Existing prior authorizations aren\'t affected — no action is needed and no existing PA\'s duration will be reduced.' },
@@ -394,11 +416,13 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         body: [
           'The provider manual lists RB-BHT among covered behavioral-health services and adopts NC\'s Clinical Coverage Policies — so the whole clinical picture (PA on everything including assessment, the tiered 180/90-day authorization cadence, and treatment-plan reviews at each goal\'s target date and on any change in needs, provider or services — the 8/1/2026 rewrite dropped the old annual-rewrite rule) is the CCP 8F baseline covered in the state guide. Submissions run through Availity Essentials\' Interactive Care Reviewer; behavioral-health authorization fax lines are (844) 429-9636 for outpatient and (844) 439-3574 for inpatient, with provider services at (844) 594-5072. Use the plan\'s Precertification Lookup Tool to confirm code-level requirements before submitting.',
           'One detail from the manual: RB-BHT is explicitly exempt from the plan\'s standard network time/distance standards. That is a network-adequacy rule, not an open door — since July 7, 2026, S.L. 2026-41 §9E.22 requires every NC Medicaid health plan to maintain a closed network for RB-BHT and allows it to exclude providers, so confirm with Healthy Blue provider contracting that it is taking new RB-BHT providers before planning an expansion into new counties.',
+          'Code set: like every NC Medicaid plan, this one pays RB-BHT only under the CPT codes in CCP 8F Attachment A, 97151–97157, in 15-minute units. 97158, 0362T and 0373T are not covered, and no HCPCS H-code (H0031, H0032, H2014, H2019) is an RB-BHT code. The plan publishes no different code list. 96112 (developmental testing) is likewise not an RB-BHT code; NC Medicaid’s billing guidance lists it among procedure codes shared by physical and behavioral health.',
         ],
         cites: [
           { title: 'Session Law 2026-41 (S.B. 257, approved 7/7/2026), §9E.22 — mandatory closed RB-BHT networks', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-41.pdf' },
           { title: 'Healthy Blue NC — Provider Manual', url: 'https://provider.healthybluenc.com/docs/gpp/NCNC_CAID_ProviderManual.pdf' },
           { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026), Appendix A procedure-code tables', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
         ],
       },
       {
@@ -448,9 +472,17 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         body: [
           'NC Medicaid sets these for every Standard Plan, Healthy Blue included. Its prompt-payment fact sheet gives Standard Plans a 365-day timely filing window (in effect since July 1, 2023), covering the original claim and any corrected claim. A late claim is not invalidated if filing on time was not reasonably possible, as long as it is filed as soon as possible and within a year of the original deadline.',
           'Within 18 calendar days of receiving a medical claim the plan must say whether it is clean or pend it and ask for what is missing. It must pay or deny a clean claim within 30 days, and deny a claim when requested information has not arrived within 90 days. Late payment carries 18% annual interest, without the provider having to ask. Check your own contract too, since a provider agreement can set its own terms.',
+          'Healthy Blue’s own manual matches that window: submit claims “within 365 calendar days from the date of service.” For other insurance, “submit the claim within 365 calendar days from the third-party payer,” and the clock starts “on the date of the primary carrier’s Explanation of Benefits.” Corrected claims go in electronically with frequency code 7 (replacement of prior claim). Healthy Blue pays or denies clean claims “at lesser of 30 calendar days of receipt of the claim or the first scheduled provider reimbursement cycle following adjudication.” Each Explanation of Payment covers the claims adjudicated in the previous cycle. The manual does not publish the cycle day or a submission cutoff.',
+          'EVV does not apply to RB-BHT: NC Medicaid’s billing guidance lists the services “subject to EVV for Managed Care” as Personal Care, Home Health, Innovations Waiver, TBI and 1915(i) services (§3.52).',
+          'Taxonomy: the plan must “validate the taxonomy code submitted on the claim” against the provider’s NC Medicaid enrollment record and “price claims based on the taxonomy code submitted on the claim” (billing guidance §3.22), so bill the taxonomy you are enrolled under in NCTracks. Healthy Blue’s manual lists the “Taxonomy of billing provider, attending and rendering provider when submitted” among required claim data and verifies provider data “against state reference data.”',
+          'Referring or ordering NPI: not required on an RB-BHT claim. NC Medicaid’s OPR guidance lists the claim types that need an ordering NPI (home infusion, private duty nursing, labs, IDTF, CAP, radiology, DME, LEA) or a referring NPI (home infusion, specialized therapy, hospice, home health, PDN, dialysis, CAP, LEA), and RB-BHT is not on either list. The physician or psychologist who signs the service order must still be enrolled in NC Medicaid (42 CFR 455.410).',
+          'Disputes and appeals: for a zero or partial payment, file with the Healthy Blue Payment Dispute Unit (P.O. Box 61599, Virginia Beach, VA 23466). “We must receive your dispute within 60 calendar days from the date of the EOP”; Healthy Blue decides within 30 business days, and a Level II review must reach it within 30 calendar days of the Level I letter. Adverse benefit determinations, such as an authorization denial, go to provider appeals: within 90 calendar days of the notice, acknowledged in 5 calendar days and resolved in 30. A second-level appeal is due within 30 calendar days of the first resolution letter. The internal process must be exhausted before any other route.',
         ],
         cites: [
           { title: 'NC Medicaid Managed Care Provider Playbook — Prompt Payment fact sheet (Standard Plans, NC Medicaid Direct, Tailored Plans)', url: 'https://medicaid.ncdhhs.gov/provider-playbook-prompt-payment-fact-sheet/download' },
+          { title: 'Healthy Blue NC — Provider Manual (2026), 7.3 Paper Claims Submission and 7.7 Clean Claims Payment', url: 'https://provider.healthybluenc.com/docs/gpp/NCNC_CAID_ProviderManual.pdf' },
+          { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026): §3.22 Taxonomy, §3.52 EVV', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
+          { title: 'NC Medicaid — Federal Regulation Guidelines for Ordering, Prescribing or Referring (OPR) Providers (modified 7/1/2026)', url: 'https://medicaid.ncdhhs.gov/providers/claims-and-billing/federal-regulation-guidelines-ordering-prescribing-or-referring-opr-providers' },
         ],
       },
     ],
@@ -460,6 +492,9 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'County / region', desc: 'RB-BHT is exempt from the plan\'s time/distance standards, but the RB-BHT network is closed by statute since 7/7/2026 — capture location, and confirm you are contracted, before scheduling.' },
     ],
     sources: [
+      { title: 'NC Medicaid — Federal Regulation Guidelines for Ordering, Prescribing or Referring (OPR) Providers (modified 7/1/2026)', url: 'https://medicaid.ncdhhs.gov/providers/claims-and-billing/federal-regulation-guidelines-ordering-prescribing-or-referring-opr-providers' },
+      { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026), §3.54.1 RB-BHT in-person requirement', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
+      { title: 'CMS — Medicaid NCCI MUE table, practitioner services (effective 10/1/2026–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' },
       { title: 'Healthy Blue NC — Provider Manual', url: 'https://provider.healthybluenc.com/docs/gpp/NCNC_CAID_ProviderManual.pdf' },
       { title: 'Healthy Blue NC — prior authorization page', url: 'https://provider.healthybluenc.com/north-carolina-provider/prior-authorization' },
       { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
@@ -508,10 +543,11 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         ],
       },
       telehealth: {
-        value: 'Follows the NC Medicaid rule (Attachment A, eff. 8/1/2026): GT telehealth is billable for 97151 with clinical justification and for 97155 up to 50% of total 97155 billing per beneficiary per 180 days; telehealth is removed entirely for 97152, 97153 and 97154; 97156 and 97157 remain telehealth eligible and are the only KX telephonic services, on a documented caregiver health or access barrier.',
+        value: 'Follows the NC Medicaid rule (Attachment A, eff. 8/1/2026): GT telehealth is billable for 97151 with clinical justification and for 97155 up to 50% of total 97155 billing per beneficiary per 180 days; telehealth is removed entirely for 97152, 97153 and 97154; 97156 and 97157 remain telehealth eligible and are the only KX telephonic services, on a documented caregiver health or access barrier. NC Medicaid’s billing guidance binds the plan to the same edit: “Claims submitted with Modifier GT (Telehealth) for 97152 - 97154 are not reimbursable and should be denied” (v36 §3.54.1). Telehealth claims carry the provider’s usual place-of-service code (8F Attachment A), and 8F does not require the telehealth modality to be named on the authorization.',
         status: 'verified',
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026), §3.54.1 RB-BHT in-person requirement', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
         ],
       },
       authTurnaround: {
@@ -534,7 +570,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     },
     deliveryRules: {
       supervision: {
-        value: 'Follows the NC Medicaid rule: at least 10% of paraprofessional-delivered services must involve LQASP observation and direction, and above 200 paraprofessional hours per 180 days the LQASP-to-paraprofessional ratio must sit between 10% and 20%, documented in the treatment plan with deviations clinically justified. Incidental supervision is not billable.',
+        value: 'Follows the NC Medicaid rule: at least 10% of paraprofessional-delivered services must involve LQASP observation and direction, and above 200 paraprofessional hours per 180 days the LQASP-to-paraprofessional ratio must sit between 10% and 20%, documented in the treatment plan with deviations clinically justified. Incidental supervision is not billable. Neither CCP 8F nor the plan’s own manual caps how many paraprofessionals one LQASP may supervise; the limits are the per-beneficiary 10% floor and 10–20% band.',
         status: 'verified',
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
@@ -548,10 +584,13 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         ],
       },
       dailyLimits: {
-        value: 'Follows the NC Medicaid rule: no per-day unit ceiling is published — the limits are per authorization period. Plans at or under 16 hours a week run 180-day initial and reauthorization cycles; plans above 16 hours a week run 90-day cycles. Within a 180-day period, 97155 telehealth is capped at 50% of 97155 billing and at least six caregiver training sessions are required. Educational-setting and IEP hours are excluded from the treatment-hour calculation.',
+        value: 'Two different ceilings. Per day, a claim edit: NC Medicaid applies the CMS Medicaid National Correct Coding Initiative to professional claims, including Medically Unlikely Edits — units-of-service edits that define for each CPT or HCPCS code "the number of units of service that is unlikely to be correct" — and its billing guidance tells every health plan to apply NCCI and MUE edits as well (§3.6.2). Healthy Blue’s provider manual says the same: NC Medicaid must "incorporate NCCI methodologies into their claims processing systems," and MUEs are "units of service edits for practitioners". The public CMS Medicaid NCCI practitioner MUE table for dates of service 10/1–12/31/2026 sets these maxima per beneficiary per date of service: 97151 32 units, 97152 16, 97153 32 (8 hours), 97154 18, 97155 24, 97156 16, 97157 16, 97158 16, 0362T 16 and 0373T 32. Units above the MUE on one date of service deny as a claim edit whatever the authorization allows; the authorization, not the MUE, is the real weekly limit. Per authorization period, the NC Medicaid rule (CCP 8F sets no per-day cap of its own): plans at or under 16 hours a week run 180-day initial and reauthorization cycles; plans above 16 hours a week run 90-day cycles. Within a 180-day period, 97155 telehealth is capped at 50% of 97155 billing and at least six caregiver training sessions are required. Educational-setting and IEP hours are excluded from the treatment-hour calculation.',
         status: 'verified',
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026), §3.6.2 NCCI and MUE edits', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
+          { title: 'CMS — Medicaid NCCI MUE table, practitioner services (effective 10/1/2026–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' },
+          { title: 'Healthy Blue NC — Provider Manual (2026)', url: 'https://provider.healthybluenc.com/docs/gpp/NCNC_CAID_ProviderManual.pdf' },
         ],
       },
       noteSignature: {
@@ -642,10 +681,12 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         body: [
           'The clinical rules are the CCP 8F baseline: PA on all RB-BHT services including the assessment, authorization cycles tiered by intensity (180 calendar days at ≤16 hrs/week, 90 days above), treatment-plan reviews at each goal\'s target date (short-range goals no more than 12 months out) and whenever needs, provider or services change — the 8/1/2026 rewrite of subsection 5.3.4 removed the old fixed review-and-annual-rewrite cycle. AmeriHealth\'s own layer is a Clinical Coverage Policy Reference Tool mapping to the state policies, a Behavioral Health Utilization Management Guide (January 2025 edition), and a PA Lookup Tool for code-level checks. One thing to verify directly: AmeriHealth eliminated prior authorization on 240+ physical and behavioral-health codes effective January 1, 2025 — whether any 9715x codes made that list isn\'t publicly confirmed, so run your codes through the Lookup Tool rather than assuming.',
           'Because the plan\'s site blocks automated access, have your team download the current BH UM Guide and the PA Lookup results from the portal directly, and keep dated copies with your payer files.',
+          'Code set: like every NC Medicaid plan, this one pays RB-BHT only under the CPT codes in CCP 8F Attachment A, 97151–97157, in 15-minute units. 97158, 0362T and 0373T are not covered, and no HCPCS H-code (H0031, H0032, H2014, H2019) is an RB-BHT code. The plan publishes no different code list. 96112 (developmental testing) is likewise not an RB-BHT code; NC Medicaid’s billing guidance lists it among procedure codes shared by physical and behavioral health.',
         ],
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
           { title: 'AmeriHealth Caritas NC — Behavioral Health UM Guide (pull manually; bot-blocked)', url: 'https://www.amerihealthcaritasnc.com/content/dam/amerihealth-caritas/acnc/pdf/provider/resources/utilization-management-guide.pdf.coredownload.inline.pdf' },
+          { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026), Appendix A procedure-code tables', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
         ],
       },
       {
@@ -689,9 +730,15 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         body: [
           'AmeriHealth Caritas NC’s provider manual (Version 18, September 2026) says “All original paper and electronic claims must be submitted ACNC within 365 calendar days from the date services were rendered.” Corrected claims also go in within 365 days of the original date of service. Claims carrying a primary insurer’s EOB are due within 180 days of the EOB date.',
           'ACNC must tell the provider within 18 calendar days whether a medical claim is clean or pend it. It must pay or deny a clean medical claim within the lesser of 30 calendar days or the first scheduled reimbursement cycle after adjudication, and pay a pended claim within 30 days of receiving the missing information. The manual lists the National Provider Identifier (NPI) and taxonomy among the required claim elements.',
+          'EVV does not apply to RB-BHT: NC Medicaid’s billing guidance lists the services “subject to EVV for Managed Care” as Personal Care, Home Health, Innovations Waiver, TBI and 1915(i) services (§3.52).',
+          'Taxonomy: the plan must “validate the taxonomy code submitted on the claim” against the provider’s NC Medicaid enrollment record and “price claims based on the taxonomy code submitted on the claim” (billing guidance §3.22), so bill the taxonomy you are enrolled under in NCTracks.',
+          'Referring or ordering NPI: not required on an RB-BHT claim. NC Medicaid’s OPR guidance lists the claim types that need an ordering NPI (home infusion, private duty nursing, labs, IDTF, CAP, radiology, DME, LEA) or a referring NPI (home infusion, specialized therapy, hospice, home health, PDN, dialysis, CAP, LEA), and RB-BHT is not on either list. The physician or psychologist who signs the service order must still be enrolled in NC Medicaid (42 CFR 455.410).',
+          'Disputes and appeals: claim denials go through ACNC’s provider grievance process, filed in NaviNet (Forms and Dashboards → grievance), through Provider Services at 1-888-738-0004, or by mail to Provider Grievances, PO Box 7379, London, KY 40742-7379. Formal provider appeals, covering overpayment findings, payment withholds, contract violations and grievances not resolved to the provider’s satisfaction, are due “within 30 calendar days from the date on which … the provider received written notice from ACNC of the decision.” The manual sets no separate filing deadline for a claim grievance.',
         ],
         cites: [
           { title: 'AmeriHealth Caritas NC — Provider Manual (Version 18, revision log 9/17/2026)', url: 'https://www.amerihealthcaritasnc.com/assets/pdf/provider/provider-manual.pdf' },
+          { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026): §3.22 Taxonomy, §3.52 EVV', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
+          { title: 'NC Medicaid — Federal Regulation Guidelines for Ordering, Prescribing or Referring (OPR) Providers (modified 7/1/2026)', url: 'https://medicaid.ncdhhs.gov/providers/claims-and-billing/federal-regulation-guidelines-ordering-prescribing-or-referring-opr-providers' },
         ],
       },
     ],
@@ -701,6 +748,9 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Code-level PA check', desc: 'Run the planned CPT codes through the PA Lookup Tool before promising timelines.' },
     ],
     sources: [
+      { title: 'NC Medicaid — Federal Regulation Guidelines for Ordering, Prescribing or Referring (OPR) Providers (modified 7/1/2026)', url: 'https://medicaid.ncdhhs.gov/providers/claims-and-billing/federal-regulation-guidelines-ordering-prescribing-or-referring-opr-providers' },
+      { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026)', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
+      { title: 'CMS — Medicaid NCCI MUE table, practitioner services (effective 10/1/2026–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' },
       { title: 'AmeriHealth Caritas NC — prior authorization resources (bot-blocked; access via portal)', url: 'https://www.amerihealthcaritasnc.com/provider/resources/physical-prior-auth' },
       { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
       { title: 'AmeriHealth Caritas NC — Behavioral Health UM Guide (pull manually; bot-blocked)', url: 'https://www.amerihealthcaritasnc.com/content/dam/amerihealth-caritas/acnc/pdf/provider/resources/utilization-management-guide.pdf.coredownload.inline.pdf' },
@@ -748,10 +798,11 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         ],
       },
       telehealth: {
-        value: 'Follows the NC Medicaid rule (Attachment A, eff. 8/1/2026): GT telehealth is billable for 97151 with clinical justification and for 97155 up to 50% of total 97155 billing per beneficiary per 180 days; telehealth is removed entirely for 97152, 97153 and 97154; 97156 and 97157 remain telehealth eligible and are the only KX telephonic services, on a documented caregiver health or access barrier.',
+        value: 'Follows the NC Medicaid rule (Attachment A, eff. 8/1/2026): GT telehealth is billable for 97151 with clinical justification and for 97155 up to 50% of total 97155 billing per beneficiary per 180 days; telehealth is removed entirely for 97152, 97153 and 97154; 97156 and 97157 remain telehealth eligible and are the only KX telephonic services, on a documented caregiver health or access barrier. NC Medicaid’s billing guidance binds the plan to the same edit: “Claims submitted with Modifier GT (Telehealth) for 97152 - 97154 are not reimbursable and should be denied” (v36 §3.54.1). Telehealth claims carry the provider’s usual place-of-service code (8F Attachment A), and 8F does not require the telehealth modality to be named on the authorization.',
         status: 'verified',
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026), §3.54.1 RB-BHT in-person requirement', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
         ],
       },
       authTurnaround: {
@@ -778,7 +829,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     },
     deliveryRules: {
       supervision: {
-        value: 'Follows the NC Medicaid rule: at least 10% of paraprofessional-delivered services must involve LQASP observation and direction, and above 200 paraprofessional hours per 180 days the LQASP-to-paraprofessional ratio must sit between 10% and 20%, documented in the treatment plan with deviations clinically justified. Incidental supervision is not billable.',
+        value: 'Follows the NC Medicaid rule: at least 10% of paraprofessional-delivered services must involve LQASP observation and direction, and above 200 paraprofessional hours per 180 days the LQASP-to-paraprofessional ratio must sit between 10% and 20%, documented in the treatment plan with deviations clinically justified. Incidental supervision is not billable. Neither CCP 8F nor the plan’s own manual caps how many paraprofessionals one LQASP may supervise; the limits are the per-beneficiary 10% floor and 10–20% band.',
         status: 'verified',
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
@@ -792,11 +843,14 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         ],
       },
       dailyLimits: {
-        value: 'Follows the NC Medicaid rule: no per-day unit ceiling; limits are per authorization period (180-day cycles at or under 16 hours a week, 90-day cycles above it), with the 50% 97155 telehealth cap and the six-caregiver-training minimum per 180 days. AmeriHealth publishes no plan-specific ABA unit table; because the plan removed prior authorization from 240+ codes effective January 1, 2025 without publicly confirming whether any 9715x codes were included, run the planned codes through the plan’s PA Lookup Tool rather than assuming.',
+        value: 'Two different ceilings. Per day, a claim edit: NC Medicaid applies the CMS Medicaid National Correct Coding Initiative to professional claims, including Medically Unlikely Edits — units-of-service edits that define for each CPT or HCPCS code "the number of units of service that is unlikely to be correct" — and its billing guidance tells every health plan to apply NCCI and MUE edits as well (§3.6.2). AmeriHealth’s provider manual (Version 18) bases its prospective claim edits on CMS and other industry sources without listing ABA values. The public CMS Medicaid NCCI practitioner MUE table for dates of service 10/1–12/31/2026 sets these maxima per beneficiary per date of service: 97151 32 units, 97152 16, 97153 32 (8 hours), 97154 18, 97155 24, 97156 16, 97157 16, 97158 16, 0362T 16 and 0373T 32. Units above the MUE on one date of service deny as a claim edit whatever the authorization allows; the authorization, not the MUE, is the real weekly limit. Per authorization period, the NC Medicaid rule (CCP 8F sets no per-day cap of its own): 180-day cycles at or under 16 hours a week, 90-day cycles above it), with the 50% 97155 telehealth cap and the six-caregiver-training minimum per 180 days. AmeriHealth publishes no plan-specific ABA unit table; because the plan removed prior authorization from 240+ codes effective January 1, 2025 without publicly confirming whether any 9715x codes were included, run the planned codes through the plan’s PA Lookup Tool rather than assuming.',
         status: 'verified',
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
           { title: 'AmeriHealth Caritas NC — Behavioral Health UM Guide (pull manually; bot-blocked)', url: 'https://www.amerihealthcaritasnc.com/content/dam/amerihealth-caritas/acnc/pdf/provider/resources/utilization-management-guide.pdf.coredownload.inline.pdf' },
+          { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026), §3.6.2 NCCI and MUE edits', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
+          { title: 'CMS — Medicaid NCCI MUE table, practitioner services (effective 10/1/2026–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' },
+          { title: 'AmeriHealth Caritas NC — Provider Manual (Version 18), Prospective Claims Editing Policy', url: 'https://www.amerihealthcaritasnc.com/assets/pdf/provider/provider-manual.pdf' },
         ],
       },
       noteSignature: {
@@ -882,11 +936,13 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         h2: 'How CCH administers RB-BHT',
         body: [
           'Clinically, everything is CCP 8F: PA before rendering any RB-BHT service (assessment included), authorization cycles tiered by intensity (180 calendar days at ≤16 hrs/week, 90 days above), treatment-plan reviews at each goal\'s target date and on any change in needs, provider or services. Requests go through the provider portal accompanied by the plan\'s ABA Outpatient Treatment Request Checklist — using it as your internal submission template removes back-and-forth. Behavioral health is integrated in-house (clinical training questions go to BH_training@centene.com), and provider services runs at (833) 552-3876, Monday–Saturday 7am–6pm. Carolina Complete Health became a statewide Standard Plan effective April 1, 2026, when WellCare of North Carolina merged into it — so eligibility should no longer be screened by county for this plan. Note also that Partners Health Management\'s Tailored Plan documentation cross-references CCH policies, reflecting shared Centene infrastructure.',
+          'Code set: like every NC Medicaid plan, this one pays RB-BHT only under the CPT codes in CCP 8F Attachment A, 97151–97157, in 15-minute units. 97158, 0362T and 0373T are not covered, and no HCPCS H-code (H0031, H0032, H2014, H2019) is an RB-BHT code. The plan publishes no different code list. 96112 (developmental testing) is likewise not an RB-BHT code; NC Medicaid’s billing guidance lists it among procedure codes shared by physical and behavioral health.',
         ],
         cites: [
           { title: 'Carolina Complete Health — behavioral health provider page', url: 'https://network.carolinacompletehealth.com/resources/behavioral-health.html' },
           { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
           { title: 'NC Medicaid — WellCare NC and Carolina Complete Health merge April 1, 2026 (Provider Playbook)', url: 'https://medicaid.ncdhhs.gov/providers/provider-playbook-medicaid-managed-care/trending-topics/wellcare-north-carolina-and-carolina-complete-health-merge-april-1-2026' },
+          { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026), Appendix A procedure-code tables', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
         ],
       },
       {
@@ -930,9 +986,17 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         body: [
           'NC Medicaid sets these for every Standard Plan, Carolina Complete Health included. Its prompt-payment fact sheet gives Standard Plans a 365-day timely filing window (in effect since July 1, 2023), covering the original claim and any corrected claim. A late claim is not invalidated if filing on time was not reasonably possible, as long as it is filed as soon as possible and within a year of the original deadline.',
           'Within 18 calendar days of receiving a medical claim the plan must say whether it is clean or pend it and ask for what is missing. It must pay or deny a clean claim within 30 days, and deny a claim when requested information has not arrived within 90 days. Late payment carries 18% annual interest, without the provider having to ask. Check your own contract too, since a provider agreement can set its own terms.',
+          'Carolina Complete Health’s billing manual (updated July 14, 2026) gives the same deadlines in its own words. Contracted providers submit first-time claims within 365 calendar days of the date of service; non-contracted providers have 180. Corrected claims have the same windows, measured from the date of service: 365 calendar days for contracted providers and 180 for non-contracted. For a secondary claim behind commercial insurance or Medicare, CCH allows “three hundred and sixty-five (365) Calendar Days from the primary insurer’s Explanation of Benefits/Remittance Advice date (whether the claim was paid or denied).” Send it electronically with the EOB/RA attached. The manual publishes no payment-cycle day or submission cutoff.',
+          'EVV does not apply to RB-BHT: NC Medicaid’s billing guidance lists the services “subject to EVV for Managed Care” as Personal Care, Home Health, Innovations Waiver, TBI and 1915(i) services (§3.52).',
+          'Taxonomy: the plan must “validate the taxonomy code submitted on the claim” against the provider’s NC Medicaid enrollment record and “price claims based on the taxonomy code submitted on the claim” (billing guidance §3.22), so bill the taxonomy you are enrolled under in NCTracks. CCH’s billing manual puts the billing taxonomy in 837P loop 2000A (box 33b with qualifier ZZ on paper) and the rendering taxonomy in loop 2310B (box 24Ja). If a referring provider is shown in box 17, box 17a carries ZZ plus that provider’s taxonomy.',
+          'Referring or ordering NPI: not required on an RB-BHT claim. NC Medicaid’s OPR guidance lists the claim types that need an ordering NPI (home infusion, private duty nursing, labs, IDTF, CAP, radiology, DME, LEA) or a referring NPI (home infusion, specialized therapy, hospice, home health, PDN, dialysis, CAP, LEA), and RB-BHT is not on either list. The physician or psychologist who signs the service order must still be enrolled in NC Medicaid (42 CFR 455.410).',
+          'Disputes and appeals: for dates of service from 4/1/2026, a Provider Claim Dispute (wrong amount, eligibility, other-insurance or payment-policy denials) is due “within ninety (90) calendar days from the date of the EOP/ERA (par providers) and sixty (60) days … for non-par providers.” File it through the secure portal, or by mail or fax (833-641-0206) using the Claim Appeal/Disputes Form, one claim per form. A Provider Claim Appeal of an adverse authorization decision is due within 60 days of the original authorization notice, after which the decision is final.',
         ],
         cites: [
           { title: 'NC Medicaid Managed Care Provider Playbook — Prompt Payment fact sheet (Standard Plans, NC Medicaid Direct, Tailored Plans)', url: 'https://medicaid.ncdhhs.gov/provider-playbook-prompt-payment-fact-sheet/download' },
+          { title: 'Carolina Complete Health — Provider Billing Manual (last updated 7/14/2026): Timely Filing, COB, Claim Correction', url: 'https://network.carolinacompletehealth.com/content/dam/centene/carolinacompletehealth/pdfs/CCH-Current-Provider-Billing-Manual.pdf' },
+          { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026): §3.22 Taxonomy, §3.52 EVV', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
+          { title: 'NC Medicaid — Federal Regulation Guidelines for Ordering, Prescribing or Referring (OPR) Providers (modified 7/1/2026)', url: 'https://medicaid.ncdhhs.gov/providers/claims-and-billing/federal-regulation-guidelines-ordering-prescribing-or-referring-opr-providers' },
         ],
       },
     ],
@@ -942,6 +1006,10 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Checklist items', desc: 'Build intake to pre-fill the plan\'s ABA treatment-request checklist.' },
     ],
     sources: [
+      { title: 'NC Medicaid — Federal Regulation Guidelines for Ordering, Prescribing or Referring (OPR) Providers (modified 7/1/2026)', url: 'https://medicaid.ncdhhs.gov/providers/claims-and-billing/federal-regulation-guidelines-ordering-prescribing-or-referring-opr-providers' },
+      { title: 'Carolina Complete Health — Provider Billing Manual (last updated 7/14/2026)', url: 'https://network.carolinacompletehealth.com/content/dam/centene/carolinacompletehealth/pdfs/CCH-Current-Provider-Billing-Manual.pdf' },
+      { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026)', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
+      { title: 'CMS — Medicaid NCCI MUE table, practitioner services (effective 10/1/2026–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' },
       { title: 'Carolina Complete Health — behavioral health page (8F deference, checklist)', url: 'https://network.carolinacompletehealth.com/resources/behavioral-health.html' },
       { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
       { title: 'NC Medicaid — WellCare NC and Carolina Complete Health merge April 1, 2026 (Provider Playbook)', url: 'https://medicaid.ncdhhs.gov/providers/provider-playbook-medicaid-managed-care/trending-topics/wellcare-north-carolina-and-carolina-complete-health-merge-april-1-2026' },
@@ -990,10 +1058,11 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         ],
       },
       telehealth: {
-        value: 'Follows the NC Medicaid rule (Attachment A, eff. 8/1/2026): GT telehealth is billable for 97151 with clinical justification and for 97155 up to 50% of total 97155 billing per beneficiary per 180 days; telehealth is removed entirely for 97152, 97153 and 97154; 97156 and 97157 remain telehealth eligible and are the only KX telephonic services, on a documented caregiver health or access barrier.',
+        value: 'Follows the NC Medicaid rule (Attachment A, eff. 8/1/2026): GT telehealth is billable for 97151 with clinical justification and for 97155 up to 50% of total 97155 billing per beneficiary per 180 days; telehealth is removed entirely for 97152, 97153 and 97154; 97156 and 97157 remain telehealth eligible and are the only KX telephonic services, on a documented caregiver health or access barrier. NC Medicaid’s billing guidance binds the plan to the same edit: “Claims submitted with Modifier GT (Telehealth) for 97152 - 97154 are not reimbursable and should be denied” (v36 §3.54.1). Telehealth claims carry the provider’s usual place-of-service code (8F Attachment A), and 8F does not require the telehealth modality to be named on the authorization.',
         status: 'verified',
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026), §3.54.1 RB-BHT in-person requirement', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
         ],
       },
       authTurnaround: {
@@ -1021,7 +1090,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     },
     deliveryRules: {
       supervision: {
-        value: 'Follows the NC Medicaid rule: at least 10% of paraprofessional-delivered services must involve LQASP observation and direction, and above 200 paraprofessional hours per 180 days the LQASP-to-paraprofessional ratio must sit between 10% and 20%, documented in the treatment plan with deviations clinically justified. Incidental supervision is not billable.',
+        value: 'Follows the NC Medicaid rule: at least 10% of paraprofessional-delivered services must involve LQASP observation and direction, and above 200 paraprofessional hours per 180 days the LQASP-to-paraprofessional ratio must sit between 10% and 20%, documented in the treatment plan with deviations clinically justified. Incidental supervision is not billable. Neither CCP 8F nor the plan’s own manual caps how many paraprofessionals one LQASP may supervise; the limits are the per-beneficiary 10% floor and 10–20% band.',
         status: 'verified',
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
@@ -1035,10 +1104,13 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         ],
       },
       dailyLimits: {
-        value: 'Follows the NC Medicaid rule: no per-day unit ceiling is published — the limits are per authorization period. Plans at or under 16 hours a week run 180-day initial and reauthorization cycles; plans above 16 hours a week run 90-day cycles. Within a 180-day period, 97155 telehealth is capped at 50% of 97155 billing and at least six caregiver training sessions are required. Educational-setting and IEP hours are excluded from the treatment-hour calculation.',
+        value: 'Two different ceilings. Per day, a claim edit: NC Medicaid applies the CMS Medicaid National Correct Coding Initiative to professional claims, including Medically Unlikely Edits — units-of-service edits that define for each CPT or HCPCS code "the number of units of service that is unlikely to be correct" — and its billing guidance tells every health plan to apply NCCI and MUE edits as well (§3.6.2). Carolina Complete Health’s billing manual edits claims against the CMS NCCI tables, MUEs included: "MUE’s reflect the maximum number of units that a provider would bill for a single enrollee, on a single date of service." The public CMS Medicaid NCCI practitioner MUE table for dates of service 10/1–12/31/2026 sets these maxima per beneficiary per date of service: 97151 32 units, 97152 16, 97153 32 (8 hours), 97154 18, 97155 24, 97156 16, 97157 16, 97158 16, 0362T 16 and 0373T 32. Units above the MUE on one date of service deny as a claim edit whatever the authorization allows; the authorization, not the MUE, is the real weekly limit. Per authorization period, the NC Medicaid rule (CCP 8F sets no per-day cap of its own): plans at or under 16 hours a week run 180-day initial and reauthorization cycles; plans above 16 hours a week run 90-day cycles. Within a 180-day period, 97155 telehealth is capped at 50% of 97155 billing and at least six caregiver training sessions are required. Educational-setting and IEP hours are excluded from the treatment-hour calculation.',
         status: 'verified',
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026), §3.6.2 NCCI and MUE edits', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
+          { title: 'CMS — Medicaid NCCI MUE table, practitioner services (effective 10/1/2026–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' },
+          { title: 'Carolina Complete Health — Provider Billing Manual (last updated 7/14/2026)', url: 'https://network.carolinacompletehealth.com/content/dam/centene/carolinacompletehealth/pdfs/CCH-Current-Provider-Billing-Manual.pdf' },
         ],
       },
       noteSignature: {
@@ -1123,10 +1195,12 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         body: [
           'Optum requires an authorization for the ABA assessment that is separate from the treatment authorization — the same structure as Optum\'s commercial ABA program, run here under NC Medicaid rules. Both submit through the Provider Express secure portal (One Healthcare ID), where the NC ABA quick-reference guide and provider orientation also live; portal support runs at (866) 209-9320 and network/provider relations at (877) 614-0484. Sequence intake accordingly: benefits check → assessment auth → assessment → treatment auth — with the state\'s 8F requirements (validated diagnostic tool, service order) satisfied before step one.',
           'Providers must be enrolled with NC Medicaid through NCTracks before they can join the Optum ABA network — a credentialing dependency worth building into any expansion timeline.',
+          'Code set: like every NC Medicaid plan, this one pays RB-BHT only under the CPT codes in CCP 8F Attachment A, 97151–97157, in 15-minute units. 97158, 0362T and 0373T are not covered, and no HCPCS H-code (H0031, H0032, H2014, H2019) is an RB-BHT code. The plan publishes no different code list. 96112 (developmental testing) is likewise not an RB-BHT code; NC Medicaid’s billing guidance lists it among procedure codes shared by physical and behavioral health.',
         ],
         cites: [
           { title: 'Optum Provider Express — NC Medicaid ABA Program', url: 'https://public.providerexpress.com/content/ope-provexpr/us/en/clinical-resources/autismABA2/abaCAMediCal12.html' },
           { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026), Appendix A procedure-code tables', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
         ],
       },
       {
@@ -1170,9 +1244,17 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         body: [
           'NC Medicaid sets these for every Standard Plan, UnitedHealthcare Community Plan of North Carolina included. Its prompt-payment fact sheet gives Standard Plans a 365-day timely filing window (in effect since July 1, 2023), covering the original claim and any corrected claim. A late claim is not invalidated if filing on time was not reasonably possible, as long as it is filed as soon as possible and within a year of the original deadline.',
           'Within 18 calendar days of receiving a medical claim the plan must say whether it is clean or pend it and ask for what is missing. It must pay or deny a clean claim within 30 days, and deny a claim when requested information has not arrived within 90 days. Late payment carries 18% annual interest, without the provider having to ask. Check your own contract too, since a provider agreement can set its own terms.',
+          'The plan’s 2026 NC manual sets one deadline that is tighter than the rest: secondary claims behind commercial insurance or Medicare are due “within 180 calendar days from the primary insurer’s explanation of benefits/remittance advice date (whether the claim was paid or denied),” with the primary EOB or remittance advice attached. Original claims are due within 365 days of the date of service for dates of service on or after July 1, 2023. A corrected claim replaces a processed or denied claim. A rejected claim was never processed, so it is fixed by resubmitting, not appealing. The plan pays or denies a clean claim “at the lesser of 30 calendar days of claim receipt or the first scheduled care provider payment cycle following adjudication.” The manual does not publish the cycle day or a submission cutoff.',
+          'EVV does not apply to RB-BHT: NC Medicaid’s billing guidance lists the services “subject to EVV for Managed Care” as Personal Care, Home Health, Innovations Waiver, TBI and 1915(i) services (§3.52).',
+          'Taxonomy: the plan must “validate the taxonomy code submitted on the claim” against the provider’s NC Medicaid enrollment record and “price claims based on the taxonomy code submitted on the claim” (billing guidance §3.22), so bill the taxonomy you are enrolled under in NCTracks.',
+          'Referring or ordering NPI: not required on an RB-BHT claim. NC Medicaid’s OPR guidance lists the claim types that need an ordering NPI (home infusion, private duty nursing, labs, IDTF, CAP, radiology, DME, LEA) or a referring NPI (home infusion, specialized therapy, hospice, home health, PDN, dialysis, CAP, LEA), and RB-BHT is not on either list. The physician or psychologist who signs the service order must still be enrolled in NC Medicaid (42 CFR 455.410).',
+          'Disputes and appeals: step 1 is a claim reconsideration, filed through the Claim and Payment menu of the UnitedHealthcare Provider Portal with supporting records. It may be repeated as long as each request adds new information, and adjustments and disputes must be filed “within contractual time requirements.” Step 2 is a one-time formal claim appeal: “You must submit an appeal within 30 calendar days from receipt of UnitedHealthcare Community Plan’s response or determination,” extendable by 30 days for a large volume of good-cause evidence.',
         ],
         cites: [
           { title: 'NC Medicaid Managed Care Provider Playbook — Prompt Payment fact sheet (Standard Plans, NC Medicaid Direct, Tailored Plans)', url: 'https://medicaid.ncdhhs.gov/provider-playbook-prompt-payment-fact-sheet/download' },
+          { title: 'UnitedHealthcare Community Plan of NC — 2026 Care Provider Manual, Ch. 11 (clean claims, timely filing, payment)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NC-UHCCP-Care-Provider-Manual.pdf' },
+          { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026): §3.22 Taxonomy, §3.52 EVV', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
+          { title: 'NC Medicaid — Federal Regulation Guidelines for Ordering, Prescribing or Referring (OPR) Providers (modified 7/1/2026)', url: 'https://medicaid.ncdhhs.gov/providers/claims-and-billing/federal-regulation-guidelines-ordering-prescribing-or-referring-opr-providers' },
         ],
       },
     ],
@@ -1183,6 +1265,10 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'NCTracks + Optum credentialing status', desc: 'Both enrollments must be in place before serving UHC members.' },
     ],
     sources: [
+      { title: 'NC Medicaid — Federal Regulation Guidelines for Ordering, Prescribing or Referring (OPR) Providers (modified 7/1/2026)', url: 'https://medicaid.ncdhhs.gov/providers/claims-and-billing/federal-regulation-guidelines-ordering-prescribing-or-referring-opr-providers' },
+      { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026), §3.54.1 RB-BHT in-person requirement', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
+      { title: 'UnitedHealthcare Community Plan of NC — 2026 Care Provider Manual', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NC-UHCCP-Care-Provider-Manual.pdf' },
+      { title: 'CMS — Medicaid NCCI MUE table, practitioner services (effective 10/1/2026–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' },
       { title: 'Optum Provider Express — NC Medicaid ABA Program', url: 'https://public.providerexpress.com/content/ope-provexpr/us/en/clinical-resources/autismABA2/abaCAMediCal12.html' },
       { title: 'UHC Community Plan NC — prior authorization page', url: 'https://www.uhcprovider.com/en/health-plans-by-state/north-carolina-health-plans/nc-comm-plan-home/nc-cp-prior-auth.html' },
       { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
@@ -1231,10 +1317,11 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         ],
       },
       telehealth: {
-        value: 'Follows the NC Medicaid rule (Attachment A, eff. 8/1/2026): GT telehealth is billable for 97151 with clinical justification and for 97155 up to 50% of total 97155 billing per beneficiary per 180 days; telehealth is removed entirely for 97152, 97153 and 97154; 97156 and 97157 remain telehealth eligible and are the only KX telephonic services, on a documented caregiver health or access barrier.',
+        value: 'Follows the NC Medicaid rule (Attachment A, eff. 8/1/2026): GT telehealth is billable for 97151 with clinical justification and for 97155 up to 50% of total 97155 billing per beneficiary per 180 days; telehealth is removed entirely for 97152, 97153 and 97154; 97156 and 97157 remain telehealth eligible and are the only KX telephonic services, on a documented caregiver health or access barrier. NC Medicaid’s billing guidance binds the plan to the same edit: “Claims submitted with Modifier GT (Telehealth) for 97152 - 97154 are not reimbursable and should be denied” (v36 §3.54.1). Telehealth claims carry the provider’s usual place-of-service code (8F Attachment A), and 8F does not require the telehealth modality to be named on the authorization.',
         status: 'verified',
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026), §3.54.1 RB-BHT in-person requirement', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
         ],
       },
       authTurnaround: {
@@ -1259,7 +1346,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     },
     deliveryRules: {
       supervision: {
-        value: 'Follows the NC Medicaid rule: at least 10% of paraprofessional-delivered services must involve LQASP observation and direction, and above 200 paraprofessional hours per 180 days the LQASP-to-paraprofessional ratio must sit between 10% and 20%, documented in the treatment plan with deviations clinically justified. Incidental supervision is not billable.',
+        value: 'Follows the NC Medicaid rule: at least 10% of paraprofessional-delivered services must involve LQASP observation and direction, and above 200 paraprofessional hours per 180 days the LQASP-to-paraprofessional ratio must sit between 10% and 20%, documented in the treatment plan with deviations clinically justified. Incidental supervision is not billable. Neither CCP 8F nor the plan’s own manual caps how many paraprofessionals one LQASP may supervise; the limits are the per-beneficiary 10% floor and 10–20% band.',
         status: 'verified',
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
@@ -1273,10 +1360,13 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         ],
       },
       dailyLimits: {
-        value: 'Follows the NC Medicaid rule: no per-day unit ceiling is published — the limits are per authorization period. Plans at or under 16 hours a week run 180-day initial and reauthorization cycles; plans above 16 hours a week run 90-day cycles. Within a 180-day period, 97155 telehealth is capped at 50% of 97155 billing and at least six caregiver training sessions are required. Educational-setting and IEP hours are excluded from the treatment-hour calculation.',
+        value: 'Two different ceilings. Per day, a claim edit: NC Medicaid applies the CMS Medicaid National Correct Coding Initiative to professional claims, including Medically Unlikely Edits — units-of-service edits that define for each CPT or HCPCS code "the number of units of service that is unlikely to be correct" — and its billing guidance tells every health plan to apply NCCI and MUE edits as well (§3.6.2). UnitedHealthcare Community Plan’s NC manual adds that it "performs coding edit procedures based on the Correct Coding Initiative (CCI) and other nationally recognized sources." The public CMS Medicaid NCCI practitioner MUE table for dates of service 10/1–12/31/2026 sets these maxima per beneficiary per date of service: 97151 32 units, 97152 16, 97153 32 (8 hours), 97154 18, 97155 24, 97156 16, 97157 16, 97158 16, 0362T 16 and 0373T 32. Units above the MUE on one date of service deny as a claim edit whatever the authorization allows; the authorization, not the MUE, is the real weekly limit. Per authorization period, the NC Medicaid rule (CCP 8F sets no per-day cap of its own): plans at or under 16 hours a week run 180-day initial and reauthorization cycles; plans above 16 hours a week run 90-day cycles. Within a 180-day period, 97155 telehealth is capped at 50% of 97155 billing and at least six caregiver training sessions are required. Educational-setting and IEP hours are excluded from the treatment-hour calculation.',
         status: 'verified',
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026), §3.6.2 NCCI and MUE edits', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
+          { title: 'CMS — Medicaid NCCI MUE table, practitioner services (effective 10/1/2026–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' },
+          { title: 'UnitedHealthcare Community Plan of NC — 2026 Care Provider Manual (Ch. 11)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NC-UHCCP-Care-Provider-Manual.pdf' },
         ],
       },
       noteSignature: {
@@ -1366,11 +1456,13 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         h2: 'How WellCare administers RB-BHT',
         body: [
           'WNC.CP.109 mirrors 8F\'s criteria — under-21 coverage via EPSDT, a validated diagnostic tool, provisional diagnosis under age three with definitive diagnosis within six months, LQASP treatment plans reviewed at least every six months (the state policy it mirrored has since changed: the 8/1/2026 CCP 8F removed "Annual Rewriting" and now ties review to each goal\'s target date and to changes in needs, provider or services) — and defers wholesale to CCP 8F Section 6.0 on provider qualifications. Rather than listing PA\'d codes in the policy, WellCare delegates code-level requirements to its Authorization Lookup Tool and Medicaid Behavioral Health Authorization List, so check your specific codes there before each submission cycle. Telehealth for RB-BHT is governed by a separate policy (WNC.CP.193), with telephonic parent training allowed only for documented caregiver health or access barriers — and the state\'s finalized CCP 8F, effective August 1, 2026, now tightens ABA telehealth further statewide: telehealth is removed entirely for 97152, 97153, and 97154, while 97155 is capped at 50% of billing per beneficiary per 180 days (historical note: WellCare of NC merged into Carolina Complete Health effective April 1, 2026, so this policy is kept for reference only).',
+          'Code set: like every NC Medicaid plan, this one pays RB-BHT only under the CPT codes in CCP 8F Attachment A, 97151–97157, in 15-minute units. 97158, 0362T and 0373T are not covered, and no HCPCS H-code (H0031, H0032, H2014, H2019) is an RB-BHT code. The plan publishes no different code list. 96112 (developmental testing) is likewise not an RB-BHT code; NC Medicaid’s billing guidance lists it among procedure codes shared by physical and behavioral health.',
         ],
         cites: [
           { title: 'WellCare NC — WNC.CP.109 RB-BHT clinical policy', url: 'https://www.policies-wellcare.com/content/dam/centene/wellcare/nc/policies/clinical-policies/WNC.CP.109.pdf' },
           { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
           { title: 'NC Medicaid — WellCare NC and Carolina Complete Health merge April 1, 2026 (Provider Playbook)', url: 'https://medicaid.ncdhhs.gov/providers/provider-playbook-medicaid-managed-care/trending-topics/wellcare-north-carolina-and-carolina-complete-health-merge-april-1-2026' },
+          { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026), Appendix A procedure-code tables', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
         ],
       },
       {
@@ -1398,6 +1490,23 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'WellCare of North Carolina — Medicaid Provider Manual (effective Jan. 22, 2026)', url: 'https://www.wellcarenc.com/content/dam/centene/wellcare/nc/pdfs/providers/NC_Medicaid_Provider_Manual_03_2026_R.pdf' },
         ],
       },
+      {
+        h2: 'WellCare claims after the merger: filing deadlines',
+        body: [
+          'WellCare’s last NC Medicaid manual (effective 1/22/2026, before the April 1, 2026 merger into Carolina Complete Health) set these deadlines: “participating Providers must submit claims (initial and corrected) for date of service 7/1/23 and after within 365 calendar days from the date of service.” Non-participating providers had 180 calendar days. “When WellCare is the secondary payer, Providers must submit claims within 90 days from the primary payer’s EOB date.” The manual also says “Corrected Claims are subject to Timely Claims Submission (i.e., Timely Filing) guidelines.”',
+          'For dates of service from April 1, 2026, bill Carolina Complete Health under its billing manual (updated July 14, 2026). Contracted providers have 365 calendar days from the date of service for first-time and corrected claims (non-contracted: 180), and secondary claims are due within 365 calendar days of the primary insurer’s EOB/RA date. NC Medicaid’s prompt-pay rules apply to both plans: 18 days to accept or pend a claim, 30 days to pay or deny a clean one, and 18% interest when late.',
+          'EVV does not apply to RB-BHT: NC Medicaid’s billing guidance lists the services “subject to EVV for Managed Care” as Personal Care, Home Health, Innovations Waiver, TBI and 1915(i) services (§3.52).',
+          'Taxonomy: the plan must “validate the taxonomy code submitted on the claim” against the provider’s NC Medicaid enrollment record and “price claims based on the taxonomy code submitted on the claim” (billing guidance §3.22), so bill the taxonomy you are enrolled under in NCTracks. WellCare’s manual said WellCare “may reject the claim if the taxonomy code is incorrect or omitted,” and it reproduced NC Medicaid’s OPR lists.',
+          'Referring or ordering NPI: not required on an RB-BHT claim. NC Medicaid’s OPR guidance lists the claim types that need an ordering NPI (home infusion, private duty nursing, labs, IDTF, CAP, radiology, DME, LEA) or a referring NPI (home infusion, specialized therapy, hospice, home health, PDN, dialysis, CAP, LEA), and RB-BHT is not on either list. The physician or psychologist who signs the service order must still be enrolled in NC Medicaid (42 CFR 455.410).',
+        ],
+        cites: [
+          { title: 'WellCare of North Carolina — 2025–2026 NC Medicaid Provider Manual (eff. 1/22/2026, pre-merger): Timely Claims Submission', url: 'https://www.wellcarenc.com/content/dam/centene/wellcare/nc/pdfs/providers/NC_Medicaid_Provider_Manual_03_2026_R.pdf' },
+          { title: 'Carolina Complete Health — Provider Billing Manual (last updated 7/14/2026): Timely Filing, COB, Claim Correction', url: 'https://network.carolinacompletehealth.com/content/dam/centene/carolinacompletehealth/pdfs/CCH-Current-Provider-Billing-Manual.pdf' },
+          { title: 'NC Medicaid Managed Care Provider Playbook — Prompt Payment fact sheet (Standard Plans, NC Medicaid Direct, Tailored Plans)', url: 'https://medicaid.ncdhhs.gov/provider-playbook-prompt-payment-fact-sheet/download' },
+          { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026): §3.22 Taxonomy, §3.52 EVV', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
+          { title: 'NC Medicaid — Federal Regulation Guidelines for Ordering, Prescribing or Referring (OPR) Providers (modified 7/1/2026)', url: 'https://medicaid.ncdhhs.gov/providers/claims-and-billing/federal-regulation-guidelines-ordering-prescribing-or-referring-opr-providers' },
+        ],
+      },
     ],
     collect: [
       { title: 'Redirect to Carolina Complete Health', desc: 'WellCare of NC no longer exists as a standalone plan — route WellCare-branded inquiries to the Carolina Complete Health guide and workflow.' },
@@ -1405,6 +1514,12 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'ASD diagnosis + validated tool', desc: 'Per 8F; provisional-dx path documented for under-3s. This requirement carries over to Carolina Complete Health.' },
     ],
     sources: [
+      { title: 'NC Medicaid — Federal Regulation Guidelines for Ordering, Prescribing or Referring (OPR) Providers (modified 7/1/2026)', url: 'https://medicaid.ncdhhs.gov/providers/claims-and-billing/federal-regulation-guidelines-ordering-prescribing-or-referring-opr-providers' },
+      { title: 'Carolina Complete Health — Provider Billing Manual (last updated 7/14/2026)', url: 'https://network.carolinacompletehealth.com/content/dam/centene/carolinacompletehealth/pdfs/CCH-Current-Provider-Billing-Manual.pdf' },
+      { title: 'NC Medicaid Managed Care Provider Playbook — Prompt Payment fact sheet', url: 'https://medicaid.ncdhhs.gov/provider-playbook-prompt-payment-fact-sheet/download' },
+      { title: 'WellCare of North Carolina — 2025–2026 NC Medicaid Provider Manual (eff. 1/22/2026, pre-merger)', url: 'https://www.wellcarenc.com/content/dam/centene/wellcare/nc/pdfs/providers/NC_Medicaid_Provider_Manual_03_2026_R.pdf' },
+      { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026)', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
+      { title: 'CMS — Medicaid NCCI MUE table, practitioner services (effective 10/1/2026–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' },
       { title: 'NC Medicaid — WellCare NC and Carolina Complete Health merge April 1, 2026 (Provider Playbook)', url: 'https://medicaid.ncdhhs.gov/providers/provider-playbook-medicaid-managed-care/trending-topics/wellcare-north-carolina-and-carolina-complete-health-merge-april-1-2026' },
       { title: 'WellCare NC — WNC.CP.109 RB-BHT clinical policy (historical)', url: 'https://www.policies-wellcare.com/content/dam/centene/wellcare/nc/policies/clinical-policies/WNC.CP.109.pdf' },
       { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
@@ -1457,13 +1572,14 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         ],
       },
       telehealth: {
-        value: 'Historical. WellCare governed RB-BHT telehealth through a separate policy, WNC.CP.193, allowing telephonic parent training only for documented caregiver health or access barriers. The state’s finalized CCP 8F (eff. 8/1/2026) now controls statewide: telehealth removed entirely for 97152, 97153 and 97154, 97155 capped at 50% of billing per beneficiary per 180 days, 97151 telehealth eligible with clinical justification, and 97156/97157 keeping the KX telephonic caregiver-barrier exception. WellCare of NC merged into Carolina Complete Health on April 1, 2026.',
+        value: 'Historical. WellCare governed RB-BHT telehealth through a separate policy, WNC.CP.193, allowing telephonic parent training only for documented caregiver health or access barriers. The state’s finalized CCP 8F (eff. 8/1/2026) now controls statewide: telehealth removed entirely for 97152, 97153 and 97154, 97155 capped at 50% of billing per beneficiary per 180 days, 97151 telehealth eligible with clinical justification, and 97156/97157 keeping the KX telephonic caregiver-barrier exception. WellCare of NC merged into Carolina Complete Health on April 1, 2026. NC Medicaid’s billing guidance binds every health plan, including Carolina Complete Health for former WellCare members, to the same edit: “Claims submitted with Modifier GT (Telehealth) for 97152 - 97154 are not reimbursable and should be denied” (v36 §3.54.1). Telehealth claims carry the provider’s usual place-of-service code (8F Attachment A), and 8F does not require the telehealth modality to be named on the authorization.',
         status: 'verified',
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
           { title: 'WellCare NC — WNC.CP.109 RB-BHT clinical policy', url: 'https://www.policies-wellcare.com/content/dam/centene/wellcare/nc/policies/clinical-policies/WNC.CP.109.pdf' },
           { title: 'WellCare NC — WNC.CP.109 RB-BHT clinical policy', url: 'https://www.policies-wellcare.com/content/dam/centene/wellcare/nc/policies/clinical-policies/WNC.CP.109.pdf' },
           { title: 'NC Medicaid — WellCare NC and Carolina Complete Health merge April 1, 2026 (Provider Playbook)', url: 'https://medicaid.ncdhhs.gov/providers/provider-playbook-medicaid-managed-care/trending-topics/wellcare-north-carolina-and-carolina-complete-health-merge-april-1-2026' },
+          { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026), §3.54.1 RB-BHT in-person requirement', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
         ],
       },
       authTurnaround: {
@@ -1492,7 +1608,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     },
     deliveryRules: {
       supervision: {
-        value: 'Follows the NC Medicaid rule: at least 10% of paraprofessional-delivered services must involve LQASP observation and direction, and above 200 paraprofessional hours per 180 days the LQASP-to-paraprofessional ratio must sit between 10% and 20%, documented in the treatment plan with deviations clinically justified. Incidental supervision is not billable.',
+        value: 'Follows the NC Medicaid rule: at least 10% of paraprofessional-delivered services must involve LQASP observation and direction, and above 200 paraprofessional hours per 180 days the LQASP-to-paraprofessional ratio must sit between 10% and 20%, documented in the treatment plan with deviations clinically justified. Incidental supervision is not billable. Neither CCP 8F nor WellCare’s last manual caps how many paraprofessionals one LQASP may supervise; the limits are the per-beneficiary 10% floor and 10–20% band.',
         status: 'verified',
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
@@ -1508,10 +1624,13 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         ],
       },
       dailyLimits: {
-        value: 'Follows the NC Medicaid rule: no per-day unit ceiling is published — the limits are per authorization period. Plans at or under 16 hours a week run 180-day initial and reauthorization cycles; plans above 16 hours a week run 90-day cycles. Within a 180-day period, 97155 telehealth is capped at 50% of 97155 billing and at least six caregiver training sessions are required. Educational-setting and IEP hours are excluded from the treatment-hour calculation.',
+        value: 'Two different ceilings. Per day, a claim edit: NC Medicaid applies the CMS Medicaid National Correct Coding Initiative to professional claims, including Medically Unlikely Edits — units-of-service edits that define for each CPT or HCPCS code "the number of units of service that is unlikely to be correct" — and its billing guidance tells every health plan to apply NCCI and MUE edits as well (§3.6.2). WellCare’s last NC manual (eff. 1/22/2026, before the merger into Carolina Complete Health) ran claims through editing software that incorporates CMS guidelines "including, but not limited to, the National Correct Coding Initiative (NCCI)". The public CMS Medicaid NCCI practitioner MUE table for dates of service 10/1–12/31/2026 sets these maxima per beneficiary per date of service: 97151 32 units, 97152 16, 97153 32 (8 hours), 97154 18, 97155 24, 97156 16, 97157 16, 97158 16, 0362T 16 and 0373T 32. Units above the MUE on one date of service deny as a claim edit whatever the authorization allows; the authorization, not the MUE, is the real weekly limit. Per authorization period, the NC Medicaid rule (CCP 8F sets no per-day cap of its own): plans at or under 16 hours a week run 180-day initial and reauthorization cycles; plans above 16 hours a week run 90-day cycles. Within a 180-day period, 97155 telehealth is capped at 50% of 97155 billing and at least six caregiver training sessions are required. Educational-setting and IEP hours are excluded from the treatment-hour calculation.',
         status: 'verified',
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026), §3.6.2 NCCI and MUE edits', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
+          { title: 'CMS — Medicaid NCCI MUE table, practitioner services (effective 10/1/2026–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' },
+          { title: 'WellCare of North Carolina — 2025–2026 NC Medicaid Provider Manual (eff. 1/22/2026, pre-merger)', url: 'https://www.wellcarenc.com/content/dam/centene/wellcare/nc/pdfs/providers/NC_Medicaid_Provider_Manual_03_2026_R.pdf' },
           { title: 'WellCare NC — WNC.CP.109 RB-BHT clinical policy', url: 'https://www.policies-wellcare.com/content/dam/centene/wellcare/nc/policies/clinical-policies/WNC.CP.109.pdf' },
         ],
       },
@@ -1609,9 +1728,12 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         h2: 'Rates & submission',
         body: [
           'Alliance publishes its standard rate schedule outright — RB-BHT at the state fee-schedule levels, per 15-minute unit, effective 10/1/2025: 97151 $30.56, 97152 $61.73, 97153 $20.81, 97154 $11.37, 97155 $32.22, 97156 $23.70, 97157 $11.51 (noted as subject to LME/MCO funding). Authorization follows the 8F baseline — PA on everything, with authorization length tiered by intensity (180 calendar days at ≤16 hrs/week, 90 above) — and with the plan\'s fillable RB-BHT cover sheet accompanying service requests through Alliance UM. Alliance also participates as a Children & Families Specialty Plan network partner.',
+          'Code set: like every NC Medicaid plan, this one pays RB-BHT only under the CPT codes in CCP 8F Attachment A, 97151–97157, in 15-minute units. 97158, 0362T and 0373T are not covered, and no HCPCS H-code (H0031, H0032, H2014, H2019) is an RB-BHT code. The plan publishes no different code list. 96112 (developmental testing) is likewise not an RB-BHT code; NC Medicaid’s billing guidance lists it among procedure codes shared by physical and behavioral health.',
         ],
         cites: [
           { title: 'Alliance Health — Standard Rate Schedule (RB-BHT)', url: 'https://www.alliancehealthplan.org/document-library/97251' },
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026), Appendix A procedure-code tables', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
         ],
       },
       {
@@ -1655,9 +1777,16 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         body: [
           'NC Medicaid sets the floor for every Tailored Plan and LME/MCO, Alliance Health included. Its prompt-payment fact sheet gives Tailored Plans a 365-day timely filing window from July 1, 2024. NC Medicaid Direct claims the LME/MCOs process also moved from 90 to 365 days on July 1, 2024. The window covers the original claim and any corrected claim. State-funded services must be filed within 90 calendar days.',
           'Within 18 calendar days of receiving a medical claim the plan must say whether it is clean or pend it for more information. It must pay or deny a clean claim within 30 days, and deny the claim if requested information has not arrived within 90 days. Late payment carries 18% annual interest.',
+          'Alliance’s own manual (V.26, 2026) uses the same 365-day Medicaid and 90-day State windows, but it is stricter on corrections: “Providers may submit a replacement claim for a previously paid claim within 180 calendar days post service date. Replacement claims submitted past 180 calendar days are denied for exceeding the timely filing requirements.” That conflicts with the state fact sheet’s rule that the 365 days covers corrected claims, so file replacements inside 180 days, or ask Alliance claims (Claims@AllianceHealthPlan.org) which limit it applies. When another insurer pays after Alliance has, submit a replacement claim with the updated COB within 30 calendar days of that payment. Claims rejected for missing or invalid provider or member data do not count as received. Payment follows Alliance’s published checkwrite schedule. Accounts Payable emails a notice of each upcoming EFT deposit, and the manual’s example is a Friday email with the deposit the following Tuesday.',
+          'EVV does not apply to RB-BHT: NC Medicaid’s billing guidance lists the services “subject to EVV for Managed Care” as Personal Care, Home Health, Innovations Waiver, TBI and 1915(i) services (§3.52).',
+          'Taxonomy: the plan must “validate the taxonomy code submitted on the claim” against the provider’s NC Medicaid enrollment record and “price claims based on the taxonomy code submitted on the claim” (billing guidance §3.22), so bill the taxonomy you are enrolled under in NCTracks. Alliance’s manual: “Providers are required to submit claims with the correct taxonomy code consistent with the provider’s specialty and services being rendered … Alliance Health may reject the claim if the taxonomy code is incorrect or omitted,” and billing/rendering NPI and taxonomy must match the NCTracks enrollment.',
+          'Referring or ordering NPI: not required on an RB-BHT claim. NC Medicaid’s OPR guidance lists the claim types that need an ordering NPI (home infusion, private duty nursing, labs, IDTF, CAP, radiology, DME, LEA) or a referring NPI (home infusion, specialized therapy, hospice, home health, PDN, dialysis, CAP, LEA), and RB-BHT is not on either list. The physician or psychologist who signs the service order must still be enrolled in NC Medicaid (42 CFR 455.410).',
         ],
         cites: [
           { title: 'NC Medicaid Managed Care Provider Playbook — Prompt Payment fact sheet (Standard Plans, NC Medicaid Direct, Tailored Plans)', url: 'https://medicaid.ncdhhs.gov/provider-playbook-prompt-payment-fact-sheet/download' },
+          { title: 'Alliance Health — Provider Manual (V.26, February/March 2026): Timeframe for Claim Submission, Replacement Claims, EFT', url: 'https://www.alliancehealthplan.org/document-library/79431/' },
+          { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026): §3.22 Taxonomy, §3.52 EVV', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
+          { title: 'NC Medicaid — Federal Regulation Guidelines for Ordering, Prescribing or Referring (OPR) Providers (modified 7/1/2026)', url: 'https://medicaid.ncdhhs.gov/providers/claims-and-billing/federal-regulation-guidelines-ordering-prescribing-or-referring-opr-providers' },
         ],
       },
     ],
@@ -1667,6 +1796,10 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'RB-BHT cover sheet', desc: 'Include Alliance\'s fillable cover sheet with every service request.' },
     ],
     sources: [
+      { title: 'NC Medicaid — Federal Regulation Guidelines for Ordering, Prescribing or Referring (OPR) Providers (modified 7/1/2026)', url: 'https://medicaid.ncdhhs.gov/providers/claims-and-billing/federal-regulation-guidelines-ordering-prescribing-or-referring-opr-providers' },
+      { title: 'Alliance Health — Tailored Plan/PIHP Provider Manual (V.26, revised March 2026)', url: 'https://www.alliancehealthplan.org/document-library/79431/' },
+      { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026)', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
+      { title: 'CMS — Medicaid NCCI MUE table, practitioner services (effective 10/1/2026–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' },
       { title: 'Alliance Health — RB-BHT cover sheet update (current page; replaces the archived Feb 2026 "Guidance for RB-BHT Providers," which now 410s — verified working 10/1/2026)', url: 'https://www.alliancehealthplan.org/provider-updates/research-based-behavioral-health-treatment-rb-bht-cover-sheet/' },
       { title: 'Alliance Health — Standard Rate Schedule', url: 'https://www.alliancehealthplan.org/document-library/97251' },
       { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
@@ -1722,11 +1855,12 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         ],
       },
       telehealth: {
-        value: 'Follows the NC Medicaid rule (Attachment A, eff. 8/1/2026): GT telehealth is billable for 97151 with clinical justification and for 97155 up to 50% of total 97155 billing per beneficiary per 180 days; telehealth is removed entirely for 97152, 97153 and 97154; 97156 and 97157 remain telehealth eligible and are the only KX telephonic services, on a documented caregiver health or access barrier.',
+        value: 'Follows the NC Medicaid rule (Attachment A, eff. 8/1/2026): GT telehealth is billable for 97151 with clinical justification and for 97155 up to 50% of total 97155 billing per beneficiary per 180 days; telehealth is removed entirely for 97152, 97153 and 97154; 97156 and 97157 remain telehealth eligible and are the only KX telephonic services, on a documented caregiver health or access barrier. NC Medicaid’s billing guidance binds the plan to the same edit: “Claims submitted with Modifier GT (Telehealth) for 97152 - 97154 are not reimbursable and should be denied” (v36 §3.54.1). Telehealth claims carry the provider’s usual place-of-service code (8F Attachment A), and 8F does not require the telehealth modality to be named on the authorization.',
         status: 'verified',
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
           { title: 'Alliance Health — RB-BHT cover sheet update (current page; replaces the archived Feb 2026 "Guidance for RB-BHT Providers," which now 410s — verified working 10/1/2026)', url: 'https://www.alliancehealthplan.org/provider-updates/research-based-behavioral-health-treatment-rb-bht-cover-sheet/' },
+          { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026), §3.54.1 RB-BHT in-person requirement', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
         ],
       },
       authTurnaround: {
@@ -1752,7 +1886,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     },
     deliveryRules: {
       supervision: {
-        value: 'Follows the NC Medicaid rule: at least 10% of paraprofessional-delivered services must involve LQASP observation and direction, and above 200 paraprofessional hours per 180 days the LQASP-to-paraprofessional ratio must sit between 10% and 20%, documented in the treatment plan with deviations clinically justified. Incidental supervision is not billable.',
+        value: 'Follows the NC Medicaid rule: at least 10% of paraprofessional-delivered services must involve LQASP observation and direction, and above 200 paraprofessional hours per 180 days the LQASP-to-paraprofessional ratio must sit between 10% and 20%, documented in the treatment plan with deviations clinically justified. Incidental supervision is not billable. Neither CCP 8F nor the plan’s own manual caps how many paraprofessionals one LQASP may supervise; the limits are the per-beneficiary 10% floor and 10–20% band.',
         status: 'verified',
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
@@ -1768,10 +1902,13 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         ],
       },
       dailyLimits: {
-        value: 'Follows the NC Medicaid rule: no per-day unit ceiling is published — the limits are per authorization period. Plans at or under 16 hours a week run 180-day initial and reauthorization cycles; plans above 16 hours a week run 90-day cycles. Within a 180-day period, 97155 telehealth is capped at 50% of 97155 billing and at least six caregiver training sessions are required. Educational-setting and IEP hours are excluded from the treatment-hour calculation.',
+        value: 'Two different ceilings. Per day, a claim edit: NC Medicaid applies the CMS Medicaid National Correct Coding Initiative to professional claims, including Medically Unlikely Edits — units-of-service edits that define for each CPT or HCPCS code "the number of units of service that is unlikely to be correct" — and its billing guidance tells every health plan to apply NCCI and MUE edits as well (§3.6.2). Alliance’s provider manual (V.26, March 2026) confirms its claim edits identify "medically unlikely procedures, procedure to procedure exclusions, duplicate claims, frequency limits". The public CMS Medicaid NCCI practitioner MUE table for dates of service 10/1–12/31/2026 sets these maxima per beneficiary per date of service: 97151 32 units, 97152 16, 97153 32 (8 hours), 97154 18, 97155 24, 97156 16, 97157 16, 97158 16, 0362T 16 and 0373T 32. Units above the MUE on one date of service deny as a claim edit whatever the authorization allows; the authorization, not the MUE, is the real weekly limit. Per authorization period, the NC Medicaid rule (CCP 8F sets no per-day cap of its own): plans at or under 16 hours a week run 180-day initial and reauthorization cycles; plans above 16 hours a week run 90-day cycles. Within a 180-day period, 97155 telehealth is capped at 50% of 97155 billing and at least six caregiver training sessions are required. Educational-setting and IEP hours are excluded from the treatment-hour calculation.',
         status: 'verified',
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026), §3.6.2 NCCI and MUE edits', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
+          { title: 'CMS — Medicaid NCCI MUE table, practitioner services (effective 10/1/2026–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' },
+          { title: 'Alliance Health — Tailored Plan/PIHP Provider Manual (V.26, revised March 2026)', url: 'https://www.alliancehealthplan.org/document-library/79431/' },
           { title: 'Alliance Health — RB-BHT cover sheet update (current page; replaces the archived Feb 2026 "Guidance for RB-BHT Providers," which now 410s — verified working 10/1/2026)', url: 'https://www.alliancehealthplan.org/provider-updates/research-based-behavioral-health-treatment-rb-bht-cover-sheet/' },
         ],
       },
@@ -1864,12 +2001,15 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           'Every RB-BHT code (97151–97157) requires a TAR — prior authorization — including telephonic and telehealth delivery. The initial request needs the written assessment, diagnosis documentation from a validated tool, and the MD/DO/LP service order; treatment requests add a complete treatment plan signed by the LQASP and the legally responsible person, plus a discharge plan. Under the finalized CCP 8F (effective 8/1/2026), plans at or under 16 hours/week keep 180-day initial and reauthorization periods, while plans above 16 hours/week move to 90-day initial and reauthorization periods; reauth is due before the current one expires either way, and all services are subject to post-payment review. Existing prior authorizations aren\'t affected by the change — no action is needed, and no existing PA\'s duration will be reduced; the new 90-day cadence binds only future reauthorizations. Units run in 15-minute increments with no published unit caps.',
           'Telehealth mechanics, now finalized under CCP 8F effective August 1, 2026: telehealth is removed entirely — no documented-necessity exception — for the paraprofessional-delivered codes 97152, 97153, and 97154. 97151 retains telehealth eligibility with clinical justification, and 97155 retains it but capped at a maximum of 50% of total 97155 billing per beneficiary per 180-calendar-day period. 97156/97157 keep their own separate telephonic/KX caregiver-access-barrier exception, unchanged.',
           'Treatment plans follow the rewritten 8F review rule rather than a fixed calendar: each goal is reviewed at its own target date (short-range goals never more than 12 months out), and the plan is reviewed again whenever the member\'s needs, the provider or the services change — plus the review, modification and resubmission Trillium requires with every reauthorization. On school: Trillium\'s benefit plan lists school-based settings among the places RB-BHT may be delivered, individually justified in the treatment plan with the family, and publishes no Trillium-specific school restriction beyond the state rule — which excludes services that teach academic subjects or substitute for a teacher, teacher\'s aide or tutor, and services available under IDEA or other educational programs that duplicate or supplant the authorized plan, and leaves hours spent in educational settings and receiving IEP services out of the treatment-hour count.',
+          'Reauthorization packet: Trillium’s benefit plan (rev. 8/31/2026) lists three things. First, reauth “must be submitted before the initial or concurrent auth expiring.” Second, the treatment plan “must be reviewed, modified, & submitted for reauth.” Third, the provider submits “applicable records that support the member has met the medical necessity criteria.” The benefit plan names no graph requirement and no separate data-recency rule, so CCP 8F’s goal-level baselines, measurement methods and progress milestones are the standard.',
+          'Code set: like every NC Medicaid plan, this one pays RB-BHT only under the CPT codes in CCP 8F Attachment A, 97151–97157, in 15-minute units. 97158, 0362T and 0373T are not covered, and no HCPCS H-code (H0031, H0032, H2014, H2019) is an RB-BHT code. The plan publishes no different code list. 96112 (developmental testing) is likewise not an RB-BHT code; NC Medicaid’s billing guidance lists it among procedure codes shared by physical and behavioral health.',
         ],
         cites: [
           { title: 'Trillium — Medicaid Child BH Services Benefit Plan (rev. 8/31/2026)', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Benefit-Plans-Services-Definitions/Trillium-Medicaid-Child-BH-Benefit-Plan.pdf' },
           { title: 'Trillium — Medicaid Child BH Services Benefit Plan (rev. 7/2026)', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Benefit-Plans-Services-Definitions/Trillium-Medicaid-Child-BH-Benefit-Plan.pdf' },
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
           { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
+          { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026), Appendix A procedure-code tables', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
         ],
       },
       {
@@ -1901,11 +2041,12 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         h2: 'Can Trillium authorize ABA retroactively?',
         body: [
           'NC Medicaid’s rule binds the plans: CCP 8F (amended 8/1/2026) requires prior approval before RB-BHT services, says services provided without prior authorization “are not considered for payment or reimbursement except in the case of retroactive Medicaid eligibility,” and lists “services provided without prior authorization by the PHP” among the services Medicaid does not cover.',
-          'Trillium’s Tailored Plan manual describes utilization management as “conducting initial, concurrent and retrospective reviews of services,” but we have not verified the circumstances in which Trillium will review RB-BHT after the fact; ask Trillium UM before treating without an approval.',
+          'Trillium’s Tailored Plan manual describes utilization management as “conducting initial, concurrent and retrospective reviews of services,” and its Medicaid Child BH benefit plan (rev. 8/31/2026) is explicit about EPSDT requests: “There is no retroactive prior authorization for services that require prior authorization. Services delivered without prior authorization will be denied.” The only exception left is the state’s: retroactive Medicaid eligibility.',
         ],
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
           { title: 'Trillium Health Resources — Tailored Plan Provider Manual', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Provider-documents/Provider-Manual/Trillium-TP-Provider-Manual.pdf' },
+          { title: 'Trillium — Medicaid Child BH Services Benefit Plan (rev. 8/31/2026): EPSDT and prior authorization', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Benefit-Plans-Services-Definitions/Trillium-Medicaid-Child-BH-Benefit-Plan.pdf' },
         ],
       },
       {
@@ -1913,10 +2054,15 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         body: [
           'Yes. Trillium’s 2026 Claims Billing Guide tells contracted providers to “reference their contract with Trillium for the days to file a claim timely.” Non-contracted providers have 365 days to submit a Medicaid-funded claim, and state-funded claims are due within 90 calendar days. The guide restates the Tailored Plan rule: Trillium may require claims within 365 calendar days of the date of service but may not set a limit shorter than 180 days. A late claim still counts if filing on time was not reasonably possible, as long as it is filed as soon as possible and within a year of the original deadline. NC Medicaid’s prompt-payment fact sheet puts the Tailored Plan window at 365 days since July 1, 2024, corrected claims included. To ask for a time-limit override, use Trillium’s Claims Request Form (CRF).',
           'Payment clock: Trillium has 18 calendar days to say whether a claim is clean or pend it. It must pay or deny a clean claim within the lesser of 30 calendar days or the first scheduled reimbursement cycle after adjudication. It pays 18% annual interest on late Medicaid-funded clean claims; state-funded claims earn none.',
+          'Payment cycle: “The Checkwrite Schedule for Medicaid Direct and Tailored Plan services is posted on the Trillium’s website and will occur weekly with the exception of a few holidays.” Remittance advices and 835 files are available “the day after the checkwrite.” Partial refunds and other changes to a paid claim are made only with a replacement claim (frequency 7); a full refund is a voided claim (frequency 8) or a check. The guide publishes no weekly submission cutoff, so take it from the posted checkwrite schedule.',
+          'EVV does not apply to RB-BHT: NC Medicaid’s billing guidance lists the services “subject to EVV for Managed Care” as Personal Care, Home Health, Innovations Waiver, TBI and 1915(i) services (§3.52).',
+          'Referring or ordering NPI: not required on an RB-BHT claim. NC Medicaid’s OPR guidance lists the claim types that need an ordering NPI (home infusion, private duty nursing, labs, IDTF, CAP, radiology, DME, LEA) or a referring NPI (home infusion, specialized therapy, hospice, home health, PDN, dialysis, CAP, LEA), and RB-BHT is not on either list. The physician or psychologist who signs the service order must still be enrolled in NC Medicaid (42 CFR 455.410).',
         ],
         cites: [
           { title: 'Trillium Health Resources — Claims Billing Guide 2026', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Provider-documents/Claims/Trillium-Claims-Billing-Guide.pdf' },
           { title: 'NC Medicaid Managed Care Provider Playbook — Prompt Payment fact sheet (Standard Plans, NC Medicaid Direct, Tailored Plans)', url: 'https://medicaid.ncdhhs.gov/provider-playbook-prompt-payment-fact-sheet/download' },
+          { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026): §3.22 Taxonomy, §3.52 EVV', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
+          { title: 'NC Medicaid — Federal Regulation Guidelines for Ordering, Prescribing or Referring (OPR) Providers (modified 7/1/2026)', url: 'https://medicaid.ncdhhs.gov/providers/claims-and-billing/federal-regulation-guidelines-ordering-prescribing-or-referring-opr-providers' },
         ],
       },
       {
@@ -1957,6 +2103,9 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Age', desc: 'Trillium\'s benefit plan covers adults too — don\'t screen out 21+ inquiries reflexively.' },
     ],
     sources: [
+      { title: 'NC Medicaid — Federal Regulation Guidelines for Ordering, Prescribing or Referring (OPR) Providers (modified 7/1/2026)', url: 'https://medicaid.ncdhhs.gov/providers/claims-and-billing/federal-regulation-guidelines-ordering-prescribing-or-referring-opr-providers' },
+      { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026)', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
+      { title: 'CMS — Medicaid NCCI MUE table, practitioner services (effective 10/1/2026–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' },
       { title: 'Trillium — Medicaid Child BH Services Benefit Plan', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Benefit-Plans-Services-Definitions/Trillium-Medicaid-Child-BH-Benefit-Plan.pdf' },
       { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
       { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
@@ -2015,11 +2164,12 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         ],
       },
       telehealth: {
-        value: 'Follows the NC Medicaid rule (Attachment A, eff. 8/1/2026): GT telehealth is billable for 97151 with clinical justification and for 97155 up to 50% of total 97155 billing per beneficiary per 180 days; telehealth is removed entirely for 97152, 97153 and 97154; 97156 and 97157 remain telehealth eligible and are the only KX telephonic services, on a documented caregiver health or access barrier.',
+        value: 'Follows the NC Medicaid rule (Attachment A, eff. 8/1/2026): GT telehealth is billable for 97151 with clinical justification and for 97155 up to 50% of total 97155 billing per beneficiary per 180 days; telehealth is removed entirely for 97152, 97153 and 97154; 97156 and 97157 remain telehealth eligible and are the only KX telephonic services, on a documented caregiver health or access barrier. NC Medicaid’s billing guidance binds the plan to the same edit: “Claims submitted with Modifier GT (Telehealth) for 97152 - 97154 are not reimbursable and should be denied” (v36 §3.54.1). Telehealth claims carry the provider’s usual place-of-service code (8F Attachment A), and 8F does not require the telehealth modality to be named on the authorization.',
         status: 'verified',
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
           { title: 'Trillium — Medicaid Child BH Services Benefit Plan (rev. 7/2026)', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Benefit-Plans-Services-Definitions/Trillium-Medicaid-Child-BH-Benefit-Plan.pdf' },
+          { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026), §3.54.1 RB-BHT in-person requirement', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
         ],
       },
       authTurnaround: {
@@ -2045,7 +2195,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     },
     deliveryRules: {
       supervision: {
-        value: 'Follows the NC Medicaid rule: at least 10% of paraprofessional-delivered services must involve LQASP observation and direction, and above 200 paraprofessional hours per 180 days the LQASP-to-paraprofessional ratio must sit between 10% and 20%, documented in the treatment plan with deviations clinically justified. Incidental supervision is not billable.',
+        value: 'Follows the NC Medicaid rule: at least 10% of paraprofessional-delivered services must involve LQASP observation and direction, and above 200 paraprofessional hours per 180 days the LQASP-to-paraprofessional ratio must sit between 10% and 20%, documented in the treatment plan with deviations clinically justified. Incidental supervision is not billable. Neither CCP 8F nor the plan’s own manual caps how many paraprofessionals one LQASP may supervise; the limits are the per-beneficiary 10% floor and 10–20% band.',
         status: 'verified',
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
@@ -2061,12 +2211,14 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         ],
       },
       dailyLimits: {
-        value: 'Follows the NC Medicaid rule. Trillium states there are no published unit caps — units run in 15-minute increments — so the binding limits are the authorization periods: 180-day initial and reauthorization cycles at or under 16 hours a week, 90-day cycles above it, with reauthorization due before the current one expires and all services subject to post-payment review. Existing prior authorizations are unaffected by the change and none will be shortened.',
+        value: 'Two different ceilings. Per day, a claim edit: Trillium’s Claims Billing Guide 2026 says MUEs "define for each HCPCS or CPT code, the maximum units of service that a provider should bill under most circumstances for a member on a single date of service" and "Any claims billed in violation of the NCCI methodologies will be denied"; NC Medicaid’s billing guidance tells every health plan to apply NCCI and MUE edits (§3.6.2). The public CMS Medicaid NCCI practitioner MUE table for dates of service 10/1–12/31/2026 sets these maxima per beneficiary per date of service: 97151 32 units, 97152 16, 97153 32 (8 hours), 97154 18, 97155 24, 97156 16, 97157 16, 97158 16, 0362T 16 and 0373T 32. Units above the MUE on one date of service deny as a claim edit whatever the authorization allows; the authorization, not the MUE, is the real weekly limit. Per authorization period: the benefit plan sets no unit cap of its own ("Units: One unit = 15 minutes"), so CCP 8F governs: 180-day initial and reauthorization cycles at or under 16 hours a week, 90-day cycles above it, with reauthorization due before the current one expires and all services subject to post-payment review. Existing prior authorizations are unaffected by the change and none will be shortened.',
         status: 'verified',
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
-          { title: 'Trillium — Medicaid Child BH Services Benefit Plan (rev. 7/2026)', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Benefit-Plans-Services-Definitions/Trillium-Medicaid-Child-BH-Benefit-Plan.pdf' },
-          { title: 'Trillium — Medicaid Child BH Services Benefit Plan (rev. 7/2026)', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Benefit-Plans-Services-Definitions/Trillium-Medicaid-Child-BH-Benefit-Plan.pdf' },
+          { title: 'Trillium — Medicaid Child BH Services Benefit Plan (rev. 8/31/2026)', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Benefit-Plans-Services-Definitions/Trillium-Medicaid-Child-BH-Benefit-Plan.pdf' },
+          { title: 'Trillium — Claims Billing Guide 2026 (pp. 42–43, National Correct Coding Initiative)', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Provider-documents/Claims/Trillium-Claims-Billing-Guide.pdf' },
+          { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026), §3.6.2 NCCI and MUE edits', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
+          { title: 'CMS — Medicaid NCCI MUE table, practitioner services (effective 10/1/2026–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' },
           { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
         ],
       },
@@ -2104,7 +2256,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { q: 'Can Trillium ABA services be delivered by telehealth?', a: 'Only in part, under the finalized CCP 8F (effective 8/1/2026): telehealth is removed entirely for 97152, 97153, and 97154; 97151 keeps it with clinical justification; 97155 keeps it capped at 50% of billing per beneficiary per 180 days; 97156/97157 keep their separate telephonic/KX caregiver-barrier exception.' },
       { q: 'What happens to the authorization when switching ABA agencies on Trillium?', a: 'Trillium applies CCP 8F, which does not say an authorization transfers. CCP 8F treats needing "a different RB-BHT provider agency" as a transition or discharge reason, requires the Treatment Plan to be reviewed on a change in service provider, and will not pay two providers for duplicate services. Expect the new agency to submit its own request, and confirm with Trillium utilization management.' },
       { q: 'Can an out-of-state BCBA treat Trillium members in North Carolina, including by telehealth?', a: 'North Carolina requires an NC license to practice behavior analysis (G.S. 90-746), with no telehealth exception; temporary and reciprocity licenses exist (G.S. 90-740, 90-741). NC Medicaid no longer enrolls BCBAs as out-of-state providers (G.S. 108C-9(e)), and plan network providers must be enrolled with the state (42 CFR 438.602(b)(1)).' },
-      { q: 'Can Trillium authorize ABA retroactively?', a: 'Plan on no outside retroactive Medicaid eligibility (CCP 8F). Trillium does retrospective reviews, but confirm the qualifying circumstances with its UM team.' },
+      { q: 'Can Trillium authorize ABA retroactively?', a: 'No, except for retroactive Medicaid eligibility. Trillium’s benefit plan says “There is no retroactive prior authorization for services that require prior authorization,” and services delivered without one are denied.' },
       { q: 'Does Trillium Medicaid have a timely filing window?', a: 'Yes. Contracted providers file within the window in their Trillium contract. Non-contracted providers have 365 days for Medicaid-funded claims, and state-funded claims are due in 90 days. NC Medicaid sets the Tailored Plan window at 365 days, and Trillium may not set fewer than 180. Use the Claims Request Form for a time-limit override.' },
       { q: 'What Vendor ID and access code do I need to set up Trillium’s iTransact platform?', a: 'Trillium emails them. Its Unified Claims System FAQ (rev. 9/30/2026) says “Vendor ID’s and any additional codes needed are emailed to the requestor during the onboarding process.” Your system administrator must first complete the iTransact training in My Learning Campus and the Provider Profile Readiness Form. Logins are per EIN, and third-party billers cannot be system administrators.' },
       { q: 'What payer ID do I use for Trillium Tailored Plan ABA claims?', a: 'From October 1, 2026: 43072 at Optum/Change Healthcare, The SSI Group and Availity, or direct entry in iTransact. NC Medicaid Direct and state-funded claims keep 56089 (Change Healthcare) or 43071 (SSI, Availity) through Provider Direct.' },
@@ -2177,11 +2329,13 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         body: [
           'The clinical picture is the CCP 8F baseline: PA on all services including the 97151 comprehensive assessment (which Vaya\'s guidelines designate as LQASP-billed), authorization cycles tiered by intensity (180 calendar days at ≤16 hrs/week, 90 days above), and LQASP treatment-plan reviews. SARs submit through the provider portal and are reviewed by Vaya UM against medical necessity and the clinical coverage policy.',
           'Vaya\'s "Authorization Guidelines: Medicaid RB-BHT Services for ASD" (v2.0, rev. 9/5/2025 — still current, no v2.1/2026 update found) sets specific passthrough thresholds worth building into intake: 97151 assessment requests up to 32 units per six months go through as notification-only, without a full SAR, while requests above 32 units need a complete SAR (service order, treatment plan, MD/DO/psychologist-validated ASD diagnosis). 97155 (protocol modification by a BCBA-LP) similarly passes through on notification alone up to a 1-hour-per-10-hours ratio against direct intervention (97153/97154); above that ratio it needs a full SAR for medical-necessity review. All other codes (97152, 97153, 97154, 97156, 97157) require a SAR plus FBA, treatment plan, and service order on both initial and concurrent requests. A companion document, "RB-BHT Guidance" (v1.0, rev. 5/1/2025), restates the CCP 8F service definitions and clarifies "Program Modification vs. Supervision" for 97155.',
+          'Code set: like every NC Medicaid plan, this one pays RB-BHT only under the CPT codes in CCP 8F Attachment A, 97151–97157, in 15-minute units. 97158, 0362T and 0373T are not covered, and no HCPCS H-code (H0031, H0032, H2014, H2019) is an RB-BHT code. The plan publishes no different code list. 96112 (developmental testing) is likewise not an RB-BHT code; NC Medicaid’s billing guidance lists it among procedure codes shared by physical and behavioral health.',
         ],
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
           { title: 'Vaya Health — Authorization Guidelines: Medicaid RB-BHT Services for ASD (v2.0, rev. 9/5/2025)', url: 'https://providers.vayahealth.com/wp-content/uploads/2025/09/Authorization_Guidelines_Medicaid_RB_BHT_ASD.pdf' },
           { title: 'Vaya Health — RB-BHT Guidance (v1.0, rev. 5/1/2025)', url: 'https://providers.vayahealth.com/wp-content/uploads/2025/05/RB_BHT_Guidance_20250522.pdf' },
+          { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026), Appendix A procedure-code tables', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
         ],
       },
       {
@@ -2228,10 +2382,18 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         body: [
           'NC Medicaid sets the floor for every Tailored Plan and LME/MCO, Vaya Health included, and the Vaya Partners manual (v1.0, Oct. 1, 2026) repeats it: Medicaid claims within 365 days of the date of service or discharge, State-funded claims within 90 days, and claims where Vaya Partners pays last within 180 days of the other payer\'s remittance. Its prompt-payment fact sheet gives Tailored Plans a 365-day timely filing window from July 1, 2024. NC Medicaid Direct claims the LME/MCOs process also moved from 90 to 365 days on July 1, 2024. The window covers the original claim and any corrected claim. State-funded services must be filed within 90 calendar days.',
           'Within 18 calendar days of receiving a medical claim the plan must say whether it is clean or pend it for more information. It must pay or deny a clean claim within 30 days, and deny the claim if requested information has not arrived within 90 days. Late payment carries 18% annual interest.',
+          'Weekly cutoff: “Vaya Partners adheres to the standardized LME/MCO checkwrite schedule, which is based on a 5 p.m. Tuesday cutoff. Claims received before this cutoff date will be paid the following week according to the checkwrite schedule.” In the 2026 schedule (rev. 9/30/2026), claims posted Wednesday through Tuesday go into a check run the following Monday, with payment dated that Thursday. For example, claims posted 1/28–2/3/2026 ran on 2/9 and were paid 2/12. Holiday weeks shift by a day. The manual encourages providers to bill “on a weekly or bimonthly schedule” to match it.',
+          'EVV does not apply to RB-BHT: NC Medicaid’s billing guidance lists the services “subject to EVV for Managed Care” as Personal Care, Home Health, Innovations Waiver, TBI and 1915(i) services (§3.52).',
+          'Taxonomy: the plan must “validate the taxonomy code submitted on the claim” against the provider’s NC Medicaid enrollment record and “price claims based on the taxonomy code submitted on the claim” (billing guidance §3.22), so bill the taxonomy you are enrolled under in NCTracks. The Vaya Partners manual: “Accurate NPI numbers and taxonomy codes are required for claims to be accepted and processed,” and they must “exactly match the information in NCTracks,” or the claim is denied or recouped.',
+          'Referring or ordering NPI: not required on an RB-BHT claim. NC Medicaid’s OPR guidance lists the claim types that need an ordering NPI (home infusion, private duty nursing, labs, IDTF, CAP, radiology, DME, LEA) or a referring NPI (home infusion, specialized therapy, hospice, home health, PDN, dialysis, CAP, LEA), and RB-BHT is not on either list. The physician or psychologist who signs the service order must still be enrolled in NC Medicaid (42 CFR 455.410).',
         ],
         cites: [
           { title: 'NC Medicaid Managed Care Provider Playbook — Prompt Payment fact sheet (Standard Plans, NC Medicaid Direct, Tailored Plans)', url: 'https://medicaid.ncdhhs.gov/provider-playbook-prompt-payment-fact-sheet/download' },
           { title: 'Vaya Partners — Provider Operations Manual v1.0 (Oct. 1, 2026)', url: 'https://resources.vayapartners.org/wp-content/uploads/Vaya_Partners_Provider_Operations_Manual_1.0_20261001.pdf' },
+          { title: 'Vaya Partners — Rate and Checkwrite Schedules (ProviderCENTRAL): 5 p.m. Tuesday cutoff', url: 'https://providers.vayapartners.org/rate-checkwrite-schedules/' },
+          { title: 'Vaya Partners — 2026 Checkwrite Schedule (rev. 9/30/2026)', url: 'https://resources.vayapartners.org/2026-checkwrite-schedule/' },
+          { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026): §3.22 Taxonomy, §3.52 EVV', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
+          { title: 'NC Medicaid — Federal Regulation Guidelines for Ordering, Prescribing or Referring (OPR) Providers (modified 7/1/2026)', url: 'https://medicaid.ncdhhs.gov/providers/claims-and-billing/federal-regulation-guidelines-ordering-prescribing-or-referring-opr-providers' },
         ],
       },
     ],
@@ -2241,9 +2403,15 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Unit thresholds', desc: '97151 ≤32 units/6mo and 97155 ≤1hr-per-10hrs ratio pass through on notification only — above either, a full SAR is required.' },
     ],
     sources: [
+      { title: 'NC Medicaid — Federal Regulation Guidelines for Ordering, Prescribing or Referring (OPR) Providers (modified 7/1/2026)', url: 'https://medicaid.ncdhhs.gov/providers/claims-and-billing/federal-regulation-guidelines-ordering-prescribing-or-referring-opr-providers' },
+      { title: 'Vaya Partners — 2026 Checkwrite Schedule (rev. 9/30/2026)', url: 'https://resources.vayapartners.org/2026-checkwrite-schedule/' },
+      { title: 'Vaya Partners — Rate and Checkwrite Schedules (ProviderCENTRAL): 5 p.m. Tuesday cutoff', url: 'https://providers.vayapartners.org/rate-checkwrite-schedules/' },
+      { title: 'Vaya Partners — Provider Operations Manual v1.0 (Oct. 1, 2026)', url: 'https://resources.vayapartners.org/wp-content/uploads/Vaya_Partners_Provider_Operations_Manual_1.0_20261001.pdf' },
+      { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026)', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
+      { title: 'CMS — Medicaid NCCI MUE table, practitioner services (effective 10/1/2026–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' },
       { title: 'Vaya Health — Authorization Guidelines: Medicaid RB-BHT Services for ASD (v2.0, rev. 9/5/2025)', url: 'https://providers.vayahealth.com/wp-content/uploads/2025/09/Authorization_Guidelines_Medicaid_RB_BHT_ASD.pdf' },
       { title: 'Vaya Health — RB-BHT Guidance (v1.0, rev. 5/1/2025)', url: 'https://providers.vayahealth.com/wp-content/uploads/2025/05/RB_BHT_Guidance_20250522.pdf' },
-      { title: 'Vaya Health — prior authorization page', url: 'https://providers.vayahealth.com/authorization-information/prior-authorization/' },
+      { title: 'Vaya Partners — Prior Authorization (ProviderCENTRAL; replaces the retired providers.vayahealth.com page, checked 10/18/2026)', url: 'https://providers.vayapartners.org/prior-authorization/' },
       { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
       { title: 'Vaya Health — Provider Communication Bulletin, Issue 3 (July 8, 2026): Important Changes to RB-BHT and Peer Support Services', url: 'https://providers.vayahealth.com/wp-content/uploads/2026/07/PCB_Issue_3_20260708.pdf' },
       { title: 'Session Law 2026-41 (S.B. 257, Current Operations Appropriations Act of 2026, approved 7/7/2026), §9E.22', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-41.pdf' },
@@ -2296,11 +2464,12 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         ],
       },
       telehealth: {
-        value: 'Follows the NC Medicaid rule (Attachment A, eff. 8/1/2026): GT telehealth is billable for 97151 with clinical justification and for 97155 up to 50% of total 97155 billing per beneficiary per 180 days; telehealth is removed entirely for 97152, 97153 and 97154; 97156 and 97157 remain telehealth eligible and are the only KX telephonic services, on a documented caregiver health or access barrier.',
+        value: 'Follows the NC Medicaid rule (Attachment A, eff. 8/1/2026): GT telehealth is billable for 97151 with clinical justification and for 97155 up to 50% of total 97155 billing per beneficiary per 180 days; telehealth is removed entirely for 97152, 97153 and 97154; 97156 and 97157 remain telehealth eligible and are the only KX telephonic services, on a documented caregiver health or access barrier. NC Medicaid’s billing guidance binds the plan to the same edit: “Claims submitted with Modifier GT (Telehealth) for 97152 - 97154 are not reimbursable and should be denied” (v36 §3.54.1). Telehealth claims carry the provider’s usual place-of-service code (8F Attachment A), and 8F does not require the telehealth modality to be named on the authorization.',
         status: 'verified',
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
           { title: 'Vaya Health — Authorization Guidelines: Medicaid RB-BHT Services for ASD (v2.0, rev. 9/5/2025)', url: 'https://providers.vayahealth.com/wp-content/uploads/2025/09/Authorization_Guidelines_Medicaid_RB_BHT_ASD.pdf' },
+          { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026), §3.54.1 RB-BHT in-person requirement', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
         ],
       },
       authTurnaround: {
@@ -2326,7 +2495,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     },
     deliveryRules: {
       supervision: {
-        value: 'Follows the NC Medicaid rule (10% LQASP observation floor; 10–20% LQASP-to-paraprofessional ratio above 200 paraprofessional hours per 180 days). Vaya adds an authorization threshold on top: 97155 protocol modification by a BCBA-LP passes through on notification alone up to a ratio of one hour per ten hours of direct intervention (97153/97154); above that ratio it needs a full SAR for medical-necessity review.',
+        value: 'Follows the NC Medicaid rule (10% LQASP observation floor; 10–20% LQASP-to-paraprofessional ratio above 200 paraprofessional hours per 180 days). Vaya adds an authorization threshold on top: 97155 protocol modification by a BCBA-LP passes through on notification alone up to a ratio of one hour per ten hours of direct intervention (97153/97154); above that ratio it needs a full SAR for medical-necessity review. Neither CCP 8F nor the Vaya Partners manual (v1.0) caps how many paraprofessionals one LQASP may supervise; the limits are the per-beneficiary 10% floor and 10–20% band.',
         status: 'verified',
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
@@ -2343,12 +2512,14 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         ],
       },
       dailyLimits: {
-        value: 'Follows the NC Medicaid rule — no per-day unit ceiling, with limits set per authorization period. Vaya’s own thresholds are the practical ones at intake: 97151 up to 32 units per six months and 97155 up to a 1-hour-per-10-hours ratio against direct intervention pass through on notification, and anything above either needs a full SAR.',
+        value: 'Two different ceilings. Per day, a claim edit: the Vaya Partners Provider Operations Manual (v1.0, Oct. 1, 2026) says Vaya Partners "uses National Correct Coding Initiative (NCCI) edits and Medically Unlikely Edits (MUE) during adjudication to validate claims," as NC Medicaid’s billing guidance requires of every health plan (§3.6.2). The public CMS Medicaid NCCI practitioner MUE table for dates of service 10/1–12/31/2026 sets these maxima per beneficiary per date of service: 97151 32 units, 97152 16, 97153 32 (8 hours), 97154 18, 97155 24, 97156 16, 97157 16, 97158 16, 0362T 16 and 0373T 32. Units above the MUE on one date of service deny as a claim edit whatever the authorization allows; the authorization, not the MUE, is the real weekly limit. Per authorization period, the NC Medicaid rule (CCP 8F sets no per-day cap of its own). Vaya’s own thresholds are the practical ones at intake: 97151 up to 32 units per six months and 97155 up to a 1-hour-per-10-hours ratio against direct intervention pass through on notification, and anything above either needs a full SAR.',
         status: 'verified',
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
           { title: 'Vaya Health — Authorization Guidelines: Medicaid RB-BHT Services for ASD (v2.0, rev. 9/5/2025)', url: 'https://providers.vayahealth.com/wp-content/uploads/2025/09/Authorization_Guidelines_Medicaid_RB_BHT_ASD.pdf' },
-          { title: 'Vaya Health — Authorization Guidelines: Medicaid RB-BHT Services for ASD (v2.0, rev. 9/5/2025)', url: 'https://providers.vayahealth.com/wp-content/uploads/2025/09/Authorization_Guidelines_Medicaid_RB_BHT_ASD.pdf' },
+          { title: 'Vaya Partners — Provider Operations Manual v1.0 (Oct. 1, 2026), claims adjudication', url: 'https://resources.vayapartners.org/wp-content/uploads/Vaya_Partners_Provider_Operations_Manual_1.0_20261001.pdf' },
+          { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026), §3.6.2 NCCI and MUE edits', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
+          { title: 'CMS — Medicaid NCCI MUE table, practitioner services (effective 10/1/2026–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' },
         ],
       },
       noteSignature: {
@@ -2451,10 +2622,13 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         body: [
           'Instead of code-by-code authorizations, Partners issues one authorization covering all RB-BHT codes and modifiers: submit via ProAuth entering the base code as the Primary Procedure Code on the Prescreen and selecting the Treatment Type from the dropdown; authorizations are then visible in both ProAuth and Alpha. Operationally this means clinical teams can flex between assessment, direct treatment, supervision, and parent training without new requests — but every billed unit must still trace to the approved treatment plan, because Partners pairs the flexibility with post-payment review and recoupment for out-of-plan billing.',
           'Partners also runs an Autism Services Learning Collaborative for its network ABA providers, and its Tailored Plan documentation cross-references Carolina Complete Health policies through a Centene infrastructure partnership.',
+          'Code set: like every NC Medicaid plan, this one pays RB-BHT only under the CPT codes in CCP 8F Attachment A, 97151–97157, in 15-minute units. 97158, 0362T and 0373T are not covered, and no HCPCS H-code (H0031, H0032, H2014, H2019) is an RB-BHT code. The plan publishes no different code list. 96112 (developmental testing) is likewise not an RB-BHT code; NC Medicaid’s billing guidance lists it among procedure codes shared by physical and behavioral health.',
         ],
         cites: [
           { title: 'Partners — RB-BHT authorizations transition to ALL codes (provider alert)', url: 'https://providers.partnersbhm.org/authorizations-for-research-based-behavioral-health-treatment-transition-to-all-codes/' },
           { title: 'Partners — Tailored Plan clinical coverage policies (adopts 8F)', url: 'https://www.partnersbhm.org/tailoredplan/providers/manuals-forms-and-policies/clinical-coverage-policies/' },
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026), Appendix A procedure-code tables', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
         ],
       },
       {
@@ -2498,9 +2672,18 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         body: [
           'NC Medicaid sets the floor for every Tailored Plan and LME/MCO, Partners Health Management included. Its prompt-payment fact sheet gives Tailored Plans a 365-day timely filing window from July 1, 2024. NC Medicaid Direct claims the LME/MCOs process also moved from 90 to 365 days on July 1, 2024. The window covers the original claim and any corrected claim. State-funded services must be filed within 90 calendar days.',
           'Within 18 calendar days of receiving a medical claim the plan must say whether it is clean or pend it for more information. It must pay or deny a clean claim within 30 days, and deny the claim if requested information has not arrived within 90 days. Late payment carries 18% annual interest.',
+          'Since the October 1, 2026 merger, legacy Partners claims run on the Vaya Partners schedule. Weekly cutoff: “Vaya Partners adheres to the standardized LME/MCO checkwrite schedule, which is based on a 5 p.m. Tuesday cutoff. Claims received before this cutoff date will be paid the following week according to the checkwrite schedule.” In the 2026 schedule (rev. 9/30/2026), claims posted Wednesday through Tuesday go into a check run the following Monday, with payment dated that Thursday. For example, claims posted 1/28–2/3/2026 ran on 2/9 and were paid 2/12. Holiday weeks shift by a day. The manual encourages providers to bill “on a weekly or bimonthly schedule” to match it.',
+          'EVV does not apply to RB-BHT: NC Medicaid’s billing guidance lists the services “subject to EVV for Managed Care” as Personal Care, Home Health, Innovations Waiver, TBI and 1915(i) services (§3.52).',
+          'Taxonomy: the plan must “validate the taxonomy code submitted on the claim” against the provider’s NC Medicaid enrollment record and “price claims based on the taxonomy code submitted on the claim” (billing guidance §3.22), so bill the taxonomy you are enrolled under in NCTracks. The Vaya Partners manual: “Accurate NPI numbers and taxonomy codes are required for claims to be accepted and processed,” and they must “exactly match the information in NCTracks,” or the claim is denied or recouped.',
+          'Referring or ordering NPI: not required on an RB-BHT claim. NC Medicaid’s OPR guidance lists the claim types that need an ordering NPI (home infusion, private duty nursing, labs, IDTF, CAP, radiology, DME, LEA) or a referring NPI (home infusion, specialized therapy, hospice, home health, PDN, dialysis, CAP, LEA), and RB-BHT is not on either list. The physician or psychologist who signs the service order must still be enrolled in NC Medicaid (42 CFR 455.410).',
         ],
         cites: [
           { title: 'NC Medicaid Managed Care Provider Playbook — Prompt Payment fact sheet (Standard Plans, NC Medicaid Direct, Tailored Plans)', url: 'https://medicaid.ncdhhs.gov/provider-playbook-prompt-payment-fact-sheet/download' },
+          { title: 'Vaya Partners — Rate and Checkwrite Schedules (ProviderCENTRAL): 5 p.m. Tuesday cutoff', url: 'https://providers.vayapartners.org/rate-checkwrite-schedules/' },
+          { title: 'Vaya Partners — 2026 Checkwrite Schedule (rev. 9/30/2026)', url: 'https://resources.vayapartners.org/2026-checkwrite-schedule/' },
+          { title: 'Vaya Partners — Provider Operations Manual v1.0 (Oct. 1, 2026)', url: 'https://resources.vayapartners.org/wp-content/uploads/Vaya_Partners_Provider_Operations_Manual_1.0_20261001.pdf' },
+          { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026): §3.22 Taxonomy, §3.52 EVV', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
+          { title: 'NC Medicaid — Federal Regulation Guidelines for Ordering, Prescribing or Referring (OPR) Providers (modified 7/1/2026)', url: 'https://medicaid.ncdhhs.gov/providers/claims-and-billing/federal-regulation-guidelines-ordering-prescribing-or-referring-opr-providers' },
         ],
       },
     ],
@@ -2510,6 +2693,13 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'ProAuth setup', desc: 'Base code on the Prescreen, Treatment Type from the dropdown — train the intake/billing handoff on it once.' },
     ],
     sources: [
+      { title: 'NC Medicaid — Federal Regulation Guidelines for Ordering, Prescribing or Referring (OPR) Providers (modified 7/1/2026)', url: 'https://medicaid.ncdhhs.gov/providers/claims-and-billing/federal-regulation-guidelines-ordering-prescribing-or-referring-opr-providers' },
+      { title: 'Vaya Partners — Prior Authorization (ProviderCENTRAL, checked 10/11/2026)', url: 'https://providers.vayapartners.org/prior-authorization/' },
+      { title: 'Vaya Partners — 2026 Checkwrite Schedule (rev. 9/30/2026)', url: 'https://resources.vayapartners.org/2026-checkwrite-schedule/' },
+      { title: 'Vaya Partners — Rate and Checkwrite Schedules (ProviderCENTRAL): 5 p.m. Tuesday cutoff', url: 'https://providers.vayapartners.org/rate-checkwrite-schedules/' },
+      { title: 'Vaya Partners — Provider Operations Manual v1.0 (Oct. 1, 2026)', url: 'https://resources.vayapartners.org/wp-content/uploads/Vaya_Partners_Provider_Operations_Manual_1.0_20261001.pdf' },
+      { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026)', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
+      { title: 'CMS — Medicaid NCCI MUE table, practitioner services (effective 10/1/2026–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' },
       { title: 'Partners — Tailored Plan clinical coverage policies', url: 'https://www.partnersbhm.org/tailoredplan/providers/manuals-forms-and-policies/clinical-coverage-policies/' },
       { title: 'Partners — ALL-codes authorization provider alert', url: 'https://providers.partnersbhm.org/authorizations-for-research-based-behavioral-health-treatment-transition-to-all-codes/' },
       { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
@@ -2563,11 +2753,12 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         ],
       },
       telehealth: {
-        value: 'Follows the NC Medicaid rule (Attachment A, eff. 8/1/2026): GT telehealth is billable for 97151 with clinical justification and for 97155 up to 50% of total 97155 billing per beneficiary per 180 days; telehealth is removed entirely for 97152, 97153 and 97154; 97156 and 97157 remain telehealth eligible and are the only KX telephonic services, on a documented caregiver health or access barrier.',
+        value: 'Follows the NC Medicaid rule (Attachment A, eff. 8/1/2026): GT telehealth is billable for 97151 with clinical justification and for 97155 up to 50% of total 97155 billing per beneficiary per 180 days; telehealth is removed entirely for 97152, 97153 and 97154; 97156 and 97157 remain telehealth eligible and are the only KX telephonic services, on a documented caregiver health or access barrier. NC Medicaid’s billing guidance binds the plan to the same edit: “Claims submitted with Modifier GT (Telehealth) for 97152 - 97154 are not reimbursable and should be denied” (v36 §3.54.1). Telehealth claims carry the provider’s usual place-of-service code (8F Attachment A), and 8F does not require the telehealth modality to be named on the authorization.',
         status: 'verified',
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
           { title: 'Partners — RB-BHT authorizations transition to ALL codes (provider alert)', url: 'https://providers.partnersbhm.org/authorizations-for-research-based-behavioral-health-treatment-transition-to-all-codes/' },
+          { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026), §3.54.1 RB-BHT in-person requirement', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
         ],
       },
       authTurnaround: {
@@ -2596,7 +2787,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     },
     deliveryRules: {
       supervision: {
-        value: 'Follows the NC Medicaid rule: at least 10% of paraprofessional-delivered services must involve LQASP observation and direction, and above 200 paraprofessional hours per 180 days the LQASP-to-paraprofessional ratio must sit between 10% and 20%, documented in the treatment plan with deviations clinically justified. Incidental supervision is not billable.',
+        value: 'Follows the NC Medicaid rule: at least 10% of paraprofessional-delivered services must involve LQASP observation and direction, and above 200 paraprofessional hours per 180 days the LQASP-to-paraprofessional ratio must sit between 10% and 20%, documented in the treatment plan with deviations clinically justified. Incidental supervision is not billable. Neither CCP 8F nor the Vaya Partners manual (v1.0) caps how many paraprofessionals one LQASP may supervise; the limits are the per-beneficiary 10% floor and 10–20% band.',
         status: 'verified',
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
@@ -2612,12 +2803,14 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         ],
       },
       dailyLimits: {
-        value: 'Follows the NC Medicaid rule — no per-day unit ceiling, limits set per authorization period. Partners’ own model is unusually permissive on codes: since October 2023 one authorization on the base code covers every RB-BHT code and modifier combination, telehealth included, submitted through ProAuth with the base code as Primary Procedure Code on the Prescreen. The flexibility is paired with post-payment review — every billed unit must trace to the approved treatment plan or face recoupment.',
+        value: 'Two different ceilings. Per day, a claim edit: since the October 1, 2026 merger, the Vaya Partners Provider Operations Manual (v1.0, Oct. 1, 2026) says Vaya Partners "uses National Correct Coding Initiative (NCCI) edits and Medically Unlikely Edits (MUE) during adjudication to validate claims," as NC Medicaid’s billing guidance requires of every health plan (§3.6.2). The public CMS Medicaid NCCI practitioner MUE table for dates of service 10/1–12/31/2026 sets these maxima per beneficiary per date of service: 97151 32 units, 97152 16, 97153 32 (8 hours), 97154 18, 97155 24, 97156 16, 97157 16, 97158 16, 0362T 16 and 0373T 32. Units above the MUE on one date of service deny as a claim edit whatever the authorization allows; the authorization, not the MUE, is the real weekly limit. Per authorization period, the NC Medicaid rule (CCP 8F sets no per-day cap of its own). Legacy Partners’ own model is unusually permissive on codes: since October 2023 one authorization on the base code covers every RB-BHT code and modifier combination, telehealth included, submitted through ProAuth with the base code as Primary Procedure Code on the Prescreen. The flexibility is paired with post-payment review — every billed unit must trace to the approved treatment plan or face recoupment.',
         status: 'verified',
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
           { title: 'Partners — RB-BHT authorizations transition to ALL codes (provider alert)', url: 'https://providers.partnersbhm.org/authorizations-for-research-based-behavioral-health-treatment-transition-to-all-codes/' },
-          { title: 'Partners — RB-BHT authorizations transition to ALL codes (provider alert)', url: 'https://providers.partnersbhm.org/authorizations-for-research-based-behavioral-health-treatment-transition-to-all-codes/' },
+          { title: 'Vaya Partners — Provider Operations Manual v1.0 (Oct. 1, 2026), claims adjudication', url: 'https://resources.vayapartners.org/wp-content/uploads/Vaya_Partners_Provider_Operations_Manual_1.0_20261001.pdf' },
+          { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026), §3.6.2 NCCI and MUE edits', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
+          { title: 'CMS — Medicaid NCCI MUE table, practitioner services (effective 10/1/2026–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' },
         ],
       },
       noteSignature: {
@@ -2709,6 +2902,8 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         h2: 'The national policy, applied in North Carolina',
         body: [
           'Aetna covers ABA for autism spectrum disorder under its national clinical policy CPB 0554 (paired with CPB 0648 for ASD), and considers ABA experimental for anything else. Precertification is required for both the assessment and treatment — form GR-69017-4, submitted via Availity or phone — with reauthorization commonly on a roughly 6-month cadence. That clinical policy is national — what changes in North Carolina is the legal floor underneath it: the state mandate below governs what fully-insured plans must cover, while self-funded employer plans answer to ERISA and federal parity instead. Plan funding type is therefore the first fact to establish on every benefits check. The full national policy breakdown lives in our Aetna guide; this page covers what changes in North Carolina.',
+          'Reauthorization: Aetna’s ABA medical necessity guide says “A member’s progress is to be evaluated every six months.” It calls for “Repeated measurement with standardized measures to assess progress” and a functional-impairment score on a standardized scale (Vineland-3, ABAS, VB-MAPP or ABLLS) from the past 12 months. Target behaviors need objective baselines and “quantifiable criteria for progress.” Where target behaviors improved, the improvement must be documented; where they did not, the request must show the treatment modifications, added assessments or consultations. Coverage ends on improvement of two or more standard deviations across domains, or of less than one standard deviation in all domains over successive authorization periods. The guide does not require graphs.',
+          'Code set: Aetna’s ABA policy table lists CPT 97151–97158 plus 0362T and 0373T. No HCPCS H-code (H0031, H0032, H2014, H2019) is listed for ABA, so bill the CPT codes your precertification approves.',
         ],
         cites: [
       { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
@@ -2762,11 +2957,14 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         body: [
           'Aetna’s provider manual (June 2026) prints no filing deadline. It defines a clean claim as one “received in a timely manner” with all the data elements of the CMS-1500, including the NPI, and claims must also carry the billing provider’s tax ID. Claim disputes must be filed “within contractual timeframes.” For insured North Carolina plans the state sets the floor: an insurer may require claims within 180 days of the date of care but “may not limit the time in which claims may be submitted to fewer than 180 days” (G.S. 58-3-225(f)). Within 30 calendar days of receiving a claim it must pay it, deny it, or say what is missing, and late payment carries 18% annual interest. For a self-funded employer plan, check the plan’s own terms.',
           'Aetna’s public documents do not say whose NPI goes in the rendering field (box 24J) when a technician delivers 97153, or whether facility and individual taxonomy codes are required. Its ABA medical necessity guide says only that services must be “provided directly or billed by” a licensed behavior analyst, a BCBA, or a licensed psychologist where behavior analysis is in scope, unless the plan or contract says otherwise. Get the rendering and taxonomy rules from your Aetna participation agreement or Aetna provider services before the first claim.',
+          'Corrected and secondary claims: Aetna’s manual and its COB billing tips give no separate deadline for a corrected or secondary claim, and no payment-cycle day or submission cutoff. The COB tips cover how to file a secondary claim electronically (claim filing indicator codes and primary-payer payment fields), not when. Ask Aetna provider services, or check your agreement, for the corrected-claim and COB windows.',
+          'Aetna’s manual sets no EVV requirement (EVV is a Medicaid rule) and no taxonomy rule. On referrals, its clean-claim definition includes “A corresponding referral (whether in paper or electronic format), if required for the applicable claim,” which matters only on plans that require PCP referrals.',
         ],
         cites: [
           { title: 'Aetna — Provider and behavioral health manual (June 2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
           { title: 'N.C. Gen. Stat. § 58-3-225 — prompt claim payments under health benefit plans', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_58/GS_58-3-225.html' },
           { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+          { title: 'Aetna — Coordination of benefits billing tips (electronic COB claims)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/COB-billing-tips.pdf' },
         ],
       },
     ],
@@ -2777,6 +2975,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Age', desc: 'Where the mandate carries age terms, flag edge cases for the parity analysis rather than turning families away.' },
     ],
     sources: [
+      { title: 'Aetna — Coordination of benefits billing tips (electronic COB claims)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/COB-billing-tips.pdf' },
       { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
       { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
       { title: 'N.C. Gen. Stat. § 58-3-192 (autism coverage mandate)', url: 'https://codes.findlaw.com/nc/chapter-58-insurance/nc-gen-st-sect-58-3-192/' },
@@ -2870,7 +3069,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     },
     deliveryRules: {
       supervision: {
-        value: 'Services must be provided directly or billed by licensed behavior analysts (in states with behavior analyst licensure laws), board-certified behavior analysts, or licensed psychologists where behavior analysis is within their scope, unless state mandates, plan documents or contracts require otherwise. Where a mandate, plan document or contract does allow authorization for services not directly provided by such a person, there must be supervision and direction of the unlicensed or non-certified provider in line with practice standards. Aetna publishes no numeric supervision ratio.',
+        value: 'Services must be provided directly or billed by licensed behavior analysts (in states with behavior analyst licensure laws), board-certified behavior analysts, or licensed psychologists where behavior analysis is within their scope, unless state mandates, plan documents or contracts require otherwise. Where a mandate, plan document or contract does allow authorization for services not directly provided by such a person, there must be supervision and direction of the unlicensed or non-certified provider in line with practice standards. Aetna publishes no numeric supervision ratio. The guide publishes no technician-per-BCBA caseload cap. It does size the supervision authorization: QHP protocol modification and direction “at 1 to 2 hours per 10 hours of treatment by protocol.”',
         status: 'verified',
         cites: [
           { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
@@ -2982,6 +3181,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         h2: 'The national policy, applied in North Carolina',
         body: [
           'Cigna (through Evernorth Behavioral Health) covers ABA for autism under national policy EN0499 with one of the friendliest front doors in the industry: no prior authorization on assessment codes 97151, 97152, and 0362T. The rigor arrives at the treatment step, which requires the completed assessment plus a treatment plan with Cigna\'s ABA PA form. That clinical policy is national — what changes in North Carolina is the legal floor underneath it: the state mandate below governs what fully-insured plans must cover, while self-funded employer plans answer to ERISA and federal parity instead. Plan funding type is therefore the first fact to establish on every benefits check. The full national policy breakdown lives in our Cigna / Evernorth guide; this page covers what changes in North Carolina.',
+          'Continued treatment (EN0499, effective 5/15/2026): the plan must be updated, and the request must include “Quantitative baseline, interim and current data … with dates reported from when the data were collected for all behaviors and skills.” Current data must be “collected within no more than 60 days prior to the start date of the continued treatment request” and within 60 days before the request is received, kept separate by setting. The request also needs a standardized assessment no more than one year old showing measurable or maintained improvement. Where progress is lacking, document the barriers and the protocol changes. EN0499 asks for dated quantitative data, not graphs as such, and a new standardized assessment is required after any break in treatment longer than 60 days.',
         ],
         cites: [
       { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
@@ -3053,6 +3253,8 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         body: [
           'Evernorth’s Behavioral Health Administrative Guidelines (September 2026) consider claims “submitted within 90 days of the date of service or as otherwise defined in your Provider Agreement,” or longer where state law allows. The North Carolina regulatory addendum, which covers insured plans but not self-funded ones, sets 180 days after the date of service. A claim filed late still counts if filing on time was not reasonably possible, as long as it is filed as soon as possible and within a year. Appeals of payment or denial decisions go in writing within 180 calendar days of the decision. For insured plans, G.S. 58-3-225 also requires the insurer to pay, deny or request information within 30 calendar days.',
           'Evernorth defines a complete CMS-1500 claim as including the “rendering provider’s name, NPI, and license type” and the billing provider’s name, address and NPI. Any rendering or referring provider on an 837 must carry name and NPI. Where supervisee billing is allowed, “the fully credentialed provider should be listed on the claim as the rendering provider.”',
+          'Corrected and secondary claims: Evernorth applies its 90-day limit to a COB claim “based on the primary payer’s processing date as stated on an explanation of benefits [EOB] or explanation of payment [EOP].” A claim filed on time and returned for more information gets a new 90 days from the date of that request. Mark a replacement or void on the CMS-1500 with code 7 or 8 in field 22, and do not stamp “Corrected Claim” on the form. The guidelines publish no payment-cycle day or submission cutoff.',
+          'Evernorth’s guidelines set no EVV requirement and no taxonomy requirement for ABA claims. The complete-claim definition lists names, NPIs and license type, not taxonomy codes.',
         ],
         cites: [
           { title: 'Evernorth Behavioral Health — Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
@@ -3153,7 +3355,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     },
     deliveryRules: {
       supervision: {
-        value: 'Case supervision is performed by a BCBA, a Licensed Behavior Analyst, or a mental health professional licensed to practice independently with documented training in ABA. Direct case supervision — occurring concurrently with direct treatment, with the BCBA face-to-face with the individual and with either the RBT or the BCaBA — plus indirect case supervision runs at the generally accepted standard of care of one to two hours per ten hours of direct treatment. When direct treatment is 10 hours per week or less, a minimum of one to two hours per week of direct case supervision is provided. The name and credentials of the person providing supervision must be documented, and supervisory services must coincide with the AMA CPT code descriptions.',
+        value: 'Case supervision is performed by a BCBA, a Licensed Behavior Analyst, or a mental health professional licensed to practice independently with documented training in ABA. Direct case supervision — occurring concurrently with direct treatment, with the BCBA face-to-face with the individual and with either the RBT or the BCaBA — plus indirect case supervision runs at the generally accepted standard of care of one to two hours per ten hours of direct treatment. When direct treatment is 10 hours per week or less, a minimum of one to two hours per week of direct case supervision is provided. The name and credentials of the person providing supervision must be documented, and supervisory services must coincide with the AMA CPT code descriptions. EN0499 (effective 5/15/2026) and Evernorth’s administrative guidelines publish no cap on the number of technicians per supervising BCBA; the supervision rule is hours-based.',
         status: 'verified',
         cites: [
           { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
@@ -3198,6 +3400,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Cigna require graphs for ABA reassessments?', a: 'Not by name. EN0499 requires dated quantitative baseline, interim and current data for every target, with current data no more than 60 days old, plus a standardized assessment from the past year. Graphs are a common way to present that data, but the policy asks for the data itself.' },
       { q: 'Does Cigna cover ABA therapy in North Carolina?', a: 'Yes — under the carrier\'s national policy for ASD, layered on North Carolina\'s mandate (N.C.G.S. § 58-3-192) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the North Carolina autism mandate require?', a: 'North Carolina’s mandate (effective July 2016) requires covered health benefit plans to cover “adaptive behavior treatment” — the statutory term; ABA itself isn’t named, but board certified behavior analysts are among the eight authorized provider categories, and treatment must be ordered by a licensed physician or licensed psychologist. See the mandate section above for ages, caps, and exemptions — and remember federal parity limits how hard the numeric caps can be enforced against group plans.' },
       { q: 'What does Cigna pay for ABA in North Carolina?', a: 'Evernorth (Cigna behavioral health) publishes no ABA rate table. Its administrative guidelines say your fee schedule and the list of reimbursable autism services are in Exhibit A of your Evernorth provider agreement; call Provider Services at 800.926.2273 with fee schedule questions.' },
@@ -3258,9 +3461,11 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         h2: 'The national policy, applied in North Carolina',
         body: [
           'UnitedHealthcare administers ABA through Optum Behavioral Health as a two-step authorization on the Provider Express portal — assessment authorized first, then treatment — under Optum\'s Supplemental Clinical Criteria, with continued-service reviews every 4–6 months and an operational flag when utilization falls below 80% of authorized hours. That clinical policy is national — what changes in North Carolina is the legal floor underneath it: the state mandate below governs what fully-insured plans must cover, while self-funded employer plans answer to ERISA and federal parity instead. Plan funding type is therefore the first fact to establish on every benefits check. The full national policy breakdown lives in our UnitedHealthcare / Optum guide; this page covers what changes in North Carolina.',
+          'Code set: Optum’s commercial ABA reimbursement policy (updated 06/2026) covers CPT 97151–97158, 0362T and 0373T, each a 15-minute unit with its own daily maximum. It lists no HCPCS H-code for ABA.',
         ],
         cites: [
       { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+          { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
         ],
       },
       {
@@ -3324,6 +3529,8 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         body: [
           'Optum Behavioral Health’s National Network Manual (effective September 1, 2026) requires all claim information “no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan.” UnitedHealthcare’s administrative guide adds that timely filing limits “vary based on state requirements and contracts.” For insured North Carolina plans, G.S. 58-3-225(f) bars a limit shorter than 180 days from the date of care, and the insurer must pay, deny or request information within 30 calendar days or owe 18% annual interest.',
           'UnitedHealthcare’s 2026 administrative guide says: “you must submit a valid billing NPI, rendering NPI and relevant taxonomy code(s) on all claims and encounters.” It also encourages, but does not require, the referring provider’s NPI.',
+          'Corrections and payment: the Optum manual says “Any corrections or additions to a claim should be made within 90 days of initial claim receipt.” It sets no separate deadline for secondary claims, and when Optum is secondary it pays “up to the Optum contracted rate.” Claims with all required information and any required authorization are “generally” paid “within 45 calendar days after Optum receives the claim, or as required by state and federal laws.” Neither manual publishes a payment-cycle day or submission cutoff.',
+          'Neither Optum’s network manual nor UnitedHealthcare’s commercial guide imposes EVV on ABA; EVV is a Medicaid requirement.',
         ],
         cites: [
           { title: 'Optum Behavioral Health — National Network Manual (published July 1, 2026; effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
@@ -3431,10 +3638,11 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     },
     deliveryRules: {
       supervision: {
-        value: 'Consistent with CASP standards of care, direct case supervision is required at one to two hours for every ten hours of direct treatment per week. Technicians must be under the applicable supervision of a BCBA or a licensed behavioral health clinician and should be Registered Behavior Technicians or another appropriately certified behavior technician as allowable by state mandate. Optum adds that it is not recommended that parents serve in an RBT role, and that a BCBA acting in a supervisory role for a parent serving as RBT for their own child would violate the ethics code with a duty to self-report.',
+        value: 'Consistent with CASP standards of care, direct case supervision is required at one to two hours for every ten hours of direct treatment per week. Technicians must be under the applicable supervision of a BCBA or a licensed behavioral health clinician and should be Registered Behavior Technicians or another appropriately certified behavior technician as allowable by state mandate. Optum adds that it is not recommended that parents serve in an RBT role, and that a BCBA acting in a supervisory role for a parent serving as RBT for their own child would violate the ethics code with a duty to self-report. Optum’s network manual and commercial ABA reimbursement policy publish no cap on the number of technicians one BCBA may supervise; the standard is hours of supervision per hours of treatment.',
         status: 'verified',
         cites: [
           { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+          { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
         ],
       },
       concurrentBilling: {
@@ -3616,6 +3824,8 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         body: [
           'MedCost’s provider manual (October 2025) says “Provider will file claims within ninety (90) days of the date of service,” extended for North Carolina providers to 180 days on fully insured plans under G.S. 58-3-225. It adds that a member should not be penalized for a timely filing denial. Payment appeals for MedCost Benefit Services go in writing within 180 days of receiving the EOB. Benefit denials, timely filing denials included, go to the payer named on the member’s ID card, and code-editing disputes go to Zelis (appeals.integrity@zelis.com).',
           'On electronic claims MedCost asks for the rendering provider’s name, credentials and NPI in loop 2310B, sent only when the rendering provider differs from the billing provider. The manual does not say whether a technician or the supervising BCBA is the rendering provider for ABA.',
+          'Corrected claims: MedCost gives no separate window, but it will not reprice a claim more than two years after the date of service. File the correction through your normal channel with frequency code 7 (837P CLM05-3) and the original claim number in the 2300-loop REF F8 segment (box 22 on paper). MedCost warns that “a corrected claim does not constitute an appeal” and that a correction filed without the indicator or original claim number is rejected and mailed back. The manual sets no secondary-claim deadline of its own, since coordination of benefits is the claim administrator’s job. It also publishes no payment-cycle day or submission cutoff; the plan’s administrator pays the claim, not MedCost.',
+          'The MedCost manual sets no EVV, taxonomy or referring-provider requirement for claims; any such rule would come from the employer plan’s administrator.',
         ],
         cites: [
           { title: 'MedCost — Provider Manual (October 2025)', url: 'https://www.medcost.com/sites/default/files/2025-10/MedCost%20Provider%20Manual%20Version%20October%202025.pdf' },
@@ -3749,10 +3959,11 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       dailyLimits: {
-        value: 'Plan-dependent — any hour, visit or dollar limit on ABA is written into the employer\'s plan document; MedCost publishes none of its own.',
+        value: 'Plan-dependent — any hour, visit or dollar limit on ABA is written into the employer\'s plan document; MedCost publishes none of its own. Per-day claim edits do apply: the MedCost Provider Manual (October 2025) says MedCost Benefit Services "follows CMS guidelines on reimbursement related to NCCI (National Correct Coding Initiative) editing, including but not limited to procedure-to-procedure edits and medical unlikely edits," with code-editing disputes sent to Zelis. MedCost publishes no ABA unit values of its own, so ask which MUE table the plan loads.',
         status: 'plan-dependent',
         cites: [
           { title: 'MedCost — Medical Policies', url: 'https://www.medcost.com/medical-policies' },
+          { title: 'MedCost — Provider Manual (MedCost Network, October 2025)', url: 'https://www.medcost.com/sites/default/files/2025-10/MedCost%20Provider%20Manual%20Version%20October%202025.pdf' },
         ],
         verifyVia: 'Ask at benefits verification for any ABA hour, visit or dollar limit under this group.',
         blocker: 'per-case',
@@ -3871,6 +4082,8 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         h2: 'What the policy requires',
         body: [
           'The initial request must include a complete diagnostic evaluation; the policy names the ADOS, ADI-R, PEDS and the Brigance Diagnostic Inventory of Early Development II as examples, from a licensed professional allowed to practice independently whose board puts diagnostics in scope. In North Carolina, assessments and interventions must be ordered by a licensed physician or licensed psychologist; outside the state, the ordering rule of the state where the member is treated applies. Unlicensed paraprofessionals must be supervised by a listed licensed professional with documented ongoing supervision; the policy sets no ratio. Services given in a school or education setting are not covered, and services provided at the same time as occupational, speech, physical or psychotherapy are excluded. The policy applies to benefits under N.C.G.S. § 58-3-192, and it refers to ASO (self-funded) client groups that opt into the mandated autism benefit.',
+          'Continued care: Blue Cross NC’s policy (last reviewed 06/2026) requires skill-acquisition assessments, treatment plans and clinical documentation that are “current and completed at a minimum every six months; within 60 days of submission date.” The child must still score at least one standard deviation below the mean on the targeted skill, or the behavior must pose a significant threat of harm. “The BCBA evaluates the data from all sessions and summarizes progress on each targeted symptom and behavior at least once every six (6) months,” using “the same models of measurement that were utilized for baseline.” Where progress is inadequate, the reasons must be assessed and the interventions modified. Graphs are not named as a requirement.',
+          'Code set: the policy’s applicable service codes are “97151, 97152, 97153, 97154, 97155, 97156, 97157, 97158, 0362T, 0373T.” No HCPCS H-code is listed, and a code’s inclusion “does not guarantee that it will be reimbursed.”',
         ],
         cites: [
           { title: 'Blue Cross NC: Adaptive Behavioral Treatment corporate medical policy (effective 9/9/2026)', url: 'https://www.bluecrossnc.com/providers/policies-guidelines-codes/commercial/behavioral-health/updates/adaptive-behavioral-treatment' },
@@ -3906,6 +4119,17 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'NCBALB — Requirements for Licensure', url: 'https://ncbehavioranalystboard.org/requirements-for-licensure/' },
         ],
       },
+      {
+        h2: 'Blue Cross NC claims: filing deadline, corrected and secondary claims, payment clock',
+        body: [
+          'Filing deadline: “File all claims within one hundred and eighty (180) days of the date of service.” Corrected claims have longer: they “must be submitted within twenty-four (24) months following the last date of service … listed on the original claim.” That is Blue Cross NC’s commercial Blue Book (the 2023 edition its Blue Books page links). BlueCard claims for members of other Blue plans also go to Blue Cross NC within 180 days, but the member’s home plan may apply a shorter limit, so file those promptly. FEP claims follow federal rules: file by December 31 of the year after the service, with corrections allowed up to 36 months after the original claim was processed.',
+          'Secondary claims: “all claims must be filed with the primary insurance carrier first.” Then file electronically with the primary payment information, or on paper with the primary EOB/EOP. The member’s Blue Cross NC prior-review rules still apply when Blue Cross NC pays second, and it pays no more than its own allowed amount. The Blue Book prints no separate deadline for secondary claims.',
+          'Payment clock: for insured plans the Blue Book restates G.S. 58-3-225. Within 30 days of receiving a claim, Blue Cross NC must pay it, deny it, or say what is missing (including COB information). Late payment carries 18% annual interest, and a pended claim is denied if the information is not received within 90 days. When Blue Cross NC is secondary, the 30 days run from receipt of the primary EOB. The mandate does not cover self-funded (ASO) groups, BlueCard, FEP or Medicare Supplement. The Blue Book publishes no payment-cycle day or submission cutoff.',
+        ],
+        cites: [
+          { title: 'Blue Cross NC — Commercial Blue Book provider manual (2023 edition, current on the Blue Books page): 9.10 Claim filing time limitations, prompt payment, COB', url: 'https://delivery-p174711-e1869819.adobeaemcloud.com/adobe/assets/urn:aaid:aem:d7f4aa3f-8e85-4c31-b77c-982dcd00fadd/original/as/2023-commercial-blue-book.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'ID card, front and back', desc: 'Member ID with its prefix, group number, and whether the card is Blue Cross NC commercial, Healthy Blue (Medicaid), FEP or another Blue plan.' },
@@ -3915,6 +4139,8 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Benefits from Blue e', desc: 'Coverage, cost share and any ABA limits, checked in the Blue e portal; the phone line no longer answers these.' },
     ],
     sources: [
+      { title: 'Blue Cross NC — Commercial Blue Book provider manual (2023 edition, current on the Blue Books page): 9.10 Claim filing time limitations, prompt payment, COB', url: 'https://delivery-p174711-e1869819.adobeaemcloud.com/adobe/assets/urn:aaid:aem:d7f4aa3f-8e85-4c31-b77c-982dcd00fadd/original/as/2023-commercial-blue-book.pdf' },
+      { title: 'Blue Cross NC — Maximum Units of Service, commercial reimbursement policy (last review 10/2024)', url: 'https://www.bluecrossnc.com/providers/policies-guidelines-codes/commercial/reimbursement/updates/maximum-units-of-service-edits' },
       { title: 'Blue Cross NC: Provider Benefit and Eligibility Phone Line Closing September 1, 2026 (provider news)', url: 'https://www.bluecrossnc.com/providers/provider-news/2026/provider-benefit-eligibility-phone-line-closing-09-01-2026' },
       { title: 'Blue Cross NC: About Blue e', url: 'https://www.bcbsnc.com/providers/about-blue-e' },
       { title: 'Blue Cross NC: Prior Authorization for Adaptive Behavioral Treatment for Autism (provider news, effective 1/1/2022)', url: 'https://www.bluecrossnc.com/providers/provider-news/2021/prior-authorization-adaptive-behavioral-treatment-autism' },
@@ -3988,7 +4214,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     },
     deliveryRules: {
       supervision: {
-        value: 'Unlicensed paraprofessionals must be supervised by a listed licensed professional and receive documented ongoing supervision; the policy sets no ratio or hours.',
+        value: 'Unlicensed paraprofessionals must be supervised by a listed licensed professional and receive documented ongoing supervision; the policy sets no ratio or hours. No caseload cap (technicians per supervisor) is published either.',
         status: 'verified',
         cites: [
           { title: 'Blue Cross NC: Adaptive Behavioral Treatment corporate medical policy (effective 9/9/2026)', url: 'https://www.bluecrossnc.com/providers/policies-guidelines-codes/commercial/behavioral-health/updates/adaptive-behavioral-treatment' },
@@ -4004,11 +4230,12 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       dailyLimits: {
-        value: '97151 is medically necessary up to 8 hours or 32 units a year; more needs documentation. Treatment hours have no fixed cap in the policy and must be justified by clinical factors; where the mandate applies, the plan may cap adaptive behavior treatment at $40,000 a year (CPI-indexed from 2017).',
+        value: '97151 is medically necessary up to 8 hours or 32 units a year; more needs documentation. Treatment hours have no fixed cap in the policy and must be justified by clinical factors; where the mandate applies, the plan may cap adaptive behavior treatment at $40,000 a year (CPI-indexed from 2017). Per-day claim edits sit on top: Blue Cross NC’s commercial Maximum Units of Service reimbursement policy (last reviewed 10/2024) builds on CMS MUEs and says the plan "will not reimburse claims with units that exceed the assigned maximum for that service. The total number of units will be adjusted to the maximum and the excess units will be denied." The policy does not list the values for 97151–97158, so ask provider services for the maximum loaded for each ABA code.',
         status: 'verified',
         cites: [
           { title: 'Blue Cross NC: Adaptive Behavioral Treatment corporate medical policy (effective 9/9/2026)', url: 'https://www.bluecrossnc.com/providers/policies-guidelines-codes/commercial/behavioral-health/updates/adaptive-behavioral-treatment' },
           { title: 'N.C.G.S. § 58-3-192 — coverage for autism spectrum disorder', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_58/GS_58-3-192.html' },
+          { title: 'Blue Cross NC — Maximum Units of Service, commercial reimbursement policy (last review 10/2024)', url: 'https://www.bluecrossnc.com/providers/policies-guidelines-codes/commercial/reimbursement/updates/maximum-units-of-service-edits' },
         ],
       },
       placeOfService: {
@@ -4021,6 +4248,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'What is Blue Cross NC’s timely filing limit for ABA claims?', a: '180 days from the date of service for commercial claims, per the Blue Book. Corrected claims are allowed up to 24 months after the last date of service on the original claim. For a secondary claim, file with the primary plan first and send its payment information or EOB with the Blue Cross NC claim.' },
       { q: 'Can I verify Blue Cross NC ABA benefits by phone?', a: 'No. From September 1, 2026 the Provider Contact Center phone line no longer takes benefit and eligibility questions. Use the Blue e provider portal, and Blue e chat for questions the portal cannot answer.' },
       { q: 'Does Blue Cross NC require prior authorization for ABA?', a: 'Not for the initial evaluation. Treatment after the evaluation needs a medical necessity review: submit the ABA/ABT request form with the treatment plan in the Blue e Authorization Portal, and request an extension after 6 months.' },
       { q: 'Is Healthy Blue the same as Blue Cross NC?', a: 'No. Healthy Blue is Blue Cross NC\'s NC Medicaid plan and follows NC Medicaid rules; it has its own guide. This page is for commercial Blue Cross NC plans.' },
