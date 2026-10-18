@@ -43,7 +43,7 @@ const S: Record<string, PayerSource> = {
   erisa: { title: '29 CFR 2560.503-1 — ERISA claims procedure (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
   tricare: { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
   champva: { title: '38 CFR 17.270 — CHAMPVA is the last payer', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
-  aetnaCPB: { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 11/26/2025)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+  aetnaCPB: { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
   aetnaCPB648: { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
   aetnaGuide: { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026; state exhibit: Maryland only)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
   aetnaPrecert: { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
@@ -338,6 +338,7 @@ export const alaskaPayers: Record<string, PayerConfig> = {
         h2: 'Claims: filing, payment and what Aetna pays',
         body: [
           'Aetna publishes no ABA rate table. Its provider manual (6/26) makes payment a contract term: rates and compensation under the agreement are subject to Aetna’s coding and claim-edit policies, and where a provider has both an intermediary contract and a direct agreement, "your direct Aetna rates will apply unless we specifically notify you otherwise." When a member’s benefits are exhausted, the provider "cannot charge them more than the contracted rate."' + AK_PROMPT_PAY + ' For a public benchmark, Alaska Medicaid pays 97153 at $31.95 per 15 minutes from July 1, 2026.',
+          'Aetna’s Health Care Professional Toolkit (6/26) publishes no claim filing deadline: the limit for initial, corrected and secondary claims is the one in your Aetna participation agreement, and claim disputes "Must be submitted within contractual timeframes." The toolkit defines a clean claim as one "received in a timely manner" with all required data, and says a clean claim "Doesn’t involve coordination of benefits," so secondary claims sit outside the clean-claim clock. It publishes no check-run or weekly cut-off schedule.',
         ],
         cites: [S.aetnaOM, S.as21_36_495, S.as21_07, S.fee27],
       },
@@ -362,6 +363,13 @@ export const alaskaPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'Aetna — Outpatient Behavioral Health (BH) – ABA Treatment Request: Required Information for Precertification (GR-69017-4, 7-26; effective August 1, 2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
         ],
+      },
+      {
+        h2: 'What a reauthorization must show',
+        body: [
+          'Aetna’s ABA medical necessity guide (©2026) sets what a renewal must show: the plan records baseline levels of each target behavior by "frequency, rate, symptom intensity or duration, or other objective measures," with "quantifiable criteria for progress"; where target behaviors have improved, documentation of that improvement is included, and where they have not, documentation of "modification of the treatment, additional assessments that have been conducted, and/or there has been appropriate consultations from other staff or experts." "A member’s progress is to be evaluated every six months," and the guide relies on "Repeated measurement with standardized measures to assess progress." It does not require graphs and sets no data-recency window.',
+        ],
+        cites: [S.aetnaGuide],
       },
     ],
     collect: [
@@ -461,6 +469,8 @@ export const alaskaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Aetna require graphs for ABA reauthorizations?', a: 'No. Aetna’s ABA medical necessity guide asks for objective baseline measures, quantifiable progress criteria, standardized re-measurement and a six-monthly progress evaluation, with treatment changes documented where there is no improvement, but it does not require graphs or set a data-recency window.' },
+      { q: 'What are Aetna’s claim filing deadlines for Alaska ABA claims?', a: 'Aetna’s provider toolkit publishes no filing limit; the participation agreement sets it for initial, corrected and secondary claims, and a claim involving coordination of benefits is not a "clean claim." No check-run schedule is published.' },
       { q: 'Does Aetna cover ABA therapy in Alaska?', a: 'Yes, under its national ABA medical necessity guide for ASD, with Alaska’s AS 21.42.397 mandate layered on for fully insured plans. Self-funded employer plans and small groups of 20 or fewer employees are outside the mandate.' },
       { q: 'What does the Alaska autism mandate require?', a: 'Coverage of autism diagnosis and treatment, including ABA, for individuals under 21, prescribed by a physician, psychologist or APRN and delivered or supervised by an autism service provider, with no limit on the number of visits and no dollar cap in the statute.' },
       { q: 'Does a BCBA need an Alaska license to bill Aetna?', a: 'Yes in practice. Alaska law bars practicing behavior analysis in the state without a license, and Aetna requires providers to meet state requirements. Technicians are exempt from licensure when working under a licensed behavior analyst’s direction.' },
@@ -530,6 +540,7 @@ export const alaskaPayers: Record<string, PayerConfig> = {
         h2: 'Claims: filing, payment and what Cigna pays',
         body: [
           'Cigna publishes no ABA rate table. Evernorth’s Administrative Guidelines say the Provider Agreement terms "include the reimbursement rates applicable to covered services" and tell ABA providers to see "Exhibit A in your Provider Agreement" for the fee schedule and reimbursable autism services; fee questions go to Provider Services at 800.926.2273. Virtual services carry modifier 95, which Evernorth says "will not change the reimbursement." Non-credentialed technicians are paid only through the supervising provider’s claim (electronic payer ID 62308).' + AK_PROMPT_PAY + ' For a public benchmark, Alaska Medicaid pays 97153 at $31.95 per 15 minutes from July 1, 2026.',
+          'Evernorth’s Behavioral Health Administrative Guidelines (September 2026) set the filing limit: "We will only consider claims submitted within 90 days of the date of service or as otherwise defined in your Provider Agreement," unless "Applicable state law provides for a longer timely filing limit." For a secondary claim the 90 days run from "the primary payer’s processing date as stated on an explanation of benefits [EOB] or explanation of payment [EOP]," Medicaid-primary claims get three years, and a timely claim returned for more information gets a new 90 days from the date of the request. The Alaska Regulatory Addendum adds no filing deadline; it binds Evernorth to AS 21.36.495 on claims and overpayment recovery. State addenda do not apply to self-funded plans. The guidelines publish no check-run or weekly cut-off schedule.',
         ],
         cites: [S.ebhAdmin, S.cignaARG, S.as21_36_495, S.as21_07, S.fee27],
       },
@@ -543,6 +554,13 @@ export const alaskaPayers: Record<string, PayerConfig> = {
           { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191): complete-claim definition and 837 provider identifiers', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
           { title: 'Cigna / Evernorth autism resource guide (March 2025): paper-claim rules', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
         ],
+      },
+      {
+        h2: 'What a reauthorization must show',
+        body: [
+          'Evernorth’s EN0499 sets what a continued-treatment request must show: "current data" collected "within no more than 60 days prior to the start date of the continued treatment request, as well as collected within no more than 60 days prior to the date the authorization request is received," with collection dates, for every behavior and skill targeted; data showing "ongoing and sustained progress toward mastering the treatment goals"; measurable improvement on "a reliable, valid, and standardized assessment instrument completed no more than one year prior to the start date of the continued treatment request"; an account of barriers and plan changes where progress is not shown; and dated stakeholder (caregiver) training data. EN0499 does not require the data to be graphed.',
+        ],
+        cites: [S.en0499],
       },
     ],
     collect: [
@@ -638,6 +656,8 @@ export const alaskaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Cigna require graphs for ABA reassessments?', a: 'No. Evernorth’s EN0499 requires dated data collected within 60 days before both the requested start date and the request’s receipt, sustained progress, and a standardized assessment from the past year, but it does not require graphs.' },
+      { q: 'What are Cigna (Evernorth)’s claim filing deadlines for Alaska ABA claims?', a: '90 days from the date of service unless your provider agreement or a longer state limit applies; secondary claims get 90 days from the primary payer’s EOB/EOP date, and a claim returned for more information gets a new 90 days. No check-run schedule is published.' },
       { q: 'Does Cigna cover ABA therapy in Alaska?', a: 'Yes, under national policy EN0499 for ASD, with Alaska’s AS 21.42.397 mandate layered on for fully insured plans. Self-funded employer plans and small groups of 20 or fewer employees are outside the mandate.' },
       { q: 'Does the Cigna ABA assessment need prior authorization in Alaska?', a: 'No, for 97151, 97152 and 0362T with an autism diagnosis when the provider is independently licensed or a BCBA. PA starts at treatment.' },
       { q: 'Does a BCBA need an Alaska license to bill Cigna?', a: 'Alaska law bars practicing behavior analysis in the state without a license, so plan on the Alaska license; the out-of-state route in statute is a temporary license of up to 30 days a year.' },
@@ -708,6 +728,7 @@ export const alaskaPayers: Record<string, PayerConfig> = {
         h2: 'Claims: filing, payment and what UnitedHealthcare pays',
         body: [
           'UnitedHealthcare publishes no ABA rate table; Optum pays from the contract. Its National Network Manual (effective Sept. 1, 2026) defines the "Fee Maximum" as the maximum amount a participating provider may be paid for a service, adding that "Reimbursement to clinicians is based upon licensure rather than degree." Optum’s commercial ABA Reimbursement Policy (updated 06/2026) puts the credential on every line: HM for an RBT, HN for a BCaBA, HO for a master’s-level BCBA or licensed clinician, HP for a doctoral-level provider, and notes that state regulatory requirements "may supplement, modify or supersede" it.' + AK_PROMPT_PAY + ' For a public benchmark, Alaska Medicaid pays 97153 at $31.95 per 15 minutes from July 1, 2026.',
+          'Optum’s National Network Manual: claims must be received "no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan," and "Any corrections or additions to a claim should be made within 90 days of initial claim receipt." Complete, authorized claims "will be paid within 45 calendar days after Optum receives the claim, or as required by state and federal laws," which may exclude claims that need coordination-of-benefits decisions; the manual sets no separate secondary-claim deadline and publishes no check-run schedule.',
         ],
         cites: [S.optumNNM, S.optumReimb, S.as21_36_495, S.as21_07, S.fee27],
       },
@@ -721,6 +742,13 @@ export const alaskaPayers: Record<string, PayerConfig> = {
           { title: 'Optum National Network Manual (BH02330, effective September 1, 2026): claims submission and Form 1500 required fields', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
           { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial), Chapter 10: complete claim and NPI requirements', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
         ],
+      },
+      {
+        h2: 'What a reauthorization must show',
+        body: [
+          'Optum’s ABA Supplemental Clinical Criteria (review 04/2026) set what each continued-service review needs: progress "assessed and documented for each targeted symptom and behavior … including the same modes of measurement that were utilized for baseline measurement"; progress that includes "rate and percentage of mastered programs, rates of mastered targets, change scores for any outcome measures, updated standardized adaptive measures, and change scores for skills-based assessments"; an assessment of the reasons and modified interventions when there is inadequate progress "within a 6-month period"; and an explanation when use of authorized hours falls below 80% over a two-week period. Treatment plans "are usually reviewed/updated twice annually." The criteria do not require graphs.',
+        ],
+        cites: [S.optumSCC],
       },
     ],
     collect: [
@@ -820,6 +848,8 @@ export const alaskaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare (Optum) require graphs for ABA continued-service reviews?', a: 'No. Optum’s criteria ask for progress on every target using the baseline measurement method, mastery rates and change scores, updated standardized adaptive measures, and an explanation of low hour use, but they do not require graphs.' },
+      { q: 'What are UnitedHealthcare (Optum)’s claim filing deadlines for Alaska ABA claims?', a: '90 calendar days from the date of service (or longer where state law or the plan allows), corrections within 90 days of the original claim’s receipt, and payment of complete claims within 45 days or the state’s shorter clock. No check-run schedule is published.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in Alaska?', a: 'Yes, under Optum’s national ABA criteria for ASD, with Alaska’s AS 21.42.397 mandate layered on for fully insured plans. Self-funded employer plans and small groups of 20 or fewer employees are outside the mandate.' },
       { q: 'Does Optum have Alaska-specific ABA criteria?', a: 'No. Optum’s ABA State Mandates supplement (July 2026) covers Arizona, California, Massachusetts, Pennsylvania and Virginia, not Alaska.' },
       { q: 'Is Optum still Alaska Medicaid’s behavioral health administrator?', a: 'No. Optum’s ASO contract with Alaska’s Division of Behavioral Health ended December 31, 2024; Alaska Medicaid claims now go to the state MMIS through HMS Gainwell.' },

@@ -35,9 +35,9 @@ const S: Record<string, PayerSource> = {
   erisa: { title: '29 CFR 2560.503-1 — ERISA claims procedure (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
   tricare: { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
   champva: { title: '38 CFR 17.270 — CHAMPVA is the last payer', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
-  anthemMEPA: { title: 'Anthem BCBS — Maine Precertification/Prior Authorization List, Commercial (ME-BCBS-CM-014614-26, July 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/ME_PA_List.pdf' },
+  anthemMEPA: { title: 'Anthem BCBS — Maine Precertification/Prior Authorization List, Commercial (ME-BCBS-CM-022999-26, October 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/ME_PA_List.pdf' },
   anthemRG: { title: 'Anthem BCBS — Applied Behavior Analysis Provider Resource Guide (multi-state incl. Maine, June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' },
-  aetnaCPB: { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 11/26/2025)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+  aetnaCPB: { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
   aetnaCPB648: { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
   aetnaGuide: { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026; Maryland exhibit only)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
   aetnaPrecert: { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
@@ -162,6 +162,7 @@ export const mainePayers: Record<string, PayerConfig> = {
         body: [
           'Section 28 is paid fee-for-service in 15-minute units. Community ABA bills H2021 with modifiers U1 HK (individual), adding UN for a group of two, UP for three and UQ for four to eight; school-related ABA bills H2021 U2 HK with the same group modifiers. "Providers may only bill for the time that direct care staff spend delivering covered services": the rate "account[s] for the full cost of the supervisor," and supervisor time is billable only when the supervisor is standing in as direct care staff. The specific rates are on the MaineCare provider fee schedule on the Health PAS portal, not in the rule; each January 1 the Department applies a cost-of-living adjustment tied to the Maine minimum wage, and MaineCare’s bulletin set the January 1, 2026 COLA for Section 28 at 1.0%. We could not open the fee schedule this month, so no dollar rate is quoted here.',
           'Claims must be filed correctly within one year of the date of service (or one year from the other carrier’s EOB, or from the date eligibility was granted). A provider aggrieved by a MaineCare decision may request an informal review "within sixty (60) calendar days from the date of receipt of that decision," before any administrative hearing; a member must request a hearing within 60 calendar days of the notice.',
+          'Corrections and payment, from Chapter I, Section 1: a rejected claim must be corrected and resubmitted within the same one-year limit; a provider who disputes what MaineCare paid "must request a review of payments, using the MaineCare Adjustment Request form, within one hundred and twenty (120) days of the remittance statement date or waive any right to a review." The Office of the State Treasurer issues all payments, by EFT unless the provider cannot accept it, and "A Remittance Advice (RA) is generated with each payment." Providers bill other insurance, including Medicare, first. Section 1 publishes no weekly payment day or submission cut-off.',
         ],
         cites: [S.s28, S.cola, S.s1],
       },
@@ -259,6 +260,7 @@ export const mainePayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'How do I correct a MaineCare ABA claim or dispute a payment?', a: 'Resubmit a rejected claim within the one-year filing limit; to dispute an amount paid, file the MaineCare Adjustment Request form within 120 days of the remittance statement date. Payments go out by EFT with a remittance advice for each payment; no weekly payment day is published in Section 1.' },
       { q: 'Does MaineCare cover ABA therapy?', a: 'Yes, for members under 21, under MaineCare Benefits Manual Chapter II, Section 28 (Adaptive Behavior Services for Children, effective April 29, 2026). The child must qualify through the Single Assessment and the provider needs prior authorization.' },
       { q: 'Does MaineCare use managed care plans for ABA?', a: 'No. MaineCare authorizes and pays ABA directly. Acentra Health is the state’s administrative services organization: its clinicians complete the Single Assessment and it handles prior authorization, but it is not a health plan.' },
       { q: 'What code does MaineCare use for ABA?', a: 'H2021 with modifiers U1 HK for community ABA (add UN, UP or UQ for groups of two, three, or four to eight), and H2021 U2 HK for school-related ABA, in 15-minute units. Section 28 lists no 97151–97158 codes.' },
@@ -274,7 +276,7 @@ export const mainePayers: Record<string, PayerConfig> = {
     family: 'anthem',
     cardDesc: 'Maine’s Blue plan: ABA is on the Maine precert list, reviewed by Anthem Behavioral Health; billing rules from Anthem’s ABA resource guide.',
     assessmentPA: {
-      value: 'Applied behavior analysis is on Anthem’s Maine precertification list (July 2026), reviewed by Anthem through Behavioral Health at 800-755-0851. The Maine list names the service, not individual codes, so confirm whether 97151/97152 need their own request',
+      value: 'Applied behavior analysis is on Anthem’s Maine precertification list (October 2026), reviewed by Anthem through Behavioral Health at 800-755-0851. The Maine list names the service, not individual codes, so confirm whether 97151/97152 need their own request',
       status: 'plan-dependent',
       cites: [S.anthemMEPA],
       verifyVia: 'Anthem Behavioral Health, 800-755-0851, or the number on the member’s card: ask whether the assessment codes 97151 and 97152 need precertification on this product.',
@@ -300,7 +302,7 @@ export const mainePayers: Record<string, PayerConfig> = {
     metaDescription:
       'How Anthem Blue Cross and Blue Shield covers ABA in Maine: the Maine precertification list, billing and documentation rules from Anthem’s ABA resource guide, Maine’s autism mandate (age 10 and under, $36,000 ABA cap allowed), and credentialing without a state license.',
     intro: [
-      'In Maine, Anthem Blue Cross and Blue Shield is the trade name of Anthem Health Plans of Maine, Inc. Two Anthem documents govern ABA here: the Maine Precertification/Prior Authorization List (July 2026), which puts applied behavior analysis under Anthem’s own behavioral health review, and the multi-state ABA Provider Resource Guide, which names Maine among its states and sets coding, supervision and documentation rules.',
+      'In Maine, Anthem Blue Cross and Blue Shield is the trade name of Anthem Health Plans of Maine, Inc. Two Anthem documents govern ABA here: the Maine Precertification/Prior Authorization List (October 2026), which puts applied behavior analysis under Anthem’s own behavioral health review, and the multi-state ABA Provider Resource Guide, which names Maine among its states and sets coding, supervision and documentation rules.',
       'Under both sits Maine’s autism mandate, which reaches fully insured plans and only children 10 and under. Establish funding type and the child’s age on every benefits check.',
     ],
     atGlance: [
@@ -317,7 +319,7 @@ export const mainePayers: Record<string, PayerConfig> = {
       {
         h2: 'Precertification in Maine',
         body: [
-          'Anthem’s Maine Precertification/Prior Authorization List (ME-BCBS-CM-014614-26, July 2026) lists, under behavioral health services, inpatient admissions, partial hospital and intensive outpatient programs, intensive in-home services, TMS and "Applied behavior analysis (ABA)," with Anthem as the reviewer and the instruction "Contact Behavioral Health, Inc. at 800-755-0851." It adds that prior authorization requirements for psychological testing and outpatient services "vary by product and plan." On HMO plans "It is the participating physician’s or care provider’s responsibility" to obtain prior authorization, and the request "must come from the care provider or facility rendering the service"; without it, "the claim payment may be reduced or denied by the Plan and the member must be held harmless." On PPO plans the network provider is responsible, while a BlueCard or non-participating provider leaves it to the member.',
+          'Anthem’s Maine Precertification/Prior Authorization List (ME-BCBS-CM-022999-26, October 2026) lists, under behavioral health services, inpatient admissions, partial hospital and intensive outpatient programs, intensive in-home services, TMS and "Applied behavior analysis (ABA)," with Anthem as the reviewer and the instruction "Contact Behavioral Health, Inc. at 800-755-0851." It adds that prior authorization requirements for psychological testing and outpatient services "vary by product and plan." On HMO plans "It is the participating physician’s or care provider’s responsibility" to obtain prior authorization, and the request "must come from the care provider or facility rendering the service"; without it, "the claim payment may be reduced or denied by the Plan and the member must be held harmless." On PPO plans the network provider is responsible, while a BlueCard or non-participating provider leaves it to the member.',
         ],
         cites: [S.anthemMEPA],
       },
@@ -452,7 +454,7 @@ export const mainePayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
-      { q: 'Does Anthem require prior authorization for ABA in Maine?', a: 'Yes. Applied behavior analysis is on Anthem’s Maine precertification list (July 2026), reviewed by Anthem Behavioral Health at 800-755-0851. Requirements can vary by product, so check the member’s card.' },
+      { q: 'Does Anthem require prior authorization for ABA in Maine?', a: 'Yes. Applied behavior analysis is on Anthem’s Maine precertification list (October 2026), reviewed by Anthem Behavioral Health at 800-755-0851. Requirements can vary by product, so check the member’s card.' },
       { q: 'Does Maine cap ABA benefits?', a: 'The mandate lets fully insured plans cap ABA at $36,000 a year and covers children 10 and under; it bars limits on the number of visits. Self-funded plans follow their own documents.' },
       { q: 'Can a BCBA and RBT both bill for the same time with Anthem?', a: 'Yes, 97155 with 97153, but only when both are face-to-face with the patient at the same time and the BCBA is directing the technician.' },
       { q: 'How fast must Anthem decide an ABA authorization in Maine?', a: 'For a fully insured Maine plan, within 72 hours or 2 business days, whichever is less; a request not decided in time is granted by law. Self-funded plans follow federal ERISA timelines (15 days for pre-service requests).' },
@@ -504,7 +506,7 @@ export const mainePayers: Record<string, PayerConfig> = {
       {
         h2: 'The national policy, applied in Maine',
         body: [
-          'Aetna covers ABA for autism spectrum disorder and, under CPB 0554 (last reviewed November 26, 2025), "considers ABA experimental, investigational, or unproven for all other non-ASD indications." Its medical necessity guide (©2026) requires a DSM-5 ASD diagnosis "obtained by an appropriate provider," services billed by the appropriately licensed or certified provider, functional impairment on a standardized scale from the past 12 months at least one standard deviation below the mean (or a significant risk of harm), and a measurable treatment plan. Its only state exhibit is Maryland’s, so the national criteria apply in Maine unchanged. The behavioral health precertification list names all ten ABA codes, 97151 through 97158, 0362T and 0373T.',
+          'Aetna covers ABA for autism spectrum disorder and, under CPB 0554 (last reviewed October 14, 2026), "considers ABA experimental, investigational, or unproven for all other non-ASD indications." Its medical necessity guide (©2026) requires a DSM-5 ASD diagnosis "obtained by an appropriate provider," services billed by the appropriately licensed or certified provider, functional impairment on a standardized scale from the past 12 months at least one standard deviation below the mean (or a significant risk of harm), and a measurable treatment plan. Its only state exhibit is Maryland’s, so the national criteria apply in Maine unchanged. The behavioral health precertification list names all ten ABA codes, 97151 through 97158, 0362T and 0373T.',
         ],
         cites: [S.aetnaCPB, S.aetnaGuide, S.aetnaPrecert],
       },
@@ -527,8 +529,10 @@ export const mainePayers: Record<string, PayerConfig> = {
       },
       {
         h2: 'Claims in Maine: payment timing, retro denials and appeals',
-        body: [ME_CLAIMS_BODY],
-        cites: [S.st2436, S.st4303, S.st4304],
+        body: [ME_CLAIMS_BODY,
+          'Aetna’s Health Care Professional Toolkit (6/26) publishes no claim filing deadline: the limit for initial, corrected and secondary claims is the one in your Aetna participation agreement, and claim disputes "Must be submitted within contractual timeframes." The toolkit defines a clean claim as one "received in a timely manner" with all required data, and says a clean claim "Doesn’t involve coordination of benefits," so secondary claims sit outside the clean-claim clock. It publishes no check-run or weekly cut-off schedule.',
+        ],
+        cites: [S.st2436, S.st4303, S.st4304, S.aetnaOM],
       },
       {
         h2: 'Can a BCBA licensed in another state treat an Aetna member in Maine?',
@@ -536,6 +540,13 @@ export const mainePayers: Record<string, PayerConfig> = {
           'Maine issues no behavior-analyst license, so there is no Maine license to add; the mandate asks for national-board (BACB) certification or supervision by a certificant. Aetna’s guide names the billing credential as a licensed behavior analyst "in states with behavior analyst licensure laws," a BCBA, or a licensed psychologist, and its network criteria require that "All BCBAs, BCaBAs and paraprofessionals must meet state requirements. If state requirements are not defined, all BCBAs, BCaBAs and paraprofessionals must meet Aetna standards." For telehealth, Aetna’s provider manual says providers "must act within the scope of their license and ensure that they have the proper licensure based on state requirements." Maine’s telehealth law for insured plans keys eligibility to "acting within the scope of the provider’s license" and bars telehealth-only credentialing. Check your home state’s rules on serving clients located in Maine.',
         ],
         cites: [S.aetnaGuide, S.aetnaNPC, S.aetnaOM, S.st4316, S.bacbLic],
+      },
+      {
+        h2: 'What a reauthorization must show',
+        body: [
+          'Aetna’s ABA medical necessity guide (©2026) sets what a renewal must show: the plan records baseline levels of each target behavior by "frequency, rate, symptom intensity or duration, or other objective measures," with "quantifiable criteria for progress"; where target behaviors have improved, documentation of that improvement is included, and where they have not, documentation of "modification of the treatment, additional assessments that have been conducted, and/or there has been appropriate consultations from other staff or experts." "A member’s progress is to be evaluated every six months," and the guide relies on "Repeated measurement with standardized measures to assess progress." It does not require graphs and sets no data-recency window.',
+        ],
+        cites: [S.aetnaGuide],
       },
     ],
     collect: [
@@ -633,6 +644,8 @@ export const mainePayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Aetna require graphs for ABA reauthorizations?', a: 'No. Aetna’s ABA medical necessity guide asks for objective baseline measures, quantifiable progress criteria, standardized re-measurement and a six-monthly progress evaluation, with treatment changes documented where there is no improvement, but it does not require graphs or set a data-recency window.' },
+      { q: 'What are Aetna’s claim filing deadlines for Maine ABA claims?', a: 'Aetna’s provider toolkit publishes no filing limit; the participation agreement sets it for initial, corrected and secondary claims, and a claim involving coordination of benefits is not a "clean claim." No check-run schedule is published.' },
       { q: 'Does Aetna cover ABA therapy in Maine?', a: 'Yes, under its national policy for ASD, with Maine’s autism mandate layered on for fully insured plans (children 10 and under, ABA cap of $36,000 a year allowed). Self-funded employer plans follow their own documents.' },
       { q: 'What does the Maine autism mandate require?', a: 'Fully insured plans must cover diagnosis and medically necessary treatment of autism, including ABA by or under a national-board certified behavior analyst, for children 10 and under, with no visit limits; plans may cap ABA at $36,000 a year.' },
       { q: 'Does the Aetna ABA assessment need prior authorization in Maine?', a: 'Yes. 97151 and 97152 are on Aetna’s behavioral health precertification list along with every other ABA code.' },
@@ -706,7 +719,9 @@ export const mainePayers: Record<string, PayerConfig> = {
       },
       {
         h2: 'Claims in Maine: payment timing, retro denials and appeals',
-        body: [ME_CLAIMS_BODY + ' Evernorth’s own filing limit: it "will only consider claims submitted within 90 days of the date of service or as otherwise defined in your Provider Agreement," with exceptions including a longer limit under state law; electronic claims use payer ID 62308.'],
+        body: [ME_CLAIMS_BODY + ' Evernorth’s own filing limit: it "will only consider claims submitted within 90 days of the date of service or as otherwise defined in your Provider Agreement," with exceptions including a longer limit under state law; electronic claims use payer ID 62308.',
+          'Evernorth’s guidelines also set the secondary and resubmission clocks: for a secondary claim the 90 days run from "the primary payer’s processing date as stated on an explanation of benefits [EOB] or explanation of payment [EOP]," Medicaid-primary claims get three years, and a timely claim returned for more information gets a new 90 days from the date of the request. The Maine Regulatory Addendum also says Evernorth "shall allow for the submission of a claim that was previously denied by another insurer because of Participant’s transfer or termination of coverage." No check-run or weekly cut-off schedule is published.',
+        ],
         cites: [S.st2436, S.st4303, S.st4304, S.ebhAdmin, S.cignaARG],
       },
       {
@@ -715,6 +730,13 @@ export const mainePayers: Record<string, PayerConfig> = {
           'Maine issues no behavior-analyst license, so there is no Maine license to add. Evernorth’s Administrative Guidelines say "Providers must meet all state requirements to provide virtual behavioral services, including any licenses and certifications," and that providers who meet the telehealth specialty requirements "may deliver services virtually with no additional credentialing" after filing the Attested Specialty Form. Maine’s telehealth law for insured plans keys eligibility to "acting within the scope of the provider’s license" and bars telehealth-only credentialing. Check your home state’s rules on serving clients located in Maine.',
         ],
         cites: [S.ebhAdmin, S.st4316, S.bacbLic],
+      },
+      {
+        h2: 'What a reauthorization must show',
+        body: [
+          'Evernorth’s EN0499 sets what a continued-treatment request must show: "current data" collected "within no more than 60 days prior to the start date of the continued treatment request, as well as collected within no more than 60 days prior to the date the authorization request is received," with collection dates, for every behavior and skill targeted; data showing "ongoing and sustained progress toward mastering the treatment goals"; measurable improvement on "a reliable, valid, and standardized assessment instrument completed no more than one year prior to the start date of the continued treatment request"; an account of barriers and plan changes where progress is not shown; and dated stakeholder (caregiver) training data. EN0499 does not require the data to be graphed.',
+        ],
+        cites: [S.en0499],
       },
     ],
     collect: [
@@ -806,6 +828,8 @@ export const mainePayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Cigna require graphs for ABA reassessments?', a: 'No. Evernorth’s EN0499 requires dated data collected within 60 days before both the requested start date and the request’s receipt, sustained progress, and a standardized assessment from the past year, but it does not require graphs.' },
+      { q: 'What are Cigna (Evernorth)’s claim filing deadlines for Maine ABA claims?', a: '90 days from the date of service unless your provider agreement or a longer state limit applies; secondary claims get 90 days from the primary payer’s EOB/EOP date, and a claim returned for more information gets a new 90 days. No check-run schedule is published.' },
       { q: 'Does Cigna cover ABA therapy in Maine?', a: 'Yes, under national policy EN0499 for ASD, with Maine’s autism mandate layered on for fully insured plans (children 10 and under). Self-funded employer plans follow their own documents.' },
       { q: 'Does the Cigna ABA assessment need prior authorization in Maine?', a: 'No, for 97151, 97152 and 0362T with an autism diagnosis when the provider is independently licensed or a BCBA and the plan covers ABA. PA starts at treatment.' },
       { q: 'Does a BCBA need a Maine license to bill Cigna?', a: 'Maine issues no behavior-analyst license, and Evernorth accepts a BCBA as an ABA billing provider. Technicians are not credentialed and are billed under the supervising provider.' },
@@ -880,8 +904,17 @@ export const mainePayers: Record<string, PayerConfig> = {
       },
       {
         h2: 'Claims in Maine: payment timing, retro denials and appeals',
-        body: [ME_CLAIMS_BODY + ' Optum’s own filing limit: claims information "must be received by Optum no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan." Its network manual lists separate Maine Regulatory Requirements.'],
+        body: [ME_CLAIMS_BODY + ' Optum’s own filing limit: claims information "must be received by Optum no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan." Its network manual lists separate Maine Regulatory Requirements.',
+          'Optum’s manual adds that "Any corrections or additions to a claim should be made within 90 days of initial claim receipt," and that complete, authorized claims "will be paid within 45 calendar days after Optum receives the claim, or as required by state and federal laws" (claims needing coordination-of-benefits decisions may take longer). It sets no separate secondary-claim deadline and publishes no check-run schedule.',
+        ],
         cites: [S.st2436, S.st4303, S.st4304, S.optumNNM],
+      },
+      {
+        h2: 'What a reauthorization must show',
+        body: [
+          'Optum’s ABA Supplemental Clinical Criteria (review 04/2026) set what each continued-service review needs: progress "assessed and documented for each targeted symptom and behavior … including the same modes of measurement that were utilized for baseline measurement"; progress that includes "rate and percentage of mastered programs, rates of mastered targets, change scores for any outcome measures, updated standardized adaptive measures, and change scores for skills-based assessments"; an assessment of the reasons and modified interventions when there is inadequate progress "within a 6-month period"; and an explanation when use of authorized hours falls below 80% over a two-week period. Treatment plans "are usually reviewed/updated twice annually." The criteria do not require graphs.',
+        ],
+        cites: [S.optumSCC],
       },
     ],
     collect: [
@@ -974,6 +1007,8 @@ export const mainePayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare (Optum) require graphs for ABA continued-service reviews?', a: 'No. Optum’s criteria ask for progress on every target using the baseline measurement method, mastery rates and change scores, updated standardized adaptive measures, and an explanation of low hour use, but they do not require graphs.' },
+      { q: 'What are UnitedHealthcare (Optum)’s claim filing deadlines for Maine ABA claims?', a: '90 calendar days from the date of service (or longer where state law or the plan allows), corrections within 90 days of the original claim’s receipt, and payment of complete claims within 45 days or the state’s shorter clock. No check-run schedule is published.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in Maine?', a: 'Yes, under Optum’s national ABA criteria for ASD, with Maine’s autism mandate layered on for fully insured plans (children 10 and under). Self-funded employer plans follow their own documents.' },
       { q: 'Does Optum have Maine-specific ABA criteria?', a: 'No. Optum’s ABA State Mandates supplement (July 2026) does not list Maine, so the standard national criteria apply.' },
       { q: 'Can ABA be delivered by telehealth with UnitedHealthcare in Maine?', a: 'Optum’s commercial telehealth guide allows only 97155, 97156 and 97157 by telehealth, billed POS 10 or 02. Fully insured Maine plans are also subject to 24-A M.R.S. § 4316, which bars denying a covered service only because it is delivered by telehealth, so ask Optum how it applies the list to your plan.' },

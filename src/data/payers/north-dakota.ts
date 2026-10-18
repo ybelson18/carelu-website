@@ -50,7 +50,7 @@ const S: Record<string, PayerSource> = {
   erisa: { title: '29 CFR 2560.503-1 — ERISA claims procedure (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
   tricare: { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
   champva: { title: '38 CFR 17.270 — CHAMPVA is the last payer', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
-  aetnaCPB: { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+  aetnaCPB: { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
   aetnaCPB648: { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
   aetnaGuide: { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026; Exhibit A covers Maryland only)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
   aetnaPrecert: { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
@@ -69,6 +69,7 @@ const S: Record<string, PayerSource> = {
   bcPA: { title: 'BCBSND — Prior Authorization (Provider): code search tool, Availity, migrated vs non-migrated members', url: 'https://www.bcbsnd.com/providers/policies-precertification/prior-authorization' },
   bcMigPA: { title: 'BCBSND — Commercial Migrated Member Prior Authorization List (members migrated from Jan. 1, 2027)', url: 'https://www.bcbsnd.com/providers/policies-precertification/commercial-prior-authorization-list' },
   bcTele: { title: 'BCBSND — Provider Guide to Telehealth Services', url: 'https://www.bcbsnd.com/providers/eligibility-claims/provider-guide-to-telehealth-services' },
+  bcBH18: { title: 'BCBSND Commercial Migrated Medical Policy BH18 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (effective August 1, 2025; PDF notes a revision effective November 1, 2026)', url: 'https://www.bcbsnd.com/providers/policies-precertification/medical-policy/migrated.id=BH18' },
   bcMEPM: { title: 'BCBSND — Medicaid Expansion Provider Manual (BND-21-0027967, 6-26)', url: 'https://www.bcbsnd.com/content/dam/bcbsnd/documents/manuals/Medicaid-Expansion-Provider-Manual.pdf' },
 };
 
@@ -162,7 +163,7 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
       {
         h2: 'Service authorization, the care plan and the 180-day update',
         body: [
-          'Once the family has the letter, the "Agency/ School will submit a web-based Service Authorization request twice per year (annual and 180-day update)," with "The care plan and yearly letter of approval" attached. The February 2025 policy requires an evidence-based functional assessment with indirect and direct measures "(VB-MAPP or ABLLS-R)," target behaviors that "should not be vocational or educational in purpose," baseline data and graphs, measurable goals that can be met in the authorization period, caregiver training goals, the location, and the "Number of hours of Autism ABA service per week / per service code" with "justification of units requested" and the "Majority requested provided by an RBT." Reassessment at 180 days updates the targets, goals and hours. Punishment procedures "will in most cases be denied." The policy expects data reviewed often enough that changes are made "in a timely manner" (defined as "4-6 weeks no improvement") and monthly meetings between the skills trainer and the caregiver. Services paid without a required authorization "are subject to recoupment"; a retroactive request may be considered "up to 90 days after the initial date of service with good cause."',
+          'Once the family has the letter, the "Agency/ School will submit a web-based Service Authorization request twice per year (annual and 180-day update)," with "The care plan and yearly letter of approval" attached. The February 2025 policy requires an evidence-based functional assessment with indirect and direct measures "(VB-MAPP or ABLLS-R)," target behaviors that "should not be vocational or educational in purpose," baseline measurements and "Graphs on starting point and progress of data," measurable goals that can be met in the authorization period, caregiver training goals, the location, and the "Number of hours of Autism ABA service per week / per service code" with "justification of units requested" and the "Majority requested provided by an RBT." Reassessment at 180 days updates the targets, goals, "Description of improvements" and hours, and progress monitoring expects that "Graphs should be easily readable" with "Standardized data collection protocols." Punishment procedures "will in most cases be denied." The policy expects data reviewed often enough that changes are made "in a timely manner" (defined as "4-6 weeks no improvement") and monthly meetings between the skills trainer and the caregiver. Services paid without a required authorization "are subject to recoupment"; a retroactive request may be considered "up to 90 days after the initial date of service with good cause."',
         ],
         cites: [S.abaPol, S.sa],
       },
@@ -291,6 +292,7 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does ND Medicaid require graphs for the ABA reassessment?', a: 'Yes. The ABA policy (February 2025) requires the assessment to include "Graphs on starting point and progress of data," expects readable graphs and standardized data collection when progress is monitored, and calls for a reassessment at 180 days that updates targets, goals, improvements and hours. Data should be reviewed so treatment changes after 4–6 weeks without improvement.' },
       { q: 'Does North Dakota Medicaid cover ABA therapy?', a: 'Yes, for members under 21 with an autism spectrum disorder diagnosis. It is a fee-for-service benefit: the family sends a Health Tracks screening recommending ABA, gets a prior approval letter, and the provider requests service authorizations twice a year.' },
       { q: 'Does a North Dakota Medicaid MCO cover ABA?', a: 'No. Medicaid Expansion is run by Blue Cross Blue Shield of North Dakota, but Expansion members aged 19–20 are enrolled in traditional Medicaid and ABA stops at age 20, so all ABA goes through ND Medicaid fee-for-service.' },
       { q: 'What does North Dakota Medicaid pay for ABA?', a: 'Per unit, on the August 1, 2026 professional fee schedule: 97151 and 97155 $31.76, 97152 $23.51, 97153 $10.81, 97154 $2.72, 97156 $29.48, 0373T $12.99. 97157, 97158 and 0362T are not covered.' },
@@ -322,10 +324,10 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
       blocker: 'per-case',
     },
     dxRequired: {
-      value: 'BCBSND’s ABA medical policy sits behind a JavaScript-only policy search we could not read. For insured plans, Bulletin 2018-1 frames covered autism treatment as care for "an individual diagnosed with an autism spectrum disorder"',
-      status: 'unverified',
-      cites: [S.bcPA, S.bull2018],
-      verifyVia: 'BCBSND Medical Policy Search (bcbsnd.com → Providers → Policies & Prior Authorization) or Provider Service, 800-368-2312.',
+      value: 'Yes for migrated members: BCBSND’s Commercial Migrated Medical Policy BH18 requires that "The member has been diagnosed with Autism Spectrum Disorder (ASD) by a qualified treating health care professional, as defined by state law," with ASD symptoms impairing communication, social or behavioral functioning. The policy for non-migrated members sits behind a JavaScript-only search we could not read. For insured plans, Bulletin 2018-1 frames covered autism treatment as care for "an individual diagnosed with an autism spectrum disorder"',
+      status: 'plan-dependent',
+      cites: [S.bcBH18, S.bcPA, S.bull2018],
+      verifyVia: 'Ask whether the member is migrated (BH18 applies) or non-migrated; for non-migrated members, BCBSND Medical Policy Search (bcbsnd.com → Providers → Policies & Prior Authorization) or Provider Service, 800-368-2312.',
       blocker: 'document',
     },
     payer: 'Blue Cross Blue Shield of North Dakota',
@@ -357,6 +359,14 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
           'BCBSND is changing systems. Its provider manual (8-26) says it "is migrating members to new systems, policies and processes in phases through the end of 2027," and from January 1, 2027 "providers may see both migrated and non-migrated members." Migrated members use the Commercial Migrated Member Prior Authorization List; we read it in full and it names no ABA code (97151–97158, 0362T, 0373T), while its behavioral health section points to LOCUS, CALOCUS-CASII and to Regence’s behavioral health medical policies for criteria. Non-migrated members keep the current search tool. Ask which group the member is in before every new request.',
         ],
         cites: [S.bcPA, S.bcMigPA, S.bcPM],
+      },
+      {
+        h2: 'BCBSND’s ABA policy for migrated members (BH18)',
+        body: [
+          'BCBSND posts a "Commercial Migrated Medical Policy" library for members moved to its new system (members migrate in phases on their plan anniversaries in 2027). Its ABA policy, BH18 (effective August 1, 2025; the PDF says a revised version takes effect November 1, 2026), "only applies to member contracts that are subject to preauthorization for Applied Behavior Analysis … as specified by their group plan." To start ABA it requires an ASD diagnosis "by a qualified treating health care professional, as defined by state law," impairment of communication, social or behavioral functioning, and that "ABA therapy must be recommended or prescribed by a qualified treating health care professional experienced in the diagnosis and treatment of ASD." The individualized treatment plan must be prepared by a provider certified to provide ABA, document each target behavior "using objective measurements and at least one standardized assessment" (examples: SRS-2, Vineland-3, ABAS-3, SSIS, BRIEF-2, PDDBI), justify days per week, hours per day and supervision hours, and list "CPT codes and units requested." The review packet adds a "Written recommendation, clinical order, or prescription for ABA services."',
+          'Continuation under BH18 requires documented progress: goals tracked "using data collected during treatment sessions and/or assessments," "The same measurement tool that was used for baseline assessments," objective measurements "at a minimum of every six months," and standardized assessments "annually." The updated plan "should be submitted within five business days prior to the end of a current authorization (and no more than 30 days prior to the end of the authorization period)," and where goals show no progress the plan must give a barrier analysis and a modification plan. BH18 does not mention graphs. On staffing, BCBAs and BCBA-Ds "may oversee all aspects of assessment, treatment planning, and supervision," BCaBAs and behavior technicians/RBTs work under a BCBA, BCBA-D or qualified supervisor, and "All supervision must be conducted in accordance with" BACB standards; BH18 sets no numeric ratio, unit cap, place-of-service or concurrent-billing rule. It bills CPT 97151–97158, 0362T and 0373T ("HCPCS None").',
+        ],
+        cites: [S.bcBH18],
       },
       {
         h2: 'The North Dakota coverage rule: Bulletin 2018-1',
@@ -391,13 +401,13 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis and order', desc: 'ASD diagnosis and an order from a licensed physician or psychologist (Bulletin 2018-1’s definition of treatment).' },
       { title: 'Other coverage', desc: 'Second parent’s plan (birthday rule), ND Medicaid (pays last), TRICARE.' },
     ],
-    sources: [S.bcPA, S.bcMigPA, S.bcPM, S.bcTele, S.bcMEPM, S.bull2018, S.doiNews, S.c2636, S.pa3612, S.cob, S.c4364, S.ndac112, S.c4357, S.bacbLic, S.erisa, S.tpl, S.tricare, S.champva, S.profFee],
+    sources: [S.bcPA, S.bcMigPA, S.bcBH18, S.bcPM, S.bcTele, S.bcMEPM, S.bull2018, S.doiNews, S.c2636, S.pa3612, S.cob, S.c4364, S.ndac112, S.c4357, S.bacbLic, S.erisa, S.tpl, S.tricare, S.champva, S.profFee],
     deliveryRules: {
       supervision: {
-        value: 'Not published in a BCBSND document we could read. North Dakota law requires ABA to be practiced by a licensed behavior analyst, with technicians exempt only when working "under the extended authority and direction of" a licensed behavior analyst or licensed assistant behavior analyst.',
-        status: 'unverified',
-        cites: [S.bcPM, S.ndac112],
-        verifyVia: 'BCBSND Medical Policy Search (ABA policy) or Provider Service, 800-368-2312.',
+        value: 'No numeric ratio is published. For migrated members, policy BH18 says BCBAs/BCBA-Ds "may oversee all aspects of assessment, treatment planning, and supervision of support staff," BCaBAs and behavior technicians/RBTs work under a BCBA, BCBA-D or qualified supervisor, and "All supervision must be conducted in accordance with" BACB standards; the treatment plan must justify "the hours per week of direct face-to-face supervision." The non-migrated policy was not readable. North Dakota law requires ABA to be practiced by a licensed behavior analyst, with technicians exempt only when working "under the extended authority and direction of" a licensed behavior analyst or licensed assistant behavior analyst.',
+        status: 'plan-dependent',
+        cites: [S.bcBH18, S.bcPM, S.ndac112],
+        verifyVia: 'Ask whether the member is migrated (BH18) or non-migrated; for non-migrated members, BCBSND Medical Policy Search (ABA policy) or Provider Service, 800-368-2312.',
         blocker: 'document',
       },
       concurrentBilling: {
@@ -408,9 +418,9 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       dailyLimits: {
-        value: 'Not published in a BCBSND document we could read. Bulletin 2018-1 bars autism-only treatment limits stricter than those on medical/surgical benefits in insured plans.',
+        value: 'No unit cap is published: migrated-member policy BH18 sets none (hours must be clinically justified, and excessive supervision, assessment, social-skills or parent-training hours need justification); the non-migrated policy was not readable. Bulletin 2018-1 bars autism-only treatment limits stricter than those on medical/surgical benefits in insured plans.',
         status: 'unverified',
-        cites: [S.bcPM, S.bull2018],
+        cites: [S.bcBH18, S.bcPM, S.bull2018],
         verifyVia: 'BCBSND Medical Policy Search or the member’s benefit summary in Availity.',
         blocker: 'document',
       },
@@ -445,30 +455,30 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       dxRecency: {
-        value: 'Not published in a BCBSND document we could read.',
+        value: 'No diagnosis-age rule in migrated-member policy BH18 (it requires a diagnosis but no date window); the non-migrated policy was not readable.',
         status: 'unverified',
         cites: [S.bcPA],
         verifyVia: 'BCBSND Medical Policy Search (ABA policy) or Provider Service, 800-368-2312.',
         blocker: 'document',
       },
       diagnosingProviders: {
-        value: 'Not published in a BCBSND document we could read. Bulletin 2018-1 defines insured-plan autism treatment as care prescribed or ordered "by a licensed physician or a licensed psychologist."',
+        value: 'Migrated-member policy BH18: "a qualified treating health care professional, as defined by state law" (no specialty list); the non-migrated policy was not readable. Bulletin 2018-1 defines insured-plan autism treatment as care prescribed or ordered "by a licensed physician or a licensed psychologist."',
         status: 'unverified',
-        cites: [S.bcPA, S.bull2018],
+        cites: [S.bcBH18, S.bcPA, S.bull2018],
         verifyVia: 'BCBSND Medical Policy Search (ABA policy) or Provider Service, 800-368-2312.',
         blocker: 'document',
       },
       diagnosticTools: {
-        value: 'Not published in a BCBSND document we could read.',
+        value: 'Migrated-member policy BH18 names no diagnostic instrument; its standardized-assessment list (SRS-2, Vineland-3, ABAS-3, SSIS, BRIEF-2, PDDBI) is for the treatment plan’s baseline, not the diagnosis. The non-migrated policy was not readable.',
         status: 'unverified',
-        cites: [S.bcPA],
+        cites: [S.bcBH18, S.bcPA],
         verifyVia: 'BCBSND Medical Policy Search (ABA policy) or Provider Service, 800-368-2312.',
         blocker: 'document',
       },
       referral: {
-        value: 'BCBSND publishes no ABA referral rule. Its prior-authorization page says the ordering provider is "typically responsible for obtaining prior authorization"; its provider manual (8-26) lists an "ABA Service for Autism Spectrum Disorder Request" fax form for FEP members only and asks for the NPI of the "referring, ordering or supervising provider" in CMS-1500 item 17b. Network referrals matter on DakotaBlue: care outside the member’s selected network without an Authorized Referral pays at the out-of-network level, and "Only Tier 1 preferred providers can initiate a referral."' + ND_REFERRAL_TAIL,
+        value: 'BCBSND publishes no ABA referral rule. Its prior-authorization page says the ordering provider is "typically responsible for obtaining prior authorization"; its provider manual (8-26) lists an "ABA Service for Autism Spectrum Disorder Request" fax form for FEP members only and asks for the NPI of the "referring, ordering or supervising provider" in CMS-1500 item 17b. Network referrals matter on DakotaBlue: care outside the member’s selected network without an Authorized Referral pays at the out-of-network level, and "Only Tier 1 preferred providers can initiate a referral." For migrated members, policy BH18 says "ABA therapy must be recommended or prescribed by a qualified treating health care professional experienced in the diagnosis and treatment of ASD" and the review packet needs a "Written recommendation, clinical order, or prescription for ABA services."' + ND_REFERRAL_TAIL,
         status: 'plan-dependent',
-        cites: [S.bcPA, S.bcPM, S.bull2018],
+        cites: [S.bcBH18, S.bcPA, S.bcPM, S.bull2018],
         verifyVia: 'Availity or Provider Service, 800-368-2312: ask whether the member’s plan (DakotaBlue or other) needs an Authorized Referral or a physician or psychologist order for ABA.',
         blocker: 'per-case',
       },
@@ -497,6 +507,7 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
     faq: [
       { q: 'Does Blue Cross Blue Shield of North Dakota cover ABA?', a: 'It depends on the member’s plan. For insured plans that cover autism, Bulletin 2018-1 bars excluding ABA as experimental and bars autism-only limits stricter than medical limits. Self-funded employer plans follow their own documents. Check benefits in Availity.' },
       { q: 'Does BCBSND require prior authorization for ABA?', a: 'BCBSND does not publish a general answer: its PA search is member-specific (member ID, NPI, date of service) and says no result means no PA is required. Members migrated to its new system from January 1, 2027 use a published list that names no ABA code. Check every code before starting.' },
+      { q: 'What does a BCBSND ABA reauthorization need?', a: 'For migrated members, policy BH18: an updated treatment plan sent within five business days before the authorization ends (no more than 30 days before), with progress from session data, the same measurement tool as the baseline, objective measures at least every six months and standardized assessments yearly, plus a barrier analysis for any stalled goal. BH18 does not require graphs.' },
       { q: 'What is BCBSND’s timely filing limit?', a: '12 months from the date of service, or the limit in the member’s benefit plan; self-insured plans may differ. Appeals must be filed within 180 days.' },
       { q: 'Is there a North Dakota autism insurance mandate?', a: 'No statute. North Dakota relies on Insurance Department Bulletin 2018-1, which applies federal parity to insured plans and forbids excluding ABA as experimental.' },
       { q: 'Can a BCBA licensed in another state bill BCBSND for a North Dakota child?', a: 'Only with a North Dakota license: N.D.C.C. 43-64-02 requires one to practice ABA in the state, and the Board of Integrative Health Care offers license by endorsement. BCBSND’s telehealth guide covers claim routing for out-of-state clinicians employed by North Dakota groups, not licensure.' },
@@ -564,8 +575,10 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
       },
       {
         h2: 'Claims operations in North Dakota',
-        body: [ND_CLAIMS_BODY],
-        cites: [S.c2636, S.pa3612],
+        body: [ND_CLAIMS_BODY,
+          'Aetna’s Health Care Professional Toolkit (6/26) publishes no claim filing deadline: the limit for initial, corrected and secondary claims is the one in your Aetna participation agreement, and claim disputes "Must be submitted within contractual timeframes." The toolkit defines a clean claim as one "received in a timely manner" with all required data, and says a clean claim "Doesn’t involve coordination of benefits," so secondary claims sit outside the clean-claim clock. It publishes no check-run or weekly cut-off schedule.',
+        ],
+        cites: [S.c2636, S.pa3612, S.aetnaOM],
       },
       {
         h2: 'What is Aetna’s fee schedule for ABA?',
@@ -573,6 +586,13 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
           'Aetna publishes no ABA rate table. Its provider manual (6/26) treats payment as a contract term: where a provider has both an intermediary contract and a direct agreement, "your direct Aetna rates will apply unless we specifically notify you otherwise," and Aetna "requires that you use your own TIN when billing for services." Get the rates from your Aetna agreement or Aetna provider services. For a public benchmark, ND Medicaid’s August 2026 professional fee schedule pays 97153 at $10.81 per unit; commercial contracts are negotiated separately.',
         ],
         cites: [S.aetnaOM, S.profFee],
+      },
+      {
+        h2: 'What a reauthorization must show',
+        body: [
+          'Aetna’s ABA medical necessity guide (©2026) sets what a renewal must show: the plan records baseline levels of each target behavior by "frequency, rate, symptom intensity or duration, or other objective measures," with "quantifiable criteria for progress"; where target behaviors have improved, documentation of that improvement is included, and where they have not, documentation of "modification of the treatment, additional assessments that have been conducted, and/or there has been appropriate consultations from other staff or experts." "A member’s progress is to be evaluated every six months," and the guide relies on "Repeated measurement with standardized measures to assess progress." It does not require graphs and sets no data-recency window.',
+        ],
+        cites: [S.aetnaGuide],
       },
     ],
     collect: [
@@ -670,6 +690,8 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Aetna require graphs for ABA reauthorizations?', a: 'No. Aetna’s ABA medical necessity guide asks for objective baseline measures, quantifiable progress criteria, standardized re-measurement and a six-monthly progress evaluation, with treatment changes documented where there is no improvement, but it does not require graphs or set a data-recency window.' },
+      { q: 'What are Aetna’s claim filing deadlines for North Dakota ABA claims?', a: 'Aetna’s provider toolkit publishes no filing limit; the participation agreement sets it for initial, corrected and secondary claims, and a claim involving coordination of benefits is not a "clean claim." No check-run schedule is published.' },
       { q: 'Does Aetna cover ABA therapy in North Dakota?', a: 'Yes, for autism under its national ABA medical necessity guide. For insured North Dakota plans, Bulletin 2018-1 also bars excluding ABA as experimental; self-funded employer plans follow their own documents.' },
       { q: 'Does the Aetna ABA assessment need precertification?', a: 'Yes. Aetna’s behavioral health precertification list includes all ten ABA codes, 97151 and 97152 among them.' },
       { q: 'Does North Dakota have an autism insurance mandate?', a: 'Not a statute. North Dakota relies on Insurance Department Bulletin 2018-1, which applies federal parity to insured plans that cover autism and forbids excluding ABA as experimental or investigational.' },
@@ -741,6 +763,7 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
         body: [
           ND_CLAIMS_BODY,
           'Cigna’s own claim rules for ABA: electronic claims use Evernorth payer ID 62308; on a paper CMS-1500, "List only a BCBA or other licensed provider in box 33"; and "Evernorth does not credential nonlicensed/noncertified staff. Services for these staff members must be billed under the supervising provider." Confirm with HealthPartners whether its contract changes where North Dakota claims go.',
+          'Evernorth’s Behavioral Health Administrative Guidelines (September 2026) set the filing limit: "We will only consider claims submitted within 90 days of the date of service or as otherwise defined in your Provider Agreement," unless "Applicable state law provides for a longer timely filing limit." For a secondary claim the 90 days run from "the primary payer’s processing date as stated on an explanation of benefits [EOB] or explanation of payment [EOP]," Medicaid-primary claims get three years, and a timely claim returned for more information gets a new 90 days from the date of the request. The North Dakota Regulatory Addendum adds no claim rule. State addenda do not apply to self-funded plans. The guidelines publish no check-run or weekly cut-off schedule.',
         ],
         cites: [S.c2636, S.pa3612, S.cignaARG, S.ebhAdmin],
       },
@@ -750,6 +773,13 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
           'Cigna publishes no ABA rate table. Evernorth’s Administrative Guidelines say the Provider Agreement’s terms "include the reimbursement rates applicable to covered services," and tell ABA providers to see "Exhibit A in your Provider Agreement" for the fee schedule and the list of reimbursable autism services; fee questions go to Evernorth Provider Services at 800.926.2273. Virtual services carry modifier 95, which Evernorth says "will not change the reimbursement." In North Dakota, where the network contract usually runs through HealthPartners, the applicable rates are in that contract. For a public benchmark, ND Medicaid’s August 2026 fee schedule pays 97153 at $10.81 per unit.',
         ],
         cites: [S.ebhAdmin, S.profFee],
+      },
+      {
+        h2: 'What a reauthorization must show',
+        body: [
+          'Evernorth’s EN0499 sets what a continued-treatment request must show: "current data" collected "within no more than 60 days prior to the start date of the continued treatment request, as well as collected within no more than 60 days prior to the date the authorization request is received," with collection dates, for every behavior and skill targeted; data showing "ongoing and sustained progress toward mastering the treatment goals"; measurable improvement on "a reliable, valid, and standardized assessment instrument completed no more than one year prior to the start date of the continued treatment request"; an account of barriers and plan changes where progress is not shown; and dated stakeholder (caregiver) training data. EN0499 does not require the data to be graphed.',
+        ],
+        cites: [S.en0499],
       },
     ],
     collect: [
@@ -841,6 +871,8 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Cigna require graphs for ABA reassessments?', a: 'No. Evernorth’s EN0499 requires dated data collected within 60 days before both the requested start date and the request’s receipt, sustained progress, and a standardized assessment from the past year, but it does not require graphs.' },
+      { q: 'What are Cigna (Evernorth)’s claim filing deadlines for North Dakota ABA claims?', a: '90 days from the date of service unless your provider agreement or a longer state limit applies; secondary claims get 90 days from the primary payer’s EOB/EOP date, and a claim returned for more information gets a new 90 days. No check-run schedule is published.' },
       { q: 'Does Cigna cover ABA therapy in North Dakota?', a: 'Yes, under national policy EN0499 for autism. For insured North Dakota plans, Bulletin 2018-1 also bars excluding ABA as experimental. Self-funded employer plans follow their own documents.' },
       { q: 'How do I get in network with Cigna for ABA in North Dakota?', a: 'Evernorth’s guidelines say providers in North Dakota must be contracted through HealthPartners to be in network for Cigna members, with some exceptions where a direct Evernorth agreement supersedes it.' },
       { q: 'Does the Cigna ABA assessment need prior authorization?', a: 'No, for 97151, 97152 and 0362T with an autism diagnosis when the provider is independently licensed or a BCBA and the policy covers ABA. PA starts at treatment.' },
@@ -908,8 +940,10 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
       },
       {
         h2: 'Claims operations in North Dakota',
-        body: [ND_CLAIMS_BODY],
-        cites: [S.c2636, S.pa3612],
+        body: [ND_CLAIMS_BODY,
+          'Optum’s National Network Manual: claims must be received "no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan," and "Any corrections or additions to a claim should be made within 90 days of initial claim receipt." Complete, authorized claims "will be paid within 45 calendar days after Optum receives the claim, or as required by state and federal laws," which may exclude claims that need coordination-of-benefits decisions; the manual sets no separate secondary-claim deadline and publishes no check-run schedule.',
+        ],
+        cites: [S.c2636, S.pa3612, S.optumNNM],
       },
       {
         h2: 'What is UnitedHealthcare’s fee schedule for ABA?',
@@ -917,6 +951,13 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
           'UnitedHealthcare publishes no ABA rate table; Optum pays from the contract. Optum’s National Network Manual (effective Sept. 1, 2026) defines the "Fee Maximum" as the maximum amount a participating provider may be paid for a service, adding that "Reimbursement to clinicians is based upon licensure rather than degree." Optum’s commercial ABA Reimbursement Policy (2022RP501A; history through June 2026) puts the credential level on each line: HM for an RBT, HN for a BCaBA, HO for a master’s-level BCBA or licensed clinician, HP for a doctoral-level provider, and says "There is no CPT code for reporting indirect services separately." Ask Optum network management for your rate sheet. For a public benchmark, ND Medicaid’s August 2026 fee schedule pays 97153 at $10.81 per unit.',
         ],
         cites: [S.optumNNM, S.optumReimb, S.profFee],
+      },
+      {
+        h2: 'What a reauthorization must show',
+        body: [
+          'Optum’s ABA Supplemental Clinical Criteria (review 04/2026) set what each continued-service review needs: progress "assessed and documented for each targeted symptom and behavior … including the same modes of measurement that were utilized for baseline measurement"; progress that includes "rate and percentage of mastered programs, rates of mastered targets, change scores for any outcome measures, updated standardized adaptive measures, and change scores for skills-based assessments"; an assessment of the reasons and modified interventions when there is inadequate progress "within a 6-month period"; and an explanation when use of authorized hours falls below 80% over a two-week period. Treatment plans "are usually reviewed/updated twice annually." The criteria do not require graphs.',
+        ],
+        cites: [S.optumSCC],
       },
     ],
     collect: [
@@ -1011,6 +1052,8 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare (Optum) require graphs for ABA continued-service reviews?', a: 'No. Optum’s criteria ask for progress on every target using the baseline measurement method, mastery rates and change scores, updated standardized adaptive measures, and an explanation of low hour use, but they do not require graphs.' },
+      { q: 'What are UnitedHealthcare (Optum)’s claim filing deadlines for North Dakota ABA claims?', a: '90 calendar days from the date of service (or longer where state law or the plan allows), corrections within 90 days of the original claim’s receipt, and payment of complete claims within 45 days or the state’s shorter clock. No check-run schedule is published.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in North Dakota?', a: 'Yes, under Optum’s national ABA criteria for autism. For insured North Dakota plans, Bulletin 2018-1 also bars excluding ABA as experimental. Self-funded employer plans follow their own documents.' },
       { q: 'Does Optum have North Dakota-specific ABA criteria?', a: 'No. Optum’s ABA State Mandates supplement does not list North Dakota, so the national criteria apply.' },
       { q: 'Can ABA be delivered by telehealth with UnitedHealthcare in North Dakota?', a: 'Optum’s commercial telehealth guide allows only 97155, 97156 and 97157 by telehealth, billed POS 02 or 10. The 97151 assessment and 97153 are not on that list.' },

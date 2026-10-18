@@ -20,6 +20,8 @@ import type { PayerConfig, PayerSource } from './types.js';
 const FH_KW = 'https://www.forwardhealth.wi.gov/WIPortal/Subsystem/KW/Display.aspx?ia=1&p=1&sa=130';
 
 const S: Record<string, PayerSource> = {
+  anthemBC: { title: 'Anthem — The BlueCard Program Provider Manual for Missouri, Ohio and Wisconsin (PM_MO_OH_WI_00004, January 1, 2022 edition)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_MO_OH_WI_00004.pdf' },
+  anthemPM: { title: 'Anthem Blue Cross and Blue Shield — 2026 Wisconsin Commercial Provider Manual (PM_WI_00014, effective August 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_WI_00014.pdf' },
   fhCovered: { title: 'ForwardHealth Online Handbook — Behavioral Treatment Benefit: Covered Services and Requirements (topics 18978, 18997, 19017, 24004, 18980, 18979, 18999, 22657, 24023)', url: `${FH_KW}&s=2&c=61` },
   fhCodes: { title: 'ForwardHealth Online Handbook — Behavioral Treatment: Codes (modifiers, place of service, procedure codes; topics 18957–18959)', url: `${FH_KW}&s=2&c=10` },
   fhNoncov: { title: 'ForwardHealth Online Handbook — Behavioral Treatment: Noncovered Services (topic 19020)', url: `${FH_KW}&s=2&c=8` },
@@ -332,8 +334,10 @@ export const wisconsinPayers: Record<string, PayerConfig> = {
       },
       {
         h2: 'Licensure, credentialing and claims',
-        body: [WI_LICENSURE_BODY],
-        cites: [S.bacbLic, S.s440, S.s632895, S.ins336, S.s628, S.fhMaxFee],
+        body: [WI_LICENSURE_BODY,
+          'Aetna’s Health Care Professional Toolkit (6/26) publishes no claim filing deadline: the limit for initial, corrected and secondary claims is the one in your Aetna participation agreement, and claim disputes "Must be submitted within contractual timeframes." The toolkit defines a clean claim as one "received in a timely manner" with all required data, and says a clean claim "Doesn’t involve coordination of benefits," so secondary claims sit outside the clean-claim clock. It publishes no check-run or weekly cut-off schedule.',
+        ],
+        cites: [S.bacbLic, S.s440, S.s632895, S.ins336, S.s628, S.fhMaxFee, S.aetnaOM],
       },
       {
         h2: 'What is Aetna’s fee schedule for ABA?',
@@ -341,6 +345,13 @@ export const wisconsinPayers: Record<string, PayerConfig> = {
           'Aetna publishes no ABA rate table. Its provider manual (6/26) says members cannot be charged "more than the contracted rate," and payment follows your participation agreement and Aetna’s coding and claim-edit policies. Get the rates from your Aetna agreement or Aetna provider services. For a public benchmark, Wisconsin Medicaid’s fee schedule pays 97153 at $11.91 per 15 minutes for comprehensive treatment; commercial contracts are negotiated separately. Wisconsin’s mandate does not set rates. It requires the insurer to provide at least the 2026 floors ($74,240 intensive, $37,119 nonintensive), and OCI notes "the insurer is not required to pay more than the amount mandated by the statute, although a policy may provide more coverage."',
         ],
         cites: [S.aetnaOM, S.fhMaxFee, S.ociFaq],
+      },
+      {
+        h2: 'What a reauthorization must show',
+        body: [
+          'Aetna’s ABA medical necessity guide (©2026) sets what a renewal must show: the plan records baseline levels of each target behavior by "frequency, rate, symptom intensity or duration, or other objective measures," with "quantifiable criteria for progress"; where target behaviors have improved, documentation of that improvement is included, and where they have not, documentation of "modification of the treatment, additional assessments that have been conducted, and/or there has been appropriate consultations from other staff or experts." "A member’s progress is to be evaluated every six months," and the guide relies on "Repeated measurement with standardized measures to assess progress." It does not require graphs and sets no data-recency window.',
+        ],
+        cites: [S.aetnaGuide],
       },
     ],
     collect: [
@@ -439,6 +450,8 @@ export const wisconsinPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Aetna require graphs for ABA reauthorizations?', a: 'No. Aetna’s ABA medical necessity guide asks for objective baseline measures, quantifiable progress criteria, standardized re-measurement and a six-monthly progress evaluation, with treatment changes documented where there is no improvement, but it does not require graphs or set a data-recency window.' },
+      { q: 'What are Aetna’s claim filing deadlines for Wisconsin ABA claims?', a: 'Aetna’s provider toolkit publishes no filing limit; the participation agreement sets it for initial, corrected and secondary claims, and a claim involving coordination of benefits is not a "clean claim." No check-run schedule is published.' },
       { q: 'Does Aetna cover ABA therapy in Wisconsin?', a: 'Yes, under its national ABA guide for ASD, with Wisconsin’s § 632.895(12m) mandate layered on for policies the state regulates. Self-funded private employer plans follow their own documents.' },
       { q: 'What does the Wisconsin autism mandate require?', a: 'Coverage of physician-prescribed autism treatment by qualified providers, with at least $74,240 a year for intensive-level services (which must start between ages 2 and 9, for up to four years) and at least $37,119 for nonintensive-level services in 2026, and no visit limits.' },
       { q: 'Does a BCBA need a Wisconsin license to treat Aetna members in Wisconsin?', a: 'For mandated coverage, yes. The mandate names behavior analysts "licensed under s. 440.312," and Aetna’s guide requires licensed behavior analysts in states with licensure laws. A BCBA licensed elsewhere should get the Wisconsin license from DSPS before treating, including by telehealth.' },
@@ -500,8 +513,10 @@ export const wisconsinPayers: Record<string, PayerConfig> = {
       },
       {
         h2: 'Licensure, credentialing and claims',
-        body: [WI_LICENSURE_BODY],
-        cites: [S.bacbLic, S.s440, S.s632895, S.ins336, S.s628, S.fhMaxFee],
+        body: [WI_LICENSURE_BODY,
+          'Evernorth’s Behavioral Health Administrative Guidelines (September 2026) set the filing limit: "We will only consider claims submitted within 90 days of the date of service or as otherwise defined in your Provider Agreement," unless "Applicable state law provides for a longer timely filing limit." For a secondary claim the 90 days run from "the primary payer’s processing date as stated on an explanation of benefits [EOB] or explanation of payment [EOP]," Medicaid-primary claims get three years, and a timely claim returned for more information gets a new 90 days from the date of the request. The Wisconsin Regulatory Addendum adds no claim rule. State addenda do not apply to self-funded plans. The guidelines publish no check-run or weekly cut-off schedule.',
+        ],
+        cites: [S.bacbLic, S.s440, S.s632895, S.ins336, S.s628, S.fhMaxFee, S.ebhAdmin],
       },
       {
         h2: 'What is Cigna’s fee schedule for ABA?',
@@ -509,6 +524,13 @@ export const wisconsinPayers: Record<string, PayerConfig> = {
           'Cigna publishes no ABA rate table. Evernorth tells ABA providers: "For your fee schedule and a listing of autism spectrum disorder–related services eligible for reimbursement, refer to Exhibit A in your Provider Agreement." Fee and contract questions go to Provider Services at 800.926.2273. Bill telehealth with modifier 95 and POS 02. Non-credentialed staff are paid only through the supervising provider’s claim. For a public benchmark, Wisconsin Medicaid pays 97153 at $11.91 per 15 minutes for comprehensive treatment; commercial contracts are negotiated separately.',
         ],
         cites: [S.ebhAdmin, S.cignaARG, S.fhMaxFee],
+      },
+      {
+        h2: 'What a reauthorization must show',
+        body: [
+          'Evernorth’s EN0499 sets what a continued-treatment request must show: "current data" collected "within no more than 60 days prior to the start date of the continued treatment request, as well as collected within no more than 60 days prior to the date the authorization request is received," with collection dates, for every behavior and skill targeted; data showing "ongoing and sustained progress toward mastering the treatment goals"; measurable improvement on "a reliable, valid, and standardized assessment instrument completed no more than one year prior to the start date of the continued treatment request"; an account of barriers and plan changes where progress is not shown; and dated stakeholder (caregiver) training data. EN0499 does not require the data to be graphed.',
+        ],
+        cites: [S.en0499],
       },
     ],
     collect: [
@@ -600,6 +622,8 @@ export const wisconsinPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Cigna require graphs for ABA reassessments?', a: 'No. Evernorth’s EN0499 requires dated data collected within 60 days before both the requested start date and the request’s receipt, sustained progress, and a standardized assessment from the past year, but it does not require graphs.' },
+      { q: 'What are Cigna (Evernorth)’s claim filing deadlines for Wisconsin ABA claims?', a: '90 days from the date of service unless your provider agreement or a longer state limit applies; secondary claims get 90 days from the primary payer’s EOB/EOP date, and a claim returned for more information gets a new 90 days. No check-run schedule is published.' },
       { q: 'Does Cigna cover ABA therapy in Wisconsin?', a: 'Yes, under national policy EN0499 for ASD, with Wisconsin’s § 632.895(12m) mandate layered on for policies the state regulates. Self-funded employer plans follow their own documents.' },
       { q: 'Does the Cigna ABA assessment need prior authorization in Wisconsin?', a: 'No, for 97151, 97152 and 0362T with an autism diagnosis when the provider is independently licensed or a BCBA. PA starts at treatment.' },
       { q: 'Is my western Wisconsin clinic in network for Cigna?', a: 'Only if it is contracted through HealthPartners. Evernorth says providers in western Wisconsin must contract through HealthPartners to be in network for Cigna members.' },
@@ -665,8 +689,10 @@ export const wisconsinPayers: Record<string, PayerConfig> = {
       },
       {
         h2: 'Licensure, credentialing and claims',
-        body: [WI_LICENSURE_BODY],
-        cites: [S.bacbLic, S.s440, S.s632895, S.ins336, S.s628, S.fhMaxFee],
+        body: [WI_LICENSURE_BODY,
+          'Optum’s National Network Manual: claims must be received "no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan," and "Any corrections or additions to a claim should be made within 90 days of initial claim receipt." Complete, authorized claims "will be paid within 45 calendar days after Optum receives the claim, or as required by state and federal laws," which may exclude claims that need coordination-of-benefits decisions; the manual sets no separate secondary-claim deadline and publishes no check-run schedule.',
+        ],
+        cites: [S.bacbLic, S.s440, S.s632895, S.ins336, S.s628, S.fhMaxFee, S.optumNNM],
       },
       {
         h2: 'What is UnitedHealthcare’s fee schedule for ABA?',
@@ -674,6 +700,13 @@ export const wisconsinPayers: Record<string, PayerConfig> = {
           'UnitedHealthcare publishes no ABA rate table; its behavioral health network, Optum, pays from the contract. Optum’s National Network Manual (effective Sept. 1, 2026) defines the "Fee Maximum" as the most a participating provider may be paid for a service, adding that "Reimbursement to clinicians is based upon licensure rather than degree." Optum’s commercial ABA Reimbursement Policy (2022RP501A) makes the credential level part of every claim line: HM for an RBT, HN for a BCaBA, HO for a master’s-level BCBA or licensed clinician, HP for a doctoral-level provider. Indirect work has no separate code and is bundled into direct-service codes. The policy notes state requirements "may supplement, modify or supersede" it. Ask Optum network management for your rate sheet. For a public benchmark, Wisconsin Medicaid pays 97153 at $11.91 per 15 minutes for comprehensive treatment.',
         ],
         cites: [S.optumNNM, S.optumReimb, S.fhMaxFee],
+      },
+      {
+        h2: 'What a reauthorization must show',
+        body: [
+          'Optum’s ABA Supplemental Clinical Criteria (review 04/2026) set what each continued-service review needs: progress "assessed and documented for each targeted symptom and behavior … including the same modes of measurement that were utilized for baseline measurement"; progress that includes "rate and percentage of mastered programs, rates of mastered targets, change scores for any outcome measures, updated standardized adaptive measures, and change scores for skills-based assessments"; an assessment of the reasons and modified interventions when there is inadequate progress "within a 6-month period"; and an explanation when use of authorized hours falls below 80% over a two-week period. Treatment plans "are usually reviewed/updated twice annually." The criteria do not require graphs.',
+        ],
+        cites: [S.optumSCC],
       },
     ],
     collect: [
@@ -769,6 +802,8 @@ export const wisconsinPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare (Optum) require graphs for ABA continued-service reviews?', a: 'No. Optum’s criteria ask for progress on every target using the baseline measurement method, mastery rates and change scores, updated standardized adaptive measures, and an explanation of low hour use, but they do not require graphs.' },
+      { q: 'What are UnitedHealthcare (Optum)’s claim filing deadlines for Wisconsin ABA claims?', a: '90 calendar days from the date of service (or longer where state law or the plan allows), corrections within 90 days of the original claim’s receipt, and payment of complete claims within 45 days or the state’s shorter clock. No check-run schedule is published.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in Wisconsin?', a: 'Yes, under Optum’s national ABA criteria for ASD, with Wisconsin’s § 632.895(12m) mandate layered on for policies the state regulates.' },
       { q: 'Does Optum have Wisconsin-specific ABA criteria?', a: 'No. Wisconsin is not among the states whose mandated criteria Optum applies alongside its SCC, so the standard criteria apply, subject to Wisconsin law.' },
       { q: 'My client has UnitedHealthcare through BadgerCare Plus. Who authorizes ABA?', a: 'ForwardHealth, not the health plan. Wisconsin carves behavioral treatment out of all BadgerCare Plus and Medicaid SSI HMOs, and PA requests and claims go to ForwardHealth fee-for-service.' },
@@ -848,6 +883,14 @@ export const wisconsinPayers: Record<string, PayerConfig> = {
         body: [WI_LICENSURE_BODY],
         cites: [S.bacbLic, S.s440, S.s632895, S.ins336, S.s628, S.fhMaxFee],
       },
+      {
+        h2: 'Claim filing and BlueCard',
+        body: [
+          'Anthem’s 2026 Wisconsin Commercial Provider Manual does not print a filing limit: "Claims must be submitted within the timely filing timeframe specified in the Provider or Facility Agreement," late claims are denied unless proof of timely filing is shown (a clearinghouse acceptance report, a dated claim copy, or an Anthem request for more information), and "Any rejected Claims must be corrected and resubmitted within the timely filing period." A correction goes in as a full replacement claim (frequency code 7 with the original claim number in REF F8), and a claim billed to Anthem in error as a void/cancel. Anthem publishes no check-run schedule; its BlueCard manual gives its "standard time for claims processing" as "less than 10 days."',
+          'For a member of another Blue plan, Anthem’s BlueCard Program Provider Manual says you "submit claims for patients from other BCBS Plans … to your local BCBS Plan," which is "your sole contact for claims payment, adjustments and issue resolution": file to Anthem with the member ID exactly as printed, three-character prefix included. Check eligibility through Availity (HIPAA 270) or 1-800-676-BLUE (2583). Prior authorization belongs to the member’s home plan: use the "Medical Policy and Pre-Authorization/Pre-Certification Information Router" on anthem.com with the prefix, or Availity’s authorization tool, which routes out-of-state prefixes to the home plan. When another carrier is primary, send its name and address (and EOB when Anthem is secondary) with the claim, or the home plan must investigate and payment is delayed. The BlueCard manual Anthem posts is an older edition, so confirm current details with Anthem.',
+        ],
+        cites: [S.anthemPM, S.anthemBC],
+      },
     ],
     collect: [
       { title: 'Plan funding type and entity', desc: 'BCBSWI PPO, Compcare HMO/POS or WCIC Well Priority, and fully insured (§ 632.895(12m) applies) vs. self-funded or National Accounts.' },
@@ -856,7 +899,7 @@ export const wisconsinPayers: Record<string, PayerConfig> = {
       { title: 'Physician’s prescription', desc: 'The mandate covers treatment "prescribed by a physician."' },
       { title: 'Other coverage', desc: 'Second parent’s plan (birthday rule), Wisconsin Medicaid, TRICARE or CHAMPVA.' },
     ],
-    sources: [S.anthemPA, S.anthemANA, S.anthemRGwi, S.anthemWeekly, S.s632895, S.ins336, S.ociFaq, S.s440, S.bacbLic, S.s628, S.s632835, S.ins340, S.erisa, S.fhMaxFee, S.fhCOB],
+    sources: [S.anthemPA, S.anthemANA, S.anthemRGwi, S.anthemWeekly, S.s632895, S.ins336, S.ociFaq, S.s440, S.bacbLic, S.s628, S.s632835, S.ins340, S.erisa, S.fhMaxFee, S.fhCOB, S.anthemPM, S.anthemBC],
     deliveryRules: {
       supervision: {
         value: 'Anthem’s Wisconsin guide publishes no numeric ratio. It recognizes "paraprofessionals practicing under the direction and supervision of a qualified provider," and allows 97153 alongside 97155 only when both are face-to-face and the QHP is directing the technician. Under Ins 3.36, which the guide incorporates, a qualified paraprofessional receives "regular, scheduled oversight by a qualified supervising provider" (a supervisor with at least 4,160 hours of supervisory experience), and intensive-level services need direct observation by the qualified provider at least once every two months.',
@@ -946,6 +989,7 @@ export const wisconsinPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'How does BlueCard work for ABA with Anthem in Wisconsin?', a: 'File claims for out-of-area Blue members to Anthem, your local plan, with the full member ID and prefix; Anthem pays you and handles adjustments. Get prior authorization from the member’s home plan through Anthem’s prefix router or Availity, and check eligibility at 1-800-676-BLUE. The filing limit itself is set in your Anthem provider agreement.' },
       { q: 'Does Anthem require prior authorization for ABA in Wisconsin?', a: 'Plan by plan. Anthem pays ABA against weekly units "as approved by prior approval," and its precertification list carries an autism treatment row, but the Wisconsin behavioral health bullet does not name ABA and National Accounts groups can opt out. Call the preapproval number on the card.' },
       { q: 'What changed for Anthem ABA claims in Wisconsin in 2026?', a: 'From January 1, 2026, Anthem pays ABA against weekly approved units rather than the total authorization. Units over the weekly limit are ineligible for payment.' },
       { q: 'Can a BCBA and RBT both bill for the same time with Anthem in Wisconsin?', a: 'Yes, 97155 with 97153, but only when both are face-to-face with the patient and the BCBA is directing the technician.' },

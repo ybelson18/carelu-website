@@ -59,7 +59,7 @@ const S: Record<string, PayerSource> = {
   hscsnAmend: { title: 'HSCSN — Amendment to Provider Participation Agreement (ABA technician bachelor’s-degree requirement removed)', url: 'https://hscsnhealthplan.org/sites/default/files/aba_provider_contract_change_notice.pdf' },
   aetnaGuide: { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026; Exhibit A covers Maryland only)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
   aetnaPrecert: { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
-  aetnaCPB: { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 11/26/2025)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+  aetnaCPB: { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
   aetnaCPB648: { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
   aetnaNPC: { title: 'Aetna — Provider and facility participation criteria (8100606-01-01, 5/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' },
   aetnaOM: { title: 'Aetna Health Care Professional Toolkit / provider manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
@@ -334,6 +334,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
         h2: 'Decision timeframes, appeals and claims',
         body: [
           'The manual says AmeriHealth must decide a standard request "no later than 14 calendar days after AmeriHealth Caritas DC receives the request" (extendable 14 days) and an expedited one within 72 hours. Federal rules have since tightened the standard limit to 7 calendar days for rating periods beginning on or after January 1, 2026. Members, or a provider acting for them, appeal within 60 calendar days of the notice. AmeriHealth is "the payer of last resort": bill other coverage first. Claims follow DHCF’s contract with every DC Healthy Families plan: filed within 365 days of service, 90% of clean claims paid or denied within 30 days.',
+          'The 2026 provider manual’s claim rules: original claims are due "within 365 calendar days from the date services were rendered," claims first rejected for missing data must be resubmitted within the same 365 days, and a denied claim goes back as a corrected claim (frequency 6 or 7 with the original claim number); a claim first filed on time but denied is still timely if the resubmission arrives "within 365 days of the denial of the initial claim." Electronic claims "must be received by the EDI vendor by 9:00 p.m. in order to be transmitted to the Plan the next business day." AmeriHealth must pay or deny 90% of clean claims within 30 days and 99% within 90 days, with interest of 1.5% a month from day 31, 2% from day 61 and 2.5% after day 120 under the D.C. Prompt Payment Act. As payer of last resort it bills other coverage first and may recover payments when other insurance turns up; the manual sets no separate secondary-claim window or check-run schedule. Payment is by EFT through ECHO Health.',
         ],
         cites: [S.acdcPM, S.cfr438, S.mcoContract],
       },
@@ -435,6 +436,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Is there a daily claim cut-off for AmeriHealth Caritas DC?', a: 'Yes for electronic claims: they must reach the EDI vendor by 9:00 p.m. to be sent to the plan the next business day. Claims are due within 365 days of service (or of a timely claim’s denial for resubmissions), and 90% of clean claims are paid or denied within 30 days.' },
       { q: 'Does AmeriHealth Caritas DC require prior authorization for the ABA assessment?', a: 'Yes. Its lookup tool says 97151 requires prior authorization, submitted through NaviNet or by fax to 1-202-408-1031.' },
       { q: 'Which ABA codes need PA with AmeriHealth Caritas DC?', a: '97151, 97152, 97153, 97155, 0362T and 0373T. The tool says 97154, 97156, 97157 and 97158 do not, for a participating provider in an outpatient setting with the code on its contract.' },
       { q: 'I treated a Wellpoint DC child. What now?', a: 'Wellpoint members moved to AmeriHealth Caritas DC on August 1, 2026. Wellpoint authorizations are honored through October 31, 2026; request a new authorization from AmeriHealth before then and join its network (dcprovidernetwork@amerihealthcaritasdc.com, 877-759-6186).' },
@@ -832,6 +834,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
         h2: 'Claims: prompt pay and filing deadlines in the District',
         body: [
           'D.C. Code § 31-3132 makes an insurer pay a clean claim "within 30 days after the receipt," with interest of 1.5% a month from day 31, 2% from day 61 and 2.5% after day 120, unless it disputes the claim in writing within 30 days and pays any undisputed part. It must allow at least 180 days from the date of service to file. An electronic claim is presumed received within 24 hours. Retroactive denials are limited to 6 months after payment (18 months for coordination-of-benefits cases). Aetna’s provider manual (6/26) ties payment to "the rates and compensation under your agreement," and members cannot be charged more than the contracted rate. Self-funded plans follow their own plan terms.',
+          'Aetna’s Health Care Professional Toolkit (6/26) publishes no claim filing deadline: the limit for initial, corrected and secondary claims is the one in your Aetna participation agreement, and claim disputes "Must be submitted within contractual timeframes." The toolkit defines a clean claim as one "received in a timely manner" with all required data, and says a clean claim "Doesn’t involve coordination of benefits," so secondary claims sit outside the clean-claim clock. It publishes no check-run or weekly cut-off schedule.',
         ],
         cites: [S.dc3132, S.dc3133, S.aetnaOM],
       },
@@ -841,6 +844,13 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
           'Not as a standing rule. Aetna\u2019s provider manual (June 2026) says a clean claim includes \u201cA corresponding referral (whether in paper or electronic format), if required for the applicable claim,\u201d along with \u201cAll the data elements of the UB-04 or CMS-1500.\u201d For behavioral health, which is where Aetna places ABA, \u201cMembers may access behavioral health care in three ways: Through direct access to the behavioral health provider; Through a recommendation from the primary care physician or other treatment provider; Through a referral from an employee assistance or student assistance program provider.\u201d So box 17 is needed only when the member\u2019s plan requires a referral for the service; in Aetna Open Access plans \u201creferrals also are not necessary.\u201d Where a PCP referral is required, it must be issued before the visit: \u201cReferrals should not be retroactive.\u201d',
         ],
         cites: [S.aetnaOM],
+      },
+      {
+        h2: 'What a reauthorization must show',
+        body: [
+          'Aetna’s ABA medical necessity guide (©2026) sets what a renewal must show: the plan records baseline levels of each target behavior by "frequency, rate, symptom intensity or duration, or other objective measures," with "quantifiable criteria for progress"; where target behaviors have improved, documentation of that improvement is included, and where they have not, documentation of "modification of the treatment, additional assessments that have been conducted, and/or there has been appropriate consultations from other staff or experts." "A member’s progress is to be evaluated every six months," and the guide relies on "Repeated measurement with standardized measures to assess progress." It does not require graphs and sets no data-recency window.',
+        ],
+        cites: [S.aetnaGuide],
       },
     ],
     collect: [
@@ -938,6 +948,8 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Aetna require graphs for ABA reauthorizations?', a: 'No. Aetna’s ABA medical necessity guide asks for objective baseline measures, quantifiable progress criteria, standardized re-measurement and a six-monthly progress evaluation, with treatment changes documented where there is no improvement, but it does not require graphs or set a data-recency window.' },
+      { q: 'What are Aetna’s claim filing deadlines for District of Columbia ABA claims?', a: 'Aetna’s provider toolkit publishes no filing limit; the participation agreement sets it for initial, corrected and secondary claims, and a claim involving coordination of benefits is not a "clean claim." No check-run schedule is published.' },
       { q: 'Does Aetna (DC) require a referring provider on ABA claims?', a: 'Only when the member\u2019s plan requires a referral. Aetna\u2019s June 2026 provider manual counts a referral as part of a clean claim only "if required for the applicable claim," and members can reach behavioral health care by direct access. Open Access plans need no referral. Check the member\u2019s plan on the eligibility response.' },
       { q: 'Does Aetna cover ABA therapy in Washington, DC?', a: 'Yes, under its national ABA guide for ASD. Fully insured DC plans must also cover habilitative services for autism for children under 21 under D.C. Code § 31-3272. Federal employee and self-funded plans follow their own terms.' },
       { q: 'Does the DC autism mandate cap ABA hours or dollars?', a: 'No. § 31-3272 bars limits on habilitative coverage that are more restrictive than those for other conditions. Its age limit is under 21.' },
@@ -1006,6 +1018,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
         h2: 'Claims: Evernorth’s 90-day rule meets DC’s 180-day floor',
         body: [
           'Evernorth’s Administrative Guidelines (September 2026) set a 90-day filing limit but list an exception where "Applicable state law provides for a longer timely filing limit in which case that time limit will apply." D.C. Code § 31-3132 requires a District-regulated insurer to allow "a minimum of 180 days from the date a covered service is rendered" and to pay clean claims within 30 days, with interest of 1.5% a month from day 31, 2% from day 61 and 2.5% after day 120. A self-funded plan is not bound by the District statute, so file within 90 days when in doubt. Rates are in "Exhibit A in your Provider Agreement"; virtual services carry modifier 95, which Evernorth says "will not change the reimbursement."',
+          'Evernorth’s guidelines also set the secondary and resubmission clocks: for a secondary claim the 90 days run from "the primary payer’s processing date as stated on an explanation of benefits [EOB] or explanation of payment [EOP]," Medicaid-primary claims get three years, and a timely claim returned for more information gets a new 90 days from the date of the request. The District of Columbia Regulatory Addendum adds that after a retroactive denial for coordination of benefits the provider has 180 days from the denial to bill the responsible insurer. No check-run or weekly cut-off schedule is published.',
         ],
         cites: [S.ebhAdmin, S.dc3132],
       },
@@ -1015,6 +1028,13 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
           'Not required. Evernorth\u2019s Behavioral Health Administrative Guidelines (September 2026), which govern Cigna behavioral claims including ABA, say for 837 claims: \u201cThe \u2018Billing Provider\u2019 Taxpayer Identification Number (TIN) and NPI are required. Any additional provider identification on the claim, such as the \u2018Rendering Provider\u2019 or \u2018Referring Provider,\u2019 must include the name and NPI when submitted.\u201d So box 17/17b is optional, but if you fill it in, give the referring clinician\u2019s name and NPI together.',
         ],
         cites: [S.ebhAdmin],
+      },
+      {
+        h2: 'What a reauthorization must show',
+        body: [
+          'Evernorth’s EN0499 sets what a continued-treatment request must show: "current data" collected "within no more than 60 days prior to the start date of the continued treatment request, as well as collected within no more than 60 days prior to the date the authorization request is received," with collection dates, for every behavior and skill targeted; data showing "ongoing and sustained progress toward mastering the treatment goals"; measurable improvement on "a reliable, valid, and standardized assessment instrument completed no more than one year prior to the start date of the continued treatment request"; an account of barriers and plan changes where progress is not shown; and dated stakeholder (caregiver) training data. EN0499 does not require the data to be graphed.',
+        ],
+        cites: [S.en0499],
       },
     ],
     collect: [
@@ -1106,6 +1126,8 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Cigna require graphs for ABA reassessments?', a: 'No. Evernorth’s EN0499 requires dated data collected within 60 days before both the requested start date and the request’s receipt, sustained progress, and a standardized assessment from the past year, but it does not require graphs.' },
+      { q: 'What are Cigna (Evernorth)’s claim filing deadlines for District of Columbia ABA claims?', a: '90 days from the date of service unless your provider agreement or a longer state limit applies; secondary claims get 90 days from the primary payer’s EOB/EOP date, and a claim returned for more information gets a new 90 days. No check-run schedule is published.' },
       { q: 'Does Cigna (DC) require a referring provider on ABA claims?', a: 'No. Evernorth\u2019s September 2026 administrative guidelines require only the billing provider\u2019s TIN and NPI; a referring provider is optional, but if you report one it "must include the name and NPI."' },
       { q: 'Does Cigna cover ABA therapy in Washington, DC?', a: 'Yes, under EN0499 for ASD. Fully insured DC plans must also cover habilitative services for autism for children under 21 under D.C. Code § 31-3272. Self-funded and federal employee plans follow their own terms.' },
       { q: 'Does the Cigna ABA assessment need prior authorization in DC?', a: 'No, for 97151, 97152 and 0362T with an autism diagnosis when the provider is independently licensed or a BCBA. PA starts at treatment.' },
@@ -1176,6 +1198,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
         h2: 'Claims and the credential modifiers',
         body: [
           'Optum’s National Network Manual (effective Sept. 1, 2026) defines the Fee Maximum as "The maximum amount a participating provider may be paid for a specific health care service provided to a member" and says "Reimbursement to clinicians is based upon licensure rather than degree." Its commercial ABA Reimbursement Policy (2022RP501A) puts the credential on every line: HM for an RBT, HN for a BCaBA, HO for a master’s-level BCBA, HP for a doctoral-level provider, with indirect work bundled into the direct codes. For fully insured District plans, D.C. Code § 31-3132 requires payment of clean claims within 30 days (interest after) and at least 180 days to file.',
+          'Optum’s National Network Manual: claims must be received "no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan," and "Any corrections or additions to a claim should be made within 90 days of initial claim receipt." Complete, authorized claims "will be paid within 45 calendar days after Optum receives the claim, or as required by state and federal laws," which may exclude claims that need coordination-of-benefits decisions; the manual sets no separate secondary-claim deadline and publishes no check-run schedule.',
         ],
         cites: [S.optumNNM, S.optumReimb, S.dc3132],
       },
@@ -1185,6 +1208,13 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
           'Not for ABA. Optum\u2019s National Network Manual (effective September 1, 2026), which governs UnitedHealthcare behavioral health claims including ABA, lists what a Form 1500 claim should carry: member and subscriber names and dates of birth, member ID, ICD diagnosis, dates of service, length of session, type and duration of service, and the clinician\u2019s name, credentials, tax ID and NPI. A referring provider is not on the list. UnitedHealthcare\u2019s 2026 Administrative Guide asks for a valid billing NPI, rendering NPI and taxonomy on all claims and adds \u201cwe encourage you to submit the referring health care provider\u2019s NPI\u201d; it makes the referring provider\u2019s name and NPI mandatory only on \u201claboratory, DME, imaging and home health claims.\u201d',
         ],
         cites: [S.optumNNM, { title: '2026 UnitedHealthcare Care Provider Administrative Guide — Chapter 10, claims and NPI', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }],
+      },
+      {
+        h2: 'What a reauthorization must show',
+        body: [
+          'Optum’s ABA Supplemental Clinical Criteria (review 04/2026) set what each continued-service review needs: progress "assessed and documented for each targeted symptom and behavior … including the same modes of measurement that were utilized for baseline measurement"; progress that includes "rate and percentage of mastered programs, rates of mastered targets, change scores for any outcome measures, updated standardized adaptive measures, and change scores for skills-based assessments"; an assessment of the reasons and modified interventions when there is inadequate progress "within a 6-month period"; and an explanation when use of authorized hours falls below 80% over a two-week period. Treatment plans "are usually reviewed/updated twice annually." The criteria do not require graphs.',
+        ],
+        cites: [S.optumSCC],
       },
     ],
     collect: [
@@ -1279,6 +1309,8 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare (Optum) require graphs for ABA continued-service reviews?', a: 'No. Optum’s criteria ask for progress on every target using the baseline measurement method, mastery rates and change scores, updated standardized adaptive measures, and an explanation of low hour use, but they do not require graphs.' },
+      { q: 'What are UnitedHealthcare (Optum)’s claim filing deadlines for District of Columbia ABA claims?', a: '90 calendar days from the date of service (or longer where state law or the plan allows), corrections within 90 days of the original claim’s receipt, and payment of complete claims within 45 days or the state’s shorter clock. No check-run schedule is published.' },
       { q: 'Does UnitedHealthcare (DC) require a referring provider on ABA claims?', a: 'No. Optum\u2019s National Network Manual lists the required claim fields for behavioral health claims without a referring provider, and UnitedHealthcare\u2019s 2026 Administrative Guide only encourages the referring NPI. It is mandatory there only on lab, DME, imaging and home health claims.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in Washington, DC?', a: 'Yes, under Optum’s national ABA criteria for ASD. Fully insured DC plans must also cover habilitative services for autism for children under 21 under D.C. Code § 31-3272.' },
       { q: 'Does Optum have DC-specific ABA criteria?', a: 'No. Optum’s ABA State Mandates supplement (July 2026) has no District of Columbia entry.' },
@@ -1344,8 +1376,9 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
         h2: 'Credentialing and billing in the District',
         body: [
           'CareFirst contracts with "independently practicing licensed healthcare practitioners," who must be "licensed in the state where the member receives the service" and practice within its Maryland, DC and Northern Virginia service area. Its list of eligible professionals names "Licensed Board-Certified Behavior Analyst (Maryland and Virginia only)," so a BCBA practicing in the District should ask CareFirst how it credentials DC behavior analysts now that the District licenses them. CareFirst’s payment-policy index lists PP CO 020.01, "Limited Licensed Providers," as covering "Assistant Behavior Analysts and Registered Behavior Technicians"; we could not open the policy text. Claims "must be submitted within 365 days from the date of service," and billing and rendering NPIs are required on every claim.',
+          'For District-regulated plans, D.C. Code § 31-3132 requires a health insurer to reimburse "within 30 days after the receipt of a clean claim," with interest at 1.5% a month from the 31st day, 2% from the 61st and 2.5% after the 120th, and to allow "a minimum of 180 days from the date a covered service is rendered" to file; an electronic claim is presumed received within 24 hours. CareFirst’s 365-day limit is longer than that floor. CareFirst publishes no check-run schedule in the documents we read.',
         ],
-        cites: [S.cfCh3, S.cfCh5],
+        cites: [S.cfCh3, S.cfCh5, S.dc3132],
       },
       {
         h2: 'The District mandate: what it guarantees',
@@ -1478,6 +1511,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'How fast must CareFirst pay a DC claim?', a: 'For District-regulated plans, within 30 days of a clean claim under D.C. Code § 31-3132, with interest after that (1.5% a month, rising to 2% and 2.5%). Self-funded plans are not bound by the statute.' },
       { q: 'Does an out-of-state Blue plan (for example Anthem) work if I am a CareFirst provider in DC?', a: 'Yes, through the BlueCard program, unless it is an FEP card or an EPO with no out-of-area benefits. Get the ABA prior authorization from the member\u2019s home plan, using carefirst.com/preauth with the card prefix, BlueCard Eligibility at 800-676-BLUE, or Electronic Provider Access in CareFirst Direct. Then file the claim with CareFirst with the full ID and prefix; CareFirst pays you under your CareFirst contract based on the member\u2019s home-plan benefits.' },
       { q: 'Does CareFirst require prior authorization for ABA in DC?', a: 'Yes. ABA (policy 3.01.015) is on the BlueChoice HMO authorization list, habilitative services (8.01.011A) need pre-service review on PPO, and FEP plans require prior authorization for ABA. Check codes in the PAL tool or at 1-866-773-2884.' },
       { q: 'Does the DC mandate apply to a federal employee’s CareFirst plan?', a: 'No. D.C. Code § 31-3271 excludes federal employee health plans. FEP plans still list ABA as needing prior authorization, so follow the FEP rules.' },

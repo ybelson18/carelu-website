@@ -9,6 +9,8 @@ import type { PayerConfig, PayerSource } from './types.js';
    aetnabetterhealth.com 403s the Kentucky ABA notice; ch.aetnabetterhealth.com serves it. */
 
 const S: Record<string, PayerSource> = {
+  anthemBC: { title: 'Anthem — The BlueCard Program Provider Manual (PM_KY_00004, January 2021 edition)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_KY_00004.pdf' },
+  anthemPM: { title: 'Anthem Blue Cross and Blue Shield — 2026 Kentucky Commercial Provider Manual (PM_KY_00011, effective September 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_KY_00011.pdf' },
   anthWeekly: { title: 'Anthem Blue Cross and Blue Shield (Kentucky) provider news — Streamlined ABA claim process starts March 1, 2026 (weekly approved units)', url: 'https://providernews.anthem.com/kentucky/articles/streamlined-aba-claim-process-starts-march-1-2026-27885' },
   anthMCG: { title: 'Anthem Blue Cross and Blue Shield (Kentucky) provider news — MCG care guidelines 27th edition update: ABA reviews move from CG-BEH-02 to MCG B-806-T from June 1, 2024', url: 'https://providernews.anthem.com/kentucky/articles/mcg-care-guidelines-27th-edition-update-17867-17867' },
   kar15005: { title: '907 KAR 15:005 — Definitions for 907 KAR Chapter 15 (approved behavioral health practitioner incl. licensed behavior analyst; registered behavior technician)', url: 'https://apps.legislature.ky.gov/law/kar/titles/907/015/005/' },
@@ -63,7 +65,7 @@ const S: Record<string, PayerSource> = {
   optKySCC: { title: 'Optum — Kentucky Medicaid Supplemental Clinical Criteria (BH803KY062026, eff. June 2026; no ABA section)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ky_scc/kyMedicaid-SupClin_Critr.pdf' },
   // WellCare of Kentucky
   wcPM: { title: 'WellCare of Kentucky — 2025–2026 Kentucky Medicaid Provider Manual (state approved 10/10/2025)', url: 'https://www.wellcareky.com/content/dam/centene/wellcare/ky/pdfs/provider/KY_Medicaid_Provider_Manual_2026_R.pdf' },
-  wcPAL: { title: 'WellCare of Kentucky — Kentucky Medicaid Prior Authorization List, Q3 2026', url: 'https://www.wellcareky.com/content/dam/centene/wellcare/ky/pdfs/provider/KY_Caid_Prior_Authorization_List_Q3_2026_R.pdf' },
+  wcPAL: { title: 'WellCare of Kentucky — Kentucky Medicaid Prior Authorization List, Q4 2026 (published October 2026)', url: 'https://www.wellcareky.com/content/dam/centene/wellcare/ky/pdfs/provider/KY_Caid_Prior_Authorization_List_Q4_2026_R.pdf' },
   // Commercial national policies (fetched this run)
   aetnaGuide: { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026; Maryland is the only state exhibit)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
   aetnaCPB648: { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
@@ -176,7 +178,7 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
         h2: 'Prior authorization came back in 2025',
         body: [
           'Behavioral health prior authorization was suspended for years after the COVID-19 emergency. In 2025 the General Assembly ended that: House Bill 695, Section 20, directed DMS "to, within 90 days after the effective date of this Act, reinstate all prior authorization requirements for behavioral health services in the Medicaid program that were in place and required for behavioral health services on January 1, 2020," effective June 25, 2025. DMS rescinded its own narrower March 2025 plan and told each MCO to give providers 30 days’ notice of its requirements. The plans did so: Aetna Better Health from June 25, 2025, Humana and Passport from July 1, 2025.',
-          'DMS’s August 2025 chart of MCO behavioral health PA rules lists ABA (97151–97158) as requiring prior authorization at Aetna, Humana, UnitedHealthcare and WellCare, and at Passport "Yes, except for 97151 and 97152," with PA "required after 48 units (12 hrs.) per member, per Calendar Year." Since then WellCare’s own Q3 2026 list has released 97157 from authorization. For fee-for-service members, DMS says those who "require prior authorization for additional services deemed medically necessary" should contact CareWise; no FFS ABA code list was found.',
+          'DMS’s August 2025 chart of MCO behavioral health PA rules lists ABA (97151–97158) as requiring prior authorization at Aetna, Humana, UnitedHealthcare and WellCare, and at Passport "Yes, except for 97151 and 97152," with PA "required after 48 units (12 hrs.) per member, per Calendar Year." WellCare’s own lists released 97157 from authorization on February 1, 2026 and, on the Q4 2026 list, require it again from October 1, 2026. For fee-for-service members, DMS says those who "require prior authorization for additional services deemed medically necessary" should contact CareWise; no FFS ABA code list was found.',
         ],
         cites: [S.dmsPaLetter, S.mcoPaChart, S.abhPaBh, S.humBhPa, S.molEnews, S.wcPAL, S.lbaPage],
       },
@@ -608,6 +610,7 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
         h2: 'Claims, credentialing and appeals',
         body: [
           'Passport’s 2026 manual (last updated June 22, 2026) requires claims "within 365 calendar days after … the Date of Service for outpatient services," with the clock starting at the primary EOB for coordination-of-benefits claims. Providers "have 60 calendar days from the date of our adverse determination to file an Appeal." Credentialing decisions are issued "within 30 calendar days of receiving either a provider’s credentialing request or a completed uniform credentialing form, whichever occurs first." After an adverse determination a provider may request a peer-to-peer within five business days. Passport uses MCG and shares the clinical indications through MCG Cite for Guideline Transparency in Availity.',
+          'Passport’s 2026 manual adds that "Corrected Claims must be sent within 365 calendar days of the date of service of the Claim," through Availity Essentials or EDI with the frequency code and original claim number. It publishes no separate check-run schedule.',
         ],
         cites: [S.molPM],
       },
@@ -836,14 +839,14 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
   'wellcare-kentucky': {
     slug: 'wellcare-kentucky',
     family: 'centene',
-    cardDesc: 'Centene’s Kentucky Medicaid MCO: PA on 97151–97156 and 97158 (97157 released 2/1/2026); InterQual criteria.',
+    cardDesc: 'Centene’s Kentucky Medicaid MCO: PA on every ABA code (97157 back on the list from 10/1/2026); InterQual criteria.',
     assessmentPA: {
-      value: 'Yes. WellCare’s Q3 2026 Kentucky Medicaid PA list carries 97151 and 97152 with a "Date Requiring Auth" of 1/1/2019 and no "No Auth Required" flag; DMS’s chart also lists WellCare ABA as PA required',
+      value: 'Yes. WellCare’s Q4 2026 Kentucky Medicaid PA list carries 97151 and 97152 with a "Date Requiring Auth" of 1/1/2019 and no "No Auth Required" flag (0362T since 9/15/2018); DMS’s chart also lists WellCare ABA as PA required',
       status: 'verified',
       cites: [S.wcPAL, S.mcoPaChart],
     },
     treatmentPA: {
-      value: 'Yes for 97153, 97154, 97155, 97156 and 97158; 97157 (multiple-family group guidance) shows "No Auth Required," authorization released 2/01/2026',
+      value: 'Yes for every ABA code: the Q4 2026 list shows 97153, 97154, 97155, 97156 and 97158 requiring authorization since 1/1/2019 and 0373T since 9/15/2018, and puts 97157 (multiple-family group guidance) back on the list with a "Date Requiring Auth" of 10/1/2026 (the Q3 2026 list had shown it released on 2/1/2026)',
       status: 'verified',
       cites: [S.wcPAL],
     },
@@ -862,11 +865,11 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
     metaDescription:
       'How WellCare of Kentucky (Centene) covers ABA for Kentucky Medicaid members: which ABA codes need prior authorization in 2026, InterQual criteria, filing limits and claim appeals.',
     intro: [
-      'WellCare of Kentucky is Centene’s Kentucky Medicaid MCO. Its quarterly prior authorization list is the place to check ABA codes: as of Q3 2026 every ABA code needs authorization except 97157, which WellCare released on February 1, 2026.',
+      'WellCare of Kentucky is Centene’s Kentucky Medicaid MCO. Its quarterly prior authorization list is the place to check ABA codes: on the Q4 2026 list every ABA code needs authorization, including 97157, which WellCare had released on February 1, 2026 and put back on the list from October 1, 2026.',
     ],
     atGlance: [
       { label: 'Covers ABA?', value: 'Yes, Kentucky Medicaid covered service' },
-      { label: 'Prior auth', value: '97151–97156 and 97158 required; 97157 no auth since 2/1/2026 (Q3 2026 list)' },
+      { label: 'Prior auth', value: 'All ABA codes; 97157 required again from 10/1/2026 (Q4 2026 list)' },
       { label: 'Submit via', value: 'Availity Essentials or the WellCare provider portal; BH outpatient fax 1-877-544-2007 (ATTN: BHO)' },
       { label: 'Criteria', value: 'InterQual (licensed)' },
       { label: 'Timely filing', value: '12 months from the date of service (or 6 months from primary payment, if later)' },
@@ -876,7 +879,7 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
       {
         h2: 'Prior authorization by code',
         body: [
-          'WellCare’s Kentucky Medicaid Prior Authorization List for Q3 2026 shows 97151, 97152, 97153, 97154, 97155, 97156 and 97158 with a "Date Requiring Auth" of 1/1/2019 and no release, while 97157 reads "No Auth Required," "Authorization released 2/01/2026." WellCare notes that the list is not all-inclusive and that its secure provider portal is "the most accurate method" of checking requirements. DMS’s August 2025 chart lists the ways to submit a WellCare behavioral health PA: Availity Essentials or the WellCare provider portal, phone 1-877-389-9457, or fax 1-877-544-2007 marked ATTENTION TO: BHO for outpatient behavioral health. WellCare’s manual says it "has adopted utilization review criteria developed by InterQual® products to determine medical necessity for healthcare services."',
+          'WellCare’s Kentucky Medicaid Prior Authorization List for Q4 2026 (published October 2026) shows 97151, 97152, 97153, 97154, 97155, 97156 and 97158 with a "Date Requiring Auth" of 1/1/2019 and no release, 0362T and 0373T from 9/15/2018, and 97157 among the codes requiring authorization from 10/1/2026. The Q3 2026 list had shown 97157 as "No Auth Required," "Authorization released 2/01/2026," so a 97157 session on or after October 1, 2026 needs an authorization. WellCare notes that the list is not all-inclusive and that its secure provider portal is "the most accurate method" of checking requirements. DMS’s August 2025 chart lists the ways to submit a WellCare behavioral health PA: Availity Essentials or the WellCare provider portal, phone 1-877-389-9457, or fax 1-877-544-2007 marked ATTENTION TO: BHO for outpatient behavioral health. WellCare’s manual says it "has adopted utilization review criteria developed by InterQual® products to determine medical necessity for healthcare services."',
         ],
         cites: [S.wcPAL, S.mcoPaChart, S.wcPM],
       },
@@ -884,13 +887,14 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
         h2: 'Claims and appeals',
         body: [
           'The 2025–2026 manual (state approved October 10, 2025) requires claims "within 12 months (or six months from the Medicaid or primary insurance payment date, whichever is later) from the date of service," unless the provider contract says otherwise, and accepts a clearinghouse acceptance report or a detailed electronic submission sheet as proof of timely filing. "Claim payment appeals must be submitted to WellCare in writing within 24 months of the date of denial of the EOP." Medicaid is the payor of last resort, and WellCare cost-avoids claims when it knows of other coverage.',
+          'That clock covers every claim type: the manual names claims "(initialed, corrected and voided)," and "Corrected and/or voided claims are subject to timely claims submission" rules (frequency 7 to replace, 8 to void). A claim billed after the primary payer pays must show the primary payment, and when WellCare knows of other coverage it denies and redirects the claim to that payer first. A claim subject to coordination of benefits is not a "Clean Claim." On payment the manual says "Refer to the Provider Contract" and that WellCare complies with Kentucky’s prompt-pay statute (KRS 304.17A-700 to -730); it publishes no check-run schedule.',
         ],
         cites: [S.wcPM],
       },
     ],
     collect: [
       { title: 'Member ID', desc: 'Confirm WellCare of Kentucky Medicaid on the date of service.' },
-      { title: 'Codes to request', desc: 'Authorize 97151–97156 and 97158; 97157 needs none under the Q3 2026 list.' },
+      { title: 'Codes to request', desc: 'Authorize every ABA code you will bill, 97157 included (required again from 10/1/2026).' },
       { title: 'Diagnosis and treatment plan', desc: 'InterQual criteria are licensed; send the full diagnostic report and plan.' },
       { title: 'Other insurance', desc: 'WellCare cost-avoids claims when other coverage is known; bill the primary first.' },
     ],
@@ -964,7 +968,7 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
       coordinationOfBenefits: { value: 'WellCare’s manual quotes the contract: if WellCare is aware of other coverage it "shall avoid payment by ‘cost avoiding’ (denying) the claim and redirecting the provider to bill the other Third Party Resource as a primary payer." ' + KY_MCD_COB, status: 'verified', cites: [S.wcPM, S.mcoContract, S.cfr433] },
     },
     faq: [
-      { q: 'Which ABA codes need prior authorization at WellCare of Kentucky?', a: 'Under the Q3 2026 list, 97151, 97152, 97153, 97154, 97155, 97156 and 97158. 97157 has needed no authorization since February 1, 2026.' },
+      { q: 'Which ABA codes need prior authorization at WellCare of Kentucky?', a: 'All of them on the Q4 2026 list: 97151–97158, 0362T and 0373T. 97157 was released on February 1, 2026 but needs authorization again from October 1, 2026.' },
       { q: 'What criteria does WellCare of Kentucky use for ABA?', a: 'Its manual says it uses InterQual for medical necessity. InterQual is licensed and not published.' },
       { q: 'What is WellCare of Kentucky’s timely filing limit?', a: '12 months from the date of service, or six months from the primary payment date if later; claim payment appeals within 24 months of the denial.' },
     ],
@@ -1024,8 +1028,16 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
         h2: 'What is Aetna’s fee schedule for ABA, and how fast must it pay?',
         body: [
           'Aetna publishes no ABA rate table. Its provider manual (6/26) says "The rates and compensation under your agreement are subject to the Aetna coding/claim edit policies," and where a provider has both an intermediary and a direct agreement, "your direct Aetna rates will apply unless we specifically notify you otherwise." Get rates from your Aetna agreement. ' + KY_PROMPT_PAY,
+          'Aetna’s Health Care Professional Toolkit (6/26) publishes no claim filing deadline: the limit for initial, corrected and secondary claims is the one in your Aetna participation agreement, and claim disputes "Must be submitted within contractual timeframes." The toolkit defines a clean claim as one "received in a timely manner" with all required data, and says a clean claim "Doesn’t involve coordination of benefits," so secondary claims sit outside the clean-claim clock. It publishes no check-run or weekly cut-off schedule.',
         ],
         cites: [S.aetnaOM, S.krs702, S.krs730],
+      },
+      {
+        h2: 'What a reauthorization must show',
+        body: [
+          'Aetna’s ABA medical necessity guide (©2026) sets what a renewal must show: the plan records baseline levels of each target behavior by "frequency, rate, symptom intensity or duration, or other objective measures," with "quantifiable criteria for progress"; where target behaviors have improved, documentation of that improvement is included, and where they have not, documentation of "modification of the treatment, additional assessments that have been conducted, and/or there has been appropriate consultations from other staff or experts." "A member’s progress is to be evaluated every six months," and the guide relies on "Repeated measurement with standardized measures to assess progress." It does not require graphs and sets no data-recency window.',
+        ],
+        cites: [S.aetnaGuide],
       },
     ],
     collect: [
@@ -1123,6 +1135,8 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Aetna require graphs for ABA reauthorizations?', a: 'No. Aetna’s ABA medical necessity guide asks for objective baseline measures, quantifiable progress criteria, standardized re-measurement and a six-monthly progress evaluation, with treatment changes documented where there is no improvement, but it does not require graphs or set a data-recency window.' },
+      { q: 'What are Aetna’s claim filing deadlines for Kentucky ABA claims?', a: 'Aetna’s provider toolkit publishes no filing limit; the participation agreement sets it for initial, corrected and secondary claims, and a claim involving coordination of benefits is not a "clean claim." No check-run schedule is published.' },
       { q: 'Does Aetna cover ABA therapy in Kentucky?', a: 'Yes, under its national guide for ASD, with Kentucky’s KRS 304.17A-142 mandate layered on for fully insured plans. Self-funded employer plans follow their own documents.' },
       { q: 'Does Kentucky’s autism mandate have an age or dollar cap?', a: 'No. Since January 1, 2019 KRS 304.17A-142 covers diagnosis and treatment of autism, including ABA, without any maximum annual benefit or visit limit, and with no age limit in the text.' },
       { q: 'Does a BCBA need a Kentucky license to bill Aetna?', a: 'Yes. Kentucky requires a KRS 319C license to practice ABA, and Aetna’s guide requires a licensed behavior analyst in states with licensure laws.' },
@@ -1182,8 +1196,16 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
         h2: 'What is Cigna’s fee schedule for ABA, and how fast must it pay?',
         body: [
           'Evernorth puts ABA rates in the contract: "For your fee schedule and a listing of autism spectrum disorder–related services eligible for reimbursement, refer to Exhibit A in your Provider Agreement," and payment is "the lesser of the billed charge or the applicable fee under Exhibit A." Its Kentucky Regulatory Addendum (which does not apply to self-funded plans) requires Evernorth to provide fee schedules on request before contracting, to give at least 90 days’ notice of fee-schedule changes and material changes, 15 days’ notice of changes to prior authorization programs, and limits retroactive denials to 24 months after payment. Fee questions go to Provider Services at 800.926.2273. Telehealth is billed with modifier 95, which "will not change the reimbursement." ' + KY_PROMPT_PAY,
+          'Evernorth’s Behavioral Health Administrative Guidelines (September 2026) set the filing limit: "We will only consider claims submitted within 90 days of the date of service or as otherwise defined in your Provider Agreement," unless "Applicable state law provides for a longer timely filing limit." For a secondary claim the 90 days run from "the primary payer’s processing date as stated on an explanation of benefits [EOB] or explanation of payment [EOP]," Medicaid-primary claims get three years, and a timely claim returned for more information gets a new 90 days from the date of the request. The Kentucky Regulatory Addendum adds no filing deadline, but Evernorth need not correct a claim payment error if the request is filed "more than twenty-four (24) months after the date that Provider received payment for the claim." State addenda do not apply to self-funded plans. The guidelines publish no check-run or weekly cut-off schedule.',
         ],
         cites: [S.ebhAdmin, S.krs702, S.krs730],
+      },
+      {
+        h2: 'What a reauthorization must show',
+        body: [
+          'Evernorth’s EN0499 sets what a continued-treatment request must show: "current data" collected "within no more than 60 days prior to the start date of the continued treatment request, as well as collected within no more than 60 days prior to the date the authorization request is received," with collection dates, for every behavior and skill targeted; data showing "ongoing and sustained progress toward mastering the treatment goals"; measurable improvement on "a reliable, valid, and standardized assessment instrument completed no more than one year prior to the start date of the continued treatment request"; an account of barriers and plan changes where progress is not shown; and dated stakeholder (caregiver) training data. EN0499 does not require the data to be graphed.',
+        ],
+        cites: [S.en0499],
       },
     ],
     collect: [
@@ -1275,6 +1297,8 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Cigna require graphs for ABA reassessments?', a: 'No. Evernorth’s EN0499 requires dated data collected within 60 days before both the requested start date and the request’s receipt, sustained progress, and a standardized assessment from the past year, but it does not require graphs.' },
+      { q: 'What are Cigna (Evernorth)’s claim filing deadlines for Kentucky ABA claims?', a: '90 days from the date of service unless your provider agreement or a longer state limit applies; secondary claims get 90 days from the primary payer’s EOB/EOP date, and a claim returned for more information gets a new 90 days. No check-run schedule is published.' },
       { q: 'Does Cigna cover ABA therapy in Kentucky?', a: 'Yes, under EN0499 for ASD, with Kentucky’s KRS 304.17A-142 mandate layered on for fully insured plans.' },
       { q: 'Does the Cigna ABA assessment need prior authorization in Kentucky?', a: 'No, for 97151, 97152 and 0362T with an autism diagnosis when the provider is independently licensed or a BCBA. PA starts at treatment.' },
       { q: 'Can a BCBA in another state treat a Kentucky Cigna member by telehealth?', a: 'Only with a Kentucky license: the Kentucky ABA board requires a license for telehealth to a client located in Kentucky (201 KAR 43:100), and fully insured plans may require a Kentucky-licensed telehealth provider (KRS 304.17A-138).' },
@@ -1336,8 +1360,16 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
         h2: 'What is UnitedHealthcare’s fee schedule for ABA, and how fast must it pay?',
         body: [
           'UnitedHealthcare publishes no ABA rate table; Optum’s National Network Manual defines the Fee Maximum as "The maximum amount a participating provider may be paid for a specific health care service provided to a member," and Optum’s commercial ABA reimbursement policy puts the credential level on each line (HM for an RBT, HN for a BCaBA, HO for a master’s-level BCBA or licensed clinician, HP for doctoral level). ' + KY_PROMPT_PAY,
+          'Optum’s National Network Manual: claims must be received "no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan," and "Any corrections or additions to a claim should be made within 90 days of initial claim receipt." Complete, authorized claims "will be paid within 45 calendar days after Optum receives the claim, or as required by state and federal laws," which may exclude claims that need coordination-of-benefits decisions; the manual sets no separate secondary-claim deadline and publishes no check-run schedule.',
         ],
         cites: [S.optumNNM, S.optumReimb, S.krs702, S.krs730],
+      },
+      {
+        h2: 'What a reauthorization must show',
+        body: [
+          'Optum’s ABA Supplemental Clinical Criteria (review 04/2026) set what each continued-service review needs: progress "assessed and documented for each targeted symptom and behavior … including the same modes of measurement that were utilized for baseline measurement"; progress that includes "rate and percentage of mastered programs, rates of mastered targets, change scores for any outcome measures, updated standardized adaptive measures, and change scores for skills-based assessments"; an assessment of the reasons and modified interventions when there is inadequate progress "within a 6-month period"; and an explanation when use of authorized hours falls below 80% over a two-week period. Treatment plans "are usually reviewed/updated twice annually." The criteria do not require graphs.',
+        ],
+        cites: [S.optumSCC],
       },
     ],
     collect: [
@@ -1432,6 +1464,8 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare (Optum) require graphs for ABA continued-service reviews?', a: 'No. Optum’s criteria ask for progress on every target using the baseline measurement method, mastery rates and change scores, updated standardized adaptive measures, and an explanation of low hour use, but they do not require graphs.' },
+      { q: 'What are UnitedHealthcare (Optum)’s claim filing deadlines for Kentucky ABA claims?', a: '90 calendar days from the date of service (or longer where state law or the plan allows), corrections within 90 days of the original claim’s receipt, and payment of complete claims within 45 days or the state’s shorter clock. No check-run schedule is published.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in Kentucky?', a: 'Yes, under Optum’s ABA criteria for ASD, with Kentucky’s KRS 304.17A-142 mandate applied to fully insured plans through Optum’s Kentucky state-mandate section.' },
       { q: 'Does Optum have Kentucky-specific ABA criteria?', a: 'Yes. Since November 2025 Optum’s ABA State Mandates document has a Kentucky commercial section restating KRS 304.17A-142, including utilization review no more than once every 12 months.' },
       { q: 'Can ABA be delivered by telehealth with UnitedHealthcare in Kentucky?', a: 'Optum’s commercial telehealth list allows only 97155, 97156 and 97157. Fully insured Kentucky plans are also subject to KRS 304.17A-138’s telehealth parity rules, so ask Optum how it applies the list to your plan.' },
@@ -1498,6 +1532,14 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.mcoContracts, S.krs702, S.krs730],
       },
+      {
+        h2: 'Claim filing and BlueCard',
+        body: [
+          'Anthem’s 2026 Kentucky Commercial Provider Manual does not print a filing limit: "Claims must be submitted within the timely filing timeframe specified in the Provider or Facility Agreement," late claims are denied unless proof of timely filing is shown (a clearinghouse acceptance report, a dated claim copy, or an Anthem request for more information), and "Any rejected Claims must be corrected and resubmitted within the timely filing period." A correction goes in as a full replacement claim (frequency code 7 with the original claim number in REF F8), and a claim billed to Anthem in error as a void/cancel. Anthem publishes no check-run schedule; its BlueCard manual gives its "standard time for claims processing" as "less than 10 days."',
+          'For a member of another Blue plan, Anthem’s BlueCard Program Provider Manual says you "submit claims for patients from other BCBS Plans … to your local BCBS Plan," which is "your sole contact for claims payment, adjustments and issue resolution": file to Anthem with the member ID exactly as printed, three-character prefix included. Check eligibility through Availity (HIPAA 270) or 1-800-676-BLUE (2583). Prior authorization belongs to the member’s home plan: use the "Medical Policy and Pre-Authorization/Pre-Certification Information Router" on anthem.com with the prefix, or Availity’s authorization tool, which routes out-of-state prefixes to the home plan. When another carrier is primary, send its name and address (and EOB when Anthem is secondary) with the claim, or the home plan must investigate and payment is delayed. The BlueCard manual Anthem posts is an older edition, so confirm current details with Anthem.',
+        ],
+        cites: [S.anthemPM, S.anthemBC],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (KRS 304.17A-142 applies) vs. self-funded ERISA or a National Account (plan document governs).' },
@@ -1505,7 +1547,7 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis report', desc: 'ASD diagnosis from a licensed clinician (behavior analysts cannot diagnose in Kentucky).' },
       { title: 'ABA order + treatment plan', desc: 'The mandate covers ABA "prescribed or ordered by a licensed health or allied health professional"; Anthem expects plans reviewed at least every six months.' },
     ],
-    sources: [S.anthemPA, S.anthemRG, S.mcoContracts, S.krs142, S.krs144, S.krs138, S.krs607, S.krs702, S.krs730, S.kar18030, S.krs319c010, S.krs319c020, S.krs319c080, S.krs319c090, S.kar43100, S.bacbLic, S.bhFee, S.erisa, S.cfr433],
+    sources: [S.anthemPA, S.anthemRG, S.mcoContracts, S.krs142, S.krs144, S.krs138, S.krs607, S.krs702, S.krs730, S.kar18030, S.krs319c010, S.krs319c020, S.krs319c080, S.krs319c090, S.kar43100, S.bacbLic, S.bhFee, S.erisa, S.cfr433, S.anthemPM, S.anthemBC],
     deliveryRules: {
       supervision: {
         value: 'Anthem’s resource guide approves BCBAs and "providers practicing under the direction and supervision of the BCBA," and requires the supervising BCBA or QHP in box 31 for technician work; it sets no numeric ratio. Kentucky’s board rule (201 KAR 43:050) governs supervision of licensed assistants and temporary licensees.',
@@ -1595,6 +1637,7 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'How does BlueCard work for ABA with Anthem in Kentucky?', a: 'File claims for out-of-area Blue members to Anthem, your local plan, with the full member ID and prefix; Anthem pays you and handles adjustments. Get prior authorization from the member’s home plan through Anthem’s prefix router or Availity, and check eligibility at 1-800-676-BLUE. The filing limit itself is set in your Anthem provider agreement.' },
       { q: 'Does Anthem BCBS require prior authorization for ABA in Kentucky?', a: 'Yes. ABA is on Anthem’s January 2026 precertification list for Kentucky Blues products, with Anthem as the responsible party.' },
       { q: 'Is Anthem still a Kentucky Medicaid plan?', a: 'No. Anthem left Kentucky Medicaid managed care on January 1, 2025. Kentucky’s Medicaid MCOs are Aetna Better Health, Humana Healthy Horizons, Passport by Molina, UnitedHealthcare Community Plan and WellCare.' },
       { q: 'Can 97153 and 97155 be billed together with Anthem?', a: 'Only when the technician and the QHP are both face-to-face with the patient at the same time and the QHP is directing the technician.' },

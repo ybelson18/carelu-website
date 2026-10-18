@@ -51,6 +51,7 @@ const S: Record<string, PayerSource> = {
   tc1639: { title: 'TrueCare Reimbursement Policy PY-1639 — Applied Behavior Analysis for Autism Spectrum Disorder (eff. 08/01/2026)', url: 'https://www.caresource.com/documents/medicaid-ms-policy-reimburse-py-1639-20260801' },
   tcPM: { title: 'Mississippi TrueCare — Provider Manual, MississippiCAN and CHIP (Dec. 2025 posting)', url: 'https://www.mstruecare.com/wp-content/uploads/2025/12/MS-MED-P-1902951a-Mississippi-Provider-Manual_WEB.pdf' },
   tcPAList: { title: 'TrueCare — 2026 Mississippi Medicaid Prior Authorization List (Sept. 2026 posting)', url: 'https://www.mstruecare.com/wp-content/uploads/2026/09/MS-MED-M-4855859_2026-MS-MCD-TrueCare-PA-List.pdf' },
+  tcLookup: { title: 'CareSource / TrueCare Procedure Code Prior Authorization Lookup Tool (Mississippi Medicaid, outpatient; ABA codes read 10/18/2026, rules effective 7/1/2025)', url: 'https://procedurelookup.caresource.com/' },
   tcPAPage: { title: 'TrueCare — Prior authorization (MSCAN provider page)', url: 'https://www.mstruecare.com/ms/providers/provider-portal/prior-authorization/mscan/' },
   mandate: { title: 'Miss. Code Ann. § 83-9-26 — Screening, Diagnosis, and Treatment of Autism Spectrum Disorder (Mississippi Insurance Department copy)', url: 'https://www.mid.ms.gov/wp-content/uploads/2023/04/MissCodeAnn83-9-26.pdf' },
   midAutism: { title: 'Mississippi Insurance Department — Autism (FAQ on the § 83-9-26 mandate; carriers that voluntarily removed ABA age limits)', url: 'https://www.mid.ms.gov/mississippi-insurance-department/healthcare/autism/' },
@@ -71,7 +72,7 @@ const S: Record<string, PayerSource> = {
   champva: { title: '38 CFR 17.270 — CHAMPVA is the last payer', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
   aetnaGuide: { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026; Maryland is the only state exhibit)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
   aetnaPrecert: { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
-  aetnaCPB: { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 11/26/2025)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+  aetnaCPB: { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
   aetnaCPB648: { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
   aetnaNPC: { title: 'Aetna — Provider and facility participation criteria (8100606-01-01, 5/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' },
   aetnaOM: { title: 'Aetna Health Care Professional Toolkit / office manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
@@ -608,16 +609,14 @@ export const mississippiPayers: Record<string, PayerConfig> = {
     family: 'caresource',
     cardDesc: 'CareSource’s MississippiCAN/CHIP plan since 7/1/2025: MM-1477 ABA criteria, 6-month reviews, PY-1639 billing rules; LBA required.',
     assessmentPA: {
-      value: 'TrueCare’s 2026 PA list says "No prior authorization required for assessments/evaluations" under behavioral health; MM-1477 limits behavioral assessments to 8 hours every 6 months without added justification',
+      value: 'No for 97151: TrueCare’s Procedure Code Lookup Tool (Mississippi Medicaid, outpatient) returns "Auth is required? No" for 97151, and the 2026 PA list says "No prior authorization required for assessments/evaluations" under behavioral health. The same tool returns PA required for the technician-assisted assessment 97152 and for 0362T. MM-1477 limits behavioral assessments to 8 hours every 6 months without added justification',
       status: 'verified',
-      cites: [S.tcPAList, S.tc1477],
+      cites: [S.tcLookup, S.tcPAList, S.tc1477],
     },
     treatmentPA: {
-      value: 'Conflicting documents: MM-1477 and PY-1639 require medical-necessity review before ABA starts and every 6 months, while the 2026 PA list names ABA PA only "in Outpatient Hospital setting (POS 19, 22)"',
-      status: 'plan-dependent',
-      cites: [S.tc1477, S.tc1639, S.tcPAList],
-      verifyVia: 'TrueCare Utilization Management, 1-833-230-2174 (or the Procedure Code Lookup Tool): ask whether ABA in home or clinic needs prior authorization and how the 6-month review is submitted.',
-      blocker: 'per-case',
+      value: 'Yes: TrueCare’s Procedure Code Lookup Tool (Mississippi Medicaid, outpatient, any place of service) returns "Auth is required? Yes" for 97153, 97154, 97155, 97156, 97157, 97158 and 0373T (UM review, rule effective 7/1/2025), matching MM-1477 and PY-1639, which require medical-necessity review before ABA starts and every 6 months. The 2026 PA list’s narrower line ("PA required in Outpatient Hospital setting (POS 19, 22)") is not the whole rule',
+      status: 'verified',
+      cites: [S.tcLookup, S.tc1477, S.tc1639, S.tcPAList],
     },
     dxRequired: {
       value: 'Yes: a definitive primary ASD diagnosis by a child and adolescent psychiatrist, psychologist, child neurologist or developmental pediatrician, independent of the ABA provider, with a standardized tool (MM-1477)',
@@ -636,7 +635,7 @@ export const mississippiPayers: Record<string, PayerConfig> = {
     ],
     atGlance: [
       { label: 'Covers ABA?', value: 'Yes, for members under 21 (MM-1477)' },
-      { label: 'Review', value: 'Medical-necessity review before ABA starts and every 6 months; PA list names ABA PA in outpatient hospital (POS 19, 22)' },
+      { label: 'Review', value: 'PA for 97152–97158, 0362T, 0373T (Lookup Tool); 97151 no PA; medical-necessity review every 6 months' },
       { label: 'Assessment', value: 'No PA for BH assessments/evaluations; 8 hours per 6 months (MM-1477), 6–10 hours (PY-1639)' },
       { label: 'Decision clock', value: '3 calendar days or 2 business days, whichever is less; urgent 24 hours' },
       { label: 'Timely filing', value: '180 days from DOS' },
@@ -647,9 +646,9 @@ export const mississippiPayers: Record<string, PayerConfig> = {
         h2: 'Medical policy MM-1477: who diagnoses, what to send, how often',
         body: [
           'MM-1477 says "Medical necessity review is required for all ABA services initially with a baseline and then, again, every 6 months," and that "ABA services will be provided for members under the age of 21." The diagnosis must be "definitive, primary" and made "upon evaluation independent of the ABA provider and with a relationship with the member" by a child and adolescent psychiatrist, psychologist, child neurologist or developmental pediatrician, using standardized tools (ADOS, ADI-R, CARS-2); if the evaluation is more than 24 months old, a provider letter describing symptoms within the past year is required. A licensed practitioner performs the behavioral assessment, "generally not to exceed 8 hours every 6 months," and the initial plan must be signed by the parent and BCBA and include school placement and hours (IEP/504 information "must be provided to TrueCare"), prior ABA history, coordination with other therapies, a skills assessment (VB-MAPP, ABLLS-R), hours per week and a discharge plan. Continuation requests come every 6 months with updated scores and utilization of approved hours.',
-          'The 2026 PA list conflicts in part: it says "No prior authorization required for assessments/evaluations" and lists "Applied Behavior Analysis Treatment (ABA): PA required in Outpatient Hospital setting (POS 19, 22)." Ask TrueCare which applies to home and clinic ABA before starting.',
+          'The 2026 PA list reads narrower: it says "No prior authorization required for assessments/evaluations" and lists "Applied Behavior Analysis Treatment (ABA): PA required in Outpatient Hospital setting (POS 19, 22)." TrueCare’s Procedure Code Lookup Tool settles it for outpatient services in any setting: on a 10/18/2026 service date, Mississippi Medicaid, it returns "Auth is required? No" for 97151 and "Yes" for 97152, 97153, 97154, 97155, 97156, 97157, 97158, 0362T and 0373T (review group UM, rules effective 7/1/2025).',
         ],
-        cites: [S.tc1477, S.tcPAList],
+        cites: [S.tc1477, S.tcPAList, S.tcLookup],
       },
       {
         h2: 'Reimbursement policy PY-1639: billing, RBTs and telemedicine',
@@ -672,7 +671,7 @@ export const mississippiPayers: Record<string, PayerConfig> = {
       { title: 'IEP / 504 plan and school hours', desc: 'MM-1477 says IEP/504 information must be provided to TrueCare.' },
       { title: 'Treatment documentation before billing', desc: 'PY-1639: claims are not accepted without the treatment record.' },
     ],
-    sources: [S.tc1477, S.tc1639, S.tcPM, S.tcPAList, S.tcPAPage, S.ccoTC, S.spa1620, S.asdFee, S.p225, S.p306, S.bacbLic, S.lic13, S.lic5, S.mabRules, S.cfr433],
+    sources: [S.tc1477, S.tc1639, S.tcPM, S.tcPAList, S.tcLookup, S.tcPAPage, S.ccoTC, S.spa1620, S.asdFee, S.p225, S.p306, S.bacbLic, S.lic13, S.lic5, S.mabRules, S.cfr433],
     deliveryRules: {
       supervision: {
         value: 'ABA must be provided by a Mississippi LBA, or an LABA "under the supervision of an LBA"; RBTs must be listed with the Board under a supervising LBA (MM-1477). PY-1639 points to Mississippi and BACB supervision standards, requires supervision records kept at least 5 years, and lets an RBT work only under an enrolled independent practitioner affiliated with the same organization. No numeric ratio is published.',
@@ -754,7 +753,7 @@ export const mississippiPayers: Record<string, PayerConfig> = {
     faq: [
       { q: 'Does TrueCare cover ABA in Mississippi?', a: 'Yes, for MississippiCAN members under 21, under its Mississippi medical policy MM-1477.' },
       { q: 'Who can diagnose autism for TrueCare ABA?', a: 'A child and adolescent psychiatrist, psychologist, child neurologist or developmental pediatrician, evaluating independently of the ABA provider, with a standardized tool such as the ADOS, ADI-R or CARS-2.' },
-      { q: 'Does TrueCare require prior authorization for ABA?', a: 'Its policies require a medical-necessity review before ABA starts and every 6 months, while its 2026 PA list names ABA PA only in outpatient hospital settings. Confirm with TrueCare UM (1-833-230-2174) before starting.' },
+      { q: 'Does TrueCare require prior authorization for ABA?', a: 'Yes for treatment. TrueCare’s Procedure Code Lookup Tool shows PA required for 97152–97158, 0362T and 0373T in any outpatient setting, and its policies require a medical-necessity review every 6 months. The 97151 assessment needs no PA.' },
       { q: 'Can RBTs bill TrueCare directly?', a: 'No. RBTs work under the supervision of an enrolled independent practitioner in the same organization, and the supervising practitioner bills at the appropriate practitioner level.' },
       { q: 'Does TrueCare pay for ABA by telehealth?', a: 'Yes when medically necessary and documented, but not as the primary method of treatment; telemedicine is paid the same as in person.' },
     ],
@@ -822,8 +821,16 @@ export const mississippiPayers: Record<string, PayerConfig> = {
         h2: 'What is Aetna’s fee schedule for ABA, and how fast must it pay?',
         body: [
           'Aetna publishes no ABA rate table; its office manual (6/26) treats rates as a contract term ("your direct Aetna rates will apply unless we specifically notify you otherwise") and says members cannot be charged more than the contracted rate. ' + MS_PROMPT_PAY + ' The public benchmark is Mississippi Medicaid’s fee schedule (' + MS_FFS_RATES + ').',
+          'Aetna’s Health Care Professional Toolkit (6/26) publishes no claim filing deadline: the limit for initial, corrected and secondary claims is the one in your Aetna participation agreement, and claim disputes "Must be submitted within contractual timeframes." The toolkit defines a clean claim as one "received in a timely manner" with all required data, and says a clean claim "Doesn’t involve coordination of benefits," so secondary claims sit outside the clean-claim clock. It publishes no check-run or weekly cut-off schedule.',
         ],
         cites: [S.aetnaOM, S.promptPay, S.asdFee],
+      },
+      {
+        h2: 'What a reauthorization must show',
+        body: [
+          'Aetna’s ABA medical necessity guide (©2026) sets what a renewal must show: the plan records baseline levels of each target behavior by "frequency, rate, symptom intensity or duration, or other objective measures," with "quantifiable criteria for progress"; where target behaviors have improved, documentation of that improvement is included, and where they have not, documentation of "modification of the treatment, additional assessments that have been conducted, and/or there has been appropriate consultations from other staff or experts." "A member’s progress is to be evaluated every six months," and the guide relies on "Repeated measurement with standardized measures to assess progress." It does not require graphs and sets no data-recency window.',
+        ],
+        cites: [S.aetnaGuide],
       },
     ],
     collect: [
@@ -921,6 +928,8 @@ export const mississippiPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Aetna require graphs for ABA reauthorizations?', a: 'No. Aetna’s ABA medical necessity guide asks for objective baseline measures, quantifiable progress criteria, standardized re-measurement and a six-monthly progress evaluation, with treatment changes documented where there is no improvement, but it does not require graphs or set a data-recency window.' },
+      { q: 'What are Aetna’s claim filing deadlines for Mississippi ABA claims?', a: 'Aetna’s provider toolkit publishes no filing limit; the participation agreement sets it for initial, corrected and secondary claims, and a claim involving coordination of benefits is not a "clean claim." No check-run schedule is published.' },
       { q: 'Does Aetna cover ABA therapy in Mississippi?', a: 'Yes, for ASD under its national medical necessity guide, with Mississippi’s § 83-9-26 mandate layered on fully insured large-group and grandfathered plans.' },
       { q: 'Does Mississippi’s autism law cap ABA by age?', a: 'Yes: § 83-9-26 lets fully insured plans stop ABA after age 8 and limit it to 25 hours a week, but coverage may be extended when medical necessity is shown under an ongoing treatment plan.' },
       { q: 'Does the Aetna ABA assessment need precertification?', a: 'Yes. 97151 is on Aetna’s behavioral health precertification list with the other ABA codes.' },
@@ -989,8 +998,16 @@ export const mississippiPayers: Record<string, PayerConfig> = {
         h2: 'What is Cigna’s fee schedule for ABA, and how fast must it pay?',
         body: [
           'Cigna publishes no ABA rates. Evernorth’s Administrative Guidelines (September 2026) say the Provider Agreement terms "include the reimbursement rates applicable to covered services" and tell ABA providers: "For your fee schedule and a listing of autism spectrum disorder–related services eligible for reimbursement, refer to Exhibit A in your Provider Agreement." Virtual services carry modifier 95, which "will not change the reimbursement." ' + MS_PROMPT_PAY + ' The public benchmark is Mississippi Medicaid’s fee schedule (' + MS_FFS_RATES + ').',
+          'Evernorth’s Behavioral Health Administrative Guidelines (September 2026) set the filing limit: "We will only consider claims submitted within 90 days of the date of service or as otherwise defined in your Provider Agreement," unless "Applicable state law provides for a longer timely filing limit." For a secondary claim the 90 days run from "the primary payer’s processing date as stated on an explanation of benefits [EOB] or explanation of payment [EOP]," Medicaid-primary claims get three years, and a timely claim returned for more information gets a new 90 days from the date of the request. The Mississippi Regulatory Addendum adds no filing deadline; it gives Evernorth the same post-payment audit window as the provider’s filing period (12 months after payment where the agreement sets none). State addenda do not apply to self-funded plans. The guidelines publish no check-run or weekly cut-off schedule.',
         ],
         cites: [S.ebhAdmin, S.promptPay, S.asdFee],
+      },
+      {
+        h2: 'What a reauthorization must show',
+        body: [
+          'Evernorth’s EN0499 sets what a continued-treatment request must show: "current data" collected "within no more than 60 days prior to the start date of the continued treatment request, as well as collected within no more than 60 days prior to the date the authorization request is received," with collection dates, for every behavior and skill targeted; data showing "ongoing and sustained progress toward mastering the treatment goals"; measurable improvement on "a reliable, valid, and standardized assessment instrument completed no more than one year prior to the start date of the continued treatment request"; an account of barriers and plan changes where progress is not shown; and dated stakeholder (caregiver) training data. EN0499 does not require the data to be graphed.',
+        ],
+        cites: [S.en0499],
       },
     ],
     collect: [
@@ -1082,6 +1099,8 @@ export const mississippiPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Cigna require graphs for ABA reassessments?', a: 'No. Evernorth’s EN0499 requires dated data collected within 60 days before both the requested start date and the request’s receipt, sustained progress, and a standardized assessment from the past year, but it does not require graphs.' },
+      { q: 'What are Cigna (Evernorth)’s claim filing deadlines for Mississippi ABA claims?', a: '90 days from the date of service unless your provider agreement or a longer state limit applies; secondary claims get 90 days from the primary payer’s EOB/EOP date, and a claim returned for more information gets a new 90 days. No check-run schedule is published.' },
       { q: 'Does Cigna cover ABA therapy in Mississippi?', a: 'Yes, under EN0499 for ASD, with Mississippi’s § 83-9-26 mandate layered on fully insured large-group and grandfathered plans.' },
       { q: 'Does the Cigna ABA assessment need prior authorization?', a: 'No, for 97151, 97152 and 0362T with an autism diagnosis when the provider is independently licensed or a BCBA. PA starts at treatment.' },
       { q: 'Can a BCBA licensed in another state treat a Mississippi Cigna member by telehealth?', a: 'Cigna covers all ABA codes by telehealth, but Evernorth requires providers to meet the state’s licensure rules and Mississippi’s law has no exemption for behavior analysts licensed elsewhere, so get a Mississippi Autism Board license first.' },
@@ -1151,8 +1170,16 @@ export const mississippiPayers: Record<string, PayerConfig> = {
         h2: 'What is UnitedHealthcare’s fee schedule for ABA, and how fast must it pay?',
         body: [
           'Optum pays from the contract. Its National Network Manual (effective Sept. 1, 2026) defines the "Fee Maximum" as the most a participating provider may be paid and says "Reimbursement to clinicians is based upon licensure rather than degree." The commercial ABA Reimbursement Policy (2022RP501A, updated 06/2026) puts the credential on every line: HM for an RBT, HN for a BCaBA, HO for a master’s-level BCBA or licensed clinician, HP for a doctoral-level provider, and "There is no CPT code for reporting indirect services separately." ' + MS_PROMPT_PAY + ' The public benchmark is Mississippi Medicaid’s fee schedule (' + MS_FFS_RATES + ').',
+          'Optum’s National Network Manual: claims must be received "no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan," and "Any corrections or additions to a claim should be made within 90 days of initial claim receipt." Complete, authorized claims "will be paid within 45 calendar days after Optum receives the claim, or as required by state and federal laws," which may exclude claims that need coordination-of-benefits decisions; the manual sets no separate secondary-claim deadline and publishes no check-run schedule.',
         ],
         cites: [S.optumNNM, S.optumReimb, S.promptPay, S.asdFee],
+      },
+      {
+        h2: 'What a reauthorization must show',
+        body: [
+          'Optum’s ABA Supplemental Clinical Criteria (review 04/2026) set what each continued-service review needs: progress "assessed and documented for each targeted symptom and behavior … including the same modes of measurement that were utilized for baseline measurement"; progress that includes "rate and percentage of mastered programs, rates of mastered targets, change scores for any outcome measures, updated standardized adaptive measures, and change scores for skills-based assessments"; an assessment of the reasons and modified interventions when there is inadequate progress "within a 6-month period"; and an explanation when use of authorized hours falls below 80% over a two-week period. Treatment plans "are usually reviewed/updated twice annually." The criteria do not require graphs.',
+        ],
+        cites: [S.optumSCC],
       },
     ],
     collect: [
@@ -1245,6 +1272,8 @@ export const mississippiPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare (Optum) require graphs for ABA continued-service reviews?', a: 'No. Optum’s criteria ask for progress on every target using the baseline measurement method, mastery rates and change scores, updated standardized adaptive measures, and an explanation of low hour use, but they do not require graphs.' },
+      { q: 'What are UnitedHealthcare (Optum)’s claim filing deadlines for Mississippi ABA claims?', a: '90 calendar days from the date of service (or longer where state law or the plan allows), corrections within 90 days of the original claim’s receipt, and payment of complete claims within 45 days or the state’s shorter clock. No check-run schedule is published.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in Mississippi?', a: 'Yes, under Optum’s national ABA criteria for ASD, with Mississippi’s § 83-9-26 mandate layered on fully insured large-group and grandfathered plans.' },
       { q: 'Is UnitedHealthcare still a Mississippi Medicaid plan?', a: 'No. UnitedHealthcare Community Plan stopped covering MississippiCAN and CHIP after June 30, 2025; the Medicaid plans are Magnolia, Molina and TrueCare.' },
       { q: 'Can ABA be delivered by telehealth with UnitedHealthcare in Mississippi?', a: 'Optum’s commercial guide allows telehealth only for 97155, 97156 and 97157 (POS 02 or 10). Mississippi’s § 83-9-351 requires state-regulated plans to cover telemedicine to the same extent as in person, so ask Optum how it applies the list on a fully insured plan.' },

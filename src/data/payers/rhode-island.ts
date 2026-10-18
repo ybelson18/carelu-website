@@ -832,8 +832,10 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
       },
       {
         h2: 'Claims operations: prompt pay, prior authorization clocks, appeals',
-        body: [RI_CLAIMS_BODY],
-        cites: [S.pp, S.ohic14, S.ur6, S.ur7],
+        body: [RI_CLAIMS_BODY,
+          'Aetna’s Health Care Professional Toolkit (6/26) publishes no claim filing deadline: the limit for initial, corrected and secondary claims is the one in your Aetna participation agreement, and claim disputes "Must be submitted within contractual timeframes." The toolkit defines a clean claim as one "received in a timely manner" with all required data, and says a clean claim "Doesn’t involve coordination of benefits," so secondary claims sit outside the clean-claim clock. It publishes no check-run or weekly cut-off schedule.',
+        ],
+        cites: [S.pp, S.ohic14, S.ur6, S.ur7, S.aetnaOM],
       },
       {
         h2: 'What is Aetna’s fee schedule for ABA?',
@@ -841,6 +843,13 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
           'Aetna publishes no ABA rate table. Its provider manual (6/26) says compensation "under your agreement" is subject to Aetna’s coding and claim edit policies, that where you have both an intermediary contract and a direct agreement "your direct Aetna rates will apply unless we specifically notify you otherwise," and that a member who has exhausted benefits cannot be charged "more than the contracted rate." Get the numbers from your Aetna agreement. For a public benchmark, Rhode Island Medicaid pays HBTS direct service (T1024) at $33.30 per 15 minutes per OHIC’s 2025 report; it uses different codes from commercial ABA.',
         ],
         cites: [S.aetnaOM, S.ohic25],
+      },
+      {
+        h2: 'What a reauthorization must show',
+        body: [
+          'Aetna’s ABA medical necessity guide (©2026) sets what a renewal must show: the plan records baseline levels of each target behavior by "frequency, rate, symptom intensity or duration, or other objective measures," with "quantifiable criteria for progress"; where target behaviors have improved, documentation of that improvement is included, and where they have not, documentation of "modification of the treatment, additional assessments that have been conducted, and/or there has been appropriate consultations from other staff or experts." "A member’s progress is to be evaluated every six months," and the guide relies on "Repeated measurement with standardized measures to assess progress." It does not require graphs and sets no data-recency window.',
+        ],
+        cites: [S.aetnaGuide],
       },
     ],
     collect: [
@@ -938,6 +947,8 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Aetna require graphs for ABA reauthorizations?', a: 'No. Aetna’s ABA medical necessity guide asks for objective baseline measures, quantifiable progress criteria, standardized re-measurement and a six-monthly progress evaluation, with treatment changes documented where there is no improvement, but it does not require graphs or set a data-recency window.' },
+      { q: 'What are Aetna’s claim filing deadlines for Rhode Island ABA claims?', a: 'Aetna’s provider toolkit publishes no filing limit; the participation agreement sets it for initial, corrected and secondary claims, and a claim involving coordination of benefits is not a "clean claim." No check-run schedule is published.' },
       { q: 'Does Aetna cover ABA therapy in Rhode Island?', a: 'Yes, for ASD under its national medical necessity guide, with Rhode Island’s ch. 27-20.11 mandate layered on for fully insured large-group plans. Self-funded, small-group and individual plans follow their own documents.' },
       { q: 'What does the Rhode Island autism mandate require?', a: 'Coverage of ABA and other autism treatment for group plans until the child turns 15, delivered by Department of Health licensed providers, with cost sharing no worse than other conditions. The current text has no dollar cap.' },
       { q: 'Can a BCBA licensed in another state treat an Aetna member in Rhode Island?', a: 'Only for up to 10 calendar days a year (5 in a row) without a Rhode Island license (R.I. Gen. Laws § 5-86-21(g)); the mandate also requires a Rhode Island-licensed provider, and Aetna requires providers to hold the licensure state law demands, including for telehealth.' },
@@ -1003,8 +1014,10 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
       },
       {
         h2: 'Claims operations: prompt pay, prior authorization clocks, appeals',
-        body: [RI_CLAIMS_BODY],
-        cites: [S.pp, S.ohic14, S.ur6, S.ur7],
+        body: [RI_CLAIMS_BODY,
+          'Evernorth’s Behavioral Health Administrative Guidelines (September 2026) set the filing limit: "We will only consider claims submitted within 90 days of the date of service or as otherwise defined in your Provider Agreement," unless "Applicable state law provides for a longer timely filing limit." For a secondary claim the 90 days run from "the primary payer’s processing date as stated on an explanation of benefits [EOB] or explanation of payment [EOP]," Medicaid-primary claims get three years, and a timely claim returned for more information gets a new 90 days from the date of the request. The Rhode Island Regulatory Addendum adds no claim rule. State addenda do not apply to self-funded plans. The guidelines publish no check-run or weekly cut-off schedule.',
+        ],
+        cites: [S.pp, S.ohic14, S.ur6, S.ur7, S.ebhAdmin],
       },
       {
         h2: 'What is Cigna’s fee schedule for ABA?',
@@ -1012,6 +1025,13 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
           'Cigna publishes no ABA rate table. Evernorth’s Administrative Guidelines (September 2026) say the Provider Agreement terms "include the reimbursement rates applicable to covered services," and tell ABA providers: "For your fee schedule and a listing of autism spectrum disorder–related services eligible for reimbursement, refer to Exhibit A in your Provider Agreement." Contract and fee questions go to Provider Services at 800.926.2273. Telehealth claims carry modifier 95 and place of service 02. For a public benchmark, Rhode Island Medicaid pays HBTS direct service (T1024) at $33.30 per 15 minutes per OHIC’s 2025 report, on different codes.',
         ],
         cites: [S.ebhAdmin, S.ohic25],
+      },
+      {
+        h2: 'What a reauthorization must show',
+        body: [
+          'Evernorth’s EN0499 sets what a continued-treatment request must show: "current data" collected "within no more than 60 days prior to the start date of the continued treatment request, as well as collected within no more than 60 days prior to the date the authorization request is received," with collection dates, for every behavior and skill targeted; data showing "ongoing and sustained progress toward mastering the treatment goals"; measurable improvement on "a reliable, valid, and standardized assessment instrument completed no more than one year prior to the start date of the continued treatment request"; an account of barriers and plan changes where progress is not shown; and dated stakeholder (caregiver) training data. EN0499 does not require the data to be graphed.',
+        ],
+        cites: [S.en0499],
       },
     ],
     collect: [
@@ -1103,6 +1123,8 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Cigna require graphs for ABA reassessments?', a: 'No. Evernorth’s EN0499 requires dated data collected within 60 days before both the requested start date and the request’s receipt, sustained progress, and a standardized assessment from the past year, but it does not require graphs.' },
+      { q: 'What are Cigna (Evernorth)’s claim filing deadlines for Rhode Island ABA claims?', a: '90 days from the date of service unless your provider agreement or a longer state limit applies; secondary claims get 90 days from the primary payer’s EOB/EOP date, and a claim returned for more information gets a new 90 days. No check-run schedule is published.' },
       { q: 'Does Cigna cover ABA therapy in Rhode Island?', a: 'Yes, under national policy EN0499 for ASD, with Rhode Island’s ch. 27-20.11 mandate layered on for fully insured large-group plans until age 15.' },
       { q: 'Does the Cigna ABA assessment need prior authorization?', a: 'No, for 97151, 97152 and 0362T with an autism diagnosis when the provider is independently licensed or a BCBA. PA starts at treatment.' },
       { q: 'Can ABA be delivered by telehealth with Cigna?', a: 'Yes: Cigna lists all ABA CPT codes as covered telehealth services, billed with modifier 95 and POS 02. The clinician still needs a Rhode Island license to treat a Rhode Island child beyond 10 days a year.' },
@@ -1170,8 +1192,10 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
       },
       {
         h2: 'Claims operations: prompt pay, prior authorization clocks, appeals',
-        body: [RI_CLAIMS_BODY],
-        cites: [S.pp, S.ohic14, S.ur6, S.ur7],
+        body: [RI_CLAIMS_BODY,
+          'Optum’s National Network Manual: claims must be received "no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan," and "Any corrections or additions to a claim should be made within 90 days of initial claim receipt." Complete, authorized claims "will be paid within 45 calendar days after Optum receives the claim, or as required by state and federal laws," which may exclude claims that need coordination-of-benefits decisions; the manual sets no separate secondary-claim deadline and publishes no check-run schedule.',
+        ],
+        cites: [S.pp, S.ohic14, S.ur6, S.ur7, S.optumNNM],
       },
       {
         h2: 'What is UnitedHealthcare’s fee schedule for ABA?',
@@ -1179,6 +1203,13 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
           'UnitedHealthcare publishes no ABA rate table; Optum pays from the contract. Optum’s National Network Manual (effective Sept. 1, 2026) defines the Fee Maximum as the most a participating provider "may be paid for a specific health care service provided to a member," adding that "Reimbursement to clinicians is based upon licensure rather than degree." Optum’s commercial ABA Reimbursement Policy (2022RP501A) puts the credential on every claim line (HM for an RBT, HN for a BCaBA, HO for a master’s-level BCBA, HP for a doctoral-level BCBA) and bundles indirect work into the direct codes. Ask Optum network management for your rate sheet. Rhode Island Medicaid’s HBTS direct-service rate (T1024, $33.30 per 15 minutes per OHIC’s 2025 report) is the only public benchmark, on different codes.',
         ],
         cites: [S.optumNNM, S.optumReimb, S.ohic25],
+      },
+      {
+        h2: 'What a reauthorization must show',
+        body: [
+          'Optum’s ABA Supplemental Clinical Criteria (review 04/2026) set what each continued-service review needs: progress "assessed and documented for each targeted symptom and behavior … including the same modes of measurement that were utilized for baseline measurement"; progress that includes "rate and percentage of mastered programs, rates of mastered targets, change scores for any outcome measures, updated standardized adaptive measures, and change scores for skills-based assessments"; an assessment of the reasons and modified interventions when there is inadequate progress "within a 6-month period"; and an explanation when use of authorized hours falls below 80% over a two-week period. Treatment plans "are usually reviewed/updated twice annually." The criteria do not require graphs.',
+        ],
+        cites: [S.optumSCC],
       },
     ],
     collect: [
@@ -1271,6 +1302,8 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare (Optum) require graphs for ABA continued-service reviews?', a: 'No. Optum’s criteria ask for progress on every target using the baseline measurement method, mastery rates and change scores, updated standardized adaptive measures, and an explanation of low hour use, but they do not require graphs.' },
+      { q: 'What are UnitedHealthcare (Optum)’s claim filing deadlines for Rhode Island ABA claims?', a: '90 calendar days from the date of service (or longer where state law or the plan allows), corrections within 90 days of the original claim’s receipt, and payment of complete claims within 45 days or the state’s shorter clock. No check-run schedule is published.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in Rhode Island?', a: 'Yes, under Optum’s national ABA criteria for ASD, with Rhode Island’s ch. 27-20.11 mandate layered on for fully insured large-group plans until age 15.' },
       { q: 'Does Optum have Rhode Island-specific ABA criteria?', a: 'No. Optum’s ABA State Mandates supplement has no Rhode Island section, so the national criteria apply.' },
       { q: 'Can ABA be delivered by telehealth with UnitedHealthcare in Rhode Island?', a: 'Optum’s commercial telehealth guide allows only 97155, 97156 and 97157 by telehealth, billed POS 10 or 02. Fully insured Rhode Island plans are also subject to the Telemedicine Coverage Act, so ask Optum how it applies the list to your plan.' },

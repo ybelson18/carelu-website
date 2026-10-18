@@ -52,14 +52,14 @@ const S: Record<string, PayerSource> = {
   hhoPM: { title: 'Highmark Health Options West Virginia — 2025 Medicaid Provider Manual (updated 11/4/25)', url: 'https://providers.highmark.com/content/dam/highmark/en/providerresourcecenter/highmark-health-options/hho-wv/documents/pdfs/resources/provider-manual-and-newsletters/provider-manual/2025-HHOWV-ProviderManual.pdf' },
   hhoForm: { title: 'Highmark Health Options — Outpatient Behavioral Health Prior Authorization Request Form (ABA Therapy section)', url: 'https://providers.highmark.com/content/dam/highmark/en/providerresourcecenter/highmark-health-options/hho-wv/documents/pdfs/resources/forms-and-reference-material/OutpatientBehavioralHealthPrior%20Authorization%20Request%20Form_10112022.pdf' },
   hhoLookup: { title: 'Highmark Health Options West Virginia — Prior Authorization Code Lookup', url: 'https://providers.highmark.com/hho-wv/resources/prior-authorization-code-lookup.html' },
-  wpPM: { title: 'Wellpoint West Virginia — Mountain Health Trust Provider Manual (August 1, 2026)', url: 'https://www.wellpoint.com/content/dam/digital/wellpoint/documents/provider/west-virginia/other/WVWP-CD-PM-082374-25-2025-Annual-PM-Review_Final-with-Cover.pdf' },
+  wpPM: { title: 'Wellpoint West Virginia — Mountain Health Trust Provider Manual (WV-WP-CD-PM-011722_26, August 1, 2026)', url: 'https://www.wellpoint.com/content/dam/digital/wellpoint/documents/provider/west-virginia/other/wv_wlp_caid_providermanual.pdf' },
   wpABA: { title: 'UniCare Health Plan of West Virginia (now Wellpoint) — Provider Bulletin: Applied behavior analysis services (May 2023)', url: 'https://www.wellpoint.com/content/dam/digital/wellpoint/documents/provider/west-virginia/archives/WV_CAID_ABAServiceChanges.pdf' },
   wpCUMG: { title: 'Wellpoint West Virginia — Clinical Utilization Management Guidelines adopted (August 2026 list)', url: 'https://www.wellpoint.com/content/dam/digital/wellpoint/documents/provider/west-virginia/other/wvwp-caid-cumg-feb26.pdf' },
   wpPAReq: { title: 'Wellpoint West Virginia — Prior authorization requirements (lookup tool)', url: 'https://www.wellpoint.com/wv/provider/state-federal/resources/prior-authorization-requirements' },
   hmPAL: { title: 'Highmark — List of Procedures/DME Requiring Authorization, for PA, WV, DE & NY members (effective 10/01/2026)', url: 'https://providers.highmark.com/content/dam/highmark/en/providerresourcecenter/pdfs/procedurecode/commercial/Proc-Requiring-Auth-list.pdf' },
   hmNews: { title: 'Highmark — Behavioral Health: Upcoming Prior Authorization Changes (published Nov 24, 2025; effective March 1, 2026)', url: 'https://providers.highmark.com/communications-hub/news-and-updates/behavioral-health-upcoming-prior-authorization-changes.html' },
   hmPM: { title: 'Highmark Provider Manual (PA, WV, DE, NY; generated 10/7/2026)', url: 'https://providers.highmark.com/content/dam/highmark/en/providerresourcecenter/pdfs/education-resources/highmark-provider-manual/current/Provider_Manual.pdf' },
-  aetnaCPB: { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 11/26/2025)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+  aetnaCPB: { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
   aetnaCPB648: { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
   aetnaGuide: { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026; Exhibit A covers Maryland only)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
   aetnaPrecert: { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
@@ -204,6 +204,7 @@ export const westVirginiaPayers: Record<string, PayerConfig> = {
         body: [
           'Fee-for-service claims must reach Medicaid "within 12 months from date of service"; denied claims can be corrected or paid claims replaced up to 24 months from the date of service. TPL claims carry the same 12-month limit, and claims for members with backdated Medicaid cards have 12 months from the card’s issuance. A medical-necessity denial can be taken to the utilization management contractor for reconsideration, which "must receive the written request and supporting documentation within 60 days of the notification of denial"; anything delivered after a denial is "at risk." MCOs set their own filing limits (Aetna Better Health 365 days; The Health Plan and Wellpoint 180 days; Highmark Health Options 12 months), and the MHP contract requires MCOs to pay clean claims within 30 calendar days with 18% annual interest after that.',
           'Medicaid is "always the payer of last resort." Bill the commercial plan first and meet its rules, "including use of in-network providers"; if it denies, send the paper claim with the EOB showing the denial reason.',
+          'Payment schedule: under Chapter 100, section 100.12, "BMS processes provider payments once per week," approved claims are posted to accounts payable after the MMIS adjudication cycles and held until funds are available, and "The provider payment cycle begins each Friday." The chapter publishes no submission cut-off time for a given week’s cycle; the MCOs pay on their own schedules.',
         ],
         cites: [S.ch100, S.mhpContract, S.abhPM, S.thpClaims, S.wpPM, S.hhoPM],
       },
@@ -266,6 +267,7 @@ export const westVirginiaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'When does West Virginia Medicaid pay claims?', a: 'Once a week: BMS’s provider payment cycle begins each Friday, after approved claims are posted from the MMIS adjudication cycles. No weekly submission cut-off time is published, and the four MCOs pay on their own schedules.' },
       { q: 'Does West Virginia Medicaid cover ABA therapy?', a: 'Yes, under BMS Policy 519.23, for members ages 18 months through 20 whose primary ASD diagnosis was made before their eighth birthday. Most children get it through one of the four Mountain Health Trust MCOs or Mountain Health Promise.' },
       { q: 'What if my child was diagnosed with autism after age 8?', a: 'Policy 519.23 requires the primary ASD diagnosis "prior to their eighth birthday" and documentation of it on the first request. A later diagnosis does not meet the written policy; ask BMS or the MCO in writing whether EPSDT medical necessity can override it.' },
       { q: 'What does West Virginia Medicaid pay for ABA?', a: 'Per 15-minute unit on the BMS ABA fee schedule: 97151 and 97155 $29.14, 97156 $17.43, 97158 $11.79, 97152 and 97153 $9.90, 97154 $4.50, plus $120 per H0031 assessment. MCOs pay contracted rates, which are not published.' },
@@ -738,6 +740,7 @@ export const westVirginiaPayers: Record<string, PayerConfig> = {
         h2: 'Claims and rates',
         body: [
           '"Claims must be submitted within 180 days of the service date to be considered for payment"; when Wellpoint is secondary, the clock runs from the other payer’s remittance date. COB claims need the other payer’s remittance advice, explanation of payment or denial letter. Payment disputes start with a Claim Payment Reconsideration, decided within 45 business days, and a Claim Payment Appeal may follow within 60 calendar days of that outcome. The payer ID is WLPNT. Rates are contracted and unpublished; the BMS ABA fee schedule (97153 $9.90 per 15 minutes) is the public benchmark.',
+          'More claim clocks from the August 2026 manual: "Provided the claim was originally received timely, a corrected claim must be received within 180 days of the date of service," but when a primary insurer’s payment is adjusted the period "starts with the date of the most recent OHI EOB"; resubmissions on the Claim Follow-Up form are due within 180 days of the EOB or letter, and requested information within 180 calendar days. TPL and COB claims are due "within 180 days of notice from the primary insurance." Wellpoint "will adjudicate a clean electronic claim within 30 calendar days of the date the claim is received," processes clean paper claims within 30 calendar days, and pays in-network providers 18% annual interest on clean claims it misses. No check-run schedule is published.',
         ],
         cites: [S.wpPM, S.abaFee],
       },
@@ -874,8 +877,16 @@ export const westVirginiaPayers: Record<string, PayerConfig> = {
         h2: 'Claims operations in West Virginia',
         body: [
           WV_PROMPT_PAY + ' Aetna’s own rule is that payment follows your contract: “The rates and compensation under your agreement are subject to the Aetna coding/claim edit policies,” and a member who has used up benefits cannot be charged “more than the contracted rate.” Aetna’s network criteria make supervision a billing condition: services “must be provided directly or supervised by individuals licensed by the state or certified by the Behavior Analyst Certification Board.” For a public rate benchmark, West Virginia Medicaid pays 97153 at $9.90 per 15 minutes; commercial contracts are negotiated separately.',
+          'Aetna’s Health Care Professional Toolkit (6/26) publishes no claim filing deadline: the limit for initial, corrected and secondary claims is the one in your Aetna participation agreement, and claim disputes "Must be submitted within contractual timeframes." The toolkit defines a clean claim as one "received in a timely manner" with all required data, and says a clean claim "Doesn’t involve coordination of benefits," so secondary claims sit outside the clean-claim clock. It publishes no check-run or weekly cut-off schedule.',
         ],
         cites: [S.c3345, S.aetnaOM, S.aetnaNPC, S.abaFee],
+      },
+      {
+        h2: 'What a reauthorization must show',
+        body: [
+          'Aetna’s ABA medical necessity guide (©2026) sets what a renewal must show: the plan records baseline levels of each target behavior by "frequency, rate, symptom intensity or duration, or other objective measures," with "quantifiable criteria for progress"; where target behaviors have improved, documentation of that improvement is included, and where they have not, documentation of "modification of the treatment, additional assessments that have been conducted, and/or there has been appropriate consultations from other staff or experts." "A member’s progress is to be evaluated every six months," and the guide relies on "Repeated measurement with standardized measures to assess progress." It does not require graphs and sets no data-recency window.',
+        ],
+        cites: [S.aetnaGuide],
       },
     ],
     collect: [
@@ -973,6 +984,8 @@ export const westVirginiaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Aetna require graphs for ABA reauthorizations?', a: 'No. Aetna’s ABA medical necessity guide asks for objective baseline measures, quantifiable progress criteria, standardized re-measurement and a six-monthly progress evaluation, with treatment changes documented where there is no improvement, but it does not require graphs or set a data-recency window.' },
+      { q: 'What are Aetna’s claim filing deadlines for West Virginia ABA claims?', a: 'Aetna’s provider toolkit publishes no filing limit; the participation agreement sets it for initial, corrected and secondary claims, and a claim involving coordination of benefits is not a "clean claim." No check-run schedule is published.' },
       { q: 'Does Aetna cover ABA therapy in West Virginia?', a: 'Yes, under its national ASD policy, with West Virginia’s autism mandate layered on for fully insured group plans with more than 25 eligible employees. Self-funded employer plans follow their own documents.' },
       { q: 'Does West Virginia cap ABA benefits?', a: 'Mandated insured plans may cap ABA at $30,000 a year for three consecutive years from the start of treatment, then $2,000 a month until age 18. Coverage runs from 18 months to 18 years, and the child must have been diagnosed at 8 or younger.' },
       { q: 'Does a BCBA need a West Virginia license to treat Aetna members?', a: 'No. West Virginia does not license behavior analysts; the mandate requires BACB (or similar) certification, and Aetna requires credentialing.' },
@@ -1040,8 +1053,16 @@ export const westVirginiaPayers: Record<string, PayerConfig> = {
         h2: 'Claims operations in West Virginia',
         body: [
           WV_PROMPT_PAY + ' Evernorth’s ABA billing rules: electronic claims use payer ID 62308; on a CMS-1500 the rendering provider prints their name in box 31 and only a BCBA or other licensed provider goes in box 33; your fee schedule and the list of reimbursable autism services are in "Exhibit A in your Provider Agreement." Virtual services carry modifier 95, which "will not change the reimbursement." For a public benchmark, West Virginia Medicaid pays 97153 at $9.90 per 15 minutes.',
+          'Evernorth’s Behavioral Health Administrative Guidelines (September 2026) set the filing limit: "We will only consider claims submitted within 90 days of the date of service or as otherwise defined in your Provider Agreement," unless "Applicable state law provides for a longer timely filing limit." For a secondary claim the 90 days run from "the primary payer’s processing date as stated on an explanation of benefits [EOB] or explanation of payment [EOP]," Medicaid-primary claims get three years, and a timely claim returned for more information gets a new 90 days from the date of the request. The West Virginia Regulatory Addendum adds no filing deadline; it binds both parties to W. Va. Code § 33-45-2 on claims administration. State addenda do not apply to self-funded plans. The guidelines publish no check-run or weekly cut-off schedule.',
         ],
         cites: [S.c3345, S.cignaARG, S.ebhAdmin, S.abaFee],
+      },
+      {
+        h2: 'What a reauthorization must show',
+        body: [
+          'Evernorth’s EN0499 sets what a continued-treatment request must show: "current data" collected "within no more than 60 days prior to the start date of the continued treatment request, as well as collected within no more than 60 days prior to the date the authorization request is received," with collection dates, for every behavior and skill targeted; data showing "ongoing and sustained progress toward mastering the treatment goals"; measurable improvement on "a reliable, valid, and standardized assessment instrument completed no more than one year prior to the start date of the continued treatment request"; an account of barriers and plan changes where progress is not shown; and dated stakeholder (caregiver) training data. EN0499 does not require the data to be graphed.',
+        ],
+        cites: [S.en0499],
       },
     ],
     collect: [
@@ -1133,6 +1154,8 @@ export const westVirginiaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Cigna require graphs for ABA reassessments?', a: 'No. Evernorth’s EN0499 requires dated data collected within 60 days before both the requested start date and the request’s receipt, sustained progress, and a standardized assessment from the past year, but it does not require graphs.' },
+      { q: 'What are Cigna (Evernorth)’s claim filing deadlines for West Virginia ABA claims?', a: '90 days from the date of service unless your provider agreement or a longer state limit applies; secondary claims get 90 days from the primary payer’s EOB/EOP date, and a claim returned for more information gets a new 90 days. No check-run schedule is published.' },
       { q: 'Does Cigna cover ABA therapy in West Virginia?', a: 'Yes, under national policy EN0499 for ASD, with West Virginia’s autism mandate layered on for fully insured group plans. Self-funded employer plans follow their own documents.' },
       { q: 'Does the Cigna ABA assessment need prior authorization in West Virginia?', a: 'No, for 97151, 97152 and 0362T with an autism diagnosis when the provider is independently licensed or a BCBA. PA starts at treatment.' },
       { q: 'Can a BCBA and RBT both bill Cigna for the same time?', a: 'Only for 97153, 97154 and 97155 during direct supervision, with both present with the patient at the same time.' },
@@ -1202,8 +1225,16 @@ export const westVirginiaPayers: Record<string, PayerConfig> = {
         h2: 'Claims operations in West Virginia',
         body: [
           WV_PROMPT_PAY + ' Optum’s National Network Manual defines the “Fee Maximum” as the most a participating provider may be paid for a service, and says “Reimbursement to clinicians is based upon licensure rather than degree.” Its commercial ABA Reimbursement Policy (updated 06/2026) puts the credential on every line: HM for an RBT, HN for a BCaBA, HO for a master’s-level BCBA, HP for a doctoral-level provider; indirect services have no separate code. For a public benchmark, West Virginia Medicaid pays 97153 at $9.90 per 15 minutes.',
+          'Optum’s National Network Manual: claims must be received "no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan," and "Any corrections or additions to a claim should be made within 90 days of initial claim receipt." Complete, authorized claims "will be paid within 45 calendar days after Optum receives the claim, or as required by state and federal laws," which may exclude claims that need coordination-of-benefits decisions; the manual sets no separate secondary-claim deadline and publishes no check-run schedule.',
         ],
         cites: [S.c3345, S.optumNNM, S.optumReimb, S.abaFee],
+      },
+      {
+        h2: 'What a reauthorization must show',
+        body: [
+          'Optum’s ABA Supplemental Clinical Criteria (review 04/2026) set what each continued-service review needs: progress "assessed and documented for each targeted symptom and behavior … including the same modes of measurement that were utilized for baseline measurement"; progress that includes "rate and percentage of mastered programs, rates of mastered targets, change scores for any outcome measures, updated standardized adaptive measures, and change scores for skills-based assessments"; an assessment of the reasons and modified interventions when there is inadequate progress "within a 6-month period"; and an explanation when use of authorized hours falls below 80% over a two-week period. Treatment plans "are usually reviewed/updated twice annually." The criteria do not require graphs.',
+        ],
+        cites: [S.optumSCC],
       },
     ],
     collect: [
@@ -1296,6 +1327,8 @@ export const westVirginiaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare (Optum) require graphs for ABA continued-service reviews?', a: 'No. Optum’s criteria ask for progress on every target using the baseline measurement method, mastery rates and change scores, updated standardized adaptive measures, and an explanation of low hour use, but they do not require graphs.' },
+      { q: 'What are UnitedHealthcare (Optum)’s claim filing deadlines for West Virginia ABA claims?', a: '90 calendar days from the date of service (or longer where state law or the plan allows), corrections within 90 days of the original claim’s receipt, and payment of complete claims within 45 days or the state’s shorter clock. No check-run schedule is published.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in West Virginia?', a: 'Yes, under Optum’s national ABA criteria for ASD, with West Virginia’s autism mandate layered on for fully insured group plans. Self-funded employer plans follow their own documents.' },
       { q: 'Does Optum have West Virginia-specific ABA criteria?', a: 'No. West Virginia is not in Optum’s ABA State Mandates supplement, so the national criteria apply.' },
       { q: 'Can ABA be delivered by telehealth with UnitedHealthcare in West Virginia?', a: 'Optum’s commercial guide allows only 97155, 97156 and 97157 by telehealth, billed POS 02 or 10; the 97151 assessment and 97153 are not on the list.' },

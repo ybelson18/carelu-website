@@ -1019,8 +1019,17 @@ export const delawarePayers: Record<string, PayerConfig> = {
       },
       {
         h2: 'Claims: filing limit, payment clock, appeals',
-        body: [DE_CLAIMS_BODY],
-        cites: [S.m3570A, S.reg1310],
+        body: [DE_CLAIMS_BODY,
+          'Aetna’s Health Care Professional Toolkit (6/26) publishes no claim filing deadline: the limit for initial, corrected and secondary claims is the one in your Aetna participation agreement, and claim disputes "Must be submitted within contractual timeframes." The toolkit defines a clean claim as one "received in a timely manner" with all required data, and says a clean claim "Doesn’t involve coordination of benefits," so secondary claims sit outside the clean-claim clock. It publishes no check-run or weekly cut-off schedule.',
+        ],
+        cites: [S.m3570A, S.reg1310, S.aetnaOM],
+      },
+      {
+        h2: 'What a reauthorization must show',
+        body: [
+          'Aetna’s ABA medical necessity guide (©2026) sets what a renewal must show: the plan records baseline levels of each target behavior by "frequency, rate, symptom intensity or duration, or other objective measures," with "quantifiable criteria for progress"; where target behaviors have improved, documentation of that improvement is included, and where they have not, documentation of "modification of the treatment, additional assessments that have been conducted, and/or there has been appropriate consultations from other staff or experts." "A member’s progress is to be evaluated every six months," and the guide relies on "Repeated measurement with standardized measures to assess progress." It does not require graphs and sets no data-recency window.',
+        ],
+        cites: [S.aetnaGuide],
       },
     ],
     collect: [
@@ -1118,6 +1127,8 @@ export const delawarePayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Aetna require graphs for ABA reauthorizations?', a: 'No. Aetna’s ABA medical necessity guide asks for objective baseline measures, quantifiable progress criteria, standardized re-measurement and a six-monthly progress evaluation, with treatment changes documented where there is no improvement, but it does not require graphs or set a data-recency window.' },
+      { q: 'What are Aetna’s claim filing deadlines for Delaware ABA claims?', a: 'Aetna’s provider toolkit publishes no filing limit; the participation agreement sets it for initial, corrected and secondary claims, and a claim involving coordination of benefits is not a "clean claim." No check-run schedule is published.' },
       { q: 'Does Aetna cover ABA therapy in Delaware?', a: 'Yes, under its national ABA guide for ASD, with Delaware’s mandate layered on for fully insured plans. Self-funded employer plans follow their own documents.' },
       { q: 'Is there an age or dollar limit on ABA in Delaware?', a: 'Delaware’s mandate covers individuals under 21 and lets fully insured plans cap ABA at a CPI-adjusted maximum: $38,601.65 per person from April 1, 2026 to March 31, 2027. Visits cannot be limited.' },
       { q: 'What does Aetna pay for ABA in Delaware?', a: 'Aetna publishes no ABA rates; payment follows your participation agreement. Delaware Medicaid’s 97153 base rate ($15.68 per 15 minutes) is the public benchmark.' },
@@ -1191,6 +1202,20 @@ export const delawarePayers: Record<string, PayerConfig> = {
           'Cigna publishes no ABA rate table. Evernorth’s Administrative Guidelines say the Provider Agreement’s terms "include the reimbursement rates applicable to covered services," and refer ABA providers to "Exhibit A in your Provider Agreement" for the fee schedule and the list of reimbursable autism services. Virtual services carry modifier 95, which Evernorth says "will not change the reimbursement." Fee questions go to Provider Services, 800.926.2273. For a public benchmark, Delaware Medicaid pays 97153 at $15.68 per 15 minutes without a modifier.',
         ],
         cites: [S.ebhAdmin, S.abaFS],
+      },
+      {
+        h2: 'Claim filing and payment rules',
+        body: [
+          'Evernorth’s guidelines also set the secondary and resubmission clocks: for a secondary claim the 90 days run from "the primary payer’s processing date as stated on an explanation of benefits [EOB] or explanation of payment [EOP]," Medicaid-primary claims get three years, and a timely claim returned for more information gets a new 90 days from the date of the request. No check-run or weekly cut-off schedule is published.',
+        ],
+        cites: [S.ebhAdmin],
+      },
+      {
+        h2: 'What a reauthorization must show',
+        body: [
+          'Evernorth’s EN0499 sets what a continued-treatment request must show: "current data" collected "within no more than 60 days prior to the start date of the continued treatment request, as well as collected within no more than 60 days prior to the date the authorization request is received," with collection dates, for every behavior and skill targeted; data showing "ongoing and sustained progress toward mastering the treatment goals"; measurable improvement on "a reliable, valid, and standardized assessment instrument completed no more than one year prior to the start date of the continued treatment request"; an account of barriers and plan changes where progress is not shown; and dated stakeholder (caregiver) training data. EN0499 does not require the data to be graphed.',
+        ],
+        cites: [S.en0499],
       },
     ],
     collect: [
@@ -1282,6 +1307,8 @@ export const delawarePayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Cigna require graphs for ABA reassessments?', a: 'No. Evernorth’s EN0499 requires dated data collected within 60 days before both the requested start date and the request’s receipt, sustained progress, and a standardized assessment from the past year, but it does not require graphs.' },
+      { q: 'What are Cigna (Evernorth)’s claim filing deadlines for Delaware ABA claims?', a: '90 days from the date of service unless your provider agreement or a longer state limit applies; secondary claims get 90 days from the primary payer’s EOB/EOP date, and a claim returned for more information gets a new 90 days. No check-run schedule is published.' },
       { q: 'Does Cigna cover ABA therapy in Delaware?', a: 'Yes, under EN0499 for ASD, with Delaware’s mandate layered on for fully insured plans. Self-funded employer plans follow their own documents.' },
       { q: 'Does the Cigna ABA assessment need prior authorization in Delaware?', a: 'No, for 97151, 97152 and 0362T with an autism diagnosis when the provider is independently licensed or a BCBA. PA starts at treatment.' },
       { q: 'What is Cigna’s timely filing limit in Delaware?', a: 'Evernorth’s Delaware addendum requires claims within 180 days of the date of service (it does not apply to self-funded plans).' },
@@ -1351,8 +1378,17 @@ export const delawarePayers: Record<string, PayerConfig> = {
       },
       {
         h2: 'Claims: filing limit, payment clock, appeals',
-        body: [DE_CLAIMS_BODY],
-        cites: [S.m3570A, S.reg1310],
+        body: [DE_CLAIMS_BODY,
+          'Optum’s National Network Manual: claims must be received "no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan," and "Any corrections or additions to a claim should be made within 90 days of initial claim receipt." Complete, authorized claims "will be paid within 45 calendar days after Optum receives the claim, or as required by state and federal laws," which may exclude claims that need coordination-of-benefits decisions; the manual sets no separate secondary-claim deadline and publishes no check-run schedule.',
+        ],
+        cites: [S.m3570A, S.reg1310, S.optumNNM],
+      },
+      {
+        h2: 'What a reauthorization must show',
+        body: [
+          'Optum’s ABA Supplemental Clinical Criteria (review 04/2026) set what each continued-service review needs: progress "assessed and documented for each targeted symptom and behavior … including the same modes of measurement that were utilized for baseline measurement"; progress that includes "rate and percentage of mastered programs, rates of mastered targets, change scores for any outcome measures, updated standardized adaptive measures, and change scores for skills-based assessments"; an assessment of the reasons and modified interventions when there is inadequate progress "within a 6-month period"; and an explanation when use of authorized hours falls below 80% over a two-week period. Treatment plans "are usually reviewed/updated twice annually." The criteria do not require graphs.',
+        ],
+        cites: [S.optumSCC],
       },
     ],
     collect: [
@@ -1447,6 +1483,8 @@ export const delawarePayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare (Optum) require graphs for ABA continued-service reviews?', a: 'No. Optum’s criteria ask for progress on every target using the baseline measurement method, mastery rates and change scores, updated standardized adaptive measures, and an explanation of low hour use, but they do not require graphs.' },
+      { q: 'What are UnitedHealthcare (Optum)’s claim filing deadlines for Delaware ABA claims?', a: '90 calendar days from the date of service (or longer where state law or the plan allows), corrections within 90 days of the original claim’s receipt, and payment of complete claims within 45 days or the state’s shorter clock. No check-run schedule is published.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in Delaware?', a: 'Yes, under Optum’s ABA criteria for ASD, with Delaware’s mandate layered on for fully insured plans. Self-funded employer plans follow their own documents.' },
       { q: 'Does Optum have Delaware-specific ABA criteria?', a: 'No. Optum’s ABA State Mandates supplement (July 2026) does not list Delaware.' },
       { q: 'Is UnitedHealthcare a Delaware Medicaid plan?', a: 'No. Delaware’s Medicaid MCOs are AmeriHealth Caritas Delaware, Delaware First Health and Highmark Health Options.' },

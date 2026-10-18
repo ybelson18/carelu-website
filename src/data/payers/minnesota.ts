@@ -11,6 +11,9 @@ import type { PayerConfig, PayerSource } from './types.js';
    EIDBI rates below come from the CMS-approved state plan page (SPA MN-24-0010) and the billing grid. */
 
 const S: Record<string, PayerSource> = {
+  bcMigFAQ: { title: 'Blue Cross and Blue Shield of Minnesota — MHCP Migration Webinar FAQ (January 2024; Blue Plus timely filing and appeals)', url: 'https://bluecrossmn.com/sites/default/files/DAM/2024-01/MHCP-Migration-Webinar-FAQ.pdf' },
+  bcP7422: { title: 'Blue Cross and Blue Shield of Minnesota Provider Bulletin P74-22 — Update to Claims Timely Filing Limits and Appeal Submission Timeframes (Nov. 2022; 180 days for all lines of business from Feb. 1, 2023)', url: 'https://www.bluecrossmn.com/sites/default/files/DAM/2022-12/P74-22%20FINAL%20Update%20Claims%20Timely%20Filing%20Limits%20Appeal%20Submission%20Timeframes.pdf' },
+  hpPRM: { title: 'HealthPartners — 2026 Provider Resource Manual: claims information (3/12/2026; timely filing, COB, prompt payment of clean claims)', url: 'https://www.healthpartners.com/content/dam/plan/providers/reference/claims-information.pdf' },
   // Statutes and session laws (revisor.mn.gov)
   stat0949: { title: 'Minn. Stat. § 256B.0949 — Early Intensive Developmental and Behavioral Intervention (EIDBI) benefit', url: 'https://www.revisor.mn.gov/statutes/cite/256B.0949' },
   sl95: { title: 'Laws 2026, ch. 95, art. 4, secs. 23–26 — EIDBI definitions, QSP observation and direction, new documentation subdivision 19', url: 'https://www.revisor.mn.gov/laws/2026/0/Session+Law/Chapter/95/' },
@@ -42,7 +45,7 @@ const S: Record<string, PayerSource> = {
   overview: { title: 'EIDBI Benefit Policy Manual — Overview of the EIDBI benefit (updated 4/28/26: provisional licensure, advanced certification)', url: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_DYNAMIC_CONVERSION&RevisionSelectionMethod=LatestReleased&dDocName=DHS-292846' },
   updates: { title: 'EIDBI Benefit Policy Manual — Updates to the policy manual (change log through 9/16/26)', url: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_DYNAMIC_CONVERSION&RevisionSelectionMethod=LatestReleased&dDocName=DHS-292873' },
   mhcpTele: { title: 'MHCP Provider Manual — Telehealth Services (POS 02/10, modifier 93)', url: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_DYNAMIC_CONVERSION&RevisionSelectionMethod=LatestReleased&dDocName=DHS-335178' },
-  billPol: { title: 'MHCP Provider Manual — Billing Policy Overview (timely billing: 12 months from date of service)', url: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_DYNAMIC_CONVERSION&RevisionSelectionMethod=LatestReleased&dDocName=ID_008924' },
+  billPol: { title: 'MHCP Provider Manual — Billing Policy Overview (revised July 30, 2026: timely billing, prompt payment, enhanced pre-payment review)', url: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_DYNAMIC_CONVERSION&RevisionSelectionMethod=LatestReleased&dDocName=ID_008924' },
   mcoSec: { title: 'MHCP Provider Manual — Managed Care Organizations (carve-outs, MCO and state appeal rights)', url: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_DYNAMIC_CONVERSION&RevisionSelectionMethod=LatestReleased&dDocName=id_008923' },
   spa2410: { title: 'CMS-approved Minnesota SPA MN-24-0010, Attachment 4.19-B — EIDBI rates (effective Jan. 1, 2024)', url: 'https://www.medicaid.gov/medicaid/spa/downloads/MN-24-0010.pdf' },
   ucareBull: { title: 'DHS MHCP provider bulletin — Medica acquiring UCare clarifications (Dec. 18, 2025)', url: 'https://content.govdelivery.com/accounts/MNDHS/bulletins/400969b' },
@@ -221,6 +224,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
         body: [
           'Fee-for-service claims go on the 837P through MN–ITS or a batch system, and "MHCP receives them no later than 12 months from the date of service"; replacement claims are due within six months of the incorrect payment or 12 months from service, whichever is later. Every EIDBI line carries the UB modifier. The claim must name the pay-to provider, the rendering provider’s UMPI or NPI, and "The supervising provider for any services that require the supervision of a QSP"; the grid adds that "The QSP must be on all other EIDBI claims as the supervising professional" (the CMDE needs none), and Level III claims always need the rendering provider. Bill each day on its own line, POS 12 for home and community and POS 11 for office or non-direct work, and never mix authorized and unauthorized services on one claim. Telehealth uses POS 02 or 10, with modifier 93 for audio-only.',
           'For managed care, the statute directs DHS to require plans to "use a six-month timely filing standard," and the plans we checked print 180 days. Members (or providers with written consent; none is needed to appeal a prior authorization or payment denial) must appeal to the MCO within 60 days of the notice and may then request a state appeal within 120 days of the MCO’s decision. None of the EIDBI manual pages, the MHCP EIDBI section or the billing grid mentions electronic visit verification.',
+          'Other insurance and payment timing, from the Billing Policy Overview (revised July 30, 2026): third-party liability and Medicare crossover claims must also reach MHCP "no later than 12 months from the date of service," and crossovers that do not cross automatically get six months from Medicare’s determination if that is later. "MHCP is required to pay or deny clean claims within 30 days and complex claims within 90 days of receipt"; clean claims are MHCP-primary claims without attachments, and complex ones include replacements, third-party liability claims and claims "related to services that are at a high risk of fraud." EIDBI is on that list now: DHS is "suspending all fee-for-service claims" for EIDBI and 13 other benefits for enhanced pre-payment review every warrant cycle, and "will release unflagged claims for reimbursement in the following warrant cycle (two weeks later)." A warrant cycle "is the two weeks before the electronic funds transfer (EFT) or the payment date"; it runs from the day after one claim cut-off to the next, and the cut-off and payment dates are on DHS’s payment and claim cut-off calendar (MHCP billing resources page). Flagged claims are reviewed by hand and may need documentation.',
         ],
         cites: [S.billPol, S.mhcpEidbi, S.grid, S.mhcpTele, S.stat69, S.mcoSec],
       },
@@ -313,6 +317,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'How long does Minnesota Medicaid take to pay EIDBI claims?', a: 'Fee-for-service EIDBI claims are under enhanced pre-payment review: DHS suspends them each two-week warrant cycle and releases unflagged claims in the following cycle, about two weeks later; flagged claims are reviewed by hand. Claim cut-off and payment dates are on DHS’s payment and claim cut-off calendar. The general standard is 30 days for clean claims and 90 days for complex ones.' },
       { q: 'Does Minnesota Medicaid cover ABA therapy?', a: 'Yes, through the EIDBI benefit for members under 21 with autism spectrum disorder or a related condition. ABA is one of four approved EIDBI modalities. A CMDE establishes medical need, a QSP writes the ITP, and the plan (Acentra Health for fee-for-service, otherwise the member’s MCO) authorizes treatment.' },
       { q: 'Does the ABA assessment need prior authorization in Minnesota Medicaid?', a: 'Not the first CMDE (97151 UB) in a calendar year, up to 80 units; ITP development (H0032) needs none either. A second CMDE in the same year needs form DHS-3806. Treatment codes (97153–97157, 0373T, H0046) need service authorization.' },
       { q: 'What does Minnesota Medicaid pay for ABA?', a: 'Under SPA MN-24-0010 (effective Jan. 1, 2024), $20.178 per 15-minute unit for individual intervention, observation and direction, and family training by a QSP or Level I provider; 80% of that for Level II and 50% for Level III; $24.192 for two-provider intervention; $50.112 per unit for the CMDE. MCOs pay contracted rates.' },
@@ -366,8 +371,9 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
         h2: 'Authorization and claims at Blue Plus',
         body: [
           'Blue Cross’s EIDBI bulletins (2020–2021, still the current notices on its site) set the process: the completed ITP is required "as part of the initial, 6-month, and annual authorization requests"; the ITP, CMDE and a completed Blue Cross EIDBI Request Form go by fax to 1-800-505-1193 or as an attachment in Availity’s Interactive Care Reviewer; and since April 1, 2021 Blue Cross uses "a 180-day time span for EIDBI service authorization requests. Requests that exceed 180 days will be reduced." Since December 1, 2021 every EIDBI code (0373T, 97151, 97153–97157, H0032, H0046, T1024) must carry the UB modifier, matching DHS’s billing grid. DHS’s October 2026 MCO grid confirms "No referral is required for the service. Services do require authorization," that non-contracted providers need authorization for everything, and that "All claims must be submitted electronically using Availity."',
+          'Filing limits: Blue Cross’s bulletin P74-22 made 180 days the claims timely filing limit "for all lines of business" from February 1, 2023, with appeals due within 90 days, and its January 2024 MHCP migration FAQ (for Blue Plus Medicaid) repeats it: "Timely filing is 180 days from the date of service for claims and 90 days from remit date for appeals." Neither document sets a separate corrected-claim or secondary-claim window or a check-run schedule; ask MHCP provider services, 1-866-518-8448.',
         ],
-        cites: [S.bcP69, S.bcP55, S.mcoGrid, S.bcX43],
+        cites: [S.bcP69, S.bcP55, S.mcoGrid, S.bcX43, S.bcP7422, S.bcMigFAQ],
       },
       {
         h2: 'What the state rules add',
@@ -383,7 +389,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis', desc: 'ASD or related condition from a physician, APRN, PA or mental health professional.' },
       { title: 'Other insurance', desc: 'Record it; DHS’s pay-and-chase rule means the commercial plan need not be billed first for EIDBI.' },
     ],
-    sources: [S.bcP55, S.bcP69, S.bcX43, S.mcoGrid, S.stat0949, S.sl95, S.mhcpEidbi, S.grid, S.stat62M01, S.stat62M05, S.cfr438, S.cfr433],
+    sources: [S.bcP55, S.bcP69, S.bcX43, S.mcoGrid, S.stat0949, S.sl95, S.mhcpEidbi, S.grid, S.stat62M01, S.stat62M05, S.cfr438, S.cfr433, S.bcP7422, S.bcMigFAQ],
     deliveryRules: {
       supervision: {
         value: 'Blue Plus publishes no EIDBI supervision rule of its own. ' + EIDBI_SUPERVISION,
@@ -449,6 +455,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       coordinationOfBenefits: { value: EIDBI_COB, status: 'verified', cites: [S.mhcpEidbi, S.cfr433] },
     },
     faq: [
+      { q: 'What is Blue Plus’s timely filing limit for EIDBI claims?', a: '180 days from the date of service, and 90 days from the remit date for appeals (Blue Cross bulletin P74-22 and its 2024 MHCP FAQ). No separate corrected- or secondary-claim window or check-run schedule is published.' },
       { q: 'Does Blue Plus cover ABA for Medical Assistance members?', a: 'Yes, through the state EIDBI benefit for members under 21. Blue Plus follows DHS’s EIDBI guidelines and requires prior authorization of treatment.' },
       { q: 'How do I submit an EIDBI authorization to Blue Plus?', a: 'Attach the CMDE, ITP and Blue Cross EIDBI Request Form in Availity’s Interactive Care Reviewer, or fax them to 1-800-505-1193. Authorizations span up to 180 days.' },
       { q: 'Is Blue Plus the same as Blue Cross commercial?', a: 'No. Blue Plus is Blue Cross’s public-programs HMO; Blue Cross commercial members follow medical policy X-43 and their benefit plan.' },
@@ -508,6 +515,13 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.hpPage, S.hpTips],
       },
+      {
+        h2: 'Claim filing and payment rules',
+        body: [
+          'HealthPartners’ claims chapter of its 2026 Provider Resource Manual (reviewed March 2026) leaves the filing deadline to the contract: contracted providers "must submit all claims for services, other than claims pended for coordination of benefits," within "a specified period of the date of service" set in the provider contract. Claims needing coordination of benefits "shall be submitted within sixty (60) days of determining HPI’s or its Affiliates’ obligation to make payment," and a timely-filing denial may be appealed within 60 days of the remit date. Corrected claims go electronically as bill frequency 7. On payment, the manual restates Minnesota’s rule that clean claims be paid or denied "within 30 calendar days after the date upon which the claim was received," with interest on late clean claims, and counts the paid date as the check date plus 3 days for mailing. No check-run schedule is published. For Medical Assistance members DHS’s managed-care contract standard is six months from the date of service (Minn. Stat. § 256B.69, subd. 5a).',
+        ],
+        cites: [S.hpPRM, S.stat69],
+      },
     ],
     collect: [
       { title: 'Member ID', desc: 'Confirm HealthPartners Minnesota Health Care Programs coverage with the guest eligibility tool.' },
@@ -515,7 +529,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       { title: 'Supervising QSP', desc: 'The QSP’s NPI goes on every claim line that needs supervision.' },
       { title: 'Other insurance', desc: 'Record it; HealthPartners pays EIDBI without a primary EOB.' },
     ],
-    sources: [S.hpPolicy, S.hpPage, S.hpTips, S.mcoGrid, S.stat0949, S.sl95, S.grid, S.stat62M01, S.stat62M05, S.cfr438, S.cfr433],
+    sources: [S.hpPolicy, S.hpPage, S.hpTips, S.mcoGrid, S.stat0949, S.sl95, S.grid, S.stat62M01, S.stat62M05, S.cfr438, S.cfr433, S.hpPRM],
     deliveryRules: {
       supervision: {
         value: 'HealthPartners excludes services "Provided without the required supervision" and requires the QSP on supervised claims; the supervision floor is the statute’s. ' + EIDBI_SUPERVISION,
@@ -589,6 +603,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'What is HealthPartners’ timely filing limit for EIDBI claims?', a: 'The provider contract sets it (DHS requires MCOs to use a six-month standard for Medical Assistance). Coordination-of-benefits claims are due within 60 days of the point HealthPartners’ payment obligation is determined, and clean claims are paid or denied within 30 calendar days.' },
       { q: 'Does HealthPartners require prior authorization for EIDBI?', a: 'Yes for 0373T and 97153–97157. Fax the clinical information, including the CMDE, to 952-853-8830.' },
       { q: 'Whose NPI goes on a HealthPartners EIDBI claim?', a: 'Both: the rendering provider (loop 2310B/2420A) and the QSP as supervising provider (2310D/2420D) on every service that needs QSP supervision.' },
       { q: 'Do I need the primary insurance EOB first?', a: 'No. HealthPartners pays EIDBI claims without billing the primary insurer first, following DHS’s pay-and-chase policy.' },
@@ -1377,8 +1392,16 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
         h2: 'Claims operations in Minnesota',
         body: [
           MN_PROMPT_PAY + ' Aetna’s provider manual (6/26) treats payment as a contract term: "The rates and compensation under your agreement are subject to the Aetna coding/claim edit policies," and with a direct agreement "your direct Aetna rates will apply." For fully insured plans the Minnesota Utilization Review Act sets authorization clocks (five business days standard), and the Minnesota Telehealth Act requires telehealth to be covered and paid "on the same basis and at the same rate" as in person.',
+          'Aetna’s Health Care Professional Toolkit (6/26) publishes no claim filing deadline: the limit for initial, corrected and secondary claims is the one in your Aetna participation agreement, and claim disputes "Must be submitted within contractual timeframes." The toolkit defines a clean claim as one "received in a timely manner" with all required data, and says a clean claim "Doesn’t involve coordination of benefits," so secondary claims sit outside the clean-claim clock. It publishes no check-run or weekly cut-off schedule.',
         ],
         cites: [S.stat62Q75, S.aetnaOM, S.stat62M05, S.stat62A673],
+      },
+      {
+        h2: 'What a reauthorization must show',
+        body: [
+          'Aetna’s ABA medical necessity guide (©2026) sets what a renewal must show: the plan records baseline levels of each target behavior by "frequency, rate, symptom intensity or duration, or other objective measures," with "quantifiable criteria for progress"; where target behaviors have improved, documentation of that improvement is included, and where they have not, documentation of "modification of the treatment, additional assessments that have been conducted, and/or there has been appropriate consultations from other staff or experts." "A member’s progress is to be evaluated every six months," and the guide relies on "Repeated measurement with standardized measures to assess progress." It does not require graphs and sets no data-recency window.',
+        ],
+        cites: [S.aetnaGuide],
       },
     ],
     collect: [
@@ -1476,6 +1499,8 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Aetna require graphs for ABA reauthorizations?', a: 'No. Aetna’s ABA medical necessity guide asks for objective baseline measures, quantifiable progress criteria, standardized re-measurement and a six-monthly progress evaluation, with treatment changes documented where there is no improvement, but it does not require graphs or set a data-recency window.' },
+      { q: 'What are Aetna’s claim filing deadlines for Minnesota ABA claims?', a: 'Aetna’s provider toolkit publishes no filing limit; the participation agreement sets it for initial, corrected and secondary claims, and a claim involving coordination of benefits is not a "clean claim." No check-run schedule is published.' },
       { q: 'Does Aetna cover ABA therapy in Minnesota?', a: 'Yes, under its national ABA guide for ASD. Minnesota’s mandate adds a floor only for large-employer (51+) fully insured plans and children under 18; other plans follow their documents.' },
       { q: 'Does Minnesota’s autism mandate cover adults or small employers?', a: 'No. § 62A.3094 applies to health plans issued to large employers and to children under 18. Parity law (§ 62Q.47) still applies to all health plans that cover mental health.' },
       { q: 'Does a BCBA need a Minnesota license to bill Aetna?', a: 'Minnesota has required a behavior analyst license to practice ABA since January 1, 2025, and Aetna expects billing by licensed behavior analysts in licensure states. Get the Minnesota license (or bill through a licensed psychologist where in scope).' },
@@ -1545,8 +1570,16 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
         h2: 'Claims operations in Minnesota',
         body: [
           'Evernorth "will only consider claims submitted within 90 days of the date of service or as otherwise defined in your Provider Agreement," unless "Applicable state law provides for a longer timely filing limit." ' + MN_PROMPT_PAY + ' Telehealth claims carry "Modifier 95 in Field 24-D" and "02 for Place of Service." Fee-schedule and contract questions go to Provider Services, 800.926.2273.',
+          'Evernorth’s guidelines also set the secondary and resubmission clocks: for a secondary claim the 90 days run from "the primary payer’s processing date as stated on an explanation of benefits [EOB] or explanation of payment [EOP]," Medicaid-primary claims get three years, and a timely claim returned for more information gets a new 90 days from the date of the request. No check-run or weekly cut-off schedule is published.',
         ],
         cites: [S.ebhAdmin, S.stat62Q75],
+      },
+      {
+        h2: 'What a reauthorization must show',
+        body: [
+          'Evernorth’s EN0499 sets what a continued-treatment request must show: "current data" collected "within no more than 60 days prior to the start date of the continued treatment request, as well as collected within no more than 60 days prior to the date the authorization request is received," with collection dates, for every behavior and skill targeted; data showing "ongoing and sustained progress toward mastering the treatment goals"; measurable improvement on "a reliable, valid, and standardized assessment instrument completed no more than one year prior to the start date of the continued treatment request"; an account of barriers and plan changes where progress is not shown; and dated stakeholder (caregiver) training data. EN0499 does not require the data to be graphed.',
+        ],
+        cites: [S.en0499],
       },
     ],
     collect: [
@@ -1638,6 +1671,8 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Cigna require graphs for ABA reassessments?', a: 'No. Evernorth’s EN0499 requires dated data collected within 60 days before both the requested start date and the request’s receipt, sustained progress, and a standardized assessment from the past year, but it does not require graphs.' },
+      { q: 'What are Cigna (Evernorth)’s claim filing deadlines for Minnesota ABA claims?', a: '90 days from the date of service unless your provider agreement or a longer state limit applies; secondary claims get 90 days from the primary payer’s EOB/EOP date, and a claim returned for more information gets a new 90 days. No check-run schedule is published.' },
       { q: 'Does Cigna cover ABA therapy in Minnesota?', a: 'Yes, under EN0499 for ASD. Minnesota’s mandate adds a floor for fully insured large-employer plans and children under 18.' },
       { q: 'Does the Cigna ABA assessment need prior authorization in Minnesota?', a: 'No, for 97151, 97152 and 0362T with an autism diagnosis when the provider is independently licensed or a BCBA.' },
       { q: 'What is Cigna’s timely filing limit in Minnesota?', a: 'Evernorth’s default is 90 days from service unless the provider agreement or a longer state limit applies; Minnesota’s statute sets six months unless a contract provides otherwise. Check your agreement.' },
@@ -1708,6 +1743,20 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
           'UnitedHealthcare publishes no ABA rate table. Optum’s National Network Manual defines the "Fee Maximum" as the most a participating provider may be paid for a service and says "Reimbursement to clinicians is based upon licensure rather than degree." Optum’s commercial ABA Reimbursement Policy (2022RP501A, updated February 2026) puts a credential modifier on every line: HM for an RBT, HN for a BCaBA, HO for a master’s-level BCBA or licensed mental health provider, HP for a BCBA-D; indirect work has no separate code. ' + MN_PROMPT_PAY,
         ],
         cites: [S.optumNNM, S.optumReimb, S.stat62Q75],
+      },
+      {
+        h2: 'Claim filing and payment rules',
+        body: [
+          'Optum’s National Network Manual: claims must be received "no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan," and "Any corrections or additions to a claim should be made within 90 days of initial claim receipt." Complete, authorized claims "will be paid within 45 calendar days after Optum receives the claim, or as required by state and federal laws," which may exclude claims that need coordination-of-benefits decisions; the manual sets no separate secondary-claim deadline and publishes no check-run schedule.',
+        ],
+        cites: [S.optumNNM],
+      },
+      {
+        h2: 'What a reauthorization must show',
+        body: [
+          'Optum’s ABA Supplemental Clinical Criteria (review 04/2026) set what each continued-service review needs: progress "assessed and documented for each targeted symptom and behavior … including the same modes of measurement that were utilized for baseline measurement"; progress that includes "rate and percentage of mastered programs, rates of mastered targets, change scores for any outcome measures, updated standardized adaptive measures, and change scores for skills-based assessments"; an assessment of the reasons and modified interventions when there is inadequate progress "within a 6-month period"; and an explanation when use of authorized hours falls below 80% over a two-week period. Treatment plans "are usually reviewed/updated twice annually." The criteria do not require graphs.',
+        ],
+        cites: [S.optumSCC],
       },
     ],
     collect: [
@@ -1804,6 +1853,8 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare (Optum) require graphs for ABA continued-service reviews?', a: 'No. Optum’s criteria ask for progress on every target using the baseline measurement method, mastery rates and change scores, updated standardized adaptive measures, and an explanation of low hour use, but they do not require graphs.' },
+      { q: 'What are UnitedHealthcare (Optum)’s claim filing deadlines for Minnesota ABA claims?', a: '90 calendar days from the date of service (or longer where state law or the plan allows), corrections within 90 days of the original claim’s receipt, and payment of complete claims within 45 days or the state’s shorter clock. No check-run schedule is published.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in Minnesota?', a: 'Yes, under Optum’s national ABA criteria for ASD, with Minnesota’s mandate layered on for fully insured large-employer plans and children under 18.' },
       { q: 'Does Optum have Minnesota-specific ABA criteria?', a: 'No. Optum’s ABA State Mandates supplement does not list Minnesota.' },
       { q: 'Is UnitedHealthcare a Minnesota Medicaid plan?', a: 'Not for EIDBI: DHS’s October 2026 grid lists Blue Plus, HealthPartners, Hennepin Health, IMCare, Medica, PrimeWest Health, South Country Health Alliance and Medica One Health Plan.' },
@@ -1871,6 +1922,14 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
         body: [MN_LICENSURE_BODY, MN_PROMPT_PAY],
         cites: [S.lic9981, S.lic9983, S.lic9986, S.lic9987, S.bacbLic, S.spa2410, S.stat62Q75],
       },
+      {
+        h2: 'Claim filing and payment rules',
+        body: [
+          'Blue Cross’s bulletin P74-22 set "a permanent change to the claims timely filing for all lines of business to 180 days beginning February 1, 2023," and requires appeals "within the standard timeframe of 90 days." It sets no separate corrected-claim or secondary-claim window, and Blue Cross publishes no check-run schedule in the documents we read. For insured plans, state law sets the payment clock.',
+          MN_PROMPT_PAY,
+        ],
+        cites: [S.bcP7422, S.stat62Q75],
+      },
     ],
     collect: [
       { title: 'Plan funding and group size', desc: 'Fully insured large-employer (§ 62A.3094 applies), small group/individual, or self-funded ERISA.' },
@@ -1879,7 +1938,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       { title: 'Treatment plan', desc: 'From the supervising mental health professional, with hours justified for each target.' },
       { title: 'Caregiver commitment', desc: 'Weekly caregiver support and training must be in the plan.' },
     ],
-    sources: [S.bcX43, S.stat3094, S.stat62Q18, S.stat62Q47, S.stat62Q75, S.stat62M05, S.stat62M07, S.stat62A673, S.lic9981, S.lic9983, S.lic9986, S.lic9987, S.bacbLic, S.erisa, S.cfr433, S.mhcpEidbi, S.tricare, S.champva, S.spa2410],
+    sources: [S.bcX43, S.stat3094, S.stat62Q18, S.stat62Q47, S.stat62Q75, S.stat62M05, S.stat62M07, S.stat62A673, S.lic9981, S.lic9983, S.lic9986, S.lic9987, S.bacbLic, S.erisa, S.cfr433, S.mhcpEidbi, S.tricare, S.champva, S.spa2410, S.bcP7422],
     deliveryRules: {
       supervision: {
         value: 'X-43-014: "Unlicensed staff are supervised by a BCBA, licensed psychologist, or licensed physician with demonstrated knowledge, skills, and expertise in ASD treatment," and "A minimum of 2 hours supervision is provided for every 10 hours direct treatment" (initial and continued care). Minnesota law adds that the supervising BCBA must hold a Minnesota behavior analyst license unless exempt (§ 148.9986).',
@@ -1969,6 +2028,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'What is Blue Cross and Blue Shield of Minnesota’s timely filing limit?', a: '180 days from the date of service for all lines of business since February 1, 2023, with appeals due within 90 days (bulletin P74-22). Insured plans must pay or deny clean claims within 30 calendar days under Minn. Stat. § 62Q.75.' },
       { q: 'Does Blue Cross and Blue Shield of Minnesota cover ABA?', a: 'Yes, under medical policy X-43 and the member’s plan, with Minnesota’s mandate for fully insured large-employer plans and children under 18. Blue Plus Medical Assistance members use EIDBI instead.' },
       { q: 'How recent must the autism diagnosis be for Blue Cross MN?', a: 'Within the past 24 months, using validated tools, with an adaptive assessment and an FBA from the past 12 months.' },
       { q: 'What supervision ratio does Blue Cross MN require?', a: 'At least 2 hours of supervision for every 10 hours of direct treatment, by a BCBA, licensed psychologist or physician (and in Minnesota the BCBA needs the state license).' },

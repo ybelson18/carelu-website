@@ -40,7 +40,7 @@ const S: Record<string, PayerSource> = {
   cfr147: { title: '45 CFR 147.136 — Internal claims and appeals and external review for group and individual coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-B/part-147/section-147.136' },
   tricare: { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
   champva: { title: '38 CFR 17.270 — CHAMPVA is the last payer in double coverage', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
-  aetnaCPB: { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+  aetnaCPB: { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
   aetnaCPB648: { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
   aetnaGuide: { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026; Exhibit A covers Maryland only)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
   aetnaPrecert: { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
@@ -327,8 +327,10 @@ export const alabamaPayers: Record<string, PayerConfig> = {
       },
       {
         h2: 'Claims operations in Alabama: prompt pay and recoupment',
-        body: [AL_CLAIMS_BODY],
-        cites: [S.promptPay, S.aiUR],
+        body: [AL_CLAIMS_BODY,
+          'Aetna’s Health Care Professional Toolkit (6/26) publishes no claim filing deadline: the limit for initial, corrected and secondary claims is the one in your Aetna participation agreement, and claim disputes "Must be submitted within contractual timeframes." The toolkit defines a clean claim as one "received in a timely manner" with all required data, and says a clean claim "Doesn’t involve coordination of benefits," so secondary claims sit outside the clean-claim clock. It publishes no check-run or weekly cut-off schedule.',
+        ],
+        cites: [S.promptPay, S.aiUR, S.aetnaOM],
       },
       {
         h2: 'What is Aetna’s fee schedule for ABA?',
@@ -336,6 +338,13 @@ export const alabamaPayers: Record<string, PayerConfig> = {
           'Aetna publishes no ABA rate table. Its provider manual (6/26) treats payment as a contract term: "The rates and compensation under your agreement are subject to the Aetna coding/claim edit policies." If you have both a direct agreement and an intermediary contract, "your direct Aetna rates will apply unless we specifically notify you otherwise." When a member’s benefits run out, you "cannot charge them more than the contracted rate." Get your rates from your Aetna agreement. As a public benchmark, Alabama Medicaid pays 97153 at $10.00 per 15 minutes; commercial contracts are negotiated separately.',
         ],
         cites: [S.aetnaOM, S.fee],
+      },
+      {
+        h2: 'What a reauthorization must show',
+        body: [
+          'Aetna’s ABA medical necessity guide (©2026) sets what a renewal must show: the plan records baseline levels of each target behavior by "frequency, rate, symptom intensity or duration, or other objective measures," with "quantifiable criteria for progress"; where target behaviors have improved, documentation of that improvement is included, and where they have not, documentation of "modification of the treatment, additional assessments that have been conducted, and/or there has been appropriate consultations from other staff or experts." "A member’s progress is to be evaluated every six months," and the guide relies on "Repeated measurement with standardized measures to assess progress." It does not require graphs and sets no data-recency window.',
+        ],
+        cites: [S.aetnaGuide],
       },
     ],
     collect: [
@@ -433,6 +442,8 @@ export const alabamaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Aetna require graphs for ABA reauthorizations?', a: 'No. Aetna’s ABA medical necessity guide asks for objective baseline measures, quantifiable progress criteria, standardized re-measurement and a six-monthly progress evaluation, with treatment changes documented where there is no improvement, but it does not require graphs or set a data-recency window.' },
+      { q: 'What are Aetna’s claim filing deadlines for Alabama ABA claims?', a: 'Aetna’s provider toolkit publishes no filing limit; the participation agreement sets it for initial, corrected and secondary claims, and a claim involving coordination of benefits is not a "clean claim." No check-run schedule is published.' },
       { q: 'Does Aetna cover ABA therapy in Alabama?', a: 'Yes, for ASD under Aetna’s national criteria, with precertification on all ten ABA codes. Fully insured large-group plans (51+ employees) also carry the Riley Ward Act mandate for children 18 and under.' },
       { q: 'What does the Alabama autism mandate require?', a: 'The Riley Ward Act requires large-group health plans to cover autism screening, diagnosis and treatment, including ABA, through age 18, under a physician’s or psychologist’s treatment plan. ABA may be capped at $40,000 (ages 0–9), $30,000 (10–13) or $20,000 (14–18) a year, with more allowed on prior approval.' },
       { q: 'Does a BCBA need an Alabama license to bill Aetna?', a: 'Yes in practice. Alabama prohibits unlicensed practice of behavior analysis, Aetna requires licensed behavior analysts in licensure states, and the mandate requires a BCBA licensed in Alabama.' },
@@ -498,7 +509,9 @@ export const alabamaPayers: Record<string, PayerConfig> = {
       },
       {
         h2: 'Claims operations in Alabama: prompt pay and recoupment',
-        body: [AL_CLAIMS_BODY],
+        body: [AL_CLAIMS_BODY,
+          'Evernorth’s Behavioral Health Administrative Guidelines (September 2026) set the filing limit: "We will only consider claims submitted within 90 days of the date of service or as otherwise defined in your Provider Agreement," unless "Applicable state law provides for a longer timely filing limit." For a secondary claim the 90 days run from "the primary payer’s processing date as stated on an explanation of benefits [EOB] or explanation of payment [EOP]," Medicaid-primary claims get three years, and a timely claim returned for more information gets a new 90 days from the date of the request. The Alabama Regulatory Addendum adds no filing deadline; it limits retroactive denial or recoupment to 12 months after payment (or the contract’s filing period, if shorter) and gives 30 days to dispute one. State addenda do not apply to self-funded plans. The guidelines publish no check-run or weekly cut-off schedule.',
+        ],
         cites: [S.promptPay, S.aiUR, S.ebhAdmin],
       },
       {
@@ -507,6 +520,13 @@ export const alabamaPayers: Record<string, PayerConfig> = {
           'Cigna publishes no ABA rate table. Evernorth’s Administrative Guidelines (September 2026) say the Provider Agreement terms "include the reimbursement rates applicable to covered services." ABA providers are told: "For your fee schedule and a listing of autism spectrum disorder–related services eligible for reimbursement, refer to Exhibit A in your Provider Agreement." Provider Services is 800.926.2273. Virtual services carry modifier 95, which Evernorth says "will not change the reimbursement." As a public benchmark, Alabama Medicaid pays 97153 at $10.00 per 15 minutes.',
         ],
         cites: [S.ebhAdmin, S.fee],
+      },
+      {
+        h2: 'What a reauthorization must show',
+        body: [
+          'Evernorth’s EN0499 sets what a continued-treatment request must show: "current data" collected "within no more than 60 days prior to the start date of the continued treatment request, as well as collected within no more than 60 days prior to the date the authorization request is received," with collection dates, for every behavior and skill targeted; data showing "ongoing and sustained progress toward mastering the treatment goals"; measurable improvement on "a reliable, valid, and standardized assessment instrument completed no more than one year prior to the start date of the continued treatment request"; an account of barriers and plan changes where progress is not shown; and dated stakeholder (caregiver) training data. EN0499 does not require the data to be graphed.',
+        ],
+        cites: [S.en0499],
       },
     ],
     collect: [
@@ -598,6 +618,8 @@ export const alabamaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Cigna require graphs for ABA reassessments?', a: 'No. Evernorth’s EN0499 requires dated data collected within 60 days before both the requested start date and the request’s receipt, sustained progress, and a standardized assessment from the past year, but it does not require graphs.' },
+      { q: 'What are Cigna (Evernorth)’s claim filing deadlines for Alabama ABA claims?', a: '90 days from the date of service unless your provider agreement or a longer state limit applies; secondary claims get 90 days from the primary payer’s EOB/EOP date, and a claim returned for more information gets a new 90 days. No check-run schedule is published.' },
       { q: 'Does Cigna cover ABA therapy in Alabama?', a: 'Yes, under EN0499 for ASD. Fully insured large-group plans also carry the Riley Ward Act mandate for children 18 and under; self-funded plans follow their own documents.' },
       { q: 'Does the Cigna ABA assessment need prior authorization in Alabama?', a: 'No, for 97151, 97152 and 0362T with an autism diagnosis when the provider is independently licensed or a BCBA. PA starts at treatment.' },
       { q: 'Can ABA be done by telehealth with Cigna in Alabama?', a: 'Cigna covers all ABA codes by telehealth (modifier 95), but the provider must meet Alabama’s licensing requirements.' },
@@ -665,8 +687,10 @@ export const alabamaPayers: Record<string, PayerConfig> = {
       },
       {
         h2: 'Claims operations in Alabama: prompt pay and recoupment',
-        body: [AL_CLAIMS_BODY],
-        cites: [S.promptPay, S.aiUR],
+        body: [AL_CLAIMS_BODY,
+          'Optum’s National Network Manual: claims must be received "no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan," and "Any corrections or additions to a claim should be made within 90 days of initial claim receipt." Complete, authorized claims "will be paid within 45 calendar days after Optum receives the claim, or as required by state and federal laws," which may exclude claims that need coordination-of-benefits decisions; the manual sets no separate secondary-claim deadline and publishes no check-run schedule.',
+        ],
+        cites: [S.promptPay, S.aiUR, S.optumNNM],
       },
       {
         h2: 'What is UnitedHealthcare’s fee schedule for ABA?',
@@ -674,6 +698,13 @@ export const alabamaPayers: Record<string, PayerConfig> = {
           'UnitedHealthcare publishes no ABA rate table; Optum pays from your contract. The National Network Manual defines the "Fee Maximum" as "the maximum amount a participating provider may be paid for a specific health care service provided to a member," and says "Reimbursement to clinicians is based upon licensure rather than degree." Optum’s commercial ABA Reimbursement Policy (2022RP501A, updated June 2026) puts a credential modifier on every line: HM for an RBT, HN for a BCaBA, HO for a master’s-level BCBA or licensed clinician, HP for a BCBA-D or doctoral-level clinician. It notes that state requirements "may supplement, modify or supersede" the policy. As a public benchmark, Alabama Medicaid pays 97153 at $10.00 per 15 minutes.',
         ],
         cites: [S.optumNNM, S.optumReimb, S.fee],
+      },
+      {
+        h2: 'What a reauthorization must show',
+        body: [
+          'Optum’s ABA Supplemental Clinical Criteria (review 04/2026) set what each continued-service review needs: progress "assessed and documented for each targeted symptom and behavior … including the same modes of measurement that were utilized for baseline measurement"; progress that includes "rate and percentage of mastered programs, rates of mastered targets, change scores for any outcome measures, updated standardized adaptive measures, and change scores for skills-based assessments"; an assessment of the reasons and modified interventions when there is inadequate progress "within a 6-month period"; and an explanation when use of authorized hours falls below 80% over a two-week period. Treatment plans "are usually reviewed/updated twice annually." The criteria do not require graphs.',
+        ],
+        cites: [S.optumSCC],
       },
     ],
     collect: [
@@ -766,6 +797,8 @@ export const alabamaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare (Optum) require graphs for ABA continued-service reviews?', a: 'No. Optum’s criteria ask for progress on every target using the baseline measurement method, mastery rates and change scores, updated standardized adaptive measures, and an explanation of low hour use, but they do not require graphs.' },
+      { q: 'What are UnitedHealthcare (Optum)’s claim filing deadlines for Alabama ABA claims?', a: '90 calendar days from the date of service (or longer where state law or the plan allows), corrections within 90 days of the original claim’s receipt, and payment of complete claims within 45 days or the state’s shorter clock. No check-run schedule is published.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in Alabama?', a: 'Yes, under Optum’s national ABA criteria for ASD, with prior authorization. Fully insured large-group plans also carry the Riley Ward Act mandate for children 18 and under.' },
       { q: 'Does Optum have Alabama-specific ABA criteria?', a: 'No. Alabama is not in Optum’s ABA State Mandates supplement, so the national criteria apply.' },
       { q: 'Can ABA be delivered by telehealth with UnitedHealthcare in Alabama?', a: 'Optum’s commercial telehealth guide allows only 97155, 97156 and 97157 (supervision and family training), billed POS 02 or 10.' },

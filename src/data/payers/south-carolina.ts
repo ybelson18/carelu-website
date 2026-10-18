@@ -41,9 +41,9 @@ const S: Record<string, PayerSource> = {
   atcASD: { title: 'Absolute Total Care — Autism Spectrum Disorder (ASD) Authorization Form (2023 edition)', url: 'https://www.absolutetotalcare.com/content/dam/centene/absolute-total-care/test/Medicaid-Provider-ASDAuthForm-2023.pdf' },
   atcPreAuth: { title: 'Absolute Total Care — Medicaid Pre-Auth Check (code lookup)', url: 'https://www.absolutetotalcare.com/providers/preauth-check/medicaid-pre-auth.html' },
   hbPOM: { title: 'Healthy Blue (BlueChoice HealthPlan) — Provider Administrative Office Manual (effective Jan. 1, 2026; updated April 2026)', url: 'https://www.healthybluesc.com/sites/default/files/BCMC_221867_25_Healthy%20Blue%20Provider%20Administrative%20Office%20Manual.pdf' },
-  molPA: { title: 'Molina Healthcare South Carolina Medicaid — Pre-Service Review Guide (effective 02/01/2026; Molina media path)', url: 'https://medicare.centralhealthplan.com/-/media/Molina/PublicWebsite/PDF/Providers/sc/medicaid/prior-authorization-pre-service-review-guide.pdf' },
+  molPA: { title: 'Molina Healthcare South Carolina Medicaid — Pre-Service Review Guide (effective 02/01/2026; Molina media path)', url: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/sc/medicaid/prior-authorization-pre-service-review-guide.pdf' },
   molPM: { title: 'Molina Healthcare of South Carolina — Medicaid Provider Manual 2026 (Molina media path)', url: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/sc/medicaid/manual_sc_ProviderHandbook.pdf' },
-  shPM: { title: 'Select Health of South Carolina (First Choice) — Health Care Professional and Provider Manual (updated August 2026)', url: 'https://www.selecthealthofsc.com/content/dam/first-choice/selecthealthofsc/pdf/provider/provider-manual.pdf.coredownload.inline.pdf' },
+  shPM: { title: 'Select Health of South Carolina (First Choice) — Health Care Professional and Provider Manual (updated October 2026)', url: 'https://www.selecthealthofsc.com/content/dam/first-choice/selecthealthofsc/pdf/provider/provider-manual.pdf.coredownload.inline.pdf' },
   shPA: { title: 'Select Health of South Carolina — 2026 Prior Authorization Information (revised January 2026)', url: 'https://www.selecthealthofsc.com/pdf/provider/resources/prior-authorization-grid.pdf' },
   shChk: { title: 'Select Health of South Carolina — ASD Provider Checklist for Treatment Authorization Requests', url: 'https://www.selecthealthofsc.com/content/dam/first-choice/selecthealthofsc/pdf/provider/forms/autism-spectrum-disorder-provider-checklist.pdf.coredownload.inline.pdf' },
   shReq: { title: 'Select Health of South Carolina — ASD Treatment Request Form', url: 'https://www.selecthealthofsc.com/content/dam/first-choice/selecthealthofsc/pdf/provider/forms/autism-spectrum-disorder-treatment-request-form.pdf.coredownload.inline.pdf' },
@@ -54,7 +54,7 @@ const S: Record<string, PayerSource> = {
   humPApage: { title: 'Humana — South Carolina Medicaid prior authorization information and forms', url: 'https://provider.humana.com/medicaid/south-carolina-medicaid/prior-authorization' },
   humBill: { title: 'Humana Healthy Horizons in South Carolina — Provider Billing and Claims Guide', url: 'https://assets.humana.com/is/content/humana/SC_PROV_Billing_Guide_SCHM43JENpdf' },
   humBH: { title: 'Humana Healthy Horizons in South Carolina — Behavioral Health Quick Reference Guide', url: 'https://assets.humana.com/is/content/humana/SC_PROV_Medicaid_Provider_Behavioral_Health_Guidancepdf' },
-  aetnaCPB: { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 11/26/2025)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+  aetnaCPB: { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
   aetnaCPB648: { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
   aetnaGuide: { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026; Exhibit A covers Maryland only)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
   aetnaPrecert: { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
@@ -191,8 +191,17 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
         h2: 'Claims: timely filing, NPIs, modifiers and appeals',
         body: [
           'SCDHHS pays only clean claims "received and entered into the claims processing system within one year from the date of service"; retroactive-eligibility claims get six months from the eligibility add date (three years outside). Enrolled providers may not bill under their NPI for a non-enrolled provider’s services, except for services delivered under their supervision, and RBT services bill under the supervising BCBA-D, BCBA or BCaBA. Every clinical service note must be signed by the enrolled BCBA, BCaBA or LIP under whose NPI the service was billed, and by the BT or RBT who rendered it; SCDHHS does not let a group name a general "authorized signee." Telehealth lines carry GT in the second modifier position. Units follow the Medicare eight-minute rule. A provider appeal must be filed within 30 days of the notice of adverse action or of the remittance advice showing a reconsideration denial, whichever is later. The ASD manual and the billing manual do not mention electronic visit verification for ABA.',
+          'Filing and payment, from the billing manual (July 1, 2026): the one-year limit covers corrections too, since providers must ensure "that all claims are filed and corrected within Medicaid policy requirements," and a void/replacement claim (electronic replacement, or DHHS Form 130 on paper) is how a paid claim is corrected or third-party payment information added. Other insurance does not buy time: the one-year limit "will not be extended because of third-party liability requirements." When Medicare is primary, the claim is due within two years of the date of service or six months after Medicare’s payment, whichever is later. SCDHHS pays by EFT only, and "The payment made weekly is the sum total of all claims on the remittance advice with status P." The manual publishes no weekly submission cut-off day or time.',
         ],
         cites: [S.pabm, S.asdManual, S.asdTraining],
+      },
+      {
+        h2: 'What a continued-treatment request must contain',
+        body: [
+          'The ASD manual (July 1, 2026) asks for "a thorough explanation" of progress toward reducing target behaviors, reducing deficits "(as demonstrated by assessment instrument scores over time)" or gaining new skills, and toward the transition and fade criteria; where progress stalled, the variables that impeded it, and for any extended mastery date a narrative naming the new date, the barrier and the changes made. With the SCDHHS ASD Prior Authorization Request Form go the most recent IPOC and "progress summary spanning the previous authorized treatment period," updated direct observations, the school’s updated educational and behavioral assessments, and all updated ST/OT/PT plans. Requests go to the QIO "up to 30 days prior and no later than 10 days prior to the expiration of authorized visits"; services without reauthorization risk denied claims. The annual review adds all progress summaries, an updated BIA and, where maladaptive behavior, more than 15 hours of 97153 or school-based services are involved, an updated FBA.',
+          'Graphs are required. The ASD Therapy Progress Summary Report must include the IPOC objectives treated, the interventions used, goals met, "Cumulative graphs of goals and objectives demonstrating progress or areas of concern (ABA providers only), including baseline data," explanations of delayed progress and barriers, and the plan and caregiver coordination summary for the next period, signed by the team including the caregiver. It is completed "no sooner than 30 days prior to the expiration of the current authorization period and no later than the 10th day of the month immediately following the last date of authorized treatment," and must cover every date of service not reported in an earlier summary.',
+        ],
+        cites: [S.asdManual],
       },
     ],
     collect: [
@@ -279,6 +288,8 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does SC Medicaid require graphs for ABA reauthorization?', a: 'Yes. The ASD Therapy Progress Summary Report must include cumulative graphs of goals and objectives with baseline data, and the continued-treatment request sent to the QIO 30 to 10 days before the authorization ends must include the most recent IPOC and the progress summary for the previous authorized period, plus updated observations, school assessments and therapy plans.' },
+      { q: 'When does SC Medicaid pay ABA claims, and is there a weekly cut-off?', a: 'SCDHHS pays weekly by EFT, the total of the claims shown as paid (status P) on that week’s remittance advice. The billing manual publishes no submission cut-off day or time. Corrections and other-insurance claims must still land within one year of the date of service (two years, or six months after Medicare pays, when Medicare is primary).' },
       { q: 'Does South Carolina Medicaid cover ABA therapy?', a: 'Yes, for Healthy Connections members through age 20 under the ASD Services manual. Most children are in one of five managed care plans, which authorize and pay; fee-for-service members get authorization from the QIO, Acentra.' },
       { q: 'Who can diagnose autism for South Carolina Medicaid ABA?', a: 'A licensed physician (MD/DO), licensed psychologist (PhD/PsyD) or licensed psycho-educational specialist, in person, with ADI-R, ADOS or CARS. A primary care physician may confirm a prior diagnosis or diagnose a medically uncomplicated child aged 18–36 months. Evaluations by NPs, PAs, LISWs or ABA providers, and any telehealth diagnosis, are not accepted.' },
       { q: 'Does the ABA assessment need prior authorization?', a: 'Not for fee-for-service: 97151 has no prior authorization, but it is reviewed after payment, and the child must start treatment within a month. Absolute Total Care and First Choice do require authorization for the assessment, so check the member’s plan.' },
@@ -339,6 +350,7 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
         h2: 'Claims, disputes and timelines',
         body: [
           'Claims are due within 365 days of the date of service, as are corrected claims and reconsiderations; a formal provider dispute must be filed within 60 calendar days of the notice of adverse action. Absolute Total Care says it adjudicates 90% of clean claims within 30 days and 99% within 90 days. Standard prior-authorization decisions are made within 7 calendar days, expedited ones within 72 hours. South Carolina does not license behavior analysts, so credentialing rests on BACB certification and Medicaid enrollment.',
+          'The manual’s timely-submission table: initial claim, 365 days from the date of service; corrected claim or reconsideration, 365 days from the date of service; provider dispute, 60 days from the date of the EOP; coordination of benefits, 365 days from the date of service. COB or secondary claims can be sent electronically following the 5010 companion guides. The manual publishes no check-run or weekly cut-off schedule.',
         ],
         cites: [S.atcPM, S.bacbLic],
       },
@@ -444,6 +456,7 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'How fast does Absolute Total Care pay, and what is the secondary-claim deadline?', a: 'It adjudicates 90% of clean claims within 30 days of receipt and 99% within 90 days. Secondary (COB) claims, like initial and corrected claims, are due within 365 days of the date of service. No check-run schedule is published.' },
       { q: 'Does Absolute Total Care cover ABA therapy?', a: 'Yes, as ASD services for South Carolina Medicaid members ages 0 to 21, with prior authorization.' },
       { q: 'Does the ABA assessment need prior authorization with Absolute Total Care?', a: 'Yes. 97151 is on its prior-authorization list with the other ABA codes, unlike SC fee-for-service.' },
       { q: 'How fast does Absolute Total Care decide an ABA request?', a: 'Within 7 calendar days for standard requests (it asks for submission at least 10 days ahead) and 72 hours for expedited ones, with possible 14-day extensions.' },
@@ -502,6 +515,7 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
         h2: 'Claims, disputes and decision times',
         body: [
           'Healthy Blue "accepts claims from all providers up to 365 days after the date of service," and corrected claims are due within 365 days of the date of service. Claims disputes filed more than 90 calendar days after the remittance are not accepted; the plan answers disputes within 30 calendar days. Its manual still describes routine prior-authorization review "not to exceed 14 calendar days from receipt of the request," and urgent review within 72 hours; federal managed-care rules cut the standard limit to 7 calendar days for rating periods starting on or after January 1, 2026.',
+          'Healthy Blue considers only "clean claims received and entered into the claims processing system within one year from the date of service," and "We do not extend claim submittal time limits based on third-party liability requirements," so a secondary claim must still arrive within that year. Claims first rejected for missing or invalid data must be resubmitted within 365 calendar days, and corrected claims must be "clearly marked as a ‘corrected claim’" with the original claim number. The manual states no clean-claim payment deadline and no check-run schedule; ask Provider Services.',
         ],
         cites: [S.hbPOM, S.cfr438],
       },
@@ -602,6 +616,7 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Healthy Blue give extra time for secondary claims?', a: 'No. Its manual says it does not extend claim time limits for third-party liability, so a claim where Healthy Blue is secondary is still due within one year of the date of service. The manual publishes no payment-turnaround or check-run schedule.' },
       { q: 'Is Healthy Blue in South Carolina an Anthem plan?', a: 'No. In South Carolina Healthy Blue is offered by BlueChoice HealthPlan, an independent Blue licensee affiliated with BlueCross BlueShield of South Carolina.' },
       { q: 'Does Healthy Blue South Carolina require prior authorization for ABA?', a: 'Yes, for all covered autism services except diagnostic services. Ask the plan whether it treats the 97151 assessment as diagnostic.' },
       { q: 'What criteria does Healthy Blue use for ABA?', a: 'Its manual names the SCDHHS Autism Provider Manual as the criteria for autism services.' },
@@ -656,6 +671,13 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
           'Molina says it will process "any non-urgent Prior Authorization requests no later than 7 calendar days following receipt of the request," and urgent requests within 72 hours, each extendable by up to 14 days. Claims are timely within "365 calendar days after the discharge for inpatient services or the Date of Service for outpatient services."',
         ],
         cites: [S.molPM, S.molPA],
+      },
+      {
+        h2: 'Claim filing and payment rules',
+        body: [
+          'Molina’s 2026 South Carolina Medicaid manual: claims are due "within 12 months/365 days after the discharge for inpatient services or the date of service for outpatient services," and "Corrected Claims must be sent within 365 calendar days of date of service of the Claim." When Molina is secondary, "the Provider must submit Claims to Molina within 12 months/365 days from date of service after final determination by the primary payer." Molina "will process the claim for service within 30 calendar days after receipt of Clean Claims," unless the provider agreement sets another schedule. Participating providers must enroll in EFT and ERA. The manual publishes no weekly check-run or cut-off schedule.',
+        ],
+        cites: [S.molPM],
       },
     ],
     collect: [
@@ -761,6 +783,7 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'What are Molina South Carolina’s claim deadlines and payment time?', a: 'Initial and corrected claims: 365 days from the date of service. Secondary claims: within 365 days from the date of service after the primary payer’s final determination. Clean claims are processed within 30 calendar days of receipt. No check-run schedule is published.' },
       { q: 'Does Molina Healthcare of South Carolina cover ABA?', a: 'Yes. Its 2026 manual lists autism spectrum disorder services as covered, and ABA for autism needs prior authorization.' },
       { q: 'How do I find which ABA codes Molina SC requires authorization for?', a: 'The pre-service review guide lists ABA and points to Molina’s Prior Authorization Look-Up Tool for specific codes; call (855) 237-6178 if in doubt.' },
       { q: 'How long does Molina SC take to decide?', a: 'Up to 7 calendar days for standard requests and 72 hours for urgent ones, with possible 14-day extensions.' },
@@ -817,8 +840,9 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
         h2: 'Claims and decision times',
         body: [
           'Claims are due "within 365 calendar days from the date services were rendered," and resubmissions within 365 days; when a primary insurer delays the claim, submit within 60 days of the primary’s EOB. First Choice is "the payer of last resort." The manual says nonurgent preservice decisions are made within 14 calendar days and urgent ones within three calendar days; federal rules cap standard managed-care decisions at 7 calendar days for rating periods starting on or after January 1, 2026, so ask which clock applies.',
+          'The March 2026 claim filing instructions add the payment side: "Please allow for normal processing time (30 days for clean claims) before resubmitting a claim," denied claims must be resubmitted as corrected claims (frequency code 7 or 8 with the original claim number) within 365 calendar days of the date of service, and "Select Health of South Carolina runs three provider payment cycles per week (Mondays, Wednesdays, and Fridays)," with one or two runs in holiday weeks. No submission cut-off time for a given cycle is published.',
         ],
-        cites: [S.shPM, S.cfr438],
+        cites: [S.shPM, S.cfr438, S.shClaim],
       },
     ],
     collect: [
@@ -913,6 +937,7 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'When does First Choice (Select Health) pay claims?', a: 'It runs three payment cycles a week, on Mondays, Wednesdays and Fridays (fewer in holiday weeks), and asks providers to allow 30 days for a clean claim before resubmitting. No cut-off time for each cycle is published.' },
       { q: 'Does First Choice by Select Health need prior authorization for the ABA assessment?', a: 'Yes. Select Health requires prior authorization for all ASD services, assessments included.' },
       { q: 'How recent must the autism evaluation be for First Choice?', a: 'Within the last year, signed by a qualified LPHA and meeting the SCDHHS ASD manual’s content requirements.' },
       { q: 'Do I need First Choice authorization if the child’s commercial plan is primary?', a: 'Select Health says its prior-authorization requirements apply to secondary claims, so get its authorization too.' },
@@ -967,6 +992,13 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
           'Standard prior-authorization notice comes "no later than 7 calendar days following receipt of the request," expedited within 72 hours. If you fail to get a required authorization, you have 180 calendar days from the date of service (or from the primary carrier’s EOP) to ask for retrospective review. Claims are due within one year of the date of service.',
         ],
         cites: [S.humPM, S.humBH, S.humPApage, S.humABA],
+      },
+      {
+        h2: 'Claim filing and payment rules',
+        body: [
+          'Humana’s South Carolina billing guide and 2026 manual: claims, "including corrected claims, must be submitted within 1 year from the date of service or discharge." When Medicare is primary, secondary claims are due within two years of the date of service or six months from Medicare’s adjudication; with other insurance primary, Humana recommends billing it "within 30 days from the other insurance payment date," and the primary’s remittance must reach Humana within one year of the date of service. A claim denied for missing COB information must be fixed within the remainder of the original filing period. The manual says Humana pays 90% of clean claims within 30 calendar days of receipt and 99% within 90, and issues payment for a clean paper or electronic claim within 30 business days of receiving everything it needs. "Paper checks are printed and mailed twice a week, Sundays and Wednesdays." No submission cut-off for a check run is published.',
+        ],
+        cites: [S.humBill, S.humPMnov],
       },
     ],
     collect: [
@@ -1061,6 +1093,7 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'What are Humana Healthy Horizons South Carolina’s claim deadlines and payment schedule?', a: 'One year from the date of service for initial and corrected claims; secondary claims after Medicare within two years or six months of Medicare’s adjudication; other-insurance remittances within one year. It pays 90% of clean claims in 30 days and prints paper checks on Sundays and Wednesdays.' },
       { q: 'Does Humana Healthy Horizons in South Carolina cover ABA?', a: 'Yes, for members younger than 21, following the SCDHHS ASD Services Provider Manual.' },
       { q: 'How do I request ABA authorization from Humana in South Carolina?', a: 'With its ABA Behavioral Health Authorization Request Form, by email to CorporateMedicaidCIT@humana.com or fax to 833-441-0950.' },
       { q: 'What if I started ABA before getting Humana’s authorization?', a: 'You can request a retrospective medical-necessity review within 180 calendar days of the date of service; later requests are denied and cannot be appealed.' },
@@ -1111,7 +1144,7 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
       {
         h2: 'The national policy, applied in South Carolina',
         body: [
-          'Aetna covers ABA for autism spectrum disorder under its ABA medical necessity guide (©2026), with CPB 0648 for the ASD workup; CPB 0554 (last review 11/26/2025) considers ABA "experimental, investigational, or unproven" for non-ASD indications. Medical necessity requires a DSM-5 ASD diagnosis by an appropriate provider, a standardized functional measure from the past 12 months showing impairment at least one standard deviation below the mean (or a significant risk of harm), and a treatment plan with measurable targets, generalization and discharge planning; progress is evaluated every six months. Aetna’s behavioral health precertification list (eff. 8/1/2024) names all ten ABA codes, 97151 through 97158, 0362T and 0373T; most requests go through Availity. The guide’s only state exhibit is Maryland’s, so no South Carolina-specific criteria apply. Aetna is not one of South Carolina’s five Medicaid plans.',
+          'Aetna covers ABA for autism spectrum disorder under its ABA medical necessity guide (©2026), with CPB 0648 for the ASD workup; CPB 0554 (last review 10/14/2026) considers ABA "experimental, investigational, or unproven" for non-ASD indications. Medical necessity requires a DSM-5 ASD diagnosis by an appropriate provider, a standardized functional measure from the past 12 months showing impairment at least one standard deviation below the mean (or a significant risk of harm), and a treatment plan with measurable targets, generalization and discharge planning; progress is evaluated every six months. Aetna’s behavioral health precertification list (eff. 8/1/2024) names all ten ABA codes, 97151 through 97158, 0362T and 0373T; most requests go through Availity. The guide’s only state exhibit is Maryland’s, so no South Carolina-specific criteria apply. Aetna is not one of South Carolina’s five Medicaid plans.',
         ],
         cites: [S.aetnaGuide, S.aetnaCPB, S.aetnaCPB648, S.aetnaPrecert, S.mcoList],
       },
@@ -1131,6 +1164,20 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
           'Aetna publishes no ABA rate table. Its provider manual (6/26) treats payment as a contract term: "The rates and compensation under your agreement are subject to the Aetna coding/claim edit policies," and where a provider has both an intermediary contract and a direct agreement, "your direct Aetna rates will apply unless we specifically notify you otherwise." Get rates from your Aetna agreement. For a public benchmark, SC Medicaid’s ASD fee schedule pays 97153 at $14.88 per 15 minutes; commercial contracts are negotiated separately. South Carolina law lets a participating physician request a contracted fee schedule for up to 100 codes (S.C. Code § 38-59-220), but that right is written for physicians, not BCBAs.',
         ],
         cites: [S.aetnaOM, S.asdFee, S.sc3859],
+      },
+      {
+        h2: 'Claim filing and payment rules',
+        body: [
+          'Aetna’s Health Care Professional Toolkit (6/26) publishes no claim filing deadline: the limit for initial, corrected and secondary claims is the one in your Aetna participation agreement, and claim disputes "Must be submitted within contractual timeframes." The toolkit defines a clean claim as one "received in a timely manner" with all required data, and says a clean claim "Doesn’t involve coordination of benefits," so secondary claims fall outside the clean-claim clock. For insured South Carolina plans, S.C. Code § 38-59-230 requires payment of a clean claim within 20 business days if filed electronically and 40 business days on paper, and § 38-59-210 only treats a claim as clean if it is received within 120 business days of the service. Aetna publishes no check-run or weekly cut-off schedule.',
+        ],
+        cites: [S.aetnaOM, S.sc3859],
+      },
+      {
+        h2: 'What a reauthorization must show',
+        body: [
+          'Aetna’s ABA medical necessity guide (©2026) sets what a renewal must show: the plan records baseline levels of each target behavior by "frequency, rate, symptom intensity or duration, or other objective measures," with "quantifiable criteria for progress"; where target behaviors have improved, documentation of that improvement is included, and where they have not, documentation of "modification of the treatment, additional assessments that have been conducted, and/or there has been appropriate consultations from other staff or experts." "A member’s progress is to be evaluated every six months," and the guide relies on "Repeated measurement with standardized measures to assess progress." It does not require graphs and sets no data-recency window.',
+        ],
+        cites: [S.aetnaGuide],
       },
     ],
     collect: [
@@ -1228,6 +1275,8 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Aetna require graphs for ABA reauthorizations?', a: 'No. Aetna’s ABA medical necessity guide asks for objective baseline measures, quantifiable progress criteria, standardized re-measurement and a six-monthly progress evaluation, with treatment changes documented where there is no improvement, but it does not require graphs or set a data-recency window.' },
+      { q: 'What is Aetna’s timely filing limit in South Carolina?', a: 'Aetna’s provider toolkit does not publish one; it is set in your participation agreement. For insured South Carolina plans, a claim filed within 120 business days of the service that is otherwise clean must be paid within 20 business days electronically (40 on paper) under S.C. Code § 38-59-230.' },
       { q: 'Does Aetna cover ABA therapy in South Carolina?', a: 'Yes, under its national ABA criteria for ASD. For insured large-group plans and the State Health Plan, South Carolina’s Ryan’s Law also applies; individual, small-group and self-funded plans follow their own documents.' },
       { q: 'What does South Carolina’s autism mandate require?', a: 'Group plans must cover autism treatment prescribed by the child’s treating medical doctor under a treatment plan, for children under 16 who were diagnosed by age 8, with behavioral therapy capped at $73,400 for 2026.' },
       { q: 'Does Aetna’s ABA assessment need precertification in South Carolina?', a: 'Yes. 97151 and the other nine ABA codes are on Aetna’s behavioral health precertification list.' },
@@ -1298,6 +1347,20 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
           'Cigna publishes no ABA rate table. Evernorth’s Administrative Guidelines (September 2026) say the Provider Agreement terms "include the reimbursement rates applicable to covered services," and tell ABA providers: "For your fee schedule and a listing of autism spectrum disorder–related services eligible for reimbursement, refer to Exhibit A in your Provider Agreement." Fee questions go to Provider Services at 800.926.2273. Non-credentialed technicians are paid only through the supervising provider’s claim. For a public benchmark, SC Medicaid pays 97153 at $14.88 per 15 minutes; commercial contracts are negotiated separately.',
         ],
         cites: [S.ebhAdmin, S.cignaARG, S.asdFee],
+      },
+      {
+        h2: 'Claim filing and payment rules',
+        body: [
+          'Evernorth’s Behavioral Health Administrative Guidelines (September 2026): "We will only consider claims submitted within 90 days of the date of service or as otherwise defined in your Provider Agreement," unless state law allows longer. For coordination of benefits the 90 days run from "the primary payer’s processing date as stated on an explanation of benefits [EOB] or explanation of payment [EOP]," Medicaid-primary claims get three years, and a timely claim returned for more information gets a fresh 90 days from the date of the request. The South Carolina Regulatory Addendum adds no filing or payment-time rule (it covers overpayment recovery and continuity of care) and does not apply to self-funded plans. For insured South Carolina plans, S.C. Code § 38-59-230 sets the clean-claim payment clock: 20 business days electronic, 40 on paper. No check-run schedule is published.',
+        ],
+        cites: [S.ebhAdmin, S.sc3859],
+      },
+      {
+        h2: 'What a reauthorization must show',
+        body: [
+          'Evernorth’s EN0499 sets what a continued-treatment request must show: "current data" collected "within no more than 60 days prior to the start date of the continued treatment request, as well as collected within no more than 60 days prior to the date the authorization request is received," with collection dates, for every behavior and skill targeted; data showing "ongoing and sustained progress toward mastering the treatment goals"; measurable improvement on "a reliable, valid, and standardized assessment instrument completed no more than one year prior to the start date of the continued treatment request"; an account of barriers and plan changes where progress is not shown; and dated stakeholder (caregiver) training data. EN0499 does not require the data to be graphed.',
+        ],
+        cites: [S.en0499],
       },
     ],
     collect: [
@@ -1389,6 +1452,8 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Cigna require graphs for ABA reassessments?', a: 'No. Evernorth’s EN0499 requires dated data collected within 60 days before both the requested start date and the request’s receipt, sustained progress, and a standardized assessment from the past year, but it does not require graphs.' },
+      { q: 'What is Cigna’s (Evernorth’s) timely filing limit for South Carolina ABA claims?', a: '90 days from the date of service unless your provider agreement or state law allows longer; secondary claims get 90 days from the primary payer’s EOB or EOP date. Insured plans must pay clean claims within 20 business days electronically (40 on paper) under S.C. Code § 38-59-230.' },
       { q: 'Does Cigna cover ABA therapy in South Carolina?', a: 'Yes, under national policy EN0499 for ASD, with Ryan’s Law added for insured large-group plans. Self-funded employer plans follow their own documents.' },
       { q: 'Does the Cigna ABA assessment need prior authorization in South Carolina?', a: 'No, for 97151, 97152 and 0362T with an autism diagnosis when the provider is independently licensed or a BCBA. Prior authorization starts at treatment.' },
       { q: 'Can ABA be delivered by telehealth with Cigna?', a: 'Yes. Cigna’s autism resource guide says all ABA CPT codes are covered telehealth services; bill with modifier 95.' },
@@ -1460,6 +1525,20 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
           'UnitedHealthcare publishes no ABA rate table; Optum pays from the contract. Optum’s National Network Manual (effective Sept. 1, 2026) defines the "Fee Maximum" as the most a participating provider may be paid for a service, adding that "Reimbursement to clinicians is based upon licensure rather than degree." Optum’s commercial ABA Reimbursement Policy (2022RP501A) makes the credential level part of each claim line: HM for an RBT, HN for a BCaBA, HO for a master’s-level BCBA, HP for a doctoral-level provider. Ask Optum network management for your rate sheet. For a public benchmark, SC Medicaid pays 97153 at $14.88 per 15 minutes.',
         ],
         cites: [S.optumNNM, S.optumReimb, S.asdFee],
+      },
+      {
+        h2: 'Claim filing and payment rules',
+        body: [
+          'Optum’s National Network Manual: claims must be received "no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan," and "Any corrections or additions to a claim should be made within 90 days of initial claim receipt." Complete, authorized claims "will be paid within 45 calendar days after Optum receives the claim, or as required by state and federal laws," which may exclude claims needing coordination-of-benefits decisions; the manual sets no separate secondary-claim deadline. For insured South Carolina plans the shorter state clock applies: S.C. Code § 38-59-230 requires payment of a clean claim within 20 business days electronic or 40 on paper. No check-run schedule is published.',
+        ],
+        cites: [S.optumNNM, S.sc3859],
+      },
+      {
+        h2: 'What a reauthorization must show',
+        body: [
+          'Optum’s ABA Supplemental Clinical Criteria (review 04/2026) set what each continued-service review needs: progress "assessed and documented for each targeted symptom and behavior … including the same modes of measurement that were utilized for baseline measurement"; progress that includes "rate and percentage of mastered programs, rates of mastered targets, change scores for any outcome measures, updated standardized adaptive measures, and change scores for skills-based assessments"; an assessment of the reasons and modified interventions when there is inadequate progress "within a 6-month period"; and an explanation when use of authorized hours falls below 80% over a two-week period. Treatment plans "are usually reviewed/updated twice annually." The criteria do not require graphs.',
+        ],
+        cites: [S.optumSCC],
       },
     ],
     collect: [
@@ -1554,6 +1633,8 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare (Optum) require graphs for ABA continued-service reviews?', a: 'No. Optum’s criteria ask for progress on every target using the baseline measurement method, mastery rates and change scores, updated standardized adaptive measures, and an explanation of low hour use, but they do not require graphs.' },
+      { q: 'What is UnitedHealthcare’s (Optum’s) timely filing limit for South Carolina ABA?', a: '90 calendar days from the date of service, or longer where state law or the benefit plan allows; corrections within 90 days of the original claim’s receipt. Optum pays complete claims within 45 days or faster where law requires: 20 business days electronic, 40 paper, for insured South Carolina plans.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in South Carolina?', a: 'Yes, under Optum’s national ABA criteria for ASD, with Ryan’s Law added for insured large-group plans. Self-funded employer plans follow their own documents.' },
       { q: 'Is UnitedHealthcare a South Carolina Medicaid plan?', a: 'No. SC’s Medicaid MCOs are Absolute Total Care, Healthy Blue, Humana Healthy Horizons, Molina and First Choice by Select Health.' },
       { q: 'Can ABA be delivered by telehealth with UnitedHealthcare in South Carolina?', a: 'Optum’s commercial guide allows only 97155, 97156 and 97157 by telehealth, billed POS 10 or 02.' },
@@ -1614,8 +1695,9 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
         h2: 'Prior authorization and claims: Companion Benefit Alternatives',
         body: [
           'BlueCross’s standard prior-authorization list includes "ABA for Autism" with 97151–97158, 0362T and 0373T (it notes PT/OT/ST with an autism diagnosis is covered under the medical plan). Most medical and behavioral requests now route through My Insurance Manager to Cohere Health, but "Autism services are excluded from this process. Continue to submit CBA autism PA requests to autismsupport@companiongroup.com." CBA also takes requests through its Form Resource Center, by fax (803-714-6456) or phone (800-868-1032), and says a member’s benefits decide whether preauthorization is needed. On claims, CBA asks that behavioral health claims "always include the rendering provider’s NPI in the rendering field." CBA’s general network page lists only independently licensed clinicians, so ask CBA how BCBAs, who hold no South Carolina license, are contracted.',
+          'CBA’s Claims 101 page says its "health plan partners process and distribute payments for claims. They distribute payments once a week by electronic funds transfer or by hard copy check." CBA’s public pages do not state the filing deadline for initial, corrected or secondary claims (those answers sit in the login-only provider FAQ). For insured South Carolina plans, S.C. Code § 38-59-230 sets the clean-claim payment clock: 20 business days electronic, 40 on paper, for claims received within 120 business days of the service.',
         ],
-        cites: [S.bcPAList, S.bcPApage, S.cbaPre, S.cbaClaims, S.cbaJoin],
+        cites: [S.bcPAList, S.bcPApage, S.cbaPre, S.cbaClaims, S.cbaJoin, S.sc3859],
       },
       {
         h2: 'The South Carolina mandate: what it guarantees',
@@ -1727,6 +1809,7 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'How often does BlueCross BlueShield of South Carolina pay behavioral health claims?', a: 'Once a week, by EFT or paper check, per Companion Benefit Alternatives. The filing deadline is not on CBA’s public pages; ask CBA or check the login-only provider FAQ.' },
       { q: 'Does BlueCross BlueShield of South Carolina cover ABA?', a: 'Yes, for ASD under medical policy CAM 387, with prior authorization through Companion Benefit Alternatives. Insured large-group plans and the State Health Plan also carry Ryan’s Law.' },
       { q: 'Does the ABA assessment need prior authorization with BlueCross South Carolina?', a: 'Yes. 97151 is on BlueCross’s standard prior-authorization list with the other ABA codes.' },
       { q: 'Where do I send BlueCross South Carolina autism authorization requests?', a: 'To Companion Benefit Alternatives at autismsupport@companiongroup.com; autism requests are excluded from the Cohere Health route other behavioral requests use.' },
