@@ -142,14 +142,14 @@ const CIGNA_AUTISM_GUIDE = src(
 );
 const AETNA_CPB0554 = src(
   'https://www.aetna.com/cpb/medical/data/500_599/0554.html',
-  'Aetna CPB 0554 (Applied Behavior Analysis) — national medical-necessity policy for Aetna commercial; no coding/reimbursement mechanics published.'
+  'Aetna CPB 0554 (Applied Behavior Analysis; last review 10/14/2026, re-read 2026-10-18) — national policy for Aetna commercial: ABA experimental for Down syndrome without ASD and all other non-ASD indications; lists 97151–97158, 0362T, 0373T and F84.0–F84.9; no coding/reimbursement mechanics published.'
 );
 const AETNA_CPB0648 = src(
   'https://www.aetna.com/cpb/medical/data/600_699/0648.html',
   'Aetna CPB 0648 (Autism Spectrum Disorders) — national ASD coverage policy; 97151–97158 covered when criteria are met; no unit caps/POS/modifiers published.'
 );
 
-/* Aetna precertification sources (fetched 2026-10-01): CPB 0554 (last review 11/26/2025) only addresses non-ASD indications and carries no precertification content. */
+/* Aetna precertification sources (fetched 2026-10-01): CPB 0554 (last review 10/14/2026 when re-read 2026-10-18; 11/26/2025 at the 10-01 fetch) only addresses non-ASD indications and carries no precertification content. */
 const AETNA_PRECERT_LIST_ABA = src(
   'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf',
   'Aetna "Participating provider behavioral health precertification list," effective 8/1/2024 — item 3, Applied behavioral analysis (ABA): 97151, 97152, 97153, 97154, 97155, 97156, 97157, 97158, 0362T, 0373T require precertification.', true
