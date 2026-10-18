@@ -40,6 +40,8 @@ const S: Record<string, PayerSource> = {
   ilga6_10: { title: '225 ILCS 6/10 — Behavior Analyst Licensing Act: Definitions (official text via witnessslips.ilga.gov mirror)', url: 'https://witnessslips.ilga.gov/legislation/ilcs/documents/022500060K10.htm' },
   ilga6_150: { title: '225 ILCS 6/150 — Behavior Analyst Licensing Act: License restrictions and limitations (official text via witnessslips.ilga.gov mirror)', url: 'https://witnessslips.ilga.gov/legislation/ilcs/documents/022500060K150.htm' },
   ilgaTele: { title: '225 ILCS 150/10 — Telehealth Act: Practice authority (official text via witnessslips.ilga.gov mirror)', url: 'https://witnessslips.ilga.gov/legislation/ilcs/documents/022501500K10.htm' },
+  ilga5_30_1: { title: '305 ILCS 5/5-30.1 — Illinois Public Aid Code, managed care protections, subsection (g) Timely payment of claims (official text through P.A. 104-470, eff. 6-16-26; read via witnessslips.ilga.gov mirror)', url: 'https://witnessslips.ilga.gov/legislation/ilcs/documents/030500050K5-30.1.htm' },
+  ilga357_9: { title: '215 ILCS 5/357.9 — Illinois Insurance Code: time of payment of claims (official text via witnessslips.ilga.gov mirror)', url: 'https://witnessslips.ilga.gov/legislation/ilcs/documents/021500050K357.9.htm' },
   cfr438: { title: '42 CFR 438.210(d) — Medicaid managed care authorization timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' },
   cfr440: { title: '42 CFR 440.230(e) — State Medicaid agency prior-authorization timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-440/subpart-B/section-440.230' },
   cfr433: { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
@@ -73,6 +75,8 @@ const S: Record<string, PayerSource> = {
   // BCBSIL commercial
   bcbsilCodes: { title: 'BCBSIL — 2026 Commercial Outpatient Behavioral Health Prior Authorization Codes (eff. 1/1/2026, updated August 2026)', url: 'https://www.bcbsil.com/docs/provider/il/claims/um/2026-commercial-bh-pa-code-list.pdf' },
   bcbsilCPCP: { title: 'BCBSIL Clinical Payment and Coding Policy CPCP011 — Applied Behavior Analysis (v1.0, plan effective March 20, 2026)', url: 'https://www.bcbsil.com/docs/provider/il/standards/cpcp/2026/cpcp011-3-20-2026.pdf' },
+  bcbsilRP033: { title: 'BCBSIL Reimbursement Policy RP033 — Telemedicine and Telehealth/Virtual Services Policy (approved March 17, 2026; effective March 27, 2026)', url: 'https://www.bcbsil.com/docs/provider/il/standards/cpcp/2026/rp033-3-27-2026.pdf' },
+  bcbsilTF: { title: 'BCBSIL — Follow Timely Filing Requirements to Enable Claim Processing and Payment (provider news, Oct. 28, 2024)', url: 'https://www.bcbsil.com/provider/education/education-reference/news/2024/10-28-2024-follow-timely-filing-requirements' },
   bcbsilPhone: { title: 'BCBSIL — Call for Preservice Requests for Applied Behavior Analysis for Commercial Members (Jan. 15, 2026; eff. April 2026)', url: 'https://www.bcbsil.com/provider/education/education-reference/news/2026/1-15-2026-call-for-preservice-requests-for-applied-behavior-analysis' },
   bcbsilBC: { title: 'BCBSIL — BlueCard Program (provider page: identifying members, eligibility, pre-certification for out-of-area members)', url: 'https://www.bcbsil.com/provider/claims/claims-eligibility/bluecard-program' },
   bcbsilBCMan: { title: 'BlueCard Program Provider Manual (Blue Cross Blue Shield Association, BCBSIL edition, June 2026)', url: 'https://www.bcbsil.com/docs/provider/il/standards/bluecard/bluecard-program-manual.pdf' },
@@ -96,6 +100,9 @@ const S: Record<string, PayerSource> = {
 /* ---- Shared Illinois Medicaid layer ---- */
 const IL_FFS_TELE =
   'HFS’s ABS fee schedule (updated 05/14/2026) marks four codes for remote delivery: 97151 (assessment), 97155 (protocol modification), 97156 (family guidance) and 97157 (multiple-family group). The footnote reads: “Only use the GT or 93 modifier when providing allowable service remotely as a distant site telehealth service along with Place of Service (POS) 02 or 10, as applicable, on the specific service line of the claim.” 97152, 97153, 97154, 97158, 0362T and 0373T carry no telehealth modifier, so technician-delivered treatment is billed as in-person.';
+
+const MCO_PAY_TAIL =
+  ' Illinois law sets the payment clock for every HealthChoice Illinois plan: under 305 ILCS 5/5-30.1(g), “The MCO shall pay a claim within 30 days of receiving a claim that contains all the essential information needed to adjudicate the claim,” must notify the billing party within 30 days when it cannot adjudicate a claim, and owes a late-payment penalty at least equal to the Insurance Code’s timely-payment interest, calculated and paid within 30 days after the claim is paid, without the provider having to ask for it. No plan document we read publishes a weekly submission cutoff or check-run day; ask the plan’s provider services for its payment cycle.';
 
 const IL_MCO_PA104 =
   'Illinois Public Act 104-0028 (HB 3019) changed behavioral health utilization management from January 1, 2026, and each HealthChoice Illinois plan has read it differently for ABA. Molina says ABA “services are no longer eligible for prior authorization and require concurrent review only” (no authorization for the initial assessment or the first 48 units of therapy a calendar year). Aetna Better Health approves 97151/97152 without medical-necessity review if notified within one business day, then runs concurrent review. Blue Cross Community Health Plans and YouthCare ask for notification within 24 hours of starting ABA services or the initial assessment. Meridian requires notice within 24 hours of 97151/97152 from May 1, 2026 and keeps prior authorization on treatment. CountyCare removed PA from 97151/97152 only. The Act itself added subsection (w) to 215 ILCS 5/370c: from January 1, 2026 “No policy shall require prior authorization for outpatient or partial hospitalization services for treatment of mental, emotional, or nervous disorders or conditions,” such coverage “may be subject to concurrent and retrospective review,” and “A Medicaid managed care organization may set a deadline of 24 hours after the initiation of treatment” for notification (one more business day if it cannot accept the notice). It also lets HFS “adopt rules to implement the applicable provisions” for managed care organizations “and the medical assistance fee-for-service program” (new 305 ILCS 5/5-5.28). The statute does not name ABA, which is why the plans differ; this guide reports each plan’s own written rule.';
@@ -189,6 +196,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
         body: [
           'For fee-for-service members, “BATP services exceeding six hours (24 units) per a 180-day period and all BAI services require prior authorization,” on the HFS Prior Authorization for ABS Services form, emailed to HFS.ABS@illinois.gov. The packet: a physician order “required with the first submission … and is valid for one year,” showing the physician’s NPI, the child’s name and date of birth, primary diagnosis, treatment recommendation, and signature and date; the Comprehensive Diagnostic Evaluation by “a physician or a clinical psychologist,” with direct assessment resulting in an ADOS, GARS, ADI or CARS, developmental history, current verbal and nonverbal functioning, and a caregiver interview; current documentation of functional impairment if the CDE is more than 24 months old; a clinical narrative if BATP will exceed six hours; and, for BAI, the BATP “completed within 30 days prior to the request date.” The form itself asks for the BCBA-to-RBT ratio and the percentage of BCBA and RBT time requested.',
           'HFS cites 89 Ill. Adm. Code 140 Table E, Item 26: “prior authorization determinations shall be made within 30 days of submission,” and “If the notice of disposition is not sent within the applicable time limit, prior approval will be granted automatically.” Missing information stops the clock and must be remedied “within 2 business days,” after which a new 30-day window starts. Approvals are “not transferable, as they are specific to an individual, provider, and service allotment.” Federal rules have since tightened the state-agency standard: from January 1, 2026, a standard decision is due “in no case later than 7 calendar days” (72 hours expedited), so expect HFS to move faster than its notice says.',
+          'Re-authorization. HFS sets no separate reauthorization form or graph requirement. Every BAI request, including a renewal, must be “accompanied by the individual BATP, completed within 30 days prior to the request date,” and the BATP itself must be “Completed, reviewed, and updated as needed, minimally once every 180 days.” The CDE goes in with the first submission and “upon request for all subsequent submissions,” and a CDE more than 24 months old needs current documentation of functional impairment. Neither the notice nor the PA form asks for graphed data specifically; the BATP is the progress document, and the form asks for the BCBA-to-RBT ratio and hours requested.',
         ],
         cites: [S.hfs210930, S.hfsPAForm, S.cfr440],
       },
@@ -204,8 +212,9 @@ export const illinoisPayers: Record<string, PayerConfig> = {
         h2: 'Claims operations: NPIs, timely filing, EVV',
         body: [
           'HFS’s 2021 ABS notice requires the billing provider to report the BCBA’s or RBT’s “name and NPI … in the Rendering/Servicing segment of the claim,” and “Claims that identify an RBT as the Rendering/Servicing Provider must also include the Supervising BCBA’s name and NPI in the Loop 2310D, segment NM1, Supervising Provider field.” Fee-for-service claims must be received “no later than 180 days from the date on which the services or items were provided”; when another payer is primary, the claim is due within 180 days after the primary payer’s final adjudication. Electronic Visit Verification does not reach ABS: HFS’s EVV page lists personal care services under the HCBS waivers and home health care services as the services in scope.',
+          'Payment and payment timing. HFS’s general handbook says fee-for-service payment “will be made by a State warrant (check) issued through, and mailed by, the Illinois Office of the Comptroller, or via direct deposit/EFT,” with remittance advices mailed separately and the 835 available through MEDI; it publishes no clean-claim payment deadline and no weekly submission cutoff for fee-for-service claims, so the Comptroller’s warrant schedule is the only clock (ask the HFS billing consultants, 877-782-5565). Managed care is different: 305 ILCS 5/5-30.1(g) requires each MCO to “pay a claim within 30 days of receiving a claim that contains all the essential information needed to adjudicate the claim,” with an interest penalty for late payment.',
         ],
-        cites: [S.hfs210930, S.hfsCh100, S.hfsEVV],
+        cites: [S.hfs210930, S.hfsCh100, S.hfsEVV, S.ilga5_30_1],
       },
       {
         h2: 'The HealthChoice Illinois plans, and the 2026 authorization changes',
@@ -229,7 +238,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       { title: 'Other insurance', desc: 'Commercial coverage is billed first; HFS is the payer of last resort.' },
       { title: 'Age', desc: 'ABS covers ages 0 through 20. Comprehensive BAI is intended for under-7s, Focused BAI for ages 7–20.' },
     ],
-    sources: [S.hfs201030, S.hfs210119, S.hfs210930, S.hfs230824, S.hfs220126, S.hfsFee, S.hfsFeePage, S.hfsPAForm, S.hfsCh100, S.hfsMap, S.hfsMC, S.hfsEVV, S.idfpr, S.ilga6_20, S.ilga6_150, S.ilgaTele, S.bacbLic, S.pa10428, S.ilga370c, S.cfr440, S.cfr438, S.cfr433],
+    sources: [S.ilga5_30_1, S.hfs201030, S.hfs210119, S.hfs210930, S.hfs230824, S.hfs220126, S.hfsFee, S.hfsFeePage, S.hfsPAForm, S.hfsCh100, S.hfsMap, S.hfsMC, S.hfsEVV, S.idfpr, S.ilga6_20, S.ilga6_150, S.ilgaTele, S.bacbLic, S.pa10428, S.ilga370c, S.cfr440, S.cfr438, S.cfr433],
     deliveryRules: {
       supervision: {
         value: 'RBTs “must receive supervision from a BCBA” (2023). The 2021 notice set the floor still in HFS’s ABS guidance: RBTs “are expected to receive Case Leadership for 5%, or more, of all direct services,” with “at a minimum, two face-to-face, real-time contacts per month” of observation, modeling, problem-solving guidance and documentation review, the BCBA “present with the RBT.” The 2023 notice removed LPHA clinical supervision and written collaborative agreements but did not restate the 5% figure, so confirm it with HFS if your program relies on a lower rate.',
@@ -315,6 +324,8 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       { q: 'Does the ABA assessment need prior authorization in Illinois Medicaid?', a: 'Fee-for-service: only if BATP exceeds six hours (24 units) in 180 days. Each managed care plan has its own rule, and most loosened assessment authorization on January 1, 2026.' },
       { q: 'Can ABA be delivered by telehealth under Illinois Medicaid?', a: 'Yes for 97151, 97155, 97156 and 97157, billed with modifier GT or 93 and POS 02 (not home) or 10 (home). Technician codes such as 97153 are not marked for telehealth.' },
       { q: 'Does an RBT have to enroll with Illinois Medicaid?', a: 'Yes. HFS requires every individual rendering ABS, including RBTs employed by a clinic, to be enrolled in IMPACT, and claims for RBT services must name the supervising BCBA in Loop 2310D.' },
+      { q: 'What does an Illinois Medicaid ABA reauthorization need?', a: 'For fee-for-service, a new PA request with the BATP completed within 30 days before the request (the BATP must be updated at least every 180 days), plus the CDE if the reviewer asks for it and a current functional-impairment note if the CDE is over 24 months old. HFS does not specifically require graphs. Managed care plans run their own reviews.' },
+      { q: 'How fast does Illinois Medicaid pay ABA claims?', a: 'HFS publishes no fee-for-service payment deadline; the Comptroller pays by warrant or EFT. HealthChoice Illinois plans must pay a clean claim within 30 days under 305 ILCS 5/5-30.1(g), with interest if late.' },
       { q: 'Does EVV apply to ABA in Illinois?', a: 'No. HFS’s EVV page limits EVV to personal care services under the HCBS waivers and home health care services; ABS is not listed.' },
       { q: 'Can a BCBA licensed in another state treat an Illinois Medicaid child by telehealth?', a: 'No, not without an Illinois license. The Behavior Analyst Licensing Act bars practicing ABA in Illinois unless licensed or exempt, and its exemptions include nothing for out-of-state licensees (225 ILCS 6/20); the Telehealth Act requires a professional treating a patient located in Illinois by telehealth to be “licensed or authorized to practice in Illinois” (225 ILCS 150/10). For Medicaid the clinician also needs IMPACT enrollment.' },
     ],
@@ -371,9 +382,9 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       {
         h2: 'Claims, decision clocks and appeals',
         body: [
-          'The plan’s provider manual (titled the 2025 manual, posted at the 2026 address) sets the operational deadlines. New and corrected claims are due “within 180 days from the date of services”; claims with other insurance “within 90 days from primary insurer’s EOB date.” Clean claims are adjudicated 90 percent within 30 days and 99 percent within 90 days of receipt. Its UM table decides non-urgent pre-service requests “Within 96 hours of receipt of the request,” urgent pre-service within 48 hours, and concurrent reviews within 3 calendar days. Members (or a provider for them) may appeal “within sixty (60) calendar days” of the adverse benefit determination; standard appeals are answered within 15 business days. The manual lists the BACB as the credential it verifies for an “Applied Behavior Analyst.”',
+          'The plan’s provider manual (titled the 2025 manual, posted at the 2026 address) sets the operational deadlines. New and corrected claims are due “within 180 days from the date of services”; claims with other insurance “within 90 days from primary insurer’s EOB date.” Clean claims are adjudicated 90 percent within 30 days and 99 percent within 90 days of receipt. Its UM table decides non-urgent pre-service requests “Within 96 hours of receipt of the request,” urgent pre-service within 48 hours, and concurrent reviews within 3 calendar days. Members (or a provider for them) may appeal “within sixty (60) calendar days” of the adverse benefit determination; standard appeals are answered within 15 business days. The manual lists the BACB as the credential it verifies for an “Applied Behavior Analyst.”' + MCO_PAY_TAIL,
         ],
-        cites: [S.abhilPM],
+        cites: [S.abhilPM, S.ilga5_30_1],
       },
     ],
     collect: [
@@ -383,7 +394,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       { title: 'Physician order', desc: 'HFS requires a physician order for ABS, valid one year.' },
       { title: 'Other insurance', desc: 'Aetna is payer of last resort; file with the primary first and submit within 90 days of its EOB.' },
     ],
-    sources: [S.abhilUM, S.abhilPM, S.hfs210930, S.hfs230824, S.hfsFee, S.hfsMap, S.cfr438, S.cfr433, S.idfpr],
+    sources: [S.ilga5_30_1, S.abhilUM, S.abhilPM, S.hfs210930, S.hfs230824, S.hfsFee, S.hfsMap, S.cfr438, S.cfr433, S.idfpr],
     deliveryRules: {
       supervision: {
         value: 'The plan publishes no ABA supervision rule. HFS’s rule applies: RBTs “must receive supervision from a BCBA,” and HFS’s ABS guidance sets Case Leadership at “5%, or more, of all direct services” with at least two face-to-face contacts a month.',
@@ -525,9 +536,9 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       {
         h2: 'Claims: whose NPI goes where',
         body: [
-          'BCBSIL’s May 2026 billing reminder for ABS providers: report “the attested provider rendering the services” as the rendering provider (CMS-1500 box 24J; 837P loop 2310B, NM1), and “the attested supervising ABS clinician as the supervising provider on claims that identify a registered behavior technician as the rendering or servicing provider” (box 17; loop 2310D, NM1). “Claims received with a rendering provider who differs from the authorization or medical record documentation may be denied for noncompliance.” BCCHP’s first-file timely filing limit is 180 days from the date of service (from the last date when the claim spans a range), and corrected claims are also due within 180 days.',
+          'BCBSIL’s May 2026 billing reminder for ABS providers: report “the attested provider rendering the services” as the rendering provider (CMS-1500 box 24J; 837P loop 2310B, NM1), and “the attested supervising ABS clinician as the supervising provider on claims that identify a registered behavior technician as the rendering or servicing provider” (box 17; loop 2310D, NM1). “Claims received with a rendering provider who differs from the authorization or medical record documentation may be denied for noncompliance.” BCCHP’s first-file timely filing limit is 180 days from the date of service (from the last date when the claim spans a range), and corrected claims are also due within 180 days.' + MCO_PAY_TAIL,
         ],
-        cites: [S.bcbsilABSBill, S.bcchpPM],
+        cites: [S.bcbsilABSBill, S.bcchpPM, S.ilga5_30_1],
       },
     ],
     collect: [
@@ -537,7 +548,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       { title: 'Rendering and supervising clinicians', desc: 'The rendering provider on the claim must match the authorization; RBT claims name the supervising clinician.' },
       { title: 'Other insurance', desc: 'Medicaid pays last; bill the primary first.' },
     ],
-    sources: [S.bcchpSum, S.bcchpCodes, S.bcchpPM, S.bcbsilABSBill, S.bcbsilUM, S.bcbsilPA104, S.hfs210930, S.hfs230824, S.hfsFee, S.hfsMap, S.cfr433, S.idfpr],
+    sources: [S.ilga5_30_1, S.bcchpSum, S.bcchpCodes, S.bcchpPM, S.bcbsilABSBill, S.bcbsilUM, S.bcbsilPA104, S.hfs210930, S.hfs230824, S.hfsFee, S.hfsMap, S.cfr433, S.idfpr],
     deliveryRules: {
       supervision: {
         value: 'BCCHP publishes no ABA supervision ratio in the documents read. HFS’s rule applies: RBTs “must receive supervision from a BCBA,” with Case Leadership of 5% or more of direct services and two face-to-face contacts a month in HFS’s ABS guidance. MCG B-806-T may add requirements but is licensed and not public.',
@@ -685,9 +696,9 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       {
         h2: 'Claims, disputes and continuity of care',
         body: [
-          'Clean claims are due “within one hundred eighty (180) calendar days from the date of service”; 90 percent of clean claims are processed within 30 days and 99 percent within 90 days. Provider disputes are due within 60 calendar days of the Explanation of Payment. Electronic claims use payer ID 06541. For members joining CountyCare mid-treatment, behavioral health outpatient services including ABA get continuity of care when the member was treated in the previous 90 days for an existing condition; “Members have ninety (90) days to transition to an in-network provider.” CountyCare, “like all Medicaid programs and plans, is always the payer of last resort.”',
+          'Clean claims are due “within one hundred eighty (180) calendar days from the date of service”; 90 percent of clean claims are processed within 30 days and 99 percent within 90 days. Provider disputes are due within 60 calendar days of the Explanation of Payment. Electronic claims use payer ID 06541. For members joining CountyCare mid-treatment, behavioral health outpatient services including ABA get continuity of care when the member was treated in the previous 90 days for an existing condition; “Members have ninety (90) days to transition to an in-network provider.” CountyCare, “like all Medicaid programs and plans, is always the payer of last resort.”' + MCO_PAY_TAIL,
         ],
-        cites: [S.ccPM],
+        cites: [S.ccPM, S.ilga5_30_1],
       },
     ],
     collect: [
@@ -697,7 +708,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       { title: 'Prior treatment', desc: 'Members treated in the last 90 days can keep their provider for 90 days while they transition.' },
       { title: 'Other insurance', desc: 'CountyCare pays last; bill the primary first.' },
     ],
-    sources: [S.ccNotice, S.ccPM, S.hfs210930, S.hfs230824, S.hfsFee, S.hfsMap, S.cfr433, S.cfr438, S.idfpr],
+    sources: [S.ilga5_30_1, S.ccNotice, S.ccPM, S.hfs210930, S.hfs230824, S.hfsFee, S.hfsMap, S.cfr433, S.cfr438, S.idfpr],
     deliveryRules: {
       supervision: {
         value: 'CountyCare publishes no ABA supervision rule in the documents read. HFS’s rule applies: RBTs “must receive supervision from a BCBA,” with Case Leadership of 5% or more of direct services and two face-to-face contacts a month in HFS’s ABS guidance.',
@@ -841,6 +852,14 @@ export const illinoisPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.merBH104],
       },
+      {
+        h2: 'Reauthorization, claim filing and payment',
+        body: [
+          'CP.BH.104’s continuation criteria spell out what a reauthorization must show: an updated behavior assessment and an updated treatment plan “at least every six months (or as clinically appropriate, or as state mandated)”; the percentage of scheduled sessions completed and caregiver participation (attendance below 80% of authorized hours needs a written justification); “Documented progress toward goals since the last authorization,” including “Updated data collected during previous treatment authorization, corresponding to all treatment settings”; behavior-reduction progress “noted in a clear and legible graphic display, including: clear labels on each axis with indicators of treatment changes and environmental variables,” baseline data and progress over time; and skill-acquisition “baseline data and updated progress data for each treatment goal.” CP.BH.105 asks continuation records for “Data and graph representation of mastery of skills noted in the treatment plan” and changes in standardized assessment scores. So yes: graphs are required at reauthorization.',
+          'Claims: Meridian’s manual (06.24.26) says “The standard submission for professional and institutional Medicaid claims for both in-network and out-of-network providers is 180 days from the date of service to submit an initial claim,” with two exceptions (retroactive eligibility, 180 days from notice of the change; third-party liability delays, 90 days from the TPL processing date).' + MCO_PAY_TAIL,
+        ],
+        cites: [S.merBH104, S.merBH105, S.merPM, S.ilga5_30_1],
+      },
     ],
     collect: [
       { title: 'Member ID', desc: 'Confirm Meridian (not YouthCare or another plan) on the date of service.' },
@@ -850,7 +869,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       { title: 'School schedule', desc: 'Full-time school caps requested hours below 20 a week under CP.BH.104.' },
       { title: 'Other insurance', desc: 'Meridian is billed as secondary and pays up to the Medicaid allowable.' },
     ],
-    sources: [S.merNotif, S.merPM, S.merBH104, S.merBH105, S.hfs210930, S.hfs230824, S.hfsFee, S.hfsMap, S.cfr438, S.cfr433, S.idfpr],
+    sources: [S.ilga5_30_1, S.merNotif, S.merPM, S.merBH104, S.merBH105, S.hfs210930, S.hfs230824, S.hfsFee, S.hfsMap, S.cfr438, S.cfr433, S.idfpr],
     deliveryRules: {
       supervision: {
         value: 'CP.BH.104: Adaptive Behavior Treatment with Protocol Modification “occurs for at least two hours per week or 10% of the direct service hours provided, whichever is greater” (one to two hours a week is acceptable below 10 hours a week), and treatment must be “delivered or supervised by an ABA-credentialed professional.” HFS adds that RBTs “must receive supervision from a BCBA.”',
@@ -917,11 +936,9 @@ export const illinoisPayers: Record<string, PayerConfig> = {
         cites: [S.merBH104, S.hfsFee],
       },
       authTurnaround: {
-        value: 'The Meridian manual read does not print a standard PA decision time for ABA. The federal managed care limit is 7 calendar days for rating periods starting on or after January 1, 2026 (72 hours expedited).',
-        status: 'plan-dependent',
-        cites: [S.merPM, S.cfr438],
-        verifyVia: 'Meridian Provider Services, 866-606-3700: ask the standard and expedited ABA decision times.',
-        blocker: 'per-case',
+        value: 'Meridian’s manual (06.24.26) prints a turnaround table for all prior authorization requests: standard pre-service review “Within 5 days of receipt of the request,” urgent pre-service (expedited) within 48 hours, urgent/concurrent review within 72 hours of receipt, and retrospective review (only for certain service types) within 30 days of the provider’s request, with notice given in the same time frames. ABA assessments are notification-only (within 24 hours of 97151/97152) since May 1, 2026. The federal ceiling is 7 calendar days for standard requests (42 CFR 438.210(d), rating periods from January 1, 2026).',
+        status: 'verified',
+        cites: [S.merPM, S.merNotif, S.cfr438],
       },
       coordinationOfBenefits: {
         value: '“If Meridian is not the only insurance coverage for the member, Meridian should be billed as the secondary payer for all services rendered and is responsible only for the difference between what the primary insurance pays and the allowable Medicaid fee schedule.”',
@@ -930,6 +947,8 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'How fast does Meridian decide an ABA prior authorization?', a: 'Its provider manual says standard pre-service requests are decided within 5 days of receipt, expedited requests within 48 hours and concurrent reviews within 72 hours.' },
+      { q: 'Does Meridian require graphs for an ABA reauthorization?', a: 'Yes. CP.BH.104 asks for behavior-reduction progress in “a clear and legible graphic display” with labelled axes and phase lines, baseline and updated data for every skill goal, an updated assessment and treatment plan at least every six months, and attendance and caregiver-participation figures. CP.BH.105 asks for data and graphs of skill mastery.' },
       { q: 'Does Meridian require prior authorization for the ABA assessment?', a: 'No PA, but notification: from May 1, 2026 you must notify Meridian within 24 hours of 97151 or 97152, or coverage is denied for late notice.' },
       { q: 'Does ABA treatment need prior authorization with Meridian?', a: 'Yes. Adaptive Behavior Treatment is on Meridian’s prior authorization list and is reviewed against Centene policy CP.BH.104.' },
       { q: 'How recent must the diagnosis be for Meridian?', a: 'CP.BH.104 wants a CDE from the last three years to start treatment, or a new diagnostic interview within 12 months if the CDE is three to five years old.' },
@@ -987,9 +1006,9 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       {
         h2: 'Claims, decisions and appeals',
         body: [
-          'Molina’s 2026 Medicaid provider manual (updated 09/2026): “Standard timely filing is 180 days for Medicaid.” Standard authorization decisions and notice come “within five (5) calendar days,” expedited within 48 hours. Members may appeal within 60 calendar days of the adverse benefit determination. Molina is the payer of last resort. Molina’s ABS memo tells providers to “refer to the HFS fee schedules for correct codes and rates” and that RBT services are submitted by the supervising provider with the RBT as rendering provider in Loop 2310B; HFS’s current rule adds the supervising BCBA in Loop 2310D.',
+          'Molina’s 2026 Medicaid provider manual (updated 09/2026): “Standard timely filing is 180 days for Medicaid.” Standard authorization decisions and notice come “within five (5) calendar days,” expedited within 48 hours. Members may appeal within 60 calendar days of the adverse benefit determination. Molina is the payer of last resort. Molina’s ABS memo tells providers to “refer to the HFS fee schedules for correct codes and rates” and that RBT services are submitted by the supervising provider with the RBT as rendering provider in Loop 2310B; HFS’s current rule adds the supervising BCBA in Loop 2310D. On payment, the manual says “Typically, claims are processed within 30 days,” and that unless otherwise agreed in writing Molina “will process the claim for service within 30 days after receipt of clean claims.”' + MCO_PAY_TAIL,
         ],
-        cites: [S.molPM, S.molABS22, S.hfs210930],
+        cites: [S.molPM, S.molABS22, S.hfs210930, S.ilga5_30_1],
       },
     ],
     collect: [
@@ -999,7 +1018,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       { title: 'Physician referral', desc: 'Molina’s memo requires referral by a physician; HFS’s order is valid one year.' },
       { title: 'Other insurance', desc: 'Molina is payer of last resort.' },
     ],
-    sources: [S.molMemo, S.molPM, S.molABS22, S.hfs210930, S.hfs230824, S.hfsFee, S.hfsMap, S.cfr433, S.idfpr],
+    sources: [S.ilga5_30_1, S.molMemo, S.molPM, S.molABS22, S.hfs210930, S.hfs230824, S.hfsFee, S.hfsMap, S.cfr433, S.idfpr],
     deliveryRules: {
       supervision: {
         value: 'Molina publishes no ABA ratio of its own in the documents read (its 2022 memo’s collaborative-agreement language predates HFS’s 2023 change). HFS’s rule applies: RBTs “must receive supervision from a BCBA,” with Case Leadership of 5% or more of direct services in HFS’s ABS guidance.',
@@ -1141,6 +1160,14 @@ export const illinoisPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.ycPolicies, S.merBH104],
       },
+      {
+        h2: 'Reauthorization, claim filing and payment',
+        body: [
+          'YouthCare applies Centene’s CP.BH.104 and CP.BH.105. CP.BH.104’s continuation criteria spell out what a reauthorization must show: an updated behavior assessment and an updated treatment plan “at least every six months (or as clinically appropriate, or as state mandated)”; the percentage of scheduled sessions completed and caregiver participation (attendance below 80% of authorized hours needs a written justification); “Documented progress toward goals since the last authorization,” including “Updated data collected during previous treatment authorization, corresponding to all treatment settings”; behavior-reduction progress “noted in a clear and legible graphic display, including: clear labels on each axis with indicators of treatment changes and environmental variables,” baseline data and progress over time; and skill-acquisition “baseline data and updated progress data for each treatment goal.” CP.BH.105 asks continuation records for “Data and graph representation of mastery of skills noted in the treatment plan” and changes in standardized assessment scores. So yes: graphs are required at reauthorization.',
+          'Claims: YouthCare’s September 2026 manual says “The standard submission for professional and institutional Medicaid claims for both in-network and out-of-network providers is 180 days from the date of service to submit an initial claim,” with exceptions for retroactive eligibility (180 days from notice of the change) and third-party liability delays.' + MCO_PAY_TAIL,
+        ],
+        cites: [S.ycPolicies, S.merBH104, S.merBH105, S.ycPM, S.ilga5_30_1],
+      },
     ],
     collect: [
       { title: 'DCFS status', desc: 'Youth in care or former youth in care; YouthCare enrolls only these children.' },
@@ -1149,7 +1176,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       { title: 'Physician order', desc: 'HFS requires a physician order for ABS, valid one year.' },
       { title: 'Start date', desc: 'Notify within 24 hours of the initial assessment; request treatment PA 14 days ahead.' },
     ],
-    sources: [S.ycPM, S.ycPolicies, S.merBH104, S.merBH105, S.hfsMap, S.hfsMC, S.hfs210930, S.hfs230824, S.hfsFee, S.cfr433, S.idfpr],
+    sources: [S.ilga5_30_1, S.ycPM, S.ycPolicies, S.merBH104, S.merBH105, S.hfsMap, S.hfsMC, S.hfs210930, S.hfs230824, S.hfsFee, S.cfr433, S.idfpr],
     deliveryRules: {
       supervision: {
         value: 'CP.BH.104 (listed on YouthCare’s policy page): protocol modification “for at least two hours per week or 10% of the direct service hours provided, whichever is greater” (one to two hours a week acceptable under 10 hours). HFS: RBTs “must receive supervision from a BCBA.”',
@@ -1227,6 +1254,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does YouthCare require graphs for an ABA reauthorization?', a: 'Yes. YouthCare uses Centene’s CP.BH.104 and CP.BH.105, which ask for behavior-reduction progress in a labelled graphic display, baseline and updated data for each goal, and data and graphs of skill mastery, with the assessment and plan updated at least every six months.' },
       { q: 'Does YouthCare cover ABA?', a: 'Yes. Its September 2026 manual lists Adaptive Behavior Treatment in its behavioral health authorization rules, under HFS’s ABS benefit for children under 21.' },
       { q: 'Who is in YouthCare?', a: 'Only DCFS youth in care and former youth in care, statewide, per HFS’s managed care map.' },
       { q: 'Does the ABA assessment need PA with YouthCare?', a: 'No PA, but notify YouthCare within 24 hours of the initial assessment. Treatment needs prior authorization.' },
@@ -1285,6 +1313,13 @@ export const illinoisPayers: Record<string, PayerConfig> = {
         cites: [S.aetnaCPB, S.aetnaPrecert, S.aetnaGuide, S.hfsMap],
       },
       {
+        h2: 'Reauthorization, claim filing and payment',
+        body: [
+          'Reauthorization: Aetna’s ABA medical necessity guide says “A member\'s progress is to be evaluated every six months,” and continued coverage needs a treatment plan with “frequency, rate, symptom intensity or duration, or other objective measures of baseline levels” recorded and “quantifiable criteria for progress,” plus documentation that target behaviors improved or, if not, that treatment was modified. It does not require graphs as such; objective baseline-to-current data is what the reviewer looks for. Claim filing: the Aetna provider toolkit (6/26) we read states no timely filing limit, so the limit is the one in your Aetna participation agreement. For fully insured Illinois policies the Insurance Code sets the payment clock: “All claims and indemnities payable under the terms of a policy of accident and health insurance shall be paid within 30 days following receipt by the insurer of due proof of loss,” with 9% annual interest after the 30th day, and the insurer must tell the insured or assignee within 30 days if documentation is missing (215 ILCS 5/357.9). Self-funded ERISA plans are outside it. No weekly submission cutoff or check-run day is published.',
+        ],
+        cites: [S.aetnaGuide, S.aetnaOM, S.ilga357_9],
+      },
+      {
         h2: 'The Illinois mandate: what we could verify',
         body: [IL_MANDATE_BODY],
         cites: [S.ilga356, S.fl356, S.ilga370c, S.pa10428, S.idoiCB2417, S.ebhAdmin],
@@ -1309,7 +1344,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       { title: 'Standardized functional measure', desc: 'Aetna wants one from the past 12 months (for example Vineland-3, ABAS, VB-MAPP or ABLLS).' },
       { title: 'Illinois license numbers', desc: 'IDFPR license for each BCBA/BCaBA as well as BACB certification.' },
     ],
-    sources: [S.aetnaCPB, S.aetnaCPB648, S.aetnaGuide, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.ilga356, S.fl356, S.ilga370c, S.pa10428, S.idoiCB2417, S.idfpr, S.ilga6_20, S.ilgaTele, S.bacbLic, S.erisa, S.hfsFee, S.hfsCh100, S.cfr433, S.tricare, S.champva],
+    sources: [S.ilga357_9, S.aetnaCPB, S.aetnaCPB648, S.aetnaGuide, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.ilga356, S.fl356, S.ilga370c, S.pa10428, S.idoiCB2417, S.idfpr, S.ilga6_20, S.ilgaTele, S.bacbLic, S.erisa, S.hfsFee, S.hfsCh100, S.cfr433, S.tricare, S.champva],
     deliveryRules: {
       supervision: {
         value: 'Aetna’s Network Participation Criteria (5/26): services “must be provided directly or supervised by individuals licensed by the state or certified by the Behavior Analyst Certification Board,” supervised staff may be a BCaBA “or a paraprofessional,” and “A minimum of one hour of face-to-face supervision is required of the unlicensed or noncertified paraprofessional by a BCBA or licensed psychologist (or behavioral health professional) for each 10 hours of applied behavior analysis,” plus the supervisor “onsite with the child at least one hour a month.” “All BCBAs, BCaBAs and paraprofessionals must meet state requirements” — in Illinois that includes IDFPR licensure.',
@@ -1397,6 +1432,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'How fast must Aetna pay an ABA claim in Illinois?', a: 'For fully insured Illinois policies, 215 ILCS 5/357.9 requires payment within 30 days of due proof of loss, with 9% interest after that. Self-funded plans are outside the statute; the timely filing limit is in your Aetna agreement.' },
       { q: 'Does Aetna cover ABA therapy in Illinois?', a: 'Yes, under its national ABA guide for ASD, with Illinois’s autism mandate (215 ILCS 5/356z.14) layered on for fully insured plans. Self-funded employer plans follow their own documents.' },
       { q: 'Does Aetna require prior authorization for the ABA assessment in Illinois?', a: 'Aetna’s national precertification list includes 97151 and every other ABA code. But for fully insured Illinois policies, 215 ILCS 5/370c(w) has barred prior authorization of outpatient mental health treatment since January 1, 2026 (notification plus concurrent review is allowed), and the statute does not name ABA, so ask Aetna how it handles ABA on this plan. Self-funded plans follow their own rules.' },
       { q: 'Does a BCBA need an Illinois license to bill Aetna?', a: 'Illinois has licensed behavior analysts since January 15, 2025 (enforcement from April 21, 2025), and Aetna requires staff to meet state requirements, so yes: plan on the IDFPR license as well as BACB certification.' },
@@ -1454,6 +1490,13 @@ export const illinoisPayers: Record<string, PayerConfig> = {
         cites: [S.en0499, S.cignaARG, S.ebhAdmin],
       },
       {
+        h2: 'Reauthorization, claim filing and payment',
+        body: [
+          'Reauthorization: EN0499 does not ask for graphs; it asks for numbers with dates. Requests must include “Quantitative baseline data” for every target behavior and skill, collected within 60 days before treatment started, and, once treatment began more than 60 days before the request, “interim, and current data … collected and provided within no more than 60 days prior to the date the authorization request is received, with dates reported from when the data were collected,” reported separately for each setting (home, clinic, school, community), in the same unit of measurement as the goal’s mastery criteria. Claim filing: Evernorth’s Administrative Guidelines (September 2026) say “We will only consider claims submitted within 90 days of the date of service or as otherwise defined in your Provider Agreement,” with exceptions: a longer state-law limit applies, COB claims run 90 days from the primary payer’s EOB/EOP date, Medicaid-secondary three years, and a claim returned for more information gets a new 90 days from the request. For fully insured Illinois policies the Insurance Code sets the payment clock: “All claims and indemnities payable under the terms of a policy of accident and health insurance shall be paid within 30 days following receipt by the insurer of due proof of loss,” with 9% annual interest after the 30th day, and the insurer must tell the insured or assignee within 30 days if documentation is missing (215 ILCS 5/357.9). Self-funded ERISA plans are outside it. No weekly submission cutoff or check-run day is published.',
+        ],
+        cites: [S.en0499, S.ebhAdmin, S.ilga357_9],
+      },
+      {
         h2: 'The Illinois mandate: what we could verify',
         body: [IL_MANDATE_BODY],
         cites: [S.ilga356, S.fl356, S.ilga370c, S.pa10428, S.idoiCB2417, S.ebhAdmin],
@@ -1478,7 +1521,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       { title: 'Standardized assessment timing', desc: 'Instrument administered within 60 days before treatment starts.' },
       { title: 'Illinois license numbers', desc: 'IDFPR license for each behavior analyst as well as BACB certification.' },
     ],
-    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.ilga356, S.fl356, S.ilga370c, S.pa10428, S.idoiCB2417, S.idfpr, S.ilga6_20, S.ilgaTele, S.bacbLic, S.erisa, S.hfsFee, S.hfsCh100, S.cfr433, S.tricare, S.champva],
+    sources: [S.ilga357_9, S.en0499, S.cignaARG, S.ebhAdmin, S.ilga356, S.fl356, S.ilga370c, S.pa10428, S.idoiCB2417, S.idfpr, S.ilga6_20, S.ilgaTele, S.bacbLic, S.erisa, S.hfsFee, S.hfsCh100, S.cfr433, S.tricare, S.champva],
     deliveryRules: {
       supervision: {
         value: 'EN0499: case supervision by a BCBA, Licensed Behavior Analyst, or independently licensed mental health clinician with ABA training, at “one to two hours per ten hours of direct treatment”; when direct treatment is 10 hours a week or less, at least one to two hours a week. In Illinois the supervising behavior analyst also needs the IDFPR license.',
@@ -1560,6 +1603,8 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'What is Cigna’s timely filing limit for ABA in Illinois?', a: 'Evernorth considers claims submitted within 90 days of the date of service unless your agreement or a longer state-law limit says otherwise; COB claims have 90 days from the primary payer’s EOB.' },
+      { q: 'Does Cigna require graphs for ABA reauthorizations?', a: 'EN0499 does not mention graphs. It requires dated quantitative baseline, interim and current data, the current data collected within 60 days before the request, broken out by setting.' },
       { q: 'Does Cigna cover ABA therapy in Illinois?', a: 'Yes, under national policy EN0499 for ASD, with Illinois’s autism mandate layered on for fully insured plans. Self-funded employer plans follow their own documents.' },
       { q: 'Does the Cigna ABA assessment need prior authorization in Illinois?', a: 'No, for 97151, 97152 and 0362T with an autism diagnosis when the provider is independently licensed or a BCBA. PA starts at treatment.' },
       { q: 'Can Cigna ABA be delivered by telehealth in Illinois?', a: 'Yes. Cigna’s autism resource guide covers all ABA CPT codes by telehealth, billed with modifier 95. The clinician still needs an Illinois license for a client in Illinois.' },
@@ -1618,6 +1663,13 @@ export const illinoisPayers: Record<string, PayerConfig> = {
         cites: [S.optumSCC, S.optumSM, S.hfsMap],
       },
       {
+        h2: 'Reauthorization, claim filing and payment',
+        body: [
+          'Reauthorization: with each continued-treatment review Optum wants updated documentation showing progress “for each targeted symptom and behavior … including the same modes of measurement that were utilized for baseline measurement,” including “rate and percentage of mastered programs, rates of mastered targets, change scores for any outcome measures, updated standardized adaptive measures, and change scores for skills-based assessments,” movement from baseline on validated, norm-referenced measures, caregiver involvement, and an explanation of any use below 80% of authorized hours over two weeks. The criteria do not require graphs as such. Claim filing: Optum’s National Network Manual (effective Sept. 1, 2026) requires all claim information “no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan,” with corrections “within 90 days of initial claim receipt”; claims with all required information and any required authorization are generally paid “within 45 calendar days” after Optum receives them, “or as required by state and federal laws.” For fully insured Illinois policies the Insurance Code sets the payment clock: “All claims and indemnities payable under the terms of a policy of accident and health insurance shall be paid within 30 days following receipt by the insurer of due proof of loss,” with 9% annual interest after the 30th day, and the insurer must tell the insured or assignee within 30 days if documentation is missing (215 ILCS 5/357.9). Self-funded ERISA plans are outside it. No weekly submission cutoff or check-run day is published.',
+        ],
+        cites: [S.optumSCC, S.optumNNM, S.ilga357_9],
+      },
+      {
         h2: 'The Illinois mandate: what we could verify',
         body: [IL_MANDATE_BODY],
         cites: [S.ilga356, S.fl356, S.ilga370c, S.pa10428, S.idoiCB2417, S.ebhAdmin],
@@ -1642,7 +1694,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       { title: 'Technician credentials', desc: 'Optum’s HM line is billed for an RBT; bring RBT numbers for every technician.' },
       { title: 'Illinois license numbers', desc: 'IDFPR license for each behavior analyst as well as BACB certification.' },
     ],
-    sources: [S.optumSCC, S.optumSM, S.optumTele, S.optumReimb, S.optumNNM, S.hfsMap, S.ilga356, S.fl356, S.ilga370c, S.pa10428, S.idoiCB2417, S.idfpr, S.ilga6_20, S.ilgaTele, S.bacbLic, S.erisa, S.hfsFee, S.hfsCh100, S.cfr433, S.tricare, S.champva],
+    sources: [S.ilga357_9, S.optumSCC, S.optumSM, S.optumTele, S.optumReimb, S.optumNNM, S.hfsMap, S.ilga356, S.fl356, S.ilga370c, S.pa10428, S.idoiCB2417, S.idfpr, S.ilga6_20, S.ilgaTele, S.bacbLic, S.erisa, S.hfsFee, S.hfsCh100, S.cfr433, S.tricare, S.champva],
     deliveryRules: {
       supervision: {
         value: '“Consistent with CASP standards of care, direct case supervision is required 1–2 hours for every 10 hours of direct treatment per week.” Optum does not recommend parents serving as their own child’s RBT. In Illinois the supervising behavior analyst also needs the IDFPR license.',
@@ -1728,6 +1780,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'What is UnitedHealthcare’s (Optum’s) timely filing limit for ABA?', a: '90 calendar days from the date of service under Optum’s National Network Manual, unless state law or the plan allows longer; clean claims are generally paid within 45 days, or faster where state law requires (30 days for fully insured Illinois policies under 215 ILCS 5/357.9).' },
       { q: 'Does UnitedHealthcare cover ABA therapy in Illinois?', a: 'Yes, under Optum’s national ABA criteria for ASD, with Illinois’s autism mandate layered on for fully insured plans.' },
       { q: 'Does Optum have Illinois-specific ABA criteria?', a: 'No. Optum’s ABA State Mandates supplement (July 2026) does not list Illinois.' },
       { q: 'Is UnitedHealthcare an Illinois Medicaid plan?', a: 'No. HFS’s 2026 map lists Aetna Better Health, Blue Cross Community Health Plans, CountyCare, Meridian, Molina and YouthCare.' },
@@ -1792,9 +1845,10 @@ export const illinoisPayers: Record<string, PayerConfig> = {
         h2: 'CPCP011: the billing and documentation rules BCBSIL audits',
         body: [
           'CPCP011 (version 1.0, plan effective March 20, 2026) says ABA is not reimbursable unless provided by a professional “certified by the Behavior Analyst Certification Board as a Behavior Analyst and/or licensed in their state as a Licensed Behavior Analyst or Licensed Psychologist”; not reimbursable for “more than one Board Certified Behavior Analyst (BCBA) or qualified healthcare professional providing same/similar services on the same dates of service” (technicians excepted); and not for “educational, vocational, respite or custodial purposes.” Services outside POS 10, 11 and 12 need documented rationale. Assessments over eight hours (32 units of 97151) may not be reimbursed. Parent education is authorized at one hour a week (26 hours per typical 26-week period). Billable supervision “must be face to face and involves only one technician,” indirect supervision is bundled, and direct supervision may be authorized “at a minimum of 1 hour per week when less than 10 hours of direct services are authorized.” Groups (97154/97158) need 2 to 8 members, and 97153 carries a single HM, HN or HO modifier. The 8-minute rule applies to every timed unit.',
+          'Reauthorization and payment. CPCP011 does not list what a reauthorization must contain beyond the documentation rules below; since January 1, 2026 BCBSIL reviews ABA against licensed MCG criteria (CPCP011 update history: Medical Policy PSY301.021 “is moving to MCG Criteria, see Medical Policy ADM1001.036”), and the review happens on the preservice call, so ask the BCBSIL clinician what progress data and graphs to send. Timely filing: BCBSIL’s October 28, 2024 provider notice says commercial non-HMO participating providers (PPO, Blue Choice PPO, Blue High Performance Network) “must submit claims within the 180-day period following” the date of service (discharge for inpatient care), or, when BCBSIL is the secondary payer, the provider’s receipt of the primary payer’s explanation of benefits; claims received after the deadline are denied and may not be billed to the member. HMO filing rules are in BCBSIL’s HMO manual. For fully insured Illinois policies the Insurance Code sets the payment clock: “All claims and indemnities payable under the terms of a policy of accident and health insurance shall be paid within 30 days following receipt by the insurer of due proof of loss,” with 9% annual interest after the 30th day, and the insurer must tell the insured or assignee within 30 days if documentation is missing (215 ILCS 5/357.9). Self-funded ERISA plans are outside it. No weekly submission cutoff or check-run day is published.',
           'Documentation must include “a parent or caregiver’s signature for each rendered service that also includes the service/code provided, rendering provider’s name/signature, certification and credentials, place of service, the date of service, and the beginning/end times of the service,” a note, and data that “may be required immediately after the service occurred and for the purposes of audit.” And on whose NPI: “The provider who renders treatment week to week to the member is considered the ‘rendering provider’ and should bill for the services provided,” and “An unlicensed, non-network-credentialed, or otherwise non-qualified provider cannot provide services and bill through another person’s NPI number.”',
         ],
-        cites: [S.bcbsilCPCP],
+        cites: [S.bcbsilCPCP, S.bcbsilTF, S.ilga357_9],
       },
       {
         h2: 'The Illinois mandate: what we could verify',
@@ -1814,7 +1868,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       { title: 'Session sign-off process', desc: 'CPCP011 wants a parent or caregiver signature on every session record, with times and the rendering clinician’s credentials.' },
       { title: 'Illinois license numbers', desc: 'IDFPR license for each behavior analyst as well as BACB certification.' },
     ],
-    sources: [S.bcbsilCodes, S.bcbsilBC, S.bcbsilBCMan, S.bcbsilPhone, S.bcbsilCPCP, S.bcbsilUM, S.bcbsilPA104, S.ilga356, S.fl356, S.ilga370c, S.pa10428, S.idoiCB2417, S.idfpr, S.ilga6_20, S.ilgaTele, S.bacbLic, S.erisa, S.hfsFee, S.hfsCh100, S.cfr433, S.tricare, S.champva],
+    sources: [S.ilga357_9, S.bcbsilCodes, S.bcbsilBC, S.bcbsilBCMan, S.bcbsilPhone, S.bcbsilCPCP, S.bcbsilRP033, S.bcbsilTF, S.bcbsilUM, S.bcbsilPA104, S.ilga356, S.fl356, S.ilga370c, S.pa10428, S.idoiCB2417, S.idfpr, S.ilga6_20, S.ilgaTele, S.bacbLic, S.erisa, S.hfsFee, S.hfsCh100, S.cfr433, S.tricare, S.champva],
     deliveryRules: {
       supervision: {
         value: 'CPCP011: billable supervision is face to face with one technician; indirect supervision is bundled and not separately paid; CASP’s 10–20% of direct hours for case supervision is cited, and direct supervision “may be authorized … at a minimum of 1 hour per week when less than 10 hours of direct services are authorized.”',
@@ -1856,25 +1910,25 @@ export const illinoisPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       dxRecency: {
-        value: 'Not stated in the BCBSIL documents read; BCBSIL’s ABA medical policy could not be retrieved this run.',
+        value: 'Not stated in BCBSIL’s published ABA documents. BCBSIL no longer has its own ABA medical policy: CPCP011’s update history (12/12/2025) says Medical Policy PSY301.021 was removed and “Effective January 1, 2026, this policy is moving to MCG Criteria, see Medical Policy ADM1001.036.” MCG criteria are licensed and not public, so any diagnosis-recency requirement is applied in the telephonic preservice review.',
         status: 'unverified',
-        cites: [S.bcbsilCodes, S.bcbsilCPCP],
-        verifyVia: 'The BCBSIL clinician on the preservice phone review, or BCBSIL’s ABA medical policy on the provider site.',
-        blocker: 'document',
+        cites: [S.bcbsilCPCP, S.bcbsilCodes],
+        verifyVia: 'The BCBSIL clinician on the preservice phone review (number on the member’s card): ask how recent the diagnostic evaluation must be under the MCG criteria BCBSIL applies.',
+        blocker: 'licensed',
       },
       diagnosingProviders: {
-        value: 'Not stated in the BCBSIL documents read.' + MANDATE_DX_TAIL,
+        value: 'Not stated in BCBSIL’s published ABA documents; since January 1, 2026 its ABA medical-necessity criteria are MCG (CPCP011 update history), which are licensed and not public.' + MANDATE_DX_TAIL,
         status: 'unverified',
-        cites: [S.ilga356, S.bcbsilCodes],
-        verifyVia: 'BCBSIL’s ABA medical policy, or ask during the telephonic preservice review.',
-        blocker: 'document',
+        cites: [S.bcbsilCPCP, S.ilga356, S.bcbsilCodes],
+        verifyVia: 'Ask during the telephonic preservice review which diagnosing credentials BCBSIL accepts; for fully insured plans the 356z.14 definition applies.',
+        blocker: 'licensed',
       },
       diagnosticTools: {
-        value: 'Not stated in the BCBSIL documents read.',
+        value: 'Not stated in BCBSIL’s published ABA documents; since January 1, 2026 its ABA medical-necessity criteria are MCG (CPCP011 update history), which are licensed and not public.',
         status: 'unverified',
-        cites: [S.bcbsilCodes],
-        verifyVia: 'BCBSIL’s ABA medical policy, or ask during the telephonic preservice review.',
-        blocker: 'document',
+        cites: [S.bcbsilCPCP, S.bcbsilCodes],
+        verifyVia: 'Ask during the telephonic preservice review whether a specific instrument (for example ADOS-2) must be in the diagnostic report.',
+        blocker: 'licensed',
       },
       referral: {
         value: 'No referral rule appears in the commercial PA list or CPCP011; what is required is preservice review of the listed treatment codes, started by phone.' + MANDATE_REFERRAL_TAIL,
@@ -1882,11 +1936,11 @@ export const illinoisPayers: Record<string, PayerConfig> = {
         cites: [S.bcbsilCodes, S.bcbsilPhone, S.idoiCB2417],
       },
       telehealth: {
-        value: 'Not addressed in CPCP011 or the PA list; CPCP011 treats POS 10, 11 and 12 as conventional and wants rationale for other POS codes. Illinois’s commercial telehealth statute could not be retrieved this run.',
-        status: 'unverified',
-        cites: [S.bcbsilCPCP],
-        verifyVia: 'BCBSIL provider services (number on the card): ask which ABA codes may be billed by telehealth and with which POS and modifier.',
-        blocker: 'document',
+        value: 'How to bill it is published; which ABA codes the member’s plan pays by telehealth is not. BCBSIL’s telehealth reimbursement policy RP033 (effective March 27, 2026) says modifiers “FQ, FR, G0, GT, 93 and 95 are telemedicine service or telehealth service modifiers and must be appended to the HCPCS or CPT code(s), in conjunction with a place of service-POS code,” and professional telehealth claims “must be submitted with Place of Service (POS) Code ‘02’ or ‘10’” (10 when the patient is at home). “The Plan will not accept asynchronous telecommunication services”: lines with modifier GQ are not reimbursed. Records must show start and end times and the method of communication, and the provider must be licensed to treat members in Illinois. Neither RP033 nor CPCP011 (ABA) lists which of 97151–97158 may be delivered remotely, and CPCP011 treats POS 10, 11 and 12 as the usual settings.',
+        status: 'plan-dependent',
+        cites: [S.bcbsilRP033, S.bcbsilCPCP],
+        verifyVia: 'Availity eligibility and benefits, or the number on the member’s card: ask whether the plan covers 97153, 97155 and 97156 by telehealth and whether the authorization must say so.',
+        blocker: 'per-case',
       },
       authTurnaround: {
         value: COMM_AUTH_VALUE('BCBSIL'),
@@ -1904,6 +1958,8 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'What is BCBSIL’s timely filing limit for ABA claims?', a: 'For commercial non-HMO plans (PPO, Blue Choice PPO, Blue High Performance Network), 180 days from the date of service, or 180 days from receiving the primary payer’s EOB when BCBSIL is secondary. Late claims are denied and cannot be billed to the family.' },
+      { q: 'Can ABA be billed by telehealth to BCBSIL, and with which modifier?', a: 'BCBSIL’s telehealth policy RP033 (effective March 27, 2026) requires a telehealth modifier (GT, 95, 93 and others) with POS 02 or 10, and does not pay asynchronous services (modifier GQ). It does not say which ABA codes a plan covers remotely, so confirm that on the member’s benefits.' },
       { q: 'How does BlueCard work for ABA with Blue Cross and Blue Shield of Illinois?', a: 'For an Illinois provider treating a member of another Blue plan, BCBSIL says "The program allows you to submit claims for members from other BCBS Plans to the Illinois Plan," and BCBSIL is "your sole contact for claims payment, problem resolution and adjustments." Identify the member by the suitcase logo and three-character prefix, and verify benefits at BlueCard Eligibility, 800-676-BLUE (2583). Pre-certification follows the member’s own plan: call the same line and "ask to be transferred to the Medical Management Department," or use the out-of-area Pre-Cert/Pre-auth Router to see that plan’s medical policy and requirements; the BlueCard manual (June 2026) tells providers to remind patients they "are responsible for obtaining pre-certification/preauthorization for out-patient services from their BCBS Plan." BCBSIL’s own ABA rules (phone preservice review, CPCP011) apply to BCBSIL members. FEP is not processed through BlueCard.' },
       { q: 'Does Blue Cross Blue Shield of Illinois require prior authorization for ABA?', a: 'For the non-HMO commercial plans on its 2026 list (PPO, Blue Options and others), yes for 97153–97158, 0362T and 0373T. The assessment codes 97151 and 97152 are not on that list; check Availity for the member’s plan.' },
       { q: 'How do I submit an ABA preservice request to BCBSIL?', a: 'Since April 2026, call the customer service number on the member’s ID card; a BCBSIL clinician follows up with a telephonic clinical review. Forms are no longer the primary method.' },
