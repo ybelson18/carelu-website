@@ -100,7 +100,7 @@ const EMEDNY_MC_DIRECTORY = src(
 const AETNA_CPB0554 = src('https://www.aetna.com/cpb/medical/data/500_599/0554.html', 'Aetna CPB 0554 — Applied Behavior Analysis (national policy).');
 const AETNA_CPB0648 = src('https://www.aetna.com/cpb/medical/data/600_699/0648.html', 'Aetna CPB 0648 — Autism Spectrum Disorders (national policy); no unit caps, POS codes, or modifiers published; no separate Aetna ABA billing/reimbursement policy located.');
 
-/* Aetna precertification sources (fetched 2026-10-01): CPB 0554 (last review 11/26/2025) only addresses non-ASD indications and carries no precertification content. */
+/* Aetna precertification sources (fetched 2026-10-01): CPB 0554 (last review 10/14/2026, re-read 2026-10-18) only lists non-covered indications (Down syndrome without ASD; all other non-ASD indications) and carries no precertification content. */
 const AETNA_PRECERT_LIST_ABA = src(
   'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf',
   'Aetna "Participating provider behavioral health precertification list," effective 8/1/2024 — item 3, Applied behavioral analysis (ABA): 97151, 97152, 97153, 97154, 97155, 97156, 97157, 97158, 0362T, 0373T require precertification.', true
@@ -1097,10 +1097,10 @@ function fidelisEntry(notes?: string): CodeGridEntry {
     paRequired:
       "Required — governed by Fidelis's own medical-necessity policy (FC.CP.BH.301.04); a behavioral assessment must be completed before treatment is requested. The policy does not differentiate PA turnaround/workflow for assessment (97151/97152) vs. treatment codes — both fall under the same medical-necessity review.",
     unitCap:
-      "Not published as a numeric cap. The policy frames intensity descriptively — Focused ABA (10-25 hrs/wk) vs. Comprehensive ABA (30-40 hrs/wk) — and states explicitly: \"the intensity of comprehensive treatment must be individualized to the person's characteristics and other factors\" (not an enforced ceiling).",
+      "Not published as a numeric cap. The policy (date of last revision 2/26, re-read 2026-10-18) removed the Focused/Comprehensive tiers: hours beyond 'six hours of direct treatment per day up to a total of 30 hours of direct treatment per week' need added clinical documentation plus parent and BCBA signatures; 'less than 20 hours per week if attending school full-time'; 97155 at least 2 h/week or 10% of direct hours (greater), no more than 20% unless justified. The authorized units are the operative ceiling.",
     capPeriod: 'unverified — no cap-period structure published',
     posAllowed: ['unverified — no POS code list in either Fidelis document', 'NOT school setting since 9/1/2023 (30-day transition period applied at rollout)'],
-    telehealth: 'unverified — the word "telehealth" does not appear anywhere in either Fidelis document reviewed.',
+    telehealth: 'plan-dependent — the policy (rev. 2/26) says telehealth "is determined on an individual basis" in alignment with the NYS Medicaid telehealth manual and must be documented in the treatment plan; no code list or POS rule.',
     modifiers: ['unverified — no HN/HO/HM/HP or other billing modifier is mentioned in either document'],
     notes: [
       notes,
@@ -1885,7 +1885,7 @@ const fidelisContact: VobContact = {
   requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     "Does ABA/BH claims routing use Fidelis's own medical payer ID (11315), or a separate Centene-affiliated behavioral-health vendor?",
-    'Is there an enforceable hourly ceiling for Comprehensive (30-40 hrs/wk) vs. Focused (10-25 hrs/wk) ABA, or is intensity purely individualized?',
+    'Above 6 hours/day or 30 hours/week of direct treatment, what documentation does Fidelis need, and is the authorization issued in weekly units?',
     'What POS settings are allowed for ABA (school is excluded since 9/1/2023) — home, office, community, other?',
     'Is ABA billable via telehealth, and if so what code/modifier applies?',
     'What billing modifiers does Fidelis require for ABA claims?',
