@@ -238,7 +238,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       { title: 'Other insurance', desc: 'Commercial coverage is billed first; HFS is the payer of last resort.' },
       { title: 'Age', desc: 'ABS covers ages 0 through 20. Comprehensive BAI is intended for under-7s, Focused BAI for ages 7–20.' },
     ],
-    sources: [S.ilga5_30_1, S.hfs201030, S.hfs210119, S.hfs210930, S.hfs230824, S.hfs220126, S.hfsFee, S.hfsFeePage, S.hfsPAForm, S.hfsCh100, S.hfsMap, S.hfsMC, S.hfsEVV, S.idfpr, S.ilga6_20, S.ilga6_150, S.ilgaTele, S.bacbLic, S.pa10428, S.ilga370c, S.cfr440, S.cfr438, S.cfr433],
+    sources: [S.ilga5_30_1, S.hfs201030, S.hfs210119, S.hfs210930, S.hfs230824, S.hfs220126, S.hfsFee, S.hfsFeePage, S.hfsPAForm, S.hfsCh100, S.hfsMap, S.hfsMC, S.hfsEVV, S.idfpr, S.ilga6_20, S.ilga6_150, S.ilgaTele, S.bacbLic, S.pa10428, S.ilga370c, S.cfr440, S.cfr438, S.cfr433, { title: 'Illinois HFS — Provider Notices (index of all HFS provider notices)', url: 'https://hfs.illinois.gov/medicalproviders/notices.html' }],
     deliveryRules: {
       supervision: {
         value: 'RBTs “must receive supervision from a BCBA” (2023). The 2021 notice set the floor still in HFS’s ABS guidance: RBTs “are expected to receive Case Leadership for 5%, or more, of all direct services,” with “at a minimum, two face-to-face, real-time contacts per month” of observation, modeling, problem-solving guidance and documentation review, the BCBA “present with the RBT.” The 2023 notice removed LPHA clinical supervision and written collaborative agreements but did not restate the 5% figure, so confirm it with HFS if your program relies on a lower rate.',
@@ -394,7 +394,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       { title: 'Physician order', desc: 'HFS requires a physician order for ABS, valid one year.' },
       { title: 'Other insurance', desc: 'Aetna is payer of last resort; file with the primary first and submit within 90 days of its EOB.' },
     ],
-    sources: [S.ilga5_30_1, S.abhilUM, S.abhilPM, S.hfs210930, S.hfs230824, S.hfsFee, S.hfsMap, S.cfr438, S.cfr433, S.idfpr],
+    sources: [S.ilga5_30_1, S.abhilUM, S.abhilPM, S.hfs210930, S.hfs230824, S.hfsFee, S.hfsMap, S.cfr438, S.cfr433, S.idfpr, { title: 'Aetna Better Health of Illinois — Notices and newsletters', url: 'https://www.aetnabetterhealth.com/illinois-medicaid/providers/newsletters.html' }],
     deliveryRules: {
       supervision: {
         value: 'The plan publishes no ABA supervision rule. HFS’s rule applies: RBTs “must receive supervision from a BCBA,” and HFS’s ABS guidance sets Case Leadership at “5%, or more, of all direct services” with at least two face-to-face contacts a month.',
@@ -548,7 +548,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       { title: 'Rendering and supervising clinicians', desc: 'The rendering provider on the claim must match the authorization; RBT claims name the supervising clinician.' },
       { title: 'Other insurance', desc: 'Medicaid pays last; bill the primary first.' },
     ],
-    sources: [S.ilga5_30_1, S.bcchpSum, S.bcchpCodes, S.bcchpPM, S.bcbsilABSBill, S.bcbsilUM, S.bcbsilPA104, S.hfs210930, S.hfs230824, S.hfsFee, S.hfsMap, S.cfr433, S.idfpr],
+    sources: [S.ilga5_30_1, S.bcchpSum, S.bcchpCodes, S.bcchpPM, S.bcbsilABSBill, S.bcbsilUM, S.bcbsilPA104, S.hfs210930, S.hfs230824, S.hfsFee, S.hfsMap, S.cfr433, S.idfpr, { title: 'Blue Cross and Blue Shield of Illinois — Provider News and Updates (incl. Blue Cross Community Health Plans Medicaid notices)', url: 'https://www.bcbsil.com/provider/education/education-reference/news' }],
     deliveryRules: {
       supervision: {
         value: 'BCCHP publishes no ABA supervision ratio in the documents read. HFS’s rule applies: RBTs “must receive supervision from a BCBA,” with Case Leadership of 5% or more of direct services and two face-to-face contacts a month in HFS’s ABS guidance. MCG B-806-T may add requirements but is licensed and not public.',
@@ -708,7 +708,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       { title: 'Prior treatment', desc: 'Members treated in the last 90 days can keep their provider for 90 days while they transition.' },
       { title: 'Other insurance', desc: 'CountyCare pays last; bill the primary first.' },
     ],
-    sources: [S.ilga5_30_1, S.ccNotice, S.ccPM, S.hfs210930, S.hfs230824, S.hfsFee, S.hfsMap, S.cfr433, S.cfr438, S.idfpr],
+    sources: [S.ilga5_30_1, S.ccNotice, S.ccPM, S.hfs210930, S.hfs230824, S.hfsFee, S.hfsMap, S.cfr433, S.cfr438, S.idfpr, { title: 'CountyCare Health Plan — Provider Notices', url: 'https://countycare.com/provider-notices/' }, { title: 'CountyCare Health Plan — Provider Newsletters', url: 'https://countycare.com/providers/provider-newsletters/' }],
     deliveryRules: {
       supervision: {
         value: 'CountyCare publishes no ABA supervision rule in the documents read. HFS’s rule applies: RBTs “must receive supervision from a BCBA,” with Case Leadership of 5% or more of direct services and two face-to-face contacts a month in HFS’s ABS guidance.',
@@ -869,7 +869,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       { title: 'School schedule', desc: 'Full-time school caps requested hours below 20 a week under CP.BH.104.' },
       { title: 'Other insurance', desc: 'Meridian is billed as secondary and pays up to the Medicaid allowable.' },
     ],
-    sources: [S.ilga5_30_1, S.merNotif, S.merPM, S.merBH104, S.merBH105, S.hfs210930, S.hfs230824, S.hfsFee, S.hfsMap, S.cfr438, S.cfr433, S.idfpr],
+    sources: [S.ilga5_30_1, S.merNotif, S.merPM, S.merBH104, S.merBH105, S.hfs210930, S.hfs230824, S.hfsFee, S.hfsMap, S.cfr438, S.cfr433, S.idfpr, { title: 'Meridian Health Plan of Illinois — Newsroom (provider notices archive)', url: 'https://www.ilmeridian.com/newsroom.html' }],
     deliveryRules: {
       supervision: {
         value: 'CP.BH.104: Adaptive Behavior Treatment with Protocol Modification “occurs for at least two hours per week or 10% of the direct service hours provided, whichever is greater” (one to two hours a week is acceptable below 10 hours a week), and treatment must be “delivered or supervised by an ABA-credentialed professional.” HFS adds that RBTs “must receive supervision from a BCBA.”',
@@ -1018,7 +1018,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       { title: 'Physician referral', desc: 'Molina’s memo requires referral by a physician; HFS’s order is valid one year.' },
       { title: 'Other insurance', desc: 'Molina is payer of last resort.' },
     ],
-    sources: [S.ilga5_30_1, S.molMemo, S.molPM, S.molABS22, S.hfs210930, S.hfs230824, S.hfsFee, S.hfsMap, S.cfr433, S.idfpr],
+    sources: [S.ilga5_30_1, S.molMemo, S.molPM, S.molABS22, S.hfs210930, S.hfs230824, S.hfsFee, S.hfsMap, S.cfr433, S.idfpr, { title: 'Molina Healthcare of Illinois — Provider Communications (provider memos and newsletters by year)', url: 'https://www.molinahealthcare.com/providers/il/communications' }],
     deliveryRules: {
       supervision: {
         value: 'Molina publishes no ABA ratio of its own in the documents read (its 2022 memo’s collaborative-agreement language predates HFS’s 2023 change). HFS’s rule applies: RBTs “must receive supervision from a BCBA,” with Case Leadership of 5% or more of direct services in HFS’s ABS guidance.',
@@ -1176,7 +1176,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       { title: 'Physician order', desc: 'HFS requires a physician order for ABS, valid one year.' },
       { title: 'Start date', desc: 'Notify within 24 hours of the initial assessment; request treatment PA 14 days ahead.' },
     ],
-    sources: [S.ilga5_30_1, S.ycPM, S.ycPolicies, S.merBH104, S.merBH105, S.hfsMap, S.hfsMC, S.hfs210930, S.hfs230824, S.hfsFee, S.cfr433, S.idfpr],
+    sources: [S.ilga5_30_1, S.ycPM, S.ycPolicies, S.merBH104, S.merBH105, S.hfsMap, S.hfsMC, S.hfs210930, S.hfs230824, S.hfsFee, S.cfr433, S.idfpr, { title: 'YouthCare (Meridian) — Newsroom (provider notices archive)', url: 'https://www.ilyouthcare.com/newsroom.html' }],
     deliveryRules: {
       supervision: {
         value: 'CP.BH.104 (listed on YouthCare’s policy page): protocol modification “for at least two hours per week or 10% of the direct service hours provided, whichever is greater” (one to two hours a week acceptable under 10 hours). HFS: RBTs “must receive supervision from a BCBA.”',
@@ -1868,7 +1868,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       { title: 'Session sign-off process', desc: 'CPCP011 wants a parent or caregiver signature on every session record, with times and the rendering clinician’s credentials.' },
       { title: 'Illinois license numbers', desc: 'IDFPR license for each behavior analyst as well as BACB certification.' },
     ],
-    sources: [S.ilga357_9, S.bcbsilCodes, S.bcbsilBC, S.bcbsilBCMan, S.bcbsilPhone, S.bcbsilCPCP, S.bcbsilRP033, S.bcbsilTF, S.bcbsilUM, S.bcbsilPA104, S.ilga356, S.fl356, S.ilga370c, S.pa10428, S.idoiCB2417, S.idfpr, S.ilga6_20, S.ilgaTele, S.bacbLic, S.erisa, S.hfsFee, S.hfsCh100, S.cfr433, S.tricare, S.champva],
+    sources: [S.ilga357_9, S.bcbsilCodes, S.bcbsilBC, S.bcbsilBCMan, S.bcbsilPhone, S.bcbsilCPCP, S.bcbsilRP033, S.bcbsilTF, S.bcbsilUM, S.bcbsilPA104, S.ilga356, S.fl356, S.ilga370c, S.pa10428, S.idoiCB2417, S.idfpr, S.ilga6_20, S.ilgaTele, S.bacbLic, S.erisa, S.hfsFee, S.hfsCh100, S.cfr433, S.tricare, S.champva, { title: 'Blue Cross and Blue Shield of Illinois — Provider News and Updates', url: 'https://www.bcbsil.com/provider/education/education-reference/news' }],
     deliveryRules: {
       supervision: {
         value: 'CPCP011: billable supervision is face to face with one technician; indirect supervision is bundled and not separately paid; CASP’s 10–20% of direct hours for case supervision is cited, and direct supervision “may be authorized … at a minimum of 1 hour per week when less than 10 hours of direct services are authorized.”',

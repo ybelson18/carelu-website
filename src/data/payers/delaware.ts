@@ -196,7 +196,7 @@ export const delawarePayers: Record<string, PayerConfig> = {
       { title: 'Planned weekly hours', desc: 'More than 40 hours a week needs prior authorization under the state plan; MCOs authorize below that too.' },
       { title: 'Other insurance', desc: 'Commercial coverage is billed first; Medicaid pays only what is left.' },
     ],
-    sources: [S.spa, S.dshp, S.abaFS, S.pfs2026, S.gpm, S.pract, S.memFaq, S.hhoPM, S.dfhBen, S.dfhPA, S.dfhPM, S.dfhBM, S.acdePM, S.acdeBHprov, S.acdeBHmem, S.acdeBHPA, S.bacbLic, S.cfr438, S.cfr440, S.cfr433],
+    sources: [S.spa, S.dshp, S.abaFS, S.pfs2026, S.gpm, S.pract, S.memFaq, S.hhoPM, S.dfhBen, S.dfhPA, S.dfhPM, S.dfhBM, S.acdePM, S.acdeBHprov, S.acdeBHmem, S.acdeBHPA, S.bacbLic, S.cfr438, S.cfr440, S.cfr433, { title: 'Delaware DMAP — Provider Bulletins folder (Medicaid publications library, quarterly DMAP Provider Bulletins)', url: 'https://medicaidpublications.dhss.delaware.gov/docs/Search?EntryId=16' }],
     deliveryRules: {
       supervision: {
         value: 'SPA 16-010: a BCBA may work without a licensed supervisor; a BCaBA "can only provide ASD services under the supervision of a BCBA®"; an RBT "can only provide ASD services under the supervision of a BCaBA® or BCBA®," with supervision requirements "specified by the Behavioral Analyst Certification Board." Unlicensed practitioners may work under a licensed practitioner who "regularly reviews the work performed," documented in writing. The state plan sets no numeric ratio.',
@@ -350,7 +350,7 @@ export const delawarePayers: Record<string, PayerConfig> = {
       { title: 'Hours already used this year', desc: 'For children under 18, ask how many behavioral health units or hours are used, and who pays after 30.' },
       { title: 'Other insurance', desc: 'The plan pays last; bill the primary and send its EOB within 60 days.' },
     ],
-    sources: [S.acdePM, S.acdeBHprov, S.acdeBHmem, S.acdeBHPA, S.acdePAG, S.spa, S.pract, S.dshp, S.cfr438, S.cfr433, S.bacbLic],
+    sources: [S.acdePM, S.acdeBHprov, S.acdeBHmem, S.acdeBHPA, S.acdePAG, S.spa, S.pract, S.dshp, S.cfr438, S.cfr433, S.bacbLic, { title: 'AmeriHealth Caritas Delaware — Newsletters and Updates (Connections provider newsletter archive)', url: 'https://www.amerihealthcaritasde.com/provider/newsletters-and-updates' }],
     deliveryRules: {
       supervision: {
         value: 'The plan publishes no ABA supervision rule of its own. The state plan applies: a BCBA may work independently, a BCaBA only under a BCBA, and an RBT only under a BCaBA or BCBA, with supervision requirements set by the BACB and no numeric ratio.',
@@ -510,7 +510,7 @@ export const delawarePayers: Record<string, PayerConfig> = {
       { title: 'Staff credentials', desc: 'BCBA/BCBA-D, and technician records meeting the DHSS standards (training, background checks, CPR).' },
       { title: 'Other insurance', desc: 'The plan pays last; COB claims are due within 60 days of the primary’s adjudication.' },
     ],
-    sources: [S.hhoMP, S.hhoPM, S.reg2102, S.spa, S.pract, S.dshp, S.cfr438, S.cfr433, S.bacbLic],
+    sources: [S.hhoMP, S.hhoPM, S.reg2102, S.spa, S.pract, S.dshp, S.cfr438, S.cfr433, S.bacbLic, { title: 'Highmark Health Options Delaware — Quarterly provider newsletters (index)', url: 'https://providers.highmark.com/hho-de/latest-updates/quarterly-newsletters.html' }, { title: 'Highmark Health Options Delaware — Updates and Notices (provider notices list)', url: 'https://providers.highmark.com/hho-de/latest-updates/updates-and-notices.html' }],
     deliveryRules: {
       supervision: {
         value: 'MP-1045 adopts the DHSS provider regulation: ABA by a BCBA or BCBA-D, with behavioral technicians working under their supervision who meet its criteria. That regulation (16 Del. Admin. Code 2102) sets BCBA supervision at "not … less than 1.5:10 per week," and at least 1 hour a week when fewer than 10 hours of ABA are delivered.',
@@ -666,7 +666,7 @@ export const delawarePayers: Record<string, PayerConfig> = {
       { title: 'Treatment plan for PA', desc: 'Every ABA code needs prior authorization; submit at least five business days before services start.' },
       { title: 'Other insurance', desc: 'The plan pays last; send the primary’s EOB with the claim.' },
     ],
-    sources: [S.dfhPM, S.dfhBM, S.dfhPA, S.dfhBen, S.spa, S.pract, S.dshp, S.cfr438, S.cfr433, S.bacbLic],
+    sources: [S.dfhPM, S.dfhBM, S.dfhPA, S.dfhBen, S.spa, S.pract, S.dshp, S.cfr438, S.cfr433, S.bacbLic, { title: 'Delaware First Health — Newsroom (provider notices archive)', url: 'https://www.delawarefirsthealth.com/newsroom.html' }],
     deliveryRules: {
       supervision: {
         value: 'The plan publishes no ABA supervision rule of its own. The state plan applies: a BCBA may work independently, a BCaBA only under a BCBA, and an RBT only under a BCaBA or BCBA, with supervision requirements set by the BACB and no numeric ratio.',
@@ -847,7 +847,7 @@ export const delawarePayers: Record<string, PayerConfig> = {
       { title: 'ABA dollars used this plan year', desc: 'Fully insured plans may cap ABA at $38,601.65 per person (April 2026–March 2027).' },
       { title: 'Other coverage', desc: 'Second parent’s plan (birthday rule), Medicaid, TRICARE or CHAMPVA.' },
     ],
-    sources: [S.hmAuth, S.hmBHPA, S.hm97153, S.hmRP046, S.m3366, S.m3570A, S.cap2026, S.pa35, S.reg2102, S.reg1307, S.reg1310, S.bacbLic, S.ch30, S.psych1, S.psych3, S.erisa, S.abaFS, S.gpm, S.tricare, S.champva, { title: 'Highmark Provider Manual — Chapter 2, Unit 6: The BlueCard Program', url: 'https://providers.highmark.com/resources-and-education/highmark-provider-manual/chapter-2-product-information/unit-6-the-bluecard-program' }],
+    sources: [S.hmAuth, S.hmBHPA, S.hm97153, S.hmRP046, S.m3366, S.m3570A, S.cap2026, S.pa35, S.reg2102, S.reg1307, S.reg1310, S.bacbLic, S.ch30, S.psych1, S.psych3, S.erisa, S.abaFS, S.gpm, S.tricare, S.champva, { title: 'Highmark Provider Manual — Chapter 2, Unit 6: The BlueCard Program', url: 'https://providers.highmark.com/resources-and-education/highmark-provider-manual/chapter-2-product-information/unit-6-the-bluecard-program' }, { title: 'Highmark — Provider Communications Hub: News and Updates (Highmark BCBS Delaware provider news, Dec 2025 onward)', url: 'https://providers.highmark.com/communications-hub/news-and-updates' }],
     deliveryRules: {
       supervision: {
         value: 'Highmark’s Delaware ABA policy could not be retrieved. For fully insured plans, the mandate’s DHSS standards apply: BCBA supervision of behavioral technicians "shall not be less than 1.5:10 per week," with at least 1 hour a week when fewer than 10 hours of ABA are delivered (16 Del. Admin. Code 2102).',

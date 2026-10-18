@@ -280,6 +280,7 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
       { title: 'Initial Diagnostic Interview Medicaid Service Definition', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Initial%20Diagnostic%20Interview.pdf' },
       { title: 'Neb. Rev. Stat. § 44-7,106 (full text)', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-7,106' },
       { title: 'Nebraska Medicaid Provider Manual (republished October 9, 2026), § 3.4 NPI and § 3.6 enrollment', url: 'https://dhhs.ne.gov/Documents/Medicaid%20Provider%20Manual.pdf' },
+      { title: 'Nebraska DHHS — Medicaid Provider Bulletins (index of all provider bulletins)', url: 'https://dhhs.ne.gov/Pages/Medicaid-Provider-Bulletins.aspx' },
     ],
     faq: [
       { q: 'Does Nebraska Medicaid cover ABA therapy?', a: 'Yes — for members under 21 through EPSDT, administered entirely by the three Heritage Health MCOs under the state\'s ABA Medicaid Service Definitions (effective February 2025). Prior authorization runs through the member\'s MCO.' },
@@ -480,6 +481,7 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
       { title: 'Initial Diagnostic Interview Medicaid Service Definition', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Initial%20Diagnostic%20Interview.pdf' },
       { title: 'ABA Behavior Identification Assessment MSD', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis%20Behavior%20Identification%20Assessment.pdf' },
       { title: 'Health Plan Advisory 25-08 — ABA Rates (to Heritage Health MCOs)', url: 'https://dhhs.ne.gov/Guidance%20Docs/Health%20Plan%20Advisory%2025-08%20-%20Applied%20Behavior%20Analysis%20Rates.pdf' },
+      { title: 'Nebraska Total Care — Provider newsroom (provider notices archive)', url: 'https://www.nebraskatotalcare.com/newsroom.html' },
     ],
     faq: [
       { q: 'Does Nebraska Total Care cover ABA therapy?', a: 'Yes — it administers the Nebraska Medicaid ABA benefit under the state Medicaid Service Definitions, with its NE.CP.BH.105 documentation policy layered on top. Its own policy says state provisions take precedence in any conflict.' },
@@ -678,6 +680,7 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
       { title: 'ABA Behavior Identification Assessment MSD', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis%20Behavior%20Identification%20Assessment.pdf' },
       { title: 'Medicaid Requirements for Substance Use Disorder and Applied Behavior Analysis Services (umbrella staffing document)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Medicaid%20Requirements%20for%20Substance%20Use%20Disorder%20and%20Applied%20Behavior%20Analysis%20Services.pdf' },
       { title: 'Health Plan Advisory 25-08 — ABA Rates (to Heritage Health MCOs)', url: 'https://dhhs.ne.gov/Guidance%20Docs/Health%20Plan%20Advisory%2025-08%20-%20Applied%20Behavior%20Analysis%20Rates.pdf' },
+      { title: 'Molina Healthcare of Nebraska — Provider announcements, notifications and newsletters', url: 'https://www.molinahealthcare.com/providers/ne/communications' },
     ],
     faq: [
       { q: 'Does Molina Healthcare of Nebraska cover ABA therapy?', a: 'Yes — as a Heritage Health MCO it administers the Nebraska Medicaid ABA benefit under the state Medicaid Service Definitions. Molina publishes no Nebraska-specific ABA clinical policy, so the state rules plus corporate BH criteria govern.' },
@@ -906,6 +909,7 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
       { title: 'Nebraska Medicaid Provider Manual (republished October 9, 2026), § 3.4 NPI and § 3.6 enrollment', url: 'https://dhhs.ne.gov/Documents/Medicaid%20Provider%20Manual.pdf' },
       { title: 'UnitedHealthcare Community Plan of Nebraska — 2026 Care Provider Manual', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NE-Care-Provider-Manual.pdf' },
       { title: 'SFY27 Mental Health & Substance Use Fee Schedule (REVISED), ABA and TeleHealth Information tabs', url: 'https://dhhs.ne.gov/Medicaid%20Practitioner%20Fee%20Schedules/REVISED%20MHSUD%20SFY27%20Fee%20Schedule.xlsx' },
+      { title: 'UnitedHealthcare Community Plan of Nebraska — News, bulletins and alerts', url: 'https://www.uhcprovider.com/en/health-plans-by-state/nebraska-health-plans/ne-comm-plan-home/ne-cp-news.html' },
     ],
     faq: [
       { q: 'Does UnitedHealthcare Community Plan of Nebraska cover ABA?', a: 'Yes — it administers the Heritage Health ABA benefit under the state Medicaid Service Definitions, with the autism network managed by Optum Behavioral Health since 2017. All autism services, the assessment included, require prior authorization.' },
@@ -1983,6 +1987,7 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
       { title: '210 NAC 39 — Nebraska Coordination of Benefits Regulation', url: 'https://doi.nebraska.gov/sites/default/files/doc/Chapter%2039.pdf' },
       { title: 'NE DHHS Licensure — Behavior Analyst', url: 'https://dhhs.ne.gov/licensure/Pages/Behavior-Analyst.aspx' },
       { title: 'BCBSNE Policy GP-X-086 — Claim Filing for BlueCard Members', url: 'https://www.nebraskablue.com/en/Providers/Policies-and-Procedures/General/Claim-Filing-for-BlueCard-Members' },
+      { title: 'BCBSNE — Alerts & Updates for Providers', url: 'https://www.nebraskablue.com/en/Providers/Alerts-and-Updates' },
     ],
     faq: [
       { q: 'Does Blue Cross Blue Shield of Nebraska cover ABA therapy?', a: 'Under BCBSNE Medical Policy I.178, ABA is covered when the Nebraska autism mandate applies or the member\'s benefit plan explicitly covers ABA, with preauthorization. The mandate reaches state-regulated plans for children under 21 but not ACA individual or small-group plans, and self-funded groups follow their plan documents — so check the plan first.' },
@@ -2208,6 +2213,7 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
       { title: 'Neb. Rev. Stat. § 44-7,106 (full text)', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-7,106' },
       { title: 'CMS — Nebraska EHB Benchmark Plan Summary (plan years 2025–2027)', url: 'https://www.cms.gov/files/document/ne-bmp-summary-py2025-2027.pdf' },
       { title: 'Nebraska LB 77 (2025) — Ensuring Transparency in Prior Authorization Act, slip law', url: 'https://nebraskalegislature.gov/FloorDocs/109/PDF/Slip/LB77.pdf' },
+      { title: 'Nebraska Total Care — Newsroom (provider notices archive)', url: 'https://www.nebraskatotalcare.com/newsroom.html' },
     ],
     faq: [
       { q: 'Does Ambetter from Nebraska Total Care cover ABA therapy?', a: 'Yes. The 2026 Evidence of Coverage covers applied behavior analysis for autism spectrum disorder when prescribed by a physician or behavioral health practitioner, states that no limitation exists within the ABA benefit, and requires prior authorization. Marketplace cost sharing applies.' },

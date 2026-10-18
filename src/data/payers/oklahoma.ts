@@ -208,6 +208,8 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       { title: '42 CFR 433.139 — Medicaid third-party liability, payment of claims (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
       { title: '56 O.S. § 4002.12 — SoonerSelect minimum provider reimbursement (as amended by HB 3650, Laws 2026, c. 310, eff. 11/1/2026) — OSCN', url: 'https://www.oscn.net/applications/oscn/DeliverDocument.asp?CiteID=489244' },
       { title: '56 O.S. § 4002.12 — version in force through 10/31/2026 ("Until July 1, 2027") — OSCN superseded document', url: 'https://www.oscn.net/applications/oscn/DeliverDocument.asp?CiteID=553197' },
+      { title: 'OHCA — Global Messages (provider notices; redirects to the current year page)', url: 'https://oklahoma.gov/ohca/providers/updates/global-messages.html' },
+      { title: 'OHCA — Provider Letters (index of provider letters; redirects to the current year page)', url: 'https://oklahoma.gov/ohca/providers/updates/providerletters.html' },
     ],
     intakeGates: {
       ageLimit: {
@@ -474,6 +476,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       { title: 'Aetna Better Health of Oklahoma Provider Manual (published 8/20/2026; direct requests return 403, read in full via r.jina.ai)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/oklahoma/pdf/abhok_provider_manual.pdf' },
       { title: '56 O.S. § 4002.12 — SoonerSelect minimum provider reimbursement (as amended by HB 3650, Laws 2026, c. 310, eff. 11/1/2026) — OSCN', url: 'https://www.oscn.net/applications/oscn/DeliverDocument.asp?CiteID=489244' },
       { title: '56 O.S. § 4002.12 — version in force through 10/31/2026 ("Until July 1, 2027") — OSCN superseded document', url: 'https://www.oscn.net/applications/oscn/DeliverDocument.asp?CiteID=553197' },
+      { title: 'Aetna Better Health of Oklahoma — Provider Notices & Newsletters', url: 'https://www.aetnabetterhealth.com/oklahoma/providers/notices-newsletters.html' },
     ],
     intakeGates: {
       ageLimit: {
@@ -763,6 +766,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       { title: '56 O.S. § 4002.12 — SoonerSelect minimum provider reimbursement (as amended by HB 3650, Laws 2026, c. 310, eff. 11/1/2026) — OSCN', url: 'https://www.oscn.net/applications/oscn/DeliverDocument.asp?CiteID=489244' },
       { title: '56 O.S. § 4002.12 — version in force through 10/31/2026 ("Until July 1, 2027") — OSCN superseded document', url: 'https://www.oscn.net/applications/oscn/DeliverDocument.asp?CiteID=553197' },
       { title: 'OHCA — SoonerCare Title XIX fee schedule, effective 07/01/2026 (V3)', url: 'https://oklahoma.gov/content/dam/ok/en/okhca/docs/providers/claim-tools/fee-schedules/2026/Prov_fee_sch_TXIX_07012026_V3.txt' },
+      { title: 'Oklahoma Complete Health — Provider News (provider notices archive)', url: 'https://www.oklahomacompletehealth.com/providers/provider-news.html' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1040,6 +1044,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       { title: '56 O.S. § 4002.12 — SoonerSelect minimum provider reimbursement (as amended by HB 3650, Laws 2026, c. 310, eff. 11/1/2026) — OSCN', url: 'https://www.oscn.net/applications/oscn/DeliverDocument.asp?CiteID=489244' },
       { title: '56 O.S. § 4002.12 — version in force through 10/31/2026 ("Until July 1, 2027") — OSCN superseded document', url: 'https://www.oscn.net/applications/oscn/DeliverDocument.asp?CiteID=553197' },
       { title: 'OHCA — SoonerCare Title XIX fee schedule, effective 07/01/2026 (V3)', url: 'https://oklahoma.gov/content/dam/ok/en/okhca/docs/providers/claim-tools/fee-schedules/2026/Prov_fee_sch_TXIX_07012026_V3.txt' },
+      { title: 'Humana Healthy Horizons in Oklahoma — Communications and Network Notices', url: 'https://provider.humana.com/medicaid/oklahoma-medicaid/communications' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2176,6 +2181,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       { title: '59 O.S. § 1928 — as amended by SB 1557 (Laws 2026, c. 392), eff. 11/1/2026: State Board of Examiners of Psychologists — OSCN', url: 'https://www.oscn.net/applications/oscn/DeliverDocument.asp?CiteID=456318' },
       { title: '36 O.S. § 6570.6 — Prior authorization time frames (eff. 1/1/2025) — OSCN', url: 'https://www.oscn.net/applications/oscn/DeliverDocument.asp?CiteID=538475' },
       { title: 'Okla. Admin. Code § 365:10-11-3 — Coordination of benefits, order of benefit determination (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/oklahoma/OAC-365-10-11-3' },
+      { title: 'BCBSOK — Provider News and Updates (index of dated provider news)', url: 'https://www.bcbsok.com/provider/education/education-reference/news-updates' },
     ],
     intakeGates: {
       ageLimit: {

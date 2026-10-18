@@ -187,7 +187,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
       { title: 'Other insurance', desc: 'Commercial coverage is billed first; Medicaid and its plans pay last.' },
       { title: 'Age', desc: 'ASD services cover beneficiaries under 21 (HSCSN enrolls through age 25).' },
     ],
-    sources: [S.spa, S.t2335, S.mcac, S.dcmr110, S.mcps, S.t2619, S.mcoContract, S.teleGuide, S.dc3863, S.evv, S.cfr440, S.cfr438, S.cfr433, S.dc1207_71, S.dc1202_11, S.bacbLic, S.dcMedicaidPortal],
+    sources: [S.spa, S.t2335, S.mcac, S.dcmr110, S.mcps, S.t2619, S.mcoContract, S.teleGuide, S.dc3863, S.evv, S.cfr440, S.cfr438, S.cfr433, S.dc1207_71, S.dc1202_11, S.bacbLic, S.dcMedicaidPortal, { title: 'DC DHCF — Publications (Medicaid transmittals and provider notices, newest first)', url: 'https://dhcf.dc.gov/publications' }],
     deliveryRules: {
       supervision: {
         value: 'No numeric ratio is published. SPA 23-0009 lets an RBT deliver ABA "under the supervision of a BCBA, BCBA-D, or BCaBA" and a BCaBA "under the supervision of a BCBA or BCBA-D."',
@@ -346,7 +346,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
       { title: 'Prior plan’s authorization', desc: 'Wellpoint or MedStar authorizations are honored for a transition period; capture the approval letter.' },
       { title: 'Other insurance', desc: 'The plan pays last; bill the primary first.' },
     ],
-    sources: [S.acdcLookup, S.acdcPA, S.acdcPM, S.mcps, S.t2619, S.spa, S.mcoContract, S.teleGuide, S.cfr438, S.cfr433],
+    sources: [S.acdcLookup, S.acdcPA, S.acdcPM, S.mcps, S.t2619, S.spa, S.mcoContract, S.teleGuide, S.cfr438, S.cfr433, { title: 'AmeriHealth Caritas District of Columbia — Newsletters and Updates (provider newsletter and updates archive)', url: 'https://www.amerihealthcaritasdc.com/provider/newsletters-and-updates' }],
     deliveryRules: {
       supervision: {
         value: 'The plan publishes no ABA supervision rule of its own. The state rule applies: an RBT works under a BCBA, BCBA-D or BCaBA, and a BCaBA under a BCBA or BCBA-D (SPA 23-0009), with no numeric ratio.',
@@ -506,7 +506,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
       { title: 'Treatment plan and codes', desc: 'Codes on the request must match what is billed; DC’s rule is a six-month plan with measurable goals and hours.' },
       { title: 'Other insurance', desc: 'Bill the primary first; MedStar needs the primary remittance within 180 days.' },
     ],
-    sources: [S.mfcQAG, S.mfcPM, S.mfcUM, S.mcps, S.t2619, S.spa, S.teleGuide, S.cfr438, S.cfr433],
+    sources: [S.mfcQAG, S.mfcPM, S.mfcUM, S.mcps, S.t2619, S.spa, S.teleGuide, S.cfr438, S.cfr433, { title: 'MedStar Family Choice DC — Provider News (provider newsletters and provider alerts)', url: 'https://www.medstarfamilychoicedc.com/Providers/Provider-Resources/Provider-News' }],
     deliveryRules: {
       supervision: {
         value: 'The plan publishes no ABA supervision rule of its own. The state rule applies: an RBT works under a BCBA, BCBA-D or BCaBA, and a BCaBA under a BCBA or BCBA-D (SPA 23-0009), with no numeric ratio.',
@@ -1407,7 +1407,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
       { title: 'Rendering clinician’s license', desc: 'CareFirst requires licensure where the member receives care; confirm how it credentials DC BCBAs.' },
       { title: 'Other coverage', desc: 'Second parent’s plan, DC Medicaid, TRICARE or CHAMPVA.' },
     ],
-    sources: [S.cfPre, S.cfCh2, S.cfCh3, S.cfCh5, S.cfCh7, S.cfMPU0126, S.cfMPU1224, S.cfMedPol, S.dc3271, S.dc3272, S.hbx, S.dc3132, S.dc3133, S.dc3862, S.dc3875_03, S.dc3875_07, S.dc1202_11, S.dc1207_71, S.bacbLic, S.erisa],
+    sources: [S.cfPre, S.cfCh2, S.cfCh3, S.cfCh5, S.cfCh7, S.cfMPU0126, S.cfMPU1224, S.cfMedPol, S.dc3271, S.dc3272, S.hbx, S.dc3132, S.dc3133, S.dc3862, S.dc3875_03, S.dc3875_07, S.dc1202_11, S.dc1207_71, S.bacbLic, S.erisa, { title: 'CareFirst BlueCross BlueShield — BlueLink provider newsletter (2026 issues; year selector to 2008)', url: 'https://provider.carefirst.com/providers/news/bluelink-newsletter-2026.page' }],
     deliveryRules: {
       supervision: {
         value: 'CareFirst’s supervision terms for technicians sit in Payment Policy PP CO 020.01 (Limited Licensed Providers, covering assistant behavior analysts and RBTs), whose text we could not open.',

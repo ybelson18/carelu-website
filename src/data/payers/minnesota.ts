@@ -241,7 +241,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       { title: 'Other insurance', desc: 'Record it, but EIDBI does not require billing the commercial plan first (pay and chase).' },
       { title: 'School schedule', desc: 'Direct intervention must not replace instruction; since Jan. 1, 2026 no 97153/97154/0373T during homeschool or virtual-school instruction.' },
     ],
-    sources: [S.stat0949, S.sl95, S.sl121, S.mhcpEidbi, S.grid, S.mcoGrid, S.services, S.elig, S.mednec, S.cmde, S.tele, S.clinsup, S.overview, S.updates, S.mhcpTele, S.billPol, S.mcoSec, S.spa2410, S.stat69, S.stat62M01, S.stat62M05, S.stat62M07, S.lic9981, S.lic9983, S.lic9986, S.lic9987, S.bacbLic, S.cfr433, S.ucareFaq],
+    sources: [S.stat0949, S.sl95, S.sl121, S.mhcpEidbi, S.grid, S.mcoGrid, S.services, S.elig, S.mednec, S.cmde, S.tele, S.clinsup, S.overview, S.updates, S.mhcpTele, S.billPol, S.mcoSec, S.spa2410, S.stat69, S.stat62M01, S.stat62M05, S.stat62M07, S.lic9981, S.lic9983, S.lic9986, S.lic9987, S.bacbLic, S.cfr433, S.ucareFaq, { title: 'MN DHS — MHCP Provider Connect archive (weekly provider e-newsletter)', url: 'https://mn.gov/dhs/partners-and-providers/news-initiatives-reports-workgroups/minnesota-health-care-programs/provider-news/mhcp-provider-connect.jsp' }, { title: 'MN DHS — MHCP provider news and updates', url: 'https://mn.gov/dhs/partners-and-providers/news-initiatives-reports-workgroups/minnesota-health-care-programs/provider-news/' }],
     deliveryRules: {
       supervision: {
         value: EIDBI_SUPERVISION,
@@ -529,7 +529,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       { title: 'Supervising QSP', desc: 'The QSP’s NPI goes on every claim line that needs supervision.' },
       { title: 'Other insurance', desc: 'Record it; HealthPartners pays EIDBI without a primary EOB.' },
     ],
-    sources: [S.hpPolicy, S.hpPage, S.hpTips, S.mcoGrid, S.stat0949, S.sl95, S.grid, S.stat62M01, S.stat62M05, S.cfr438, S.cfr433, S.hpPRM],
+    sources: [S.hpPolicy, S.hpPage, S.hpTips, S.mcoGrid, S.stat0949, S.sl95, S.grid, S.stat62M01, S.stat62M05, S.cfr438, S.cfr433, S.hpPRM, { title: 'HealthPartners — Fast Facts newsletters (bi-monthly provider newsletter)', url: 'https://www.healthpartners.com/providers/provider-resources/fast-facts/' }],
     deliveryRules: {
       supervision: {
         value: 'HealthPartners excludes services "Provided without the required supervision" and requires the QSP on supervised claims; the supervision floor is the statute’s. ' + EIDBI_SUPERVISION,
@@ -670,7 +670,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       { title: 'QSP notes calendar', desc: 'Plan to send QSP notes every three months for every authorized member.' },
       { title: 'Other insurance', desc: 'Record it and ask how Hennepin Health applies its primary-first rule to EIDBI.' },
     ],
-    sources: [S.hhChart, S.hhPA, S.hhClaims, S.hhChronic, S.mcoGrid, S.stat0949, S.sl95, S.mhcpEidbi, S.stat62M01, S.stat62M05, S.cfr438, S.cfr433],
+    sources: [S.hhChart, S.hhPA, S.hhClaims, S.hhChronic, S.mcoGrid, S.stat0949, S.sl95, S.mhcpEidbi, S.stat62M01, S.stat62M05, S.cfr438, S.cfr433, { title: 'Hennepin Health — Provider updates', url: 'https://www.hennepinhealth.org/providers/provider-updates' }],
     deliveryRules: {
       supervision: {
         value: 'Hennepin Health: "one hour of clinical supervision by a Qualified Supervising Professional for every 16 hours of direct treatment unless an exception is authorized in ITP," plus QSP notes every three months (from July 1, 2026). The statute adds monthly QSP observation and direction, no more than two consecutive months by telehealth (§ 256B.0949, subd. 16(a)(15)–(16)).',
@@ -913,7 +913,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       { title: 'CMDE and ITP', desc: 'Fax both to Medica Behavioral Health, 855-454-8155.' },
       { title: 'Optum enrollment', desc: 'Network participation is through Optum Provider Services, 877-614-0484.' },
     ],
-    sources: [S.mcoGrid, S.opMN, S.opMedQRG, S.stat0949, S.sl95, S.mhcpEidbi, S.stat62M01, S.stat62M05, S.cfr438, S.cfr433, S.ucareFaq],
+    sources: [S.mcoGrid, S.opMN, S.opMedQRG, S.stat0949, S.sl95, S.mhcpEidbi, S.stat62M01, S.stat62M05, S.cfr438, S.cfr433, S.ucareFaq, { title: 'Medica — News for Providers (Connections monthly newsletter archive)', url: 'https://partner.medica.com/providers/news' }],
     deliveryRules: {
       supervision: { value: 'Medica publishes no EIDBI supervision rule of its own. ' + EIDBI_SUPERVISION, status: 'verified', cites: [S.stat0949, S.sl95, S.clinsup] },
       concurrentBilling: {
@@ -1020,7 +1020,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       { title: 'Existing authorization', desc: 'Capture any UCare EIDBI authorization; a new plan must honor prior authorizations.' },
       { title: 'CMDE and ITP', desc: 'Fax both to 855-454-8155.' },
     ],
-    sources: [S.ucareBull, S.ucareFaq, S.mcoGrid, S.mcoSec, S.stat0949, S.sl95, S.mhcpEidbi, S.stat62M01, S.stat62M05, S.cfr438, S.cfr433],
+    sources: [S.ucareBull, S.ucareFaq, S.mcoGrid, S.mcoSec, S.stat0949, S.sl95, S.mhcpEidbi, S.stat62M01, S.stat62M05, S.cfr438, S.cfr433, { title: 'Medica — News for Providers (Connections monthly newsletter archive)', url: 'https://partner.medica.com/providers/news' }],
     deliveryRules: {
       supervision: { value: 'No plan-specific EIDBI supervision rule is published. ' + EIDBI_SUPERVISION, status: 'verified', cites: [S.stat0949, S.sl95, S.clinsup] },
       concurrentBilling: {
@@ -1133,7 +1133,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       { title: 'O&D justification', desc: 'Individual clinical rationale for 97155, around 20% of direct hours.' },
       { title: 'Medical stability', desc: 'PrimeWest requires the child not need 24-hour medical monitoring.' },
     ],
-    sources: [S.pwEidbi, S.pwBill, S.mcoGrid, S.stat0949, S.sl95, S.grid, S.cfr438, S.cfr433],
+    sources: [S.pwEidbi, S.pwBill, S.mcoGrid, S.stat0949, S.sl95, S.grid, S.cfr438, S.cfr433, { title: 'PrimeWest Health — Provider Updates', url: 'https://www.primewest.org/provider-updates' }],
     deliveryRules: {
       supervision: {
         value: 'PrimeWest: "EIDBI treatment services must be delivered under the clinical supervision of a QSP," providers must "meet supervision requirements in MN Stat. sec. 256B.0949, subds., 15 – 16," and services "provided in the absence of required supervision" are not paid. Statute: at least one hour of clinical supervision per 16 hours of direct treatment and monthly QSP observation and direction.',
@@ -1267,7 +1267,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       { title: 'Form #4894 + CMDE + ITP', desc: 'All three go with the authorization request.' },
       { title: 'Other insurance', desc: 'Record it; EIDBI requests do not need a primary-payer attempt first.' },
     ],
-    sources: [S.scBhPa, S.scCh6, S.scCh4, S.scCh33, S.scCh14, S.mcoGrid, S.stat0949, S.sl95, S.grid, S.mhcpEidbi, S.cfr438, S.cfr433],
+    sources: [S.scBhPa, S.scCh6, S.scCh4, S.scCh33, S.scCh14, S.mcoGrid, S.stat0949, S.sl95, S.grid, S.mhcpEidbi, S.cfr438, S.cfr433, { title: 'South Country Health Alliance — Provider Updates & Bulletins', url: 'https://mnscha.org/providers/provider-news-updates/' }],
     deliveryRules: {
       supervision: { value: 'South Country publishes no EIDBI supervision rule of its own; it points to the MHCP manual. ' + EIDBI_SUPERVISION, status: 'verified', cites: [S.scBhPa, S.stat0949, S.sl95, S.clinsup] },
       concurrentBilling: {

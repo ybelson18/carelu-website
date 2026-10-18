@@ -214,7 +214,7 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
       { title: 'Other insurance', desc: 'ND Medicaid is generally the payer of last resort; bill the commercial plan first and follow its rules (secondary claims have 365 days).' },
       { title: 'Member ID card type', desc: 'A white BCBSND Medicaid Expansion card means an adult 21+; ABA is billed to ND Medicaid fee-for-service under the green ND Medicaid card.' },
     ],
-    sources: [S.abaPol, S.cfsPage, S.covsvc, S.lookup, S.profFee, S.aut2025, S.feePage, S.manuals, S.sa, S.penroll, S.claims, S.bhrehab, S.provreq, S.school, S.tele, S.tf, S.tpl, S.evv, S.elig, S.oos, S.asdWaiver, S.c4364, S.ndac112, S.bacbLic, S.cfr440, S.cfr433, S.bcMEPM],
+    sources: [S.abaPol, S.cfsPage, S.covsvc, S.lookup, S.profFee, S.aut2025, S.feePage, S.manuals, S.sa, S.penroll, S.claims, S.bhrehab, S.provreq, S.school, S.tele, S.tf, S.tpl, S.evv, S.elig, S.oos, S.asdWaiver, S.c4364, S.ndac112, S.bacbLic, S.cfr440, S.cfr433, S.bcMEPM, { title: 'ND HHS — Medicaid provider newsletters', url: 'https://www.hhs.nd.gov/healthcare/medicaid/provider/communications/newsletters' }],
     deliveryRules: {
       supervision: {
         value: 'No numeric ratio is published. Skills training "must be supervised by a practitioner qualified to provide Service Oversight" (a licensed BCBA or BCBA-D, a registered behavior analyst, or a licensed clinical psychologist) "operating within North Dakota scope of practice laws." Skills training must include "meeting with the Service Oversight practitioner and the caregiver at least monthly" to review progress and the care plan, and the care plan must show the "Majority requested provided by an RBT." Degreed skills trainers must become an RBT or BCAT within six months of enrollment.',
@@ -401,7 +401,7 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis and order', desc: 'ASD diagnosis and an order from a licensed physician or psychologist (Bulletin 2018-1’s definition of treatment).' },
       { title: 'Other coverage', desc: 'Second parent’s plan (birthday rule), ND Medicaid (pays last), TRICARE.' },
     ],
-    sources: [S.bcPA, S.bcMigPA, S.bcBH18, S.bcPM, S.bcTele, S.bcMEPM, S.bull2018, S.doiNews, S.c2636, S.pa3612, S.cob, S.c4364, S.ndac112, S.c4357, S.bacbLic, S.erisa, S.tpl, S.tricare, S.champva, S.profFee],
+    sources: [S.bcPA, S.bcMigPA, S.bcBH18, S.bcPM, S.bcTele, S.bcMEPM, S.bull2018, S.doiNews, S.c2636, S.pa3612, S.cob, S.c4364, S.ndac112, S.c4357, S.bacbLic, S.erisa, S.tpl, S.tricare, S.champva, S.profFee, { title: 'BCBSND — HealthCare News for providers (incl. Quarterly Provider Insights)', url: 'https://www.bcbsnd.com/providers/news-resources/healthcare-news' }],
     deliveryRules: {
       supervision: {
         value: 'No numeric ratio is published. For migrated members, policy BH18 says BCBAs/BCBA-Ds "may oversee all aspects of assessment, treatment planning, and supervision of support staff," BCaBAs and behavior technicians/RBTs work under a BCBA, BCBA-D or qualified supervisor, and "All supervision must be conducted in accordance with" BACB standards; the treatment plan must justify "the hours per week of direct face-to-face supervision." The non-migrated policy was not readable. North Dakota law requires ABA to be practiced by a licensed behavior analyst, with technicians exempt only when working "under the extended authority and direction of" a licensed behavior analyst or licensed assistant behavior analyst.',

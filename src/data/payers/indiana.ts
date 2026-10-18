@@ -240,6 +240,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: 'IHCP — National Correct Coding Initiative module (PROMOD00010, v7.0, publ. Dec. 23, 2024)', url: 'https://www.in.gov/medicaid/providers/files/modules/national-correct-coding-initiative.pdf' },
       { title: 'CMS — Medicaid NCCI MUE edits, practitioner services (2026 Q4, active 10/1–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' },
       { title: 'IHCP — Financial Transactions and Remittance Advice module (v7.0, publ. March 13, 2025)', url: 'https://www.in.gov/medicaid/providers/files/modules/financial-transactions-and-remittance-advice.pdf' },
+      { title: 'IHCP — Provider bulletins archive (index of all IHCP bulletins)', url: 'https://www.in.gov/medicaid/providers/provider-references/bulletins-banner-pages-and-reference-modules/ihcp-bulletins' },
     ],
     deliveryRules: {
       supervision: {
@@ -504,6 +505,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: 'IHCP Works 2026 — Anthem: Carelon Behavioral Health (claims information)', url: 'https://www.in.gov/medicaid/providers/files/IHCP-Works-2026-Anthem-Carelon-Behavioral-Health.pdf' },
       { title: 'Anthem Blue Cross and Blue Shield — Indiana Medicaid Provider Manual (INBCBS-CD-PM-070775-24)', url: 'https://providers.anthem.com/docs/gpp/IN_CAID_ProviderManual.pdf' },
       { title: '42 CFR 447.46 — timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-447.46' },
+      { title: 'Anthem Indiana — Provider News, Medicaid filter (provider news archive)', url: 'https://providernews.anthem.com/indiana/plan-type/CD' },
     ],
     deliveryRules: {
       supervision: {
@@ -748,6 +750,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: 'IHCP Works 2026 — MHS: CMS-1500 billing (timely filing limits)', url: 'https://www.in.gov/medicaid/providers/files/IHCP-Works-2026-MHS-CMS-1500.pdf' },
       { title: 'IHCP Works 2026 — MHS: Common Denials', url: 'https://www.in.gov/medicaid/providers/files/IHCP-Works-2026-MHS-Common-Denials.pdf' },
       { title: '42 CFR 447.46 — timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-447.46' },
+      { title: 'MHS Indiana — Provider newsroom (provider notices archive)', url: 'https://www.mhsindiana.com/newsroom.html' },
     ],
     deliveryRules: {
       supervision: {
@@ -1008,6 +1011,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: 'IHCP Works 2026 — CareSource: Medicaid Provider Claims & Billing Guide', url: 'https://www.in.gov/medicaid/providers/files/IHCP-Works-2026-CareSource-Medicaid-Provider-Claims-Billing-Guide.pdf' },
       { title: 'CareSource — IN Medicaid reimbursement policy PY-1325, Interest Payments (eff. 6/1/2026)', url: 'https://www.caresource.com/documents/medicaid-in-policy-reimburse-py-1325-20260601.pdf' },
       { title: '42 CFR 447.46 — timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-447.46' },
+      { title: 'CareSource Indiana — Newsletters & Communications (Medicaid ProviderSource newsletter archive)', url: 'https://www.caresource.com/in/providers/education/newsletters-communications/medicaid/' },
     ],
     deliveryRules: {
       supervision: {
@@ -1454,6 +1458,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: 'IHCP Works 2026 — UnitedHealthcare: Navigating UHC', url: 'https://www.in.gov/medicaid/providers/files/IHCP-Works-2026-UHC-Navigating-UHC.pdf' },
       { title: 'IHCP Works 2026 — UnitedHealthcare: Behavioral Health', url: 'https://www.in.gov/medicaid/providers/files/IHCP-Works-2026-UHC-Behavioral-Health.pdf' },
       { title: '42 CFR 447.46 — timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-447.46' },
+      { title: 'UnitedHealthcare Community Plan of Indiana — Bulletins and Newsletters (state bulletins archive)', url: 'https://www.uhcprovider.com/en/health-plans-by-state/indiana-health-plans/in-comm-plan-home/in-cp-news.html' },
     ],
     deliveryRules: {
       supervision: {
@@ -2592,6 +2597,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: 'IC 27-8-5.7-6 — Payment of clean claims; interest', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-6/' },
       { title: 'Anthem — The BlueCard Program Provider Manual (eff. 1/1/2022; current edition in the Indiana provider manual library)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_IN_00004.pdf' },
       { title: 'Anthem Blue Cross and Blue Shield — 2026 Indiana Commercial Provider Manual (eff. 8/1/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_IN_00012.pdf' },
+      { title: 'Anthem Indiana — Provider News (provider news archive)', url: 'https://providernews.anthem.com/indiana' },
     ],
     deliveryRules: {
       concurrentBilling: {
@@ -2902,6 +2908,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: 'IC 27-8-5.7-6 — Payment of clean claims; interest', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-6/' },
       { title: 'Anthem — The BlueCard Program Provider Manual (eff. 1/1/2022; current edition in the Indiana provider manual library)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_IN_00004.pdf' },
       { title: 'Anthem Blue Cross and Blue Shield — 2026 Indiana Commercial Provider Manual (eff. 8/1/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_IN_00012.pdf' },
+      { title: 'Anthem Indiana — Provider News (provider news archive)', url: 'https://providernews.anthem.com/indiana' },
     ],
     deliveryRules: {
       supervision: {
@@ -3165,6 +3172,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: 'Indiana PLA — Behavior Analyst licensing information (fees incl. reciprocity application)', url: 'https://www.in.gov/pla/professions/behavior-analyst/behavior-analyst-licensing-information' },
       { title: 'IC 27-8-5.7-5 — Notice of claim deficiencies', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-5/' },
       { title: 'IC 27-8-5.7-6 — Payment of clean claims; interest', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-6/' },
+      { title: 'CareSource Indiana Marketplace — Newsletters & Communications (provider newsletter archive)', url: 'https://www.caresource.com/in/providers/education/newsletters-communications/marketplace/' },
     ],
     deliveryRules: {
       supervision: {

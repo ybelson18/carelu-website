@@ -249,6 +249,7 @@ export const militaryPayers: Record<string, PayerConfig> = {
       { title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 18 Sec. 3 — Autism Care Demonstration (Revision C-57, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TOT5/Revision/66/FileName/C18S3' },
       { title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 1 Sec. 3 — TRICARE Processing Standards (Revision C-43, Jun 24, 2025)', url: 'https://manuals.dha.mil/View-Publication/TOT5/FileName/C1S3' },
       { title: 'eCFR — 32 CFR 199.8, Double coverage', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/subchapter-M/part-199/section-199.8' },
+      { title: 'Humana Military — TRICARE East provider news (index of dated provider notices)', url: 'https://www.humanamilitary.com/provider/resources/news' },
     ],
     intakeGates: {
       ageLimit: {
@@ -634,6 +635,7 @@ export const militaryPayers: Record<string, PayerConfig> = {
       { title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 1 Sec. 3 — TRICARE Processing Standards (Revision C-43, Jun 24, 2025)', url: 'https://manuals.dha.mil/View-Publication/TOT5/FileName/C1S3' },
       { title: 'TriWest — TRICARE Provider Handbook: Claims Processing and Billing Information', url: 'https://tricare.triwest.com/en/provider/tricare-provider-handbook/claims-processing-and-billing-information/' },
       { title: 'eCFR — 32 CFR 199.8, Double coverage', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/subchapter-M/part-199/section-199.8' },
+      { title: 'TriWest — Provider Pulse newsletter archive (TRICARE West, monthly issues)', url: 'https://tricare.triwest.com/en/provider/provider-pulse/provider-pulse-archive/' },
     ],
     intakeGates: {
       ageLimit: {
@@ -905,6 +907,7 @@ export const militaryPayers: Record<string, PayerConfig> = {
       { title: 'Federal Register — CHAMPVA Coverage of Audio-Only Telehealth, Mental Health Services, and Cost Sharing for Certain Contraceptive Services (final rule, Apr. 30, 2024)', url: 'https://www.govinfo.gov/content/pkg/FR-2024-04-30/html/2024-09072.htm' },
       { title: 'VA Community Care — CHAMPVA (provider eligibility, preauthorization and claims)', url: 'https://www.va.gov/COMMUNITYCARE/revenue-ops/FM-Care-Claims.asp' },
       { title: 'eCFR — 38 CFR 17.276, Claim filing deadline (§17.276(d): CHAMPVA is the last payer to OHI)', url: 'https://www.ecfr.gov/current/title-38/chapter-I/part-17/section-17.276' },
+      { title: 'VA Community Care — Provider Advisor Bulletin (index of bulletins)', url: 'https://department.va.gov/vha/community-care/provider-advisor/' },
     ],
     deliveryRules: {
       concurrentBilling: {
@@ -1463,6 +1466,7 @@ export const militaryPayers: Record<string, PayerConfig> = {
       { title: 'Martin’s Point — Authorizations and Referrals', url: 'https://www.martinspoint.org/For-Providers/Tools/Authorizations-and-Referrals' },
       { title: 'TRICARE Operations Manual 6010.59-M (2015 ed.), Ch. 18 Sec. 4 — Autism Care Demonstration (Change 139, Jun 10, 2024)', url: 'https://manuals.health.mil/pages/DisplayManualHtmlFile/2024-06-10/AsOf/TO15/C18S4.html' },
       { title: 'Martin’s Point Provider Manual — Claims (updated January 1, 2026)', url: 'https://www.martinspoint.org/For-Providers/Provider-Manual/Claims' },
+      { title: 'Martin’s Point — All provider news articles', url: 'https://www.martinspoint.org/For-Providers/Resources/Provider-News/All-Provider-News' },
     ],
     deliveryRules: {
       concurrentBilling: {

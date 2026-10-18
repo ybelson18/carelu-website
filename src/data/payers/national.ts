@@ -162,6 +162,7 @@ export const nationalPayers: Record<string, PayerConfig> = {
       { title: '42 CFR § 433.139 — Medicaid payment of claims involving third party liability', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
       { title: '32 CFR § 199.8 — TRICARE double coverage', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/part-199/section-199.8' },
       { title: 'VA — CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/files/2025-12/CHAMPVA-Guidebook.pdf' },
+      { title: 'Aetna — OfficeLink Updates newsletter archive (quarterly newsletters + monthly notices and reminders)', url: 'https://www.aetna.com/health-care-professionals/newsletters-news/provider-newsletters-archive.html' },
     ],
     deliveryRules: {
       supervision: {
@@ -449,6 +450,8 @@ export const nationalPayers: Record<string, PayerConfig> = {
       { title: '42 CFR § 433.139 — Medicaid payment of claims involving third party liability', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
       { title: '32 CFR § 199.8 — TRICARE double coverage', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/part-199/section-199.8' },
       { title: 'VA — CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/files/2025-12/CHAMPVA-Guidebook.pdf' },
+      { title: 'Cigna Healthcare — Provider Newsroom, U.S. Commercial (replaced Network News in 2024)', url: 'https://providernewsroom.com/category/cigna-healthcare/' },
+      { title: 'Evernorth Behavioral Health — Provider Newsroom, Behavioral Health (Cigna/Evernorth provider news)', url: 'https://providernewsroom.com/category/evernorth/' },
     ],
     deliveryRules: {
       supervision: {
@@ -711,6 +714,8 @@ export const nationalPayers: Record<string, PayerConfig> = {
       { title: '32 CFR § 199.8 — TRICARE double coverage', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/part-199/section-199.8' },
       { title: 'VA — CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/files/2025-12/CHAMPVA-Guidebook.pdf' },
       { title: 'Optum — Applied Behavior Analysis (ABA) Treatment Reviews Via Portal (BH00705, 11/2024) (PDF)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/national/Portal_Review_Autism_CPT%20UPDATED.pdf%20(1).pdf' },
+      { title: 'UnitedHealthcare — Network News (provider news hub, monthly overview + latest articles)', url: 'https://www.uhcprovider.com/en/resource-library/news.html' },
+      { title: 'Optum Behavioral Health — Top of Mind, All News (Provider Express provider news by month)', url: 'https://www.providerexpress.com/content/ope-provexpr/us/en/Top-of-Mind/top-of-mind-all-news-.html' },
     ],
     deliveryRules: {
       supervision: {
@@ -1454,6 +1459,7 @@ export const nationalPayers: Record<string, PayerConfig> = {
       { title: 'Humana Military — Applied Behavior Analysis (ABA) provider FAQ (PDF)', url: 'https://assets.humana.com/is/content/humana/aba-provider-faqpdf-1' },
       { title: '42 CFR § 433.139 — Medicaid payment of claims involving third party liability', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
       { title: '32 CFR § 199.8 — TRICARE double coverage', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/part-199/section-199.8' },
+      { title: 'Humana — Provider publications (Humana Physician News, quarterly)', url: 'https://provider.humana.com/working-with-us/publications' },
     ],
     deliveryRules: {
       supervision: {

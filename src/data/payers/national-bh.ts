@@ -186,6 +186,7 @@ export const nationalBhPayers: Record<string, PayerConfig> = {
       { title: 'NYSHIP — Empire Plan Contact Information (accessed 10/1/2026; cs.ny.gov now 301-redirects here)', url: 'https://nyship.ny.gov/empire-plan-contact-information' },
       { title: 'The Empire Plan — Reporting on Mental Health & Substance Use Program (Jan. 2024)', url: 'https://www.cs.ny.gov/employee-benefits/pa-market/shared/publications/reporting-on/2024/reporting-on-mhsu-2024.pdf' },
       { title: 'EmblemHealth Provider Manual Ch. 26 — Behavioral Health Services (4/30/2026)', url: 'https://www.emblemhealth.com/content/dam/emblemhealth/pdfs/provider-manual/behavioral-health-services.pdf' },
+      { title: 'Carelon Behavioral Health — Provider newsletter archive (quarterly eNewsletters)', url: 'https://www.carelonbehavioralhealth.com/providers/resources/newsletter' },
     ],
     deliveryRules: {
       dailyLimits: {
@@ -500,6 +501,7 @@ export const nationalBhPayers: Record<string, PayerConfig> = {
       { title: '2026–2027 Magellan Care Guidelines — Outpatient Applied Behavior Analysis (MHC-40-2026, effective Nov. 14, 2026) (PDF)', url: 'https://www.magellanprovider.com/media/45694/mcg.pdf' },
       { title: '2026–2027 Magellan Care Guidelines — Summary of Revisions (effective Nov. 14, 2026) (PDF)', url: 'https://www.magellanprovider.com/media/114562/mcg_summary.pdf' },
       { title: 'Magellan Provider Focus — Medical necessity criteria update on Nov. 14 (rescheduled from Oct. 10)', url: 'https://provider.magellanhealthcare.com/w/medical-necessity-criteria-updates-to-occur-in-fall-2026' },
+      { title: 'Magellan Healthcare — Provider Focus (online provider newsletter, articles by issue)', url: 'https://provider.magellanhealthcare.com/provider-focus-featured' },
     ],
     deliveryRules: {
       dailyLimits: {

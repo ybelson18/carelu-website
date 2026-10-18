@@ -166,6 +166,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
       { title: 'Michigan DTMB — Cancellation of RFP 250000002670 (PIHP RFP), Jan. 29, 2026', url: 'https://www.mha.org/wp-content/uploads/2026/02/0206_RFP.pdf' },
       { title: 'Michigan Health & Hospital Association — MDHHS withdraws PIHP procurement (Feb. 6, 2026)', url: 'https://www.mha.org/newsroom/mdhhs-withdraws-pihp-procurement/' },
+      { title: 'MDHHS — 2026 Medicaid policy bulletins (index of final MMP bulletins)', url: 'https://www.michigan.gov/mdhhs/doing-business/providers/providers/medicaid/policyforms/2026-medicaid-policy-bulletins' },
     ],
     deliveryRules: {
       supervision: {
@@ -423,6 +424,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { title: '42 CFR 438.210 — Coverage and authorization of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' },
       { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
       { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+      { title: 'DWIHN — Provider Newsletter (Provider Network News + Provider Announcements 2025-2026)', url: 'https://dwihn.org/provider-resources/provider-newsletter' },
     ],
     deliveryRules: {
       supervision: {
@@ -695,6 +697,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { title: '42 CFR 438.210 — Coverage and authorization of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' },
       { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
       { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+      { title: 'OCHN — News & Information archive', url: 'https://oaklandchn.org/category/news-and-information/' },
     ],
     deliveryRules: {
       supervision: {
@@ -966,6 +969,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Sections 1–2', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
       { title: '42 CFR 438.210 — Coverage and authorization of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' },
       { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+      { title: 'MCCMH — CMO Updates (Chief Medical Officer clinical updates and memorandums index)', url: 'https://www.mccmh.net/cmo-updates/' },
     ],
     deliveryRules: {
       supervision: {
@@ -1231,6 +1235,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { title: 'MDHHS Bureau of Specialty Behavioral Health Services — Telemedicine Database (entries effective June 1, 2026; revision log through 6/15/26)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/Bureau_of_Specialty_Behavioral_Health_Services-Telemedicine_Database.pdf' },
       { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
       { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+      { title: 'MSHN — News (monthly MSHN newsletters and notices)', url: 'https://midstatehealthnetwork.org/stakeholders-resources/about-us/news' },
     ],
     deliveryRules: {
       supervision: {
@@ -1490,6 +1495,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { title: '42 CFR 438.210 — Coverage and authorization of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' },
       { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
       { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+      { title: 'SWMBH — Newsletters (Provider Newsletters archive)', url: 'https://www.swmbh.org/news-events/newsletters-from-southwest-michigan-behavioral-health/' },
     ],
     deliveryRules: {
       supervision: {
@@ -1808,6 +1814,8 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { title: '38 CFR 17.270 — CHAMPVA is the last payer', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
       { title: 'Blue Cross Blue Shield of Michigan — Prior authorization requirements for Michigan and non-Michigan providers (rev. September 2026)', url: 'https://www.bcbsm.com/amslibs/content/dam/public/providers/documents/preauthorization-precertification-requirements.pdf' },
       { title: 'BCBSM The Record — "Do you know about our BlueCard processes?" (May 2023)', url: 'https://www.bcbsm.com/content/dam/microsites/corpcomm/provider/the_record/2023/may/Record_0523a.html' },
+      { title: 'BCBSM — The Record archive (monthly provider newsletter)', url: 'https://www.bcbsm.com/content/dam/microsites/corpcomm/provider/the_record/Assets/common/archive.html' },
+      { title: 'BCBSM — BCN Provider News archive (Blue Care Network bi-monthly newsletter)', url: 'https://www.bcbsm.com/content/dam/microsites/corpcomm/provider/BCNPN/Assets/index.html' },
     ],
     deliveryRules: {
       supervision: {
@@ -2081,6 +2089,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
       { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
       { title: '38 CFR 17.270 — CHAMPVA is the last payer', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
+      { title: 'Priority Health — Provider news (Provider Manual news feed)', url: 'https://www.priorityhealth.com/provider/manual/news/priority-health' },
     ],
     deliveryRules: {
       supervision: {

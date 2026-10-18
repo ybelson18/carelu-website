@@ -210,7 +210,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
       { title: 'Parent signature', desc: 'FA-11E and the treatment plan need it; a parent or designated adult must be present for home-based training and supervision visits.' },
       { title: 'Other insurance', desc: 'Medicaid pays last; follow the primary’s rules or Medicaid denies too. Claims with other insurance have 365 days.' },
     ],
-    sources: [{ title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, { title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, S.msm3700, S.pt85, S.fee85, S.feePage, S.fa11e, S.fa11f, S.billMan, S.teleBill, S.msm3400, S.msm3600, S.abaPage, S.plans, S.smc, S.prtf, S.wa3315, S.nrs422, S.nrs641D, S.nrs629, S.bacbLic, S.cfr440, S.cfr433],
+    sources: [{ title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, { title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, S.msm3700, S.pt85, S.fee85, S.feePage, S.fa11e, S.fa11f, S.billMan, S.teleBill, S.msm3400, S.msm3600, S.abaPage, S.plans, S.smc, S.prtf, S.wa3315, S.nrs422, S.nrs641D, S.nrs629, S.bacbLic, S.cfr440, S.cfr433, { title: 'Nevada Medicaid — Announcements/Newsletters (web announcements and quarterly provider newsletters)', url: 'https://www.medicaid.nv.gov/providers/newsannounce/default' }],
     deliveryRules: {
       supervision: {
         value: 'Supervision follows NRS 641D.610 and “must be overseen by a Licensed Psychologist, BCBA-D or BCBA who has experience in the treatment of autism, although the actual supervision may be provided by a BCaBA at their direction” (MSM 3704.3A). “The maximum number of units that can be used for supervision is 20% of the total number of hours of direct therapy services provided, unless clinical documentation is submitted that supports a need for additional units” (MSM 3704.2A(1)(j)); the PT 85 guide repeats that supervision is allowed up to 20% of treatment hours. The treatment plan must be developed and approved by a licensed psychologist, BCBA-D or BCBA, who “is responsible for all aspects of clinical direction, supervision, and case management.”',
@@ -370,7 +370,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
       { title: 'Ordering practitioner NPI', desc: 'Physician, PA, APRN or psychologist; the state requires the ordering NPI on ABA claims.' },
       { title: 'Other insurance', desc: 'Anthem pays last; bill the primary first. The 180-day clock then runs from the primary’s payment notice.' },
     ],
-    sources: [S.anMcdPM, S.anMcdNews, S.anMcdPrecert, S.plans, S.msm3700, S.msm3600, S.pt85, S.fa11f, S.msm3400, S.nrs422, S.cfr438, S.cfr433, S.nrs641D, S.nrs629],
+    sources: [S.anMcdPM, S.anMcdNews, S.anMcdPrecert, S.plans, S.msm3700, S.msm3600, S.pt85, S.fa11f, S.msm3400, S.nrs422, S.cfr438, S.cfr433, S.nrs641D, S.nrs629, { title: 'Anthem Nevada — Provider News (Commercial, Medicare Advantage and Medicaid articles)', url: 'https://providernews.anthem.com/nevada' }],
     deliveryRules: {
       supervision: {
         value: 'Anthem publishes no ABA supervision rule of its own. ' + ST_SUPERVISION,
@@ -528,7 +528,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
       { title: 'School schedule and IEP', desc: 'The initial plan asks for school placement, weekly school hours and any IEP.' },
       { title: 'Other insurance', desc: 'Medicaid is the payer of last resort; the primary’s determination is required.' },
     ],
-    sources: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, S.csMM, S.csPY, S.plans, S.msm3700, S.msm3600, S.pt85, S.msm3400, S.cfr438, S.cfr433, S.nrs641D, S.nrs629],
+    sources: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, S.csMM, S.csPY, S.plans, S.msm3700, S.msm3600, S.pt85, S.msm3400, S.cfr438, S.cfr433, S.nrs641D, S.nrs629, { title: 'CareSource Nevada — Updates & Announcements (Medicaid)', url: 'https://www.caresource.com/nv/providers/tools-resources/updates-announcements/medicaid/' }],
     deliveryRules: {
       supervision: {
         value: 'RBT services “must be supervised by a qualified RBT supervisor (ie, BCBA, BCBA-D, licensed psychologist …) and obtain ongoing supervision for a minimum of 5% of the hours spent providing ABA services per month”; BCaBAs must be supervised by a BCBA, BCBA-D or qualified psychologist. Supervision units are capped at 20% of direct therapy hours unless documentation supports more, and the licensed psychologist, BCBA-D or BCBA “is responsible for all aspects of clinical direction, supervision, and case management.”',
@@ -684,7 +684,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
       { title: 'Treatment plan and assessment', desc: 'HPN reviews on InterQual; send the full assessment and plan with the request.' },
       { title: 'Other insurance', desc: 'Medicaid is the payer of last resort; bill the primary first.' },
     ],
-    sources: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, S.hpnNews, S.hpnPA, S.hpnForm, S.plans, S.msm3700, S.msm3600, S.pt85, S.fa11f, S.msm3400, S.nrs422, S.cfr438, S.cfr433, S.nrs641D, S.nrs629],
+    sources: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, S.hpnNews, S.hpnPA, S.hpnForm, S.plans, S.msm3700, S.msm3600, S.pt85, S.fa11f, S.msm3400, S.nrs422, S.cfr438, S.cfr433, S.nrs641D, S.nrs629, { title: 'HPN Medicaid — Medicaid Provider News (ProviderTALK and email communications)', url: 'https://www.myhpnmedicaid.com/provider/provider-news' }],
     deliveryRules: {
       supervision: {
         value: 'HPN publishes no ABA supervision rule. ' + ST_SUPERVISION,
@@ -841,7 +841,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
       { title: 'PA lookup result', desc: 'Screenshot the lookup tool result for each ABA code before scheduling.' },
       { title: 'Other insurance', desc: 'Medicaid pays last; bill the primary first.' },
     ],
-    sources: [S.molPM, S.molPA, S.plans, S.msm3700, S.msm3600, S.pt85, S.fa11f, S.msm3400, S.nrs422, S.teleBill, S.cfr438, S.cfr433, S.nrs641D, S.nrs629],
+    sources: [S.molPM, S.molPA, S.plans, S.msm3700, S.msm3600, S.pt85, S.fa11f, S.msm3400, S.nrs422, S.teleBill, S.cfr438, S.cfr433, S.nrs641D, S.nrs629, { title: 'Molina Healthcare of Nevada — Provider announcements and quarterly newsletters', url: 'https://www.molinahealthcare.com/providers/nv/communications' }],
     deliveryRules: {
       supervision: {
         value: 'Molina publishes no ABA supervision rule. ' + ST_SUPERVISION,
@@ -999,7 +999,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
       { title: 'School schedule and IEP', desc: 'Coordination with school and IEP status for school-aged members.' },
       { title: 'Other insurance', desc: 'Medicaid pays last; bill the primary first.' },
     ],
-    sources: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, S.sshpChk, S.sshpPM, S.sshpRev, S.plans, S.msm3700, S.msm3600, S.pt85, S.fa11e, S.fa11f, S.msm3400, S.nrs422, S.cfr438, S.cfr433, S.nrs641D, S.nrs629],
+    sources: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, S.sshpChk, S.sshpPM, S.sshpRev, S.plans, S.msm3700, S.msm3600, S.pt85, S.fa11e, S.fa11f, S.msm3400, S.nrs422, S.cfr438, S.cfr433, S.nrs641D, S.nrs629, { title: 'SilverSummit Healthplan — 2026 Provider Notifications', url: 'https://www.silversummithealthplan.com/providers/ProviderNotifications/2026-notifications.html' }],
     deliveryRules: {
       supervision: {
         value: 'SilverSummit’s checklist asks for the training and treatment plan but sets no supervision ratio of its own; it reviews against MSM 3700. ' + ST_SUPERVISION,
@@ -1827,7 +1827,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis report', desc: 'ASD diagnosis, diagnosing clinician and date.' },
       { title: 'Other coverage', desc: 'Second parent’s plan (birthday rule), Medicaid or TRICARE.' },
     ],
-    sources: [{ title: 'NRS 689B.255 — Group health insurance: approval or denial of claims, payment and interest', url: 'https://www.leg.state.nv.us/NRS/NRS-689B.html' }, { title: 'NRS 689A.410 — Individual health insurance: approval or denial of claims, payment and interest', url: 'https://www.leg.state.nv.us/NRS/NRS-689A.html' }, { title: 'NRS chapter 695C — Health maintenance organizations (NRS 695C.185 shown as repealed by ch. 366, Statutes of Nevada 2025)', url: 'https://www.leg.state.nv.us/NRS/NRS-695C.html' }, S.anthemNVPA, S.anthemRG, S.nrs689B, S.nrs695C, S.nrs689C, S.nrs689A, S.nrs687B, S.nrs641D, S.nrs629, S.bacbLic, S.erisa, S.cfr433, S.billMan, S.tricare, S.fee85],
+    sources: [{ title: 'NRS 689B.255 — Group health insurance: approval or denial of claims, payment and interest', url: 'https://www.leg.state.nv.us/NRS/NRS-689B.html' }, { title: 'NRS 689A.410 — Individual health insurance: approval or denial of claims, payment and interest', url: 'https://www.leg.state.nv.us/NRS/NRS-689A.html' }, { title: 'NRS chapter 695C — Health maintenance organizations (NRS 695C.185 shown as repealed by ch. 366, Statutes of Nevada 2025)', url: 'https://www.leg.state.nv.us/NRS/NRS-695C.html' }, S.anthemNVPA, S.anthemRG, S.nrs689B, S.nrs695C, S.nrs689C, S.nrs689A, S.nrs687B, S.nrs641D, S.nrs629, S.bacbLic, S.erisa, S.cfr433, S.billMan, S.tricare, S.fee85, { title: 'Anthem Nevada — Provider News (index of articles)', url: 'https://providernews.anthem.com/nevada' }],
     deliveryRules: {
       supervision: {
         value: 'Anthem publishes no numeric supervision ratio; it allows 97153 alongside 97155 only when the QHP and technician are both face-to-face with the patient and the QHP is directing the technician. In Nevada, BCaBAs and RBTs practice only under supervision meeting NRS 641D.610, which incorporates BACB supervision requirements.',

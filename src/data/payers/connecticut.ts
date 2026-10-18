@@ -202,7 +202,7 @@ export const connecticutPayers: Record<string, PayerConfig> = {
       { title: 'Birth to Three (under 3)', desc: 'For a child under 3, document that Birth to Three services were explored and exhausted.' },
       { title: 'Caregiver availability', desc: 'An adult caregiver (18 or older) must be present at all times during home and community sessions.' },
     ],
-    sources: [S.dssOverview, S.bhpOverview, S.handbook, S.regs, S.pb2530, S.pb2557, S.asdIM, S.pb2606, S.asdFee, S.feeInstr, S.grid, S.loc1, S.loc2, S.loc5, S.loc7, S.paRBT, S.paRoles, S.paADE, S.paHuskyB, S.pb2338, S.teleTable, S.ch382a, S.dphBA, S.s19a906, S.cfr433, S.cfr440],
+    sources: [S.dssOverview, S.bhpOverview, S.handbook, S.regs, S.pb2530, S.pb2557, S.asdIM, S.pb2606, S.asdFee, S.feeInstr, S.grid, S.loc1, S.loc2, S.loc5, S.loc7, S.paRBT, S.paRoles, S.paADE, S.paHuskyB, S.pb2338, S.teleTable, S.ch382a, S.dphBA, S.s19a906, S.cfr433, S.cfr440, { title: 'CT Medical Assistance Program — Publications (provider bulletin search + interChange provider newsletters)', url: 'https://www.ctdssmap.com/CTPortal/Information/Publications' }],
     deliveryRules: {
       supervision: {
         value: 'The performing provider must observe and direct each BCaBA or technician one-on-one, “at a frequency and duration equal to or greater than ten percent of the number of hours” of treatment they deliver, with regular direct observation of the technician working with the child. Carelon’s PA-2025-13 requires evidence of direct observation at least 10% of the time direct services occur, documented “in a separate observation and direction contact note that corresponds with the submitted claim.” Requests for more than 10% need documented extenuating circumstances.',
@@ -355,7 +355,7 @@ export const connecticutPayers: Record<string, PayerConfig> = {
       { title: 'IEP / IFSP', desc: 'Include it with the request if the child has one. It is required at continued-stay reviews after a year of service.' },
       { title: 'Need help finding care?', desc: 'Carelon’s ASD care coordination team helps families get a diagnosis and find providers, at any age.' },
     ],
-    sources: [S.paRoles, S.handbook, S.loc1, S.loc2, S.loc5, S.loc7, S.locIndex, S.grid, S.paRBT, S.paADE, S.paHuskyB, S.bhpOverview, S.bhpBulletins, S.teleTable, S.pb2338, S.ch382a, S.dphBA, S.s19a906, S.cfr433, S.cfr440],
+    sources: [S.paRoles, S.handbook, S.loc1, S.loc2, S.loc5, S.loc7, S.locIndex, S.grid, S.paRBT, S.paADE, S.paHuskyB, S.bhpOverview, S.bhpBulletins, S.teleTable, S.pb2338, S.ch382a, S.dphBA, S.s19a906, S.cfr433, S.cfr440, { title: 'CT BHP (Carelon) — Provider newsletters archive', url: 'https://providers.ctbhp.com/ct-bhp-provider-newsletters/' }],
     deliveryRules: {
       supervision: {
         value: 'Carelon’s guideline: observation and direction “must be done one-to-one and documented in the medical record on a weekly basis,” equal to “at least 10 percent of the number of hours that each individual is receiving ASD treatment services,” including direct observation of each technician or BCaBA with the child. Evidence goes in a separate observation-and-direction contact note matching the claim (PA-2025-13).',
@@ -526,7 +526,7 @@ export const connecticutPayers: Record<string, PayerConfig> = {
       { title: 'Supervising BCBA’s CT license', desc: 'Behavioral therapy must be provided or supervised by a licensed behavior analyst, physician or psychologist.' },
       { title: 'Other coverage', desc: 'Second parent’s plan, HUSKY, TRICARE or CHAMPVA.' },
     ],
-    sources: [S.anthemCTPA, S.anthemRG, S.s38a514b, S.s38a488b, S.s38a526a, S.s38a591d, S.s38a816, S.ch382a, S.dphBA, S.bacbLic, S.s19a906, S.erisa, S.handbook, S.cfr433, S.tricare, S.champva, S.asdFee, { title: 'Anthem Blue Cross and Blue Shield — 2026 Connecticut Commercial Provider Manual (effective September 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_CT_00015.pdf' }],
+    sources: [S.anthemCTPA, S.anthemRG, S.s38a514b, S.s38a488b, S.s38a526a, S.s38a591d, S.s38a816, S.ch382a, S.dphBA, S.bacbLic, S.s19a906, S.erisa, S.handbook, S.cfr433, S.tricare, S.champva, S.asdFee, { title: 'Anthem Blue Cross and Blue Shield — 2026 Connecticut Commercial Provider Manual (effective September 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_CT_00015.pdf' }, { title: 'Anthem Blue Cross and Blue Shield Connecticut — Provider News', url: 'https://providernews.anthem.com/connecticut' }],
     deliveryRules: {
       supervision: {
         value: 'Anthem recognizes “providers practicing under the direction and supervision of the BCBA” and publishes no ratio of its own. For fully insured Connecticut plans, the mandate defines supervised behavioral therapy as “at least one hour of face-to-face supervision … for each ten hours of behavioral therapy,” by a licensed behavior analyst, physician or psychologist.',
@@ -1209,7 +1209,7 @@ export const connecticutPayers: Record<string, PayerConfig> = {
       { title: 'Order from a licensed clinician', desc: 'The mandate covers ABA ordered by a licensed physician, psychologist or LCSW.' },
       { title: 'Other coverage', desc: 'Second parent’s plan, HUSKY, TRICARE or CHAMPVA.' },
     ],
-    sources: [S.ccMolina, S.ccPolicies, S.ccComPA, S.ccMktPA, S.optumSCC, S.s38a514b, S.s38a488b, S.s38a526a, S.s38a591d, S.s38a816, S.ch382a, S.dphBA, S.bacbLic, S.s19a906, S.erisa, S.handbook, S.cfr433, S.tricare, S.champva, S.asdFee],
+    sources: [S.ccMolina, S.ccPolicies, S.ccComPA, S.ccMktPA, S.optumSCC, S.s38a514b, S.s38a488b, S.s38a526a, S.s38a591d, S.s38a816, S.ch382a, S.dphBA, S.bacbLic, S.s19a906, S.erisa, S.handbook, S.cfr433, S.tricare, S.champva, S.asdFee, { title: 'ConnectiCare — News and updates for providers', url: 'https://www.connecticare.com/providers/resources/news' }],
     deliveryRules: {
       supervision: {
         value: 'ConnectiCare publishes no ABA supervision rule of its own. On insured Connecticut plans, the mandate requires behavioral therapy to be provided or supervised by a licensed behavior analyst, physician or psychologist, with at least one hour of face-to-face supervision per ten hours.',

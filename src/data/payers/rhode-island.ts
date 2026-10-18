@@ -205,7 +205,7 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
       { title: 'Other insurance', desc: 'EOHHS requires proof of commercial coverage; commercial pays ABA first, Medicaid after.' },
       { title: 'IEP / school services', desc: 'HBTS reinforces but does not replace IEP or IFSP services; collect the current IEP.' },
     ],
-    sources: [S.eohhsManuals, S.hbts, S.hbtsAdd, S.childSvc, S.abaFact, S.mmc, S.nhpK, S.uhcK, S.thpK, S.ohic25, S.fy27, S.spaEpsdt, S.feeSched, S.paPage, S.claimsPage, S.tele, S.evv, S.evvSub, S.evvAdd, S.lic, S.lic9, S.lic21, S.tm4, S.cfr440, S.cfr433],
+    sources: [S.eohhsManuals, S.hbts, S.hbtsAdd, S.childSvc, S.abaFact, S.mmc, S.nhpK, S.uhcK, S.thpK, S.ohic25, S.fy27, S.spaEpsdt, S.feeSched, S.paPage, S.claimsPage, S.tele, S.evv, S.evvSub, S.evvAdd, S.lic, S.lic9, S.lic21, S.tm4, S.cfr440, S.cfr433, { title: 'RI EOHHS — Provider Updates (index of monthly Medicaid Provider Update issues)', url: 'https://eohhs.ri.gov/providers-partners/provider-updates' }],
     deliveryRules: {
       supervision: {
         value: 'Clinical supervision is "a required component of HBTS for both Specialized Treatment and Treatment Support," provided only by Rhode Island licensed clinicians (LICSW, LCSW, MFT, mental health counselor, psychologist, or BCBA). The 2016 standards changed supervision "from 2 hours per week to 8 hours total per month." The managed care contracts add that the supervisor must "Observe worker in the home with the child implementing the Treatment Plan on a monthly basis" and provide group supervision when two or more workers treat a child. ABA "can be overseen by a Board Certified Behavior Analyst (BCBA) or a licensed trained professional (e.g., Psychologist)"; the lead therapist reports to the behavior analyst or clinical supervisor.',
@@ -366,7 +366,7 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
       { title: 'Practitioner order', desc: 'Neighborhood requires services to be ordered by a practitioner.' },
       { title: 'Current IEP', desc: 'Providers must obtain and keep a current copy of the IEP; services may not duplicate it.' },
     ],
-    sources: [S.nhpCMP, S.nhpPP, S.nhpPM, S.nhpBH, S.nhpSup, S.nhpAuth, S.nhpK, S.hbts, S.tele, S.lic21, S.lic9, S.cfr438, S.cfr433],
+    sources: [S.nhpCMP, S.nhpPP, S.nhpPM, S.nhpBH, S.nhpSup, S.nhpAuth, S.nhpK, S.hbts, S.tele, S.lic21, S.lic9, S.cfr438, S.cfr433, { title: 'Neighborhood Health Plan of RI — Provider Newsletter archive (Neighborhood News)', url: 'https://www.nhpri.org/providers/communication/provider-newsletter/' }],
     deliveryRules: {
       supervision: {
         value: 'The ABA treatment plan "is developed by a Licensed, Applied Behavior Analyst"; sessions are "typically provided by behavioral technicians or paraprofessionals" and "The technician is supervised by the Licensed, Applied Behavior Analyst." Neighborhood publishes no numeric ratio. Its contract with EOHHS requires monthly in-home observation of each worker by the clinical supervisor, and ABA "overseen by a Board-Certified Behavior Analyst (BCBA) or a licensed trained professional."',
@@ -524,7 +524,7 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
       { title: 'Physician’s prescription', desc: 'The state requires HBTS to be prescribed by a physician.' },
       { title: 'Other insurance', desc: 'The plan pays last; attach the primary payer’s EOB.' },
     ],
-    sources: [S.uhcPM, S.uhcK, S.optRI, S.optRItele, S.hbts, S.abaFact, S.tele, S.lic21, S.lic9, S.cfr438, S.cfr433],
+    sources: [S.uhcPM, S.uhcK, S.optRI, S.optRItele, S.hbts, S.abaFact, S.tele, S.lic21, S.lic9, S.cfr438, S.cfr433, { title: 'UHC Community Plan of RI — Bulletins and Newsletters (state news index)', url: 'https://www.uhcprovider.com/en/health-plans-by-state/rhode-island-health-plans/ri-comm-plan-home/ri-cp-news.html' }],
     deliveryRules: {
       supervision: {
         value: 'UnitedHealthcare Community Plan publishes no ABA supervision ratio of its own; the state standard applies. The EOHHS managed care contract requires HBTS direct services to be delivered "under the supervision of a licensed healthcare professional"; the clinical supervisor must be a Rhode Island licensed health care provider with a master’s or doctoral degree, must "Observe worker in the home with the child implementing the Treatment Plan on a monthly basis," and ABA "can be overseen by a Board-Certified Behavior Analyst (BCBA) or a licensed trained professional (e.g., Psychologist)." The 2016 EOHHS certification standards changed clinical supervision "from 2 hours per week to 8 hours total per month." Direct-care workers must be at least 19, with a high school diploma and experience or coursework.',
@@ -682,7 +682,7 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
       { title: 'Rendering clinician’s RI license', desc: 'The claim needs the rendering clinician’s name, NPI and Rhode Island license number.' },
       { title: 'Other insurance', desc: 'Bill the primary first; file with Tufts within 60 days of the primary EOP.' },
     ],
-    sources: [S.thpABA, S.thpGrid, S.thpClaims, S.thpUM, S.thpBH, S.thpK, S.hbts, S.tele, S.lic21, S.lic9, S.lic2, S.cfr438, S.cfr433],
+    sources: [S.thpABA, S.thpGrid, S.thpClaims, S.thpUM, S.thpBH, S.thpK, S.hbts, S.tele, S.lic21, S.lic9, S.lic2, S.cfr438, S.cfr433, { title: 'Point32Health — Provider newsletter archive (PDF versions by month)', url: 'https://www.point32health.org/provider/office-resources/provider-newsletter/newsletter-archives-pdf-versions' }],
     deliveryRules: {
       supervision: {
         value: 'The individual ABA treatment plan "is developed by a Licensed, Applied Behavior Analyst," sessions are "typically provided by behavioral technicians or paraprofessionals," and "The technician is supervised by the Licensed, Applied Behavior Analyst." No numeric ratio is published. The EOHHS contract adds monthly in-home observation by the clinical supervisor.',
@@ -1399,7 +1399,7 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
       { title: 'Licensed provider', desc: 'Rendering or supervising LBA (or psychologist) licensed in the state where services are delivered.' },
       { title: 'Specialist prescription', desc: 'Rhode Island law has licensed analysts provide ABA only on a prescription from a child psychiatrist, behavioral developmental pediatrician, child neurologist or child-trained psychologist.' },
     ],
-    sources: [S.bcbsriASD, S.bcbsriBH, S.bcbsriTF, S.bcbsriTele, S.bcbsriGrid, S.bcbsriPA, S.ch2011, S.m3, S.m4, S.m7, S.lic, S.lic2, S.lic21, S.pp, S.ohic14, S.ur6, S.ur7, S.cob, S.tm4, S.erisa, { title: 'Blue Cross & Blue Shield of Rhode Island — Provider FAQ (BlueCard)', url: 'https://www.bcbsri.com/providers/faq' }],
+    sources: [S.bcbsriASD, S.bcbsriBH, S.bcbsriTF, S.bcbsriTele, S.bcbsriGrid, S.bcbsriPA, S.ch2011, S.m3, S.m4, S.m7, S.lic, S.lic2, S.lic21, S.pp, S.ohic14, S.ur6, S.ur7, S.cob, S.tm4, S.erisa, { title: 'Blue Cross & Blue Shield of Rhode Island — Provider FAQ (BlueCard)', url: 'https://www.bcbsri.com/providers/faq' }, { title: 'BCBSRI — Provider Update (provider news index)', url: 'https://www.bcbsri.com/providers/update' }],
     deliveryRules: {
       supervision: {
         value: 'ABA must be "provided and/or supervised by an individual licensed by the state in which the service is rendered," and an assistant analyst works "under the supervision of a Licensed Applied Behavior Analyst." BCBSRI publishes no numeric ratio. Rhode Island’s licensing law requires an LBA to give aides "close supervision" and to meet assistant analysts in person for initial direction and periodic on-site supervision (§ 5-86-26).',

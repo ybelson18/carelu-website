@@ -179,6 +179,8 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { title: 'CMS Medicaid NCCI MUE file — Practitioner Services, effective 10/1/2026–12/31/2026', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' },
       { title: 'CMS Medicaid NCCI PTP file — Practitioner Services, effective 10/1/2026–12/31/2026', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-ptp-edits-practitioner-services.zip' },
       { title: 'CMS Medicaid NCCI Technical Guidance Manual (effective 02/28/2026)', url: 'https://www.cms.gov/files/document/2026-medicaid-ncci-technical-guidance-manual-02282026.pdf' },
+      { title: 'NYS DOH — Medicaid Update (current issue + archive by year)', url: 'https://www.health.ny.gov/health_care/medicaid/program/update/main.htm' },
+      { title: 'NYS DOH — Medicaid Update Volume 42 (2026 issues index)', url: 'https://www.health.ny.gov/health_care/medicaid/program/update/2026/' },
     ],
     intakeGates: {
       ageLimit: {
@@ -392,6 +394,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { title: 'Fidelis Care Medicaid Provider Manual — Billing and Claims Submission; Coordination of Benefits; Payments and Reimbursements', url: 'https://www.fideliscare.org/Portals/0/Providers/ProviderManuals/Provider-Manual-Medicaid-English.pdf' },
       { title: 'NYS Medicaid Managed Care / FHPlus / HIV SNP / HARP Model Contract (March 1, 2019), §22.6 Timely Payment', url: 'https://www.health.ny.gov/health_care/managed_care/docs/medicaid_managed_care_fhp_hiv-snp_model_contract.pdf' },
       { title: 'NYS Medicaid ABA Fee Schedule (effective October 1, 2026)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Fee_Schedule.xls' },
+      { title: 'Fidelis Care (NY) — Provider news and bulletins (Provider Bulletin archive)', url: 'https://www.fideliscare.org/Provider' },
     ],
     intakeGates: {
       ageLimit: {
@@ -596,6 +599,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { title: 'UnitedHealthcare Community Plan 2026 Care Provider Manual — New York (Doc# PMI 10132026), Ch. 7, 12 and 13', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NY-UHCCP-Dual-LTC-CHIP-Care-Provider-Manual.pdf' },
       { title: 'NYS Medicaid Managed Care / FHPlus / HIV SNP / HARP Model Contract (March 1, 2019), §22.6 Timely Payment', url: 'https://www.health.ny.gov/health_care/managed_care/docs/medicaid_managed_care_fhp_hiv-snp_model_contract.pdf' },
       { title: 'NYS Medicaid ABA Fee Schedule (effective October 1, 2026)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Fee_Schedule.xls' },
+      { title: 'UnitedHealthcare Community Plan of New York — Plan home (bulletins and newsletters list)', url: 'https://www.uhcprovider.com/en/health-plans-by-state/new-york-health-plans/ny-comm-plan-home.html' },
     ],
     intakeGates: {
       ageLimit: {
@@ -794,6 +798,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { title: 'NYS Medicaid Telehealth Policy Manual (Version 2026-V2, updated July 2026)', url: 'https://www.health.ny.gov/health_care/medicaid/redesign/telehealth/docs/provider_manual.pdf' },
       { title: 'CMS Medicaid NCCI MUE file — Practitioner Services, effective 10/1/2026–12/31/2026', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' },
       { title: 'CMS Medicaid NCCI Technical Guidance Manual (effective 02/28/2026)', url: 'https://www.cms.gov/files/document/2026-medicaid-ncci-technical-guidance-manual-02282026.pdf' },
+      { title: 'Anthem Blue Cross and Blue Shield New York — Provider News (all New York provider news articles)', url: 'https://providernews.anthem.com/new-york' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1007,6 +1012,8 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { title: 'NYS Medicaid Telehealth Policy Manual (Version 2026-V2, updated July 2026)', url: 'https://www.health.ny.gov/health_care/medicaid/redesign/telehealth/docs/provider_manual.pdf' },
       { title: 'CMS Medicaid NCCI MUE file — Practitioner Services, effective 10/1/2026–12/31/2026', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' },
       { title: 'CMS Medicaid NCCI Technical Guidance Manual (effective 02/28/2026)', url: 'https://www.cms.gov/files/document/2026-medicaid-ncci-technical-guidance-manual-02282026.pdf' },
+      { title: 'Healthfirst — What\'s New for providers (provider updates archive)', url: 'https://hfproviders.org/whatsnew' },
+      { title: 'Healthfirst — Provider alerts', url: 'https://hfproviders.org/provider-resources/provider-alerts' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1219,6 +1226,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { title: 'CMS Medicaid NCCI MUE file — Practitioner Services, effective 10/1/2026–12/31/2026', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' },
       { title: 'CMS Medicaid NCCI Technical Guidance Manual (effective 02/28/2026)', url: 'https://www.cms.gov/files/document/2026-medicaid-ncci-technical-guidance-manual-02282026.pdf' },
       { title: 'MetroPlusHealth ABA provider notice PRV 22.101 — 2023 ABA Benefit Changes (December 22, 2022)', url: 'https://metroplus.org/wp-content/uploads/2022/12/PRV-22.101_-2022-Provider-eBLast_ABA_ABA-Providers_FINAL-002.pdf' },
+      { title: 'MetroPlusHealth — Provider news & communications', url: 'https://metroplus.org/providers/provider-resources/news/' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1421,6 +1429,8 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { title: 'CMS Medicaid NCCI MUE file — Practitioner Services, effective 10/1/2026–12/31/2026', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' },
       { title: 'CMS Medicaid NCCI Technical Guidance Manual (effective 02/28/2026)', url: 'https://www.cms.gov/files/document/2026-medicaid-ncci-technical-guidance-manual-02282026.pdf' },
       { title: 'EmblemHealth Guide for NPIs and Taxonomy Codes (Claims Corner)', url: 'https://www.emblemhealth.com/providers/claims-corner/coding/emblemhealth-guide-for-npis-and-taxonomy-codes' },
+      { title: 'EmblemHealth — News and updates for providers', url: 'https://www.emblemhealth.com/providers/news' },
+      { title: 'EmblemHealth — Office Visit provider newsletter archive', url: 'https://www.emblemhealth.com/providers/resources/office-visit' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1645,6 +1655,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { title: 'NYS Medicaid Managed Care / FHPlus / HIV SNP / HARP Model Contract (March 1, 2019), §22.6 Timely Payment', url: 'https://www.health.ny.gov/health_care/managed_care/docs/medicaid_managed_care_fhp_hiv-snp_model_contract.pdf' },
       { title: 'NYS Medicaid ABA Fee Schedule (effective October 1, 2026)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Fee_Schedule.xls' },
       { title: 'NYS Medicaid Telehealth Policy Manual (Version 2026-V2, updated July 2026)', url: 'https://www.health.ny.gov/health_care/medicaid/redesign/telehealth/docs/provider_manual.pdf' },
+      { title: 'Molina Healthcare of New York — Provider communications (newsletters and bulletins)', url: 'https://www.molinahealthcare.com/providers/ny/communications' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2545,6 +2556,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { title: 'NYS Medicaid Managed Care / FHPlus / HIV SNP / HARP Model Contract (March 1, 2019), §22.6 Timely Payment', url: 'https://www.health.ny.gov/health_care/managed_care/docs/medicaid_managed_care_fhp_hiv-snp_model_contract.pdf' },
       { title: 'NYS Medicaid ABA Fee Schedule (effective October 1, 2026)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Fee_Schedule.xls' },
       { title: 'NYS Medicaid Telehealth Policy Manual (Version 2026-V2, updated July 2026)', url: 'https://www.health.ny.gov/health_care/medicaid/redesign/telehealth/docs/provider_manual.pdf' },
+      { title: 'Excellus BCBS — Provider news (provider portal news)', url: 'https://provider.excellusbcbs.com/resources/news' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2786,6 +2798,8 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { title: 'MVP 2026 Provider Policies (eff. April 1, 2026), Claims', url: 'https://www.mvphealthcare.com/-/media/project/mvp/healthcare/documents/provider-policies-and-payment-policies/2026/april/mvp-provider-policies-effective-april-1-2026.pdf' },
       { title: 'NYS Medicaid Managed Care / FHPlus / HIV SNP / HARP Model Contract (March 1, 2019), §22.6 Timely Payment', url: 'https://www.health.ny.gov/health_care/managed_care/docs/medicaid_managed_care_fhp_hiv-snp_model_contract.pdf' },
       { title: 'NYS Medicaid ABA Fee Schedule (eMedNY)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Fee_Schedule.xls' },
+      { title: 'MVP Health Care — Provider FastFax library (provider notices archive)', url: 'https://www.mvphealthcare.com/providers/fastfax' },
+      { title: 'MVP Health Care — Provider Communications Center (Healthy Practices newsletter)', url: 'https://www.mvphealthcare.com/providers/communications-center' },
     ],
     intakeGates: {
       ageLimit: {
@@ -3008,6 +3022,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { title: 'NYS Medicaid ABA Fee Schedule (effective October 1, 2026)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Fee_Schedule.xls' },
       { title: 'NYS Medicaid Telehealth Policy Manual (Version 2026-V2, updated July 2026)', url: 'https://www.health.ny.gov/health_care/medicaid/redesign/telehealth/docs/provider_manual.pdf' },
       { title: 'CDPHP Provider Office Administrative Manual, Section 3 — Government Programs', url: 'https://www.cdphp.com/-/media/files/providers/poam/section-3-government-programs.pdf' },
+      { title: 'CDPHP — Provider updates', url: 'https://blog.cdphp.com/provider-updates/' },
     ],
     intakeGates: {
       ageLimit: {
@@ -3233,6 +3248,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { title: 'NYS Medicaid Telehealth Policy Manual (Version 2026-V2, updated July 2026)', url: 'https://www.health.ny.gov/health_care/medicaid/redesign/telehealth/docs/provider_manual.pdf' },
       { title: 'CMS Medicaid NCCI MUE file — Practitioner Services, effective 10/1/2026–12/31/2026', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' },
       { title: 'CMS Medicaid NCCI Technical Guidance Manual (effective 02/28/2026)', url: 'https://www.cms.gov/files/document/2026-medicaid-ncci-technical-guidance-manual-02282026.pdf' },
+      { title: 'Independent Health — SCOPE provider newsletter archive', url: 'https://www.independenthealth.com/providers/whats-new/scope-newsletter' },
     ],
     intakeGates: {
       ageLimit: {
@@ -3477,6 +3493,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { title: 'Highmark Provider Manual — Chapter 2, Unit 6: The BlueCard Program', url: 'https://providers.highmark.com/resources-and-education/highmark-provider-manual/chapter-2-product-information/unit-6-the-bluecard-program' },
       { title: 'NYS Medicaid Managed Care / FHPlus / HIV SNP / HARP Model Contract (March 1, 2019), §22.6 Timely Payment', url: 'https://www.health.ny.gov/health_care/managed_care/docs/medicaid_managed_care_fhp_hiv-snp_model_contract.pdf' },
       { title: 'NYS Medicaid ABA Fee Schedule (effective October 1, 2026)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Fee_Schedule.xls' },
+      { title: 'Highmark (incl. Western & Northeastern NY) — Communications Hub news and updates', url: 'https://providers.highmark.com/communications-hub/news-and-updates' },
     ],
     intakeGates: {
       ageLimit: {
@@ -3743,6 +3760,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { title: 'Anthem — MCG care guidelines 27th edition update (New York, Commercial, Feb 1 2024)', url: 'https://providernews.anthem.com/new-york/articles/mcg-care-guidelines-27th-edition-update-17867-17867' },
       { title: 'Anthem New York — Streamlined ABA claim process starts January 1, 2026', url: 'https://providernews.anthem.com/new-york/articles/streamlined-aba-claim-process-starts-january-1-2026-27878' },
       { title: 'Anthem Blue Cross and Blue Shield — New York Provider Manual (effective July 1, 2026)', url: 'https://www.anthembluecross.com/content/dam/digital/docs/anthembluecross/provider/commercial/manuals/PM_NY_000016.pdf' },
+      { title: 'Anthem Blue Cross and Blue Shield New York — Provider News (all New York provider news articles)', url: 'https://providernews.anthem.com/new-york' },
     ],
     intakeGates: {
       ageLimit: {

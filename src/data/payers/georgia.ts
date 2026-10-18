@@ -298,6 +298,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
       { title: 'GA DCH — Electronic Visit Verification (EVV) Member FAQs (last updated December 2020)', url: 'https://medicaid.georgia.gov/document/document/evv-faqs/download' },
       { title: 'GA DCH / Gainwell — Georgia Medicaid Inquiry System User’s Guide: Interactive Voice Response System quick reference card (v12, posted 02/26/2026, GAMMIS)', url: 'https://www.mmis.georgia.gov/portal/Portals/0/StaticContent/Public/ALL/Handbooks/IVRS_Brochure_v12%2020260225144220.pdf' },
       { title: 'Georgia Medicaid — Georgia Families Care Management Organizations (CMO) (checked October 18, 2026)', url: 'https://medicaid.georgia.gov/programs/all-programs/georgia-families/care-management-organizations-cmo' },
+      { title: 'GAMMIS — Provider Notices (Georgia Medicaid provider notices list with release dates)', url: 'https://www.mmis.georgia.gov/portal/PubAccess.Provider%20Information/Provider%20Notices/tabId/16/Default.aspx' },
     ],
     faq: [
       { q: 'Does Georgia Medicaid accept H0031 or H0032 (or other H-codes) for ABA?', a: 'No H-codes are published for ABA. Georgia bills Adaptive Behavior Services on CPT 97151–97158, 0362T and 0373T only; those are the codes in the ASD manual’s Appendix A rate table and the Telehealth Guidance code table, each with a U1–U5 practitioner modifier and a U6/U7/GT setting modifier.' },
@@ -571,6 +572,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
       { title: 'Georgia HB 412 (2022) — O.C.G.A. Title 43, Ch. 7A behavior analyst licensure (effective July 1, 2023)', url: 'https://gov.georgia.gov/document/2022-signed-legislation/hb-412/download' },
       { title: 'Georgia Code § 33-24-59.10 (Ava’s Law)', url: 'https://codes.findlaw.com/ga/title-33-insurance/ga-code-sect-33-24-59-10/' },
       { title: 'O.C.G.A. § 33-24-59.14 — claim payment deadlines and interest (FindLaw)', url: 'https://codes.findlaw.com/ga/title-33-insurance/ga-code-sect-33-24-59-14/' },
+      { title: 'Anthem Provider News — Georgia (index)', url: 'https://providernews.anthem.com/georgia' },
     ],
     faq: [
       { q: 'What is Anthem Blue Cross Blue Shield of Georgia\'s timely filing limit for ABA claims?', a: 'The Georgia commercial manual (January 2026) does not print a number: claims must be filed within the timely filing period in your Anthem Provider or Facility Agreement, rejected claims must be corrected and resubmitted inside that same period, and late claims are denied unless you can prove timely filing. Check your agreement.' },
@@ -832,6 +834,8 @@ export const georgiaPayers: Record<string, PayerConfig> = {
       { title: 'Georgia HB 412 (2022) — O.C.G.A. Title 43, Ch. 7A behavior analyst licensure (effective July 1, 2023)', url: 'https://gov.georgia.gov/document/2022-signed-legislation/hb-412/download' },
       { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
       { title: 'GA DCH — Electronic Visit Verification (EVV) Member FAQs (last updated December 2020)', url: 'https://medicaid.georgia.gov/document/document/evv-faqs/download' },
+      { title: 'CareSource Georgia Medicaid — Updates & Announcements (network notifications)', url: 'https://www.caresource.com/ga/providers/tools-resources/updates-announcements/medicaid/' },
+      { title: 'CareSource Georgia Medicaid — Newsletters & Communications (ProviderSource newsletter archive)', url: 'https://www.caresource.com/ga/providers/education/newsletters-communications/medicaid/' },
     ],
     faq: [
       { q: 'Does CareSource Georgia accept H0031 or H0032 for ABA?', a: 'No H-code is published for ABA. CareSource\'s ABA policy points to the DCH ASD manual for codes and modifiers, and that manual\'s code set is CPT 97151–97158, 0362T and 0373T.' },
@@ -1075,6 +1079,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
       { title: 'Georgia HB 412 (2022) — O.C.G.A. Title 43, Ch. 7A behavior analyst licensure (effective July 1, 2023)', url: 'https://gov.georgia.gov/document/2022-signed-legislation/hb-412/download' },
       { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
       { title: 'GA DCH — Electronic Visit Verification (EVV) Member FAQs (last updated December 2020)', url: 'https://medicaid.georgia.gov/document/document/evv-faqs/download' },
+      { title: 'Peach State Health Plan — Newsroom (provider notices archive)', url: 'https://www.pshpgeorgia.com/newsroom.html' },
     ],
     faq: [
       { q: 'Does a Peach State ABA assessment need prior authorization? The provider manual says assessments don\'t.', a: 'Get the PA. The provider manual\'s “assessments … do not require authorization” lines are general behavioral-health text and never mention ABA; Peach State\'s ABA policy GA.CP.BH.504 treats the behavioral assessment as a separately authorized service, and the DCH ASD manual it follows requires an assessment PA. Request 97151/97152 before the assessment.' },
@@ -1298,6 +1303,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
       { title: 'Georgia HB 412 (2022) — O.C.G.A. Title 43, Ch. 7A behavior analyst licensure (effective July 1, 2023)', url: 'https://gov.georgia.gov/document/2022-signed-legislation/hb-412/download' },
       { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
       { title: 'GA DCH — Electronic Visit Verification (EVV) Member FAQs (last updated December 2020)', url: 'https://medicaid.georgia.gov/document/document/evv-faqs/download' },
+      { title: 'Amerigroup Provider News — Georgia (index)', url: 'https://providernews.amerigroup.com/ga' },
     ],
     faq: [
       { q: 'How long do I have to file an Amerigroup Georgia ABA claim, or correct one?', a: 'Six months after the month of service; corrected claims within 90 days of the original submission. When another insurer is involved, the clock starts when the third party documents its resolution of the claim.' },

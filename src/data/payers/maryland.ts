@@ -250,6 +250,7 @@ export const marylandPayers: Record<string, PayerConfig> = {
       { title: 'Carelon Maryland — BHOMD 837P Companion Guide (October 2024)', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/75/Maryland-Medicaid-Companion-Guide-Transaction-Information-837P-Professional.pdf' },
       { title: 'eCFR — 42 CFR 447.45, timely claims payment', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' },
       { title: 'CMS — Maryland EVV compliance determination letter (Feb 27, 2024)', url: 'https://www.medicaid.gov/medicaid/home-community-based-services/downloads/md-evv-aprvl-ltr-02272024.pdf' },
+      { title: 'Maryland Medicaid — Provider Transmittals (searchable index of all MDH provider transmittals)', url: 'https://health.maryland.gov/mmcp/provider/Pages/transmittals.aspx' },
     ],
     deliveryRules: {
       supervision: {
@@ -551,6 +552,7 @@ export const marylandPayers: Record<string, PayerConfig> = {
       { title: 'Md. Insurance Article § 15-1005 — claims payment, filing and appeal minimums, interest', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gin&section=15-1005&enactments=false' },
       { title: 'CMS — Medicare NCCI Procedure-to-Procedure (PTP) Edits, practitioner file 2026 Q4 (v32.3)', url: 'https://www.cms.gov/medicare/coding-billing/national-correct-coding-initiative-ncci-edits/medicare-ncci-procedure-procedure-ptp-edits' },
       { title: 'CMS — Maryland EVV compliance determination letter (Feb 27, 2024)', url: 'https://www.medicaid.gov/medicaid/home-community-based-services/downloads/md-evv-aprvl-ltr-02272024.pdf' },
+      { title: 'CareFirst — Provider Medical News (provider news archive)', url: 'https://provider.carefirst.com/providers/news/medical.page' },
     ],
     deliveryRules: {
       supervision: {

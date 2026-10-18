@@ -243,6 +243,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { title: 'CMS — Medicaid NCCI PTP edits, practitioner services (2026 Q4, active 10/1–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-ptp-edits-practitioner-services.zip' },
       { title: 'DMAS bulletin — Provider Appeal Requirements Effective November 5, 2026 (issued 10/2/2026)', url: 'https://vamedicaid.dmas.virginia.gov/bulletin/provider-appeal-requirements-effective-november-5-2026' },
       { title: '42 CFR 447.45(d) — timely processing of Medicaid fee-for-service claims (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-447.45' },
+      { title: 'DMAS — 2026 Memos and Bulletins (index of all 2026 Medicaid provider memos/bulletins)', url: 'https://vamedicaid.dmas.virginia.gov/providers/memo-2026' },
     ],
     deliveryRules: {
       supervision: {
@@ -796,6 +797,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { title: 'Anthem HealthKeepers Plus — Provider Manual (VABCBS-CD-PM-095530-25, effective July 1, 2026)', url: 'https://providers.anthem.com/docs/gpp/VA_CAID_ProviderManual.pdf' },
       { title: 'CMS — Medicaid NCCI PTP edits, practitioner services (2026 Q4, active 10/1–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-ptp-edits-practitioner-services.zip' },
       { title: 'DMAS — Mental Health Services Manual, Chapter V: Billing Instructions (rev. 12/5/2025)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-12/MHS%20-%20Chapter%205%20%28updated%2012.5.25%29_Final.pdf' },
+      { title: 'Anthem Virginia — Provider News (all provider news articles, filterable by Medicaid plan type)', url: 'https://providernews.anthem.com/virginia' },
     ],
     deliveryRules: {
       supervision: {
@@ -1066,6 +1068,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { title: 'DMAS memo — Update to Chapter 5, Correction Regarding MCO Payment Rates (12/4/2025)', url: 'https://vamedicaid.dmas.virginia.gov/node/3748' },
       { title: 'N.C.G.S. Chapter 90, Article 43 — behavior analyst licensure (G.S. 90-740, 90-745, 90-746)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_90/Article_43.html' },
       { title: 'Humana Healthy Horizons in Virginia — Provider Resource Guide (VAHMAKWEN0126)', url: 'https://assets.humana.com/is/content/humana/VA_Provider_Resource_Guidepdf' },
+      { title: 'Humana Healthy Horizons in Virginia — Communications and network notices (notices + provider newsletter archive)', url: 'https://provider.humana.com/medicaid/virginia-medicaid/communications' },
     ],
     deliveryRules: {
       supervision: {
@@ -1327,6 +1330,8 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { title: 'DMAS — Cardinal Care Managed Care Contract (July 1, 2026 – June 30, 2027)', url: 'https://www.dmas.virginia.gov/media/cdclvnox/virginia-cardinal-care-managed-care-contract-fy-2026.pdf' },
       { title: 'DMAS memo — Update to Chapter 5, Correction Regarding MCO Payment Rates (12/4/2025)', url: 'https://vamedicaid.dmas.virginia.gov/node/3748' },
       { title: 'N.C.G.S. Chapter 90, Article 43 — behavior analyst licensure (G.S. 90-740, 90-745, 90-746)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_90/Article_43.html' },
+      { title: 'Sentara Health Plans — Provider Updates (weekly provider email alerts archive)', url: 'https://www.sentara.com/en/health-plans/providers/updates/alerts' },
+      { title: 'Sentara Health Plans — Provider News quarterly newsletter archive', url: 'https://www.sentara.com/en/health-plans/providers/updates/newsletters' },
     ],
     deliveryRules: {
       supervision: {
@@ -1584,6 +1589,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { title: 'DMAS — Cardinal Care Managed Care Contract (July 1, 2026 – June 30, 2027)', url: 'https://www.dmas.virginia.gov/media/cdclvnox/virginia-cardinal-care-managed-care-contract-fy-2026.pdf' },
       { title: 'DMAS memo — Update to Chapter 5, Correction Regarding MCO Payment Rates (12/4/2025)', url: 'https://vamedicaid.dmas.virginia.gov/node/3748' },
       { title: 'N.C.G.S. Chapter 90, Article 43 — behavior analyst licensure (G.S. 90-740, 90-745, 90-746)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_90/Article_43.html' },
+      { title: 'UnitedHealthcare Community Plan of Virginia — Bulletins and Newsletters', url: 'https://www.uhcprovider.com/en/health-plans-by-state/virginia-health-plans/va-comm-plan-home/va-cp-news.html' },
     ],
     deliveryRules: {
       supervision: {
@@ -2815,6 +2821,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { title: 'Anthem Virginia — Streamlined ABA claim process starts January 1, 2026', url: 'https://providernews.anthem.com/virginia/articles/streamlined-aba-claim-process-starts-january-1-2026-27882' },
       { title: 'Anthem Virginia — submit behavioral health authorizations through Availity Essentials', url: 'https://providernews.anthem.com/virginia/articles/streamline-your-workflow-submit-behavioral-health-authorizat-27236' },
       { title: 'Va. Code § 38.2-3407.15 — ethics and fairness in carrier business practices (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3407.15/' },
+      { title: 'Anthem Virginia — Provider News (all provider news articles, filterable by Commercial plan type)', url: 'https://providernews.anthem.com/virginia' },
     ],
     deliveryRules: {
       supervision: {

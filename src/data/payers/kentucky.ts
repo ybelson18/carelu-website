@@ -203,7 +203,7 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
       { title: 'Plan of care', desc: 'Services and frequency, measurable goals with target dates, staff assigned, family involvement and termination criteria, reviewed at least every six months (907 KAR 15:010).' },
       { title: 'Other insurance', desc: 'Commercial coverage is billed first and its ABA authorization followed; the MCOs cost-avoid claims when other coverage is known.' },
     ],
-    sources: [S.kar15005, S.kar15010, S.kar15015, S.kar3170, S.bhFee, S.feesPage, S.lbaPage, S.pt63, S.mcoOptions, S.mcoContracts, S.mcoContract, S.mcoPaChart, S.dmsPaLetter, S.abaConcurrent, S.krs319c010, S.krs319c020, S.kar43100, S.bacbLic, S.cfr440, S.cfr438, S.cfr433],
+    sources: [S.kar15005, S.kar15010, S.kar15015, S.kar3170, S.bhFee, S.feesPage, S.lbaPage, S.pt63, S.mcoOptions, S.mcoContracts, S.mcoContract, S.mcoPaChart, S.dmsPaLetter, S.abaConcurrent, S.krs319c010, S.krs319c020, S.kar43100, S.bacbLic, S.cfr440, S.cfr438, S.cfr433, { title: 'Kentucky DMS — Provider Letters and Resources (index of DMS provider letters)', url: 'https://www.chfs.ky.gov/agencies/dms/Pages/provletters.aspx' }],
     deliveryRules: {
       supervision: { value: KY_MCD_SUPERVISION, status: 'verified', cites: [S.kar15010, S.kar15005] },
       concurrentBilling: {
@@ -344,7 +344,7 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
       { title: 'Treatment plan + OTR form', desc: 'Units by code, weekly intensity and setting, for no more than 6 months, submitted at least 2 business days before the start date.' },
       { title: 'Other insurance', desc: 'Medicaid is the payer of last resort; bill the primary and send its EOB within 365 days of its remittance.' },
     ],
-    sources: [S.abhAba, S.abhPaBh, S.abhOtr, S.abhPM, S.mcoPaChart, S.mcoContract, S.kar15010, S.kar3170, S.abaConcurrent, S.bhFee, S.cfr438, S.cfr433],
+    sources: [S.abhAba, S.abhPaBh, S.abhOtr, S.abhPM, S.mcoPaChart, S.mcoContract, S.kar15010, S.kar3170, S.abaConcurrent, S.bhFee, S.cfr438, S.cfr433, { title: 'Aetna Better Health of Kentucky — Provider Notices & Newsletters (archive 2013-2026)', url: 'https://www.aetnabetterhealth.com/kentucky/providers/newsletters.html' }],
     deliveryRules: {
       supervision: { value: 'Aetna Better Health’s manual and ABA notices publish no supervision rule of their own, so the state rule applies. ' + KY_MCD_SUPERVISION, status: 'verified', cites: [S.abhPM, S.kar15010, S.kar15005] },
       concurrentBilling: {
@@ -481,7 +481,7 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
       { title: 'Clinical packet for PA', desc: 'Assessment and treatment plan for all eight ABA codes, submitted before services start.' },
       { title: 'Other insurance', desc: 'Kentucky Medicaid is the payer of last resort; bill the primary first unless the code is on the commercial bypass list.' },
     ],
-    sources: [S.humPAL, S.humBhPa, S.humAba, S.humPM, S.mcoPaChart, S.dmsPaLetter, S.mcoContract, S.kar15010, S.kar3170, S.abaConcurrent, S.cfr438, S.cfr433],
+    sources: [S.humPAL, S.humBhPa, S.humAba, S.humPM, S.mcoPaChart, S.dmsPaLetter, S.mcoContract, S.kar15010, S.kar3170, S.abaConcurrent, S.cfr438, S.cfr433, { title: 'Humana Healthy Horizons in Kentucky — Communications and network notices (provider notices archive)', url: 'https://provider.humana.com/medicaid/kentucky-medicaid/communications-network-notices' }],
     deliveryRules: {
       supervision: { value: 'Humana publishes no ABA supervision rule of its own; the state rule applies. ' + KY_MCD_SUPERVISION, status: 'verified', cites: [S.humPM, S.kar15010, S.kar15005] },
       concurrentBilling: {
@@ -621,7 +621,7 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis and treatment plan', desc: 'Needed for the review once the threshold is crossed.' },
       { title: 'Other insurance', desc: 'Medicaid is always the payer of last resort; bill the primary and send its EOB.' },
     ],
-    sources: [S.molPM, S.molEnews, S.molDeck, S.mcoPaChart, S.dmsPaLetter, S.mcoContract, S.kar15010, S.kar3170, S.abaConcurrent, S.cfr438, S.cfr433],
+    sources: [S.molPM, S.molEnews, S.molDeck, S.mcoPaChart, S.dmsPaLetter, S.mcoContract, S.kar15010, S.kar3170, S.abaConcurrent, S.cfr438, S.cfr433, { title: 'Passport by Molina Healthcare — Provider communications (eNews, announcements, quarterly newsletters archive)', url: 'https://www.molinahealthcare.com/providers/ky/communications' }],
     deliveryRules: {
       supervision: { value: 'Passport publishes no ABA supervision rule of its own; the state rule applies. ' + KY_MCD_SUPERVISION, status: 'verified', cites: [S.molPM, S.kar15010, S.kar15005] },
       concurrentBilling: {
@@ -756,7 +756,7 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis and treatment plan', desc: 'Criteria are not published for Kentucky Medicaid ABA; send the full diagnostic report and plan.' },
       { title: 'Other insurance', desc: 'The plan is the payer of last resort; attach the primary’s EOB.' },
     ],
-    sources: [S.uhcKyPM, S.optKyPA, S.optKySCC, S.mcoPaChart, S.mcoContract, S.kar15010, S.kar3170, S.abaConcurrent, S.cfr438, S.cfr433],
+    sources: [S.uhcKyPM, S.optKyPA, S.optKySCC, S.mcoPaChart, S.mcoContract, S.kar15010, S.kar3170, S.abaConcurrent, S.cfr438, S.cfr433, { title: 'UnitedHealthcare Community Plan of Kentucky — State news, bulletins and alerts', url: 'https://www.uhcprovider.com/en/health-plans-by-state/kentucky-health-plans/ky-comm-plan-home.html' }],
     deliveryRules: {
       supervision: { value: 'The plan and Optum publish no Kentucky Medicaid ABA supervision rule; the state rule applies. ' + KY_MCD_SUPERVISION, status: 'verified', cites: [S.uhcKyPM, S.optKySCC, S.kar15010, S.kar15005] },
       concurrentBilling: {
@@ -898,7 +898,7 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis and treatment plan', desc: 'InterQual criteria are licensed; send the full diagnostic report and plan.' },
       { title: 'Other insurance', desc: 'WellCare cost-avoids claims when other coverage is known; bill the primary first.' },
     ],
-    sources: [S.wcPAL, S.wcPM, S.mcoPaChart, S.dmsPaLetter, S.mcoContract, S.kar15010, S.kar3170, S.abaConcurrent, S.cfr438, S.cfr433],
+    sources: [S.wcPAL, S.wcPM, S.mcoPaChart, S.dmsPaLetter, S.mcoContract, S.kar15010, S.kar3170, S.abaConcurrent, S.cfr438, S.cfr433, { title: 'WellCare of Kentucky — Provider Bulletins (provider notices archive)', url: 'https://www.wellcareky.com/providers/news-and-education/bulletins.html' }],
     deliveryRules: {
       supervision: { value: 'WellCare publishes no ABA supervision rule of its own; the state rule applies. ' + KY_MCD_SUPERVISION, status: 'verified', cites: [S.wcPM, S.kar15010, S.kar15005] },
       concurrentBilling: {
@@ -1547,7 +1547,7 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis report', desc: 'ASD diagnosis from a licensed clinician (behavior analysts cannot diagnose in Kentucky).' },
       { title: 'ABA order + treatment plan', desc: 'The mandate covers ABA "prescribed or ordered by a licensed health or allied health professional"; Anthem expects plans reviewed at least every six months.' },
     ],
-    sources: [S.anthemPA, S.anthemRG, S.mcoContracts, S.krs142, S.krs144, S.krs138, S.krs607, S.krs702, S.krs730, S.kar18030, S.krs319c010, S.krs319c020, S.krs319c080, S.krs319c090, S.kar43100, S.bacbLic, S.bhFee, S.erisa, S.cfr433, S.anthemPM, S.anthemBC],
+    sources: [S.anthemPA, S.anthemRG, S.mcoContracts, S.krs142, S.krs144, S.krs138, S.krs607, S.krs702, S.krs730, S.kar18030, S.krs319c010, S.krs319c020, S.krs319c080, S.krs319c090, S.kar43100, S.bacbLic, S.bhFee, S.erisa, S.cfr433, S.anthemPM, S.anthemBC, { title: 'Anthem Kentucky — Provider News (provider news archive)', url: 'https://providernews.anthem.com/kentucky' }],
     deliveryRules: {
       supervision: {
         value: 'Anthem’s resource guide approves BCBAs and "providers practicing under the direction and supervision of the BCBA," and requires the supervising BCBA or QHP in box 31 for technician work; it sets no numeric ratio. Kentucky’s board rule (201 KAR 43:050) governs supervision of licensed assistants and temporary licensees.',

@@ -150,6 +150,7 @@ export const utahPayers: Record<string, PayerConfig> = {
       { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
       { title: 'Utah Code Title 58, Chapter 61, Part 7 — Behavior Analyst Licensing Act', url: 'https://le.utah.gov/xcode/Title58/Chapter61/58-61-P7.html' },
       { title: 'Utah Administrative Rule R156-61a — Behavior Analyst Licensing Act Rule', url: 'https://adminrules.utah.gov/public/rule/R156-61a/Current%20Rules' },
+      { title: 'Utah Medicaid — Medicaid Information Bulletins directory, Traditional Medicaid 2026 (index of MIBs)', url: 'https://medicaid.utah.gov/utah-medicaid-official-publications/?folder=Documents/manuals/pdfs/Medicaid%20Information%20Bulletins/Traditional%20Medicaid%20Program/2026/' },
     ],
     deliveryRules: {
       supervision: {
@@ -430,6 +431,7 @@ export const utahPayers: Record<string, PayerConfig> = {
       { title: 'Utah Medicaid Provider Manual — Section I: General Information, ch. 2-6 MCE Carve-Out Services (updated September 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid+Provider+Manuals/All+Providers+General+Information+Section+I/AllProvidersGeneralInfo_Section_1.pdf' },
       { title: 'ASD Related Services program page', url: 'https://medicaid.utah.gov/ltc-2/asd/' },
       { title: 'Utah Medicaid Provider Manual — ASD Services (July 2023 edition, archived)', url: 'https://web.archive.org/web/20240821082018/https://medicaid.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder7-23.pdf' },
+      { title: 'Select Health — Provider News Digest (index of provider news)', url: 'https://selecthealth.org/providers/publication-resources/provider-news-digest' },
     ],
     deliveryRules: {
       supervision: {

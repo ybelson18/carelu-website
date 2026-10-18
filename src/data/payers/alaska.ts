@@ -943,7 +943,7 @@ export const alaskaPayers: Record<string, PayerConfig> = {
       { title: 'Prescription and treatment plan', desc: 'AS 21.42.397 ties coverage to treatment prescribed by a physician, psychologist or APRN, in a plan following a comprehensive evaluation.' },
       { title: 'School services', desc: 'Some plans, and FEP, exclude ABA in school settings; record any IEP services.' },
     ],
-    sources: [S.premPolicy, S.premCodesInd, S.premCodesGrp, S.premPA, S.premCodeCheck, S.premClaims, S.premCred, S.premFEP, S.as21_42_397, S.as08_15, S.as08_02_130, S.as21_42_422, S.as21_36_495, S.as21_07, S.aac3_28, S.sb133, S.as21_42_205, S.aac3_26_110, S.bacbLic, S.erisa, S.fee27, S.cfr433],
+    sources: [S.premPolicy, S.premCodesInd, S.premCodesGrp, S.premPA, S.premCodeCheck, S.premClaims, S.premCred, S.premFEP, S.as21_42_397, S.as08_15, S.as08_02_130, S.as21_42_422, S.as21_36_495, S.as21_07, S.aac3_28, S.sb133, S.as21_42_205, S.aac3_26_110, S.bacbLic, S.erisa, S.fee27, S.cfr433, { title: 'Premera Blue Cross Blue Shield of Alaska — Provider News (Alaska provider news index)', url: 'https://providernewsak.premera.com/' }],
     deliveryRules: {
       supervision: {
         value: 'Direct treatment by technicians, BCaBAs or supervised clinicians "is provided by the ABA program manager or lead behavioral therapist," and "Some supervisory time (no specific time amount is specified) should be utilized for direct observation"; supervision may be in person or by real-time video. Premera points to the CASP guidelines for frequency and sets no ratio. In Alaska the program manager must hold an Alaska behavior-analyst license (AS 08.15.010), and an assistant needs direct supervision by a licensed behavior analyst.',

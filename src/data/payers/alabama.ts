@@ -180,7 +180,7 @@ export const alabamaPayers: Record<string, PayerConfig> = {
       { title: 'Other insurance', desc: 'Medicaid pays last. Bill any commercial plan first and keep its denial; Medicaid accepts the claim within 120 days of the other payer’s decision.' },
       { title: 'Age', desc: 'Under 21. No adult ABA benefit was found.' },
     ],
-    sources: [S.ch37, S.ch04, S.ch05, S.ch02, S.ch40, S.ch110, S.ch112, S.appA, S.manuals, S.fee, S.admin11, S.alertLoc, S.alertProg, S.lic, S.lic580, S.bacbLic, S.cfr440, S.cfr433],
+    sources: [S.ch37, S.ch04, S.ch05, S.ch02, S.ch40, S.ch110, S.ch112, S.appA, S.manuals, S.fee, S.admin11, S.alertLoc, S.alertProg, S.lic, S.lic580, S.bacbLic, S.cfr440, S.cfr433, { title: 'Alabama Medicaid — Provider Alerts (index of current provider alerts)', url: 'https://medicaid.alabama.gov/alerts.aspx' }, { title: 'Alabama Medicaid — Provider Insider newsletter archive (quarterly issues)', url: 'https://medicaid.alabama.gov/content/2.0_Newsroom/2.3_Publications/2.3.4_Insider_Archive.aspx' }],
     deliveryRules: {
       supervision: {
         value: 'A licensed BCaBA works under a BCBA; an RBT works under a BCBA or BCaBA. "BCaBAs and RBTs must be employed by a BCBA and the BCBA assumes professional responsibility for the services." The BCBA and BCaBA "must document supervision and direct observation according to the current requirements of the Behavior Analyst Certification Board." Alabama Medicaid publishes no ratio of its own; the BACB’s requirements are what it enforces.',

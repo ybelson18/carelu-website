@@ -284,6 +284,7 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { title: 'Fla. Stat. § 409.975 (2026) — Managed care plan accountability (provider networks)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.975' },
       { title: 'Fla. Stat. § 409.967 (2026) — Managed care plan accountability (prompt payment, (2)(j))', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.967' },
       { title: 'Fla. Stat. § 641.3155 (2026) — Prompt payment of claims', url: 'https://www.flsenate.gov/Laws/Statutes/2026/641.3155' },
+      { title: 'AHCA — Florida Medicaid Health Care Alerts, last 90 days (provider alert index)', url: 'https://ahca.myflorida.com/medicaid/florida-medicaid-health-care-alerts/florida-medicaid-health-care-alerts-last-90-days.html' },
     ],
     faq: [
       { q: 'Does Florida Medicaid require an autism diagnosis for ABA?', a: 'No. Eligibility is functional — behavior that impairs a major life activity, for recipients under 21. The gate is a referral from an independent physician or qualifying practitioner, including a physician\'s order for BA services and a Comprehensive Diagnostic Evaluation. Claims carry the most specific supporting diagnosis, but no F84.x code is required.' },
@@ -522,6 +523,8 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { title: 'Centene Clinical Policy CP.BH.104 — Applied Behavior Analysis', url: 'https://www.ambetterhealth.com/content/dam/centene/Sunshine/Ambetter/policies/clinical-policies/CP.BH.104.pdf' },
       { title: 'Fla. Stat. § 409.967 (2026) — Managed care plan accountability (prompt payment, (2)(j))', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.967' },
       { title: 'Fla. Stat. § 641.3155 (2026) — Prompt payment of claims', url: 'https://www.flsenate.gov/Laws/Statutes/2026/641.3155' },
+      { title: 'Sunshine Health — Newsroom (provider notices archive)', url: 'https://www.sunshinehealth.com/newsroom.html' },
+      { title: 'Sunshine Health — Provider newsletters (Connected In Care quarterly archive)', url: 'https://www.sunshinehealth.com/providers/resources/Newsletters.html' },
     ],
     faq: [
       { q: 'Does Sunshine Health cover ABA in Florida?', a: 'Yes — since the February 1, 2025 carve-in, Sunshine administers the Florida Medicaid Behavior Analysis benefit for its MMA members on the AHCA clinical criteria: no autism diagnosis required, physician referral + order + CDE, PA on all BA services.' },
@@ -773,6 +776,7 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { title: 'Fla. Stat. § 409.975 (2026) — Managed care plan accountability (provider networks)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.975' },
       { title: 'Fla. Stat. § 409.967 (2026) — Managed care plan accountability (prompt payment, (2)(j))', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.967' },
       { title: 'Fla. Stat. § 641.3155 (2026) — Prompt payment of claims', url: 'https://www.flsenate.gov/Laws/Statutes/2026/641.3155' },
+      { title: 'Molina Healthcare of Florida — Provider Communications (newsletters and notices by year; CMS Health Plan from 10/1/2026)', url: 'https://www.molinahealthcare.com/providers/fl/communications' },
     ],
     faq: [
       { q: 'What is the timely filing limit for CMS Health Plan ABA claims?', a: 'Six months from the date of service under Molina’s Florida Medicaid manual, which covers CMS Plan members from October 1, 2026; 90 days after the primary payer’s final determination when the plan pays second; corrected claims within six months.' },
@@ -974,6 +978,7 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { title: 'Fla. Stat. § 409.975 (2026) — Managed care plan accountability (provider networks)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.975' },
       { title: 'Fla. Stat. § 409.967 (2026) — Managed care plan accountability (prompt payment, (2)(j))', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.967' },
       { title: 'Fla. Stat. § 641.3155 (2026) — Prompt payment of claims', url: 'https://www.flsenate.gov/Laws/Statutes/2026/641.3155' },
+      { title: 'Simply Healthcare Plans — Provider News (Florida)', url: 'https://providernews.simplyhealthcareplans.com/' },
     ],
     faq: [
       { q: 'What is Simply Healthcare’s timely filing limit for ABA claims?', a: '180 days from the date of service unless your contract says otherwise, per Simply’s September 2026 manual; with other insurance, 90 days from the primary payer’s determination. Florida’s statute (§ 641.3155) is the outer limit.' },
@@ -1178,6 +1183,7 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { title: 'Fla. Stat. § 409.975 (2026) — Managed care plan accountability (provider networks)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.975' },
       { title: 'Fla. Stat. § 409.967 (2026) — Managed care plan accountability (prompt payment, (2)(j))', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.967' },
       { title: 'Fla. Stat. § 641.3155 (2026) — Prompt payment of claims', url: 'https://www.flsenate.gov/Laws/Statutes/2026/641.3155' },
+      { title: 'UnitedHealthcare Community Plan of Florida — State news, bulletins and alerts (plan home page list)', url: 'https://www.uhcprovider.com/en/health-plans-by-state/florida-health-plans/fl-comm-plan-home.html' },
     ],
     faq: [
       { q: 'Does UnitedHealthcare Community Plan of Florida cover ABA?', a: 'Yes — since February 1, 2025 its Behavior Analysis program is managed by Optum on the state clinical criteria: no autism diagnosis required, physician referral + order + CDE, PA on all BA services.' },
@@ -1381,6 +1387,7 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { title: 'Fla. Stat. § 409.975 (2026) — Managed care plan accountability (provider networks)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.975' },
       { title: 'Fla. Stat. § 409.967 (2026) — Managed care plan accountability (prompt payment, (2)(j))', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.967' },
       { title: 'Fla. Stat. § 641.3155 (2026) — Prompt payment of claims', url: 'https://www.flsenate.gov/Laws/Statutes/2026/641.3155' },
+      { title: 'Humana Healthy Horizons in Florida — Communications and Network Notices (2026, 2025 and archived notices)', url: 'https://provider.humana.com/medicaid/florida-medicaid/network-notices-communications' },
     ],
     faq: [
       { q: 'What is Humana Healthy Horizons’ timely filing limit for ABA claims in Florida?', a: 'Six months from the date of service, per Humana’s 2026 Florida Medicaid manual; when Humana pays second to a non-Medicare payer, 90 calendar days from the primary payer’s final determination.' },
@@ -1582,6 +1589,7 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { title: 'Fla. Stat. § 409.975 (2026) — Managed care plan accountability (provider networks)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.975' },
       { title: 'Fla. Stat. § 409.967 (2026) — Managed care plan accountability (prompt payment, (2)(j))', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.967' },
       { title: 'Fla. Stat. § 641.3155 (2026) — Prompt payment of claims', url: 'https://www.flsenate.gov/Laws/Statutes/2026/641.3155' },
+      { title: 'Aetna Better Health of Florida — Provider Notices & Newsletters', url: 'https://www.aetnabetterhealth.com/florida/providers/notices-newsletters.html' },
     ],
     faq: [
       { q: 'What is Aetna Better Health of Florida’s timely filing limit, and how often does it pay?', a: '180 days from the date of service for participating providers (365 for non-participating), corrected claims included; 90 days from the primary payer’s final determination when ABHFL pays second. ABHFL generates checks weekly; no cutoff day or time is published.' },
@@ -1773,6 +1781,7 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { title: 'Fla. Stat. § 409.975 (2026) — Managed care plan accountability (provider networks)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.975' },
       { title: 'Fla. Stat. § 409.967 (2026) — Managed care plan accountability (prompt payment, (2)(j))', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.967' },
       { title: 'Fla. Stat. § 641.3155 (2026) — Prompt payment of claims', url: 'https://www.flsenate.gov/Laws/Statutes/2026/641.3155' },
+      { title: 'Molina Healthcare of Florida — Provider Communications (newsletters and notices by year)', url: 'https://www.molinahealthcare.com/providers/fl/communications' },
     ],
     faq: [
       { q: 'What is Molina Healthcare of Florida’s timely filing limit for ABA claims?', a: 'Six months from the date of service, per Molina’s September 2026 Florida Medicaid manual; 90 days after the primary payer’s final determination when Molina pays second. Corrected claims are due within six months of the date of service or the most recent adjudication.' },
@@ -1969,6 +1978,7 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { title: 'Fla. Stat. § 409.975 (2026) — Managed care plan accountability (provider networks)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.975' },
       { title: 'Fla. Stat. § 409.967 (2026) — Managed care plan accountability (prompt payment, (2)(j))', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.967' },
       { title: 'Fla. Stat. § 641.3155 (2026) — Prompt payment of claims', url: 'https://www.flsenate.gov/Laws/Statutes/2026/641.3155' },
+      { title: 'Community Care Plan — Provider Alerts (dated provider notice archive)', url: 'https://www.ccpcares.org/for-providers/provider-tools/provider-alerts/' },
     ],
     faq: [
       { q: 'What is Community Care Plan’s timely filing limit for ABA claims?', a: '180 days from the date of service, per CCP’s March 2026 MMA manual; corrected claims within 90 days of the original explanation of payment, through PlanLink.' },
@@ -2159,6 +2169,7 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { title: 'Fla. Stat. § 409.975 (2026) — Managed care plan accountability (provider networks)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.975' },
       { title: 'Fla. Stat. § 409.967 (2026) — Managed care plan accountability (prompt payment, (2)(j))', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.967' },
       { title: 'Fla. Stat. § 641.3155 (2026) — Prompt payment of claims', url: 'https://www.flsenate.gov/Laws/Statutes/2026/641.3155' },
+      { title: 'Florida Community Care — For Providers (Provider Newsletters section, quarterly issues)', url: 'https://fcchealthplan.com/providers/' },
     ],
     faq: [
       { q: 'How often does Florida Community Care pay ABA claims?', a: 'Weekly: FCC processes claims daily and combines them into a weekly payment, with weekly remittance advices (in Availity for EFT payees). File within your agreement’s limit, or 180 days from the date of service where Florida law applies.' },
@@ -3236,6 +3247,7 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { title: 'BACB — U.S. Licensure of Behavior Analysts (FL not listed)', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
       { title: 'Fla. Stat. § 627.6131 (2026) — Payment of claims (health insurers)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/627.6131' },
       { title: 'Fla. Stat. § 641.3155 (2026) — Prompt payment of claims (HMOs)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/641.3155' },
+      { title: 'Florida Blue — Provider News: Bulletins and FAQs (index)', url: 'https://www.floridablue.com/providers/news/bulletins-and-faqs' },
     ],
     faq: [
       { q: 'Does Florida Blue cover ABA therapy?', a: 'Yes, for autism spectrum disorder. Florida Blue delegates the review to Lucet Behavioral Health, which applies its ABA medical policy 20.5.005. Florida Blue\'s manual says ABA under the autism benefit is "covered without limits," with authorizations coordinated by Lucet. Confirm the member\'s plan carries the benefit; Lucet notes some plans do not.' },
