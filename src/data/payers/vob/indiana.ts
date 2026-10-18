@@ -131,7 +131,7 @@ const AETNA_CPB0648 = src(
   'Aetna CPB 0648 (Autism Spectrum Disorders) — national policy; 97151-97158 listed as covered if criteria met; no coding/reimbursement mechanics.'
 );
 
-/* Aetna precertification sources (fetched 2026-10-01): CPB 0554 (last review 11/26/2025) only addresses non-ASD indications and carries no precertification content. */
+/* Aetna precertification sources (fetched 2026-10-01): CPB 0554 (last review 10/14/2026; re-read 2026-10-18) only addresses non-ASD indications (Down syndrome without ASD named) and carries no precertification content. */
 const AETNA_PRECERT_LIST_ABA = src(
   'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf',
   'Aetna "Participating provider behavioral health precertification list," effective 8/1/2024 — item 3, Applied behavioral analysis (ABA): 97151, 97152, 97153, 97154, 97155, 97156, 97157, 97158, 0362T, 0373T require precertification.', true

@@ -127,7 +127,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           { title: 'Va. Code § 54.1-2957.16 — behavior analyst licensure', url: 'https://law.lis.virginia.gov/vacode/title54.1/chapter29/section54.1-2957.16/' },
           { title: 'Va. Code § 37.2-416 — DBHDS barrier-crime background checks', url: 'https://law.lis.virginia.gov/vacode/title37.2/chapter4/section37.2-416/' },
           { title: 'Anthem HealthKeepers Plus — provider manual (eff. 7/1/2026, exclusion screening)', url: 'https://providers.anthem.com/docs/gpp/VA_CAID_ProviderManual.pdf' },
-          { title: 'BACB — RBT Handbook (2026)', url: 'https://www.bacb.com/wp-content/uploads/2025/08/RBTHandbook_260116-a.pdf' },
+          { title: 'BACB — RBT Handbook (2026)', url: 'https://www.bacb.com/wp-content/uploads/2026/10/RBTHandbook_261016-a.pdf' },
           { title: '42 CFR 455.434 — criminal background checks', url: 'https://www.law.cornell.edu/cfr/text/42/455.434' },
         ],
       },
@@ -147,9 +147,11 @@ export const virginiaPayers: Record<string, PayerConfig> = {
         body: [
           'DMAS requires the first submission of every claim “within 12 months from the date of service” (42 CFR 447.45(d)). The exceptions cover retroactive and delayed eligibility, and a denied claim that was filed on time can be resubmitted up to 13 months from the denial. When the member has other insurance, bill it first, but the DMAS claim is still due within 12 months of the date of service. Claims go in electronically or by direct data entry in the MES Provider Portal; paper is accepted only when DMAS asks for it.',
           'Every claim needs a valid provider taxonomy code. On the CMS-1500, the rendering provider’s NPI goes in 24J, with the taxonomy code in the shaded area under qualifier ZZ. The referring physician’s name and NPI (boxes 17 and 17b) are required where applicable. To ask DMAS to reconsider an NCCI or ClaimsXten edit, email claimcheck@dmas.virginia.gov within 30 calendar days of the denial.',
+          'Payment clock and cycle: DMAS adjudicates claims in a daily cycle — its Medicaid NCCI edits run “as part of the daily claims adjudication cycle” — and reports results and payment on the provider’s “weekly remittance cycle” (Chapter V). The federal rule DMAS operates under, 42 CFR 447.45(d), requires the state to pay 90% of clean practitioner claims within 30 days of receipt and 99% within 90 days. Chapter V publishes no weekly submission cut-off time.',
         ],
         cites: [
           { title: 'DMAS — Mental Health Services Manual, Chapter V: Billing Instructions (rev. 12/5/2025)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-12/MHS%20-%20Chapter%205%20%28updated%2012.5.25%29_Final.pdf' },
+          { title: '42 CFR 447.45(d) — timely processing of Medicaid fee-for-service claims (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-447.45' },
         ],
       },
       {
@@ -191,6 +193,16 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           { title: 'CMS — Medicaid NCCI PTP edits, practitioner services (2026 Q4, active 10/1–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-ptp-edits-practitioner-services.zip' },
         ],
       },
+      {
+        h2: 'Reauthorization: what a continued-stay request must contain (graphs required)',
+        body: [
+          'Continued-stay (reauthorization) requests must include the Continued Stay Service Authorization Form; the original Comprehensive Needs Assessment with an addendum (it can be a progress note) on new information, progress, interventions to date and the rationale for continuing; an updated ISP that reflects current goals and any use of telemedicine; and a treatment-progress summary that opens with a “graphical presentation of progress on each goal and objective in the ISP,” followed by family involvement, generalization across settings, progress toward discharge (including any planned step-down) and care coordination. Ongoing documentation must also carry “graphical analysis of goals and objectives as defined by the most current ISP.” So yes — Virginia Medicaid requires graphs at reauthorization.',
+          'Code set: ABA is billed under CPT 97151–97158, 0362T and 0373T, each treatment code authorized with its own predetermined number of units. The only HCPCS codes in Appendix D belong to other services — H2033 for Multisystemic Therapy and H0036 for Functional Family Therapy — not to ABA.',
+        ],
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Member ID & Cardinal Care MCO', desc: 'Aetna, Anthem, Humana, Sentara, or UHC (or FFS) — same clinical rules, different submission machinery.' },
@@ -215,7 +227,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { title: 'Va. Code § 54.1-2957.16 — behavior analyst licensure', url: 'https://law.lis.virginia.gov/vacode/title54.1/chapter29/section54.1-2957.16/' },
       { title: 'Va. Code § 37.2-416 — DBHDS barrier-crime background checks', url: 'https://law.lis.virginia.gov/vacode/title37.2/chapter4/section37.2-416/' },
       { title: 'Anthem HealthKeepers Plus — provider manual (eff. 7/1/2026)', url: 'https://providers.anthem.com/docs/gpp/VA_CAID_ProviderManual.pdf' },
-      { title: 'BACB — RBT Handbook (2026)', url: 'https://www.bacb.com/wp-content/uploads/2025/08/RBTHandbook_260116-a.pdf' },
+      { title: 'BACB — RBT Handbook (2026)', url: 'https://www.bacb.com/wp-content/uploads/2026/10/RBTHandbook_261016-a.pdf' },
       { title: '42 CFR 455.434 — criminal background checks', url: 'https://www.law.cornell.edu/cfr/text/42/455.434' },
       { title: 'VirginiaABA — July 1, 2025 Medicaid changes (Molina exit, Humana entry)', url: 'https://virginiaaba.org/july-1st-medicaid-changes-what-providers-need-to-know/' },
       { title: 'VirginiaABA — October 2025 Medicaid changes (per-code SAs)', url: 'https://virginiaaba.org/october-2025-medicaid-changes-what-providers-need-to-know/' },
@@ -230,6 +242,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { title: 'DMAS bulletin — Applied Behavior Analysis (ABA) Policy Changes (7/28/2026)', url: 'https://vamedicaid.dmas.virginia.gov/bulletin/applied-behavior-analysis-aba-policy-changes' },
       { title: 'CMS — Medicaid NCCI PTP edits, practitioner services (2026 Q4, active 10/1–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-ptp-edits-practitioner-services.zip' },
       { title: 'DMAS bulletin — Provider Appeal Requirements Effective November 5, 2026 (issued 10/2/2026)', url: 'https://vamedicaid.dmas.virginia.gov/bulletin/provider-appeal-requirements-effective-november-5-2026' },
+      { title: '42 CFR 447.45(d) — timely processing of Medicaid fee-for-service claims (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-447.45' },
     ],
     deliveryRules: {
       supervision: {
@@ -341,7 +354,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'Initial assessments must be conducted in person with the youth and the family or caregivers, by the LBA, LABA or LMHP — and DMAS\'s December 2025 ABA clarifications bulletin makes that a condition of payment: "Initial assessments must be conducted in person by an LBA, LABA or LMHP in order for ABA services to be reimbursable by Medicaid," and services built on an assessment that does not meet DMAS requirements are non-reimbursable. No part of the initial assessment has a telehealth path. The Telehealth Services Supplement (rev. 1/5/2026, Table 2) allows 97151 and 97152 by telemedicine "for reassessments only," and Appendix D lets 97151, 97152 and 0362T be billed only "as part of the initial assessment or full reassessments" — so follow-up observations and sessions with additional caregivers that are part of completing the initial assessment are initial-assessment time and must also be in person. DMAS defines no separate assessment window that would move them under telehealth rules. The one exception is non-face-to-face work: care coordination, data analysis and treatment-plan preparation without the youth present may be billed under 97151 at the time of the initial assessment, and care coordination billed under 97151 or 97155 does not have to be face to face. Once the initial assessment is complete, further QHP observation, data review and protocol changes bill as 97155 and caregiver sessions as 97156, both on the Supplement\'s telemedicine list (0362T and 0373T are not), and a full reassessment may be done by telemedicine. Any telemedicine delivery must be justified in the ISP submitted with the initial and continued-stay authorization: a schedule of when services are delivered by telemedicine and when in person, clinical evidence that telemedicine is appropriate, and how in-person needs will be met — and the provider must document that the youth and caregiver can take part meaningfully and safely. Chapter IV adds that an assessment done by telemedicine cannot serve as the assessment for a service that requires an in-person one. Edge cases go to DMAS\'s Behavioral Health Division at enhancedbh@dmas.virginia.gov. MCO-contracted providers must consult their contracted MCO for that plan\'s telehealth policies.',
+          'Initial assessments must be conducted in person with the youth and the family or caregivers, by the LBA, LABA or LMHP — and DMAS\'s December 2025 ABA clarifications bulletin makes that a condition of payment: "Initial assessments must be conducted in person by an LBA, LABA or LMHP in order for ABA services to be reimbursable by Medicaid," and services built on an assessment that does not meet DMAS requirements are non-reimbursable. No part of the initial assessment has a telehealth path. The Telehealth Services Supplement (rev. 1/5/2026, Table 2) allows 97151 and 97152 by telemedicine "for reassessments only," and Appendix D lets 97151, 97152 and 0362T be billed only "as part of the initial assessment or full reassessments" — so follow-up observations and sessions with additional caregivers that are part of completing the initial assessment are initial-assessment time and must also be in person. DMAS defines no separate assessment window that would move them under telehealth rules. The one exception is non-face-to-face work: care coordination, data analysis and treatment-plan preparation without the youth present may be billed under 97151 at the time of the initial assessment, and care coordination billed under 97151 or 97155 does not have to be face to face. Once the initial assessment is complete, further QHP observation, data review and protocol changes bill as 97155 and caregiver sessions as 97156, both on the Supplement\'s telemedicine list (0362T and 0373T are not), and a full reassessment may be done by telemedicine. Any telemedicine delivery must be justified in the ISP submitted with the initial and continued-stay authorization: a schedule of when services are delivered by telemedicine and when in person, clinical evidence that telemedicine is appropriate, and how in-person needs will be met — and the provider must document that the youth and caregiver can take part meaningfully and safely. Chapter IV adds that an assessment done by telemedicine cannot serve as the assessment for a service that requires an in-person one. Edge cases go to DMAS\'s Behavioral Health Division at enhancedbh@dmas.virginia.gov. MCO-contracted providers must consult their contracted MCO for that plan\'s telehealth policies. On the claim the Supplement requires the place of service that reflects the originating site — POS 02 when it is not the member’s home, POS 10 when it is — and modifier GT for telemedicine (93 for audio-only); Table 2 lists 97151–97158 as telemedicine-eligible, with 97151 and 97152 for reassessments only.',
         status: 'verified',
         cites: [
           { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
@@ -393,6 +406,8 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { q: 'What is Virginia Medicaid\'s rule on ABA (97153) overlapping speech therapy?', a: 'DMAS publishes no ABA-specific overlap rule: Appendix D\'s same-time list covers ABA codes only. The limit is the Medicaid NCCI edits, which DMAS applies by same member, same provider and same date of service (MHS manual Chapter V). In the 10/1/2026 CMS Medicaid PTP table, 92507 (speech) bundles 97153–97157 and 0373T, 97153 bundles group speech 92508, and 97530 (OT/PT) bundles 97153–97158 — all with modifier indicator 0, so no modifier overrides them. One provider billing speech and 97153 on the same day loses the column-two line. A different, separately enrolled speech provider is not caught by the edit; DMAS expects coordination with all treating providers, documented in the ISP, to avoid duplicated services.' },
       { q: 'How do I appeal a Virginia Medicaid (DMAS) ABA decision, and what changes on November 5, 2026?', a: 'From November 5, 2026 DMAS regulations (Item 292 QQ of the 2025 Appropriation Act) require provider appeals to be filed through DMAS\'s online Appeals Information Management System (AIMS, dmas.virginia.gov/appeals) unless a good-cause exception is requested and granted; Chapter II of every provider manual is being revised with the same effective date. DMAS keeps accepting appeals by mail, email and fax through the end of 2026, but submissions by those routes received on or after January 1, 2027 will not be processed without a granted good-cause request — which must itself be sent before the appeal deadline, by mail to the DMAS Appeals Division or by email to appeals@dmas.virginia.gov. (Disagreements with an NCCI or ClaimsXten edit go first to a reconsideration request at claimcheck@dmas.virginia.gov within 30 calendar days of the denial, per MHS manual Chapter V.)' },
       { q: 'Does a Virginia Medicaid (DMAS) ABA claim need a referring provider in box 17?', a: 'Only when there is one. The Mental Health Services manual\'s CMS-1500 instructions (Chapter V, rev. 12/5/2025) mark box 17, the referring physician or other source, "REQUIRED if applicable", with the referring physician\'s NPI in 17b. ABA has no physician-order requirement under DMAS (Appendix D retired it in favour of notifying the youth\'s PCP), so there is no referring provider by rule; if the child was referred by a physician, report that physician\'s name and NPI in 17/17b. For DMAS Medicare crossover (Part B) claims, box 17 is not required. Cardinal Care MCOs set their own claim instructions.' },
+      { q: 'How fast does Virginia Medicaid (DMAS) pay a fee-for-service ABA claim?', a: 'Claims adjudicate daily and are paid on a weekly remittance cycle; federal rules require DMAS to pay 90% of clean practitioner claims within 30 days of receipt and 99% within 90. First submission is due within 12 months of the date of service. No weekly cut-off hour is published.' },
+      { q: 'Does Virginia Medicaid require graphs for an ABA reauthorization?', a: 'Yes. DMAS Appendix D requires the continued-stay request’s progress summary to include a graphical presentation of progress on each ISP goal and objective, and ongoing documentation must include graphical analysis of goals and objectives. ABA bills under CPT 97151–97158, 0362T and 0373T, not H-codes.' },
     ],
   },
 
@@ -468,6 +483,16 @@ export const virginiaPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'DMAS — Cardinal Care Managed Care Contract (July 1, 2026 – June 30, 2027)', url: 'https://www.dmas.virginia.gov/media/cdclvnox/virginia-cardinal-care-managed-care-contract-fy-2026.pdf' },
           { title: 'DMAS memo — Update to Chapter 5, Correction Regarding MCO Payment Rates (12/4/2025)', url: 'https://vamedicaid.dmas.virginia.gov/node/3748' },
+        ],
+      },
+      {
+        h2: 'Reauthorization: what a continued-stay request must contain (graphs required)',
+        body: [
+          'Follows the Virginia Medicaid (DMAS) rule, which Appendix D addresses to “the FFS service authorization contractor or MCO” alike. Continued-stay (reauthorization) requests must include the Continued Stay Service Authorization Form; the original Comprehensive Needs Assessment with an addendum (it can be a progress note) on new information, progress, interventions to date and the rationale for continuing; an updated ISP that reflects current goals and any use of telemedicine; and a treatment-progress summary that opens with a “graphical presentation of progress on each goal and objective in the ISP,” followed by family involvement, generalization across settings, progress toward discharge (including any planned step-down) and care coordination. Ongoing documentation must also carry “graphical analysis of goals and objectives as defined by the most current ISP.” So yes — Virginia Medicaid requires graphs at reauthorization.',
+          'Code set (DMAS rule): ABA is billed under CPT 97151–97158, 0362T and 0373T, each treatment code authorized with its own predetermined number of units; the HCPCS codes in Appendix D (H2033, H0036) belong to MST and FFT, not ABA.',
+        ],
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
         ],
       },
     ],
@@ -646,6 +671,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { q: 'What happens to the authorization when switching ABA providers on Aetna Better Health of Virginia?', a: 'The DMAS rule applies to the MCO by name: if ABA lapses for more than 31 consecutive days, the provider must discharge the youth and notify the MCO, and resuming needs a new service authorization with a new assessment and ISP. DMAS publishes no rule moving an authorization between agencies, so ask Aetna Better Health of Virginia whether the incoming agency needs its own authorization. Aetna Better Health also ties the authorization to the rendering LBA/LMHP NPI, so a change of supervising clinician needs a new authorization.' },
       { q: 'Can a Aetna Better Health of Virginia member receive ABA while staying across the border in North Carolina, for example on weekends?', a: 'Only with the plan’s agreement. The Cardinal Care contract says the MCO “is not responsible for services obtained outside the Commonwealth” except emergency or crisis care, where using another state’s medical resources is general practice in the member’s locality, where medically necessary services are not available in-network in Virginia, or under a transition-of-care plan. The clinician also needs North Carolina licensure to practice there (G.S. 90-746). A temporary NC license covers only “a limited and defined period of service approved by the Board” (G.S. 90-740). Get Aetna Better Health of Virginia’s written approval before scheduling sessions in North Carolina.' },
       { q: 'Must Aetna Better Health of Virginia pay at least the DMAS fee schedule for ABA?', a: 'Yes. The Cardinal Care contract requires MCOs to pay mental health service providers, ABA included, no less than the current Medicaid fee-for-service rate.' },
+      { q: 'Does Aetna Better Health of Virginia require graphs for an ABA reauthorization?', a: 'Yes — under DMAS Appendix D, which applies to the MCOs, the continued-stay request must include a graphical presentation of progress on each ISP goal and objective, with an updated ISP and a needs-assessment addendum.' },
     ],
   },
 
@@ -738,6 +764,16 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           { title: 'DMAS — Mental Health Services Manual, Chapter V: Billing Instructions (rev. 12/5/2025)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-12/MHS%20-%20Chapter%205%20%28updated%2012.5.25%29_Final.pdf' },
           { title: 'DMAS — Mental Health Services Manual, Chapter IV (rev. 10/2/2026)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2026-10/MHS%20-%20Chapter%204%20%28updated%2010.2.26%29_Final.pdf' },
           { title: 'CMS — Medicaid NCCI PTP edits, practitioner services (2026 Q4, active 10/1–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-ptp-edits-practitioner-services.zip' },
+        ],
+      },
+      {
+        h2: 'Reauthorization: what a continued-stay request must contain (graphs required)',
+        body: [
+          'Follows the Virginia Medicaid (DMAS) rule, which Appendix D addresses to “the FFS service authorization contractor or MCO” alike. Continued-stay (reauthorization) requests must include the Continued Stay Service Authorization Form; the original Comprehensive Needs Assessment with an addendum (it can be a progress note) on new information, progress, interventions to date and the rationale for continuing; an updated ISP that reflects current goals and any use of telemedicine; and a treatment-progress summary that opens with a “graphical presentation of progress on each goal and objective in the ISP,” followed by family involvement, generalization across settings, progress toward discharge (including any planned step-down) and care coordination. Ongoing documentation must also carry “graphical analysis of goals and objectives as defined by the most current ISP.” So yes — Virginia Medicaid requires graphs at reauthorization.',
+          'Code set (DMAS rule): ABA is billed under CPT 97151–97158, 0362T and 0373T, each treatment code authorized with its own predetermined number of units; the HCPCS codes in Appendix D (H2033, H0036) belong to MST and FFT, not ABA.',
+        ],
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
         ],
       },
     ],
@@ -923,6 +959,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { q: 'Can a Anthem HealthKeepers Plus member receive ABA while staying across the border in North Carolina, for example on weekends?', a: 'Only with the plan’s agreement. The Cardinal Care contract says the MCO “is not responsible for services obtained outside the Commonwealth” except emergency or crisis care, where using another state’s medical resources is general practice in the member’s locality, where medically necessary services are not available in-network in Virginia, or under a transition-of-care plan. The clinician also needs North Carolina licensure to practice there (G.S. 90-746). A temporary NC license covers only “a limited and defined period of service approved by the Board” (G.S. 90-740). Get Anthem HealthKeepers Plus’s written approval before scheduling sessions in North Carolina.' },
       { q: 'What is Anthem HealthKeepers Plus’s timely filing limit?', a: '12 months from the date of service for outpatient services such as ABA, unless the provider contract says otherwise (provider manual effective July 1, 2026).' },
       { q: 'Can 97153 overlap speech therapy on Anthem HealthKeepers Plus?', a: 'Anthem publishes no ABA-with-speech rule of its own — not in its ABA grid, not in its July 2026 provider manual. The manual reserves the right to apply code-editing software, and routes outpatient speech, OT and PT authorization to Carelon (providerportal.com, 855-574-6480), separately from the ABA authorization. Under DMAS, Appendix D\'s same-time list is ABA-only, and fee-for-service claims run the Medicaid NCCI edits by same member, provider and date: speech code 92507 bundles 97153–97157 with no modifier override. Ask Anthem provider services whether its editor applies those pairs before the same provider bills speech and ABA on one day.' },
+      { q: 'Does Anthem HealthKeepers Plus require graphs for an ABA reauthorization?', a: 'Yes — under DMAS Appendix D, which applies to the MCOs, the continued-stay request must include a graphical presentation of progress on each ISP goal and objective, with an updated ISP and a needs-assessment addendum.' },
     ],
   },
 
@@ -999,6 +1036,16 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           { title: 'DMAS — Cardinal Care Managed Care Contract (July 1, 2026 – June 30, 2027)', url: 'https://www.dmas.virginia.gov/media/cdclvnox/virginia-cardinal-care-managed-care-contract-fy-2026.pdf' },
           { title: 'DMAS memo — Update to Chapter 5, Correction Regarding MCO Payment Rates (12/4/2025)', url: 'https://vamedicaid.dmas.virginia.gov/node/3748' },
           { title: 'Humana Healthy Horizons in Virginia — Provider Resource Guide (VAHMAKWEN0126)', url: 'https://assets.humana.com/is/content/humana/VA_Provider_Resource_Guidepdf' },
+        ],
+      },
+      {
+        h2: 'Reauthorization: what a continued-stay request must contain (graphs required)',
+        body: [
+          'Follows the Virginia Medicaid (DMAS) rule, which Appendix D addresses to “the FFS service authorization contractor or MCO” alike. Continued-stay (reauthorization) requests must include the Continued Stay Service Authorization Form; the original Comprehensive Needs Assessment with an addendum (it can be a progress note) on new information, progress, interventions to date and the rationale for continuing; an updated ISP that reflects current goals and any use of telemedicine; and a treatment-progress summary that opens with a “graphical presentation of progress on each goal and objective in the ISP,” followed by family involvement, generalization across settings, progress toward discharge (including any planned step-down) and care coordination. Ongoing documentation must also carry “graphical analysis of goals and objectives as defined by the most current ISP.” So yes — Virginia Medicaid requires graphs at reauthorization.',
+          'Code set (DMAS rule): ABA is billed under CPT 97151–97158, 0362T and 0373T, each treatment code authorized with its own predetermined number of units; the HCPCS codes in Appendix D (H2033, H0036) belong to MST and FFT, not ABA.',
+        ],
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
         ],
       },
     ],
@@ -1181,6 +1228,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { q: 'Can a Humana Healthy Horizons in Virginia member receive ABA while staying across the border in North Carolina, for example on weekends?', a: 'Only with the plan’s agreement. The Cardinal Care contract says the MCO “is not responsible for services obtained outside the Commonwealth” except emergency or crisis care, where using another state’s medical resources is general practice in the member’s locality, where medically necessary services are not available in-network in Virginia, or under a transition-of-care plan. The clinician also needs North Carolina licensure to practice there (G.S. 90-746). A temporary NC license covers only “a limited and defined period of service approved by the Board” (G.S. 90-740). Get Humana Healthy Horizons in Virginia’s written approval before scheduling sessions in North Carolina.' },
       { q: 'Does Humana Healthy Horizons in Virginia cover CPT 96112?', a: 'Yes, with prior authorization. Humana’s Virginia Medicaid prior authorization and notification list (eff. 7/1/2025, rev. 9/4/2025) lists 96112 and 96113 under neuropsychological testing.' },
       { q: 'What is Humana Healthy Horizons in Virginia’s timely filing limit?', a: '365 days from the date of service; corrected claims within 180 days of the explanation of payment; claim disputes within 60 calendar days (provider resource guide).' },
+      { q: 'Does Humana Healthy Horizons in Virginia require graphs for an ABA reauthorization?', a: 'Yes — under DMAS Appendix D, which applies to the MCOs, the continued-stay request must include a graphical presentation of progress on each ISP goal and objective, with an updated ISP and a needs-assessment addendum.' },
     ],
   },
 
@@ -1250,6 +1298,16 @@ export const virginiaPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'DMAS — Cardinal Care Managed Care Contract (July 1, 2026 – June 30, 2027)', url: 'https://www.dmas.virginia.gov/media/cdclvnox/virginia-cardinal-care-managed-care-contract-fy-2026.pdf' },
           { title: 'DMAS memo — Update to Chapter 5, Correction Regarding MCO Payment Rates (12/4/2025)', url: 'https://vamedicaid.dmas.virginia.gov/node/3748' },
+        ],
+      },
+      {
+        h2: 'Reauthorization: what a continued-stay request must contain (graphs required)',
+        body: [
+          'Follows the Virginia Medicaid (DMAS) rule, which Appendix D addresses to “the FFS service authorization contractor or MCO” alike. Continued-stay (reauthorization) requests must include the Continued Stay Service Authorization Form; the original Comprehensive Needs Assessment with an addendum (it can be a progress note) on new information, progress, interventions to date and the rationale for continuing; an updated ISP that reflects current goals and any use of telemedicine; and a treatment-progress summary that opens with a “graphical presentation of progress on each goal and objective in the ISP,” followed by family involvement, generalization across settings, progress toward discharge (including any planned step-down) and care coordination. Ongoing documentation must also carry “graphical analysis of goals and objectives as defined by the most current ISP.” So yes — Virginia Medicaid requires graphs at reauthorization.',
+          'Code set (DMAS rule): ABA is billed under CPT 97151–97158, 0362T and 0373T, each treatment code authorized with its own predetermined number of units; the HCPCS codes in Appendix D (H2033, H0036) belong to MST and FFT, not ABA.',
+        ],
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
         ],
       },
     ],
@@ -1429,6 +1487,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { q: 'What happens to the authorization when switching ABA providers on Sentara Community Plan?', a: 'The DMAS rule applies to the MCO by name: if ABA lapses for more than 31 consecutive days, the provider must discharge the youth and notify the MCO, and resuming needs a new service authorization with a new assessment and ISP. DMAS publishes no rule moving an authorization between agencies, so ask Sentara Community Plan whether the incoming agency needs its own authorization. For a change of supervising BCBA within the same agency, Sentara uses its BCBA Change Request Form.' },
       { q: 'Can a Sentara Community Plan member receive ABA while staying across the border in North Carolina, for example on weekends?', a: 'Only with the plan’s agreement. The Cardinal Care contract says the MCO “is not responsible for services obtained outside the Commonwealth” except emergency or crisis care, where using another state’s medical resources is general practice in the member’s locality, where medically necessary services are not available in-network in Virginia, or under a transition-of-care plan. The clinician also needs North Carolina licensure to practice there (G.S. 90-746). A temporary NC license covers only “a limited and defined period of service approved by the Board” (G.S. 90-740). Get Sentara Community Plan’s written approval before scheduling sessions in North Carolina.' },
       { q: 'What is Sentara Community Plan’s timely filing limit?', a: 'We could not read a current Sentara claims document. The Cardinal Care contract requires every MCO’s limit to fall between 3 and 12 months from the date of service, so confirm Sentara’s number in your provider agreement or with Sentara provider services.' },
+      { q: 'Does Sentara Community Plan require graphs for an ABA reauthorization?', a: 'Yes — under DMAS Appendix D, which applies to the MCOs, the continued-stay request must include a graphical presentation of progress on each ISP goal and objective, with an updated ISP and a needs-assessment addendum.' },
     ],
   },
 
@@ -1497,6 +1556,16 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           { title: 'DMAS — Cardinal Care Managed Care Contract (July 1, 2026 – June 30, 2027)', url: 'https://www.dmas.virginia.gov/media/cdclvnox/virginia-cardinal-care-managed-care-contract-fy-2026.pdf' },
           { title: 'DMAS memo — Update to Chapter 5, Correction Regarding MCO Payment Rates (12/4/2025)', url: 'https://vamedicaid.dmas.virginia.gov/node/3748' },
           { title: 'UHC Community Plan of Virginia — 2026 provider manual', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/VA-UHCCP-Care-Provider-Manual.pdf' },
+        ],
+      },
+      {
+        h2: 'Reauthorization: what a continued-stay request must contain (graphs required)',
+        body: [
+          'Follows the Virginia Medicaid (DMAS) rule, which Appendix D addresses to “the FFS service authorization contractor or MCO” alike. Continued-stay (reauthorization) requests must include the Continued Stay Service Authorization Form; the original Comprehensive Needs Assessment with an addendum (it can be a progress note) on new information, progress, interventions to date and the rationale for continuing; an updated ISP that reflects current goals and any use of telemedicine; and a treatment-progress summary that opens with a “graphical presentation of progress on each goal and objective in the ISP,” followed by family involvement, generalization across settings, progress toward discharge (including any planned step-down) and care coordination. Ongoing documentation must also carry “graphical analysis of goals and objectives as defined by the most current ISP.” So yes — Virginia Medicaid requires graphs at reauthorization.',
+          'Code set (DMAS rule): ABA is billed under CPT 97151–97158, 0362T and 0373T, each treatment code authorized with its own predetermined number of units; the HCPCS codes in Appendix D (H2033, H0036) belong to MST and FFT, not ABA.',
+        ],
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
         ],
       },
     ],
@@ -1635,9 +1704,10 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'Follows the Virginia Medicaid (DMAS) rule, which DMAS\'s December 2025 ABA clarifications bulletin addresses to Acentra and the Cardinal Care MCOs alike as the service-authorization contractors: initial assessments must be conducted in person with the youth and the family or caregivers, by the LBA, LABA or LMHP — and DMAS\'s December 2025 ABA clarifications bulletin makes that a condition of payment: "Initial assessments must be conducted in person by an LBA, LABA or LMHP in order for ABA services to be reimbursable by Medicaid," and services built on an assessment that does not meet DMAS requirements are non-reimbursable. No part of the initial assessment has a telehealth path. The Telehealth Services Supplement (rev. 1/5/2026, Table 2) allows 97151 and 97152 by telemedicine "for reassessments only," and Appendix D lets 97151, 97152 and 0362T be billed only "as part of the initial assessment or full reassessments" — so follow-up observations and sessions with additional caregivers that are part of completing the initial assessment are initial-assessment time and must also be in person. DMAS defines no separate assessment window that would move them under telehealth rules. The one exception is non-face-to-face work: care coordination, data analysis and treatment-plan preparation without the youth present may be billed under 97151 at the time of the initial assessment, and care coordination billed under 97151 or 97155 does not have to be face to face. Once the initial assessment is complete, further QHP observation, data review and protocol changes bill as 97155 and caregiver sessions as 97156, both on the Supplement\'s telemedicine list (0362T and 0373T are not), and a full reassessment may be done by telemedicine. Any telemedicine delivery must be justified in the ISP submitted with the initial and continued-stay authorization: a schedule of when services are delivered by telemedicine and when in person, clinical evidence that telemedicine is appropriate, and how in-person needs will be met — and the provider must document that the youth and caregiver can take part meaningfully and safely. Chapter IV adds that an assessment done by telemedicine cannot serve as the assessment for a service that requires an in-person one. Edge cases go to DMAS\'s Behavioral Health Division at enhancedbh@dmas.virginia.gov. MCO-contracted providers must consult their contracted MCO for that plan\'s telehealth policies. UnitedHealthcare\'s 2026 provider manual is explicit that all mental-health services including ABA require registration or authorization using a DMAS service-specific form, and Optum\'s national ABA guideline does not override the Virginia rules — Optum is the plumbing, not a second rulebook.',
+          'Follows the Virginia Medicaid (DMAS) rule, which DMAS\'s December 2025 ABA clarifications bulletin addresses to Acentra and the Cardinal Care MCOs alike as the service-authorization contractors: initial assessments must be conducted in person with the youth and the family or caregivers, by the LBA, LABA or LMHP — and DMAS\'s December 2025 ABA clarifications bulletin makes that a condition of payment: "Initial assessments must be conducted in person by an LBA, LABA or LMHP in order for ABA services to be reimbursable by Medicaid," and services built on an assessment that does not meet DMAS requirements are non-reimbursable. No part of the initial assessment has a telehealth path. The Telehealth Services Supplement (rev. 1/5/2026, Table 2) allows 97151 and 97152 by telemedicine "for reassessments only," and Appendix D lets 97151, 97152 and 0362T be billed only "as part of the initial assessment or full reassessments" — so follow-up observations and sessions with additional caregivers that are part of completing the initial assessment are initial-assessment time and must also be in person. DMAS defines no separate assessment window that would move them under telehealth rules. The one exception is non-face-to-face work: care coordination, data analysis and treatment-plan preparation without the youth present may be billed under 97151 at the time of the initial assessment, and care coordination billed under 97151 or 97155 does not have to be face to face. Once the initial assessment is complete, further QHP observation, data review and protocol changes bill as 97155 and caregiver sessions as 97156, both on the Supplement\'s telemedicine list (0362T and 0373T are not), and a full reassessment may be done by telemedicine. Any telemedicine delivery must be justified in the ISP submitted with the initial and continued-stay authorization: a schedule of when services are delivered by telemedicine and when in person, clinical evidence that telemedicine is appropriate, and how in-person needs will be met — and the provider must document that the youth and caregiver can take part meaningfully and safely. Chapter IV adds that an assessment done by telemedicine cannot serve as the assessment for a service that requires an in-person one. Edge cases go to DMAS\'s Behavioral Health Division at enhancedbh@dmas.virginia.gov. MCO-contracted providers must consult their contracted MCO for that plan\'s telehealth policies. UnitedHealthcare\'s 2026 provider manual is explicit that all mental-health services including ABA require registration or authorization using a DMAS service-specific form, and Optum\'s national ABA guideline does not override the Virginia rules — Optum is the plumbing, not a second rulebook. Optum, which manages the behavioral benefit, adds a claim rule across all lines of business including Medicaid/Community Plan: every behavioral health telehealth claim must carry POS 02 (member not at home) or POS 10 (member at home), and claims billed with only a telehealth modifier are not reimbursed (Telehealth Billing Quick Reference Guide, September 2025).',
         status: 'verified',
         cites: [
+          { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
           { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
           { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
           { title: 'UHC Community Plan of Virginia — 2026 provider manual', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/VA-UHCCP-Care-Provider-Manual.pdf' },
@@ -1677,6 +1747,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { q: 'What happens to the authorization when switching ABA providers on UnitedHealthcare Community Plan of Virginia?', a: 'The DMAS rule applies to the MCO by name: if ABA lapses for more than 31 consecutive days, the provider must discharge the youth and notify the MCO, and resuming needs a new service authorization with a new assessment and ISP. DMAS publishes no rule moving an authorization between agencies, so ask UnitedHealthcare Community Plan of Virginia whether the incoming agency needs its own authorization.' },
       { q: 'Can a UnitedHealthcare Community Plan of Virginia member receive ABA while staying across the border in North Carolina, for example on weekends?', a: 'Only with the plan’s agreement. The Cardinal Care contract says the MCO “is not responsible for services obtained outside the Commonwealth” except emergency or crisis care, where using another state’s medical resources is general practice in the member’s locality, where medically necessary services are not available in-network in Virginia, or under a transition-of-care plan. The clinician also needs North Carolina licensure to practice there (G.S. 90-746). A temporary NC license covers only “a limited and defined period of service approved by the Board” (G.S. 90-740). Get UnitedHealthcare Community Plan of Virginia’s written approval before scheduling sessions in North Carolina.' },
       { q: 'What is UnitedHealthcare Community Plan of Virginia’s timely filing limit?', a: '365 days from the date of service unless your contract says otherwise; resubmissions and reconsiderations within 365 days of service or 180 days of the last processing, whichever is later (2026 provider manual).' },
+      { q: 'Does UnitedHealthcare Community Plan of Virginia require graphs for an ABA reauthorization?', a: 'Yes — under DMAS Appendix D, which applies to the MCOs, the continued-stay request must include a graphical presentation of progress on each ISP goal and objective, with an updated ISP and a needs-assessment addendum.' },
     ],
   },
 
@@ -1698,7 +1769,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       value: 'Yes \u2014 ASD only (F84.0\u2013F84.9); ABA for other diagnoses considered experimental',
       status: 'verified',
       cites: [
-        { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+        { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
       ],
     },
     payer: 'Aetna in Virginia',
@@ -1723,10 +1794,10 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       {
         h2: 'The national policy, applied in Virginia',
         body: [
-          'Aetna covers ABA for autism spectrum disorder under its national clinical policy CPB 0554 (paired with CPB 0648 for ASD), and considers ABA experimental for anything else. Precertification is required for both the assessment and treatment — form GR-69017-4, submitted via Availity or phone — with reauthorization commonly on a roughly 6-month cadence. That clinical policy is national — what changes in Virginia is the legal floor underneath it: the state mandate below governs what fully-insured plans must cover, while self-funded employer plans answer to ERISA and federal parity instead. Plan funding type is therefore the first fact to establish on every benefits check. The full national policy breakdown lives in our Aetna guide; this page covers what changes in Virginia.',
+          'Aetna covers ABA for autism spectrum disorder under its national clinical policy CPB 0554 (paired with CPB 0648 for ASD), and considers ABA experimental for anything else — its 10/14/2026 review names Down syndrome without an ASD co-morbidity, and “all other non-ASD indications.” Precertification is required for both the assessment and treatment — form GR-69017-4, submitted via Availity or phone — with reauthorization commonly on a roughly 6-month cadence. That clinical policy is national — what changes in Virginia is the legal floor underneath it: the state mandate below governs what fully-insured plans must cover, while self-funded employer plans answer to ERISA and federal parity instead. Plan funding type is therefore the first fact to establish on every benefits check. The full national policy breakdown lives in our Aetna guide; this page covers what changes in Virginia.',
         ],
         cites: [
-      { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+      { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
       { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
       { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
       { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
@@ -1769,6 +1840,18 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           { title: 'Aetna — Provider and behavioral health manual (June 2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
         ],
       },
+      {
+        h2: 'Aetna reauthorization, supervision and the code set',
+        body: [
+          'Reauthorization: Aetna’s ABA medical necessity guide evaluates progress “every six months.” Each request must show a functional impairment on a standardized scale in the past 12 months (Vineland-3, ABAS, VB-MAPP or ABLLS are the examples), a treatment plan whose target behaviors have recorded baseline levels and “quantifiable criteria for progress,” and either documentation that the frequency of the target behavior improved or, if it did not, documentation of treatment modification, added assessment or expert consultation; the level of impairment must justify the hours requested. Coverage ends on the guide’s thresholds — two or more standard deviations of improvement in multiple domains (one or more for a focused plan), or less than one standard deviation in all domains across successive authorization periods. The guide asks for objective, quantified data; it does not require graphs.',
+          'Supervision: “additional authorization may be provided for QHP protocol modification and direction at 1 to 2 hours per 10 hours of treatment by protocol,” plus caregiver training. Aetna sets no cap on the number of technicians one behavior analyst may supervise.',
+          'Code set: CPB 0554 lists the ABA codes as CPT 97151–97158 with 0362T and 0373T. Neither CPB 0554 nor the medical necessity guide lists a HCPCS H-code (H0031, H0032, H2019) for ABA, so whether your Aetna contract pays one is a question for Aetna, not something its policies grant.',
+        ],
+        cites: [
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -1778,7 +1861,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { title: 'Age', desc: 'Where the mandate carries age terms, flag edge cases for the parity analysis rather than turning families away.' },
     ],
     sources: [
-      { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+      { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
       { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
       { title: 'Va. Code § 38.2-3418.17 (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
       { title: 'Autism Speaks — Virginia state-regulated coverage', url: 'https://www.autismspeaks.org/virginia-state-regulated-insurance-coverage' },
@@ -1791,9 +1874,10 @@ export const virginiaPayers: Record<string, PayerConfig> = {
     deliveryRules: {
       supervision: {
         value:
-          'CPB 0554 sets no supervision ratio. In Virginia the binding floor is licensure plus the mandate: covered ABA must be provided or supervised by a board certified behavior analyst licensed by the Virginia Board of Medicine (Va. Code § 54.1-2957.16), so licensure is a coverage requirement, not merely a credentialing one, and the Board\'s rules at 18VAC85-150-120 make the LBA ultimately responsible for care under supervision and require a written supervisory agreement with each LABA.',
+          'CPB 0554 sets no supervision ratio. In Virginia the binding floor is licensure plus the mandate: covered ABA must be provided or supervised by a board certified behavior analyst licensed by the Virginia Board of Medicine (Va. Code § 54.1-2957.16), so licensure is a coverage requirement, not merely a credentialing one, and the Board\'s rules at 18VAC85-150-120 make the LBA ultimately responsible for care under supervision and require a written supervisory agreement with each LABA. Aetna’s medical necessity guide does authorize the analyst’s time against a ratio: QHP protocol modification and direction “at 1 to 2 hours per 10 hours of treatment by protocol”; it sets no cap on the number of technicians per analyst.',
         status: 'verified',
         cites: [
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
           { title: 'Va. Code § 38.2-3418.17 (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
           { title: 'Va. Code § 54.1-2957.16 — behavior analyst licensure (official)', url: 'https://law.lis.virginia.gov/vacode/title54.1/chapter29/section54.1-2957.16/' },
           { title: '18VAC85-150-120 — supervisory responsibilities', url: 'https://www.law.cornell.edu/regulations/virginia/18VAC85-150-120' },
@@ -1804,7 +1888,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           'Not addressed in CPB 0554 or CPB 0648; concurrent-billing edits live in Aetna\'s reimbursement and code-editing policies rather than its clinical bulletins. ABA alongside speech, OT or PT: Aetna\'s ABA medical necessity guide has no same-clock-time rule for ABA with another therapy; it requires "ongoing collaboration and coordination with existing providers and/or the school district, as applicable."',
         status: 'unverified',
         cites: [
-          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
           { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
         ],
         verifyVia: 'Aetna\'s commercial reimbursement/code-editing policies via Availity, or provider relations.',
@@ -1815,7 +1899,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           'No per-day unit ceiling is published. Virginia bars visit limits outright but keeps a dollar cap: ABA is subject to a $35,000 annual maximum benefit unless the insurer elects to provide more — a quantitative treatment limit whose enforceability against a large-group plan is a parity question worth raising rather than conceding.',
         status: 'plan-dependent',
         cites: [
-          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
           { title: 'Va. Code § 38.2-3418.17 (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
         ],
         verifyVia: 'A live benefits verification — whether the plan actually applies the $35,000 maximum, and any plan-level limits outside the mandate.',
@@ -1826,7 +1910,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           'Not addressed in CPB 0554 or CPB 0648.',
         status: 'unverified',
         cites: [
-          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
           { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
         ],
         verifyVia: 'Aetna provider relations or the participating-provider agreement — the clinical bulletins carry no documentation or signature standard.',
@@ -1837,7 +1921,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           'CPB 0554 describes ABA as evaluating observable behavior within relevant settings including the home, school and community but sets no place-of-service restriction; CPB 0648 notes many Aetna plans exclude coverage of educational services and may exclude developmental or intelligence testing in educational settings, making the school boundary a benefit-exclusion question.',
         status: 'plan-dependent',
         cites: [
-          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
           { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
         ],
         verifyVia: 'A live benefits verification — the educational-services exclusion is written into the plan document, not the clinical policy.',
@@ -1859,7 +1943,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           'Aetna\'s national policy sets no age limit. Any age. Virginia\'s mandate has applied to individuals of any age since 1/1/2020 — 2019\'s HB 2577 removed the old age-2 floor as well as the upper limit — for individual and group policies and HMO contracts, extended to the individual and small group markets for policies delivered, issued, reissued or extended on or after 1/1/2021. ABA remains subject to a $35,000 annual maximum benefit unless the insurer elects more, with no visit limits; as a quantitative treatment limit on a mental-health benefit that cap is a live parity question for large-group plans rather than a settled rule. Self-funded ERISA plans sit outside the statute.',
         status: 'plan-dependent',
         cites: [
-          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
           { title: 'Va. Code § 38.2-3418.17 (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
         ],
         verifyVia: 'A live benefits verification — funding type decides whether the mandate applies at all.',
@@ -1871,7 +1955,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
         status: 'plan-dependent',
         cites: [
           { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
-          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
           { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
           { title: 'Va. Code § 38.2-3418.17 (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
         ],
@@ -1905,7 +1989,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
           { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
           { title: 'Va. Code § 38.2-3418.17 (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
-          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
         ],
       },
       telehealth: {
@@ -1949,6 +2033,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { q: 'What does Aetna pay for ABA in Virginia?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the Virginia Medicaid fee schedule where one exists, and treat rate-setting as part of contracting.' },
       { q: 'Does Aetna require RBT certification for ABA technicians?', a: 'Aetna\'s ABA medical necessity guide does not require a technician credential. Services must be provided directly or billed by a licensed behavior analyst (where the state licenses them), a BCBA or a licensed psychologist. Where plans or state law allow services by people who are not licensed or BACB-certified, they must be supervised and directed in line with practice standards. State law or the plan can require more.' },
       { q: 'How fast must Aetna pay an ABA claim in Virginia?', a: 'For plans Virginia regulates: within 40 days of receiving a clean claim, with any defect flagged within 30 days (Va. Code § 38.2-3407.15). A clean claim must name the billing and rendering providers with their identification numbers.' },
+      { q: 'Does Aetna require graphs for an ABA reauthorization?', a: 'Aetna’s ABA medical necessity guide reviews progress every six months and requires quantified baseline and progress data, a standardized functional scale from the past 12 months, and documentation of improvement (or of treatment changes when there is none). It does not require the data to be graphed.' },
     ],
   },
 
@@ -2070,6 +2155,19 @@ export const virginiaPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'Va. Code § 38.2-3407.15 — ethics and fairness in carrier business practices (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3407.15/' },
           { title: 'Evernorth Behavioral Health — Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
+      },
+      {
+        h2: 'Cigna reauthorization, telehealth billing and the code set',
+        body: [
+          'Reauthorization (in Virginia these criteria bind self-funded plans; fully-insured Virginia business is carved out of EN0499, so its plan document governs): EN0499’s continued-treatment criteria require an updated treatment plan; “quantitative baseline, interim and current data” with the dates they were collected, for every behavior and skill, across all settings; current data collected no more than 60 days before the start date of the continued-treatment request and no more than 60 days before the request is received; data showing “ongoing and sustained progress”; a reliable, valid, standardized assessment completed no more than one year before the request; a documented barriers plan when progress is not shown; a fresh standardized assessment after any break in treatment longer than 60 calendar days; and dated quantitative data on stakeholder (caregiver) training. EN0499 asks for dated quantitative data, not graphs — the policy never uses the word — so a graph is a presentation choice, while the dated numbers are mandatory.',
+          'Telehealth billing: “All ABA CPT codes are covered telehealth services” (autism resource guide). On the claim, Evernorth’s administrative guidelines (September 2026) call for “Modifier 95 in Field 24-D to specify telehealth” and “02 for Place of Service in Field 24-B”; a provider delivers virtual sessions after attesting to the telehealth specialty on Evernorth’s Attested Specialty Form. Neither document requires the authorization itself to name telehealth.',
+          'Code set: “All ABA services must be billed with CPT codes 97151–97158, 0362T, and 0373T ONLY,” in 15-minute units — HCPCS H-codes (H0031, H0032, H2019, H2014) are not accepted for ABA. Supervision: one to two hours of case supervision per ten hours of direct treatment, with at least one to two hours a week when direct treatment is ten hours a week or less; EN0499 sets no cap on how many technicians one BCBA may supervise.',
+        ],
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+          { title: 'Cigna / Evernorth autism resource guide (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
         ],
       },
     ],
@@ -2204,9 +2302,10 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'Virginia is the one state EN0499 carves out — the policy states that Virginia fully-insured business is not subject to it. For a fully-insured Virginia member the plan document and the state mandate govern; for self-funded (ASO) plans EN0499 still applies, so funding type decides which rulebook you are reading. EN0499 treats ABA as deliverable in person, by telehealth, or as a hybrid, with the line-of-sight and close-proximity requirement on direct treatment expressly not applying to telehealth. The Virginia mandate is silent on modality. Evernorth’s national autism resource guide (March 2025) states that "All ABA CPT codes are covered telehealth services" — which would include the assessment codes 97151/97152 and supervision (97155) — and points to EN0499 for detail; because EN0499 excludes Virginia fully insured business, confirm telehealth terms for a fully insured Virginia member with the plan.',
+          'Virginia is the one state EN0499 carves out — the policy states that Virginia fully-insured business is not subject to it. For a fully-insured Virginia member the plan document and the state mandate govern; for self-funded (ASO) plans EN0499 still applies, so funding type decides which rulebook you are reading. EN0499 treats ABA as deliverable in person, by telehealth, or as a hybrid, with the line-of-sight and close-proximity requirement on direct treatment expressly not applying to telehealth. The Virginia mandate is silent on modality. Evernorth’s national autism resource guide (March 2025) states that "All ABA CPT codes are covered telehealth services" — which would include the assessment codes 97151/97152 and supervision (97155) — and points to EN0499 for detail; because EN0499 excludes Virginia fully insured business, confirm telehealth terms for a fully insured Virginia member with the plan. On the claim, Evernorth’s administrative guidelines (September 2026) call for modifier 95 in field 24-D and place of service 02 in field 24-B; the authorization need not name telehealth.',
         status: 'plan-dependent',
         cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
           { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
           { title: 'Va. Code § 38.2-3418.17 (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
           { title: 'Evernorth — Autism resource guide for behavioral health providers (PCOMM-2025-225, March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
@@ -2249,6 +2348,8 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { q: 'Does Cigna require RBT certification for ABA technicians?', a: 'Evernorth\'s autism resource guide does not name a technician credential. It says Evernorth "does not credential nonlicensed/noncertified staff" and that their services "must be billed under the supervising provider." Case supervision must come from a BCBA, LBA or independently licensed clinician with ABA training. State licensure rules can add requirements.' },
       { q: 'How fast must Cigna pay an ABA claim in Virginia?', a: 'For plans Virginia regulates: within 40 days of receiving a clean claim, with any defect flagged within 30 days (Va. Code § 38.2-3407.15). A clean claim must name the billing and rendering providers with their identification numbers.' },
       { q: 'What is Cigna’s timely filing limit in Virginia?', a: 'Twelve months from the date of service for insured plans under Evernorth’s Virginia regulatory addendum. Self-funded plans follow the 90-day standard unless your provider agreement says otherwise.' },
+      { q: 'Does Cigna require graphs for an ABA reauthorization?', a: 'No — EN0499 requires dated quantitative baseline, interim and current data for every target, with current data no more than 60 days old, plus a standardized assessment from the past year; it never requires the data to be graphed. Graphs are a common way to present it.' },
+      { q: 'How do I bill ABA telehealth to Cigna, and are H-codes accepted?', a: 'All ABA CPT codes are covered by telehealth; bill modifier 95 with place of service 02 after attesting to the telehealth specialty with Evernorth. Only CPT 97151–97158, 0362T and 0373T are accepted for ABA — no H-codes.' },
     ],
   },
 
@@ -2371,6 +2472,20 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           { title: 'Va. Code § 38.2-3407.15 — ethics and fairness in carrier business practices (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3407.15/' },
           { title: 'Optum Behavioral Health — National Network Manual (published July 1, 2026; effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
           { title: '2026 UnitedHealthcare Care Provider Administrative Guide (commercial)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+        ],
+      },
+      {
+        h2: 'UnitedHealthcare (Optum) reauthorization, supervision and telehealth billing',
+        body: [
+          'Reauthorization: with each clinical review for continued ABA, Optum’s supplemental clinical criteria require updated documentation that progress “is assessed and documented for each targeted symptom and behavior … including the same modes of measurement that were utilized for baseline measurement,” reported as the rate and percentage of mastered programs and targets, change scores on outcome measures, updated standardized adaptive measures and change scores on skills-based assessments, with movement from baseline shown on validated, norm-referenced assessments; caregiver involvement where applicable; and, when progress is inadequate within a six-month period, the reasons and the treatment changes made. Use below 80% of authorized hours over a two-week period is addressed at review. The criteria ask for measured, comparable data, not graphs specifically; Optum’s CPT FAQ treats time spent on data analysis and graphs as treatment planning bundled into the direct-service codes.',
+          'Supervision: Optum’s ABA CPT FAQ says “in general, we see 2 hours for every 10 hours of direct Behavior Technician hours,” and a request above that 2:10 ratio needs a clinical rationale; no cap on the number of technicians per BCBA is published.',
+          'Telehealth billing and code set: only 97155, 97156 and 97157 may be delivered by telehealth, by an attested Optum virtual-visits provider; Optum requires every behavioral health telehealth claim to carry POS 02 or POS 10 — “Optum will not reimburse for services billed with only telehealth modifiers 93, 95, FQ, GQ or GT” — and the FAQ asks providers to alert the Optum ABA Care Advocate that services will be virtual when completing the authorization. The commercial reimbursement policy bills ABA under CPT 97151–97158, 0362T and 0373T with a credential modifier; no HCPCS H-code is on it.',
+        ],
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+          { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
+          { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
+          { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
         ],
       },
     ],
@@ -2550,6 +2665,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { q: 'Can the ABA assessment or BCBA supervision be done by telehealth with UnitedHealthcare?', a: 'On commercial plans Optum allows ABA telehealth only for 97155, 97156 and 97157. That covers BCBA supervision of the technician (97155), but not the assessment codes 97151 and 97152. The provider must have completed Optum\'s virtual-visits attestation, and claims carry POS 02 or POS 10.' },
       { q: 'How fast must UnitedHealthcare pay an ABA claim in Virginia?', a: 'For plans Virginia regulates: within 40 days of receiving a clean claim, with any defect flagged within 30 days (Va. Code § 38.2-3407.15). A clean claim must name the billing and rendering providers with their identification numbers.' },
       { q: 'Does UnitedHealthcare require taxonomy on the claim in Virginia?', a: 'Yes. Its 2026 administrative guide requires a valid billing NPI, rendering NPI and relevant taxonomy code(s) on all claims and encounters.' },
+      { q: 'Does UnitedHealthcare (Optum) require graphs for an ABA reauthorization?', a: 'Optum requires progress measured the same way as baseline for every target — mastery rates, change scores and updated standardized adaptive measures — but does not specifically require graphs. Telehealth (97155, 97156, 97157 only) must be billed with POS 02 or 10, and flagged to the Optum care advocate at authorization.' },
     ],
   },
 
@@ -2665,6 +2781,16 @@ export const virginiaPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'Va. Code § 38.2-3407.15 — ethics and fairness in carrier business practices (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3407.15/' },
+        ],
+      },
+      {
+        h2: 'Anthem reauthorization, code set and documentation rules',
+        body: [
+          'Reauthorization: Anthem’s ABA provider resource guide (June 2025) sets no reauthorization data list and no graph requirement; medical necessity is decided against the clinical criteria named on Anthem’s precertification list for the member’s product, so what a continued-review packet must show — and whether progress must be graphed — is the reviewer’s call. Ask the Anthem behavioral health reviewer at the initial request what data, measures and format the next review will need. What the guide does fix is documentation: every record entry must be complete, dated and signed with credentials, entered at or shortly after the service and not later than 30 days, with the signature dated within 30 days of the date of service.',
+          'Code set and supervision: the guide lists the ABA Category I CPT codes 97151–97158 and Category III 0362T and 0373T, and tells providers to bill industry-standard CPT, HCPCS or revenue codes and to check the provider contract for any specific billing requirement — it lists no HCPCS H-code for ABA. Claims carry a licensure modifier (HM, HN or HO) and, for technician-delivered services, the supervising BCBA or other QHP in box 31. A QHP billing 97155 may add 97153 only when both are face to face with the patient and the QHP is directing the technician; no supervision ratio or technician cap is published.',
+        ],
+        cites: [
+          { title: 'Anthem — ABA provider resource guide (MULTI-BCBS-CM-084583-25, June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' },
         ],
       },
     ],
@@ -2830,6 +2956,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { q: 'Does Anthem cover all of Virginia?', a: 'No. Anthem and its affiliate HealthKeepers, Inc. serve all of Virginia except the City of Fairfax, the Town of Vienna, and the area east of State Route 123. A family in that Northern Virginia sliver holding a Blue card is on a different plan.' },
       { q: 'Who is allowed to deliver covered ABA in Virginia?', a: 'A board certified behavior analyst who is also licensed by the Virginia Board of Medicine, or someone under that person\'s supervision — and the practitioner prescribing the ABA must be independent of the ABA provider. Anthem\'s multi-state ABA guide lists a broader set of approved providers; in Virginia the statute is the narrower and controlling standard.' },
       { q: 'How fast must Anthem Blue Cross and Blue Shield pay an ABA claim in Virginia?', a: 'For plans Virginia regulates: within 40 days of receiving a clean claim, with any defect flagged within 30 days (Va. Code § 38.2-3407.15). A clean claim must name the billing and rendering providers with their identification numbers.' },
+      { q: 'Does Anthem require graphs for an ABA reauthorization?', a: 'Anthem’s ABA provider resource guide sets no graph or data-format requirement for reviews — ask the Anthem behavioral health reviewer what the next review needs. It does require dated, signed documentation entered within 30 days, and lists only CPT 97151–97158, 0362T and 0373T for ABA.' },
     ],
   },
 };
