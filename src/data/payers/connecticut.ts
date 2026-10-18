@@ -54,6 +54,7 @@ const S: Record<string, PayerSource> = {
   aetnaNPC: { title: 'Aetna — Provider and facility participation criteria (8100606-01-01, 5/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' },
   aetnaCPB648: { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
   aetnaOM: { title: 'Aetna provider manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+  aetnaCPB: { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026; experimental for non-ASD indications; code table)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
   aetnaTele: { title: 'Aetna — Telemedicine and Direct Patient Contact Payment Policy (ABA code table, Commercial vs. Medicare columns; last review June 2021)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pdf/telemedicine.pdf' },
   en0499: { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
   cignaARG: { title: 'Cigna / Evernorth autism resource guide (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
@@ -684,6 +685,13 @@ export const connecticutPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.aetnaOM, S.s38a816, S.asdFee],
       },
+      {
+        h2: 'Claim filing, telehealth billing and reauthorization',
+        body: [
+          'Billing details from Aetna’s own documents. Codes: Aetna’s ABA policy (CPB 0554) lists only CPT 97151–97158, 0362T and 0373T and no HCPCS code, so H0031, H0032 or H2019 are not ABA codes at Aetna. Telehealth: its Telemedicine and Direct Patient Contact Payment Policy names modifiers GT, 95 and FR but no place-of-service code, and none of Aetna’s documents says the precertification must flag telehealth; ask which POS (02 or 10) it wants when you precertify. Filing: the Health Care Professional Toolkit (6/26) prints no timely-filing deadline, so your agreement sets it, and its definition of a clean claim excludes any claim that involves coordination of benefits. Reauthorization: the ABA medical necessity guide calls for "Repeated measurement with standardized measures to assess progress" and says "A member’s progress is to be evaluated every six months"; it does not mention graphs. Supervision: the Network Participation Criteria set one hour of face-to-face supervision per 10 hours of paraprofessional ABA and publish no cap on technicians per BCBA.',
+        ],
+        cites: [S.aetnaCPB, S.aetnaTele, S.aetnaOM, S.aetnaGuide, S.aetnaNPC],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (§ 38a-514b applies) or self-funded ERISA (plan document governs).' },
@@ -692,10 +700,10 @@ export const connecticutPayers: Record<string, PayerConfig> = {
       { title: 'Standardized functional measure', desc: 'Aetna wants one from the past 12 months (for example Vineland-3, ABAS, VB-MAPP or ABLLS).' },
       { title: 'Order from a licensed clinician', desc: 'The mandate covers ABA ordered by a licensed physician, psychologist or LCSW.' },
     ],
-    sources: [S.aetnaGuide, S.aetnaPrecert, S.aetnaNPC, S.aetnaCPB648, S.aetnaOM, S.aetnaTele, S.s38a514b, S.s38a488b, S.s38a526a, S.s38a591d, S.s38a816, S.ch382a, S.dphBA, S.bacbLic, S.s19a906, S.erisa, S.handbook, S.cfr433, S.tricare, S.champva, S.asdFee],
+    sources: [S.aetnaGuide, S.aetnaPrecert, S.aetnaNPC, S.aetnaCPB648, S.aetnaOM, S.aetnaTele, S.s38a514b, S.s38a488b, S.s38a526a, S.s38a591d, S.s38a816, S.ch382a, S.dphBA, S.bacbLic, S.s19a906, S.erisa, S.handbook, S.cfr433, S.tricare, S.champva, S.asdFee, S.aetnaCPB],
     deliveryRules: {
       supervision: {
-        value: 'Aetna’s participation criteria (5/26): ABA must be “provided directly or supervised by individuals licensed by the state or certified by the Behavior Analyst Certification Board”; “A minimum of one hour of face-to-face supervision” of an unlicensed or noncertified paraprofessional “for each 10 hours of applied behavior analysis,” plus the supervisor “onsite with the child at least one hour a month.” “All BCBAs, BCaBAs and paraprofessionals must meet state requirements.” For insured Connecticut plans, the statute sets the same 1-in-10 face-to-face standard and requires the supervisor to be a licensed behavior analyst, physician or psychologist.',
+        value: 'Aetna’s participation criteria (5/26): ABA must be “provided directly or supervised by individuals licensed by the state or certified by the Behavior Analyst Certification Board”; “A minimum of one hour of face-to-face supervision” of an unlicensed or noncertified paraprofessional “for each 10 hours of applied behavior analysis,” plus the supervisor “onsite with the child at least one hour a month.” “All BCBAs, BCaBAs and paraprofessionals must meet state requirements.” For insured Connecticut plans, the statute sets the same 1-in-10 face-to-face standard and requires the supervisor to be a licensed behavior analyst, physician or psychologist.' + ' Aetna’s guide and Network Participation Criteria publish no cap on the number of technicians one BCBA may supervise.',
         status: 'verified',
         cites: [S.aetnaNPC, S.s38a514b],
       },
@@ -758,7 +766,7 @@ export const connecticutPayers: Record<string, PayerConfig> = {
         cites: [S.aetnaPrecert, S.s38a514b],
       },
       telehealth: {
-        value: 'Aetna’s Telemedicine and Direct Patient Contact Payment Policy marks 97151, 97153, 97155, 97156 and 97157 as eligible by telehealth for commercial plans, with modifier GT, 95 or FR. 97152, 97154 and 97158 are marked for Medicare Advantage only. The posted policy shows a last review of June 2021, so treat the list as perishable. Aetna’s manual (6/26) says Aetna Behavioral Health “offers telehealth services to all commercial fully insured members and to all commercial self-insured plan sponsors, unless those self-insured plan sponsors opt out.”' + CT_TELE_INSURANCE,
+        value: 'Aetna’s Telemedicine and Direct Patient Contact Payment Policy marks 97151, 97153, 97155, 97156 and 97157 as eligible by telehealth for commercial plans, with modifier GT, 95 or FR. 97152, 97154 and 97158 are marked for Medicare Advantage only. The posted policy shows a last review of June 2021, so treat the list as perishable. Aetna’s manual (6/26) says Aetna Behavioral Health “offers telehealth services to all commercial fully insured members and to all commercial self-insured plan sponsors, unless those self-insured plan sponsors opt out.”' + CT_TELE_INSURANCE + ' Aetna’s Telemedicine and Direct Patient Contact Payment Policy (posted policy shows last review June 2021) marks 97151, 97153, 97155, 97156 and 97157 as telehealth-eligible on commercial plans with modifier GT, 95 or FR; neither it nor the provider toolkit names a telehealth place-of-service code or says the precertification must flag telehealth.',
         status: 'plan-dependent',
         cites: [S.aetnaTele, S.aetnaOM, S.s38a526a],
         verifyVia: 'Availity or the precertification line on the card: ask whether the plan is fully insured in Connecticut or self-funded (and opted out of telehealth), and which ABA codes Aetna pays by telehealth.',
@@ -780,6 +788,9 @@ export const connecticutPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Aetna accept H0031, H0032 or H2019 for ABA?', a: 'No. Aetna’s ABA policy lists only CPT 97151–97158, 0362T and 0373T.' },
+      { q: 'Does Aetna require graphs for an ABA reauthorization?', a: 'Its ABA guide asks for repeated measurement with standardized measures and a progress evaluation every six months; it does not mention graphs.' },
+      { q: 'What is Aetna’s timely filing limit for ABA claims?', a: 'Aetna’s provider toolkit (6/26) does not print one; the filing limit is in your Aetna agreement.' },
       { q: 'Does Aetna cover ABA therapy in Connecticut?', a: 'Yes, under its national ABA guide for ASD, with Connecticut’s § 38a-514b / § 38a-488b mandate added for fully insured plans. Self-funded employer plans follow their own documents.' },
       { q: 'Does the Aetna ABA assessment need precertification in Connecticut?', a: 'Yes. 97151 and 97152 are on Aetna’s behavioral health precertification list along with every ABA treatment code.' },
       { q: 'What does Aetna pay for ABA in Connecticut?', a: 'Aetna publishes no ABA rates; payment follows the rates in your agreement. Insured claims must be paid within 20 days electronic or 60 days paper under § 38a-816(15). Connecticut Medicaid’s 97153 rate ($14.00 per 15 minutes) is the only public benchmark.' },
@@ -847,6 +858,13 @@ export const connecticutPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.ebhAdmin, S.s38a816, S.asdFee],
       },
+      {
+        h2: 'Claim filing, telehealth billing and reauthorization',
+        body: [
+          'Billing details from Evernorth’s own documents. Codes: "All ABA services must be billed with CPT codes 97151–97158, 0362T, and 0373T ONLY," so H-codes are not accepted for ABA. Telehealth: "All ABA CPT codes are covered telehealth services"; on the CMS-1500 use "Modifier 95 in Field 24-D to specify telehealth" and "02 for Place of Service in Field 24-B"; neither document says the authorization must flag telehealth. Filing: claims must be "submitted within 90 days of the date of service or as otherwise defined in your Provider Agreement" unless state law gives longer; for coordination of benefits the 90 days run from the primary payer’s EOB or EOP; a claim Evernorth returns for more information gets a fresh 90 days from its request; corrected claims carry frequency code 7 (replace) or 8 (void) in field 22, without a "Corrected Claim" stamp. Reauthorization (EN0499): an updated treatment plan; "Quantitative baseline, interim and current data" with the dates they were collected for every behavior and skill across all settings; current data collected within 60 days before the continued-treatment start date and within 60 days before the request is received; a standardized assessment no more than one year before the start date; and a written plan to address barriers if progress stalls. EN0499 asks for dated data, not graphs by name. Supervision runs one to two hours per ten hours of direct treatment, with no published cap on technicians per supervisor.',
+        ],
+        cites: [S.cignaARG, S.ebhAdmin, S.en0499],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (§ 38a-514b and Evernorth’s CT addendum apply) or self-funded ERISA (plan document governs).' },
@@ -858,7 +876,7 @@ export const connecticutPayers: Record<string, PayerConfig> = {
     sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.s38a514b, S.s38a488b, S.s38a526a, S.s38a591d, S.s38a816, S.ch382a, S.dphBA, S.bacbLic, S.s19a906, S.erisa, S.handbook, S.cfr433, S.tricare, S.champva, S.asdFee],
     deliveryRules: {
       supervision: {
-        value: 'Case supervision by a BCBA, a Licensed Behavior Analyst, or an independently licensed mental health professional with ABA training. Direct plus indirect case supervision “consistent with the general accepted standard of care of one to two hours per ten hours of direct treatment,” and at 10 hours a week or less, at least one to two hours a week of direct case supervision. Insured Connecticut plans also require a licensed supervisor with at least 1 hour face-to-face per 10 hours.',
+        value: 'Case supervision by a BCBA, a Licensed Behavior Analyst, or an independently licensed mental health professional with ABA training. Direct plus indirect case supervision “consistent with the general accepted standard of care of one to two hours per ten hours of direct treatment,” and at 10 hours a week or less, at least one to two hours a week of direct case supervision. Insured Connecticut plans also require a licensed supervisor with at least 1 hour face-to-face per 10 hours.' + ' EN0499 publishes no cap on the number of technicians one supervisor may oversee.',
         status: 'verified',
         cites: [S.en0499, S.s38a514b],
       },
@@ -917,9 +935,9 @@ export const connecticutPayers: Record<string, PayerConfig> = {
         cites: [S.cignaARG, S.en0499, S.s38a514b],
       },
       telehealth: {
-        value: '“All ABA CPT codes are covered telehealth services” (autism resource guide), and the line-of-sight requirement “does not apply to telehealth services.”' + CT_TELE_INSURANCE,
+        value: '“All ABA CPT codes are covered telehealth services” (autism resource guide), and the line-of-sight requirement “does not apply to telehealth services.”' + CT_TELE_INSURANCE + ' On the claim, Evernorth wants "Modifier 95 in Field 24-D to specify telehealth" and "02 for Place of Service in Field 24-B"; its documents do not say the authorization must flag telehealth.',
         status: 'verified',
-        cites: [S.cignaARG, S.en0499, S.s38a526a],
+        cites: [S.cignaARG, S.en0499, S.s38a526a, S.ebhAdmin],
       },
       authTurnaround: {
         value: turnaround('Cigna/Evernorth'),
@@ -937,6 +955,9 @@ export const connecticutPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Cigna accept H-codes for ABA?', a: 'No. Evernorth says all ABA services must be billed with CPT 97151–97158, 0362T and 0373T only.' },
+      { q: 'Does Cigna require graphs for ABA reassessments?', a: 'EN0499 asks for dated quantitative baseline, interim and current data (current data within 60 days) and a standardized assessment within a year; it does not name graphs.' },
+      { q: 'What is Cigna’s timely filing limit for ABA claims?', a: '90 days from the date of service unless your agreement or state law allows longer; for secondary claims, 90 days from the primary payer’s EOB.' },
       { q: 'Does Cigna cover ABA therapy in Connecticut?', a: 'Yes, under national policy EN0499 for ASD, with Connecticut’s mandate added for fully insured plans. Self-funded employer plans follow their own documents.' },
       { q: 'Does the Cigna ABA assessment need prior authorization in Connecticut?', a: 'No, for 97151, 97152 and 0362T with an autism diagnosis when the provider is independently licensed or a BCBA. PA starts at treatment.' },
       { q: 'What does Cigna pay for ABA in Connecticut?', a: 'Cigna publishes no ABA rates. Your fee schedule is Exhibit A of your Evernorth Provider Agreement; call 800.926.2273 with questions. Connecticut Medicaid’s 97153 rate ($14.00 per 15 minutes) is the only public benchmark.' },
@@ -1006,6 +1027,13 @@ export const connecticutPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.optumNNM, S.optumReimb, S.s38a816, S.asdFee],
       },
+      {
+        h2: 'Claim filing, telehealth billing and reauthorization',
+        body: [
+          'Billing details from Optum’s own documents. Codes: the commercial ABA reimbursement policy (2022RP501A) covers ABA billed "with CPT codes 97151-97158" plus 0362T and 0373T, each line with its credential modifier; it lists no HCPCS H-code. Telehealth: claims "must include either POS 02 or POS 10" (10 when the member is at home), and "Optum will not reimburse for services billed with only telehealth modifiers"; modifiers 93, 95, FQ, GT and GQ are optional, and commercial ABA telehealth covers only 97155, 97156 and 97157. Filing: claims are due "no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan," and "Any corrections or additions to a claim should be made within 90 days of initial claim receipt." Payment: clean claims with any required authorization are generally paid within 45 calendar days of receipt or as state and federal law requires, which may exclude claims needing a coordination-of-benefits determination. Reauthorization (Supplemental Clinical Criteria): each continued-service review needs progress for every target "including the same modes of measurement that were utilized for baseline," with "rate and percentage of mastered programs, rates of mastered targets, change scores for any outcome measures, updated standardized adaptive measures"; inadequate progress over a 6-month period requires an analysis and modified interventions. Graphs are not named. Supervision: "direct case supervision is required 1–2 hours for every 10 hours of direct treatment per week," with no published cap on technicians per BCBA.',
+        ],
+        cites: [S.optumReimb, S.optumTele, S.optumNNM, S.optumSCC],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (§ 38a-514b applies) or self-funded ERISA (plan document governs).' },
@@ -1017,7 +1045,7 @@ export const connecticutPayers: Record<string, PayerConfig> = {
     sources: [S.optumSCC, S.optumSM, S.optumTele, S.optumReimb, S.optumNNM, S.s38a514b, S.s38a488b, S.s38a526a, S.s38a591d, S.s38a816, S.ch382a, S.dphBA, S.bacbLic, S.s19a906, S.erisa, S.handbook, S.cfr433, S.tricare, S.champva, S.asdFee],
     deliveryRules: {
       supervision: {
-        value: '“Consistent with CASP standards of care, direct case supervision is required 1–2 hours for every 10 hours of direct treatment per week.” Technicians work under a BCBA or licensed behavioral health clinician and “should be registered behavior technicians (RBT) or another appropriately certified behavior technician.” For Connecticut, Optum’s state-mandate entry applies at least one hour of face-to-face supervision per ten hours by a licensed behavior analyst, physician or psychologist.',
+        value: '“Consistent with CASP standards of care, direct case supervision is required 1–2 hours for every 10 hours of direct treatment per week.” Technicians work under a BCBA or licensed behavioral health clinician and “should be registered behavior technicians (RBT) or another appropriately certified behavior technician.” For Connecticut, Optum’s state-mandate entry applies at least one hour of face-to-face supervision per ten hours by a licensed behavior analyst, physician or psychologist.' + ' Optum’s criteria publish no cap on the number of technicians per BCBA.',
         status: 'verified',
         cites: [S.optumSCC, S.optumSM],
       },
@@ -1078,7 +1106,7 @@ export const connecticutPayers: Record<string, PayerConfig> = {
         cites: [S.optumSCC, S.s38a514b],
       },
       telehealth: {
-        value: 'Optum’s commercial telehealth guide (September 2025): “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157.” The 97151 assessment and technician 97153 are not on the list. Claims must carry POS 02 or 10. Optum’s criteria add that telehealth is meant to “supplement,” not “supplant,” in-person service.' + CT_TELE_INSURANCE + ' Ask Optum how it applies the three-code list to a fully insured Connecticut plan.',
+        value: 'Optum’s commercial telehealth guide (September 2025): “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157.” The 97151 assessment and technician 97153 are not on the list. Claims must carry POS 02 or 10. Optum’s criteria add that telehealth is meant to “supplement,” not “supplant,” in-person service.' + CT_TELE_INSURANCE + ' Ask Optum how it applies the three-code list to a fully insured Connecticut plan.' + ' Optum’s guide makes modifiers 93, 95, FQ, GT and GQ optional; the POS is what marks the claim as telehealth, and the authorization does not need a telehealth flag in any Optum document read.',
         status: 'verified',
         cites: [S.optumTele, S.optumSCC, S.s38a526a],
       },
@@ -1098,6 +1126,9 @@ export const connecticutPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare accept H0031 or H2019 for ABA?', a: 'No. Optum’s commercial ABA policy uses CPT 97151–97158, 0362T and 0373T with credential modifiers.' },
+      { q: 'Does Optum require graphs for an ABA reauthorization?', a: 'The criteria ask for progress measured the same way as baseline, mastery rates, change scores and updated standardized adaptive measures; graphs are not named.' },
+      { q: 'What is UnitedHealthcare’s timely filing limit for ABA claims?', a: 'Optum: 90 calendar days from the date of service unless state law or the plan allows longer, with corrections within 90 days of the first claim’s receipt.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in Connecticut?', a: 'Yes, under Optum’s ABA criteria for ASD, with Connecticut’s mandate added for fully insured plans. Optum’s State Mandates document has a Connecticut entry.' },
       { q: 'Is UnitedHealthcare a HUSKY (Connecticut Medicaid) plan?', a: 'No. Connecticut Medicaid has no managed care plans. HUSKY ABA is authorized by Carelon BH CT and paid fee-for-service.' },
       { q: 'Can ABA be delivered by telehealth with UnitedHealthcare in Connecticut?', a: 'Optum’s commercial guide allows only 97155, 97156 and 97157 by telehealth, billed POS 02 or 10. Fully insured Connecticut plans also fall under § 38a-526a, which bars excluding a service solely because it is delivered by telehealth when telehealth is appropriate, so ask Optum how it applies the list.' },

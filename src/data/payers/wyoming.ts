@@ -6,9 +6,11 @@ import type { PayerConfig, PayerSource } from './types.js';
    "I ACCEPT" button on /portal/user-agreement) to plain curl. wyoleg.gov serves the compiled
    Title 26 and Title 33 PDFs. The Insurance Department's Bulletin 01-2019 is a scanned PDF on
    Google Drive linked from doi.wyo.gov/legal/memorandum (read as page images).
-   BCBSWY's medical policies live on Highmark's medpolicy site (securecms.highmark.com), whose
-   search is JavaScript-only and which returned a TLS-chain error / 503 to every fetch: the BCBSWY
-   ABA medical policy was NOT read, and every BCBSWY clinical fact below is unverified for that reason.
+   BCBSWY’s medical policies live on Highmark’s medpolicy site (securecms.highmark.com). The server
+   sends an incomplete certificate chain (add the Entrust OV TLS Issuing RSA CA 2 intermediate) and
+   the search is JavaScript, but its JSON endpoint answers curl:
+   /content/medpolicy/en/wyoming/all/search/jcr:content/search/quick-results.results.json?q=<term>.
+   The ABA policy is 15.01.002 (read 2026-10-18); its attachment PDFs 404.
    Wyoming Medicaid has no medical managed care organizations; the only managed care entity is the
    Care Management Entity (a single PAHP run by Magellan) for high-fidelity wraparound, which does
    not cover ABA — so this state has one Medicaid guide and no MCO guides. */
@@ -31,6 +33,8 @@ const S: Record<string, PayerSource> = {
   doiMemos: { title: 'Wyoming Insurance Department — Memoranda and Bulletins index (Bulletin 01-2019 listed)', url: 'https://doi.wyo.gov/legal/memorandum' },
   title26: { title: 'Wyoming Statutes Title 26 (Insurance Code) — 26-15-124 claim payment, 26-20-701 mental health parity, 26-34-133 HMO COB, 26-55 prior authorization, 26-56 credentialing', url: 'https://wyoleg.gov/statutes/compress/title26.pdf' },
   hb14: { title: 'Wyoming HB0014, Enrolled Act No. 14 (2024) — Ensuring Transparency in Prior Authorization Act (eff. 7/1/2024; 26-55-112 eff. 1/1/2026)', url: 'https://wyoleg.gov/2024/Enroll/HB0014.pdf' },
+  telligenPM: { title: 'Telligen — Wyoming Medicaid Utilization Management Provider Manual (Version 5, 04/01/2026; posted September 2026)', url: 'https://wymedicaid.telligen.com/wp-content/uploads/2026/09/Wyoming-Provider-Manual_TelligenV5-04012026.pdf' },
+  telligenABA: { title: 'Telligen — New ABA Drop Down Option (Qualitrac provider notice, September 15, 2026)', url: 'https://wymedicaid.telligen.com/new-aba-drop-down-option/' },
   cfr447: { title: '42 CFR 447.45 — Medicaid timely claims payment (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' },
   cfr440: { title: '42 CFR 440.230(e) — State Medicaid agency prior-authorization timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-440/subpart-B/section-440.230' },
   cfr440130: { title: '42 CFR 440.130(c) — Medicaid “preventive services” definition (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-440/subpart-A/section-440.130' },
@@ -38,7 +42,9 @@ const S: Record<string, PayerSource> = {
   erisa: { title: '29 CFR 2560.503-1 — ERISA claims procedure (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
   tricare: { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
   champva: { title: '38 CFR 17.270 — CHAMPVA is the last payer', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
-  aetnaCPB: { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 11/26/2025; experimental for non-ASD indications)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+  cobRule: { title: 'Wyoming Insurance Department Rules ch. 10 (Coordination of Benefits), § 10-3 — Order of Benefit Determination (amended eff. 9/13/2023; LII copy)', url: 'https://www.law.cornell.edu/regulations/wyoming/044-10-Wyo-Code-R-SS-10-3' },
+  cobDefs: { title: 'Wyoming Insurance Department Rules ch. 10, § 10-2 — Definitions and Procedures (what counts as a “plan”; LII copy)', url: 'https://www.law.cornell.edu/regulations/wyoming/044-10-Wyo-Code-R-SS-10-2' },
+  aetnaCPB: { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026; experimental for non-ASD indications)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
   aetnaCPB648: { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
   aetnaGuide: { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
   aetnaPrecert: { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
@@ -55,7 +61,8 @@ const S: Record<string, PayerSource> = {
   optumNNM: { title: 'Optum National Network Manual (BH02330, effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
   bcbsPM: { title: 'Blue Cross Blue Shield of Wyoming — Provider Policies and Procedures Manual (revised May 28, 2026; posted as effective 6/16/26)', url: 'https://www.bcbswy.com/wp-content/uploads/BCBSWY-Provider-Manual-Effective-061626.pdf' },
   bcbsPA: { title: 'Blue Cross Blue Shield of Wyoming — Prior Authorization Service Request / CPT Authorization Codes page', url: 'https://www.bcbswy.com/providers/preadmin/precert/' },
-  bcbsPolicy: { title: 'Blue Cross Blue Shield of Wyoming — Medical Policy (hosted on Highmark’s Wyoming policy search; not retrievable this run)', url: 'https://www.bcbswy.com/providers/policy/' },
+  bcbsPolicy: { title: 'Blue Cross Blue Shield of Wyoming — Medical Policy index (links to Highmark’s Wyoming medical policy search)', url: 'https://www.bcbswy.com/providers/policy/' },
+  bcbsABA: { title: 'Blue Cross Blue Shield of Wyoming Medical Policy 15.01.002 — Applied Behavioral Analysis (effective June 16, 2025; last revision April 2025; all commercial lines)', url: 'https://securecms.highmark.com/content/medpolicy/en/wyoming/all/policies/Therapy/15-01-002/15-01-002-002.html' },
   bcbsCred: { title: 'Blue Cross Blue Shield of Wyoming — Credentialing Guidelines (updated 5/2024)', url: 'https://www.bcbswy.com/providers/credentialing/credentialing-guidelines/' },
 };
 
@@ -82,7 +89,7 @@ const WY_TAT_VERIFY = (carrier: string) =>
   'At benefits verification ask whether the plan is fully insured (Wyoming-regulated) or self-funded (ERISA), whether ' + carrier + ' treats ABA as an urgent behavioral health service under W.S. 26-55-102(a)(x), and what authorization length and reauthorization lead time it will use.';
 
 const WY_COB_VALUE = (carrier: string) =>
-  'No Wyoming coordination-of-benefits rule for insurers was read this run (W.S. 26-34-133 only says an HMO’s COB provisions must be "consistent with the coordination of benefits provisions that are in general use in the state"), so the order for a child on two parents’ plans comes from the plans themselves; most use the birthday rule (BCBSWY’s provider manual does). If the child also has Wyoming Medicaid, ' + carrier + ' pays first: Medicaid "is the payer of last resort" and pays no more than the remaining patient responsibility (42 CFR 433.139; Wyoming Medicaid CMS-1500 manual ch. 7). TRICARE pays after this plan (10 U.S.C. 1079(i)(1)); CHAMPVA is the last payer (38 CFR 17.270).';
+  'Wyoming’s Insurance Department rule on coordination of benefits (Rules ch. 10, § 10-3, amended effective 9/13/2023) sets the order: the plan covering the person "other than as a dependent" is primary; for a child whose parents "are married or are living together," "The plan of the parent whose birthday falls earlier in the calendar year is the primary plan" (same birthday: the plan that has covered a parent longest). For divorced or separated parents a court decree assigning health coverage decides; with none, the custodial parent’s plan pays first, then the custodial parent’s spouse’s, then the non-custodial parent’s, then that parent’s spouse’s. If the plans cannot agree within 45 calendar days after receiving everything needed to pay, they pay in equal shares. Self-funded ERISA plans are not bound by the rule and follow their plan documents. If the child also has Wyoming Medicaid, ' + carrier + ' pays first: Medicaid "is the payer of last resort" and pays no more than the remaining patient responsibility (42 CFR 433.139; Wyoming Medicaid CMS-1500 manual ch. 7). TRICARE pays after this plan (10 U.S.C. 1079(i)(1)); CHAMPVA is the last payer (38 CFR 17.270).';
 
 const WY_COB_VERIFY = (carrier: string) =>
   'Ask ' + carrier + ' at benefits verification for the member’s coordination-of-benefits order (and whether the plan uses the birthday rule), and record every other coverage the child has.';
@@ -141,13 +148,14 @@ export const wyomingPayers: Record<string, PayerConfig> = {
         body: [
           'Wyoming Medicaid does not require prior authorization before ABA starts. The downloadable fee schedule (run date October 1, 2026) carries a PRIOR_AUTH flag on about 1,450 code lines; none of 97151–97158, 0362T or 0373T is flagged. The catch is the behavioral-health service threshold in manual section 6.7. Codes 97151–97158 sit in the threshold code list alongside psychotherapy and therapy codes, "all modalities on same date of service count as 1 visit," and from 2021 dates of service the threshold "applies to all Members," under-21s included. Section 12.8.1: "For Medicaid Members with dates of service in excess of thirty (30) per calendar year, a prior authorization is required, which can be obtained through Telligen." A child in ABA four or five days a week reaches 30 dates in six to eight weeks, so request the Telligen authorization before then. Visits with different treating providers on the same day count separately.',
           'Telligen (833-610-1057) wants a clinical assessment, the most recent treatment plan ("must be reviewed every 90 days"), and progress notes showing movement toward the plan’s goals. Requests should arrive before the dates of service; "Any requests to Telligen that are for dates of service which are past timely filing will not be reviewed." An administrative denial can be reconsidered if new information arrives "within thirty (30) days of the denial"; after a reconsideration upholds a denial, the provider appeals to the state by email to the Utilization Management Coordinator, citing the Telligen reference number. One wrinkle: the threshold section’s template language describes services as "rehabilitative in nature," written for adult behavioral health; ABA has been an EPSDT preventive service since July 2024, so frame requests around EPSDT medical necessity.',
+          'Telligen’s own Utilization Management Provider Manual (Version 5, 04/01/2026) sets the clock for "Outpatient Behavioral Health services over the threshold limits": submission "Prior to meeting the Threshold is preferred," services "provided after the threshold limit has been reached but prior to receiving an authorization are provided at the provider’s risk," and the review turnaround is "3 Business Days from Submission" (expedited requests: 1 business day). If the information is insufficient Telligen suspends the case and asks for records; with no answer in three business days it sends a reminder, and after three more it issues a technical denial. Once the records arrive the review finishes within 1–3 business days. A peer-to-peer may be requested within 14 calendar days of a medical-necessity denial, and a reconsideration within 30 calendar days of the denial letter. Since September 15, 2026, Qualitrac has an ABA option: submit new cases with Review Type "Behavioral Health Outpatient" and Type of Service "Applied Behavioral Analysis Therapy."',
         ],
-        cites: [S.cms1500, S.fee, S.spa],
+        cites: [S.cms1500, S.fee, S.spa, S.telligenPM, S.telligenABA],
       },
       {
         h2: 'What does Wyoming Medicaid pay for ABA?',
         body: [
-          'Rates rose on July 1, 2026. A provider bulletin (deployed August 7, 2026, reprinted in the manual’s notifications log) gives 97153 by an RBT moving from $10.25 to $12.30 and 97155 by a BCBA from $20.50 to $24.60 per 15-minute unit, and the October 1, 2026 fee schedule shows the full set: 97151 $24.60; 97152 $12.30; 97153 $12.30; 97154 $4.04; 97155 $24.60; 97156 $24.60; 97157 $8.20; 97158 $9.31; 0362T $12.30; 0373T $12.30. The schedule also carries price rows for ages 21 and over and separate, higher rows for 97151–97153 under the four developmental-disability waiver benefit plans ($32.27, $20.56 and $19.23); the state plan and manual limit the EPSDT ABA benefit itself to ages 0–20.',
+          'Rates rose on July 1, 2026. A provider bulletin (deployed August 7, 2026, reprinted in the manual’s notifications log) gives 97153 by an RBT moving from $10.25 to $12.30 and 97155 by a BCBA from $20.50 to $24.60 per 15-minute unit, and the October 1, 2026 fee schedule shows the full set: 97151 $24.60; 97152 $12.30; 97153 $12.30; 97154 $4.04; 97155 $24.60; 97156 $24.60; 97157 $8.20; 97158 $9.31; 0362T $12.30; 0373T $12.30. The schedule also carries price rows for ages 21 and over and separate, higher rows for 97151–97153 under the four developmental-disability waiver benefit plans ($32.27, $20.56 and $19.23); the state plan and manual limit the EPSDT ABA benefit itself to ages 0–20. ABA is billed only with CPT codes: the manual’s ABA code table (12.7.2) lists 97151–97158, 0362T and 0373T and no HCPCS H-code. H0031 (mental health assessment), H2019 (therapeutic behavioral services) and H2014 (skills training) do sit on the fee schedule, but as other behavioral-health services, not ABA.',
           'The same bulletin settles a billing question that drives the revenue model: "The appropriate CPT code is determined by the service being performed, not solely by the credentials of the rendering provider." A BCBA delivering routine treatment from an established protocol bills 97153; 97155 "should be billed only when a BCBA or other qualified healthcare professional is actively assessing, modifying, or adapting the treatment protocol during a face-to-face session." The manual adds that indirect work (goal writing, data analysis, care coordination, staff training without the patient) is bundled, and "The only code that can be billed for indirect services is 97151."',
         ],
         cites: [S.fee, S.feePage, S.cms1500],
@@ -163,8 +171,8 @@ export const wyomingPayers: Record<string, PayerConfig> = {
       {
         h2: 'Claims operations: filing, payment, NPIs, telehealth, appeals',
         body: [
-          'Timely filing is 12 months: "The Provider must submit a clean claim to Medicaid within 12 months (365 days) of the date of service," with six months from a retroactive-eligibility determination, and timely filing "will not be waived when a claim is denied due to Provider billing errors or involving third party liability." Wyoming publishes no shorter payment promise of its own; federal rule requires the state to pay 90% of clean practitioner claims within 30 days of receipt and 99% within 90 days. Span billing is not allowed for behavioral health: each date of service goes on its own line.',
-          'Every enrolled clinician is a rendering provider. "Those Provider types able to enroll with Wyoming Medicaid, even if working under the supervision of another practitioner, must enroll and be noted on the claim as the rendering Provider," with the individual NPI and taxonomy in box 24J, so an RBT’s 97153 line carries the RBT’s own NPI under the BCBA group. Telehealth uses the same codes and rates with modifier GT or 95, real-time audio and video only. The manual does not mention electronic visit verification anywhere. Claim appeals go to Provider Services, (888) 996-6223, on the First Level Appeal and Grievance Request Form, and a second-level form exists for disputing that decision.',
+          'Timely filing is 12 months: "The Provider must submit a clean claim to Medicaid within 12 months (365 days) of the date of service," with six months from a retroactive-eligibility determination, and timely filing "will not be waived when a claim is denied due to Provider billing errors or involving third party liability." Wyoming publishes no shorter payment promise of its own; federal rule requires the state to pay 90% of clean practitioner claims within 30 days of receipt and 99% within 90 days. Span billing is not allowed for behavioral health: each date of service goes on its own line. Corrections run on two clocks: "Providers may resubmit any denied claim or line within 12 months (365 days) of the date of service" and "may adjust any paid claim within six (6) months (180 days) of the date of payment" (adjustments that lower the payment have no limit; a denied claim cannot be adjusted, only resubmitted). Medicare crossovers get 12 months from the date of service or 6 months from the Medicare EOMB, whichever is later. Claims are processed weekly: "After claims have been processed weekly, Medicaid posts a Medicaid proprietary (paper) Remittance Advice (RA) to the Provider Portal," and the manual says to check claim status with Provider Services if payment has not arrived within 30 days of submission. No submission cut-off day or time is published.',
+          'Every enrolled clinician is a rendering provider. "Those Provider types able to enroll with Wyoming Medicaid, even if working under the supervision of another practitioner, must enroll and be noted on the claim as the rendering Provider," with the individual NPI and taxonomy in box 24J, so an RBT’s 97153 line carries the RBT’s own NPI under the BCBA group. Telehealth uses the same codes and rates with modifier GT or 95, real-time audio and video only. Referring provider: the manual says Wyoming Medicaid "requires that ordering, referring, or prescribing (ORP) Providers be documented on claims" and that "All ORP Providers and attending Providers must be enrolled with Wyoming Medicaid," in-state or out; its CMS-1500 table marks box 17b ("the NPI number of the referring, ordering, or supervising Provider") as required while box 17 (name) is not. BCBA, BCaBA and RBT taxonomies are not on its list of taxonomies "Always Required to Include a Referring, Attending, Prescribing or Ordering (RAPO) NPI," so if a physician or psychologist referred the child, put that clinician’s NPI in 17b and confirm they are enrolled with Wyoming Medicaid. The manual does not mention electronic visit verification anywhere. Claim appeals go to Provider Services, (888) 996-6223, on the First Level Appeal and Grievance Request Form, and a second-level form exists for disputing that decision.',
         ],
         cites: [S.cms1500, S.cfr447],
       },
@@ -177,7 +185,7 @@ export const wyomingPayers: Record<string, PayerConfig> = {
       { title: 'Other insurance', desc: 'Commercial coverage is billed first; Medicaid pays only the remaining patient responsibility.' },
       { title: 'Wraparound status', desc: 'If the family is in Magellan’s high-fidelity wraparound, get the care coordinator’s contact for the plan of care.' },
     ],
-    sources: [S.cms1500, S.fee, S.feePage, S.spa, S.spaNotice, S.w1915b, S.cmeDeck, S.title33, S.hb110, S.psy14, S.psy4, S.psy3, S.bacbLic, S.cfr447, S.cfr440, S.cfr440130, S.cfr433],
+    sources: [S.cms1500, S.telligenPM, S.telligenABA, S.fee, S.feePage, S.spa, S.spaNotice, S.w1915b, S.cmeDeck, S.title33, S.hb110, S.psy14, S.psy4, S.psy3, S.bacbLic, S.cfr447, S.cfr440, S.cfr440130, S.cfr433],
     deliveryRules: {
       supervision: {
         value: 'Supervision "by a QHP/BCBA is required (approximately 1-2 hours per 10 hours of direct care by the technician)" (manual 12.7.3, raised from 1 hour per 10 on 10/01/2026). It is bundled into the technician codes; face-to-face direction with protocol modification is billed as 97155. BCaBAs and RBTs are covered when supervised by a BCBA-D or BCBA (state plan). Wyoming Board rules separately require BCaBA supervision of at least 2% of monthly service hours.',
@@ -243,14 +251,14 @@ export const wyomingPayers: Record<string, PayerConfig> = {
         cites: [S.cms1500, S.spa, S.cfr440130],
       },
       telehealth: {
-        value: 'Allowed for enrolled BCBAs, who are on the manual’s list of distant-site practitioners. Telehealth must be "real time interactive audio and video"; telephone-only does not count. "The same procedure codes and rates apply as for services delivered in person," billed with modifier GT or 95. The child’s home can be the originating site with consent (verbal, email or text, documented), but no originating-site fee is paid when the family uses its own device. The provider "must be licensed by, or otherwise under the jurisdiction of, the appropriate State of Wyoming licensing board." No ABA-specific telehealth code list is published.',
+        value: 'Allowed for enrolled BCBAs, who are on the manual’s list of distant-site practitioners. Telehealth must be "real time interactive audio and video"; telephone-only does not count. "The same procedure codes and rates apply as for services delivered in person," billed with modifier GT or 95. The child’s home can be the originating site with consent (verbal, email or text, documented), but no originating-site fee is paid when the family uses its own device. The provider "must be licensed by, or otherwise under the jurisdiction of, the appropriate State of Wyoming licensing board." No ABA-specific telehealth code list is published. The manual names no telehealth place-of-service code for practitioners (POS 02 is assigned only to Care Management Entity providers, who must not use GT/95), and neither it nor Telligen’s manual says the authorization must flag telehealth.',
         status: 'verified',
-        cites: [S.cms1500],
+        cites: [S.cms1500, S.telligenPM],
       },
       authTurnaround: {
-        value: 'Wyoming publishes no decision timeframe for Telligen’s behavioral-health threshold reviews. The federal fee-for-service floor applies: since January 1, 2026 a standard request must be decided "in no case later than 7 calendar days after receiving the request" and an expedited one "in no case later than 72 hours." An administrative denial can be reconsidered with information sent within 30 days of the denial; after that it becomes a new request.',
+        value: 'Telligen’s provider manual (Version 5, 04/01/2026) gives "3 Business Days from Submission" for outpatient behavioral health requests over the threshold, which is where ABA sits, and 1 business day for expedited requests; an incomplete request is suspended for records and technically denied if they do not arrive within two 3-business-day windows. Submit before the child reaches 30 visits: services after the threshold and before the authorization "are provided at the provider’s risk." The federal fee-for-service ceiling also applies: since January 1, 2026 a standard request must be decided "in no case later than 7 calendar days after receiving the request" and an expedited one "in no case later than 72 hours." An administrative denial can be reconsidered with information sent within 30 days of the denial; after that it becomes a new request.',
         status: 'verified',
-        cites: [S.cfr440, S.cms1500],
+        cites: [S.telligenPM, S.cfr440, S.cms1500],
       },
       coordinationOfBenefits: {
         value: '"Medicaid is the payer of last resort. It is a secondary payer to all other payment sources and programs and should be billed only after payment or denial has been received from such carriers." Wyoming Medicaid pays "the lesser of the patient liability (deductible, coinsurance, and copayment) and the Medicaid allowed amount minus the other insurance payment amount," and CMS-1500 claims apply other insurance at the line level with adjustment reason codes. Timely filing is not waived for claims involving third-party liability.',
@@ -264,6 +272,9 @@ export const wyomingPayers: Record<string, PayerConfig> = {
       { q: 'Does Wyoming Medicaid require prior authorization for ABA?', a: 'Not up front: no ABA code is flagged for PA on the fee schedule. But ABA codes 97151–97158 count toward a 30-visit-per-calendar-year behavioral-health threshold, and beyond 30 dates of service a prior authorization from Telligen is required. A full-time ABA case hits that within weeks, so plan the Telligen request early.' },
       { q: 'What does Wyoming Medicaid pay for ABA?', a: 'From July 1, 2026, per 15-minute unit: 97151, 97155 and 97156 $24.60; 97152, 97153, 0362T and 0373T $12.30; 97154 $4.04; 97157 $8.20; 97158 $9.31.' },
       { q: 'Can a BCBA licensed in another state treat a Wyoming Medicaid child, including by telehealth?', a: 'Not without a Wyoming license. Wyoming licenses behavior analysts (W.S. 33-27-124), and Wyoming Medicaid requires telehealth providers to be licensed by or under the jurisdiction of the appropriate Wyoming board, as well as enrolled with Wyoming Medicaid. The Board can license someone already licensed in a comparable state, but there is no temporary behavior-analyst permit in its rules.' },
+      { q: 'Does Wyoming Medicaid accept H0031, H0032 or H2019 for ABA?', a: 'No. ABA is billed with CPT 97151–97158, 0362T and 0373T, the only codes in the manual’s ABA code table. H0031, H2019 and H2014 appear on the fee schedule for other behavioral-health services.' },
+      { q: 'How long does Telligen take to decide an ABA authorization?', a: 'Telligen’s provider manual gives 3 business days from submission for outpatient behavioral health requests over the 30-visit threshold (1 business day if expedited). Submit before the child reaches 30 visits: services after the threshold and before the authorization are at the provider’s risk.' },
+      { q: 'Does a Wyoming Medicaid ABA claim need a referring provider?', a: 'The manual requires ordering, referring or prescribing providers to be documented on claims and enrolled with Wyoming Medicaid, and marks box 17b (their NPI) as required. ABA taxonomies are not on the list that must always carry one, so if a physician or psychologist referred the child, list that clinician in 17b and make sure they are enrolled.' },
       { q: 'Can 97153 and 97155 be billed at the same time?', a: 'Yes. Wyoming Medicaid bars overlapping behavioral health services "except for codes 97153 and 97155," so a BCBA directing a technician with protocol modification can bill 97155 while the RBT bills 97153.' },
     ],
   },
@@ -271,27 +282,23 @@ export const wyomingPayers: Record<string, PayerConfig> = {
   'blue-cross-blue-shield-of-wyoming': {
     slug: 'blue-cross-blue-shield-of-wyoming',
     family: 'bcbs',
-    cardDesc: 'Wyoming’s dominant carrier. PA via Availity pre-check; its ABA medical policy sits on a Highmark-hosted site we could not open. Bulletin 01-2019 parity layer applies.',
+    cardDesc: 'Wyoming’s dominant carrier. ABA policy 15.01.002: current ASD diagnosis, an FBA within 12 months and a measurable plan for authorization; no school-setting ABA. Bulletin 01-2019 parity layer applies.',
     assessmentPA: {
-      value: 'Not published in a readable source. BCBSWY publishes no code list: it says to use the Availity Authorization Pre-Check tool, which gives "a yes or no answer," and its medical policies (where any ABA criteria would be) could not be retrieved',
+      value: 'Not stated per code. Medical policy 15.01.002 sets the criteria for the "initial authorization of services for ABA," and one of them is a Functional Behavioral Assessment already "completed … within the past twelve months," so the assessment comes before the treatment request; the policy does not say whether 97151/97152 themselves need authorization. BCBSWY publishes no code list and says to use the Availity Authorization Pre-Check tool, which gives "a yes or no answer"',
       status: 'unverified',
-      cites: [S.bcbsPA, S.bcbsPM, S.bcbsPolicy],
+      cites: [S.bcbsABA, S.bcbsPA, S.bcbsPM],
       verifyVia: 'Availity Authorization Pre-Check for 97151 and 97152 on the member’s ID, or BCBSWY Provider Support, 888-359-6592.',
-      blocker: 'document',
+      blocker: 'per-case',
     },
     treatmentPA: {
-      value: 'Not published in a readable source; run each treatment code through the Availity Authorization Pre-Check. Federal Employee Program members are different: FEP lists Applied Behavioral Analysis among services needing authorization from FEP case management (1-800-210-7257)',
-      status: 'unverified',
-      cites: [S.bcbsPA, S.bcbsPM],
-      verifyVia: 'Availity Authorization Pre-Check for 97153–97158, 0362T and 0373T, or BCBSWY Provider Support, 888-359-6592.',
-      blocker: 'document',
+      value: 'Yes: medical policy 15.01.002 lists the guidelines that "must be met" to "determine the appropriate initial authorization of services for ABA" and a second set for "continuing authorization"; if any cannot be met, ABA "is considered not medically necessary." Run each code through Availity’s Authorization Pre-Check. Federal Employee Program members are different: FEP lists Applied Behavioral Analysis among services needing authorization from FEP case management (1-800-210-7257)',
+      status: 'verified',
+      cites: [S.bcbsABA, S.bcbsPA, S.bcbsPM],
     },
     dxRequired: {
-      value: 'BCBSWY’s own ABA criteria were not readable. For fully insured plans with mental health coverage, Wyoming’s Bulletin 01-2019 covers autism treatment "prescribed or ordered for an individual diagnosed with an autism spectrum disorder by a licensed physician or a licensed psychologist"',
-      status: 'unverified',
-      cites: [S.doiBull, S.bcbsPolicy],
-      verifyVia: 'BCBSWY medical policy search (bcbswy.com → Providers → Medical Policy), or BCBSWY Provider Support, 888-359-6592: ask for the ABA policy number and its diagnosis criteria.',
-      blocker: 'document',
+      value: 'Yes: ASD "as defined by the current version of" the DSM, "documented as a current diagnosis by a licensed psychiatrist or psychologist or pediatrician or neurologist or family practice with special training in treatment of Autism Spectrum Disorder" (medical policy 15.01.002, all commercial lines)',
+      status: 'verified',
+      cites: [S.bcbsABA],
     },
     payer: 'Blue Cross Blue Shield of Wyoming',
     state: 'WY', kind: 'commercial',
@@ -302,11 +309,12 @@ export const wyomingPayers: Record<string, PayerConfig> = {
       'How Blue Cross Blue Shield of Wyoming handles ABA: Availity prior-authorization checks, 5-day and 72-hour decision clocks, telemedicine rules, Wyoming’s Bulletin 01-2019 autism parity layer (no autism statute), behavior-analyst licensure, and what intake should verify.',
     intro: [
       'Blue Cross Blue Shield of Wyoming is the state’s home Blue and the card intake teams see most. For ABA, three layers stack: BCBSWY’s own medical policy and authorization rules, Wyoming’s parity-based autism coverage (Bulletin 01-2019, since Wyoming has no autism statute), and the plan’s funding type, which decides whether the bulletin applies at all.',
-      'One gap to know up front: BCBSWY publishes its medical policies through a Highmark-hosted search that we could not open this run, so its ABA clinical criteria are not summarized here. Everything below comes from BCBSWY’s provider manual and website and from Wyoming law.',
+      'BCBSWY publishes its medical policies through a Highmark-hosted search; its ABA policy is 15.01.002 (Applied Behavioral Analysis, effective June 16, 2025, applying to all commercial lines). Everything below comes from that policy, BCBSWY’s provider manual and website, and Wyoming law.',
     ],
     atGlance: [
       { label: 'Covers ABA?', value: 'Plan-dependent; Bulletin 01-2019 bars excluding ABA as experimental on fully insured plans with mental health coverage' },
-      { label: 'Prior auth', value: 'Check each code with Availity’s Authorization Pre-Check; FEP ABA goes to FEP case management' },
+      { label: 'Prior auth', value: 'Treatment is authorized against policy 15.01.002 (initial and continuing criteria); check each code with Availity’s Authorization Pre-Check; FEP ABA goes to FEP case management' },
+      { label: 'Diagnosis', value: 'Current DSM ASD diagnosis (seen within the past year) by a psychiatrist, psychologist, pediatrician, neurologist or family practice with ASD training' },
       { label: 'Decision clock', value: 'Non-urgent 5 calendar days, urgent 72 hours (provider manual; W.S. 26-55)' },
       { label: 'State mandate', value: 'None by statute: Insurance Department Bulletin 01-2019 under W.S. 26-20-701 (mental health parity), effective 7/1/2019' },
       { label: 'Mandate age', value: 'None stated in the bulletin' },
@@ -323,6 +331,14 @@ export const wyomingPayers: Record<string, PayerConfig> = {
           'Federal Employee Program members follow a separate path: the manual lists "Applied Behavioral Analysis" among the services authorized by FEP case management at 1-800-210-7257, and FEP does not permit retroactive authorizations. Denied authorizations can be appealed in writing "up to 180 days from the date of the denial notice," with no required form. When BCBSWY is the secondary payer, secondary authorization is required for most member prefixes; check the manual’s prefix table.',
         ],
         cites: [S.bcbsPA, S.bcbsPM, S.title26],
+      },
+      {
+        h2: 'BCBSWY’s ABA medical policy (15.01.002)',
+        body: [
+          'BCBSWY medical policy 15.01.002, Applied Behavioral Analysis (issued January 1, 2017; last revision April 2025; effective June 16, 2025; applies to "all commercial lines of business"), calls ABA "medically necessary for treatment of Autism Spectrum Disorder (ASD) as defined by the current version of" the DSM, subject to the member’s benefit plan. Initial authorization requires all of: (1) an ASD diagnosis "documented as a current diagnosis by a licensed psychiatrist or psychologist or pediatrician or neurologist or family practice with special training in treatment of Autism Spectrum Disorder," where current means "the member must have been seen within the past year for treatment of the disorder or as determined as appropriate by a Medical Director"; (2) a Functional Behavioral Assessment completed by one of those clinicians or a BCBA "within the past twelve months"; (3) an individual treatment plan with specific goals, "Measurable goals that are objective in nature and measurable based on a standardized assessment that is completed on a regularly documented basis by a licensed psychologist or psychiatrist" (the standardized assessment "must include a baseline measurement, progress to date, and anticipated timeline"), the types of therapy used in sessions, and the location of each visit and the licensure or certification of the person performing it; and (4) documentation that everyone providing ABA is licensed or certified, with copies of certifications for anyone who is not a licensed psychologist or psychiatrist. "Registered Behavior Technicians are benefited if certified by BACB."',
+          'Continuing authorization requires that the child still meets every initial criterion, that the treatment plan has been updated as therapy progressed, and documentation of "Standardized testing results that were documented in the initial treatment plan as the source of measurement for the goals outlined," an interpretation of those results "demonstrating the progression to date," and an updated plan "documenting new anticipated timelines for previously outlined goals, presentation of new goals, and description of retired goals." The policy does not name graphs; it asks for standardized test results and their interpretation. Not a benefit: goals for academic work or tutoring, services to create or fulfill an IEP, "Services rendered in a school setting," and accompanying the child to outside activities unless the child has shown significant behavioral difficulty in that activity. Art, music, dance, pet, vision, sensory or auditory integration, nutrition and similar therapies are not medically necessary as ABA. The policy sets no age limit, unit cap or supervision ratio, and names no diagnostic instrument. Its listed place of service is "Inpatient/Outpatient."',
+        ],
+        cites: [S.bcbsABA],
       },
       {
         h2: 'The Wyoming autism coverage rule: Bulletin 01-2019',
@@ -348,33 +364,33 @@ export const wyomingPayers: Record<string, PayerConfig> = {
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Bulletin 01-2019 and W.S. 26-55 apply) vs. self-funded ERISA (plan document governs). FEP members follow FEP rules.' },
+      { title: 'Current diagnosis + FBA', desc: 'Policy 15.01.002: the ASD diagnosis must be current (child seen for it within the past year) from a psychiatrist, psychologist, pediatrician, neurologist or family practice with ASD training, and an FBA must be done within the past 12 months.' },
+      { title: 'Staff credentials', desc: 'Copies of certifications for every non-psychologist on the case; RBTs must be BACB-certified.' },
       { title: 'Member ID + prefix', desc: 'The prefix decides FEP handling and whether secondary authorization applies.' },
       { title: 'Diagnosis and order', desc: 'ASD diagnosis and the prescription or order from a licensed physician or psychologist (the bulletin’s definition of covered treatment).' },
       { title: 'Availity pre-check result', desc: 'Run each ABA code through the Authorization Pre-Check and save the result.' },
       { title: 'Other coverage', desc: 'Both parents’ plans and any Medicaid; BCBSWY uses the birthday rule for children.' },
     ],
-    sources: [S.bcbsPM, S.bcbsPA, S.bcbsPolicy, S.bcbsCred, S.doiBull, S.doiMemos, S.title26, S.hb14, S.title33, S.hb110, S.psy14, S.psy4, S.psy3, S.bacbLic, S.cms1500, S.fee, S.erisa, S.cfr433, S.tricare, S.champva],
+    sources: [S.bcbsABA, S.bcbsPM, S.bcbsPA, S.bcbsPolicy, S.bcbsCred, S.doiBull, S.doiMemos, S.title26, S.hb14, S.title33, S.hb110, S.psy14, S.psy4, S.psy3, S.bacbLic, S.cms1500, S.fee, S.erisa, S.cfr433, S.tricare, S.champva, S.cobRule],
     deliveryRules: {
       supervision: {
-        value: 'BCBSWY’s ABA supervision rules sit in its medical policy, which could not be read. Wyoming law sets the floor: technicians practice "under the supervision of a licensed behavior analyst or licensed assistant behavior analyst" (W.S. 33-27-125(a)(viii)), and BCaBA supervision must be at least 2% of monthly service hours (Board Rules § 14-5).',
-        status: 'unverified',
-        cites: [S.bcbsPolicy, S.title33, S.psy14],
-        verifyVia: 'BCBSWY medical policy for ABA (bcbswy.com → Providers → Medical Policy) or Provider Support, 888-359-6592.',
-        blocker: 'document',
+        value: 'BCBSWY’s ABA policy 15.01.002 sets no supervision ratio, hours or technician cap. It requires documentation "that all individuals providing ABA services are licensed or certified," with copies of certifications for anyone who is not a licensed psychologist or psychiatrist, and RBTs "are benefited if certified by BACB." Wyoming law sets the floor: technicians practice "under the supervision of a licensed behavior analyst or licensed assistant behavior analyst" (W.S. 33-27-125(a)(viii)), and BCaBA supervision must be at least 2% of monthly service hours (Board Rules § 14-5).',
+        status: 'verified',
+        cites: [S.bcbsABA, S.title33, S.psy14],
       },
       concurrentBilling: {
-        value: 'Not addressed in the BCBSWY provider manual; its ABA medical policy could not be read.',
+        value: 'Not addressed: neither the BCBSWY provider manual nor ABA policy 15.01.002 says whether 97153 and 97155 may be billed for the same clock time.',
         status: 'unverified',
-        cites: [S.bcbsPM, S.bcbsPolicy],
+        cites: [S.bcbsPM, S.bcbsABA],
         verifyVia: 'BCBSWY Provider Support, 888-359-6592: ask whether 97153 and 97155 may be billed for the same clock time.',
-        blocker: 'document',
+        blocker: 'per-case',
       },
       dailyLimits: {
-        value: 'No ABA unit limit appears in the provider manual; any limits would be in the unread medical policy. Bulletin 01-2019 bars autism-only treatment limits that do not apply to medical/surgical benefits on fully insured plans.',
-        status: 'unverified',
-        cites: [S.bcbsPM, S.bcbsPolicy, S.doiBull],
-        verifyVia: 'BCBSWY medical policy for ABA, or the Availity authorization response for the member.',
-        blocker: 'document',
+        value: 'None published: neither the provider manual nor ABA policy 15.01.002 sets a per-day or per-week unit maximum for any ABA code; hours are set in the authorization. Bulletin 01-2019 bars autism-only treatment limits that do not apply to medical/surgical benefits on fully insured plans.',
+        status: 'plan-dependent',
+        cites: [S.bcbsPM, S.bcbsABA, S.doiBull],
+        verifyVia: 'The Availity authorization response for the member (approved units and span), or BCBSWY Provider Support, 888-359-6592: ask whether any claim edit caps 97153 units per day.',
+        blocker: 'per-case',
       },
       noteSignature: {
         value: 'The provider manual sets no ABA session-note signature rule.',
@@ -384,11 +400,9 @@ export const wyomingPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       placeOfService: {
-        value: 'No ABA setting rule appears in the provider manual. Telemedicine "can be used directly to an established patient’s home," billed with POS 02.',
-        status: 'unverified',
-        cites: [S.bcbsPM, S.bcbsPolicy],
-        verifyVia: 'BCBSWY medical policy for ABA, or Provider Support, 888-359-6592: ask which places of service it pays for ABA, including school.',
-        blocker: 'document',
+        value: 'School is out: ABA policy 15.01.002 says "Services rendered in a school setting are not a benefit," nor are services to create or fulfill an IEP. Accompanying the child to activities outside the home (recreation, eating out, shopping, medical appointments) is not a benefit unless the child has shown significant behavioral difficulty during that activity, and the treatment plan must list the location of each visit. The policy’s place of service is "Inpatient/Outpatient." Telemedicine "can be used directly to an established patient’s home," billed with POS 02 (provider manual).',
+        status: 'verified',
+        cites: [S.bcbsABA, S.bcbsPM],
       },
       billAsProvider: {
         value: 'A clean BCBSWY claim requires the "Rendering Provider’s (type 1/individual) National Provider Identifier (NPI)" (box 24j). Whether a technician’s 97153 is billed with the technician or the supervising BCBA as rendering provider is not stated in the manual.',
@@ -400,39 +414,31 @@ export const wyomingPayers: Record<string, PayerConfig> = {
     },
     intakeGates: {
       ageLimit: {
-        value: 'BCBSWY’s ABA policy could not be read, so any age term is unconfirmed.' + MANDATE_AGE_TAIL,
+        value: 'BCBSWY’s ABA policy 15.01.002 sets no age limit; any age term would come from the member’s benefit plan.' + MANDATE_AGE_TAIL,
         status: 'plan-dependent',
-        cites: [S.bcbsPolicy, S.doiBull],
+        cites: [S.bcbsABA, S.doiBull],
         verifyVia: 'Availity benefits check on the member ID: establish fully insured vs. self-funded ERISA, then the plan’s ABA age terms.',
         blocker: 'per-case',
       },
       dxRecency: {
-        value: 'Not stated in any BCBSWY source read.',
-        status: 'unverified',
-        cites: [S.bcbsPM, S.bcbsPolicy],
-        verifyVia: 'BCBSWY medical policy for ABA, or Provider Support, 888-359-6592.',
-        blocker: 'document',
+        value: 'The diagnosis must be "current": policy 15.01.002 defines that as "the member must have been seen within the past year for treatment of the disorder or as determined as appropriate by a Medical Director." Separately, the Functional Behavioral Assessment must have been completed "within the past twelve months."',
+        status: 'verified',
+        cites: [S.bcbsABA],
       },
       diagnosingProviders: {
-        value: 'Not stated in any BCBSWY source read. For fully insured plans, Bulletin 01-2019 defines covered treatment as care prescribed or ordered for an individual "diagnosed with an autism spectrum disorder by a licensed physician or a licensed psychologist."',
-        status: 'unverified',
-        cites: [S.bcbsPolicy, S.doiBull],
-        verifyVia: 'BCBSWY medical policy for ABA, or Provider Support, 888-359-6592.',
-        blocker: 'document',
+        value: 'A "licensed psychiatrist or psychologist or pediatrician or neurologist or family practice with special training in treatment of Autism Spectrum Disorder" (policy 15.01.002). The FBA may also be done by a BCBA with special training in ASD. For fully insured plans, Bulletin 01-2019 defines covered treatment as care prescribed or ordered for an individual "diagnosed with an autism spectrum disorder by a licensed physician or a licensed psychologist."',
+        status: 'verified',
+        cites: [S.bcbsABA, S.doiBull],
       },
       diagnosticTools: {
-        value: 'Not stated in any BCBSWY source read.',
-        status: 'unverified',
-        cites: [S.bcbsPM, S.bcbsPolicy],
-        verifyVia: 'BCBSWY medical policy for ABA, or Provider Support, 888-359-6592.',
-        blocker: 'document',
+        value: 'Policy 15.01.002 names no diagnostic instrument; it requires the DSM ASD diagnosis and an FBA within 12 months. Treatment-plan goals must be measurable against "a standardized assessment that is completed on a regularly documented basis by a licensed psychologist or psychiatrist," including a baseline, progress to date and an anticipated timeline; no specific test is named.',
+        status: 'verified',
+        cites: [S.bcbsABA],
       },
       referral: {
-        value: 'BCBSWY’s Provider Policies and Procedures Manual (revised May 28, 2026) sets no referral or physician-order requirement for ABA: its PA requirement is checked per member in Availity, and FEP members’ ABA is authorized by FEP case management (1-800-210-7257). On the CMS-1500, field 17 (Name of Referring Physician) is "NOT REQUIRED" and 17b takes the NPI "of the referring, ordering or supervising Provider." BCBSWY’s ABA medical policy, which could set its own order or documentation rule, was not readable.' + MANDATE_REFERRAL_TAIL,
-        status: 'unverified',
-        cites: [S.bcbsPM, S.bcbsPA, S.doiBull],
-        verifyVia: 'BCBSWY ABA medical policy (bcbswy.com → Providers → Medical Policy, hosted by Highmark), or BCBSWY Provider Support, 888-359-6592: ask whether an ABA request needs a physician or psychologist order and how recent it must be.',
-        blocker: 'document',
+        value: 'No referral, prescription or physician order is required by BCBSWY: neither its Provider Policies and Procedures Manual (revised May 28, 2026) nor ABA policy 15.01.002 asks for one. What the policy requires instead is a current diagnosis documented by a psychiatrist, psychologist, pediatrician, neurologist or family practice with ASD training (child seen for it within the past year) and an FBA within 12 months, submitted with the authorization request through Availity; FEP members’ ABA is authorized by FEP case management (1-800-210-7257). On the CMS-1500, field 17 (Name of Referring Physician) is "NOT REQUIRED" and 17b takes the NPI "of the referring, ordering or supervising Provider."' + MANDATE_REFERRAL_TAIL,
+        status: 'verified',
+        cites: [S.bcbsPM, S.bcbsABA, S.bcbsPA, S.doiBull],
       },
       telehealth: {
         value: 'BCBSWY pays "real-time interactive face-to-face" telemedicine for services reimbursable in person and "within the provider’s scope of practice"; "Eligible providers must be licensed in Wyoming." It "can be used directly to an established patient’s home," with the member’s consent documented, billed with modifier 95 or GT and POS 02. Under BlueCard, a telemedicine provider bills the Blue plan where the provider is physically located. For fully insured plans, W.S. 26-20-701(b) bars denying a covered mental health service because it is delivered by remote audio or audio-visual means, charging more cost-sharing, or paying less. No ABA-specific telehealth code list was found.',
@@ -449,12 +455,15 @@ export const wyomingPayers: Record<string, PayerConfig> = {
       coordinationOfBenefits: {
         value: 'BCBSWY’s manual: the plan covering the person as an employee or subscriber is primary over one covering them as a dependent, and for a child on two parents’ plans "The primary Plan is the Plan of the parent whose birthday is earlier in the year" when the parents are married or not separated or share joint custody without a coverage order; with the same birthday, the plan covering a parent longer is primary. BCBSWY requires its own authorization when it is secondary for most member prefixes. If the child also has Wyoming Medicaid, BCBSWY pays first (Medicaid is payer of last resort, 42 CFR 433.139). TRICARE pays after this plan (10 U.S.C. 1079(i)(1)); CHAMPVA is the last payer (38 CFR 17.270).',
         status: 'verified',
-        cites: [S.bcbsPM, S.cfr433, S.cms1500, S.tricare, S.champva],
+        cites: [S.bcbsPM, S.cobRule, S.cfr433, S.cms1500, S.tricare, S.champva],
       },
     },
     faq: [
       { q: 'Does Blue Cross Blue Shield of Wyoming cover ABA therapy?', a: 'It depends on the plan. For fully insured plans that include mental health coverage, Wyoming’s Bulletin 01-2019 bars excluding autism treatment and bars denying ABA as experimental. Self-funded employer plans follow their own documents. Confirm in Availity.' },
-      { q: 'Does BCBSWY require prior authorization for ABA?', a: 'BCBSWY does not publish an ABA code list; use Availity’s Authorization Pre-Check for each code. FEP members need authorization from FEP case management (1-800-210-7257).' },
+      { q: 'Does BCBSWY require prior authorization for ABA?', a: 'Treatment, yes: medical policy 15.01.002 sets the criteria for initial and continuing authorization of ABA. BCBSWY does not publish an ABA code list, so run each code through Availity’s Authorization Pre-Check. FEP members need authorization from FEP case management (1-800-210-7257).' },
+      { q: 'What does BCBSWY need for an ABA reauthorization? Are graphs required?', a: 'Policy 15.01.002 asks for an updated treatment plan, the standardized test results the initial plan named as the measure for each goal, an interpretation showing progress to date, and new timelines, new goals and retired goals. It does not mention graphs.' },
+      { q: 'Does BCBSWY pay for ABA in school?', a: 'No. Policy 15.01.002 says services rendered in a school setting, and services to create or fulfill an IEP, are not a benefit.' },
+      { q: 'Who can diagnose autism for BCBSWY ABA?', a: 'A licensed psychiatrist, psychologist, pediatrician, neurologist or family practice clinician with special training in ASD, and the diagnosis must be current (the child seen for it within the past year).' },
       { q: 'How fast does BCBSWY decide a prior authorization?', a: 'Within 5 calendar days for non-urgent requests and 72 hours for urgent ones, per its provider manual, which matches Wyoming’s prior-authorization statute for fully insured plans.' },
       { q: 'Can an out-of-state BCBA see a BCBSWY member by telehealth?', a: 'BCBSWY says telemedicine providers "must be licensed in Wyoming," and Wyoming licenses behavior analysts, so get a Wyoming license first. Under BlueCard, a distant provider bills the Blue plan where the provider is located.' },
       { q: 'How does BlueCard work when a Wyoming ABA provider sees another Blue plan’s member?', a: 'BCBSWY’s provider manual (revised May 28, 2026): identify the member by the suitcase logo and the three-character prefix, check eligibility at BlueCard Eligibility, 800-676-BLUE (2583), where the prefix routes the call to the member’s home plan, and submit the claim to BCBSWY, which is "your single point of contact for claims." For prior authorization, call the same line and "ask to be transferred to the Medical Management Department," or use the out-of-area Pre-Cert/Pre-auth Search, which shows the home plan’s medical policy and precertification rules. FEP and Medicare Advantage are excluded from BlueCard; FEP ABA is authorized by FEP case management (1-800-210-7257).' },
@@ -506,7 +515,7 @@ export const wyomingPayers: Record<string, PayerConfig> = {
       {
         h2: 'The national policy, applied in Wyoming',
         body: [
-          'Aetna covers ABA for autism spectrum disorder under its ABA medical necessity guide and CPB 0648, and CPB 0554 (last reviewed November 26, 2025) calls ABA "experimental, investigational, or unproven" for non-ASD indications. The behavioral health precertification list (effective August 1, 2024) names all ten ABA codes, 97151 through 97158, 0362T and 0373T, submitted through Availity. The guide’s only state exhibit is Maryland’s; Wyoming has none, so the national criteria apply unchanged. Note that Wyoming’s Bulletin 01-2019 forbids denying ABA for a child with autism "on the basis that ABA therapy is experimental or investigational," which Aetna’s ASD criteria do not do.',
+          'Aetna covers ABA for autism spectrum disorder under its ABA medical necessity guide and CPB 0648, and CPB 0554 (last reviewed October 14, 2026) calls ABA "experimental, investigational, or unproven" for non-ASD indications. The behavioral health precertification list (effective August 1, 2024) names all ten ABA codes, 97151 through 97158, 0362T and 0373T, submitted through Availity. The guide’s only state exhibit is Maryland’s; Wyoming has none, so the national criteria apply unchanged. Note that Wyoming’s Bulletin 01-2019 forbids denying ABA for a child with autism "on the basis that ABA therapy is experimental or investigational," which Aetna’s ASD criteria do not do.',
           'Aetna’s guide requires services "provided directly or billed by licensed behavior analysts (in states with behavior analyst licensure laws)," BCBAs, or psychologists in scope. Wyoming is a licensure state, so the BCBA billing Aetna for a Wyoming child should hold the Wyoming license.',
         ],
         cites: [S.aetnaGuide, S.aetnaCPB, S.aetnaCPB648, S.aetnaPrecert, S.doiBull],
@@ -523,8 +532,11 @@ export const wyomingPayers: Record<string, PayerConfig> = {
       },
       {
         h2: 'Claims operations in Wyoming',
-        body: [WY_CLAIMS_BODY],
-        cites: [S.title26, S.hb14, S.doiBull],
+        body: [
+          WY_CLAIMS_BODY,
+          'Billing details from Aetna’s own documents. Codes: Aetna’s ABA policy (CPB 0554) lists only CPT 97151–97158, 0362T and 0373T and no HCPCS code, so H0031, H0032 or H2019 are not ABA codes at Aetna. Telehealth: its Telemedicine and Direct Patient Contact Payment Policy names modifiers GT, 95 and FR but no place-of-service code, and none of Aetna’s documents says the precertification must flag telehealth; ask which POS (02 or 10) it wants when you precertify. Filing: the Health Care Professional Toolkit (6/26) prints no timely-filing deadline, so your agreement sets it, and its definition of a clean claim excludes any claim that involves coordination of benefits. Reauthorization: the ABA medical necessity guide calls for "Repeated measurement with standardized measures to assess progress" and says "A member’s progress is to be evaluated every six months"; it does not mention graphs. Supervision: the Network Participation Criteria set one hour of face-to-face supervision per 10 hours of paraprofessional ABA and publish no cap on technicians per BCBA.',
+        ],
+        cites: [S.title26, S.hb14, S.doiBull, S.aetnaCPB, S.aetnaTele, S.aetnaOM, S.aetnaGuide, S.aetnaNPC],
       },
       {
         h2: 'What is Aetna’s fee schedule for ABA?',
@@ -541,10 +553,10 @@ export const wyomingPayers: Record<string, PayerConfig> = {
       { title: 'Standardized functional measure', desc: 'Aetna wants one from the past 12 months (for example Vineland-3) showing impairment at least one standard deviation below the mean.' },
       { title: 'Physician or psychologist order', desc: 'The bulletin defines covered treatment as care prescribed or ordered by a licensed physician or psychologist.' },
     ],
-    sources: [S.aetnaGuide, S.aetnaCPB, S.aetnaCPB648, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.aetnaTele, S.doiBull, S.doiMemos, S.title26, S.hb14, S.title33, S.hb110, S.psy14, S.bacbLic, S.erisa, S.cfr433, S.tricare, S.champva, S.fee],
+    sources: [S.aetnaGuide, S.aetnaCPB, S.aetnaCPB648, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.aetnaTele, S.doiBull, S.doiMemos, S.title26, S.hb14, S.title33, S.hb110, S.psy14, S.bacbLic, S.erisa, S.cfr433, S.tricare, S.champva, S.fee, S.cobRule, S.cobDefs],
     deliveryRules: {
       supervision: {
-        value: 'Aetna’s guide: where others deliver services, there must be supervision "in line with practice standards," and it may authorize QHP protocol modification and direction "at 1 to 2 hours per 10 hours of treatment by protocol." Aetna’s Network Participation Criteria (5/26) require "A minimum of one hour of face-to-face supervision" of a paraprofessional "for each 10 hours of applied behavior analysis," plus the supervisor "onsite with the child at least one hour a month," and "All BCBAs, BCaBAs and paraprofessionals must meet state requirements." In Wyoming that means technicians work under a licensed behavior analyst or licensed assistant (W.S. 33-27-125(a)(viii)).',
+        value: 'Aetna’s guide: where others deliver services, there must be supervision "in line with practice standards," and it may authorize QHP protocol modification and direction "at 1 to 2 hours per 10 hours of treatment by protocol." Aetna’s Network Participation Criteria (5/26) require "A minimum of one hour of face-to-face supervision" of a paraprofessional "for each 10 hours of applied behavior analysis," plus the supervisor "onsite with the child at least one hour a month," and "All BCBAs, BCaBAs and paraprofessionals must meet state requirements." In Wyoming that means technicians work under a licensed behavior analyst or licensed assistant (W.S. 33-27-125(a)(viii)).' + ' Aetna’s guide and Network Participation Criteria publish no cap on the number of technicians one BCBA may supervise.',
         status: 'verified',
         cites: [S.aetnaGuide, S.aetnaNPC, S.title33],
       },
@@ -607,7 +619,7 @@ export const wyomingPayers: Record<string, PayerConfig> = {
         cites: [S.aetnaPrecert, S.aetnaGuide, S.doiBull],
       },
       telehealth: {
-        value: 'Aetna’s Telemedicine and Direct Patient Contact Payment Policy lists the ABA codes it pays by telehealth: on commercial plans 97151, 97153, 97155, 97156 and 97157, billed with modifier GT, 95 or FR; 97152, 97154 and 97158 are checked for Medicare Advantage only. The posted policy shows a last review of June 2021, so treat the list as perishable. Aetna’s provider manual (6/26) says Aetna Behavioral Health "offers telehealth services to all commercial fully insured members and to all commercial self-insured plan sponsors, unless those self-insured plan sponsors opt out," and providers must "ensure that they have the proper licensure based on state requirements," which in Wyoming means a Wyoming behavior-analyst license. For fully insured Wyoming plans, W.S. 26-20-701(b) bars denying a covered mental health service because it is delivered by remote audio or audio-visual means.',
+        value: 'Aetna’s Telemedicine and Direct Patient Contact Payment Policy lists the ABA codes it pays by telehealth: on commercial plans 97151, 97153, 97155, 97156 and 97157, billed with modifier GT, 95 or FR; 97152, 97154 and 97158 are checked for Medicare Advantage only. The posted policy shows a last review of June 2021, so treat the list as perishable. Aetna’s provider manual (6/26) says Aetna Behavioral Health "offers telehealth services to all commercial fully insured members and to all commercial self-insured plan sponsors, unless those self-insured plan sponsors opt out," and providers must "ensure that they have the proper licensure based on state requirements," which in Wyoming means a Wyoming behavior-analyst license. For fully insured Wyoming plans, W.S. 26-20-701(b) bars denying a covered mental health service because it is delivered by remote audio or audio-visual means.' + ' Aetna’s Telemedicine and Direct Patient Contact Payment Policy (posted policy shows last review June 2021) marks 97151, 97153, 97155, 97156 and 97157 as telehealth-eligible on commercial plans with modifier GT, 95 or FR; neither it nor the provider toolkit names a telehealth place-of-service code or says the precertification must flag telehealth.',
         status: 'plan-dependent',
         cites: [S.aetnaTele, S.aetnaOM, S.title26, S.title33],
         verifyVia: 'Availity or the precertification line on the card: ask whether the plan is fully insured in Wyoming or self-funded (and opted out of telehealth), and which ABA codes, POS and modifier Aetna pays by telehealth.',
@@ -623,12 +635,15 @@ export const wyomingPayers: Record<string, PayerConfig> = {
       coordinationOfBenefits: {
         value: WY_COB_VALUE('Aetna'),
         status: 'plan-dependent',
-        cites: [S.title26, S.bcbsPM, S.cfr433, S.cms1500, S.tricare, S.champva],
+        cites: [S.cobRule, S.cobDefs, S.title26, S.cfr433, S.cms1500, S.tricare, S.champva],
         verifyVia: WY_COB_VERIFY('Aetna'),
         blocker: 'per-case',
       },
     },
     faq: [
+      { q: 'Does Aetna accept H0031, H0032 or H2019 for ABA?', a: 'No. Aetna’s ABA policy lists only CPT 97151–97158, 0362T and 0373T.' },
+      { q: 'Does Aetna require graphs for an ABA reauthorization?', a: 'Its ABA guide asks for repeated measurement with standardized measures and a progress evaluation every six months; it does not mention graphs.' },
+      { q: 'What is Aetna’s timely filing limit for ABA claims?', a: 'Aetna’s provider toolkit (6/26) does not print one; the filing limit is in your Aetna agreement.' },
       { q: 'Does Aetna cover ABA therapy in Wyoming?', a: 'Yes, under its national policy for ASD. Fully insured Wyoming plans with mental health coverage are also bound by Bulletin 01-2019, which bars autism exclusions and ABA-is-experimental denials. Self-funded employer plans follow their own documents.' },
       { q: 'Does Aetna require prior authorization for the ABA assessment in Wyoming?', a: 'Yes. All ten ABA codes, including the 97151 assessment, are on Aetna’s behavioral health precertification list.' },
       { q: 'Does a BCBA need a Wyoming license to bill Aetna?', a: 'Plan on it. Wyoming licenses behavior analysts (W.S. 33-27-124), and Aetna’s guide requires services to be provided or billed by licensed behavior analysts in licensure states and expects telehealth providers to hold the licensure their state requires.' },
@@ -699,8 +714,9 @@ export const wyomingPayers: Record<string, PayerConfig> = {
         body: [
           WY_CLAIMS_BODY,
           'Evernorth’s own claims rules: file "within 90 days of the date of service or as otherwise defined in your Provider Agreement," unless "Applicable state law provides for a longer timely filing limit," with the COB clock running from the primary payer’s processing date. Electronic claims use payer ID 62308; on paper, only a BCBA or other licensed provider goes in box 33. Virtual services carry modifier 95, which "will not change the reimbursement." Appeals of contract-rate decisions are due within 180 days of the initial denial.',
+          'Billing details from Evernorth’s own documents. Codes: "All ABA services must be billed with CPT codes 97151–97158, 0362T, and 0373T ONLY," so H-codes are not accepted for ABA. Telehealth: "All ABA CPT codes are covered telehealth services"; on the CMS-1500 use "Modifier 95 in Field 24-D to specify telehealth" and "02 for Place of Service in Field 24-B"; neither document says the authorization must flag telehealth. Filing: claims must be "submitted within 90 days of the date of service or as otherwise defined in your Provider Agreement" unless state law gives longer; for coordination of benefits the 90 days run from the primary payer’s EOB or EOP; a claim Evernorth returns for more information gets a fresh 90 days from its request; corrected claims carry frequency code 7 (replace) or 8 (void) in field 22, without a "Corrected Claim" stamp. Reauthorization (EN0499): an updated treatment plan; "Quantitative baseline, interim and current data" with the dates they were collected for every behavior and skill across all settings; current data collected within 60 days before the continued-treatment start date and within 60 days before the request is received; a standardized assessment no more than one year before the start date; and a written plan to address barriers if progress stalls. EN0499 asks for dated data, not graphs by name. Supervision runs one to two hours per ten hours of direct treatment, with no published cap on technicians per supervisor.',
         ],
-        cites: [S.title26, S.hb14, S.doiBull, S.ebhAdmin, S.cignaARG],
+        cites: [S.title26, S.hb14, S.doiBull, S.ebhAdmin, S.cignaARG, S.en0499],
       },
       {
         h2: 'What is Cigna’s fee schedule for ABA?',
@@ -717,10 +733,10 @@ export const wyomingPayers: Record<string, PayerConfig> = {
       { title: 'Standardized assessment timing', desc: 'Instrument administered within 60 days before treatment starts.' },
       { title: 'Physician or psychologist order', desc: 'The bulletin defines covered treatment as care prescribed or ordered by a licensed physician or psychologist.' },
     ],
-    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.doiBull, S.doiMemos, S.title26, S.hb14, S.title33, S.hb110, S.psy14, S.bacbLic, S.erisa, S.cfr433, S.tricare, S.champva, S.fee],
+    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.doiBull, S.doiMemos, S.title26, S.hb14, S.title33, S.hb110, S.psy14, S.bacbLic, S.erisa, S.cfr433, S.tricare, S.champva, S.fee, S.cobRule, S.cobDefs],
     deliveryRules: {
       supervision: {
-        value: 'Case supervision is by a BCBA, a Licensed Behavior Analyst, or an independently licensed mental health professional with ABA training. Direct plus indirect case supervision runs at "one to two hours per ten hours of direct treatment"; at 10 hours a week or less, at least one to two hours a week of direct case supervision. The supervisor’s name and credentials must be documented.',
+        value: 'Case supervision is by a BCBA, a Licensed Behavior Analyst, or an independently licensed mental health professional with ABA training. Direct plus indirect case supervision runs at "one to two hours per ten hours of direct treatment"; at 10 hours a week or less, at least one to two hours a week of direct case supervision. The supervisor’s name and credentials must be documented.' + ' EN0499 publishes no cap on the number of technicians one supervisor may oversee.',
         status: 'verified',
         cites: [S.en0499],
       },
@@ -779,7 +795,7 @@ export const wyomingPayers: Record<string, PayerConfig> = {
         cites: [S.cignaARG, S.en0499, S.doiBull],
       },
       telehealth: {
-        value: '"All ABA CPT codes are covered telehealth services" per the autism resource guide, and EN0499 allows "traditional in-person service delivery, telehealth, or a hybrid." Virtual services carry modifier 95, and providers "must meet all state requirements to provide virtual behavioral services, including any licenses," which in Wyoming means the behavior-analyst license. Fully insured Wyoming plans are also bound by W.S. 26-20-701(b) (no denial, extra cost-sharing or lower pay for remote delivery of covered mental health services).',
+        value: '"All ABA CPT codes are covered telehealth services" per the autism resource guide, and EN0499 allows "traditional in-person service delivery, telehealth, or a hybrid." Virtual services carry modifier 95, and providers "must meet all state requirements to provide virtual behavioral services, including any licenses," which in Wyoming means the behavior-analyst license. Fully insured Wyoming plans are also bound by W.S. 26-20-701(b) (no denial, extra cost-sharing or lower pay for remote delivery of covered mental health services).' + ' On the claim, Evernorth wants "Modifier 95 in Field 24-D to specify telehealth" and "02 for Place of Service in Field 24-B"; its documents do not say the authorization must flag telehealth.',
         status: 'verified',
         cites: [S.cignaARG, S.en0499, S.ebhAdmin, S.title26],
       },
@@ -793,12 +809,15 @@ export const wyomingPayers: Record<string, PayerConfig> = {
       coordinationOfBenefits: {
         value: WY_COB_VALUE('Cigna/Evernorth'),
         status: 'plan-dependent',
-        cites: [S.title26, S.bcbsPM, S.cfr433, S.cms1500, S.tricare, S.champva],
+        cites: [S.cobRule, S.cobDefs, S.title26, S.cfr433, S.cms1500, S.tricare, S.champva],
         verifyVia: WY_COB_VERIFY('Cigna/Evernorth'),
         blocker: 'per-case',
       },
     },
     faq: [
+      { q: 'Does Cigna accept H-codes for ABA?', a: 'No. Evernorth says all ABA services must be billed with CPT 97151–97158, 0362T and 0373T only.' },
+      { q: 'Does Cigna require graphs for ABA reassessments?', a: 'EN0499 asks for dated quantitative baseline, interim and current data (current data within 60 days) and a standardized assessment within a year; it does not name graphs.' },
+      { q: 'What is Cigna’s timely filing limit for ABA claims?', a: '90 days from the date of service unless your agreement or state law allows longer; for secondary claims, 90 days from the primary payer’s EOB.' },
       { q: 'Does Cigna cover ABA therapy in Wyoming?', a: 'Yes, under national policy EN0499 for ASD. Fully insured Wyoming plans with mental health coverage are also bound by Bulletin 01-2019. Self-funded employer plans follow their own documents.' },
       { q: 'Does the Cigna ABA assessment need prior authorization in Wyoming?', a: 'No, for 97151, 97152 and 0362T with an autism diagnosis when the provider is independently licensed or a BCBA. PA starts at treatment.' },
       { q: 'Does a BCBA need a Wyoming license to bill Cigna?', a: 'Plan on it. Wyoming licenses behavior analysts, and Evernorth requires providers to meet all state licensing requirements, including for virtual services.' },
@@ -871,8 +890,9 @@ export const wyomingPayers: Record<string, PayerConfig> = {
         body: [
           WY_CLAIMS_BODY,
           'Optum’s commercial ABA reimbursement policy (updated June 2026) adds the coding rules: every line carries a credential modifier (HM for an RBT, HN for a BCaBA, HO for a master’s-level BCBA, HP for a BCBA-D), "There is no CPT code for reporting indirect services separately," and Optum "allows 32 units per day for CPT code 97153."',
+          'Billing details from Optum’s own documents. Codes: the commercial ABA reimbursement policy (2022RP501A) covers ABA billed "with CPT codes 97151-97158" plus 0362T and 0373T, each line with its credential modifier; it lists no HCPCS H-code. Telehealth: claims "must include either POS 02 or POS 10" (10 when the member is at home), and "Optum will not reimburse for services billed with only telehealth modifiers"; modifiers 93, 95, FQ, GT and GQ are optional, and commercial ABA telehealth covers only 97155, 97156 and 97157. Filing: claims are due "no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan," and "Any corrections or additions to a claim should be made within 90 days of initial claim receipt." Payment: clean claims with any required authorization are generally paid within 45 calendar days of receipt or as state and federal law requires, which may exclude claims needing a coordination-of-benefits determination. Reauthorization (Supplemental Clinical Criteria): each continued-service review needs progress for every target "including the same modes of measurement that were utilized for baseline," with "rate and percentage of mastered programs, rates of mastered targets, change scores for any outcome measures, updated standardized adaptive measures"; inadequate progress over a 6-month period requires an analysis and modified interventions. Graphs are not named. Supervision: "direct case supervision is required 1–2 hours for every 10 hours of direct treatment per week," with no published cap on technicians per BCBA.',
         ],
-        cites: [S.title26, S.hb14, S.doiBull, S.optumReimb],
+        cites: [S.title26, S.hb14, S.doiBull, S.optumReimb, S.optumTele, S.optumNNM, S.optumSCC],
       },
       {
         h2: 'What is UnitedHealthcare’s fee schedule for ABA?',
@@ -888,10 +908,10 @@ export const wyomingPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis with a validated tool', desc: 'DSM-5-TR ASD and severity level, confirmed with a validated tool (ADI-R, ADOS-2 and others). Optum asks for the instrument.' },
       { title: 'Physician or psychologist order', desc: 'The bulletin defines covered treatment as care prescribed or ordered by a licensed physician or psychologist.' },
     ],
-    sources: [S.optumSCC, S.optumSM, S.optumReimb, S.optumTele, S.optumNNM, S.doiBull, S.doiMemos, S.title26, S.hb14, S.title33, S.hb110, S.psy14, S.bacbLic, S.erisa, S.cfr433, S.tricare, S.champva, S.fee],
+    sources: [S.optumSCC, S.optumSM, S.optumReimb, S.optumTele, S.optumNNM, S.doiBull, S.doiMemos, S.title26, S.hb14, S.title33, S.hb110, S.psy14, S.bacbLic, S.erisa, S.cfr433, S.tricare, S.champva, S.fee, S.cobRule, S.cobDefs],
     deliveryRules: {
       supervision: {
-        value: '"Consistent with CASP standards of care, direct case supervision is required 1 – 2 hours for every 10 hours of direct treatment per week." Technicians work under a BCBA or licensed behavioral health clinician and should be RBTs or otherwise certified "as allowable by state mandate"; Optum does not recommend parents serving as their own child’s RBT.',
+        value: '"Consistent with CASP standards of care, direct case supervision is required 1 – 2 hours for every 10 hours of direct treatment per week." Technicians work under a BCBA or licensed behavioral health clinician and should be RBTs or otherwise certified "as allowable by state mandate"; Optum does not recommend parents serving as their own child’s RBT.' + ' Optum’s criteria publish no cap on the number of technicians per BCBA.',
         status: 'verified',
         cites: [S.optumSCC],
       },
@@ -952,7 +972,7 @@ export const wyomingPayers: Record<string, PayerConfig> = {
         cites: [S.optumSCC, S.doiBull],
       },
       telehealth: {
-        value: 'Three codes. Optum’s Telehealth Billing guide (updated September 2025), commercial: "For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157," billed with POS 02 or 10. So the 97151 assessment and technician 97153 are not on Optum’s telehealth list. For a fully insured Wyoming plan, W.S. 26-20-701(b) says a policy covering mental health may not "deny coverage for mental health or substance use services delivered using remote audio or audio-visual delivery systems … if coverage would be provided for the same services when delivered in person." Ask Optum how it applies the three-code list to a fully insured Wyoming plan.',
+        value: 'Three codes. Optum’s Telehealth Billing guide (updated September 2025), commercial: "For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157," billed with POS 02 or 10. So the 97151 assessment and technician 97153 are not on Optum’s telehealth list. For a fully insured Wyoming plan, W.S. 26-20-701(b) says a policy covering mental health may not "deny coverage for mental health or substance use services delivered using remote audio or audio-visual delivery systems … if coverage would be provided for the same services when delivered in person." Ask Optum how it applies the three-code list to a fully insured Wyoming plan.' + ' Optum’s guide makes modifiers 93, 95, FQ, GT and GQ optional; the POS is what marks the claim as telehealth, and the authorization does not need a telehealth flag in any Optum document read.',
         status: 'plan-dependent',
         cites: [S.optumTele, S.title26],
         verifyVia: 'Optum Provider Express support, (866) 209-9320: ask whether the plan is fully insured in Wyoming and which ABA codes it will pay by telehealth.',
@@ -968,12 +988,15 @@ export const wyomingPayers: Record<string, PayerConfig> = {
       coordinationOfBenefits: {
         value: WY_COB_VALUE('UnitedHealthcare/Optum'),
         status: 'plan-dependent',
-        cites: [S.title26, S.bcbsPM, S.cfr433, S.cms1500, S.tricare, S.champva],
+        cites: [S.cobRule, S.cobDefs, S.title26, S.cfr433, S.cms1500, S.tricare, S.champva],
         verifyVia: WY_COB_VERIFY('UnitedHealthcare/Optum'),
         blocker: 'per-case',
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare accept H0031 or H2019 for ABA?', a: 'No. Optum’s commercial ABA policy uses CPT 97151–97158, 0362T and 0373T with credential modifiers.' },
+      { q: 'Does Optum require graphs for an ABA reauthorization?', a: 'The criteria ask for progress measured the same way as baseline, mastery rates, change scores and updated standardized adaptive measures; graphs are not named.' },
+      { q: 'What is UnitedHealthcare’s timely filing limit for ABA claims?', a: 'Optum: 90 calendar days from the date of service unless state law or the plan allows longer, with corrections within 90 days of the first claim’s receipt.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in Wyoming?', a: 'Yes, under Optum’s national ABA criteria for ASD. Fully insured Wyoming plans with mental health coverage are also bound by Bulletin 01-2019. Self-funded employer plans follow their own documents.' },
       { q: 'Does Optum have Wyoming-specific ABA criteria?', a: 'No. Optum’s ABA State Mandates supplement does not list Wyoming, so the national criteria and two-step authorization apply.' },
       { q: 'Can ABA be delivered by telehealth with UnitedHealthcare in Wyoming?', a: 'Optum’s commercial telehealth guide allows only 97155, 97156 and 97157 by telehealth, billed POS 02 or 10. Fully insured Wyoming plans are also subject to W.S. 26-20-701(b), which bars denying a covered mental health service only because it is delivered remotely, so ask Optum how it applies the list to your plan.' },

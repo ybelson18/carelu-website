@@ -49,13 +49,14 @@ const S: Record<string, PayerSource> = {
   abhNotice: { title: 'Aetna Better Health of Louisiana — Provider Network Notification: Applied Behavioral Analysis Policy (enforced 5/8/2022)', url: 'https://es.aetnabetterhealth.com/content/dam/aetna/medicaid/louisiana/providers/pdf/abhla_aba_policy_update_notification.pdf' },
   abhCDE: { title: 'Aetna Better Health of Louisiana — Healthcare Professional Guidelines for Comprehensive Diagnostic Evaluations for ABA Services', url: 'https://ch.aetnabetterhealth.com/content/dam/aetna/medicaid/louisiana/providers/pdf/abhla_ABA_Guidelines.pdf' },
   abhPM: { title: 'Aetna Better Health of Louisiana — Provider Manual (LA-22-10-02, revised 11-09-2023; LDH-posted copy)', url: 'https://www.ldh.la.gov/assets/medicaid/MCPP/11.20.23/822_ABH_2023_ABHLA_Provider_Manual_LDH_Submission.pdf' },
+  abhPM26: { title: 'Aetna Better Health of Louisiana — Provider Manual (revised 09-29-2026)', url: 'https://es.aetnabetterhealth.com/content/dam/aetna/medicaid/louisiana/providers/pdf/provider_manual.pdf' },
   aclaHB: { title: 'AmeriHealth Caritas Louisiana — Provider Manual (published September 2026)', url: 'https://www.amerihealthcaritasla.com/pdf/provider/resources/manual/handbook.pdf' },
   aclaCCP: { title: 'AmeriHealth Caritas Louisiana — Clinical Policy CCP.4040, Applied Behavior Analysis (reviewed 3/2024; LDH-posted copy)', url: 'https://www.ldh.la.gov/assets/medicaid/MCPP/9.5.24/506_ACLA_ccp4040_applied_behavior_analysis_final.pdf' },
   aclaAlert: { title: 'AmeriHealth Caritas Louisiana — Provider Alert: ABA Prior Authorization Form (November 19, 2025)', url: 'https://www.amerihealthcaritasla.com/content/dam/amerihealth-caritas/acla/pdf/provider/newsletters/2025/112025-provider-alert-aba-authorization-form.pdf.coredownload.inline.pdf' },
   hbPM: { title: 'Healthy Blue Louisiana — Medicaid Provider Manual (April 2026 posting)', url: 'https://provider.healthybluela.com/docs/gpp/LA_CAID_ProviderManual.pdf?v=202604141511' },
   hbPAL: { title: 'Healthy Blue Louisiana — Prior Authorization List (as of 07/06/2026)', url: 'https://provider.healthybluela.com/docs/gpp/LA_HBPAlist.pdf?v=202607202015' },
   hbWeekly: { title: 'Healthy Blue — Streamlined ABA claim process: weekly approved units (LAHB-CD-097207-25, state-approved copy posted by LDH 2/20/2026)', url: 'https://ldh.la.gov/assets/medicaid/MCPP/2_20_26/LAHB-CD-097207-25-CPN96709_EXPRESS-ABA-Claim-Processing_STATE_APP.pdf' },
-  humCLI: { title: 'Humana Healthy Horizons in Louisiana — Medical Coverage Policy LA.CLI.022, Applied Behavior Analysis (eff. 02/11/2026)', url: 'https://assets.humana.com/is/content/humana/LACLI022%20Applied%20Behavioral%20Analysis%20LA%20ed%2002112026pdf' },
+  humCLI: { title: 'Humana Healthy Horizons in Louisiana — Medical Coverage Policy LA.CLI.022.003, Applied Behavior Analysis (eff. 10/07/2026; review date 05/05/2026)', url: 'https://assets.humana.com/is/content/humana/LA.CLI.022.003%20Applied%20Behavioral%20Analysis%20ed%2010.7.26pdf' },
   humForm: { title: 'Humana Healthy Horizons in Louisiana — Applied Behavioral Analysis (ABA) Authorization form', url: 'https://assets.humana.com/is/content/humana/FINAL_316907LA0923-M_3576_LA_PROV_ABA_PA_Form_LAHLRVMENpdf' },
   humPM: { title: 'Humana Healthy Horizons in Louisiana — Provider Manual 2026 (v1.0)', url: 'https://assets.humana.com/is/content/humana/2026-1-14_LA_Provider%20Manual_2026_v1.0pdf' },
   lhccUM49: { title: 'Louisiana Healthcare Connections — LA.UM.49, Outpatient Applied Behavior Analysis Medical Necessity Criteria', url: 'https://www.louisianahealthconnect.com/content/dam/centene/louisiana-health-connect/policies/clinical-policies/LA.UM.49_Outpatient_Applied_Behavior_Analysis_Medical_Necessity_Criteria.pdf' },
@@ -66,6 +67,8 @@ const S: Record<string, PayerSource> = {
   aetnaPrecert: { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
   aetnaNPC: { title: 'Aetna — Provider and facility participation criteria (8100606-01-01, 5/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' },
   aetnaOM: { title: 'Aetna Health Care Professional Toolkit / provider manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+  aetnaCPB: { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026; experimental for non-ASD indications; code table)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+  aetnaTele: { title: 'Aetna — Telemedicine and Direct Patient Contact Payment Policy (ABA code table: Commercial vs. Medicare columns; posted policy shows last review June 2021)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pdf/telemedicine.pdf' },
   en0499: { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
   cignaARG: { title: 'Cigna / Evernorth autism resource guide (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
   ebhAdmin: { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
@@ -91,7 +94,7 @@ const LA_MCD_NOTES =
   'Start and stop times are required "for every code billed" (at the start of the session, after any break of 12 minutes or more, and on a switch of billing code). "The person delivering the service must sign, date, and include their credentials in the documentation for each day and distinct session," and the daily log must also carry the "Name, signature, and credentials for supervising BCBA who is also rendering provider for billing." For an RLT session, recorded data can replace the narrative. Records are kept at least six years.';
 
 const LA_MCD_POS =
-  'Services "must be provided in a natural setting (e.g., home and community-based settings, including clinics and school)," and school-based ABA by ABA providers is allowed. A treatment plan that puts services in a school "will not be approved until an IEP is provided" to the MCO. Sessions at a "non-ABA facility" (any place other than the home that does not offer ABA as a primary service) need an addendum explaining why they cannot happen at home or at the ABA facility. A change of setting mid-authorization needs a treatment-plan addendum.';
+  'Services "must be provided in a natural setting (e.g., home and community-based settings, including clinics and school)," and school-based ABA by ABA providers is allowed. A treatment plan that puts services in a school "will not be approved until an IEP is provided" to the MCO. Sessions at a "non-ABA facility" (any place other than the home that does not offer ABA as a primary service) need an addendum explaining why they cannot happen at home or at the ABA facility. A change of setting mid-authorization needs a treatment-plan addendum. Overlap with other therapies (speech, OT, PT, waiver services): ABA may be delivered "simultaneously with another service, if allowed per medically unlikely edits and coding guidelines," only when "the other service in question must not have a restriction that keeps it from being performed at the same time as another service," and the treatment-plan addendum must give the frequency and duration of sessions when the ABA provider and the other provider are both present and what the other provider needs to implement the skill.';
 
 const LA_MCD_BILLAS =
   'The supervisor. "When billing for ABA services, the rendering provider on the claim form must be the provider that provided supervision for those services and signed documentation indicating that they supervised the services being billed for on the claim," and "Payment for services must be billed by the licensed professional" (an LBA, licensed psychologist or licensed medical psychologist). RLTs are not billed as rendering providers.';
@@ -109,10 +112,10 @@ const LA_MCD_TOOLS =
   'No named instrument is required. The CDE must include a clinical history, direct observation, record review, a DSM-5 (or current edition) diagnosis, the rationale for referral or non-referral to ABA, and recommendations. Only when screening is borderline or the diagnosis or need is unclear must it add autism-specific, general psychopathology, cognitive/developmental and adaptive-behavior assessments. Pediatricians may diagnose on the MCHAT-R/F.';
 
 const LA_MCD_REFERRAL =
-  'Yes: a prescription for ABA "ordered by a QHCP," but "If there is a recommendation in the comprehensive diagnostic evaluation (CDE) for ABA therapy, a separate prescription is not needed." The behavior treatment plan must name the child’s PCP, be sent to the PCP, and progress notes go to the PCP every six months with each renewal.';
+  'Yes: a prescription for ABA "ordered by a QHCP," but "If there is a recommendation in the comprehensive diagnostic evaluation (CDE) for ABA therapy, a separate prescription is not needed." The behavior treatment plan must name the child’s PCP, be sent to the PCP, and progress notes go to the PCP every six months with each renewal. The chapter sets no expiry date for the prescription and does not say the prescriber must appear on the claim; ask the MCO.';
 
 const LA_MCD_TELEHEALTH =
-  'Yes, with prior authorization. The LDH manual lists 97151–97158 as codes that "can be performed via telehealth," with reimbursement rules otherwise unchanged; services must be "rendered or directed by a RLT, LBA, or CaBA" over "an interactive audio/visual telecommunications system." Reassessments and treatment plans may be done remotely "only if the same standard of care can be met," and RLT supervision "may be conducted via telehealth in lieu of the LBA/CaBA being physically present." 0362T and 0373T are not on the telehealth list.';
+  'Yes, with prior authorization. The LDH manual lists 97151–97158 as codes that "can be performed via telehealth," with reimbursement rules otherwise unchanged; services must be "rendered or directed by a RLT, LBA, or CaBA" over "an interactive audio/visual telecommunications system." Reassessments and treatment plans may be done remotely "only if the same standard of care can be met," and RLT supervision "may be conducted via telehealth in lieu of the LBA/CaBA being physically present." 0362T and 0373T are not on the telehealth list. "Telehealth requires PA for services," and approved PAs can be amended to add units or reflect reassessment goals. The chapter names no telehealth place-of-service code or modifier, so each MCO’s billing rules decide those.';
 
 const LA_MCD_COB =
   'Medicaid pays last (42 CFR 433.139). The LDH manual lets the MCO "bypass the prior authorization (PA) process and acknowledge the PA granted by the primary insurer" when another insurer covers ABA. The MCOs tightened this in November 2025: with the new uniform ABA form, if the primary insurance covers ABA, "Medicaid will remain the payor of last resort, and the authorization will be placed in a pending status until primary coverage is confirmed," so send the primary insurer’s approval or denial with the Medicaid request.';
@@ -205,14 +208,14 @@ export const louisianaPayers: Record<string, PayerConfig> = {
         h2: 'Prior authorization: two requests, 180 days each',
         body: [
           'All ABA must be prior authorized by the child’s MCO, in two steps. First the provider asks to conduct a functional assessment and write the behavior treatment plan, attaching the CDE (only on the first request per member per provider). Then a separate request asks for treatment, with the CDE, the treatment plan, the IEP, and the waiver Plan Profile Table and schedule if the child is on a waiver and services overlap. Reassessments happen at least every six months, and no assessment or treatment authorization runs longer than 180 days. Services delivered without authorization are not paid, except for retroactive eligibility. The treatment plan must show the weekly hours and locations, the direct observation, parent training goals and the PCP’s contact details; LDH’s plan-of-care template in Appendix D is optional, but its content is not. If a request is not approved as asked, the provider can request reconsideration from the MCO. Families may change ABA providers every 180 days, sooner for good cause.',
-          'Since November 2025 the plans accept one uniform ABA authorization form. It asks whether there is a primary payer, whether the child is in school and whether an IEP exists, and it lists everything to attach for an initial assessment, initial treatment and continued treatment.',
+          'Since November 2025 the plans accept one uniform ABA authorization form. It asks whether there is a primary payer, whether the child is in school and whether an IEP exists, and it lists everything to attach for an initial assessment, initial treatment and continued treatment. For "subsequent treatment requests" it asks for "Objective measures of clinically significant progress (measurable and functional improvement) toward each stated treatment goal," an updated plan with goals and timelines, progress or lack of it with earlier interventions, the IEP or IFSP, titration and discharge plans, the schedule by location and provider, and the functional behavioral assessment ("Please advise the assessment tool utilized and include baseline data graph and progress"). So graphed baseline and progress data are expected on renewals. LDH’s plan-of-care instructions add that a renewal must "list the present level of performance for skills under treatment and any goals mastered during the previous authorization period," and must not describe baselines with "idiosyncratic, proprietary assessment instrument results."',
         ],
         cites: [S.msm, S.lhccForm, S.lhccUniform, S.aclaAlert],
       },
       {
         h2: 'The ABA fee schedule',
         body: [
-          'Louisiana Medicaid publishes one ABA fee schedule, effective for dates of service on or after July 1, 2022, and the manual makes it a floor for the plans: "MCO reimbursement rates shall be no less than the rates published" there. Per 15-minute unit: 97151 $25.00 (TF line $20.00); 97152 $11.00; 0362T $23.00; 97153 $12.50; 0373T $23.00; 97154 $4.50; 97155 $22.50 (TF $17.50); 97156 $22.50 (TF $17.50); 97157 $9.00 (TF $7.00); 97158 $10.00 (TF $7.50). The schedule’s columns are LBA, SCABA and technician, and modifiers mark the credential of the person delivering the service (HN bachelor’s level, TF intermediate level of care). Parents trained in ABA are not paid to treat their own child in place of an RLT, though a parent employed by an ABA provider can be.',
+          'Louisiana Medicaid publishes one ABA fee schedule, effective for dates of service on or after July 1, 2022, and the manual makes it a floor for the plans: "MCO reimbursement rates shall be no less than the rates published" there. Per 15-minute unit: 97151 $25.00 (TF line $20.00); 97152 $11.00; 0362T $23.00; 97153 $12.50; 0373T $23.00; 97154 $4.50; 97155 $22.50 (TF $17.50); 97156 $22.50 (TF $17.50); 97157 $9.00 (TF $7.00); 97158 $10.00 (TF $7.50). The schedule’s columns are LBA, SCABA and technician, and modifiers mark the credential of the person delivering the service (HN bachelor’s level, TF intermediate level of care). Parents trained in ABA are not paid to treat their own child in place of an RLT, though a parent employed by an ABA provider can be. Code set: the schedule and the manual’s telehealth list use only CPT 97151–97158, 0362T and 0373T, with credential modifiers; no HCPCS H-code (H0031, H0032, H2019) is an ABA code in Louisiana Medicaid.',
         ],
         cites: [S.fee, S.msm],
       },
@@ -229,7 +232,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
         body: [
           'Each plan sets its own claims rules within its LDH contract. The plans’ current manuals agree on a 365-day filing limit from the date of service (AmeriHealth Caritas Louisiana, Humana Healthy Horizons, Healthy Blue, Aetna Better Health). AmeriHealth Caritas Louisiana’s manual states the contract’s payment standard: 90% of clean claims paid or denied within 15 calendar days and all of them within 30. Provider claim disputes go first to the plan as an independent review reconsideration within 180 days of the remittance advice, then to LDH’s independent review within 60 days of the plan’s decision; a member appeal of a denied authorization is due within 60 calendar days of the notice. LDH’s electronic visit verification program covers personal care and home health services; ABA is not among the services it names.',
         ],
-        cites: [S.aclaHB, S.humPM, S.hbPM, S.abhPM, S.evv],
+        cites: [S.aclaHB, S.humPM, S.hbPM, S.abhPM26, S.evv],
       },
       {
         h2: '2026 plan changes: UnitedHealthcare and Healthy Blue exits',
@@ -247,7 +250,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       { title: 'PCP name and contact', desc: 'Must appear on every treatment plan; the PCP gets the plan and six-month progress notes.' },
       { title: 'Other insurance', desc: 'The primary insurer’s ABA approval or denial; Medicaid plans hold the authorization pending until they see it.' },
     ],
-    sources: [S.msm, S.fee, S.plans, S.plansContact, S.ib2612, S.ib2603, S.t2027, S.uhcLA, S.lhccForm, S.lhccUniform, S.abhCDE, S.aclaHB, S.humPM, S.hbPM, S.abhPM, S.evv, S.rs3716, S.rs12234, S.bacbLic, S.cfr438, S.cfr433],
+    sources: [S.msm, S.fee, S.plans, S.plansContact, S.ib2612, S.ib2603, S.t2027, S.uhcLA, S.lhccForm, S.lhccUniform, S.abhCDE, S.abhPM26, S.aclaHB, S.humPM, S.hbPM, S.abhPM, S.evv, S.rs3716, S.rs12234, S.bacbLic, S.cfr438, S.cfr433],
     deliveryRules: {
       supervision: {
         value: LA_MCD_SUPERVISION,
@@ -329,6 +332,8 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       { q: 'Is ABA carved out of Louisiana Medicaid managed care?', a: 'No. The LDH manual says ABA services are provided through the MCOs, and every request and claim goes to the child’s plan. There is no fee-for-service ABA billing path.' },
       { q: 'What does Louisiana Medicaid pay for ABA?', a: 'The state fee schedule (effective July 1, 2022) pays per 15 minutes: 97151 $25.00, 97152 $11.00, 97153 $12.50, 97154 $4.50, 97155 and 97156 $22.50, 97157 $9.00, 97158 $10.00, 0362T and 0373T $23.00, with lower TF-modifier lines. Plans must pay at least these rates.' },
       { q: 'Can a BCBA licensed in another state treat a Louisiana Medicaid child, including by telehealth?', a: 'Not on a BCBA certificate or another state’s license alone. Medicaid requires a behavior analyst licensed by the Louisiana Behavior Analyst Board (or a licensed psychologist), and state law makes unlicensed practice a misdemeanor. Louisiana law tells the board to provide a licensing or registration route for out-of-state telehealth providers; ask the board which applies.' },
+      { q: 'Can a 97153 session overlap with speech or OT in Louisiana Medicaid?', a: 'Only if coding rules and medically unlikely edits allow it and the other service has no restriction on being performed at the same time. The treatment plan needs an addendum with the frequency and duration of the joint sessions and what the other provider needs to carry out the skill.' },
+      { q: 'Does Louisiana Medicaid want graphs with an ABA reauthorization?', a: 'The all-plan uniform ABA form asks renewals to include the functional behavioral assessment with a baseline data graph and progress, plus objective measures of progress toward each goal.' },
       { q: 'Does a CDE expire for Louisiana Medicaid ABA?', a: 'No. Plans may not deny services based solely on the age of the CDE, and it only has to be sent with the first request to each provider. A plan that wants a new one must arrange it without pausing services.' },
       { q: 'What happens to ABA authorizations when Healthy Blue ends?', a: 'Healthy Blue leaves Medicaid on December 31, 2026. The new plan must honor Healthy Blue authorizations for up to 60 days or until they end, whichever comes first, even if the provider is out of network. Submit a new request to the new plan before then.' },
     ],
@@ -383,9 +388,10 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       {
         h2: 'Telehealth and claims',
         body: [
-          'The plan’s provider manual (revised November 2023, the latest copy we could open) covers ABA by telehealth for new and established patients: 97151 through 97158 may be delivered remotely with reimbursement otherwise unchanged, billed with place of service 02 (not home) or 10 (home) "based on the member’s location at the time of service" and "appended with modifier -95." An existing authorization does not need an addendum to switch to telehealth; new patients still need authorization, and RLT supervision may be remote. Claims go through Availity (Office Ally) or to P.O. Box 982962, El Paso, TX 79998-2962, within 365 days of the date of service, with 180 days to resubmit after an adverse determination; the plan pays ABA from the Louisiana Medicaid fee schedule.',
+          'Telehealth: the November 2023 edition of the plan’s provider manual covered ABA by telehealth for new and established patients (97151 through 97158, place of service 02 or 10 "based on the member’s location at the time of service," "appended with modifier -95"). The current manual, revised 09-29-2026, drops that section; its general modifier table lists "Modifier GT telemedicine," so confirm the POS and modifier with the plan. The LDH manual still allows ABA telehealth with prior authorization.',
+          'Claims (manual revised 09-29-2026): new claims, including third-party-liability claims, are due "within 365 days the date services … were performed"; resubmissions "within 180 days from the date of adverse determination"; and a corrected version of a processed claim within 180 days of the retracted date, marked as a replacement (frequency code 7) or void. The plan screens a claim within five business days of receipt, pays or denies 90% of clean claims within 15 business days and 99% within 30 calendar days, and adjudicates pended claims within 60 days. "Our claims team will use the ABA description code and fee schedule found on the Louisiana Medicaid Fee Schedule website," and an unlicensed rendering provider’s NPI goes in box 24J, or the claim is denied.',
         ],
-        cites: [S.abhPM, S.abhCDE],
+        cites: [S.abhPM26, S.abhPM, S.abhCDE, S.msm],
       },
     ],
     collect: [
@@ -394,7 +400,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       { title: 'IEP and waiver pages', desc: 'IEP with the treatment request; waiver Plan Profile Table and schedule if applicable.' },
       { title: 'Other insurance', desc: 'Medicaid pays last; send the primary insurer’s ABA decision.' },
     ],
-    sources: [S.abhPol, S.abhNotice, S.abhCDE, S.abhPM, S.msm, S.fee, S.lhccUniform, S.cfr438, S.cfr433],
+    sources: [S.abhPol, S.abhNotice, S.abhCDE, S.abhPM26, S.abhPM, S.msm, S.fee, S.lhccUniform, S.cfr438, S.cfr433],
     deliveryRules: {
       supervision: {
         value: 'The plan’s policy repeats the state’s staffing rule (technician services require supervision by a licensed behavior analyst in the treatment plan) and publishes no ratio of its own, so the LDH manual’s ratio applies. ' + LA_MCD_SUPERVISION,
@@ -419,9 +425,9 @@ export const louisianaPayers: Record<string, PayerConfig> = {
         cites: [S.abhNotice, S.msm],
       },
       placeOfService: {
-        value: 'The plan publishes no setting rule of its own beyond the telehealth POS codes (02 and 10). ' + LA_MCD_POS,
+        value: 'The plan publishes no ABA setting rule of its own; its current manual (revised 09-29-2026) says only that ABA claims are paid from the Louisiana Medicaid fee schedule. ' + LA_MCD_POS,
         status: 'verified',
-        cites: [S.abhPM, S.msm],
+        cites: [S.abhPM26, S.msm],
       },
       billAsProvider: {
         value: 'The plan publishes no ABA-specific rendering rule and says it follows the LDH manual. ' + LA_MCD_BILLAS,
@@ -456,21 +462,21 @@ export const louisianaPayers: Record<string, PayerConfig> = {
         cites: [S.abhPol, S.abhCDE, S.msm],
       },
       telehealth: {
-        value: 'Yes. 97151–97158 may be delivered by telehealth for new or established patients, billed with POS 02 (member not at home) or 10 (member at home) and modifier 95; an existing authorization needs no addendum, and RLT supervision may be done remotely by the LBA or CaBA. Services must be "rendered or directed by" an RLT, LBA or CaBA over interactive audio/video.',
-        status: 'verified',
-        cites: [S.abhPM, S.msm],
+        value: 'Yes under the state rule, but the plan’s billing instruction is no longer published. The November 2023 edition of the plan’s manual billed ABA telehealth with POS 02 (member not at home) or 10 (member at home) and modifier 95 and needed no authorization addendum for established patients; the current manual (revised 09-29-2026) has no ABA telehealth section, and its modifier table lists only "Modifier GT telemedicine." Confirm the POS and modifier with the plan before billing. ' + LA_MCD_TELEHEALTH,
+        status: 'plan-dependent',
+        cites: [S.abhPM26, S.abhPM, S.msm],
+        verifyVia: 'Aetna Better Health of Louisiana Provider Services, 1-855-242-0802: ask which POS (02/10) and modifier (95 or GT) it wants on ABA telehealth lines and whether the authorization must note telehealth.',
+        blocker: 'per-case',
       },
       authTurnaround: {
-        value: 'The plan’s manual says PA criteria must be available online or within 24 hours of a request and denial notices go to the provider in writing within 3 days of the decision; it does not print an ABA decision clock that we could find. ' + LA_MCD_TURNAROUND_FED,
-        status: 'plan-dependent',
-        cites: [S.abhPM, S.cfr438],
-        verifyVia: 'Aetna Better Health of Louisiana UM, 1-855-242-0802: ask the standard turnaround for an ABA request and how far ahead to submit a reauthorization.',
-        blocker: 'per-case',
+        value: 'The plan’s current manual (revised 09-29-2026) decides non-urgent pre-service requests for 80% of standard authorizations "within two (2) business days of obtaining appropriate medical information … But no later than 7 calendar days from receipt of the request" for approvals (14 calendar days for denials), and urgent pre-service requests within "72 hours from receipt of request." PA criteria must be online or furnished within 24 hours of a request, and denial notices go to the provider in writing within 3 days of the decision. ' + LA_MCD_TURNAROUND_FED,
+        status: 'verified',
+        cites: [S.abhPM26, S.cfr438],
       },
       coordinationOfBenefits: {
         value: 'The plan’s manual: "the Medicaid program by law is intended to be the payer of last resort," and other coverage must pay first; third-party-liability claims share the 365-day filing limit. ' + LA_MCD_COB,
         status: 'verified',
-        cites: [S.abhPM, S.cfr433, S.msm, S.lhccUniform],
+        cites: [S.abhPM26, S.cfr433, S.msm, S.lhccUniform],
       },
     },
     faq: [
@@ -797,7 +803,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
     metaDescription:
       'How Humana Healthy Horizons in Louisiana covers ABA for Medicaid members under 21: coverage policy LA.CLI.022, two-step authorization, the uniform ABA form, PA turnaround, ABA quality reviews and claims deadlines.',
     intro: [
-      'Humana Healthy Horizons in Louisiana (Humana Health Benefit Plan of Louisiana) joined Healthy Louisiana in 2023 and is one of the four plans that remain in 2027. Its ABA coverage policy, LA.CLI.022 (effective February 11, 2026), follows the LDH manual section by section, and its 2026 provider manual adds the authorization clock and an ABA quality-monitoring program that reviews treatment records.',
+      'Humana Healthy Horizons in Louisiana (Humana Health Benefit Plan of Louisiana) joined Healthy Louisiana in 2023 and is one of the four plans that remain in 2027. Its ABA coverage policy, LA.CLI.022.003 (effective October 7, 2026; its change log records LDH-requested updates on May 5, 2026), follows the LDH manual section by section, and its 2026 provider manual adds the authorization clock and an ABA quality-monitoring program that reviews treatment records.',
     ],
     atGlance: [
       { label: 'Covers ABA?', value: 'Yes, members under 21 with a qualifying CDE' },
@@ -854,7 +860,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
         cites: [S.humPM, S.msm],
       },
       placeOfService: {
-        value: 'Services "must be provided in a natural setting (e.g., home and community-based settings, including clinics and school)," school-based ABA is allowed, school plans need the IEP first, and sessions at a non-ABA facility need an addendum explaining why they cannot happen at home or at the ABA facility.',
+        value: 'Services "must be provided in a natural setting (e.g., home and community-based settings, including clinics and school)," school-based ABA is allowed, school plans need the IEP first, and sessions at a non-ABA facility need an addendum explaining why they cannot happen at home or at the ABA facility. LA.CLI.022.003 also lets ABA run "simultaneously with another service" (for example speech therapy) only if "the other service in question must not have a restriction that keeps it from being performed at the same time," with an addendum giving the frequency and duration of the joint sessions.',
         status: 'verified',
         cites: [S.humCLI],
       },
@@ -997,7 +1003,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
         cites: [S.lhccUM49, S.msm],
       },
       placeOfService: {
-        value: 'LA.UM.49: services "must be provided in a natural setting (e.g., home and community-based settings, including clinics and school)," and school-based ABA is allowed. The LDH manual adds the IEP requirement for school plans and the non-ABA-facility addendum.',
+        value: 'LA.UM.49: services "must be provided in a natural setting (e.g., home and community-based settings, including clinics and school)," and school-based ABA is allowed. LA.UM.49 says nothing about ABA overlapping another therapy, so the LDH manual governs that and adds the IEP requirement for school plans and the non-ABA-facility addendum. ' + LA_MCD_POS,
         status: 'verified',
         cites: [S.lhccUM49, S.msm],
       },
@@ -1112,8 +1118,9 @@ export const louisianaPayers: Record<string, PayerConfig> = {
         h2: 'Claims: prompt pay in Louisiana',
         body: [
           LA_PROMPT_PAY + ' Aetna publishes no ABA rate table: its provider manual says "The rates and compensation under your agreement are subject to the Aetna coding/claim edit policies," and a member cannot be charged "more than the contracted rate."',
+          'Billing details from Aetna’s own documents. Codes: Aetna’s ABA policy (CPB 0554) lists only CPT 97151–97158, 0362T and 0373T and no HCPCS code, so H0031, H0032 or H2019 are not ABA codes at Aetna. Telehealth: its Telemedicine and Direct Patient Contact Payment Policy names modifiers GT, 95 and FR but no place-of-service code, and none of Aetna’s documents says the precertification must flag telehealth; ask which POS (02 or 10) it wants when you precertify. Filing: the Health Care Professional Toolkit (6/26) prints no timely-filing deadline, so your agreement sets it, and its definition of a clean claim excludes any claim that involves coordination of benefits. Reauthorization: the ABA medical necessity guide calls for "Repeated measurement with standardized measures to assess progress" and says "A member’s progress is to be evaluated every six months"; it does not mention graphs. Supervision: the Network Participation Criteria set one hour of face-to-face supervision per 10 hours of paraprofessional ABA and publish no cap on technicians per BCBA.',
         ],
-        cites: [S.rs1832, S.rs1833, S.aetnaOM],
+        cites: [S.rs1832, S.rs1833, S.aetnaOM, S.aetnaCPB, S.aetnaTele, S.aetnaGuide, S.aetnaNPC],
       },
     ],
     collect: [
@@ -1123,10 +1130,10 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       { title: 'Standardized functional measure', desc: 'From the past 12 months (for example Vineland-3, ABAS, VB-MAPP or ABLLS).' },
       { title: 'Louisiana prescriber', desc: 'The mandate covers treatment ordered by a Louisiana-licensed physician or psychologist.' },
     ],
-    sources: [S.aetnaGuide, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.rs1050, S.rs3702, S.rs3706, S.rs3708, S.rs3715, S.rs3716, S.rs3704, S.rs12234, S.rs3718, S.rs1821, S.rs1832, S.rs1833, S.rs1836, S.bacbLic, S.fee, S.erisa, S.cfr433, S.tricare, S.champva],
+    sources: [S.aetnaGuide, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.rs1050, S.rs3702, S.rs3706, S.rs3708, S.rs3715, S.rs3716, S.rs3704, S.rs12234, S.rs3718, S.rs1821, S.rs1832, S.rs1833, S.rs1836, S.bacbLic, S.fee, S.erisa, S.cfr433, S.tricare, S.champva, S.aetnaCPB, S.aetnaTele],
     deliveryRules: {
       supervision: {
-        value: 'Aetna’s participation criteria (5/26): ABA services "must be provided directly or supervised by individuals licensed by the state or certified by the Behavior Analyst Certification Board," with "A minimum of one hour of face-to-face supervision" of an unlicensed or noncertified paraprofessional "for each 10 hours of applied behavior analysis" and the supervisor "onsite with the child at least one hour a month." Staff "must meet state requirements," and in Louisiana that means a licensed LBA and registered line technicians (R.S. 37:3708, 37:3716).',
+        value: 'Aetna’s participation criteria (5/26): ABA services "must be provided directly or supervised by individuals licensed by the state or certified by the Behavior Analyst Certification Board," with "A minimum of one hour of face-to-face supervision" of an unlicensed or noncertified paraprofessional "for each 10 hours of applied behavior analysis" and the supervisor "onsite with the child at least one hour a month." Staff "must meet state requirements," and in Louisiana that means a licensed LBA and registered line technicians (R.S. 37:3708, 37:3716).' + ' Aetna’s guide and Network Participation Criteria publish no cap on the number of technicians one BCBA may supervise.',
         status: 'verified',
         cites: [S.aetnaNPC, S.rs3708, S.rs3716],
       },
@@ -1191,9 +1198,9 @@ export const louisianaPayers: Record<string, PayerConfig> = {
         cites: [S.aetnaPrecert, S.rs1050, S.aetnaOM],
       },
       telehealth: {
-        value: 'Aetna’s provider manual (6/26): Aetna Behavioral Health "offers telehealth services to all commercial fully insured members and to all commercial self-insured plan sponsors, unless those self-insured plan sponsors opt out," and providers "must act within the scope of their license and ensure that they have the proper licensure based on state requirements." Aetna’s current ABA telehealth code list was not published in a document we could read.' + LA_TELE_TAIL,
+        value: 'Aetna’s provider manual (6/26): Aetna Behavioral Health "offers telehealth services to all commercial fully insured members and to all commercial self-insured plan sponsors, unless those self-insured plan sponsors opt out," and providers "must act within the scope of their license and ensure that they have the proper licensure based on state requirements." Aetna’s current ABA telehealth code list was not published in a document we could read.' + LA_TELE_TAIL + ' Aetna’s Telemedicine and Direct Patient Contact Payment Policy (posted policy shows last review June 2021) marks 97151, 97153, 97155, 97156 and 97157 as telehealth-eligible on commercial plans with modifier GT, 95 or FR; neither it nor the provider toolkit names a telehealth place-of-service code or says the precertification must flag telehealth.',
         status: 'plan-dependent',
-        cites: [S.aetnaOM, S.rs1821, S.rs12234],
+        cites: [S.aetnaOM, S.rs1821, S.rs12234, S.aetnaTele],
         verifyVia: 'Availity or the precertification line: ask whether the plan is fully insured or self-funded (and opted out of telehealth), and which ABA codes, POS and modifier Aetna pays by telehealth.',
         blocker: 'per-case',
       },
@@ -1213,6 +1220,9 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Aetna accept H0031, H0032 or H2019 for ABA?', a: 'No. Aetna’s ABA policy lists only CPT 97151–97158, 0362T and 0373T.' },
+      { q: 'Does Aetna require graphs for an ABA reauthorization?', a: 'Its ABA guide asks for repeated measurement with standardized measures and a progress evaluation every six months; it does not mention graphs.' },
+      { q: 'What is Aetna’s timely filing limit for ABA claims?', a: 'Aetna’s provider toolkit (6/26) does not print one; the filing limit is in your Aetna agreement.' },
       { q: 'Does Aetna cover ABA therapy in Louisiana?', a: 'Yes, for autism spectrum disorder under Aetna’s national criteria, with Louisiana’s R.S. 22:1050 mandate on fully insured plans. Self-funded employer plans follow their own documents.' },
       { q: 'What does the Louisiana autism mandate require?', a: 'Fully insured plans must cover diagnosis and treatment of autism, including ABA, for people under 21, with no visit limits, up to $36,000 a year. Treatment must be ordered by a Louisiana-licensed physician or psychologist.' },
       { q: 'Can a BCBA licensed in another state treat an Aetna member in Louisiana by telehealth?', a: 'Aetna requires providers to hold the licensure their state requires, and Louisiana licenses behavior analysts; practicing without a Louisiana license is a misdemeanor. Ask the Louisiana Behavior Analyst Board about its out-of-state telehealth route.' },
@@ -1276,8 +1286,9 @@ export const louisianaPayers: Record<string, PayerConfig> = {
         h2: 'Claims: filing limits and prompt pay',
         body: [
           'Evernorth’s administrative guidelines (September 2026) consider claims "submitted within 90 days of the date of service or as otherwise defined in your Provider Agreement," unless "Applicable state law provides for a longer timely filing limit." Electronic claims use payer ID 62308. ' + LA_PROMPT_PAY,
+          'Billing details from Evernorth’s own documents. Codes: "All ABA services must be billed with CPT codes 97151–97158, 0362T, and 0373T ONLY," so H-codes are not accepted for ABA. Telehealth: "All ABA CPT codes are covered telehealth services"; on the CMS-1500 use "Modifier 95 in Field 24-D to specify telehealth" and "02 for Place of Service in Field 24-B"; neither document says the authorization must flag telehealth. Filing: claims must be "submitted within 90 days of the date of service or as otherwise defined in your Provider Agreement" unless state law gives longer; for coordination of benefits the 90 days run from the primary payer’s EOB or EOP; a claim Evernorth returns for more information gets a fresh 90 days from its request; corrected claims carry frequency code 7 (replace) or 8 (void) in field 22, without a "Corrected Claim" stamp. Reauthorization (EN0499): an updated treatment plan; "Quantitative baseline, interim and current data" with the dates they were collected for every behavior and skill across all settings; current data collected within 60 days before the continued-treatment start date and within 60 days before the request is received; a standardized assessment no more than one year before the start date; and a written plan to address barriers if progress stalls. EN0499 asks for dated data, not graphs by name. Supervision runs one to two hours per ten hours of direct treatment, with no published cap on technicians per supervisor.',
         ],
-        cites: [S.ebhAdmin, S.cignaARG, S.rs1832, S.rs1833],
+        cites: [S.ebhAdmin, S.cignaARG, S.rs1832, S.rs1833, S.en0499],
       },
     ],
     collect: [
@@ -1290,7 +1301,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
     sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.rs1050, S.rs3702, S.rs3706, S.rs3708, S.rs3715, S.rs3716, S.rs3704, S.rs12234, S.rs3718, S.rs1821, S.rs1832, S.rs1833, S.rs1836, S.bacbLic, S.fee, S.erisa, S.cfr433, S.tricare, S.champva],
     deliveryRules: {
       supervision: {
-        value: 'Case supervision by a BCBA, LBA or independently licensed clinician trained in ABA, "consistent with the general accepted standard of care of one to two hours per ten hours of direct treatment," and at least 1–2 hours a week of direct supervision when direct treatment is 10 hours a week or less; the supervisor’s name and credentials must be documented. In Louisiana, technicians must also be registered line technicians (R.S. 37:3708).',
+        value: 'Case supervision by a BCBA, LBA or independently licensed clinician trained in ABA, "consistent with the general accepted standard of care of one to two hours per ten hours of direct treatment," and at least 1–2 hours a week of direct supervision when direct treatment is 10 hours a week or less; the supervisor’s name and credentials must be documented. In Louisiana, technicians must also be registered line technicians (R.S. 37:3708).' + ' EN0499 publishes no cap on the number of technicians one supervisor may oversee.',
         status: 'verified',
         cites: [S.en0499, S.rs3708],
       },
@@ -1353,9 +1364,9 @@ export const louisianaPayers: Record<string, PayerConfig> = {
         cites: [S.cignaARG, S.rs1050, S.ebhAdmin],
       },
       telehealth: {
-        value: 'The resource guide says "All ABA CPT codes are covered telehealth services," and EN0499 allows in-person, telehealth or hybrid delivery chosen on the child’s needs.' + LA_TELE_TAIL,
+        value: 'The resource guide says "All ABA CPT codes are covered telehealth services," and EN0499 allows in-person, telehealth or hybrid delivery chosen on the child’s needs.' + LA_TELE_TAIL + ' On the claim, Evernorth wants "Modifier 95 in Field 24-D to specify telehealth" and "02 for Place of Service in Field 24-B"; its documents do not say the authorization must flag telehealth.',
         status: 'plan-dependent',
-        cites: [S.cignaARG, S.en0499, S.rs1821, S.rs12234],
+        cites: [S.cignaARG, S.en0499, S.rs1821, S.rs12234, S.ebhAdmin],
         verifyVia: 'The number on the member’s card: confirm the plan’s telehealth benefit and the POS/modifier Evernorth wants.',
         blocker: 'per-case',
       },
@@ -1375,6 +1386,9 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Cigna accept H-codes for ABA?', a: 'No. Evernorth says all ABA services must be billed with CPT 97151–97158, 0362T and 0373T only.' },
+      { q: 'Does Cigna require graphs for ABA reassessments?', a: 'EN0499 asks for dated quantitative baseline, interim and current data (current data within 60 days) and a standardized assessment within a year; it does not name graphs.' },
+      { q: 'What is Cigna’s timely filing limit for ABA claims?', a: '90 days from the date of service unless your agreement or state law allows longer; for secondary claims, 90 days from the primary payer’s EOB.' },
       { q: 'Does Cigna require prior authorization for an ABA assessment in Louisiana?', a: 'No, for 97151, 97152 and 0362T with an autism diagnosis when the provider is independently licensed or a BCBA and the plan covers ABA. Treatment needs the ABA Prior Authorization Form.' },
       { q: 'Does Louisiana cap ABA benefits?', a: 'For fully insured plans, R.S. 22:1050 covers autism treatment for people under 21 up to $36,000 a year, with no visit limits. Self-funded plans follow their own documents.' },
       { q: 'Can a BCBA and technician bill the same time with Cigna?', a: 'Yes for 97155 with 97153 or 97154, when the BCBA directs the technician and both are face-to-face with the patient. Otherwise only one provider bills a unit of time.' },
@@ -1439,8 +1453,9 @@ export const louisianaPayers: Record<string, PayerConfig> = {
         h2: 'Claims: filing limits, telehealth billing and prompt pay',
         body: [
           'Optum’s network manual wants claims "no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan." Telehealth claims must carry POS 02 or 10 (by where the member is); for commercial ABA, telehealth "is only allowed for these 3 CPT codes: 97155, 97156 or 97157." ' + LA_PROMPT_PAY,
+          'Billing details from Optum’s own documents. Codes: the commercial ABA reimbursement policy (2022RP501A) covers ABA billed "with CPT codes 97151-97158" plus 0362T and 0373T, each line with its credential modifier; it lists no HCPCS H-code. Telehealth: claims "must include either POS 02 or POS 10" (10 when the member is at home), and "Optum will not reimburse for services billed with only telehealth modifiers"; modifiers 93, 95, FQ, GT and GQ are optional, and commercial ABA telehealth covers only 97155, 97156 and 97157. Filing: claims are due "no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan," and "Any corrections or additions to a claim should be made within 90 days of initial claim receipt." Payment: clean claims with any required authorization are generally paid within 45 calendar days of receipt or as state and federal law requires, which may exclude claims needing a coordination-of-benefits determination. Reauthorization (Supplemental Clinical Criteria): each continued-service review needs progress for every target "including the same modes of measurement that were utilized for baseline," with "rate and percentage of mastered programs, rates of mastered targets, change scores for any outcome measures, updated standardized adaptive measures"; inadequate progress over a 6-month period requires an analysis and modified interventions. Graphs are not named. Supervision: "direct case supervision is required 1–2 hours for every 10 hours of direct treatment per week," with no published cap on technicians per BCBA.',
         ],
-        cites: [S.optumNNM, S.optumTele, S.rs1832, S.rs1833],
+        cites: [S.optumNNM, S.optumTele, S.rs1832, S.rs1833, S.optumReimb, S.optumSCC],
       },
     ],
     collect: [
@@ -1452,7 +1467,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
     sources: [S.optumSCC, S.optumReimb, S.optumTele, S.optumNNM, S.rs1050, S.rs3702, S.rs3706, S.rs3708, S.rs3715, S.rs3716, S.rs3704, S.rs12234, S.rs3718, S.rs1821, S.rs1832, S.rs1833, S.rs1836, S.bacbLic, S.fee, S.erisa, S.cfr433, S.tricare, S.champva, S.ib2603],
     deliveryRules: {
       supervision: {
-        value: 'BCaBAs and technicians work "under the direct supervision of a BCBA or licensed behavioral health clinician"; technicians should be RBTs "or another appropriately certified behavior technician as allowable by state mandate." Optum publishes no numeric ratio in these criteria. Louisiana requires line technicians to be registered with the board by their supervising LBA.',
+        value: 'BCaBAs and technicians work "under the direct supervision of a BCBA or licensed behavioral health clinician"; technicians should be RBTs "or another appropriately certified behavior technician as allowable by state mandate." Optum publishes no numeric ratio in these criteria. Louisiana requires line technicians to be registered with the board by their supervising LBA.' + ' Optum’s criteria publish no cap on the number of technicians per BCBA.',
         status: 'verified',
         cites: [S.optumSCC, S.rs3708],
       },
@@ -1517,7 +1532,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
         cites: [S.optumSCC, S.rs1050, S.optumNNM],
       },
       telehealth: {
-        value: 'For UnitedHealthcare commercial plans, Optum allows ABA telehealth "only" for 97155, 97156 and 97157, and every telehealth claim needs POS 02 or POS 10; modifiers alone are not paid.' + LA_TELE_TAIL,
+        value: 'For UnitedHealthcare commercial plans, Optum allows ABA telehealth "only" for 97155, 97156 and 97157, and every telehealth claim needs POS 02 or POS 10; modifiers alone are not paid.' + LA_TELE_TAIL + ' Optum’s guide makes modifiers 93, 95, FQ, GT and GQ optional; the POS is what marks the claim as telehealth, and the authorization does not need a telehealth flag in any Optum document read.',
         status: 'plan-dependent',
         cites: [S.optumTele, S.rs1821, S.rs12234],
         verifyVia: 'Optum Behavioral Health: confirm the plan’s telehealth benefit and whether a fully insured Louisiana plan pays other ABA codes by telehealth.',
@@ -1539,6 +1554,9 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare accept H0031 or H2019 for ABA?', a: 'No. Optum’s commercial ABA policy uses CPT 97151–97158, 0362T and 0373T with credential modifiers.' },
+      { q: 'Does Optum require graphs for an ABA reauthorization?', a: 'The criteria ask for progress measured the same way as baseline, mastery rates, change scores and updated standardized adaptive measures; graphs are not named.' },
+      { q: 'What is UnitedHealthcare’s timely filing limit for ABA claims?', a: 'Optum: 90 calendar days from the date of service unless state law or the plan allows longer, with corrections within 90 days of the first claim’s receipt.' },
       { q: 'Who manages ABA for UnitedHealthcare in Louisiana?', a: 'Optum Behavioral Health, under its ABA supplemental clinical criteria and commercial ABA reimbursement policy.' },
       { q: 'Which ABA codes can be billed by telehealth to UnitedHealthcare?', a: 'For commercial plans Optum lists only 97155, 97156 and 97157, with POS 02 or 10. Fully insured Louisiana plans are also subject to the state telehealth statute, so confirm with Optum.' },
       { q: 'Is UnitedHealthcare still a Louisiana Medicaid plan?', a: 'No. UnitedHealthcare Community Plan left Healthy Louisiana on March 31, 2026; its members moved to other plans on April 1, 2026.' },
@@ -1588,6 +1606,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
         h2: 'Authorization and policy 00816',
         body: [
           'Louisiana Blue’s January 2026 manual: "Authorization is required for Applied Behavioral Analysis services," submitted through the Louisiana Blue Authorizations application in iLinkBlue, and "all reviews and authorizations related to the diagnosis and treatment of autism are handled by Louisiana Blue." Both initial and concurrent requests need the ABA Treatment Request Form; out-of-state providers fax (1-800-363-9170). Policy 00816 asks for standardized outcome measures (Vineland, VB-MAPP or similar), clinical and treatment history, skill, behavior and caregiver goals with graphed baseline data, direct observations in one or more settings, and transition and discharge plans; continued requests add progress data and an explanation of unmet goals. Services are expected to fade over successive authorizations, and "repeated 35-hour authorizations for CPT 97153" are not routinely approved without clear justification. InterQual behavioral health criteria may supplement the review. Non-urgent requests can take up to 15 days (most within five) and urgent ones up to 72 hours.',
+          'Reauthorizations need graphs. Policy 00816’s "Criteria to Continue ABA Services" ask for standardized outcome measures (Vineland, VB-MAPP or another age-appropriate tool) "assessing progress since the prior authorization period," an updated clinical history, skill-acquisition goals with baseline and intervention data, target criteria, a "data-driven rationale for continued services and graphical display of performance over time," behavioral goals with the same "graphical display of performance over time," caregiver-training data with "graphical representation of progress," an explanation of goals not yet met, revised goals after mastery or stagnation, direct observations and a transition and discharge plan. Initial requests need the same elements with a "graphical display of baseline performance."',
           'Some Louisiana Blue policies "do not cover Autism and some cover with different maximum benefit limitations," and autism benefits "do not apply for some individual policies and may vary for self-funded groups and BlueCard members," so verify benefits in iLinkBlue first.',
         ],
         cites: [S.labAut, S.labFAQ, S.labPol],
@@ -1602,7 +1621,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       {
         h2: 'Billing: modifiers and concurrent services',
         body: [
-          'The January 2026 behavioral health billing section sets the credential rules. An LBA "Can bill directly" with modifier TG. A SCABA "Cannot bill directly" and is billed "through the supervising LBA" with modifier TF; an RLT with a bachelor’s degree is billed through the supervising LBA with HN, and an RLT without one with no modifier. Missing modifiers can get a claim returned or denied. Concurrent billing is allowed when both services are delivered simultaneously and the record says so: 97155 with 97153 (technician face-to-face, 97155 directing the technician) and 97155 with 97154. Claims with a primary autism diagnosis count toward the member’s autism maximum. Claims must be filed within 15 months of service, or the period in the member’s contract.',
+          'The January 2026 behavioral health billing section sets the credential rules. An LBA "Can bill directly" with modifier TG. A SCABA "Cannot bill directly" and is billed "through the supervising LBA" with modifier TF; an RLT with a bachelor’s degree is billed through the supervising LBA with HN, and an RLT without one with no modifier. Missing modifiers can get a claim returned or denied. Concurrent billing is allowed when both services are delivered simultaneously and the record says so: 97155 with 97153 (technician face-to-face, 97155 directing the technician) and 97155 with 97154. Claims with a primary autism diagnosis count toward the member’s autism maximum. Claims must be filed within 15 months of service, or the period in the member’s contract. A claim Louisiana Blue returns for more information must be resubmitted "within 90 days or before the timely filing period expires, whichever is later," and a paper claim should not be stamped "Corrected Copy," because the scanners drop stamped text.',
         ],
         cites: [S.labBH, S.labClaims],
       },
@@ -1703,7 +1722,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
         cites: [S.labFAQ, S.labPol, S.rs1050, S.lablue530],
       },
       telehealth: {
-        value: 'Section 5.37 of the Professional Provider Office Manual (current as of January 2026) lists all ABA codes, 97151 through 97158, as direct-to-consumer telehealth codes that "may be billed as audiovisual telehealth services only." Bill modifier GT or 95 and place of service 10 for telehealth from the provider’s own platform; Louisiana Blue "does not consider place of service 02 valid" and such claims may reject. Services must be within "the scope of an individual provider’s license," the provider needs verbal or written consent, and the section’s list of provider types approved for telehealth does not name behavior analysts, so confirm the rendering credential is accepted. The member’s contract must carry telehealth benefits (check iLinkBlue).' + LA_TELE_TAIL,
+        value: 'Section 5.37 of the Professional Provider Office Manual (current as of January 2026) lists all ABA codes, 97151 through 97158, as direct-to-consumer telehealth codes that "may be billed as audiovisual telehealth services only." Bill modifier GT or 95 and place of service 10 for telehealth from the provider’s own platform; Louisiana Blue "does not consider place of service 02 valid" and such claims may reject. Services must be within "the scope of an individual provider’s license," the provider needs verbal or written consent, and the section’s list of provider types whose telehealth it supports (physicians, PAs, APRNs and midwives, chiropractors, podiatrists, medical psychologists, social workers, psychologists, LPCs, dietitians, occupational, speech and physical therapists) does not name behavior analysts, while the same section says "Telehealth services rendered by provider types not authorized by Louisiana Blue are not eligible for reimbursement." Get written confirmation from Louisiana Blue (provider.relations@lablue.com) that an LBA-rendered ABA telehealth claim will pay before relying on it. The attending provider "must be licensed to practice in the state where the member is located." The member’s contract must carry telehealth benefits (check iLinkBlue).' + LA_TELE_TAIL,
         status: 'verified',
         cites: [S.labBH, S.rs1821, S.rs12234, S.lablue537],
       },
@@ -1721,6 +1740,8 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Louisiana Blue require graphs for ABA reauthorization?', a: 'Yes. Policy 00816’s continuation criteria ask for graphical display of performance over time for skill and behavior goals and graphical representation of caregiver-training progress, along with standardized outcome measures since the last authorization.' },
+      { q: 'Does Louisiana Blue pay ABA telehealth by a BCBA?', a: 'Its telehealth section lists 97151–97158 as audio-video telehealth codes (POS 10, modifier GT or 95), but its list of provider types approved for telehealth does not name behavior analysts and says services by provider types it has not authorized are not paid. Get written confirmation before billing ABA telehealth.' },
       { q: 'Does Blue Cross Blue Shield of Louisiana still use Lucet for ABA?', a: 'No. Since January 1, 2026 Louisiana Blue manages behavioral health authorizations, including ABA, itself. Submit through the Louisiana Blue Authorizations application in iLinkBlue.' },
       { q: 'Does Louisiana Blue cover ABA for adults?', a: 'Its policy 00816 treats ABA for people 21 and older with autism as investigational, and the state mandate covers under-21s only.' },
       { q: 'How do I bill RLT and SCABA services to Louisiana Blue?', a: 'Through the supervising LBA: SCABA with modifier TF, RLT with a bachelor’s degree with HN, RLT without one with no modifier. The LBA bills directly with TG.' },

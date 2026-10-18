@@ -37,6 +37,7 @@ const S: Record<string, PayerSource> = {
   atcDoc: { title: 'Arkansas Total Care Clinical Policy AR.CP.BH.105 — Applied Behavioral Analysis Documentation Requirements (last revised 07/26)', url: 'https://www.arkansastotalcare.com/content/dam/centene/artotalcare/policies/clinical-policies/AR.CP.BH.105.pdf' },
   atcPM: { title: 'Arkansas Total Care — 2026 Provider and Billing Manual', url: 'https://www.arkansastotalcare.com/content/dam/centene/artotalcare/pdfs/508_ARTC25-H-287_2026-ARTC-Provider-Manual.pdf' },
   atcPolicies: { title: 'Arkansas Total Care — Clinical and payment policies (index; the Pre-Auth Check tool is linked from the provider pages)', url: 'https://www.arkansastotalcare.com/providers/resources/clinical-payment-policies.html' },
+  atcPreauth: { title: 'Arkansas Total Care — Pre-Auth Check tool (Medicaid/PASSE; queried 2026-10-18 through the tool’s JSON endpoint)', url: 'https://www.arkansastotalcare.com/providers/resources/pre-auth.html' },
   empPA: { title: 'Empower Healthcare Solutions — Prior Authorization List page (BH/IDD PA form, fax 800-886-6839)', url: 'https://getempowerhealth.com/for-providers/utilization-management/prior-authorization-list/' },
   empPAList: { title: 'Empower Healthcare Solutions — Full PA code list (PA-List-4.24.26): 97151, 97153, 97155, 97156 “AUTISM-EPSDT”, PA required', url: 'https://getempowerhealth.com/wp-content/uploads/2026/04/PA-List-4.24.26-2.xlsx' },
   empHB: { title: 'Empower Healthcare Solutions — Provider Handbook (Version 9.08.2026)', url: 'https://getempowerhealth.com/wp-content/uploads/2026/09/Empowerproviderhandbook9926.pdf' },
@@ -59,6 +60,8 @@ const S: Record<string, PayerSource> = {
   aetnaCPB648: { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
   aetnaNPC: { title: 'Aetna — Provider and facility participation criteria (8100606-01-01, 5/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' },
   aetnaOM: { title: 'Aetna Health Care Professional Toolkit / office manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+  aetnaCPB: { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026; experimental for non-ASD indications; code table)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+  aetnaTele: { title: 'Aetna — Telemedicine and Direct Patient Contact Payment Policy (ABA code table: Commercial vs. Medicare columns; posted policy shows last review June 2021)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pdf/telemedicine.pdf' },
   en0499: { title: 'Evernorth Coverage Policy EN0499 — Intensive Behavioral Interventions (effective 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
   cignaARG: { title: 'Evernorth — Autism resource guide for behavioral health providers (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
   ebhAdmin: { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026; includes the Arkansas Regulatory Addendum)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
@@ -160,6 +163,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
         body: [
           'Two DHS forms carry the PCP’s part. The DMS-641 ER evaluation referral, signed by the child’s assigned Arkansas Medicaid PCP (or a substitute or same-group physician), is needed only for the initial comprehensive evaluation; a provider who takes over a child with an active prescription does not need one. The DMS-641 TP treatment prescription must be signed by the assigned PCP the first time and is valid for up to six months for children 18 months to 8 years and up to 12 months for ages 8 to 21. Acentra’s deck adds that the DMS-641 TP is valid “for a maximum of 12 months from the signature date, unless otherwise noted by the PCP.”',
           'Medical necessity rests on a BCBA’s comprehensive evaluation, repeated at least every six months (ages 18 months to 8) or twelve months (8 to 21). It must include history, a caregiver interview, the results of one skills-based instrument from DHS’s accepted list, a functional behavior assessment when there is interfering behavior, a domain-by-domain analysis, recommended hours with the reasoning, a recommended treatment plan and setting, and a parent home program. By signing, the BCBA certifies that ASD is the primary cause of the deficits, that only a BCBA can safely deliver or supervise the services, and that the child can learn and generalize skills.',
+          'What a reevaluation (the renewal) must show, § 212.500 and § 222.200: the start date with the current provider and any gaps; ITP goals met, skill improvements, replacement behaviors implemented and interfering behaviors reduced since the last evaluation; any evidence of skills carrying over into natural settings; and continued medical necessity through either demonstrated progress (new skills, fewer target behaviors, or "Reducing targeted area(s) of functional deficit or delay (as demonstrated by assessment instrument scores over time)") or a list of the variables that blocked progress and how. A new DMS-641 TP is due with it; the existing prescription must expire within 60 days of the reevaluation. The manual does not require graphs. Services stop being medically necessary when the child is not progressing toward ITP goals over time, and the ITP must be updated if there has been no progress in six months.',
         ],
         cites: [S.abaII, S.acentraPPT],
       },
@@ -167,9 +171,9 @@ export const arkansasPayers: Record<string, PayerConfig> = {
         h2: 'Fee schedule, billing rules and claims',
         body: [
           'The Arkansas Medicaid ABA fee schedule (provider type 90, run date 1/1/25) lists four payable codes, each with the EP modifier: 97151 $20.00, 97153 $15.00, 97155 $22.50 and 97156 $20.00, per 15-minute unit. The schedule says it “reflects only procedure codes that are currently payable,” and Acentra adds that “Group services 97154 and 97158 are not reimbursable.” Medicaid pays the lower of billed charges or the maximum, and the maximum is the same for every ABA provider.',
-          'The manual’s billing rules: a full unit must be rendered to bill it, partial units are not rounded up, separate periods in one day may be added together, and set-up, breaks and documentation alone are not billable. “Unless otherwise specifically provided for in this Arkansas Medicaid manual, concurrent billing is not allowed.” A group must “identify the certified practitioner as the performing provider on the claim.” Claims must reach the fiscal agent “within twelve (12) months from the date of service.” EVV does not apply: Section I lists the codes subject to electronic visit verification (personal care, attendant care, respite, home health), and no ABA code is among them.',
+          'The manual’s billing rules: a full unit must be rendered to bill it, partial units are not rounded up, separate periods in one day may be added together, and set-up, breaks and documentation alone are not billable. “Unless otherwise specifically provided for in this Arkansas Medicaid manual, concurrent billing is not allowed.” A group must “identify the certified practitioner as the performing provider on the claim.” Claims must reach the fiscal agent “within twelve (12) months from the date of service.” Corrections follow the same clock: adjustments go through the provider portal or form AR-004, "Requests for correction or review must be submitted to the Arkansas Medicaid fiscal agent within the 12-month timely filing deadline," and only a fiscal-agent or DMS error can be fixed after 12 months, with documentation (Section III §§ 302.510, 320.000). Remittance advices are retrieved from the provider portal or the 835; Section III publishes no check-run day or submission cut-off. EVV does not apply: Section I lists the codes subject to electronic visit verification (personal care, attendant care, respite, home health), and no ABA code is among them.',
         ],
-        cites: [S.abaFee, S.abaII, S.acentraPPT, S.secI],
+        cites: [S.abaFee, S.abaII, S.acentraPPT, S.secI, S.secIII],
       },
       {
         h2: 'Out-of-state providers, licensure and telehealth',
@@ -286,18 +290,14 @@ export const arkansasPayers: Record<string, PayerConfig> = {
     family: 'centene',
     cardDesc: 'Centene PASSE with its own Arkansas ABA policy (AR.CP.BH.104): PCP prescription, 6 hrs/day–30 hrs/week ceiling without extra justification, 2-business-day decisions.',
     assessmentPA: {
-      value: 'Not stated in the plan’s published ABA documents; its policy lists “Behavioral assessment” among the requests it reviews, but the code-level PA list sits in the online Pre-Auth Check tool',
-      status: 'unverified',
-      cites: [S.atcPolicy, S.atcPolicies],
-      verifyVia: 'Arkansas Total Care Pre-Auth Check (arkansastotalcare.com → Providers) or Provider Services, 1-866-282-6280: check 97151.',
-      blocker: 'document',
+      value: 'Not for network providers. Arkansas Total Care’s Pre-Auth Check (queried October 18, 2026) returns "Pre-authorization required for non-participating providers only." for 97151 and 97152, and "This is not a covered service." for 0362T. The tool’s result is not a guarantee of payment, and the policy still lists behavioral assessment among the requests it reviews, so non-participating providers must request authorization',
+      status: 'verified',
+      cites: [S.atcPreauth, S.atcPolicy],
     },
     treatmentPA: {
-      value: 'Not stated per code in a document we could read. AR.CP.BH.104 sets the medical-necessity criteria for initial and continued ABA treatment, and AR.CP.BH.105 requires that “Prior authorization approval for ABA services has been obtained, if required”',
-      status: 'unverified',
-      cites: [S.atcPolicy, S.atcDoc],
-      verifyVia: 'Arkansas Total Care Pre-Auth Check or Provider Services, 1-866-282-6280: check 97153, 97155 and 97156.',
-      blocker: 'document',
+      value: 'Only for non-participating providers, per the Pre-Auth Check (queried October 18, 2026): 97153, 97154, 97155, 97156 and 97158 return "Pre-authorization required for non-participating providers only.", 97157 returns "Pre-authorization required for all providers.", and 0373T is "not a covered service." AR.CP.BH.104 still sets the medical-necessity criteria for initial and continued treatment, and AR.CP.BH.105 requires that "Prior authorization approval for ABA services has been obtained, if required," so services remain subject to medical-necessity review. Re-check the tool before each new case: its answers change without notice',
+      status: 'verified',
+      cites: [S.atcPreauth, S.atcPolicy, S.atcDoc],
     },
     dxRequired: {
       value: 'Yes: a confirmed ASD diagnosis under current DSM criteria, with severity level and specifiers, “established by a licensed physician, psychologist, or other licensed professional with specialized training in diagnosis and treatment of ASD, or a provider otherwise authorized under state law to diagnose autism” (AR.CP.BH.104)',
@@ -346,7 +346,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
       { title: 'School schedule', desc: 'Full-time school usually means under 20 hours a week of ABA in the plan’s criteria.' },
       { title: 'Other insurance', desc: 'Bill the primary first; Arkansas Total Care must receive the secondary claim within 365 days of the primary EOP.' },
     ],
-    sources: [S.atcPolicy, S.atcDoc, S.atcPM, S.atcPolicies, S.passeII, S.passeList, S.abaII, S.acentra, S.secI],
+    sources: [S.atcPolicy, S.atcDoc, S.atcPM, S.atcPolicies, S.passeII, S.passeList, S.abaII, S.acentra, S.secI, S.atcPreauth],
     deliveryRules: {
       supervision: {
         value: 'Arkansas Total Care’s criteria require 97155 (protocol modification) for “at least two hours per week or 5% of the direct service hours provided, whichever is greater” (one to two hours a week is acceptable below 10 hours of treatment), and treatment “delivered or supervised by an ABA-credentialed professional.” The state floor in the ABA manual also applies to PASSE members: a Medicaid-enrolled BCBA observes at least 5% of each technician’s hours and one hour every 30 days, and supervises no more than 12 BCaBAs and RBTs.',
@@ -1113,6 +1113,13 @@ export const arkansasPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.aetnaOM, S.abaFee],
       },
+      {
+        h2: 'Claim filing, telehealth billing and reauthorization',
+        body: [
+          'Billing details from Aetna’s own documents. Codes: Aetna’s ABA policy (CPB 0554) lists only CPT 97151–97158, 0362T and 0373T and no HCPCS code, so H0031, H0032 or H2019 are not ABA codes at Aetna. Telehealth: its Telemedicine and Direct Patient Contact Payment Policy names modifiers GT, 95 and FR but no place-of-service code, and none of Aetna’s documents says the precertification must flag telehealth; ask which POS (02 or 10) it wants when you precertify. Filing: the Health Care Professional Toolkit (6/26) prints no timely-filing deadline, so your agreement sets it, and its definition of a clean claim excludes any claim that involves coordination of benefits. Reauthorization: the ABA medical necessity guide calls for "Repeated measurement with standardized measures to assess progress" and says "A member’s progress is to be evaluated every six months"; it does not mention graphs. Supervision: the Network Participation Criteria set one hour of face-to-face supervision per 10 hours of paraprofessional ABA and publish no cap on technicians per BCBA.',
+        ],
+        cites: [S.aetnaCPB, S.aetnaTele, S.aetnaOM, S.aetnaGuide, S.aetnaNPC],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Arkansas mandate and PA law apply) vs. self-funded ERISA (plan document governs).' },
@@ -1121,10 +1128,10 @@ export const arkansasPayers: Record<string, PayerConfig> = {
       { title: 'Standardized functional measure', desc: 'Aetna wants one from the past 12 months (for example Vineland-3, ABAS, VB-MAPP).' },
       { title: 'Prescription', desc: 'Arkansas’s mandate defines treatment as care prescribed or ordered by a licensed physician or psychologist.' },
     ],
-    sources: [S.aetnaGuide, S.aetnaPrecert, S.aetnaCPB648, S.aetnaNPC, S.aetnaOM, S.act196, S.act1106, S.act575, S.act432, S.bacbLic, S.abcbs, S.abaFee, S.erisa, S.secI, S.cfr433, S.tricare, S.champva],
+    sources: [S.aetnaGuide, S.aetnaPrecert, S.aetnaCPB648, S.aetnaNPC, S.aetnaOM, S.act196, S.act1106, S.act575, S.act432, S.bacbLic, S.abcbs, S.abaFee, S.erisa, S.secI, S.cfr433, S.tricare, S.champva, S.aetnaCPB, S.aetnaTele],
     deliveryRules: {
       supervision: {
-        value: 'Services “must be provided directly or supervised by individuals licensed by the state or certified by the Behavior Analyst Certification Board”; supervised staff may be a BCaBA or a paraprofessional, with “A minimum of one hour of face-to-face supervision” per 10 hours of ABA by the supervised provider and the supervisor “onsite with the child at least one hour a month.” Arkansas’s mandate requires ABA “provided by or supervised by a Board Certified Behavior Analyst.”',
+        value: 'Services “must be provided directly or supervised by individuals licensed by the state or certified by the Behavior Analyst Certification Board”; supervised staff may be a BCaBA or a paraprofessional, with “A minimum of one hour of face-to-face supervision” per 10 hours of ABA by the supervised provider and the supervisor “onsite with the child at least one hour a month.” Arkansas’s mandate requires ABA “provided by or supervised by a Board Certified Behavior Analyst.”' + ' Aetna’s guide and Network Participation Criteria publish no cap on the number of technicians one BCBA may supervise.',
         status: 'verified',
         cites: [S.aetnaNPC, S.act196],
       },
@@ -1187,9 +1194,9 @@ export const arkansasPayers: Record<string, PayerConfig> = {
         cites: [S.aetnaPrecert, S.aetnaGuide, S.act196, S.aetnaOM],
       },
       telehealth: {
-        value: 'Aetna’s office manual (6/26) says Aetna Behavioral Health “offers telehealth services to all commercial fully insured members and to all commercial self-insured plan sponsors, unless those self-insured plan sponsors opt out,” and providers “must act within the scope of their license and ensure that they have the proper licensure based on state requirements.” We did not find a current Aetna ABA telehealth code list.',
+        value: 'Aetna’s office manual (6/26) says Aetna Behavioral Health “offers telehealth services to all commercial fully insured members and to all commercial self-insured plan sponsors, unless those self-insured plan sponsors opt out,” and providers “must act within the scope of their license and ensure that they have the proper licensure based on state requirements.” We did not find a current Aetna ABA telehealth code list.' + ' Aetna’s Telemedicine and Direct Patient Contact Payment Policy (posted policy shows last review June 2021) marks 97151, 97153, 97155, 97156 and 97157 as telehealth-eligible on commercial plans with modifier GT, 95 or FR; neither it nor the provider toolkit names a telehealth place-of-service code or says the precertification must flag telehealth.',
         status: 'plan-dependent',
-        cites: [S.aetnaOM],
+        cites: [S.aetnaOM, S.aetnaTele],
         verifyVia: 'Availity or the precertification line on the card: ask which ABA codes, POS and modifier Aetna pays by telehealth for this plan.',
         blocker: 'per-case',
       },
@@ -1209,6 +1216,9 @@ export const arkansasPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Aetna accept H0031, H0032 or H2019 for ABA?', a: 'No. Aetna’s ABA policy lists only CPT 97151–97158, 0362T and 0373T.' },
+      { q: 'Does Aetna require graphs for an ABA reauthorization?', a: 'Its ABA guide asks for repeated measurement with standardized measures and a progress evaluation every six months; it does not mention graphs.' },
+      { q: 'What is Aetna’s timely filing limit for ABA claims?', a: 'Aetna’s provider toolkit (6/26) does not print one; the filing limit is in your Aetna agreement.' },
       { q: 'Does Aetna cover ABA therapy in Arkansas?', a: 'Yes, under its national ABA medical necessity guide for ASD, with Arkansas’s § 23-99-418 mandate layered on for fully insured group plans. Self-funded employer plans follow their own documents.' },
       { q: 'Does the Aetna ABA assessment need precertification in Arkansas?', a: 'Yes. 97151 and the other nine ABA codes are on Aetna’s behavioral health precertification list. A provider with an Arkansas gold-card exemption under Act 575 may be exempt on a fully insured plan.' },
       { q: 'What does Aetna pay for ABA in Arkansas?', a: 'Aetna publishes no ABA rates; they are in your participation agreement. Arkansas Medicaid’s 97153 rate ($15.00 per 15 minutes) is the only public benchmark.' },
@@ -1275,6 +1285,13 @@ export const arkansasPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.ebhAdmin, S.cignaARG, S.abaFee],
       },
+      {
+        h2: 'Claim filing, telehealth billing and reauthorization',
+        body: [
+          'Billing details from Evernorth’s own documents. Codes: "All ABA services must be billed with CPT codes 97151–97158, 0362T, and 0373T ONLY," so H-codes are not accepted for ABA. Telehealth: "All ABA CPT codes are covered telehealth services"; on the CMS-1500 use "Modifier 95 in Field 24-D to specify telehealth" and "02 for Place of Service in Field 24-B"; neither document says the authorization must flag telehealth. Filing: claims must be "submitted within 90 days of the date of service or as otherwise defined in your Provider Agreement" unless state law gives longer; for coordination of benefits the 90 days run from the primary payer’s EOB or EOP; a claim Evernorth returns for more information gets a fresh 90 days from its request; corrected claims carry frequency code 7 (replace) or 8 (void) in field 22, without a "Corrected Claim" stamp. Reauthorization (EN0499): an updated treatment plan; "Quantitative baseline, interim and current data" with the dates they were collected for every behavior and skill across all settings; current data collected within 60 days before the continued-treatment start date and within 60 days before the request is received; a standardized assessment no more than one year before the start date; and a written plan to address barriers if progress stalls. EN0499 asks for dated data, not graphs by name. Supervision runs one to two hours per ten hours of direct treatment, with no published cap on technicians per supervisor.',
+        ],
+        cites: [S.cignaARG, S.ebhAdmin, S.en0499],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Arkansas mandate, PA law and Evernorth’s Arkansas addendum apply) vs. self-funded ERISA.' },
@@ -1285,7 +1302,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
     sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.act196, S.act1106, S.act575, S.act432, S.bacbLic, S.abcbs, S.abaFee, S.erisa, S.secI, S.cfr433, S.tricare, S.champva],
     deliveryRules: {
       supervision: {
-        value: 'Case supervision by a BCBA, a Licensed Behavior Analyst, or an independently licensed clinician with ABA training, at one to two hours per ten hours of direct treatment; at 10 hours a week or less, at least one to two hours a week.',
+        value: 'Case supervision by a BCBA, a Licensed Behavior Analyst, or an independently licensed clinician with ABA training, at one to two hours per ten hours of direct treatment; at 10 hours a week or less, at least one to two hours a week.' + ' EN0499 publishes no cap on the number of technicians one supervisor may oversee.',
         status: 'verified',
         cites: [S.en0499],
       },
@@ -1344,7 +1361,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
         cites: [S.cignaARG, S.en0499, S.act196, S.ebhAdmin],
       },
       telehealth: {
-        value: '“All ABA CPT codes are covered telehealth services,” and EN0499 allows in-person, telehealth or hybrid delivery chosen on clinical factors. Bill modifier 95; providers “must meet all state requirements to provide virtual behavioral services.”',
+        value: '“All ABA CPT codes are covered telehealth services,” and EN0499 allows in-person, telehealth or hybrid delivery chosen on clinical factors. Bill modifier 95; providers “must meet all state requirements to provide virtual behavioral services.”' + ' On the claim, Evernorth wants "Modifier 95 in Field 24-D to specify telehealth" and "02 for Place of Service in Field 24-B"; its documents do not say the authorization must flag telehealth.',
         status: 'verified',
         cites: [S.cignaARG, S.en0499, S.ebhAdmin],
       },
@@ -1364,6 +1381,9 @@ export const arkansasPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Cigna accept H-codes for ABA?', a: 'No. Evernorth says all ABA services must be billed with CPT 97151–97158, 0362T and 0373T only.' },
+      { q: 'Does Cigna require graphs for ABA reassessments?', a: 'EN0499 asks for dated quantitative baseline, interim and current data (current data within 60 days) and a standardized assessment within a year; it does not name graphs.' },
+      { q: 'What is Cigna’s timely filing limit for ABA claims?', a: '90 days from the date of service unless your agreement or state law allows longer; for secondary claims, 90 days from the primary payer’s EOB.' },
       { q: 'Does Cigna cover ABA therapy in Arkansas?', a: 'Yes, under Evernorth policy EN0499 for ASD, with Arkansas’s § 23-99-418 mandate for fully insured group plans.' },
       { q: 'Does the Cigna ABA assessment need prior authorization in Arkansas?', a: 'No, for 97151, 97152 and 0362T with an autism diagnosis when the provider is independently licensed or a BCBA. PA starts at treatment.' },
       { q: 'Can Cigna recoup an ABA claim years later in Arkansas?', a: 'For fully insured plans, Evernorth’s Arkansas addendum limits recoupment to 18 months after payment (except fraud) and allows a corrected claim within six months after a recoupment.' },
@@ -1431,6 +1451,13 @@ export const arkansasPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.optumNNM, S.optumReimb, S.abaFee],
       },
+      {
+        h2: 'Claim filing, telehealth billing and reauthorization',
+        body: [
+          'Billing details from Optum’s own documents. Codes: the commercial ABA reimbursement policy (2022RP501A) covers ABA billed "with CPT codes 97151-97158" plus 0362T and 0373T, each line with its credential modifier; it lists no HCPCS H-code. Telehealth: claims "must include either POS 02 or POS 10" (10 when the member is at home), and "Optum will not reimburse for services billed with only telehealth modifiers"; modifiers 93, 95, FQ, GT and GQ are optional, and commercial ABA telehealth covers only 97155, 97156 and 97157. Filing: claims are due "no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan," and "Any corrections or additions to a claim should be made within 90 days of initial claim receipt." Payment: clean claims with any required authorization are generally paid within 45 calendar days of receipt or as state and federal law requires, which may exclude claims needing a coordination-of-benefits determination. Reauthorization (Supplemental Clinical Criteria): each continued-service review needs progress for every target "including the same modes of measurement that were utilized for baseline," with "rate and percentage of mastered programs, rates of mastered targets, change scores for any outcome measures, updated standardized adaptive measures"; inadequate progress over a 6-month period requires an analysis and modified interventions. Graphs are not named. Supervision: "direct case supervision is required 1–2 hours for every 10 hours of direct treatment per week," with no published cap on technicians per BCBA.',
+        ],
+        cites: [S.optumReimb, S.optumTele, S.optumNNM, S.optumSCC],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Arkansas mandate and PA law apply) vs. self-funded ERISA.' },
@@ -1440,7 +1467,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
     sources: [S.optumSCC, S.optumSM, S.optumTele, S.optumReimb, S.optumNNM, S.act196, S.act1106, S.act575, S.act432, S.bacbLic, S.abcbs, S.abaFee, S.erisa, S.secI, S.cfr433, S.tricare, S.champva],
     deliveryRules: {
       supervision: {
-        value: 'Consistent with CASP standards, “direct case supervision is required 1–2 hours for every 10 hours of direct treatment per week.” Technicians should be RBTs or otherwise appropriately certified; Optum does not recommend parents serving as their own child’s RBT.',
+        value: 'Consistent with CASP standards, “direct case supervision is required 1–2 hours for every 10 hours of direct treatment per week.” Technicians should be RBTs or otherwise appropriately certified; Optum does not recommend parents serving as their own child’s RBT.' + ' Optum’s criteria publish no cap on the number of technicians per BCBA.',
         status: 'verified',
         cites: [S.optumSCC],
       },
@@ -1501,7 +1528,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
         cites: [S.optumSCC, S.act196, S.optumNNM],
       },
       telehealth: {
-        value: 'Optum’s Telehealth Billing guide (updated September 2025) says for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157.” Claims must use POS 02 or POS 10; telehealth modifiers alone are not paid. The criteria add that telehealth is “not intended to supplant” in-person service.',
+        value: 'Optum’s Telehealth Billing guide (updated September 2025) says for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157.” Claims must use POS 02 or POS 10; telehealth modifiers alone are not paid. The criteria add that telehealth is “not intended to supplant” in-person service.' + ' Optum’s guide makes modifiers 93, 95, FQ, GT and GQ optional; the POS is what marks the claim as telehealth, and the authorization does not need a telehealth flag in any Optum document read.',
         status: 'verified',
         cites: [S.optumTele, S.optumSCC],
       },
@@ -1521,6 +1548,9 @@ export const arkansasPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare accept H0031 or H2019 for ABA?', a: 'No. Optum’s commercial ABA policy uses CPT 97151–97158, 0362T and 0373T with credential modifiers.' },
+      { q: 'Does Optum require graphs for an ABA reauthorization?', a: 'The criteria ask for progress measured the same way as baseline, mastery rates, change scores and updated standardized adaptive measures; graphs are not named.' },
+      { q: 'What is UnitedHealthcare’s timely filing limit for ABA claims?', a: 'Optum: 90 calendar days from the date of service unless state law or the plan allows longer, with corrections within 90 days of the first claim’s receipt.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in Arkansas?', a: 'Yes, under Optum’s national ABA criteria for ASD, with Arkansas’s § 23-99-418 mandate for fully insured group plans.' },
       { q: 'Does Optum have Arkansas-specific ABA criteria?', a: 'No. Optum’s July 2026 ABA State Mandates supplement does not list Arkansas.' },
       { q: 'Can ABA be delivered by telehealth with UnitedHealthcare in Arkansas?', a: 'Only 97155, 97156 and 97157 on commercial plans, billed POS 02 or 10. The 97151 assessment and 97153 are not on Optum’s list.' },
