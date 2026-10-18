@@ -655,7 +655,7 @@ const aetnaKansasCodeGrid: Record<string, CodeGridEntry> = {
 };
 
 const aetnaKansasVobContact: VobContact = {
-  providerServicesPhone: '1-888-632-3862 (Commercial plans precertification line; TTY 711) — national number from the current precertification list; no Kansas-specific line published',
+  providerServicesPhone: '1-888-632-3862 (1-888-MDAetna; TTY 711) — Aetna\'s Provider Contact Center, also listed as Behavioral health Provider Services and as the prior-authorization line for non-HMO plans in the Aetna provider manual (6/26); HMO plans use 1-800-624-0756; no Kansas-specific line published',
   portal: { name: 'Availity', url: 'https://www.availity.com' },
   benefitsByPhone: true,
   requiresIndividualNpi: 'unverified',

@@ -333,10 +333,12 @@ const missouriMedicaidStc: StcMap = {
 /* Layer 7 — MO HealthNet contact & channel layer. Mined from this file's own
    sourcing plus two mydss.mo.gov pages fetched this pass: no general MHD
    provider-services phone number was found anywhere (only a fax, an email
-   alias, and a TDD/TTY relay line), so providerServicesPhone ships omitted
-   rather than guessed. */
+   alias, and a TDD/TTY relay line). UPDATE 2026-10-18: the Behavioral Health
+   Services Manual (May 2026) gives the BHS Help Desk phone, (866) 771-3350,
+   for precertification requests/changes — added as providerServicesPhone. */
 
 const missouriMedicaidContact: VobContact = {
+  providerServicesPhone: '(866) 771-3350 — MHD Behavioral Health Services Help Desk. The Behavioral Health Services Manual (May 2026) says providers may request or change a precertification by calling this number, and the current provider must call it to end a precertification before a new provider can obtain one. It is a precertification line; the manual does not describe it as a benefits line.',
   fax: '(573) 635-6516 — MHD Behavioral Health Services Help Desk; fax (or e-signed fax) the Applied Behavior Analysis Request for Precertification form (2575-045) here.',
   portal: { name: 'eMOMED (MO HealthNet Provider Portal)', url: 'https://www.emomed.com' },
   benefitsByPhone: 'unverified',

@@ -162,6 +162,15 @@ export const missouriPayers: Record<string, PayerConfig> = {
           { title: 'MO HealthNet Behavioral Health Services Manual, §1.16 and §3.1 CMS-1500 Claim Filing Instructions (May 2026)', url: 'https://mydss.mo.gov/sites/mydss/files/media/file/2026/05/Behavioral%20Health%20Services%20Manual.docx' },
         ],
       },
+      {
+        h2: 'Which codes does MO HealthNet pay for ABA? (H0031/H0032 and other H-codes)',
+        body: [
+          'CPT codes with two modifiers, and no H-codes. The Behavioral Health Services Manual’s ABA billing table lists 97151, 97152, 97153, 97154, 97155, 97156, 97157, 97158, 0373T and 0362T, each billed with TM plus the rendering tier: HO for a psychologist or behavior analyst, HN for an assistant behavior analyst, and HM for services by an RBT or behavior technician billed under the licensed supervisor. Not every code is open at every tier: 97151, 0362T and 0373T are HO only, 97154 is HM only, and 97155 through 97158 take HO or HN but not HM. The manual lists no HCPCS H-code for ABA. Participants in a MO HealthNet managed care plan still receive ABA fee-for-service, so this table governs them too.',
+        ],
+        cites: [
+          { title: 'MO HealthNet Behavioral Health Services Manual, §1.12–1.16 ABA codes and services (May 2026)', url: 'https://mydss.mo.gov/sites/mydss/files/media/file/2026/05/Behavioral%20Health%20Services%20Manual.docx' },
+        ],
+      },
     ],
     collect: [
       { title: 'MO HealthNet eligibility — not the plan card', desc: 'Whichever MCO card the family shows, ABA is state FFS. Verify MO HealthNet eligibility; skip the MCO analysis entirely.' },
@@ -306,6 +315,8 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { q: 'What is MO HealthNet’s timely filing limit for ABA claims?', a: 'Twelve months from the date of service, measured to the date MO HealthNet receives the claim (13 CSR 70-3.100). Managed care plans set their own limits.' },
       { q: 'Does MO HealthNet require a referring provider on ABA claims?', a: 'Yes. In the Behavioral Health Services Manual\'s CMS-1500 instructions, fields 17 and 17b are required ("These fields must be completed, or the claim is denied"). Field 17 takes the referring MO HealthNet-enrolled primary care provider and 17b the referring or ordering NPI.' },
       { q: 'Can ABA overlap with speech or OT under MO HealthNet?', a: 'MO HealthNet publishes no clock-time rule against it. 13 CSR 70-98.030 requires services to "give consideration to the child\'s age, school attendance requirements, and other daily activities as documented in the treatment plan," and bills only active ABA time. Show the other therapies in the plan and keep separate start and stop times.' },
+      { q: 'Does MO HealthNet accept H0031 or H0032 for ABA?', a: 'No. MO HealthNet bills ABA on CPT 97151–97158, 0362T and 0373T with the TM modifier plus HO, HN or HM for the rendering tier; the Behavioral Health Services Manual lists no H-codes for ABA.' },
+      { q: 'Does MO HealthNet require graphs for continued ABA precertification?', a: 'Yes. A continued ABA intervention precertification needs the current intervention plan and progress data and graphs, plus barriers and strategies where progress is not evident; intervention is precertified for up to six months at a time.' },
     ],
   },
 
@@ -446,6 +457,28 @@ export const missouriPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+        ],
+      },
+      {
+        h2: 'Which codes does Aetna use for ABA? (H0031/H0032 and other H-codes)',
+        body: [
+          'Aetna’s ABA documents name CPT codes only. Its behavioral-health precertification list puts applied behavioral analysis under “97151, 97152, 97153, 97154, 97155, 97156, 97157, 97158, 0362T, 0373T.” Its ABA precertification request asks for hours by those same codes: assessment codes 97151, 97152 and 0362T per authorization period, treatment codes 97153–97158 and 0373T per week. CPB 0554 (reviewed October 14, 2026) also lists 97151–97158, with 0362T and 0373T as related codes. None of these documents lists a HCPCS H-code (H0031, H0032, H2014, H2019) for ABA. If a plan or contract seems to call for one, confirm with Aetna before billing it.',
+        ],
+        cites: [
+          { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
+          { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+        ],
+      },
+      {
+        h2: 'What must an Aetna ABA reauthorization contain? Are graphs required?',
+        body: [
+          'Aetna’s ABA Medical Necessity Guide sets the evidence for any authorization: “demonstration of functional impairment on a standardized scale of functioning in the past 12 months” (for instance VABS-3, ABAS, VB-MAPP or ABLLS), target behaviors with “frequency, rate, symptom intensity or duration, or other objective measures of baseline levels” and “quantifiable criteria for progress,” and either documentation that the target behavior has improved or, if not, documentation of treatment modification, added assessments or consultation. The level of impairment must justify the hours requested. The guide does not require graphs.',
+          'Aetna’s precertification information request (GR-69017-4, effective August 1, 2026, used outside Maryland and Massachusetts) spells out the reauthorization package. It asks for a standardized assessment within the past 12 months, re-evaluation of interventions and progress “every 6 months,” “a repeat validated assessment … every 6-12 months to demonstrate response to intervention,” and a treatment plan that includes “baseline, interim and current data for all goals.” It also asks for measurable caregiver goals and titration and discharge criteria. Data, not graphs, is what the form names.',
+        ],
+        cites: [
+          { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+          { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification (GR-69017-4, 7-26; eff. 8/1/2026; not for MD or MA)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
         ],
       },
     ],
@@ -605,6 +638,8 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { q: 'Does Aetna require a referring provider NPI on ABA claims?', a: 'No published rule requires one. Aetna treats behavioral health as direct access, and its clean-claim definition asks for a referral only "if required for the applicable claim." Precertification is the gate.' },
       { q: 'Does Aetna allow ABA at the same time as speech or OT?', a: 'No published rule either way. Aetna\'s precertification form asks which PT, OT, speech and other services the child gets and whether you coordinate with them, so disclose them and confirm with precertification before overlapping sessions.' },
       { q: 'Which form does Aetna use for an ABA assessment request?', a: 'Form GR-69017-4 (7-26), which since August 1, 2026 replaces all other Aetna ABA precertification forms (except in Maryland and Massachusetts). Start the request on Availity or by phone first, then attach the form if the case pends. Request 97151, 97152 and 0362T in hours per authorization period.' },
+      { q: 'Does Aetna accept H0031 or H0032 for ABA?', a: 'Aetna’s precertification list, its ABA precertification request and CPB 0554 list only CPT 97151–97158, 0362T and 0373T for ABA. No H-code appears in them, so bill the CPT codes unless Aetna tells you otherwise for a specific plan.' },
+      { q: 'Does Aetna require graphs for ABA reassessments?', a: 'Aetna’s documents ask for data, not graphs: a standardized functioning assessment within the past 12 months, baseline and quantifiable progress measures for each target behavior, and documentation of improvement or of treatment changes. Its precertification request also asks for baseline, interim and current data for all goals and a repeat validated assessment every 6–12 months.' },
     ],
   },
 
@@ -739,6 +774,25 @@ export const missouriPayers: Record<string, PayerConfig> = {
           { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
         ],
       },
+      {
+        h2: 'Which codes does Cigna pay for ABA? (H0031/H0032 and other H-codes)',
+        body: [
+          'CPT codes only. Evernorth’s autism resource guide states that “All ABA services must be billed with CPT codes 97151–97158, 0362T, and 0373T ONLY,” that “All of the ABA CPT codes are in 15-minute increments,” and that “Only one provider can bill for a unit of time,” except 97153, 97154 and 97155 billed during direct supervision. HCPCS H-codes such as H0031, H0032, H2014 or H2019 are not accepted for ABA on Cigna plans. EN0499’s coding section lists the same ten CPT codes as medically necessary when the policy’s criteria are met.',
+        ],
+        cites: [
+          { title: 'Evernorth — Autism Resource Guide for behavioral health providers (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+      },
+      {
+        h2: 'What must a Cigna ABA reauthorization contain? Are graphs required?',
+        body: [
+          'EN0499’s “Criteria for Continued Treatment with ABA” require dated numbers rather than graphs. The request needs an updated treatment plan and “Quantitative baseline, interim and current data … with dates reported from when the data were collected for all behaviors and skills” across every setting where treatment occurs. Current data must be “collected within no more than 60 days prior to the start date of the continued treatment request, as well as … within no more than 60 days prior to the date the authorization request is received.” It also needs a reliable, valid, standardized assessment “completed no more than one year prior to the start date,” dated data on stakeholder (caregiver) training goals, and, where progress has stalled, the barriers and the protocol changes made. A new standardized assessment and fresh data are required after any break in treatment longer than 60 days. The policy defines interim data as covering at least the previous six months and allows it to be “reported as patient data points and/or as a relevant average.” The policy does not require graphs.',
+        ],
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies — including MO\'s unusual reach into governmental and school self-insured plans) vs. self-funded private ERISA (exempt). Ask for the employer and check the card.' },
@@ -756,7 +810,7 @@ export const missouriPayers: Record<string, PayerConfig> = {
     deliveryRules: {
       supervision: {
         value:
-          'Assessment and case supervision must come from a BCBA, a licensed behavior analyst, or an independently licensed clinician with documented ABA training, with direct supervision at the standard 1\u20132 hours per 10 hours of direct treatment; Evernorth does not credential non-licensed staff. Missouri makes the licence a coverage condition: \u00a7 376.1224 requires ABA to be supervised by a board-certified behavior analyst licensed under chapter 337.',
+          'Assessment and case supervision must come from a BCBA, a licensed behavior analyst, or an independently licensed clinician with documented ABA training, with direct supervision at the standard 1\u20132 hours per 10 hours of direct treatment; Evernorth does not credential non-licensed staff. Missouri makes the licence a coverage condition: \u00a7 376.1224 requires ABA to be supervised by a board-certified behavior analyst licensed under chapter 337. EN0499 sets no caseload cap: it does not limit how many technicians or cases one BCBA may supervise, only the supervision hours per case.',
         status: 'verified',
         cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'RSMo \u00a7 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' }, { title: 'RSMo \u00a7 337.315 \u2014 behavior analyst licensure (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=337.315' }],
       },
@@ -779,12 +833,13 @@ export const missouriPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'RSMo \u00a7 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' }],
       },
       dailyLimits: {
-        value:
-          'Not published as a per-day unit ceiling. EN0499 bounds the day from a different direction: ABA is not covered when delivered at the same time as another therapy to the same child, and only one provider can bill a unit of time, with the standard supervision exceptions. Requested intensity is set in the treatment plan and authorized on the ABA PA form rather than against a published cap.',
-        status: 'unverified',
-        cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
-        verifyVia: 'The treatment authorization itself, and Evernorth Behavioral Health provider services (the behavioral health number on the member\'s card) \u2014 ask whether any per-day MUE is applied to ABA codes on this plan.',
-        blocker: 'per-case',
+        value: 'No per-day or per-week unit cap is published. Evernorth’s autism resource guide says “All of the ABA CPT codes are in 15-minute increments” and “All ABA services must be billed with CPT codes 97151–97158, 0362T, and 0373T ONLY,” and adds that “Only one provider can bill for a unit of time,” except 97153, 97154 and 97155 during direct supervision. Neither the guide, EN0499 nor Evernorth’s Behavioral Health Administrative Guidelines (September 2026) sets a unit maximum or names an MUE table for ABA. The authorization, sized to the treatment plan under EN0499, is what bounds the day; ask Evernorth at authorization if a schedule needs more than eight hours of 97153 in a day.',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth — Autism Resource Guide for behavioral health providers (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (rev. Sept. 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
       },
       placeOfService: {
         value:
@@ -837,9 +892,9 @@ export const missouriPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'The most permissive position in this directory: Cigna\'s March 2025 autism resource guide states that all ABA CPT codes are covered telehealth services, with the delivery model \u2014 in person, telehealth or hybrid \u2014 chosen on the individual\'s needs. Missouri adds nothing for a commercial plan; its telemedicine regulation governs MO HealthNet. That includes the 97151 assessment and 97155 protocol modification. EN0499 describes direct case supervision as occurring "concurrently with the delivery of direct treatment," with the BCBA "face-to-face with the individual and either the Registered Behavior Technician® [RBT®] or the Board Certified Assistant Behavior Analyst® [BCaBA®]," at one to two hours per ten hours of direct treatment; it publishes no separate in-person minimum for supervision delivered by telehealth.',
+          'The most permissive position in this directory: Cigna\'s March 2025 autism resource guide states that all ABA CPT codes are covered telehealth services, with the delivery model \u2014 in person, telehealth or hybrid \u2014 chosen on the individual\'s needs. Missouri adds nothing for a commercial plan; its telemedicine regulation governs MO HealthNet. That includes the 97151 assessment and 97155 protocol modification. EN0499 describes direct case supervision as occurring "concurrently with the delivery of direct treatment," with the BCBA "face-to-face with the individual and either the Registered Behavior Technician® [RBT®] or the Board Certified Assistant Behavior Analyst® [BCaBA®]," at one to two hours per ten hours of direct treatment; it publishes no separate in-person minimum for supervision delivered by telehealth. On the claim, Evernorth’s Behavioral Health Administrative Guidelines (September 2026) say: “If billing telehealth services, please use the following guidance: Modifier 95 in Field 24-D to specify telehealth. 02 for Place of Service in Field 24-B.” Modifier 95 “will not change the reimbursement.” To deliver virtual sessions the provider first attests to Evernorth’s telehealth specialty requirements on the Attested Specialty Form, which adds “telehealth” to the provider profile. The guidelines and EN0499 say nothing about flagging telehealth on the ABA authorization itself.',
         status: 'verified',
-        cites: [{ title: 'Cigna autism resource guide', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
+        cites: [ { title: 'Evernorth Behavioral Health Administrative Guidelines (rev. Sept. 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },{ title: 'Cigna autism resource guide', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
       },
       authTurnaround: {
         value:
@@ -877,6 +932,8 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { q: 'Does Cigna set required parent training hours in Missouri?', a: 'No hour figure is published. EN0499 requires measurable stakeholder (parent/caregiver) training goals with mastery criteria and progress data, delivered by a BCBA or licensed clinician; the hours are set on the authorization.' },
       { q: 'What is Cigna’s timely filing limit in Missouri?', a: 'Cigna’s policy says 90 days for participating providers and 180 days out of network, longer where law or your agreement allows; Missouri law gives nonparticipating providers up to one year (RSMo 376.384).' },
       { q: 'Does Cigna require a referring provider NPI on ABA claims?', a: 'No. Cigna\'s ABA billing instructions cover boxes 31 and 33 only, and Evernorth states that referrals are not required for behavioral health services.' },
+      { q: 'Does Cigna accept H0031 or H0032 for ABA?', a: 'No. Evernorth’s autism resource guide requires all ABA services to be billed with CPT 97151–97158, 0362T and 0373T only, in 15-minute units.' },
+      { q: 'Does Cigna require graphs for ABA reassessments?', a: 'No graph is required. EN0499 requires dated quantitative baseline, interim and current data for every behavior and skill (current data no older than 60 days at the request and the start date), a standardized assessment within the past year, and caregiver-goal data. Data may be reported as data points or averages.' },
     ],
   },
 
@@ -1031,6 +1088,24 @@ export const missouriPayers: Record<string, PayerConfig> = {
           { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
         ],
       },
+      {
+        h2: 'Which codes does UnitedHealthcare / Optum pay for ABA? (H0031/H0032 and other H-codes)',
+        body: [
+          'Optum’s commercial ABA reimbursement policy (2022RP501A) “describes the correct coding methodology and reimbursement for reporting behavior assessment/intervention services (ABA) for the assessment and treatment of Autism Spectrum Disorders with CPT codes 97151-97158 along with the appropriate modifier,” and its code tables cover 97151–97158, 0362T and 0373T. It lists no HCPCS H-code (H0031, H0032, H2014, H2019) for commercial ABA. The same policy says “97151 and 97152 are the only codes eligible for reimbursement for assessment or reassessment activities,” so 97153 or 97155 cannot be billed for assessment work.',
+        ],
+        cites: [
+          { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+        ],
+      },
+      {
+        h2: 'What must a UnitedHealthcare / Optum ABA reauthorization contain? Are graphs required?',
+        body: [
+          'Optum’s Supplemental Clinical Criteria (“Continued Service Criteria”) say that “With each clinical review for continued ABA treatment, the provider must submit updated documentation.” Progress must be “assessed and documented for each targeted symptom and behavior … including the same modes of measurement that were utilized for baseline measurement.” It “should include rate and percentage of mastered programs, rates of mastered targets, change scores for any outcome measures, updated standardized adaptive measures, and change scores for skills-based assessments,” with movement from baseline shown on validated, norm-referenced assessments and caregiver progress where applicable. Inadequate progress within a six-month period calls for an assessment of the reasons and modified interventions, and utilization below 80% of authorized hours over a two-week period is reviewed. The criteria do not require graphs; they require the measures above.',
+        ],
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies — including MO\'s unusual reach into governmental and school self-insured plans) vs. self-funded private ERISA (exempt). Ask for the employer and check the card.' },
@@ -1056,9 +1131,9 @@ export const missouriPayers: Record<string, PayerConfig> = {
     deliveryRules: {
       supervision: {
         value:
-          'Optum\'s Supplemental Clinical Criteria set supervision at 1\u20132 hours per 10 hours of direct treatment, with a floor of at least one hour of 97155 per case per month. Missouri layers the licence on top as a coverage condition: \u00a7 376.1224 requires ABA to be supervised by a board-certified behavior analyst licensed under chapter 337, and RSMo 337.315 prohibits unlicensed practice outside enumerated exceptions. Missouri has no entry in Optum\'s ABA State Mandates supplement, so nothing modifies the national supervision criteria.',
+          'Optum\'s Supplemental Clinical Criteria set supervision at 1\u20132 hours per 10 hours of direct treatment, with a floor of at least one hour of 97155 per case per month. Missouri layers the licence on top as a coverage condition: \u00a7 376.1224 requires ABA to be supervised by a board-certified behavior analyst licensed under chapter 337, and RSMo 337.315 prohibits unlicensed practice outside enumerated exceptions. Missouri has no entry in Optum\'s ABA State Mandates supplement, so nothing modifies the national supervision criteria. Neither the Supplemental Clinical Criteria nor Optum’s commercial ABA reimbursement policy caps how many technicians one BCBA may supervise.',
         status: 'verified',
-        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'Optum \u2014 ABA State Mandates supplemental criteria (BH 803ABA STM1 2026 \u2014 no Missouri entry)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }, { title: 'RSMo \u00a7 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' }, { title: 'RSMo \u00a7 337.315 \u2014 behavior analyst licensure (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=337.315' }],
+        cites: [ { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'Optum \u2014 ABA State Mandates supplemental criteria (BH 803ABA STM1 2026 \u2014 no Missouri entry)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }, { title: 'RSMo \u00a7 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' }, { title: 'RSMo \u00a7 337.315 \u2014 behavior analyst licensure (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=337.315' }],
       },
       concurrentBilling: {
         value: 'Yes, with a single-provider exclusion. Optum’s commercial ABA reimbursement policy: “Can I report 97153 or 97154 with 97155 concurrently? A. Yes, as long as the criteria in the descriptors of both codes are met. A single QHP may not report 97153 or 97154 with 97155 concurrently.” So the overlap has to be two people — a technician on 97153 and an analyst on 97155 directing them with the patient present. Optum’s ABA CPT FAQ adds that 97153 and 97156 “may be billed concurrently” as separate services to different family members by different providers. 97155 and 97156 on the same date pay only if “separate, distinct, and clearly documented in the progress notes” — “A single provider can’t bill for both simultaneously.” Team meetings bill only as supervision with the member, supervisor and technician present, and “CPT codes 97153 and 97155 may not be billed for technician training.”',
@@ -1192,6 +1267,8 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { q: 'What is UnitedHealthcare’s timely filing limit for ABA in Missouri?', a: '90 calendar days from the date of service under Optum’s National Provider Network Manual, unless law or the member’s plan allows longer; Missouri law gives nonparticipating providers up to one year (RSMo 376.384).' },
       { q: 'Does UnitedHealthcare require a referring provider NPI on ABA claims?', a: 'No published rule requires one. UnitedHealthcare exempts network mental health services from PCP referral requirements, and Optum gates ABA on prior authorization instead.' },
       { q: 'Can ABA overlap with speech therapy under UnitedHealthcare?', a: 'Optum publishes no clock-time rule, but its criteria say ABA must not duplicate other medical or behavioral services, and they weigh participation in other therapies when setting hours. Document the other therapies and schedule around them.' },
+      { q: 'Does UnitedHealthcare accept H0031 or H0032 for ABA?', a: 'Not on commercial plans. Optum’s commercial ABA reimbursement policy codes ABA on CPT 97151–97158, 0362T and 0373T and lists no H-codes; only 97151 and 97152 may be billed for assessment or reassessment.' },
+      { q: 'Does UnitedHealthcare require graphs for ABA reauthorization?', a: 'Optum’s criteria do not require graphs. They require updated progress for each target measured the same way as baseline: mastery rates, change scores, updated standardized adaptive measures and caregiver progress, plus an explanation and changed plan if progress lagged over six months.' },
     ],
   },
 
@@ -1381,6 +1458,15 @@ export const missouriPayers: Record<string, PayerConfig> = {
           { title: 'Anthem Missouri Provider Manual (effective January 1, 2026): Paper Claims Submissions; BlueCard Program Overview; Pre-certification', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_MO_00010.pdf' },
         ],
       },
+      {
+        h2: 'Which codes does Anthem use for ABA, and which modifiers?',
+        body: [
+          'Anthem’s commercial ABA resource guide lists the adaptive-behavior Category I CPT codes 97151–97158 with 0362T and 0373T, and says services should be billed with “industry-standard, compliant codes” (CPT, HCPCS and/or revenue codes) subject to “any specific billing and submission requirements” in your contract. It names no HCPCS H-code for ABA. It adds a credential modifier set (HM less than bachelor’s level, HN bachelor’s level, HO master’s level) and requires that ABA by technicians or paraprofessionals “show the supervising BCBA or other QHP in box 31.” 97155 may be billed with 97153 only when the QHP and technician are both face-to-face with the patient and the QHP is directing the technician.',
+        ],
+        cites: [
+          { title: 'Anthem ABA Provider Resource Guide — 11-state commercial (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type, first', desc: 'Fully insured Missouri plan (mandate applies), a self-insured governmental, MEWA or school-district plan (the statute reaches these too, for plans established or renewed on or after 1/1/2020), or a private self-funded ERISA plan (preempted). An Anthem Missouri card can be any of these — RIT administers self-funded plans without underwriting them.' },
@@ -1404,6 +1490,7 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { title: 'Anthem — MCG care guidelines 27th edition update (Missouri, Commercial, Feb 1 2024)', url: 'https://providernews.anthem.com/missouri/articles/mcg-care-guidelines-27th-edition-update-17867-17867' },
       { title: 'Anthem — Treatment Plan Request Form for Autism Spectrum Disorders (commercial, December 2025)', url: 'https://www.anthembluecross.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/NY_BH_00001.pdf' },
       { title: 'Anthem Missouri Provider Manual (effective January 1, 2026): Paper Claims Submissions; BlueCard Program Overview; Pre-certification', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_MO_00010.pdf' },
+      { title: 'Anthem — Commercial Reimbursement Policy C-08002, Virtual Visits (Missouri RIT/HALIC/HMO Missouri; last approval 03/26/2026)', url: 'https://www.anthembluecross.com/content/dam/digital/docs/provider/commercial/policy/reimb/C-08002.pdf' },
     ],
     deliveryRules: {
       concurrentBilling: {
@@ -1489,9 +1576,9 @@ export const missouriPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'Anthem names two telehealth place-of-service codes for ABA \u2014 10 (member at home) and 02 (member elsewhere) \u2014 but publishes no national list of telehealth-eligible ABA codes. Its ABA provider resource guide routes the question to the Virtual Visits reimbursement policy, notes that \u201callowed codes may vary,\u201d and directs providers to the allowed virtual services list in addition to CPT Appendix P \u201cto obtain codes that are eligible for reimbursement in your state.\u201d Confirm per state and per plan before scheduling remote hours \u2014 and remember that weekly approved units since March 1, 2026 bound the week regardless of how the hours are delivered.',
+          'Anthem names two telehealth place-of-service codes for ABA \u2014 10 (member at home) and 02 (member elsewhere) \u2014 but publishes no national list of telehealth-eligible ABA codes. Its ABA provider resource guide routes the question to the Virtual Visits reimbursement policy, notes that \u201callowed codes may vary,\u201d and directs providers to the allowed virtual services list in addition to CPT Appendix P \u201cto obtain codes that are eligible for reimbursement in your state.\u201d Confirm per state and per plan before scheduling remote hours \u2014 and remember that weekly approved units since March 1, 2026 bound the week regardless of how the hours are delivered. On the claim, Anthem’s Virtual Visits reimbursement policy C-08002 (last approved March 26, 2026, and covering Missouri’s RightCHOICE, HALIC and HMO Missouri business) says professional audio-video visits must carry “Place of service ‘02’ or ‘10’,” a code from CPT Appendix P or Anthem’s referenced allowed list, and “Modifier 95 or GT.” Audio-only visits take modifier 93 or FQ. Virtual visits pay at the non-office rate. The policy does not say whether telehealth must be flagged on the ABA authorization.',
         status: 'plan-dependent',
-        cites: [{ title: 'Anthem ABA Provider Resource Guide \u2014 11-state commercial (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' }],
+        cites: [ { title: 'Anthem — Commercial Reimbursement Policy C-08002, Virtual Visits (Missouri RIT/HALIC/HMO Missouri; last approval 03/26/2026)', url: 'https://www.anthembluecross.com/content/dam/digital/docs/provider/commercial/policy/reimb/C-08002.pdf' },{ title: 'Anthem ABA Provider Resource Guide \u2014 11-state commercial (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' }],
         verifyVia: 'Anthem\'s Virtual Visits reimbursement policy and the Missouri allowed-virtual-services list, or Anthem provider services via Availity Essentials.',
         blocker: 'document',
       },
@@ -1533,6 +1620,7 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { q: 'What is the timely filing limit for Anthem ABA claims in Missouri?', a: 'Your Anthem agreement sets it; without a contract term, Missouri law gives participating providers six months from the date of service and nonparticipating providers one year (RSMo 376.384).' },
       { q: 'Does Anthem Missouri want the referring provider on ABA claims?', a: 'Its provider manual says paper claims must carry "complete provider information, including referring, rendering and billing NPI." Where a referral or a mandate order exists, put that clinician in box 17.' },
       { q: 'How does BlueCard work for an out-of-state Blue member getting ABA in Missouri?', a: 'File the claim with Anthem, the local plan, which is "the sole contact for Claims payment, adjustments, and issue resolution." The member\'s home Blue plan sets the medical policy and prior-authorization rules, so look them up by alpha prefix on Anthem\'s "Medical Policy and Prior Authorization for Blue Plans" tool. Clinical appeals go to the home plan.' },
+      { q: 'Does Anthem accept H0031 or H0032 for ABA in Missouri?', a: 'Anthem’s ABA resource guide lists only CPT 97151–97158, 0362T and 0373T for ABA, with HM/HN/HO credential modifiers. It names no H-codes, so check your contract before using one.' },
     ],
   },
 };
