@@ -64,11 +64,11 @@ const AVAILITY_PAYER_LIST = src(
 );
 const AETNA_CPB0554 = src(
   'https://www.aetna.com/cpb/medical/data/500_599/0554.html',
-  'Aetna CPB 0554 — Applied Behavior Analysis (last review 11/26/2025). A short policy: ABA is experimental, investigational or unproven for Down syndrome without ASD and for all other non-ASD indications; ASD coverage is in CPB 0648. It has no telehealth, precertification, unit-cap, POS or BH carve-out content.'
+  'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026, re-read 2026-10-18; policy statements unchanged, background rewritten). A short policy: ABA is experimental, investigational or unproven for Down syndrome without ASD and for all other non-ASD indications; ASD coverage is in CPB 0648. It has no telehealth, precertification, unit-cap, POS or BH carve-out content.'
 );
 const AETNA_CPB0648 = src('https://www.aetna.com/cpb/medical/data/600_699/0648.html', 'Aetna CPB 0648 — Autism Spectrum Disorders (national commercial policy), already cited in src/data/payers/national.ts.');
 
-/* Aetna precertification sources (fetched 2026-10-01): CPB 0554 (last review 11/26/2025) only addresses non-ASD indications and carries no precertification content. */
+/* Aetna precertification sources (fetched 2026-10-01): CPB 0554 (last review 10/14/2026, re-read 2026-10-18) only addresses non-ASD indications and carries no precertification content. */
 const AETNA_PRECERT_LIST_ABA = src(
   'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf',
   'Aetna "Participating provider behavioral health precertification list," effective 8/1/2024 — item 3, Applied behavioral analysis (ABA): 97151, 97152, 97153, 97154, 97155, 97156, 97157, 97158, 0362T, 0373T require precertification.', true

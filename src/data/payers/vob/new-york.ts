@@ -100,7 +100,7 @@ const EMEDNY_MC_DIRECTORY = src(
 const AETNA_CPB0554 = src('https://www.aetna.com/cpb/medical/data/500_599/0554.html', 'Aetna CPB 0554 — Applied Behavior Analysis (national policy).');
 const AETNA_CPB0648 = src('https://www.aetna.com/cpb/medical/data/600_699/0648.html', 'Aetna CPB 0648 — Autism Spectrum Disorders (national policy); no unit caps, POS codes, or modifiers published; no separate Aetna ABA billing/reimbursement policy located.');
 
-/* Aetna precertification sources (fetched 2026-10-01): CPB 0554 (last review 11/26/2025) only addresses non-ASD indications and carries no precertification content. */
+/* Aetna precertification sources (fetched 2026-10-01): CPB 0554 (last review 10/14/2026, re-read 2026-10-18) only lists non-covered indications (Down syndrome without ASD; all other non-ASD indications) and carries no precertification content. */
 const AETNA_PRECERT_LIST_ABA = src(
   'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf',
   'Aetna "Participating provider behavioral health precertification list," effective 8/1/2024 — item 3, Applied behavioral analysis (ABA): 97151, 97152, 97153, 97154, 97155, 97156, 97157, 97158, 0362T, 0373T require precertification.', true
@@ -216,7 +216,7 @@ const EXCELLUS_POLICY = src(
   'https://www.excellusbcbs.com/documents/d/global/exc-prv-applied-behavior-analysis',
   "Excellus Medical Policy 3.01.11, Applied Behavior Analysis (eff. 6/18/2026) — names 97151-97158, 0362T, 0373T as codes in scope; documentation and licensure tiers (LBA/BCBA, CBAA/BCaBA, RBT) specified; no unit-cap table, POS codes, or billing modifiers published."
 );
-const EXCELLUS_PA_PAGE = { url: 'https://www.excellusbcbs.com/prior-authorization', accessDate: '2026-09-27', note: "Excellus general Prior Authorization guidance — directs providers to check eMedNY for code-level Medicaid coverage before submitting a PA request. Re-checked 2026-09-27: the page now posts Clinical Review Preauthorization Lists effective 8/1/2026 (current), 10/1/2026, 11/1/2026 and 1/1/2027; none lists 97151-97158, 0362T or 0373T in any column (Managed Medicaid, CHP and HARP included), but each says it is \"NOT inclusive\" and that some services need PA or notification without clinical review." } as SourceRef;
+const EXCELLUS_PA_PAGE = { url: 'https://www.excellusbcbs.com/prior-authorization', accessDate: '2026-10-11', note: "Excellus general Prior Authorization guidance — directs providers to check eMedNY for code-level Medicaid coverage before submitting a PA request (\"For Medicaid Managed Care (MMC) or HARP members, please review the eMedNY website for benefit coverage of specific codes prior to submitting a prior authorization request\", re-read 2026-10-11). Re-checked 2026-10-11: the page now marks the 10/1/2026 Clinical Review Preauthorization List current, with 11/1/2026 and 1/1/2027 posted as future and 8/1/2026 as past; none lists 97151-97158, 0362T or 0373T in any column (Managed Medicaid, CHP and HARP included), but each says it is \"NOT inclusive\" and that some services need PA or notification without clinical review." } as SourceRef;
 const EXCELLUS_TELEHEALTH = src(
   'https://provider.excellusbcbs.com/documents/20152/127460/EXC-PRV-Telehealth_Telemedicine+Corporate+Medical+Policy.pdf',
   "Excellus Telemedicine and Telehealth Corporate Medical Policy (#1.01.49) — does not list any ABA codes in its covered CPT/HCPCS table; ABA-code telehealth reimbursement is unconfirmed."
@@ -866,7 +866,7 @@ const METROPLUS_MANUAL_2024 = src(
   'https://metroplus.org/wp-content/uploads/2024/08/PRV-24.075_MPH_2024-Provider-Manual_FINAL_081224.pdf',
   'MetroPlus 2024 Provider Manual — 183 pages, read in full. p.7 confirms ABA authorization submission to metroplusaba@metroplus.org / 212.908.5182; Appendix XB (Child Health Plus Benefit Summary, p.273) states "Applied Benefit Analysis (ABA) – limited to 680 hours/calendar year"; the equivalent Appendix XA (core Medicaid Managed Care, pp.269-271) covers ABA with no stated hour figure. Zero "Beacon"/"Carelon" hits in the full text.'
 );
-const METROPLUS_BH_HCBS_PA_GRID_2026 = { url: 'https://metroplus.org/wp-content/uploads/2026/09/2026_MH_BH_HCBS_Provider-PA-Request-Guide_-v1.3_C_FINAL-1.xlsx', accessDate: '2026-09-27', note: '"2026 MH/BH/HCBS Provider PA Request Guide," v1.3 (posted September 2026; supersedes v1.2, whose findings are carried here). Re-read 2026-09-27: the Medicaid_PIC_Enhanced (HARP) row "CHILDREN Applied Behavior Analysis Treatment (ABA)" still shows In-Network Prior Authorization = Yes, submission by fax 212-908-5182, email MetroPlusABA@Metroplus.org or the provider portal; the same ABA line appears on the CHP/EP1-4/EP-200-250/QHP/Gold sheets. v1.2 notes: Row 11 on the Medicaid_PIC_Enhanced(HARP) sheet ("CHILDREN Applied Behavior Analysis Treatment (ABA)") shows In-Network Prior Authorization = Yes, repeated identically on the CHP/EP1-4/EP-200-250/QHP/Gold sheets. This is a CATEGORY-level line item — no individual CPT code (97151-97158) is broken out anywhere in the workbook, including its dedicated Telehealth and Modifier-Definitions sheets, both of which have zero ABA-specific entries. The MMC Coding Crosswalk sheet explicitly excludes APG-reimbursed services (which includes ABA) from its scope.' } as SourceRef;
+const METROPLUS_BH_HCBS_PA_GRID_2026 = { url: 'https://metroplus.org/wp-content/uploads/2026/09/2026_MH_BH_HCBS_Provider-PA-Request-Guide_-v1.3_C_FINAL-1.xlsx', accessDate: '2026-10-11', note: '"2026 MH/BH/HCBS Provider PA Request Guide," v1.3 (posted September 2026, workbook modified 2026-09-23; supersedes v1.2, whose findings are carried here). Re-read 2026-10-11, unchanged since 2026-09-27: the Medicaid_PIC_Enhanced (HARP) row "CHILDREN Applied Behavior Analysis Treatment (ABA)" still shows In-Network Prior Authorization = Yes, submission by fax 212-908-5182, email MetroPlusABA@Metroplus.org or the provider portal; the same ABA line appears on the CHP/EP1-4/EP-200-250/QHP/Gold sheets. v1.2 notes: Row 11 on the Medicaid_PIC_Enhanced(HARP) sheet ("CHILDREN Applied Behavior Analysis Treatment (ABA)") shows In-Network Prior Authorization = Yes, repeated identically on the CHP/EP1-4/EP-200-250/QHP/Gold sheets. This is a CATEGORY-level line item — no individual CPT code (97151-97158) is broken out anywhere in the workbook, including its dedicated Telehealth and Modifier-Definitions sheets, both of which have zero ABA-specific entries. The MMC Coding Crosswalk sheet explicitly excludes APG-reimbursed services (which includes ABA) from its scope.' } as SourceRef;
 const METROPLUS_2023_NOTICE = src(
   'https://metroplus.org/press/important-notice-to-our-applied-behavioral-analysis-aba-providers-regarding-2023-aba-benefit-changes/',
   'MetroPlus press notice, published 12/29/2022, on the ABA benefit effective 1/1/2023.'
@@ -1097,10 +1097,10 @@ function fidelisEntry(notes?: string): CodeGridEntry {
     paRequired:
       "Required — governed by Fidelis's own medical-necessity policy (FC.CP.BH.301.04); a behavioral assessment must be completed before treatment is requested. The policy does not differentiate PA turnaround/workflow for assessment (97151/97152) vs. treatment codes — both fall under the same medical-necessity review.",
     unitCap:
-      "Not published as a numeric cap. The policy frames intensity descriptively — Focused ABA (10-25 hrs/wk) vs. Comprehensive ABA (30-40 hrs/wk) — and states explicitly: \"the intensity of comprehensive treatment must be individualized to the person's characteristics and other factors\" (not an enforced ceiling).",
+      "Not published as a numeric cap. The policy (date of last revision 2/26, re-read 2026-10-18) removed the Focused/Comprehensive tiers: hours beyond 'six hours of direct treatment per day up to a total of 30 hours of direct treatment per week' need added clinical documentation plus parent and BCBA signatures; 'less than 20 hours per week if attending school full-time'; 97155 at least 2 h/week or 10% of direct hours (greater), no more than 20% unless justified. The authorized units are the operative ceiling.",
     capPeriod: 'unverified — no cap-period structure published',
     posAllowed: ['unverified — no POS code list in either Fidelis document', 'NOT school setting since 9/1/2023 (30-day transition period applied at rollout)'],
-    telehealth: 'unverified — the word "telehealth" does not appear anywhere in either Fidelis document reviewed.',
+    telehealth: 'plan-dependent — the policy (rev. 2/26) says telehealth "is determined on an individual basis" in alignment with the NYS Medicaid telehealth manual and must be documented in the treatment plan; no code list or POS rule.',
     modifiers: ['unverified — no HN/HO/HM/HP or other billing modifier is mentioned in either document'],
     notes: [
       notes,
@@ -1439,7 +1439,7 @@ function metroplusEntry(): CodeGridEntry {
     telehealth: 'unverified — the workbook\'s three dedicated telehealth sheets (Outpatient, CORE, Mobile Crisis) contain zero ABA references.',
     modifiers: ['unverified — the workbook\'s Modifier Code Definitions sheet has no ABA-specific entries'],
     notes:
-      'Authorization requests + clinical information submitted to MetroPlus CSS by email (metroplusaba@metroplus.org) or fax (212-908-5182), per the plan\'s 2023 benefit notice — not a portal workflow.',
+      'Authorization requests + clinical information go by fax (212-908-5182), email (MetroPlusABA@Metroplus.org) or the provider portal (providers.metroplus.org), per the 2026 BH/HCBS Provider PA Request Guide v1.3 (re-read 2026-10-11); the 2023 benefit notice named only email and fax.',
     fieldStatus: { covered: 'verified', paRequired: 'inferred', unitCap: 'inferred', posAllowed: 'unverified', telehealth: 'unverified', modifiers: 'unverified' },
     sources: [METROPLUS_BH_HCBS_PA_GRID_2026, METROPLUS_MANUAL_2024, METROPLUS_2023_NOTICE],
   };
@@ -1885,7 +1885,7 @@ const fidelisContact: VobContact = {
   requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     "Does ABA/BH claims routing use Fidelis's own medical payer ID (11315), or a separate Centene-affiliated behavioral-health vendor?",
-    'Is there an enforceable hourly ceiling for Comprehensive (30-40 hrs/wk) vs. Focused (10-25 hrs/wk) ABA, or is intensity purely individualized?',
+    'Above 6 hours/day or 30 hours/week of direct treatment, what documentation does Fidelis need, and is the authorization issued in weekly units?',
     'What POS settings are allowed for ABA (school is excluded since 9/1/2023) — home, office, community, other?',
     'Is ABA billable via telehealth, and if so what code/modifier applies?',
     'What billing modifiers does Fidelis require for ABA claims?',

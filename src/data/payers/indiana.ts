@@ -54,7 +54,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
       {
         h2: 'Coverage & authorization',
         body: [
-          'IHCP covers ABA when medically necessary for the treatment of ASD, and all ABA services require prior authorization — for fee-for-service through Acentra Health, and through each managed-care entity\'s own process for MCE members. The clinical bar is specific: an ASD diagnosis supported by a comprehensive diagnostic evaluation (CDE) performed by a doctoral-level HSPP psychologist, physician, APRN, or PA; a physician referral; and a behavior assessment that must include the Vineland (with the Maladaptive Behavior domain), the BASC parent rating questionnaire, and an age-appropriate direct skills assessment, signed by the lead analyst and a parent. A CDE older than one year needs an updated statement of need, referral, and current behavior assessment. One tool-currency note: IHCP will accept either the BASC-3 Parent Rating Questionnaire or its successor, BASC-4 (public release expected ~August 23, 2026), through October 1, 2026 — after that date only BASC-4 satisfies the requirement.',
+          'IHCP covers ABA when medically necessary for the treatment of ASD, and all ABA services require prior authorization — for fee-for-service through Acentra Health, and through each managed-care entity\'s own process for MCE members. The clinical bar is specific: an ASD diagnosis supported by a comprehensive diagnostic evaluation (CDE) performed by a doctoral-level HSPP psychologist, physician, APRN, or PA; a physician referral; and a behavior assessment that must include the Vineland (with the Maladaptive Behavior domain), the BASC parent rating questionnaire, and an age-appropriate direct skills assessment, signed by the lead analyst and a parent. A CDE older than one year needs an updated statement of need, referral, and current behavior assessment. One tool-currency note: IHCP accepted either the BASC-3 Parent Rating Questionnaire or its successor, BASC-4, through October 1, 2026 — since then only BASC-4 satisfies the requirement.',
           'Each PA runs at most 6 months, up to 40 hours/week may be requested (more than 40 hours of direct therapy needs additional PA), and — since the 2026 rules — every ABA PA must include caregiver coaching (up to 18 hours per standard 6-month authorization), with a minimum of 1 hour of BCBA supervision per 8 hours of technician services. IHCP Bulletin BT2026136 (8/18/2026) clarifies that floor rather than raising or lowering the ceiling: the required minimum can be reduced below the standard 12-hour/6-month caregiver-coaching floor from BT202662 when documented barriers exist — custody or foster-care disruptions, medical crises, homelessness, legal restrictions, and similar circumstances — provided a caregiver-coaching "improvement plan" is documented at reauthorization whenever the minimum wasn\'t met.',
         ],
         cites: [
@@ -68,7 +68,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
       {
         h2: 'What changed in 2026 (and 2027)',
         body: [
-          'Effective April 1, 2026, IHCP covers ABA exclusively through the EPSDT benefit; members 21 and older have a transition window through September 30, 2026, and for dates of service on or after October 1, 2026, IHCP will not authorize or reimburse ABA for members 21+ — making age a first-order intake question. Also effective April 1, 2026: comprehensive ABA (16+ hours/week, billed with modifier UA) draws from a 4,000-hour (16,000-unit) lifetime allocation per member — 97155 and 97156 are excluded from the allocation, and the IHCP Portal\'s "Limit Details" panel shows usage — while targeted ABA is capped at 15 hours/week but exempt from the lifetime cap. Codes 97151, 97152, 97153, 97154, and 0373T can no longer be billed with telehealth modifier 95.',
+          'Effective April 1, 2026, IHCP covers ABA exclusively through the EPSDT benefit; members 21 and older had a transition window through September 30, 2026, and for dates of service on or after October 1, 2026 IHCP no longer authorizes or reimburses ABA for members 21+ — making age a first-order intake question. Also effective April 1, 2026: comprehensive ABA (16+ hours/week, billed with modifier UA) draws from a 4,000-hour (16,000-unit) lifetime allocation per member — 97155 and 97156 are excluded from the allocation, and the IHCP Portal\'s "Limit Details" panel shows usage — while targeted ABA is capped at 15 hours/week but exempt from the lifetime cap. Codes 97151, 97152, 97153, 97154, and 0373T can no longer be billed with telehealth modifier 95.',
           'Separately, an accreditation mandate now binds every ABA group enrollment — new and existing. Currently enrolled agencies must submit documentation showing accreditation has been initiated with the Autism Commission on Quality (ACQ) or the Behavioral Health Center of Excellence (BHCOE) by August 1, 2026 (to INXIXabaenrollments@gainwelltechnologies.com or via the IHCP Portal) — that deadline has now passed, and IHCP\'s bulletin list through BT2026155 (9/24/2026) carries no extension — and must hold active accreditation by October 1, 2027. Missing either milestone results in enrollment deactivation, not just a warning. IHCP reissued this deadline as a reminder in Bulletin BT2026118 (7/14/2026) with no extension and sharper enforcement language: "Failure to provide documentation will result in the enrollment being deactivated." One footnote worth reading twice: BT202646 states a previous BHCOE accreditation is accepted only "until an agency\'s reaccreditation with ACQ," so agencies choosing an accreditor should plan the reaccreditation path, not just the first credential.',
           'A second, separate restriction landed in between: effective June 6, 2026, CMS approved a provider-enrollment moratorium on new ABA agency enrollments and changes of ownership in Indiana Medicaid (initial 6 months, renewable in 6-month increments) — new individual rendering-provider (RBT/BCaBA/BCBA) enrollment is unaffected, and already-accredited agencies can request an exception via OMPPProviderRelations@fssa.in.gov. HHS-OIG\'s own audit-report page confirms the moratorium follows an OIG finding of improperly paid Indiana ABA claims, though the IHCP bulletin itself doesn\'t name the audit. New or expanding ABA agencies should treat this moratorium, not just the accreditation deadline, as the binding constraint on growth in Indiana this year.',
           'Four more bulletins landed September 29, 2026, tightening clinical documentation rather than coverage. BT2026160 simplifies the statement-of-need/referral rule: "statement of need" and "referral" are now interchangeable, required only at onset of ABA (CDE >1 year old), at reauthorization when an active member\'s CDE crosses the one-year mark, or with a new PA after a 6-month service gap — not with every reauthorization or annually — and it cannot be completed by a BCaBA, BCBA, PT, SLP, or OT. BT2026162 requires a complete functional behavior assessment (FBA) — a named indirect assessment tool plus ABC data, triggers/precursors, and a hypothesized function statement — for every behavior targeted by a behavior intervention plan (BIP), effective October 29, 2026; BIPs built without one no longer pass review. BT2026159 sets an AAP-based right to nap/sleep during ABA hours (members can\'t be kept awake, woken by physical contact, or penalized for non-billable 97153 time lost to a documented nap) that must be written into the schedule of services. BT2026161 ends fee-for-service peer-to-peer PA reviews on November 1, 2026 (scheduling stops October 31, 2026) — administrative review and appeal is the only path left for Acentra FFS denials; MCE members are unaffected, and member appeal rights don\'t change.',
@@ -155,6 +155,52 @@ export const indianaPayers: Record<string, PayerConfig> = {
           { title: 'IHCP — Prior Authorization module (published Sept. 29, 2026): Retroactive Prior Authorization', url: 'https://www.in.gov/medicaid/providers/files/modules/prior-authorization.pdf' },
         ],
       },
+      {
+        h2: 'Claims: filing limit, taxonomy and appeals',
+        body: [
+          '180 days. “Providers must submit claims to the Indiana Health Coverage Programs (IHCP) within 180 calendar days of the date the service was rendered” (405 IAC 1-1-3). Claims past the limit are considered only with supporting documentation attached to each claim. This is the fee-for-service rule; managed care members’ claims follow their MCE’s filing limit.',
+          'Taxonomy. On the CMS-1500 the billing provider’s taxonomy goes in 33b with qualifier ZZ or PXC, and IHCP requires it when needed to establish a one-to-one match between the NPI and an IHCP Provider ID — for example a provider with several service locations. The rendering provider’s taxonomy in 24J is “optional unless required for a one-to-one NPI/Provider ID match.”',
+          'Appeals. A request for administrative review must be filed within 60 calendar days of notification of the claim payment or denial; Gainwell acknowledges it within 10 business days and answers within 45 calendar days. An adverse administrative review can be appealed within 15 calendar days of notification of the decision.',
+        ],
+        cites: [
+          { title: 'IHCP Provider Reference Module — Claim Submission and Processing (published Feb. 24, 2026)', url: 'https://www.in.gov/medicaid/providers/files/modules/claim-submission-and-processing.pdf' },
+          { title: 'IHCP Provider Reference Module — Claim Administrative Review and Appeals', url: 'https://www.in.gov/medicaid/providers/files/modules/claim-administrative-review-and-appeals.pdf' },
+        ],
+      },
+      {
+        h2: 'Does the referring provider go on the ABA claim?',
+        body: [
+          'The IHCP\'s claim module sets the general rule: "When providing medical services or supplies resulting from an order, prescription or referral, federal regulations require providers to include the National Provider Identifier (NPI) of the ordering, prescribing or referring (OPR) provider on Medicaid claims. Reimbursement to the billing provider requires the OPR provider to be enrolled in Medicaid." The IHCP checks both: "Medical claims will be denied if an NPI for the OPR provider is not present on the claim or if the OPR provider is not enrolled as an IHCP provider." On a CMS-1500 the NPI goes in field 17b ("Referring Provider or Other Source NPI"). On an 837P it goes in loop 2310A (NM101 = P3 or DN). On the IHCP Portal it goes in the Referring Provider ID field.',
+          'ABA specialty 615 is not on the IHCP\'s list of specialties whose claims "will not adjudicate without" an OPR NPI (therapy clinics, PT, OT, speech, pharmacy, DME, labs and others). The module adds that "Claims from other specialties may also require an OPR NPI in certain circumstances, such as for specific services that always require physician\'s order." Indiana ABA rests on a referral: eligibility requires that "a physician has made a treatment referral recommending ABA therapy." So the safe practice is to report the referring practitioner\'s NPI in 17b and check before the first visit that this practitioner is enrolled in the IHCP, using the OPR Provider Search Tool. Search date by date, because the tool is specific to the date of service. MCE claims follow each plan\'s own editing, so confirm with the member\'s plan.',
+        ],
+        cites: [
+          { title: 'IHCP Provider Reference Module — Claim Submission and Processing, Section 8: Ordering, Prescribing or Referring Provider Requirements (v8.5, published 2/24/2026)', url: 'https://www.in.gov/medicaid/providers/files/modules/claim-submission-and-processing.pdf' },
+          { title: 'IHCP Provider Reference Module — Behavioral Health Services', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' },
+        ],
+      },
+      {
+        h2: 'Indiana Medicaid (FFS) ABA claims: filing deadline, payment clock and the weekly cycle',
+        body: [
+          'Filing deadline: “Providers must submit claims to the Indiana Health Coverage Programs (IHCP) within 180 calendar days of the date the service was rendered” (405 IAC 1-1-3). A denied claim resubmitted with corrected information is treated as an initial claim and stays inside the same 180 days; a claim adjustment or electronic void/replacement of a paid claim, and a written request for administrative review, must each be filed within 60 days of the remittance advice date. The 180 days are extended to one year from the date retroactive member eligibility was entered, to 180 days from approval of a retroactive PA, and — for a secondary claim held up by another payer — to 180 days from the date on the primary payer’s EOB, which must be attached.',
+          'Payment clock and cycle: Gainwell “must adjudicate clean paper claims within 30 calendar days of receipt. Clean electronic claims must be adjudicated within 21 calendar days of receipt,” and claims that miss those windows accrue interest under IC 12-15-21-3(7)(A) (claims under medical or prepayment review excepted). “The IHCP financial cycle runs every Friday”; check payments are dated, and EFT payments deposited, the Wednesday following the financial cycle, and the weekly remittance advice posts to the IHCP Portal after the cycle runs. IHCP publishes no submission cut-off hour for a given Friday’s cycle — a claim is paid in the first cycle after it adjudicates.',
+        ],
+        cites: [
+          { title: 'IHCP — Claim Submission and Processing module (PROMOD00004, v8.5, publ. Feb. 24, 2026)', url: 'https://www.in.gov/medicaid/providers/files/modules/claim-submission-and-processing.pdf' },
+          { title: 'IHCP — Financial Transactions and Remittance Advice module (v7.0, publ. March 13, 2025)', url: 'https://www.in.gov/medicaid/providers/files/modules/financial-transactions-and-remittance-advice.pdf' },
+        ],
+      },
+      {
+        h2: 'Reauthorization: what a continuation PA must contain (graphs required)',
+        body: [
+          'Reauthorization: each ABA PA runs up to six months, and continuing past it takes a new PA request. It is approved when the member still meets ABA criteria and the treatment plan is resubmitted with measurable progress to date on each goal, a revised timeline for each goal based on the initial and interim assessments, clinically significant progress in social, communication and language skills, adaptive functioning and behavior, and updates to hours, schedule, parent training and school-transition plans. Continuing members need no new comprehensive diagnostic evaluation but do need an updated behavior assessment and treatment plan (BT202562), and the behavior assessment’s “complete scoring report, including outcome measure scores and graphs, must be submitted with prior authorization requests.” Graphs are therefore required — of the standardized assessment results — and discharge follows when measurable functional improvement is not documented or progress stalls across successive authorization periods.',
+          'Code set: IHCP’s ABA rate tables (BT202627) bill ABA under CPT 97151–97158, 0362T and 0373T with credential, group-size and comprehensive-therapy (UA) modifiers; no HCPCS H-code appears in the ABA code set.',
+        ],
+        cites: [
+          { title: 'IHCP — Behavioral Health Services module (PROMOD00039, v4.5, publ. Sept. 29, 2026), ABA section', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' },
+          { title: 'IHCP Bulletin BT202562 — FFS and managed care ABA PA guidance (5/15/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' },
+          { title: 'IHCP Bulletin BT202627 — ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Member ID & managed-care plan', desc: 'Anthem, MHS, CareSource, or UHC (Hoosier Care Connect/PathWays) — the plan decides the PA process and forms. MDwise ended as an HIP/Hoosier Healthwise MCE 1/1/2026; former MDwise members now carry one of the other three.' },
@@ -189,6 +235,11 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: 'Indiana PLA — Behavior Analyst licensing information (fees incl. reciprocity application)', url: 'https://www.in.gov/pla/professions/behavior-analyst/behavior-analyst-licensing-information' },
       { title: 'IHCP — Out-of-State Providers module (PROMOD00011, published May 29, 2026)', url: 'https://www.in.gov/medicaid/providers/files/modules/out-of-state-providers.pdf' },
       { title: 'IHCP — School Corporation Services module (PROMOD00046, published Sept. 29, 2026)', url: 'https://www.in.gov/medicaid/providers/files/modules/school-corporation-services.pdf' },
+      { title: 'IHCP Provider Reference Module — Claim Submission and Processing (published Feb. 24, 2026)', url: 'https://www.in.gov/medicaid/providers/files/modules/claim-submission-and-processing.pdf' },
+      { title: 'IHCP Provider Reference Module — Claim Administrative Review and Appeals', url: 'https://www.in.gov/medicaid/providers/files/modules/claim-administrative-review-and-appeals.pdf' },
+      { title: 'IHCP — National Correct Coding Initiative module (PROMOD00010, v7.0, publ. Dec. 23, 2024)', url: 'https://www.in.gov/medicaid/providers/files/modules/national-correct-coding-initiative.pdf' },
+      { title: 'CMS — Medicaid NCCI MUE edits, practitioner services (2026 Q4, active 10/1–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' },
+      { title: 'IHCP — Financial Transactions and Remittance Advice module (v7.0, publ. March 13, 2025)', url: 'https://www.in.gov/medicaid/providers/files/modules/financial-transactions-and-remittance-advice.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -205,9 +256,9 @@ export const indianaPayers: Record<string, PayerConfig> = {
       },
       dailyLimits: {
         value:
-          'Indiana caps by the week and by the lifetime rather than by the day. Up to 40 hours per week may be requested; \u201cABA therapy services extending beyond 40 hours per week of direct therapy must be medically necessary and require an additional prior authorization.\u201d Each PA is limited to six months \u2014 \u201cPA requests for longer periods will not be approved.\u201d Since April 1, 2026 comprehensive ABA (16+ hours/week, billed with modifier UA) draws from a 4,000-hour (16,000-unit) lifetime allocation per member, with 97155 and 97156 excluded from the allocation and usage visible in the IHCP Portal\u2019s Limit Details panel; targeted ABA is capped at 15 hours/week and is exempt from the lifetime cap. Caregiver coaching is capped at up to 18 hours per standard six-month authorization. No per-day MUE ceiling is published. Additional hours outside the authorized PA may be requested for a limited period on a named list of triggers \u2014 a sudden increase in self-injury, aggression or elopement, regression in major self-care or language, a shift in family or home dynamic, or a non-mental-health health crisis or comorbidity.',
+          'Indiana caps by the week and by the lifetime rather than by the day. Up to 40 hours per week may be requested; \u201cABA therapy services extending beyond 40 hours per week of direct therapy must be medically necessary and require an additional prior authorization.\u201d Each PA is limited to six months \u2014 \u201cPA requests for longer periods will not be approved.\u201d Since April 1, 2026 comprehensive ABA (16+ hours/week, billed with modifier UA) draws from a 4,000-hour (16,000-unit) lifetime allocation per member, with 97155 and 97156 excluded from the allocation and usage visible in the IHCP Portal\u2019s Limit Details panel; targeted ABA is capped at 15 hours/week and is exempt from the lifetime cap. Caregiver coaching is capped at up to 18 hours per standard six-month authorization. There is also a per-day claim edit: IHCP “applies Medicaid NCCI methodologies of MUEs and PTP edits” to medical services on professional claims, per member, per rendering provider (or billing provider when there is none), per date of service (NCCI module, v7.0). The CMS Medicaid practitioner MUE table active 10/1–12/31/2026 sets 97151 at 32 units, 97152 at 16, 97153 at 32, 97154 at 18, 97155 at 24, 97156 at 16, 97157 at 16, 97158 at 16, 0362T at 16 and 0373T at 32. Additional hours outside the authorized PA may be requested for a limited period on a named list of triggers \u2014 a sudden increase in self-injury, aggression or elopement, regression in major self-care or language, a shift in family or home dynamic, or a non-mental-health health crisis or comorbidity.',
         status: 'verified',
-        cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202627 \u2014 ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }, { title: 'IHCP Bulletin BT2026136 \u2014 Minimum caregiver coaching/training requirements for ABA clarified (8/18/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026136.pdf' }],
+        cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202627 \u2014 ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }, { title: 'IHCP Bulletin BT2026136 \u2014 Minimum caregiver coaching/training requirements for ABA clarified (8/18/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026136.pdf' }, { title: 'IHCP — National Correct Coding Initiative module (PROMOD00010, v7.0, publ. Dec. 23, 2024)', url: 'https://www.in.gov/medicaid/providers/files/modules/national-correct-coding-initiative.pdf' }, { title: 'CMS — Medicaid NCCI MUE edits, practitioner services (2026 Q4, active 10/1–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' }],
       },
       noteSignature: {
         value:
@@ -231,7 +282,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
     intakeGates: {
       ageLimit: {
         value:
-          'Twenty and younger \u2014 and the cutoff just became real. The provider reference module covers ABA \u201cfor members 20 years of age and younger,\u201d and BT202562 restates it. Effective April 1, 2026 ABA is covered exclusively through the EPSDT benefit; members 21 and older had a transition window through September 30, 2026, and for dates of service on or after October 1, 2026 IHCP will not authorize or reimburse ABA for members 21+. Age is therefore a first-call intake question in Indiana, and for a member approaching 21 the runway is a coverage fact worth stating out loud.',
+          'Twenty and younger \u2014 and the cutoff just became real. The provider reference module covers ABA \u201cfor members 20 years of age and younger,\u201d and BT202562 restates it. Effective April 1, 2026 ABA is covered exclusively through the EPSDT benefit; members 21 and older had a transition window through September 30, 2026, and for dates of service on or after October 1, 2026 IHCP no longer authorizes or reimburses ABA for members 21+. Age is therefore a first-call intake question in Indiana, and for a member approaching 21 the runway is a coverage fact worth stating out loud.',
         status: 'verified',
         cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202627 \u2014 ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }, { title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }],
       },
@@ -249,7 +300,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
       },
       diagnosticTools: {
         value:
-          'Indiana is one of the few states that names the instruments, and it names three. The behavior assessment conducted before ABA starts \u201cmust include three core standardized behavior instruments\u201d: the Vineland Comprehensive Parent Interview Form including the Maladaptive Behavior domain; the Behavior Assessment System for Children, Parenting Relationship Questionnaire (BASC PRQ); and an age-appropriate, objective direct skills assessment. It must be signed by the lead analyst and the parent or guardian, and \u201cthe complete scoring report, including outcome measure scores and graphs, must be submitted with prior authorization requests.\u201d One currency note: IHCP accepts either the BASC-3 Parent Rating Questionnaire or its successor BASC-4 through October 1, 2026 \u2014 after that date only BASC-4 satisfies the requirement. The CDE behind the diagnosis has its own component list rather than a named tool: caregiver interview, structured observation of social communication skills and behaviors, review of available external evaluations or screenings, documentation of a completed DSM-based screening/diagnostic evaluation, and documentation that the individual cannot adequately participate in home, school or community activities or presents a safety risk.',
+          'Indiana is one of the few states that names the instruments, and it names three. The behavior assessment conducted before ABA starts \u201cmust include three core standardized behavior instruments\u201d: the Vineland Comprehensive Parent Interview Form including the Maladaptive Behavior domain; the Behavior Assessment System for Children, Parenting Relationship Questionnaire (BASC PRQ); and an age-appropriate, objective direct skills assessment. It must be signed by the lead analyst and the parent or guardian, and \u201cthe complete scoring report, including outcome measure scores and graphs, must be submitted with prior authorization requests.\u201d One currency note: IHCP accepted either the BASC-3 Parent Rating Questionnaire or its successor BASC-4 through October 1, 2026 \u2014 since then only BASC-4 satisfies the requirement. The CDE behind the diagnosis has its own component list rather than a named tool: caregiver interview, structured observation of social communication skills and behaviors, review of available external evaluations or screenings, documentation of a completed DSM-based screening/diagnostic evaluation, and documentation that the individual cannot adequately participate in home, school or community activities or presents a safety risk.',
         status: 'verified',
         cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT2026123 \u2014 BASC-3 PRQ to BASC-4 transition (7/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026123.pdf' }, { title: 'IHCP \u2014 ABA prior authorization checklist', url: 'https://www.in.gov/medicaid/providers/files/ihcp-aba-prior-auth-checklist.pdf' }],
       },
@@ -289,6 +340,13 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { q: 'Can an out-of-state BCBA treat Indiana Medicaid members in Indiana, including by telehealth?', a: 'Indiana requires an Indiana license (IC 25-8.5-3-6), and its telehealth law counts only Indiana-licensed behavior analysts as practitioners. The IHCP enrolls some out-of-state providers, but out-of-state services generally need extra PA and some specialties are ineligible; check the Enrollment Matrix.' },
       { q: 'Can Indiana Medicaid ABA be authorized retroactively?', a: 'Only in IHCP’s listed cases, chiefly pending or retroactive eligibility (request within 12 months of the eligibility entry) or a provider who could not have known the child was eligible (request within 60 days of discovery). Managed care members follow their MCE’s rules.' },
       { q: 'What code does ABA under a child’s IEP fall under in Indiana Medicaid?', a: 'The same ABA CPT codes, billed by the school corporation with modifier TM. The IHCP School Corporation Services module (Sept. 29, 2026) lists ABA therapy among school-based Medicaid services and says “the TM modifier must be attached to the end of all billing codes” for services under an IEP, a 504 plan or another approved education plan; TL and TR are not used. The education plan serves as prior authorization, the school corporation’s NPI is both billing and rendering provider, and claims go to fee-for-service (Gainwell), never to the child’s MCE.' },
+      { q: 'What is Indiana Medicaid’s timely filing limit for ABA claims?', a: '180 calendar days from the date of service for fee-for-service claims (405 IAC 1-1-3). Managed care members’ claims follow their MCE’s own filing limit.' },
+      { q: 'Does Indiana Medicaid require taxonomy on the ABA claim?', a: 'Only when it is needed to match the NPI to a single IHCP Provider ID — for example a provider with several locations. The billing taxonomy then goes in box 33b with qualifier ZZ or PXC; the rendering taxonomy in 24J is optional unless needed for that match.' },
+      { q: 'What documents does Indiana Medicaid require at intake for ABA?', a: 'A comprehensive diagnostic evaluation (CDE) by an HSPP psychologist, physician, APRN or physician assistant trained in DSM autism criteria. It must include a physician\'s referral for autism-specific services, and member eligibility separately requires that "a physician has made a treatment referral recommending ABA therapy." The IHCP checklist also asks for documented current ASD symptoms within the past year and the history of prior treatment. Before ABA starts, the behavior assessment must carry three core instruments: the Vineland Comprehensive Parent Interview Form with the Maladaptive Behavior domain, the BASC PRQ (only BASC-4 is accepted after October 1, 2026), and a direct skills assessment. Submit full scoring reports with graphs, signed by the lead analyst and parent. The PA itself goes on the IHCP Universal Prior Authorization Form with codes, modifiers and units, plus a treatment plan with baselines and parent-training detail.' },
+      { q: 'How recent does the autism evaluation need to be for Indiana Medicaid ABA?', a: 'The CDE is good for one year at the start of ABA. If it is older, an updated statement of need carrying a referral from an HSPP, physician, APRN or PA is required (BT2026160). Members continuing without a gap do not need a new CDE but need a reassessment every six months. A new referral is required after a six-month gap in services. If another provider completed a behavior assessment within six months, obtain that one rather than re-testing.' },
+      { q: 'Does Indiana Medicaid require the referring provider on the ABA claim (box 17b)?', a: 'The IHCP requires the NPI of the ordering, prescribing or referring provider on claims for services that result from an order or referral, and denies claims without it or when that provider is not IHCP-enrolled. It goes in CMS-1500 field 17b (837P loop 2310A). ABA specialty 615 is not on the list of specialties where every claim hard-edits for it. But Indiana ABA is delivered on a physician\'s referral, so report the referring practitioner\'s NPI and check that they are enrolled in the IHCP (OPR Provider Search Tool) before services start.' },
+      { q: 'What is Indiana Medicaid’s timely filing limit, and when does IHCP pay?', a: 'Fee-for-service claims are due within 180 calendar days of the date of service (adjustments and administrative reviews within 60 days of the RA). Gainwell must adjudicate clean electronic claims within 21 days and paper within 30; the financial cycle runs every Friday and payment (check date or EFT deposit) follows on the Wednesday after.' },
+      { q: 'Does Indiana Medicaid require graphs for an ABA reauthorization?', a: 'Yes. Every ABA PA request, continuation included, must carry the behavior assessment’s complete scoring report “including outcome measure scores and graphs,” plus an updated treatment plan showing measurable progress on each goal. ABA bills under CPT 97151–97158, 0362T and 0373T with IHCP modifiers.' },
     ],
   },
 
@@ -388,6 +446,32 @@ export const indianaPayers: Record<string, PayerConfig> = {
           { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
         ],
       },
+      {
+        h2: 'Anthem Indiana Medicaid ABA claims: filing deadline and payment clock',
+        body: [
+          'Filing deadline: Anthem’s 2026 IHCP Works claims session sets 90 calendar days from the last date of service for a primary claim and 90 calendar days from the primary payer’s remittance advice for a secondary claim; claims must pass front-end edits to count as received. Its Carelon behavioral health session gives the same 90 days for new claims and for third-party-liability claims (from the date of the third party’s notice), 60 calendar days from the EOB date for corrected claims and for disputes, and 60 days from the dispute response for an appeal. Corrections go in as replacement claims (frequency code 7); voids (frequency code 8) within 60 calendar days. Anthem waives timely filing for retroactive eligibility, authorization updates, COB errors and its own processing issues, with documentation.',
+          'Payment clock: “Anthem will finalize a clean electronic claim within 21 calendar days from the date the claim is received. Clean paper claims are paid within 30 calendar days,” with interest on clean claims not decided in those windows. The federal floor every Indiana MCE contract must carry is 42 CFR 447.46: pay 90% of clean practitioner claims within 30 days of receipt and 99% within 90 days, unless the plan and provider agree an alternative schedule in the contract.',
+          'Taxonomy: Anthem’s 2026 Carelon behavioral health session encourages billing providers “to always include the billing taxonomy code that matches the taxonomy code registered with the state” to pass the one-to-one NPI match; the rendering provider in box 24J must be linked with IHCP to the service location in box 33, and Anthem does not use box 32 for that match.',
+        ],
+        cites: [
+          { title: 'IHCP Works 2026 — Anthem: Understanding Claims Processes', url: 'https://www.in.gov/medicaid/providers/files/IHCP-Works-2026-Anthem-Understanding-Claims-Processes.pdf' },
+          { title: 'IHCP Works 2026 — Anthem: Carelon Behavioral Health (claims information)', url: 'https://www.in.gov/medicaid/providers/files/IHCP-Works-2026-Anthem-Carelon-Behavioral-Health.pdf' },
+          { title: 'Anthem Blue Cross and Blue Shield — Indiana Medicaid Provider Manual (INBCBS-CD-PM-070775-24)', url: 'https://providers.anthem.com/docs/gpp/IN_CAID_ProviderManual.pdf' },
+          { title: '42 CFR 447.46 — timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-447.46' },
+        ],
+      },
+      {
+        h2: 'Reauthorization: what a continuation PA must contain (graphs required)',
+        body: [
+          'Follows the Indiana Medicaid rule — IHCP states that its ABA “documentation requirements outlined in IHCP policy are applicable to both FFS and managed care” (BT202562). Reauthorization: each ABA PA runs up to six months, and continuing past it takes a new PA request. It is approved when the member still meets ABA criteria and the treatment plan is resubmitted with measurable progress to date on each goal, a revised timeline for each goal based on the initial and interim assessments, clinically significant progress in social, communication and language skills, adaptive functioning and behavior, and updates to hours, schedule, parent training and school-transition plans. Continuing members need no new comprehensive diagnostic evaluation but do need an updated behavior assessment and treatment plan (BT202562), and the behavior assessment’s “complete scoring report, including outcome measure scores and graphs, must be submitted with prior authorization requests.” Graphs are therefore required — of the standardized assessment results — and discharge follows when measurable functional improvement is not documented or progress stalls across successive authorization periods.',
+          'Code set (IHCP rule): ABA bills under CPT 97151–97158, 0362T and 0373T with IHCP’s credential, group-size and UA modifiers (BT202627); BT202562 adds that each MCE sets its own billing and reimbursement requirements, so confirm any plan-specific edits.',
+        ],
+        cites: [
+          { title: 'IHCP — Behavioral Health Services module (PROMOD00039, v4.5, publ. Sept. 29, 2026), ABA section', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' },
+          { title: 'IHCP Bulletin BT202562 — FFS and managed care ABA PA guidance (5/15/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' },
+          { title: 'IHCP Bulletin BT202627 — ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Program + delivery system', desc: 'Hoosier Healthwise vs. HIP vs. Hoosier Care Connect, and whether an ACO/PMG/IPA controls the auth path.' },
@@ -414,6 +498,12 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: 'IHCP — Out-of-State Providers module (PROMOD00011, published May 29, 2026)', url: 'https://www.in.gov/medicaid/providers/files/modules/out-of-state-providers.pdf' },
       { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
       { title: 'IHCP — School Corporation Services module (PROMOD00046, published Sept. 29, 2026)', url: 'https://www.in.gov/medicaid/providers/files/modules/school-corporation-services.pdf' },
+      { title: 'IHCP — National Correct Coding Initiative module (PROMOD00010, v7.0, publ. Dec. 23, 2024)', url: 'https://www.in.gov/medicaid/providers/files/modules/national-correct-coding-initiative.pdf' },
+      { title: 'CMS — Medicaid NCCI MUE edits, practitioner services (2026 Q4, active 10/1–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' },
+      { title: 'IHCP Works 2026 — Anthem: Understanding Claims Processes', url: 'https://www.in.gov/medicaid/providers/files/IHCP-Works-2026-Anthem-Understanding-Claims-Processes.pdf' },
+      { title: 'IHCP Works 2026 — Anthem: Carelon Behavioral Health (claims information)', url: 'https://www.in.gov/medicaid/providers/files/IHCP-Works-2026-Anthem-Carelon-Behavioral-Health.pdf' },
+      { title: 'Anthem Blue Cross and Blue Shield — Indiana Medicaid Provider Manual (INBCBS-CD-PM-070775-24)', url: 'https://providers.anthem.com/docs/gpp/IN_CAID_ProviderManual.pdf' },
+      { title: '42 CFR 447.46 — timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-447.46' },
     ],
     deliveryRules: {
       supervision: {
@@ -432,9 +522,9 @@ export const indianaPayers: Record<string, PayerConfig> = {
       },
       dailyLimits: {
         value:
-          'Follows the Indiana Medicaid limits: up to 40 hours per week may be requested with anything beyond that needing an additional PA; IHCP policy limits each ABA PA request to six months; and since April 1, 2026 comprehensive ABA (16+ hours/week, modifier UA) draws from a 4,000-hour (16,000-unit) lifetime allocation per member, with 97155 and 97156 excluded and targeted ABA (\u226415 hours/week) exempt. No per-day MUE ceiling is published at either level. Open question for managed care: IC 27-1-37.5-26(b), in force since July 1, 2025 and reaching Medicaid risk-based managed care through IC 27-1-37.5-5(a)(3), says an authorization "shall be valid for at least one (1) year after the date the health care provider receives the authorization," and CareSource\'s July 2025 IHCP Works deck lists "Approved Authorization — Valid for 365 calendar days." But IHCP Bulletin BT2026136 (8/18/2026), addressed to the MCOs and the FFS PA-UM contractor alike, still describes ABA as running on a "standard six-month authorization period." No IHCP bulletin or MCE notice we could find reconciles the two, so ask the MCE which span it is issuing before you plan a reauthorization calendar.',
+          'Follows the Indiana Medicaid limits: up to 40 hours per week may be requested with anything beyond that needing an additional PA; IHCP policy limits each ABA PA request to six months; and since April 1, 2026 comprehensive ABA (16+ hours/week, modifier UA) draws from a 4,000-hour (16,000-unit) lifetime allocation per member, with 97155 and 97156 excluded and targeted ABA (\u226415 hours/week) exempt. At the state level IHCP applies the Medicaid NCCI MUEs to fee-for-service professional claims per member, per rendering provider, per date of service (CMS Q4 2026 table: 97153 at 32 units, 97155 at 24, 97151 at 32, 97156 at 16); the IHCP NCCI module leaves managed care claims to each MCE, so confirm the plan’s own daily edits. Open question for managed care: IC 27-1-37.5-26(b), in force since July 1, 2025 and reaching Medicaid risk-based managed care through IC 27-1-37.5-5(a)(3), says an authorization "shall be valid for at least one (1) year after the date the health care provider receives the authorization," and CareSource\'s July 2025 IHCP Works deck lists "Approved Authorization — Valid for 365 calendar days." But IHCP Bulletin BT2026136 (8/18/2026), addressed to the MCOs and the FFS PA-UM contractor alike, still describes ABA as running on a "standard six-month authorization period." No IHCP bulletin or MCE notice we could find reconciles the two, so ask the MCE which span it is issuing before you plan a reauthorization calendar.',
         status: 'verified',
-        cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202627 \u2014 ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }, { title: 'IHCP Bulletin BT2026136 — minimum caregiver coaching and training for ABA clarified (8/18/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026136.pdf' }, { title: 'Ind. Code 27-1-37.5-26 — authorization valid for at least one year', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-26/' }, { title: 'Ind. Code 27-1-37.5-5 — “health plan” includes Medicaid risk-based managed care', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-5/' }, { title: 'CareSource — IHCP Works 2025 Prior Authorization 101 deck', url: 'https://www.in.gov/medicaid/providers/files/IHCP-Works-2025-CareSource-Prior-Authorization-101.pdf' }],
+        cites: [{ title: 'IHCP — National Correct Coding Initiative module (PROMOD00010, v7.0, publ. Dec. 23, 2024)', url: 'https://www.in.gov/medicaid/providers/files/modules/national-correct-coding-initiative.pdf' }, { title: 'CMS — Medicaid NCCI MUE edits, practitioner services (2026 Q4, active 10/1–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' }, { title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202627 \u2014 ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }, { title: 'IHCP Bulletin BT2026136 — minimum caregiver coaching and training for ABA clarified (8/18/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026136.pdf' }, { title: 'Ind. Code 27-1-37.5-26 — authorization valid for at least one year', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-26/' }, { title: 'Ind. Code 27-1-37.5-5 — “health plan” includes Medicaid risk-based managed care', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-5/' }, { title: 'CareSource — IHCP Works 2025 Prior Authorization 101 deck', url: 'https://www.in.gov/medicaid/providers/files/IHCP-Works-2025-CareSource-Prior-Authorization-101.pdf' }],
       },
       placeOfService: {
         value:
@@ -458,7 +548,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
     intakeGates: {
       ageLimit: {
         value:
-          'Follows the Indiana Medicaid rule: ABA is covered for members 20 years of age and younger. Effective April 1, 2026 coverage runs exclusively through EPSDT, and for dates of service on or after October 1, 2026 IHCP will not authorize or reimburse ABA for members 21 and older \u2014 a state policy that binds every MCE.',
+          'Follows the Indiana Medicaid rule: ABA is covered for members 20 years of age and younger. Effective April 1, 2026 coverage runs exclusively through EPSDT, and for dates of service on or after October 1, 2026 IHCP no longer authorizes or reimburses ABA for members 21 and older \u2014 a state policy that binds every MCE.',
         status: 'verified',
         cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202627 \u2014 ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }, { title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }],
       },
@@ -514,6 +604,8 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { q: 'Can an out-of-state BCBA treat Anthem Medicaid members in Indiana, including by telehealth?', a: 'Indiana requires an Indiana license (IC 25-8.5-3-6), and its telehealth law counts only Indiana-licensed behavior analysts as practitioners. The IHCP enrolls some out-of-state providers, but out-of-state services generally need extra PA and some specialties are ineligible; check the Enrollment Matrix.' },
       { q: 'Does Anthem (Indiana Medicaid) authorize ABA retroactively?', a: 'We have not verified Anthem’s rule. The IHCP’s retroactive-PA list is written for fee-for-service; for managed care members the IHCP Prior Authorization module sends providers to the MCE’s own manual. Ask Anthem UM before treating without an approved PA.' },
       { q: 'Do we bill this plan for ABA written into a child’s IEP?', a: 'No. Indiana carves school-based Medicaid services out of managed care: the IHCP School Corporation Services module (Sept. 29, 2026) says school corporations “must not submit claims for these services to the student’s managed care entity (MCE)” and bill fee-for-service (Gainwell) instead, with modifier TM on every code and the education plan serving as prior authorization. ABA your agency delivers outside the school program still goes through the plan.' },
+      { q: 'What is Anthem Indiana Medicaid’s timely filing limit for ABA claims?', a: '90 calendar days from the date of service; secondary claims 90 days from the primary payer’s remittance advice; corrected claims and disputes 60 days from the EOB. Anthem finalizes clean electronic claims within 21 calendar days and pays clean paper claims within 30.' },
+      { q: 'Does Anthem Indiana Medicaid require graphs for an ABA reauthorization?', a: 'Yes — IHCP’s ABA documentation rules apply to managed care: the behavior assessment’s complete scoring report, including outcome scores and graphs, goes with every PA request, along with an updated treatment plan showing measurable progress on each goal.' },
     ],
   },
 
@@ -600,6 +692,31 @@ export const indianaPayers: Record<string, PayerConfig> = {
           { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
         ],
       },
+      {
+        h2: 'MHS Indiana ABA claims: filing deadline and payment clock',
+        body: [
+          'Filing deadline: MHS’s 2026 IHCP Works CMS-1500 session sets 90 calendar days from the date of service for in-network and out-of-network providers; claims with primary insurance are due within 365 calendar days of the date of service with the primary EOP attached, and a claim the primary insurer never answered within 90 calendar days with proof of filing. Resubmissions must be filed within 60 calendar days of the EOP date — “claims will not be reconsidered after this timeline” — and corrected claims follow the IHCP claim adjustment process.',
+          'Payment clock: the MHS sessions print no payment timeframe. The federal floor every Indiana MCE contract must carry is 42 CFR 447.46: pay 90% of clean practitioner claims within 30 days of receipt and 99% within 90 days, unless the plan and provider agree an alternative schedule in the contract.',
+          'Taxonomy: MHS’s 2026 CMS-1500 session lists NPI, taxonomy code and ZIP+4 as the information “necessary for the system to make a one-to-one match,” and its portal claim entry asks for referring, rendering and billing provider information.',
+        ],
+        cites: [
+          { title: 'IHCP Works 2026 — MHS: CMS-1500 billing (timely filing limits)', url: 'https://www.in.gov/medicaid/providers/files/IHCP-Works-2026-MHS-CMS-1500.pdf' },
+          { title: 'IHCP Works 2026 — MHS: Common Denials', url: 'https://www.in.gov/medicaid/providers/files/IHCP-Works-2026-MHS-Common-Denials.pdf' },
+          { title: '42 CFR 447.46 — timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-447.46' },
+        ],
+      },
+      {
+        h2: 'Reauthorization: what a continuation PA must contain (graphs required)',
+        body: [
+          'Follows the Indiana Medicaid rule — IHCP states that its ABA “documentation requirements outlined in IHCP policy are applicable to both FFS and managed care” (BT202562). Reauthorization: each ABA PA runs up to six months, and continuing past it takes a new PA request. It is approved when the member still meets ABA criteria and the treatment plan is resubmitted with measurable progress to date on each goal, a revised timeline for each goal based on the initial and interim assessments, clinically significant progress in social, communication and language skills, adaptive functioning and behavior, and updates to hours, schedule, parent training and school-transition plans. Continuing members need no new comprehensive diagnostic evaluation but do need an updated behavior assessment and treatment plan (BT202562), and the behavior assessment’s “complete scoring report, including outcome measure scores and graphs, must be submitted with prior authorization requests.” Graphs are therefore required — of the standardized assessment results — and discharge follows when measurable functional improvement is not documented or progress stalls across successive authorization periods.',
+          'Code set (IHCP rule): ABA bills under CPT 97151–97158, 0362T and 0373T with IHCP’s credential, group-size and UA modifiers (BT202627); BT202562 adds that each MCE sets its own billing and reimbursement requirements, so confirm any plan-specific edits.',
+        ],
+        cites: [
+          { title: 'IHCP — Behavioral Health Services module (PROMOD00039, v4.5, publ. Sept. 29, 2026), ABA section', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' },
+          { title: 'IHCP Bulletin BT202562 — FFS and managed care ABA PA guidance (5/15/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' },
+          { title: 'IHCP Bulletin BT202627 — ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Diagnostic instrument + score', desc: 'The named tool, date, score, and diagnosing provider — mandatory on the OTR and the most common intake bottleneck.' },
@@ -626,6 +743,11 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: 'IHCP — Out-of-State Providers module (PROMOD00011, published May 29, 2026)', url: 'https://www.in.gov/medicaid/providers/files/modules/out-of-state-providers.pdf' },
       { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
       { title: 'IHCP — School Corporation Services module (PROMOD00046, published Sept. 29, 2026)', url: 'https://www.in.gov/medicaid/providers/files/modules/school-corporation-services.pdf' },
+      { title: 'IHCP — National Correct Coding Initiative module (PROMOD00010, v7.0, publ. Dec. 23, 2024)', url: 'https://www.in.gov/medicaid/providers/files/modules/national-correct-coding-initiative.pdf' },
+      { title: 'CMS — Medicaid NCCI MUE edits, practitioner services (2026 Q4, active 10/1–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' },
+      { title: 'IHCP Works 2026 — MHS: CMS-1500 billing (timely filing limits)', url: 'https://www.in.gov/medicaid/providers/files/IHCP-Works-2026-MHS-CMS-1500.pdf' },
+      { title: 'IHCP Works 2026 — MHS: Common Denials', url: 'https://www.in.gov/medicaid/providers/files/IHCP-Works-2026-MHS-Common-Denials.pdf' },
+      { title: '42 CFR 447.46 — timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-447.46' },
     ],
     deliveryRules: {
       supervision: {
@@ -644,9 +766,9 @@ export const indianaPayers: Record<string, PayerConfig> = {
       },
       dailyLimits: {
         value:
-          'Follows the Indiana Medicaid limits: up to 40 hours per week may be requested with anything beyond that needing an additional PA; IHCP policy limits each ABA PA request to six months; and since April 1, 2026 comprehensive ABA (16+ hours/week, modifier UA) draws from a 4,000-hour (16,000-unit) lifetime allocation per member, with 97155 and 97156 excluded and targeted ABA (\u226415 hours/week) exempt. No per-day MUE ceiling is published at either level. Open question for managed care: IC 27-1-37.5-26(b), in force since July 1, 2025 and reaching Medicaid risk-based managed care through IC 27-1-37.5-5(a)(3), says an authorization "shall be valid for at least one (1) year after the date the health care provider receives the authorization," and CareSource\'s July 2025 IHCP Works deck lists "Approved Authorization — Valid for 365 calendar days." But IHCP Bulletin BT2026136 (8/18/2026), addressed to the MCOs and the FFS PA-UM contractor alike, still describes ABA as running on a "standard six-month authorization period." No IHCP bulletin or MCE notice we could find reconciles the two, so ask the MCE which span it is issuing before you plan a reauthorization calendar.',
+          'Follows the Indiana Medicaid limits: up to 40 hours per week may be requested with anything beyond that needing an additional PA; IHCP policy limits each ABA PA request to six months; and since April 1, 2026 comprehensive ABA (16+ hours/week, modifier UA) draws from a 4,000-hour (16,000-unit) lifetime allocation per member, with 97155 and 97156 excluded and targeted ABA (\u226415 hours/week) exempt. At the state level IHCP applies the Medicaid NCCI MUEs to fee-for-service professional claims per member, per rendering provider, per date of service (CMS Q4 2026 table: 97153 at 32 units, 97155 at 24, 97151 at 32, 97156 at 16); the IHCP NCCI module leaves managed care claims to each MCE, so confirm the plan’s own daily edits. Open question for managed care: IC 27-1-37.5-26(b), in force since July 1, 2025 and reaching Medicaid risk-based managed care through IC 27-1-37.5-5(a)(3), says an authorization "shall be valid for at least one (1) year after the date the health care provider receives the authorization," and CareSource\'s July 2025 IHCP Works deck lists "Approved Authorization — Valid for 365 calendar days." But IHCP Bulletin BT2026136 (8/18/2026), addressed to the MCOs and the FFS PA-UM contractor alike, still describes ABA as running on a "standard six-month authorization period." No IHCP bulletin or MCE notice we could find reconciles the two, so ask the MCE which span it is issuing before you plan a reauthorization calendar.',
         status: 'verified',
-        cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202627 \u2014 ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }, { title: 'IHCP Bulletin BT2026136 — minimum caregiver coaching and training for ABA clarified (8/18/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026136.pdf' }, { title: 'Ind. Code 27-1-37.5-26 — authorization valid for at least one year', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-26/' }, { title: 'Ind. Code 27-1-37.5-5 — “health plan” includes Medicaid risk-based managed care', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-5/' }, { title: 'CareSource — IHCP Works 2025 Prior Authorization 101 deck', url: 'https://www.in.gov/medicaid/providers/files/IHCP-Works-2025-CareSource-Prior-Authorization-101.pdf' }],
+        cites: [{ title: 'IHCP — National Correct Coding Initiative module (PROMOD00010, v7.0, publ. Dec. 23, 2024)', url: 'https://www.in.gov/medicaid/providers/files/modules/national-correct-coding-initiative.pdf' }, { title: 'CMS — Medicaid NCCI MUE edits, practitioner services (2026 Q4, active 10/1–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' }, { title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202627 \u2014 ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }, { title: 'IHCP Bulletin BT2026136 — minimum caregiver coaching and training for ABA clarified (8/18/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026136.pdf' }, { title: 'Ind. Code 27-1-37.5-26 — authorization valid for at least one year', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-26/' }, { title: 'Ind. Code 27-1-37.5-5 — “health plan” includes Medicaid risk-based managed care', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-5/' }, { title: 'CareSource — IHCP Works 2025 Prior Authorization 101 deck', url: 'https://www.in.gov/medicaid/providers/files/IHCP-Works-2025-CareSource-Prior-Authorization-101.pdf' }],
       },
       placeOfService: {
         value:
@@ -670,7 +792,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
     intakeGates: {
       ageLimit: {
         value:
-          'Follows the Indiana Medicaid rule: ABA is covered for members 20 years of age and younger. Effective April 1, 2026 coverage runs exclusively through EPSDT, and for dates of service on or after October 1, 2026 IHCP will not authorize or reimburse ABA for members 21 and older \u2014 a state policy that binds every MCE.',
+          'Follows the Indiana Medicaid rule: ABA is covered for members 20 years of age and younger. Effective April 1, 2026 coverage runs exclusively through EPSDT, and for dates of service on or after October 1, 2026 IHCP no longer authorizes or reimburses ABA for members 21 and older \u2014 a state policy that binds every MCE.',
         status: 'verified',
         cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202627 \u2014 ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }, { title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }],
       },
@@ -726,6 +848,8 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { q: 'Can an out-of-state BCBA treat MHS members in Indiana, including by telehealth?', a: 'Indiana requires an Indiana license (IC 25-8.5-3-6), and its telehealth law counts only Indiana-licensed behavior analysts as practitioners. The IHCP enrolls some out-of-state providers, but out-of-state services generally need extra PA and some specialties are ineligible; check the Enrollment Matrix.' },
       { q: 'Does MHS authorize ABA retroactively?', a: 'MHS’s provider manual answers directly: “Do you allow retro authorizations? No, except in the case of retro-eligibility,” using its late notification form.' },
       { q: 'Do we bill this plan for ABA written into a child’s IEP?', a: 'No. Indiana carves school-based Medicaid services out of managed care: the IHCP School Corporation Services module (Sept. 29, 2026) says school corporations “must not submit claims for these services to the student’s managed care entity (MCE)” and bill fee-for-service (Gainwell) instead, with modifier TM on every code and the education plan serving as prior authorization. ABA your agency delivers outside the school program still goes through the plan.' },
+      { q: 'What is MHS Indiana’s timely filing limit for ABA claims?', a: '90 calendar days from the date of service; 365 days from the date of service when another insurer paid first (attach its EOP); resubmissions within 60 days of the EOP. MHS publishes no payment-day figure; the federal MCO floor is 90% of clean claims within 30 days.' },
+      { q: 'Does MHS require graphs for an ABA reauthorization?', a: 'Yes — IHCP’s ABA documentation rules apply to managed care: the behavior assessment’s complete scoring report, including outcome scores and graphs, goes with every PA request, along with an updated treatment plan showing measurable progress on each goal.' },
     ],
   },
 
@@ -827,6 +951,31 @@ export const indianaPayers: Record<string, PayerConfig> = {
           { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
         ],
       },
+      {
+        h2: 'CareSource Indiana Medicaid ABA claims: filing deadline and payment clock',
+        body: [
+          'Filing deadline: CareSource’s 2026 IHCP Works claims and billing guide sets 90 calendar days from the date of service or discharge for participating and out-of-network providers alike, 90 calendar days from the primary payer’s EOP date for a coordination-of-benefits claim, and 60 calendar days from the EOP date for a corrected claim; for retroactive member eligibility the limit is extended to one year from the date eligibility was established. A rejected claim is not a clean claim and cannot be used as proof of timely filing.',
+          'Payment clock: CareSource’s interest policy PY-1325 (effective 6/1/2026) pays interest when it fails to adjudicate an original clean claim within the applicable state and federal prompt-pay timeframes, under IC 12-15-21-3, but prints no number of days. The federal floor every Indiana MCE contract must carry is 42 CFR 447.46: pay 90% of clean practitioner claims within 30 days of receipt and 99% within 90 days, unless the plan and provider agree an alternative schedule in the contract.',
+          'Taxonomy: CareSource’s 2026 claims guide says to “include NPI, Tax Identification Number (TIN), and taxonomy on every claim”; box 33b must carry the taxonomy that matches the group NPI’s IHCP enrollment (a “taxonomy mismatch” is a listed rejection), the group taxonomy must match CoreMMIS/the IHCP Portal, and rendering providers must be linked to the billing group NPI and active on the date of service.',
+        ],
+        cites: [
+          { title: 'IHCP Works 2026 — CareSource: Medicaid Provider Claims & Billing Guide', url: 'https://www.in.gov/medicaid/providers/files/IHCP-Works-2026-CareSource-Medicaid-Provider-Claims-Billing-Guide.pdf' },
+          { title: 'CareSource — IN Medicaid reimbursement policy PY-1325, Interest Payments (eff. 6/1/2026)', url: 'https://www.caresource.com/documents/medicaid-in-policy-reimburse-py-1325-20260601.pdf' },
+          { title: '42 CFR 447.46 — timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-447.46' },
+        ],
+      },
+      {
+        h2: 'Reauthorization: what a continuation PA must contain (graphs required)',
+        body: [
+          'Follows the Indiana Medicaid rule — IHCP states that its ABA “documentation requirements outlined in IHCP policy are applicable to both FFS and managed care” (BT202562). Reauthorization: each ABA PA runs up to six months, and continuing past it takes a new PA request. It is approved when the member still meets ABA criteria and the treatment plan is resubmitted with measurable progress to date on each goal, a revised timeline for each goal based on the initial and interim assessments, clinically significant progress in social, communication and language skills, adaptive functioning and behavior, and updates to hours, schedule, parent training and school-transition plans. Continuing members need no new comprehensive diagnostic evaluation but do need an updated behavior assessment and treatment plan (BT202562), and the behavior assessment’s “complete scoring report, including outcome measure scores and graphs, must be submitted with prior authorization requests.” Graphs are therefore required — of the standardized assessment results — and discharge follows when measurable functional improvement is not documented or progress stalls across successive authorization periods.',
+          'Code set (IHCP rule): ABA bills under CPT 97151–97158, 0362T and 0373T with IHCP’s credential, group-size and UA modifiers (BT202627); BT202562 adds that each MCE sets its own billing and reimbursement requirements, so confirm any plan-specific edits.',
+        ],
+        cites: [
+          { title: 'IHCP — Behavioral Health Services module (PROMOD00039, v4.5, publ. Sept. 29, 2026), ABA section', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' },
+          { title: 'IHCP Bulletin BT202562 — FFS and managed care ABA PA guidance (5/15/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' },
+          { title: 'IHCP Bulletin BT202627 — ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Current/prior ABA agency', desc: 'The one-agency rule makes transitions a coordination task — get the outgoing provider\'s details and releases at intake.' },
@@ -854,6 +1003,11 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
       { title: 'IHCP — Prior Authorization module (published Sept. 29, 2026): Retroactive Prior Authorization', url: 'https://www.in.gov/medicaid/providers/files/modules/prior-authorization.pdf' },
       { title: 'IHCP — School Corporation Services module (PROMOD00046, published Sept. 29, 2026)', url: 'https://www.in.gov/medicaid/providers/files/modules/school-corporation-services.pdf' },
+      { title: 'IHCP — National Correct Coding Initiative module (PROMOD00010, v7.0, publ. Dec. 23, 2024)', url: 'https://www.in.gov/medicaid/providers/files/modules/national-correct-coding-initiative.pdf' },
+      { title: 'CMS — Medicaid NCCI MUE edits, practitioner services (2026 Q4, active 10/1–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' },
+      { title: 'IHCP Works 2026 — CareSource: Medicaid Provider Claims & Billing Guide', url: 'https://www.in.gov/medicaid/providers/files/IHCP-Works-2026-CareSource-Medicaid-Provider-Claims-Billing-Guide.pdf' },
+      { title: 'CareSource — IN Medicaid reimbursement policy PY-1325, Interest Payments (eff. 6/1/2026)', url: 'https://www.caresource.com/documents/medicaid-in-policy-reimburse-py-1325-20260601.pdf' },
+      { title: '42 CFR 447.46 — timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-447.46' },
     ],
     deliveryRules: {
       supervision: {
@@ -872,9 +1026,9 @@ export const indianaPayers: Record<string, PayerConfig> = {
       },
       dailyLimits: {
         value:
-          'Follows the Indiana Medicaid limits: up to 40 hours per week may be requested with anything beyond that needing an additional PA; IHCP policy limits each ABA PA request to six months; and since April 1, 2026 comprehensive ABA (16+ hours/week, modifier UA) draws from a 4,000-hour (16,000-unit) lifetime allocation per member, with 97155 and 97156 excluded and targeted ABA (\u226415 hours/week) exempt. No per-day MUE ceiling is published at either level. Open question for managed care: IC 27-1-37.5-26(b), in force since July 1, 2025 and reaching Medicaid risk-based managed care through IC 27-1-37.5-5(a)(3), says an authorization "shall be valid for at least one (1) year after the date the health care provider receives the authorization," and CareSource\'s July 2025 IHCP Works deck lists "Approved Authorization — Valid for 365 calendar days." But IHCP Bulletin BT2026136 (8/18/2026), addressed to the MCOs and the FFS PA-UM contractor alike, still describes ABA as running on a "standard six-month authorization period." No IHCP bulletin or MCE notice we could find reconciles the two, so ask the MCE which span it is issuing before you plan a reauthorization calendar.',
+          'Follows the Indiana Medicaid limits: up to 40 hours per week may be requested with anything beyond that needing an additional PA; IHCP policy limits each ABA PA request to six months; and since April 1, 2026 comprehensive ABA (16+ hours/week, modifier UA) draws from a 4,000-hour (16,000-unit) lifetime allocation per member, with 97155 and 97156 excluded and targeted ABA (\u226415 hours/week) exempt. At the state level IHCP applies the Medicaid NCCI MUEs to fee-for-service professional claims per member, per rendering provider, per date of service (CMS Q4 2026 table: 97153 at 32 units, 97155 at 24, 97151 at 32, 97156 at 16); the IHCP NCCI module leaves managed care claims to each MCE, so confirm the plan’s own daily edits. Open question for managed care: IC 27-1-37.5-26(b), in force since July 1, 2025 and reaching Medicaid risk-based managed care through IC 27-1-37.5-5(a)(3), says an authorization "shall be valid for at least one (1) year after the date the health care provider receives the authorization," and CareSource\'s July 2025 IHCP Works deck lists "Approved Authorization — Valid for 365 calendar days." But IHCP Bulletin BT2026136 (8/18/2026), addressed to the MCOs and the FFS PA-UM contractor alike, still describes ABA as running on a "standard six-month authorization period." No IHCP bulletin or MCE notice we could find reconciles the two, so ask the MCE which span it is issuing before you plan a reauthorization calendar.',
         status: 'verified',
-        cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202627 \u2014 ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }, { title: 'IHCP Bulletin BT2026136 — minimum caregiver coaching and training for ABA clarified (8/18/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026136.pdf' }, { title: 'Ind. Code 27-1-37.5-26 — authorization valid for at least one year', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-26/' }, { title: 'Ind. Code 27-1-37.5-5 — “health plan” includes Medicaid risk-based managed care', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-5/' }, { title: 'CareSource — IHCP Works 2025 Prior Authorization 101 deck', url: 'https://www.in.gov/medicaid/providers/files/IHCP-Works-2025-CareSource-Prior-Authorization-101.pdf' }],
+        cites: [{ title: 'IHCP — National Correct Coding Initiative module (PROMOD00010, v7.0, publ. Dec. 23, 2024)', url: 'https://www.in.gov/medicaid/providers/files/modules/national-correct-coding-initiative.pdf' }, { title: 'CMS — Medicaid NCCI MUE edits, practitioner services (2026 Q4, active 10/1–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' }, { title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202627 \u2014 ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }, { title: 'IHCP Bulletin BT2026136 — minimum caregiver coaching and training for ABA clarified (8/18/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026136.pdf' }, { title: 'Ind. Code 27-1-37.5-26 — authorization valid for at least one year', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-26/' }, { title: 'Ind. Code 27-1-37.5-5 — “health plan” includes Medicaid risk-based managed care', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-5/' }, { title: 'CareSource — IHCP Works 2025 Prior Authorization 101 deck', url: 'https://www.in.gov/medicaid/providers/files/IHCP-Works-2025-CareSource-Prior-Authorization-101.pdf' }],
       },
       placeOfService: {
         value:
@@ -898,7 +1052,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
     intakeGates: {
       ageLimit: {
         value:
-          'Follows the Indiana Medicaid rule: ABA is covered for members 20 years of age and younger. Effective April 1, 2026 coverage runs exclusively through EPSDT, and for dates of service on or after October 1, 2026 IHCP will not authorize or reimburse ABA for members 21 and older \u2014 a state policy that binds every MCE.',
+          'Follows the Indiana Medicaid rule: ABA is covered for members 20 years of age and younger. Effective April 1, 2026 coverage runs exclusively through EPSDT, and for dates of service on or after October 1, 2026 IHCP no longer authorizes or reimburses ABA for members 21 and older \u2014 a state policy that binds every MCE.',
         status: 'verified',
         cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202627 \u2014 ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }, { title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }],
       },
@@ -954,6 +1108,8 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { q: 'Can an out-of-state BCBA treat CareSource members in Indiana, including by telehealth?', a: 'Indiana requires an Indiana license (IC 25-8.5-3-6), and its telehealth law counts only Indiana-licensed behavior analysts as practitioners. The IHCP enrolls some out-of-state providers, but out-of-state services generally need extra PA and some specialties are ineligible; check the Enrollment Matrix.' },
       { q: 'Does CareSource (Indiana Medicaid) authorize ABA retroactively?', a: 'We have not verified CareSource Indiana’s rule. The IHCP’s retroactive-PA list is written for fee-for-service; for managed care members the IHCP Prior Authorization module sends providers to the MCE’s own manual. Ask CareSource UM before treating without an approved PA.' },
       { q: 'Do we bill this plan for ABA written into a child’s IEP?', a: 'No. Indiana carves school-based Medicaid services out of managed care: the IHCP School Corporation Services module (Sept. 29, 2026) says school corporations “must not submit claims for these services to the student’s managed care entity (MCE)” and bill fee-for-service (Gainwell) instead, with modifier TM on every code and the education plan serving as prior authorization. ABA your agency delivers outside the school program still goes through the plan.' },
+      { q: 'What is CareSource Indiana Medicaid’s timely filing limit for ABA claims?', a: '90 calendar days from the date of service (in or out of network); COB claims 90 days from the primary EOP; corrected claims 60 days from the EOP. CareSource publishes no payment-day figure of its own; the federal MCO floor is 90% of clean claims within 30 days.' },
+      { q: 'Does CareSource Indiana Medicaid require graphs for an ABA reauthorization?', a: 'Yes — IHCP’s ABA documentation rules apply to managed care: the behavior assessment’s complete scoring report, including outcome scores and graphs, goes with every PA request, along with an updated treatment plan showing measurable progress on each goal.' },
     ],
   },
 
@@ -1049,6 +1205,8 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: 'Indiana PLA — Telehealth (IC 25-1-9.5) definitions', url: 'https://www.in.gov/pla/resources/telehealth-home' },
       { title: 'Indiana PLA — Behavior Analyst licensing information (fees incl. reciprocity application)', url: 'https://www.in.gov/pla/professions/behavior-analyst/behavior-analyst-licensing-information' },
       { title: 'IHCP — Out-of-State Providers module (PROMOD00011, published May 29, 2026)', url: 'https://www.in.gov/medicaid/providers/files/modules/out-of-state-providers.pdf' },
+      { title: 'IHCP — National Correct Coding Initiative module (PROMOD00010, v7.0, publ. Dec. 23, 2024)', url: 'https://www.in.gov/medicaid/providers/files/modules/national-correct-coding-initiative.pdf' },
+      { title: 'CMS — Medicaid NCCI MUE edits, practitioner services (2026 Q4, active 10/1–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' },
     ],
     deliveryRules: {
       supervision: {
@@ -1067,9 +1225,9 @@ export const indianaPayers: Record<string, PayerConfig> = {
       },
       dailyLimits: {
         value:
-          'Follows the Indiana Medicaid limits: up to 40 hours per week may be requested with anything beyond that needing an additional PA; IHCP policy limits each ABA PA request to six months; and since April 1, 2026 comprehensive ABA (16+ hours/week, modifier UA) draws from a 4,000-hour (16,000-unit) lifetime allocation per member, with 97155 and 97156 excluded and targeted ABA (\u226415 hours/week) exempt. No per-day MUE ceiling is published at either level. Open question for managed care: IC 27-1-37.5-26(b), in force since July 1, 2025 and reaching Medicaid risk-based managed care through IC 27-1-37.5-5(a)(3), says an authorization "shall be valid for at least one (1) year after the date the health care provider receives the authorization," and CareSource\'s July 2025 IHCP Works deck lists "Approved Authorization — Valid for 365 calendar days." But IHCP Bulletin BT2026136 (8/18/2026), addressed to the MCOs and the FFS PA-UM contractor alike, still describes ABA as running on a "standard six-month authorization period." No IHCP bulletin or MCE notice we could find reconciles the two, so ask the MCE which span it is issuing before you plan a reauthorization calendar.',
+          'Follows the Indiana Medicaid limits: up to 40 hours per week may be requested with anything beyond that needing an additional PA; IHCP policy limits each ABA PA request to six months; and since April 1, 2026 comprehensive ABA (16+ hours/week, modifier UA) draws from a 4,000-hour (16,000-unit) lifetime allocation per member, with 97155 and 97156 excluded and targeted ABA (\u226415 hours/week) exempt. At the state level IHCP applies the Medicaid NCCI MUEs to fee-for-service professional claims per member, per rendering provider, per date of service (CMS Q4 2026 table: 97153 at 32 units, 97155 at 24, 97151 at 32, 97156 at 16); the IHCP NCCI module leaves managed care claims to each MCE, so confirm the plan’s own daily edits. Open question for managed care: IC 27-1-37.5-26(b), in force since July 1, 2025 and reaching Medicaid risk-based managed care through IC 27-1-37.5-5(a)(3), says an authorization "shall be valid for at least one (1) year after the date the health care provider receives the authorization," and CareSource\'s July 2025 IHCP Works deck lists "Approved Authorization — Valid for 365 calendar days." But IHCP Bulletin BT2026136 (8/18/2026), addressed to the MCOs and the FFS PA-UM contractor alike, still describes ABA as running on a "standard six-month authorization period." No IHCP bulletin or MCE notice we could find reconciles the two, so ask the MCE which span it is issuing before you plan a reauthorization calendar.',
         status: 'verified',
-        cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202627 \u2014 ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }, { title: 'IHCP Bulletin BT2026136 — minimum caregiver coaching and training for ABA clarified (8/18/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026136.pdf' }, { title: 'Ind. Code 27-1-37.5-26 — authorization valid for at least one year', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-26/' }, { title: 'Ind. Code 27-1-37.5-5 — “health plan” includes Medicaid risk-based managed care', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-5/' }, { title: 'CareSource — IHCP Works 2025 Prior Authorization 101 deck', url: 'https://www.in.gov/medicaid/providers/files/IHCP-Works-2025-CareSource-Prior-Authorization-101.pdf' }],
+        cites: [{ title: 'IHCP — National Correct Coding Initiative module (PROMOD00010, v7.0, publ. Dec. 23, 2024)', url: 'https://www.in.gov/medicaid/providers/files/modules/national-correct-coding-initiative.pdf' }, { title: 'CMS — Medicaid NCCI MUE edits, practitioner services (2026 Q4, active 10/1–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' }, { title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202627 \u2014 ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }, { title: 'IHCP Bulletin BT2026136 — minimum caregiver coaching and training for ABA clarified (8/18/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026136.pdf' }, { title: 'Ind. Code 27-1-37.5-26 — authorization valid for at least one year', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-26/' }, { title: 'Ind. Code 27-1-37.5-5 — “health plan” includes Medicaid risk-based managed care', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-5/' }, { title: 'CareSource — IHCP Works 2025 Prior Authorization 101 deck', url: 'https://www.in.gov/medicaid/providers/files/IHCP-Works-2025-CareSource-Prior-Authorization-101.pdf' }],
       },
       placeOfService: {
         value:
@@ -1093,7 +1251,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
     intakeGates: {
       ageLimit: {
         value:
-          'Follows the Indiana Medicaid rule: ABA is covered for members 20 years of age and younger. Effective April 1, 2026 coverage runs exclusively through EPSDT, and for dates of service on or after October 1, 2026 IHCP will not authorize or reimburse ABA for members 21 and older \u2014 a state policy that binds every MCE.',
+          'Follows the Indiana Medicaid rule: ABA is covered for members 20 years of age and younger. Effective April 1, 2026 coverage runs exclusively through EPSDT, and for dates of service on or after October 1, 2026 IHCP no longer authorizes or reimburses ABA for members 21 and older \u2014 a state policy that binds every MCE.',
         status: 'verified',
         cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202627 \u2014 ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }, { title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }],
       },
@@ -1202,11 +1360,12 @@ export const indianaPayers: Record<string, PayerConfig> = {
         h2: 'The Optum carve-out, in practice',
         body: [
           'Optum was selected by UHC Community Plan to build and manage the Indiana ABA network, which means ABA providers must be in the Optum network — credentialed separately from UHC\'s medical side — and enrolled with Indiana Medicaid before joining. Behavioral-health PA runs by phone at (877) 610-9785 (or the number on the member\'s card), through Provider Express ("Auth Request"), or by faxing the IHCP universal PA form to (844) 897-6514; ABA specifically uses Optum\'s ABA Treatment Request Form from the Provider Express Indiana Medicaid ABA Program page, which also hosts the provider orientation and quick-reference guide.',
-          'Decision timelines are set by Indiana law, not by UHC\'s older published figures. Since July 1, 2025, IC 27-1-37.5-23 binds Indiana\'s Medicaid risk-based managed care (IC 27-1-37.5-5(a)(3)), which includes Hoosier Care Connect: an urgent PA request gets an answer “not later than twenty-four (24) hours after receiving the request,” every other request “not later than forty-eight (48) hours,” and “The time frames set forth in this section do not include weekends and state and federal legal holidays.” If UHC misses the deadline, “the health care service subject to prior authorization shall be automatically deemed authorized” (IC 27-1-37.5-28). UHC\'s 2024 Hoosier Care Connect manual still prints slower pre-statute timelines (non-urgent pre-service “Within 5 calendar days,” urgent “Within 48 hours”), and the statute overrides them. The statute does not apply to “health care services provided under” the PathWays for Aging waiver (IC 27-1-37.5-1(c)); for those, the federal Medicaid managed-care ceiling of 7 calendar days (72 hours expedited) applies (42 CFR 438.210(d)). Denials appeal to UHC\'s National Appeals Team (fax (855) 312-1470, phone (866) 556-8166). New PA requirement lists took effect July 1, 2026 — re-check the UHC Indiana prior-auth page each quarter.',
+          'Decision timelines are set by Indiana law, not by UHC\'s older published figures. Since July 1, 2025, IC 27-1-37.5-23 binds Indiana\'s Medicaid risk-based managed care (IC 27-1-37.5-5(a)(3)), which includes Hoosier Care Connect: an urgent PA request gets an answer “not later than twenty-four (24) hours after receiving the request,” every other request “not later than forty-eight (48) hours,” and “The time frames set forth in this section do not include weekends and state and federal legal holidays.” If UHC misses the deadline, “the health care service subject to prior authorization shall be automatically deemed authorized” (IC 27-1-37.5-28). UHC\'s 2024 Hoosier Care Connect manual still prints slower pre-statute timelines (non-urgent pre-service “Within 5 calendar days,” urgent “Within 48 hours”), and the statute overrides them. The statute does not apply to “health care services provided under” the PathWays for Aging waiver (IC 27-1-37.5-1(c)); for those, the federal Medicaid managed-care ceiling of 7 calendar days (72 hours expedited) applies (42 CFR 438.210(d)). Denials appeal to UHC\'s National Appeals Team (fax (855) 312-1470, phone (866) 556-8166). The current Hoosier Care Connect and PathWays for Aging PA requirement lists took effect October 1, 2026 (page last updated October 5, 2026); their behavioral-health row is unchanged from the September list — “Prior authorization required. For specific codes requiring prior authorization, please call the” number on the member\'s ID card — so ABA codes are not itemised there. UHC reissues these lists most months; re-check the page before relying on a code-level answer.',
         ],
         cites: [
           { title: 'UHC Community Plan — IHCP Works 2024 Prior Authorization seminar deck', url: 'https://www.in.gov/medicaid/providers/files/IHCP-Works-2024-UHC-Prior-Authorization.pdf' },
           { title: 'UHC Community Plan of Indiana — prior authorization page', url: 'https://www.uhcprovider.com/en/health-plans-by-state/indiana-health-plans/in-comm-plan-home/in-cp-prior-auth.html' },
+          { title: 'UHC Community Plan — Prior Authorization Indiana Hoosier Care Connect, effective Oct 1, 2026', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/in/priorauth/IN-Hoosier-Connect-Effective-10-1-2026.pdf' },
           { title: 'FSSA — Indiana Medicaid managed care health plans (program-by-MCE roster)', url: 'https://www.in.gov/medicaid/partners/medicaid-partners/managed-care-health-plans/' },
           { title: 'Ind. Code 27-1-37.5-23 — prior authorization response deadlines', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-23/' },
           { title: 'Ind. Code 27-1-37.5-5 — “health plan” includes Medicaid risk-based managed care', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-5/' },
@@ -1240,6 +1399,30 @@ export const indianaPayers: Record<string, PayerConfig> = {
           { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
         ],
       },
+      {
+        h2: 'UnitedHealthcare Community Plan of Indiana ABA claims: filing deadline and payment clock',
+        body: [
+          'Filing deadline: UnitedHealthcare’s 2026 IHCP Works sessions set 90 calendar days from the date of service for participating and non-contracted providers, and 90 calendar days from the primary explanation of benefits for a secondary claim; a claim reconsideration (including a corrected claim) is due within 90 calendar days of the original EOB, electronic payer ID 87726.',
+          'Payment clock: the UnitedHealthcare sessions print no payment timeframe. The federal floor every Indiana MCE contract must carry is 42 CFR 447.46: pay 90% of clean practitioner claims within 30 days of receipt and 99% within 90 days, unless the plan and provider agree an alternative schedule in the contract.',
+        ],
+        cites: [
+          { title: 'IHCP Works 2026 — UnitedHealthcare: Navigating UHC', url: 'https://www.in.gov/medicaid/providers/files/IHCP-Works-2026-UHC-Navigating-UHC.pdf' },
+          { title: 'IHCP Works 2026 — UnitedHealthcare: Behavioral Health', url: 'https://www.in.gov/medicaid/providers/files/IHCP-Works-2026-UHC-Behavioral-Health.pdf' },
+          { title: '42 CFR 447.46 — timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-447.46' },
+        ],
+      },
+      {
+        h2: 'Reauthorization: what a continuation PA must contain (graphs required)',
+        body: [
+          'Follows the Indiana Medicaid rule — IHCP states that its ABA “documentation requirements outlined in IHCP policy are applicable to both FFS and managed care” (BT202562). Reauthorization: each ABA PA runs up to six months, and continuing past it takes a new PA request. It is approved when the member still meets ABA criteria and the treatment plan is resubmitted with measurable progress to date on each goal, a revised timeline for each goal based on the initial and interim assessments, clinically significant progress in social, communication and language skills, adaptive functioning and behavior, and updates to hours, schedule, parent training and school-transition plans. Continuing members need no new comprehensive diagnostic evaluation but do need an updated behavior assessment and treatment plan (BT202562), and the behavior assessment’s “complete scoring report, including outcome measure scores and graphs, must be submitted with prior authorization requests.” Graphs are therefore required — of the standardized assessment results — and discharge follows when measurable functional improvement is not documented or progress stalls across successive authorization periods.',
+          'Code set (IHCP rule): ABA bills under CPT 97151–97158, 0362T and 0373T with IHCP’s credential, group-size and UA modifiers (BT202627); BT202562 adds that each MCE sets its own billing and reimbursement requirements, so confirm any plan-specific edits.',
+        ],
+        cites: [
+          { title: 'IHCP — Behavioral Health Services module (PROMOD00039, v4.5, publ. Sept. 29, 2026), ABA section', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' },
+          { title: 'IHCP Bulletin BT202562 — FFS and managed care ABA PA guidance (5/15/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' },
+          { title: 'IHCP Bulletin BT202627 — ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Program confirmation', desc: 'Confirm the member is on Hoosier Care Connect or PathWays for Aging — UHC does not administer HIP or Hoosier Healthwise in Indiana.' },
@@ -1266,6 +1449,11 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: 'IHCP — Out-of-State Providers module (PROMOD00011, published May 29, 2026)', url: 'https://www.in.gov/medicaid/providers/files/modules/out-of-state-providers.pdf' },
       { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
       { title: 'IHCP — School Corporation Services module (PROMOD00046, published Sept. 29, 2026)', url: 'https://www.in.gov/medicaid/providers/files/modules/school-corporation-services.pdf' },
+      { title: 'IHCP — National Correct Coding Initiative module (PROMOD00010, v7.0, publ. Dec. 23, 2024)', url: 'https://www.in.gov/medicaid/providers/files/modules/national-correct-coding-initiative.pdf' },
+      { title: 'CMS — Medicaid NCCI MUE edits, practitioner services (2026 Q4, active 10/1–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' },
+      { title: 'IHCP Works 2026 — UnitedHealthcare: Navigating UHC', url: 'https://www.in.gov/medicaid/providers/files/IHCP-Works-2026-UHC-Navigating-UHC.pdf' },
+      { title: 'IHCP Works 2026 — UnitedHealthcare: Behavioral Health', url: 'https://www.in.gov/medicaid/providers/files/IHCP-Works-2026-UHC-Behavioral-Health.pdf' },
+      { title: '42 CFR 447.46 — timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-447.46' },
     ],
     deliveryRules: {
       supervision: {
@@ -1284,9 +1472,9 @@ export const indianaPayers: Record<string, PayerConfig> = {
       },
       dailyLimits: {
         value:
-          'Follows the Indiana Medicaid limits: up to 40 hours per week may be requested with anything beyond that needing an additional PA; IHCP policy limits each ABA PA request to six months; and since April 1, 2026 comprehensive ABA (16+ hours/week, modifier UA) draws from a 4,000-hour (16,000-unit) lifetime allocation per member, with 97155 and 97156 excluded and targeted ABA (\u226415 hours/week) exempt. No per-day MUE ceiling is published at either level. Open question for managed care: IC 27-1-37.5-26(b), in force since July 1, 2025 and reaching Medicaid risk-based managed care through IC 27-1-37.5-5(a)(3), says an authorization "shall be valid for at least one (1) year after the date the health care provider receives the authorization," and CareSource\'s July 2025 IHCP Works deck lists "Approved Authorization — Valid for 365 calendar days." But IHCP Bulletin BT2026136 (8/18/2026), addressed to the MCOs and the FFS PA-UM contractor alike, still describes ABA as running on a "standard six-month authorization period." No IHCP bulletin or MCE notice we could find reconciles the two, so ask the MCE which span it is issuing before you plan a reauthorization calendar.',
+          'Follows the Indiana Medicaid limits: up to 40 hours per week may be requested with anything beyond that needing an additional PA; IHCP policy limits each ABA PA request to six months; and since April 1, 2026 comprehensive ABA (16+ hours/week, modifier UA) draws from a 4,000-hour (16,000-unit) lifetime allocation per member, with 97155 and 97156 excluded and targeted ABA (\u226415 hours/week) exempt. At the state level IHCP applies the Medicaid NCCI MUEs to fee-for-service professional claims per member, per rendering provider, per date of service (CMS Q4 2026 table: 97153 at 32 units, 97155 at 24, 97151 at 32, 97156 at 16); the IHCP NCCI module leaves managed care claims to each MCE, so confirm the plan’s own daily edits. Open question for managed care: IC 27-1-37.5-26(b), in force since July 1, 2025 and reaching Medicaid risk-based managed care through IC 27-1-37.5-5(a)(3), says an authorization "shall be valid for at least one (1) year after the date the health care provider receives the authorization," and CareSource\'s July 2025 IHCP Works deck lists "Approved Authorization — Valid for 365 calendar days." But IHCP Bulletin BT2026136 (8/18/2026), addressed to the MCOs and the FFS PA-UM contractor alike, still describes ABA as running on a "standard six-month authorization period." No IHCP bulletin or MCE notice we could find reconciles the two, so ask the MCE which span it is issuing before you plan a reauthorization calendar.',
         status: 'verified',
-        cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202627 \u2014 ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }, { title: 'IHCP Bulletin BT2026136 — minimum caregiver coaching and training for ABA clarified (8/18/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026136.pdf' }, { title: 'Ind. Code 27-1-37.5-26 — authorization valid for at least one year', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-26/' }, { title: 'Ind. Code 27-1-37.5-5 — “health plan” includes Medicaid risk-based managed care', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-5/' }, { title: 'CareSource — IHCP Works 2025 Prior Authorization 101 deck', url: 'https://www.in.gov/medicaid/providers/files/IHCP-Works-2025-CareSource-Prior-Authorization-101.pdf' }],
+        cites: [{ title: 'IHCP — National Correct Coding Initiative module (PROMOD00010, v7.0, publ. Dec. 23, 2024)', url: 'https://www.in.gov/medicaid/providers/files/modules/national-correct-coding-initiative.pdf' }, { title: 'CMS — Medicaid NCCI MUE edits, practitioner services (2026 Q4, active 10/1–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' }, { title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202627 \u2014 ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }, { title: 'IHCP Bulletin BT2026136 — minimum caregiver coaching and training for ABA clarified (8/18/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026136.pdf' }, { title: 'Ind. Code 27-1-37.5-26 — authorization valid for at least one year', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-26/' }, { title: 'Ind. Code 27-1-37.5-5 — “health plan” includes Medicaid risk-based managed care', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-5/' }, { title: 'CareSource — IHCP Works 2025 Prior Authorization 101 deck', url: 'https://www.in.gov/medicaid/providers/files/IHCP-Works-2025-CareSource-Prior-Authorization-101.pdf' }],
       },
       placeOfService: {
         value:
@@ -1310,7 +1498,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
     intakeGates: {
       ageLimit: {
         value:
-          'Follows the Indiana Medicaid rule: ABA is covered for members 20 years of age and younger. Effective April 1, 2026 coverage runs exclusively through EPSDT, and for dates of service on or after October 1, 2026 IHCP will not authorize or reimburse ABA for members 21 and older \u2014 a state policy that binds every MCE.',
+          'Follows the Indiana Medicaid rule: ABA is covered for members 20 years of age and younger. Effective April 1, 2026 coverage runs exclusively through EPSDT, and for dates of service on or after October 1, 2026 IHCP no longer authorizes or reimburses ABA for members 21 and older \u2014 a state policy that binds every MCE.',
         status: 'verified',
         cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202627 \u2014 ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }, { title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }],
       },
@@ -1340,9 +1528,10 @@ export const indianaPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'Follows the Indiana Medicaid rule, with no ABA telehealth policy of the plan’s own. Effective April 1, 2026, IHCP no longer allows 97151, 97152, 97153, 97154 or 0373T to be billed with telehealth modifier 95, so the assessment, reassessments and all direct and group treatment are in person. Only 97155 and 97156 remain telehealth-eligible; IHCP’s provider reference module adds that RBTs and BCaBAs may not deliver any ABA service via telehealth, that remote 97155 is payable only when an HSPP, BCBA or BCBA-D supervises an RBT who is delivering 97153 in person, and that audio-only ABA is never reimbursable (modifier 95 plus U3). IHCP Bulletin BT202662 (4/28/2026) adds that supervision “may be rendered via synchronous telehealth and billed using modifier 95” but “is intended to supplement, not replace, the majority of in-person services.” The module is written for fee-for-service and IHCP says MCEs set their own billing requirements, so confirm with the plan before billing remote 97155 or 97156.',
+          'Follows the Indiana Medicaid rule, with no ABA telehealth policy of the plan’s own. Effective April 1, 2026, IHCP no longer allows 97151, 97152, 97153, 97154 or 0373T to be billed with telehealth modifier 95, so the assessment, reassessments and all direct and group treatment are in person. Only 97155 and 97156 remain telehealth-eligible; IHCP’s provider reference module adds that RBTs and BCaBAs may not deliver any ABA service via telehealth, that remote 97155 is payable only when an HSPP, BCBA or BCBA-D supervises an RBT who is delivering 97153 in person, and that audio-only ABA is never reimbursable (modifier 95 plus U3). IHCP Bulletin BT202662 (4/28/2026) adds that supervision “may be rendered via synchronous telehealth and billed using modifier 95” but “is intended to supplement, not replace, the majority of in-person services.” The module is written for fee-for-service and IHCP says MCEs set their own billing requirements, so confirm with the plan before billing remote 97155 or 97156. Optum, which manages the behavioral benefit, adds a claim rule across all lines of business including Medicaid/Community Plan: every behavioral health telehealth claim must carry POS 02 (member not at home) or POS 10 (member at home), and claims billed with only a telehealth modifier are not reimbursed (Telehealth Billing Quick Reference Guide, September 2025).',
         status: 'verified',
-        cites: [{ title: 'IHCP Bulletin BT202627 — ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }, { title: 'IHCP — Behavioral Health Services module (PROMOD00039, v4.5, publ. Sept. 29, 2026), ABA section', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202562 — ABA documentation requirements, FFS and managed care (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }, { title: 'IHCP Bulletin BT202662 — Additional ABA guidance: supervision, caregiver coaching, UA modifier (4/28/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202662.pdf' }],
+        cites: [
+          { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },{ title: 'IHCP Bulletin BT202627 — ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }, { title: 'IHCP — Behavioral Health Services module (PROMOD00039, v4.5, publ. Sept. 29, 2026), ABA section', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202562 — ABA documentation requirements, FFS and managed care (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }, { title: 'IHCP Bulletin BT202662 — Additional ABA guidance: supervision, caregiver coaching, UA modifier (4/28/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202662.pdf' }],
       },
       authTurnaround: {
         value:
@@ -1366,6 +1555,8 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { q: 'Can an out-of-state BCBA treat UnitedHealthcare Community Plan members in Indiana, including by telehealth?', a: 'Indiana requires an Indiana license (IC 25-8.5-3-6), and its telehealth law counts only Indiana-licensed behavior analysts as practitioners. The IHCP enrolls some out-of-state providers, but out-of-state services generally need extra PA and some specialties are ineligible; check the Enrollment Matrix.' },
       { q: 'Does UnitedHealthcare Community Plan of Indiana authorize ABA retroactively?', a: 'We have not verified UHC’s current Indiana rule. The IHCP’s retroactive-PA list is written for fee-for-service; for managed care members the IHCP Prior Authorization module sends providers to the MCE’s own manual. Ask UHC before treating without an approved PA.' },
       { q: 'Do we bill this plan for ABA written into a child’s IEP?', a: 'No. Indiana carves school-based Medicaid services out of managed care: the IHCP School Corporation Services module (Sept. 29, 2026) says school corporations “must not submit claims for these services to the student’s managed care entity (MCE)” and bill fee-for-service (Gainwell) instead, with modifier TM on every code and the education plan serving as prior authorization. ABA your agency delivers outside the school program still goes through the plan.' },
+      { q: 'What is UnitedHealthcare Community Plan of Indiana’s timely filing limit?', a: '90 calendar days from the date of service; secondary claims 90 days from the primary EOB; reconsiderations and corrected claims 90 days from the original EOB. No payment-day figure is published; the federal MCO floor is 90% of clean claims within 30 days.' },
+      { q: 'Does UnitedHealthcare Community Plan of Indiana require graphs for an ABA reauthorization?', a: 'Yes — IHCP’s ABA documentation rules apply to managed care: the behavior assessment’s complete scoring report, including outcome scores and graphs, goes with every PA request, along with an updated treatment plan showing measurable progress on each goal.' },
     ],
   },
 
@@ -1393,7 +1584,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
       value: 'Yes \u2014 ASD only (F84.0\u2013F84.9); ABA for other diagnoses considered experimental',
       status: 'unverified',
       cites: [
-        { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+        { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
         { title: 'Aetna — Applied behavior analysis medical necessity guide (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
       ],
       verifyVia: 'Two Aetna documents disagree on the code range and a human must settle which governs an ABA review: CPB 0554 and CPB 0648 both list "ICD-10 codes covered if selection criteria are met: F84.0 - F84.9", while the Applied behavior analysis medical necessity guide — the guideline Aetna’s behavioral-health reviewers apply — states "a DSM-V diagnosis of Autism Spectrum Disorder (ICD-10: F84.0; F84.3 - F84.9)" in both its quality-of-care elements and its medical-necessity criteria, which leaves out F84.2 (Rett syndrome). The ASD-only half of the claim is not in doubt; the range is.',
@@ -1421,10 +1612,10 @@ export const indianaPayers: Record<string, PayerConfig> = {
       {
         h2: 'The national policy, applied in Indiana',
         body: [
-          'Aetna covers ABA for autism spectrum disorder under its national clinical policy CPB 0554 (paired with CPB 0648 for ASD), and considers ABA experimental for anything else. Precertification is required for both the assessment and treatment — form GR-69017-4, submitted via Availity or phone — with reauthorization commonly on a roughly 6-month cadence. That clinical policy is national — what changes in Indiana is the legal floor underneath it: the state mandate below governs what fully-insured plans must cover, while self-funded employer plans answer to ERISA and federal parity instead. Plan funding type is therefore the first fact to establish on every benefits check. The full national policy breakdown lives in our Aetna guide; this page covers what changes in Indiana.',
+          'Aetna covers ABA for autism spectrum disorder under its national clinical policy CPB 0554 (paired with CPB 0648 for ASD), and considers ABA experimental for anything else — its 10/14/2026 review names Down syndrome without an ASD co-morbidity, and “all other non-ASD indications.” Precertification is required for both the assessment and treatment — form GR-69017-4, submitted via Availity or phone — with reauthorization commonly on a roughly 6-month cadence. That clinical policy is national — what changes in Indiana is the legal floor underneath it: the state mandate below governs what fully-insured plans must cover, while self-funded employer plans answer to ERISA and federal parity instead. Plan funding type is therefore the first fact to establish on every benefits check. The full national policy breakdown lives in our Aetna guide; this page covers what changes in Indiana.',
         ],
         cites: [
-      { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+      { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
       { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
       { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
       { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
@@ -1447,7 +1638,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
           'We checked: Aetna publishes no Indiana-specific ABA policy, form, or supplement — the national policy plus the state mandate is the whole picture. That’s worth knowing in itself: it means benefits verification (plan funding type, mandate applicability, benefit limits) is where Indiana-specific answers come from, not a carrier document.',
         ],
         cites: [
-      { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+      { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
         ],
       },
       {
@@ -1472,6 +1663,37 @@ export const indianaPayers: Record<string, PayerConfig> = {
           { title: 'Aetna — Provider and facility participation criteria (Network Participation Criteria, 8100606-01-01, 5/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' },
         ],
       },
+      {
+        h2: 'Claims: filing deadline and disputes',
+        body: [
+          'Aetna’s national provider manual (edition 6/26) publishes no numeric filing limit: it defines a clean claim as one “received in a timely manner,” so the operative deadline is the one in your Aetna agreement. Claim disputes go through Availity — the claim must be in Finalized status, then “Dispute Claim” from the Claim Status transaction — and Aetna runs one level of provider appeal for payment decisions; medical-necessity appeals go through the member appeal process.',
+        ],
+        cites: [
+          { title: 'Aetna Provider Manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+        ],
+      },
+      {
+        h2: 'How fast must Aetna pay a clean claim in Indiana?',
+        body: [
+          'Indiana’s prompt-pay statute for insurers, IC 27-8-5.7, requires an insurer to pay or deny each clean claim within thirty days after receipt if it was filed electronically and within forty-five days if filed on paper (§ 6). The insurer must tell the provider of any deficiency within the same thirty or forty-five days and describe how to fix it; if it does not, “the submitted claim” is established “as a clean claim” (§ 5). Interest on a late clean claim starts on day 31 (electronic) or day 46 (paper) and runs until payment. These statutes bind fully insured plans issued in the state; a self-funded employer plan (ERISA) is not subject to them and follows its plan documents and your contract.',
+        ],
+        cites: [
+          { title: 'IC 27-8-5.7-5 — Notice of claim deficiencies', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-5/' },
+          { title: 'IC 27-8-5.7-6 — Payment of clean claims; interest', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-6/' },
+        ],
+      },
+      {
+        h2: 'Aetna reauthorization, supervision and the code set',
+        body: [
+          'Reauthorization: Aetna’s ABA medical necessity guide evaluates progress “every six months.” Each request must show a functional impairment on a standardized scale in the past 12 months (Vineland-3, ABAS, VB-MAPP or ABLLS are the examples), a treatment plan whose target behaviors have recorded baseline levels and “quantifiable criteria for progress,” and either documentation that the frequency of the target behavior improved or, if it did not, documentation of treatment modification, added assessment or expert consultation; the level of impairment must justify the hours requested. Coverage ends on the guide’s thresholds — two or more standard deviations of improvement in multiple domains (one or more for a focused plan), or less than one standard deviation in all domains across successive authorization periods. The guide asks for objective, quantified data; it does not require graphs.',
+          'Supervision: “additional authorization may be provided for QHP protocol modification and direction at 1 to 2 hours per 10 hours of treatment by protocol,” plus caregiver training. Aetna sets no cap on the number of technicians one behavior analyst may supervise.',
+          'Code set: CPB 0554 lists the ABA codes as CPT 97151–97158 with 0362T and 0373T. Neither CPB 0554 nor the medical necessity guide lists a HCPCS H-code (H0031, H0032, H2019) for ABA, so whether your Aetna contract pays one is a question for Aetna, not something its policies grant.',
+        ],
+        cites: [
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -1480,7 +1702,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: 'Age', desc: 'Where the mandate carries age terms, flag edge cases for the parity analysis rather than turning families away.' },
     ],
     sources: [
-      { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+      { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
       { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
       { title: 'Ind. Code § 27-8-14.2-4 (group mandate)', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-14-2-4/' },
       { title: 'Ind. Code § 27-8-14.2-5 (individual offer)', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-14-2-5/' },
@@ -1493,11 +1715,14 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: 'Indiana PLA — Telehealth (IC 25-1-9.5) definitions', url: 'https://www.in.gov/pla/resources/telehealth-home' },
       { title: 'Indiana PLA — Behavior Analyst licensing information (fees incl. reciprocity application)', url: 'https://www.in.gov/pla/professions/behavior-analyst/behavior-analyst-licensing-information' },
       { title: 'Aetna — Provider and facility participation criteria (Network Participation Criteria, 8100606-01-01, 5/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' },
+      { title: 'IC 27-8-5.7-5 — Notice of claim deficiencies', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-5/' },
+      { title: 'IC 27-8-5.7-6 — Payment of clean claims; interest', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-6/' },
+      { title: 'Aetna Provider Manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
     ],
     deliveryRules: {
       supervision: {
         value:
-          'Practitioners delivering ABA under Aetna\'s ABA Medical Necessity Guide need BACB national certification or state behavior-analyst licensure, with unlicensed staff working under supervision per practice standards; Aetna publishes no numeric ratio. Indiana now supplies the licensure half: LBA and LABA applications went live May 13, 2025 and practising applied behavior analysis without the licence is prohibited, with direct-contact technicians exempt only while acting under the extended authority and direction of a licensed analyst.',
+          'Practitioners delivering ABA under Aetna\'s ABA Medical Necessity Guide need BACB national certification or state behavior-analyst licensure, with unlicensed staff working under supervision per practice standards; Aetna publishes no numeric ratio. Indiana now supplies the licensure half: LBA and LABA applications went live May 13, 2025 and practising applied behavior analysis without the licence is prohibited, with direct-contact technicians exempt only while acting under the extended authority and direction of a licensed analyst. Aetna’s medical necessity guide does authorize the analyst’s time against a ratio: QHP protocol modification and direction “at 1 to 2 hours per 10 hours of treatment by protocol”; it sets no cap on the number of technicians per analyst.',
         status: 'verified',
         cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'Indiana PLA \u2014 Behavior Analyst licensure', url: 'https://www.in.gov/pla/professions/behavior-analyst/' }, { title: 'Ind. Code \u00a7 25-8.5-3-6 \u2014 practice restriction and exceptions', url: 'https://law.justia.com/codes/indiana/title-25/article-8-5/chapter-3/section-25-8-5-3-6/' }],
       },
@@ -1505,23 +1730,23 @@ export const indianaPayers: Record<string, PayerConfig> = {
         value:
           'Not published. Neither CPB 0554 nor CPB 0648 states whether 97155 and 97153 may be billed for the same clock time, and Aetna publishes no Indiana-specific ABA policy, form or supplement.',
         status: 'unverified',
-        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
+        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
         verifyVia: 'Availity Essentials for the plan\'s reimbursement and claim-editing policies, or the provider-services number on the member\'s card.',
         blocker: 'per-case',
       },
       dailyLimits: {
-        value:
-          'Not published. CPB 0554 lists the covered ABA codes but sets no per-day unit ceiling, and Aetna publishes no ABA-specific MUE table. The operative ceiling is the precertification itself, which requires requested hours to be listed code by code \u2014 so the authorization, not a policy, is what bounds the day. CPB 0648 references intensive-intervention research norms of 25 hours a week, 12 months a year as clinical context rather than as a limit.',
-        status: 'unverified',
-        cites: [{ title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }, { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }, { title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
-        verifyVia: 'The authorization letter itself, plus Availity Essentials for the plan\'s claim-editing and reimbursement policies. Ask whether CMS MUE limits are applied to ABA codes on this plan.',
-        blocker: 'per-case',
+        value: 'Aetna publishes no per-day or per-week unit ceiling for ABA. Its ABA medical necessity guide sets typical intensities — 10–25 hours a week for comprehensive and 1–20 hours a week for focused ABA — as typical, not caps, and ties authorized hours to documented severity on its symptom-severity scale; QHP protocol modification is authorized at 1–2 hours per 10 hours of treatment. CPB 0554 lists the ABA codes but sets no unit limit, so the operative ceiling is the precertification, which lists requested hours code by code.',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+        ],
       },
       noteSignature: {
         value:
           'Not published. CPB 0554 and CPB 0648 set coverage criteria, and form GR-69017-4 sets precertification content; none states what a session note must contain, who signs it, or by when.',
         status: 'unverified',
-        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
+        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
         verifyVia: 'Aetna provider services or Availity \u2014 ask for the documentation standard applied at audit, and keep to the precertification form\'s own data elements in the meantime.',
         blocker: 'per-case',
       },
@@ -1555,7 +1780,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
         value:
           'Aetna publishes no recency rule for the ASD diagnostic evaluation, and Indiana\'s mandate sets none for commercial plans \u2014 the one-year CDE rule in this state belongs to Indiana Medicaid, not to IC 27-8-14.2. Capture the evaluation date anyway. Precertification form GR-69017-4 (7-26) asks for the diagnosis code and the diagnosing provider and credentials, and puts its date test on the standardized assessment instead: results \"completed within the past 12 months.\"',
         status: 'unverified',
-        cites: [{ title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }, { title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Ind. Code \u00a7 27-8-14.2-4 (group mandate)', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-14-2-4/' }],
+        cites: [{ title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }, { title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Ind. Code \u00a7 27-8-14.2-4 (group mandate)', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-14-2-4/' }],
         verifyVia: 'The precertification call or Availity, when submitting form GR-69017-4 \u2014 ask whether an evaluation of this age will be accepted for this plan.',
         blocker: 'per-case',
       },
@@ -1569,7 +1794,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
         value:
           'No instrument is named. CPB 0554 does not require or reference a specific diagnostic tool, and the precertification form asks for the DSM-5 diagnosis code, the diagnosing provider and their credentials rather than for an instrument and score. Indiana\'s mandate names none either, and defines autism spectrum disorder only by reference to the DSM.',
         status: 'unverified',
-        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Ind. Code \u00a7 27-8-14.2-4 (group mandate)', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-14-2-4/' }],
+        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Ind. Code \u00a7 27-8-14.2-4 (group mandate)', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-14-2-4/' }],
         verifyVia: 'Aetna precertification (Availity or the number on the card) \u2014 ask whether a specific instrument is expected for this plan before scheduling testing.',
         blocker: 'per-case',
       },
@@ -1612,6 +1837,10 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { q: 'What does the Indiana autism mandate require?', a: 'Indiana’s mandate (2001) was the first autism insurance mandate in the country, and it remains one of the strongest: group accident and sickness policies must cover ASD treatment prescribed by the treating physician under a treatment plan, with no age limits and no dollar, visit, or hour caps — and cost-sharing no less favorable than for physical illness generally. See the mandate section above for ages, caps, and exemptions — and remember federal parity limits how hard the numeric caps can be enforced against group plans.' },
       { q: 'What does Aetna pay for ABA in Indiana?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the Indiana Medicaid fee schedule where one exists, and treat rate-setting as part of contracting.' },
       { q: 'Can an out-of-state BCBA treat Aetna members in Indiana, including by telehealth?', a: 'Indiana requires an Indiana license (IC 25-8.5-3-6), and its telehealth law counts only Indiana-licensed behavior analysts as practitioners. Aetna requires telehealth providers to meet the license requirements “for all states in which members to whom they are providing Telehealth services are located.”' },
+      { q: 'What is Aetna’s timely filing limit in Indiana?', a: 'Aetna’s national provider manual (6/26) does not publish a number — the filing limit is the one in your Aetna agreement.' },
+      { q: 'How fast must Aetna pay a clean ABA claim in Indiana?', a: 'Indiana law (IC 27-8-5.7-6) requires an insurer to pay or deny a clean claim within 30 days of receipt if filed electronically and 45 days on paper; a deficiency not flagged within that window makes the claim clean. Self-funded employer plans are not bound by the statute.' },
+      { q: 'What documents does Aetna need for an ABA authorization in Indiana?', a: 'Aetna\'s precertification form GR-69017-4 (7-26), which replaced its other ABA forms from August 1, 2026 (Maryland and Massachusetts excepted), lists them. It asks for the current DSM diagnosis code and the diagnosing provider\'s name and credentials, plus hours by code (assessment codes per authorization period, treatment codes per week) and any hours during class. Supporting documents: "Results of a standardized assessment (i.e. Vineland, ABAS, VB-MAPP) completed within the past 12 months," with the IQ if available. Add a time-limited treatment plan with baselines and measurable targets, FBA or skills-assessment results, data showing severity justifies the hours, measurable caregiver goals, titration and discharge criteria, and coordination with other providers. Start the request on Availity or by phone and attach the form and records.' },
+      { q: 'Does Aetna require graphs for an ABA reauthorization?', a: 'Aetna’s ABA medical necessity guide reviews progress every six months and requires quantified baseline and progress data, a standardized functional scale from the past 12 months, and documentation of improvement (or of treatment changes when there is none). It does not require the data to be graphed.' },
     ],
   },
 
@@ -1710,6 +1939,38 @@ export const indianaPayers: Record<string, PayerConfig> = {
           { title: 'Evernorth Behavioral Health — Administrative Guidelines (September 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
         ],
       },
+      {
+        h2: 'Claims: filing deadline and disputes',
+        body: [
+          'Cigna’s behavioral benefits, ABA included, are administered by Evernorth Behavioral Health, whose administrative guidelines (revised September 2026) “will only consider claims submitted within 90 days of the date of service or as otherwise defined in your Provider Agreement” — a longer state-law limit overrides it, the clock resets to the date Cigna asks for more information, and Medicaid-secondary claims get three years. Appeals must be started in writing within 180 calendar days of the payment or denial decision.',
+        ],
+        cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (rev. Sept. 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
+      },
+      {
+        h2: 'How fast must Cigna pay a clean claim in Indiana?',
+        body: [
+          'Indiana’s prompt-pay statute for insurers, IC 27-8-5.7, requires an insurer to pay or deny each clean claim within thirty days after receipt if it was filed electronically and within forty-five days if filed on paper (§ 6). The insurer must tell the provider of any deficiency within the same thirty or forty-five days and describe how to fix it; if it does not, “the submitted claim” is established “as a clean claim” (§ 5). Interest on a late clean claim starts on day 31 (electronic) or day 46 (paper) and runs until payment. These statutes bind fully insured plans issued in the state; a self-funded employer plan (ERISA) is not subject to them and follows its plan documents and your contract.',
+        ],
+        cites: [
+          { title: 'IC 27-8-5.7-5 — Notice of claim deficiencies', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-5/' },
+          { title: 'IC 27-8-5.7-6 — Payment of clean claims; interest', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-6/' },
+        ],
+      },
+      {
+        h2: 'Cigna reauthorization, telehealth billing and the code set',
+        body: [
+          'Reauthorization: EN0499’s continued-treatment criteria require an updated treatment plan; “quantitative baseline, interim and current data” with the dates they were collected, for every behavior and skill, across all settings; current data collected no more than 60 days before the start date of the continued-treatment request and no more than 60 days before the request is received; data showing “ongoing and sustained progress”; a reliable, valid, standardized assessment completed no more than one year before the request; a documented barriers plan when progress is not shown; a fresh standardized assessment after any break in treatment longer than 60 calendar days; and dated quantitative data on stakeholder (caregiver) training. EN0499 asks for dated quantitative data, not graphs — the policy never uses the word — so a graph is a presentation choice, while the dated numbers are mandatory.',
+          'Telehealth billing: “All ABA CPT codes are covered telehealth services” (autism resource guide). On the claim, Evernorth’s administrative guidelines (September 2026) call for “Modifier 95 in Field 24-D to specify telehealth” and “02 for Place of Service in Field 24-B”; a provider delivers virtual sessions after attesting to the telehealth specialty on Evernorth’s Attested Specialty Form. Neither document requires the authorization itself to name telehealth.',
+          'Code set: “All ABA services must be billed with CPT codes 97151–97158, 0362T, and 0373T ONLY,” in 15-minute units — HCPCS H-codes (H0031, H0032, H2019, H2014) are not accepted for ABA. Supervision: one to two hours of case supervision per ten hours of direct treatment, with at least one to two hours a week when direct treatment is ten hours a week or less; EN0499 sets no cap on how many technicians one BCBA may supervise.',
+        ],
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+          { title: 'Cigna / Evernorth autism resource guide (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -1728,6 +1989,8 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: 'Indiana PLA — Telehealth (IC 25-1-9.5) definitions', url: 'https://www.in.gov/pla/resources/telehealth-home' },
       { title: 'Indiana PLA — Behavior Analyst licensing information (fees incl. reciprocity application)', url: 'https://www.in.gov/pla/professions/behavior-analyst/behavior-analyst-licensing-information' },
       { title: 'Evernorth Behavioral Health — Administrative Guidelines (September 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+      { title: 'IC 27-8-5.7-5 — Notice of claim deficiencies', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-5/' },
+      { title: 'IC 27-8-5.7-6 — Payment of clean claims; interest', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-6/' },
     ],
     deliveryRules: {
       supervision: {
@@ -1810,9 +2073,10 @@ export const indianaPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'The most permissive position in this directory: Cigna\'s March 2025 autism resource guide states that all ABA CPT codes are covered telehealth services, with the delivery model chosen on the individual\'s needs. Indiana\'s April 2026 modifier-95 restriction is a Medicaid rule and does not reach a commercial Cigna plan.',
+          'The most permissive position in this directory: Cigna\'s March 2025 autism resource guide states that all ABA CPT codes are covered telehealth services, with the delivery model chosen on the individual\'s needs. Indiana\'s April 2026 modifier-95 restriction is a Medicaid rule and does not reach a commercial Cigna plan. On the claim, Evernorth’s administrative guidelines (September 2026) call for modifier 95 in field 24-D and place of service 02 in field 24-B; the authorization need not name telehealth.',
         status: 'verified',
-        cites: [{ title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
+        cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },{ title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
       },
       authTurnaround: {
         value:
@@ -1838,6 +2102,11 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { q: 'What does the Indiana autism mandate require?', a: 'Indiana’s mandate (2001) was the first autism insurance mandate in the country, and it remains one of the strongest: group accident and sickness policies must cover ASD treatment prescribed by the treating physician under a treatment plan, with no age limits and no dollar, visit, or hour caps — and cost-sharing no less favorable than for physical illness generally. See the mandate section above for ages, caps, and exemptions — and remember federal parity limits how hard the numeric caps can be enforced against group plans.' },
       { q: 'What does Cigna pay for ABA in Indiana?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the Indiana Medicaid fee schedule where one exists, and treat rate-setting as part of contracting.' },
       { q: 'Can an out-of-state BCBA treat Cigna members in Indiana, including by telehealth?', a: 'Indiana requires an Indiana license (IC 25-8.5-3-6), and its telehealth law counts only Indiana-licensed behavior analysts as practitioners. Evernorth (Cigna) requires providers to “meet all state requirements to provide virtual behavioral services, including any licenses”; confirm with Evernorth before a remote start.' },
+      { q: 'What is Cigna’s timely filing limit in Indiana?', a: 'Evernorth Behavioral Health, which administers Cigna’s ABA benefit, considers claims submitted within 90 days of the date of service unless your provider agreement or a longer state-law limit says otherwise.' },
+      { q: 'How fast must Cigna pay a clean ABA claim in Indiana?', a: 'Indiana law (IC 27-8-5.7-6) requires an insurer to pay or deny a clean claim within 30 days of receipt if filed electronically and 45 days on paper; a deficiency not flagged within that window makes the claim clean. Self-funded employer plans are not bound by the statute.' },
+      { q: 'What documents does Cigna (Evernorth) need for ABA in Indiana?', a: 'EN0499 (effective 5/15/2026) requires a confirmed DSM-5-TR ASD diagnosis from an independently licensed clinician whose scope includes diagnosis. The record must give "the name, credentials, and type of licensure" of the diagnosing clinician and "the date on which the diagnosis was most recently made." A provisional or rule-out diagnosis, or an IDEA educational identification, does not count. For treatment, the BCBA\'s assessment must use a current-edition standardized instrument, completed in full and administered "within 60 days prior to the start of treatment," with score tables. The treatment plan\'s goals must match the deficits it found.' },
+      { q: 'Does Cigna require graphs for an ABA reauthorization?', a: 'No — EN0499 requires dated quantitative baseline, interim and current data for every target, with current data no more than 60 days old, plus a standardized assessment from the past year; it never requires the data to be graphed. Graphs are a common way to present it.' },
+      { q: 'How do I bill ABA telehealth to Cigna, and are H-codes accepted?', a: 'All ABA CPT codes are covered by telehealth; bill modifier 95 with place of service 02 after attesting to the telehealth specialty with Evernorth. Only CPT 97151–97158, 0362T and 0373T are accepted for ABA — no H-codes.' },
     ],
   },
 
@@ -1945,6 +2214,39 @@ export const indianaPayers: Record<string, PayerConfig> = {
           { title: 'Optum Behavioral Health — National Network Manual (published July 1, 2026; effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
         ],
       },
+      {
+        h2: 'Claims: filing deadline and disputes',
+        body: [
+          'UnitedHealthcare’s ABA benefit is managed by Optum Behavioral Health, whose National Network Manual (effective September 1, 2026) requires everything needed to process a claim to reach Optum “no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan,” with corrections within 90 days of first receipt. Clean, authorized claims are “generally” paid within 45 calendar days of receipt or as state or federal law requires. Disputes run in two steps — reconsideration, then appeal — with 12 months in total for both unless state law or your participation agreement sets a different deadline.',
+        ],
+        cites: [
+          { title: 'Optum Behavioral Health National Network Manual (published July 1, 2026; effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+        ],
+      },
+      {
+        h2: 'How fast must UnitedHealthcare pay a clean claim in Indiana?',
+        body: [
+          'Indiana’s prompt-pay statute for insurers, IC 27-8-5.7, requires an insurer to pay or deny each clean claim within thirty days after receipt if it was filed electronically and within forty-five days if filed on paper (§ 6). The insurer must tell the provider of any deficiency within the same thirty or forty-five days and describe how to fix it; if it does not, “the submitted claim” is established “as a clean claim” (§ 5). Interest on a late clean claim starts on day 31 (electronic) or day 46 (paper) and runs until payment. These statutes bind fully insured plans issued in the state; a self-funded employer plan (ERISA) is not subject to them and follows its plan documents and your contract.',
+        ],
+        cites: [
+          { title: 'IC 27-8-5.7-5 — Notice of claim deficiencies', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-5/' },
+          { title: 'IC 27-8-5.7-6 — Payment of clean claims; interest', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-6/' },
+        ],
+      },
+      {
+        h2: 'UnitedHealthcare (Optum) reauthorization, supervision and telehealth billing',
+        body: [
+          'Reauthorization: with each clinical review for continued ABA, Optum’s supplemental clinical criteria require updated documentation that progress “is assessed and documented for each targeted symptom and behavior … including the same modes of measurement that were utilized for baseline measurement,” reported as the rate and percentage of mastered programs and targets, change scores on outcome measures, updated standardized adaptive measures and change scores on skills-based assessments, with movement from baseline shown on validated, norm-referenced assessments; caregiver involvement where applicable; and, when progress is inadequate within a six-month period, the reasons and the treatment changes made. Use below 80% of authorized hours over a two-week period is addressed at review. The criteria ask for measured, comparable data, not graphs specifically; Optum’s CPT FAQ treats time spent on data analysis and graphs as treatment planning bundled into the direct-service codes.',
+          'Supervision: Optum’s ABA CPT FAQ says “in general, we see 2 hours for every 10 hours of direct Behavior Technician hours,” and a request above that 2:10 ratio needs a clinical rationale; no cap on the number of technicians per BCBA is published.',
+          'Telehealth billing and code set: only 97155, 97156 and 97157 may be delivered by telehealth, by an attested Optum virtual-visits provider; Optum requires every behavioral health telehealth claim to carry POS 02 or POS 10 — “Optum will not reimburse for services billed with only telehealth modifiers 93, 95, FQ, GQ or GT” — and the FAQ asks providers to alert the Optum ABA Care Advocate that services will be virtual when completing the authorization. The commercial reimbursement policy bills ABA under CPT 97151–97158, 0362T and 0373T with a credential modifier; no HCPCS H-code is on it.',
+        ],
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+          { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
+          { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
+          { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -1969,6 +2271,8 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: 'Indiana PLA — Telehealth (IC 25-1-9.5) definitions', url: 'https://www.in.gov/pla/resources/telehealth-home' },
       { title: 'Indiana PLA — Behavior Analyst licensing information (fees incl. reciprocity application)', url: 'https://www.in.gov/pla/professions/behavior-analyst/behavior-analyst-licensing-information' },
       { title: 'Optum Behavioral Health — National Network Manual (published July 1, 2026; effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+      { title: 'IC 27-8-5.7-5 — Notice of claim deficiencies', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-5/' },
+      { title: 'IC 27-8-5.7-6 — Payment of clean claims; interest', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-6/' },
     ],
     deliveryRules: {
       supervision: {
@@ -2090,6 +2394,10 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { q: 'What does UnitedHealthcare pay for ABA in Indiana?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the Indiana Medicaid fee schedule where one exists, and treat rate-setting as part of contracting.' },
       { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale.' },
       { q: 'Can an out-of-state BCBA treat UnitedHealthcare members in Indiana, including by telehealth?', a: 'Indiana requires an Indiana license (IC 25-8.5-3-6), and its telehealth law counts only Indiana-licensed behavior analysts as practitioners. Optum (UnitedHealthcare): “Providers offering telehealth visits must be licensed in the state where the member is located at the time of service.”' },
+      { q: 'What is UnitedHealthcare’s timely filing limit in Indiana?', a: 'Optum Behavioral Health, which manages UnitedHealthcare’s ABA benefit, requires claims within 90 calendar days of the date of service unless state or federal law or the member’s plan allows longer (National Network Manual, effective September 1, 2026).' },
+      { q: 'How fast must UnitedHealthcare pay a clean ABA claim in Indiana?', a: 'Indiana law (IC 27-8-5.7-6) requires an insurer to pay or deny a clean claim within 30 days of receipt if filed electronically and 45 days on paper; a deficiency not flagged within that window makes the claim clean. Self-funded employer plans are not bound by the statute.' },
+      { q: 'What documents does UnitedHealthcare (Optum) need for ABA in Indiana?', a: 'Optum\'s ABA Supplemental Clinical Criteria require a valid DSM-5-TR ASD diagnosis from a state-licensed physician, psychologist or other qualified licensed clinician. The diagnosing clinician confirms the diagnosis and severity level "using at least one clinically validated tool," such as the ADOS-2, ADI-R or CARS-2. The ABA provider then completes its own behavioral assessment with baseline measurement on at least one validated tool (for example the VB-MAPP, ABLLS-R, AFLS or Vineland) and builds the treatment plan from it. "Prior authorization is required for ABA (unless otherwise specified or mandated by contract or law)." The criteria set no expiry on the diagnosis.' },
+      { q: 'Does UnitedHealthcare (Optum) require graphs for an ABA reauthorization?', a: 'Optum requires progress measured the same way as baseline for every target — mastery rates, change scores and updated standardized adaptive measures — but does not specifically require graphs. Telehealth (97155, 97156, 97157 only) must be billed with POS 02 or 10, and flagged to the Optum care advocate at authorization.' },
     ],
   },
 
@@ -2218,6 +2526,41 @@ export const indianaPayers: Record<string, PayerConfig> = {
           { title: 'Anthem — ABA Provider Resource Guide (multi-state incl. Georgia and Indiana, June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' },
         ],
       },
+      {
+        h2: 'How fast must Anthem Blue Cross and Blue Shield pay a clean claim in Indiana?',
+        body: [
+          'Indiana’s prompt-pay statute for insurers, IC 27-8-5.7, requires an insurer to pay or deny each clean claim within thirty days after receipt if it was filed electronically and within forty-five days if filed on paper (§ 6). The insurer must tell the provider of any deficiency within the same thirty or forty-five days and describe how to fix it; if it does not, “the submitted claim” is established “as a clean claim” (§ 5). Interest on a late clean claim starts on day 31 (electronic) or day 46 (paper) and runs until payment. These statutes bind fully insured plans issued in the state; a self-funded employer plan (ERISA) is not subject to them and follows its plan documents and your contract.',
+          'Filing deadline: Anthem’s 2026 Indiana commercial provider manual (effective August 1, 2026) prints no number of days — “Claims must be submitted within the timely filing timeframe specified in the Provider or Facility Agreement,” late claims “will be denied” unless proof of timely filing is shown (a computer-printed filing date, a fax confirmation, a billing-system printout or an accepted clearinghouse report), and “any rejected Claims must be corrected and resubmitted within the timely filing period.” The deadline for original, corrected and secondary claims is therefore the one in your Anthem agreement.',
+        ],
+        cites: [
+          { title: 'IC 27-8-5.7-5 — Notice of claim deficiencies', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-5/' },
+          { title: 'IC 27-8-5.7-6 — Payment of clean claims; interest', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-6/' },
+          { title: 'Anthem Blue Cross and Blue Shield — 2026 Indiana Commercial Provider Manual (eff. 8/1/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_IN_00012.pdf' },
+        ],
+      },
+      {
+        h2: 'BlueCard: treating an Anthem Indiana member from another state\'s Blue network',
+        body: [
+          'BlueCard is the program that lets an Anthem Indiana member be treated by a Blue-contracted provider in another state. Anthem\'s BlueCard Provider Manual defines it as "a national program that enables members of one BCBS Plan to obtain healthcare service benefits while traveling or living in another BCBS Plan\'s service area." It works through each provider\'s own local plan: "The program lets you submit claims for patients from other BCBS Plans, domestic and international, to your local BCBS Plan. Your local BCBS Plan is your sole contact for claims payment, adjustments and issue resolution."',
+          'So for a practice contracted with another Blue, such as another state\'s Blue plan, treating an Anthem Indiana member, the claim goes to your local Blue, not to Anthem. The manual\'s worked example: "the provider ... files a claim locally," and the local plan "forwards the claim to [the member\'s plan] that adjudicates the claim according to the member\'s benefits and the provider\'s arrangement with" the local plan. Put the member\'s full ID, including the three-character prefix, on the claim. "Claims with incorrect or missing prefixes and member identification numbers cannot be processed." Network status comes from your contract with your local Blue, matched to the member\'s product. A PPO member must see a BlueCard PPO provider "if they want to access PPO in-network benefits."',
+          'Prior authorization stays with the home plan, Anthem. Anthem\'s out-of-area tool (anthem.com, Prior Authorization, "Medical Policy and Prior Authorization for Blue Plans," entered with the member\'s alpha prefix) shows its general precertification rules. The BlueCard manual gives the routes: Electronic Provider Access through your own local Blue\'s portal, which forwards you to the home plan\'s pre-service review tool; a HIPAA 278 transaction; or 1-800-676-BLUE (2583), asking for the utilization review area, which has a Behavioral Health option. ABA is on Anthem\'s commercial precertification list, so obtain it from Anthem before services start. The manual reminds providers that the member is technically "responsible for obtaining pre-certification/preauthorization for out-patient services from their BCBS Plan," and most practices get it for them. Anthem\'s Indiana provider manual adds that appeals of pre-certification decisions for BlueCard members are "the responsibility of the Blue Plan, insuring or administering benefits" (the home plan).',
+        ],
+        cites: [
+          { title: 'Anthem — The BlueCard Program Provider Manual (eff. 1/1/2022; current edition in the Indiana provider manual library)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_IN_00004.pdf' },
+          { title: 'Anthem Blue Cross and Blue Shield — 2026 Indiana Commercial Provider Manual (eff. 8/1/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_IN_00012.pdf' },
+          { title: 'Anthem and CDHP products Precertification/Prior Authorization List — IN, KY, MO, OH, WI (updated January 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/Central_Blues_CDHP_PA_List.pdf' },
+        ],
+      },
+      {
+        h2: 'Anthem reauthorization, code set and documentation rules',
+        body: [
+          'Reauthorization: Anthem’s ABA provider resource guide (June 2025) sets no reauthorization data list and no graph requirement; medical necessity is decided against the clinical criteria named on Anthem’s precertification list for the member’s product, so what a continued-review packet must show — and whether progress must be graphed — is the reviewer’s call. Ask the Anthem behavioral health reviewer at the initial request what data, measures and format the next review will need. What the guide does fix is documentation: every record entry must be complete, dated and signed with credentials, entered at or shortly after the service and not later than 30 days, with the signature dated within 30 days of the date of service.',
+          'Code set and supervision: the guide lists the ABA Category I CPT codes 97151–97158 and Category III 0362T and 0373T, and tells providers to bill industry-standard CPT, HCPCS or revenue codes and to check the provider contract for any specific billing requirement — it lists no HCPCS H-code for ABA. Claims carry a licensure modifier (HM, HN or HO) and, for technician-delivered services, the supervising BCBA or other QHP in box 31. A QHP billing 97155 may add 97153 only when both are face to face with the patient and the QHP is directing the technician; no supervision ratio or technician cap is published.',
+        ],
+        cites: [
+          { title: 'Anthem — ABA provider resource guide (MULTI-BCBS-CM-084583-25, June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Group or individual policy, and funding type', desc: 'Group plans must cover ABA; individual-policy insurers only have to offer it, so an individual plan may lawfully lack the benefit. Self-funded ERISA plans are outside the mandate entirely. This fork decides the whole conversation.' },
@@ -2245,6 +2588,10 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: 'Ind. Code § 25-8.5-3-6 — license required to practice applied behavior analysis', url: 'https://codes.findlaw.com/in/title-25-professions-and-occupations/in-code-sect-25-8-5-3-6/' },
       { title: 'Indiana PLA — Telehealth (IC 25-1-9.5) definitions', url: 'https://www.in.gov/pla/resources/telehealth-home' },
       { title: 'Indiana PLA — Behavior Analyst licensing information (fees incl. reciprocity application)', url: 'https://www.in.gov/pla/professions/behavior-analyst/behavior-analyst-licensing-information' },
+      { title: 'IC 27-8-5.7-5 — Notice of claim deficiencies', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-5/' },
+      { title: 'IC 27-8-5.7-6 — Payment of clean claims; interest', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-6/' },
+      { title: 'Anthem — The BlueCard Program Provider Manual (eff. 1/1/2022; current edition in the Indiana provider manual library)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_IN_00004.pdf' },
+      { title: 'Anthem Blue Cross and Blue Shield — 2026 Indiana Commercial Provider Manual (eff. 8/1/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_IN_00012.pdf' },
     ],
     deliveryRules: {
       concurrentBilling: {
@@ -2356,6 +2703,10 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { q: 'Does Indiana license behavior analysts?', a: 'Yes, since 2025. The Indiana Professional Licensing Agency\'s Behavior Analyst Licensing Board issues Licensed Behavior Analyst and Licensed Assistant Behavior Analyst credentials, applications went live on May 13, 2025, and practising applied behavior analysis without a licence is prohibited. Licensure requires current BACB certification plus a national background check. Indiana does not license RBTs — technicians work under a statutory exception while directed by a licensed analyst.' },
       { q: 'Which criteria does Anthem use for ABA in Indiana?', a: 'MCG B-806-T. Anthem notified Indiana commercial providers that effective June 1, 2024 it would transition from CG-BEH-02 and MCG W0153 to MCG B-806-T for medical-necessity and clinical-appropriateness reviews. MCG guidelines are proprietary and unpublished.' },
       { q: 'Can an out-of-state BCBA treat Anthem members in Indiana, including by telehealth?', a: 'Indiana requires an Indiana license (IC 25-8.5-3-6), and its telehealth law counts only Indiana-licensed behavior analysts as practitioners. Anthem’s ABA guide accepts BCBAs and providers “licensed or authorized by the state in which they practice”; confirm the license question with Anthem credentialing.' },
+      { q: 'How fast must Anthem Blue Cross and Blue Shield pay a clean ABA claim in Indiana?', a: 'Indiana law (IC 27-8-5.7-6) requires an insurer to pay or deny a clean claim within 30 days of receipt if filed electronically and 45 days on paper; a deficiency not flagged within that window makes the claim clean. Self-funded employer plans are not bound by the statute.' },
+      { q: 'I am a provider contracted with another state\'s Blue plan. Can I treat an Anthem Indiana member under BlueCard?', a: 'Yes, if the member\'s product gives you network benefits through your local Blue contract. File the claim with your own local Blue plan, with the member\'s three-character prefix. Your local plan sends it to Anthem, which adjudicates it on the member\'s benefits and your local contract. Get ABA precertification from Anthem as the home plan, through Electronic Provider Access in your local Blue\'s portal or by calling 1-800-676-BLUE. Anthem\'s alpha-prefix router on anthem.com shows its general precertification rules. Precertification appeals go to Anthem, and claim questions go to your local Blue.' },
+      { q: 'What is Anthem’s timely filing limit for ABA claims in Indiana?', a: 'Anthem’s Indiana commercial provider manual sets no number of its own: the deadline is the one in your provider agreement, and rejected claims must be corrected and resubmitted inside that same window. Indiana’s prompt-pay statute then gives Anthem 30 days to pay or deny an electronic clean claim (45 on paper).' },
+      { q: 'Does Anthem require graphs for an ABA reauthorization?', a: 'Anthem’s ABA provider resource guide sets no graph or data-format requirement for reviews — ask the Anthem behavioral health reviewer what the next review needs. It does require dated, signed documentation entered within 30 days, and lists only CPT 97151–97158, 0362T and 0373T for ABA.' },
     ],
   },
 
@@ -2486,6 +2837,41 @@ export const indianaPayers: Record<string, PayerConfig> = {
           { title: 'Anthem — ABA Provider Resource Guide (multi-state incl. Georgia and Indiana, June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' },
         ],
       },
+      {
+        h2: 'How fast must Anthem pay a clean claim in Indiana?',
+        body: [
+          'Indiana’s prompt-pay statute for insurers, IC 27-8-5.7, requires an insurer to pay or deny each clean claim within thirty days after receipt if it was filed electronically and within forty-five days if filed on paper (§ 6). The insurer must tell the provider of any deficiency within the same thirty or forty-five days and describe how to fix it; if it does not, “the submitted claim” is established “as a clean claim” (§ 5). Interest on a late clean claim starts on day 31 (electronic) or day 46 (paper) and runs until payment. These statutes bind fully insured plans issued in the state; a self-funded employer plan (ERISA) is not subject to them and follows its plan documents and your contract.',
+          'Filing deadline: Anthem’s 2026 Indiana commercial provider manual (effective August 1, 2026) prints no number of days — “Claims must be submitted within the timely filing timeframe specified in the Provider or Facility Agreement,” late claims “will be denied” unless proof of timely filing is shown (a computer-printed filing date, a fax confirmation, a billing-system printout or an accepted clearinghouse report), and “any rejected Claims must be corrected and resubmitted within the timely filing period.” The deadline for original, corrected and secondary claims is therefore the one in your Anthem agreement.',
+        ],
+        cites: [
+          { title: 'IC 27-8-5.7-5 — Notice of claim deficiencies', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-5/' },
+          { title: 'IC 27-8-5.7-6 — Payment of clean claims; interest', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-6/' },
+          { title: 'Anthem Blue Cross and Blue Shield — 2026 Indiana Commercial Provider Manual (eff. 8/1/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_IN_00012.pdf' },
+        ],
+      },
+      {
+        h2: 'BlueCard: treating an Anthem Indiana member from another state\'s Blue network',
+        body: [
+          'BlueCard is the program that lets an Anthem Indiana member be treated by a Blue-contracted provider in another state. Anthem\'s BlueCard Provider Manual defines it as "a national program that enables members of one BCBS Plan to obtain healthcare service benefits while traveling or living in another BCBS Plan\'s service area." It works through each provider\'s own local plan: "The program lets you submit claims for patients from other BCBS Plans, domestic and international, to your local BCBS Plan. Your local BCBS Plan is your sole contact for claims payment, adjustments and issue resolution."',
+          'So for a practice contracted with another Blue, such as another state\'s Blue plan, treating an Anthem Indiana member, the claim goes to your local Blue, not to Anthem. The manual\'s worked example: "the provider ... files a claim locally," and the local plan "forwards the claim to [the member\'s plan] that adjudicates the claim according to the member\'s benefits and the provider\'s arrangement with" the local plan. Put the member\'s full ID, including the three-character prefix, on the claim. "Claims with incorrect or missing prefixes and member identification numbers cannot be processed." Network status comes from your contract with your local Blue, matched to the member\'s product. A PPO member must see a BlueCard PPO provider "if they want to access PPO in-network benefits."',
+          'Prior authorization stays with the home plan, Anthem. Anthem\'s out-of-area tool (anthem.com, Prior Authorization, "Medical Policy and Prior Authorization for Blue Plans," entered with the member\'s alpha prefix) shows its general precertification rules. The BlueCard manual gives the routes: Electronic Provider Access through your own local Blue\'s portal, which forwards you to the home plan\'s pre-service review tool; a HIPAA 278 transaction; or 1-800-676-BLUE (2583), asking for the utilization review area, which has a Behavioral Health option. ABA is on Anthem\'s commercial precertification list, so obtain it from Anthem before services start. The manual reminds providers that the member is technically "responsible for obtaining pre-certification/preauthorization for out-patient services from their BCBS Plan," and most practices get it for them. Anthem\'s Indiana provider manual adds that appeals of pre-certification decisions for BlueCard members are "the responsibility of the Blue Plan, insuring or administering benefits" (the home plan).',
+        ],
+        cites: [
+          { title: 'Anthem — The BlueCard Program Provider Manual (eff. 1/1/2022; current edition in the Indiana provider manual library)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_IN_00004.pdf' },
+          { title: 'Anthem Blue Cross and Blue Shield — 2026 Indiana Commercial Provider Manual (eff. 8/1/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_IN_00012.pdf' },
+          { title: 'Anthem and CDHP products Precertification/Prior Authorization List — IN, KY, MO, OH, WI (updated January 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/Central_Blues_CDHP_PA_List.pdf' },
+        ],
+      },
+      {
+        h2: 'Anthem reauthorization, code set and documentation rules',
+        body: [
+          'Reauthorization: Anthem’s ABA provider resource guide (June 2025) sets no reauthorization data list and no graph requirement; medical necessity is decided against the clinical criteria named on Anthem’s precertification list for the member’s product, so what a continued-review packet must show — and whether progress must be graphed — is the reviewer’s call. Ask the Anthem behavioral health reviewer at the initial request what data, measures and format the next review will need. What the guide does fix is documentation: every record entry must be complete, dated and signed with credentials, entered at or shortly after the service and not later than 30 days, with the signature dated within 30 days of the date of service.',
+          'Code set and supervision: the guide lists the ABA Category I CPT codes 97151–97158 and Category III 0362T and 0373T, and tells providers to bill industry-standard CPT, HCPCS or revenue codes and to check the provider contract for any specific billing requirement — it lists no HCPCS H-code for ABA. Claims carry a licensure modifier (HM, HN or HO) and, for technician-delivered services, the supervising BCBA or other QHP in box 31. A QHP billing 97155 may add 97153 only when both are face to face with the patient and the QHP is directing the technician; no supervision ratio or technician cap is published.',
+        ],
+        cites: [
+          { title: 'Anthem — ABA provider resource guide (MULTI-BCBS-CM-084583-25, June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Commercial or Medicaid', desc: 'Anthem runs both lines in Indiana and they follow different rulebooks. A Hoosier Healthwise, HIP, Hoosier Care Connect or PathWays card belongs in the Medicaid guide.' },
@@ -2512,6 +2898,10 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: 'Ind. Code § 25-8.5-3-6 — license required to practice applied behavior analysis', url: 'https://codes.findlaw.com/in/title-25-professions-and-occupations/in-code-sect-25-8-5-3-6/' },
       { title: 'Indiana PLA — Telehealth (IC 25-1-9.5) definitions', url: 'https://www.in.gov/pla/resources/telehealth-home' },
       { title: 'Indiana PLA — Behavior Analyst licensing information (fees incl. reciprocity application)', url: 'https://www.in.gov/pla/professions/behavior-analyst/behavior-analyst-licensing-information' },
+      { title: 'IC 27-8-5.7-5 — Notice of claim deficiencies', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-5/' },
+      { title: 'IC 27-8-5.7-6 — Payment of clean claims; interest', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-6/' },
+      { title: 'Anthem — The BlueCard Program Provider Manual (eff. 1/1/2022; current edition in the Indiana provider manual library)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_IN_00004.pdf' },
+      { title: 'Anthem Blue Cross and Blue Shield — 2026 Indiana Commercial Provider Manual (eff. 8/1/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_IN_00012.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -2645,6 +3035,10 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { q: 'Which criteria does Anthem use?', a: 'MCG B-806-T since June 1, 2024, replacing CG-BEH-02 and MCG W0153. MCG criteria are licensed and not published, so ask the reviewer for the specific criterion when a request is denied.' },
       { q: 'Do technicians need an Indiana license?', a: 'No. Indiana licenses behavior analysts (LBA/LABA), not technicians. A direct-contact technician is exempt while acting under the direction of an Indiana-licensed analyst, and Anthem requires the supervising BCBA or QHP in box 31 of the claim.' },
       { q: 'Can an out-of-state BCBA treat Anthem members in Indiana, including by telehealth?', a: 'Indiana requires an Indiana license (IC 25-8.5-3-6), and its telehealth law counts only Indiana-licensed behavior analysts as practitioners. Anthem’s ABA guide accepts BCBAs and providers “licensed or authorized by the state in which they practice”; confirm the license question with Anthem credentialing.' },
+      { q: 'How fast must Anthem pay a clean ABA claim in Indiana?', a: 'Indiana law (IC 27-8-5.7-6) requires an insurer to pay or deny a clean claim within 30 days of receipt if filed electronically and 45 days on paper; a deficiency not flagged within that window makes the claim clean. Self-funded employer plans are not bound by the statute.' },
+      { q: 'I am a provider contracted with another state\'s Blue plan. Can I treat an Anthem Indiana member under BlueCard?', a: 'Yes, if the member\'s product gives you network benefits through your local Blue contract. File the claim with your own local Blue plan, with the member\'s three-character prefix. Your local plan sends it to Anthem, which adjudicates it on the member\'s benefits and your local contract. Get ABA precertification from Anthem as the home plan, through Electronic Provider Access in your local Blue\'s portal or by calling 1-800-676-BLUE. Anthem\'s alpha-prefix router on anthem.com shows its general precertification rules. Precertification appeals go to Anthem, and claim questions go to your local Blue.' },
+      { q: 'What is Anthem’s timely filing limit for ABA claims in Indiana?', a: 'Anthem’s Indiana commercial provider manual sets no number of its own: the deadline is the one in your provider agreement, and rejected claims must be corrected and resubmitted inside that same window. Indiana’s prompt-pay statute then gives Anthem 30 days to pay or deny an electronic clean claim (45 on paper).' },
+      { q: 'Does Anthem require graphs for an ABA reauthorization?', a: 'Anthem’s ABA provider resource guide sets no graph or data-format requirement for reviews — ask the Anthem behavioral health reviewer what the next review needs. It does require dated, signed documentation entered within 30 days, and lists only CPT 97151–97158, 0362T and 0373T for ABA.' },
     ],
   },
 
@@ -2738,6 +3132,16 @@ export const indianaPayers: Record<string, PayerConfig> = {
           { title: 'Indiana PLA — Behavior Analyst licensing information (fees incl. reciprocity application)', url: 'https://www.in.gov/pla/professions/behavior-analyst/behavior-analyst-licensing-information' },
         ],
       },
+      {
+        h2: 'How fast must CareSource Marketplace pay a clean claim in Indiana?',
+        body: [
+          'Indiana’s prompt-pay statute for insurers, IC 27-8-5.7, requires an insurer to pay or deny each clean claim within thirty days after receipt if it was filed electronically and within forty-five days if filed on paper (§ 6). The insurer must tell the provider of any deficiency within the same thirty or forty-five days and describe how to fix it; if it does not, “the submitted claim” is established “as a clean claim” (§ 5). Interest on a late clean claim starts on day 31 (electronic) or day 46 (paper) and runs until payment. These statutes bind fully insured plans issued in the state; a self-funded employer plan (ERISA) is not subject to them and follows its plan documents and your contract.',
+        ],
+        cites: [
+          { title: 'IC 27-8-5.7-5 — Notice of claim deficiencies', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-5/' },
+          { title: 'IC 27-8-5.7-6 — Payment of clean claims; interest', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-6/' },
+        ],
+      },
     ],
     collect: [
       { title: 'Marketplace or Medicaid', desc: 'Decides which CareSource rulebook applies. A Hoosier Healthwise or HIP card belongs in the caresource-indiana Medicaid guide.' },
@@ -2759,6 +3163,8 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: 'Ind. Code § 25-8.5-3-6 — license required to practice applied behavior analysis', url: 'https://codes.findlaw.com/in/title-25-professions-and-occupations/in-code-sect-25-8-5-3-6/' },
       { title: 'Indiana PLA — Telehealth (IC 25-1-9.5) definitions', url: 'https://www.in.gov/pla/resources/telehealth-home' },
       { title: 'Indiana PLA — Behavior Analyst licensing information (fees incl. reciprocity application)', url: 'https://www.in.gov/pla/professions/behavior-analyst/behavior-analyst-licensing-information' },
+      { title: 'IC 27-8-5.7-5 — Notice of claim deficiencies', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-5/' },
+      { title: 'IC 27-8-5.7-6 — Payment of clean claims; interest', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-6/' },
     ],
     deliveryRules: {
       supervision: {
@@ -2875,6 +3281,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { q: 'How long does an authorization last?', a: 'Medical necessity is reviewed at baseline and every 6 months; the initial treatment plan generally runs 26 weeks and continuation requests are due every 6 months.' },
       { q: 'Will the family owe cost sharing?', a: 'Yes, usually. The EOC applies the deductible, copayment and coinsurance from the Schedule of Benefits, no less favorable than for physical illness. Check deductible status before quoting.' },
       { q: 'Can an out-of-state BCBA treat CareSource Marketplace members in Indiana, including by telehealth?', a: 'Indiana requires an Indiana license (IC 25-8.5-3-6), and its telehealth law counts only Indiana-licensed behavior analysts as practitioners. We have not verified this plan’s own credentialing rule for out-of-state BCBAs; ask provider relations.' },
+      { q: 'How fast must CareSource Marketplace pay a clean ABA claim in Indiana?', a: 'Indiana law (IC 27-8-5.7-6) requires an insurer to pay or deny a clean claim within 30 days of receipt if filed electronically and 45 days on paper; a deficiency not flagged within that window makes the claim clean. Self-funded employer plans are not bound by the statute.' },
     ],
   },
 };

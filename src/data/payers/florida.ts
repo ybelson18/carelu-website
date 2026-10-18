@@ -93,11 +93,15 @@ export const floridaPayers: Record<string, PayerConfig> = {
       },
       dailyLimits: {
         value:
-          'Florida caps by the week, not the day: “Florida Medicaid covers up to 40 hours per week of BA intervention services as indicated in the recipient’s prior-authorized behavior plan,” and EPSDT lets recipients under 21 exceed the policy and fee-schedule limits when medically necessary. Group adaptive behavior treatment — by protocol or with protocol modification — maxes at six participants. Units are 15 minutes on the CMS 8-minute rule: total minutes divided by 15, with a remainder of 8 minutes or more counting as one unit and a remainder under 8 not reimbursable. The fee schedule adds per-assessment ceilings (97151 to a maximum of 24 units per assessment; reassessment 97151-TS to 18) and caps 97156 telemedicine at two hours a week. No per-code per-day MUE ceiling is published in the coverage policy.',
+          'Florida caps by the week, not the day: “Florida Medicaid covers up to 40 hours per week of BA intervention services as indicated in the recipient’s prior-authorized behavior plan,” and EPSDT lets recipients under 21 exceed the policy and fee-schedule limits when medically necessary. Group adaptive behavior treatment, by protocol or with protocol modification, maxes out at six participants. Units are 15 minutes on the CMS 8-minute rule: total minutes divided by 15, with a remainder of 8 minutes or more counting as one unit and a remainder under 8 not reimbursable. The 2026 fee schedule adds per-assessment ceilings: 97151 up to 24 units per behavior assessment, 97152 up to 8, 0362T up to 16 for an initial assessment or reassessment, and 97151-TS reassessment up to 18. It caps 97156-GT telemedicine at two hours a week. No per-code per-day MUE ceiling is published in the coverage policy or the fee schedule. At the federal level, CMS requires the Medicaid NCCI edits on fee-for-service claims, applied “separately to each line of a claim” (the public practitioner MUE table effective 10/1/2026 allows 97153 32 units, 97151 32, 97152 16, 97154 18, 97155 24, 97156–97158 16 each, 0362T 16 and 0373T 32), and calls them “desirable but optional” for managed care plans.',
         status: 'verified',
-        cites: [{ title: 'Florida Medicaid Behavior Analysis Services Coverage Policy (Dec 2024, Rule 59G-4.125)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
-        verifyVia:
-          'Which MUE table (CMS Medicaid NCCI vs. Practitioner) a plan’s claim editor applies, and the current per-assessment unit caps — AHCA’s fee-schedule PDFs block automated retrieval, so confirm the live schedule with AHCA or the MMA plan before modelling units.',
+        cites: [
+          { title: 'Florida Medicaid Behavior Analysis Services Coverage Policy (Dec 2024, Rule 59G-4.125)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' },
+          { title: 'AHCA — Behavior Analysis Fee Schedule 2026', url: 'https://ahca.myflorida.com/content/download/28096/file/2026%20BA%20Fee%20Schedule.pdf' },
+          { title: 'CMS — NCCI for Medicaid (methodologies required for Medicaid fee-for-service; optional for MCOs)', url: 'https://www.cms.gov/medicare/coding-billing/ncci-medicaid' },
+          { title: 'CMS — Medicaid NCCI Edit Files (practitioner MUE table effective 10/1/2026)', url: 'https://www.cms.gov/medicare/coding-billing/ncci-medicaid/medicaid-ncci-edit-files' },
+        ],
+        verifyVia: 'Which MUE table (CMS Medicaid NCCI vs. Practitioner) a plan’s claim editor applies — ask the MMA plan before modelling daily units.',
       },
       noteSignature: {
         value:
@@ -185,10 +189,10 @@ export const floridaPayers: Record<string, PayerConfig> = {
       {
         h2: 'A legislative ABA Task Force is reviewing the program',
         body: [
-          'Section 40 of House Bill 5003-E (2026E Legislature) created an ABA Task Force inside AHCA, chaired by AHCA Secretary Shevaun L. Harris, to evaluate how Behavior Analysis is delivered under Florida Medicaid so that "the program stays financially sustainable and predictable" without disrupting current recipients\' access. The ten-member task force — pediatricians, behavior analysts, administrators, and family advocates, with one family seat still pending gubernatorial appointment — is examining clinical care models, care transitions, quality metrics, service-authorization limits, potential caps on service duration, and provider enrollment/billing standards over five meetings (the first two held August 12 and August 31, 2026; a third and fourth scheduled September 28 and October 5, 2026). Recommendations go to the Governor, the Senate President, and the House Speaker by December 31, 2026, and the task force itself sunsets July 1, 2027. Nothing in current coverage, rates, or authorization rules has changed yet — but hour caps, authorization limits, and enrollment standards are explicitly on the table for 2027. Revisit this guide once the December 2026 report lands.',
+          'Section 40 of House Bill 5003-E (2026E Legislature) created an ABA Task Force inside AHCA, chaired by AHCA Secretary Shevaun L. Harris, to evaluate how Behavior Analysis is delivered under Florida Medicaid so that "the program stays financially sustainable and predictable" without disrupting current recipients\' access. The ten-member task force — pediatricians, behavior analysts, administrators, and family advocates, with one family seat still pending gubernatorial appointment — is examining clinical care models, care transitions, quality metrics, service-authorization limits, potential caps on service duration, and provider enrollment/billing standards over five meetings (four held — August 12, August 31, September 28 and October 5, 2026 — with the fifth listed as “TBD” on AHCA’s page). Recommendations go to the Governor, the Senate President, and the House Speaker by December 31, 2026, and the task force itself sunsets July 1, 2027. Nothing in current coverage, rates, or authorization rules has changed yet — but hour caps, authorization limits, and enrollment standards are explicitly on the table for 2027. Revisit this guide once the December 2026 report lands.',
         ],
         cites: [
-          { title: 'AHCA — ABA Task Force (accessed 10/1/2026)', url: 'https://ahca.myflorida.com/aba-task-force.html' },
+          { title: 'AHCA — ABA Task Force (accessed 10/7/2026)', url: 'https://ahca.myflorida.com/aba-task-force.html' },
         ],
       },
       {
@@ -227,6 +231,28 @@ export const floridaPayers: Record<string, PayerConfig> = {
           'Fee-for-service requests through Acentra follow its request types: an initial authorization (“admission review”) at least 5 business days before services start, and reauthorization (“continued stay”) 10 to 30 business days before the current approval ends; Acentra says “requests for 97151TS from the current provider should be entered as a continued stay.” Parent withdrawal of consent is one of the policy\u2019s listed discharge grounds. MMA members follow their plan\u2019s process for closing one authorization and opening another, so ask the plan.',
         ],
       },
+      {
+        h2: 'Claims: the statutory filing and payment clock for the plans',
+        body: [
+          'Florida writes the claim clock for Medicaid health plans into statute: “Managed care plans shall comply with ss. 641.315, 641.3155, and 641.513” (§ 409.967(2)(j)). Under § 641.3155 a provider must send the claim to the plan “within 6 months after” the date of service (and to a secondary payer within 90 days of the primary’s final determination). For an electronic claim the plan must acknowledge receipt within 24 hours of the next business day and, within 20 days, pay it or notify the provider that it is denied or contested, with an itemized list of what is missing (the provider then has 35 days to supply it). Every claim must be paid or denied within 90 days of receipt, and failure to do so within 120 days “creates an uncontestable obligation to pay the claim.” Paper claims run 40, 120 and 140 days. Late payments bear 12% simple interest. Since the February 2025 carve-in Behavior Analysis is billed to the member’s MMA plan, so this is the clock that governs most Florida Medicaid ABA claims.',
+        ],
+        cites: [
+          { title: 'Fla. Stat. § 409.967 (2026) — Managed care plan accountability (prompt payment, (2)(j))', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.967' },
+          { title: 'Fla. Stat. § 641.3155 (2026) — Prompt payment of claims', url: 'https://www.flsenate.gov/Laws/Statutes/2026/641.3155' },
+        ],
+      },
+      {
+        h2: 'What intake needs on file: the Florida Medicaid BA document list',
+        body: [
+          'The coverage policy sets the list, and every Florida MMA plan applies it underneath its own forms. The referral comes first. "The recipient must be referred by an independent physician or practitioner qualified to assess and diagnose disorders related to functional impairment," and "the referral must include a physician\'s order for behavior analysis services and a comprehensive diagnostic evaluation (CDE)." The CDE must be "led by a licensed practitioner" and "must include assessment findings and treatment recommendations." The "original referral documentation must be maintained in the recipient\'s medical record." No autism diagnosis is required, and the policy sets no expiry on the CDE.',
+          'Before treatment starts, the Lead Analyst runs a behavior assessment. It includes the Vineland-3 Comprehensive Parent Interview Form (plus the Maladaptive Behavior Domain from age 3) and the BASC-3 PRQ (ages 2 through 18). "The complete scoring report, including outcome measure scores, must be submitted with service prior authorization requests." The assessment and behavior plan must be "signed by the Lead Analyst and the recipient\'s parent or guardian." Each must include the reason for referral; medical, developmental and family history; the clinical interview; a review of recent reports; the assessment results; measurable goals with baselines and mastery criteria; caregiver-training goals; units requested per code with their medical necessity; the supervision plan naming the supervisors; and care-coordination, transition, crisis and discharge plans. School-based requests add the IEP. Without one, submit a justification and an IEP timeline, or a 504 plan, or the school\'s name with an explanation.',
+          'Timing matters. Fee-for-service requests go to Acentra (eQSuite) with "documentation substantiating the need for services" uploaded or faxed on its bar-coded cover sheets. A request missing documents is pended, and if they do not arrive "within two business day[s] the review request is Technically Denied." Assessment codes (97151, 97152, 97151-TS) go on a separate request from treatment codes. Reauthorization needs a reassessment and updated plan at least every six months, data tables and graphs for every target behavior, and data on parent or guardian participation. The core instruments are repeated every 12 months.',
+        ],
+        cites: [
+          { title: 'Florida Medicaid Behavior Analysis Services Coverage Policy (Dec 2024, Rule 59G-4.125)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' },
+          { title: 'Acentra Health — Behavior Analysis Provider Manual 2026', url: 'https://fl.acentra.com/wp-content/uploads/sites/14/2026/05/Behavior-Analysis-Provider-Manual-2026.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'MMA plan (or FFS)', desc: 'One of the nine plans, or unenrolled/FFS via Acentra — it decides the entire PA pathway.' },
@@ -236,6 +262,8 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { title: 'Caregiver participation commitment', desc: 'Reauthorizations must report parent/guardian participation data — set expectations at intake.' },
     ],
     sources: [
+      { title: 'CMS — Medicaid NCCI Edit Files (practitioner MUE table effective 10/1/2026)', url: 'https://www.cms.gov/medicare/coding-billing/ncci-medicaid/medicaid-ncci-edit-files' },
+      { title: 'CMS — NCCI for Medicaid (methodologies required for Medicaid fee-for-service; optional for MCOs)', url: 'https://www.cms.gov/medicare/coding-billing/ncci-medicaid' },
       { title: 'Florida Medicaid Behavior Analysis Services Coverage Policy (Dec 2024, Rule 59G-4.125)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' },
       { title: 'Rule 59G-4.125, F.A.C. (effective 2/10/2025)', url: 'https://www.flrules.org/gateway/ruleno.asp?id=59G-4.125' },
       { title: 'Acentra Health — Behavior Analysis Provider Manual 2026', url: 'https://fl.acentra.com/wp-content/uploads/sites/14/2026/05/Behavior-Analysis-Provider-Manual-2026.pdf' },
@@ -243,7 +271,7 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { title: 'Acuity News — Florida Medicaid ABA in 2026 (carve-in & rates)', url: 'https://acuity.news/regulation/florida-medicaid-aba-in-2026-managed-care-carve-in-a-refreshed-coverage-policy-and-where-ahca-rates-sit-across-the-southeast/' },
       { title: 'BellMedEx — Florida Medicaid ABA fee schedule rates 2026', url: 'https://bellmedex.com/florida-medicaid-applied-behavior-analysis-fee-schedule-rates/' },
       { title: 'Behavior Analysis Fee Schedule eff. 8/1/2022 (archived AHCA primary)', url: 'https://web.archive.org/web/20241006051746/https://fl.acentra.com/wp-content/uploads/sites/14/2024/03/BA_Services_2022_Fee_Schedule.pdf' },
-      { title: 'AHCA — ABA Task Force (accessed 10/1/2026)', url: 'https://ahca.myflorida.com/aba-task-force.html' },
+      { title: 'AHCA — ABA Task Force (accessed 10/7/2026)', url: 'https://ahca.myflorida.com/aba-task-force.html' },
       { title: 'Florida Statutes s. 393.17 (behavior analyst certification)', url: 'https://www.flsenate.gov/Laws/Statutes/2025/393.17' },
       { title: 'BACB — Florida Certified Behavior Analysts (FL-CBAs)', url: 'https://www.bacb.com/flcba/' },
       { title: 'AHCA — Enrolling as a Florida Medicaid Behavior Analysis Provider (webinar deck + FAQ)', url: 'https://ahca.myflorida.com/content/download/11448/file/Enrolling_as_a_Florida_Medicaid_Behavior_Analysis_Provider.pdf' },
@@ -254,6 +282,8 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { title: 'CASP — ABA Practice Guidelines for the Treatment of ASD (3.0)', url: 'https://assets-002.noviams.com/novi-file-uploads/casp/pdfs-and-documents/ASD_Guidelines/ABA_Practice_Guidelines_3_0-70a721a1.pdf' },
       { title: 'BACB — RBT Handbook', url: 'https://www.bacb.com/wp-content/uploads/2022/01/RBTHandbook.pdf' },
       { title: 'Fla. Stat. § 409.975 (2026) — Managed care plan accountability (provider networks)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.975' },
+      { title: 'Fla. Stat. § 409.967 (2026) — Managed care plan accountability (prompt payment, (2)(j))', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.967' },
+      { title: 'Fla. Stat. § 641.3155 (2026) — Prompt payment of claims', url: 'https://www.flsenate.gov/Laws/Statutes/2026/641.3155' },
     ],
     faq: [
       { q: 'Does Florida Medicaid require an autism diagnosis for ABA?', a: 'No. Eligibility is functional — behavior that impairs a major life activity, for recipients under 21. The gate is a referral from an independent physician or qualifying practitioner, including a physician\'s order for BA services and a Comprehensive Diagnostic Evaluation. Claims carry the most specific supporting diagnosis, but no F84.x code is required.' },
@@ -262,6 +292,9 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { q: 'What does Florida Medicaid pay for ABA?', a: 'Per the January 2025 schedule: 97153 direct treatment $12.26 per 15-minute unit, 97151 assessment $19.05, 97155 $19.17 (Lead Analyst), 97156 family training $19.05 — among the lowest ABA rates in the Southeast. MCO contracts use the state schedule as the baseline.' },
       { q: 'Is the Florida Medicaid ABA network open?', a: 'Each MMA plan decides. Florida law lets plans limit their networks “based on credentials, quality indicators, and price” (s. 409.975(1), F.S.), and some plans have paused adding BA practitioners in some regions (Sunshine Health since October 2025, outside Regions A and B, lifted in E and F from March 2026). Ask each plan\u2019s provider relations team.' },
       { q: 'What happens if a Florida Medicaid family changes BA providers?', a: 'AHCA\u2019s policy says “a full assessment may be requested if there is a change in provider,” so the new agency usually requests its own assessment and then a new treatment authorization. An RBT becoming a BCaBA is not grounds for a reassessment. Plan members follow the plan\u2019s process.' },
+      { q: 'How fast must a Florida Medicaid plan pay an ABA claim?', a: 'Within 20 days of an electronic claim the plan must pay it or say it is denied or contested, and every claim must be paid or denied within 90 days (120 for paper); late payments carry 12% interest. Section 409.967(2)(j) makes the HMO prompt-pay statute, § 641.3155, binding on every MMA plan.' },
+      { q: 'What documents does Florida Medicaid require at intake for ABA (behavior analysis)?', a: 'Start with a referral from an independent physician or qualifying practitioner: a PCP in family practice, internal medicine or pediatrics; a developmental or neurodevelopmental pediatrician, pediatric neurologist or psychiatrist; or a child psychologist. It must include a physician\'s order for BA services and a Comprehensive Diagnostic Evaluation. No autism diagnosis is required, and the CDE has no expiry. The first authorization adds the Lead Analyst\'s behavior assessment with full Vineland-3 and BASC-3 PRQ scoring reports, a behavior plan signed by the Lead Analyst and parent covering up to six months, units per code with their justification, and the supervision plan. Add the IEP or 504 plan if services are in school. Your MMA plan may add its own form on top.' },
+      { q: 'How recent does the diagnostic evaluation need to be for Florida Medicaid ABA?', a: 'The state policy sets no expiry on the Comprehensive Diagnostic Evaluation and requires no autism diagnosis. What is clocked is the BA assessment: reassessment and an updated behavior plan at least every six months, with the Vineland-3 and BASC-3 PRQ repeated every 12 months. MMA plans can add their own freshness rules on their forms, so check the plan\'s guide.' },
     ],
   },
 
@@ -361,9 +394,9 @@ export const floridaPayers: Record<string, PayerConfig> = {
       },
       dailyLimits: {
         value:
-          'By the week. Sunshine prints “Behavior Analysis services — 40 hour/week maximum” across the top of its BA PA request form, and its QRG restates that “Florida Medicaid Behavior Analysis service policy identifies a 40-hour per week limit for behavior analysis services.” The form asks for total units requested per code plus the schedule of requested BA services, so intensity is reviewed code by code against that weekly ceiling. No per-code per-day unit ceiling is published.',
+          'By the week. Sunshine prints “Behavior Analysis services — 40 hour/week maximum” across the top of its BA PA request form, and its QRG restates that “Florida Medicaid Behavior Analysis service policy identifies a 40-hour per week limit for behavior analysis services.” The form asks for total units requested per code plus the schedule of requested BA services, so intensity is reviewed code by code against that weekly ceiling. No per-code per-day unit ceiling is published, but claims run through code-editing software built on the CMS NCCI edits, which “include column 1/column 2, medically unlikely edits (MUE)” (2026 provider manual); the public Medicaid MUE for 97153 is 32 units per claim line.',
         status: 'verified',
-        cites: [{ title: 'Sunshine Health — BA PA Request Form (fax 1-844-208-9113)', url: 'https://www.sunshinehealth.com/content/dam/centene/Sunshine/pdfs/SH-PRO-BH-BA-PA-Request.pdf' }, { title: 'Sunshine Health — BA Provider Quick Reference Guide', url: 'https://www.sunshinehealth.com/providers/Billing-manual/ba.html' }],
+        cites: [{ title: 'Sunshine Health — BA PA Request Form (fax 1-844-208-9113)', url: 'https://www.sunshinehealth.com/content/dam/centene/Sunshine/pdfs/SH-PRO-BH-BA-PA-Request.pdf' }, { title: 'Sunshine Health — BA Provider Quick Reference Guide', url: 'https://www.sunshinehealth.com/providers/Billing-manual/ba.html' }, { title: 'Sunshine Health — Provider Manual (SH_11287, 2026)', url: 'https://www.sunshinehealth.com/content/dam/centene/Sunshine/pdfs/Provider%20Manual.pdf' }, { title: 'CMS — Medicaid NCCI Edit Files (practitioner MUE table effective 10/1/2026)', url: 'https://www.cms.gov/medicare/coding-billing/ncci-medicaid/medicaid-ncci-edit-files' }],
         verifyVia:
           'Sunshine UM (1-844-477-8313) for any per-day unit edit its claim system applies, and the current Florida BA fee schedule for per-assessment unit caps.',
       },
@@ -435,15 +468,28 @@ export const floridaPayers: Record<string, PayerConfig> = {
       {
         h2: 'Ambetter is NOT Florida Medicaid — the marketplace distinction',
         body: [
-          'Sunshine Health\'s own newsroom describes Centene\'s Florida footprint as spanning several separate lines of business: "Sunshine Health offers government-sponsored managed care through Medicaid, Long Term Care, the Health Insurance Marketplace (Ambetter), and Medicare (Allwell)." Ambetter from Sunshine Health is the ACA Health Insurance Marketplace (exchange) brand — a completely different product from the Sunshine Health Medicaid MMA plan covered by the rest of this guide, underwritten by a separate entity (Centene Venture Company Florida / Sunshine State Health Plan, Inc. as a Qualified Health Plan issuer). Because roughly a quarter of Carelu\'s Florida intake mentions "Sunshine" or "Ambetter," and families often use the names interchangeably, intake should always ask which card the family actually holds rather than assuming Medicaid rules apply.',
+          'Sunshine Health\'s own pages keep the two products apart. Its newsroom presents Ambetter as the marketplace product: "Open enrollment is underway for health insurance coverage through the Health Insurance Marketplace, and this year, Ambetter from Sunshine Health is providing a simpler, easier way for new and renewing consumers to shop for and enroll in health insurance" (release dated 12/5/2019). Its BA quick reference guide defines "Ambetter Health/Marketplace Premier Plan" separately from the Medicaid MMA, Child Welfare, SMI and HIV/AIDS plans, and gives Ambetter its own Provider Services line, 1-877-687-1169. Ambetter from Sunshine Health is the ACA Health Insurance Marketplace (exchange) brand — a completely different product from the Sunshine Health Medicaid MMA plan covered by the rest of this guide, underwritten by a separate entity (Centene Venture Company Florida / Sunshine State Health Plan, Inc. as a Qualified Health Plan issuer). Because roughly a quarter of Carelu\'s Florida intake mentions "Sunshine" or "Ambetter," and families often use the names interchangeably, intake should always ask which card the family actually holds rather than assuming Medicaid rules apply.',
           'The distinction isn\'t just branding — it changes which coverage rules govern. Florida\'s autism mandate (the Steven A. Geller Autism Coverage Act, § 627.6686, Fla. Stat.) explicitly excludes individual-market plans by its own text: the statute\'s definition of "health insurance plan" states it "does not include any health insurance plan offered in the individual market, any health insurance plan that is individually underwritten, or any health insurance plan provided to a small employer." Florida\'s own Office of Insurance Regulation confirms the practical effect: the mandate "appl[ies] to Florida regulated, fully-insured large group health insurance and Health Maintenance Organization plans," while "the regulation of coverage and benefits for ASD under individual and small group health plans" falls instead under the federal Mental Health Parity and Addiction Equity Act (MHPAEA) — and OIR notes MHPAEA "does not explicitly mandate applied behavior analysis (ABA) therapy as outlined in Florida law for large group plans." Ambetter marketplace plans are individual-market fully-insured products, so they sit outside the Geller Act entirely — a materially different, and more fragile, legal basis for ABA coverage than Florida Medicaid\'s AHCA-mandated Behavior Analysis benefit. Ambetter\'s own ABA coverage instead rests on ACA Essential Health Benefits/plan design and Centene\'s corporate-wide medical-necessity clinical policy (CP.BH.104, "Applied Behavior Analysis"), which explicitly carves out that Medicaid state rules take precedence over its own general criteria wherever the two conflict — confirming Ambetter is not simply a rebrand of the Medicaid benefit. We could not verify whether Ambetter\'s prior-authorization contacts are genuinely separate from Sunshine Health Medicaid\'s (the same portal, phone, and BH fax numbers appear on Ambetter\'s own published provider pages), so route by the family\'s actual card and plan documents rather than assuming a distinct process.',
         ],
         cites: [
           { title: 'Sunshine Health newsroom — "Ambetter from Sunshine Health makes it easier..."', url: 'https://www.sunshinehealth.com/content/sunshine-new/en_us/newsroom/ambetter-from-sunshine-health-makes-it-easier-than-ever-to-get-health-insurance-coverage.html' },
+          { title: 'Sunshine Health — BA Provider Quick Reference Guide', url: 'https://www.sunshinehealth.com/providers/Billing-manual/ba.html' },
           { title: 'Ambetter Health — Florida health plans page', url: 'https://www.ambetterhealth.com/en/fl/health-plans/' },
           { title: '§ 627.6686, Fla. Stat. (2024) — Steven A. Geller Autism Coverage Act', url: 'https://www.flsenate.gov/Laws/statutes/2024/627.6686' },
           { title: 'Florida CFO/Office of Insurance Regulation — Autism Spectrum Disorder coverage', url: 'https://www.myfloridacfo.com/division/consumers/consumerprotections/autism-spectrum-disorder' },
           { title: 'Centene Clinical Policy CP.BH.104 — Applied Behavior Analysis', url: 'https://www.ambetterhealth.com/content/dam/centene/Sunshine/Ambetter/policies/clinical-policies/CP.BH.104.pdf' },
+        ],
+      },
+      {
+        h2: 'How fast must Sunshine Health pay an ABA claim?',
+        body: [
+          'Florida writes the claim clock for Medicaid health plans, Sunshine Health included into statute: “Managed care plans shall comply with ss. 641.315, 641.3155, and 641.513” (§ 409.967(2)(j)). Under § 641.3155 a provider must send the claim to the plan “within 6 months after” the date of service (and to a secondary payer within 90 days of the primary’s final determination). For an electronic claim the plan must acknowledge receipt within 24 hours of the next business day and, within 20 days, pay it or notify the provider that it is denied or contested, with an itemized list of what is missing (the provider then has 35 days to supply it). Every claim must be paid or denied within 90 days of receipt, and failure to do so within 120 days “creates an uncontestable obligation to pay the claim.” Paper claims run 40, 120 and 140 days. Late payments bear 12% simple interest.',
+          'Sunshine’s own limits are tighter than the statute. Its 2026 provider manual: participating providers must file the initial claim within 180 days of the date of service (non-participating 365); corrected claims and reconsiderations or claim disputes “must be received within 90 days from the date of the original explanation of payment or denial” (180 days for non-participating providers); and a coordination-of-benefits claim is due within 90 days of the primary payer’s explanation of payment. Primary and secondary coverage must go on separate claims. Clean claims “are finalized as paid or denied within 20 calendar days” for EDI submissions and 40 for paper; an unclean claim is pended with a request for information within 15 days and closed by day 35. Sunshine publishes no weekly submission cutoff or check-run day; payments go by EFT/ERA through its vendors.',
+        ],
+        cites: [
+          { title: 'Sunshine Health — Provider Manual (SH_11287, 2026)', url: 'https://www.sunshinehealth.com/content/dam/centene/Sunshine/pdfs/Provider%20Manual.pdf' },
+          { title: 'Fla. Stat. § 409.967 (2026) — Managed care plan accountability (prompt payment, (2)(j))', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.967' },
+          { title: 'Fla. Stat. § 641.3155 (2026) — Prompt payment of claims', url: 'https://www.flsenate.gov/Laws/Statutes/2026/641.3155' },
         ],
       },
     ],
@@ -457,6 +503,8 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { title: 'Sunshine Medicaid vs. Ambetter marketplace', desc: 'Ask which card the family holds — Ambetter is Centene\'s ACA marketplace brand, not Florida Medicaid, and follows different coverage rules (ACA/MHPAEA + CP.BH.104, not the state autism mandate or the AHCA BA policy).' },
     ],
     sources: [
+      { title: 'CMS — Medicaid NCCI Edit Files (practitioner MUE table effective 10/1/2026)', url: 'https://www.cms.gov/medicare/coding-billing/ncci-medicaid/medicaid-ncci-edit-files' },
+      { title: 'Sunshine Health — Provider Manual (SH_11287, 2026)', url: 'https://www.sunshinehealth.com/content/dam/centene/Sunshine/pdfs/Provider%20Manual.pdf' },
       { title: 'Sunshine Health — BA Provider Quick Reference Guide', url: 'https://www.sunshinehealth.com/providers/Billing-manual/ba.html' },
       { title: 'Sunshine Health — BA PA Request Form (fax 1-844-208-9113)', url: 'https://www.sunshinehealth.com/content/dam/centene/Sunshine/pdfs/SH-PRO-BH-BA-PA-Request.pdf' },
       { title: 'Sunshine Health — Behavior Analysis (BA) Provider Changes Require New Authorization (7/15/2026)', url: 'https://www.sunshinehealth.com/newsroom/ba-provider-change-guidance.html' },
@@ -472,6 +520,8 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { title: '§ 627.6686, Fla. Stat. (2024) — Steven A. Geller Autism Coverage Act', url: 'https://www.flsenate.gov/Laws/statutes/2024/627.6686' },
       { title: 'Florida CFO/Office of Insurance Regulation — Autism Spectrum Disorder coverage', url: 'https://www.myfloridacfo.com/division/consumers/consumerprotections/autism-spectrum-disorder' },
       { title: 'Centene Clinical Policy CP.BH.104 — Applied Behavior Analysis', url: 'https://www.ambetterhealth.com/content/dam/centene/Sunshine/Ambetter/policies/clinical-policies/CP.BH.104.pdf' },
+      { title: 'Fla. Stat. § 409.967 (2026) — Managed care plan accountability (prompt payment, (2)(j))', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.967' },
+      { title: 'Fla. Stat. § 641.3155 (2026) — Prompt payment of claims', url: 'https://www.flsenate.gov/Laws/Statutes/2026/641.3155' },
     ],
     faq: [
       { q: 'Does Sunshine Health cover ABA in Florida?', a: 'Yes — since the February 1, 2025 carve-in, Sunshine administers the Florida Medicaid Behavior Analysis benefit for its MMA members on the AHCA clinical criteria: no autism diagnosis required, physician referral + order + CDE, PA on all BA services.' },
@@ -480,6 +530,8 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { q: 'What is the Sunshine Health PCP Acknowledgement Form?', a: 'Effective August 1, 2026, Sunshine requires a "PCP Acknowledgement and Care Coordination Form" with every new BA authorization request — Sunshine states authorizations submitted on or after that date "will not be approved without this form." The PCP confirms awareness of the BA services and care-coordination considerations but does not set BA hours or approve the treatment plan. The form updates annually, but the original signed copy must be resubmitted with every PA request, on top of the existing CDE/Vineland-3/BASC-3 documentation.' },
       { q: 'Is Ambetter the same as Sunshine Health Medicaid?', a: 'No — Ambetter from Sunshine Health is Centene\'s ACA Marketplace (exchange) brand, a fully-insured individual-market product. It is NOT Florida Medicaid, and Florida\'s autism mandate (§ 627.6686) explicitly excludes individual-market plans, so Ambetter\'s ABA coverage rests on ACA/MHPAEA rules and Centene\'s own clinical policy rather than the state mandate or the AHCA Medicaid BA policy. Always confirm which card a family holds.' },
       { q: 'What happens when a Sunshine Health member switches BA providers?', a: 'AHCA\u2019s BA coverage policy, which every MMA plan must follow, says “a full assessment may be requested if there is a change in provider,” and a change in a practitioner\u2019s credential (an RBT becoming a BCaBA) is not grounds for a reassessment. Expect the new agency to request its own assessment and treatment authorization; ask Sunshine Health how it closes the previous provider\u2019s authorization.' },
+      { q: 'What is the payment turnaround for Sunshine Health ABA claims?', a: 'Florida law binds Sunshine Health as an MMA plan (§ 409.967(2)(j) → § 641.3155): pay or send a denial/contest notice within 20 days of an electronic claim (40 for paper), pay or deny within 90 days (120 for paper), and 12% interest on late payments. Sunshine’s own manual is faster and stricter: clean EDI claims are paid or denied within 20 days, and participating providers must file within 180 days of the date of service, send corrected claims within 90 days of the EOP, and file COB claims within 90 days of the primary payer’s EOP.' },
+      { q: 'What documents does Sunshine Health need at intake for ABA?', a: 'The state packet applies: a referral from an independent physician or qualifying practitioner, a physician\'s order for BA services, and the Comprehensive Diagnostic Evaluation, filed with the initial assessment request. Since August 1, 2026, every new BA authorization also needs the original signed PCP Acknowledgement and Care Coordination Form. Sunshine says requests without it "will not be approved." Each request carries the complete Vineland-3 and BASC-3 PRQ scoring reports, and the PA form asks for the most recent and previous scores of each. A family switching providers needs a new initial request with current instruments plus a Change of Provider Form.' },
     ],
   },
 
@@ -606,9 +658,11 @@ export const floridaPayers: Record<string, PayerConfig> = {
       },
       dailyLimits: {
         value:
-          'By the week. “Services are authorized based on a weekly hour total. Providers must submit claims that do not exceed the number of hours authorized for that week.” Molina’s CMS BA training announces a new weekly unit structure effective November 1, 2026: approved units are set per week rather than per authorization total, and hours above the weekly limit are denied or adjusted; claims already submitted are unaffected. Units follow the 8-minute rule. The state ceiling of up to 40 hours per week, with EPSDT above it, sits underneath. No per-day unit table is published.',
+          'By the week. “Services are authorized based on a weekly hour total. Providers must submit claims that do not exceed the number of hours authorized for that week.” Molina’s CMS BA training announces a new weekly unit structure effective November 1, 2026: approved units are set per week rather than per authorization total, and hours above the weekly limit are denied or adjusted; claims already submitted are unaffected. Units follow the 8-minute rule. The state ceiling of up to 40 hours per week, with EPSDT above it, sits underneath. No per-day unit table is published. At the claim level Molina’s Florida manual, which covers CMS Plan members, applies NCCI edits including “Medically Unlikely Edits (MUE)” and the stricter of a state benefit limit or the federal MUE; the public Medicaid MUE for 97153 is 32 units per claim line.',
         status: 'verified',
         cites: [
+          { title: 'Molina Healthcare of Florida — Medicaid Provider Manual for Molina Medicaid and CMS Plan members (9/9/2026)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/FL/Manuals/09-09-26-MHFL-Molina-Provider-Handbook-CMS-and-SMMC-508.pdf' },
+          { title: 'CMS — Medicaid NCCI Edit Files (practitioner MUE table effective 10/1/2026)', url: 'https://www.cms.gov/medicare/coding-billing/ncci-medicaid/medicaid-ncci-edit-files' },
           { title: 'Molina Healthcare of Florida — Behavioral Analysis Services: Authorization & Documentation Guide (Comprehensive BA QRG, effective July 2026)', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/fl/medicaid/08-07-26-MHFL-Comprehensive-BA-QRG-508.ashx' },
           { title: 'CMS Plan by Molina Healthcare — Provider Orientation: Behavior Analysis Services (August 2026)', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/fl/medicaid/09-03-26-MHFL-CMS-Plan-BA-Training-508.pdf' },
           { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' },
@@ -686,6 +740,18 @@ export const floridaPayers: Record<string, PayerConfig> = {
           { title: 'AHCA SMMC Model Health Plan Contract — Exhibit II-C, Children’s Medical Services Health Plan (July 2026 update), §V.6', url: 'https://ahca.myflorida.com/file/medicaid/Health_Exhibit%20II-C%20CMSPlan_July%202026.pdf' },
         ],
       },
+      {
+        h2: 'How fast must Children’s Medical Services Health Plan pay an ABA claim?',
+        body: [
+          'Florida writes the claim clock for Medicaid health plans, Children’s Medical Services Health Plan included into statute: “Managed care plans shall comply with ss. 641.315, 641.3155, and 641.513” (§ 409.967(2)(j)). Under § 641.3155 a provider must send the claim to the plan “within 6 months after” the date of service (and to a secondary payer within 90 days of the primary’s final determination). For an electronic claim the plan must acknowledge receipt within 24 hours of the next business day and, within 20 days, pay it or notify the provider that it is denied or contested, with an itemized list of what is missing (the provider then has 35 days to supply it). Every claim must be paid or denied within 90 days of receipt, and failure to do so within 120 days “creates an uncontestable obligation to pay the claim.” Paper claims run 40, 120 and 140 days. Late payments bear 12% simple interest.',
+          'Since October 1, 2026 the plan is run by Molina, and Molina’s Florida Medicaid manual (9/9/2026) covers it: “Any reference to Members means Molina Healthcare Medicaid and CMS Plan Members.” Claims “must be submitted by the Provider to Molina within six (6) months after … the date of service for outpatient services”; when Molina is not primary, “within ninety (90) days after final determination by the primary payer”; and “Corrected Claims must be sent within six months of Date of Service or most recent adjudicated date of the Claim.” No weekly cutoff or check-run day is published.',
+        ],
+        cites: [
+          { title: 'Molina Healthcare of Florida — Medicaid Provider Manual for Molina Medicaid and CMS Plan members (9/9/2026)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/FL/Manuals/09-09-26-MHFL-Molina-Provider-Handbook-CMS-and-SMMC-508.pdf' },
+          { title: 'Fla. Stat. § 409.967 (2026) — Managed care plan accountability (prompt payment, (2)(j))', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.967' },
+          { title: 'Fla. Stat. § 641.3155 (2026) — Prompt payment of claims', url: 'https://www.flsenate.gov/Laws/Statutes/2026/641.3155' },
+        ],
+      },
     ],
     collect: [
       { title: 'Sunshine authorization on file', desc: 'Copy the current Sunshine authorization number and end date — Molina keeps the number, and it decides whether you need a continuation request (ending 9/30–11/30) or a full new request.' },
@@ -695,6 +761,8 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { title: 'Molina contract status', desc: 'Sunshine contracts do not transfer; after the continuity window, non-contracted providers need a Molina agreement.' },
     ],
     sources: [
+      { title: 'CMS — Medicaid NCCI Edit Files (practitioner MUE table effective 10/1/2026)', url: 'https://www.cms.gov/medicare/coding-billing/ncci-medicaid/medicaid-ncci-edit-files' },
+      { title: 'Molina Healthcare of Florida — Medicaid Provider Manual for Molina Medicaid and CMS Plan members (9/9/2026)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/FL/Manuals/09-09-26-MHFL-Molina-Provider-Handbook-CMS-and-SMMC-508.pdf' },
       { title: 'AHCA — CMS Plan Transition', url: 'https://ahca.myflorida.com/medicaid/statewide-medicaid-managed-care/2025-2030-smmc-plans/cms-plan-transition.html' },
       { title: 'Molina — Children’s Medical Services (CMS) Plan Transition FAQs (9/25/2026)', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/fl/medicaid/09-25-26-MHFL-CMS-Transition-FAQs-508.ashx' },
       { title: 'Molina — Authorization During CMS Plan Continuity of Care Period (updated 9/21/2026)', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/fl/medicaid/09-16-26-MHFL-CMS-Plan-Authorization-During-COC-Provider-Guidance-508.pdf' },
@@ -703,14 +771,19 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { title: 'AHCA SMMC Model Health Plan Contract — Exhibit II-C, Children’s Medical Services Health Plan (July 2026 update)', url: 'https://ahca.myflorida.com/file/medicaid/Health_Exhibit%20II-C%20CMSPlan_July%202026.pdf' },
       { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' },
       { title: 'Fla. Stat. § 409.975 (2026) — Managed care plan accountability (provider networks)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.975' },
+      { title: 'Fla. Stat. § 409.967 (2026) — Managed care plan accountability (prompt payment, (2)(j))', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.967' },
+      { title: 'Fla. Stat. § 641.3155 (2026) — Prompt payment of claims', url: 'https://www.flsenate.gov/Laws/Statutes/2026/641.3155' },
     ],
     faq: [
+      { q: 'What is the timely filing limit for CMS Health Plan ABA claims?', a: 'Six months from the date of service under Molina’s Florida Medicaid manual, which covers CMS Plan members from October 1, 2026; 90 days after the primary payer’s final determination when the plan pays second; corrected claims within six months.' },
       { q: 'Who runs the CMS Health Plan now?', a: 'Molina Healthcare of Florida, from October 1, 2026. Sunshine Health operated the plan through September 30, 2026, and members moved to Molina automatically. Benefits did not change; the payer ID (Molina 51062), portal (Availity) and BA documentation rules did.' },
       { q: 'Will Molina honor my Sunshine BA authorization?', a: 'Yes, during continuity of care: up to 240 days (through May 29, 2027) for members who transferred from Sunshine, or until Molina finalizes a new care plan. Molina keeps the Sunshine authorization number. Authorizations ending September 30–November 30 need a continuation request; later ones and all new services need a full new request.' },
       { q: 'Does the CMS Health Plan cover ABA?', a: 'Yes — Behavior Analysis for members under 21, on the Florida Medicaid criteria. No autism diagnosis is required as such, but Molina\'s CDE must state a formal diagnosis (ASD or another qualifying condition), and the PCP\'s signed referral must accompany the first request.' },
       { q: 'How fast does the CMS Plan decide BA authorizations?', a: 'Within 3 days for standard requests under the CMS Plan contract exhibit (Molina says 3 business days in its BA guide), and 2 days for expedited ones. That is shorter than the 5-day standard the core contract sets for the MMA plans.' },
       { q: 'Is the CMS Health Plan\u2019s BA network open to new providers?', a: 'Not published as a yes or no. Florida law lets MMA plans “limit the providers in their networks based on credentials, quality indicators, and price” (s. 409.975(1), F.S.), so a plan may decline a new BA group. Ask the CMS Health Plan\u2019s provider relations or contracting team whether it is adding BA groups in your region.' },
       { q: 'What happens when a the CMS Health Plan member switches BA providers?', a: 'AHCA\u2019s BA coverage policy, which every MMA plan must follow, says “a full assessment may be requested if there is a change in provider,” and a change in a practitioner\u2019s credential (an RBT becoming a BCaBA) is not grounds for a reassessment. Expect the new agency to request its own assessment and treatment authorization; ask the CMS Health Plan how it closes the previous provider\u2019s authorization.' },
+      { q: 'What is the payment turnaround for Children’s Medical Services Health Plan ABA claims?', a: 'Florida law binds Children’s Medical Services Health Plan as an MMA plan (§ 409.967(2)(j) → § 641.3155): pay or send a denial/contest notice within 20 days of an electronic claim (40 for paper), pay or deny within 90 days (120 for paper), and 12% interest on late payments. The statute also requires providers to file within 6 months of the date of service.' },
+      { q: 'What documents does the CMS Health Plan (Molina) need at intake for ABA?', a: 'Molina\'s checklist for the initial request includes the Comprehensive Diagnostic Evaluation and a signed referral from the member\'s assigned PCP that specifies ABA services. It also needs Vineland-3 and BASC-3 PRQ scoring reports, a behavior plan covering the full period (up to six months), an FBA/BIP for any behavior-reduction goal, and a weekly schedule by code and place of service. Add other services the child receives, caregiver-training goals, the supervision plan and a transition or discharge plan. The CDE has no set expiry, but Molina may ask for a new one after a significant change.' },
     ],
   },
 
@@ -875,6 +948,18 @@ export const floridaPayers: Record<string, PayerConfig> = {
           { title: 'Simply Healthcare / Carelon — Behavioral Analysis provider training (Feb 2025 transition)', url: 'https://provider.simplyhealthcareplans.com/docs/gpp/FLFL_SIMPLY_CarelonBehavioralAnalysisTrainingRes.pdf?v=202503041513' },
         ],
       },
+      {
+        h2: 'How fast must Simply Healthcare pay an ABA claim?',
+        body: [
+          'Florida writes the claim clock for Medicaid health plans, Simply Healthcare included into statute: “Managed care plans shall comply with ss. 641.315, 641.3155, and 641.513” (§ 409.967(2)(j)). Under § 641.3155 a provider must send the claim to the plan “within 6 months after” the date of service (and to a secondary payer within 90 days of the primary’s final determination). For an electronic claim the plan must acknowledge receipt within 24 hours of the next business day and, within 20 days, pay it or notify the provider that it is denied or contested, with an itemized list of what is missing (the provider then has 35 days to supply it). Every claim must be paid or denied within 90 days of receipt, and failure to do so within 120 days “creates an uncontestable obligation to pay the claim.” Paper claims run 40, 120 and 140 days. Late payments bear 12% simple interest.',
+          'Simply’s own manual (September 2026) sets 180 days: “Submit claims within 180 days from the date the service is rendered … unless contract timeframes state otherwise,” and “Claims submitted after the 180-day filing deadline will be denied.” With other insurance, the claim “must be received within 90 days of receiving a response from the primary payer’s determination” (three years for Medicare crossovers), and a claim for a member whose eligibility was added late is due within 180 days of the eligibility add. Corrected claims go electronically with frequency code 7. Simply publishes no weekly submission cutoff or check-run day.',
+        ],
+        cites: [
+          { title: 'Simply Healthcare Plans — Florida SMMC Provider Manual (September 2026)', url: 'https://provider.simplyhealthcareplans.com/docs/gpp/FLFL_SMH_FHKProviderManual.pdf?v=202609231916' },
+          { title: 'Fla. Stat. § 409.967 (2026) — Managed care plan accountability (prompt payment, (2)(j))', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.967' },
+          { title: 'Fla. Stat. § 641.3155 (2026) — Prompt payment of claims', url: 'https://www.flsenate.gov/Laws/Statutes/2026/641.3155' },
+        ],
+      },
     ],
     collect: [
       { title: 'Carelon setup status', desc: 'eServices for auths, Availity for claims, Payspan for payments — three registrations before the first Simply member.' },
@@ -883,16 +968,22 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { title: 'Vineland-3 & BASC-3 scoring reports', desc: 'The state documentation stack rides along with every Carelon request.' },
     ],
     sources: [
+      { title: 'Simply Healthcare Plans — Florida SMMC Provider Manual (September 2026)', url: 'https://provider.simplyhealthcareplans.com/docs/gpp/FLFL_SMH_FHKProviderManual.pdf?v=202609231916' },
       { title: 'Simply Healthcare / Carelon — Behavioral Analysis provider training (Feb 2025)', url: 'https://provider.simplyhealthcareplans.com/docs/gpp/FLFL_SIMPLY_CarelonBehavioralAnalysisTrainingRes.pdf?v=202503041513' },
       { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' },
       { title: 'Fla. Stat. § 409.975 (2026) — Managed care plan accountability (provider networks)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.975' },
+      { title: 'Fla. Stat. § 409.967 (2026) — Managed care plan accountability (prompt payment, (2)(j))', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.967' },
+      { title: 'Fla. Stat. § 641.3155 (2026) — Prompt payment of claims', url: 'https://www.flsenate.gov/Laws/Statutes/2026/641.3155' },
     ],
     faq: [
+      { q: 'What is Simply Healthcare’s timely filing limit for ABA claims?', a: '180 days from the date of service unless your contract says otherwise, per Simply’s September 2026 manual; with other insurance, 90 days from the primary payer’s determination. Florida’s statute (§ 641.3155) is the outer limit.' },
       { q: 'Does Simply Healthcare cover ABA in Florida?', a: 'Yes — on the AHCA Behavior Analysis criteria (no autism diagnosis required), with utilization management and claims both delegated to Carelon Behavioral Health since February 1, 2025.' },
       { q: 'Where do Simply Healthcare ABA authorizations go?', a: 'To Carelon — via the eServices portal or fax 1-800-370-1116. Claims also go to Carelon, submitted through Availity Essentials, not to Simply directly.' },
       { q: 'What is the 30-day rule on Simply/Carelon PAs?', a: 'The treatment plan and supporting data must be no older than 30 days at submission — a Carelon process rule layered on the state\'s 6-month clinical cycle. Refresh data before assembling any renewal packet.' },
       { q: 'Is Simply Healthcare\u2019s BA network open to new providers?', a: 'Not published as a yes or no. Florida law lets MMA plans “limit the providers in their networks based on credentials, quality indicators, and price” (s. 409.975(1), F.S.), so a plan may decline a new BA group. Ask Simply Healthcare\u2019s provider relations or contracting team whether it is adding BA groups in your region.' },
       { q: 'What happens when a Simply Healthcare member switches BA providers?', a: 'AHCA\u2019s BA coverage policy, which every MMA plan must follow, says “a full assessment may be requested if there is a change in provider,” and a change in a practitioner\u2019s credential (an RBT becoming a BCaBA) is not grounds for a reassessment. Expect the new agency to request its own assessment and treatment authorization; ask Simply Healthcare how it closes the previous provider\u2019s authorization.' },
+      { q: 'What is the payment turnaround for Simply Healthcare ABA claims?', a: 'Florida law binds Simply Healthcare as an MMA plan (§ 409.967(2)(j) → § 641.3155): pay or send a denial/contest notice within 20 days of an electronic claim (40 for paper), pay or deny within 90 days (120 for paper), and 12% interest on late payments. The statute also requires providers to file within 6 months of the date of service.' },
+      { q: 'What documents does Simply Healthcare (Carelon) need at intake for ABA?', a: 'Carelon\'s checklist: "a referral for BA therapy by a qualified diagnostician," with the CDE attached and signed by that diagnostician; an up-to-date treatment plan with member-specific data; the completed request form; and the IEP or 504 plan if applicable. The state requirement that the referral include a physician\'s order applies underneath. The treatment plan and data "should be no older than 30 days at the time of submission," with current Vineland and BASC scores.' },
     ],
   },
 
@@ -995,12 +1086,16 @@ export const floridaPayers: Record<string, PayerConfig> = {
       },
       dailyLimits: {
         value:
-          'The state weekly ceiling of up to 40 hours per week of BA intervention as prior-authorized in the behavior plan, EPSDT available above it, group treatment capped at six participants, and 15-minute units on the CMS 8-minute rule. No per-day unit table is published for the Florida Medicaid line — Optum’s published per-day maximum-frequency table sits in its commercial reimbursement policy, which does not govern this plan.',
-        status: 'unverified',
-        blocker: 'document',
-        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+          'The state weekly ceiling of up to 40 hours per week of BA intervention as prior-authorized in the behavior plan, EPSDT available above it, group treatment capped at six participants, and 15-minute units on the CMS 8-minute rule. No per-day unit table is published for the Florida Medicaid line — Optum’s published per-day maximum-frequency table sits in its commercial reimbursement policy, which does not govern this plan — but the plan does run daily-frequency edits: its 2026 Florida Medicaid manual says “If you must exceed the maximum daily frequency for a procedure, submit the medical records justifying medical necessity.” The Optum Florida ABA quick-reference guide sets no unit limits.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' },
+          { title: 'UnitedHealthcare Community Plan of Florida — 2026 Care Provider Manual (SMMC LTC and MMA; posted 10/2026)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/FL-Care-Provider-Manual-Statewide-Medicaid-Managed-Care.pdf' },
+          { title: 'Optum Provider Express — Florida ABA QRG', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/flaba/FLABAQRG.pdf' },
+        ],
         verifyVia:
-          'Optum Behavioral Health provider services (1-877-614-0484) for the per-day unit edits applied to Florida Community Plan BA claims, and the current AHCA BA fee schedule.',
+          'Optum Behavioral Health provider services (1-877-614-0484) for the daily frequency edit applied to 97153 on Florida Community Plan BA claims; the authorization states the weekly units.',
+        blocker: 'per-case',
       },
       noteSignature: {
         value:
@@ -1058,6 +1153,16 @@ export const floridaPayers: Record<string, PayerConfig> = {
           { title: 'UHC Community Plan FL — SMMC Behavioral Analysis Program QRG (BH00998-1-25)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/fl/resources/FL-BAP-QRG.pdf' },
         ],
       },
+      {
+        h2: 'How fast must UnitedHealthcare Community Plan pay an ABA claim?',
+        body: [
+          'Florida writes the claim clock for Medicaid health plans, UnitedHealthcare Community Plan included into statute: “Managed care plans shall comply with ss. 641.315, 641.3155, and 641.513” (§ 409.967(2)(j)). Under § 641.3155 a provider must send the claim to the plan “within 6 months after” the date of service (and to a secondary payer within 90 days of the primary’s final determination). For an electronic claim the plan must acknowledge receipt within 24 hours of the next business day and, within 20 days, pay it or notify the provider that it is denied or contested, with an itemized list of what is missing (the provider then has 35 days to supply it). Every claim must be paid or denied within 90 days of receipt, and failure to do so within 120 days “creates an uncontestable obligation to pay the claim.” Paper claims run 40, 120 and 140 days. Late payments bear 12% simple interest.',
+        ],
+        cites: [
+          { title: 'Fla. Stat. § 409.967 (2026) — Managed care plan accountability (prompt payment, (2)(j))', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.967' },
+          { title: 'Fla. Stat. § 641.3155 (2026) — Prompt payment of claims', url: 'https://www.flsenate.gov/Laws/Statutes/2026/641.3155' },
+        ],
+      },
     ],
     collect: [
       { title: 'Provider Express access', desc: 'Portal-only PA — confirm One Healthcare ID and Provider Express registration before the first UHC member.' },
@@ -1066,10 +1171,13 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { title: 'First-claim documents', desc: 'W9 + Florida license copy required with a first-time claim submission.' },
     ],
     sources: [
+      { title: 'UnitedHealthcare Community Plan of Florida — 2026 Care Provider Manual (SMMC LTC and MMA; posted 10/2026)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/FL-Care-Provider-Manual-Statewide-Medicaid-Managed-Care.pdf' },
       { title: 'UHC Community Plan FL — SMMC Behavioral Analysis Program QRG (BH00998-1-25)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/fl/resources/FL-BAP-QRG.pdf' },
       { title: 'Optum Provider Express — Florida ABA QRG', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/flaba/FLABAQRG.pdf' },
       { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' },
       { title: 'Fla. Stat. § 409.975 (2026) — Managed care plan accountability (provider networks)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.975' },
+      { title: 'Fla. Stat. § 409.967 (2026) — Managed care plan accountability (prompt payment, (2)(j))', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.967' },
+      { title: 'Fla. Stat. § 641.3155 (2026) — Prompt payment of claims', url: 'https://www.flsenate.gov/Laws/Statutes/2026/641.3155' },
     ],
     faq: [
       { q: 'Does UnitedHealthcare Community Plan of Florida cover ABA?', a: 'Yes — since February 1, 2025 its Behavior Analysis program is managed by Optum on the state clinical criteria: no autism diagnosis required, physician referral + order + CDE, PA on all BA services.' },
@@ -1077,6 +1185,8 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { q: 'Where do UHC Florida Medicaid ABA claims go?', a: 'To UHC Community Plan, payer ID 87726, within 180-day timely filing; clean claims process in 15 calendar days. First-time submitters must attach a W9 and a copy of the Florida license.' },
       { q: 'Is UnitedHealthcare Community Plan\u2019s BA network open to new providers?', a: 'Not published as a yes or no. Florida law lets MMA plans “limit the providers in their networks based on credentials, quality indicators, and price” (s. 409.975(1), F.S.), so a plan may decline a new BA group. Ask UnitedHealthcare Community Plan\u2019s provider relations or contracting team whether it is adding BA groups in your region.' },
       { q: 'What happens when a UnitedHealthcare Community Plan member switches BA providers?', a: 'AHCA\u2019s BA coverage policy, which every MMA plan must follow, says “a full assessment may be requested if there is a change in provider,” and a change in a practitioner\u2019s credential (an RBT becoming a BCaBA) is not grounds for a reassessment. Expect the new agency to request its own assessment and treatment authorization; ask UnitedHealthcare Community Plan how it closes the previous provider\u2019s authorization.' },
+      { q: 'What is the payment turnaround for UnitedHealthcare Community Plan ABA claims?', a: 'Florida law binds UnitedHealthcare Community Plan as an MMA plan (§ 409.967(2)(j) → § 641.3155): pay or send a denial/contest notice within 20 days of an electronic claim (40 for paper), pay or deny within 90 days (120 for paper), and 12% interest on late payments. The statute also requires providers to file within 6 months of the date of service.' },
+      { q: 'What documents does UnitedHealthcare Community Plan of Florida need at intake for ABA?', a: 'The state packet, unchanged: an independent physician\'s referral with a physician\'s order for BA services, and a Comprehensive Diagnostic Evaluation. Then the Lead Analyst\'s behavior assessment with Vineland-3 and BASC-3 PRQ scoring reports and the behavior plan. UHC\'s difference is the channel. "All behavioral analysis services require prior authorization," submitted on the Provider Express secure portal as "ABA Assessment" or "ABA Treatment." No fax route is advertised.' },
     ],
   },
 
@@ -1242,6 +1352,18 @@ export const floridaPayers: Record<string, PayerConfig> = {
           { title: 'Humana FL — Behavior Analysis Authorization form (1023905FL0616)', url: 'https://assets.humana.com/is/content/humana/ABA_PA_Formpdf' },
         ],
       },
+      {
+        h2: 'How fast must Humana Healthy Horizons pay an ABA claim?',
+        body: [
+          'Florida writes the claim clock for Medicaid health plans, Humana Healthy Horizons included into statute: “Managed care plans shall comply with ss. 641.315, 641.3155, and 641.513” (§ 409.967(2)(j)). Under § 641.3155 a provider must send the claim to the plan “within 6 months after” the date of service (and to a secondary payer within 90 days of the primary’s final determination). For an electronic claim the plan must acknowledge receipt within 24 hours of the next business day and, within 20 days, pay it or notify the provider that it is denied or contested, with an itemized list of what is missing (the provider then has 35 days to supply it). Every claim must be paid or denied within 90 days of receipt, and failure to do so within 120 days “creates an uncontestable obligation to pay the claim.” Paper claims run 40, 120 and 140 days. Late payments bear 12% simple interest.',
+          'Humana’s own 2026 manual: “Providers must submit claims within 6 months of the date of service,” and when Humana is secondary to a payer other than Medicare, “within 90 calendar days of the final determination of the primary payer.” Medicare crossovers cannot be denied for timing unless more than 3 years have passed. Humana publishes no weekly submission cutoff or check-run day.',
+        ],
+        cites: [
+          { title: 'Humana Healthy Horizons in Florida — 2026 Provider Manual', url: 'https://assets.humana.com/is/content/humana/Provider_Handbookpdf' },
+          { title: 'Fla. Stat. § 409.967 (2026) — Managed care plan accountability (prompt payment, (2)(j))', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.967' },
+          { title: 'Fla. Stat. § 641.3155 (2026) — Prompt payment of claims', url: 'https://www.flsenate.gov/Laws/Statutes/2026/641.3155' },
+        ],
+      },
     ],
     collect: [
       { title: 'Referral + CDE', desc: 'The BA referral and the CDE attach to Humana\'s initial assessment request — collect them at intake.' },
@@ -1251,18 +1373,23 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { title: 'Regional BA rep', desc: 'Identify the named Humana rep for your region and save the FLBA@humana.com contact.' },
     ],
     sources: [
+      { title: 'Humana Healthy Horizons in Florida — 2026 Provider Manual', url: 'https://assets.humana.com/is/content/humana/Provider_Handbookpdf' },
       { title: 'Humana Healthy Horizons FL — BA Informational Flyer (1025703FL0626)', url: 'https://assets.humana.com/is/content/humana/ABA_Informational_Flyer_AHCApdf' },
       { title: 'Humana FL — Behavior Analysis Authorization form (1023905FL0616)', url: 'https://assets.humana.com/is/content/humana/ABA_PA_Formpdf' },
       { title: 'Humana FL — ABA clinical toolkit', url: 'https://provider.humana.com/medicaid/florida-medicaid/aba-toolkit' },
       { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' },
       { title: 'Fla. Stat. § 409.975 (2026) — Managed care plan accountability (provider networks)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.975' },
+      { title: 'Fla. Stat. § 409.967 (2026) — Managed care plan accountability (prompt payment, (2)(j))', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.967' },
+      { title: 'Fla. Stat. § 641.3155 (2026) — Prompt payment of claims', url: 'https://www.flsenate.gov/Laws/Statutes/2026/641.3155' },
     ],
     faq: [
+      { q: 'What is Humana Healthy Horizons’ timely filing limit for ABA claims in Florida?', a: 'Six months from the date of service, per Humana’s 2026 Florida Medicaid manual; when Humana pays second to a non-Medicare payer, 90 calendar days from the primary payer’s final determination.' },
       { q: 'Does Humana Healthy Horizons cover ABA in Florida?', a: 'Yes — it administers the state Behavior Analysis benefit on AHCA criteria: no autism diagnosis required, physician referral + order + CDE, PA on all BA services via Availity, 24/7 IVR, or fax.' },
       { q: 'What documents does a Humana Florida BA authorization need?', a: 'For the initial assessment, a BA referral and the CDE. For treatment, the signed behavior plan, history and care-coordination notes, the Vineland-3 and BASC-3 PRQ (ages 2–18; initial and every 12 months), a rationale for requested hours, and the IEP/504 for school-based services — all on Humana\'s Behavior Analysis Authorization form (1023905FL0616).' },
       { q: 'What does Humana pay non-par ABA providers in Florida?', a: 'Absent a letter of agreement, the lesser of the amount on Humana\'s authorization form or 100% of the Medicaid fee schedule — and the form sets that amount at 80% of the Medicaid Fee Schedule. The state\'s BA rates are the explicit reference point.' },
       { q: 'Is Humana Healthy Horizons\u2019s BA network open to new providers?', a: 'Not published as a yes or no. Florida law lets MMA plans “limit the providers in their networks based on credentials, quality indicators, and price” (s. 409.975(1), F.S.), so a plan may decline a new BA group. Ask Humana Healthy Horizons\u2019s provider relations or contracting team whether it is adding BA groups in your region.' },
       { q: 'What happens when a Humana Healthy Horizons member switches BA providers?', a: 'AHCA\u2019s BA coverage policy, which every MMA plan must follow, says “a full assessment may be requested if there is a change in provider,” and a change in a practitioner\u2019s credential (an RBT becoming a BCaBA) is not grounds for a reassessment. Expect the new agency to request its own assessment and treatment authorization; ask Humana Healthy Horizons how it closes the previous provider\u2019s authorization.' },
+      { q: 'What is the payment turnaround for Humana Healthy Horizons ABA claims?', a: 'Florida law binds Humana Healthy Horizons as an MMA plan (§ 409.967(2)(j) → § 641.3155): pay or send a denial/contest notice within 20 days of an electronic claim (40 for paper), pay or deny within 90 days (120 for paper), and 12% interest on late payments. The statute also requires providers to file within 6 months of the date of service.' },
     ],
   },
 
@@ -1365,9 +1492,9 @@ export const floridaPayers: Record<string, PayerConfig> = {
       },
       dailyLimits: {
         value:
-          'The state weekly ceiling: up to 40 hours per week of BA intervention as prior-authorized in the behavior plan, EPSDT available above it, group treatment capped at six participants, 15-minute units on the CMS 8-minute rule. ABHFL’s BA one-pager and FAQ publish no per-day unit table of their own; the FAQ commits to the AHCA coverage policy, with treatment authorized for up to six months at a time.',
+          'The state weekly ceiling: up to 40 hours per week of BA intervention as prior-authorized in the behavior plan, EPSDT available above it, group treatment capped at six participants, 15-minute units on the CMS 8-minute rule. ABHFL’s BA one-pager and FAQ publish no per-day unit table of their own; the FAQ commits to the AHCA coverage policy, with treatment authorized for up to six months at a time. At the claim level ABHFL’s editing systems check “timely filing, coding combinations, maximum units, place of service,” and the plan integrates the CMS NCCI program; the public Medicaid MUE for 97153 is 32 units per claim line.',
         status: 'verified',
-        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }, { title: 'Aetna Better Health of Florida — Behavior Analysis (BA) Frequently Asked Questions (rev. 2/21/2025)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/florida/provider/pdf/ABHFL_BA_FAQ_Information.pdf' }, { title: 'Aetna Better Health of Florida — Behavioral Analysis (BA) Services one-pager (FL-25-1-17)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/florida/provider/pdf/abhfl_COV_Behavioral_Analysis_OnePager.pdf' }],
+        cites: [{ title: 'Aetna Better Health of Florida — Provider Manual (ABHFL 2026.02.01, rev. 2026.03.03)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/florida/provider/pdf/abhfl_medicaid_comprehensive_ltc_provider_manual.pdf' }, { title: 'CMS — Medicaid NCCI Edit Files (practitioner MUE table effective 10/1/2026)', url: 'https://www.cms.gov/medicare/coding-billing/ncci-medicaid/medicaid-ncci-edit-files' }, { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }, { title: 'Aetna Better Health of Florida — Behavior Analysis (BA) Frequently Asked Questions (rev. 2/21/2025)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/florida/provider/pdf/ABHFL_BA_FAQ_Information.pdf' }, { title: 'Aetna Better Health of Florida — Behavioral Analysis (BA) Services one-pager (FL-25-1-17)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/florida/provider/pdf/abhfl_COV_Behavioral_Analysis_OnePager.pdf' }],
         verifyVia:
           'ABHFL prior authorization (1-800-441-5501) for any per-day claim edit, and the current AHCA BA fee schedule under Rule 59G-4.002 for per-assessment unit caps.',
       },
@@ -1427,6 +1554,18 @@ export const floridaPayers: Record<string, PayerConfig> = {
           { title: 'ABHFL — BA Provider Open Office Hours notice (02/24/2025)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/florida/pdf/ABHFL_BA_Office_Hours_Provider_Notice_02.24.2025.pdf' },
         ],
       },
+      {
+        h2: 'How fast must Aetna Better Health of Florida pay an ABA claim?',
+        body: [
+          'Florida writes the claim clock for Medicaid health plans, Aetna Better Health of Florida included into statute: “Managed care plans shall comply with ss. 641.315, 641.3155, and 641.513” (§ 409.967(2)(j)). Under § 641.3155 a provider must send the claim to the plan “within 6 months after” the date of service (and to a secondary payer within 90 days of the primary’s final determination). For an electronic claim the plan must acknowledge receipt within 24 hours of the next business day and, within 20 days, pay it or notify the provider that it is denied or contested, with an itemized list of what is missing (the provider then has 35 days to supply it). Every claim must be paid or denied within 90 days of receipt, and failure to do so within 120 days “creates an uncontestable obligation to pay the claim.” Paper claims run 40, 120 and 140 days. Late payments bear 12% simple interest.',
+          'ABHFL’s own provider manual (rev. 2026.03.03) prints a timely-filing grid “Unless otherwise stated in the Provider agreement”: participating providers submit “within 180 days after the date of service,” non-participating providers within 365 days, and when the plan is secondary “within ninety (90) calendar days after the final determination of the primary payer”; requested additional information is due within 35 days. Corrected claims run on the same 180 days from the date of service. On payment: “Aetna Better Health of Florida generates checks weekly,” and each remittance covers one payment cycle, with the Remit Date marking the end of the cycle. No submission cutoff day or time is published.',
+        ],
+        cites: [
+          { title: 'Aetna Better Health of Florida — Provider Manual (ABHFL 2026.02.01, rev. 2026.03.03)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/florida/provider/pdf/abhfl_medicaid_comprehensive_ltc_provider_manual.pdf' },
+          { title: 'Fla. Stat. § 409.967 (2026) — Managed care plan accountability (prompt payment, (2)(j))', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.967' },
+          { title: 'Fla. Stat. § 641.3155 (2026) — Prompt payment of claims', url: 'https://www.flsenate.gov/Laws/Statutes/2026/641.3155' },
+        ],
+      },
     ],
     collect: [
       { title: 'BSN credentialing status', desc: 'BA network entry runs through BSN, not Aetna — confirm contracting is complete before quoting start dates.' },
@@ -1435,17 +1574,24 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { title: 'Current PA channel', desc: 'Verify the live submission path (Availity/portal/fax) with the plan — published specifics are unverified.' },
     ],
     sources: [
+      { title: 'CMS — Medicaid NCCI Edit Files (practitioner MUE table effective 10/1/2026)', url: 'https://www.cms.gov/medicare/coding-billing/ncci-medicaid/medicaid-ncci-edit-files' },
+      { title: 'Aetna Better Health of Florida — Provider Manual (ABHFL 2026.02.01, rev. 2026.03.03)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/florida/provider/pdf/abhfl_medicaid_comprehensive_ltc_provider_manual.pdf' },
       { title: 'ABHFL — BA Provider Open Office Hours notice (02/24/2025)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/florida/pdf/ABHFL_BA_Office_Hours_Provider_Notice_02.24.2025.pdf' },
       { title: 'ABHFL — provider materials & forms', url: 'https://www.aetnabetterhealth.com/florida/providers/materials-forms.html' },
       { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' },
       { title: 'Fla. Stat. § 409.975 (2026) — Managed care plan accountability (provider networks)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.975' },
+      { title: 'Fla. Stat. § 409.967 (2026) — Managed care plan accountability (prompt payment, (2)(j))', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.967' },
+      { title: 'Fla. Stat. § 641.3155 (2026) — Prompt payment of claims', url: 'https://www.flsenate.gov/Laws/Statutes/2026/641.3155' },
     ],
     faq: [
+      { q: 'What is Aetna Better Health of Florida’s timely filing limit, and how often does it pay?', a: '180 days from the date of service for participating providers (365 for non-participating), corrected claims included; 90 days from the primary payer’s final determination when ABHFL pays second. ABHFL generates checks weekly; no cutoff day or time is published.' },
       { q: 'Does Aetna Better Health of Florida cover ABA?', a: 'Yes — it administers the state Behavior Analysis benefit on AHCA criteria: no autism diagnosis required, the physician referral + order + CDE gate, and PA on all BA services (universal PA from July 1, 2025 per plan notices).' },
       { q: 'How do I join Aetna Better Health of Florida\'s ABA network?', a: 'Through Behavioral Services Network (BSN), the plan\'s delegated BA contracting and credentialing partner — info@bsnnet.com or 305-907-7470 — not through Aetna directly.' },
       { q: 'Where do ABHFL BA authorizations get submitted?', a: 'The plan\'s general PA guidance points to Availity, but ABHFL\'s BA-specific submission details aren\'t publicly verifiable — confirm the current channel in the portal or at the plan\'s BA Provider Open Office Hours.' },
       { q: 'Is Aetna Better Health of Florida\u2019s BA network open to new providers?', a: 'Not published as a yes or no. Florida law lets MMA plans “limit the providers in their networks based on credentials, quality indicators, and price” (s. 409.975(1), F.S.), so a plan may decline a new BA group. Ask Aetna Better Health of Florida\u2019s provider relations or contracting team whether it is adding BA groups in your region. Its guide above names the BA contracting route.' },
       { q: 'What happens when a Aetna Better Health of Florida member switches BA providers?', a: 'AHCA\u2019s BA coverage policy, which every MMA plan must follow, says “a full assessment may be requested if there is a change in provider,” and a change in a practitioner\u2019s credential (an RBT becoming a BCaBA) is not grounds for a reassessment. Expect the new agency to request its own assessment and treatment authorization; ask Aetna Better Health of Florida how it closes the previous provider\u2019s authorization.' },
+      { q: 'What is the payment turnaround for Aetna Better Health of Florida ABA claims?', a: 'Florida law binds Aetna Better Health of Florida as an MMA plan (§ 409.967(2)(j) → § 641.3155): pay or send a denial/contest notice within 20 days of an electronic claim (40 for paper), pay or deny within 90 days (120 for paper), and 12% interest on late payments. The statute also requires providers to file within 6 months of the date of service.' },
+      { q: 'What documents does Aetna Better Health of Florida need at intake for ABA?', a: 'ABHFL follows the AHCA coverage policy: an independent physician referral with a physician\'s order for BA services and a Comprehensive Diagnostic Evaluation, then the behavior assessment (Vineland-3 and BASC-3 PRQ) and behavior plan. Initial evaluations are authorized for up to three months and each treatment request for up to six. Its FAQ told providers to submit the original initial assessment with a continuation request. The live submission channel and any ABHFL-specific BA form could not be confirmed publicly.' },
     ],
   },
 
@@ -1547,9 +1693,9 @@ export const floridaPayers: Record<string, PayerConfig> = {
       },
       dailyLimits: {
         value:
-          'By the week. Molina’s July 2026 BA guide: “Services are authorized based on a weekly hour total. Providers must submit claims that do not exceed the number of hours authorized for that week.” Units follow the 8-minute rule — bill only services of 8 minutes or more, and a remainder of 8 minutes or more counts as one more unit. The state ceiling of up to 40 hours per week, with EPSDT above it and group treatment capped at six participants, sits underneath. Molina publishes no per-day unit table.',
+          'By the week. Molina’s July 2026 BA guide: “Services are authorized based on a weekly hour total. Providers must submit claims that do not exceed the number of hours authorized for that week.” Units follow the 8-minute rule — bill only services of 8 minutes or more, and a remainder of 8 minutes or more counts as one more unit. The state ceiling of up to 40 hours per week, with EPSDT above it and group treatment capped at six participants, sits underneath. Molina publishes no per-day unit table. At the claim level Molina’s 2026 manual applies NCCI edits “including procedure-to-procedure (PTP) bundling edits and Medically Unlikely Edits (MUE),” and “In the event a State benefit limit is more stringent/restrictive than a Federal MUE, Molina will apply the State benefit limit”; the public Medicaid MUE for 97153 is 32 units per claim line.',
         status: 'verified',
-        cites: [{ title: 'Molina Healthcare of Florida — Behavioral Analysis Services: Authorization & Documentation Guide (Comprehensive BA QRG, effective July 2026)', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/fl/medicaid/08-07-26-MHFL-Comprehensive-BA-QRG-508.ashx' }, { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+        cites: [{ title: 'Molina Healthcare of Florida — Medicaid Provider Manual for Molina Medicaid and CMS Plan members (9/9/2026)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/FL/Manuals/09-09-26-MHFL-Molina-Provider-Handbook-CMS-and-SMMC-508.pdf' }, { title: 'CMS — Medicaid NCCI Edit Files (practitioner MUE table effective 10/1/2026)', url: 'https://www.cms.gov/medicare/coding-billing/ncci-medicaid/medicaid-ncci-edit-files' }, { title: 'Molina Healthcare of Florida — Behavioral Analysis Services: Authorization & Documentation Guide (Comprehensive BA QRG, effective July 2026)', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/fl/medicaid/08-07-26-MHFL-Comprehensive-BA-QRG-508.ashx' }, { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
       },
       noteSignature: {
         value:
@@ -1599,6 +1745,18 @@ export const floridaPayers: Record<string, PayerConfig> = {
           { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' },
         ],
       },
+      {
+        h2: 'How fast must Molina Healthcare of Florida pay an ABA claim?',
+        body: [
+          'Florida writes the claim clock for Medicaid health plans, Molina Healthcare of Florida included into statute: “Managed care plans shall comply with ss. 641.315, 641.3155, and 641.513” (§ 409.967(2)(j)). Under § 641.3155 a provider must send the claim to the plan “within 6 months after” the date of service (and to a secondary payer within 90 days of the primary’s final determination). For an electronic claim the plan must acknowledge receipt within 24 hours of the next business day and, within 20 days, pay it or notify the provider that it is denied or contested, with an itemized list of what is missing (the provider then has 35 days to supply it). Every claim must be paid or denied within 90 days of receipt, and failure to do so within 120 days “creates an uncontestable obligation to pay the claim.” Paper claims run 40, 120 and 140 days. Late payments bear 12% simple interest.',
+          'Molina’s own Florida Medicaid manual (9/9/2026): claims “must be submitted by the Provider to Molina within six (6) months after … the date of service for outpatient services,” and when Molina is not the primary payer, “within ninety (90) days after final determination by the primary payer.” “Corrected Claims must be sent within six months of Date of Service or most recent adjudicated date of the Claim,” through Availity or EDI (payer ID 51062). On processing the manual defers to the provider contract; absent another written schedule it says Molina “will process the claim for service within six months after receipt of Clean Claims,” and participating providers must enroll in EFT/ERA. No weekly cutoff or check-run day is published.',
+        ],
+        cites: [
+          { title: 'Molina Healthcare of Florida — Medicaid Provider Manual for Molina Medicaid and CMS Plan members (9/9/2026)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/FL/Manuals/09-09-26-MHFL-Molina-Provider-Handbook-CMS-and-SMMC-508.pdf' },
+          { title: 'Fla. Stat. § 409.967 (2026) — Managed care plan accountability (prompt payment, (2)(j))', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.967' },
+          { title: 'Fla. Stat. § 641.3155 (2026) — Prompt payment of claims', url: 'https://www.flsenate.gov/Laws/Statutes/2026/641.3155' },
+        ],
+      },
     ],
     collect: [
       { title: 'Referral + order + CDE', desc: 'The state eligibility gate applies; no autism diagnosis required.' },
@@ -1607,16 +1765,23 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { title: 'Weekly availability', desc: 'Molina authorizes weekly hours and checks them against the child\'s real schedule — capture school hours, other therapies and family availability at intake.' },
     ],
     sources: [
+      { title: 'CMS — Medicaid NCCI Edit Files (practitioner MUE table effective 10/1/2026)', url: 'https://www.cms.gov/medicare/coding-billing/ncci-medicaid/medicaid-ncci-edit-files' },
+      { title: 'Molina Healthcare of Florida — Medicaid Provider Manual for Molina Medicaid and CMS Plan members (9/9/2026)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/FL/Manuals/09-09-26-MHFL-Molina-Provider-Handbook-CMS-and-SMMC-508.pdf' },
       { title: 'Molina Healthcare of Florida — Behavioral Analysis Services: Authorization & Documentation Guide (Comprehensive BA QRG, effective July 2026)', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/fl/medicaid/08-07-26-MHFL-Comprehensive-BA-QRG-508.ashx' },
       { title: 'Molina FL — BA Quick Reference Guide 2026 (revised 2/5/2026)', url: 'https://www.molinahealthcare.com/providers/fl/medicaid/comm/-/media/D0605825716B47F8819AD3B554626A86.ashx' },
       { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' },
       { title: 'Fla. Stat. § 409.975 (2026) — Managed care plan accountability (provider networks)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.975' },
+      { title: 'Fla. Stat. § 409.967 (2026) — Managed care plan accountability (prompt payment, (2)(j))', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.967' },
+      { title: 'Fla. Stat. § 641.3155 (2026) — Prompt payment of claims', url: 'https://www.flsenate.gov/Laws/Statutes/2026/641.3155' },
     ],
     faq: [
+      { q: 'What is Molina Healthcare of Florida’s timely filing limit for ABA claims?', a: 'Six months from the date of service, per Molina’s September 2026 Florida Medicaid manual; 90 days after the primary payer’s final determination when Molina pays second. Corrected claims are due within six months of the date of service or the most recent adjudication.' },
       { q: 'Does Molina Healthcare of Florida cover ABA?', a: 'Yes — it has administered the state Behavior Analysis benefit in-house since the February 2025 carve-in, for members under 21, on AHCA criteria: a PCP referral and a qualifying CDE, then prior authorization for treatment codes (97151 assessment is exempt).' },
       { q: 'Where are Molina\'s Florida BA rules published?', a: 'In its Behavioral Analysis Services Authorization & Documentation Guide (effective July 2026), linked from Molina\'s Florida provider home page, and in the Prior Authorization Code Lookup Tool. The AHCA coverage policy sits underneath.' },
       { q: 'Is Molina\u2019s BA network open to new providers?', a: 'Not published as a yes or no. Florida law lets MMA plans “limit the providers in their networks based on credentials, quality indicators, and price” (s. 409.975(1), F.S.), so a plan may decline a new BA group. Ask Molina\u2019s provider relations or contracting team whether it is adding BA groups in your region.' },
       { q: 'What happens when a Molina member switches BA providers?', a: 'AHCA\u2019s BA coverage policy, which every MMA plan must follow, says “a full assessment may be requested if there is a change in provider,” and a change in a practitioner\u2019s credential (an RBT becoming a BCaBA) is not grounds for a reassessment. Expect the new agency to request its own assessment and treatment authorization; ask Molina how it closes the previous provider\u2019s authorization.' },
+      { q: 'What is the payment turnaround for Molina Healthcare of Florida ABA claims?', a: 'Florida law binds Molina Healthcare of Florida as an MMA plan (§ 409.967(2)(j) → § 641.3155): pay or send a denial/contest notice within 20 days of an electronic claim (40 for paper), pay or deny within 90 days (120 for paper), and 12% interest on late payments. The statute also requires providers to file within 6 months of the date of service.' },
+      { q: 'What documents does Molina Healthcare of Florida need at intake for ABA?', a: 'Molina\'s July 2026 guide requires a signed referral from the member\'s assigned PCP that specifies ABA services, with the CDE and Vineland-3/BASC-3 scoring reports. It also needs a behavior plan for the full period (up to six months), an FBA/BIP for any behavior-reduction goal, a weekly schedule by code and place of service, other services the child receives, caregiver-training goals, the supervision plan and a transition or discharge plan. Submit through Availity Essentials.' },
     ],
   },
 
@@ -1716,9 +1881,9 @@ export const floridaPayers: Record<string, PayerConfig> = {
       },
       dailyLimits: {
         value:
-          'By the week, with a documentation trigger. The state ceiling of up to 40 hours per week as prior-authorized in the behavior plan applies, and CCP’s documentation tips flag “any requests for more than 40 hours” as needing support. “Services not on the Florida BA fee schedule are non-covered,” and members 21 and over are excluded outright. No per-code per-day unit ceiling is published.',
+          'By the week, with a documentation trigger. The state ceiling of up to 40 hours per week as prior-authorized in the behavior plan applies, and CCP’s documentation tips flag “any requests for more than 40 hours” as needing support. “Services not on the Florida BA fee schedule are non-covered,” and members 21 and over are excluded outright. No per-code per-day unit ceiling is published. At the claim level CCP’s code editing uses the CMS NCCI edits, “encompassing column 1/column 2 pairings, medically unlikely edits (MUEs),” which “specify the maximum number of units that a provider would bill for a single member on a single date of service”; the public Medicaid MUE for 97153 is 32 units per claim line.',
         status: 'verified',
-        cites: [{ title: 'Community Care Plan — Behavior Analysis Provider Manual (2025-01-29)', url: 'https://www.therapynetwork.com/state_links/ba/manuals/Community-Care-Plan-Behavior-Analysis-Provider-Manual.pdf' }, { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+        cites: [{ title: 'Community Care Plan — MMA Provider Manual (3/11/2026)', url: 'https://ccpcares.org/wp-content/uploads/CCP-MMA-Provider-Manual_03.11.26.pdf' }, { title: 'CMS — Medicaid NCCI Edit Files (practitioner MUE table effective 10/1/2026)', url: 'https://www.cms.gov/medicare/coding-billing/ncci-medicaid/medicaid-ncci-edit-files' }, { title: 'Community Care Plan — Behavior Analysis Provider Manual (2025-01-29)', url: 'https://www.therapynetwork.com/state_links/ba/manuals/Community-Care-Plan-Behavior-Analysis-Provider-Manual.pdf' }, { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
         verifyVia:
           'Therapy Network of Florida for any per-day claim edit, and the current AHCA BA fee schedule for per-assessment unit caps.',
       },
@@ -1777,6 +1942,18 @@ export const floridaPayers: Record<string, PayerConfig> = {
           { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' },
         ],
       },
+      {
+        h2: 'How fast must Community Care Plan pay an ABA claim?',
+        body: [
+          'Florida writes the claim clock for Medicaid health plans, Community Care Plan included into statute: “Managed care plans shall comply with ss. 641.315, 641.3155, and 641.513” (§ 409.967(2)(j)). Under § 641.3155 a provider must send the claim to the plan “within 6 months after” the date of service (and to a secondary payer within 90 days of the primary’s final determination). For an electronic claim the plan must acknowledge receipt within 24 hours of the next business day and, within 20 days, pay it or notify the provider that it is denied or contested, with an itemized list of what is missing (the provider then has 35 days to supply it). Every claim must be paid or denied within 90 days of receipt, and failure to do so within 120 days “creates an uncontestable obligation to pay the claim.” Paper claims run 40, 120 and 140 days. Late payments bear 12% simple interest.',
+          'CCP’s own MMA provider manual (3/11/2026): “Claims must be submitted within 180 days from the date of service; claims submitted after 180 days will be denied.” Corrected claims go “through the PlanLink provider portal within 90 days of the original explanation of payment.” Primary and secondary coverage cannot be processed on one claim; bill the primary first. CCP publishes no weekly submission cutoff or check-run day.',
+        ],
+        cites: [
+          { title: 'Community Care Plan — MMA Provider Manual (3/11/2026)', url: 'https://ccpcares.org/wp-content/uploads/CCP-MMA-Provider-Manual_03.11.26.pdf' },
+          { title: 'Fla. Stat. § 409.967 (2026) — Managed care plan accountability (prompt payment, (2)(j))', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.967' },
+          { title: 'Fla. Stat. § 641.3155 (2026) — Prompt payment of claims', url: 'https://www.flsenate.gov/Laws/Statutes/2026/641.3155' },
+        ],
+      },
     ],
     collect: [
       { title: 'TNFL portal access', desc: 'Auths at asp.healthsystemone.com/hs1providers, status and claims at therapynetwork.com — set both up first.' },
@@ -1785,16 +1962,23 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { title: 'Urgency assessment', desc: 'The 2-calendar-day expedited pathway exists — flag clinically urgent cases at intake.' },
     ],
     sources: [
+      { title: 'CMS — Medicaid NCCI Edit Files (practitioner MUE table effective 10/1/2026)', url: 'https://www.cms.gov/medicare/coding-billing/ncci-medicaid/medicaid-ncci-edit-files' },
+      { title: 'Community Care Plan — MMA Provider Manual (3/11/2026)', url: 'https://ccpcares.org/wp-content/uploads/CCP-MMA-Provider-Manual_03.11.26.pdf' },
       { title: 'Community Care Plan — Behavior Analysis Provider Manual (2025-01-29)', url: 'https://www.therapynetwork.com/state_links/ba/manuals/Community-Care-Plan-Behavior-Analysis-Provider-Manual.pdf' },
       { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' },
       { title: 'Fla. Stat. § 409.975 (2026) — Managed care plan accountability (provider networks)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.975' },
+      { title: 'Fla. Stat. § 409.967 (2026) — Managed care plan accountability (prompt payment, (2)(j))', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.967' },
+      { title: 'Fla. Stat. § 641.3155 (2026) — Prompt payment of claims', url: 'https://www.flsenate.gov/Laws/Statutes/2026/641.3155' },
     ],
     faq: [
+      { q: 'What is Community Care Plan’s timely filing limit for ABA claims?', a: '180 days from the date of service, per CCP’s March 2026 MMA manual; corrected claims within 90 days of the original explanation of payment, through PlanLink.' },
       { q: 'Does Community Care Plan cover ABA?', a: 'Yes — the state Behavior Analysis benefit on AHCA criteria (no autism diagnosis required), with the entire BA function — authorizations and claims — delegated to Therapy Network of Florida.' },
       { q: 'How fast does CCP approve BA authorizations?', a: 'Therapy Network of Florida publishes 5 calendar days standard and 2 calendar days expedited — the AHCA contract clock. Decisions come from Therapy Network of Florida, not the plan.' },
       { q: 'Where do CCP ABA claims go?', a: 'To Therapy Network of Florida, not CCP — electronically via the TNFL portal, or on paper addressed to Therapy Network of Florida.' },
       { q: 'Is Community Care Plan\u2019s BA network open to new providers?', a: 'Not published as a yes or no. Florida law lets MMA plans “limit the providers in their networks based on credentials, quality indicators, and price” (s. 409.975(1), F.S.), so a plan may decline a new BA group. Ask Community Care Plan\u2019s provider relations or contracting team whether it is adding BA groups in your region.' },
       { q: 'What happens when a Community Care Plan member switches BA providers?', a: 'AHCA\u2019s BA coverage policy, which every MMA plan must follow, says “a full assessment may be requested if there is a change in provider,” and a change in a practitioner\u2019s credential (an RBT becoming a BCaBA) is not grounds for a reassessment. Expect the new agency to request its own assessment and treatment authorization; ask Community Care Plan how it closes the previous provider\u2019s authorization.' },
+      { q: 'What is the payment turnaround for Community Care Plan ABA claims?', a: 'Florida law binds Community Care Plan as an MMA plan (§ 409.967(2)(j) → § 641.3155): pay or send a denial/contest notice within 20 days of an electronic claim (40 for paper), pay or deny within 90 days (120 for paper), and 12% interest on late payments. The statute also requires providers to file within 6 months of the date of service.' },
+      { q: 'What documents does Community Care Plan need at intake for ABA?', a: 'First on CCP\'s checklist for authorizing the behavior assessment: the prescription or referral form from an independent physician or qualified practitioner, carrying the diagnosis and an order for BA services, plus the CDE. All BA fee-schedule codes need prior authorization from Therapy Network of Florida through its portal. Reassessments are due every six months, and the core instruments annually unless a new behavior emerges or more hours are requested.' },
     ],
   },
 
@@ -1948,6 +2132,18 @@ export const floridaPayers: Record<string, PayerConfig> = {
           { title: 'Florida Community Care — Behavioral Analysis Services (provider page)', url: 'https://fcchealthplan.com/ba-services/' },
         ],
       },
+      {
+        h2: 'How fast must Florida Community Care pay an ABA claim?',
+        body: [
+          'Florida writes the claim clock for Medicaid health plans, Florida Community Care included into statute: “Managed care plans shall comply with ss. 641.315, 641.3155, and 641.513” (§ 409.967(2)(j)). Under § 641.3155 a provider must send the claim to the plan “within 6 months after” the date of service (and to a secondary payer within 90 days of the primary’s final determination). For an electronic claim the plan must acknowledge receipt within 24 hours of the next business day and, within 20 days, pay it or notify the provider that it is denied or contested, with an itemized list of what is missing (the provider then has 35 days to supply it). Every claim must be paid or denied within 90 days of receipt, and failure to do so within 120 days “creates an uncontestable obligation to pay the claim.” Paper claims run 40, 120 and 140 days. Late payments bear 12% simple interest.',
+          'FCC’s provider manual: providers must file “within the time set forth in their Florida Community Care participating provider Agreement(s) unless applicable law requires a greater time period,” and where Florida law applies, “claims must be filed within 180 days after the date of service.” On payment: “Claims are processed daily and combined into a weekly payment. Remittance advices are also generated on a weekly basis,” viewable in Availity for EFT payees. No submission cutoff day or time is published.',
+        ],
+        cites: [
+          { title: 'Florida Community Care — Provider Manual (FCC210301PNSHBK001F)', url: 'https://fcchealthplan.com/wp-content/uploads/2025/01/2M2609-FCC-Prov-Manual-r3.pdf' },
+          { title: 'Fla. Stat. § 409.967 (2026) — Managed care plan accountability (prompt payment, (2)(j))', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.967' },
+          { title: 'Fla. Stat. § 641.3155 (2026) — Prompt payment of claims', url: 'https://www.flsenate.gov/Laws/Statutes/2026/641.3155' },
+        ],
+      },
     ],
     collect: [
       { title: 'Referral + order + CDE', desc: 'The state eligibility gate applies; no autism diagnosis required — existing CIDD records often cover much of it.' },
@@ -1956,16 +2152,22 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { title: 'Claims setup', desc: 'Payer ID FLCCR via Availity/clearinghouse before the first date of service.' },
     ],
     sources: [
+      { title: 'Florida Community Care — Provider Manual (FCC210301PNSHBK001F)', url: 'https://fcchealthplan.com/wp-content/uploads/2025/01/2M2609-FCC-Prov-Manual-r3.pdf' },
       { title: 'Florida Community Care — Behavioral Analysis Services (provider page)', url: 'https://fcchealthplan.com/ba-services/' },
       { title: 'Florida Community Care — ABA Request for Prior Authorization Form (last updated 7/28/2025)', url: 'https://fcchealthplan.com/wp-content/uploads/2025/01/2M2524-FCC-ABA-PriorAuthForm-Final.pdf' },
       { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' },
       { title: 'Fla. Stat. § 409.975 (2026) — Managed care plan accountability (provider networks)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.975' },
+      { title: 'Fla. Stat. § 409.967 (2026) — Managed care plan accountability (prompt payment, (2)(j))', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.967' },
+      { title: 'Fla. Stat. § 641.3155 (2026) — Prompt payment of claims', url: 'https://www.flsenate.gov/Laws/Statutes/2026/641.3155' },
     ],
     faq: [
+      { q: 'How often does Florida Community Care pay ABA claims?', a: 'Weekly: FCC processes claims daily and combines them into a weekly payment, with weekly remittance advices (in Availity for EFT payees). File within your agreement’s limit, or 180 days from the date of service where Florida law applies.' },
       { q: 'Does Florida Community Care cover ABA?', a: 'Yes — the state Behavior Analysis benefit on AHCA criteria (no autism diagnosis required), authorized by FCC\'s in-house Utilization Department via its ABA PA form.' },
       { q: 'How do I submit a BA authorization to FCC?', a: 'The FCC ABA Prior Authorization Request Form by fax to 305-675-6138, email to FCCUMDepartment@FCCHealthPlan.com, or through the FCC Provider Portal — email submission is an FCC-specific convenience.' },
       { q: 'Is Florida Community Care\u2019s BA network open to new providers?', a: 'Not published as a yes or no. Florida law lets MMA plans “limit the providers in their networks based on credentials, quality indicators, and price” (s. 409.975(1), F.S.), so a plan may decline a new BA group. Ask Florida Community Care\u2019s provider relations or contracting team whether it is adding BA groups in your region.' },
       { q: 'What happens when a Florida Community Care member switches BA providers?', a: 'AHCA\u2019s BA coverage policy, which every MMA plan must follow, says “a full assessment may be requested if there is a change in provider,” and a change in a practitioner\u2019s credential (an RBT becoming a BCaBA) is not grounds for a reassessment. Expect the new agency to request its own assessment and treatment authorization; ask Florida Community Care how it closes the previous provider\u2019s authorization.' },
+      { q: 'What is the payment turnaround for Florida Community Care ABA claims?', a: 'Florida law binds Florida Community Care as an MMA plan (§ 409.967(2)(j) → § 641.3155): pay or send a denial/contest notice within 20 days of an electronic claim (40 for paper), pay or deny within 90 days (120 for paper), and 12% interest on late payments. The statute also requires providers to file within 6 months of the date of service.' },
+      { q: 'What documents does Florida Community Care need at intake for ABA?', a: 'The state packet (an independent physician\'s referral and order for BA services plus a CDE), submitted on FCC\'s own ABA Prior Authorization Request Form by fax, email or the provider portal. For members under 21, the form also asks who established the ASD diagnosis: "Documentation must be within the last 24 months by a MD, PhD in Psychology or PsyD. Diagnosis must meet DSM-5 criterion to diagnose ASD. Validated assessment tools must be included." Expect an older diagnostic report to come back.' },
     ],
   },
 
@@ -2020,12 +2222,16 @@ export const floridaPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'Aetna gates ABA with precertification rather than a referral: form GR-69017-4, submitted through Availity or by phone, for both the assessment and treatment. Neither CPB 0554, CPB 0648 nor the ABA Medical Necessity Guide publishes a referral or physician-order requirement — the Guide mentions “involvement of, or referrals to, appropriate health care, community or supplemental resources” as a quality element, not an entry condition. Whether the specific plan needs a PCP referral is a benefit-design question, not a policy one.',
+          'Aetna gates ABA with precertification rather than a referral: form GR-69017-4, submitted through Availity or by phone, for both the assessment and treatment. Neither CPB 0554, CPB 0648 nor the ABA Medical Necessity Guide publishes a referral or physician-order requirement — the Guide mentions “involvement of, or referrals to, appropriate health care, community or supplemental resources” as a quality element, not an entry condition. Whether the specific plan needs a PCP referral is a benefit-design question, not a policy one. Florida\'s mandate adds a physician order on the plans it reaches (fully insured large-group and state-employee plans, with § 641.31098 for HMOs). Coverage "shall be limited to treatment that is prescribed by the insured\'s treating physician in accordance with a treatment plan." That plan "shall include ... a diagnosis, the proposed treatment by type, the frequency and duration of treatment, the anticipated outcomes stated as goals, the frequency with which the treatment plan will be updated, and the signature of the treating physician" (§ 627.6686(4)(a), (7)). The statute names a physician, not a psychologist, and sets no validity period beyond the update frequency written into the plan itself. In practice the order is the treating physician\'s signature on the treatment plan itself. Individual, small-group and self-funded plans are outside the mandate, so for them the order is a plan-document question.',
         status: 'plan-dependent',
+        cites: [
+          { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+          { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (\\u00a92026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+          { title: 'Fla. Stat. § 627.6686 (2026) — Steven A. Geller Autism Coverage Act', url: 'https://www.flsenate.gov/Laws/Statutes/2026/627.6686' },
+        ],
+        verifyVia: 'The member’s benefit document and Aetna precertification at the number on the ID card — ask whether a PCP referral is required in addition to precertification.',
         blocker: 'per-case',
-        cites: [{ title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }, { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (\u00a92026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
-        verifyVia:
-          'The member’s benefit document and Aetna precertification at the number on the ID card — ask whether a PCP referral is required in addition to precertification.',
       },
       telehealth: {
         value:
@@ -2167,6 +2373,25 @@ export const floridaPayers: Record<string, PayerConfig> = {
           { title: 'BACB — U.S. Licensure of Behavior Analysts (FL not listed)', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
         ],
       },
+      {
+        h2: 'Claims: filing deadline and disputes',
+        body: [
+          'Aetna’s national provider manual (edition 6/26) publishes no numeric filing limit: it defines a clean claim as one “received in a timely manner,” so the operative deadline is the one in your Aetna agreement. Claim disputes go through Availity — the claim must be in Finalized status, then “Dispute Claim” from the Claim Status transaction — and Aetna runs one level of provider appeal for payment decisions; medical-necessity appeals go through the member appeal process. In Florida the statute above also requires the claim within 6 months of the date of service.',
+        ],
+        cites: [
+          { title: 'Aetna Provider Manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+        ],
+      },
+      {
+        h2: 'How fast must Aetna pay a clean claim in Florida?',
+        body: [
+          'Florida sets both the provider’s deadline and the payer’s. Claims “must be mailed or electronically transferred to the primary insurer within 6 months after” the date of service (and to a secondary insurer within 90 days after the primary’s final determination) — § 627.6131(3) for health insurers, § 641.3155(3) for HMOs. For an electronic claim the payer must acknowledge receipt within 24 hours of the next business day, then pay it or say it is denied or contested within 20 days; a contested claim comes with an itemized list of what is missing, which the provider has 35 days to supply. Every claim must be paid or denied within 90 days of receipt, and failure to do so within 120 days “creates an uncontestable obligation to pay the claim.” Paper claims run 40, 120 and 140 days. Overdue payments bear 12% simple interest. These statutes bind fully insured plans issued in the state; a self-funded employer plan (ERISA) is not subject to them and follows its plan documents and your contract.',
+        ],
+        cites: [
+          { title: 'Fla. Stat. § 627.6131 (2026) — Payment of claims (health insurers)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/627.6131' },
+          { title: 'Fla. Stat. § 641.3155 (2026) — Prompt payment of claims (HMOs)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/641.3155' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured large-group (mandate applies) vs. individual/small-group or self-funded ERISA (exempt) — it decides which rulebook governs.' },
@@ -2183,11 +2408,18 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { title: 'BACB — U.S. Licensure of Behavior Analysts', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
       { title: 'Aetna \u2014 Applied Behavior Analysis Medical Necessity Guide (\u00a92026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
       { title: 'Aetna \u2014 Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
+      { title: 'Fla. Stat. § 627.6131 (2026) — Payment of claims (health insurers)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/627.6131' },
+      { title: 'Fla. Stat. § 641.3155 (2026) — Prompt payment of claims (HMOs)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/641.3155' },
+      { title: 'Aetna Provider Manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+      { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
     ],
     faq: [
       { q: 'Does Aetna cover ABA therapy in Florida?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Florida\'s Geller Act (§ 627.6686) for covered fully-insured group plans. Individual, small-group, and self-funded employer plans sit outside the mandate, so always verify plan funding type first.' },
       { q: 'What does the Florida autism mandate require?', a: 'For covered group plans: screening, speech, OT, PT, and ABA for eligible individuals — under 18 (or 18+ in high school) diagnosed with a developmental disability by age 8 — with ABA capped at $36,000/year and $200,000 lifetime (CPI-adjusted). Unusually, it covers Down syndrome as well as ASD. Federal parity limits how hard the dollar caps can be enforced against group plans.' },
       { q: 'What does Aetna pay for ABA in Florida?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the Florida Medicaid BA schedule (97153 at $12.26/unit — among the lowest in the Southeast) and treat rate-setting as part of contracting.' },
+      { q: 'What is Aetna’s timely filing limit in Florida?', a: 'Aetna’s national provider manual (6/26) does not publish a number — the filing limit is the one in your Aetna agreement. Florida law separately requires the claim within 6 months of the date of service.' },
+      { q: 'How fast must Aetna pay a clean ABA claim in Florida?', a: 'Florida law (§ 627.6131 for insurers, § 641.3155 for HMOs) requires payment or a denial/contest notice within 20 days of an electronic claim (40 for paper) and payment or denial within 90 days (120 for paper), with 12% interest on late payments. Self-funded employer plans are not bound by the statute.' },
+      { q: 'What documents does Aetna need for an ABA authorization in Florida?', a: 'Aetna\'s precertification form GR-69017-4 (7-26), which replaced its other ABA forms from August 1, 2026 (Maryland and Massachusetts excepted), lists them. It asks for the current DSM diagnosis code and the diagnosing provider\'s name and credentials, plus hours by code (assessment codes per authorization period, treatment codes per week) and any hours during class. Supporting documents: "Results of a standardized assessment (i.e. Vineland, ABAS, VB-MAPP) completed within the past 12 months," with the IQ if available. Add a time-limited treatment plan with baselines and measurable targets, FBA or skills-assessment results, data showing severity justifies the hours, measurable caregiver goals, titration and discharge criteria, and coordination with other providers. Start the request on Availity or by phone and attach the form and records.' },
     ],
   },
 
@@ -2224,7 +2456,7 @@ export const floridaPayers: Record<string, PayerConfig> = {
       },
       dxRecency: {
         value:
-          'EN0499 sets no maximum age on the diagnosis, but it requires the date to be on the record and puts the currency burden on the instruments. Required with the diagnosis: “the name, credentials, and type of licensure of the individual who made the diagnosis” and “the date on which the diagnosis was most recently made.” For the assessment instrument, “the instrument used represents the most current version, and does not represent obsolete editions of the assessment (e.g., must be the Vineland-3 vs. Vineland-II)” and “the instrument used assesses the individual’s specific and current abilities and skills,” with the date of administration and the respondent named. A diagnosis termed “provisional,” “proposed,” “potential,” “at risk of” or “rule out” is not a confirmed diagnosis.',
+          'EN0499 sets no maximum age on the diagnosis, but it requires the date to be on the record and puts the currency burden on the instruments. Required with the diagnosis: “the name, credentials, and type of licensure of the individual who made the diagnosis” and “the date on which the diagnosis was most recently made.” For the assessment instrument, “the instrument used represents the most current version, and does not represent obsolete editions of the assessment (e.g., must be the Vineland-3 vs. Vineland-II)” and “the instrument used assesses the individual’s specific and current abilities and skills,” with the date of administration and the respondent named. A diagnosis termed “provisional,” “proposed,” “potential,” “at risk of” or “rule out” is not a confirmed diagnosis. The one hard clock is on the ABA assessment: to start treatment, “administration of the assessment instrument has been completed within 60 days prior to the start of treatment” (EN0499, eff. 5/15/2026).',
         status: 'verified',
         cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
       },
@@ -2242,12 +2474,15 @@ export const floridaPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'No referral requirement is published, and Cigna’s front door is unusually open: assessment codes 97151, 97152 and 0362T need no prior authorization under EN0499, so the assessment can start on the diagnosis alone. The rigour arrives at the treatment step, which requires the completed assessment plus a treatment plan submitted with Cigna’s ABA prior-authorization form. Whether a specific plan layers a PCP referral on top is a benefit-design question.',
+          'No referral requirement is published, and Cigna’s front door is unusually open: assessment codes 97151, 97152 and 0362T need no prior authorization under EN0499, so the assessment can start on the diagnosis alone. The rigour arrives at the treatment step, which requires the completed assessment plus a treatment plan submitted with Cigna’s ABA prior-authorization form. Whether a specific plan layers a PCP referral on top is a benefit-design question. Florida\'s mandate adds a physician order on the plans it reaches (fully insured large-group and state-employee plans, with § 641.31098 for HMOs). Coverage "shall be limited to treatment that is prescribed by the insured\'s treating physician in accordance with a treatment plan." That plan "shall include ... a diagnosis, the proposed treatment by type, the frequency and duration of treatment, the anticipated outcomes stated as goals, the frequency with which the treatment plan will be updated, and the signature of the treating physician" (§ 627.6686(4)(a), (7)). The statute names a physician, not a psychologist, and sets no validity period beyond the update frequency written into the plan itself. In practice the order is the treating physician\'s signature on the treatment plan itself. Individual, small-group and self-funded plans are outside the mandate, so for them the order is a plan-document question.',
         status: 'plan-dependent',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+          { title: 'Cigna autism resource guide', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+          { title: 'Fla. Stat. § 627.6686 (2026) — Steven A. Geller Autism Coverage Act', url: 'https://www.flsenate.gov/Laws/Statutes/2026/627.6686' },
+        ],
+        verifyVia: 'A live benefits verification and Evernorth Provider Services at 800.926.2273 — confirm whether the plan requires a referral in addition to the treatment PA.',
         blocker: 'per-case',
-        cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Cigna autism resource guide', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
-        verifyVia:
-          'A live benefits verification and Evernorth Provider Services at 800.926.2273 — confirm whether the plan requires a referral in addition to the treatment PA.',
       },
       telehealth: {
         value:
@@ -2390,6 +2625,25 @@ export const floridaPayers: Record<string, PayerConfig> = {
           'Evernorth publishes no ABA fee schedule. The guide sends questions about “credentialing, contracts, or rates” to your provider relations representative, so your rates are in your Evernorth contract.',
         ],
       },
+      {
+        h2: 'Claims: filing deadline and disputes',
+        body: [
+          'Cigna’s behavioral benefits, ABA included, are administered by Evernorth Behavioral Health, whose administrative guidelines (revised September 2026) “will only consider claims submitted within 90 days of the date of service or as otherwise defined in your Provider Agreement” — a longer state-law limit overrides it, the clock resets to the date Cigna asks for more information, and Medicaid-secondary claims get three years. Appeals must be started in writing within 180 calendar days of the payment or denial decision. Its Florida addendum adopts § 641.3155 and requires claims within six months of the date of service.',
+        ],
+        cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (rev. Sept. 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
+      },
+      {
+        h2: 'How fast must Cigna pay a clean claim in Florida?',
+        body: [
+          'Florida sets both the provider’s deadline and the payer’s. Claims “must be mailed or electronically transferred to the primary insurer within 6 months after” the date of service (and to a secondary insurer within 90 days after the primary’s final determination) — § 627.6131(3) for health insurers, § 641.3155(3) for HMOs. For an electronic claim the payer must acknowledge receipt within 24 hours of the next business day, then pay it or say it is denied or contested within 20 days; a contested claim comes with an itemized list of what is missing, which the provider has 35 days to supply. Every claim must be paid or denied within 90 days of receipt, and failure to do so within 120 days “creates an uncontestable obligation to pay the claim.” Paper claims run 40, 120 and 140 days. Overdue payments bear 12% simple interest. These statutes bind fully insured plans issued in the state; a self-funded employer plan (ERISA) is not subject to them and follows its plan documents and your contract.',
+        ],
+        cites: [
+          { title: 'Fla. Stat. § 627.6131 (2026) — Payment of claims (health insurers)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/627.6131' },
+          { title: 'Fla. Stat. § 641.3155 (2026) — Prompt payment of claims (HMOs)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/641.3155' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured large-group (mandate applies) vs. individual/small-group or self-funded ERISA (exempt) — it decides which rulebook governs.' },
@@ -2403,12 +2657,18 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { title: 'Fla. Stat. § 627.6686 (2024)', url: 'https://www.flsenate.gov/Laws/statutes/2024/627.6686' },
       { title: 'FL Dept. of Financial Services — ASD coverage overview', url: 'https://www.myfloridacfo.com/division/consumers/consumerprotections/autism-spectrum-disorder' },
       { title: 'BACB — U.S. Licensure of Behavior Analysts', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
+      { title: 'Fla. Stat. § 627.6131 (2026) — Payment of claims (health insurers)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/627.6131' },
+      { title: 'Fla. Stat. § 641.3155 (2026) — Prompt payment of claims (HMOs)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/641.3155' },
+      { title: 'Evernorth Behavioral Health Administrative Guidelines (rev. Sept. 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
     ],
     faq: [
       { q: 'Does Cigna cover ABA therapy in Florida?', a: 'Yes — under national policy EN0499 for ASD (no PA on assessment codes 97151/97152/0362T), layered on Florida\'s Geller Act (§ 627.6686) for covered fully-insured group plans. Self-funded, individual, and small-group plans sit outside the mandate, so verify plan funding type first.' },
       { q: 'What does the Florida autism mandate require?', a: 'For covered group plans: screening, speech, OT, PT, and ABA for eligible individuals — under 18 (or 18+ in high school) diagnosed with a developmental disability by age 8 — with ABA capped at $36,000/year and $200,000 lifetime (CPI-adjusted). It also covers Down syndrome, and federal parity limits how hard the dollar caps can be enforced against group plans.' },
       { q: 'What is Cigna\u2019s fee schedule for ABA in Florida?', a: 'Evernorth (Cigna\u2019s behavioral health arm) publishes no ABA fee schedule. Its autism resource guide sends questions about credentialing, contracts or rates to your provider relations representative, so the rate is in your Evernorth contract.' },
       { q: 'How do I join Cigna\u2019s ABA network in Florida?', a: 'Apply to Evernorth: individuals use the Evernorth Behavioral Provider Information Form and autism clinics the Screening Application for Autism Clinics. Allow up to 90 days for the application and another 60 to 90 days to credential each provider after the clinic contract. Technicians are not credentialed; their services bill under the supervising provider.' },
+      { q: 'What is Cigna’s timely filing limit in Florida?', a: 'Evernorth Behavioral Health, which administers Cigna’s ABA benefit, considers claims submitted within 90 days of the date of service unless your provider agreement or a longer state-law limit says otherwise. Its Florida addendum requires claims within six months of the date of service under § 641.3155.' },
+      { q: 'How fast must Cigna pay a clean ABA claim in Florida?', a: 'Florida law (§ 627.6131 for insurers, § 641.3155 for HMOs) requires payment or a denial/contest notice within 20 days of an electronic claim (40 for paper) and payment or denial within 90 days (120 for paper), with 12% interest on late payments. Self-funded employer plans are not bound by the statute.' },
+      { q: 'What documents does Cigna (Evernorth) need for ABA in Florida?', a: 'EN0499 (effective 5/15/2026) requires a confirmed DSM-5-TR ASD diagnosis from an independently licensed clinician whose scope includes diagnosis. The record must give "the name, credentials, and type of licensure" of the diagnosing clinician and "the date on which the diagnosis was most recently made." A provisional or rule-out diagnosis, or an IDEA educational identification, does not count. For treatment, the BCBA\'s assessment must use a current-edition standardized instrument, completed in full and administered "within 60 days prior to the start of treatment," with score tables. The treatment plan\'s goals must match the deficits it found.' },
     ],
   },
 
@@ -2469,12 +2729,14 @@ export const floridaPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'No referral requirement is published; the gate is authorization. “Prior authorization is required for ABA (unless otherwise specified or mandated by contract or law),” run as Optum’s two-step structure on Provider Express — assessment authorized first, then treatment — with continued-service reviews every 4–6 months. Whether a specific plan also requires a PCP referral is a benefit-design question.',
+          'No referral requirement is published; the gate is authorization. “Prior authorization is required for ABA (unless otherwise specified or mandated by contract or law),” run as Optum’s two-step structure on Provider Express — assessment authorized first, then treatment — with continued-service reviews every 4–6 months. Whether a specific plan also requires a PCP referral is a benefit-design question. Florida\'s mandate adds a physician order on the plans it reaches (fully insured large-group and state-employee plans, with § 641.31098 for HMOs). Coverage "shall be limited to treatment that is prescribed by the insured\'s treating physician in accordance with a treatment plan." That plan "shall include ... a diagnosis, the proposed treatment by type, the frequency and duration of treatment, the anticipated outcomes stated as goals, the frequency with which the treatment plan will be updated, and the signature of the treating physician" (§ 627.6686(4)(a), (7)). The statute names a physician, not a psychologist, and sets no validity period beyond the update frequency written into the plan itself. In practice the order is the treating physician\'s signature on the treatment plan itself. Individual, small-group and self-funded plans are outside the mandate, so for them the order is a plan-document question.',
         status: 'plan-dependent',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+          { title: 'Fla. Stat. § 627.6686 (2026) — Steven A. Geller Autism Coverage Act', url: 'https://www.flsenate.gov/Laws/Statutes/2026/627.6686' },
+        ],
+        verifyVia: 'A live benefits verification plus Provider Express — confirm whether the plan layers a referral requirement on top of the two-step authorization.',
         blocker: 'per-case',
-        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
-        verifyVia:
-          'A live benefits verification plus Provider Express — confirm whether the plan layers a referral requirement on top of the two-step authorization.',
       },
       telehealth: {
         value: 'Three codes, after an attestation. Optum’s Telehealth Billing guide (updated September 2025) is explicit for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157” — virtual supervision of technicians and family training — so technician-delivered 97153 is not payable by telehealth. The provider must first be “an approved Optum virtual visits provider who has attested” (the virtual-visits attestation on Provider Express) and must tell the ABA Care Advocate at authorization. Bill the in-person code with the member’s location as the place of service: POS 10 when the member is at home, POS 02 anywhere else (the older ABA CPT FAQ says POS 02; the 2025 guide requires one of the two on every behavioral-health telehealth claim, and POS 11 or a telehealth modifier alone is not paid). Optum’s criteria add that telehealth is “not intended to supplant in-person service.” Because only 97155, 97156 and 97157 are allowed by telehealth on commercial plans, the 97151 assessment and 97152 supporting assessment must be done in person, while remote BCBA direction of the technician (97155) is allowed.',
@@ -2626,6 +2888,25 @@ export const floridaPayers: Record<string, PayerConfig> = {
           'UnitedHealthcare does not publish a commercial ABA rate table; Optum administers the behavioral health benefit and pays under your participation agreement. Optum\u2019s Telehealth Billing guide (September 2025) tells providers that “participating (contracted) network providers should use the applicable CPT code(s) listed on their fee schedule,” and that payment “may also be subject to benefit plan provisions and prior authorization requirements.” Optum\u2019s commercial ABA reimbursement policy (2022RP501A) sets how the claim is built rather than the price: 97151\u201397158 with a credential modifier (HM for an RBT, HN for a BCaBA, and so on), 15-minute units counted the CMS way, and indirect work “bundled with direct services for consideration of reimbursement.” For rates, ask Optum network management or check your agreement.',
         ],
       },
+      {
+        h2: 'Claims: filing deadline and disputes',
+        body: [
+          'UnitedHealthcare’s ABA benefit is managed by Optum Behavioral Health, whose National Network Manual (effective September 1, 2026) requires everything needed to process a claim to reach Optum “no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan,” with corrections within 90 days of first receipt. Clean, authorized claims are “generally” paid within 45 calendar days of receipt or as state or federal law requires. Disputes run in two steps — reconsideration, then appeal — with 12 months in total for both unless state law or your participation agreement sets a different deadline.',
+        ],
+        cites: [
+          { title: 'Optum Behavioral Health National Network Manual (published July 1, 2026; effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+        ],
+      },
+      {
+        h2: 'How fast must UnitedHealthcare pay a clean claim in Florida?',
+        body: [
+          'Florida sets both the provider’s deadline and the payer’s. Claims “must be mailed or electronically transferred to the primary insurer within 6 months after” the date of service (and to a secondary insurer within 90 days after the primary’s final determination) — § 627.6131(3) for health insurers, § 641.3155(3) for HMOs. For an electronic claim the payer must acknowledge receipt within 24 hours of the next business day, then pay it or say it is denied or contested within 20 days; a contested claim comes with an itemized list of what is missing, which the provider has 35 days to supply. Every claim must be paid or denied within 90 days of receipt, and failure to do so within 120 days “creates an uncontestable obligation to pay the claim.” Paper claims run 40, 120 and 140 days. Overdue payments bear 12% simple interest. These statutes bind fully insured plans issued in the state; a self-funded employer plan (ERISA) is not subject to them and follows its plan documents and your contract.',
+        ],
+        cites: [
+          { title: 'Fla. Stat. § 627.6131 (2026) — Payment of claims (health insurers)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/627.6131' },
+          { title: 'Fla. Stat. § 641.3155 (2026) — Prompt payment of claims (HMOs)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/641.3155' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type + group size', desc: 'Fully insured mid/large-group triggers both the mandate and Optum\'s Down syndrome coverage; individual/small-group and self-funded ERISA are exempt.' },
@@ -2645,6 +2926,9 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
       { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
       { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' },
+      { title: 'Fla. Stat. § 627.6131 (2026) — Payment of claims (health insurers)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/627.6131' },
+      { title: 'Fla. Stat. § 641.3155 (2026) — Prompt payment of claims (HMOs)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/641.3155' },
+      { title: 'Optum Behavioral Health National Network Manual (published July 1, 2026; effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
     ],
     faq: [
       { q: 'Does UnitedHealthcare cover ABA therapy in Florida?', a: 'Yes — under Optum\'s national two-step authorization for ASD, layered on Florida\'s Geller Act (§ 627.6686) for covered fully-insured group plans. Self-funded, individual, and small-group plans sit outside the mandate, so verify plan funding type first.' },
@@ -2652,6 +2936,315 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { q: 'What does the Florida autism mandate require?', a: 'For covered group plans: screening, speech, OT, PT, and ABA for eligible individuals — under 18 (or 18+ in high school) diagnosed with a developmental disability by age 8 — with ABA capped at $36,000/year and $200,000 lifetime (CPI-adjusted). Federal parity limits how hard the dollar caps can be enforced against group plans.' },
       { q: 'What is UnitedHealthcare\u2019s fee schedule for ABA in Florida?', a: 'There is no public one. Optum tells participating providers to bill “the applicable CPT code(s) listed on their fee schedule,” meaning the schedule in your Optum agreement, with payment subject to the member\u2019s benefits and prior authorization. Ask Optum network management for rates.' },
       { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale.' },
+      { q: 'What is UnitedHealthcare’s timely filing limit in Florida?', a: 'Optum Behavioral Health, which manages UnitedHealthcare’s ABA benefit, requires claims within 90 calendar days of the date of service unless state or federal law or the member’s plan allows longer (National Network Manual, effective September 1, 2026).' },
+      { q: 'How fast must UnitedHealthcare pay a clean ABA claim in Florida?', a: 'Florida law (§ 627.6131 for insurers, § 641.3155 for HMOs) requires payment or a denial/contest notice within 20 days of an electronic claim (40 for paper) and payment or denial within 90 days (120 for paper), with 12% interest on late payments. Self-funded employer plans are not bound by the statute.' },
+      { q: 'What documents does UnitedHealthcare (Optum) need for ABA in Florida?', a: 'Optum\'s ABA Supplemental Clinical Criteria require a valid DSM-5-TR ASD diagnosis from a state-licensed physician, psychologist or other qualified licensed clinician. The diagnosing clinician confirms the diagnosis and severity level "using at least one clinically validated tool," such as the ADOS-2, ADI-R or CARS-2. The ABA provider then completes its own behavioral assessment with baseline measurement on at least one validated tool (for example the VB-MAPP, ABLLS-R, AFLS or Vineland) and builds the treatment plan from it. "Prior authorization is required for ABA (unless otherwise specified or mandated by contract or law)." The criteria set no expiry on the diagnosis.' },
+    ],
+  },
+
+  'florida-blue': {
+    slug: 'florida-blue',
+    family: 'bcbs',
+    cardDesc: 'Florida\'s local Blue; ABA authorized by Lucet under policy 20.5.005, covered without plan limits per Florida Blue, plus the § 627.6686 mandate layer.',
+    assessmentPA: {
+      value:
+        'Required. Lucet reviews the ABA pre-treatment assessment as its own request: the member must have a DSM-based ASD diagnosis from a qualified clinician, and the hours requested must be no more than the assessment needs (Lucet policy 20.5.005). Florida Blue PPO and HMO requests go to Lucet by fax (816-237-2372, "Attn: FL ABA Request") or through WebPass.',
+      status: 'verified',
+      cites: [
+        { title: 'Lucet Medical Policy 20.5.005 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (applies 1/1/2026–12/31/2026)', url: 'https://lucethealth.com/wp-content/uploads/2025/12/2026-Lucet-ABA-for-Treatment-of-ASD.pdf' },
+        { title: 'Lucet — Managed Behavioral Health Provider & Facility Manual (July 2026), incl. Florida Blue PPO and HMO appendices', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+      ],
+    },
+    treatmentPA: {
+      value:
+        'Required. "Applied Behavior Analysis (ABA) requires authorization. Lucet will assign an authorization reference number." Florida Blue\'s manual says group BlueCare, BlueOptions and BlueChoice require authorization for autism-related therapy. Treatment plans are reviewed twice a year, and Lucet asks for reauthorization requests at least two weeks before the current authorization expires.',
+      status: 'verified',
+      cites: [
+        { title: 'Lucet — Managed Behavioral Health Provider & Facility Manual (July 2026), incl. Florida Blue PPO and HMO appendices', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+        { title: 'Lucet Medical Policy 20.5.005 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (applies 1/1/2026–12/31/2026)', url: 'https://lucethealth.com/wp-content/uploads/2025/12/2026-Lucet-ABA-for-Treatment-of-ASD.pdf' },
+        { title: 'Florida Blue — Manual for Physicians and Providers: Provider Participation, Plans and Products, Utilization Management', url: 'https://files.guidewell.com/m/26745a10e23752cf/original/providers-provider-manual-01.pdf' },
+      ],
+    },
+    dxRequired: {
+      value:
+        'Yes, ASD. Lucet\'s policy covers ABA for "members with the diagnosis of Autism Spectrum Disorder." The diagnosis must meet current DSM criteria and be backed by a comprehensive diagnostic evaluation with an ASD-specific standardized assessment. Screening results alone do not count. The Florida mandate also names Down syndrome for ABA on the group plans it reaches, so a Down syndrome request turns on the member\'s plan documents.',
+      status: 'verified',
+      cites: [
+        { title: 'Lucet Medical Policy 20.5.005 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (applies 1/1/2026–12/31/2026)', url: 'https://lucethealth.com/wp-content/uploads/2025/12/2026-Lucet-ABA-for-Treatment-of-ASD.pdf' },
+        { title: 'Lucet — Managed Behavioral Health Provider & Facility Manual (July 2026), incl. Florida Blue PPO and HMO appendices', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+        { title: 'Fla. Stat. § 627.6686 (2024)', url: 'https://www.flsenate.gov/Laws/statutes/2024/627.6686' },
+      ],
+    },
+    payer: 'Florida Blue (Blue Cross and Blue Shield of Florida)',
+    state: 'FL', kind: 'commercial',
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Neither Florida Blue nor Lucet publishes an ABA age limit. Lucet\'s policy says comprehensive ABA "is primarily directed to children ages 3 to 8 years old," and focused ABA has no stated age range. Both describe a treatment model, not a benefit boundary. The age terms that apply come from the Geller Act, and only on the plans it reaches. An eligible individual is "under 18 years of age or 18 years of age or older who is in high school" and "diagnosed as having a developmental disability at 8 years of age or younger." Florida Blue quotes that definition in its own coverage guideline. The mandate binds fully insured large-group and state-employee plans. Individual, individually underwritten and small-employer plans are excluded by the statute, and self-funded ERISA plans are outside state reach.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Lucet Medical Policy 20.5.005 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (applies 1/1/2026–12/31/2026)', url: 'https://lucethealth.com/wp-content/uploads/2025/12/2026-Lucet-ABA-for-Treatment-of-ASD.pdf' },
+          { title: 'Florida Blue Medical Coverage Guideline 01-97000-08 — Treatment of Autism Spectrum Disorders (reviewed 04/24/25)', url: 'https://mcgs.bcbsfl.com/MCG?mcgId=01-97000-08&pv=false' },
+          { title: 'Fla. Stat. § 627.6686 (2024)', url: 'https://www.flsenate.gov/Laws/statutes/2024/627.6686' },
+        ],
+        verifyVia: 'The member\'s plan documents and a Lucet benefits check (866-287-9569): ask whether the plan carries an ABA age limit and whether it is fully insured large group.',
+        blocker: 'per-case',
+      },
+      dxRecency: {
+        value:
+          'No expiry on the diagnosis itself, but Lucet puts clocks on the baseline data behind it. Lucet\'s policy says the developmental and cognitive evaluation, the autism-specific assessment that sets severity, and the neurological evaluation must be "completed no longer than five (5) years prior to or scheduled within ninety (90) days of the pre-treatment assessment." The adaptive behavior assessment must be "completed within 6 months of start date of treatment." Lucet\'s manual adds that one standardized adaptive instrument and one standardized cognitive instrument are "required within 90 days of pre-treatment assessment to establish baseline data."',
+        status: 'verified',
+        cites: [
+          { title: 'Lucet Medical Policy 20.5.005 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (applies 1/1/2026–12/31/2026)', url: 'https://lucethealth.com/wp-content/uploads/2025/12/2026-Lucet-ABA-for-Treatment-of-ASD.pdf' },
+          { title: 'Lucet — Managed Behavioral Health Provider & Facility Manual (July 2026), incl. Florida Blue PPO and HMO appendices', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+        ],
+      },
+      diagnosingProviders: {
+        value:
+          '"A clinician who is licensed and qualified to make such a diagnosis. Such clinicians are usually neurologists, developmental pediatricians, pediatricians, psychiatrists, licensed clinical psychologists or medical doctors experienced in the diagnosis of ASD. State law may define eligible qualified clinicians." The diagnosis must come with "a clinical note of sufficient depth that allows concordance with current DSM criteria." The comprehensive evaluation must rule out conditions that look similar, including neurological, hearing and behavior disorders and other developmental delays.',
+        status: 'verified',
+        cites: [
+          { title: 'Lucet Medical Policy 20.5.005 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (applies 1/1/2026–12/31/2026)', url: 'https://lucethealth.com/wp-content/uploads/2025/12/2026-Lucet-ABA-for-Treatment-of-ASD.pdf' },
+        ],
+      },
+      diagnosticTools: {
+        value:
+          'Lucet\'s manual names the instruments. One diagnostic assessment is "required to meet the diagnostic criteria outlined in the ABA Medical Policy": ADOS-2, ADI-R or a DSM-5 Checklist. One standardized adaptive instrument (Vineland, ABAS, BASC or PDDBI) and one standardized cognitive instrument (for example Bayley, Mullen, DAS, WPPSI or WISC) are required within 90 days of the pre-treatment assessment. Screeners such as the M-CHAT-R/F, CARS-2, GARS, SCQ or SRS-2 "are not appropriate standalone support for an autism diagnosis." Curriculum tools such as the VB-MAPP, ABLLS or AFLS are optional ways to show progress.',
+        status: 'verified',
+        cites: [
+          { title: 'Lucet — Managed Behavioral Health Provider & Facility Manual (July 2026), incl. Florida Blue PPO and HMO appendices', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+          { title: 'Lucet Medical Policy 20.5.005 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (applies 1/1/2026–12/31/2026)', url: 'https://lucethealth.com/wp-content/uploads/2025/12/2026-Lucet-ABA-for-Treatment-of-ASD.pdf' },
+        ],
+      },
+      referral: {
+        value:
+          'No referral or physician order is required for ABA under Lucet\'s policy for Florida. Lucet\'s only prescription requirement is in its Maryland addendum. Florida Blue\'s manual says BlueCare HMO members do not need a PCP referral to see a participating specialist. For myBlue (the individual-market HMO), "A referral for behavioral health services is not needed from the myBlue assigned PCP," but "The referral is not an authorization." The gate is Lucet\'s authorization, and the request needs the diagnostic evaluation behind it. Florida\'s mandate adds a physician order on the plans it reaches (fully insured large-group and state-employee plans, with § 641.31098 for HMOs). Coverage "shall be limited to treatment that is prescribed by the insured\'s treating physician in accordance with a treatment plan." That plan "shall include ... a diagnosis, the proposed treatment by type, the frequency and duration of treatment, the anticipated outcomes stated as goals, the frequency with which the treatment plan will be updated, and the signature of the treating physician" (§ 627.6686(4)(a), (7)). The statute names a physician, not a psychologist, and sets no validity period beyond the update frequency written into the plan itself. In practice the order is the treating physician\'s signature on the treatment plan itself. Individual, small-group and self-funded plans are outside the mandate, so for them the order is a plan-document question.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Lucet Medical Policy 20.5.005 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (applies 1/1/2026–12/31/2026)', url: 'https://lucethealth.com/wp-content/uploads/2025/12/2026-Lucet-ABA-for-Treatment-of-ASD.pdf' },
+          { title: 'Florida Blue — Manual for Physicians and Providers: Provider Participation, Plans and Products, Utilization Management', url: 'https://files.guidewell.com/m/26745a10e23752cf/original/providers-provider-manual-01.pdf' },
+          { title: 'Lucet — Managed Behavioral Health Provider & Facility Manual (July 2026), incl. Florida Blue PPO and HMO appendices', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+          { title: 'Fla. Stat. § 627.6686 (2026) — Steven A. Geller Autism Coverage Act', url: 'https://www.flsenate.gov/Laws/Statutes/2026/627.6686' },
+        ],
+        verifyVia: 'The member\'s plan documents and a Lucet benefits check (866-287-9569): ask whether the plan is subject to the Florida mandate (fully insured large group or state employee plan) and whether a signed physician prescription and treatment plan must be on file before Lucet will authorize treatment.',
+        blocker: 'per-case',
+      },
+      telehealth: {
+        value:
+          'Not set out for ABA. For Florida Blue members, Lucet\'s appendix says only that "Reimbursement for telehealth services is subject to plan guidelines." Lucet\'s manual says 97153, 97154, 97155 and 97158 require face-to-face services with the patient, and 97156 and 97157 with the guardians or caregivers present. It does not say whether face-to-face can be met by video.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Lucet — Managed Behavioral Health Provider & Facility Manual (July 2026), incl. Florida Blue PPO and HMO appendices', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+        ],
+        verifyVia: 'Lucet benefits and eligibility (866-287-9569) or WebPass: ask whether the member\'s plan pays ABA codes by telehealth, which codes, and which modifier and place of service to use.',
+        blocker: 'per-case',
+      },
+      authTurnaround: {
+        value:
+          'Lucet: "Reviews of authorization requests may take up to 15 days," and reauthorization requests should go in "at least two weeks prior to authorization expiration." No Florida statute sets the decision deadline. § 627.42392, Fla. Stat. governs the prior authorization form, not the clock. The federal claims rule sets the floor for employer plans and for non-grandfathered individual and marketplace plans: a pre-service decision "not later than 15 days after receipt of the claim," with one 15-day extension, and urgent care "not later than 72 hours after receipt." Lucet decides expedited medical-necessity appeals within 72 hours and standard appeals within 30 calendar days.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Lucet — Managed Behavioral Health Provider & Facility Manual (July 2026), incl. Florida Blue PPO and HMO appendices', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+          { title: '§ 627.42392, Fla. Stat. — Prior authorization (2026)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/627.42392' },
+          { title: '29 CFR 2560.503-1 — ERISA claims procedure (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+          { title: '45 CFR 147.136 — internal claims and appeals, group and individual coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-45/section-147.136' },
+        ],
+        verifyVia: 'Lucet precertification (866-730-5006): whether the clock starts at receipt or at a complete request, and the plan\'s urgent timeframe.',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value:
+          'For a child covered on both parents\' group plans, Florida\'s COB statute sets the order: "The benefits of the policy or plan of the parent whose birthday, excluding year of birth, falls earlier in a year are determined before" the other parent\'s. For divorced or separated parents, the order is the custodial parent\'s plan, then the custodial parent\'s spouse\'s plan, then the non-custodial parent\'s, unless a court decree assigns health costs to one parent. The statute reaches group policies and group plans issued in Florida. A self-funded employer plan follows its own plan document. Medicaid pays last (Rule 59G-1.052). TRICARE "pays after all other health insurance, except for" Medicaid, and CHAMPVA "is always the secondary payer, except to Medicaid." Get Florida Blue\'s Lucet authorization even when a public program is secondary.',
+        status: 'plan-dependent',
+        cites: [
+          { title: '§ 627.4235, Fla. Stat. — Coordination of benefits', url: 'https://www.flsenate.gov/Laws/Statutes/2025/627.4235' },
+          { title: 'Rule 59G-1.052, F.A.C. — Third-Party Liability Requirements (AHCA)', url: 'https://ahca.myflorida.com/content/download/5929/file/59G_1052_TPL_Requirements.pdf?version=1' },
+          { title: 'TRICARE — Using Other Health Insurance', url: 'https://www.tricare.mil/Plans/OHI' },
+          { title: 'VA — CHAMPVA: Information for Outpatient Providers (IB 10-1587, updated 9/20/2023)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/factsheets/FactSheet_01-20.pdf' },
+        ],
+        verifyVia: 'Ask the family for both parents\' cards and birth dates, and ask the employer whether each plan is fully insured (Florida statute applies) or self-funded (the plan document applies).',
+        blocker: 'per-case',
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value:
+          'No numeric ratio is published. Lucet\'s "Essential Components of ABA Treatment" require "Ongoing direction of technician," "Ongoing, frequent review and analysis of direct observational data," and training technicians, family members and other caregivers on revised protocols. Its policy says that, absent state law, line therapy is provided by an RBT, BCaBA, BCBA or BCBA-D. Lucet recommends caregiver training of one hour for the first 10 hours of direct therapy plus half an hour for each further 10 hours. Florida does not license behavior analysts. The mandate ties covered ABA to s. 393.17 certification or Chapter 490/491 licensure, and Florida Blue\'s manual covers ABA "when rendered by an individual certified per Section 393.17 of the Florida Statutes."',
+        status: 'verified',
+        cites: [
+          { title: 'Lucet — Managed Behavioral Health Provider & Facility Manual (July 2026), incl. Florida Blue PPO and HMO appendices', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+          { title: 'Lucet Medical Policy 20.5.005 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (applies 1/1/2026–12/31/2026)', url: 'https://lucethealth.com/wp-content/uploads/2025/12/2026-Lucet-ABA-for-Treatment-of-ASD.pdf' },
+          { title: 'Florida Blue — Manual for Physicians and Providers: Provider Participation, Plans and Products, Utilization Management', url: 'https://files.guidewell.com/m/26745a10e23752cf/original/providers-provider-manual-01.pdf' },
+          { title: 'Fla. Stat. § 627.6686 (2024)', url: 'https://www.flsenate.gov/Laws/statutes/2024/627.6686' },
+        ],
+      },
+      concurrentBilling: {
+        value:
+          'Not published. Neither Lucet\'s manual nor its ABA policy says whether 97155 and 97153 may both be billed for the same clock time. Lucet points to the ABA Coding Coalition for code usage. Out-of-state providers paid through BlueCard are reimbursed only for "service codes equivalent to the covered ABA service codes" on that list.',
+        status: 'unverified',
+        cites: [
+          { title: 'Lucet — Managed Behavioral Health Provider & Facility Manual (July 2026), incl. Florida Blue PPO and HMO appendices', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+        ],
+        verifyVia: 'Lucet claims inquiries (877-801-1159) or your Lucet contract: ask whether 97155 pays alongside 97153 when the analyst directs the technician face to face.',
+        blocker: 'per-case',
+      },
+      dailyLimits: {
+        value:
+          'No unit cap. Florida Blue\'s manual says that, for the autism benefit, "ABA is covered without limits and authorizations are coordinated under the Mental and Nervous by Lucet Behavioral Health." For large-group plans, "Therapy for Autism and Down Syndrome must continue to be covered even after outpatient therapy limits are met." The hours come from the authorization. Lucet\'s policy describes comprehensive ABA as "25 to 40 total hours of direct services weekly" and focused ABA as "typically ... 10 to 25 total hours." Lucet\'s Florida Blue appendix adds: "All services must be billed in whole units. Partial units will not be paid."',
+        status: 'verified',
+        cites: [
+          { title: 'Florida Blue — Manual for Physicians and Providers: Provider Participation, Plans and Products, Utilization Management', url: 'https://files.guidewell.com/m/26745a10e23752cf/original/providers-provider-manual-01.pdf' },
+          { title: 'Lucet Medical Policy 20.5.005 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (applies 1/1/2026–12/31/2026)', url: 'https://lucethealth.com/wp-content/uploads/2025/12/2026-Lucet-ABA-for-Treatment-of-ASD.pdf' },
+          { title: 'Lucet — Managed Behavioral Health Provider & Facility Manual (July 2026), incl. Florida Blue PPO and HMO appendices', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+        ],
+      },
+      noteSignature: {
+        value:
+          'Lucet\'s medical-record standard: entries must be dated with start and stop times or duration, "clearly identify the rendering provider and be authenticated (signed) by the individual providing the services with a professional degree ... and/or professional credentials." "Only handwritten signatures and eligible EMR signatures qualify." An electronic signature must carry a unique personal identifier and the author\'s name, credentials, date and timestamp, so "a typed signature that lacks the above-listed identifiers would not qualify." Each date of service needs its own entry. "A summary of services for multiple dates of service or multiple members is unacceptable."',
+        status: 'verified',
+        cites: [
+          { title: 'Lucet — Managed Behavioral Health Provider & Facility Manual (July 2026), incl. Florida Blue PPO and HMO appendices', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+        ],
+      },
+      placeOfService: {
+        value:
+          'Setting follows the clinical need. Lucet\'s policy requires treatment "in the setting and intensity that is appropriate for the member\'s clinical needs, determined by where target behaviors are occurring." Comprehensive ABA "should initially occur in a structured setting with 1:1 staffing and should advance to the least restrictive environment." "ABA treatment is not designed to primarily attain academic performance." Lucet\'s manual asks for documentation of treatment participants, procedures and setting. No ABA place-of-service code list is published for Florida Blue.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Lucet Medical Policy 20.5.005 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (applies 1/1/2026–12/31/2026)', url: 'https://lucethealth.com/wp-content/uploads/2025/12/2026-Lucet-ABA-for-Treatment-of-ASD.pdf' },
+          { title: 'Lucet — Managed Behavioral Health Provider & Facility Manual (July 2026), incl. Florida Blue PPO and HMO appendices', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+        ],
+        verifyVia: 'The member\'s plan documents (any educational-services exclusion) and Lucet: ask whether school-based or community hours are payable on that plan.',
+        blocker: 'per-case',
+      },
+      billAsProvider: {
+        value:
+          'Group NPI as billing provider, individual NPI as rendering. Lucet\'s Florida Blue appendix: "The group/type 2 NPI number will be used as the “billing provider” on a claim," and "The individual NPI number will be used as the “rendering provider” on a claim." A practice billing under a tax ID must have a type 2 NPI. The authorization "must be in the name of the BCBA who will be performing the services (e.g., 97151, 97155, 97156, 97157, 97158) or overseeing the technicians performing the services (e.g., 97152, 97153, 97154)." Claims go electronically to payer ID 00590.',
+        status: 'verified',
+        cites: [
+          { title: 'Lucet — Managed Behavioral Health Provider & Facility Manual (July 2026), incl. Florida Blue PPO and HMO appendices', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+        ],
+      },
+    },
+    pill: 'Payer Guide · Florida Blue · Florida',
+    h1: 'Florida Blue ABA coverage: the intake guide.',
+    metaTitle: 'Florida Blue ABA Coverage: Lucet Prior Auth & Florida Mandate Guide | Carelu',
+    metaDescription:
+      'How Florida Blue covers ABA: Lucet authorizes it under medical policy 20.5.005, Florida Blue covers ABA without plan limits under the autism benefit, the Geller Act (§ 627.6686) sets the mandate floor, and BlueCard governs out-of-state members. Includes what intake should collect.',
+    intro: [
+      'Florida Blue (Blue Cross and Blue Shield of Florida, with its HMO, Health Options) is Florida\'s local Blue plan, and it does not review ABA itself. "The management of behavioral health services for Florida Blue and Florida Blue HMO members, including Case Management, is delegated to Lucet Behavioral Health," formerly New Directions. In practice an ABA request is a Lucet request, reviewed against Lucet\'s ABA medical policy, sitting on a Florida Blue benefit and Florida\'s autism mandate.',
+    ],
+    atGlance: [
+      { label: 'Covers ABA?', value: 'Yes, for ASD, reviewed by Lucet (policy 20.5.005). Florida Blue covers ABA "without limits" under the autism benefit' },
+      { label: 'Prior auth', value: 'Required for assessment and treatment. Fax Lucet 816-237-2372 ("Attn: FL ABA Request") or use WebPass' },
+      { label: 'Claims', value: 'Electronic, payer ID 00590. 180-day filing limit. Group NPI billing, individual NPI rendering' },
+      { label: 'State mandate', value: '§ 627.6686, Fla. Stat. (insurers) + § 641.31098 (HMOs), the Geller Act' },
+      { label: 'Mandate age', value: 'Under 18 (or 18+ still in high school), dx of a developmental disability by age 8' },
+      { label: 'Mandate caps', value: '$36,000/yr; $200,000 lifetime (CPI-adjusted; parity-limited)' },
+      { label: 'Exempt from mandate', value: 'Individual, individually underwritten, and small-group plans; self-funded ERISA' },
+      { label: 'Licensure', value: 'None. No FL behavior analyst license; BCBA/FL-CBA credential (s. 393.17)' },
+    ],
+    sections: [
+      {
+        h2: 'Lucet runs the ABA benefit',
+        body: [
+          'Florida Blue delegates behavioral health, ABA included, to Lucet Behavioral Health. Florida Blue\'s coverage guideline 01-97000-08 no longer carries an ABA coverage statement: it was deleted on 01/01/2020, and the guideline now covers PT, OT and speech for autism comorbidities. The ABA criteria live in Lucet\'s medical policy 20.5.005. Florida Blue\'s manual lists ABA under the autism benefit: "Applied Behavior Analysis, when rendered by an individual certified per Section 393.17 of the Florida Statutes," and "ABA is covered without limits and authorizations are coordinated under the Mental and Nervous by Lucet Behavioral Health."',
+          'Lucet\'s Florida Blue PPO and HMO appendices route ABA the same way. Authorizations are faxed to 816-237-2372 ("Attn: FL ABA Request"). Precertification questions go to 866-730-5006 or WebPass, benefits and eligibility to 866-287-9569, and claims inquiries to 877-801-1159. Lucet\'s general ABA rules apply on top. The authorization is issued in the BCBA\'s name, request forms are on WebPass, reviews "may take up to 15 days," and changes go on the ABA Amended Request form. "Some plans do not have a benefit for ABA services," so verify the benefit first.',
+        ],
+        cites: [
+          { title: 'Florida Blue — Manual for Physicians and Providers: Provider Participation, Plans and Products, Utilization Management', url: 'https://files.guidewell.com/m/26745a10e23752cf/original/providers-provider-manual-01.pdf' },
+          { title: 'Florida Blue Medical Coverage Guideline 01-97000-08 — Treatment of Autism Spectrum Disorders (reviewed 04/24/25)', url: 'https://mcgs.bcbsfl.com/MCG?mcgId=01-97000-08&pv=false' },
+          { title: 'Lucet — Managed Behavioral Health Provider & Facility Manual (July 2026), incl. Florida Blue PPO and HMO appendices', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+          { title: 'Lucet — Florida Blue provider page (behavioral health network)', url: 'https://lucethealth.com/providers/plan/florida-blue/' },
+        ],
+      },
+      {
+        h2: 'What Lucet wants at intake and with the first authorization',
+        body: [
+          'For the pre-treatment assessment, Lucet requires a DSM-based ASD diagnosis from a qualified clinician. It must come with "a clinical note of sufficient depth that allows concordance with current DSM criteria," and "a complete diagnostic evaluation must be completed, including an ASD-specific standardized assessment" that rules out look-alike conditions. The hours requested must be no more than the assessment needs.',
+          'The initial treatment request adds psychological testing with formal score reports: autism-specific, adaptive and cognitive. The baseline data must be "completed no longer than five (5) years prior to or scheduled within ninety (90) days of the pre-treatment assessment." It must include a developmental and cognitive evaluation, a severity-rating autism assessment, an adaptive behavior assessment "completed within 6 months of start date of treatment," and a neurological evaluation as part of a comprehensive physical exam. The treatment plan needs measurable goals on core ASD deficits with baselines, mastery criteria and generalization plans; caregiver-training goals; care coordination, safety and discharge planning; and a plan for transferring instructional control to caregivers. Continued authorization adds documented benefit, new or continuing goals, and a revised plan.',
+        ],
+        cites: [
+          { title: 'Lucet Medical Policy 20.5.005 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (applies 1/1/2026–12/31/2026)', url: 'https://lucethealth.com/wp-content/uploads/2025/12/2026-Lucet-ABA-for-Treatment-of-ASD.pdf' },
+          { title: 'Lucet — Managed Behavioral Health Provider & Facility Manual (July 2026), incl. Florida Blue PPO and HMO appendices', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+        ],
+      },
+      {
+        h2: 'The Florida mandate: what it guarantees (and doesn\'t)',
+        body: [
+          'The Steven A. Geller Autism Coverage Act (2008) requires coverage in group plans issued or delivered in Florida after April 1, 2009. In practice that means fully insured large-group plans and the state employee plan under § 627.6686, with companion § 641.31098 reaching large-group HMO contracts. It explicitly excludes individual-market, individually underwritten and small-employer plans. The eligible individual is under 18 (or 18 and older but still in high school) and diagnosed with a developmental disability at 8 years of age or younger. Covered services include well-child ASD screening plus speech, OT, PT and applied behavior analysis, and the mandate covers Down syndrome as well as ASD. ABA benefits cap at $36,000 a year and $200,000 lifetime, adjusted each January 1 for medical CPI. ABA providers must be certified under s. 393.17, Fla. Stat. or licensed under chapters 490/491. Self-funded ERISA plans sit outside state reach. Because ASD treatment is treated as a mental health benefit, MHPAEA\'s ban on dollar limits arguably neutralizes the caps for parity-subject plans. Treat that as analysis, not settled guidance. Florida Blue\'s own manual goes further than the cap: it describes ABA under the autism benefit as covered without limits.',
+        ],
+        cites: [
+          { title: 'Fla. Stat. § 627.6686 (2024)', url: 'https://www.flsenate.gov/Laws/statutes/2024/627.6686' },
+          { title: 'FL Dept. of Financial Services — ASD coverage overview', url: 'https://www.myfloridacfo.com/division/consumers/consumerprotections/autism-spectrum-disorder' },
+          { title: 'Florida Blue — Manual for Physicians and Providers: Provider Participation, Plans and Products, Utilization Management', url: 'https://files.guidewell.com/m/26745a10e23752cf/original/providers-provider-manual-01.pdf' },
+        ],
+      },
+      {
+        h2: 'Claims, appeals and the Florida payment clock',
+        body: [
+          'Lucet\'s Florida Blue appendix: claims "must be filed within 180 days from the date of service," must be "submitted electronically using payer ID – 00590," and clean claims "will be processed within 10 to 30 days," with status on Availity. Practices billing under a tax ID need a type 2 (group) NPI for the billing provider and the individual NPI as rendering. Florida Blue\'s own manual restates the 180-day limit where Florida law applies. Lucet handles standard medical-necessity appeals within 30 calendar days (filed within 180 days of the denial). Expedited appeals are decided within 72 hours and go to Florida Blue at 877-842-9118.',
+          'Florida law sets the payer\'s clock for fully insured plans. An electronic claim must be paid, denied or contested within 20 days, and every claim paid or denied within 90 days of receipt. Failure to do so within 120 days "creates an uncontestable obligation to pay the claim." Overdue payments bear 12% simple interest (§ 627.6131 for insurers, § 641.3155 for HMOs). Self-funded employer plans follow their plan documents and your contract instead.',
+        ],
+        cites: [
+          { title: 'Lucet — Managed Behavioral Health Provider & Facility Manual (July 2026), incl. Florida Blue PPO and HMO appendices', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+          { title: 'Florida Blue — Manual for Physicians and Providers: Claim Submission, Billing Guidelines', url: 'https://files.guidewell.com/m/682cef22c888300d/original/providers-provider-manual-02.pdf' },
+          { title: 'Fla. Stat. § 627.6131 (2026) — Payment of claims (health insurers)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/627.6131' },
+          { title: 'Fla. Stat. § 641.3155 (2026) — Prompt payment of claims (HMOs)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/641.3155' },
+        ],
+      },
+      {
+        h2: 'BlueCard: out-of-state Blue members in Florida, and Florida Blue members out of state',
+        body: [
+          'Under BlueCard, claims go through the treating provider\'s local Blue plan. For a Florida practice treating another state\'s Blue member, that is Florida Blue. Its manual tells providers to select Florida Blue on Availity "under any circumstance where Florida Blue is adjudicating the claim. This includes BlueCard claims where Florida Blue is the host plan." Lucet\'s appendix routes "In-state and Out-of-state (BlueCard) claims review requests" through Availity. Benefits belong to the member\'s home plan. Florida Blue\'s manual gives an example: for a BlueCard member, "You must contact the home plan to determine" whether partial hospitalization is an inpatient or outpatient benefit. When the member\'s Blue plan is unknown, it points to BlueCard Eligibility at (800) 676-BLUE (2583). Lucet\'s manual adds that out-of-state ABA providers contracted with their local Blue under different codes are paid only for codes equivalent to the covered ABA codes.',
+        ],
+        cites: [
+          { title: 'Florida Blue — Manual for Physicians and Providers: Care Review, Coordination of Benefits, Appeals and Grievances', url: 'https://files.guidewell.com/m/810cd58904247aa/original/providers-provider-manual-03.pdf' },
+          { title: 'Florida Blue — Manual for Physicians and Providers: Claim Submission, Billing Guidelines', url: 'https://files.guidewell.com/m/682cef22c888300d/original/providers-provider-manual-02.pdf' },
+          { title: 'Lucet — Managed Behavioral Health Provider & Facility Manual (July 2026), incl. Florida Blue PPO and HMO appendices', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+        ],
+      },
+      {
+        h2: 'Licensure & rates in Florida',
+        body: [
+          'Florida has no state behavior-analyst license and is absent from the BACB\'s list of states with licensure laws. The operative credential is BACB certification (BCBA, BCaBA or RBT). s. 393.17, Fla. Stat. recognizes BACB certification, legacy Florida Certified Behavior Analysts remain recognized, and the Geller Act keys ABA coverage to s. 393.17 certification or Chapter 490/491 licensure. Florida Blue\'s commercial ABA rates are not published. They are set in the Lucet participation agreement, and Lucet\'s portal carries a rate-increase request process. The Florida Medicaid schedule is the local benchmark: 97153 pays $12.26 per 15-minute unit.',
+        ],
+        cites: [
+          { title: 'BACB — U.S. Licensure of Behavior Analysts (FL not listed)', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
+          { title: 'Fla. Stat. § 627.6686 (2024)', url: 'https://www.flsenate.gov/Laws/statutes/2024/627.6686' },
+          { title: 'Lucet — Florida Blue provider page (behavioral health network)', url: 'https://lucethealth.com/providers/plan/florida-blue/' },
+        ],
+      },
+    ],
+    collect: [
+      { title: 'Plan type and funding', desc: 'PPO/BlueOptions, BlueCare HMO, myBlue, or a self-funded group: it decides which rulebook and which mandate apply.' },
+      { title: 'Member ID with prefix', desc: 'Florida Blue or an out-of-state Blue (BlueCard). The prefix routes eligibility, precertification and claims.' },
+      { title: 'Diagnostic evaluation', desc: 'DSM-based ASD diagnosis, diagnosing clinician and credentials, the clinical note, and an ADOS-2, ADI-R or DSM-5 Checklist result.' },
+      { title: 'Baseline testing dates', desc: 'Developmental/cognitive, autism-specific and neurological evaluation within five years (or scheduled within 90 days), and adaptive testing within six months of the treatment start.' },
+      { title: 'Age and diagnosis-age history', desc: 'For mandate plans: under 18 (or in high school), with the developmental-disability diagnosis made by age 8.' },
+    ],
+    sources: [
+      { title: 'Lucet Medical Policy 20.5.005 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (applies 1/1/2026–12/31/2026)', url: 'https://lucethealth.com/wp-content/uploads/2025/12/2026-Lucet-ABA-for-Treatment-of-ASD.pdf' },
+      { title: 'Lucet — Managed Behavioral Health Provider & Facility Manual (July 2026), incl. Florida Blue PPO and HMO appendices', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+      { title: 'Florida Blue — Manual for Physicians and Providers: Provider Participation, Plans and Products, Utilization Management', url: 'https://files.guidewell.com/m/26745a10e23752cf/original/providers-provider-manual-01.pdf' },
+      { title: 'Florida Blue — Manual for Physicians and Providers: Claim Submission, Billing Guidelines', url: 'https://files.guidewell.com/m/682cef22c888300d/original/providers-provider-manual-02.pdf' },
+      { title: 'Florida Blue — Manual for Physicians and Providers: Care Review, Coordination of Benefits, Appeals and Grievances', url: 'https://files.guidewell.com/m/810cd58904247aa/original/providers-provider-manual-03.pdf' },
+      { title: 'Florida Blue Medical Coverage Guideline 01-97000-08 — Treatment of Autism Spectrum Disorders (reviewed 04/24/25)', url: 'https://mcgs.bcbsfl.com/MCG?mcgId=01-97000-08&pv=false' },
+      { title: 'Lucet — Florida Blue provider page (behavioral health network)', url: 'https://lucethealth.com/providers/plan/florida-blue/' },
+      { title: 'Fla. Stat. § 627.6686 (2024)', url: 'https://www.flsenate.gov/Laws/statutes/2024/627.6686' },
+      { title: 'FL Dept. of Financial Services — ASD coverage overview', url: 'https://www.myfloridacfo.com/division/consumers/consumerprotections/autism-spectrum-disorder' },
+      { title: 'BACB — U.S. Licensure of Behavior Analysts (FL not listed)', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
+      { title: 'Fla. Stat. § 627.6131 (2026) — Payment of claims (health insurers)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/627.6131' },
+      { title: 'Fla. Stat. § 641.3155 (2026) — Prompt payment of claims (HMOs)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/641.3155' },
+    ],
+    faq: [
+      { q: 'Does Florida Blue cover ABA therapy?', a: 'Yes, for autism spectrum disorder. Florida Blue delegates the review to Lucet Behavioral Health, which applies its ABA medical policy 20.5.005. Florida Blue\'s manual says ABA under the autism benefit is "covered without limits," with authorizations coordinated by Lucet. Confirm the member\'s plan carries the benefit; Lucet notes some plans do not.' },
+      { q: 'Who authorizes ABA for Florida Blue members?', a: 'Lucet. Fax requests to 816-237-2372 ("Attn: FL ABA Request") or use Lucet\'s WebPass portal. Call 866-730-5006 for precertification questions. Reviews can take up to 15 days, and reauthorizations should go in at least two weeks before the current one expires.' },
+      { q: 'What documents does Florida Blue (Lucet) need for an ABA authorization?', a: 'For the assessment: a DSM-based ASD diagnosis from a qualified clinician, with a clinical note and a complete diagnostic evaluation that includes an ASD-specific standardized assessment such as the ADOS-2, ADI-R or a DSM-5 Checklist. For treatment: formal score reports for autism-specific, adaptive and cognitive testing. Baseline evaluations must be within five years (or scheduled within 90 days of the assessment), adaptive testing within six months of the treatment start. Add a treatment plan with measurable goals, caregiver-training goals, and coordination, safety and discharge planning.' },
+      { q: 'Does Florida Blue need a referral for ABA?', a: 'No referral is required under Lucet\'s policy for Florida. BlueCare HMO members do not need a PCP referral to see a participating specialist, and myBlue members do not need one for behavioral health. Lucet\'s authorization is the gate.' },
+      { q: 'What is Florida Blue\'s timely filing limit for ABA?', a: '180 days from the date of service, filed electronically to payer ID 00590 (Lucet\'s Florida Blue appendix). Clean claims are processed within 10 to 30 days.' },
+      { q: 'What does the Florida autism mandate require?', a: 'For covered group plans: screening, speech, OT, PT and ABA for eligible individuals, meaning under 18 (or 18+ in high school) and diagnosed with a developmental disability by age 8. ABA is capped at $36,000 a year and $200,000 lifetime (CPI-adjusted). It covers Down syndrome as well as ASD. Individual, small-group and self-funded plans sit outside it.' },
+      { q: 'How does BlueCard work with Florida Blue?', a: 'A Florida provider treating another state\'s Blue member files with Florida Blue as the host plan, and the member\'s home plan decides benefits and precertification. A Florida Blue member treated out of state is billed through that provider\'s local Blue, with Florida Blue (through Lucet) as the home plan for authorization.' },
     ],
   },
 };

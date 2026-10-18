@@ -154,6 +154,21 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
           { title: 'OAC 317:30-5-313 — Medical necessity criteria, covered services, frequency and duration [Revised 09-01-25]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/medical-providers-fee-for-service/individual-providers-and-specialties/applied-behavior-analysis-services/medical-necessity-criteria-and-covered-services-for-members-under-twenty-one-years-of-age-and-frequency-and-duration.html' },
         ],
       },
+      {
+        h2: 'SoonerCare claims: filing deadline, payment clock and the telehealth modifier',
+        body: [
+          'Fee-for-service SoonerCare claims must reach OHCA’s fiscal agent within six months of the date of service: "Payment will not be made on claims when more than 6 months have elapsed between the date the service was provided and the date of receipt of the claim by the Fiscal Agent," and "A denied claim can be considered proof of timely filing" (OAC 317:30-3-11). The same six months bind the three SoonerSelect plans, which must also pay at least 90% of clean claims within 14 days, owe 1.5% simple monthly interest on a clean claim not processed within the 36 O.S. § 1219 timeframe, and give a provider six months from receipt of a claim denial to appeal (OAC 317:55-5-25; 56 O.S. § 4002.7).',
+          'On telehealth, OHCA’s rules say only that "Services rendered via telehealth must be billed using the appropriate modifier" (OAC 317:30-5-316, the ABA reimbursement rule) and that "Services provided by telehealth must be billed with the appropriate modifier" (OAC 317:30-3-27). Neither names the modifier or a place-of-service code, so confirm both with OHCA (or the member’s SoonerSelect plan) before the first remote claim. Of the ABA codes, only 97151, 97155 and 97156 are on OHCA’s telehealth code list (updated 8/10/2026); 97153 is not.',
+        ],
+        cites: [
+          { title: 'OAC 317:30-3-11 — Timely filing limitation [Revised 09-01-16]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/medical-providers-fee-for-service/general-provider-policies/general-scope-and-administration/timely-filing-limitation.html' },
+          { title: 'OAC 317:55-5-25 — SoonerSelect claims processing and methodology; post payment audits [Revised 09-01-24]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/managed-care/requirements-for-contracted-entities-and-dental-benefits-managers/finance/claims-processing-and-methodology-post-payment-audits.html' },
+          { title: '56 O.S. § 4002.7 — SoonerSelect claims processing and adjudication — OSCN', url: 'https://www.oscn.net/applications/oscn/DeliverDocument.asp?CiteID=489238' },
+          { title: 'OAC 317:30-5-316 — ABA reimbursement methodology [Revised 09-01-25]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/medical-providers-fee-for-service/individual-providers-and-specialties/applied-behavior-analysis-services/reimbursement-methodology.html' },
+          { title: 'OAC 317:30-3-27 — Telehealth [Revised 03-13-26]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/medical-providers-fee-for-service/general-provider-policies/general-scope-and-administration/telehealth.html' },
+          { title: 'OHCA — Medical codes allowed for Telehealth (updated 8-10-26)', url: 'https://oklahoma.gov/content/dam/ok/en/okhca/docs/providers/telehealth/Medical%20codes%20allowed%20for%20Telehealth.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'SoonerSelect plan, or fee-for-service', desc: 'Aetna Better Health, Humana Healthy Horizons, Oklahoma Complete Health (including the Children’s Specialty Program), or traditional SoonerCare for ABD and waiver members. The plan owns the authorization.' },
@@ -228,15 +243,16 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
         ],
       },
       referral: {
-        value: 'OHCA’s ABA rules require no physician referral or order: the gate is the definitive diagnosis plus prior authorization submitted by the contracted ABA provider "to the Oklahoma Health Care Authority (OHCA) or its designated agent." SoonerSelect plans use PCPs who "refer you to specialists when needed," so whether a plan requires a PCP referral for ABA is a plan question.',
-        status: 'plan-dependent',
+        value: 'No. OHCA’s ABA rules require no physician referral or order: the gate is the definitive diagnosis (evaluation no older than two years at the start of ABA) plus prior authorization submitted by the contracted ABA provider "to the Oklahoma Health Care Authority (OHCA) or its designated agent," and the PA request must "identify if member is receiving additional therapies such as occupational therapy (OT), physical therapy (PT), or speech therapy." OHCA publishes no ABA order form or validity period. None of the three SoonerSelect plans adds one: Aetna Better Health’s August 2026 manual says it "does not require referrals from PCP or treating providers" and members "have direct access to behavioral health care"; Oklahoma Complete Health’s ABA policy and Humana’s ABA policy and PA list require prior authorization, not a referral.',
+        status: 'verified',
         cites: [
           { title: 'OAC 317:30-5-314 — Prior authorization, service limitations, and exclusions to treatment [Revised 09-01-25]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/medical-providers-fee-for-service/individual-providers-and-specialties/applied-behavior-analysis-services/prior-authorization-service-limitations-and-exclusions-to-treatment.html' },
           { title: 'OAC 317:30-5-313 — Medical necessity criteria, covered services, frequency and duration [Revised 09-01-25]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/medical-providers-fee-for-service/individual-providers-and-specialties/applied-behavior-analysis-services/medical-necessity-criteria-and-covered-services-for-members-under-twenty-one-years-of-age-and-frequency-and-duration.html' },
           { title: 'OHCA — Learn about SoonerSelect (last modified 6/9/2026)', url: 'https://oklahoma.gov/ohca/soonerselect/about.html' },
+          { title: 'Aetna Better Health of Oklahoma — Provider Manual (published 8/20/2026)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/oklahoma/pdf/abhok_provider_manual.pdf' },
+          { title: 'Oklahoma Complete Health — Clinical Policy OK.CP.BH.500, Applied Behavior Analysis', url: 'https://www.oklahomacompletehealth.com/content/dam/centene/oklahoma-complete-health/policies/clinical-policies/OK.CP.BH.500.pdf' },
+          { title: 'Humana Healthy Horizons in Oklahoma — Applied Behavior Analysis policy HUM-OK-2663-000 (eff. 9/16/2026)', url: 'https://assets.humana.com/is/content/humana/MCD%20Applied%20Behavior%20Analysis%20HUM-OK-2663-000%20ed%209.16.26pdf' },
         ],
-        verifyVia: 'The member’s SoonerSelect plan (Aetna Better Health 844-365-4385, Humana 855-223-9868, Oklahoma Complete Health 833-752-1664) — ask whether ABA needs a PCP referral on file; fee-for-service needs none under the OHCA rule.',
-        blocker: 'per-case',
       },
       telehealth: {
         value: 'Allowed with justification. "ABA treatment may be rendered via in-person service delivery, telehealth, or a hybrid," the modality must be defined in the PA template and treatment plan, and the provider must explain how telehealth benefits the member and parents. OHCA’s list of medical codes allowed for telehealth (updated 8/10/2026) includes 97151, 97155 and 97156 but not 97153, so technician-delivered treatment is in person. Telehealth claims carry the appropriate modifier, minors need annual written parent consent, and documentation must show the service was delivered by telehealth and where.',
@@ -286,9 +302,9 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
         ],
       },
       dailyLimits: {
-        value: 'No per-day unit cap is published. Limits are authorization-based: units granted for 1–6 months, intensity guidelines (>30, 20–30, 10–20 and 5–10 or fewer hours a week) with anything above them sent to physician and BCBA consultant review, and the FBA capped at 32 units (8 hours), requestable once every six months. Services are one-on-one only, except family adaptive behavior treatment guidance.',
+        value: 'No per-day unit cap is published. Limits are authorization-based: units granted for 1–6 months, intensity guidelines (>30, 20–30, 10–20 and 5–10 or fewer hours a week) with anything above them sent to physician and BCBA consultant review, and the FBA capped at 32 units (8 hours), requestable once every six months. Services are one-on-one only, except family adaptive behavior treatment guidance.' + ' Underneath the program rule sit federal claim edits, which are a different thing from the authorization: section 6507 of the Affordable Care Act requires state Medicaid programs to apply CMS’s Medicaid NCCI methodologies, including medically unlikely edits (MUEs), to fee-for-service claims (a state may ask CMS to deactivate an individual edit; for managed care plans it is optional). CMS’s published Medicaid MUE table for practitioner services, dates of service October 1 – December 31, 2026, sets the per-provider, per-member, per-day values at 97151 32 units, 97152 16, 97153 32, 97154 18, 97155 24, 97156 16, 97157 16, 97158 16, 0362T 16 and 0373T 32. OHCA publishes no per-code edit of its own; the authorization sets the units.',
         status: 'verified',
-        cites: [
+        cites: [{ title: 'CMS — NCCI for Medicaid (ACA § 6507: states must apply compatible NCCI methodologies to Medicaid fee-for-service claims; optional for MCOs; deactivation requests)', url: 'https://www.cms.gov/medicare/coding-billing/ncci-medicaid' }, { title: 'CMS — Medicaid NCCI MUE edit file, practitioner services, effective October 1, 2026 (dates of service 10/1–12/31/2026)', url: 'https://www.cms.gov/medicare/coding-billing/ncci-medicaid/medicaid-ncci-edit-files' }, 
           { title: 'OAC 317:30-5-313 — Medical necessity criteria, covered services, frequency and duration [Revised 09-01-25]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/medical-providers-fee-for-service/individual-providers-and-specialties/applied-behavior-analysis-services/medical-necessity-criteria-and-covered-services-for-members-under-twenty-one-years-of-age-and-frequency-and-duration.html' },
           { title: 'OAC 317:30-5-314 — Prior authorization, service limitations, and exclusions to treatment [Revised 09-01-25]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/medical-providers-fee-for-service/individual-providers-and-specialties/applied-behavior-analysis-services/prior-authorization-service-limitations-and-exclusions-to-treatment.html' },
           { title: 'OAC 317:30-5-316 — ABA reimbursement methodology [Revised 09-01-25]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/medical-providers-fee-for-service/individual-providers-and-specialties/applied-behavior-analysis-services/reimbursement-methodology.html' },
@@ -329,6 +345,8 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       { q: 'Is parent training required for Oklahoma Medicaid ABA?', a: 'Effectively yes. A first extension asking for more RBT hours needs at least one hour a week of BCBA or BCaBA parent training for three months, later ones two hours a week, and under two hours a month of documented involvement reduces hours and can end services.' },
       { q: 'Is the SoonerCare ABA network open to new providers?', a: 'For fee-for-service, BCBAs apply for an OHCA provider contract through the provider portal. SoonerSelect plans contract separately and by law must pay in-network providers at least 100% of the OHCA fee schedule. Ask each plan about its ABA panel.' },
       { q: 'What happens when a family switches ABA agencies under SoonerCare?', a: 'A discharge notification form goes to OHCA when a member moves to a new provider, and the diagnostic evaluation or clinical assessment is required again during the new agency’s initial authorization period.' },
+      { q: 'What is SoonerCare’s timely filing limit for ABA claims?', a: 'Six months from the date of service — for fee-for-service claims to OHCA (OAC 317:30-3-11) and for claims to the SoonerSelect plans (OAC 317:55-5-25). A denied claim counts as proof of timely filing.' },
+      { q: 'Which telehealth modifier does SoonerCare require for ABA?', a: 'OHCA’s rules require “the appropriate modifier” on telehealth claims but do not name it, so confirm with OHCA or the plan. Only 97151, 97155 and 97156 are on OHCA’s telehealth code list.' },
     ],
   },
 
@@ -356,14 +374,12 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       ],
     },
     dxRequired: {
-      value: 'SoonerCare floor: a definitive ASD diagnosis from a discipline OAC 317:30-5-313 names, evaluation no older than two years. The archived 2025 Aetna Better Health manual has no ABA criteria of its own; current plan documents could not be read.',
-      status: 'unverified',
+      value: 'Yes — the SoonerCare rule: a definitive ASD diagnosis from a discipline OAC 317:30-5-313 names, evaluation no older than two years at the start of ABA. The plan’s August 2026 manual, read in full, adds no ABA diagnostic criteria of its own; it says behavioral health coverage for members under 21 "applies to children diagnosed with autism spectrum disorder."',
+      status: 'verified',
       cites: [
         { title: 'OAC 317:30-5-313 — Medical necessity criteria, covered services, frequency and duration [Revised 09-01-25]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/medical-providers-fee-for-service/individual-providers-and-specialties/applied-behavior-analysis-services/medical-necessity-criteria-and-covered-services-for-members-under-twenty-one-years-of-age-and-frequency-and-duration.html' },
-        { title: 'Aetna Better Health of Oklahoma Provider Manual, Vol. 4 (3/1/2025) — read via Wayback capture 4/3/2025; live site returns 403', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/oklahoma/pdf/abhok_provider_manual.pdf' },
+        { title: 'Aetna Better Health of Oklahoma Provider Manual (published 8/20/2026; direct requests return 403, read in full via r.jina.ai)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/oklahoma/pdf/abhok_provider_manual.pdf' },
       ],
-      verifyVia: 'Aetna Better Health of Oklahoma provider services (844-365-4385): ask whether the plan applies any ABA criteria beyond OAC 317:30-5-313.',
-      blocker: 'document',
     },
     payer: 'Aetna Better Health of Oklahoma',
     state: 'OK',
@@ -372,7 +388,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
     pill: 'Payer Guide · Aetna Better Health of Oklahoma',
     h1: 'Aetna Better Health of Oklahoma ABA coverage (SoonerSelect).',
     metaTitle: 'Aetna Better Health of Oklahoma (SoonerSelect) ABA Coverage & Prior Auth | Carelu',
-    metaDescription: 'How Aetna Better Health of Oklahoma handles SoonerCare ABA as a SoonerSelect plan: the OHCA rules it delivers, its behavioral health PA form with an ABA section, the PA fax and phone lines, state decision deadlines, and what to confirm because the plan’s current documents are not publicly readable.',
+    metaDescription: 'How Aetna Better Health of Oklahoma handles SoonerCare ABA as a SoonerSelect plan: the OHCA rules it delivers, its behavioral health PA form with an ABA section, the PA fax and phone lines, state decision deadlines, claim filing and payment deadlines, and what to confirm because the PA code list sits behind the plan’s portal.',
     intro: [
       'Aetna Better Health of Oklahoma is one of the three SoonerSelect health plans, and OHCA says all three "cover all services that SoonerCare fee-for-service covers," so OHCA’s Part 30 rules define the ABA benefit. The plan’s August 2026 provider manual (readable through a text-extraction proxy; the site still refuses direct requests) adds its own ABA parameters: 24 units for the initial 97151 assessment, 16 units every six months for a 97151-TS reassessment, 97153 up to 6 hours a day or 30 a week, 97156 up to 2 hours a week, and case supervision of at least 10% of direct treatment hours. Its behavioral health prior authorization form does carry an ABA section. Treat the state rules as the benefit and confirm Aetna Better Health’s current PA list and supervision expectations by phone before the first request.',
     ],
@@ -384,30 +400,31 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       { label: 'Fee schedule', value: 'Contracted; state law (56 O.S. § 4002.12) requires at least 100% of the OHCA fee schedule for in-network providers' },
       { label: 'Case supervision', value: 'At least 10% of direct treatment hours (August 2026 manual, citing CASP)' },
       { label: 'Decision clock', value: '7 calendar days standard, 72 hours urgent (August 2026 manual; 56 O.S. § 4002.6)' },
-      { label: 'Other insurance', value: 'Archived 2025 manual: no plan PA needed when a primary insurer covers the service' },
+      { label: 'Other insurance', value: 'August 2026 manual: no plan PA needed when a primary insurer covers the service' },
+      { label: 'Timely filing', value: '6 months from the date of service; resubmissions within a further 6 months (August 2026 manual; OAC 317:55-5-25)' },
     ],
     sections: [
       {
         h2: 'The state benefit is the benefit',
         body: [
-          'For an Aetna Better Health member, build the ABA request to OHCA’s rules: a definitive ASD diagnosis from a discipline OAC 317:30-5-313 names and no more than two years old, disruptive behaviour documented within the last 30 days, the intensity tier that decides whether an FBA or BIP is needed, one-to-six-month authorizations, the three-month limit on approved school or daycare ABA, no ABA billed concurrently with other therapies, and the extension rules with their seven-day window and parent-training thresholds. The archived March 2025 manual says only that behavioral health coverage for members under 21 "applies to children diagnosed with autism spectrum disorder" and that "There are no treatment limitations for behavioral health services for members under 21 years of age."',
+          'For an Aetna Better Health member, build the ABA request to OHCA’s rules: a definitive ASD diagnosis from a discipline OAC 317:30-5-313 names and no more than two years old, disruptive behaviour documented within the last 30 days, the intensity tier that decides whether an FBA or BIP is needed, one-to-six-month authorizations, the three-month limit on approved school or daycare ABA, no ABA billed concurrently with other therapies, and the extension rules with their seven-day window and parent-training thresholds. The plan’s August 2026 manual, read in full, says only that behavioral health coverage for members under 21 "applies to children diagnosed with autism spectrum disorder" and that "There are no treatment limitations for behavioral health services for members under 21 years of age," plus the ABA parameters described above.',
         ],
         cites: [
           { title: 'OHCA — SoonerSelect Health Program Member Quick Reference Guide (Feb 2026)', url: 'https://oklahoma.gov/content/dam/ok/en/okhca/soonerselect/docs/health/SoonerSelect%20Health%20Member%20Guide.pdf' },
           { title: 'OAC 317:30-5-313 — Medical necessity criteria, covered services, frequency and duration [Revised 09-01-25]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/medical-providers-fee-for-service/individual-providers-and-specialties/applied-behavior-analysis-services/medical-necessity-criteria-and-covered-services-for-members-under-twenty-one-years-of-age-and-frequency-and-duration.html' },
           { title: 'OAC 317:30-5-314 — Prior authorization, service limitations, and exclusions to treatment [Revised 09-01-25]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/medical-providers-fee-for-service/individual-providers-and-specialties/applied-behavior-analysis-services/prior-authorization-service-limitations-and-exclusions-to-treatment.html' },
           { title: 'OAC 317:30-5-315 — ABA extension requests [Revised 09-01-25]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/medical-providers-fee-for-service/individual-providers-and-specialties/applied-behavior-analysis-services/aba-extension-requests.html' },
-          { title: 'Aetna Better Health of Oklahoma Provider Manual, Vol. 4 (3/1/2025) — read via Wayback capture 4/3/2025; live site returns 403', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/oklahoma/pdf/abhok_provider_manual.pdf' },
+          { title: 'Aetna Better Health of Oklahoma Provider Manual (published 8/20/2026; direct requests return 403, read in full via r.jina.ai)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/oklahoma/pdf/abhok_provider_manual.pdf' },
         ],
       },
       {
         h2: 'Submitting requests, and what the plan has not published',
         body: [
-          'The plan’s Behavioral Health Prior Authorization Request (OK-23-08-01) has an "APPLIED BEHAVIOR ANALYSIS (ABA)" service type and a dedicated ABA section for initial and concurrent requests, faxed to 833-923-0829 (phone 844-365-4385). The archived manual points to the secure portal and ProPAT for the list of services needing PA. It promised standard decisions within 72 hours under the version of 56 O.S. § 4002.6 then in force; the statute now allows seven days for non-urgent requests and 72 hours for urgent ones, and the plan’s 2025 metrics report restates the CMS 7-day standard from January 2026. We could not read a current manual, the ProPAT code list, an Oklahoma ABA clinical policy, or any 2026 supervision or reassessment notice like those the other two plans issued, so ask about each on the first call.',
+          'The plan’s Behavioral Health Prior Authorization Request (OK-23-08-01) has an "APPLIED BEHAVIOR ANALYSIS (ABA)" service type and a dedicated ABA section for initial and concurrent requests, faxed to 833-923-0829 (phone 844-365-4385). The August 2026 manual points to the secure portal and ProPAT for the list of services needing PA ("Unauthorized services will not be reimbursed"), and decides standard requests within seven calendar days and urgent ones within 72 hours, matching 56 O.S. § 4002.6 and the plan’s 2025 metrics report. We could not read the ProPAT code list or an Oklahoma ABA clinical policy, and found no 2026 supervision or reassessment notice like those the other two plans issued; the manual’s own ABA parameters (10% case supervision, 97151-TS reassessment) are the closest equivalent. Ask about the PA code list on the first call.',
         ],
         cites: [
           { title: 'Aetna Better Health of Oklahoma — Behavioral Health Prior Authorization Request (OK-23-08-01, ABA section 6) — read via Wayback', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/oklahoma/pdf/OK_2023_BHForm.pdf' },
-          { title: 'Aetna Better Health of Oklahoma Provider Manual, Vol. 4 (3/1/2025) — read via Wayback capture 4/3/2025; live site returns 403', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/oklahoma/pdf/abhok_provider_manual.pdf' },
+          { title: 'Aetna Better Health of Oklahoma Provider Manual (published 8/20/2026; direct requests return 403, read in full via r.jina.ai)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/oklahoma/pdf/abhok_provider_manual.pdf' },
           { title: 'Aetna Better Health of Oklahoma — 2025 Auth and Appeals Metrics (CMS rule timeframes from 1/1/2026) — read via Wayback', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/oklahoma/pdf/2025_ABHOK_CMS_Web_Metrics_Provider.pdf' },
           { title: '56 O.S. § 4002.6 — SoonerSelect contracted entity prior authorization rules (as amended by HB 1810, eff. 11/1/2025) — OSCN', url: 'https://www.oscn.net/applications/oscn/DeliverDocument.asp?CiteID=489236' },
         ],
@@ -425,6 +442,18 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
           { title: '56 O.S. § 4002.12 — version in force through 10/31/2026 ("Until July 1, 2027") — OSCN superseded document', url: 'https://www.oscn.net/applications/oscn/DeliverDocument.asp?CiteID=553197' },
         ],
       },
+      {
+        h2: 'Claims: filing deadline, payment clock, required fields and disputes',
+        body: [
+          'The plan’s August 2026 manual: new claims "must be filed on a valid claim form within six (6) months from the date services were performed unless there is a contractual exception," and resubmissions are due "within an additional six (6) months from the date of service." Its prompt-pay standard is the state’s: "Ninety percent (90%) of all clean claims must be paid within fourteen (14) days of the date of receipt," and 99% within 90 days. OAC 317:55-5-25 and 56 O.S. § 4002.7 set the same 14-day floor for every SoonerSelect plan, with 1.5% monthly interest on late clean claims.',
+          'Both the billing and the rendering provider sections of the claim need the NPI (or the SoonerSelect provider number for atypical providers) and the taxonomy code. Payment disputes run in two steps: a reconsideration "within 30 calendar days" of the plan’s remittance advice, then a written appeal within 30 calendar days of the reconsideration decision letter, sent through the portal, to PO Box 81040, Cleveland, OH 44181, to OKAppealAndGrievance@Aetna.com or by fax to 833-805-3310. The manual scopes electronic visit verification to "State Plan Personal Care and home health services"; it does not list ABA.',
+        ],
+        cites: [
+          { title: 'Aetna Better Health of Oklahoma Provider Manual (published 8/20/2026; direct requests return 403, read in full via r.jina.ai)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/oklahoma/pdf/abhok_provider_manual.pdf' },
+          { title: 'OAC 317:55-5-25 — SoonerSelect claims processing and methodology; post payment audits [Revised 09-01-24]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/managed-care/requirements-for-contracted-entities-and-dental-benefits-managers/finance/claims-processing-and-methodology-post-payment-audits.html' },
+          { title: '56 O.S. § 4002.7 — SoonerSelect claims processing and adjudication — OSCN', url: 'https://www.oscn.net/applications/oscn/DeliverDocument.asp?CiteID=489238' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan assignment', desc: 'Confirm Aetna Better Health of Oklahoma on the member ID card or through the OHCA Provider Helpline (800-522-0114, option 1). ABD and waiver children stay in fee-for-service.' },
@@ -434,7 +463,6 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       { title: 'Parent training capacity', desc: 'Under two hours a month of documented parent involvement reduces or denies hours under the state rule.' },
     ],
     sources: [
-      { title: 'Aetna Better Health of Oklahoma Provider Manual, Vol. 4 (3/1/2025) — read via Wayback capture 4/3/2025; live site returns 403', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/oklahoma/pdf/abhok_provider_manual.pdf' },
       { title: 'Aetna Better Health of Oklahoma — Behavioral Health Prior Authorization Request (OK-23-08-01, ABA section 6) — read via Wayback', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/oklahoma/pdf/OK_2023_BHForm.pdf' },
       { title: 'Aetna Better Health of Oklahoma — 2025 Auth and Appeals Metrics (CMS rule timeframes from 1/1/2026) — read via Wayback', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/oklahoma/pdf/2025_ABHOK_CMS_Web_Metrics_Provider.pdf' },
       { title: 'OHCA — Learn about SoonerSelect (last modified 6/9/2026)', url: 'https://oklahoma.gov/ohca/soonerselect/about.html' },
@@ -449,67 +477,61 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
     ],
     intakeGates: {
       ageLimit: {
-        value: 'SoonerCare floor (the plan’s current documents could not be read to confirm it adds nothing): Under 21. OAC 317:30-5-313 requires that "The member is under twenty-one (21) years of age," and OHCA provides ABA "under the EPSDT benefit" (OAC 317:30-3-65.12). No lower age bound is set. (OHCA’s provider application page words it as "ages 21 and younger"; the rule text says under 21.)',
-        status: 'unverified',
+        value: 'Follows the SoonerCare rule — the plan’s August 2026 provider manual, read in full on 10/7/2026, sets no ABA rule of its own on this point: Under 21. OAC 317:30-5-313 requires that "The member is under twenty-one (21) years of age," and OHCA provides ABA "under the EPSDT benefit" (OAC 317:30-3-65.12). No lower age bound is set. (OHCA’s provider application page words it as "ages 21 and younger"; the rule text says under 21.)',
+        status: 'verified',
         cites: [
+          { title: 'Aetna Better Health of Oklahoma Provider Manual (published 8/20/2026; direct requests return 403, read in full via r.jina.ai)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/oklahoma/pdf/abhok_provider_manual.pdf' },
           { title: 'OAC 317:30-5-313 — Medical necessity criteria, covered services, frequency and duration [Revised 09-01-25]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/medical-providers-fee-for-service/individual-providers-and-specialties/applied-behavior-analysis-services/medical-necessity-criteria-and-covered-services-for-members-under-twenty-one-years-of-age-and-frequency-and-duration.html' },
           { title: 'OAC 317:30-3-65.12 — ABA services under the EPSDT benefit [Revised 09-12-22]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/medical-providers-fee-for-service/general-provider-policies/early-and-periodic-screening-diagnostic-and-treatment-program-child-health-services/applied-behavior-analysis-services.html' },
           { title: 'OHCA — Applied Behavioral Analysis Application and Coding Information for Providers', url: 'https://oklahoma.gov/ohca/providers/applied-behavioral-analysis-application.html' },
         ],
-        verifyVia: 'Aetna Better Health of Oklahoma provider services (844-365-4385) or the ProPAT tool and provider manual on aetnabetterhealth.com/oklahoma — the site returned 403 to every automated route in September 2026, so a human needs to pull the current manual and ABA PA rules.',
-        blocker: 'document',
       },
       dxRecency: {
-        value: 'SoonerCare floor (the plan’s current documents could not be read to confirm it adds nothing): The comprehensive diagnostic evaluation or clinical assessment "will only need to be completed at the first initiation of ABA services and should be no older than two (2) years old." No annual or biannual update is required, but OHCA may ask for one if diagnosis and recommendations are unclear or there are significant medical or behavioral changes, and a member who changes agencies must supply the evaluation during the initial authorization period. Separately, disruptive behaviour must be documented within the most recent 30 calendar days.',
-        status: 'unverified',
+        value: 'Follows the SoonerCare rule — the plan’s August 2026 provider manual, read in full on 10/7/2026, sets no ABA rule of its own on this point: The comprehensive diagnostic evaluation or clinical assessment "will only need to be completed at the first initiation of ABA services and should be no older than two (2) years old." No annual or biannual update is required, but OHCA may ask for one if diagnosis and recommendations are unclear or there are significant medical or behavioral changes, and a member who changes agencies must supply the evaluation during the initial authorization period. Separately, disruptive behaviour must be documented within the most recent 30 calendar days.',
+        status: 'verified',
         cites: [
+          { title: 'Aetna Better Health of Oklahoma Provider Manual (published 8/20/2026; direct requests return 403, read in full via r.jina.ai)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/oklahoma/pdf/abhok_provider_manual.pdf' },
           { title: 'OAC 317:30-5-313 — Medical necessity criteria, covered services, frequency and duration [Revised 09-01-25]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/medical-providers-fee-for-service/individual-providers-and-specialties/applied-behavior-analysis-services/medical-necessity-criteria-and-covered-services-for-members-under-twenty-one-years-of-age-and-frequency-and-duration.html' },
         ],
-        verifyVia: 'Aetna Better Health of Oklahoma provider services (844-365-4385) or the ProPAT tool and provider manual on aetnabetterhealth.com/oklahoma — the site returned 403 to every automated route in September 2026, so a human needs to pull the current manual and ABA PA rules.',
-        blocker: 'document',
       },
       diagnosingProviders: {
-        value: 'SoonerCare floor (the plan’s current documents could not be read to confirm it adds nothing): A definitive ASD diagnosis from one of: pediatric neurologist or neurologist; developmental pediatrician; licensed psychologist; psychiatrist or neuropsychiatrist; other licensed physician experienced in the diagnosis and treatment of ASD; or an interdisciplinary team of a licensed psychologist, physician, physician assistant or APRN. The provider must be in Oklahoma or within 50 miles of the border (OAC 317:30-3-89 through 92); out-of-state evaluations are accepted only if they meet the documentation standard and come from one of these disciplines.',
-        status: 'unverified',
+        value: 'Follows the SoonerCare rule — the plan’s August 2026 provider manual, read in full on 10/7/2026, sets no ABA rule of its own on this point: A definitive ASD diagnosis from one of: pediatric neurologist or neurologist; developmental pediatrician; licensed psychologist; psychiatrist or neuropsychiatrist; other licensed physician experienced in the diagnosis and treatment of ASD; or an interdisciplinary team of a licensed psychologist, physician, physician assistant or APRN. The provider must be in Oklahoma or within 50 miles of the border (OAC 317:30-3-89 through 92); out-of-state evaluations are accepted only if they meet the documentation standard and come from one of these disciplines.',
+        status: 'verified',
         cites: [
+          { title: 'Aetna Better Health of Oklahoma Provider Manual (published 8/20/2026; direct requests return 403, read in full via r.jina.ai)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/oklahoma/pdf/abhok_provider_manual.pdf' },
           { title: 'OAC 317:30-5-313 — Medical necessity criteria, covered services, frequency and duration [Revised 09-01-25]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/medical-providers-fee-for-service/individual-providers-and-specialties/applied-behavior-analysis-services/medical-necessity-criteria-and-covered-services-for-members-under-twenty-one-years-of-age-and-frequency-and-duration.html' },
         ],
-        verifyVia: 'Aetna Better Health of Oklahoma provider services (844-365-4385) or the ProPAT tool and provider manual on aetnabetterhealth.com/oklahoma — the site returned 403 to every automated route in September 2026, so a human needs to pull the current manual and ABA PA rules.',
-        blocker: 'document',
       },
       diagnosticTools: {
-        value: 'SoonerCare floor (the plan’s current documents could not be read to confirm it adds nothing): No single instrument is mandatory. The evaluation must include a complete medical and social history and be "based on criteria outlined in the Diagnostic and Statistical Manual of Mental Disorders (DSM)", and "may also include scores" from formal tests such as the ADI-R, ADOS-2 or CARS "or other tools with acceptable psychometric properties." "Screening scales are not sufficient to make a diagnosis and will not be accepted as the only formal scale." For the ABA clinical assessment itself, OHCA cites validated measures such as the Vineland, and accepts supporting assessments such as the ABLLS-R, AEPS and VB-MAPP with the PA request.',
-        status: 'unverified',
+        value: 'Follows the SoonerCare rule — the plan’s August 2026 provider manual, read in full on 10/7/2026, sets no ABA rule of its own on this point: No single instrument is mandatory. The evaluation must include a complete medical and social history and be "based on criteria outlined in the Diagnostic and Statistical Manual of Mental Disorders (DSM)", and "may also include scores" from formal tests such as the ADI-R, ADOS-2 or CARS "or other tools with acceptable psychometric properties." "Screening scales are not sufficient to make a diagnosis and will not be accepted as the only formal scale." For the ABA clinical assessment itself, OHCA cites validated measures such as the Vineland, and accepts supporting assessments such as the ABLLS-R, AEPS and VB-MAPP with the PA request.',
+        status: 'verified',
         cites: [
+          { title: 'Aetna Better Health of Oklahoma Provider Manual (published 8/20/2026; direct requests return 403, read in full via r.jina.ai)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/oklahoma/pdf/abhok_provider_manual.pdf' },
           { title: 'OAC 317:30-5-313 — Medical necessity criteria, covered services, frequency and duration [Revised 09-01-25]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/medical-providers-fee-for-service/individual-providers-and-specialties/applied-behavior-analysis-services/medical-necessity-criteria-and-covered-services-for-members-under-twenty-one-years-of-age-and-frequency-and-duration.html' },
           { title: 'OAC 317:30-5-312 — Treatment plan components and documentation requirements [Revised 09-01-25]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/medical-providers-fee-for-service/individual-providers-and-specialties/applied-behavior-analysis-services/treatment-plan-components-and-documentation-requirements.html' },
           { title: 'OAC 317:30-5-314 — Prior authorization, service limitations, and exclusions to treatment [Revised 09-01-25]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/medical-providers-fee-for-service/individual-providers-and-specialties/applied-behavior-analysis-services/prior-authorization-service-limitations-and-exclusions-to-treatment.html' },
         ],
-        verifyVia: 'Aetna Better Health of Oklahoma provider services (844-365-4385) or the ProPAT tool and provider manual on aetnabetterhealth.com/oklahoma — the site returned 403 to every automated route in September 2026, so a human needs to pull the current manual and ABA PA rules.',
-        blocker: 'document',
       },
       referral: {
-        value: 'SoonerCare floor (the plan’s current documents could not be read to confirm it adds nothing): OHCA’s ABA rules require no physician referral or order: the gate is the definitive diagnosis plus prior authorization submitted by the contracted ABA provider "to the Oklahoma Health Care Authority (OHCA) or its designated agent." SoonerSelect plans use PCPs who "refer you to specialists when needed," so whether a plan requires a PCP referral for ABA is a plan question.',
-        status: 'unverified',
+        value: 'No referral needed. The plan’s August 2026 provider manual: "Aetna Better Health does not require referrals from PCP or treating providers," and "Members have direct access to behavioral health care" (self-referred services must come from an in-network provider). OHCA’s ABA rules require no physician referral or order either: the gate is the definitive diagnosis plus prior authorization submitted by the contracted ABA provider "to the Oklahoma Health Care Authority (OHCA) or its designated agent."',
+        status: 'verified',
         cites: [
+          { title: 'Aetna Better Health of Oklahoma Provider Manual (published 8/20/2026; direct requests return 403, read in full via r.jina.ai)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/oklahoma/pdf/abhok_provider_manual.pdf' },
           { title: 'OAC 317:30-5-314 — Prior authorization, service limitations, and exclusions to treatment [Revised 09-01-25]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/medical-providers-fee-for-service/individual-providers-and-specialties/applied-behavior-analysis-services/prior-authorization-service-limitations-and-exclusions-to-treatment.html' },
           { title: 'OAC 317:30-5-313 — Medical necessity criteria, covered services, frequency and duration [Revised 09-01-25]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/medical-providers-fee-for-service/individual-providers-and-specialties/applied-behavior-analysis-services/medical-necessity-criteria-and-covered-services-for-members-under-twenty-one-years-of-age-and-frequency-and-duration.html' },
           { title: 'OHCA — Learn about SoonerSelect (last modified 6/9/2026)', url: 'https://oklahoma.gov/ohca/soonerselect/about.html' },
         ],
-        verifyVia: 'Aetna Better Health of Oklahoma provider services (844-365-4385) or the ProPAT tool and provider manual on aetnabetterhealth.com/oklahoma — the site returned 403 to every automated route in September 2026, so a human needs to pull the current manual and ABA PA rules.',
-        blocker: 'document',
       },
       telehealth: {
-        value: 'SoonerCare floor (the plan’s current documents could not be read to confirm it adds nothing): Allowed with justification. "ABA treatment may be rendered via in-person service delivery, telehealth, or a hybrid," the modality must be defined in the PA template and treatment plan, and the provider must explain how telehealth benefits the member and parents. OHCA’s list of medical codes allowed for telehealth (updated 8/10/2026) includes 97151, 97155 and 97156 but not 97153, so technician-delivered treatment is in person. Telehealth claims carry the appropriate modifier, minors need annual written parent consent, and documentation must show the service was delivered by telehealth and where.',
-        status: 'unverified',
+        value: 'Follows the SoonerCare rule — the plan’s August 2026 provider manual, read in full on 10/7/2026, sets no ABA rule of its own on this point: Allowed with justification. "ABA treatment may be rendered via in-person service delivery, telehealth, or a hybrid," the modality must be defined in the PA template and treatment plan, and the provider must explain how telehealth benefits the member and parents. OHCA’s list of medical codes allowed for telehealth (updated 8/10/2026) includes 97151, 97155 and 97156 but not 97153, so technician-delivered treatment is in person. Telehealth claims carry the appropriate modifier (OHCA’s rules do not name one), minors need annual written parent consent, and documentation must show the service was delivered by telehealth and where. The plan’s manual adds only generic telehealth terms: telehealth is reimbursed "at the same rate as a standard office visit if the service is the same, regardless of modality of delivery," the provider must keep documentation of verbal or written consent, and must assess whether the telehealth modality suits the patient’s acuity.',
+        status: 'verified',
         cites: [
+          { title: 'Aetna Better Health of Oklahoma Provider Manual (published 8/20/2026; direct requests return 403, read in full via r.jina.ai)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/oklahoma/pdf/abhok_provider_manual.pdf' },
           { title: 'OAC 317:30-5-314 — Prior authorization, service limitations, and exclusions to treatment [Revised 09-01-25]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/medical-providers-fee-for-service/individual-providers-and-specialties/applied-behavior-analysis-services/prior-authorization-service-limitations-and-exclusions-to-treatment.html' },
           { title: 'OHCA — Medical codes allowed for Telehealth (updated 8-10-26)', url: 'https://oklahoma.gov/content/dam/ok/en/okhca/docs/providers/telehealth/Medical%20codes%20allowed%20for%20Telehealth.pdf' },
           { title: 'OAC 317:30-5-316 — ABA reimbursement methodology [Revised 09-01-25]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/medical-providers-fee-for-service/individual-providers-and-specialties/applied-behavior-analysis-services/reimbursement-methodology.html' },
           { title: 'OAC 317:30-3-27 — Telehealth [Revised 03-13-26]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/medical-providers-fee-for-service/general-provider-policies/general-scope-and-administration/telehealth.html' },
         ],
-        verifyVia: 'Aetna Better Health of Oklahoma provider services (844-365-4385) or the ProPAT tool and provider manual on aetnabetterhealth.com/oklahoma — the site returned 403 to every automated route in September 2026, so a human needs to pull the current manual and ABA PA rules.',
-        blocker: 'document',
       },
       authTurnaround: {
         value: 'The August 2026 manual: standard requests are decided "in a timeframe not to exceed seven (7) calendar days following receipt of the request for service," and urgent ones within 72 hours, "in accordance with Oklahoma Statute Title 56 § 4002.6." A non-urgent decision can be extended by up to 7 more days to obtain necessary information; urgent requests can no longer be extended. State law also deems a service authorized if a complete portal request is not decided in time, and 42 CFR 438.210(d) caps standard decisions at 7 calendar days from January 2026. Extensions of ABA authorizations follow OHCA’s seven-day window.',
@@ -540,13 +562,12 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
         ],
       },
       concurrentBilling: {
-        value: 'SoonerCare floor (the plan’s current documents could not be read to confirm it adds nothing): Allowed, with conditions. "Providers may only concurrently bill RBT and supervision hours when the following criteria is outlined in the prior authorization request," and the BCBA or licensed psychologist must have directed the RBT in session. "ABA is not allowed to be billed concurrently during any other therapies (i.e., OT, PT speech, etc.)," and "ABA hours approved for one CPT code cannot be used in place of another."',
-        status: 'unverified',
+        value: 'Follows the SoonerCare rule — the plan’s August 2026 provider manual, read in full on 10/7/2026, sets no ABA rule of its own on this point: Allowed, with conditions. "Providers may only concurrently bill RBT and supervision hours when the following criteria is outlined in the prior authorization request," and the BCBA or licensed psychologist must have directed the RBT in session. "ABA is not allowed to be billed concurrently during any other therapies (i.e., OT, PT speech, etc.)," and "ABA hours approved for one CPT code cannot be used in place of another."',
+        status: 'verified',
         cites: [
+          { title: 'Aetna Better Health of Oklahoma Provider Manual (published 8/20/2026; direct requests return 403, read in full via r.jina.ai)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/oklahoma/pdf/abhok_provider_manual.pdf' },
           { title: 'OAC 317:30-5-314 — Prior authorization, service limitations, and exclusions to treatment [Revised 09-01-25]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/medical-providers-fee-for-service/individual-providers-and-specialties/applied-behavior-analysis-services/prior-authorization-service-limitations-and-exclusions-to-treatment.html' },
         ],
-        verifyVia: 'Aetna Better Health of Oklahoma provider services (844-365-4385) or the ProPAT tool and provider manual on aetnabetterhealth.com/oklahoma — the site returned 403 to every automated route in September 2026, so a human needs to pull the current manual and ABA PA rules.',
-        blocker: 'document',
       },
       dailyLimits: {
         value: 'The plan’s August 2026 manual sets "standard parameters" for ABA: initial assessment (97151) 24 units (6 hours) per assessment; reassessment (97151 with modifier TS) 16 units (4 hours) every 6 months; adaptive behavior treatment by protocol (97153) "6 hours per day or 30 hours per week"; and family guidance (97156) up to 2 hours per week. Under the SoonerCare rule, units are authorized for 1–6 months against OHCA’s intensity guidelines, and anything above them goes to physician and BCBA consultant review.',
@@ -558,36 +579,33 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
         ],
       },
       noteSignature: {
-        value: 'SoonerCare floor (the plan’s current documents could not be read to confirm it adds nothing): Every assessment and treatment service must record the date, start and stop time for each session or unit billed, the physical location, the "Signature of the provider(s) rendering services" and their credentials, goals addressed, methods, progress, the member’s response and any new problems. Treatment plans and updates are "not valid until all signatures are present": the supervising BCBA or licensed psychologist, a parent or legal guardian, and any minor aged 14 or older, each dated with month, day and year.',
-        status: 'unverified',
+        value: 'Follows the SoonerCare rule — the plan’s August 2026 provider manual, read in full on 10/7/2026, sets no ABA rule of its own on this point: Every assessment and treatment service must record the date, start and stop time for each session or unit billed, the physical location, the "Signature of the provider(s) rendering services" and their credentials, goals addressed, methods, progress, the member’s response and any new problems. Treatment plans and updates are "not valid until all signatures are present": the supervising BCBA or licensed psychologist, a parent or legal guardian, and any minor aged 14 or older, each dated with month, day and year.',
+        status: 'verified',
         cites: [
+          { title: 'Aetna Better Health of Oklahoma Provider Manual (published 8/20/2026; direct requests return 403, read in full via r.jina.ai)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/oklahoma/pdf/abhok_provider_manual.pdf' },
           { title: 'OAC 317:30-5-312 — Treatment plan components and documentation requirements [Revised 09-01-25]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/medical-providers-fee-for-service/individual-providers-and-specialties/applied-behavior-analysis-services/treatment-plan-components-and-documentation-requirements.html' },
         ],
-        verifyVia: 'Aetna Better Health of Oklahoma provider services (844-365-4385) or the ProPAT tool and provider manual on aetnabetterhealth.com/oklahoma — the site returned 403 to every automated route in September 2026, so a human needs to pull the current manual and ABA PA rules.',
-        blocker: 'document',
       },
       placeOfService: {
-        value: 'SoonerCare floor (the plan’s current documents could not be read to confirm it adds nothing): Home, community or clinic ("ABA may be provided in a variety of settings, including home, community, or clinical"). "ABA services are not allowed in a daycare setting or school setting, without OHCA approval. If approved, it will be time-limited to three (3) months or less," with a plan to fade support to school staff; private-school transitions are also capped at three months. School or daycare shadowing and aide work is excluded. Telehealth is allowed if justified in the PA (97151, 97155, 97156 on OHCA’s telehealth code list).',
-        status: 'unverified',
+        value: 'Follows the SoonerCare rule — the plan’s August 2026 provider manual, read in full on 10/7/2026, sets no ABA rule of its own on this point: Home, community or clinic ("ABA may be provided in a variety of settings, including home, community, or clinical"). "ABA services are not allowed in a daycare setting or school setting, without OHCA approval. If approved, it will be time-limited to three (3) months or less," with a plan to fade support to school staff; private-school transitions are also capped at three months. School or daycare shadowing and aide work is excluded. Telehealth is allowed if justified in the PA (97151, 97155, 97156 on OHCA’s telehealth code list).',
+        status: 'verified',
         cites: [
+          { title: 'Aetna Better Health of Oklahoma Provider Manual (published 8/20/2026; direct requests return 403, read in full via r.jina.ai)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/oklahoma/pdf/abhok_provider_manual.pdf' },
           { title: 'OAC 317:30-5-310 — ABA purpose ("ABA services require prior authorization") [Issued 09-12-22]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/medical-providers-fee-for-service/individual-providers-and-specialties/applied-behavior-analysis-services/purpose-aba.html' },
           { title: 'OAC 317:30-5-314 — Prior authorization, service limitations, and exclusions to treatment [Revised 09-01-25]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/medical-providers-fee-for-service/individual-providers-and-specialties/applied-behavior-analysis-services/prior-authorization-service-limitations-and-exclusions-to-treatment.html' },
           { title: 'OHCA — Medical codes allowed for Telehealth (updated 8-10-26)', url: 'https://oklahoma.gov/content/dam/ok/en/okhca/docs/providers/telehealth/Medical%20codes%20allowed%20for%20Telehealth.pdf' },
         ],
-        verifyVia: 'Aetna Better Health of Oklahoma provider services (844-365-4385) or the ProPAT tool and provider manual on aetnabetterhealth.com/oklahoma — the site returned 403 to every automated route in September 2026, so a human needs to pull the current manual and ABA PA rules.',
-        blocker: 'document',
       },
       billAsProvider: {
-        value: 'SoonerCare floor (the plan’s current documents could not be read to confirm it adds nothing): Payment goes to the contracted, licensed provider, not the supervisee: "Payment is not made to under supervision ABA practitioners/paraprofessionals, including but not limited to, BCaBAs and RBTs," and OHCA’s provider page says payment for a BCaBA or other supervised practitioner "may only be made to his or her supervisor, or the employing agency or corporate entity." The RBT "works under the license number of a BCBA." Every staff member must still be individually contracted with OHCA, and the rule adds that "All ABA services should be billed under the rendering provider that performed the services." Telehealth services take the appropriate modifier.',
-        status: 'unverified',
+        value: 'Follows the SoonerCare rule — the plan’s August 2026 provider manual, read in full on 10/7/2026, sets no ABA rule of its own on this point: Payment goes to the contracted, licensed provider, not the supervisee: "Payment is not made to under supervision ABA practitioners/paraprofessionals, including but not limited to, BCaBAs and RBTs," and OHCA’s provider page says payment for a BCaBA or other supervised practitioner "may only be made to his or her supervisor, or the employing agency or corporate entity." The RBT "works under the license number of a BCBA." Every staff member must still be individually contracted with OHCA, and the rule adds that "All ABA services should be billed under the rendering provider that performed the services." Telehealth services take the appropriate modifier. On the plan’s own claims, its manual requires the NPI (or SoonerSelect provider number for atypical providers) and the taxonomy code in both the billing and the rendering provider sections.',
+        status: 'verified',
         cites: [
+          { title: 'Aetna Better Health of Oklahoma Provider Manual (published 8/20/2026; direct requests return 403, read in full via r.jina.ai)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/oklahoma/pdf/abhok_provider_manual.pdf' },
           { title: 'OAC 317:30-5-316 — ABA reimbursement methodology [Revised 09-01-25]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/medical-providers-fee-for-service/individual-providers-and-specialties/applied-behavior-analysis-services/reimbursement-methodology.html' },
           { title: 'OHCA — Applied Behavioral Analysis Application and Coding Information for Providers', url: 'https://oklahoma.gov/ohca/providers/applied-behavioral-analysis-application.html' },
           { title: 'OAC 317:30-5-311 — Eligible providers and requirements [Revised 09-01-25]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/medical-providers-fee-for-service/individual-providers-and-specialties/applied-behavior-analysis-services/eligible-provider-and-requirements.html' },
           { title: 'OAC 317:30-5-314 — Prior authorization, service limitations, and exclusions to treatment [Revised 09-01-25]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/medical-providers-fee-for-service/individual-providers-and-specialties/applied-behavior-analysis-services/prior-authorization-service-limitations-and-exclusions-to-treatment.html' },
         ],
-        verifyVia: 'Aetna Better Health of Oklahoma provider services (844-365-4385) or the ProPAT tool and provider manual on aetnabetterhealth.com/oklahoma — the site returned 403 to every automated route in September 2026, so a human needs to pull the current manual and ABA PA rules.',
-        blocker: 'document',
       },
     },
     faq: [
@@ -597,6 +615,8 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       { q: 'How much supervision does Aetna Better Health of Oklahoma require for ABA?', a: 'Its August 2026 manual requires case supervision of at least 10% of direct treatment hours, citing CASP guidance, which is above the 5% SoonerCare floor for RBTs.' },
       { q: 'What happens if a family switches ABA agencies with Aetna Better Health of Oklahoma?', a: 'The SoonerCare rule applies: an OHCA discharge notification form when the member moves, and the diagnostic evaluation or clinical assessment again during the new agency’s initial authorization period.' },
       { q: 'How do I join Aetna Better Health of Oklahoma’s ABA network?', a: 'Credential once through the Availity SoonerSelect portal, which all three plans use. The manual says credentialing is completed within 60 calendar days of a complete application.' },
+      { q: 'What is Aetna Better Health of Oklahoma’s timely filing limit?', a: 'Six months from the date of service for a new claim, with resubmissions due within a further six months (August 2026 provider manual).' },
+      { q: 'Does Aetna Better Health of Oklahoma require taxonomy on the claim?', a: 'Yes. Its manual requires the taxonomy code, with the NPI, in both the billing and the rendering provider sections of the claim.' },
     ],
   },
 
@@ -625,7 +645,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       ],
     },
     dxRequired: {
-      value: 'Yes — under 21 "with a definitive diagnosis of autism spectrum disorder (ASD)" certified by a provider in Oklahoma or within 50 miles of the border: a pediatric neurologist or neurologist, developmental pediatrician, licensed psychologist, psychiatrist or neuropsychiatrist, other licensed physician experienced in ASD, or an interdisciplinary team of a licensed psychologist, physician, PA or APRN (OK.CP.BH.500, revised 08/26). The diagnostic evaluation must be completed no more than two years before the initial request.',
+      value: 'Yes — under 21 and the member "has a definitive diagnosis of autism spectrum disorder (ASD)," certified by a provider in Oklahoma or within 50 miles of the border: a pediatric neurologist or neurologist, developmental pediatrician, licensed psychologist, psychiatrist or neuropsychiatrist, other licensed physician experienced in ASD, or an interdisciplinary team of a licensed psychologist, physician, PA or APRN (OK.CP.BH.500, revised 08/26). The diagnostic evaluation must be completed no more than two years before the initial request.',
       status: 'verified',
       cites: [
         { title: 'Oklahoma Complete Health clinical policy OK.CP.BH.500 — Applied Behavioral Analysis (last revised 08/26)', url: 'https://www.oklahomacompletehealth.com/content/dam/centene/oklahoma-complete-health/policies/clinical-policies/OK.CP.BH.500.pdf' },
@@ -702,6 +722,19 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
           { title: '56 O.S. § 4002.12 — SoonerSelect minimum provider reimbursement (as amended by HB 3650, Laws 2026, c. 310, eff. 11/1/2026) — OSCN', url: 'https://www.oscn.net/applications/oscn/DeliverDocument.asp?CiteID=489244' },
           { title: '56 O.S. § 4002.12 — version in force through 10/31/2026 ("Until July 1, 2027") — OSCN superseded document', url: 'https://www.oscn.net/applications/oscn/DeliverDocument.asp?CiteID=553197' },
           { title: 'OHCA — SoonerCare Title XIX fee schedule, effective 07/01/2026 (V3)', url: 'https://oklahoma.gov/content/dam/ok/en/okhca/docs/providers/claim-tools/fee-schedules/2026/Prov_fee_sch_TXIX_07012026_V3.txt' },
+        ],
+      },
+      {
+        h2: 'Claims: filing deadline, payment clock and disputes',
+        body: [
+          'The plan’s Provider Billing Manual: "Providers must submit all first-time claims for reimbursement no more than one hundred eighty 180 calendar days from the Date of Service," adjustments go in writing within 180 calendar days of the EOP or ERA (and never 365 days or more past the date of service), and the plan pays 1.5% monthly interest on clean claims "not adjudicated within forty-five (45) Days of receipt," citing 62 O.S. § 34.72. The state rule for every SoonerSelect plan is tighter on payment: at least 90% of clean claims paid within 14 days, with six months from the date of service treated as timely (OAC 317:55-5-25; 56 O.S. § 4002.7).',
+          'Bill your NPI in box 24J; the billing manual encourages the taxonomy code in box 24Ja as well, and returns claims missing required data as not clean. On disputes the plan’s two documents differ: the 2026 Provider Manual allows a claim dispute or claim appeal "within 180 calendar days of the Explanation of Payment (EOP)," with a second-level medical-necessity appeal within 60 days of the first decision, while the billing manual says appeals of adverse actions "must be filed in writing within 60 days calendar days of the date of the EOP or ERA." File inside the shorter window. Electronic visit verification (AuthentiCare) covers home health and State Plan personal care services, not ABA.',
+        ],
+        cites: [
+          { title: 'Oklahoma Complete Health — Provider Billing Manual (posted in the 2026 manuals folder; page footer reads 2024)', url: 'https://www.oklahomacompletehealth.com/content/dam/centene/oklahoma-complete-health/pdfs/Provider%20Manual/English/2026/SSP/2026%20Provider%20Billing%20Manual_Approved_R.pdf' },
+          { title: 'Oklahoma Complete Health — 2026 Provider Manual (Caid_SSP.CSP-Provider-Manual-OK-Eng_260604)', url: 'https://www.oklahomacompletehealth.com/content/dam/centene/oklahoma-complete-health/pdfs/Provider%20Manual/English/2026/SSP/Provider%20Manual_2026.5_Approved_R.pdf' },
+          { title: 'OAC 317:55-5-25 — SoonerSelect claims processing and methodology; post payment audits [Revised 09-01-24]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/managed-care/requirements-for-contracted-entities-and-dental-benefits-managers/finance/claims-processing-and-methodology-post-payment-audits.html' },
+          { title: '56 O.S. § 4002.7 — SoonerSelect claims processing and adjudication — OSCN', url: 'https://www.oscn.net/applications/oscn/DeliverDocument.asp?CiteID=489238' },
         ],
       },
     ],
@@ -877,6 +910,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       { q: 'Which plan covers ABA for a child in foster care in Oklahoma?', a: 'Oklahoma Complete Health, through the SoonerSelect Children’s Specialty Program (member line 833-752-1665).' },
       { q: 'What happens if a family switches ABA agencies with Oklahoma Complete Health?', a: 'The diagnostic evaluation or clinical assessment is required again during the new agency’s initial authorization period, and an OHCA discharge notification form is filed when a member transfers to a new provider.' },
       { q: 'What does Oklahoma Complete Health pay for ABA?', a: 'Rates are set in your contract, but state law (56 O.S. § 4002.12) requires SoonerSelect plans to pay in-network providers at least 100% of the OHCA fee schedule rate (97153 is $17.35 per unit from 7/1/2026).' },
+      { q: 'What is Oklahoma Complete Health’s timely filing limit for ABA claims?', a: '180 calendar days from the date of service for a first-time claim, and 180 days from the EOP for an adjustment (Provider Billing Manual).' },
     ],
   },
 
@@ -970,6 +1004,17 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
           { title: '56 O.S. § 4002.12 — SoonerSelect minimum provider reimbursement (as amended by HB 3650, Laws 2026, c. 310, eff. 11/1/2026) — OSCN', url: 'https://www.oscn.net/applications/oscn/DeliverDocument.asp?CiteID=489244' },
           { title: '56 O.S. § 4002.12 — version in force through 10/31/2026 ("Until July 1, 2027") — OSCN superseded document', url: 'https://www.oscn.net/applications/oscn/DeliverDocument.asp?CiteID=553197' },
           { title: 'OHCA — SoonerCare Title XIX fee schedule, effective 07/01/2026 (V3)', url: 'https://oklahoma.gov/content/dam/ok/en/okhca/docs/providers/claim-tools/fee-schedules/2026/Prov_fee_sch_TXIX_07012026_V3.txt' },
+        ],
+      },
+      {
+        h2: 'Claims: filing deadline, payment clock, taxonomy and disputes',
+        body: [
+          'Humana’s 2026 Oklahoma manual: "You have 6 months from the date of service to submit a claim," and as secondary payer it recommends submitting within 6 months of the other insurer’s payment date. It pays "90% of all clean claims submitted from providers within 14 calendar days from the date of receipt" and 99% within 90 days, and adds 1.5% prorated monthly interest on a clean claim adjudicated after 30 days (electronic) or 45 days (paper).',
+          'Claims must carry "Billing and rendering taxonomy codes that match the OHCA Master Provider List (MPL)," with billing and rendering addresses that match it too. To dispute a claim outcome, file a reconsideration within 6 months of the written notification (resolved within 30 calendar days), then a formal appeal within 30 calendar days of the reconsideration letter, then an OHCA administrative appeal within 30 calendar days of the appeal decision. The manual’s electronic visit verification requirement sits under home health services (AuthentiCare) and does not mention ABA; confirm with Humana before in-home sessions.',
+        ],
+        cites: [
+          { title: 'Humana Healthy Horizons in Oklahoma — 2026 provider manual (NPC996103OK0526)', url: 'https://assets.humana.com/is/content/humana/OK_Provider%20Manual_effective_12232026pdf' },
+          { title: 'OAC 317:55-5-25 — SoonerSelect claims processing and methodology; post payment audits [Revised 09-01-24]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/managed-care/requirements-for-contracted-entities-and-dental-benefits-managers/finance/claims-processing-and-methodology-post-payment-audits.html' },
         ],
       },
     ],
@@ -1075,7 +1120,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
     },
     deliveryRules: {
       supervision: {
-        value: 'Humana raises required case supervision "from 5% to 10%" of direct treatment hours effective October 12, 2026 (earlier adoption encouraged); until then OHCA’s 5% monthly RBT floor applies. The policy describes RBTs providing ABA "under the close supervision and direction of a BCBA," and OHCA’s conditions for concurrent RBT and supervision billing apply.',
+        value: 'From October 12, 2026, required case supervision is 10% of direct treatment hours, up "from 5% to 10%" under Humana’s July 14, 2026 notice (OHCA-approved, "consistent with Council of Autism Service Providers (CASP) guidance"; earlier adoption was encouraged). The notice says the change "applies to clinical oversight activities only and does not change prior authorization requirements, eligibility, … or approved treatment hours." Before that date OHCA’s 5% monthly RBT floor applied. The policy describes RBTs providing ABA "under the close supervision and direction of a BCBA," and OHCA’s conditions for concurrent RBT and supervision billing apply.',
         status: 'verified',
         cites: [
           { title: 'Humana Healthy Horizons in Oklahoma — ABA case supervision update (7/14/2026; eff. 10/12/2026)', url: 'https://assets.humana.com/is/content/humana/ABACaseSupervisionNoticepdf' },
@@ -1138,9 +1183,11 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
     faq: [
       { q: 'Does Humana Healthy Horizons in Oklahoma cover ABA therapy?', a: 'Yes, for members under 21, following OHCA Part 30, with prior authorization on 97151, 97153, 97155 and 97156. Adults are not covered.' },
       { q: 'How many assessment units does Humana allow?', a: 'Up to 24 units (6 hours) for an initial ABA assessment and 16 units (4 hours) every six months for a reassessment billed 97151-TS, with exceptions for complex cases.' },
-      { q: 'Is Humana changing ABA supervision requirements?', a: 'Yes. Required case supervision rises from 5% to 10% of direct treatment hours on October 12, 2026.' },
+      { q: 'Is Humana changing ABA supervision requirements?', a: 'Yes. From October 12, 2026, required case supervision is 10% of direct treatment hours, up from 5%. Humana says the change covers clinical oversight only; it does not change prior authorization, eligibility or approved treatment hours.' },
       { q: 'What happens if a family switches ABA agencies with Humana Healthy Horizons in Oklahoma?', a: 'The SoonerCare rule applies: an OHCA discharge notification form is filed when the member moves to a new provider, and the diagnostic evaluation or clinical assessment is required during the new agency’s initial authorization period.' },
       { q: 'What does Humana Healthy Horizons in Oklahoma pay for ABA?', a: 'Rates are contracted, with a state-law floor of 100% of the OHCA fee schedule for in-network providers. Preauthorized out-of-network services are paid at 90% of the Oklahoma Medicaid fee schedule.' },
+      { q: 'What is Humana Healthy Horizons in Oklahoma’s timely filing limit?', a: 'Six months from the date of service (2026 provider manual).' },
+      { q: 'Does Humana Healthy Horizons in Oklahoma require taxonomy on ABA claims?', a: 'Yes. Billing and rendering taxonomy codes must match the OHCA Master Provider List, along with the billing and rendering addresses.' },
     ],
   },
 
@@ -1154,7 +1201,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       cites: [
         { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
         { title: 'Aetna Provider Manual (form 8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
-        { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 11/26/2025)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+        { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
       ],
     },
     treatmentPA: {
@@ -1171,7 +1218,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       status: 'verified',
       cites: [
         { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026, 7244850-01-01)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
-        { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 11/26/2025)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+        { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
       ],
     },
     payer: 'Aetna in Oklahoma',
@@ -1199,7 +1246,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
           'Aetna covers ABA for autism spectrum disorder and considers it experimental for Down syndrome without ASD and for every other non-ASD indication (CPB 0554). The working criteria are in the ABA medical necessity guide: a DSM-5 ASD diagnosis from an appropriate provider, services "provided directly or billed by the appropriately licensed provider," functional impairment on a standardized scale "in the past 12 months" at least one standard deviation below the mean (or a significant risk of harm), a measurable treatment plan that tapers toward other supports, and progress "evaluated every six months." Typical intensity is 10–25 hours a week for comprehensive ABA (ages 0–7, 1–2 years) and 1–20 hours for focused ABA at any age — typical, not a cap. Precertification covers every ABA code, assessment included, and runs through the number on the member’s ID card. We found no Oklahoma-specific Aetna ABA policy or exhibit; the national documents plus the state mandate are the whole picture.',
         ],
         cites: [
-          { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 11/26/2025)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
           { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026, 7244850-01-01)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
           { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
           { title: 'Aetna Provider Manual (form 8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
@@ -1229,6 +1276,23 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
           { title: 'OHCA — SoonerCare Title XIX fee schedule, effective 07/01/2026 (V3)', url: 'https://oklahoma.gov/content/dam/ok/en/okhca/docs/providers/claim-tools/fee-schedules/2026/Prov_fee_sch_TXIX_07012026_V3.txt' },
         ],
       },
+      {
+        h2: 'How fast must Aetna pay a clean ABA claim in Oklahoma?',
+        body: [
+          'On fully insured coverage, Oklahoma’s prompt-pay statute requires every insurer, HMOs included, to "reimburse all clean claims of an insured, an assignee of the insured, or a health care provider within forty-five (45) calendar days after receipt of a paper claim and thirty (30) calendar days after receipt of an electronic claim." A claim with defects must be flagged in writing within 30 calendar days, naming the part that is holding it up and what is needed; once the information arrives, the insurer pays or denies within the same 45 or 30 days. A denial must be explained in writing within 30 days, with where to send an appeal, and an overdue payment "shall bear simple interest at the rate of ten percent (10%) per year" (36 O.S. § 1219). The statute reaches entities the Insurance Commissioner regulates, so a self-funded employer plan administered by Aetna is outside it and follows its plan document.',
+          'Aetna’s provider manual (edition 6/26) publishes no numeric filing deadline: a clean claim is one "received in a timely manner," so the operative limit is the one in your Aetna agreement or state law. The manual says a clean claim "Doesn’t involve coordination of benefits," and that COB, corrected and voided claims can all be submitted through Availity at no charge; it sets no separate deadline for corrected or secondary claims and publishes no weekly payment cycle or submission cutoff.',
+        ],
+        cites: [{ title: 'Aetna — Provider manual (8102800-01-01, 6/26): Clean claims; Coordination of benefits; electronic claims', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }, 
+          { title: '36 O.S. § 1219 — Time for processing claims; interest on late payment; notice of denial — OSCN', url: 'https://www.oscn.net/applications/oscn/DeliverDocument.asp?CiteID=86431' },
+        ],
+      },
+      {
+        h2: 'What must an Aetna ABA reauthorization request contain, and are graphs required?',
+        body: [
+          'Aetna’s ABA medical necessity guide (©2026) says "A member\'s progress is to be evaluated every six months," and a member not making progress "will be transitioned to other appropriate services"; coverage ends when medical necessity is no longer met or when standardized improvement thresholds (for example, two or more standard deviations in multiple domains) are reached. The guide does not specify a graph or data-presentation format for the reassessment; send the updated treatment plan with measurable progress against each goal and the standardized scores the termination criteria are tested against.',
+        ],
+        cites: [{ title: 'Aetna — Applied behavior analysis medical necessity guide (©2026): Termination of coverage', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Nick’s Law applies: no age limit, no hour or dollar cap) vs. self-funded ERISA (the plan document governs). Ask for the employer and check the card.' },
@@ -1238,7 +1302,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       { title: 'Physician or doctoral psychologist order', desc: 'For insured plans the mandate covers treatment prescribed or ordered by a licensed physician or licensed doctoral-level psychologist.' },
     ],
     sources: [
-      { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 11/26/2025)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+      { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
       { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
       { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026, 7244850-01-01)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
       { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
@@ -1290,7 +1354,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
         ],
       },
       referral: {
-        value: 'Aetna requires no referral of its own; the gate is precertification for every ABA code, requested through the number on the member’s ID card. For insured Oklahoma plans the mandate defines covered treatment as care "prescribed or ordered" by a licensed physician or licensed doctoral-level psychologist, so have that order on file.',
+        value: 'Aetna requires no referral of its own; the gate is precertification for every ABA code, requested through the number on the member’s ID card. For insured Oklahoma plans the mandate defines covered treatment as care "prescribed or ordered" by a licensed physician or licensed doctoral-level psychologist, so have that order on file. Aetna publishes no ABA order form or validity period, and its provider manual (6/26) says members "may access behavioral health care … through direct access to the behavioral health provider." A PCP referral matters only on plans that require referrals for specialist care; a clean claim then includes "a corresponding referral (whether in paper or electronic format), if required for the applicable claim." The manual names no ABA-specific referring-provider (box 17) requirement.',
         status: 'verified',
         cites: [
           { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
@@ -1340,11 +1404,12 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
         ],
       },
       concurrentBilling: {
-        value: 'Not addressed in CPB 0554, CPB 0648 or the ABA medical necessity guide; same-time 97153/97155 billing is a coding-policy and contract question.',
+        value: 'Not addressed in CPB 0554, CPB 0648 or the ABA medical necessity guide; same-time 97153/97155 billing is a coding-policy and contract question. The medical necessity guide and the provider manual also say nothing about ABA at the same time as speech or occupational therapy.',
         status: 'unverified',
         cites: [
-          { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 11/26/2025)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
           { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026, 7244850-01-01)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+          { title: 'Aetna provider manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
         ],
         verifyVia: 'Aetna provider services or the participating-provider agreement; ask for Aetna’s code-editing position on 97153 with 97155 in writing.',
         blocker: 'per-case',
@@ -1384,6 +1449,8 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Aetna require graphs for ABA reassessments?', a: 'Aetna’s guide requires a progress evaluation every six months but does not prescribe graphs; send measurable progress against each goal and the standardized scores its termination criteria use.' },
+      { q: 'What is Aetna’s timely filing limit for ABA claims, and when does it pay?', a: 'Aetna publishes no numeric filing limit; it comes from your Aetna agreement or state law. COB, corrected and voided claims go through Availity; no weekly payment cutoff is published.' },
       { q: 'Does Aetna cover ABA therapy in Oklahoma?', a: 'Yes, for autism spectrum disorder under Aetna’s national policy, with precertification for every ABA code. Insured Oklahoma plans also carry Nick’s Law; self-funded employer plans follow their plan document.' },
       { q: 'Does Oklahoma’s autism mandate still cap ABA hours or age?', a: 'No. Since SB 1240 took effect on November 1, 2022, 36 O.S. § 6060.21 has no age window, no visit limits, and no ABA-specific hour or dollar cap; the old 25 hours a week and $25,000 a year cap is repealed.' },
       { q: 'What does Aetna pay for ABA in Oklahoma?', a: 'Commercial rates are negotiated in the participating-provider agreement and are not published. SoonerCare’s July 2026 fee schedule ($17.35 per unit of 97153, $23.55 for 97151, 97155 and 97156) is the public benchmark.' },
@@ -1479,6 +1546,33 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
           { title: 'Evernorth autism resource guide for behavioral health providers (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
         ],
       },
+      {
+        h2: 'How fast must Cigna pay a clean ABA claim in Oklahoma?',
+        body: [
+          'On fully insured coverage, Oklahoma’s prompt-pay statute requires every insurer, HMOs included, to "reimburse all clean claims of an insured, an assignee of the insured, or a health care provider within forty-five (45) calendar days after receipt of a paper claim and thirty (30) calendar days after receipt of an electronic claim." A claim with defects must be flagged in writing within 30 calendar days, naming the part that is holding it up and what is needed; once the information arrives, the insurer pays or denies within the same 45 or 30 days. A denial must be explained in writing within 30 days, with where to send an appeal, and an overdue payment "shall bear simple interest at the rate of ten percent (10%) per year" (36 O.S. § 1219). The statute reaches entities the Insurance Commissioner regulates, so a self-funded employer plan administered by Cigna is outside it and follows its plan document.',
+        ],
+        cites: [
+          { title: '36 O.S. § 1219 — Time for processing claims; interest on late payment; notice of denial — OSCN', url: 'https://www.oscn.net/applications/oscn/DeliverDocument.asp?CiteID=86431' },
+        ],
+      },
+      {
+        h2: 'What is Cigna’s timely filing limit for ABA claims?',
+        body: [
+          'Cigna’s timely filing policy, for claims submitted directly to Cigna: it will consider "Participating provider claims submitted three (3) months [90 days] after the date of service" and out-of-network claims submitted six months (180 days) after the date of service. The limit is longer where applicable law requires it or your provider agreement allows more time, and in coordination-of-benefits cases it runs from the processing date on the primary carrier’s EOB.',
+          'More of Evernorth’s filing rules (administrative guidelines, September 2026): for a secondary claim the 90 days run from "the primary payer’s processing date as stated on an explanation of benefits [EOB] or explanation of payment [EOP]," and the primary EOP goes in with the claim unless the COB data is sent electronically; Medicaid gets three years; a claim returned for more information gets a fresh 90 days from the date of the request. Corrected or replacement claims carry frequency code 7 (replace) or 8 (void) in box 22, not a "Corrected Claim" stamp, and no separate corrected-claim deadline is published. Evernorth publishes no weekly payment cycle or submission cutoff; it offers ERA and EFT "to help reduce your payment cycle."',
+          'Which codes: Evernorth’s autism resource guide (March 2025) says "All ABA services must be billed with CPT codes 97151–97158, 0362T, and 0373T ONLY," so state HCPCS ABA codes such as H0031, H0032, H2014 or H2019 are not billable to Cigna for ABA. The same guide says "All ABA CPT codes are covered telehealth services."',
+        ],
+        cites: [{ title: 'Cigna/Evernorth Autism Resource Guide (PCOMM-2025-225, March 2025): billing codes', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026): Claims filing deadline, Coordination of benefits, corrected claims, ERA, Appeals', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }, 
+          { title: 'Cigna for Health Care Professionals — When to File (timely filing policy)', url: 'https://static.cigna.com/assets/chcp/resourceLibrary/clinicalReimbursementPayment/medicalClinicalReimburseWhenToFile.html' },
+        ],
+      },
+      {
+        h2: 'What must a Cigna ABA reauthorization request contain, and are graphs required?',
+        body: [
+          'Evernorth’s EN0499 (effective May 15, 2026) sets what a continued-treatment request must show: an updated treatment plan covering current deficits and progress in every targeted area; "Quantitative baseline, interim and current data ... with dates reported from when the data were collected" for every behavior and skill, across all settings; current data collected "within no more than 60 days prior to the start date of the continued treatment request" and within 60 days before the request is received; data showing "ongoing and sustained progress"; and a reliable, valid, standardized assessment completed no more than one year before the continued-treatment start date. Where progress is not shown, the request must name the barriers and the protocol changes made. EN0499 asks for dated quantitative data, not for graphs as such; graphs are a common way to present it, but the policy does not require them.',
+        ],
+        cites: [{ title: 'Evernorth Coverage Policy EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026): Criteria for Continued Treatment with ABA', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Nick’s Law applies) vs. self-funded ERISA (plan document governs).' },
@@ -1534,11 +1628,12 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
         ],
       },
       referral: {
-        value: 'Cigna requires no referral for ABA; the assessment codes need no PA for a BCBA or independently licensed provider, and treatment needs the ABA prior authorization form. For insured Oklahoma plans the mandate covers treatment prescribed or ordered by a licensed physician or licensed doctoral-level psychologist.',
+        value: 'Cigna requires no referral for ABA; the assessment codes need no PA for a BCBA or independently licensed provider, and treatment needs the ABA prior authorization form. For insured Oklahoma plans the mandate covers treatment prescribed or ordered by a licensed physician or licensed doctoral-level psychologist. Evernorth publishes no ABA order form or validity period. On the claim, Evernorth’s administrative guidelines (September 2026) define a complete CMS-1500 claim without a referring provider (they require the rendering provider’s name, NPI and license type and the billing provider’s name, address and NPI); any "Referring Provider" reported on an 837 claim "must include the name and NPI."',
         status: 'verified',
         cites: [
           { title: 'Evernorth autism resource guide for behavioral health providers (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
           { title: '36 O.S. § 6060.21 — Health coverage for individuals with autism (Nick’s Law; as amended by SB 1240, eff. 11/1/2022) — OSCN', url: 'https://www.oscn.net/applications/oscn/DeliverDocument.asp?CiteID=478381' },
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
         ],
       },
       telehealth: {
@@ -1621,11 +1716,14 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Cigna require graphs for ABA reassessments?', a: 'Not graphs as such. EN0499 requires dated quantitative baseline, interim and current data (current data no more than 60 days old), an updated plan and a standardized assessment no more than a year old; graphs are a common way to show the data, but the policy does not require them.' },
+      { q: 'Does Cigna accept H0031 or H0032 for ABA?', a: 'CPT 97151–97158, 0362T and 0373T only; HCPCS H-codes such as H0031/H0032 are not billable for ABA (Evernorth autism resource guide).' },
       { q: 'Does Cigna cover ABA therapy in Oklahoma?', a: 'Yes, for a confirmed autism diagnosis under Evernorth EN0499. Insured Oklahoma plans also carry Nick’s Law (no age limit, no hour or dollar cap); self-funded plans follow their plan document.' },
       { q: 'Does the ABA assessment need prior authorization with Cigna?', a: 'No. 97151, 97152 and 0362T need no PA with an autism diagnosis when the provider is a BCBA or independently licensed and the plan covers ABA. Treatment does need the ABA prior authorization form.' },
       { q: 'Can ABA be delivered by telehealth under Cigna?', a: 'Yes. Evernorth’s autism resource guide says all ABA CPT codes are covered telehealth services.' },
       { q: 'Is Cigna’s ABA network open to new providers in Oklahoma?', a: 'Evernorth says it is “committed to expanding our network of autism providers.” Apply with the provider information form (individuals) or the autism clinic screening application; allow up to 90 days, then 60–90 days of credentialing per provider.' },
       { q: 'Does Cigna credential RBTs?', a: 'No. Evernorth does not credential nonlicensed or noncertified staff; their services are billed under the supervising provider.' },
+      { q: 'What is Cigna’s timely filing limit in Oklahoma?', a: '90 days from the date of service for a participating provider and 180 days out of network, unless your agreement or applicable law allows longer (Cigna’s When to File policy).' },
     ],
   },
 
@@ -1722,6 +1820,33 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
           { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
         ],
       },
+      {
+        h2: 'How fast must UnitedHealthcare pay a clean ABA claim in Oklahoma?',
+        body: [
+          'On fully insured coverage, Oklahoma’s prompt-pay statute requires every insurer, HMOs included, to "reimburse all clean claims of an insured, an assignee of the insured, or a health care provider within forty-five (45) calendar days after receipt of a paper claim and thirty (30) calendar days after receipt of an electronic claim." A claim with defects must be flagged in writing within 30 calendar days, naming the part that is holding it up and what is needed; once the information arrives, the insurer pays or denies within the same 45 or 30 days. A denial must be explained in writing within 30 days, with where to send an appeal, and an overdue payment "shall bear simple interest at the rate of ten percent (10%) per year" (36 O.S. § 1219). The statute reaches entities the Insurance Commissioner regulates, so a self-funded employer plan administered by UnitedHealthcare is outside it and follows its plan document.',
+        ],
+        cites: [
+          { title: '36 O.S. § 1219 — Time for processing claims; interest on late payment; notice of denial — OSCN', url: 'https://www.oscn.net/applications/oscn/DeliverDocument.asp?CiteID=86431' },
+        ],
+      },
+      {
+        h2: 'What is the timely filing limit for UnitedHealthcare ABA claims?',
+        body: [
+          'UnitedHealthcare commercial ABA runs through Optum Behavioral Health, whose National Provider Network Manual (effective 9/1/2026) says "All information necessary to process claims must be received by Optum no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan." Corrections are due within 90 days of the first claim’s receipt, and the member cannot be billed for a late claim. Clean claims are "Generally" paid within 45 calendar days. To dispute a decision, request reconsideration and then appeal; the two steps together must be filed within 12 months unless state law or your agreement sets a different deadline.',
+          'Optum’s National Network Manual (effective September 1, 2026) also sets the payment clock: claims with all required information and any required authorization "will be paid within 45 calendar days after Optum receives the claim, or as required by state and federal laws," which may exclude claims needing a coordination-of-benefits determination, and when Optum is secondary it pays up to the Optum contracted rate. UnitedHealthcare’s 2026 administrative guide adds that a corrected claim (frequency code 7, with the original claim number) must arrive within the same timely-filing limit as the original. No weekly payment cycle or submission cutoff is published.',
+          'Which codes: Optum’s commercial ABA reimbursement policy (2022RP501A, updated June 2026) lists the reimbursable codes for the commercial ABA program as 97151–97158, 0362T and 0373T, each in 15-minute units with a credential modifier (HM, HN, HO or HP); no HCPCS H-code (H0031, H0032, H2014, H2019) is on that list.',
+        ],
+        cites: [{ title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026): reimbursable codes', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial): Timely filing of corrected claims; Subrogation and COB', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, 
+          { title: 'Optum Behavioral Health — National Provider Network Manual (published 7/1/2026, effective 9/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+        ],
+      },
+      {
+        h2: 'What must a UnitedHealthcare ABA reauthorization request contain, and are graphs required?',
+        body: [
+          'Optum’s ABA Supplemental Clinical Criteria (interim review April 2026) say that "With each clinical review for continued ABA treatment, the provider must submit updated documentation" showing progress "for each targeted symptom and behavior, including progress toward defined goals, including the same modes of measurement that were utilized for baseline measurement." Progress "should include rate and percentage of mastered programs, rates of mastered targets, change scores for any outcome measures, updated standardized adaptive measures, and change scores for skills-based assessments," with movement from baseline shown on validated, norm-referenced assessments and, where applicable, the caregiver’s own progress. Inadequate progress over six months calls for an analysis of the reasons and modified interventions, and the review looks at use below 80 percent of authorized hours over two weeks. The criteria do not require graphs as such.',
+        ],
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026): Continued Service Criteria', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Nick’s Law applies) vs. self-funded ERISA (plan document governs).' },
@@ -1730,7 +1855,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       { title: 'Family availability', desc: 'Optum reviews utilization under 80% of authorized hours over two weeks. Set hours the family can actually keep.' },
       { title: 'School and IEP status', desc: 'Optum will not pay a 1:1 classroom aide or IDEA-covered services, but covers school coordination, teacher training and observation.' },
     ],
-    sources: [
+    sources: [{ title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial): Timely filing of corrected claims; Subrogation and COB', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, 
       { title: 'Optum ABA Supplemental Clinical Criteria BH803ABASCC (interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
       { title: 'Optum FAQ — Autism/ABA using CPT codes (BH00083-24)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
       { title: 'Optum Provider Express — Applied Behavior Analysis providers page (state list has no Oklahoma page)', url: 'https://public.providerexpress.com/content/ope-provexpr/us/en/clinical-resources/autismABA2.html' },
@@ -1784,12 +1909,13 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
         ],
       },
       referral: {
-        value: 'No referral or order is required by Optum; the gate is prior authorization of the assessment and then treatment. For insured Oklahoma plans the mandate covers treatment prescribed or ordered by a licensed physician or licensed doctoral-level psychologist.',
+        value: 'No referral or order is required by Optum; the gate is prior authorization of the assessment and then treatment. For insured Oklahoma plans the mandate covers treatment prescribed or ordered by a licensed physician or licensed doctoral-level psychologist. Optum publishes no ABA order form or validity period. On the claim, Optum’s National Network Manual (effective Sept. 1, 2026) lists the Form 1500 fields it needs (member and subscriber, diagnosis, dates and length of session, and the clinician who actually provided the service with credentials, Tax ID and NPI) and does not ask for a referring provider in box 17.',
         status: 'verified',
         cites: [
           { title: 'Optum ABA Supplemental Clinical Criteria BH803ABASCC (interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
           { title: 'Optum FAQ — Autism/ABA using CPT codes (BH00083-24)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
           { title: '36 O.S. § 6060.21 — Health coverage for individuals with autism (Nick’s Law; as amended by SB 1240, eff. 11/1/2022) — OSCN', url: 'https://www.oscn.net/applications/oscn/DeliverDocument.asp?CiteID=478381' },
+          { title: 'Optum National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
         ],
       },
       telehealth: {
@@ -1836,7 +1962,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
         ],
       },
       concurrentBilling: {
-        value: 'Yes, with a single-provider exclusion. Optum’s commercial ABA reimbursement policy: “Can I report 97153 or 97154 with 97155 concurrently? A. Yes, as long as the criteria in the descriptors of both codes are met. A single QHP may not report 97153 or 97154 with 97155 concurrently.” So the overlap has to be two people — a technician on 97153 and an analyst on 97155 directing them with the patient present. Optum’s ABA CPT FAQ adds that 97153 and 97156 “may be billed concurrently” as separate services to different family members by different providers. 97155 and 97156 on the same date pay only if “separate, distinct, and clearly documented in the progress notes” — “A single provider can’t bill for both simultaneously.” Team meetings bill only as supervision with the member, supervisor and technician present, and “CPT codes 97153 and 97155 may not be billed for technician training.”',
+        value: 'Yes, with a single-provider exclusion. Optum’s commercial ABA reimbursement policy: “Can I report 97153 or 97154 with 97155 concurrently? A. Yes, as long as the criteria in the descriptors of both codes are met. A single QHP may not report 97153 or 97154 with 97155 concurrently.” So the overlap has to be two people — a technician on 97153 and an analyst on 97155 directing them with the patient present. Optum’s ABA CPT FAQ adds that 97153 and 97156 “may be billed concurrently” as separate services to different family members by different providers. 97155 and 97156 on the same date pay only if “separate, distinct, and clearly documented in the progress notes” — “A single provider can’t bill for both simultaneously.” Team meetings bill only as supervision with the member, supervisor and technician present, and “CPT codes 97153 and 97155 may not be billed for technician training.” Optum’s ABA documents do not address ABA at the same time as speech, occupational or physical therapy; its ABA FAQ expects the ABA provider to know "the other therapies in which the child is involved, how often those therapies occur" and their goals, and to document that coordination.',
         status: 'verified',
         cites: [
           { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
@@ -1880,11 +2006,14 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare require graphs for ABA reassessments?', a: 'Optum’s criteria require updated progress data in the same measures used at baseline (mastery rates, change scores, updated standardized adaptive measures) at every continued review; they do not require graphs as such.' },
+      { q: 'Does UnitedHealthcare accept H0031 or H0032 for ABA?', a: 'Optum’s commercial ABA reimbursement policy lists only CPT 97151–97158, 0362T and 0373T as reimbursable ABA codes, each with a credential modifier; no H-code (H0031, H0032, H2014, H2019) is on the list.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in Oklahoma?', a: 'Yes, for ASD under Optum’s ABA Supplemental Clinical Criteria, with prior authorization for assessment and treatment. Insured Oklahoma plans also carry Nick’s Law; self-funded plans follow their plan document.' },
       { q: 'Can I bill 97153 and 97155 at the same time with UnitedHealthcare?', a: 'Yes. Optum’s CPT FAQ allows concurrent billing of technician (97153) and supervisor (97155) time when supervision is provided.' },
       { q: 'How often does Optum review ABA treatment?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale.' },
       { q: 'What is UnitedHealthcare’s ABA fee schedule in Oklahoma?', a: 'Rates are contracted. Optum pays participating providers “based on your contracted rate” for the codes on their fee schedule; non-contracted providers call the Behavioral Health number on the member’s card.' },
       { q: 'Can the ABA assessment be done by telehealth with UnitedHealthcare?', a: 'Not on commercial plans. Optum allows telehealth only for 97155, 97156 and 97157 after a virtual-visits attestation, so 97151 is in person.' },
+      { q: 'What is UnitedHealthcare’s timely filing limit for ABA in Oklahoma?', a: '90 calendar days from the date of service under Optum’s National Provider Network Manual, unless state law, federal law or the member’s plan allows longer.' },
     ],
   },
 
@@ -1986,6 +2115,36 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
           { title: 'OHCA — SoonerCare Title XIX fee schedule, effective 07/01/2026 (V3)', url: 'https://oklahoma.gov/content/dam/ok/en/okhca/docs/providers/claim-tools/fee-schedules/2026/Prov_fee_sch_TXIX_07012026_V3.txt' },
         ],
       },
+      {
+        h2: 'How fast must BCBSOK pay a clean ABA claim in Oklahoma?',
+        body: [
+          'On fully insured coverage, Oklahoma’s prompt-pay statute requires every insurer, HMOs included, to "reimburse all clean claims of an insured, an assignee of the insured, or a health care provider within forty-five (45) calendar days after receipt of a paper claim and thirty (30) calendar days after receipt of an electronic claim." A claim with defects must be flagged in writing within 30 calendar days, naming the part that is holding it up and what is needed; once the information arrives, the insurer pays or denies within the same 45 or 30 days. A denial must be explained in writing within 30 days, with where to send an appeal, and an overdue payment "shall bear simple interest at the rate of ten percent (10%) per year" (36 O.S. § 1219). The statute reaches entities the Insurance Commissioner regulates, so a self-funded employer plan administered by BCBSOK is outside it and follows its plan document.',
+        ],
+        cites: [
+          { title: '36 O.S. § 1219 — Time for processing claims; interest on late payment; notice of denial — OSCN', url: 'https://www.oscn.net/applications/oscn/DeliverDocument.asp?CiteID=86431' },
+        ],
+      },
+      {
+        h2: 'BlueCard: out-of-state Blue members, authorizations and where claims go',
+        body: [
+          'BCBSOK’s copy of the BlueCard Program Provider Manual (June 2026) sets the rule behind most cross-state ABA questions. A provider "files a claim locally" with its own Blue plan, which forwards it to the member’s home plan; the home plan applies the member’s benefits, and "Your local BCBS Plan is your sole contact for claims payment, adjustments and issue resolution." So an Oklahoma agency in BCBSOK’s network that treats a child covered by another state’s Blue plan bills BCBSOK. PPO, EPO, POS and traditional products travel through BlueCard; Medicaid and SCHIP products, Medicare Advantage and the Federal Employee Program are excluded.',
+          'Authorization comes from the home plan. The manual says patients "are responsible for obtaining pre-certification/preauthorization for out-patient services from their BCBS Plan," but the provider may request it for them: through the Electronic Provider Access tool in BCBSOK’s portal (the member’s three-character prefix routes you to the home plan’s portal), by calling BlueCard Eligibility at 800-676-BLUE (2583) and choosing the behavioral health option, or with an electronic 278. The home plan’s medical policy and pre-authorization rules are found the same way, by prefix, through the out-of-area Medical Policy and Prior Authorization router.',
+          'The other direction: BCBSOK’s Commercial Provider Reference Manual (September 2026) says Blue Advantage PPO and Blue Preferred PPO members only have coverage for non-urgent care outside the service area "if the service is not available in the service area," with an approved waiver requested in advance; without one "the services are not covered." A BCBSOK member on one of those plans who wants an out-of-state ABA provider needs that waiver before starting, in addition to prior authorization.',
+        ],
+        cites: [
+          { title: 'BCBSOK — The BlueCard Program Provider Manual (June 2026)', url: 'https://www.bcbsok.com/docs/provider/ok/network/bluecard/bluecard-program-provider-manual.pdf' },
+          { title: 'BCBSOK — Commercial Provider Reference Manual (updated September 2026)', url: 'https://www.bcbsok.com/docs/provider/ok/standards/manuals/bcbsok-commercial-provider-reference-manual.pdf' },
+        ],
+      },
+      {
+        h2: 'Timely filing, payment and appeal deadlines',
+        body: [
+          'BCBSOK’s Commercial Provider Reference Manual (September 2026): "Claims will not be payable if they are not filed within 180 days of the date of discharge or date of service," unless the member’s coverage agreement allows longer. BCBSOK agrees, "unless otherwise permitted by law," to adjudicate clean claims "within 30 days of the date of our receipt," and to tell you within 30 days if a claim is not clean. Standard pre-service and post-claim appeals may be requested "within 180 days from the date of notice of the original adverse determination letter"; post-claim appeals must be in writing on the appeal form or electronic process.',
+        ],
+        cites: [
+          { title: 'BCBSOK — Commercial Provider Reference Manual (updated September 2026)', url: 'https://www.bcbsok.com/docs/provider/ok/standards/manuals/bcbsok-commercial-provider-reference-manual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan type and funding', desc: 'Blue Choice PPO, Blue Choice Preferred PPO, Blue Traditional, HMO or FEP; fully insured (Nick’s Law) or self-funded (plan document).' },
@@ -2055,12 +2214,13 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
         ],
       },
       referral: {
-        value: 'No referral is required by BCBSOK’s ABA documents; the gate is the preservice request, started since April 2026 by calling the customer service number on the member’s ID card. HMO products may carry their own referral rules. For insured plans Nick’s Law covers treatment prescribed or ordered by a licensed physician or licensed doctoral-level psychologist.',
+        value: 'No referral is required by BCBSOK’s ABA documents; the gate is the preservice request, started since April 2026 by calling the customer service number on the member’s ID card. HMO products may carry their own referral rules. For insured plans Nick’s Law covers treatment prescribed or ordered by a licensed physician or licensed doctoral-level psychologist. BCBSOK’s Commercial Provider Reference Manual (September 2026) adds that "In-network behavioral health providers do not need an approved referral from the PCP for outpatient services," even on MyBlue plans that otherwise route specialist care through the PCP, and BCBSOK publishes no ABA order form or validity period. On the claim it only recommends including "the referring and attending provider and referral number" where a referral exists; no box 17 entry is required for ABA.',
         status: 'verified',
         cites: [
           { title: 'BCBSOK news (1/15/2026) — Call for preservice requests for ABA, commercial members, effective April 2026', url: 'https://www.bcbsok.com/provider/education/education-reference/news-updates/2026/1-15-2026-call-for-preservice-requests-for-applied-behavior-analysis' },
           { title: 'BCBSOK — 2026 Commercial Outpatient Behavioral Health Prior Authorization Codes (eff. 1/1/2026)', url: 'https://www.bcbsok.com/docs/provider/ok/claims/um/2026-commercial-outpatient-behavioral-health-prior-authorization-codes.pdf' },
           { title: '36 O.S. § 6060.21 — Health coverage for individuals with autism (Nick’s Law; as amended by SB 1240, eff. 11/1/2022) — OSCN', url: 'https://www.oscn.net/applications/oscn/DeliverDocument.asp?CiteID=478381' },
+          { title: 'BCBSOK — Commercial Provider Reference Manual (updated September 2026)', url: 'https://www.bcbsok.com/docs/provider/ok/standards/manuals/bcbsok-commercial-provider-reference-manual.pdf' },
         ],
       },
       telehealth: {
@@ -2152,6 +2312,8 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       { q: 'How do I request ABA authorization from BCBSOK in 2026?', a: 'Since April 2026, call the customer service number on the member’s ID card to start the preservice request; a clinician follows up for a telephonic review. Start at least two weeks before the planned start date.' },
       { q: 'How recent must the diagnosis be for BCBSOK?', a: 'No older than 36 months, per BCBSOK’s ABA request forms, with a baseline skills assessment from the last 30 days.' },
       { q: 'What criteria does BCBSOK use for ABA medical necessity?', a: 'Since January 1, 2026, MCG guidelines (Applied Behavioral Analysis, B-806-T) replaced BCBSOK’s own ABA medical policy. MCG is licensed and available to providers through Availity.' },
+      { q: 'Can my agency treat a child covered by another state’s Blue Cross plan through BCBSOK?', a: 'Usually, through BlueCard. File the claim with BCBSOK, your local plan; it forwards the claim to the child’s home plan, which applies the child’s benefits. Get prior authorization from the home plan, through Electronic Provider Access in BCBSOK’s portal (enter the member’s prefix) or BlueCard Eligibility at 800-676-2583. Medicaid plans, Medicare Advantage and the Federal Employee Program are not part of BlueCard.' },
+      { q: 'What is BCBSOK’s timely filing limit for ABA claims?', a: '180 days from the date of service under BCBSOK’s Commercial Provider Reference Manual (September 2026), unless the member’s coverage agreement allows longer. Clean claims are adjudicated within 30 days of receipt, and appeals are due within 180 days of the adverse determination notice.' },
     ],
   },
 };

@@ -62,7 +62,7 @@ export const texasPayers: Record<string, PayerConfig> = {
         h2: 'The authorization cadence: eval → 90 → 90 → 180',
         body: [
           'Everything is prior-authorized. The ABA evaluation (97151, limited to 24 units / 6 hours per evaluation, billed with the HO modifier by the LBA) needs a PA that includes a signed referral from the prescribing provider plus the diagnosis documentation, submitted on the CCP Prior Authorization Request Form. Treatment then authorizes in two consecutive 90-day periods — the initial 180-day treatment plan must be signed and dated by the prescribing provider — followed by recertifications in increments of up to 180 days.',
-          'The friction-reducer worth knowing: effective April 1, 2025, TMHP dropped the prescribing-provider signature requirement on the CCP PA form for the 90-day treatment extension. The initial plan still needs the prescriber\'s signature, but the mid-cycle extension no longer stalls on chasing a physician\'s pen — a real cycle-time win for practices that learned the benefit in its first three years.',
+          'The friction-reducer worth knowing: effective April 1, 2025, TMHP dropped the prescribing-provider signature requirement on the CCP PA form for the 90-day treatment extension. The initial plan still needs the prescriber\'s signature, but the mid-cycle extension no longer stalls on chasing a physician\'s pen — a real cycle-time win for practices that learned the benefit in its first three years. What a renewal must carry: the 90-day extension needs “an attendance log that also includes a calculation of the percentage of planned sessions completed for the child or youth and their parent or caregiver, and a progress summary”; the 180-day recertification rests on the 97151 re-evaluation, which also carries the attendance log. The TMPPM does not ask for graphs in the request itself, but every session note must include “direct observation measures that record data during every treatment session to allow the LBA to graph data across time for analysis.”',
         ],
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
@@ -72,9 +72,10 @@ export const texasPayers: Record<string, PayerConfig> = {
       {
         h2: 'Rates, modifiers, and who can enroll',
         body: [
-          'HHSC raised ABA rates roughly 11.5% across the board effective September 1, 2025 — the first adjustment since the benefit launched. Per 15-minute unit: 97151 evaluation pays $27.56 (was $24.71); 97153 direct treatment by a behavior technician pays $14.50 (was $13.00); 97155 protocol modification pays $20.08–$25.10 and 97156 family training $18.40–$23.01, tiered by credential modifier. Texas flags credentials with modifiers — HO for the Licensed Behavior Analyst (LBA), HN for the Licensed assistant Behavior Analyst (LaBA), HM for behavior technicians — though 97153 itself takes no credential modifier. Two structural notes: only LBAs can enroll in Texas Medicaid (LaBAs and BTs bill under the LBA\'s supervision), and MCO reimbursement is contract-specific even though it generally tracks the HHSC fee schedule. The rate figures here come from the HHSC rate-hearing packet; confirm current values in the TMHP Online Fee Lookup before building revenue models.',
+          'HHSC raised ABA rates roughly 11.5% across the board effective September 1, 2025 — the first adjustment since the benefit launched. Per 15-minute unit: 97151 evaluation pays $27.56 (was $24.71); 97153 direct treatment by a behavior technician pays $14.50 (was $13.00); 97155 protocol modification pays $20.08–$25.10 and 97156 family training $18.40–$23.01, tiered by credential modifier. Texas flags credentials with modifiers — HO for the Licensed Behavior Analyst (LBA), HN for the Licensed assistant Behavior Analyst (LaBA), HM for behavior technicians — though 97153 itself takes no credential modifier. Two structural notes: only LBAs can enroll in Texas Medicaid (LaBAs and BTs bill under the LBA\'s supervision), and MCO reimbursement is contract-specific even though it generally tracks the HHSC fee schedule. The rate figures here come from the HHSC rate-hearing packet; confirm current values in the TMHP Online Fee Lookup before building revenue models. The code set is CPT only: TMPPM § 2.3.12 lists 97151 (evaluation and re-evaluation), 97153 and 97155 (individual), 97154 and 97158 (group), 97156 (caregiver training) and 99366 (interdisciplinary team meeting) as the procedure codes that “may be reimbursed” for ABA; 97152, 97157, 0362T, 0373T and HCPCS H-codes such as H0031, H0032 or H2019 are not on that list.',
         ],
         cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3.12 Reimbursement and Billing Guidelines (Autism Services)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
           { title: 'HHSC Provider Finance — ABA fee adjustment packet (eff. 9/1/2025)', url: 'https://pfd.hhs.texas.gov/sites/default/files/documents/2025/9-1-2025-fee-adj-fetal-med-applied-behavior-dental-rate.pdf' },
           { title: 'TMHP — Texas Medicaid Fee Schedule: Autism Services (PRCR615C, run 9/14/2026) (PDF)', url: 'https://public.tmhp.com/FeeSchedules/StaticFeeSchedule/FeeSchedules.aspx?fn=%5c%5ctmhp.net%5cFeeSchedule%5cPROD%5cStatic%5cTexas_Medicaid_Fee_Schedule_PRCR615C.pdf' },
           { title: 'TMHP Online Fee Lookup', url: 'https://public.tmhp.com/FeeSchedules/Default.aspx' },
@@ -142,6 +143,17 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
         ],
       },
+      {
+        h2: 'What is the Texas Medicaid timely filing limit, and what goes on the claim?',
+        body: [
+          'TMHP must receive a fee-for-service claim within 95 days of each date of service; appeals of denied claims and adjustment requests must reach TMHP within 120 days of the disposition date on the Remittance and Status (R&S) Report. A 95-day or 120-day deadline that falls on a weekend or holiday moves to the next business day. The federal 365-day limit still caps exceptions such as retroactive eligibility (95 days from the eligibility add date, within 365 days of service).',
+          'Claims must carry the provider’s complete name, physical address with ZIP+4, NPI, taxonomy code and benefit code (if applicable). Paper claims must show an NPI and taxonomy code for both the billing and the performing provider, and a claim missing either is denied. For a child in a STAR or STAR Kids plan, the claim goes to that MCO instead, which must also receive it within 95 days of the date of service.',
+        ],
+        cites: [
+          { title: 'TMPPM Vol. 1, Section 6: Claims Filing, § 6.1.4 Claims Filing Deadlines', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/1_06_Claims_Filing/1_06_Claims_Filing.htm' },
+          { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.9.1 (Filing Deadlines) and 2.10 (MCO Appeals)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
+        ],
+      },
     ],
     collect: [
       { title: 'Program & plan', desc: 'FFS vs. STAR / STAR Kids / STAR Health, and which MCO — same clinical rules, different PA machinery.' },
@@ -151,6 +163,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'Supervising LBA', desc: 'Only LBAs enroll in Texas Medicaid — confirm the enrolled LBA who will bill for the team.' },
     ],
     sources: [
+      { title: 'TMPPM Telecommunication Services Handbook (Vol. 2)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_19_Telecommunication_Srvs/2_19_Telecommunication_Srvs.htm' },
       { title: 'TMHP — HHSC Release of Autism Services Benefits (eff. 2/1/2022)', url: 'https://www.tmhp.com/news/2021-07-30-hhsc-release-autism-services-benefits-effective-february-1-2022' },
       { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
       { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
@@ -179,7 +192,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       concurrentBilling: {
         value:
-          'Prohibited: Texas Medicaid will not reimburse multiple ABA providers during one ABA session with the child when more than one ABA provider is present. The one exception is when the family and the child are receiving separate services and the child is not present in the family session. Providers may request total authorized hours under either 97153 or 97155 and bill the code matching the service actually delivered, but not both for the same clock time with the child present.',
+          'Prohibited: Texas Medicaid will not reimburse multiple ABA providers during one ABA session with the child when more than one ABA provider is present. The one exception is when the family and the child are receiving separate services and the child is not present in the family session. Providers may request total authorized hours under either 97153 or 97155 and bill the code matching the service actually delivered, but not both for the same clock time with the child present. The autism section does not address ABA billed during a speech, occupational or physical therapy session; it requires the treatment plan to coordinate with an SLP, OT or PT where a co-morbid condition calls for it.',
         status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
@@ -187,7 +200,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       dailyLimits: {
         value:
-          'Direct treatment is limited to 8 hours (32 units) per day, inclusive of 97153, 97154, 97155 and 97158. The 97151 evaluation and each re-evaluation are limited to 6 hours (24 units). Group treatment requires at least 2 and no more than 8 children. Authorization runs as two consecutive 90-day periods, then recertifications in increments of up to 180 days.',
+          'Direct treatment is limited to 8 hours (32 units) per day, inclusive of 97153, 97154, 97155 and 97158. The 97151 evaluation and each re-evaluation are limited to 6 hours (24 units). Group treatment requires at least 2 and no more than 8 children. These are claim edits as well as authorization limits: “If services billed exceed the limitations outlined in this section, the claim will be denied, and may be appealed.” Authorization runs as two consecutive 90-day periods, then recertifications in increments of up to 180 days.',
         status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
@@ -253,18 +266,20 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'Two signed referrals. For the evaluation: a signed, dated referral from the prescribing provider, signed within 60 calendar days prior to or on the anticipated evaluation date. For treatment: a signed, dated referral from a physician or allowed practitioner (MD/DO, PA, NP, or CNS with properly delegated authority) outlining the frequency and duration of treatment, with a signature current to the service dates — on or before the service start date and no older than three months. Since 4/1/2025 the prescriber signature is no longer required on the CCP PA form for the 90-day treatment extension; the initial 180-day treatment plan still needs it.',
+          'Two signed referrals. For the evaluation: a signed, dated referral from the prescribing provider, signed within 60 calendar days prior to or on the anticipated evaluation date. For treatment: a signed, dated referral from a physician or allowed practitioner (MD/DO, PA, NP, or CNS with properly delegated authority) outlining the frequency and duration of treatment, with a signature current to the service dates — on or before the service start date and no older than three months. Since 4/1/2025 the prescriber signature is no longer required on the CCP PA form for the 90-day treatment extension; the initial 180-day treatment plan still needs it. The LBA’s assessment and treatment plan must also name "the referring prescribing provider." On the claim, TMPPM § 6.4.2.4 says "All Texas Medicaid claims for services that require a physician order or referral must include the ordering or referring provider’s NPI," and that prescriber must be enrolled in Texas Medicaid (as a billing or performing provider, or with an ordering/referring-only enrollment); claims without it, or with an unenrolled NPI, "may be subject to retrospective review and denial." On the CMS-1500 the name goes in block 17 with qualifier DN (referring) and the NPI in 17b. TMHP publishes no separate ABA order form; the referral rides with the CCP prior authorization request.',
         status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
           { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
+          { title: 'TMPPM Vol. 1, Section 6: Claims Filing (§ 6.4.2.4 Ordering or Referring Provider NPI; CMS-1500 block 17 instructions)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/1_06_Claims_Filing/1_06_Claims_Filing.htm' },
         ],
       },
       telehealth: {
         value:
-          'Synchronous audio-visual only, modifier 95, and only on 97151, 97155, 97156, 97158 and 99366. That list covers the assessment: 97151 is the initial evaluation and the re-evaluation done every 180 days, both by the LBA. It also covers 97155 when the LBA directly supervises a BT or LaBA working with the child. "LaBAs and RBTs may not deliver any service remotely," and one-on-one services delivered directly to the child by a behavior technician or LaBA must be in person — the TMPPM prohibits telehealth for BT/LaBA-delivered direct service.',
+          'Synchronous audio-visual only, modifier 95, and only on 97151, 97155, 97156, 97158 and 99366. That list covers the assessment: 97151 is the initial evaluation and the re-evaluation done every 180 days, both by the LBA. It also covers 97155 when the LBA directly supervises a BT or LaBA working with the child. "LaBAs and RBTs may not deliver any service remotely," and one-on-one services delivered directly to the child by a behavior technician or LaBA must be in person — the TMPPM prohibits telehealth for BT/LaBA-delivered direct service. On the claim the telehealth marker is the modifier: the Telecommunication Services Handbook says “Telemedicine and telehealth services must be billed with modifier 95” and names no telehealth place-of-service code (no POS 02 or 10 rule); the Autism Services section says its remote-delivery rules “supersede” that handbook.',
         status: 'verified',
         cites: [
+          { title: 'TMPPM Telecommunication Services Handbook (Vol. 2)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_19_Telecommunication_Srvs/2_19_Telecommunication_Srvs.htm' },
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
         ],
       },
@@ -301,6 +316,9 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'Do behavior technicians enroll with Texas Medicaid?', a: 'No. BTs must hold RBT, BCAT or ABAT certification but "may not enroll in Texas Medicaid," and neither may LaBAs. Only the LBA enrolls, and BT services are billed under that LBA.' },
       { q: 'What happens to the authorization if a family switches ABA providers?', a: 'A new provider outside the current group must submit a new authorization request with initial-evaluation documentation and a change-of-provider letter signed by the responsible adult. A move within the same group keeps the evaluation, plan of care and authorization period.' },
       { q: 'Is the Texas Medicaid ABA network open?', a: 'LBAs enroll in Texas Medicaid through TMHP. Each MCO then decides on contracting, and Medicaid enrollment does not guarantee an MCO contract, so ask each plan\'s provider relations about its ABA network.' },
+      { q: 'What is the timely filing limit for Texas Medicaid ABA claims?', a: 'Ninety-five days from each date of service, for TMHP fee-for-service claims and for claims to a Texas Medicaid MCO alike. Appeals to TMHP are due within 120 days of the R&S Report disposition date.' },
+      { q: 'Does Texas Medicaid require a taxonomy code on the claim?', a: 'Yes. TMHP requires the NPI and taxonomy code for the billing and the performing provider on paper claims, and asks for NPI, taxonomy and benefit code on every claim. A paper claim without them is denied.' },
+      { q: 'Does the referring doctor have to be on Texas Medicaid ABA claims?', a: 'Yes. ABA needs a prescriber referral, and TMPPM § 6.4.2.4 requires every claim for a service that needs a physician order or referral to carry the ordering or referring provider’s NPI (CMS-1500 block 17 with qualifier DN, NPI in 17b). That prescriber must be enrolled in Texas Medicaid, at least as an ordering/referring-only provider; a missing or unenrolled NPI can lead to denial on retrospective review.' },
     ],
   },
 
@@ -316,10 +334,11 @@ export const texasPayers: Record<string, PayerConfig> = {
       ],
     },
     treatmentPA: {
-      value: 'Required — 97153, 97154, 97155, 97156, 97158, 99366 all on Superior\'s PA list; TMPPM 90/90/180 cadence',
+      value: 'Required — PA on individual (97153, 97155) and group (97154, 97158) treatment, parent/caregiver training (97156), the initial course of treatment and every re-certification; TMPPM 90/90/180 cadence. Interdisciplinary team meetings (99366) need no authorization of their own (Superior\'s September 2026 manual) but are payable only against an approved ABA evaluation or treatment PA (TMPPM).',
       status: 'verified',
       cites: [
         { title: 'Superior — New Medicaid Benefit for ABA Services, PA Required (eff. 2/1/2022)', url: 'https://www.superiorhealthplan.com/newsroom/effective-0201222-new-medicaid-benefit-for-aba-services-prior-auth-required.html' },
+        { title: 'Superior HealthPlan — Provider Manual (STAR, CHIP, STAR+PLUS, STAR Kids, STAR Health), Rev. 09/01/2026 (PDF)', url: 'https://www.superiorhealthplan.com/content/dam/centene/Superior/Provider/PDFs/medicaid-provider-manual.pdf' },
         { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
       ],
     },
@@ -353,12 +372,13 @@ export const texasPayers: Record<string, PayerConfig> = {
       {
         h2: 'How Superior runs the benefit',
         body: [
-          'Superior announced the ABA benefit at its February 2022 launch with prior authorization required on every service code — 97151 for the evaluation, then 97153, 97154, 97155, 97156, 97158, and 99366 for treatment and team meetings — and its notices defer to the TMPPM for medical-necessity criteria, so the state\'s 3-year diagnosis recency, 90/90/180 cadence, and 8-hour daily cap all apply unchanged. Requests go through Superior\'s provider portal, with the plan\'s Prior Authorization Requirements page as the code-level reference. And the PA posture is stable: Superior\'s January 1, 2026 PA-removal list touched no Medicaid ABA codes (the Medicaid removals were 36471, A6216, and A6218 only; its one ABA code, 97157, was dropped from PA for Ambetter Marketplace members, not Medicaid), so plan on full PA for the foreseeable future.',
+          'Superior announced the ABA benefit at its February 2022 launch with prior authorization required for all ABA services — 97151 for the evaluation, then 97153, 97154, 97155, 97156 and 97158 for treatment, with 99366 team meetings payable only against an approved ABA authorization (its September 2026 manual says interdisciplinary team meetings need no authorization of their own) — and its notices defer to the TMPPM for medical-necessity criteria, so the state\'s 3-year diagnosis recency, 90/90/180 cadence, and 8-hour daily cap all apply unchanged. Requests go through Superior\'s provider portal, with the plan\'s Prior Authorization Requirements page as the code-level reference. And the PA posture is stable: Superior\'s January 1, 2026 PA-removal list touched no Medicaid ABA codes (the Medicaid removals were 36471, A6216, and A6218 only; its one ABA code, 97157, was dropped from PA for Ambetter Marketplace members, not Medicaid), so plan on full PA for the foreseeable future.',
         ],
         cites: [
           { title: 'Superior — New Medicaid Benefit for ABA Services, PA Required (eff. 2/1/2022)', url: 'https://www.superiorhealthplan.com/newsroom/effective-0201222-new-medicaid-benefit-for-aba-services-prior-auth-required.html' },
           { title: 'Superior — Medicaid ABA Services for Children and Youth With Autism (2/24/2023)', url: 'https://www.superiorhealthplan.com/newsroom/medicaid-aba-services-02242023.html' },
           { title: 'Superior — Removal of PA Requirement for Certain Procedures (eff. 1/1/2026)', url: 'https://www.superiorhealthplan.com/newsroom/eff-01012026-removal-of-pa-req-for-certain-procedures-12012025.html' },
+          { title: 'Superior HealthPlan — Provider Manual (STAR, CHIP, STAR+PLUS, STAR Kids, STAR Health), Rev. 09/01/2026 (PDF)', url: 'https://www.superiorhealthplan.com/content/dam/centene/Superior/Provider/PDFs/medicaid-provider-manual.pdf' },
         ],
       },
       {
@@ -381,6 +401,18 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
         ],
       },
+      {
+        h2: 'What is Superior’s timely filing limit and payment turnaround for ABA claims?',
+        body: [
+          'HHSC sets the claim clocks for every Texas Medicaid MCO in its Uniform Managed Care Claims Manual: a provider must file a claim with the MCO "within 95 Days from the date of service," and the MCO must deny a claim it does not receive in that window unless an exception applies (wrong plan, other insurance, newborns, newly enrolled providers). The MCO must tell the provider it "has 120 Days from the date of disposition to appeal the Claim," and must adjudicate an appealed claim within 30 days. Its performance standard is to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days, with every claim finalized within 24 months of the date of service. When another insurer is billed first, the claim “must be refiled and received by the MCO within 95 Days from the date of disposition by the other insurance resource.” HHSC sets no weekly submission cutoff or check-run day; each MCO runs its own payment cycle. The TMPPM Managed Care Handbook repeats the 95-day rule and sends appeals to the MCO first, then to HHSC as a complaint.',
+          'Superior’s September 2026 manual: outpatient provider claims "must be received by Superior within 95 Days from each date of service on the claim," and a rejected (unclean) submission does not satisfy the deadline. “Corrected claims must be sent within 120 Days of the most recent adjudicated date of the claim, as reflected in the Explanation of Payment.”',
+        ],
+        cites: [
+          { title: 'HHSC Uniform Managed Care Manual, Chapter 2.0 — Uniform Managed Care Claims Manual (v2.14)', url: 'https://www.hhs.texas.gov/sites/default/files/documents/laws-regulations/handbooks/umcm/2-0.pdf' },
+          { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.9.1 (Filing Deadlines) and 2.10 (MCO Appeals)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
+          { title: 'Superior HealthPlan — Provider Manual (Rev. 09012026), Timely Claim Filing', url: 'https://www.superiorhealthplan.com/content/dam/centene/Superior/Provider/PDFs/medicaid-provider-manual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Program line', desc: 'STAR vs. STAR Kids vs. STAR Health — foster-care children are always Superior (STAR Health).' },
@@ -389,6 +421,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'PA on file before service', desc: 'Superior requires PA on every ABA code before delivery — no assessment-first shortcut.' },
     ],
     sources: [
+      { title: 'Superior HealthPlan — Provider Manual (Rev. 09012026)', url: 'https://www.superiorhealthplan.com/content/dam/centene/Superior/Provider/PDFs/medicaid-provider-manual.pdf' },
       { title: 'Superior — New Medicaid Benefit for ABA Services, PA Required (eff. 2/1/2022)', url: 'https://www.superiorhealthplan.com/newsroom/effective-0201222-new-medicaid-benefit-for-aba-services-prior-auth-required.html' },
       { title: 'Superior — Medicaid ABA Services for Children and Youth With Autism (2/24/2023)', url: 'https://www.superiorhealthplan.com/newsroom/medicaid-aba-services-02242023.html' },
       { title: 'Superior — Removal of PA Requirement for Certain Procedures (eff. 1/1/2026)', url: 'https://www.superiorhealthplan.com/newsroom/eff-01012026-removal-of-pa-req-for-certain-procedures-12012025.html' },
@@ -419,9 +452,10 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       dailyLimits: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: direct treatment is capped at 8 hours (32 units) per day combined across 97153, 97154, 97155 and 97158; 97151 is capped at 6 hours (24 units) per evaluation and per re-evaluation; group treatment runs 2 to 8 children. Authorization periods are two consecutive 90-day terms then recertifications of up to 180 days.',
+          'Follows the Texas Medicaid (TMPPM) rule: direct treatment is capped at 8 hours (32 units) per day combined across 97153, 97154, 97155 and 97158; 97151 is capped at 6 hours (24 units) per evaluation and per re-evaluation; group treatment runs 2 to 8 children. TMPPM: “If services billed exceed the limitations outlined in this section, the claim will be denied, and may be appealed,” so the cap is a claim edit as well as an authorization limit. Authorization periods are two consecutive 90-day terms then recertifications of up to 180 days. Superior’s September 2026 manual says its pre-payment code edits draw on “the Medically Unlikely Edit (MUE) table, the National Correct Coding Initiative (NCCI) files” and state policy manuals.',
         status: 'verified',
         cites: [
+          { title: 'Superior HealthPlan — Provider Manual (Rev. 09012026)', url: 'https://www.superiorhealthplan.com/content/dam/centene/Superior/Provider/PDFs/medicaid-provider-manual.pdf' },
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
           { title: 'Superior — Medicaid ABA Services for Children and Youth With Autism (2/24/2023)', url: 'https://www.superiorhealthplan.com/newsroom/medicaid-aba-services-02242023.html' },
         ],
@@ -536,6 +570,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'Why does foster care always mean Superior?', a: 'STAR Health, the Texas Medicaid program for children in foster care, is administered statewide by Superior alone — every foster-care ABA case routes through it.' },
       { q: 'What happens to the ABA authorization if a family switches providers or plans?', a: 'A new ABA provider outside the current group must file a new authorization with initial-evaluation documentation and a change-of-provider letter signed by the responsible adult (TMPPM § 2.3.9). A new health plan must continue an existing authorization for up to 90 days, or until it ends or the new plan decides.' },
       { q: 'Is Superior\'s ABA network open to new providers?', a: 'It does not publish an open or closed status. Enroll in Texas Medicaid first, then apply to the plan; Medicaid enrollment does not guarantee an MCO contract. Ask provider relations.' },
+      { q: 'What is the timely filing limit for Superior (Texas Medicaid)?', a: 'Ninety-five days from the date of service. HHSC’s Uniform Managed Care Claims Manual sets it for every Texas Medicaid MCO, and Superior’s own manual states the same deadline. Claim appeals get 120 days from the disposition date.' },
+      { q: 'How fast does Superior have to pay a clean claim?', a: 'HHSC requires every Texas Medicaid MCO to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days.' },
     ],
   },
 
@@ -613,6 +649,16 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
         ],
       },
+      {
+        h2: 'What is Texas Children’s Health Plan’s timely filing limit and payment turnaround for ABA claims?',
+        body: [
+          'HHSC sets the claim clocks for every Texas Medicaid MCO in its Uniform Managed Care Claims Manual: a provider must file a claim with the MCO "within 95 Days from the date of service," and the MCO must deny a claim it does not receive in that window unless an exception applies (wrong plan, other insurance, newborns, newly enrolled providers). The MCO must tell the provider it "has 120 Days from the date of disposition to appeal the Claim," and must adjudicate an appealed claim within 30 days. Its performance standard is to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days, with every claim finalized within 24 months of the date of service. When another insurer is billed first, the claim “must be refiled and received by the MCO within 95 Days from the date of disposition by the other insurance resource.” HHSC sets no weekly submission cutoff or check-run day; each MCO runs its own payment cycle. The TMPPM Managed Care Handbook repeats the 95-day rule and sends appeals to the MCO first, then to HHSC as a complaint.',
+        ],
+        cites: [
+          { title: 'HHSC Uniform Managed Care Manual, Chapter 2.0 — Uniform Managed Care Claims Manual (v2.14)', url: 'https://www.hhs.texas.gov/sites/default/files/documents/laws-regulations/handbooks/umcm/2-0.pdf' },
+          { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.9.1 (Filing Deadlines) and 2.10 (MCO Appeals)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
+        ],
+      },
     ],
     collect: [
       { title: 'STAR / STAR Kids vs. CHIP', desc: 'CHIP is excluded from ABA — confirm the Medicaid line before promising the benefit.' },
@@ -649,7 +695,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       dailyLimits: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: direct treatment is capped at 8 hours (32 units) per day combined across 97153, 97154, 97155 and 97158; 97151 is capped at 6 hours (24 units) per evaluation and per re-evaluation; group treatment runs 2 to 8 children. Authorization periods are two consecutive 90-day terms then recertifications of up to 180 days.',
+          'Follows the Texas Medicaid (TMPPM) rule: direct treatment is capped at 8 hours (32 units) per day combined across 97153, 97154, 97155 and 97158; 97151 is capped at 6 hours (24 units) per evaluation and per re-evaluation; group treatment runs 2 to 8 children. TMPPM: “If services billed exceed the limitations outlined in this section, the claim will be denied, and may be appealed,” so the cap is a claim edit as well as an authorization limit. Authorization periods are two consecutive 90-day terms then recertifications of up to 180 days.',
         status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
@@ -766,6 +812,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'How do I submit an ABA PA to TCHP?', a: 'Online via the electronic authorization portal, or by fax, phone, or mail to the UM Department. Electronic signatures are accepted.' },
       { q: 'What happens to the ABA authorization if a family switches providers or plans?', a: 'A new ABA provider outside the current group must file a new authorization with initial-evaluation documentation and a change-of-provider letter signed by the responsible adult (TMPPM § 2.3.9). A new health plan must continue an existing authorization for up to 90 days, or until it ends or the new plan decides.' },
       { q: 'Is Texas Children\'s Health Plan\'s ABA network open to new providers?', a: 'It does not publish an open or closed status. Enroll in Texas Medicaid first, then apply to the plan; Medicaid enrollment does not guarantee an MCO contract. Ask provider relations.' },
+      { q: 'What is the timely filing limit for Texas Children’s Health Plan (Texas Medicaid)?', a: 'Ninety-five days from the date of service. HHSC’s Uniform Managed Care Claims Manual sets it for every Texas Medicaid MCO. Claim appeals get 120 days from the disposition date.' },
+      { q: 'How fast does Texas Children’s Health Plan have to pay a clean claim?', a: 'HHSC requires every Texas Medicaid MCO to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days.' },
     ],
   },
 
@@ -842,6 +890,18 @@ export const texasPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
           { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
+        ],
+      },
+      {
+        h2: 'What is Wellpoint’s timely filing limit and payment turnaround for ABA claims?',
+        body: [
+          'HHSC sets the claim clocks for every Texas Medicaid MCO in its Uniform Managed Care Claims Manual: a provider must file a claim with the MCO "within 95 Days from the date of service," and the MCO must deny a claim it does not receive in that window unless an exception applies (wrong plan, other insurance, newborns, newly enrolled providers). The MCO must tell the provider it "has 120 Days from the date of disposition to appeal the Claim," and must adjudicate an appealed claim within 30 days. Its performance standard is to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days, with every claim finalized within 24 months of the date of service. When another insurer is billed first, the claim “must be refiled and received by the MCO within 95 Days from the date of disposition by the other insurance resource.” HHSC sets no weekly submission cutoff or check-run day; each MCO runs its own payment cycle. The TMPPM Managed Care Handbook repeats the 95-day rule and sends appeals to the MCO first, then to HHSC as a complaint.',
+          'Wellpoint’s manual: clean claims must be "submitted and received by Wellpoint within 95 calendar days of the date of service," or within 95 days of a third-party payer’s response; a provider "has 120 days from the date of an Explanation of Payment (EOP) to file a payment dispute."',
+        ],
+        cites: [
+          { title: 'HHSC Uniform Managed Care Manual, Chapter 2.0 — Uniform Managed Care Claims Manual (v2.14)', url: 'https://www.hhs.texas.gov/sites/default/files/documents/laws-regulations/handbooks/umcm/2-0.pdf' },
+          { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.9.1 (Filing Deadlines) and 2.10 (MCO Appeals)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
+          { title: 'Wellpoint Texas — Provider Manual, STAR/STAR Kids/STAR+PLUS/CHIP, § 6.11.1 Timely filing; Payment disputes', url: 'https://provider.wellpoint.com/content/dam/digital/wellpoint/documents/provider/texas/government/general/TX_WLP_CAID_ProviderManual.pdf' },
         ],
       },
     ],
@@ -999,6 +1059,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'Did the Amerigroup-to-Wellpoint rebrand change anything?', a: 'No — the January 2024 rebrand changed no PA or claims processes. Documents and portals under the Amerigroup name remain valid references.' },
       { q: 'What happens to the ABA authorization if a family switches providers or plans?', a: 'A new ABA provider outside the current group must file a new authorization with initial-evaluation documentation and a change-of-provider letter signed by the responsible adult (TMPPM § 2.3.9). A new health plan must continue an existing authorization for up to 90 days, or until it ends or the new plan decides.' },
       { q: 'Is Wellpoint\'s ABA network open to new providers?', a: 'It does not publish an open or closed status. Enroll in Texas Medicaid first, then apply to the plan; Medicaid enrollment does not guarantee an MCO contract. Ask provider relations.' },
+      { q: 'What is the timely filing limit for Wellpoint (Texas Medicaid)?', a: 'Ninety-five days from the date of service. HHSC’s Uniform Managed Care Claims Manual sets it for every Texas Medicaid MCO, and Wellpoint’s own manual states the same deadline. Claim appeals get 120 days from the disposition date.' },
+      { q: 'How fast does Wellpoint have to pay a clean claim?', a: 'HHSC requires every Texas Medicaid MCO to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days.' },
     ],
   },
 
@@ -1078,6 +1140,18 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
         ],
       },
+      {
+        h2: 'What is UnitedHealthcare Community Plan’s timely filing limit and payment turnaround for ABA claims?',
+        body: [
+          'HHSC sets the claim clocks for every Texas Medicaid MCO in its Uniform Managed Care Claims Manual: a provider must file a claim with the MCO "within 95 Days from the date of service," and the MCO must deny a claim it does not receive in that window unless an exception applies (wrong plan, other insurance, newborns, newly enrolled providers). The MCO must tell the provider it "has 120 Days from the date of disposition to appeal the Claim," and must adjudicate an appealed claim within 30 days. Its performance standard is to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days, with every claim finalized within 24 months of the date of service. When another insurer is billed first, the claim “must be refiled and received by the MCO within 95 Days from the date of disposition by the other insurance resource.” HHSC sets no weekly submission cutoff or check-run day; each MCO runs its own payment cycle. The TMPPM Managed Care Handbook repeats the 95-day rule and sends appeals to the MCO first, then to HHSC as a complaint.',
+          'UHC Community Plan of Texas’s 2026 manual: "Claims must be received by UnitedHealthcare Community Plan within 95 days of the service date," and claim reconsiderations "need to be submitted within 120 days from the disposition date." On payment: "We have a 30-day clean claim payment for professional and institutional claims submissions," and original claims and adjustments processed after the 30th day include interest per HHSC.',
+        ],
+        cites: [
+          { title: 'HHSC Uniform Managed Care Manual, Chapter 2.0 — Uniform Managed Care Claims Manual (v2.14)', url: 'https://www.hhs.texas.gov/sites/default/files/documents/laws-regulations/handbooks/umcm/2-0.pdf' },
+          { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.9.1 (Filing Deadlines) and 2.10 (MCO Appeals)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
+          { title: 'UnitedHealthcare Community Plan of Texas — 2026 Care Provider Manual (Oct. 7, 2026), claims and reconsiderations', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/TX-UHCCP-Care-Provider-Manual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Line of business', desc: 'STAR / STAR Kids vs. CHIP — CHIP is excluded from the state ABA benefit.' },
@@ -1086,6 +1160,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'Prescriber referral', desc: 'The state\'s signed-referral requirement applies unchanged.' },
     ],
     sources: [
+      { title: 'UnitedHealthcare Community Plan of Texas — 2026 Care Provider Manual (Oct. 7, 2026)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/TX-UHCCP-Care-Provider-Manual.pdf' },
       { title: 'UHC Community Plan of TX — STAR Kids PA list (eff. 11/1/2025, PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/tx/prior-auth/star-kids/TX-UHCCP-STAR-KIDS-Prior-Auth-Eff-11-1-2025.pdf' },
       { title: 'UHC Community Plan of Texas — prior authorization page', url: 'https://www.uhcprovider.com/en/health-plans-by-state/texas-health-plans/tx-comm-plan-home/tx-cp-prior-auth.html' },
       { title: 'Optum — ABA State Mandates supplemental clinical criteria (BH803ABA STM 1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
@@ -1116,9 +1191,10 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       dailyLimits: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: direct treatment is capped at 8 hours (32 units) per day combined across 97153, 97154, 97155 and 97158; 97151 is capped at 6 hours (24 units) per evaluation and per re-evaluation; group treatment runs 2 to 8 children. Authorization periods are two consecutive 90-day terms then recertifications of up to 180 days.',
+          'Follows the Texas Medicaid (TMPPM) rule: direct treatment is capped at 8 hours (32 units) per day combined across 97153, 97154, 97155 and 97158; 97151 is capped at 6 hours (24 units) per evaluation and per re-evaluation; group treatment runs 2 to 8 children. TMPPM: “If services billed exceed the limitations outlined in this section, the claim will be denied, and may be appealed,” so the cap is a claim edit as well as an authorization limit. Authorization periods are two consecutive 90-day terms then recertifications of up to 180 days. UHC Community Plan of Texas’s 2026 manual adds a daily-frequency edit: “If you must exceed the maximum daily frequency for a procedure, submit the medical records justifying medical necessity.”',
         status: 'verified',
         cites: [
+          { title: 'UnitedHealthcare Community Plan of Texas — 2026 Care Provider Manual (Oct. 7, 2026)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/TX-UHCCP-Care-Provider-Manual.pdf' },
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
           { title: 'Optum — ABA State Mandates supplemental clinical criteria (BH803ABA STM 1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
         ],
@@ -1213,7 +1289,7 @@ export const texasPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'UnitedHealthcare Community Plan of Texas — Prior Authorization Timelines', url: 'https://www.uhcprovider.com/en/health-plans-by-state/texas-health-plans/tx-comm-plan-home/tx-cp-prior-auth/tx-pa-timelines.html' },
-          { title: 'UnitedHealthcare Community Plan of Texas — 2026 Care Provider Manual (Sept. 2, 2026) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/TX-UHCCP-Care-Provider-Manual.pdf' },
+          { title: 'UnitedHealthcare Community Plan of Texas — 2026 Care Provider Manual (Oct. 7, 2026) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/TX-UHCCP-Care-Provider-Manual.pdf' },
           { title: 'Tex. Gov\'t Code § 540.0303 — MCO PA determinations for nonhospitalized recipients (eff. 4/1/2025)', url: 'https://texas.public.law/statutes/tex._gov\'t_code_section_540.0303' },
           { title: '1 Tex. Admin. Code § 353.425 — MCO processing of incomplete PA requests', url: 'https://www.law.cornell.edu/regulations/texas/1-Tex-Admin-Code-SS-353-425' },
         ],
@@ -1223,7 +1299,7 @@ export const texasPayers: Record<string, PayerConfig> = {
           '"UnitedHealthcare Community Plan is the payer of last resort. Other coverage should be billed as the primary carrier. When billing UnitedHealthcare Community Plan, submit the primary payer\'s Explanation of Benefits or remittance advice with the claim." The EOB must show the paid amount or denial reason. "The date on the other carrier\'s payment correspondence starts the timely filing period" for the Medicaid claim, and under the 110-day rule, if the other insurer "has not responded to or has delayed payment on a claim for more than 110 days from the date the claim was billed, we will consider the claim for reimbursement." The manual does not say whether the plan\'s own ABA authorization is still needed when it pays second — request it through Optum anyway.',
         status: 'verified',
         cites: [
-          { title: 'UnitedHealthcare Community Plan of Texas — 2026 Care Provider Manual (Sept. 2, 2026) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/TX-UHCCP-Care-Provider-Manual.pdf' },
+          { title: 'UnitedHealthcare Community Plan of Texas — 2026 Care Provider Manual (Oct. 7, 2026) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/TX-UHCCP-Care-Provider-Manual.pdf' },
           { title: 'TMPPM Vol. 1, Section 8: Third Party Liability (TPL)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/1_08_Third_Party_Liability/1_08_Third_Party_Liability.htm' },
         ],
       },
@@ -1234,6 +1310,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'Does Optum apply its own clinical criteria to Texas Medicaid ABA?', a: 'No — Optum\'s ABA state-mandates supplement has no Texas entry, and the plan publishes no distinct TX policy, so the TMPPM criteria govern. Optum is the UM intake, not a separate rulebook.' },
       { q: 'What happens to the ABA authorization if a family switches providers or plans?', a: 'A new ABA provider outside the current group must file a new authorization with initial-evaluation documentation and a change-of-provider letter signed by the responsible adult (TMPPM § 2.3.9). A new health plan must continue an existing authorization for up to 90 days, or until it ends or the new plan decides.' },
       { q: 'Is UnitedHealthcare Community Plan\'s ABA network open to new providers?', a: 'It does not publish an open or closed status. Enroll in Texas Medicaid first, then apply to the plan; Medicaid enrollment does not guarantee an MCO contract. Ask provider relations.' },
+      { q: 'What is the timely filing limit for UnitedHealthcare Community Plan (Texas Medicaid)?', a: 'Ninety-five days from the date of service. HHSC’s Uniform Managed Care Claims Manual sets it for every Texas Medicaid MCO, and UnitedHealthcare Community Plan’s own manual states the same deadline. Claim appeals get 120 days from the disposition date.' },
+      { q: 'How fast does UnitedHealthcare Community Plan have to pay a clean claim?', a: 'HHSC requires every Texas Medicaid MCO to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days.' },
     ],
   },
 
@@ -1242,31 +1320,31 @@ export const texasPayers: Record<string, PayerConfig> = {
     family: 'aetna',
     cardDesc: 'TMPPM state baseline in Bexar & Tarrant; plan-specific PA mechanics not publicly verifiable.',
     assessmentPA: {
-      value: 'Required — per the statewide TMPPM benefit (PA on all ABA services); Aetna\'s plan-specific process is not publicly verifiable',
-      status: 'unverified',
+      value:
+        'Required — the statewide TMPPM benefit puts PA on all ABA services, the 97151 evaluation included (24 units, 30-day window); Aetna Better Health of Texas’s 2025–2026 manual adds no ABA rule of its own',
+      status: 'verified',
       cites: [
         { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+        { title: 'Aetna Better Health of Texas — Medicaid (STAR, STAR Kids) and CHIP Provider Manual 2025–2026 (published August 2026)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
       ],
-      verifyVia: 'Aetna Better Health of Texas provider manual and Medicaid PA pages — aetnabetterhealth.com is behind an Akamai bot wall (r.jina.ai returns only the challenge page), so we could not check whether the plan deviates from the TMPPM. The TMPPM rule this value restates is itself verified; what is unverified is that Aetna Better Health applies it unchanged. Human retrieval via carelu.com/sources.',
-      blocker: 'document',
     },
     treatmentPA: {
-      value: 'Required — state 90/90/180 cadence applies; confirm forms and submission channel with the plan directly',
-      status: 'unverified',
+      value:
+        'Required — state 90/90/180 cadence; the plan’s manual routes PA on the Texas Universal Authorization Form by fax (1-866-835-9589) and publishes its PA code list in an online tool',
+      status: 'verified',
       cites: [
         { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+        { title: 'Aetna Better Health of Texas — Medicaid (STAR, STAR Kids) and CHIP Provider Manual 2025–2026 (published August 2026)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
       ],
-      verifyVia: 'Aetna Better Health of Texas provider manual and Medicaid PA pages — aetnabetterhealth.com is behind an Akamai bot wall (r.jina.ai returns only the challenge page), so we could not check whether the plan deviates from the TMPPM. The TMPPM rule this value restates is itself verified; what is unverified is that Aetna Better Health applies it unchanged. Human retrieval via carelu.com/sources.',
-      blocker: 'document',
     },
     dxRequired: {
-      value: 'Yes — ASD per the statewide TMPPM criteria',
-      status: 'unverified',
+      value:
+        'Yes — ASD per the statewide TMPPM criteria; the plan’s manual adds none of its own',
+      status: 'verified',
       cites: [
         { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+        { title: 'Aetna Better Health of Texas — Medicaid (STAR, STAR Kids) and CHIP Provider Manual 2025–2026 (published August 2026)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
       ],
-      verifyVia: 'Aetna Better Health of Texas provider manual and Medicaid PA pages — aetnabetterhealth.com is behind an Akamai bot wall (r.jina.ai returns only the challenge page), so we could not check whether the plan deviates from the TMPPM. The TMPPM rule this value restates is itself verified; what is unverified is that Aetna Better Health applies it unchanged. Human retrieval via carelu.com/sources.',
-      blocker: 'document',
     },
     payer: 'Aetna Better Health of Texas',
     state: 'TX', kind: 'medicaid-mco', parent: 'Texas Medicaid (THSteps-CCP)',
@@ -1283,7 +1361,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { label: 'Clinical rules', value: 'TMPPM Autism Services criteria (statewide baseline; no distinct TX policy found)' },
       { label: 'Prior auth', value: 'Required on evaluation and treatment, per the state benefit' },
       { label: 'Auth cadence', value: 'State 90/90/180 cadence; 3-year dx recency; 8 hrs/day cap' },
-      { label: 'Plan mechanics', value: 'Forms, portal, and UM contacts NOT publicly verified — confirm with the plan' },
+      { label: 'Plan mechanics', value: 'Texas Universal Authorization Form, PA fax 1-866-835-9589, allow 3 business days; appeals via Availity' },
       { label: 'Rates', value: 'Not published — contract-specific' },
     ],
     sections: [
@@ -1300,22 +1378,34 @@ export const texasPayers: Record<string, PayerConfig> = {
       {
         h2: 'What to confirm with the plan directly',
         body: [
-          'We could not verify Aetna Better Health of Texas\'s ABA-specific submission mechanics from public sources — the plan\'s provider manual and Medicaid pages return errors to automated retrieval, and no distinct TX ABA policy surfaced elsewhere. Aetna Better Health plans typically run submissions through Availity, but treat that as an assumption, not a fact. Before your first case: confirm the PA submission channel and any plan-specific form (or whether the state CCP PA form is accepted), the UM department\'s fax/phone, expected turnaround times, and appeals routing. A ten-minute provider-relations call up front beats a bounced authorization later.',
+          'The plan’s 2025–2026 provider manual (published August 2026) has no ABA section, so the clinical rules are the TMPPM’s. Its general prior-authorization process: complete the Texas Universal Authorization Form, fax acute-care requests to the Prior Authorization department at 1-866-835-9589 with supporting clinical information, and allow at least 3 business days; the current list of services and codes that need PA is in the online tool at medicaidportal.aetna.com/propat. A request for something that does not need PA comes back “PA not required,” which “does not mean that service is approved.” Claim appeals are filed through Availity. Before your first case, confirm with provider relations that the plan accepts your ABA packet on that form.',
         ],
         cites: [
-          { title: 'Aetna Better Health of Texas — provider manual (access-restricted)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
+          { title: 'Aetna Better Health of Texas — Medicaid (STAR, STAR Kids) and CHIP Provider Manual 2025–2026 (published August 2026)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
           { title: 'Aetna Better Health of Texas — plan site', url: 'https://www.aetnabetterhealth.com/texas/index.html' },
         ],
       },
       {
         h2: 'Switching providers or plans, and joining the network',
         body: [
-          'The Texas Medicaid rule — Aetna Better Health\'s own provider documents could not be retrieved to check for a plan-specific rule, so confirm with the plan. A family that moves to a new ABA provider outside the current group needs a new authorization request with all the documentation of an initial evaluation, plus a change-of-therapy-provider letter signed by the responsible adult giving the date therapy ended (or the last date of service) and the names of both providers (TMPPM § 2.3.9). A move to another provider within the same group keeps the same evaluation, plan of care and authorization period. If the child changes health plans, "Health plan prior authorizations do not automatically transfer," but the new MCO must continue an existing authorization it is told about, at the same amount, duration and scope, until the earliest of 90 days, the end of the authorization, or its own new decision (Managed Care Handbook § 2.8).',
+          'The Texas Medicaid rule — Aetna Better Health’s 2025–2026 provider manual has no ABA section of its own. A family that moves to a new ABA provider outside the current group needs a new authorization request with all the documentation of an initial evaluation, plus a change-of-therapy-provider letter signed by the responsible adult giving the date therapy ended (or the last date of service) and the names of both providers (TMPPM § 2.3.9). A move to another provider within the same group keeps the same evaluation, plan of care and authorization period. If the child changes health plans, "Health plan prior authorizations do not automatically transfer," but the new MCO must continue an existing authorization it is told about, at the same amount, duration and scope, until the earliest of 90 days, the end of the authorization, or its own new decision (Managed Care Handbook § 2.8).',
           'Joining the network: a provider must be enrolled in Texas Medicaid before an MCO can enroll it; "Individual MCOs and DMOs have their own guidelines for contracting providers," and Medicaid enrollment "does not guarantee that an MCO or DMO will contract enroll or credential a particular provider." All Medicaid MCOs credential through the Texas Association of Health Plans\' contracted credentialing verification organization (Handbook § 2.2.1). Aetna Better Health does not publish whether its ABA network is open, so ask its provider relations team.',
         ],
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
           { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
+        ],
+      },
+      {
+        h2: 'What is Aetna Better Health of Texas’s timely filing limit and payment turnaround for ABA claims?',
+        body: [
+          'HHSC sets the claim clocks for every Texas Medicaid MCO in its Uniform Managed Care Claims Manual: a provider must file a claim with the MCO "within 95 Days from the date of service," and the MCO must deny a claim it does not receive in that window unless an exception applies (wrong plan, other insurance, newborns, newly enrolled providers). The MCO must tell the provider it "has 120 Days from the date of disposition to appeal the Claim," and must adjudicate an appealed claim within 30 days. Its performance standard is to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days, with every claim finalized within 24 months of the date of service. When another insurer is billed first, the claim “must be refiled and received by the MCO within 95 Days from the date of disposition by the other insurance resource.” HHSC sets no weekly submission cutoff or check-run day; each MCO runs its own payment cycle. The TMPPM Managed Care Handbook repeats the 95-day rule and sends appeals to the MCO first, then to HHSC as a complaint.',
+          'The plan’s own manual (2025–2026) restates the 95 days and adds its terms: “If a claim is not received by Aetna Better Health within 95 days, the claim will be denied unless excepted,” and with other insurance the 95 days run from the primary carrier’s EOB. On payment it says both that participating providers “shall be paid … no later than 30 working days after receipt of a completed clean claim” and that the plan pays interest “at an 18 percent annual rate, calculated daily,” on any clean claim left un-adjudicated past the 30-day deadline; it notifies the provider within 30 days if a claim is not clean. Claim appeals go through Availity, and EFT/ERA enrolment runs through ECHO. No weekly submission cutoff or check-run day is published.',
+        ],
+        cites: [
+          { title: 'HHSC Uniform Managed Care Manual, Chapter 2.0 — Uniform Managed Care Claims Manual (v2.14)', url: 'https://www.hhs.texas.gov/sites/default/files/documents/laws-regulations/handbooks/umcm/2-0.pdf' },
+          { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.9.1 (Filing Deadlines) and 2.10 (MCO Appeals)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
+          { title: 'Aetna Better Health of Texas — Medicaid (STAR, STAR Kids) and CHIP Provider Manual 2025–2026 (published August 2026)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
         ],
       },
     ],
@@ -1326,9 +1416,11 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'Plan mechanics on file', desc: 'Call provider relations once, document the submission channel/forms/fax, and template it.' },
     ],
     sources: [
+      { title: 'TMPPM Telecommunication Services Handbook (Vol. 2)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_19_Telecommunication_Srvs/2_19_Telecommunication_Srvs.htm' },
+      { title: 'HHSC Uniform Managed Care Manual, Chapter 2.0 — Uniform Managed Care Claims Manual (v2.14)', url: 'https://www.hhs.texas.gov/sites/default/files/documents/laws-regulations/handbooks/umcm/2-0.pdf' },
       { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
       { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
-      { title: 'Aetna Better Health of Texas — provider manual (access-restricted)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
+      { title: 'Aetna Better Health of Texas — Medicaid (STAR, STAR Kids) and CHIP Provider Manual 2025–2026 (published August 2026)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
       { title: 'Aetna Better Health of Texas — plan site', url: 'https://www.aetnabetterhealth.com/texas/index.html' },
       { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
       { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
@@ -1336,168 +1428,147 @@ export const texasPayers: Record<string, PayerConfig> = {
     deliveryRules: {
       supervision: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: the manual sets no numeric ratio of its own, requiring LBAs to directly supervise LaBAs and behavior technicians in accordance with Texas licensure and deferring to the certifying body\'s minimums — for RBT-credentialed staff the BACB floor of supervision on at least 5% of service hours each month with two face-to-face contacts. Only direct supervision, where the LBA observes the LaBA or BT with the child, is reimbursable (under 97155); indirect supervision is unpaid. Aetna Better Health publishes no retrievable Texas ABA or reimbursement policy of its own, so plan-level deviation could not be ruled out.',
-        status: 'unverified',
+          'Follows the Texas Medicaid (TMPPM) rule: the manual sets no numeric ratio of its own, requiring LBAs to directly supervise LaBAs and behavior technicians in accordance with Texas licensure and deferring to the certifying body\'s minimums — for RBT-credentialed staff the BACB floor of supervision on at least 5% of service hours each month with two face-to-face contacts. Only direct supervision, where the LBA observes the LaBA or BT with the child, is reimbursable (under 97155); indirect supervision is unpaid. Aetna Better Health of Texas’s 2025–2026 provider manual (published August 2026) has no ABA section and adds no rule of its own, so the state rule applies unchanged.',
+        status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
-          { title: 'Aetna Better Health of Texas — provider manual (access-restricted)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
+          { title: 'Aetna Better Health of Texas — Medicaid (STAR, STAR Kids) and CHIP Provider Manual 2025–2026 (published August 2026)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
         ],
-        verifyVia: 'Aetna Better Health of Texas provider relations — its Texas provider manual and Medicaid PA pages block automated retrieval, so we could not confirm whether the plan publishes anything that deviates from the TMPPM.',
-        blocker: 'document',
       },
       concurrentBilling: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: concurrent billing is prohibited — Texas Medicaid will not reimburse multiple ABA providers during one session with the child when more than one provider is present. The single exception is when the family and the child receive separate services and the child is not present in the family session. Total authorized hours may be requested under either 97153 or 97155 and billed as the code matching the service actually delivered — not both for the same clock time with the child present. Aetna Better Health publishes no retrievable Texas ABA or reimbursement policy of its own, so plan-level deviation could not be ruled out.',
-        status: 'unverified',
+          'Follows the Texas Medicaid (TMPPM) rule: concurrent billing is prohibited — Texas Medicaid will not reimburse multiple ABA providers during one session with the child when more than one provider is present. The single exception is when the family and the child receive separate services and the child is not present in the family session. Total authorized hours may be requested under either 97153 or 97155 and billed as the code matching the service actually delivered — not both for the same clock time with the child present. Aetna Better Health of Texas’s 2025–2026 provider manual (published August 2026) has no ABA section and adds no rule of its own, so the state rule applies unchanged.',
+        status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
-          { title: 'Aetna Better Health of Texas — provider manual (access-restricted)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
+          { title: 'Aetna Better Health of Texas — Medicaid (STAR, STAR Kids) and CHIP Provider Manual 2025–2026 (published August 2026)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
         ],
-        verifyVia: 'Aetna Better Health of Texas provider relations — its Texas provider manual and Medicaid PA pages block automated retrieval, so we could not confirm whether the plan publishes anything that deviates from the TMPPM.',
-        blocker: 'document',
       },
       dailyLimits: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: direct treatment is capped at 8 hours (32 units) per day combined across 97153, 97154, 97155 and 97158; 97151 is capped at 6 hours (24 units) per evaluation and per re-evaluation; group treatment runs 2 to 8 children. Authorization periods are two consecutive 90-day terms then recertifications of up to 180 days. Aetna Better Health publishes no retrievable Texas ABA or reimbursement policy of its own, so plan-level deviation could not be ruled out.',
-        status: 'unverified',
+          'Follows the Texas Medicaid (TMPPM) rule: direct treatment is capped at 8 hours (32 units) per day combined across 97153, 97154, 97155 and 97158; 97151 is capped at 6 hours (24 units) per evaluation and per re-evaluation; group treatment runs 2 to 8 children. Authorization periods are two consecutive 90-day terms then recertifications of up to 180 days. TMPPM: “If services billed exceed the limitations outlined in this section, the claim will be denied, and may be appealed” — so the cap is enforced on the claim, not only on the authorization. Aetna Better Health of Texas’s 2025–2026 provider manual (published August 2026) has no ABA section and adds no rule of its own, so the state rule applies unchanged.',
+        status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
-          { title: 'Aetna Better Health of Texas — provider manual (access-restricted)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
+          { title: 'Aetna Better Health of Texas — Medicaid (STAR, STAR Kids) and CHIP Provider Manual 2025–2026 (published August 2026)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
         ],
-        verifyVia: 'Aetna Better Health of Texas provider relations — its Texas provider manual and Medicaid PA pages block automated retrieval, so we could not confirm whether the plan publishes anything that deviates from the TMPPM.',
-        blocker: 'document',
       },
       noteSignature: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: rendering ABA providers must sign each entry with full signature and credentials, with additional supervisory signatures per state licensure. Treatment notes carry the child\'s name, date of service, start and stop times, goals addressed, progress and a summary of interventions; 97155/97158 notes add protocol-modification decision points. The 97151 evaluation and the 90-day progress summary each need a dated signature from the LBA and from the parent or caregiver. Aetna Better Health publishes no retrievable Texas ABA or reimbursement policy of its own, so plan-level deviation could not be ruled out.',
-        status: 'unverified',
+          'Follows the Texas Medicaid (TMPPM) rule: rendering ABA providers must sign each entry with full signature and credentials, with additional supervisory signatures per state licensure. Treatment notes carry the child\'s name, date of service, start and stop times, goals addressed, progress and a summary of interventions; 97155/97158 notes add protocol-modification decision points. The 97151 evaluation and the 90-day progress summary each need a dated signature from the LBA and from the parent or caregiver. Aetna Better Health of Texas’s 2025–2026 provider manual (published August 2026) has no ABA section and adds no rule of its own, so the state rule applies unchanged.',
+        status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
-          { title: 'Aetna Better Health of Texas — provider manual (access-restricted)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
+          { title: 'Aetna Better Health of Texas — Medicaid (STAR, STAR Kids) and CHIP Provider Manual 2025–2026 (published August 2026)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
         ],
-        verifyVia: 'Aetna Better Health of Texas provider relations — its Texas provider manual and Medicaid PA pages block automated retrieval, so we could not confirm whether the plan publishes anything that deviates from the TMPPM.',
-        blocker: 'document',
       },
       placeOfService: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: home, clinic, office and community settings are payable. In schools, services delivered by a behavior technician as a shadow, an aide, or as general support are excluded; school personnel participating to coordinate care are not counted as duplicate providers, and interdisciplinary team meetings bill under 99366 against an ABA PA. BT and LaBA direct treatment must be in person in every setting. Aetna Better Health publishes no retrievable Texas ABA or reimbursement policy of its own, so plan-level deviation could not be ruled out.',
-        status: 'unverified',
+          'Follows the Texas Medicaid (TMPPM) rule: home, clinic, office and community settings are payable. In schools, services delivered by a behavior technician as a shadow, an aide, or as general support are excluded; school personnel participating to coordinate care are not counted as duplicate providers, and interdisciplinary team meetings bill under 99366 against an ABA PA. BT and LaBA direct treatment must be in person in every setting. Aetna Better Health of Texas’s 2025–2026 provider manual (published August 2026) has no ABA section and adds no rule of its own, so the state rule applies unchanged.',
+        status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
-          { title: 'Aetna Better Health of Texas — provider manual (access-restricted)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
+          { title: 'Aetna Better Health of Texas — Medicaid (STAR, STAR Kids) and CHIP Provider Manual 2025–2026 (published August 2026)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
         ],
-        verifyVia: 'Aetna Better Health of Texas provider relations — its Texas provider manual and Medicaid PA pages block automated retrieval, so we could not confirm whether the plan publishes anything that deviates from the TMPPM.',
-        blocker: 'document',
       },
       billAsProvider: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: only the LBA enrolls in Texas Medicaid and bills. LaBAs and behavior technicians may not enroll — their services go out under the supervising LBA\'s NPI with the credential modifier identifying who rendered (HO = LBA, HN = LaBA, HM = behavior technician; 97151 takes HO only, 97155/97156/97158 take HO or HN). The LBA must directly employ or contract with every LaBA and BT on the team. Aetna Better Health publishes no retrievable Texas ABA or reimbursement policy of its own, so plan-level deviation could not be ruled out.',
-        status: 'unverified',
+          'Follows the Texas Medicaid (TMPPM) rule: only the LBA enrolls in Texas Medicaid and bills. LaBAs and behavior technicians may not enroll — their services go out under the supervising LBA\'s NPI with the credential modifier identifying who rendered (HO = LBA, HN = LaBA, HM = behavior technician; 97151 takes HO only, 97155/97156/97158 take HO or HN). The LBA must directly employ or contract with every LaBA and BT on the team. Aetna Better Health of Texas’s 2025–2026 provider manual (published August 2026) has no ABA section and adds no rule of its own, so the state rule applies unchanged.',
+        status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
-          { title: 'Aetna Better Health of Texas — provider manual (access-restricted)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
+          { title: 'Aetna Better Health of Texas — Medicaid (STAR, STAR Kids) and CHIP Provider Manual 2025–2026 (published August 2026)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
         ],
-        verifyVia: 'Aetna Better Health of Texas provider relations — its Texas provider manual and Medicaid PA pages block automated retrieval, so we could not confirm whether the plan publishes anything that deviates from the TMPPM.',
-        blocker: 'document',
       },
     },
     intakeGates: {
       ageLimit: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: birth through 20 years of age on the date of service, with eligibility ending the day of the 21st birthday. CHIP members are excluded from the ABA benefit. Aetna Better Health publishes no retrievable Texas ABA policy of its own, so plan-level deviation could not be ruled out.',
-        status: 'unverified',
+          'Follows the Texas Medicaid (TMPPM) rule: birth through 20 years of age on the date of service, with eligibility ending the day of the 21st birthday. CHIP members are excluded from the ABA benefit. Aetna Better Health of Texas’s 2025–2026 provider manual (published August 2026) has no ABA section and adds no rule of its own, so the state rule applies unchanged.',
+        status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
-          { title: 'Aetna Better Health of Texas — provider manual (access-restricted)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
+          { title: 'Aetna Better Health of Texas — Medicaid (STAR, STAR Kids) and CHIP Provider Manual 2025–2026 (published August 2026)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
         ],
-        verifyVia: 'Aetna Better Health of Texas provider relations — its Texas provider manual and Medicaid PA pages block automated retrieval, so we could not confirm whether the plan publishes anything that deviates from the TMPPM.',
-        blocker: 'document',
       },
       dxRecency: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: the ASD diagnosis must be made or reconfirmed within 3 years of initiation or recertification; past 3 years a comprehensive re-evaluation of ASD symptom severity levels per DSM criteria is required first. Aetna Better Health publishes no retrievable Texas ABA policy of its own, so plan-level deviation could not be ruled out.',
-        status: 'unverified',
+          'Follows the Texas Medicaid (TMPPM) rule: the ASD diagnosis must be made or reconfirmed within 3 years of initiation or recertification; past 3 years a comprehensive re-evaluation of ASD symptom severity levels per DSM criteria is required first. Aetna Better Health of Texas’s 2025–2026 provider manual (published August 2026) has no ABA section and adds no rule of its own, so the state rule applies unchanged.',
+        status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
-          { title: 'Aetna Better Health of Texas — provider manual (access-restricted)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
+          { title: 'Aetna Better Health of Texas — Medicaid (STAR, STAR Kids) and CHIP Provider Manual 2025–2026 (published August 2026)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
         ],
-        verifyVia: 'Aetna Better Health of Texas provider relations — its Texas provider manual and Medicaid PA pages block automated retrieval, so we could not confirm whether the plan publishes anything that deviates from the TMPPM.',
-        blocker: 'document',
       },
       diagnosingProviders: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: a developmental pediatrician, neurologist, psychiatrist, licensed psychologist, or an interdisciplinary diagnostic team (a physician, PA or NP in consultation with qualified child specialists with autism expertise). Aetna Better Health publishes no retrievable Texas ABA policy of its own, so plan-level deviation could not be ruled out.',
-        status: 'unverified',
+          'Follows the Texas Medicaid (TMPPM) rule: a developmental pediatrician, neurologist, psychiatrist, licensed psychologist, or an interdisciplinary diagnostic team (a physician, PA or NP in consultation with qualified child specialists with autism expertise). Aetna Better Health of Texas’s 2025–2026 provider manual (published August 2026) has no ABA section and adds no rule of its own, so the state rule applies unchanged.',
+        status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
-          { title: 'Aetna Better Health of Texas — provider manual (access-restricted)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
+          { title: 'Aetna Better Health of Texas — Medicaid (STAR, STAR Kids) and CHIP Provider Manual 2025–2026 (published August 2026)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
         ],
-        verifyVia: 'Aetna Better Health of Texas provider relations — its Texas provider manual and Medicaid PA pages block automated retrieval, so we could not confirm whether the plan publishes anything that deviates from the TMPPM.',
-        blocker: 'document',
       },
       diagnosticTools: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: a reliable, valid, standardized diagnostic assessment tool or combination of tools — the manual names the ADOS, ADI-R and CARS as examples. Screening instruments alone (STAT, M-CHAT-R) do not substitute. Aetna Better Health publishes no retrievable Texas ABA policy of its own, so plan-level deviation could not be ruled out.',
-        status: 'unverified',
+          'Follows the Texas Medicaid (TMPPM) rule: a reliable, valid, standardized diagnostic assessment tool or combination of tools — the manual names the ADOS, ADI-R and CARS as examples. Screening instruments alone (STAT, M-CHAT-R) do not substitute. Aetna Better Health of Texas’s 2025–2026 provider manual (published August 2026) has no ABA section and adds no rule of its own, so the state rule applies unchanged.',
+        status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
-          { title: 'Aetna Better Health of Texas — provider manual (access-restricted)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
+          { title: 'Aetna Better Health of Texas — Medicaid (STAR, STAR Kids) and CHIP Provider Manual 2025–2026 (published August 2026)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
         ],
-        verifyVia: 'Aetna Better Health of Texas provider relations — its Texas provider manual and Medicaid PA pages block automated retrieval, so we could not confirm whether the plan publishes anything that deviates from the TMPPM.',
-        blocker: 'document',
       },
       referral: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: a signed, dated prescriber referral for the evaluation, signed within 60 calendar days before or on the anticipated evaluation date; and for treatment a signed, dated referral from a physician or allowed practitioner (MD/DO, PA, NP, or CNS with delegated authority) stating frequency and duration, signed on or before the service start date and no more than 3 months old. Since 4/1/2025 the prescriber signature is no longer required on the CCP PA form for the 90-day extension. Aetna Better Health publishes no retrievable Texas ABA policy of its own, so plan-level deviation could not be ruled out.',
-        status: 'unverified',
+          'Follows the Texas Medicaid (TMPPM) rule: a signed, dated prescriber referral for the evaluation, signed within 60 calendar days before or on the anticipated evaluation date; and for treatment a signed, dated referral from a physician or allowed practitioner (MD/DO, PA, NP, or CNS with delegated authority) stating frequency and duration, signed on or before the service start date and no more than 3 months old. Since 4/1/2025 the prescriber signature is no longer required on the CCP PA form for the 90-day extension. Aetna Better Health of Texas’s 2025–2026 provider manual (published August 2026) has no ABA section and adds no rule of its own, so the state rule applies unchanged.',
+        status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
-          { title: 'Aetna Better Health of Texas — provider manual (access-restricted)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
+          { title: 'Aetna Better Health of Texas — Medicaid (STAR, STAR Kids) and CHIP Provider Manual 2025–2026 (published August 2026)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
         ],
-        verifyVia: 'Aetna Better Health of Texas provider relations — its Texas provider manual and Medicaid PA pages block automated retrieval, so we could not confirm whether the plan publishes anything that deviates from the TMPPM.',
-        blocker: 'document',
       },
       telehealth: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: synchronous audio-visual only, modifier 95, on 97151, 97155, 97156, 97158 and 99366. One-on-one direct treatment delivered to the child by a behavior technician or LaBA must be in person — telehealth is prohibited for BT/LaBA-delivered direct service. Aetna Better Health publishes no retrievable Texas ABA policy of its own, so plan-level deviation could not be ruled out.',
-        status: 'unverified',
+          'Follows the Texas Medicaid (TMPPM) rule: synchronous audio-visual only, modifier 95, on 97151, 97155, 97156, 97158 and 99366. One-on-one direct treatment delivered to the child by a behavior technician or LaBA must be in person — telehealth is prohibited for BT/LaBA-delivered direct service. The plan manual’s general telemedicine passage (patient-site presenters; “A patient’s private home is not an established home site”) defers to “the state’s rules for Medicaid services,” and the TMPPM says its ABA remote-delivery rules “supersede that of the Telecommunication Services Handbook.” Aetna Better Health of Texas’s 2025–2026 provider manual (published August 2026) has no ABA section and adds no rule of its own, so the state rule applies unchanged. TMPPM’s Telecommunication Services Handbook makes modifier 95 the telehealth marker and sets no telehealth place-of-service code.',
+        status: 'verified',
         cites: [
+          { title: 'TMPPM Telecommunication Services Handbook (Vol. 2)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_19_Telecommunication_Srvs/2_19_Telecommunication_Srvs.htm' },
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
-          { title: 'Aetna Better Health of Texas — provider manual (access-restricted)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
+          { title: 'Aetna Better Health of Texas — Medicaid (STAR, STAR Kids) and CHIP Provider Manual 2025–2026 (published August 2026)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
         ],
-        verifyVia: 'Aetna Better Health of Texas provider relations — its Texas provider manual and Medicaid PA pages block automated retrieval, so we could not confirm whether the plan publishes anything that deviates from the TMPPM.',
-        blocker: 'document',
       },
       authTurnaround: {
         value:
-          'Not confirmed from a current plan document. The statutory ceiling binds the plan regardless: a Texas Medicaid MCO must decide a nonhospitalized PA "within three business days after the organization receives the request" (Tex. Gov\'t Code § 540.0303), and an incomplete request follows 1 TAC § 353.425 — written notice of what is missing within 3 business days, and a final decision no later than 3 business days after the information arrives. The plan\'s own prior-authorization page as archived in July 2024 said the same: "Allow at least three business days for a response … The turnaround time begins when we receive all info necessary to make a decision," with concurrent review in one business day. Whether the current manual sets a stricter clock, or any ABA reauthorization lead time, could not be checked.',
-        status: 'unverified',
+          'Aetna Better Health of Texas’s 2025–2026 manual: complete the Texas Universal Authorization Form, fax it to the Prior Authorization department at 1-866-835-9589 with the clinical support, and “Allow at least 3 business days for a response if medically appropriate”; urgent requests for non-urgent services run on the routine clock, and the current PA code list is in the online tool at medicaidportal.aetna.com/propat. Concurrent review decisions are made within one business day. The statute sets the same ceiling for every Texas Medicaid MCO: a nonhospitalized PA must be decided “within three business days after the organization receives the request” (Tex. Gov’t Code § 540.0303), and an incomplete request follows 1 TAC § 353.425. No ABA reauthorization lead time is published; the TMPPM cadence (two 90-day periods, then 180-day recertifications) applies.',
+        status: 'verified',
         cites: [
+          { title: 'Aetna Better Health of Texas — Medicaid (STAR, STAR Kids) and CHIP Provider Manual 2025–2026 (published August 2026)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
           { title: 'Tex. Gov\'t Code § 540.0303 — MCO PA determinations for nonhospitalized recipients (eff. 4/1/2025)', url: 'https://texas.public.law/statutes/tex._gov\'t_code_section_540.0303' },
-          { title: '1 Tex. Admin. Code § 353.425 — MCO processing of incomplete PA requests', url: 'https://www.law.cornell.edu/regulations/texas/1-Tex-Admin-Code-SS-353-425' },
-          { title: 'Aetna Better Health of Texas — Prior Authorization page (Wayback capture 7/22/2024)', url: 'https://web.archive.org/web/20240722134910/https://www.aetnabetterhealth.com/texas/providers/prior-authorization.html' },
+          { title: '1 TAC § 353.425 — incomplete prior authorization requests', url: 'https://www.law.cornell.edu/regulations/texas/1-Tex-Admin-Code-SS-353-425' },
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
         ],
-        verifyVia: 'Aetna Better Health of Texas provider manual (published 8/6/2026) and live prior-authorization page — aetnabetterhealth.com returns an Akamai "Access Denied" to curl, to a real Chrome session and to r.jina.ai, and the newest Wayback copy of the manual is truncated. Human retrieval via carelu.com/sources, or ask Aetna Better Health provider services using the number on the member card.',
-        blocker: 'document',
       },
       coordinationOfBenefits: {
         value:
-          'Not confirmed from a current plan document. The state rule every Texas Medicaid MCO operates under: Medicaid is the payer of last resort, so bill the commercial plan first and submit its EOB with the Medicaid claim. The plan\'s September 2022 manual (archived) gave the filing window as "within 95 days of the primary carrier\'s EOB in the Coordination of Benefits (COB) case." Whether the current manual requires the plan\'s own ABA prior authorization when it pays second could not be checked — request it.',
-        status: 'unverified',
+          'Medicaid pays last: bill the commercial plan first. Aetna Better Health of Texas’s 2025–2026 manual: “Providers must submit claims within 95 days of the rendering of service, or within 95 days of the primary carrier’s EOB in the Coordination of Benefits (COB) case, to include Medicare for Dual Eligible STAR Kids Members.” The manual does not say whether the plan waives its own ABA prior authorization when it pays second, so get the Texas Medicaid PA as well.',
+        status: 'plan-dependent',
         cites: [
-          { title: 'TMPPM Vol. 1, Section 8: Third Party Liability (TPL)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/1_08_Third_Party_Liability/1_08_Third_Party_Liability.htm' },
-          { title: 'Aetna Better Health of Texas — Provider Manual (Sept. 2022, Wayback capture) (PDF)', url: 'https://web.archive.org/web/20221006124427id_/https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
+          { title: 'Aetna Better Health of Texas — Medicaid (STAR, STAR Kids) and CHIP Provider Manual 2025–2026 (published August 2026)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
+          { title: 'TMPPM Third Party Liability Handbook', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/1_08_Third_Party_Liability/1_08_Third_Party_Liability.htm' },
         ],
-        verifyVia: 'Aetna Better Health of Texas provider manual (published 8/6/2026) and live prior-authorization page — aetnabetterhealth.com returns an Akamai "Access Denied" to curl, to a real Chrome session and to r.jina.ai, and the newest Wayback copy of the manual is truncated. Human retrieval via carelu.com/sources, or ask Aetna Better Health provider services using the number on the member card.',
-        blocker: 'document',
+        verifyVia:
+          'Aetna Better Health of Texas provider services (number on the member card) — ask whether ABA needs the plan’s PA when a commercial plan is primary.',
+        blocker: 'per-case',
       },
     },
     faq: [
       { q: 'Does Aetna Better Health of Texas cover ABA?', a: 'Yes — as a Texas Medicaid MCO it delivers the statewide THSteps-CCP Autism Services benefit under TMPPM criteria: PA on evaluation and treatment, ages 0–20, 3-year dx recency. CHIP members are excluded.' },
-      { q: 'Does Aetna Better Health have its own Texas ABA policy?', a: 'None that we could find publicly — and its provider documents block automated retrieval. Texas MCOs must apply TMPPM criteria, so plan clinically against the state baseline and confirm submission mechanics with the plan directly.' },
-      { q: 'How do I submit an ABA PA to Aetna Better Health of Texas?', a: 'Confirm with the plan — the specific channel and forms aren\'t publicly verifiable. Ask provider relations whether the state CCP PA form is accepted and get the UM fax/portal details in writing before your first submission.' },
+      { q: 'Does Aetna Better Health have its own Texas ABA policy?', a: 'No. Its 2025–2026 provider manual has no ABA section, and Texas MCOs must apply the TMPPM criteria, so plan clinically against the state baseline.' },
+      { q: 'How do I submit an ABA PA to Aetna Better Health of Texas?', a: 'The plan’s manual routes prior authorization on the Texas Universal Authorization Form, faxed to 1-866-835-9589 with the clinical documentation; allow at least 3 business days. Check the online PA tool (medicaidportal.aetna.com/propat) for the current code list, and confirm with provider relations that your ABA packet is complete.' },
       { q: 'What happens to the ABA authorization if a family switches providers or plans?', a: 'A new ABA provider outside the current group must file a new authorization with initial-evaluation documentation and a change-of-provider letter signed by the responsible adult (TMPPM § 2.3.9). A new health plan must continue an existing authorization for up to 90 days, or until it ends or the new plan decides.' },
       { q: 'Is Aetna Better Health\'s ABA network open to new providers?', a: 'It does not publish an open or closed status. Enroll in Texas Medicaid first, then apply to the plan; Medicaid enrollment does not guarantee an MCO contract. Ask provider relations.' },
+      { q: 'What is the timely filing limit for Aetna Better Health of Texas (Texas Medicaid)?', a: 'Ninety-five days from the date of service. HHSC’s Uniform Managed Care Claims Manual sets it for every Texas Medicaid MCO. Claim appeals get 120 days from the disposition date.' },
+      { q: 'How fast does Aetna Better Health of Texas have to pay a clean claim?', a: 'HHSC requires every Texas Medicaid MCO to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days. The plan’s manual pays 18 percent annual interest on clean claims left un-adjudicated past 30 days. No weekly cutoff or check-run day is published.' },
     ],
   },
 
@@ -1567,7 +1638,7 @@ export const texasPayers: Record<string, PayerConfig> = {
           'Molina directs providers to its Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool for code-level PA handling, and its current-year "MHT Prior Authorization Guide" PDF is the document of record — but those files sit behind bot protection, so we could not verify their ABA specifics for this guide. Before your first Molina submission: download the current PA guide from molinahealthcare.com manually, run the ABA codes (97151–97158, 99366) through the look-up tool, and confirm the submission channel (Molina plans typically use Availity or the Molina Provider Portal, but confirm for Texas ABA specifically). Note also which program the child is on: a family that says "Molina" after the Cigna transition may be a STAR+PLUS adult — not an ABA case profile.',
         ],
         cites: [
-          { title: 'Molina TX — Medicaid/CHIP Prior Authorization Guide (access-restricted)', url: 'https://www.molinamarketplace.com/-/media/Molina/PublicWebsite/PDF/Providers/tx/medicaid/forms/MHT-Prior-Authorization-Guide-2025_R.ashx' },
+          { title: 'Molina TX — Medicaid/CHIP Prior Authorization Guide (2025; ABA for ASD requires PA)', url: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/tx/medicaid/forms/MHT-Prior-Authorization-Guide-2025_R.ashx' },
           { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
         ],
       },
@@ -1582,6 +1653,16 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
         ],
       },
+      {
+        h2: 'What is Molina Healthcare of Texas’s timely filing limit and payment turnaround for ABA claims?',
+        body: [
+          'HHSC sets the claim clocks for every Texas Medicaid MCO in its Uniform Managed Care Claims Manual: a provider must file a claim with the MCO "within 95 Days from the date of service," and the MCO must deny a claim it does not receive in that window unless an exception applies (wrong plan, other insurance, newborns, newly enrolled providers). The MCO must tell the provider it "has 120 Days from the date of disposition to appeal the Claim," and must adjudicate an appealed claim within 30 days. Its performance standard is to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days, with every claim finalized within 24 months of the date of service. When another insurer is billed first, the claim “must be refiled and received by the MCO within 95 Days from the date of disposition by the other insurance resource.” HHSC sets no weekly submission cutoff or check-run day; each MCO runs its own payment cycle. The TMPPM Managed Care Handbook repeats the 95-day rule and sends appeals to the MCO first, then to HHSC as a complaint.',
+        ],
+        cites: [
+          { title: 'HHSC Uniform Managed Care Manual, Chapter 2.0 — Uniform Managed Care Claims Manual (v2.14)', url: 'https://www.hhs.texas.gov/sites/default/files/documents/laws-regulations/handbooks/umcm/2-0.pdf' },
+          { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.9.1 (Filing Deadlines) and 2.10 (MCO Appeals)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
+        ],
+      },
     ],
     collect: [
       { title: 'Program line', desc: 'STAR (pediatric ABA) vs. STAR+PLUS (adult) vs. CHIP (excluded) — the answer routes everything.' },
@@ -1592,7 +1673,7 @@ export const texasPayers: Record<string, PayerConfig> = {
     sources: [
       { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
       { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
-      { title: 'Molina TX — Medicaid/CHIP Prior Authorization Guide (access-restricted)', url: 'https://www.molinamarketplace.com/-/media/Molina/PublicWebsite/PDF/Providers/tx/medicaid/forms/MHT-Prior-Authorization-Guide-2025_R.ashx' },
+      { title: 'Molina TX — Medicaid/CHIP Prior Authorization Guide (2025; ABA for ASD requires PA)', url: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/tx/medicaid/forms/MHT-Prior-Authorization-Guide-2025_R.ashx' },
       { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
       { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
     ],
@@ -1621,13 +1702,14 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       dailyLimits: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: direct treatment is capped at 8 hours (32 units) per day combined across 97153, 97154, 97155 and 97158; 97151 is capped at 6 hours (24 units) per evaluation and per re-evaluation; group treatment runs 2 to 8 children. Authorization periods are two consecutive 90-day terms then recertifications of up to 180 days. No distinct Molina Texas ABA criteria surfaced, but its own PA documents could not be read, so plan-level deviation could not be ruled out.',
+          'Follows the Texas Medicaid (TMPPM) rule: direct treatment is capped at 8 hours (32 units) per day combined across 97153, 97154, 97155 and 97158; 97151 is capped at 6 hours (24 units) per evaluation and per re-evaluation; group treatment runs 2 to 8 children. TMPPM: “If services billed exceed the limitations outlined in this section, the claim will be denied, and may be appealed,” so the cap is a claim edit as well as an authorization limit. Authorization periods are two consecutive 90-day terms then recertifications of up to 180 days. Molina’s 2025 Texas PA guide lists ABA for autism among the services needing PA and sets no unit rule of its own; its provider manual and code matrix could not be read, so plan-level claim edits are unchecked.',
         status: 'unverified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
-          { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
+          { title: 'Molina TX — Medicaid/CHIP Prior Authorization Guide (2025; ABA for ASD requires PA)', url: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/tx/medicaid/forms/MHT-Prior-Authorization-Guide-2025_R.ashx' },
         ],
-        verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
+        verifyVia:
+          'Molina Healthcare of Texas provider manual and its Behavioral Health PA code matrix (molinahealthcare.com serves a bot wall) — or Molina provider services, for any unit edit beyond the TMPPM cap.',
         blocker: 'document',
       },
       noteSignature: {
@@ -1737,7 +1819,7 @@ export const texasPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'Molina Healthcare of Texas — Provider Manual, STAR/STAR+PLUS/CHIP 2026 (last updated 04/2026) (PDF)', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/tx/medicaid/manual/MHTX-Medicaid-CHIP-Provider-Manual-508.ashx' },
-          { title: 'Molina TX — Medicaid/CHIP Prior Authorization Guide (access-restricted)', url: 'https://www.molinamarketplace.com/-/media/Molina/PublicWebsite/PDF/Providers/tx/medicaid/forms/MHT-Prior-Authorization-Guide-2025_R.ashx' },
+          { title: 'Molina TX — Medicaid/CHIP Prior Authorization Guide (2025; ABA for ASD requires PA)', url: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/tx/medicaid/forms/MHT-Prior-Authorization-Guide-2025_R.ashx' },
           { title: 'Tex. Gov\'t Code § 540.0303 — MCO PA determinations for nonhospitalized recipients (eff. 4/1/2025)', url: 'https://texas.public.law/statutes/tex._gov\'t_code_section_540.0303' },
           { title: '1 Tex. Admin. Code § 353.425 — MCO processing of incomplete PA requests', url: 'https://www.law.cornell.edu/regulations/texas/1-Tex-Admin-Code-SS-353-425' },
         ],
@@ -1758,6 +1840,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'What happened to Cigna\'s Texas Medicaid members?', a: 'Molina acquired Cigna\'s Texas Medicaid (STAR+PLUS) business in 2021 — those are adult-program members. A "Cigna Medicaid" mention in Texas today means Molina.' },
       { q: 'What happens to the ABA authorization if a family switches providers or plans?', a: 'A new ABA provider outside the current group must file a new authorization with initial-evaluation documentation and a change-of-provider letter signed by the responsible adult (TMPPM § 2.3.9). A new health plan must continue an existing authorization for up to 90 days, or until it ends or the new plan decides.' },
       { q: 'Is Molina\'s ABA network open to new providers?', a: 'It does not publish an open or closed status. Enroll in Texas Medicaid first, then apply to the plan; Medicaid enrollment does not guarantee an MCO contract. Ask provider relations.' },
+      { q: 'What is the timely filing limit for Molina Healthcare of Texas (Texas Medicaid)?', a: 'Ninety-five days from the date of service. HHSC’s Uniform Managed Care Claims Manual sets it for every Texas Medicaid MCO. Claim appeals get 120 days from the disposition date.' },
+      { q: 'How fast does Molina Healthcare of Texas have to pay a clean claim?', a: 'HHSC requires every Texas Medicaid MCO to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days.' },
     ],
   },
 
@@ -1832,6 +1916,18 @@ export const texasPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
           { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
+        ],
+      },
+      {
+        h2: 'What is Community First’s timely filing limit and payment turnaround for ABA claims?',
+        body: [
+          'HHSC sets the claim clocks for every Texas Medicaid MCO in its Uniform Managed Care Claims Manual: a provider must file a claim with the MCO "within 95 Days from the date of service," and the MCO must deny a claim it does not receive in that window unless an exception applies (wrong plan, other insurance, newborns, newly enrolled providers). The MCO must tell the provider it "has 120 Days from the date of disposition to appeal the Claim," and must adjudicate an appealed claim within 30 days. Its performance standard is to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days, with every claim finalized within 24 months of the date of service. When another insurer is billed first, the claim “must be refiled and received by the MCO within 95 Days from the date of disposition by the other insurance resource.” HHSC sets no weekly submission cutoff or check-run day; each MCO runs its own payment cycle. The TMPPM Managed Care Handbook repeats the 95-day rule and sends appeals to the MCO first, then to HHSC as a complaint.',
+          'Community First’s STAR manual: "Providers are required to submit claims to Community First 95 days from the date of service. Claims received after the filing date will be denied payment."',
+        ],
+        cites: [
+          { title: 'HHSC Uniform Managed Care Manual, Chapter 2.0 — Uniform Managed Care Claims Manual (v2.14)', url: 'https://www.hhs.texas.gov/sites/default/files/documents/laws-regulations/handbooks/umcm/2-0.pdf' },
+          { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.9.1 (Filing Deadlines) and 2.10 (MCO Appeals)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
+          { title: 'Community First Health Plans — STAR Provider Manual (posted 4/15/2026), Time Limit for Submission of Claims', url: 'https://medicaid.communityfirsthealthplans.com/wp-content/uploads/sites/2/2026/04/STAR_ProviderManual_2025_web_04.15.26.pdf' },
         ],
       },
     ],
@@ -1987,12 +2083,14 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'Why do providers outside Bexar County reference Community First\'s guidelines?', a: 'Its Autism Services Billing Guidelines page is one of the clearest public crosswalks of the Texas ABA codes, HO/HN/HM modifiers, and unit caps — a useful TMPPM digest even for other plans\' cases.' },
       { q: 'What happens to the ABA authorization if a family switches providers or plans?', a: 'A new ABA provider outside the current group must file a new authorization with initial-evaluation documentation and a change-of-provider letter signed by the responsible adult (TMPPM § 2.3.9). A new health plan must continue an existing authorization for up to 90 days, or until it ends or the new plan decides.' },
       { q: 'Is Community First\'s ABA network open to new providers?', a: 'It does not publish an open or closed status. Enroll in Texas Medicaid first, then apply to the plan; Medicaid enrollment does not guarantee an MCO contract. Ask provider relations.' },
+      { q: 'What is the timely filing limit for Community First (Texas Medicaid)?', a: 'Ninety-five days from the date of service. HHSC’s Uniform Managed Care Claims Manual sets it for every Texas Medicaid MCO, and Community First’s own manual states the same deadline. Claim appeals get 120 days from the disposition date.' },
+      { q: 'How fast does Community First have to pay a clean claim?', a: 'HHSC requires every Texas Medicaid MCO to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days.' },
     ],
   },
 
   'driscoll-health-plan': {
     slug: 'driscoll-health-plan',
-    cardDesc: 'South Texas plan using the statewide TARF form; per-code PA checks via its lookup portal.',
+    cardDesc: 'South Texas plan with its own CCP PA request form for ABA; per-code PA checks via its lookup portal.',
     assessmentPA: {
       value: 'Required — verify per-code on the DHP Prior Authorization Portal (driscollhealthplan.com/priorauthcheck)',
       status: 'verified',
@@ -2001,10 +2099,11 @@ export const texasPayers: Record<string, PayerConfig> = {
       ],
     },
     treatmentPA: {
-      value: 'Required — submit via the DHP portal or fax 1-866-741-5650 using the Texas Authorization Referral Form (TARF)',
+      value: 'Required — submit through the DHP provider portal or fax 1-866-741-5650 (phone 1-877-455-1053) on Driscoll\'s CCP Prior Authorization Request Form, which has its own ABA Evaluation, ABA Re-evaluation and ABA Treatment boxes and must be signed by the requesting physician or allowed practitioner',
       status: 'verified',
       cites: [
         { title: 'Driscoll Health Plan — Prior Authorization Requirement Portal (Autism/ABA Services)', url: 'https://webapps.driscollhealthplan.com/priorauthcheck/?s=Autism+(ABA)+Services' },
+        { title: 'Driscoll Health Plan — CCP Prior Authorization Request Form (ABA evaluation, re-evaluation and treatment), with instructions (PDF)', url: 'https://driscollhealthplan.com/wp-content/uploads/DHP-CCP-Prior-Authorization-Request-Form-1.pdf' },
       ],
     },
     dxRequired: {
@@ -2020,15 +2119,15 @@ export const texasPayers: Record<string, PayerConfig> = {
     h1: 'Driscoll Health Plan ABA coverage (Texas Medicaid MCO).',
     metaTitle: 'Driscoll Health Plan (TX Medicaid) ABA Coverage & Prior Auth | Carelu',
     metaDescription:
-      'How Driscoll Health Plan administers Texas Medicaid ABA in South Texas — TMPPM criteria, the statewide Texas Authorization Referral Form (TARF), and the plan\'s per-code prior authorization lookup portal.',
+      'How Driscoll Health Plan administers Texas Medicaid ABA in South Texas — TMPPM criteria, Driscoll\'s CCP Prior Authorization Request Form for ABA, and the plan\'s per-code prior authorization lookup portal.',
     intro: [
-      'Driscoll Health Plan — the children\'s-hospital-affiliated plan serving STAR, STAR Kids, and CHIP across South Texas — administers the state ABA benefit with no distinct clinical policy: TMPPM criteria govern. Its operational profile is unusually low-friction for practices that already work statewide, because Driscoll uses the statewide Texas Authorization Referral Form (TARF) rather than a proprietary form, and it runs a public per-code PA lookup portal that answers "does this code need auth?" without a phone call.',
+      'Driscoll Health Plan — the children\'s-hospital-affiliated plan serving STAR, STAR Kids, and CHIP across South Texas — administers the state ABA benefit with no distinct clinical policy: TMPPM criteria govern. Its operational profile is unusually low-friction for practices that already work statewide, because its ABA request form is a Driscoll-branded copy of the Texas Medicaid CCP prior authorization form, and it runs a public per-code PA lookup portal that answers "does this code need auth?" without a phone call.',
     ],
     atGlance: [
       { label: 'Plan type', value: 'Texas Medicaid MCO — STAR, STAR Kids, CHIP (South Texas)' },
       { label: 'Clinical rules', value: 'TMPPM Autism Services criteria (no distinct ABA policy)' },
       { label: 'Prior auth', value: 'Required — Autism (ABA) Services listed on the plan\'s PA portal' },
-      { label: 'Form', value: 'Statewide Texas Authorization Referral Form (TARF) — no proprietary form' },
+      { label: 'Form', value: 'DHP CCP Prior Authorization Request Form (ABA Evaluation / Re-evaluation / Treatment boxes)' },
       { label: 'Submission', value: 'DHP portal or fax 1-866-741-5650' },
       { label: 'Rates', value: 'Not published — contract-specific' },
     ],
@@ -2036,17 +2135,18 @@ export const texasPayers: Record<string, PayerConfig> = {
       {
         h2: 'How Driscoll runs authorization',
         body: [
-          'Autism (ABA) Services appear on Driscoll\'s Prior Authorization Requirement Portal (driscollhealthplan.com/priorauthcheck) — the plan\'s own tool for verifying PA requirements code by code, which is the right first stop before any submission. Requests submit through the DHP portal or by fax to 1-866-741-5650 using the Texas Authorization Referral Form. Because the TARF is the statewide form, a practice already producing TARFs for other plans has no form-conversion work here — attach the state-baseline clinical package (signed prescriber referral, recency-checked ASD diagnosis, per-code units) and follow the TMPPM\'s 90/90/180 cadence.',
+          'Autism (ABA) Services appear on Driscoll\'s Prior Authorization Requirement Portal (driscollhealthplan.com/priorauthcheck) — the plan\'s own tool for verifying PA requirements code by code, which is the right first stop before any submission. Requests submit through the DHP provider portal (Driscoll says portal requests are decided faster, since faxes "must be scanned and data entered" first, which "can take up to 24 hours") or by fax to 1-866-741-5650 on Driscoll\'s CCP Prior Authorization Request Form. The form has its own ABA Evaluation, ABA Re-evaluation and ABA Treatment boxes; the requesting physician or allowed practitioner completes the diagnosis and medical-necessity section and signs the certification that the child is under 21, has an ASD diagnosis and that ABA "services are or may be clinically indicated" (CNM, CNS, NP and PA may sign for the physician when delegated; signature stamps are not accepted). Attach the state-baseline clinical package (signed prescriber referral, recency-checked ASD diagnosis, per-code units) and follow the TMPPM\'s 90/90/180 cadence.',
         ],
         cites: [
           { title: 'Driscoll Health Plan — Prior Authorization Requirement Portal (Autism/ABA Services)', url: 'https://webapps.driscollhealthplan.com/priorauthcheck/?s=Autism+(ABA)+Services' },
           { title: 'Driscoll Health Plan — For Providers', url: 'https://driscollhealthplan.com/for-providers/' },
+          { title: 'Driscoll Health Plan — CCP Prior Authorization Request Form (ABA evaluation, re-evaluation and treatment), with instructions (PDF)', url: 'https://driscollhealthplan.com/wp-content/uploads/DHP-CCP-Prior-Authorization-Request-Form-1.pdf' },
         ],
       },
       {
         h2: 'The state rules travel with the member',
         body: [
-          'Everything on the Texas Medicaid guide applies unchanged: PA on the 97151 evaluation (24-unit cap), the April 2025 removal of the prescriber signature on 90-day extensions, the 3-year diagnosis recency rule, the 8-hour daily direct-treatment cap, credential modifiers, and the telehealth restrictions. Driscoll\'s only plan-specific wrinkle is workflow — verify the code on the portal, submit the TARF, track through the DHP portal.',
+          'Everything on the Texas Medicaid guide applies unchanged: PA on the 97151 evaluation (24-unit cap), the April 2025 removal of the prescriber signature on 90-day extensions, the 3-year diagnosis recency rule, the 8-hour daily direct-treatment cap, credential modifiers, and the telehealth restrictions. Driscoll\'s only plan-specific wrinkle is workflow — verify the code on the portal, submit the CCP PA request form, track through the DHP portal.',
         ],
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
@@ -2055,19 +2155,33 @@ export const texasPayers: Record<string, PayerConfig> = {
       {
         h2: 'Switching providers or plans, and joining the network',
         body: [
-          'Follows the Texas Medicaid rule — Driscoll\'s own provider documents that we checked (October 2026) set no change-of-provider rule of their own. A family that moves to a new ABA provider outside the current group needs a new authorization request with all the documentation of an initial evaluation, plus a change-of-therapy-provider letter signed by the responsible adult giving the date therapy ended (or the last date of service) and the names of both providers (TMPPM § 2.3.9). A move to another provider within the same group keeps the same evaluation, plan of care and authorization period. If the child changes health plans, "Health plan prior authorizations do not automatically transfer," but the new MCO must continue an existing authorization it is told about, at the same amount, duration and scope, until the earliest of 90 days, the end of the authorization, or its own new decision (Managed Care Handbook § 2.8).',
+          'Driscoll publishes its own change-of-provider rule (January 26, 2026 notice): when a member changes providers mid-authorization, "DHP must receive a Change of Provider letter along with either a new Texas Standard Prior Authorization Request Form (TARF)" or, for DME, a new physician order form, from the ordering provider. The letter "must be signed and dated by the member or their legally authorized representative (LAR)" and must name the previous provider, the new provider and the effective date of the change; Driscoll posts a sample Change of Provider Letter on its Forms and Checklists page. The Texas Medicaid rule sits underneath: a family that moves to a new ABA provider outside the current group needs a new authorization request with all the documentation of an initial evaluation, plus a change-of-therapy-provider letter signed by the responsible adult giving the date therapy ended (or the last date of service) and the names of both providers (TMPPM § 2.3.9). A move to another provider within the same group keeps the same evaluation, plan of care and authorization period. If the child changes health plans, "Health plan prior authorizations do not automatically transfer," but the new MCO must continue an existing authorization it is told about, at the same amount, duration and scope, until the earliest of 90 days, the end of the authorization, or its own new decision (Managed Care Handbook § 2.8).',
           'Joining the network: a provider must be enrolled in Texas Medicaid before an MCO can enroll it; "Individual MCOs and DMOs have their own guidelines for contracting providers," and Medicaid enrollment "does not guarantee that an MCO or DMO will contract enroll or credential a particular provider." All Medicaid MCOs credential through the Texas Association of Health Plans\' contracted credentialing verification organization (Handbook § 2.2.1). Driscoll does not publish whether its ABA network is open, so ask its provider relations team.',
         ],
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
           { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
+          { title: 'Driscoll Health Plan — Attention: Change of Provider Requests (1/26/2026, PDF)', url: 'https://driscollhealthplan.com/wp-content/uploads/1.26.2026-Authorization-Change-of-Provider-Requests.pdf' },
+          { title: 'Driscoll Health Plan — Forms and Checklists (Change of Provider Letter template, CCP PA Request Form)', url: 'https://driscollhealthplan.com/priorauthcheck/forms-and-checklists/' },
+        ],
+      },
+      {
+        h2: 'What is Driscoll’s timely filing limit and payment turnaround for ABA claims?',
+        body: [
+          'HHSC sets the claim clocks for every Texas Medicaid MCO in its Uniform Managed Care Claims Manual: a provider must file a claim with the MCO "within 95 Days from the date of service," and the MCO must deny a claim it does not receive in that window unless an exception applies (wrong plan, other insurance, newborns, newly enrolled providers). The MCO must tell the provider it "has 120 Days from the date of disposition to appeal the Claim," and must adjudicate an appealed claim within 30 days. Its performance standard is to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days, with every claim finalized within 24 months of the date of service. When another insurer is billed first, the claim “must be refiled and received by the MCO within 95 Days from the date of disposition by the other insurance resource.” HHSC sets no weekly submission cutoff or check-run day; each MCO runs its own payment cycle. The TMPPM Managed Care Handbook repeats the 95-day rule and sends appeals to the MCO first, then to HHSC as a complaint.',
+          'Driscoll’s September 2026 manual: professional CMS-1500 claims are due "95 days from the DATE OF SERVICE," and provider and administrative claim appeals "must be submitted and received within 120 days from the Explanation of Payment (EOP) date," with a written response or adjustment within 30 days.',
+        ],
+        cites: [
+          { title: 'HHSC Uniform Managed Care Manual, Chapter 2.0 — Uniform Managed Care Claims Manual (v2.14)', url: 'https://www.hhs.texas.gov/sites/default/files/documents/laws-regulations/handbooks/umcm/2-0.pdf' },
+          { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.9.1 (Filing Deadlines) and 2.10 (MCO Appeals)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
+          { title: 'Driscoll Health Plan — Provider Manual (September 2026), Section VIII Billing and Claims', url: 'https://driscollhealthplan.com/wp-content/uploads/DHP-Provider-Manual-September-2026.pdf' },
         ],
       },
     ],
     collect: [
       { title: 'Program line', desc: 'STAR / STAR Kids vs. CHIP — CHIP is excluded from the ABA benefit.' },
       { title: 'ASD dx + recency', desc: 'State baseline: qualified diagnoser, DSM severity, within 3 years.' },
-      { title: 'TARF ready', desc: 'Driscoll takes the statewide Texas Authorization Referral Form — reuse your existing template.' },
+      { title: 'CCP PA form', desc: 'Driscoll\'s CCP Prior Authorization Request Form, ABA box checked, signed by the referring physician or allowed practitioner (no signature stamps).' },
       { title: 'Portal check per code', desc: 'Run the codes through priorauthcheck before submitting — it\'s the plan\'s own source of truth.' },
     ],
     sources: [
@@ -2100,7 +2214,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       dailyLimits: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: direct treatment is capped at 8 hours (32 units) per day combined across 97153, 97154, 97155 and 97158; 97151 is capped at 6 hours (24 units) per evaluation and per re-evaluation; group treatment runs 2 to 8 children. Authorization periods are two consecutive 90-day terms then recertifications of up to 180 days.',
+          'Follows the Texas Medicaid (TMPPM) rule: direct treatment is capped at 8 hours (32 units) per day combined across 97153, 97154, 97155 and 97158; 97151 is capped at 6 hours (24 units) per evaluation and per re-evaluation; group treatment runs 2 to 8 children. TMPPM: “If services billed exceed the limitations outlined in this section, the claim will be denied, and may be appealed,” so the cap is a claim edit as well as an authorization limit. Authorization periods are two consecutive 90-day terms then recertifications of up to 180 days.',
         status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
@@ -2174,12 +2288,13 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: a signed, dated prescriber referral for the evaluation, signed within 60 calendar days before or on the anticipated evaluation date; and for treatment a signed, dated referral from a physician or allowed practitioner (MD/DO, PA, NP, or CNS with delegated authority) stating frequency and duration, signed on or before the service start date and no more than 3 months old. Since 4/1/2025 the prescriber signature is no longer required on the CCP PA form for the 90-day extension. Driscoll takes the statewide Texas Authorization Referral Form (TARF) rather than a proprietary form, submitted through the DHP portal or fax 1-866-741-5650.',
+          'Follows the Texas Medicaid (TMPPM) rule: a signed, dated prescriber referral for the evaluation, signed within 60 calendar days before or on the anticipated evaluation date; and for treatment a signed, dated referral from a physician or allowed practitioner (MD/DO, PA, NP, or CNS with delegated authority) stating frequency and duration, signed on or before the service start date and no more than 3 months old. Since 4/1/2025 the prescriber signature is no longer required on the CCP PA form for the 90-day extension. Driscoll\'s own form is its CCP Prior Authorization Request Form (ABA Evaluation / Re-evaluation / Treatment boxes): the requesting physician or allowed practitioner completes the diagnosis and medical-necessity section, certifies the child is under 21 with an ASD diagnosis, and signs and dates it — CNM, CNS, NP and PA may sign for the physician when delegated, chiropractors and PhDs may not, and signature or date stamps are not accepted. The original signed form stays in the prescriber\'s record, a copy in the requesting provider\'s, and it is subject to retrospective review. Submit through the DHP portal or fax 1-866-741-5650.',
         status: 'verified',
         cites: [
           { title: 'Driscoll Health Plan — Prior Authorization Requirement Portal (Autism/ABA Services)', url: 'https://webapps.driscollhealthplan.com/priorauthcheck/?s=Autism+(ABA)+Services' },
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
           { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
+          { title: 'Driscoll Health Plan — CCP Prior Authorization Request Form (ABA evaluation, re-evaluation and treatment), with instructions (PDF)', url: 'https://driscollhealthplan.com/wp-content/uploads/DHP-CCP-Prior-Authorization-Request-Form-1.pdf' },
         ],
       },
       telehealth: {
@@ -2212,10 +2327,12 @@ export const texasPayers: Record<string, PayerConfig> = {
     },
     faq: [
       { q: 'Does Driscoll Health Plan cover ABA?', a: 'Yes — the Texas Medicaid Autism Services benefit across its South Texas service areas, on TMPPM criteria, with PA required (Autism/ABA Services are listed on the plan\'s PA portal).' },
-      { q: 'What form does Driscoll use for ABA authorizations?', a: 'The statewide Texas Authorization Referral Form (TARF), submitted via the DHP portal or fax to 1-866-741-5650 — no proprietary plan form.' },
-      { q: 'Is Driscoll\'s ABA policy different from the state\'s?', a: 'No — it publishes no distinct ABA criteria. The TMPPM baseline governs; the plan-specific layer is the PA lookup portal and TARF workflow.' },
+      { q: 'What form does Driscoll use for ABA authorizations?', a: 'Driscoll\'s CCP Prior Authorization Request Form, with the ABA Evaluation, Re-evaluation or Treatment box checked and signed by the requesting physician or allowed practitioner, submitted through the DHP provider portal or by fax to 1-866-741-5650.' },
+      { q: 'Is Driscoll\'s ABA policy different from the state\'s?', a: 'No — it publishes no distinct ABA criteria. The TMPPM baseline governs; the plan-specific layer is the PA lookup portal, its CCP PA request form and its change-of-provider letter.' },
       { q: 'What happens to the ABA authorization if a family switches providers or plans?', a: 'A new ABA provider outside the current group must file a new authorization with initial-evaluation documentation and a change-of-provider letter signed by the responsible adult (TMPPM § 2.3.9). A new health plan must continue an existing authorization for up to 90 days, or until it ends or the new plan decides.' },
       { q: 'Is Driscoll\'s ABA network open to new providers?', a: 'It does not publish an open or closed status. Enroll in Texas Medicaid first, then apply to the plan; Medicaid enrollment does not guarantee an MCO contract. Ask provider relations.' },
+      { q: 'What is the timely filing limit for Driscoll (Texas Medicaid)?', a: 'Ninety-five days from the date of service. HHSC’s Uniform Managed Care Claims Manual sets it for every Texas Medicaid MCO, and Driscoll’s own manual states the same deadline. Claim appeals get 120 days from the disposition date.' },
+      { q: 'How fast does Driscoll have to pay a clean claim?', a: 'HHSC requires every Texas Medicaid MCO to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days.' },
     ],
   },
 
@@ -2306,6 +2423,18 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
         ],
       },
+      {
+        h2: 'What is Community Health Choice’s timely filing limit and payment turnaround for ABA claims?',
+        body: [
+          'HHSC sets the claim clocks for every Texas Medicaid MCO in its Uniform Managed Care Claims Manual: a provider must file a claim with the MCO "within 95 Days from the date of service," and the MCO must deny a claim it does not receive in that window unless an exception applies (wrong plan, other insurance, newborns, newly enrolled providers). The MCO must tell the provider it "has 120 Days from the date of disposition to appeal the Claim," and must adjudicate an appealed claim within 30 days. Its performance standard is to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days, with every claim finalized within 24 months of the date of service. When another insurer is billed first, the claim “must be refiled and received by the MCO within 95 Days from the date of disposition by the other insurance resource.” HHSC sets no weekly submission cutoff or check-run day; each MCO runs its own payment cycle. The TMPPM Managed Care Handbook repeats the 95-day rule and sends appeals to the MCO first, then to HHSC as a complaint.',
+          'Community Health Choice’s March 2026 manual: "All claims must be submitted within 95 days from the date of service. Claims not filed within 95 days from the date of service may not be considered for reimbursement."',
+        ],
+        cites: [
+          { title: 'HHSC Uniform Managed Care Manual, Chapter 2.0 — Uniform Managed Care Claims Manual (v2.14)', url: 'https://www.hhs.texas.gov/sites/default/files/documents/laws-regulations/handbooks/umcm/2-0.pdf' },
+          { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.9.1 (Filing Deadlines) and 2.10 (MCO Appeals)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
+          { title: 'Community Health Choice — STAR, CHIP, CHIP-Perinatal & STAR+PLUS Provider Manual (March 2026)', url: 'https://provider.communityhealthchoice.org/wp-content/uploads/sites/2/2026/04/HHS_Provider_Manual_010226-Final-1.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'STAR vs. STAR+PLUS vs. CHIP', desc: 'CHIP is excluded from ABA. Jefferson County is confirmed for STAR — confirm STAR+PLUS eligibility with CHC directly before promising the benefit there.' },
@@ -2345,7 +2474,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       dailyLimits: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: direct treatment is capped at 8 hours (32 units) per day combined across 97153, 97154, 97155 and 97158; 97151 is capped at 6 hours (24 units) per evaluation and per re-evaluation; group treatment runs 2 to 8 children. Authorization periods are two consecutive 90-day terms then recertifications of up to 180 days.',
+          'Follows the Texas Medicaid (TMPPM) rule: direct treatment is capped at 8 hours (32 units) per day combined across 97153, 97154, 97155 and 97158; 97151 is capped at 6 hours (24 units) per evaluation and per re-evaluation; group treatment runs 2 to 8 children. TMPPM: “If services billed exceed the limitations outlined in this section, the claim will be denied, and may be appealed,” so the cap is a claim edit as well as an authorization limit. Authorization periods are two consecutive 90-day terms then recertifications of up to 180 days.',
         status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
@@ -2462,6 +2591,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'What form does CHC require for the ABA evaluation PA?', a: 'Both the Texas Standard Prior Authorization Form (TSPA) and the state\'s CCP Prior Authorization Request Form, plus a signed prescriber referral — CHC\'s guideline requires the combination, not either form alone.' },
       { q: 'What happens to the ABA authorization if a family switches providers or plans?', a: 'A new ABA provider outside the current group must file a new authorization with initial-evaluation documentation and a change-of-provider letter signed by the responsible adult (TMPPM § 2.3.9). A new health plan must continue an existing authorization for up to 90 days, or until it ends or the new plan decides.' },
       { q: 'Is Community Health Choice\'s ABA network open to new providers?', a: 'It does not publish an open or closed status. Enroll in Texas Medicaid first, then apply to the plan; Medicaid enrollment does not guarantee an MCO contract. Ask provider relations.' },
+      { q: 'What is the timely filing limit for Community Health Choice (Texas Medicaid)?', a: 'Ninety-five days from the date of service. HHSC’s Uniform Managed Care Claims Manual sets it for every Texas Medicaid MCO, and Community Health Choice’s own manual states the same deadline. Claim appeals get 120 days from the disposition date.' },
+      { q: 'How fast does Community Health Choice have to pay a clean claim?', a: 'HHSC requires every Texas Medicaid MCO to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days.' },
     ],
   },
 
@@ -2470,19 +2601,20 @@ export const texasPayers: Record<string, PayerConfig> = {
     family: 'bcbs',
     cardDesc: 'STAR/STAR Kids in Travis; insourced BH from Magellan in 2024; PA code grid confirms 97151-97158.',
     assessmentPA: {
-      value: 'Required — per the statewide TMPPM benefit; submit via fax 1-888-530-9809 or the Availity provider portal',
+      value: 'Required — per the statewide TMPPM benefit; fax BCBSTX\'s ABA request form (Autism Service Benefit Initial/Continued Treatment Plan Template, "Initial assessment" box) to 1-888-530-9809. BCBSTX\'s behavioral health PA checklist also takes clinical documentation through its provider portal.',
       status: 'verified',
       cites: [
         { title: 'BCBSTX — Texas Medicaid Benefit Prior Authorization Procedure Code List (PDF)', url: 'https://www.bcbstx.com/docs/provider/tx/provider-medicaid/um/prior-auth-proc-code-grid-06012026.pdf' },
-        { title: 'BCBSTX — Applied Behavioral Analysis PA Requirement Checklist (rev. 4/26/2024, PDF)', url: 'https://www.bcbstx.com/docs/provider/tx/provider-medicaid/um/applied-behavioral-analysis-pa-requirement-checklist.pdf' },
+        { title: 'BCBSTX Medicaid — Autism Service Benefit Initial/Continued Treatment Plan Template (ABA request form, SKSCPB-9071, rev. 03/2024, PDF)', url: 'https://www.bcbstx.com/docs/provider/tx/provider-medicaid/education/forms/behavioral-health/2024/SKSCPB-90710324-ABA-request-form.pdf' },
+        { title: 'BCBSTX Medicaid — Behavioral Health Prior Authorization Requirement Checklist (SKSCPB-9072, rev. 03/2024, PDF)', url: 'https://www.bcbstx.com/docs/provider/tx/provider-medicaid/education/forms/behavioral-health/2024/SKSCPB-9072-0324-behavioral-health-PA-require-checklist.pdf' },
       ],
     },
     treatmentPA: {
-      value: 'Required — same fax/portal; BCBSTX brought behavioral health/ABA administration in-house in 2024, ending its Magellan carve-out',
+      value: 'Required — same form and fax ("90-day extension of initial ABA authorization" or "Continued ABA treatment request"); BCBSTX brought behavioral health/ABA administration in-house in 2024, ending its Magellan carve-out',
       status: 'verified',
       cites: [
         { title: 'BCBSTX — Texas Medicaid Benefit Prior Authorization Procedure Code List (PDF)', url: 'https://www.bcbstx.com/docs/provider/tx/provider-medicaid/um/prior-auth-proc-code-grid-06012026.pdf' },
-        { title: 'BCBSTX — Applied Behavioral Analysis PA Requirement Checklist (rev. 4/26/2024, PDF)', url: 'https://www.bcbstx.com/docs/provider/tx/provider-medicaid/um/applied-behavioral-analysis-pa-requirement-checklist.pdf' },
+        { title: 'BCBSTX Medicaid — Autism Service Benefit Initial/Continued Treatment Plan Template (ABA request form, SKSCPB-9071, rev. 03/2024, PDF)', url: 'https://www.bcbstx.com/docs/provider/tx/provider-medicaid/education/forms/behavioral-health/2024/SKSCPB-90710324-ABA-request-form.pdf' },
       ],
     },
     dxRequired: {
@@ -2514,11 +2646,11 @@ export const texasPayers: Record<string, PayerConfig> = {
       {
         h2: 'The 2024 end of the Magellan carve-out',
         body: [
-          'As late as a 7/5/2023-dated PA summary, BCBSTX directed providers to "contact Magellan for authorization requirements" for Texas Medicaid behavioral health — a classic BH carve-out. On May 10, 2024, BCBSTX announced the "insourcing of Behavioral Health Services for Medicaid," and every current-generation document we could find (the ABA PA Requirement Checklist, revised 4/26/2024, and a September 2024 UM provider training deck) makes no mention of Magellan and instead routes ABA authorization to BCBSTX\'s own behavioral-health intake fax, 1-888-530-9809, or the Availity Essentials portal. We found no document stating explicitly that the Magellan relationship has fully ended for every BH service line — if a legacy document you\'re working from still references Magellan, treat it as superseded and confirm current routing with BCBSTX\'s Medicaid Provider Network Representative before submitting.',
+          'As late as a 7/5/2023-dated PA summary, BCBSTX directed providers to "contact Magellan for authorization requirements" for Texas Medicaid behavioral health — a classic BH carve-out. On May 10, 2024, BCBSTX announced the "insourcing of Behavioral Health Services for Medicaid," and every current-generation document we could find (the ABA request form, revised 03/2024, and a September 2024 UM provider training deck) makes no mention of Magellan and instead routes ABA authorization to BCBSTX\'s own behavioral-health intake fax, 1-888-530-9809, or the Availity Essentials portal. (BCBSTX\'s separate ABA PA Requirement Checklist, revised 4/26/2024, is still linked from its Medicaid forms page but has returned a 404 since October 2026.) We found no document stating explicitly that the Magellan relationship has fully ended for every BH service line — if a legacy document you\'re working from still references Magellan, treat it as superseded and confirm current routing with BCBSTX\'s Medicaid Provider Network Representative before submitting.',
         ],
         cites: [
           { title: 'BCBSTX — Medicaid Behavioral Health / ABA Forms Update (news, 5/10/2024)', url: 'https://www.bcbstx.com/provider/medicaid/education-and-reference/news/2024/05-10-2024-md-behavioral-health-aba-forms' },
-          { title: 'BCBSTX — Applied Behavioral Analysis PA Requirement Checklist (rev. 4/26/2024, PDF)', url: 'https://www.bcbstx.com/docs/provider/tx/provider-medicaid/um/applied-behavioral-analysis-pa-requirement-checklist.pdf' },
+          { title: 'BCBSTX Medicaid — Autism Service Benefit Initial/Continued Treatment Plan Template (ABA request form, SKSCPB-9071, rev. 03/2024, PDF)', url: 'https://www.bcbstx.com/docs/provider/tx/provider-medicaid/education/forms/behavioral-health/2024/SKSCPB-90710324-ABA-request-form.pdf' },
         ],
       },
       {
@@ -2542,6 +2674,18 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
         ],
       },
+      {
+        h2: 'What is BCBSTX’s timely filing limit and payment turnaround for ABA claims?',
+        body: [
+          'HHSC sets the claim clocks for every Texas Medicaid MCO in its Uniform Managed Care Claims Manual: a provider must file a claim with the MCO "within 95 Days from the date of service," and the MCO must deny a claim it does not receive in that window unless an exception applies (wrong plan, other insurance, newborns, newly enrolled providers). The MCO must tell the provider it "has 120 Days from the date of disposition to appeal the Claim," and must adjudicate an appealed claim within 30 days. Its performance standard is to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days, with every claim finalized within 24 months of the date of service. When another insurer is billed first, the claim “must be refiled and received by the MCO within 95 Days from the date of disposition by the other insurance resource.” HHSC sets no weekly submission cutoff or check-run day; each MCO runs its own payment cycle. The TMPPM Managed Care Handbook repeats the 95-day rule and sends appeals to the MCO first, then to HHSC as a complaint.',
+          'BCBSTX’s Medicaid manual: "All claims must be submitted within 95 days of the service date unless otherwise noted in a provider’s contractual agreement with BCBSTX," and a claims appeal is filed on the Claims Reconsideration Form within 120 calendar days.',
+        ],
+        cites: [
+          { title: 'HHSC Uniform Managed Care Manual, Chapter 2.0 — Uniform Managed Care Claims Manual (v2.14)', url: 'https://www.hhs.texas.gov/sites/default/files/documents/laws-regulations/handbooks/umcm/2-0.pdf' },
+          { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.9.1 (Filing Deadlines) and 2.10 (MCO Appeals)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
+          { title: 'BCBSTX — Texas Medicaid STAR, CHIP, and STAR Kids Provider Manual (2025), Claim Form Filing Limits; Provider Appeal', url: 'https://www.bcbstx.com/docs/provider/tx/provider-medicaid/education/tx-medicaid-star-chip-starkids-provider-manual-handbook-2025.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Line of business', desc: 'Confirm the card is BCBSTX Medicaid (STAR/STAR Kids), not commercial or FEP — different guides, different rules.' },
@@ -2551,7 +2695,7 @@ export const texasPayers: Record<string, PayerConfig> = {
     ],
     sources: [
       { title: 'BCBSTX — Medicaid Behavioral Health / ABA Forms Update (news, 5/10/2024)', url: 'https://www.bcbstx.com/provider/medicaid/education-and-reference/news/2024/05-10-2024-md-behavioral-health-aba-forms' },
-      { title: 'BCBSTX — Applied Behavioral Analysis PA Requirement Checklist (rev. 4/26/2024, PDF)', url: 'https://www.bcbstx.com/docs/provider/tx/provider-medicaid/um/applied-behavioral-analysis-pa-requirement-checklist.pdf' },
+      { title: 'BCBSTX Medicaid — Autism Service Benefit Initial/Continued Treatment Plan Template (ABA request form, SKSCPB-9071, rev. 03/2024, PDF)', url: 'https://www.bcbstx.com/docs/provider/tx/provider-medicaid/education/forms/behavioral-health/2024/SKSCPB-90710324-ABA-request-form.pdf' },
       { title: 'BCBSTX — Texas Medicaid Benefit Prior Authorization Procedure Code List (PDF)', url: 'https://www.bcbstx.com/docs/provider/tx/provider-medicaid/um/prior-auth-proc-code-grid-06012026.pdf' },
       { title: 'BCBSTX — Texas Medicaid STAR, CHIP, and STAR Kids Provider Manual (PDF)', url: 'https://www.bcbstx.com/content/dam/hcsc/docs/provider/tx/provider-medicaid/education/2067877-758408-0324-TX-Medicaid-STAR-CHIP-STARKids-Provider-Manual-Handbook.pdf' },
       { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
@@ -2581,7 +2725,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       dailyLimits: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: direct treatment is capped at 8 hours (32 units) per day combined across 97153, 97154, 97155 and 97158; 97151 is capped at 6 hours (24 units) per evaluation and per re-evaluation; group treatment runs 2 to 8 children. Authorization periods are two consecutive 90-day terms then recertifications of up to 180 days.',
+          'Follows the Texas Medicaid (TMPPM) rule: direct treatment is capped at 8 hours (32 units) per day combined across 97153, 97154, 97155 and 97158; 97151 is capped at 6 hours (24 units) per evaluation and per re-evaluation; group treatment runs 2 to 8 children. TMPPM: “If services billed exceed the limitations outlined in this section, the claim will be denied, and may be appealed,” so the cap is a claim edit as well as an authorization limit. Authorization periods are two consecutive 90-day terms then recertifications of up to 180 days.',
         status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
@@ -2699,6 +2843,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'How do I submit an ABA PA to BCBSTX Medicaid?', a: 'Fax to 1-888-530-9809 or submit through the Availity Essentials provider portal, per BCBSTX\'s current ABA PA Requirement Checklist.' },
       { q: 'What happens to the ABA authorization if a family switches providers or plans?', a: 'A new ABA provider outside the current group must file a new authorization with initial-evaluation documentation and a change-of-provider letter signed by the responsible adult (TMPPM § 2.3.9). A new health plan must continue an existing authorization for up to 90 days, or until it ends or the new plan decides.' },
       { q: 'Is BCBSTX\'s ABA network open to new providers?', a: 'It does not publish an open or closed status. Enroll in Texas Medicaid first, then apply to the plan; Medicaid enrollment does not guarantee an MCO contract. Ask provider relations.' },
+      { q: 'What is the timely filing limit for BCBSTX (Texas Medicaid)?', a: 'Ninety-five days from the date of service. HHSC’s Uniform Managed Care Claims Manual sets it for every Texas Medicaid MCO, and BCBSTX’s own manual states the same deadline. Claim appeals get 120 days from the disposition date.' },
+      { q: 'How fast does BCBSTX have to pay a clean claim?', a: 'HHSC requires every Texas Medicaid MCO to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days.' },
     ],
   },
 
@@ -2777,6 +2923,16 @@ export const texasPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
           { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
+        ],
+      },
+      {
+        h2: 'What is Cook Children’s Health Plan’s timely filing limit and payment turnaround for ABA claims?',
+        body: [
+          'HHSC sets the claim clocks for every Texas Medicaid MCO in its Uniform Managed Care Claims Manual: a provider must file a claim with the MCO "within 95 Days from the date of service," and the MCO must deny a claim it does not receive in that window unless an exception applies (wrong plan, other insurance, newborns, newly enrolled providers). The MCO must tell the provider it "has 120 Days from the date of disposition to appeal the Claim," and must adjudicate an appealed claim within 30 days. Its performance standard is to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days, with every claim finalized within 24 months of the date of service. When another insurer is billed first, the claim “must be refiled and received by the MCO within 95 Days from the date of disposition by the other insurance resource.” HHSC sets no weekly submission cutoff or check-run day; each MCO runs its own payment cycle. The TMPPM Managed Care Handbook repeats the 95-day rule and sends appeals to the MCO first, then to HHSC as a complaint.',
+        ],
+        cites: [
+          { title: 'HHSC Uniform Managed Care Manual, Chapter 2.0 — Uniform Managed Care Claims Manual (v2.14)', url: 'https://www.hhs.texas.gov/sites/default/files/documents/laws-regulations/handbooks/umcm/2-0.pdf' },
+          { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.9.1 (Filing Deadlines) and 2.10 (MCO Appeals)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
         ],
       },
     ],
@@ -2936,6 +3092,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'How do I submit an ABA PA to Cook Children\'s?', a: 'Through the EpicCare Link secure provider portal, using the Comprehensive Care Program PA form. Fax (682-885-8402 for STAR/CHIP) is available only while portal access is pending — determination letters are delivered via the portal only, not by fax.' },
       { q: 'What happens to the ABA authorization if a family switches providers or plans?', a: 'A new ABA provider outside the current group must file a new authorization with initial-evaluation documentation and a change-of-provider letter signed by the responsible adult (TMPPM § 2.3.9). A new health plan must continue an existing authorization for up to 90 days, or until it ends or the new plan decides.' },
       { q: 'Is Cook Children\'s Health Plan\'s ABA network open to new providers?', a: 'It does not publish an open or closed status. Enroll in Texas Medicaid first, then apply to the plan; Medicaid enrollment does not guarantee an MCO contract. Ask provider relations.' },
+      { q: 'What is the timely filing limit for Cook Children’s Health Plan (Texas Medicaid)?', a: 'Ninety-five days from the date of service. HHSC’s Uniform Managed Care Claims Manual sets it for every Texas Medicaid MCO. Claim appeals get 120 days from the disposition date.' },
+      { q: 'How fast does Cook Children’s Health Plan have to pay a clean claim?', a: 'HHSC requires every Texas Medicaid MCO to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days.' },
     ],
   },
 
@@ -3013,6 +3171,18 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
         ],
       },
+      {
+        h2: 'What is Parkland Community Health Plan’s timely filing limit and payment turnaround for ABA claims?',
+        body: [
+          'HHSC sets the claim clocks for every Texas Medicaid MCO in its Uniform Managed Care Claims Manual: a provider must file a claim with the MCO "within 95 Days from the date of service," and the MCO must deny a claim it does not receive in that window unless an exception applies (wrong plan, other insurance, newborns, newly enrolled providers). The MCO must tell the provider it "has 120 Days from the date of disposition to appeal the Claim," and must adjudicate an appealed claim within 30 days. Its performance standard is to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days, with every claim finalized within 24 months of the date of service. When another insurer is billed first, the claim “must be refiled and received by the MCO within 95 Days from the date of disposition by the other insurance resource.” HHSC sets no weekly submission cutoff or check-run day; each MCO runs its own payment cycle. The TMPPM Managed Care Handbook repeats the 95-day rule and sends appeals to the MCO first, then to HHSC as a complaint.',
+          'Parkland’s 2025 manual: submit clean claims "within 95 calendar days from the date of service for outpatient services," and "A provider has 120 days from the date of an Explanation of Payment (EOP) to file a payment dispute."',
+        ],
+        cites: [
+          { title: 'HHSC Uniform Managed Care Manual, Chapter 2.0 — Uniform Managed Care Claims Manual (v2.14)', url: 'https://www.hhs.texas.gov/sites/default/files/documents/laws-regulations/handbooks/umcm/2-0.pdf' },
+          { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.9.1 (Filing Deadlines) and 2.10 (MCO Appeals)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
+          { title: 'Parkland Community Health Plan — 2025 Provider Manual, STAR Medicaid and CHIP (Rev 4/25), Timely Filing; Provider Claim Appeals', url: 'https://providers.parklandhealthplan.com/Uploads/Public/Documents/Provider/PCHP%20Provider%20Manual_20260504.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'STAR vs. CHIP', desc: 'ABA is available for STAR members only — CHIP is excluded, per PCHP\'s own member-facing benefit page.' },
@@ -3052,7 +3222,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       dailyLimits: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: direct treatment is capped at 8 hours (32 units) per day combined across 97153, 97154, 97155 and 97158; 97151 is capped at 6 hours (24 units) per evaluation and per re-evaluation; group treatment runs 2 to 8 children. Authorization periods are two consecutive 90-day terms then recertifications of up to 180 days.',
+          'Follows the Texas Medicaid (TMPPM) rule: direct treatment is capped at 8 hours (32 units) per day combined across 97153, 97154, 97155 and 97158; 97151 is capped at 6 hours (24 units) per evaluation and per re-evaluation; group treatment runs 2 to 8 children. TMPPM: “If services billed exceed the limitations outlined in this section, the claim will be denied, and may be appealed,” so the cap is a claim edit as well as an authorization limit. Authorization periods are two consecutive 90-day terms then recertifications of up to 180 days.',
         status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
@@ -3169,6 +3339,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'What codes does PCHP require PA for?', a: '97151, 97152, 97153, 97154, 97155, 97156, 97157, 97158, and 99366, per PCHP\'s own Prior Authorization Requirements list (eff. 9/1/2025). 0362T does not appear on that list — its status is unconfirmed.' },
       { q: 'What happens to the ABA authorization if a family switches providers or plans?', a: 'A new ABA provider outside the current group must file a new authorization with initial-evaluation documentation and a change-of-provider letter signed by the responsible adult (TMPPM § 2.3.9). A new health plan must continue an existing authorization for up to 90 days, or until it ends or the new plan decides.' },
       { q: 'Is Parkland\'s ABA network open to new providers?', a: 'It does not publish an open or closed status. Enroll in Texas Medicaid first, then apply to the plan; Medicaid enrollment does not guarantee an MCO contract. Ask provider relations.' },
+      { q: 'What is the timely filing limit for Parkland Community Health Plan (Texas Medicaid)?', a: 'Ninety-five days from the date of service. HHSC’s Uniform Managed Care Claims Manual sets it for every Texas Medicaid MCO, and Parkland Community Health Plan’s own manual states the same deadline. Claim appeals get 120 days from the disposition date.' },
+      { q: 'How fast does Parkland Community Health Plan have to pay a clean claim?', a: 'HHSC requires every Texas Medicaid MCO to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days.' },
     ],
   },
 
@@ -3246,6 +3418,18 @@ export const texasPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
           { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
+        ],
+      },
+      {
+        h2: 'What is El Paso Health’s timely filing limit and payment turnaround for ABA claims?',
+        body: [
+          'HHSC sets the claim clocks for every Texas Medicaid MCO in its Uniform Managed Care Claims Manual: a provider must file a claim with the MCO "within 95 Days from the date of service," and the MCO must deny a claim it does not receive in that window unless an exception applies (wrong plan, other insurance, newborns, newly enrolled providers). The MCO must tell the provider it "has 120 Days from the date of disposition to appeal the Claim," and must adjudicate an appealed claim within 30 days. Its performance standard is to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days, with every claim finalized within 24 months of the date of service. When another insurer is billed first, the claim “must be refiled and received by the MCO within 95 Days from the date of disposition by the other insurance resource.” HHSC sets no weekly submission cutoff or check-run day; each MCO runs its own payment cycle. The TMPPM Managed Care Handbook repeats the 95-day rule and sends appeals to the MCO first, then to HHSC as a complaint.',
+          'El Paso Health’s April 2025 manual: "a claim for medical services must be presented for processing within 95 Days of the DOS."',
+        ],
+        cites: [
+          { title: 'HHSC Uniform Managed Care Manual, Chapter 2.0 — Uniform Managed Care Claims Manual (v2.14)', url: 'https://www.hhs.texas.gov/sites/default/files/documents/laws-regulations/handbooks/umcm/2-0.pdf' },
+          { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.9.1 (Filing Deadlines) and 2.10 (MCO Appeals)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
+          { title: 'El Paso Health — Provider Manual, CHIP, STAR & STAR+PLUS (April 2025), Claim Submission Timelines', url: 'https://www.elpasohealth.com/pdf/EPH_SP_MCCO-COMMS_Provider%20Manual.pdf' },
         ],
       },
     ],
@@ -3407,12 +3591,14 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'What diagnostic documentation does El Paso Health require?', a: 'A validated standardized tool — ADOS, ADI-R, or CARS are named in the plan\'s own memo — plus DSM criteria, severity level, and (per a separate memo) documented comorbid conditions and trauma history. Screening tools like the M-CHAT-R/F don\'t substitute.' },
       { q: 'What happens to the ABA authorization if a family switches providers or plans?', a: 'A new ABA provider outside the current group must file a new authorization with initial-evaluation documentation and a change-of-provider letter signed by the responsible adult (TMPPM § 2.3.9). A new health plan must continue an existing authorization for up to 90 days, or until it ends or the new plan decides.' },
       { q: 'Is El Paso Health\'s ABA network open to new providers?', a: 'It does not publish an open or closed status. Enroll in Texas Medicaid first, then apply to the plan; Medicaid enrollment does not guarantee an MCO contract. Ask provider relations.' },
+      { q: 'What is the timely filing limit for El Paso Health (Texas Medicaid)?', a: 'Ninety-five days from the date of service. HHSC’s Uniform Managed Care Claims Manual sets it for every Texas Medicaid MCO, and El Paso Health’s own manual states the same deadline. Claim appeals get 120 days from the disposition date.' },
+      { q: 'How fast does El Paso Health have to pay a clean claim?', a: 'HHSC requires every Texas Medicaid MCO to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days.' },
     ],
   },
 
   'firstcare-health-plans': {
     slug: 'firstcare-health-plans',
-    cardDesc: 'Lubbock + MRSA West STAR/CHIP; PA confirmed on 97151-99366; plans wind down 8/31/2026 (pending approval).',
+    cardDesc: 'Lubbock + MRSA West STAR/CHIP — EXITED Texas Medicaid 8/31/2026; claims for earlier DOS due within 95 days.',
     assessmentPA: {
       value: 'Required — per FirstCare\'s own PA code list; submit via the Texas Standard PA form, myFirstCare portal, or fax',
       status: 'verified',
@@ -3440,12 +3626,12 @@ export const texasPayers: Record<string, PayerConfig> = {
     h1: 'FirstCare Health Plans ABA coverage (Texas Medicaid MCO).',
     metaTitle: 'FirstCare Health Plans (Texas Medicaid) ABA Coverage & Prior Auth | Carelu',
     metaDescription:
-      'How FirstCare Health Plans administers Texas Medicaid ABA in Lubbock and MRSA West — its Medicaid PA code list, submission mechanics via the myFirstCare portal, and the confirmed August 2026 plan wind-down.',
+      'How FirstCare Health Plans administers Texas Medicaid ABA in Lubbock and MRSA West — its Medicaid PA code list, submission mechanics via the myFirstCare portal, and the plan’s exit from Texas Medicaid on August 31, 2026.',
     intro: [
-      'FirstCare Health Plans — SHA LLC dba FirstCare, owned by Baylor Scott & White Health Plan, serving STAR in the Lubbock service area and the large Medicaid Rural Service Area (MRSA) West, plus CHIP in Lubbock only — administers ABA on the statewide TMPPM baseline with no dedicated Autism Services provider-manual section of its own; the plan\'s Behavioral Health section covers mental health and substance-use benefits in detail but never mentions autism or ABA. **The fact that matters most before building any workflow around FirstCare: the plan\'s own site states "Our plans end on Aug. 31, 2026, subject to regulatory approval"** — confirm current enrollment and transition guidance with FirstCare and HHSC before treating this as a stable long-term payer relationship.',
+      'FirstCare Health Plans — SHA LLC dba FirstCare, owned by Baylor Scott & White Health Plan, serving STAR in the Lubbock service area and the large Medicaid Rural Service Area (MRSA) West, plus CHIP in Lubbock only — administers ABA on the statewide TMPPM baseline with no dedicated Autism Services provider-manual section of its own; the plan\'s Behavioral Health section covers mental health and substance-use benefits in detail but never mentions autism or ABA. **FirstCare exited Texas Medicaid managed care on August 31, 2026** — its site now reads “FirstCare exited the Texas Medicaid Managed Care Program on Aug. 31, 2026.” TMHP rejects claims with a date of service on or after September 1, 2026, and “Providers have 95 days to submit their claims with a DOS on or before August 31, 2026.” Confirm which STAR or CHIP plan the family has now; the rules below describe FirstCare’s handling of dates of service through the exit.',
     ],
     atGlance: [
-      { label: 'Plan status', value: 'Winding down — FirstCare\'s own site states plans end 8/31/2026, subject to regulatory approval' },
+      { label: 'Plan status', value: 'EXITED Texas Medicaid 8/31/2026 — 95 days to file claims for earlier DOS (TMHP update 9/2/2026)' },
       { label: 'Plan type', value: 'Texas Medicaid MCO (Baylor Scott & White Health Plan) — STAR (Lubbock + MRSA West), CHIP (Lubbock only)' },
       { label: 'Clinical rules', value: 'TMPPM Autism Services criteria; FirstCare\'s Medicaid PA list defers to it, not its commercial Autism policy #206' },
       { label: 'Prior auth', value: 'Confirmed required on 97151, 97153, 97154, 97155, 97156, 97158, 99366 (Medicaid PA code list, eff. 7/1/2026)' },
@@ -3464,11 +3650,12 @@ export const texasPayers: Record<string, PayerConfig> = {
         ],
       },
       {
-        h2: 'Submission mechanics, and the wind-down to plan for',
+        h2: 'Submission mechanics (through the 8/31/2026 exit)',
         body: [
-          'Requests submit through the myFirstCare Self-Service Portal (my.firstcare.com/Web) or by fax using the Texas Standard Prior Authorization Request Form — FirstCare uses the statewide form, not a proprietary one. General turnaround is 3 working days from receipt of complete clinical information, and the plan asks providers to submit at least 5 days before the anticipated service date. One routing ambiguity we could not resolve: FirstCare\'s own contact tables list a separate Medical PA line (1-800-884-4905, fax 1-800-248-1852) and a Behavioral Health PA line (1-855-395-9652, fax 1-844-436-8779) — since ABA codes are filed under "Therapy services" rather than "Behavioral health" on the code list, confirm which line actually processes ABA requests before your first submission. And plan around the closure date directly: FirstCare\'s STAR page states its plans end August 31, 2026 pending regulatory approval — verify current transition guidance for any active caseload well before that date.',
+          'Requests submit through the myFirstCare Self-Service Portal (my.firstcare.com/Web) or by fax using the Texas Standard Prior Authorization Request Form — FirstCare uses the statewide form, not a proprietary one. General turnaround is 3 working days from receipt of complete clinical information, and the plan asks providers to submit at least 5 days before the anticipated service date. One routing ambiguity we could not resolve: FirstCare\'s own contact tables list a separate Medical PA line (1-800-884-4905, fax 1-800-248-1852) and a Behavioral Health PA line (1-855-395-9652, fax 1-844-436-8779) — since ABA codes are filed under "Therapy services" rather than "Behavioral health" on the code list, confirm which line actually processes ABA requests before your first submission. FirstCare exited Texas Medicaid on August 31, 2026, so these mechanics now matter only for open requests and claims for earlier dates of service, which TMHP says must be submitted within 95 days.',
         ],
         cites: [
+          { title: 'TMHP — Update: MCO providers have 95 days to submit claims with a DOS on or before 8/31/2026 for Baylor Scott & White and FirstCare (9/2/2026)', url: 'https://www.tmhp.com/news/2026-09-02-update-mco-providers-have-95-days-submit-claims-dos-or-august-31-2026-baylor-scott' },
           { title: 'FirstCare — 2026 STAR and CHIP Provider Manual (PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR-CHIP-Provider-Manual.pdf' },
           { title: 'FirstCare — STAR Medicaid (plan status)', url: 'https://www.firstcare.com/en/Individuals-and-Families/STAR-CHIP/STAR-Medicaid' },
         ],
@@ -3484,14 +3671,29 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
         ],
       },
+      {
+        h2: 'What is FirstCare’s timely filing limit and payment turnaround for ABA claims?',
+        body: [
+          'HHSC sets the claim clocks for every Texas Medicaid MCO in its Uniform Managed Care Claims Manual: a provider must file a claim with the MCO "within 95 Days from the date of service," and the MCO must deny a claim it does not receive in that window unless an exception applies (wrong plan, other insurance, newborns, newly enrolled providers). The MCO must tell the provider it "has 120 Days from the date of disposition to appeal the Claim," and must adjudicate an appealed claim within 30 days. Its performance standard is to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days, with every claim finalized within 24 months of the date of service. When another insurer is billed first, the claim “must be refiled and received by the MCO within 95 Days from the date of disposition by the other insurance resource.” HHSC sets no weekly submission cutoff or check-run day; each MCO runs its own payment cycle. The TMPPM Managed Care Handbook repeats the 95-day rule and sends appeals to the MCO first, then to HHSC as a complaint.',
+          'FirstCare’s 2026 manual: claims "should be submitted within 95 days following the date on which the covered health services were rendered," and claims not received within 95 days "will be denied and considered waived by the provider."',
+        ],
+        cites: [
+          { title: 'HHSC Uniform Managed Care Manual, Chapter 2.0 — Uniform Managed Care Claims Manual (v2.14)', url: 'https://www.hhs.texas.gov/sites/default/files/documents/laws-regulations/handbooks/umcm/2-0.pdf' },
+          { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.9.1 (Filing Deadlines) and 2.10 (MCO Appeals)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
+          { title: 'FirstCare — 2026 STAR and CHIP Provider Manual, § 11.5 Claims Filing Deadlines', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR-CHIP-Provider-Manual.pdf' },
+        ],
+      },
     ],
     collect: [
-      { title: 'Plan continuity check', desc: 'FirstCare\'s own site states plans end 8/31/2026 (pending approval) — confirm current status and any HHSC-directed member transition plan before onboarding new cases.' },
+      { title: 'Current plan', desc: 'FirstCare exited Texas Medicaid 8/31/2026 — confirm the family’s new STAR or CHIP plan, and file any FirstCare claims for earlier dates of service within 95 days.' },
       { title: 'STAR vs. CHIP', desc: 'STAR covers Lubbock + MRSA West; CHIP is Lubbock service area only.' },
       { title: 'ASD dx + recency', desc: 'State baseline: qualified diagnoser, DSM severity, within 3 years.' },
       { title: 'PA routing confirmation', desc: 'Confirm whether Medical PA or Behavioral Health PA processes ABA requests — FirstCare\'s own documents don\'t make this unambiguous.' },
     ],
     sources: [
+      { title: 'FirstCare Health Plans — homepage (exit notice)', url: 'https://www.firstcare.com/' },
+      { title: 'TMHP — Baylor Scott & White and FirstCare Health Plans will end participation in Texas Medicaid (updated 9/2/2026)', url: 'https://www.tmhp.com/news/2026-07-17-baylor-scott-white-and-firstcare-health-plans-will-end-participation-texas-medicaid' },
+      { title: 'TMHP — Update: MCO providers have 95 days to submit claims with a DOS on or before 8/31/2026 for Baylor Scott & White and FirstCare (9/2/2026)', url: 'https://www.tmhp.com/news/2026-09-02-update-mco-providers-have-95-days-submit-claims-dos-or-august-31-2026-baylor-scott' },
       { title: 'FirstCare — Texas Medicaid/CHIP Notification/Prior Authorization Codes (eff. 10/1/2026, PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR/PA-List.pdf' },
       { title: 'FirstCare — Medical Coverage Policy #206: Autism Spectrum Disorder (PDF)', url: 'https://wadcdnstorageprod.blob.core.windows.net/bswhp/Medical-Policies/206.pdf' },
       { title: 'FirstCare — 2026 STAR and CHIP Provider Manual (PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR-CHIP-Provider-Manual.pdf' },
@@ -3525,7 +3727,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       dailyLimits: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: direct treatment is capped at 8 hours (32 units) per day combined across 97153, 97154, 97155 and 97158; 97151 is capped at 6 hours (24 units) per evaluation and per re-evaluation; group treatment runs 2 to 8 children. Authorization periods are two consecutive 90-day terms then recertifications of up to 180 days.',
+          'Follows the Texas Medicaid (TMPPM) rule: direct treatment is capped at 8 hours (32 units) per day combined across 97153, 97154, 97155 and 97158; 97151 is capped at 6 hours (24 units) per evaluation and per re-evaluation; group treatment runs 2 to 8 children. TMPPM: “If services billed exceed the limitations outlined in this section, the claim will be denied, and may be appealed,” so the cap is a claim edit as well as an authorization limit. Authorization periods are two consecutive 90-day terms then recertifications of up to 180 days.',
         status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
@@ -3648,16 +3850,18 @@ export const texasPayers: Record<string, PayerConfig> = {
     },
     faq: [
       { q: 'Does FirstCare Health Plans cover ABA?', a: 'Yes — the Texas Medicaid Autism Services benefit for STAR members in Lubbock and MRSA West, on TMPPM criteria. FirstCare\'s own Medicaid PA code list confirms PA is required on 97151, 97153-97156, 97158, and 99366.' },
-      { q: 'Is FirstCare still accepting new Texas Medicaid members?', a: 'FirstCare\'s own site states its plans end August 31, 2026, subject to regulatory approval — confirm current enrollment and transition status directly with FirstCare or HHSC before building a long-term care plan around this payer.' },
+      { q: 'Is FirstCare still a Texas Medicaid plan?', a: 'No. FirstCare exited Texas Medicaid managed care on August 31, 2026. Claims with a date of service on or after September 1, 2026 are rejected, and providers have 95 days to submit claims for dates of service on or before August 31, 2026 (TMHP update, 9/2/2026).' },
       { q: 'Does the Texas mandate\'s $36,000 ABA cap apply to FirstCare Medicaid?', a: 'No — FirstCare\'s own commercial autism policy confirms the mandate\'s dollar cap applies to state-regulated commercial plans, not Medicaid, matching the no-cap statewide Medicaid baseline.' },
       { q: 'What happens to the ABA authorization if a family switches providers or plans?', a: 'A new ABA provider outside the current group must file a new authorization with initial-evaluation documentation and a change-of-provider letter signed by the responsible adult (TMPPM § 2.3.9). A new health plan must continue an existing authorization for up to 90 days, or until it ends or the new plan decides.' },
       { q: 'Is FirstCare\'s ABA network open to new providers?', a: 'It does not publish an open or closed status. Enroll in Texas Medicaid first, then apply to the plan; Medicaid enrollment does not guarantee an MCO contract. Ask provider relations.' },
+      { q: 'What is the timely filing limit for FirstCare (Texas Medicaid)?', a: 'Ninety-five days from the date of service. HHSC’s Uniform Managed Care Claims Manual sets it for every Texas Medicaid MCO, and FirstCare’s own manual states the same deadline. Claim appeals get 120 days from the disposition date.' },
+      { q: 'How fast does FirstCare have to pay a clean claim?', a: 'HHSC requires every Texas Medicaid MCO to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days.' },
     ],
   },
 
   'baylor-scott-white-texas': {
     slug: 'baylor-scott-white-texas',
-    cardDesc: 'RightCare/MRSA Central — plan is WINDING DOWN, exits Texas Medicaid 8/31/2026 (regulatory approval pending).',
+    cardDesc: 'RightCare/MRSA Central — EXITED Texas Medicaid 8/31/2026; claims for earlier dates of service due within 95 days.',
     assessmentPA: {
       value: 'Required — 97151 on RightCare\'s own Medicaid PA code list (PA required since 1/3/2020); PA process unaffected during the wind-down',
       status: 'verified',
@@ -3684,16 +3888,16 @@ export const texasPayers: Record<string, PayerConfig> = {
     payer: 'RightCare from Scott and White Health Plan (dba Baylor Scott & White Health Plan)',
     state: 'TX', kind: 'medicaid-mco', parent: 'Texas Medicaid (THSteps-CCP)',
     pill: 'Payer Guide · RightCare (Baylor Scott & White)',
-    h1: 'RightCare (Baylor Scott & White) ABA coverage — plan is winding down.',
+    h1: 'RightCare (Baylor Scott & White) ABA coverage — plan exited Texas Medicaid 8/31/2026.',
     metaTitle: 'RightCare / Baylor Scott & White (TX Medicaid) ABA Coverage — Plan Exiting 2026 | Carelu',
     metaDescription:
-      'RightCare from Scott and White Health Plan (MRSA Central STAR Medicaid) is exiting Texas Medicaid managed care August 31, 2026. What that means for ABA prior authorization, claims deadlines, and transition planning — plus the plan\'s ABA policy while it remains active.',
+      'RightCare from Scott and White Health Plan (MRSA Central STAR Medicaid) exited Texas Medicaid managed care on August 31, 2026. What that means for claims deadlines and transition planning — plus the plan\'s ABA policy for dates of service before the exit.',
     intro: [
-      'Read this first: RightCare — Baylor Scott & White Health Plan\'s STAR Medicaid product for the Central Texas Medicaid Rural Service Area (MRSA Central) — is exiting the Texas Medicaid managed care program effective August 31, 2026, subject to regulatory approval. TMHP\'s own announcement and the plan\'s own site both confirm it. Its sister brand, FirstCare Health Plans (MRSA West/Lubbock), is exiting on the same date. For any family newly presenting with a RightCare STAR card, factor the wind-down into onboarding — a family\'s Medicaid managed-care assignment is likely to change soon regardless of what you do. For active RightCare cases, the plan\'s guidance is that prior-authorization processes remain unaffected during the transition, so keep following the process below through the exit date.',
+      'Read this first: RightCare — Baylor Scott & White Health Plan’s STAR Medicaid product for the Central Texas Medicaid Rural Service Area (MRSA Central) — exited the Texas Medicaid managed care program on August 31, 2026; the plan’s own site now says “RightCare exited the Texas Medicaid Managed Care Program on Aug. 31, 2026,” and its sister brand FirstCare Health Plans exited the same day. TMHP: “Effective September 1, 2026, Baylor Scott & White and FirstCare health plans no longer participate in Texas Medicaid managed care programs,” claims with a date of service on or after September 1, 2026 are rejected, and “Providers have 95 days to submit their claims with a DOS on or before August 31, 2026.” A family presenting with a RightCare STAR card now has a different STAR MCO; verify the current plan in TexMedConnect or with TMHP before any intake. The ABA rules below describe how RightCare handled dates of service through August 31, 2026.',
     ],
     atGlance: [
-      { label: 'Status', value: 'EXITING Texas Medicaid — last date of service accepted 8/31/2026 (regulatory approval pending)' },
-      { label: 'Claims deadline', value: 'Providers have until 8/31/2028 to submit claims for DOS through 8/31/2026' },
+      { label: 'Status', value: 'EXITED Texas Medicaid 8/31/2026 — claims with DOS on or after 9/1/2026 are rejected' },
+      { label: 'Claims deadline', value: '95 days to submit claims for DOS on or before 8/31/2026 (TMHP update, 9/2/2026)' },
       { label: 'Service area', value: 'MRSA Central — 30 counties per RightCare\'s own network materials (see below)' },
       { label: 'ABA clinical rules', value: 'Medical Coverage Policy 206 (Autism Spectrum Disorder) — defers to TMPPM for Medicaid' },
       { label: 'PA-required ABA codes', value: '97151, 97153, 97154, 97155, 97156, 97158, 99366 — matches the TMHP statewide code set' },
@@ -3702,17 +3906,18 @@ export const texasPayers: Record<string, PayerConfig> = {
     ],
     sections: [
       {
-        h2: 'The wind-down: what it means for active and new cases',
+        h2: 'The exit: what it means for open claims and families',
         body: [
-          'TMHP\'s July 17, 2026 announcement states Baylor Scott & White (MRSA Central) and FirstCare Health Plans (MRSA West/Lubbock) will end participation in Texas Medicaid managed care, with the final date of service TMHP will accept being August 31, 2026; claims with a date of service on or after September 1, 2026 will be rejected, and providers have until August 31, 2028 (24 months) to submit claims for dates of service through the exit date. RightCare\'s own site carries the same notice: "Our plans end on Aug. 31, 2026, subject to regulatory approval." The announcement is explicit that prior-authorization processes remain unaffected during the transition — so continue submitting and tracking PAs normally for now — but build the plan-reassignment conversation into intake for any new RightCare family, since members will need to select a new STAR MCO before the exit date. TMHP\'s Contact Center (800-925-9126) is the right first call for transition-specific questions.',
+          'TMHP’s July 17, 2026 announcement said Baylor Scott & White (MRSA Central) and FirstCare Health Plans (MRSA West/Lubbock) would end participation in Texas Medicaid managed care, with August 31, 2026 the last date of service TMHP accepts; claims with a date of service on or after September 1, 2026 are rejected. That notice first gave providers 24 months to submit claims for earlier dates of service, but TMHP’s September 2, 2026 update replaced it: “Providers have 95 days to submit their claims with a DOS on or before August 31, 2026” — so a claim for August 31, 2026 is due by early December 2026. RightCare’s site now reads “RightCare exited the Texas Medicaid Managed Care Program on Aug. 31, 2026.” HHSC ran turnover plans to move members to their newly selected plans; questions go to the TMHP Contact Center at 800-925-9126.',
         ],
         cites: [
           { title: 'TMHP — Baylor Scott & White and FirstCare Health Plans will end participation in Texas Medicaid', url: 'https://www.tmhp.com/news/2026-07-17-baylor-scott-white-and-firstcare-health-plans-will-end-participation-texas-medicaid' },
           { title: 'RightCare — plan homepage (exit notice)', url: 'https://rightcare.swhp.org/' },
+          { title: 'TMHP — Update: MCO providers have 95 days to submit claims with a DOS on or before 8/31/2026 for Baylor Scott & White and FirstCare (9/2/2026)', url: 'https://www.tmhp.com/news/2026-09-02-update-mco-providers-have-95-days-submit-claims-dos-or-august-31-2026-baylor-scott' },
         ],
       },
       {
-        h2: 'While the plan remains active: ABA authorization',
+        h2: 'ABA authorization (dates of service through 8/31/2026)',
         body: [
           'RightCare\'s own Medicaid/CHIP Prior Authorization Codes list (effective 7/1/2026) confirms PA-required ABA codes 97151, 97153, 97154, 97155, 97156, 97158, and 99366 — each showing a PA-requirement effective date of 1/3/2020 — with 97152 and 97157 absent from the list, matching the TMHP statewide THSteps-CCP Autism Services code set exactly. Requests submit through the RightCare Self-Service Portal or by fax to the Medical Management line. The plan\'s separate clinical policy, Medical Coverage Policy 206 ("Autism Spectrum Disorder," effective 7/1/2026), explicitly defers to the TMPPM first: "For Medicaid plans, please confirm coverage as outlined in the Texas Medicaid Provider Procedures Manual (TMPPM). If there are no applicable criteria to guide medical necessity decision making in the TMPPM, use the criteria set forth below." Note that Policy 206\'s own CPT code table (which lists 97152, 97157, 0362T, and 0373T alongside the others) is the plan\'s general/commercial-oriented table, not the operative Medicaid PA gate — the PA code list above is what actually governs a Medicaid claim, and it matches the narrower TMHP set. We could not confirm a RightCare-specific authorization-period length (e.g., a 90-day or 6-month cycle) beyond the general TMPPM baseline — treat auth-period length as inherited from the state rules and confirm any RightCare-specific timing with the plan directly.',
         ],
@@ -3751,14 +3956,27 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
         ],
       },
+      {
+        h2: 'What is RightCare’s timely filing limit and payment turnaround for ABA claims?',
+        body: [
+          'HHSC sets the claim clocks for every Texas Medicaid MCO in its Uniform Managed Care Claims Manual: a provider must file a claim with the MCO "within 95 Days from the date of service," and the MCO must deny a claim it does not receive in that window unless an exception applies (wrong plan, other insurance, newborns, newly enrolled providers). The MCO must tell the provider it "has 120 Days from the date of disposition to appeal the Claim," and must adjudicate an appealed claim within 30 days. Its performance standard is to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days, with every claim finalized within 24 months of the date of service. When another insurer is billed first, the claim “must be refiled and received by the MCO within 95 Days from the date of disposition by the other insurance resource.” HHSC sets no weekly submission cutoff or check-run day; each MCO runs its own payment cycle. The TMPPM Managed Care Handbook repeats the 95-day rule and sends appeals to the MCO first, then to HHSC as a complaint.',
+          'RightCare’s 2026 manual: "Providers must submit claims within 95 days of the rendering of service, or within 95 days of settlement with the primary carrier in a Coordination of Benefits case."',
+        ],
+        cites: [
+          { title: 'HHSC Uniform Managed Care Manual, Chapter 2.0 — Uniform Managed Care Claims Manual (v2.14)', url: 'https://www.hhs.texas.gov/sites/default/files/documents/laws-regulations/handbooks/umcm/2-0.pdf' },
+          { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.9.1 (Filing Deadlines) and 2.10 (MCO Appeals)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
+          { title: 'RightCare from Baylor Scott & White — 2026 Provider Manual', url: 'https://rightcare.swhp.org/-/media/project/bsw/sites/rightcare/documents/provider-manual.pdf' },
+        ],
+      },
     ],
     collect: [
-      { title: 'Plan wind-down awareness', desc: 'RightCare exits Texas Medicaid 8/31/2026 — confirm the family\'s plan-reassignment status and don\'t build long-term authorization plans around this plan past that date.' },
+      { title: 'Current plan', desc: 'RightCare exited Texas Medicaid 8/31/2026 — confirm which STAR MCO the family has now, and file any RightCare claims for earlier dates of service within 95 days.' },
       { title: 'ASD diagnosis + TMPPM-standard documentation', desc: 'The plan defers to TMPPM criteria for Medicaid — reuse the same packet you\'d build for any Texas Medicaid MCO.' },
       { title: 'Correct submission channel', desc: 'Confirm with RightCare whether ABA PA routes through Medical Management (1-855-691-7947) or Behavioral Health Management (1-855-395-9652) — not independently confirmed from published materials.' },
       { title: 'County of residence', desc: 'Confirm MRSA Central coverage for the family\'s specific county, especially near the DeWitt County boundary.' },
     ],
     sources: [
+      { title: 'TMHP — Update: MCO providers have 95 days to submit claims with a DOS on or before 8/31/2026 for Baylor Scott & White and FirstCare (9/2/2026)', url: 'https://www.tmhp.com/news/2026-09-02-update-mco-providers-have-95-days-submit-claims-dos-or-august-31-2026-baylor-scott' },
       { title: 'TMHP — Baylor Scott & White and FirstCare Health Plans will end participation in Texas Medicaid', url: 'https://www.tmhp.com/news/2026-07-17-baylor-scott-white-and-firstcare-health-plans-will-end-participation-texas-medicaid' },
       { title: 'RightCare — plan homepage (exit notice)', url: 'https://rightcare.swhp.org/' },
       { title: 'RightCare — Texas Medicaid/CHIP Prior Authorization Codes List (eff. 7/1/2026)', url: 'https://rightcare.swhp.org/-/media/project/bsw/sites/rightcare/documents/forms/medicaid/RightCare_Authorization_List.pdf' },
@@ -3835,7 +4053,7 @@ export const texasPayers: Record<string, PayerConfig> = {
     intakeGates: {
       ageLimit: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: birth through 20 years of age on the date of service, with eligibility ending the day of the 21st birthday. CHIP members are excluded from the ABA benefit. Medical Coverage Policy 206 states it directly: for Medicaid plans, confirm coverage as outlined in the TMPPM, and use Policy 206\'s own criteria only where the TMPPM is silent. The plan exits Texas Medicaid 8/31/2026.',
+          'Follows the Texas Medicaid (TMPPM) rule: birth through 20 years of age on the date of service, with eligibility ending the day of the 21st birthday. CHIP members are excluded from the ABA benefit. Medical Coverage Policy 206 states it directly: for Medicaid plans, confirm coverage as outlined in the TMPPM, and use Policy 206\'s own criteria only where the TMPPM is silent. The plan exited Texas Medicaid on 8/31/2026.',
         status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
@@ -3845,7 +4063,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       dxRecency: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: the ASD diagnosis must be made or reconfirmed within 3 years of initiation or recertification; past 3 years a comprehensive re-evaluation of ASD symptom severity levels per DSM criteria is required first. Medical Coverage Policy 206 states it directly: for Medicaid plans, confirm coverage as outlined in the TMPPM, and use Policy 206\'s own criteria only where the TMPPM is silent. The plan exits Texas Medicaid 8/31/2026.',
+          'Follows the Texas Medicaid (TMPPM) rule: the ASD diagnosis must be made or reconfirmed within 3 years of initiation or recertification; past 3 years a comprehensive re-evaluation of ASD symptom severity levels per DSM criteria is required first. Medical Coverage Policy 206 states it directly: for Medicaid plans, confirm coverage as outlined in the TMPPM, and use Policy 206\'s own criteria only where the TMPPM is silent. The plan exited Texas Medicaid on 8/31/2026.',
         status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
@@ -3855,7 +4073,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: a developmental pediatrician, neurologist, psychiatrist, licensed psychologist, or an interdisciplinary diagnostic team (a physician, PA or NP in consultation with qualified child specialists with autism expertise). Medical Coverage Policy 206 states it directly: for Medicaid plans, confirm coverage as outlined in the TMPPM, and use Policy 206\'s own criteria only where the TMPPM is silent. The plan exits Texas Medicaid 8/31/2026.',
+          'Follows the Texas Medicaid (TMPPM) rule: a developmental pediatrician, neurologist, psychiatrist, licensed psychologist, or an interdisciplinary diagnostic team (a physician, PA or NP in consultation with qualified child specialists with autism expertise). Medical Coverage Policy 206 states it directly: for Medicaid plans, confirm coverage as outlined in the TMPPM, and use Policy 206\'s own criteria only where the TMPPM is silent. The plan exited Texas Medicaid on 8/31/2026.',
         status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
@@ -3865,7 +4083,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       diagnosticTools: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: a reliable, valid, standardized diagnostic assessment tool or combination of tools — the manual names the ADOS, ADI-R and CARS as examples. Screening instruments alone (STAT, M-CHAT-R) do not substitute. Medical Coverage Policy 206 states it directly: for Medicaid plans, confirm coverage as outlined in the TMPPM, and use Policy 206\'s own criteria only where the TMPPM is silent. The plan exits Texas Medicaid 8/31/2026.',
+          'Follows the Texas Medicaid (TMPPM) rule: a reliable, valid, standardized diagnostic assessment tool or combination of tools — the manual names the ADOS, ADI-R and CARS as examples. Screening instruments alone (STAT, M-CHAT-R) do not substitute. Medical Coverage Policy 206 states it directly: for Medicaid plans, confirm coverage as outlined in the TMPPM, and use Policy 206\'s own criteria only where the TMPPM is silent. The plan exited Texas Medicaid on 8/31/2026.',
         status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
@@ -3875,7 +4093,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: a signed, dated prescriber referral for the evaluation, signed within 60 calendar days before or on the anticipated evaluation date; and for treatment a signed, dated referral from a physician or allowed practitioner (MD/DO, PA, NP, or CNS with delegated authority) stating frequency and duration, signed on or before the service start date and no more than 3 months old. Since 4/1/2025 the prescriber signature is no longer required on the CCP PA form for the 90-day extension. Medical Coverage Policy 206 states it directly: for Medicaid plans, confirm coverage as outlined in the TMPPM, and use Policy 206\'s own criteria only where the TMPPM is silent. The plan exits Texas Medicaid 8/31/2026.',
+          'Follows the Texas Medicaid (TMPPM) rule: a signed, dated prescriber referral for the evaluation, signed within 60 calendar days before or on the anticipated evaluation date; and for treatment a signed, dated referral from a physician or allowed practitioner (MD/DO, PA, NP, or CNS with delegated authority) stating frequency and duration, signed on or before the service start date and no more than 3 months old. Since 4/1/2025 the prescriber signature is no longer required on the CCP PA form for the 90-day extension. Medical Coverage Policy 206 states it directly: for Medicaid plans, confirm coverage as outlined in the TMPPM, and use Policy 206\'s own criteria only where the TMPPM is silent. The plan exited Texas Medicaid on 8/31/2026.',
         status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
@@ -3886,7 +4104,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: synchronous audio-visual only, modifier 95, on 97151, 97155, 97156, 97158 and 99366. One-on-one direct treatment delivered to the child by a behavior technician or LaBA must be in person — telehealth is prohibited for BT/LaBA-delivered direct service. Medical Coverage Policy 206 states it directly: for Medicaid plans, confirm coverage as outlined in the TMPPM, and use Policy 206\'s own criteria only where the TMPPM is silent. The plan exits Texas Medicaid 8/31/2026.',
+          'Follows the Texas Medicaid (TMPPM) rule: synchronous audio-visual only, modifier 95, on 97151, 97155, 97156, 97158 and 99366. One-on-one direct treatment delivered to the child by a behavior technician or LaBA must be in person — telehealth is prohibited for BT/LaBA-delivered direct service. Medical Coverage Policy 206 states it directly: for Medicaid plans, confirm coverage as outlined in the TMPPM, and use Policy 206\'s own criteria only where the TMPPM is silent. The plan exited Texas Medicaid on 8/31/2026.',
         status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
@@ -3914,12 +4132,14 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
-      { q: 'Is RightCare/Baylor Scott & White still a Texas Medicaid option?', a: 'Only through August 31, 2026 — the plan is exiting Texas Medicaid managed care (regulatory approval pending), per TMHP\'s July 2026 announcement. Claims for dates of service on or after September 1, 2026 will be rejected; providers have until 8/31/2028 to submit claims for earlier dates of service.' },
-      { q: 'Does RightCare cover ABA therapy?', a: 'Yes, while active — PA-required codes 97151, 97153, 97154, 97155, 97156, 97158, and 99366, matching the statewide TMHP code set, with criteria deferring to the TMPPM. Prior-authorization processes remain unaffected during the wind-down.' },
+      { q: 'Is RightCare/Baylor Scott & White still a Texas Medicaid option?', a: 'No. RightCare exited Texas Medicaid managed care on August 31, 2026. Claims for dates of service on or after September 1, 2026 are rejected, and TMHP’s September 2, 2026 update gives providers 95 days to submit claims for dates of service on or before August 31, 2026.' },
+      { q: 'Does RightCare cover ABA therapy?', a: 'It did, for dates of service through August 31, 2026 — PA-required codes 97151, 97153, 97154, 97155, 97156, 97158 and 99366, matching the statewide TMHP code set, with criteria deferring to the TMPPM. The plan has since exited Texas Medicaid.' },
       { q: 'Is ABA carved out to a behavioral health vendor at RightCare?', a: 'No — RightCare administers behavioral health in-house through its own "RightCare Behavioral Health Management" unit, not a third-party vendor like Magellan or Carelon.' },
-      { q: 'What happens to my RightCare client\'s ABA authorization after the plan exits?', a: 'The family will be reassigned to a different STAR MCO before the 8/31/2026 exit date — confirm current status with TMHP\'s Contact Center (800-925-9126) or the family\'s new MCO once assigned.' },
+      { q: 'What happens to my RightCare client\'s ABA authorization after the plan exits?', a: 'HHSC moved members to their newly selected plans at the 8/31/2026 exit. A new Texas Medicaid MCO must continue an existing authorization it is told about for up to 90 days, or until it ends or the new plan decides; confirm the family’s current plan with TMHP’s Contact Center (800-925-9126).' },
       { q: 'What happens to the ABA authorization if a family switches providers or plans?', a: 'A new ABA provider outside the current group must file a new authorization with initial-evaluation documentation and a change-of-provider letter signed by the responsible adult (TMPPM § 2.3.9). A new health plan must continue an existing authorization for up to 90 days, or until it ends or the new plan decides.' },
       { q: 'Is Baylor Scott & White\'s ABA network open to new providers?', a: 'It does not publish an open or closed status. Enroll in Texas Medicaid first, then apply to the plan; Medicaid enrollment does not guarantee an MCO contract. Ask provider relations.' },
+      { q: 'What is the timely filing limit for RightCare (Texas Medicaid)?', a: 'Ninety-five days from the date of service. HHSC’s Uniform Managed Care Claims Manual sets it for every Texas Medicaid MCO, and RightCare’s own manual states the same deadline. Claim appeals get 120 days from the disposition date.' },
+      { q: 'How fast does RightCare have to pay a clean claim?', a: 'HHSC requires every Texas Medicaid MCO to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days.' },
     ],
   },
 
@@ -4018,6 +4238,16 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
         ],
       },
+      {
+        h2: 'What is Dell Children’s Health Plan’s timely filing limit and payment turnaround for ABA claims?',
+        body: [
+          'HHSC sets the claim clocks for every Texas Medicaid MCO in its Uniform Managed Care Claims Manual: a provider must file a claim with the MCO "within 95 Days from the date of service," and the MCO must deny a claim it does not receive in that window unless an exception applies (wrong plan, other insurance, newborns, newly enrolled providers). The MCO must tell the provider it "has 120 Days from the date of disposition to appeal the Claim," and must adjudicate an appealed claim within 30 days. Its performance standard is to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days, with every claim finalized within 24 months of the date of service. When another insurer is billed first, the claim “must be refiled and received by the MCO within 95 Days from the date of disposition by the other insurance resource.” HHSC sets no weekly submission cutoff or check-run day; each MCO runs its own payment cycle. The TMPPM Managed Care Handbook repeats the 95-day rule and sends appeals to the MCO first, then to HHSC as a complaint.',
+        ],
+        cites: [
+          { title: 'HHSC Uniform Managed Care Manual, Chapter 2.0 — Uniform Managed Care Claims Manual (v2.14)', url: 'https://www.hhs.texas.gov/sites/default/files/documents/laws-regulations/handbooks/umcm/2-0.pdf' },
+          { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.9.1 (Filing Deadlines) and 2.10 (MCO Appeals)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
+        ],
+      },
     ],
     collect: [
       { title: 'STAR vs. CHIP vs. CHIP Perinatal', desc: 'ABA is explicitly covered for STAR; CHIP-specific ABA coverage isn\'t explicitly confirmed in the plan\'s own materials — verify for CHIP-only members.' },
@@ -4060,7 +4290,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       dailyLimits: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: direct treatment is capped at 8 hours (32 units) per day combined across 97153, 97154, 97155 and 97158; 97151 is capped at 6 hours (24 units) per evaluation and per re-evaluation; group treatment runs 2 to 8 children. Authorization periods are two consecutive 90-day terms then recertifications of up to 180 days.',
+          'Follows the Texas Medicaid (TMPPM) rule: direct treatment is capped at 8 hours (32 units) per day combined across 97153, 97154, 97155 and 97158; 97151 is capped at 6 hours (24 units) per evaluation and per re-evaluation; group treatment runs 2 to 8 children. TMPPM: “If services billed exceed the limitations outlined in this section, the claim will be denied, and may be appealed,” so the cap is a claim edit as well as an authorization limit. Authorization periods are two consecutive 90-day terms then recertifications of up to 180 days.',
         status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
@@ -4178,6 +4408,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'What areas does Dell Children\'s Health Plan cover?', a: 'The Travis service delivery area: Bastrop, Burnet, Caldwell, Fayette, Hays, Lee, Travis, and Williamson counties.' },
       { q: 'What happens to the ABA authorization if a family switches providers or plans?', a: 'A new ABA provider outside the current group must file a new authorization with initial-evaluation documentation and a change-of-provider letter signed by the responsible adult (TMPPM § 2.3.9). A new health plan must continue an existing authorization for up to 90 days, or until it ends or the new plan decides.' },
       { q: 'Is Dell Children\'s Health Plan\'s ABA network open to new providers?', a: 'It does not publish an open or closed status. Enroll in Texas Medicaid first, then apply to the plan; Medicaid enrollment does not guarantee an MCO contract. Ask provider relations.' },
+      { q: 'What is the timely filing limit for Dell Children’s Health Plan (Texas Medicaid)?', a: 'Ninety-five days from the date of service. HHSC’s Uniform Managed Care Claims Manual sets it for every Texas Medicaid MCO. Claim appeals get 120 days from the disposition date.' },
+      { q: 'How fast does Dell Children’s Health Plan have to pay a clean claim?', a: 'HHSC requires every Texas Medicaid MCO to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days.' },
     ],
   },
 
@@ -4261,6 +4493,20 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'TDLR — Behavior Analysts program (Occupations Code Ch. 506)', url: 'https://www.tdlr.texas.gov/bhv/' },
         ],
       },
+      {
+        h2: 'What are Aetna’s timely filing and clean-claim payment deadlines in Texas?',
+        body: [
+          'For fully insured Texas plans the Insurance Code sets both clocks. A physician or provider "must submit a claim to an insurer not later than the 95th day after the date the physician or provider provides the medical care or health care services" (PPO, § 1301.102), and the HMO rule is the same 95th day (§ 843.337), and the HMO statute says a provider who misses it forfeits the right to payment. Once a preferred or participating provider files a clean claim, the plan must decide and pay within 30 days of an electronic claim or 45 days of a nonelectronic one (§§ 1301.103, 843.338). These sections govern the insurer or HMO, so confirm the member’s plan is fully insured before relying on them.',
+          'Aetna’s provider manual publishes no separate filing number: a clean claim is one "received in a timely manner," subject to law and contract. For disputes, Aetna’s 180-day standard has a Texas exception for fully insured members: participating providers have 4 years to file and pursue claim and non-claim disputes (complaints are handled as appeals in Texas). Elsewhere the standard path is a reconsideration within 180 calendar days of the initial claim decision, then an appeal within 60 calendar days of the reconsideration decision.',
+        ],
+        cites: [
+          { title: 'Tex. Ins. Code ch. 1301, §§ 1301.102–1301.103 (PPO claim filing and clean-claim deadlines)', url: 'https://statutes.capitol.texas.gov/Docs/IN/htm/IN.1301.htm' },
+          { title: 'Tex. Ins. Code ch. 843, §§ 843.337–843.338 (HMO claim filing and clean-claim deadlines)', url: 'https://statutes.capitol.texas.gov/Docs/IN/htm/IN.843.htm' },
+          { title: 'Aetna — Provider manual (8102800-01-01, 6/26): Clean claims; Disagree with a claim decision?', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna — Disputes and appeals overview (reconsideration and appeal time frames)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' },
+          { title: 'Aetna — Provider appeals: state exceptions to the 180-day dispute filing standard', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/provider-appeals.html' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -4291,10 +4537,12 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       concurrentBilling: {
         value:
-          'Not addressed in CPB 0554 or CPB 0648. Concurrent-billing edits for Aetna commercial claims live in its reimbursement and code-editing policies rather than the clinical bulletins.',
+          'Not addressed in CPB 0554 or CPB 0648. Concurrent-billing edits for Aetna commercial claims live in its reimbursement and code-editing policies rather than the clinical bulletins. The medical necessity guide and the provider manual also say nothing about ABA at the same time as speech or occupational therapy.',
         status: 'unverified',
         cites: [
           { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+          { title: 'Aetna provider manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
         ],
         verifyVia: 'Aetna\'s commercial reimbursement/code-editing policies via Availity, or provider relations.',
         blocker: 'document',
@@ -4387,13 +4635,14 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'Aetna\'s policies do not impose a referral or physician-order requirement of their own; what they require is precertification on form GR-69017-4 for both assessment and treatment. The Texas mandate adds no order requirement either. Referral requirements, where they exist, come from the plan\'s own network rules (for example HMO products).',
+          'Aetna\'s policies do not impose a referral or physician-order requirement of their own; what they require is precertification on form GR-69017-4 for both assessment and treatment. The Texas mandate adds no order requirement either. Referral requirements, where they exist, come from the plan\'s own network rules (for example HMO products). Aetna publishes no ABA order form or validity period, and its provider manual (6/26) says members "may access behavioral health care … through direct access to the behavioral health provider." A PCP referral matters only on plans that require referrals for specialist care; a clean claim then includes "a corresponding referral (whether in paper or electronic format), if required for the applicable claim." The manual names no ABA-specific referring-provider (box 17) requirement. Aetna’s manual adds that "Referrals in Texas are only valid for thirty (30) calendar days."',
         status: 'plan-dependent',
         cites: [
           { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
           { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
           { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
           { title: 'Tex. Ins. Code § 1355.015 (full text + history)', url: 'https://texas.public.law/statutes/tex._ins._code_section_1355.015' },
+          { title: 'Aetna provider manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
         ],
         verifyVia: 'The member\'s plan document and a live benefits verification — HMO products may carry their own referral rules.',
         blocker: 'per-case',
@@ -4440,6 +4689,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'What does the Texas autism mandate require?', a: 'For covered group plans: treatment coverage from the date of diagnosis, provided the ASD diagnosis was made before the child\'s 10th birthday (coverage continues once eligible), with no dollar cap under 10 and a $36,000/year ABA cap at 10+ that federal parity arguably limits for large-group plans. Screening is covered at 18 and 24 months.' },
       { q: 'My client was diagnosed after age 10 — is Aetna coverage impossible?', a: 'The Texas mandate doesn\'t apply, but that isn\'t the end: Aetna\'s national policy covers ABA for ASD on its own terms, and federal parity governs group plans. Run the benefits verification before turning any family away.' },
       { q: 'What does Aetna pay for ABA in Texas?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the Texas Medicaid fee schedule (97153 at $14.50 per 15-minute unit effective 9/1/2025), and treat rate-setting as part of contracting.' },
+      { q: 'What is Aetna’s timely filing limit in Texas?', a: 'For fully insured plans, 95 days from the date of service under Tex. Ins. Code §§ 1301.102 and 843.337; Aetna’s manual adds no shorter limit. Self-funded plans follow the contract and plan document.' },
     ],
   },
 
@@ -4539,6 +4789,18 @@ export const texasPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+        ],
+      },
+      {
+        h2: 'What are Cigna (Evernorth)’s timely filing and clean-claim payment deadlines in Texas?',
+        body: [
+          'For fully insured Texas plans the Insurance Code sets both clocks. A physician or provider "must submit a claim to an insurer not later than the 95th day after the date the physician or provider provides the medical care or health care services" (PPO, § 1301.102), and the HMO rule is the same 95th day (§ 843.337), and the HMO statute says a provider who misses it forfeits the right to payment. Once a preferred or participating provider files a clean claim, the plan must decide and pay within 30 days of an electronic claim or 45 days of a nonelectronic one (§§ 1301.103, 843.338). These sections govern the insurer or HMO, so confirm the member’s plan is fully insured before relying on them.',
+          'Evernorth’s Texas Regulatory Addendum carries the same rule into the contract: "Provider must submit a claim to Evernorth not later than the 95th day after the date of discharge," and for coordination of benefits the 95 days start when the provider receives the primary payer’s payment or denial. Outside the addendum Evernorth’s general limit is 90 days from the date of service, so the Texas addendum is the longer, controlling period for state-regulated plans. Appeals are initiated in writing within 180 calendar days of the initial payment or denial decision.',
+        ],
+        cites: [
+          { title: 'Tex. Ins. Code ch. 1301, §§ 1301.102–1301.103 (PPO claim filing and clean-claim deadlines)', url: 'https://statutes.capitol.texas.gov/Docs/IN/htm/IN.1301.htm' },
+          { title: 'Tex. Ins. Code ch. 843, §§ 843.337–843.338 (HMO claim filing and clean-claim deadlines)', url: 'https://statutes.capitol.texas.gov/Docs/IN/htm/IN.843.htm' },
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
         ],
       },
     ],
@@ -4647,17 +4909,19 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'EN0499 imposes no referral or physician order. The gate is the confirmed independent-licensure diagnosis plus a full ABA assessment performed by a BCBA, LBA, or independently licensed mental health clinician with documented ABA training. Where the assessment was performed by someone other than the requesting provider, documented collaboration with that professional and confirmation that the results reflect current functioning are required.',
+          'EN0499 imposes no referral or physician order. The gate is the confirmed independent-licensure diagnosis plus a full ABA assessment performed by a BCBA, LBA, or independently licensed mental health clinician with documented ABA training. Where the assessment was performed by someone other than the requesting provider, documented collaboration with that professional and confirmation that the results reflect current functioning are required. Evernorth publishes no ABA order form or validity period. On the claim, Evernorth’s administrative guidelines (September 2026) define a complete CMS-1500 claim without a referring provider (they require the rendering provider’s name, NPI and license type and the billing provider’s name, address and NPI); any "Referring Provider" reported on an 837 claim "must include the name and NPI."',
         status: 'verified',
         cites: [
           { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
         ],
       },
       telehealth: {
         value:
-          'EN0499 treats ABA as deliverable in person, by telehealth, or as a hybrid, with the modality chosen on individual characteristics, the treatment plan, caregiver participation, environment, evidence of efficacy and safety, and technological requirements. The line-of-sight and close-proximity requirement it places on direct treatment expressly does not apply to telehealth services. Evernorth\'s autism resource guide (March 2025) adds that "All ABA CPT codes are covered telehealth services," which takes in the 97151 assessment and 97155 protocol modification and supervision.',
+          'EN0499 treats ABA as deliverable in person, by telehealth, or as a hybrid, with the modality chosen on individual characteristics, the treatment plan, caregiver participation, environment, evidence of efficacy and safety, and technological requirements. The line-of-sight and close-proximity requirement it places on direct treatment expressly does not apply to telehealth services. Evernorth\'s autism resource guide (March 2025) adds that "All ABA CPT codes are covered telehealth services," which takes in the 97151 assessment and 97155 protocol modification and supervision. Claim coding comes from Evernorth’s administrative guidelines (September 2026): when billing telehealth, use “Modifier 95 in Field 24-D to specify telehealth” and “02 for Place of Service in Field 24-B.”',
         status: 'verified',
         cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191) — telehealth claim coding', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
           { title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
           { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
         ],
@@ -4700,6 +4964,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'Does Cigna allow the ABA assessment or supervision by telehealth?', a: 'Evernorth\'s autism resource guide says "All ABA CPT codes are covered telehealth services," and EN0499 allows in-person, telehealth or hybrid delivery chosen case by case.' },
       { q: 'Is Cigna\'s ABA network open to new providers?', a: 'Evernorth says it is "committed to expanding our network of autism providers." Apply with the provider information form (individuals) or the autism clinic screening application; allow up to 90 days, then 60–90 days of credentialing per provider.' },
       { q: 'Does Cigna credential RBTs?', a: 'No. Evernorth does not credential nonlicensed or noncertified staff; their services are billed under the supervising provider.' },
+      { q: 'What is Cigna (Evernorth)’s timely filing limit in Texas?', a: 'For state-regulated plans, 95 days (Tex. Ins. Code and Evernorth’s Texas Regulatory Addendum). Evernorth’s general limit elsewhere is 90 days from the date of service.' },
     ],
   },
 
@@ -4795,6 +5060,18 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
         ],
       },
+      {
+        h2: 'What are UnitedHealthcare’s timely filing and clean-claim payment deadlines in Texas?',
+        body: [
+          'For fully insured Texas plans the Insurance Code sets both clocks. A physician or provider "must submit a claim to an insurer not later than the 95th day after the date the physician or provider provides the medical care or health care services" (PPO, § 1301.102), and the HMO rule is the same 95th day (§ 843.337), and the HMO statute says a provider who misses it forfeits the right to payment. Once a preferred or participating provider files a clean claim, the plan must decide and pay within 30 days of an electronic claim or 45 days of a nonelectronic one (§§ 1301.103, 843.338). These sections govern the insurer or HMO, so confirm the member’s plan is fully insured before relying on them.',
+          'UnitedHealthcare’s 2026 administrative guide says timely filing limits "vary based on state requirements and contracts" and points to the participation agreement. It requires a valid billing NPI, rendering NPI and relevant taxonomy code on all claims, and takes reconsiderations and appeals within 12 months of the original EOB or PRA unless law or the agreement says otherwise.',
+        ],
+        cites: [
+          { title: 'Tex. Ins. Code ch. 1301, §§ 1301.102–1301.103 (PPO claim filing and clean-claim deadlines)', url: 'https://statutes.capitol.texas.gov/Docs/IN/htm/IN.1301.htm' },
+          { title: 'Tex. Ins. Code ch. 843, §§ 843.337–843.338 (HMO claim filing and clean-claim deadlines)', url: 'https://statutes.capitol.texas.gov/Docs/IN/htm/IN.843.htm' },
+          { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial): timely filing, NPI/taxonomy, claim reconsideration and appeals', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -4825,7 +5102,7 @@ export const texasPayers: Record<string, PayerConfig> = {
         ],
       },
       concurrentBilling: {
-        value: 'Yes, with a single-provider exclusion. Optum’s commercial ABA reimbursement policy: “Can I report 97153 or 97154 with 97155 concurrently? A. Yes, as long as the criteria in the descriptors of both codes are met. A single QHP may not report 97153 or 97154 with 97155 concurrently.” So the overlap has to be two people — a technician on 97153 and an analyst on 97155 directing them with the patient present. Optum’s ABA CPT FAQ adds that 97153 and 97156 “may be billed concurrently” as separate services to different family members by different providers. 97155 and 97156 on the same date pay only if “separate, distinct, and clearly documented in the progress notes” — “A single provider can’t bill for both simultaneously.” Team meetings bill only as supervision with the member, supervisor and technician present, and “CPT codes 97153 and 97155 may not be billed for technician training.”',
+        value: 'Yes, with a single-provider exclusion. Optum’s commercial ABA reimbursement policy: “Can I report 97153 or 97154 with 97155 concurrently? A. Yes, as long as the criteria in the descriptors of both codes are met. A single QHP may not report 97153 or 97154 with 97155 concurrently.” So the overlap has to be two people — a technician on 97153 and an analyst on 97155 directing them with the patient present. Optum’s ABA CPT FAQ adds that 97153 and 97156 “may be billed concurrently” as separate services to different family members by different providers. 97155 and 97156 on the same date pay only if “separate, distinct, and clearly documented in the progress notes” — “A single provider can’t bill for both simultaneously.” Team meetings bill only as supervision with the member, supervisor and technician present, and “CPT codes 97153 and 97155 may not be billed for technician training.” Optum’s ABA documents do not address ABA at the same time as speech, occupational or physical therapy; its ABA FAQ expects the ABA provider to know "the other therapies in which the child is involved, how often those therapies occur" and their goals, and to document that coordination.',
         status: 'verified',
         cites: [
           { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
@@ -4907,10 +5184,11 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'Optum imposes no referral or physician order. Prior authorization is the gate — a two-step process on Provider Express, assessment first and then treatment — unless otherwise specified or mandated by contract or law.',
+          'Optum imposes no referral or physician order. Prior authorization is the gate — a two-step process on Provider Express, assessment first and then treatment — unless otherwise specified or mandated by contract or law. Optum publishes no ABA order form or validity period. On the claim, Optum’s National Network Manual (effective Sept. 1, 2026) lists the Form 1500 fields it needs (member and subscriber, diagnosis, dates and length of session, and the clinician who actually provided the service with credentials, Tax ID and NPI) and does not ask for a referring provider in box 17.',
         status: 'verified',
         cites: [
           { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+          { title: 'Optum National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
         ],
       },
       telehealth: {
@@ -4963,6 +5241,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'Can the ABA assessment be done by telehealth with UnitedHealthcare?', a: 'Not on commercial plans. Optum allows telehealth only for 97155, 97156 and 97157 after a virtual-visits attestation, so 97151 is delivered in person. Remote supervision bills as 97155 with POS 02 or 10.' },
       { q: 'What is UnitedHealthcare\'s ABA fee schedule?', a: 'Rates are contracted. Optum pays participating providers "based on your contracted rate" for the codes on their fee schedule; non-contracted providers call the Behavioral Health number on the member\'s card.' },
       { q: 'How do I join the UnitedHealthcare (Optum) ABA network?', a: 'Meet Optum\'s criteria (BACB certification, Texas LBA license, six months of supervised ABA experience, liability coverage) and apply through the "Join Our Autism/ABA Network" section of Provider Express.' },
+      { q: 'What is UnitedHealthcare’s timely filing limit in Texas?', a: 'For fully insured plans, 95 days from the date of service under the Texas Insurance Code; UnitedHealthcare’s guide defers to state law and the provider agreement.' },
     ],
   },
 };

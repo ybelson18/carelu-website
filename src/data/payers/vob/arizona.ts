@@ -950,7 +950,7 @@ const cignaAzContact: VobContact = {
 };
 
 const uhcAzContact: VobContact = {
-  providerServicesPhone: '1-866-209-9320 (Optum Provider Express Support Center — shared portal help desk, not an AZ-commercial-specific line)',
+  providerServicesPhone: 'Provider Services number on the member’s ID card (Optum National Network Manual, eff. 9/1/2026: “call Provider Services using the phone number on the member’s ID card”). Not 1-866-209-9320, which is the Provider Express portal support center.',
   hours: '7:00 a.m.–9:00 p.m. CT',
   portal: { name: 'Optum Provider Express', url: 'https://www.providerexpress.com' },
   ivrPath: 'For member-specific eligibility/PA, call the number on the member’s ID card or use Provider Express; no dedicated AZ-commercial ABA line is separately published.',

@@ -9,7 +9,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
         'Runs through the PIHP, not a separate state PA: the PIHP arranges and pays the comprehensive diagnostic evaluation and behavioral assessment after the PCP referral, and PIHP utilization management authorizes the level of services before delivery. Whether 97151 itself needs a separate authorization is set by each PIHP (Macomb, for example, requests authorization for each six-month assessment/evaluation period at least 14 days ahead, with no backdating).',
       status: 'plan-dependent',
       cites: [
-        { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+        { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
         { title: 'MCCMH Clinical Practice Procedure — Flow of Autism Services Through MCCMH (updated 7/6/26)', url: 'https://www.mccmh.net/wp-content/uploads/2026/07/Flow-of-Autism-Procedure.pdf' },
       ],
       verifyVia:
@@ -21,7 +21,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
         'Required — "The PIHP’s Utilization Management will authorize the level of services prior to the delivery of services"; authorizations run up to 365 days and are re-authorized annually on a qualified practitioner’s recommendation, with the level of service re-determined at least every six months.',
       status: 'verified',
       cites: [
-        { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+        { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
       ],
     },
     dxRequired: {
@@ -29,7 +29,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
         'Yes — a DSM-5 ASD diagnosis from a qualified licensed practitioner using valid evaluation tools; the comprehensive diagnostic evaluation "must be performed before the child receives BHT services," and eligibility must be confirmed through direct observation.',
       status: 'verified',
       cites: [
-        { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+        { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
       ],
     },
     payer: 'Michigan Medicaid',
@@ -64,9 +64,9 @@ export const michiganPayers: Record<string, PayerConfig> = {
           'Each PIHP must be certified as a Community Mental Health Services Program under Section 232a of the Mental Health Code, either a single CMHSP or the lead agency of an affiliation of CMHSPs. The ten current regions: (1) NorthCare Network (Upper Peninsula), (2) Northern Michigan Regional Entity, (3) Lakeshore Regional Entity (Kent via Network180, Ottawa, Muskegon, Allegan, Lake, Mason, Oceana), (4) Southwest Michigan Behavioral Health, (5) Mid-State Health Network, (6) CMH Partnership of Southeast Michigan (Washtenaw, Livingston, Lenawee, Monroe), (7) Detroit Wayne Integrated Health Network, (8) Oakland Community Health Network, (9) Macomb County Community Mental Health, and (10) Region 10 PIHP (Genesee, Lapeer, Sanilac, St. Clair). Carelu has separate guides for regions 4, 5, 7, 8 and 9.',
         ],
         cites: [
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Sections 1–2', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Therapy Services chapter, 4.5 Therapy for Beneficiaries with ASD', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Sections 1–2', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Therapy Services chapter, 4.5 Therapy for Beneficiaries with ASD', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
           { title: 'Priority Health Medical Policy No. 91615-R8 — Autism Spectrum Disorders (effective 3/1/2026)', url: 'https://priorityhealth.stylelabs.cloud/api/public/content/6b5c6f61d4a74c049b1748d514555243?v=8b411839' },
           { title: 'SWMBH — Autism Services', url: 'https://swmbh.org/autism-services/' },
           { title: 'MDHHS — PIHP county designations table (FY27 PIHP contract, May 2025)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/PIHPs/PIHP-Region-Table.pdf' },
@@ -80,7 +80,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
           'Re-evaluations are required "no more than once every three years" unless more are medically necessary, the level of service is re-determined at least every six months, and authorizations run up to 365 days.',
         ],
         cites: [
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
           { title: 'OCHN — Autism Benefit Steps navigation guide (January 2026)', url: 'https://oaklandchn.org/wp-content/uploads/2026/01/autism-OCHN-Navigation-Guides.pdf' },
           { title: 'SWMBH — Autism Services', url: 'https://swmbh.org/autism-services/' },
           { title: 'DWIHN — Autism Services', url: 'https://dwihn.org/programs-services/autism-services' },
@@ -90,11 +90,11 @@ export const michiganPayers: Record<string, PayerConfig> = {
         h2: 'Staffing: licensed analysts, trained (not licensed) technicians',
         body: [
           'BHT must be delivered under the direction of a BCBA/LBA, who is responsible for the behavioral plan of care, for supervising BCaBAs and technicians, and for reporting progress on goals to parents every three to six months. Michigan licenses behavior analysts through LARA’s Board of Behavior Analysts under Part 182A of the Public Health Code (licensure law enacted 2016): the license requires current BACB certification in good standing, a criminal background check, human-trafficking and implicit-bias training, and renews every four years ($452.40 for application plus four-year license). The Medicaid manual requires supervisors to be BACB-certified and LARA-licensed, and BCaBAs to be licensed through LARA as assistant behavior analysts.',
-          'Behavior technicians do not need a license or a BACB registration: they must receive BACB-approved RBT training from a BCBA/LBA, BCaBA or QBHP, be at least 18, be certified in basic first aid, be trained in the child’s plan of care, and work with "minimally one hour of clinical observation and direction for every 10 hours of direct treatment." The older pathways are closing: licensed psychologists and QBHPs had to be certified and licensed as a BCBA/LBA by September 30, 2025, and the SFY 2026 code charts list QBHP as a qualifying provider only until October 1, 2025.',
+          'Behavior technicians do not need a license or a BACB registration: they must receive BACB-approved RBT training from a BCBA/LBA, BCaBA or QBHP, be at least 18, be certified in basic first aid, be trained in the child’s plan of care, and work with "minimally one hour of clinical observation and direction for every 10 hours of direct treatment." The older pathways are closing: licensed psychologists and QBHPs had to be certified and licensed as a BCBA/LBA by September 30, 2025, and the SFY 2027 code charts (from October 1, 2026) list the ABA codes only for licensed behavior analysts, licensed assistant behavior analysts and, on the technician codes, behavior technicians.',
         ],
         cites: [
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
-          { title: 'MDHHS SFY 2026 Behavioral Health Code Charts and Provider Qualifications (updated 9/26/2025; archived 10/31/2025)', url: 'https://web.archive.org/web/20251031103317/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2026_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=e9481f6c7f6e4628897bbe3ad67c892b' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'MDHHS SFY 2027 Behavioral Health Code Charts and Provider Qualifications (SFY beginning October 1, 2026; update log through 9/10/2026)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2027_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=cb846b903b05453da55fb84f78300b6b' },
           { title: 'LARA — Michigan Board of Behavior Analysts (Public Health Code Part 182A; R 338.1801–338.1835)', url: 'https://www.michigan.gov/lara/bureau-list/bpl/health/hp-lic-health-prof/behavior-analysts' },
           { title: 'LARA — Michigan Behavior Analyst Licensing Guide (rev. 1/26/2026)', url: 'https://www.michigan.gov/lara/-/media/Project/Websites/lara/bpl/Behavior-Analysts/Licensing-Info-and-Forms/Behavior-Analyst-Licensing-Guide-FAQ-12626.pdf' },
           { title: 'BACB — U.S. Licensure of Behavior Analysts', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
@@ -103,13 +103,14 @@ export const michiganPayers: Record<string, PayerConfig> = {
       {
         h2: 'Billing, telehealth and rates',
         body: [
-          'ABA is billed to the PIHP or CMHSP under your network contract, not to CHAMPS fee-for-service. MDHHS’s SFY 2026 Behavioral Health Code Charts set the reporting rules every PIHP uses: all ABA codes are per 15 minutes; staff-level modifiers identify the rendering provider (HO licensed behavior analyst, HN licensed assistant behavior analyst, HM behavior technician); 97151 carries the U5 autism modifier; and 97155 "Must co-occur with 97153, 97154, and 0373T in order to be reported." The same-time rules allow 97153 and 97155 together when delivered by two different people, and 97156 to the caregiver while the technician runs 97153.',
+          'ABA is billed to the PIHP or CMHSP under your network contract, not to CHAMPS fee-for-service. MDHHS’s SFY 2027 Behavioral Health Code Charts (from October 1, 2026) set the reporting rules every PIHP uses: all ABA codes are per 15 minutes; staff-level modifiers identify the rendering provider (HO licensed behavior analyst, HN licensed assistant behavior analyst, HM behavior technician); 97155 reported by a licensed behavior analyst "May co-occur with 97153 & 97154," while 97155 reported by a licensed assistant behavior analyst "Must co-occur with 97153, 97154, and 0373T in order to be reported." The same-time rules allow 97153 and 97155 together when delivered by two different people, and 97156 to the caregiver while the technician runs 97153.',
+          'Which codes: ABA is billed with CPT codes, not H-codes. The SFY 2027 code charts list 97151, 97153, 97154, 97155, 97156, 97157, 97158, 0362T and 0373T for ABA (97152 does not appear); the diagnostic evaluation behind eligibility is reported with 96112, 96113 or 96116 “For reporting BHT/ABA eligibility assessments and re-evaluation assessments related to Autism”; and H0031 with the 6Y modifier is the behavior identification assessment for people outside the ABA benefit (“97151 for non-ABA was removed effective 10/1/24 so the H0031 with the 6Y is for these individuals”).',
           'Telehealth is narrow. The Bureau of Specialty Behavioral Health Services Telemedicine Database allows 97155, 97156, 97157 and 97158 by simultaneous audio/video (POS 02 or 10), and removed 97151, 97153, 97154 and 0362T in April 2023. On rates, the manual says only that "All PIHPs will reimburse BHT-ABA services at a minimum to the rate outlined with the most recent executed PIHP contract" — the floor lives in the MDHHS/PIHP contract, not in a public fee screen, and each PIHP negotiates its own network rate above it.',
         ],
         cites: [
-          { title: 'MDHHS SFY 2026 Behavioral Health Code Charts and Provider Qualifications (updated 9/26/2025; archived 10/31/2025)', url: 'https://web.archive.org/web/20251031103317/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2026_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=e9481f6c7f6e4628897bbe3ad67c892b' },
-          { title: 'MDHHS Bureau of Specialty Behavioral Health Services — Telemedicine Database (effective May 12, 2023; archived 1/6/2026)', url: 'https://web.archive.org/web/20260106050903/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/Bureau_of_Specialty_Behavioral_Health_Services-Telemedicine_Database.pdf?rev=39a4677add1f4ed0a2e952bd1c6e5c54' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'MDHHS SFY 2027 Behavioral Health Code Charts and Provider Qualifications (SFY beginning October 1, 2026; update log through 9/10/2026)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2027_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=cb846b903b05453da55fb84f78300b6b' },
+          { title: 'MDHHS Bureau of Specialty Behavioral Health Services — Telemedicine Database (entries effective June 1, 2026; revision log through 6/15/26)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/Bureau_of_Specialty_Behavioral_Health_Services-Telemedicine_Database.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
         ],
       },
       {
@@ -124,6 +125,15 @@ export const michiganPayers: Record<string, PayerConfig> = {
           { title: 'MDHHS — PIHP county designations table (FY27 PIHP contract, May 2025)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/PIHPs/PIHP-Region-Table.pdf' },
         ],
       },
+      {
+        h2: 'What is the Michigan Medicaid timely filing limit?',
+        body: [
+          'The Medicaid Provider Manual (October 1, 2026): "A claim must be initially received and acknowledged (i.e., assigned a TCN) by MDHHS within 12 months from the date of service." That governs claims billed to MDHHS through CHAMPS. The manual lists narrow exceptions, such as a claim submitted within 120 days of a primary insurer’s letter taking back its payment after the filing limit passed.',
+        ],
+        cites: [
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — General Information for Providers, claim filing limit', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'County of residence', desc: 'Decides the PIHP and CMHSP that owns the evaluation and the ABA authorization — the health plan name on the card does not.' },
@@ -133,26 +143,26 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { title: 'School / early intervention plan', desc: 'Coordination with the IEP or IFSP team is an eligibility element, and IDEA services cannot be billed as BHT.' },
     ],
     sources: [
-      { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
-      { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Sections 1–2', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
-      { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Therapy Services chapter, 4.5 Therapy for Beneficiaries with ASD', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+      { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+      { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Sections 1–2', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+      { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Therapy Services chapter, 4.5 Therapy for Beneficiaries with ASD', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
       { title: 'Priority Health Medical Policy No. 91615-R8 — Autism Spectrum Disorders (effective 3/1/2026)', url: 'https://priorityhealth.stylelabs.cloud/api/public/content/6b5c6f61d4a74c049b1748d514555243?v=8b411839' },
       { title: 'SWMBH — Autism Services', url: 'https://swmbh.org/autism-services/' },
       { title: 'MDHHS — PIHP county designations table (FY27 PIHP contract, May 2025)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/PIHPs/PIHP-Region-Table.pdf' },
       { title: 'OCHN — Autism Benefit Steps navigation guide (January 2026)', url: 'https://oaklandchn.org/wp-content/uploads/2026/01/autism-OCHN-Navigation-Guides.pdf' },
       { title: 'DWIHN — Autism Services', url: 'https://dwihn.org/programs-services/autism-services' },
-      { title: 'MDHHS SFY 2026 Behavioral Health Code Charts and Provider Qualifications (updated 9/26/2025; archived 10/31/2025)', url: 'https://web.archive.org/web/20251031103317/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2026_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=e9481f6c7f6e4628897bbe3ad67c892b' },
+      { title: 'MDHHS SFY 2027 Behavioral Health Code Charts and Provider Qualifications (SFY beginning October 1, 2026; update log through 9/10/2026)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2027_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=cb846b903b05453da55fb84f78300b6b' },
       { title: 'LARA — Michigan Board of Behavior Analysts (Public Health Code Part 182A; R 338.1801–338.1835)', url: 'https://www.michigan.gov/lara/bureau-list/bpl/health/hp-lic-health-prof/behavior-analysts' },
       { title: 'LARA — Michigan Behavior Analyst Licensing Guide (rev. 1/26/2026)', url: 'https://www.michigan.gov/lara/-/media/Project/Websites/lara/bpl/Behavior-Analysts/Licensing-Info-and-Forms/Behavior-Analyst-Licensing-Guide-FAQ-12626.pdf' },
       { title: 'BACB — U.S. Licensure of Behavior Analysts', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
-      { title: 'MDHHS Bureau of Specialty Behavioral Health Services — Telemedicine Database (effective May 12, 2023; archived 1/6/2026)', url: 'https://web.archive.org/web/20260106050903/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/Bureau_of_Specialty_Behavioral_Health_Services-Telemedicine_Database.pdf?rev=39a4677add1f4ed0a2e952bd1c6e5c54' },
+      { title: 'MDHHS Bureau of Specialty Behavioral Health Services — Telemedicine Database (entries effective June 1, 2026; revision log through 6/15/26)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/Bureau_of_Specialty_Behavioral_Health_Services-Telemedicine_Database.pdf' },
       { title: 'MDHHS press release — MDHHS seeking proposals for Prepaid Inpatient Health Plans (Aug. 5, 2025)', url: 'https://www.michigan.gov/mdhhs/inside-mdhhs/newsroom/2025/08/05/pihp-contracts' },
       { title: 'MDHHS — Specialty Behavioral Health Services / PIHPs page (archived April 3, 2026)', url: 'https://web.archive.org/web/20260403054639/https://www.michigan.gov/mdhhs/keep-mi-healthy/mentalhealth/specialty-behavioral-health-services' },
       { title: 'MCCMH Clinical Practice Procedure — Flow of Autism Services Through MCCMH (updated 7/6/26)', url: 'https://www.mccmh.net/wp-content/uploads/2026/07/Flow-of-Autism-Procedure.pdf' },
       { title: 'DWIHN — Autism BHT Comprehensive Diagnostic Evaluation & Re-Evaluation Form (outside diagnostic request)', url: 'https://dwihn.org/sites/default/files/2025-11/DWIHN%20Outside%20Diagnostic%20Request%20Form.docx' },
       { title: 'MSHN Procedure — Autism Spectrum Disorder Services Eligibility and Provision (reviewed 03.03.2026)', url: 'https://midstatehealthnetwork.org/download_file/view/3305887c-abbd-496f-bf81-709f7cb5fdde/864' },
       { title: '42 CFR 438.210 — Coverage and authorization of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' },
-      { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+      { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
       { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
       { title: 'Michigan DTMB — Cancellation of RFP 250000002670 (PIHP RFP), Jan. 29, 2026', url: 'https://www.mha.org/wp-content/uploads/2026/02/0206_RFP.pdf' },
       { title: 'Michigan Health & Hospital Association — MDHHS withdraws PIHP procurement (Feb. 6, 2026)', url: 'https://www.mha.org/newsroom/mdhhs-withdraws-pihp-procurement/' },
@@ -160,19 +170,19 @@ export const michiganPayers: Record<string, PayerConfig> = {
     deliveryRules: {
       supervision: {
         value:
-          'The behavior technician works under the supervision of the BCBA/LBA or other professional (BCaBA or QBHP) overseeing the behavioral plan of care, "with minimally one hour of clinical observation and direction for every 10 hours of direct treatment." BHT services "must be provided under the direction of a BCBA/LBA or a Master’s prepared QBHP," and the BCBA/LBA is responsible for clinical skill development and supervision of BCaBAs, QBHPs and technicians and for communicating progress on goals to parents or guardians at least every three to six months. The manual gave licensed psychologists (LP/LLP) and QBHPs a deadline to be certified and licensed as a BCBA/LBA by September 30, 2025, and the SFY 2026 code charts now list QBHP as a qualifying provider only "until October 1, 2025."',
+          'The behavior technician works under the supervision of the BCBA/LBA or other professional (BCaBA or QBHP) overseeing the behavioral plan of care, "with minimally one hour of clinical observation and direction for every 10 hours of direct treatment." BHT services "must be provided under the direction of a BCBA/LBA or a Master’s prepared QBHP," and the BCBA/LBA is responsible for clinical skill development and supervision of BCaBAs, QBHPs and technicians and for communicating progress on goals to parents or guardians at least every three to six months. The manual gave licensed psychologists (LP/LLP) and QBHPs a deadline to be certified and licensed as a BCBA/LBA by September 30, 2025, and the SFY 2027 code charts (for the state fiscal year that began October 1, 2026) list the ABA codes for the Licensed Behavior Analyst (HO) and Licensed Assistant Behavior Analyst (HN), plus the behavior technician (HM) on 97153, 97154 and 0373T, with no separate QBHP row.',
         status: 'verified',
         cites: [
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
-          { title: 'MDHHS SFY 2026 Behavioral Health Code Charts and Provider Qualifications (updated 9/26/2025; archived 10/31/2025)', url: 'https://web.archive.org/web/20251031103317/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2026_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=e9481f6c7f6e4628897bbe3ad67c892b' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'MDHHS SFY 2027 Behavioral Health Code Charts and Provider Qualifications (SFY beginning October 1, 2026; update log through 9/10/2026)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2027_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=cb846b903b05453da55fb84f78300b6b' },
         ],
       },
       concurrentBilling: {
         value:
-          'Allowed for the pairs MDHHS names. The SFY 2026 code charts say 97155 "Must co-occur with 97153, 97154, and 0373T in order to be reported," and the same-time reporting rules state that 97153 and 97155 "can occur at the same time, just not by the same person" (the technician delivers 97153 while the BCBA/LBA supervising delivers 97155); 97156 may be delivered by the BCBA/LBA to the caregiver while a technician delivers 97153 to the child; a 97151 reassessment may be reported at the same time as 97153, 97154, 0373T (and potentially 97157/97158) "IF there are two separate providers"; and 0362T may be reported at the same time as 0373T. Targeted case management may also run at the same time as a direct ABA service.',
+          'Allowed for the pairs MDHHS names. The SFY 2027 code charts (from October 1, 2026) say 97155 reported by a licensed behavior analyst "May co-occur with 97153 & 97154," and 97155 reported by a licensed assistant behavior analyst "Must co-occur with 97153, 97154, and 0373T in order to be reported," and the same-time reporting rules state that 97153 and 97155 "can occur at the same time, just not by the same person" (the technician delivers 97153 while the BCBA/LBA supervising delivers 97155); 97156 may be delivered by the BCBA/LBA to the caregiver while a technician delivers 97153 to the child; a 97151 reassessment may be reported at the same time as 97153, 97154, 0373T (and potentially 97157/97158) "IF there are two separate providers"; and 0362T may be reported at the same time as 0373T. Targeted case management may also run at the same time as a direct ABA service.',
         status: 'verified',
         cites: [
-          { title: 'MDHHS SFY 2026 Behavioral Health Code Charts and Provider Qualifications (updated 9/26/2025; archived 10/31/2025)', url: 'https://web.archive.org/web/20251031103317/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2026_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=e9481f6c7f6e4628897bbe3ad67c892b' },
+          { title: 'MDHHS SFY 2027 Behavioral Health Code Charts and Provider Qualifications (SFY beginning October 1, 2026; update log through 9/10/2026)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2027_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=cb846b903b05453da55fb84f78300b6b' },
         ],
       },
       dailyLimits: {
@@ -180,18 +190,18 @@ export const michiganPayers: Record<string, PayerConfig> = {
           'No per-day or per-week unit cap is published. The manual sets planning averages, not ceilings: focused behavioral intervention averages 5–15 hours a week and comprehensive behavioral intervention 16–25 hours a week, with actual hours set by the behavioral plan of care. A PIHP "may not deny services based solely on preset limits of the cost, amount, scope, and duration of services," and the level of service is re-determined at least every six months on measurable progress. Authorizations may run up to 365 days.',
         status: 'verified',
         cites: [
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Sections 1–2', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Sections 1–2', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
         ],
       },
       noteSignature: {
         value:
-          'Section 18 of the Medicaid Provider Manual and the SFY 2026 code charts do not state who signs an ABA session note or by when. The manual requires the individual plan of service (IPOS) to specify amount, scope and duration of each authorized service and permits electronic signatures for the beneficiary on the plan of service and consents; session-note signature standards sit in each PIHP’s provider contract and documentation standards.',
+          'Section 18 of the Medicaid Provider Manual and the SFY 2027 code charts do not state who signs an ABA session note or by when. The manual requires the individual plan of service (IPOS) to specify amount, scope and duration of each authorized service and permits electronic signatures for the beneficiary on the plan of service and consents; session-note signature standards sit in each PIHP’s provider contract and documentation standards.',
         status: 'plan-dependent',
         cites: [
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Sections 1–2', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
-          { title: 'MDHHS SFY 2026 Behavioral Health Code Charts and Provider Qualifications (updated 9/26/2025; archived 10/31/2025)', url: 'https://web.archive.org/web/20251031103317/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2026_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=e9481f6c7f6e4628897bbe3ad67c892b' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Sections 1–2', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'MDHHS SFY 2027 Behavioral Health Code Charts and Provider Qualifications (SFY beginning October 1, 2026; update log through 9/10/2026)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2027_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=cb846b903b05453da55fb84f78300b6b' },
         ],
         verifyVia:
           'The contracting PIHP or CMHSP provider manual / documentation standards (ask the PIHP’s autism benefit or provider network office for the ABA progress-note requirements).',
@@ -202,17 +212,17 @@ export const michiganPayers: Record<string, PayerConfig> = {
           'Home and community. Eligibility requires that "Services are able to be provided in the child’s home and community, including centers and clinics," and BHT is "designed to be delivered primarily in the home and in other community settings." Services "are not intended to supplant responsibilities of educational or other authorities," and the IPOS must not include special education and related services available through the local education agency under IDEA; coordination with the school or early intervention program (IEP/IFSP meetings, communication logs) is an eligibility element. For office or site-based services the primary provider must be within 30 minutes/30 miles in urban areas and 60 minutes/60 miles in rural areas of the beneficiary’s residence.',
         status: 'verified',
         cites: [
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Sections 1–2', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Sections 1–2', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
         ],
       },
       billAsProvider: {
         value:
-          'Services are reported to the PIHP/CMHSP under the provider’s network contract, with a modifier naming the rendering staff level. The SFY 2026 code charts list the qualifying provider types and modifiers for each ABA code: HO for a licensed behavior analyst (master’s level) or QBHP, HN for a licensed assistant behavior analyst (bachelor’s level), and HM for a behavior technician on the technician codes (97153, 97154, 0373T); 97151 carries the state-defined U5 "Autism" modifier and group codes carry the UN–US group-size modifiers. A technician does not need a license or BACB registration, but must complete BACB-approved RBT training and work under the BCBA/LBA’s supervision.',
+          'Services are reported to the PIHP/CMHSP under the provider’s network contract, with a modifier naming the rendering staff level. The SFY 2027 code charts list the qualifying provider types and modifiers for each ABA code: HO for a licensed behavior analyst (master’s level), HN for a licensed assistant behavior analyst (bachelor’s level), and HM for a behavior technician on the technician codes (97153, 97154, 0373T); group codes carry the UN–US group-size modifiers. (The U5 autism modifier the SFY 2026 charts put on 97151 is not in the SFY 2027 modifier list.) Which codes: ABA is billed with CPT codes, not H-codes. The SFY 2027 code charts list 97151, 97153, 97154, 97155, 97156, 97157, 97158, 0362T and 0373T for ABA (97152 does not appear); the diagnostic evaluation behind eligibility is reported with 96112, 96113 or 96116 “For reporting BHT/ABA eligibility assessments and re-evaluation assessments related to Autism”; and H0031 with the 6Y modifier is the behavior identification assessment for people outside the ABA benefit (“97151 for non-ABA was removed effective 10/1/24 so the H0031 with the 6Y is for these individuals”). A technician does not need a license or BACB registration, but must complete BACB-approved RBT training and work under the BCBA/LBA’s supervision.',
         status: 'verified',
         cites: [
-          { title: 'MDHHS SFY 2026 Behavioral Health Code Charts and Provider Qualifications (updated 9/26/2025; archived 10/31/2025)', url: 'https://web.archive.org/web/20251031103317/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2026_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=e9481f6c7f6e4628897bbe3ad67c892b' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'MDHHS SFY 2027 Behavioral Health Code Charts and Provider Qualifications (SFY beginning October 1, 2026; update log through 9/10/2026)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2027_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=cb846b903b05453da55fb84f78300b6b' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
         ],
       },
     },
@@ -222,7 +232,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
           'Under 21. BHT/ABA is covered "for children under 21 years of age diagnosed with Autism Spectrum Disorder" as an EPSDT benefit, and the first eligibility criterion is "Child is under 21 years of age." No minimum age is set; the manual stresses early screening at EPSDT well-child visits.',
         status: 'verified',
         cites: [
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
         ],
       },
       dxRecency: {
@@ -230,7 +240,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
           'No expiry on the diagnosis itself. "Comprehensive diagnostic re-evaluations are required no more than once every three years, unless determined medically necessary more frequently" by a physician or other licensed practitioner, with frequency based on age, developmental level, comorbidities, severity and adaptive deficits. The level of service is re-determined at least every six months, and BHT authorizations run up to 365 days.',
         status: 'verified',
         cites: [
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
         ],
       },
       diagnosingProviders: {
@@ -238,7 +248,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
           'A qualified licensed practitioner "qualified and experienced in diagnosing ASD": a physician with a specialty in psychiatry or neurology; a physician with a subspecialty in developmental pediatrics, developmental-behavioral pediatrics or a related discipline; a physician with a specialty in pediatrics or other appropriate specialty with ASD training, experience or expertise; a psychologist; an advanced practice registered nurse or a physician assistant with ASD and/or behavioral health training; or a master’s-level, fully licensed clinical social worker qualified and experienced in diagnosing ASD. The PIHP is responsible for arranging the comprehensive diagnostic evaluation.',
         status: 'verified',
         cites: [
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
         ],
       },
       diagnosticTools: {
@@ -246,7 +256,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
           'The manual names no instrument but requires "valid evaluation tools": the comprehensive diagnostic evaluation is "a neurodevelopmental review of cognitive, behavioral, emotional, adaptive, and social functioning" that should include validated tools, integrating caregiver reports, records, collateral reports, standardized psychological tools and an observational assessment ("No one piece of data determines the ASD diagnosis"). Eligibility must be determined "through direct observation utilizing valid evaluation tools." In practice the PIHPs publish the same battery: ADOS-2, ADI-R and the DD-CGAS (Developmental Disability Children’s Global Assessment Scale), plus cognitive and adaptive testing.',
         status: 'verified',
         cites: [
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
           { title: 'DWIHN — Autism BHT Comprehensive Diagnostic Evaluation & Re-Evaluation Form (outside diagnostic request)', url: 'https://dwihn.org/sites/default/files/2025-11/DWIHN%20Outside%20Diagnostic%20Request%20Form.docx' },
           { title: 'OCHN — Autism Benefit Steps navigation guide (January 2026)', url: 'https://oaklandchn.org/wp-content/uploads/2026/01/autism-OCHN-Navigation-Guides.pdf' },
           { title: 'SWMBH — Autism Services', url: 'https://swmbh.org/autism-services/' },
@@ -257,17 +267,17 @@ export const michiganPayers: Record<string, PayerConfig> = {
           'Yes, through the PIHP. Screening "typically occurs during an EPSDT well child visit" with the primary care provider using a validated screening tool, and "A full medical and physical examination must be performed before the child is referred for further evaluation." The PCP "must refer the child to the PIHP in the geographic service area," and each PIHP identifies a specific point of access for ASD referrals. Medical necessity and the recommendation for BHT are determined by a physician or other licensed practitioner working within scope. PIHPs also accept family self-referral ("no wrong door") and then route the child back to the PCP for the medical exam where needed.',
         status: 'verified',
         cites: [
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
           { title: 'MSHN Procedure — Autism Spectrum Disorder Services Eligibility and Provision (reviewed 03.03.2026)', url: 'https://midstatehealthnetwork.org/download_file/view/3305887c-abbd-496f-bf81-709f7cb5fdde/864' },
         ],
       },
       telehealth: {
         value:
-          'Only the analyst-level codes. The MDHHS Bureau of Specialty Behavioral Health Services Telemedicine Database lists 97155, 97156, 97157 and 97158 as allowed via simultaneous audio/visual telemedicine (reported with POS 02 or POS 10, no modifier), and its revision log records that 0362T, 97151, 97153 and 97154 were removed from the database on 4/28/23 — so technician-delivered direct treatment and the behavior identification assessment are in-person. The diagnostic-evaluation codes 96112/96113 and 96116 remain allowed via audio/visual "for reporting BHT/ABA eligibility assessments and re-evaluation assessments related to Autism." The SFY 2026 code charts note on 97155 to use POS 02 "if MDHHS has authorized tele-practice for an individual."',
+          'Only the analyst-level codes. The MDHHS Bureau of Specialty Behavioral Health Services Telemedicine Database lists 97155, 97156, 97157 and 97158 as allowed via simultaneous audio/visual telemedicine (reported with POS 02 or POS 10, no modifier), and its revision log records that 0362T, 97151, 97153 and 97154 were removed from the database on 4/28/23 — so technician-delivered direct treatment and the behavior identification assessment are in-person. The diagnostic-evaluation codes 96112/96113 and 96116 remain allowed via audio/visual "for reporting BHT/ABA eligibility assessments and re-evaluation assessments related to Autism." The SFY 2027 code charts note on 97155 and 97156 to use POS 02 "if MDHHS has authorized tele-practice for an individual."',
         status: 'verified',
         cites: [
-          { title: 'MDHHS Bureau of Specialty Behavioral Health Services — Telemedicine Database (effective May 12, 2023; archived 1/6/2026)', url: 'https://web.archive.org/web/20260106050903/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/Bureau_of_Specialty_Behavioral_Health_Services-Telemedicine_Database.pdf?rev=39a4677add1f4ed0a2e952bd1c6e5c54' },
-          { title: 'MDHHS SFY 2026 Behavioral Health Code Charts and Provider Qualifications (updated 9/26/2025; archived 10/31/2025)', url: 'https://web.archive.org/web/20251031103317/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2026_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=e9481f6c7f6e4628897bbe3ad67c892b' },
+          { title: 'MDHHS Bureau of Specialty Behavioral Health Services — Telemedicine Database (entries effective June 1, 2026; revision log through 6/15/26)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/Bureau_of_Specialty_Behavioral_Health_Services-Telemedicine_Database.pdf' },
+          { title: 'MDHHS SFY 2027 Behavioral Health Code Charts and Provider Qualifications (SFY beginning October 1, 2026; update log through 9/10/2026)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2027_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=cb846b903b05453da55fb84f78300b6b' },
         ],
       },
       authTurnaround: {
@@ -275,8 +285,8 @@ export const michiganPayers: Record<string, PayerConfig> = {
           'The PIHP decides, under the federal managed-care clock. Section 18 says "The PIHP’s Utilization Management will authorize the level of services prior to the delivery of services," and the manual requires determinations "Made within federal and state standards for timeliness." Under 42 CFR 438.210(d) a PIHP must decide a standard request within state-set timeframes that "may not exceed 14 calendar days" for rating periods that start before January 1, 2026 and "may not exceed 7 calendar days" for rating periods starting on or after that date, extendable by up to 14 calendar days at the enrollee’s or provider’s request or with justification; expedited decisions are due within 72 hours. Which cap binds depends on the PIHP contract’s rating-period start date. BHT authorizations run for up to 365 days and are re-authorized annually.',
         status: 'verified',
         cites: [
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Sections 1–2', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Sections 1–2', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
           { title: '42 CFR 438.210 — Coverage and authorization of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' },
         ],
       },
@@ -285,18 +295,21 @@ export const michiganPayers: Record<string, PayerConfig> = {
           'Medicaid pays last. "Medicaid is considered the payer of last resort. If a beneficiary with Medicare or Other Insurance coverage is enrolled in a Medicaid Health Plan (MHP), or is receiving services under a Prepaid Inpatient Health Plan (PIHP) or Community Mental Health Services Program (CMHSP), that entity is responsible for the Medicaid payment liability." Providers "must utilize other payment sources to their fullest extent" before billing Medicaid, and "Medicaid is not liable for payment of services denied because coverage rules of the primary health insurance were not followed" — so get the commercial plan’s prior authorization and use its network. The ABA section adds that the IPOS must not duplicate services that are the responsibility of "a private insurance or other funding authority." Nothing in Section 18 exempts a child with other coverage from the PIHP’s own eligibility determination and pre-service authorization. Federally, the agency rejects a claim when third-party liability is established and pays only the amount its schedule exceeds the third party’s payment (42 CFR 433.139).',
         status: 'verified',
         cites: [
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
           { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
         ],
       },
     },
     faq: [
+      { q: 'Does Michigan Medicaid pay ABA under H0031/H0032 or CPT codes?', a: 'CPT codes. MDHHS’s SFY 2027 code charts list 97151, 97153–97158, 0362T and 0373T for the autism (BHT/ABA) benefit; H0031 with modifier 6Y is the behavior identification assessment for people who are not in the ABA benefit. The eligibility evaluation is reported with 96112, 96113 or 96116.' },
       { q: 'Does Michigan Medicaid cover ABA therapy?', a: 'Yes, for children under 21 with autism, through the Behavioral Health Treatment benefit. It is delivered by the regional PIHP and its Community Mental Health programs after a PCP screening, a full medical exam and a comprehensive diagnostic evaluation.' },
       { q: 'My child has a Medicaid Health Plan. Does the plan approve ABA?', a: 'No. The manual assigns the autism evaluation and all BHT/ABA services to the PIHP for the child’s county. The health plan covers the PCP screening and, if the PIHP finds the child ineligible, related speech, occupational and physical therapy.' },
       { q: 'Is there a limit on ABA hours?', a: 'No preset cap. The manual describes focused intervention averaging 5–15 hours a week and comprehensive intervention averaging 16–25, and says a PIHP may not deny services based solely on preset limits.' },
       { q: 'Can ABA be done by telehealth under Michigan Medicaid?', a: 'Only analyst-level services: 97155, 97156, 97157 and 97158. Technician-delivered 97153/97154, the 97151 assessment and 0362T were removed from the MDHHS telemedicine database in 2023.' },
       { q: 'What is Michigan Medicaid\'s fee schedule for ABA?', a: 'There is no public ABA fee screen. ABA is paid by the PIHP or CMHSP under your network contract, and the Medicaid Provider Manual (Section 18.13) says only that "All PIHPs will reimburse BHT-ABA services at a minimum to the rate outlined with the most recent executed PIHP contract." Ask the PIHP/CMHSP contracting office for its ABA rates.' },
+      { q: 'What is the Michigan Medicaid timely filing limit?', a: 'Twelve months from the date of service for claims billed to MDHHS. ABA billed to a PIHP or CMHSP follows that entity’s own claims rules, which this guide has not yet verified.' },
+      { q: 'What documents does Michigan Medicaid need at intake for ABA (BHT)?', a: 'The route runs through the PIHP. A PCP screening, typically at an EPSDT well-child visit, and a full medical and physical exam come first. The PCP refers the child to the PIHP\'s autism access point, and families may also self-refer. The PIHP arranges a comprehensive diagnostic evaluation by a qualified practitioner using valid tools (in practice ADOS-2, ADI-R and the DD-CGAS, plus cognitive and adaptive testing). It also arranges the behavioral assessment. A physician or other licensed practitioner recommends BHT, and PIHP utilization management authorizes it before services start. Re-evaluations are needed no more than every three years unless medically necessary.' },
     ],
   },
 
@@ -310,7 +323,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       status: 'plan-dependent',
       cites: [
         { title: 'DWIHN — Autism Services', url: 'https://dwihn.org/programs-services/autism-services' },
-        { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+        { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
       ],
       verifyVia:
         'DWIHN Utilization Management (pihpauthorizations@dwihn.org) or the Access Call Center, 1-800-241-4949.',
@@ -321,7 +334,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
         'Required — DWIHN utilization management authorizes the ABA hours in the IPOS before services (state rule); DWIHN’s 2025 standard authorizations averaged 3.2 days.',
       status: 'verified',
       cites: [
-        { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+        { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
         { title: 'DWIHN — Utilization Management & Claims (2025 authorization metrics)', url: 'https://dwihn.org/provider-resources/utilization-management-claims' },
       ],
     },
@@ -331,7 +344,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       status: 'verified',
       cites: [
         { title: 'DWIHN — Autism BHT Comprehensive Diagnostic Evaluation & Re-Evaluation Form (outside diagnostic request)', url: 'https://dwihn.org/sites/default/files/2025-11/DWIHN%20Outside%20Diagnostic%20Request%20Form.docx' },
-        { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+        { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
       ],
     },
     payer: 'Detroit Wayne Integrated Health Network (DWIHN)',
@@ -374,7 +387,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'DWIHN — ASD Benefit Document Label Requirements in MH-WIN (rev. 6/20/20)', url: 'https://dwihn.org/sites/default/files/2025-11/15.%20DWIHN_ASD_Benefit_Scanned_Document_Requirements_6.20.20.pdf' },
           { title: 'DWIHN — Autism BHT Comprehensive Diagnostic Evaluation & Re-Evaluation Form (outside diagnostic request)', url: 'https://dwihn.org/sites/default/files/2025-11/DWIHN%20Outside%20Diagnostic%20Request%20Form.docx' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
         ],
       },
       {
@@ -386,9 +399,9 @@ export const michiganPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'DWIHN — Utilization Management & Claims (2025 authorization metrics)', url: 'https://dwihn.org/provider-resources/utilization-management-claims' },
           { title: 'DWIHN — Autism Services', url: 'https://dwihn.org/programs-services/autism-services' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
-          { title: 'MDHHS SFY 2026 Behavioral Health Code Charts and Provider Qualifications (updated 9/26/2025; archived 10/31/2025)', url: 'https://web.archive.org/web/20251031103317/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2026_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=e9481f6c7f6e4628897bbe3ad67c892b' },
-          { title: 'MDHHS Bureau of Specialty Behavioral Health Services — Telemedicine Database (effective May 12, 2023; archived 1/6/2026)', url: 'https://web.archive.org/web/20260106050903/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/Bureau_of_Specialty_Behavioral_Health_Services-Telemedicine_Database.pdf?rev=39a4677add1f4ed0a2e952bd1c6e5c54' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'MDHHS SFY 2027 Behavioral Health Code Charts and Provider Qualifications (SFY beginning October 1, 2026; update log through 9/10/2026)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2027_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=cb846b903b05453da55fb84f78300b6b' },
+          { title: 'MDHHS Bureau of Specialty Behavioral Health Services — Telemedicine Database (entries effective June 1, 2026; revision log through 6/15/26)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/Bureau_of_Specialty_Behavioral_Health_Services-Telemedicine_Database.pdf' },
         ],
       },
     ],
@@ -402,23 +415,23 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { title: 'DWIHN — Autism Services', url: 'https://dwihn.org/programs-services/autism-services' },
       { title: 'DWIHN — ASD Benefit Document Label Requirements in MH-WIN (rev. 6/20/20)', url: 'https://dwihn.org/sites/default/files/2025-11/15.%20DWIHN_ASD_Benefit_Scanned_Document_Requirements_6.20.20.pdf' },
       { title: 'DWIHN — Autism BHT Comprehensive Diagnostic Evaluation & Re-Evaluation Form (outside diagnostic request)', url: 'https://dwihn.org/sites/default/files/2025-11/DWIHN%20Outside%20Diagnostic%20Request%20Form.docx' },
-      { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+      { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
       { title: 'DWIHN — Utilization Management & Claims (2025 authorization metrics)', url: 'https://dwihn.org/provider-resources/utilization-management-claims' },
-      { title: 'MDHHS SFY 2026 Behavioral Health Code Charts and Provider Qualifications (updated 9/26/2025; archived 10/31/2025)', url: 'https://web.archive.org/web/20251031103317/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2026_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=e9481f6c7f6e4628897bbe3ad67c892b' },
-      { title: 'MDHHS Bureau of Specialty Behavioral Health Services — Telemedicine Database (effective May 12, 2023; archived 1/6/2026)', url: 'https://web.archive.org/web/20260106050903/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/Bureau_of_Specialty_Behavioral_Health_Services-Telemedicine_Database.pdf?rev=39a4677add1f4ed0a2e952bd1c6e5c54' },
-      { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Sections 1–2', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+      { title: 'MDHHS SFY 2027 Behavioral Health Code Charts and Provider Qualifications (SFY beginning October 1, 2026; update log through 9/10/2026)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2027_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=cb846b903b05453da55fb84f78300b6b' },
+      { title: 'MDHHS Bureau of Specialty Behavioral Health Services — Telemedicine Database (entries effective June 1, 2026; revision log through 6/15/26)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/Bureau_of_Specialty_Behavioral_Health_Services-Telemedicine_Database.pdf' },
+      { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Sections 1–2', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
       { title: '42 CFR 438.210 — Coverage and authorization of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' },
-      { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+      { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
       { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
     ],
     deliveryRules: {
       supervision: {
         value:
-          'DWIHN applies the state rule; its published autism material sets nothing different. The behavior technician works under the supervision of the BCBA/LBA or other professional (BCaBA or QBHP) overseeing the behavioral plan of care, "with minimally one hour of clinical observation and direction for every 10 hours of direct treatment." BHT services "must be provided under the direction of a BCBA/LBA or a Master’s prepared QBHP," and the BCBA/LBA is responsible for clinical skill development and supervision of BCaBAs, QBHPs and technicians and for communicating progress on goals to parents or guardians at least every three to six months. The manual gave licensed psychologists (LP/LLP) and QBHPs a deadline to be certified and licensed as a BCBA/LBA by September 30, 2025, and the SFY 2026 code charts now list QBHP as a qualifying provider only "until October 1, 2025."',
+          'DWIHN applies the state rule; its published autism material sets nothing different. The behavior technician works under the supervision of the BCBA/LBA or other professional (BCaBA or QBHP) overseeing the behavioral plan of care, "with minimally one hour of clinical observation and direction for every 10 hours of direct treatment." BHT services "must be provided under the direction of a BCBA/LBA or a Master’s prepared QBHP," and the BCBA/LBA is responsible for clinical skill development and supervision of BCaBAs, QBHPs and technicians and for communicating progress on goals to parents or guardians at least every three to six months. The manual gave licensed psychologists (LP/LLP) and QBHPs a deadline to be certified and licensed as a BCBA/LBA by September 30, 2025, and the SFY 2027 code charts (for the state fiscal year that began October 1, 2026) list the ABA codes for the Licensed Behavior Analyst (HO) and Licensed Assistant Behavior Analyst (HN), plus the behavior technician (HM) on 97153, 97154 and 0373T, with no separate QBHP row.',
         status: 'verified',
         cites: [
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
-          { title: 'MDHHS SFY 2026 Behavioral Health Code Charts and Provider Qualifications (updated 9/26/2025; archived 10/31/2025)', url: 'https://web.archive.org/web/20251031103317/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2026_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=e9481f6c7f6e4628897bbe3ad67c892b' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'MDHHS SFY 2027 Behavioral Health Code Charts and Provider Qualifications (SFY beginning October 1, 2026; update log through 9/10/2026)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2027_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=cb846b903b05453da55fb84f78300b6b' },
           { title: 'DWIHN — Autism Services', url: 'https://dwihn.org/programs-services/autism-services' },
           { title: 'DWIHN — Utilization Management & Claims (2025 authorization metrics)', url: 'https://dwihn.org/provider-resources/utilization-management-claims' },
           { title: 'DWIHN — ASD Benefit Document Label Requirements in MH-WIN (rev. 6/20/20)', url: 'https://dwihn.org/sites/default/files/2025-11/15.%20DWIHN_ASD_Benefit_Scanned_Document_Requirements_6.20.20.pdf' },
@@ -427,10 +440,10 @@ export const michiganPayers: Record<string, PayerConfig> = {
       },
       concurrentBilling: {
         value:
-          'DWIHN applies the state rule; its published autism material sets nothing different. Allowed for the pairs MDHHS names. The SFY 2026 code charts say 97155 "Must co-occur with 97153, 97154, and 0373T in order to be reported," and the same-time reporting rules state that 97153 and 97155 "can occur at the same time, just not by the same person" (the technician delivers 97153 while the BCBA/LBA supervising delivers 97155); 97156 may be delivered by the BCBA/LBA to the caregiver while a technician delivers 97153 to the child; a 97151 reassessment may be reported at the same time as 97153, 97154, 0373T (and potentially 97157/97158) "IF there are two separate providers"; and 0362T may be reported at the same time as 0373T. Targeted case management may also run at the same time as a direct ABA service.',
+          'DWIHN applies the state rule; its published autism material sets nothing different. Allowed for the pairs MDHHS names. The SFY 2027 code charts (from October 1, 2026) say 97155 reported by a licensed behavior analyst "May co-occur with 97153 & 97154," and 97155 reported by a licensed assistant behavior analyst "Must co-occur with 97153, 97154, and 0373T in order to be reported," and the same-time reporting rules state that 97153 and 97155 "can occur at the same time, just not by the same person" (the technician delivers 97153 while the BCBA/LBA supervising delivers 97155); 97156 may be delivered by the BCBA/LBA to the caregiver while a technician delivers 97153 to the child; a 97151 reassessment may be reported at the same time as 97153, 97154, 0373T (and potentially 97157/97158) "IF there are two separate providers"; and 0362T may be reported at the same time as 0373T. Targeted case management may also run at the same time as a direct ABA service.',
         status: 'verified',
         cites: [
-          { title: 'MDHHS SFY 2026 Behavioral Health Code Charts and Provider Qualifications (updated 9/26/2025; archived 10/31/2025)', url: 'https://web.archive.org/web/20251031103317/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2026_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=e9481f6c7f6e4628897bbe3ad67c892b' },
+          { title: 'MDHHS SFY 2027 Behavioral Health Code Charts and Provider Qualifications (SFY beginning October 1, 2026; update log through 9/10/2026)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2027_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=cb846b903b05453da55fb84f78300b6b' },
           { title: 'DWIHN — Autism Services', url: 'https://dwihn.org/programs-services/autism-services' },
           { title: 'DWIHN — Utilization Management & Claims (2025 authorization metrics)', url: 'https://dwihn.org/provider-resources/utilization-management-claims' },
           { title: 'DWIHN — ASD Benefit Document Label Requirements in MH-WIN (rev. 6/20/20)', url: 'https://dwihn.org/sites/default/files/2025-11/15.%20DWIHN_ASD_Benefit_Scanned_Document_Requirements_6.20.20.pdf' },
@@ -442,8 +455,8 @@ export const michiganPayers: Record<string, PayerConfig> = {
           'DWIHN applies the state rule; its published autism material sets nothing different. No per-day or per-week unit cap is published. The manual sets planning averages, not ceilings: focused behavioral intervention averages 5–15 hours a week and comprehensive behavioral intervention 16–25 hours a week, with actual hours set by the behavioral plan of care. A PIHP "may not deny services based solely on preset limits of the cost, amount, scope, and duration of services," and the level of service is re-determined at least every six months on measurable progress. Authorizations may run up to 365 days.',
         status: 'verified',
         cites: [
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Sections 1–2', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Sections 1–2', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
           { title: 'DWIHN — Autism Services', url: 'https://dwihn.org/programs-services/autism-services' },
           { title: 'DWIHN — Utilization Management & Claims (2025 authorization metrics)', url: 'https://dwihn.org/provider-resources/utilization-management-claims' },
           { title: 'DWIHN — ASD Benefit Document Label Requirements in MH-WIN (rev. 6/20/20)', url: 'https://dwihn.org/sites/default/files/2025-11/15.%20DWIHN_ASD_Benefit_Scanned_Document_Requirements_6.20.20.pdf' },
@@ -452,12 +465,12 @@ export const michiganPayers: Record<string, PayerConfig> = {
       },
       noteSignature: {
         value:
-          'DWIHN applies the state rule; its published autism material sets nothing different. Section 18 of the Medicaid Provider Manual and the SFY 2026 code charts do not state who signs an ABA session note or by when. The manual requires the individual plan of service (IPOS) to specify amount, scope and duration of each authorized service and permits electronic signatures for the beneficiary on the plan of service and consents; session-note signature standards sit in each PIHP’s provider contract and documentation standards.',
+          'DWIHN applies the state rule; its published autism material sets nothing different. Section 18 of the Medicaid Provider Manual and the SFY 2027 code charts do not state who signs an ABA session note or by when. The manual requires the individual plan of service (IPOS) to specify amount, scope and duration of each authorized service and permits electronic signatures for the beneficiary on the plan of service and consents; session-note signature standards sit in each PIHP’s provider contract and documentation standards.',
         status: 'plan-dependent',
         cites: [
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Sections 1–2', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
-          { title: 'MDHHS SFY 2026 Behavioral Health Code Charts and Provider Qualifications (updated 9/26/2025; archived 10/31/2025)', url: 'https://web.archive.org/web/20251031103317/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2026_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=e9481f6c7f6e4628897bbe3ad67c892b' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Sections 1–2', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'MDHHS SFY 2027 Behavioral Health Code Charts and Provider Qualifications (SFY beginning October 1, 2026; update log through 9/10/2026)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2027_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=cb846b903b05453da55fb84f78300b6b' },
           { title: 'DWIHN — Autism Services', url: 'https://dwihn.org/programs-services/autism-services' },
           { title: 'DWIHN — Utilization Management & Claims (2025 authorization metrics)', url: 'https://dwihn.org/provider-resources/utilization-management-claims' },
           { title: 'DWIHN — ASD Benefit Document Label Requirements in MH-WIN (rev. 6/20/20)', url: 'https://dwihn.org/sites/default/files/2025-11/15.%20DWIHN_ASD_Benefit_Scanned_Document_Requirements_6.20.20.pdf' },
@@ -473,16 +486,16 @@ export const michiganPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'DWIHN — Autism Services', url: 'https://dwihn.org/programs-services/autism-services' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
         ],
       },
       billAsProvider: {
         value:
-          'DWIHN applies the state rule; its published autism material sets nothing different. Services are reported to the PIHP/CMHSP under the provider’s network contract, with a modifier naming the rendering staff level. The SFY 2026 code charts list the qualifying provider types and modifiers for each ABA code: HO for a licensed behavior analyst (master’s level) or QBHP, HN for a licensed assistant behavior analyst (bachelor’s level), and HM for a behavior technician on the technician codes (97153, 97154, 0373T); 97151 carries the state-defined U5 "Autism" modifier and group codes carry the UN–US group-size modifiers. A technician does not need a license or BACB registration, but must complete BACB-approved RBT training and work under the BCBA/LBA’s supervision.',
+          'DWIHN applies the state rule; its published autism material sets nothing different. Services are reported to the PIHP/CMHSP under the provider’s network contract, with a modifier naming the rendering staff level. The SFY 2027 code charts list the qualifying provider types and modifiers for each ABA code: HO for a licensed behavior analyst (master’s level), HN for a licensed assistant behavior analyst (bachelor’s level), and HM for a behavior technician on the technician codes (97153, 97154, 0373T); group codes carry the UN–US group-size modifiers. (The U5 autism modifier the SFY 2026 charts put on 97151 is not in the SFY 2027 modifier list.) Which codes: ABA is billed with CPT codes, not H-codes. The SFY 2027 code charts list 97151, 97153, 97154, 97155, 97156, 97157, 97158, 0362T and 0373T for ABA (97152 does not appear); the diagnostic evaluation behind eligibility is reported with 96112, 96113 or 96116 “For reporting BHT/ABA eligibility assessments and re-evaluation assessments related to Autism”; and H0031 with the 6Y modifier is the behavior identification assessment for people outside the ABA benefit (“97151 for non-ABA was removed effective 10/1/24 so the H0031 with the 6Y is for these individuals”). A technician does not need a license or BACB registration, but must complete BACB-approved RBT training and work under the BCBA/LBA’s supervision.',
         status: 'verified',
         cites: [
-          { title: 'MDHHS SFY 2026 Behavioral Health Code Charts and Provider Qualifications (updated 9/26/2025; archived 10/31/2025)', url: 'https://web.archive.org/web/20251031103317/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2026_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=e9481f6c7f6e4628897bbe3ad67c892b' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'MDHHS SFY 2027 Behavioral Health Code Charts and Provider Qualifications (SFY beginning October 1, 2026; update log through 9/10/2026)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2027_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=cb846b903b05453da55fb84f78300b6b' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
           { title: 'DWIHN — Autism Services', url: 'https://dwihn.org/programs-services/autism-services' },
           { title: 'DWIHN — Utilization Management & Claims (2025 authorization metrics)', url: 'https://dwihn.org/provider-resources/utilization-management-claims' },
           { title: 'DWIHN — ASD Benefit Document Label Requirements in MH-WIN (rev. 6/20/20)', url: 'https://dwihn.org/sites/default/files/2025-11/15.%20DWIHN_ASD_Benefit_Scanned_Document_Requirements_6.20.20.pdf' },
@@ -497,7 +510,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'DWIHN — Autism Services', url: 'https://dwihn.org/programs-services/autism-services' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
         ],
       },
       dxRecency: {
@@ -505,7 +518,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
           'The manual rule applies: comprehensive diagnostic re-evaluations are required "no more than once every three years, unless determined medically necessary more frequently." DWIHN’s own document table (revised 6/20/20) still lists ADOS-2/DD-CGAS re-evaluations on the annual MDHHS approval anniversary and ABA assessments every 180 days; the three-year manual rule is newer, so confirm the current re-evaluation cadence with DWIHN.',
         status: 'verified',
         cites: [
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
           { title: 'DWIHN — ASD Benefit Document Label Requirements in MH-WIN (rev. 6/20/20)', url: 'https://dwihn.org/sites/default/files/2025-11/15.%20DWIHN_ASD_Benefit_Scanned_Document_Requirements_6.20.20.pdf' },
         ],
       },
@@ -514,7 +527,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
           'DWIHN applies the state rule; its published autism material sets nothing different. A qualified licensed practitioner "qualified and experienced in diagnosing ASD": a physician with a specialty in psychiatry or neurology; a physician with a subspecialty in developmental pediatrics, developmental-behavioral pediatrics or a related discipline; a physician with a specialty in pediatrics or other appropriate specialty with ASD training, experience or expertise; a psychologist; an advanced practice registered nurse or a physician assistant with ASD and/or behavioral health training; or a master’s-level, fully licensed clinical social worker qualified and experienced in diagnosing ASD. The PIHP is responsible for arranging the comprehensive diagnostic evaluation.',
         status: 'verified',
         cites: [
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
           { title: 'DWIHN — Autism Services', url: 'https://dwihn.org/programs-services/autism-services' },
           { title: 'DWIHN — Utilization Management & Claims (2025 authorization metrics)', url: 'https://dwihn.org/provider-resources/utilization-management-claims' },
           { title: 'DWIHN — ASD Benefit Document Label Requirements in MH-WIN (rev. 6/20/20)', url: 'https://dwihn.org/sites/default/files/2025-11/15.%20DWIHN_ASD_Benefit_Scanned_Document_Requirements_6.20.20.pdf' },
@@ -528,7 +541,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'DWIHN — Autism BHT Comprehensive Diagnostic Evaluation & Re-Evaluation Form (outside diagnostic request)', url: 'https://dwihn.org/sites/default/files/2025-11/DWIHN%20Outside%20Diagnostic%20Request%20Form.docx' },
           { title: 'DWIHN — Autism Services', url: 'https://dwihn.org/programs-services/autism-services' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
         ],
       },
       referral: {
@@ -537,16 +550,16 @@ export const michiganPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'DWIHN — Autism Services', url: 'https://dwihn.org/programs-services/autism-services' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
         ],
       },
       telehealth: {
         value:
-          'DWIHN applies the state rule; its published autism material sets nothing different. Only the analyst-level codes. The MDHHS Bureau of Specialty Behavioral Health Services Telemedicine Database lists 97155, 97156, 97157 and 97158 as allowed via simultaneous audio/visual telemedicine (reported with POS 02 or POS 10, no modifier), and its revision log records that 0362T, 97151, 97153 and 97154 were removed from the database on 4/28/23 — so technician-delivered direct treatment and the behavior identification assessment are in-person. The diagnostic-evaluation codes 96112/96113 and 96116 remain allowed via audio/visual "for reporting BHT/ABA eligibility assessments and re-evaluation assessments related to Autism." The SFY 2026 code charts note on 97155 to use POS 02 "if MDHHS has authorized tele-practice for an individual."',
+          'DWIHN applies the state rule; its published autism material sets nothing different. Only the analyst-level codes. The MDHHS Bureau of Specialty Behavioral Health Services Telemedicine Database lists 97155, 97156, 97157 and 97158 as allowed via simultaneous audio/visual telemedicine (reported with POS 02 or POS 10, no modifier), and its revision log records that 0362T, 97151, 97153 and 97154 were removed from the database on 4/28/23 — so technician-delivered direct treatment and the behavior identification assessment are in-person. The diagnostic-evaluation codes 96112/96113 and 96116 remain allowed via audio/visual "for reporting BHT/ABA eligibility assessments and re-evaluation assessments related to Autism." The SFY 2027 code charts note on 97155 and 97156 to use POS 02 "if MDHHS has authorized tele-practice for an individual."',
         status: 'verified',
         cites: [
-          { title: 'MDHHS Bureau of Specialty Behavioral Health Services — Telemedicine Database (effective May 12, 2023; archived 1/6/2026)', url: 'https://web.archive.org/web/20260106050903/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/Bureau_of_Specialty_Behavioral_Health_Services-Telemedicine_Database.pdf?rev=39a4677add1f4ed0a2e952bd1c6e5c54' },
-          { title: 'MDHHS SFY 2026 Behavioral Health Code Charts and Provider Qualifications (updated 9/26/2025; archived 10/31/2025)', url: 'https://web.archive.org/web/20251031103317/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2026_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=e9481f6c7f6e4628897bbe3ad67c892b' },
+          { title: 'MDHHS Bureau of Specialty Behavioral Health Services — Telemedicine Database (entries effective June 1, 2026; revision log through 6/15/26)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/Bureau_of_Specialty_Behavioral_Health_Services-Telemedicine_Database.pdf' },
+          { title: 'MDHHS SFY 2027 Behavioral Health Code Charts and Provider Qualifications (SFY beginning October 1, 2026; update log through 9/10/2026)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2027_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=cb846b903b05453da55fb84f78300b6b' },
           { title: 'DWIHN — Autism Services', url: 'https://dwihn.org/programs-services/autism-services' },
           { title: 'DWIHN — Utilization Management & Claims (2025 authorization metrics)', url: 'https://dwihn.org/provider-resources/utilization-management-claims' },
           { title: 'DWIHN — ASD Benefit Document Label Requirements in MH-WIN (rev. 6/20/20)', url: 'https://dwihn.org/sites/default/files/2025-11/15.%20DWIHN_ASD_Benefit_Scanned_Document_Requirements_6.20.20.pdf' },
@@ -560,7 +573,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'DWIHN — Utilization Management & Claims (2025 authorization metrics)', url: 'https://dwihn.org/provider-resources/utilization-management-claims' },
           { title: '42 CFR 438.210 — Coverage and authorization of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
         ],
       },
       coordinationOfBenefits: {
@@ -568,8 +581,8 @@ export const michiganPayers: Record<string, PayerConfig> = {
           'DWIHN applies the state rule; its published autism material sets nothing different. Medicaid pays last. "Medicaid is considered the payer of last resort. If a beneficiary with Medicare or Other Insurance coverage is enrolled in a Medicaid Health Plan (MHP), or is receiving services under a Prepaid Inpatient Health Plan (PIHP) or Community Mental Health Services Program (CMHSP), that entity is responsible for the Medicaid payment liability." Providers "must utilize other payment sources to their fullest extent" before billing Medicaid, and "Medicaid is not liable for payment of services denied because coverage rules of the primary health insurance were not followed" — so get the commercial plan’s prior authorization and use its network. The ABA section adds that the IPOS must not duplicate services that are the responsibility of "a private insurance or other funding authority." Nothing in Section 18 exempts a child with other coverage from the PIHP’s own eligibility determination and pre-service authorization. Federally, the agency rejects a claim when third-party liability is established and pays only the amount its schedule exceeds the third party’s payment (42 CFR 433.139).',
         status: 'verified',
         cites: [
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
           { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
           { title: 'DWIHN — Autism Services', url: 'https://dwihn.org/programs-services/autism-services' },
           { title: 'DWIHN — Utilization Management & Claims (2025 authorization metrics)', url: 'https://dwihn.org/provider-resources/utilization-management-claims' },
@@ -595,7 +608,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       status: 'plan-dependent',
       cites: [
         { title: 'OCHN — Autism Benefit Steps navigation guide (January 2026)', url: 'https://oaklandchn.org/wp-content/uploads/2026/01/autism-OCHN-Navigation-Guides.pdf' },
-        { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+        { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
       ],
       verifyVia:
         'OCHN Access, (248) 464-6363, or the child’s core provider agency.',
@@ -606,7 +619,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
         'Required — PIHP utilization management authorizes the ABA level of services in the IPOS before delivery (state rule; OCHN publishes nothing different).',
       status: 'verified',
       cites: [
-        { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+        { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
         { title: 'OCHN — Autism Services & Supports', url: 'https://oaklandchn.org/service-information/autism/' },
       ],
     },
@@ -659,9 +672,9 @@ export const michiganPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'OCHN — ABA Provider Info Sheet for Families (v05.2025)', url: 'https://oaklandchn.org/wp-content/uploads/2026/02/ABA-PROVIDER-List-for-Families-FY25-v0525.pdf' },
           { title: 'OCHN — Autism Services & Supports', url: 'https://oaklandchn.org/service-information/autism/' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
-          { title: 'MDHHS SFY 2026 Behavioral Health Code Charts and Provider Qualifications (updated 9/26/2025; archived 10/31/2025)', url: 'https://web.archive.org/web/20251031103317/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2026_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=e9481f6c7f6e4628897bbe3ad67c892b' },
-          { title: 'MDHHS Bureau of Specialty Behavioral Health Services — Telemedicine Database (effective May 12, 2023; archived 1/6/2026)', url: 'https://web.archive.org/web/20260106050903/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/Bureau_of_Specialty_Behavioral_Health_Services-Telemedicine_Database.pdf?rev=39a4677add1f4ed0a2e952bd1c6e5c54' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'MDHHS SFY 2027 Behavioral Health Code Charts and Provider Qualifications (SFY beginning October 1, 2026; update log through 9/10/2026)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2027_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=cb846b903b05453da55fb84f78300b6b' },
+          { title: 'MDHHS Bureau of Specialty Behavioral Health Services — Telemedicine Database (entries effective June 1, 2026; revision log through 6/15/26)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/Bureau_of_Specialty_Behavioral_Health_Services-Telemedicine_Database.pdf' },
         ],
       },
     ],
@@ -675,22 +688,22 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { title: 'OCHN — Autism Benefit Steps navigation guide (January 2026)', url: 'https://oaklandchn.org/wp-content/uploads/2026/01/autism-OCHN-Navigation-Guides.pdf' },
       { title: 'OCHN — Autism Services & Supports', url: 'https://oaklandchn.org/service-information/autism/' },
       { title: 'OCHN — ABA Provider Info Sheet for Families (v05.2025)', url: 'https://oaklandchn.org/wp-content/uploads/2026/02/ABA-PROVIDER-List-for-Families-FY25-v0525.pdf' },
-      { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
-      { title: 'MDHHS SFY 2026 Behavioral Health Code Charts and Provider Qualifications (updated 9/26/2025; archived 10/31/2025)', url: 'https://web.archive.org/web/20251031103317/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2026_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=e9481f6c7f6e4628897bbe3ad67c892b' },
-      { title: 'MDHHS Bureau of Specialty Behavioral Health Services — Telemedicine Database (effective May 12, 2023; archived 1/6/2026)', url: 'https://web.archive.org/web/20260106050903/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/Bureau_of_Specialty_Behavioral_Health_Services-Telemedicine_Database.pdf?rev=39a4677add1f4ed0a2e952bd1c6e5c54' },
-      { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Sections 1–2', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+      { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+      { title: 'MDHHS SFY 2027 Behavioral Health Code Charts and Provider Qualifications (SFY beginning October 1, 2026; update log through 9/10/2026)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2027_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=cb846b903b05453da55fb84f78300b6b' },
+      { title: 'MDHHS Bureau of Specialty Behavioral Health Services — Telemedicine Database (entries effective June 1, 2026; revision log through 6/15/26)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/Bureau_of_Specialty_Behavioral_Health_Services-Telemedicine_Database.pdf' },
+      { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Sections 1–2', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
       { title: '42 CFR 438.210 — Coverage and authorization of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' },
-      { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+      { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
       { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
     ],
     deliveryRules: {
       supervision: {
         value:
-          'OCHN applies the state rule; its published autism material sets nothing different. The behavior technician works under the supervision of the BCBA/LBA or other professional (BCaBA or QBHP) overseeing the behavioral plan of care, "with minimally one hour of clinical observation and direction for every 10 hours of direct treatment." BHT services "must be provided under the direction of a BCBA/LBA or a Master’s prepared QBHP," and the BCBA/LBA is responsible for clinical skill development and supervision of BCaBAs, QBHPs and technicians and for communicating progress on goals to parents or guardians at least every three to six months. The manual gave licensed psychologists (LP/LLP) and QBHPs a deadline to be certified and licensed as a BCBA/LBA by September 30, 2025, and the SFY 2026 code charts now list QBHP as a qualifying provider only "until October 1, 2025."',
+          'OCHN applies the state rule; its published autism material sets nothing different. The behavior technician works under the supervision of the BCBA/LBA or other professional (BCaBA or QBHP) overseeing the behavioral plan of care, "with minimally one hour of clinical observation and direction for every 10 hours of direct treatment." BHT services "must be provided under the direction of a BCBA/LBA or a Master’s prepared QBHP," and the BCBA/LBA is responsible for clinical skill development and supervision of BCaBAs, QBHPs and technicians and for communicating progress on goals to parents or guardians at least every three to six months. The manual gave licensed psychologists (LP/LLP) and QBHPs a deadline to be certified and licensed as a BCBA/LBA by September 30, 2025, and the SFY 2027 code charts (for the state fiscal year that began October 1, 2026) list the ABA codes for the Licensed Behavior Analyst (HO) and Licensed Assistant Behavior Analyst (HN), plus the behavior technician (HM) on 97153, 97154 and 0373T, with no separate QBHP row.',
         status: 'verified',
         cites: [
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
-          { title: 'MDHHS SFY 2026 Behavioral Health Code Charts and Provider Qualifications (updated 9/26/2025; archived 10/31/2025)', url: 'https://web.archive.org/web/20251031103317/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2026_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=e9481f6c7f6e4628897bbe3ad67c892b' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'MDHHS SFY 2027 Behavioral Health Code Charts and Provider Qualifications (SFY beginning October 1, 2026; update log through 9/10/2026)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2027_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=cb846b903b05453da55fb84f78300b6b' },
           { title: 'OCHN — Autism Services & Supports', url: 'https://oaklandchn.org/service-information/autism/' },
           { title: 'OCHN — Autism Benefit Steps navigation guide (January 2026)', url: 'https://oaklandchn.org/wp-content/uploads/2026/01/autism-OCHN-Navigation-Guides.pdf' },
           { title: 'OCHN — ABA Provider Info Sheet for Families (v05.2025)', url: 'https://oaklandchn.org/wp-content/uploads/2026/02/ABA-PROVIDER-List-for-Families-FY25-v0525.pdf' },
@@ -698,10 +711,10 @@ export const michiganPayers: Record<string, PayerConfig> = {
       },
       concurrentBilling: {
         value:
-          'OCHN applies the state rule; its published autism material sets nothing different. Allowed for the pairs MDHHS names. The SFY 2026 code charts say 97155 "Must co-occur with 97153, 97154, and 0373T in order to be reported," and the same-time reporting rules state that 97153 and 97155 "can occur at the same time, just not by the same person" (the technician delivers 97153 while the BCBA/LBA supervising delivers 97155); 97156 may be delivered by the BCBA/LBA to the caregiver while a technician delivers 97153 to the child; a 97151 reassessment may be reported at the same time as 97153, 97154, 0373T (and potentially 97157/97158) "IF there are two separate providers"; and 0362T may be reported at the same time as 0373T. Targeted case management may also run at the same time as a direct ABA service.',
+          'OCHN applies the state rule; its published autism material sets nothing different. Allowed for the pairs MDHHS names. The SFY 2027 code charts (from October 1, 2026) say 97155 reported by a licensed behavior analyst "May co-occur with 97153 & 97154," and 97155 reported by a licensed assistant behavior analyst "Must co-occur with 97153, 97154, and 0373T in order to be reported," and the same-time reporting rules state that 97153 and 97155 "can occur at the same time, just not by the same person" (the technician delivers 97153 while the BCBA/LBA supervising delivers 97155); 97156 may be delivered by the BCBA/LBA to the caregiver while a technician delivers 97153 to the child; a 97151 reassessment may be reported at the same time as 97153, 97154, 0373T (and potentially 97157/97158) "IF there are two separate providers"; and 0362T may be reported at the same time as 0373T. Targeted case management may also run at the same time as a direct ABA service.',
         status: 'verified',
         cites: [
-          { title: 'MDHHS SFY 2026 Behavioral Health Code Charts and Provider Qualifications (updated 9/26/2025; archived 10/31/2025)', url: 'https://web.archive.org/web/20251031103317/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2026_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=e9481f6c7f6e4628897bbe3ad67c892b' },
+          { title: 'MDHHS SFY 2027 Behavioral Health Code Charts and Provider Qualifications (SFY beginning October 1, 2026; update log through 9/10/2026)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2027_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=cb846b903b05453da55fb84f78300b6b' },
           { title: 'OCHN — Autism Services & Supports', url: 'https://oaklandchn.org/service-information/autism/' },
           { title: 'OCHN — Autism Benefit Steps navigation guide (January 2026)', url: 'https://oaklandchn.org/wp-content/uploads/2026/01/autism-OCHN-Navigation-Guides.pdf' },
           { title: 'OCHN — ABA Provider Info Sheet for Families (v05.2025)', url: 'https://oaklandchn.org/wp-content/uploads/2026/02/ABA-PROVIDER-List-for-Families-FY25-v0525.pdf' },
@@ -712,8 +725,8 @@ export const michiganPayers: Record<string, PayerConfig> = {
           'OCHN applies the state rule; its published autism material sets nothing different. No per-day or per-week unit cap is published. The manual sets planning averages, not ceilings: focused behavioral intervention averages 5–15 hours a week and comprehensive behavioral intervention 16–25 hours a week, with actual hours set by the behavioral plan of care. A PIHP "may not deny services based solely on preset limits of the cost, amount, scope, and duration of services," and the level of service is re-determined at least every six months on measurable progress. Authorizations may run up to 365 days.',
         status: 'verified',
         cites: [
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Sections 1–2', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Sections 1–2', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
           { title: 'OCHN — Autism Services & Supports', url: 'https://oaklandchn.org/service-information/autism/' },
           { title: 'OCHN — Autism Benefit Steps navigation guide (January 2026)', url: 'https://oaklandchn.org/wp-content/uploads/2026/01/autism-OCHN-Navigation-Guides.pdf' },
           { title: 'OCHN — ABA Provider Info Sheet for Families (v05.2025)', url: 'https://oaklandchn.org/wp-content/uploads/2026/02/ABA-PROVIDER-List-for-Families-FY25-v0525.pdf' },
@@ -721,12 +734,12 @@ export const michiganPayers: Record<string, PayerConfig> = {
       },
       noteSignature: {
         value:
-          'OCHN applies the state rule; its published autism material sets nothing different. Section 18 of the Medicaid Provider Manual and the SFY 2026 code charts do not state who signs an ABA session note or by when. The manual requires the individual plan of service (IPOS) to specify amount, scope and duration of each authorized service and permits electronic signatures for the beneficiary on the plan of service and consents; session-note signature standards sit in each PIHP’s provider contract and documentation standards.',
+          'OCHN applies the state rule; its published autism material sets nothing different. Section 18 of the Medicaid Provider Manual and the SFY 2027 code charts do not state who signs an ABA session note or by when. The manual requires the individual plan of service (IPOS) to specify amount, scope and duration of each authorized service and permits electronic signatures for the beneficiary on the plan of service and consents; session-note signature standards sit in each PIHP’s provider contract and documentation standards.',
         status: 'plan-dependent',
         cites: [
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Sections 1–2', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
-          { title: 'MDHHS SFY 2026 Behavioral Health Code Charts and Provider Qualifications (updated 9/26/2025; archived 10/31/2025)', url: 'https://web.archive.org/web/20251031103317/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2026_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=e9481f6c7f6e4628897bbe3ad67c892b' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Sections 1–2', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'MDHHS SFY 2027 Behavioral Health Code Charts and Provider Qualifications (SFY beginning October 1, 2026; update log through 9/10/2026)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2027_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=cb846b903b05453da55fb84f78300b6b' },
           { title: 'OCHN — Autism Services & Supports', url: 'https://oaklandchn.org/service-information/autism/' },
           { title: 'OCHN — Autism Benefit Steps navigation guide (January 2026)', url: 'https://oaklandchn.org/wp-content/uploads/2026/01/autism-OCHN-Navigation-Guides.pdf' },
           { title: 'OCHN — ABA Provider Info Sheet for Families (v05.2025)', url: 'https://oaklandchn.org/wp-content/uploads/2026/02/ABA-PROVIDER-List-for-Families-FY25-v0525.pdf' },
@@ -742,16 +755,16 @@ export const michiganPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'OCHN — Autism Services & Supports', url: 'https://oaklandchn.org/service-information/autism/' },
           { title: 'OCHN — ABA Provider Info Sheet for Families (v05.2025)', url: 'https://oaklandchn.org/wp-content/uploads/2026/02/ABA-PROVIDER-List-for-Families-FY25-v0525.pdf' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
         ],
       },
       billAsProvider: {
         value:
-          'OCHN applies the state rule; its published autism material sets nothing different. Services are reported to the PIHP/CMHSP under the provider’s network contract, with a modifier naming the rendering staff level. The SFY 2026 code charts list the qualifying provider types and modifiers for each ABA code: HO for a licensed behavior analyst (master’s level) or QBHP, HN for a licensed assistant behavior analyst (bachelor’s level), and HM for a behavior technician on the technician codes (97153, 97154, 0373T); 97151 carries the state-defined U5 "Autism" modifier and group codes carry the UN–US group-size modifiers. A technician does not need a license or BACB registration, but must complete BACB-approved RBT training and work under the BCBA/LBA’s supervision.',
+          'OCHN applies the state rule; its published autism material sets nothing different. Services are reported to the PIHP/CMHSP under the provider’s network contract, with a modifier naming the rendering staff level. The SFY 2027 code charts list the qualifying provider types and modifiers for each ABA code: HO for a licensed behavior analyst (master’s level), HN for a licensed assistant behavior analyst (bachelor’s level), and HM for a behavior technician on the technician codes (97153, 97154, 0373T); group codes carry the UN–US group-size modifiers. (The U5 autism modifier the SFY 2026 charts put on 97151 is not in the SFY 2027 modifier list.) Which codes: ABA is billed with CPT codes, not H-codes. The SFY 2027 code charts list 97151, 97153, 97154, 97155, 97156, 97157, 97158, 0362T and 0373T for ABA (97152 does not appear); the diagnostic evaluation behind eligibility is reported with 96112, 96113 or 96116 “For reporting BHT/ABA eligibility assessments and re-evaluation assessments related to Autism”; and H0031 with the 6Y modifier is the behavior identification assessment for people outside the ABA benefit (“97151 for non-ABA was removed effective 10/1/24 so the H0031 with the 6Y is for these individuals”). A technician does not need a license or BACB registration, but must complete BACB-approved RBT training and work under the BCBA/LBA’s supervision.',
         status: 'verified',
         cites: [
-          { title: 'MDHHS SFY 2026 Behavioral Health Code Charts and Provider Qualifications (updated 9/26/2025; archived 10/31/2025)', url: 'https://web.archive.org/web/20251031103317/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2026_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=e9481f6c7f6e4628897bbe3ad67c892b' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'MDHHS SFY 2027 Behavioral Health Code Charts and Provider Qualifications (SFY beginning October 1, 2026; update log through 9/10/2026)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2027_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=cb846b903b05453da55fb84f78300b6b' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
           { title: 'OCHN — Autism Services & Supports', url: 'https://oaklandchn.org/service-information/autism/' },
           { title: 'OCHN — Autism Benefit Steps navigation guide (January 2026)', url: 'https://oaklandchn.org/wp-content/uploads/2026/01/autism-OCHN-Navigation-Guides.pdf' },
           { title: 'OCHN — ABA Provider Info Sheet for Families (v05.2025)', url: 'https://oaklandchn.org/wp-content/uploads/2026/02/ABA-PROVIDER-List-for-Families-FY25-v0525.pdf' },
@@ -765,7 +778,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'OCHN — Autism Services & Supports', url: 'https://oaklandchn.org/service-information/autism/' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
         ],
       },
       dxRecency: {
@@ -773,7 +786,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
           'OCHN applies the state rule; its published autism material sets nothing different. No expiry on the diagnosis itself. "Comprehensive diagnostic re-evaluations are required no more than once every three years, unless determined medically necessary more frequently" by a physician or other licensed practitioner, with frequency based on age, developmental level, comorbidities, severity and adaptive deficits. The level of service is re-determined at least every six months, and BHT authorizations run up to 365 days.',
         status: 'verified',
         cites: [
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
           { title: 'OCHN — Autism Services & Supports', url: 'https://oaklandchn.org/service-information/autism/' },
           { title: 'OCHN — Autism Benefit Steps navigation guide (January 2026)', url: 'https://oaklandchn.org/wp-content/uploads/2026/01/autism-OCHN-Navigation-Guides.pdf' },
           { title: 'OCHN — ABA Provider Info Sheet for Families (v05.2025)', url: 'https://oaklandchn.org/wp-content/uploads/2026/02/ABA-PROVIDER-List-for-Families-FY25-v0525.pdf' },
@@ -785,7 +798,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'OCHN — Autism Benefit Steps navigation guide (January 2026)', url: 'https://oaklandchn.org/wp-content/uploads/2026/01/autism-OCHN-Navigation-Guides.pdf' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
         ],
       },
       diagnosticTools: {
@@ -794,7 +807,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'OCHN — Autism Benefit Steps navigation guide (January 2026)', url: 'https://oaklandchn.org/wp-content/uploads/2026/01/autism-OCHN-Navigation-Guides.pdf' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
         ],
       },
       referral: {
@@ -804,16 +817,16 @@ export const michiganPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'OCHN — Autism Benefit Steps navigation guide (January 2026)', url: 'https://oaklandchn.org/wp-content/uploads/2026/01/autism-OCHN-Navigation-Guides.pdf' },
           { title: 'OCHN — Autism Services & Supports', url: 'https://oaklandchn.org/service-information/autism/' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
         ],
       },
       telehealth: {
         value:
-          'OCHN applies the state rule; its published autism material sets nothing different. Only the analyst-level codes. The MDHHS Bureau of Specialty Behavioral Health Services Telemedicine Database lists 97155, 97156, 97157 and 97158 as allowed via simultaneous audio/visual telemedicine (reported with POS 02 or POS 10, no modifier), and its revision log records that 0362T, 97151, 97153 and 97154 were removed from the database on 4/28/23 — so technician-delivered direct treatment and the behavior identification assessment are in-person. The diagnostic-evaluation codes 96112/96113 and 96116 remain allowed via audio/visual "for reporting BHT/ABA eligibility assessments and re-evaluation assessments related to Autism." The SFY 2026 code charts note on 97155 to use POS 02 "if MDHHS has authorized tele-practice for an individual."',
+          'OCHN applies the state rule; its published autism material sets nothing different. Only the analyst-level codes. The MDHHS Bureau of Specialty Behavioral Health Services Telemedicine Database lists 97155, 97156, 97157 and 97158 as allowed via simultaneous audio/visual telemedicine (reported with POS 02 or POS 10, no modifier), and its revision log records that 0362T, 97151, 97153 and 97154 were removed from the database on 4/28/23 — so technician-delivered direct treatment and the behavior identification assessment are in-person. The diagnostic-evaluation codes 96112/96113 and 96116 remain allowed via audio/visual "for reporting BHT/ABA eligibility assessments and re-evaluation assessments related to Autism." The SFY 2027 code charts note on 97155 and 97156 to use POS 02 "if MDHHS has authorized tele-practice for an individual."',
         status: 'verified',
         cites: [
-          { title: 'MDHHS Bureau of Specialty Behavioral Health Services — Telemedicine Database (effective May 12, 2023; archived 1/6/2026)', url: 'https://web.archive.org/web/20260106050903/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/Bureau_of_Specialty_Behavioral_Health_Services-Telemedicine_Database.pdf?rev=39a4677add1f4ed0a2e952bd1c6e5c54' },
-          { title: 'MDHHS SFY 2026 Behavioral Health Code Charts and Provider Qualifications (updated 9/26/2025; archived 10/31/2025)', url: 'https://web.archive.org/web/20251031103317/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2026_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=e9481f6c7f6e4628897bbe3ad67c892b' },
+          { title: 'MDHHS Bureau of Specialty Behavioral Health Services — Telemedicine Database (entries effective June 1, 2026; revision log through 6/15/26)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/Bureau_of_Specialty_Behavioral_Health_Services-Telemedicine_Database.pdf' },
+          { title: 'MDHHS SFY 2027 Behavioral Health Code Charts and Provider Qualifications (SFY beginning October 1, 2026; update log through 9/10/2026)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2027_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=cb846b903b05453da55fb84f78300b6b' },
           { title: 'OCHN — Autism Services & Supports', url: 'https://oaklandchn.org/service-information/autism/' },
           { title: 'OCHN — Autism Benefit Steps navigation guide (January 2026)', url: 'https://oaklandchn.org/wp-content/uploads/2026/01/autism-OCHN-Navigation-Guides.pdf' },
           { title: 'OCHN — ABA Provider Info Sheet for Families (v05.2025)', url: 'https://oaklandchn.org/wp-content/uploads/2026/02/ABA-PROVIDER-List-for-Families-FY25-v0525.pdf' },
@@ -824,8 +837,8 @@ export const michiganPayers: Record<string, PayerConfig> = {
           'OCHN applies the state rule; its published autism material sets nothing different. The PIHP decides, under the federal managed-care clock. Section 18 says "The PIHP’s Utilization Management will authorize the level of services prior to the delivery of services," and the manual requires determinations "Made within federal and state standards for timeliness." Under 42 CFR 438.210(d) a PIHP must decide a standard request within state-set timeframes that "may not exceed 14 calendar days" for rating periods that start before January 1, 2026 and "may not exceed 7 calendar days" for rating periods starting on or after that date, extendable by up to 14 calendar days at the enrollee’s or provider’s request or with justification; expedited decisions are due within 72 hours. Which cap binds depends on the PIHP contract’s rating-period start date. BHT authorizations run for up to 365 days and are re-authorized annually.',
         status: 'verified',
         cites: [
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Sections 1–2', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Sections 1–2', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
           { title: '42 CFR 438.210 — Coverage and authorization of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' },
           { title: 'OCHN — Autism Services & Supports', url: 'https://oaklandchn.org/service-information/autism/' },
           { title: 'OCHN — Autism Benefit Steps navigation guide (January 2026)', url: 'https://oaklandchn.org/wp-content/uploads/2026/01/autism-OCHN-Navigation-Guides.pdf' },
@@ -837,8 +850,8 @@ export const michiganPayers: Record<string, PayerConfig> = {
           'OCHN applies the state rule; its published autism material sets nothing different. Medicaid pays last. "Medicaid is considered the payer of last resort. If a beneficiary with Medicare or Other Insurance coverage is enrolled in a Medicaid Health Plan (MHP), or is receiving services under a Prepaid Inpatient Health Plan (PIHP) or Community Mental Health Services Program (CMHSP), that entity is responsible for the Medicaid payment liability." Providers "must utilize other payment sources to their fullest extent" before billing Medicaid, and "Medicaid is not liable for payment of services denied because coverage rules of the primary health insurance were not followed" — so get the commercial plan’s prior authorization and use its network. The ABA section adds that the IPOS must not duplicate services that are the responsibility of "a private insurance or other funding authority." Nothing in Section 18 exempts a child with other coverage from the PIHP’s own eligibility determination and pre-service authorization. Federally, the agency rejects a claim when third-party liability is established and pays only the amount its schedule exceeds the third party’s payment (42 CFR 433.139).',
         status: 'verified',
         cites: [
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
           { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
           { title: 'OCHN — Autism Services & Supports', url: 'https://oaklandchn.org/service-information/autism/' },
           { title: 'OCHN — Autism Benefit Steps navigation guide (January 2026)', url: 'https://oaklandchn.org/wp-content/uploads/2026/01/autism-OCHN-Navigation-Guides.pdf' },
@@ -922,9 +935,18 @@ export const michiganPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'MCCMH Clinical Practice Procedure — Flow of Autism Services Through MCCMH (updated 7/6/26)', url: 'https://www.mccmh.net/wp-content/uploads/2026/07/Flow-of-Autism-Procedure.pdf' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
-          { title: 'MDHHS SFY 2026 Behavioral Health Code Charts and Provider Qualifications (updated 9/26/2025; archived 10/31/2025)', url: 'https://web.archive.org/web/20251031103317/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2026_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=e9481f6c7f6e4628897bbe3ad67c892b' },
-          { title: 'MDHHS Bureau of Specialty Behavioral Health Services — Telemedicine Database (effective May 12, 2023; archived 1/6/2026)', url: 'https://web.archive.org/web/20260106050903/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/Bureau_of_Specialty_Behavioral_Health_Services-Telemedicine_Database.pdf?rev=39a4677add1f4ed0a2e952bd1c6e5c54' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'MDHHS SFY 2027 Behavioral Health Code Charts and Provider Qualifications (SFY beginning October 1, 2026; update log through 9/10/2026)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2027_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=cb846b903b05453da55fb84f78300b6b' },
+          { title: 'MDHHS Bureau of Specialty Behavioral Health Services — Telemedicine Database (entries effective June 1, 2026; revision log through 6/15/26)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/Bureau_of_Specialty_Behavioral_Health_Services-Telemedicine_Database.pdf' },
+        ],
+      },
+      {
+        h2: 'Claims: the 60-day filing limit and 30-day payment',
+        body: [
+          'Claims to MCCMH have a short clock. Its claims-process policy (7-010, dated March 27, 2019 and still posted in its policy manual) says “The maximum time period for submission of any claim is 60 calendar days from the date the service was rendered”; when a third party is billable, the claim is due “within 60 calendar days of the final disposition of payment by the Third Party (ies)” with that payer’s EOB attached. On payment: “MCCMH pays all clean claims within 30 days of receipt,” makes “every effort to process pending claims within 60 days,” decides claims pended for medical review within 60 days, and “will calculate and pay simple interest on any clean claim processed after 90 days.” The policy names no weekly submission cutoff or check-run day; your MCCMH network contract may set later dates, so check it.',
+        ],
+        cites: [
+          { title: 'MCCMH MCO Policy 7-010 — Finance: Claims Process (dated 03/27/2019; posted in MCCMH’s policy manual)', url: 'https://www.mccmh.net/wp-content/uploads/PolicyManual/7%20Financial%20Procedures/7-010%20Claims%20Process%20Policy.pdf' },
         ],
       },
     ],
@@ -935,33 +957,34 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { title: 'Private insurance card and EOB', desc: 'Private insurance is primary; the case manager helps obtain the EOB.' },
     ],
     sources: [
+      { title: 'MCCMH MCO Policy 7-010 — Finance: Claims Process (dated 03/27/2019; posted in MCCMH’s policy manual)', url: 'https://www.mccmh.net/wp-content/uploads/PolicyManual/7%20Financial%20Procedures/7-010%20Claims%20Process%20Policy.pdf' },
       { title: 'MCCMH — Autism Services', url: 'https://www.mccmh.net/autism-services/' },
       { title: 'MCCMH Clinical Practice Procedure — Flow of Autism Services Through MCCMH (updated 7/6/26)', url: 'https://www.mccmh.net/wp-content/uploads/2026/07/Flow-of-Autism-Procedure.pdf' },
-      { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
-      { title: 'MDHHS SFY 2026 Behavioral Health Code Charts and Provider Qualifications (updated 9/26/2025; archived 10/31/2025)', url: 'https://web.archive.org/web/20251031103317/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2026_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=e9481f6c7f6e4628897bbe3ad67c892b' },
-      { title: 'MDHHS Bureau of Specialty Behavioral Health Services — Telemedicine Database (effective May 12, 2023; archived 1/6/2026)', url: 'https://web.archive.org/web/20260106050903/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/Bureau_of_Specialty_Behavioral_Health_Services-Telemedicine_Database.pdf?rev=39a4677add1f4ed0a2e952bd1c6e5c54' },
-      { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Sections 1–2', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+      { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+      { title: 'MDHHS SFY 2027 Behavioral Health Code Charts and Provider Qualifications (SFY beginning October 1, 2026; update log through 9/10/2026)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2027_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=cb846b903b05453da55fb84f78300b6b' },
+      { title: 'MDHHS Bureau of Specialty Behavioral Health Services — Telemedicine Database (entries effective June 1, 2026; revision log through 6/15/26)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/Bureau_of_Specialty_Behavioral_Health_Services-Telemedicine_Database.pdf' },
+      { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Sections 1–2', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
       { title: '42 CFR 438.210 — Coverage and authorization of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' },
-      { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+      { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
     ],
     deliveryRules: {
       supervision: {
         value:
-          'MCCMH applies the state rule; its published autism material sets nothing different. The behavior technician works under the supervision of the BCBA/LBA or other professional (BCaBA or QBHP) overseeing the behavioral plan of care, "with minimally one hour of clinical observation and direction for every 10 hours of direct treatment." BHT services "must be provided under the direction of a BCBA/LBA or a Master’s prepared QBHP," and the BCBA/LBA is responsible for clinical skill development and supervision of BCaBAs, QBHPs and technicians and for communicating progress on goals to parents or guardians at least every three to six months. The manual gave licensed psychologists (LP/LLP) and QBHPs a deadline to be certified and licensed as a BCBA/LBA by September 30, 2025, and the SFY 2026 code charts now list QBHP as a qualifying provider only "until October 1, 2025."',
+          'MCCMH applies the state rule; its published autism material sets nothing different. The behavior technician works under the supervision of the BCBA/LBA or other professional (BCaBA or QBHP) overseeing the behavioral plan of care, "with minimally one hour of clinical observation and direction for every 10 hours of direct treatment." BHT services "must be provided under the direction of a BCBA/LBA or a Master’s prepared QBHP," and the BCBA/LBA is responsible for clinical skill development and supervision of BCaBAs, QBHPs and technicians and for communicating progress on goals to parents or guardians at least every three to six months. The manual gave licensed psychologists (LP/LLP) and QBHPs a deadline to be certified and licensed as a BCBA/LBA by September 30, 2025, and the SFY 2027 code charts (for the state fiscal year that began October 1, 2026) list the ABA codes for the Licensed Behavior Analyst (HO) and Licensed Assistant Behavior Analyst (HN), plus the behavior technician (HM) on 97153, 97154 and 0373T, with no separate QBHP row.',
         status: 'verified',
         cites: [
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
-          { title: 'MDHHS SFY 2026 Behavioral Health Code Charts and Provider Qualifications (updated 9/26/2025; archived 10/31/2025)', url: 'https://web.archive.org/web/20251031103317/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2026_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=e9481f6c7f6e4628897bbe3ad67c892b' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'MDHHS SFY 2027 Behavioral Health Code Charts and Provider Qualifications (SFY beginning October 1, 2026; update log through 9/10/2026)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2027_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=cb846b903b05453da55fb84f78300b6b' },
           { title: 'MCCMH — Autism Services', url: 'https://www.mccmh.net/autism-services/' },
           { title: 'MCCMH Clinical Practice Procedure — Flow of Autism Services Through MCCMH (updated 7/6/26)', url: 'https://www.mccmh.net/wp-content/uploads/2026/07/Flow-of-Autism-Procedure.pdf' },
         ],
       },
       concurrentBilling: {
         value:
-          'MCCMH applies the state rule; its published autism material sets nothing different. Allowed for the pairs MDHHS names. The SFY 2026 code charts say 97155 "Must co-occur with 97153, 97154, and 0373T in order to be reported," and the same-time reporting rules state that 97153 and 97155 "can occur at the same time, just not by the same person" (the technician delivers 97153 while the BCBA/LBA supervising delivers 97155); 97156 may be delivered by the BCBA/LBA to the caregiver while a technician delivers 97153 to the child; a 97151 reassessment may be reported at the same time as 97153, 97154, 0373T (and potentially 97157/97158) "IF there are two separate providers"; and 0362T may be reported at the same time as 0373T. Targeted case management may also run at the same time as a direct ABA service.',
+          'MCCMH applies the state rule; its published autism material sets nothing different. Allowed for the pairs MDHHS names. The SFY 2027 code charts (from October 1, 2026) say 97155 reported by a licensed behavior analyst "May co-occur with 97153 & 97154," and 97155 reported by a licensed assistant behavior analyst "Must co-occur with 97153, 97154, and 0373T in order to be reported," and the same-time reporting rules state that 97153 and 97155 "can occur at the same time, just not by the same person" (the technician delivers 97153 while the BCBA/LBA supervising delivers 97155); 97156 may be delivered by the BCBA/LBA to the caregiver while a technician delivers 97153 to the child; a 97151 reassessment may be reported at the same time as 97153, 97154, 0373T (and potentially 97157/97158) "IF there are two separate providers"; and 0362T may be reported at the same time as 0373T. Targeted case management may also run at the same time as a direct ABA service.',
         status: 'verified',
         cites: [
-          { title: 'MDHHS SFY 2026 Behavioral Health Code Charts and Provider Qualifications (updated 9/26/2025; archived 10/31/2025)', url: 'https://web.archive.org/web/20251031103317/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2026_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=e9481f6c7f6e4628897bbe3ad67c892b' },
+          { title: 'MDHHS SFY 2027 Behavioral Health Code Charts and Provider Qualifications (SFY beginning October 1, 2026; update log through 9/10/2026)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2027_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=cb846b903b05453da55fb84f78300b6b' },
           { title: 'MCCMH — Autism Services', url: 'https://www.mccmh.net/autism-services/' },
           { title: 'MCCMH Clinical Practice Procedure — Flow of Autism Services Through MCCMH (updated 7/6/26)', url: 'https://www.mccmh.net/wp-content/uploads/2026/07/Flow-of-Autism-Procedure.pdf' },
         ],
@@ -971,20 +994,20 @@ export const michiganPayers: Record<string, PayerConfig> = {
           'MCCMH applies the state rule; its published autism material sets nothing different. No per-day or per-week unit cap is published. The manual sets planning averages, not ceilings: focused behavioral intervention averages 5–15 hours a week and comprehensive behavioral intervention 16–25 hours a week, with actual hours set by the behavioral plan of care. A PIHP "may not deny services based solely on preset limits of the cost, amount, scope, and duration of services," and the level of service is re-determined at least every six months on measurable progress. Authorizations may run up to 365 days.',
         status: 'verified',
         cites: [
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Sections 1–2', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Sections 1–2', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
           { title: 'MCCMH — Autism Services', url: 'https://www.mccmh.net/autism-services/' },
           { title: 'MCCMH Clinical Practice Procedure — Flow of Autism Services Through MCCMH (updated 7/6/26)', url: 'https://www.mccmh.net/wp-content/uploads/2026/07/Flow-of-Autism-Procedure.pdf' },
         ],
       },
       noteSignature: {
         value:
-          'MCCMH applies the state rule; its published autism material sets nothing different. Section 18 of the Medicaid Provider Manual and the SFY 2026 code charts do not state who signs an ABA session note or by when. The manual requires the individual plan of service (IPOS) to specify amount, scope and duration of each authorized service and permits electronic signatures for the beneficiary on the plan of service and consents; session-note signature standards sit in each PIHP’s provider contract and documentation standards.',
+          'MCCMH applies the state rule; its published autism material sets nothing different. Section 18 of the Medicaid Provider Manual and the SFY 2027 code charts do not state who signs an ABA session note or by when. The manual requires the individual plan of service (IPOS) to specify amount, scope and duration of each authorized service and permits electronic signatures for the beneficiary on the plan of service and consents; session-note signature standards sit in each PIHP’s provider contract and documentation standards.',
         status: 'plan-dependent',
         cites: [
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Sections 1–2', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
-          { title: 'MDHHS SFY 2026 Behavioral Health Code Charts and Provider Qualifications (updated 9/26/2025; archived 10/31/2025)', url: 'https://web.archive.org/web/20251031103317/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2026_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=e9481f6c7f6e4628897bbe3ad67c892b' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Sections 1–2', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'MDHHS SFY 2027 Behavioral Health Code Charts and Provider Qualifications (SFY beginning October 1, 2026; update log through 9/10/2026)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2027_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=cb846b903b05453da55fb84f78300b6b' },
           { title: 'MCCMH — Autism Services', url: 'https://www.mccmh.net/autism-services/' },
           { title: 'MCCMH Clinical Practice Procedure — Flow of Autism Services Through MCCMH (updated 7/6/26)', url: 'https://www.mccmh.net/wp-content/uploads/2026/07/Flow-of-Autism-Procedure.pdf' },
         ],
@@ -997,19 +1020,19 @@ export const michiganPayers: Record<string, PayerConfig> = {
           'MCCMH applies the state rule; its published autism material sets nothing different. Home and community. Eligibility requires that "Services are able to be provided in the child’s home and community, including centers and clinics," and BHT is "designed to be delivered primarily in the home and in other community settings." Services "are not intended to supplant responsibilities of educational or other authorities," and the IPOS must not include special education and related services available through the local education agency under IDEA; coordination with the school or early intervention program (IEP/IFSP meetings, communication logs) is an eligibility element. For office or site-based services the primary provider must be within 30 minutes/30 miles in urban areas and 60 minutes/60 miles in rural areas of the beneficiary’s residence.',
         status: 'verified',
         cites: [
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Sections 1–2', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Sections 1–2', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
           { title: 'MCCMH — Autism Services', url: 'https://www.mccmh.net/autism-services/' },
           { title: 'MCCMH Clinical Practice Procedure — Flow of Autism Services Through MCCMH (updated 7/6/26)', url: 'https://www.mccmh.net/wp-content/uploads/2026/07/Flow-of-Autism-Procedure.pdf' },
         ],
       },
       billAsProvider: {
         value:
-          'MCCMH applies the state rule; its published autism material sets nothing different. Services are reported to the PIHP/CMHSP under the provider’s network contract, with a modifier naming the rendering staff level. The SFY 2026 code charts list the qualifying provider types and modifiers for each ABA code: HO for a licensed behavior analyst (master’s level) or QBHP, HN for a licensed assistant behavior analyst (bachelor’s level), and HM for a behavior technician on the technician codes (97153, 97154, 0373T); 97151 carries the state-defined U5 "Autism" modifier and group codes carry the UN–US group-size modifiers. A technician does not need a license or BACB registration, but must complete BACB-approved RBT training and work under the BCBA/LBA’s supervision.',
+          'MCCMH applies the state rule; its published autism material sets nothing different. Services are reported to the PIHP/CMHSP under the provider’s network contract, with a modifier naming the rendering staff level. The SFY 2027 code charts list the qualifying provider types and modifiers for each ABA code: HO for a licensed behavior analyst (master’s level), HN for a licensed assistant behavior analyst (bachelor’s level), and HM for a behavior technician on the technician codes (97153, 97154, 0373T); group codes carry the UN–US group-size modifiers. (The U5 autism modifier the SFY 2026 charts put on 97151 is not in the SFY 2027 modifier list.) Which codes: ABA is billed with CPT codes, not H-codes. The SFY 2027 code charts list 97151, 97153, 97154, 97155, 97156, 97157, 97158, 0362T and 0373T for ABA (97152 does not appear); the diagnostic evaluation behind eligibility is reported with 96112, 96113 or 96116 “For reporting BHT/ABA eligibility assessments and re-evaluation assessments related to Autism”; and H0031 with the 6Y modifier is the behavior identification assessment for people outside the ABA benefit (“97151 for non-ABA was removed effective 10/1/24 so the H0031 with the 6Y is for these individuals”). A technician does not need a license or BACB registration, but must complete BACB-approved RBT training and work under the BCBA/LBA’s supervision.',
         status: 'verified',
         cites: [
-          { title: 'MDHHS SFY 2026 Behavioral Health Code Charts and Provider Qualifications (updated 9/26/2025; archived 10/31/2025)', url: 'https://web.archive.org/web/20251031103317/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2026_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=e9481f6c7f6e4628897bbe3ad67c892b' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'MDHHS SFY 2027 Behavioral Health Code Charts and Provider Qualifications (SFY beginning October 1, 2026; update log through 9/10/2026)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2027_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=cb846b903b05453da55fb84f78300b6b' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
           { title: 'MCCMH — Autism Services', url: 'https://www.mccmh.net/autism-services/' },
           { title: 'MCCMH Clinical Practice Procedure — Flow of Autism Services Through MCCMH (updated 7/6/26)', url: 'https://www.mccmh.net/wp-content/uploads/2026/07/Flow-of-Autism-Procedure.pdf' },
         ],
@@ -1021,7 +1044,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
           'MCCMH applies the state rule; its published autism material sets nothing different. Under 21. BHT/ABA is covered "for children under 21 years of age diagnosed with Autism Spectrum Disorder" as an EPSDT benefit, and the first eligibility criterion is "Child is under 21 years of age." No minimum age is set; the manual stresses early screening at EPSDT well-child visits.',
         status: 'verified',
         cites: [
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
           { title: 'MCCMH — Autism Services', url: 'https://www.mccmh.net/autism-services/' },
           { title: 'MCCMH Clinical Practice Procedure — Flow of Autism Services Through MCCMH (updated 7/6/26)', url: 'https://www.mccmh.net/wp-content/uploads/2026/07/Flow-of-Autism-Procedure.pdf' },
         ],
@@ -1032,7 +1055,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'MCCMH Clinical Practice Procedure — Flow of Autism Services Through MCCMH (updated 7/6/26)', url: 'https://www.mccmh.net/wp-content/uploads/2026/07/Flow-of-Autism-Procedure.pdf' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
         ],
       },
       diagnosingProviders: {
@@ -1040,7 +1063,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
           'MCCMH applies the state rule; its published autism material sets nothing different. A qualified licensed practitioner "qualified and experienced in diagnosing ASD": a physician with a specialty in psychiatry or neurology; a physician with a subspecialty in developmental pediatrics, developmental-behavioral pediatrics or a related discipline; a physician with a specialty in pediatrics or other appropriate specialty with ASD training, experience or expertise; a psychologist; an advanced practice registered nurse or a physician assistant with ASD and/or behavioral health training; or a master’s-level, fully licensed clinical social worker qualified and experienced in diagnosing ASD. The PIHP is responsible for arranging the comprehensive diagnostic evaluation.',
         status: 'verified',
         cites: [
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
           { title: 'MCCMH — Autism Services', url: 'https://www.mccmh.net/autism-services/' },
           { title: 'MCCMH Clinical Practice Procedure — Flow of Autism Services Through MCCMH (updated 7/6/26)', url: 'https://www.mccmh.net/wp-content/uploads/2026/07/Flow-of-Autism-Procedure.pdf' },
         ],
@@ -1064,11 +1087,11 @@ export const michiganPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'MCCMH applies the state rule; its published autism material sets nothing different. Only the analyst-level codes. The MDHHS Bureau of Specialty Behavioral Health Services Telemedicine Database lists 97155, 97156, 97157 and 97158 as allowed via simultaneous audio/visual telemedicine (reported with POS 02 or POS 10, no modifier), and its revision log records that 0362T, 97151, 97153 and 97154 were removed from the database on 4/28/23 — so technician-delivered direct treatment and the behavior identification assessment are in-person. The diagnostic-evaluation codes 96112/96113 and 96116 remain allowed via audio/visual "for reporting BHT/ABA eligibility assessments and re-evaluation assessments related to Autism." The SFY 2026 code charts note on 97155 to use POS 02 "if MDHHS has authorized tele-practice for an individual."',
+          'MCCMH applies the state rule; its published autism material sets nothing different. Only the analyst-level codes. The MDHHS Bureau of Specialty Behavioral Health Services Telemedicine Database lists 97155, 97156, 97157 and 97158 as allowed via simultaneous audio/visual telemedicine (reported with POS 02 or POS 10, no modifier), and its revision log records that 0362T, 97151, 97153 and 97154 were removed from the database on 4/28/23 — so technician-delivered direct treatment and the behavior identification assessment are in-person. The diagnostic-evaluation codes 96112/96113 and 96116 remain allowed via audio/visual "for reporting BHT/ABA eligibility assessments and re-evaluation assessments related to Autism." The SFY 2027 code charts note on 97155 and 97156 to use POS 02 "if MDHHS has authorized tele-practice for an individual."',
         status: 'verified',
         cites: [
-          { title: 'MDHHS Bureau of Specialty Behavioral Health Services — Telemedicine Database (effective May 12, 2023; archived 1/6/2026)', url: 'https://web.archive.org/web/20260106050903/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/Bureau_of_Specialty_Behavioral_Health_Services-Telemedicine_Database.pdf?rev=39a4677add1f4ed0a2e952bd1c6e5c54' },
-          { title: 'MDHHS SFY 2026 Behavioral Health Code Charts and Provider Qualifications (updated 9/26/2025; archived 10/31/2025)', url: 'https://web.archive.org/web/20251031103317/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2026_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=e9481f6c7f6e4628897bbe3ad67c892b' },
+          { title: 'MDHHS Bureau of Specialty Behavioral Health Services — Telemedicine Database (entries effective June 1, 2026; revision log through 6/15/26)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/Bureau_of_Specialty_Behavioral_Health_Services-Telemedicine_Database.pdf' },
+          { title: 'MDHHS SFY 2027 Behavioral Health Code Charts and Provider Qualifications (SFY beginning October 1, 2026; update log through 9/10/2026)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2027_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=cb846b903b05453da55fb84f78300b6b' },
           { title: 'MCCMH — Autism Services', url: 'https://www.mccmh.net/autism-services/' },
           { title: 'MCCMH Clinical Practice Procedure — Flow of Autism Services Through MCCMH (updated 7/6/26)', url: 'https://www.mccmh.net/wp-content/uploads/2026/07/Flow-of-Autism-Procedure.pdf' },
         ],
@@ -1089,11 +1112,12 @@ export const michiganPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'MCCMH — Autism Services', url: 'https://www.mccmh.net/autism-services/' },
           { title: 'MCCMH Clinical Practice Procedure — Flow of Autism Services Through MCCMH (updated 7/6/26)', url: 'https://www.mccmh.net/wp-content/uploads/2026/07/Flow-of-Autism-Procedure.pdf' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
         ],
       },
     },
     faq: [
+      { q: 'What is MCCMH’s timely filing limit, and how fast does it pay?', a: '60 calendar days from the date of service (60 days from the other payer’s final disposition when there is other insurance). MCCMH’s claims policy says it pays clean claims within 30 days of receipt and pays interest on clean claims processed after 90 days.' },
       { q: 'How do I start the autism benefit in Macomb County?', a: 'Call MCCMH Customer Service at 855-99-MCCMH (855-996-2264). MCCMH screens by phone and schedules an intake with Easterseals MORC, Specialized Children & Family Services or Hope Network.' },
       { q: 'Can an ABA authorization be backdated?', a: 'No. MCCMH’s procedure requires the authorization request 14 or more days before the expected start date, with no backdating.' },
       { q: 'We have private insurance too. Who pays?', a: 'Private insurance is the primary payer and Medicaid pays last; the MCCMH case manager helps get the EOB and follow the private plan’s steps for testing and ABA.' },
@@ -1121,7 +1145,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       status: 'verified',
       cites: [
         { title: 'MSHN Procedure — Autism Spectrum Disorder Services Eligibility and Provision (reviewed 03.03.2026)', url: 'https://midstatehealthnetwork.org/download_file/view/3305887c-abbd-496f-bf81-709f7cb5fdde/864' },
-        { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+        { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
       ],
     },
     dxRequired: {
@@ -1172,7 +1196,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'MSHN Procedure — Autism Spectrum Disorder Services Eligibility and Provision (reviewed 03.03.2026)', url: 'https://midstatehealthnetwork.org/download_file/view/3305887c-abbd-496f-bf81-709f7cb5fdde/864' },
           { title: 'MSHN Policy — Autism Spectrum Disorder Benefit Eligibility (reviewed 01.07.2025)', url: 'https://midstatehealthnetwork.org/download_file/view/d9a670e3-1121-486f-b048-086f1011cf4f/863' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
         ],
       },
       {
@@ -1196,16 +1220,16 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { title: 'MSHN Procedure — Autism Spectrum Disorder Services Eligibility and Provision (reviewed 03.03.2026)', url: 'https://midstatehealthnetwork.org/download_file/view/3305887c-abbd-496f-bf81-709f7cb5fdde/864' },
       { title: 'MDHHS — PIHP county designations table (FY27 PIHP contract, May 2025)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/PIHPs/PIHP-Region-Table.pdf' },
       { title: 'MSHN Policy — Autism Spectrum Disorder Benefit Eligibility (reviewed 01.07.2025)', url: 'https://midstatehealthnetwork.org/download_file/view/d9a670e3-1121-486f-b048-086f1011cf4f/863' },
-      { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+      { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
       { title: 'MSHN Procedure — Utilization Management (reviewed 05.07.2024)', url: 'https://midstatehealthnetwork.org/download_file/view/6cf2984e-ecaf-4af4-aaf8-a4f60a255924/864' },
       { title: '42 CFR 438.210 — Coverage and authorization of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' },
-      { title: 'MDHHS SFY 2026 Behavioral Health Code Charts and Provider Qualifications (updated 9/26/2025; archived 10/31/2025)', url: 'https://web.archive.org/web/20251031103317/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2026_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=e9481f6c7f6e4628897bbe3ad67c892b' },
-      { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Sections 1–2', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+      { title: 'MDHHS SFY 2027 Behavioral Health Code Charts and Provider Qualifications (SFY beginning October 1, 2026; update log through 9/10/2026)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2027_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=cb846b903b05453da55fb84f78300b6b' },
+      { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Sections 1–2', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
       { title: 'DWIHN — Autism BHT Comprehensive Diagnostic Evaluation & Re-Evaluation Form (outside diagnostic request)', url: 'https://dwihn.org/sites/default/files/2025-11/DWIHN%20Outside%20Diagnostic%20Request%20Form.docx' },
       { title: 'OCHN — Autism Benefit Steps navigation guide (January 2026)', url: 'https://oaklandchn.org/wp-content/uploads/2026/01/autism-OCHN-Navigation-Guides.pdf' },
       { title: 'SWMBH — Autism Services', url: 'https://swmbh.org/autism-services/' },
-      { title: 'MDHHS Bureau of Specialty Behavioral Health Services — Telemedicine Database (effective May 12, 2023; archived 1/6/2026)', url: 'https://web.archive.org/web/20260106050903/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/Bureau_of_Specialty_Behavioral_Health_Services-Telemedicine_Database.pdf?rev=39a4677add1f4ed0a2e952bd1c6e5c54' },
-      { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+      { title: 'MDHHS Bureau of Specialty Behavioral Health Services — Telemedicine Database (entries effective June 1, 2026; revision log through 6/15/26)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/Bureau_of_Specialty_Behavioral_Health_Services-Telemedicine_Database.pdf' },
+      { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
       { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
     ],
     deliveryRules: {
@@ -1215,15 +1239,15 @@ export const michiganPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'MSHN Procedure — Autism Spectrum Disorder Services Eligibility and Provision (reviewed 03.03.2026)', url: 'https://midstatehealthnetwork.org/download_file/view/3305887c-abbd-496f-bf81-709f7cb5fdde/864' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
         ],
       },
       concurrentBilling: {
         value:
-          'Mid-State Health Network applies the state rule; its published autism material sets nothing different. Allowed for the pairs MDHHS names. The SFY 2026 code charts say 97155 "Must co-occur with 97153, 97154, and 0373T in order to be reported," and the same-time reporting rules state that 97153 and 97155 "can occur at the same time, just not by the same person" (the technician delivers 97153 while the BCBA/LBA supervising delivers 97155); 97156 may be delivered by the BCBA/LBA to the caregiver while a technician delivers 97153 to the child; a 97151 reassessment may be reported at the same time as 97153, 97154, 0373T (and potentially 97157/97158) "IF there are two separate providers"; and 0362T may be reported at the same time as 0373T. Targeted case management may also run at the same time as a direct ABA service.',
+          'Mid-State Health Network applies the state rule; its published autism material sets nothing different. Allowed for the pairs MDHHS names. The SFY 2027 code charts (from October 1, 2026) say 97155 reported by a licensed behavior analyst "May co-occur with 97153 & 97154," and 97155 reported by a licensed assistant behavior analyst "Must co-occur with 97153, 97154, and 0373T in order to be reported," and the same-time reporting rules state that 97153 and 97155 "can occur at the same time, just not by the same person" (the technician delivers 97153 while the BCBA/LBA supervising delivers 97155); 97156 may be delivered by the BCBA/LBA to the caregiver while a technician delivers 97153 to the child; a 97151 reassessment may be reported at the same time as 97153, 97154, 0373T (and potentially 97157/97158) "IF there are two separate providers"; and 0362T may be reported at the same time as 0373T. Targeted case management may also run at the same time as a direct ABA service.',
         status: 'verified',
         cites: [
-          { title: 'MDHHS SFY 2026 Behavioral Health Code Charts and Provider Qualifications (updated 9/26/2025; archived 10/31/2025)', url: 'https://web.archive.org/web/20251031103317/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2026_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=e9481f6c7f6e4628897bbe3ad67c892b' },
+          { title: 'MDHHS SFY 2027 Behavioral Health Code Charts and Provider Qualifications (SFY beginning October 1, 2026; update log through 9/10/2026)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2027_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=cb846b903b05453da55fb84f78300b6b' },
           { title: 'MSHN Procedure — Autism Spectrum Disorder Services Eligibility and Provision (reviewed 03.03.2026)', url: 'https://midstatehealthnetwork.org/download_file/view/3305887c-abbd-496f-bf81-709f7cb5fdde/864' },
           { title: 'MSHN Policy — Autism Spectrum Disorder Benefit Eligibility (reviewed 01.07.2025)', url: 'https://midstatehealthnetwork.org/download_file/view/d9a670e3-1121-486f-b048-086f1011cf4f/863' },
           { title: 'MSHN Procedure — Utilization Management (reviewed 05.07.2024)', url: 'https://midstatehealthnetwork.org/download_file/view/6cf2984e-ecaf-4af4-aaf8-a4f60a255924/864' },
@@ -1234,8 +1258,8 @@ export const michiganPayers: Record<string, PayerConfig> = {
           'Mid-State Health Network applies the state rule; its published autism material sets nothing different. No per-day or per-week unit cap is published. The manual sets planning averages, not ceilings: focused behavioral intervention averages 5–15 hours a week and comprehensive behavioral intervention 16–25 hours a week, with actual hours set by the behavioral plan of care. A PIHP "may not deny services based solely on preset limits of the cost, amount, scope, and duration of services," and the level of service is re-determined at least every six months on measurable progress. Authorizations may run up to 365 days.',
         status: 'verified',
         cites: [
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Sections 1–2', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Sections 1–2', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
           { title: 'MSHN Procedure — Autism Spectrum Disorder Services Eligibility and Provision (reviewed 03.03.2026)', url: 'https://midstatehealthnetwork.org/download_file/view/3305887c-abbd-496f-bf81-709f7cb5fdde/864' },
           { title: 'MSHN Policy — Autism Spectrum Disorder Benefit Eligibility (reviewed 01.07.2025)', url: 'https://midstatehealthnetwork.org/download_file/view/d9a670e3-1121-486f-b048-086f1011cf4f/863' },
           { title: 'MSHN Procedure — Utilization Management (reviewed 05.07.2024)', url: 'https://midstatehealthnetwork.org/download_file/view/6cf2984e-ecaf-4af4-aaf8-a4f60a255924/864' },
@@ -1243,12 +1267,12 @@ export const michiganPayers: Record<string, PayerConfig> = {
       },
       noteSignature: {
         value:
-          'Mid-State Health Network applies the state rule; its published autism material sets nothing different. Section 18 of the Medicaid Provider Manual and the SFY 2026 code charts do not state who signs an ABA session note or by when. The manual requires the individual plan of service (IPOS) to specify amount, scope and duration of each authorized service and permits electronic signatures for the beneficiary on the plan of service and consents; session-note signature standards sit in each PIHP’s provider contract and documentation standards.',
+          'Mid-State Health Network applies the state rule; its published autism material sets nothing different. Section 18 of the Medicaid Provider Manual and the SFY 2027 code charts do not state who signs an ABA session note or by when. The manual requires the individual plan of service (IPOS) to specify amount, scope and duration of each authorized service and permits electronic signatures for the beneficiary on the plan of service and consents; session-note signature standards sit in each PIHP’s provider contract and documentation standards.',
         status: 'plan-dependent',
         cites: [
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Sections 1–2', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
-          { title: 'MDHHS SFY 2026 Behavioral Health Code Charts and Provider Qualifications (updated 9/26/2025; archived 10/31/2025)', url: 'https://web.archive.org/web/20251031103317/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2026_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=e9481f6c7f6e4628897bbe3ad67c892b' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Sections 1–2', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'MDHHS SFY 2027 Behavioral Health Code Charts and Provider Qualifications (SFY beginning October 1, 2026; update log through 9/10/2026)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2027_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=cb846b903b05453da55fb84f78300b6b' },
           { title: 'MSHN Procedure — Autism Spectrum Disorder Services Eligibility and Provision (reviewed 03.03.2026)', url: 'https://midstatehealthnetwork.org/download_file/view/3305887c-abbd-496f-bf81-709f7cb5fdde/864' },
           { title: 'MSHN Policy — Autism Spectrum Disorder Benefit Eligibility (reviewed 01.07.2025)', url: 'https://midstatehealthnetwork.org/download_file/view/d9a670e3-1121-486f-b048-086f1011cf4f/863' },
           { title: 'MSHN Procedure — Utilization Management (reviewed 05.07.2024)', url: 'https://midstatehealthnetwork.org/download_file/view/6cf2984e-ecaf-4af4-aaf8-a4f60a255924/864' },
@@ -1262,8 +1286,8 @@ export const michiganPayers: Record<string, PayerConfig> = {
           'Mid-State Health Network applies the state rule; its published autism material sets nothing different. Home and community. Eligibility requires that "Services are able to be provided in the child’s home and community, including centers and clinics," and BHT is "designed to be delivered primarily in the home and in other community settings." Services "are not intended to supplant responsibilities of educational or other authorities," and the IPOS must not include special education and related services available through the local education agency under IDEA; coordination with the school or early intervention program (IEP/IFSP meetings, communication logs) is an eligibility element. For office or site-based services the primary provider must be within 30 minutes/30 miles in urban areas and 60 minutes/60 miles in rural areas of the beneficiary’s residence.',
         status: 'verified',
         cites: [
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Sections 1–2', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Sections 1–2', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
           { title: 'MSHN Procedure — Autism Spectrum Disorder Services Eligibility and Provision (reviewed 03.03.2026)', url: 'https://midstatehealthnetwork.org/download_file/view/3305887c-abbd-496f-bf81-709f7cb5fdde/864' },
           { title: 'MSHN Policy — Autism Spectrum Disorder Benefit Eligibility (reviewed 01.07.2025)', url: 'https://midstatehealthnetwork.org/download_file/view/d9a670e3-1121-486f-b048-086f1011cf4f/863' },
           { title: 'MSHN Procedure — Utilization Management (reviewed 05.07.2024)', url: 'https://midstatehealthnetwork.org/download_file/view/6cf2984e-ecaf-4af4-aaf8-a4f60a255924/864' },
@@ -1271,11 +1295,11 @@ export const michiganPayers: Record<string, PayerConfig> = {
       },
       billAsProvider: {
         value:
-          'Mid-State Health Network applies the state rule; its published autism material sets nothing different. Services are reported to the PIHP/CMHSP under the provider’s network contract, with a modifier naming the rendering staff level. The SFY 2026 code charts list the qualifying provider types and modifiers for each ABA code: HO for a licensed behavior analyst (master’s level) or QBHP, HN for a licensed assistant behavior analyst (bachelor’s level), and HM for a behavior technician on the technician codes (97153, 97154, 0373T); 97151 carries the state-defined U5 "Autism" modifier and group codes carry the UN–US group-size modifiers. A technician does not need a license or BACB registration, but must complete BACB-approved RBT training and work under the BCBA/LBA’s supervision.',
+          'Mid-State Health Network applies the state rule; its published autism material sets nothing different. Services are reported to the PIHP/CMHSP under the provider’s network contract, with a modifier naming the rendering staff level. The SFY 2027 code charts list the qualifying provider types and modifiers for each ABA code: HO for a licensed behavior analyst (master’s level), HN for a licensed assistant behavior analyst (bachelor’s level), and HM for a behavior technician on the technician codes (97153, 97154, 0373T); group codes carry the UN–US group-size modifiers. (The U5 autism modifier the SFY 2026 charts put on 97151 is not in the SFY 2027 modifier list.) Which codes: ABA is billed with CPT codes, not H-codes. The SFY 2027 code charts list 97151, 97153, 97154, 97155, 97156, 97157, 97158, 0362T and 0373T for ABA (97152 does not appear); the diagnostic evaluation behind eligibility is reported with 96112, 96113 or 96116 “For reporting BHT/ABA eligibility assessments and re-evaluation assessments related to Autism”; and H0031 with the 6Y modifier is the behavior identification assessment for people outside the ABA benefit (“97151 for non-ABA was removed effective 10/1/24 so the H0031 with the 6Y is for these individuals”). A technician does not need a license or BACB registration, but must complete BACB-approved RBT training and work under the BCBA/LBA’s supervision.',
         status: 'verified',
         cites: [
-          { title: 'MDHHS SFY 2026 Behavioral Health Code Charts and Provider Qualifications (updated 9/26/2025; archived 10/31/2025)', url: 'https://web.archive.org/web/20251031103317/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2026_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=e9481f6c7f6e4628897bbe3ad67c892b' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'MDHHS SFY 2027 Behavioral Health Code Charts and Provider Qualifications (SFY beginning October 1, 2026; update log through 9/10/2026)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2027_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=cb846b903b05453da55fb84f78300b6b' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
           { title: 'MSHN Procedure — Autism Spectrum Disorder Services Eligibility and Provision (reviewed 03.03.2026)', url: 'https://midstatehealthnetwork.org/download_file/view/3305887c-abbd-496f-bf81-709f7cb5fdde/864' },
           { title: 'MSHN Policy — Autism Spectrum Disorder Benefit Eligibility (reviewed 01.07.2025)', url: 'https://midstatehealthnetwork.org/download_file/view/d9a670e3-1121-486f-b048-086f1011cf4f/863' },
           { title: 'MSHN Procedure — Utilization Management (reviewed 05.07.2024)', url: 'https://midstatehealthnetwork.org/download_file/view/6cf2984e-ecaf-4af4-aaf8-a4f60a255924/864' },
@@ -1288,7 +1312,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
           'Mid-State Health Network applies the state rule; its published autism material sets nothing different. Under 21. BHT/ABA is covered "for children under 21 years of age diagnosed with Autism Spectrum Disorder" as an EPSDT benefit, and the first eligibility criterion is "Child is under 21 years of age." No minimum age is set; the manual stresses early screening at EPSDT well-child visits.',
         status: 'verified',
         cites: [
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
           { title: 'MSHN Procedure — Autism Spectrum Disorder Services Eligibility and Provision (reviewed 03.03.2026)', url: 'https://midstatehealthnetwork.org/download_file/view/3305887c-abbd-496f-bf81-709f7cb5fdde/864' },
           { title: 'MSHN Policy — Autism Spectrum Disorder Benefit Eligibility (reviewed 01.07.2025)', url: 'https://midstatehealthnetwork.org/download_file/view/d9a670e3-1121-486f-b048-086f1011cf4f/863' },
           { title: 'MSHN Procedure — Utilization Management (reviewed 05.07.2024)', url: 'https://midstatehealthnetwork.org/download_file/view/6cf2984e-ecaf-4af4-aaf8-a4f60a255924/864' },
@@ -1308,7 +1332,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'MSHN Procedure — Autism Spectrum Disorder Services Eligibility and Provision (reviewed 03.03.2026)', url: 'https://midstatehealthnetwork.org/download_file/view/3305887c-abbd-496f-bf81-709f7cb5fdde/864' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
         ],
       },
       diagnosticTools: {
@@ -1316,7 +1340,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
           'Mid-State Health Network applies the state rule; its published autism material sets nothing different. The manual names no instrument but requires "valid evaluation tools": the comprehensive diagnostic evaluation is "a neurodevelopmental review of cognitive, behavioral, emotional, adaptive, and social functioning" that should include validated tools, integrating caregiver reports, records, collateral reports, standardized psychological tools and an observational assessment ("No one piece of data determines the ASD diagnosis"). Eligibility must be determined "through direct observation utilizing valid evaluation tools." In practice the PIHPs publish the same battery: ADOS-2, ADI-R and the DD-CGAS (Developmental Disability Children’s Global Assessment Scale), plus cognitive and adaptive testing.',
         status: 'verified',
         cites: [
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
           { title: 'DWIHN — Autism BHT Comprehensive Diagnostic Evaluation & Re-Evaluation Form (outside diagnostic request)', url: 'https://dwihn.org/sites/default/files/2025-11/DWIHN%20Outside%20Diagnostic%20Request%20Form.docx' },
           { title: 'OCHN — Autism Benefit Steps navigation guide (January 2026)', url: 'https://oaklandchn.org/wp-content/uploads/2026/01/autism-OCHN-Navigation-Guides.pdf' },
           { title: 'SWMBH — Autism Services', url: 'https://swmbh.org/autism-services/' },
@@ -1335,11 +1359,11 @@ export const michiganPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'Mid-State Health Network applies the state rule; its published autism material sets nothing different. Only the analyst-level codes. The MDHHS Bureau of Specialty Behavioral Health Services Telemedicine Database lists 97155, 97156, 97157 and 97158 as allowed via simultaneous audio/visual telemedicine (reported with POS 02 or POS 10, no modifier), and its revision log records that 0362T, 97151, 97153 and 97154 were removed from the database on 4/28/23 — so technician-delivered direct treatment and the behavior identification assessment are in-person. The diagnostic-evaluation codes 96112/96113 and 96116 remain allowed via audio/visual "for reporting BHT/ABA eligibility assessments and re-evaluation assessments related to Autism." The SFY 2026 code charts note on 97155 to use POS 02 "if MDHHS has authorized tele-practice for an individual."',
+          'Mid-State Health Network applies the state rule; its published autism material sets nothing different. Only the analyst-level codes. The MDHHS Bureau of Specialty Behavioral Health Services Telemedicine Database lists 97155, 97156, 97157 and 97158 as allowed via simultaneous audio/visual telemedicine (reported with POS 02 or POS 10, no modifier), and its revision log records that 0362T, 97151, 97153 and 97154 were removed from the database on 4/28/23 — so technician-delivered direct treatment and the behavior identification assessment are in-person. The diagnostic-evaluation codes 96112/96113 and 96116 remain allowed via audio/visual "for reporting BHT/ABA eligibility assessments and re-evaluation assessments related to Autism." The SFY 2027 code charts note on 97155 and 97156 to use POS 02 "if MDHHS has authorized tele-practice for an individual."',
         status: 'verified',
         cites: [
-          { title: 'MDHHS Bureau of Specialty Behavioral Health Services — Telemedicine Database (effective May 12, 2023; archived 1/6/2026)', url: 'https://web.archive.org/web/20260106050903/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/Bureau_of_Specialty_Behavioral_Health_Services-Telemedicine_Database.pdf?rev=39a4677add1f4ed0a2e952bd1c6e5c54' },
-          { title: 'MDHHS SFY 2026 Behavioral Health Code Charts and Provider Qualifications (updated 9/26/2025; archived 10/31/2025)', url: 'https://web.archive.org/web/20251031103317/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2026_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=e9481f6c7f6e4628897bbe3ad67c892b' },
+          { title: 'MDHHS Bureau of Specialty Behavioral Health Services — Telemedicine Database (entries effective June 1, 2026; revision log through 6/15/26)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/Bureau_of_Specialty_Behavioral_Health_Services-Telemedicine_Database.pdf' },
+          { title: 'MDHHS SFY 2027 Behavioral Health Code Charts and Provider Qualifications (SFY beginning October 1, 2026; update log through 9/10/2026)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2027_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=cb846b903b05453da55fb84f78300b6b' },
           { title: 'MSHN Procedure — Autism Spectrum Disorder Services Eligibility and Provision (reviewed 03.03.2026)', url: 'https://midstatehealthnetwork.org/download_file/view/3305887c-abbd-496f-bf81-709f7cb5fdde/864' },
           { title: 'MSHN Policy — Autism Spectrum Disorder Benefit Eligibility (reviewed 01.07.2025)', url: 'https://midstatehealthnetwork.org/download_file/view/d9a670e3-1121-486f-b048-086f1011cf4f/863' },
           { title: 'MSHN Procedure — Utilization Management (reviewed 05.07.2024)', url: 'https://midstatehealthnetwork.org/download_file/view/6cf2984e-ecaf-4af4-aaf8-a4f60a255924/864' },
@@ -1359,8 +1383,8 @@ export const michiganPayers: Record<string, PayerConfig> = {
           'Mid-State Health Network applies the state rule; its published autism material sets nothing different. Medicaid pays last. "Medicaid is considered the payer of last resort. If a beneficiary with Medicare or Other Insurance coverage is enrolled in a Medicaid Health Plan (MHP), or is receiving services under a Prepaid Inpatient Health Plan (PIHP) or Community Mental Health Services Program (CMHSP), that entity is responsible for the Medicaid payment liability." Providers "must utilize other payment sources to their fullest extent" before billing Medicaid, and "Medicaid is not liable for payment of services denied because coverage rules of the primary health insurance were not followed" — so get the commercial plan’s prior authorization and use its network. The ABA section adds that the IPOS must not duplicate services that are the responsibility of "a private insurance or other funding authority." Nothing in Section 18 exempts a child with other coverage from the PIHP’s own eligibility determination and pre-service authorization. Federally, the agency rejects a claim when third-party liability is established and pays only the amount its schedule exceeds the third party’s payment (42 CFR 433.139).',
         status: 'verified',
         cites: [
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
           { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
           { title: 'MSHN Procedure — Autism Spectrum Disorder Services Eligibility and Provision (reviewed 03.03.2026)', url: 'https://midstatehealthnetwork.org/download_file/view/3305887c-abbd-496f-bf81-709f7cb5fdde/864' },
           { title: 'MSHN Policy — Autism Spectrum Disorder Benefit Eligibility (reviewed 01.07.2025)', url: 'https://midstatehealthnetwork.org/download_file/view/d9a670e3-1121-486f-b048-086f1011cf4f/863' },
@@ -1395,7 +1419,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
         'Required — PIHP utilization management authorizes the ABA level of services in the IPOS before delivery (state rule; SWMBH publishes nothing different).',
       status: 'verified',
       cites: [
-        { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+        { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
         { title: 'SWMBH — Autism Services', url: 'https://swmbh.org/autism-services/' },
       ],
     },
@@ -1444,9 +1468,9 @@ export const michiganPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'SWMBH — Autism Services', url: 'https://swmbh.org/autism-services/' },
           { title: 'MDHHS — PIHP county designations table (FY27 PIHP contract, May 2025)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/PIHPs/PIHP-Region-Table.pdf' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
-          { title: 'MDHHS SFY 2026 Behavioral Health Code Charts and Provider Qualifications (updated 9/26/2025; archived 10/31/2025)', url: 'https://web.archive.org/web/20251031103317/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2026_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=e9481f6c7f6e4628897bbe3ad67c892b' },
-          { title: 'MDHHS Bureau of Specialty Behavioral Health Services — Telemedicine Database (effective May 12, 2023; archived 1/6/2026)', url: 'https://web.archive.org/web/20260106050903/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/Bureau_of_Specialty_Behavioral_Health_Services-Telemedicine_Database.pdf?rev=39a4677add1f4ed0a2e952bd1c6e5c54' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'MDHHS SFY 2027 Behavioral Health Code Charts and Provider Qualifications (SFY beginning October 1, 2026; update log through 9/10/2026)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2027_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=cb846b903b05453da55fb84f78300b6b' },
+          { title: 'MDHHS Bureau of Specialty Behavioral Health Services — Telemedicine Database (entries effective June 1, 2026; revision log through 6/15/26)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/Bureau_of_Specialty_Behavioral_Health_Services-Telemedicine_Database.pdf' },
         ],
       },
     ],
@@ -1459,12 +1483,12 @@ export const michiganPayers: Record<string, PayerConfig> = {
     sources: [
       { title: 'SWMBH — Autism Services', url: 'https://swmbh.org/autism-services/' },
       { title: 'MDHHS — PIHP county designations table (FY27 PIHP contract, May 2025)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/PIHPs/PIHP-Region-Table.pdf' },
-      { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
-      { title: 'MDHHS SFY 2026 Behavioral Health Code Charts and Provider Qualifications (updated 9/26/2025; archived 10/31/2025)', url: 'https://web.archive.org/web/20251031103317/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2026_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=e9481f6c7f6e4628897bbe3ad67c892b' },
-      { title: 'MDHHS Bureau of Specialty Behavioral Health Services — Telemedicine Database (effective May 12, 2023; archived 1/6/2026)', url: 'https://web.archive.org/web/20260106050903/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/Bureau_of_Specialty_Behavioral_Health_Services-Telemedicine_Database.pdf?rev=39a4677add1f4ed0a2e952bd1c6e5c54' },
-      { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Sections 1–2', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+      { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+      { title: 'MDHHS SFY 2027 Behavioral Health Code Charts and Provider Qualifications (SFY beginning October 1, 2026; update log through 9/10/2026)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2027_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=cb846b903b05453da55fb84f78300b6b' },
+      { title: 'MDHHS Bureau of Specialty Behavioral Health Services — Telemedicine Database (entries effective June 1, 2026; revision log through 6/15/26)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/Bureau_of_Specialty_Behavioral_Health_Services-Telemedicine_Database.pdf' },
+      { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Sections 1–2', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
       { title: '42 CFR 438.210 — Coverage and authorization of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' },
-      { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+      { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
       { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
     ],
     deliveryRules: {
@@ -1474,15 +1498,15 @@ export const michiganPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'SWMBH — Autism Services', url: 'https://swmbh.org/autism-services/' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
         ],
       },
       concurrentBilling: {
         value:
-          'SWMBH applies the state rule; its published autism material sets nothing different. Allowed for the pairs MDHHS names. The SFY 2026 code charts say 97155 "Must co-occur with 97153, 97154, and 0373T in order to be reported," and the same-time reporting rules state that 97153 and 97155 "can occur at the same time, just not by the same person" (the technician delivers 97153 while the BCBA/LBA supervising delivers 97155); 97156 may be delivered by the BCBA/LBA to the caregiver while a technician delivers 97153 to the child; a 97151 reassessment may be reported at the same time as 97153, 97154, 0373T (and potentially 97157/97158) "IF there are two separate providers"; and 0362T may be reported at the same time as 0373T. Targeted case management may also run at the same time as a direct ABA service.',
+          'SWMBH applies the state rule; its published autism material sets nothing different. Allowed for the pairs MDHHS names. The SFY 2027 code charts (from October 1, 2026) say 97155 reported by a licensed behavior analyst "May co-occur with 97153 & 97154," and 97155 reported by a licensed assistant behavior analyst "Must co-occur with 97153, 97154, and 0373T in order to be reported," and the same-time reporting rules state that 97153 and 97155 "can occur at the same time, just not by the same person" (the technician delivers 97153 while the BCBA/LBA supervising delivers 97155); 97156 may be delivered by the BCBA/LBA to the caregiver while a technician delivers 97153 to the child; a 97151 reassessment may be reported at the same time as 97153, 97154, 0373T (and potentially 97157/97158) "IF there are two separate providers"; and 0362T may be reported at the same time as 0373T. Targeted case management may also run at the same time as a direct ABA service.',
         status: 'verified',
         cites: [
-          { title: 'MDHHS SFY 2026 Behavioral Health Code Charts and Provider Qualifications (updated 9/26/2025; archived 10/31/2025)', url: 'https://web.archive.org/web/20251031103317/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2026_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=e9481f6c7f6e4628897bbe3ad67c892b' },
+          { title: 'MDHHS SFY 2027 Behavioral Health Code Charts and Provider Qualifications (SFY beginning October 1, 2026; update log through 9/10/2026)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2027_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=cb846b903b05453da55fb84f78300b6b' },
           { title: 'SWMBH — Autism Services', url: 'https://swmbh.org/autism-services/' },
         ],
       },
@@ -1491,19 +1515,19 @@ export const michiganPayers: Record<string, PayerConfig> = {
           'SWMBH applies the state rule; its published autism material sets nothing different. No per-day or per-week unit cap is published. The manual sets planning averages, not ceilings: focused behavioral intervention averages 5–15 hours a week and comprehensive behavioral intervention 16–25 hours a week, with actual hours set by the behavioral plan of care. A PIHP "may not deny services based solely on preset limits of the cost, amount, scope, and duration of services," and the level of service is re-determined at least every six months on measurable progress. Authorizations may run up to 365 days.',
         status: 'verified',
         cites: [
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Sections 1–2', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Sections 1–2', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
           { title: 'SWMBH — Autism Services', url: 'https://swmbh.org/autism-services/' },
         ],
       },
       noteSignature: {
         value:
-          'SWMBH applies the state rule; its published autism material sets nothing different. Section 18 of the Medicaid Provider Manual and the SFY 2026 code charts do not state who signs an ABA session note or by when. The manual requires the individual plan of service (IPOS) to specify amount, scope and duration of each authorized service and permits electronic signatures for the beneficiary on the plan of service and consents; session-note signature standards sit in each PIHP’s provider contract and documentation standards.',
+          'SWMBH applies the state rule; its published autism material sets nothing different. Section 18 of the Medicaid Provider Manual and the SFY 2027 code charts do not state who signs an ABA session note or by when. The manual requires the individual plan of service (IPOS) to specify amount, scope and duration of each authorized service and permits electronic signatures for the beneficiary on the plan of service and consents; session-note signature standards sit in each PIHP’s provider contract and documentation standards.',
         status: 'plan-dependent',
         cites: [
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Sections 1–2', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
-          { title: 'MDHHS SFY 2026 Behavioral Health Code Charts and Provider Qualifications (updated 9/26/2025; archived 10/31/2025)', url: 'https://web.archive.org/web/20251031103317/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2026_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=e9481f6c7f6e4628897bbe3ad67c892b' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Sections 1–2', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'MDHHS SFY 2027 Behavioral Health Code Charts and Provider Qualifications (SFY beginning October 1, 2026; update log through 9/10/2026)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2027_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=cb846b903b05453da55fb84f78300b6b' },
           { title: 'SWMBH — Autism Services', url: 'https://swmbh.org/autism-services/' },
         ],
         verifyVia:
@@ -1516,16 +1540,16 @@ export const michiganPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'SWMBH — Autism Services', url: 'https://swmbh.org/autism-services/' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
         ],
       },
       billAsProvider: {
         value:
-          'SWMBH applies the state rule; its published autism material sets nothing different. Services are reported to the PIHP/CMHSP under the provider’s network contract, with a modifier naming the rendering staff level. The SFY 2026 code charts list the qualifying provider types and modifiers for each ABA code: HO for a licensed behavior analyst (master’s level) or QBHP, HN for a licensed assistant behavior analyst (bachelor’s level), and HM for a behavior technician on the technician codes (97153, 97154, 0373T); 97151 carries the state-defined U5 "Autism" modifier and group codes carry the UN–US group-size modifiers. A technician does not need a license or BACB registration, but must complete BACB-approved RBT training and work under the BCBA/LBA’s supervision.',
+          'SWMBH applies the state rule; its published autism material sets nothing different. Services are reported to the PIHP/CMHSP under the provider’s network contract, with a modifier naming the rendering staff level. The SFY 2027 code charts list the qualifying provider types and modifiers for each ABA code: HO for a licensed behavior analyst (master’s level), HN for a licensed assistant behavior analyst (bachelor’s level), and HM for a behavior technician on the technician codes (97153, 97154, 0373T); group codes carry the UN–US group-size modifiers. (The U5 autism modifier the SFY 2026 charts put on 97151 is not in the SFY 2027 modifier list.) Which codes: ABA is billed with CPT codes, not H-codes. The SFY 2027 code charts list 97151, 97153, 97154, 97155, 97156, 97157, 97158, 0362T and 0373T for ABA (97152 does not appear); the diagnostic evaluation behind eligibility is reported with 96112, 96113 or 96116 “For reporting BHT/ABA eligibility assessments and re-evaluation assessments related to Autism”; and H0031 with the 6Y modifier is the behavior identification assessment for people outside the ABA benefit (“97151 for non-ABA was removed effective 10/1/24 so the H0031 with the 6Y is for these individuals”). A technician does not need a license or BACB registration, but must complete BACB-approved RBT training and work under the BCBA/LBA’s supervision.',
         status: 'verified',
         cites: [
-          { title: 'MDHHS SFY 2026 Behavioral Health Code Charts and Provider Qualifications (updated 9/26/2025; archived 10/31/2025)', url: 'https://web.archive.org/web/20251031103317/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2026_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=e9481f6c7f6e4628897bbe3ad67c892b' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'MDHHS SFY 2027 Behavioral Health Code Charts and Provider Qualifications (SFY beginning October 1, 2026; update log through 9/10/2026)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2027_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=cb846b903b05453da55fb84f78300b6b' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
           { title: 'SWMBH — Autism Services', url: 'https://swmbh.org/autism-services/' },
         ],
       },
@@ -1537,7 +1561,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'SWMBH — Autism Services', url: 'https://swmbh.org/autism-services/' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
         ],
       },
       dxRecency: {
@@ -1545,7 +1569,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
           'SWMBH applies the state rule; its published autism material sets nothing different. No expiry on the diagnosis itself. "Comprehensive diagnostic re-evaluations are required no more than once every three years, unless determined medically necessary more frequently" by a physician or other licensed practitioner, with frequency based on age, developmental level, comorbidities, severity and adaptive deficits. The level of service is re-determined at least every six months, and BHT authorizations run up to 365 days.',
         status: 'verified',
         cites: [
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
           { title: 'SWMBH — Autism Services', url: 'https://swmbh.org/autism-services/' },
         ],
       },
@@ -1554,7 +1578,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
           'SWMBH applies the state rule; its published autism material sets nothing different. A qualified licensed practitioner "qualified and experienced in diagnosing ASD": a physician with a specialty in psychiatry or neurology; a physician with a subspecialty in developmental pediatrics, developmental-behavioral pediatrics or a related discipline; a physician with a specialty in pediatrics or other appropriate specialty with ASD training, experience or expertise; a psychologist; an advanced practice registered nurse or a physician assistant with ASD and/or behavioral health training; or a master’s-level, fully licensed clinical social worker qualified and experienced in diagnosing ASD. The PIHP is responsible for arranging the comprehensive diagnostic evaluation.',
         status: 'verified',
         cites: [
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
           { title: 'SWMBH — Autism Services', url: 'https://swmbh.org/autism-services/' },
         ],
       },
@@ -1564,7 +1588,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'SWMBH — Autism Services', url: 'https://swmbh.org/autism-services/' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
         ],
       },
       referral: {
@@ -1573,16 +1597,16 @@ export const michiganPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'SWMBH — Autism Services', url: 'https://swmbh.org/autism-services/' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
         ],
       },
       telehealth: {
         value:
-          'SWMBH applies the state rule; its published autism material sets nothing different. Only the analyst-level codes. The MDHHS Bureau of Specialty Behavioral Health Services Telemedicine Database lists 97155, 97156, 97157 and 97158 as allowed via simultaneous audio/visual telemedicine (reported with POS 02 or POS 10, no modifier), and its revision log records that 0362T, 97151, 97153 and 97154 were removed from the database on 4/28/23 — so technician-delivered direct treatment and the behavior identification assessment are in-person. The diagnostic-evaluation codes 96112/96113 and 96116 remain allowed via audio/visual "for reporting BHT/ABA eligibility assessments and re-evaluation assessments related to Autism." The SFY 2026 code charts note on 97155 to use POS 02 "if MDHHS has authorized tele-practice for an individual."',
+          'SWMBH applies the state rule; its published autism material sets nothing different. Only the analyst-level codes. The MDHHS Bureau of Specialty Behavioral Health Services Telemedicine Database lists 97155, 97156, 97157 and 97158 as allowed via simultaneous audio/visual telemedicine (reported with POS 02 or POS 10, no modifier), and its revision log records that 0362T, 97151, 97153 and 97154 were removed from the database on 4/28/23 — so technician-delivered direct treatment and the behavior identification assessment are in-person. The diagnostic-evaluation codes 96112/96113 and 96116 remain allowed via audio/visual "for reporting BHT/ABA eligibility assessments and re-evaluation assessments related to Autism." The SFY 2027 code charts note on 97155 and 97156 to use POS 02 "if MDHHS has authorized tele-practice for an individual."',
         status: 'verified',
         cites: [
-          { title: 'MDHHS Bureau of Specialty Behavioral Health Services — Telemedicine Database (effective May 12, 2023; archived 1/6/2026)', url: 'https://web.archive.org/web/20260106050903/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/Bureau_of_Specialty_Behavioral_Health_Services-Telemedicine_Database.pdf?rev=39a4677add1f4ed0a2e952bd1c6e5c54' },
-          { title: 'MDHHS SFY 2026 Behavioral Health Code Charts and Provider Qualifications (updated 9/26/2025; archived 10/31/2025)', url: 'https://web.archive.org/web/20251031103317/https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2026_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=e9481f6c7f6e4628897bbe3ad67c892b' },
+          { title: 'MDHHS Bureau of Specialty Behavioral Health Services — Telemedicine Database (entries effective June 1, 2026; revision log through 6/15/26)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/Bureau_of_Specialty_Behavioral_Health_Services-Telemedicine_Database.pdf' },
+          { title: 'MDHHS SFY 2027 Behavioral Health Code Charts and Provider Qualifications (SFY beginning October 1, 2026; update log through 9/10/2026)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2027_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=cb846b903b05453da55fb84f78300b6b' },
           { title: 'SWMBH — Autism Services', url: 'https://swmbh.org/autism-services/' },
         ],
       },
@@ -1591,8 +1615,8 @@ export const michiganPayers: Record<string, PayerConfig> = {
           'SWMBH applies the state rule; its published autism material sets nothing different. The PIHP decides, under the federal managed-care clock. Section 18 says "The PIHP’s Utilization Management will authorize the level of services prior to the delivery of services," and the manual requires determinations "Made within federal and state standards for timeliness." Under 42 CFR 438.210(d) a PIHP must decide a standard request within state-set timeframes that "may not exceed 14 calendar days" for rating periods that start before January 1, 2026 and "may not exceed 7 calendar days" for rating periods starting on or after that date, extendable by up to 14 calendar days at the enrollee’s or provider’s request or with justification; expedited decisions are due within 72 hours. Which cap binds depends on the PIHP contract’s rating-period start date. BHT authorizations run for up to 365 days and are re-authorized annually.',
         status: 'verified',
         cites: [
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Sections 1–2', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Sections 1–2', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
           { title: '42 CFR 438.210 — Coverage and authorization of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' },
           { title: 'SWMBH — Autism Services', url: 'https://swmbh.org/autism-services/' },
         ],
@@ -1602,8 +1626,8 @@ export const michiganPayers: Record<string, PayerConfig> = {
           'SWMBH applies the state rule; its published autism material sets nothing different. Medicaid pays last. "Medicaid is considered the payer of last resort. If a beneficiary with Medicare or Other Insurance coverage is enrolled in a Medicaid Health Plan (MHP), or is receiving services under a Prepaid Inpatient Health Plan (PIHP) or Community Mental Health Services Program (CMHSP), that entity is responsible for the Medicaid payment liability." Providers "must utilize other payment sources to their fullest extent" before billing Medicaid, and "Medicaid is not liable for payment of services denied because coverage rules of the primary health insurance were not followed" — so get the commercial plan’s prior authorization and use its network. The ABA section adds that the IPOS must not duplicate services that are the responsibility of "a private insurance or other funding authority." Nothing in Section 18 exempts a child with other coverage from the PIHP’s own eligibility determination and pre-service authorization. Federally, the agency rejects a claim when third-party liability is established and pays only the amount its schedule exceeds the third party’s payment (42 CFR 433.139).',
         status: 'verified',
         cites: [
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18: BHT/ABA', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
           { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
           { title: 'SWMBH — Autism Services', url: 'https://swmbh.org/autism-services/' },
         ],
@@ -1730,6 +1754,26 @@ export const michiganPayers: Record<string, PayerConfig> = {
           { title: 'BCBSM / BCN — Autism services: Billing guidelines and procedure codes (rev. November 2025)', url: 'https://authorizations.bcbsm.com/static-assets/documents/autism-billing-guidelines-procedure-codes.pdf' },
         ],
       },
+      {
+        h2: 'How fast must Blue Cross Blue Shield of Michigan pay a clean ABA claim in Michigan?',
+        body: [
+          'Michigan’s prompt-pay statute, MCL 500.2006(8), governs insured health plans (it excludes administrative-services-only arrangements): "A clean claim must be paid within 45 days after receipt of the claim by the health plan," with 12% simple annual interest after that; the plan must flag defects within 30 days, and the provider gets 45 days to fix them. A provider "must bill a health plan within 1 year after the date of service" for the claim to be a clean claim.',
+        ],
+        cites: [
+          { title: 'MCL 500.2006 — timely payment of claims (Michigan Insurance Code)', url: 'https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-500-2006' },
+        ],
+      },
+      {
+        h2: 'BlueCard: Michigan members treated out of state, and out-of-state members treated in Michigan',
+        body: [
+          'BlueCard is the national program that "enables members of one Blue Cross Blue Shield plan to obtain health care services while traveling or living in another Blue Cross Blue Shield plan\'s service area." Claims run through the treating provider\'s local plan. For a Michigan provider seeing another plan\'s member, Blue Cross says the program "lets you conveniently submit claims for members from other Blue Cross Blue Shield plans ... directly to Blue Cross Blue Shield of Michigan," which is "your single point of contact for all your claims-related questions." Michigan providers verify eligibility with the member\'s home plan through the BlueCard Eligibility Call Center (1-800-676-2583, using the three-character prefix) or Availity. Original professional claims are due to Blue Cross within 180 days of the date of service.',
+          'For a Blue Cross Blue Shield of Michigan member treated outside Michigan, Blue Cross is the home plan, and its ABA prior authorization applies. Its September 2026 requirements list names "Outpatient autism services (applied behavior analysis)" among the behavioral health services that need prior authorization for Blue Cross commercial members. Those reviews "are conducted by Blue Cross Behavioral Health," except for groups on its mental health carve-out list. Non-Michigan providers who are not on Availity submit through Electronic Provider Access, which they reach "through their local Blue plan portal." They can also "look up requirements without an Availity account by logging into their home plan\'s website and selecting an ID card prefix from Michigan."',
+        ],
+        cites: [
+          { title: 'Blue Cross Blue Shield of Michigan — Prior authorization requirements for Michigan and non-Michigan providers (rev. September 2026)', url: 'https://www.bcbsm.com/amslibs/content/dam/public/providers/documents/preauthorization-precertification-requirements.pdf' },
+          { title: 'BCBSM The Record — "Do you know about our BlueCard processes?" (May 2023)', url: 'https://www.bcbsm.com/content/dam/microsites/corpcomm/provider/the_record/2023/may/Record_0523a.html' },
+        ],
+      },
     ],
     collect: [
       { title: 'BCN (HMO) or Blue Cross PPO, and funding type', desc: 'All BCN HMO plans require ABA prior authorization; PPO depends on the group. Self-funded groups may sit outside the mandate.' },
@@ -1739,6 +1783,8 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { title: 'Other coverage', desc: 'Record Medicaid, a second parent’s plan, TRICARE or CHAMPVA for coordination of benefits.' },
     ],
     sources: [
+      { title: 'BCBSM / BCN — Telehealth for behavioral health providers (Blue Cross commercial, Medicare Plus Blue, BCN commercial, BCN Advantage; revised February 2026)', url: 'https://providerinfo.bcbsm.com/documents/billing-claims/telehealth/telehealth-behavioral-health-providers.pdf' },
+      { title: 'BCBSM / BCN — Guidelines for autism interventions delivered via telemedicine (ABA and skills training; revised May 2023)', url: 'https://providerinfo.bcbsm.com/documents/billing-claims/telehealth/aba-telemedicine-guidelines.pdf' },
       { title: 'BCBSM / BCN — Obtaining a comprehensive diagnostic evaluation for autism and finding treatment (rev. November 2025)', url: 'https://www.bcbsm.com/amslibs/content/dam/public/common/documents/approved-autism-evaluation-centers.pdf' },
       { title: 'BCBSM / BCN — Requirements for comprehensive diagnostic evaluations by AAECs and independent evaluation teams (rev. November 2025)', url: 'https://authorizations.bcbsm.com/static-assets/documents/autism-diagnostic-evaluation-requirements.pdf' },
       { title: 'BCBSM / BCN — Overview of autism coverage (rev. November 2025)', url: 'https://authorizations.bcbsm.com/static-assets/documents/autism-coverage-overview.pdf' },
@@ -1757,9 +1803,11 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { title: 'MCL 500.2212e — prior authorization process and timelines, Michigan Legislature', url: 'https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-500-2212e' },
       { title: '29 CFR 2560.503-1 — ERISA claims procedure', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
       { title: 'MCL 550.253 — Coordination of Benefits Act, order of benefit determination', url: 'https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-550-253' },
-      { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+      { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
       { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
       { title: '38 CFR 17.270 — CHAMPVA is the last payer', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
+      { title: 'Blue Cross Blue Shield of Michigan — Prior authorization requirements for Michigan and non-Michigan providers (rev. September 2026)', url: 'https://www.bcbsm.com/amslibs/content/dam/public/providers/documents/preauthorization-precertification-requirements.pdf' },
+      { title: 'BCBSM The Record — "Do you know about our BlueCard processes?" (May 2023)', url: 'https://www.bcbsm.com/content/dam/microsites/corpcomm/provider/the_record/2023/may/Record_0523a.html' },
     ],
     deliveryRules: {
       supervision: {
@@ -1869,15 +1917,13 @@ export const michiganPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'Blue Cross points providers to a separate "Telehealth for behavioral health providers" document on its secure Provider Resources site (via Availity) to determine which ABA services are allowed via telemedicine; progress notes must record when telemedicine was used. The telehealth document itself is portal-gated.',
-        status: 'unverified',
+          'Yes, for every ABA code, for Blue Cross commercial and BCN commercial members with the autism benefit. Blue Cross’s Telehealth for behavioral health providers (revised February 2026), now public on providerinfo.bcbsm.com, lists as “payable via synchronous telemedicine visits”: 97151 (assessment, “which includes live interaction with the member”), 97153 (“allowed via telehealth for members who meet appropriateness criteria”), 97154, 97155 (“for up to 100% of the time during which services are provided”), 97156, 97157 and 97158, plus S5108 and S5111 for Michigan providers serving out-of-state members. Bill professional telemedicine with the GT or 95 modifier and place of service 10 (patient at home) or 02 (elsewhere); for BCN commercial also add the credential modifier (for example HO). Prior authorization rules are the same in person or by telehealth, so the authorization does not need a separate telehealth flag. For 97153/97154, Blue Cross’s telemedicine guidelines (May 2023) list readiness factors (joint attention, following one-step instructions, sitting 8 to 10 minutes at a screen, minimal safety concerns, a caregiver present for the whole session) and suggest a trial of up to four weeks when they are not met; these “are not formal requirements.” Medicare Plus Blue and BCN Advantage follow the CMS telehealth list.',
+        status: 'verified',
         cites: [
-          { title: 'BCBSM / BCN — Autism services: Billing guidelines and procedure codes (rev. November 2025)', url: 'https://authorizations.bcbsm.com/static-assets/documents/autism-billing-guidelines-procedure-codes.pdf' },
+          { title: 'BCBSM / BCN — Telehealth for behavioral health providers (Blue Cross commercial, Medicare Plus Blue, BCN commercial, BCN Advantage; revised February 2026)', url: 'https://providerinfo.bcbsm.com/documents/billing-claims/telehealth/telehealth-behavioral-health-providers.pdf' },
+          { title: 'BCBSM / BCN — Guidelines for autism interventions delivered via telemedicine (ABA and skills training; revised May 2023)', url: 'https://providerinfo.bcbsm.com/documents/billing-claims/telehealth/aba-telemedicine-guidelines.pdf' },
           { title: 'BCBSM / BCN — Behavioral health medical record documentation requirements for autism treatment services (rev. July 2026)', url: 'https://authorizations.bcbsm.com/static-assets/documents/bh-documentation-rqumts-autism-services.pdf' },
         ],
-        verifyVia:
-          'Telehealth for behavioral health providers (Availity > Payer Spaces > BCBSM and BCN > Resources > Secure Provider Resources), or Blue Cross Behavioral Health.',
-        blocker: 'document',
       },
       authTurnaround: {
         value:
@@ -1898,7 +1944,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'MCL 550.253 — Coordination of Benefits Act, order of benefit determination', url: 'https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-550-253' },
           { title: 'MCL 500.3406s — autism coverage (Insurance Code), Michigan Legislature', url: 'https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-500-3406s' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
           { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
           { title: '38 CFR 17.270 — CHAMPVA is the last payer', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
         ],
@@ -1908,10 +1954,13 @@ export const michiganPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Blue Cross Blue Shield of Michigan allow 97153 by telehealth, and with which modifier?', a: 'Yes, for Blue Cross and BCN commercial members who meet Blue Cross’s appropriateness guidelines; 97151 and 97154–97158 are also payable by synchronous telemedicine. Bill GT or 95 with POS 10 (home) or 02, and on BCN commercial add your credential modifier. The same prior authorization applies as for in-person care.' },
       { q: 'Does Blue Cross Blue Shield of Michigan cover ABA for adults?', a: 'For Blue Cross commercial and BCN commercial members, ABA and the other autism services are benefits regardless of age for dates of service on or after Jan. 1, 2022 — subject to the member’s own group benefits.' },
       { q: 'Does the diagnosis have to come from an approved autism evaluation center?', a: 'No. Michigan members can use an AAEC or a primary care provider and/or independent evaluators, as long as the comprehensive evaluation meets Blue Cross’s requirements and shows the DSM criteria.' },
       { q: 'Is prior authorization always required?', a: 'For all BCN HMO plans, yes. For Blue Cross PPO it depends on the group: fully insured groups and select self-funded groups require it. Check the member’s autism coverage.' },
       { q: 'Is there an hour or unit limit?', a: 'Blue Cross says there are no limits for billable ABA services beyond the units authorized. A fully insured plan may still apply the mandate’s annual dollar maximums for members through age 18 if its certificate does.' },
+      { q: 'What is Blue Cross Blue Shield of Michigan’s clean-claim payment turnaround in Michigan?', a: 'Within 45 days of receipt for a clean claim on an insured plan (MCL 500.2006(8)), with 12% interest after that. Self-funded plans are not covered.' },
+      { q: 'How does BlueCard work for Blue Cross Blue Shield of Michigan members treated out of state?', a: 'The out-of-state provider files the claim with its own local Blue plan, which routes it to Blue Cross Blue Shield of Michigan as the home plan. Blue Cross still requires prior authorization for outpatient ABA on its commercial plans, conducted by Blue Cross Behavioral Health. A non-Michigan provider submits it through Electronic Provider Access in its local Blue\'s portal, or through Availity if registered. Michigan providers treating another plan\'s member submit claims to Blue Cross Blue Shield of Michigan within 180 days of service.' },
     ],
   },
 
@@ -1997,6 +2046,18 @@ export const michiganPayers: Record<string, PayerConfig> = {
           { title: 'BACB — U.S. Licensure of Behavior Analysts', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
         ],
       },
+      {
+        h2: 'How fast must Priority Health pay a clean ABA claim in Michigan?',
+        body: [
+          'Michigan’s prompt-pay statute, MCL 500.2006(8), governs insured health plans (it excludes administrative-services-only arrangements): "A clean claim must be paid within 45 days after receipt of the claim by the health plan," with 12% simple annual interest after that; the plan must flag defects within 30 days, and the provider gets 45 days to fix them. A provider "must bill a health plan within 1 year after the date of service" for the claim to be a clean claim.',
+          'Priority Health’s own deadline matches the statute: its provider manual says “You must complete billing, including resolving all claim discrepancies, within 12 months of the date of service. After that date, we will deny corrected or augmented information as provider responsibility.” A claim that does not appear in the Claims Inquiry tool or on a rejection report may be resubmitted “within 45 days of your original submission.” On the claim, Priority Health’s behavioral health billing page says field 24J (rendering provider) “must show the individual NPI number of the practitioner who directly provides the service being billed,” with exceptions only for limited licensees billed under their supervisor. The manual names no weekly submission cutoff or check-run day.',
+        ],
+        cites: [
+          { title: 'MCL 500.2006 — timely payment of claims (Michigan Insurance Code)', url: 'https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-500-2006' },
+          { title: 'Priority Health Provider Manual — Claim deadlines and timely filing (page last updated 6/20/25)', url: 'https://www.priorityhealth.com/provider/manual/billing/claim-deadlines' },
+          { title: 'Priority Health Provider Manual — Behavioral health provider billing (page last updated 6/20/25)', url: 'https://www.priorityhealth.com/provider/manual/billing/bh-billing' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan type and funding', desc: 'Commercial vs. Priority Medicaid (routes to the PIHP), and fully insured vs. self-funded.' },
@@ -2005,6 +2066,8 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { title: 'Physician or psychologist order', desc: 'The Michigan mandate ties covered treatment to a prescription or order on fully insured plans.' },
     ],
     sources: [
+      { title: 'Priority Health Provider Manual — Claim deadlines and timely filing (page last updated 6/20/25)', url: 'https://www.priorityhealth.com/provider/manual/billing/claim-deadlines' },
+      { title: 'Priority Health Provider Manual — Behavioral health provider billing (page last updated 6/20/25)', url: 'https://www.priorityhealth.com/provider/manual/billing/bh-billing' },
       { title: 'Priority Health Medical Policy No. 91615-R8 — Autism Spectrum Disorders (effective 3/1/2026)', url: 'https://priorityhealth.stylelabs.cloud/api/public/content/6b5c6f61d4a74c049b1748d514555243?v=8b411839' },
       { title: 'Priority Health — Medical policies index', url: 'https://www.priorityhealth.com/provider/manual/medical-policies' },
       { title: 'MCL 500.3406s — autism coverage (Insurance Code), Michigan Legislature', url: 'https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-500-3406s' },
@@ -2015,7 +2078,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { title: 'MCL 500.2212e — prior authorization process and timelines, Michigan Legislature', url: 'https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-500-2212e' },
       { title: '29 CFR 2560.503-1 — ERISA claims procedure', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
       { title: 'MCL 550.253 — Coordination of Benefits Act, order of benefit determination', url: 'https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-550-253' },
-      { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+      { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
       { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
       { title: '38 CFR 17.270 — CHAMPVA is the last payer', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
     ],
@@ -2160,7 +2223,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'MCL 550.253 — Coordination of Benefits Act, order of benefit determination', url: 'https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-550-253' },
           { title: 'MCL 500.3406s — autism coverage (Insurance Code), Michigan Legislature', url: 'https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-500-3406s' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
           { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
           { title: '38 CFR 17.270 — CHAMPVA is the last payer', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
         ],
@@ -2170,9 +2233,11 @@ export const michiganPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'What is Priority Health’s timely filing limit for ABA claims?', a: 'Billing, including fixing every claim discrepancy, must be complete within 12 months of the date of service; after that Priority Health denies corrected information as provider responsibility. Clean claims from insured plans must be paid within 45 days under MCL 500.2006.' },
       { q: 'Does Priority Health require prior authorization for the ABA assessment?', a: 'Yes. Policy 91615 lists 97151 through 97158 under "ABA treatment services – in center, office, or home – prior authorization required."' },
       { q: 'What supervision does Priority Health require?', a: 'A BCBA must supervise the treatment plan, with line-staff supervision of at least one hour for every 15 hours of treatment.' },
       { q: 'My child has Priority Medicaid. Does Priority Health approve ABA?', a: 'No. Priority Health’s policy notes that these services for Priority Medicaid and Healthy Michigan Plan members are paid through the state’s community mental health system (the PIHP).' },
+      { q: 'What is Priority Health’s clean-claim payment turnaround in Michigan?', a: 'Within 45 days of receipt for a clean claim on an insured plan (MCL 500.2006(8)), with 12% interest after that. Self-funded plans are not covered.' },
     ],
   },
 
@@ -2266,6 +2331,15 @@ export const michiganPayers: Record<string, PayerConfig> = {
           { title: 'BACB — U.S. Licensure of Behavior Analysts', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
         ],
       },
+      {
+        h2: 'How fast must HAP pay a clean ABA claim in Michigan?',
+        body: [
+          'Michigan’s prompt-pay statute, MCL 500.2006(8), governs insured health plans (it excludes administrative-services-only arrangements): "A clean claim must be paid within 45 days after receipt of the claim by the health plan," with 12% simple annual interest after that; the plan must flag defects within 30 days, and the provider gets 45 days to fix them. A provider "must bill a health plan within 1 year after the date of service" for the claim to be a clean claim.',
+        ],
+        cites: [
+          { title: 'MCL 500.2006 — timely payment of claims (Michigan Insurance Code)', url: 'https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-500-2006' },
+        ],
+      },
     ],
     collect: [
       { title: 'HAP product and funding type', desc: 'Commercial HMO/PPO vs. HAP CareSource (Medicaid, routes to the PIHP); fully insured vs. self-funded.' },
@@ -2285,7 +2359,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { title: 'MCL 500.2212e — prior authorization process and timelines, Michigan Legislature', url: 'https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-500-2212e' },
       { title: '29 CFR 2560.503-1 — ERISA claims procedure', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
       { title: 'MCL 550.253 — Coordination of Benefits Act, order of benefit determination', url: 'https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-550-253' },
-      { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+      { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
       { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
       { title: '38 CFR 17.270 — CHAMPVA is the last payer', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
     ],
@@ -2456,7 +2530,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'MCL 550.253 — Coordination of Benefits Act, order of benefit determination', url: 'https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-550-253' },
           { title: 'MCL 500.3406s — autism coverage (Insurance Code), Michigan Legislature', url: 'https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-500-3406s' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
           { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
           { title: '38 CFR 17.270 — CHAMPVA is the last payer', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
         ],
@@ -2469,6 +2543,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { q: 'Does HAP require prior authorization for ABA?', a: 'Yes. ABA treatment is on HAP’s prior-authorization list; the detailed behavioral health list and criteria are in the provider portal.' },
       { q: 'How fast must HAP decide?', a: 'HAP says non-urgent requests are approved if it takes no action within 7 calendar days and urgent requests within 72 hours, per Michigan’s prior-authorization law. Self-funded employer plans follow federal ERISA timelines.' },
       { q: 'My child has HAP CareSource. Who approves ABA?', a: 'HAP CareSource is a Medicaid plan; Michigan Medicaid assigns ABA to the PIHP for the child’s county, not the health plan.' },
+      { q: 'What is HAP’s clean-claim payment turnaround in Michigan?', a: 'Within 45 days of receipt for a clean claim on an insured plan (MCL 500.2006(8)), with 12% interest after that. Self-funded plans are not covered.' },
     ],
   },
 
@@ -2482,7 +2557,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       status: 'verified',
       cites: [
         { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
-        { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 11/26/2025)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+        { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
       ],
     },
     treatmentPA: {
@@ -2529,9 +2604,10 @@ export const michiganPayers: Record<string, PayerConfig> = {
         h2: 'The national policy, applied in Michigan',
         body: [
           'Aetna covers ABA for autism spectrum disorder under CPB 0554 (with CPB 0648 for ASD) and its ABA medical necessity guide, which requires a DSM-5 ASD diagnosis from an appropriate provider, functional impairment on a standardized scale within the past 12 months, a measurable treatment plan with transition and discharge criteria, parent engagement, and services delivered or billed by licensed behavior analysts, BCBAs or licensed psychologists. Aetna’s behavioral health precertification list (effective August 1, 2024) requires precertification for every ABA code, the assessment included. Progress is reviewed every six months. What changes in Michigan is the legal floor below.',
+          'Reauthorization: the medical necessity guide says “A member\'s progress is to be evaluated every six months,” and continued coverage needs a treatment plan with “frequency, rate, symptom intensity or duration, or other objective measures of baseline levels” recorded and “quantifiable criteria for progress,” plus documentation that target behaviors improved or, if not, that treatment was modified. Graphs are not named as a requirement; objective baseline-to-current data is.',
         ],
         cites: [
-          { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 11/26/2025)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
           { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
           { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
           { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
@@ -2559,6 +2635,19 @@ export const michiganPayers: Record<string, PayerConfig> = {
           { title: 'BACB — U.S. Licensure of Behavior Analysts', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
         ],
       },
+      {
+        h2: 'How fast must Aetna pay a clean ABA claim in Michigan?',
+        body: [
+          'Michigan’s prompt-pay statute, MCL 500.2006(8), governs insured health plans (it excludes administrative-services-only arrangements): "A clean claim must be paid within 45 days after receipt of the claim by the health plan," with 12% simple annual interest after that; the plan must flag defects within 30 days, and the provider gets 45 days to fix them. A provider "must bill a health plan within 1 year after the date of service" for the claim to be a clean claim.',
+          'Aetna disputes run in two steps: a reconsideration "within 180 calendar days of the initial claim decision," then an appeal "within 60 calendar days of the reconsideration decision," with a written decision within 60 business days. Aetna’s manual sets no fixed timely-filing number: a clean claim is one "received in a timely manner," and the deadline comes from the participation agreement or state law.',
+        ],
+        cites: [
+          { title: 'MCL 500.2006 — timely payment of claims (Michigan Insurance Code)', url: 'https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-500-2006' },
+          { title: 'Aetna — Provider manual (8102800-01-01, 6/26): Clean claims; Disagree with a claim decision?', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna — Disputes and appeals overview (reconsideration and appeal time frames)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' },
+          { title: 'Aetna — Provider appeals: state exceptions to the 180-day dispute filing standard', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/provider-appeals.html' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Michigan mandate applies, with its age-18 and dollar-cap options) vs. self-funded ERISA (exempt).' },
@@ -2568,7 +2657,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { title: 'Age', desc: 'Members 19 and older may fall outside a fully insured plan that applies the mandate’s age limit.' },
     ],
     sources: [
-      { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 11/26/2025)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+      { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
       { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
       { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
       { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
@@ -2580,9 +2669,10 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { title: 'MCL 500.2212e — prior authorization process and timelines, Michigan Legislature', url: 'https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-500-2212e' },
       { title: '29 CFR 2560.503-1 — ERISA claims procedure', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
       { title: 'MCL 550.253 — Coordination of Benefits Act, order of benefit determination', url: 'https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-550-253' },
-      { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+      { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
       { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
       { title: '38 CFR 17.270 — CHAMPVA is the last payer', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
+      { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -2599,7 +2689,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
           'Not addressed in Aetna’s published ABA policies — CPB 0554, CPB 0648 and the ABA medical necessity guide are silent on billing 97153 and 97155 for the same clock time.',
         status: 'unverified',
         cites: [
-          { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 11/26/2025)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
           { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
         ],
         verifyVia:
@@ -2720,7 +2810,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'MCL 550.253 — Coordination of Benefits Act, order of benefit determination', url: 'https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-550-253' },
           { title: 'MCL 500.3406s — autism coverage (Insurance Code), Michigan Legislature', url: 'https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-500-3406s' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
           { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
           { title: '38 CFR 17.270 — CHAMPVA is the last payer', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
         ],
@@ -2730,9 +2820,13 @@ export const michiganPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Aetna require graphs for ABA reauthorization in Michigan?', a: 'Aetna’s ABA guide evaluates progress every six months against objective baseline measures and quantifiable progress criteria; it does not name graphs as a requirement.' },
       { q: 'Does Aetna cover ABA in Michigan?', a: 'Yes, for ASD under its national policy, with precertification on all ABA codes. For fully insured plans Michigan’s mandate (MCL 500.3406s) also applies; self-funded employer plans are exempt.' },
       { q: 'Is there an age or dollar limit?', a: 'Aetna’s policy sets none, but Michigan’s mandate lets a fully insured plan limit treatment coverage to members through age 18 and cap annual benefits at $50,000 (through 6), $40,000 (7–12) and $30,000 (13–18). Check the certificate.' },
       { q: 'What does Aetna pay for ABA in Michigan?', a: 'Commercial rates are not published; they are negotiated in the participating-provider agreement.' },
+      { q: 'What is Aetna’s clean-claim payment turnaround in Michigan?', a: 'Within 45 days of receipt for a clean claim on an insured plan (MCL 500.2006(8)), with 12% interest after that. Self-funded plans are not covered.' },
+      { q: 'How long do I have to appeal an Aetna claim decision in Michigan?', a: '180 calendar days from the initial claim decision to request a reconsideration, then 60 calendar days from the reconsideration decision to appeal.' },
+      { q: 'What documents does Aetna need for an ABA authorization in Michigan?', a: 'Aetna\'s precertification form GR-69017-4 (7-26), which replaced its other ABA forms from August 1, 2026 (Maryland and Massachusetts excepted), lists them. It asks for the current DSM diagnosis code and the diagnosing provider\'s name and credentials, plus hours by code (assessment codes per authorization period, treatment codes per week) and any hours during class. Supporting documents: "Results of a standardized assessment (i.e. Vineland, ABAS, VB-MAPP) completed within the past 12 months," with the IQ if available. Add a time-limited treatment plan with baselines and measurable targets, FBA or skills-assessment results, data showing severity justifies the hours, measurable caregiver goals, titration and discharge criteria, and coordination with other providers. Start the request on Availity or by phone and attach the form and records.' },
     ],
   },
 
@@ -2790,6 +2884,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
         h2: 'The national policy, applied in Michigan',
         body: [
           'EN0499 (effective May 15, 2026) covers ABA for a confirmed ASD diagnosis (F84.0–F84.9, excluding F84.2 Rett syndrome) made by an independently licensed clinician, with the diagnosing clinician’s name, credentials and the date of the most recent diagnosis. The ABA assessment must use a current, standardized instrument covering the DSM-5-TR domains, and baseline data must be collected within 60 days before treatment. Case supervision runs one to two hours per ten hours of direct treatment. Cigna’s autism resource guide adds the operational rules: no prior authorization for 97151, 97152 or 0362T when the provider is independently licensed or a BCBA; only one provider bills a unit of time except the 97153/97154 plus 97155 pairing; unlicensed staff are billed under the supervising provider; and all ABA codes may be delivered by telehealth.',
+          'Reauthorization: EN0499 asks for dated numbers, not graphs. Requests need “Quantitative baseline data” for every target behavior and skill, collected within 60 days before treatment started, and, when treatment began more than 60 days earlier, “interim, and current data … collected and provided within no more than 60 days prior to the date the authorization request is received,” reported separately for each setting and in the same unit as each goal’s mastery criteria.',
         ],
         cites: [
           { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
@@ -2818,6 +2913,17 @@ export const michiganPayers: Record<string, PayerConfig> = {
           { title: 'BACB — U.S. Licensure of Behavior Analysts', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
         ],
       },
+      {
+        h2: 'How fast must Cigna pay a clean ABA claim in Michigan?',
+        body: [
+          'Michigan’s prompt-pay statute, MCL 500.2006(8), governs insured health plans (it excludes administrative-services-only arrangements): "A clean claim must be paid within 45 days after receipt of the claim by the health plan," with 12% simple annual interest after that; the plan must flag defects within 30 days, and the provider gets 45 days to fix them. A provider "must bill a health plan within 1 year after the date of service" for the claim to be a clean claim.',
+          'Evernorth "will only consider claims submitted within 90 days of the date of service or as otherwise defined in your Provider Agreement," and a longer state-law limit applies where one exists. Appeals are initiated in writing within 180 calendar days of the initial payment or denial decision, and most are resolved within 60 calendar days. Evernorth’s Michigan Regulatory Addendum is longer for state-regulated plans: "Claims for Covered Services must be submitted within one (1) year of the date of service."',
+        ],
+        cites: [
+          { title: 'MCL 500.2006 — timely payment of claims (Michigan Insurance Code)', url: 'https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-500-2006' },
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Michigan mandate) vs. self-funded ERISA (exempt); Cigna’s Coverage Confirmation Grid returns benefits within one business day.' },
@@ -2836,7 +2942,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { title: 'MCL 500.2212e — prior authorization process and timelines, Michigan Legislature', url: 'https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-500-2212e' },
       { title: '29 CFR 2560.503-1 — ERISA claims procedure', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
       { title: 'MCL 550.253 — Coordination of Benefits Act, order of benefit determination', url: 'https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-550-253' },
-      { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+      { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
       { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
       { title: '38 CFR 17.270 — CHAMPVA is the last payer', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
     ],
@@ -2948,9 +3054,10 @@ export const michiganPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          '"All ABA CPT codes are covered telehealth services," per Cigna’s autism resource guide, with EN0499 governing the documentation for services delivered via telehealth.',
+          '"All ABA CPT codes are covered telehealth services," per Cigna’s autism resource guide, with EN0499 governing the documentation for services delivered via telehealth. Claim coding comes from Evernorth’s administrative guidelines (September 2026): when billing telehealth, use “Modifier 95 in Field 24-D to specify telehealth” and “02 for Place of Service in Field 24-B.”',
         status: 'verified',
         cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191) — telehealth claim coding', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
           { title: 'Cigna / Evernorth autism resource guide for behavioral health providers (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
           { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
         ],
@@ -2974,7 +3081,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'MCL 550.253 — Coordination of Benefits Act, order of benefit determination', url: 'https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-550-253' },
           { title: 'MCL 500.3406s — autism coverage (Insurance Code), Michigan Legislature', url: 'https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-500-3406s' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
           { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
           { title: '38 CFR 17.270 — CHAMPVA is the last payer', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
         ],
@@ -2984,9 +3091,13 @@ export const michiganPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Cigna require graphs for ABA reassessments?', a: 'EN0499 does not mention graphs. It requires dated quantitative baseline, interim and current data, with current data collected within 60 days before the request, broken out by setting.' },
       { q: 'Does Cigna require prior authorization for the ABA assessment in Michigan?', a: 'No, for 97151, 97152 and 0362T when the provider is independently licensed or a BCBA and the member’s policy covers ABA. Treatment requires prior authorization.' },
       { q: 'Can ABA be delivered by telehealth with Cigna?', a: 'Cigna’s autism resource guide says all ABA CPT codes are covered telehealth services, with EN0499 documentation rules.' },
       { q: 'Does Michigan’s mandate apply to my Cigna plan?', a: 'Only to fully insured plans. Many Cigna employer plans are self-funded and exempt; verify funding type first.' },
+      { q: 'What is Cigna’s clean-claim payment turnaround in Michigan?', a: 'Within 45 days of receipt for a clean claim on an insured plan (MCL 500.2006(8)), with 12% interest after that. Self-funded plans are not covered.' },
+      { q: 'What is Cigna’s timely filing limit in Michigan?', a: 'One year from the date of service for state-regulated plans under Evernorth’s Michigan Regulatory Addendum; 90 days is Evernorth’s general limit.' },
+      { q: 'What documents does Cigna (Evernorth) need for ABA in Michigan?', a: 'EN0499 (effective 5/15/2026) requires a confirmed DSM-5-TR ASD diagnosis from an independently licensed clinician whose scope includes diagnosis. The record must give "the name, credentials, and type of licensure" of the diagnosing clinician and "the date on which the diagnosis was most recently made." A provisional or rule-out diagnosis, or an IDEA educational identification, does not count. For treatment, the BCBA\'s assessment must use a current-edition standardized instrument, completed in full and administered "within 60 days prior to the start of treatment," with score tables. The treatment plan\'s goals must match the deficits it found.' },
     ],
   },
 
@@ -3078,6 +3189,18 @@ export const michiganPayers: Record<string, PayerConfig> = {
           { title: 'BACB — U.S. Licensure of Behavior Analysts', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
         ],
       },
+      {
+        h2: 'How fast must UnitedHealthcare pay a clean ABA claim in Michigan?',
+        body: [
+          'Michigan’s prompt-pay statute, MCL 500.2006(8), governs insured health plans (it excludes administrative-services-only arrangements): "A clean claim must be paid within 45 days after receipt of the claim by the health plan," with 12% simple annual interest after that; the plan must flag defects within 30 days, and the provider gets 45 days to fix them. A provider "must bill a health plan within 1 year after the date of service" for the claim to be a clean claim.',
+          'UnitedHealthcare’s 2026 administrative guide publishes no single timely-filing number ("Timely filing limits vary based on state requirements and contracts"; check your agreement). For ABA, which Optum Behavioral Health administers, Optum’s National Network Manual (effective September 1, 2026) does give one: all claim information must be received “no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan,” corrections “within 90 days of initial claim receipt,” and claims with all required information and any required authorization are generally paid “within 45 calendar days” after Optum receives them, “or as required by state and federal laws.” Michigan’s prompt-pay statute treats a claim billed within one year of the date of service as eligible to be a clean claim, so ask Optum which limit your agreement applies. It requires "a valid billing NPI, rendering NPI and relevant taxonomy code(s) on all claims," and encourages, but does not require, the referring provider’s NPI. Most claims are adjudicated within 15 days, up to 45. Claim reconsiderations and appeals are due within 12 months of the original EOB or PRA.',
+        ],
+        cites: [
+          { title: 'Optum National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+          { title: 'MCL 500.2006 — timely payment of claims (Michigan Insurance Code)', url: 'https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-500-2006' },
+          { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial): timely filing, NPI/taxonomy, claim reconsideration and appeals', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Michigan mandate) vs. self-funded ERISA (exempt).' },
@@ -3086,6 +3209,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { title: 'Virtual-visit attestation', desc: 'Needed before billing telehealth supervision or family training.' },
     ],
     sources: [
+      { title: 'Optum National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
       { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
       { title: 'Optum — FAQ: Autism/ABA using CPT codes (01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
       { title: 'Optum — ABA State Mandates supplemental criteria (BH 803ABA, July 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
@@ -3098,7 +3222,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { title: 'MCL 500.2212e — prior authorization process and timelines, Michigan Legislature', url: 'https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-500-2212e' },
       { title: '29 CFR 2560.503-1 — ERISA claims procedure', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
       { title: 'MCL 550.253 — Coordination of Benefits Act, order of benefit determination', url: 'https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-550-253' },
-      { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+      { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
       { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
       { title: '38 CFR 17.270 — CHAMPVA is the last payer', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
       { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
@@ -3241,7 +3365,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'MCL 550.253 — Coordination of Benefits Act, order of benefit determination', url: 'https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-550-253' },
           { title: 'MCL 500.3406s — autism coverage (Insurance Code), Michigan Legislature', url: 'https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-500-3406s' },
-          { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
           { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
           { title: '38 CFR 17.270 — CHAMPVA is the last payer', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
         ],
@@ -3255,6 +3379,9 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { q: 'Can the BCBA and technician bill at the same time?', a: 'Yes. Optum allows 97153 and 97155 (and 97154 with supervision) to be billed concurrently when supervision is provided.' },
       { q: 'Is there a Michigan-specific Optum ABA program?', a: 'Optum publishes no Michigan ABA program page and its state-mandates supplement has no Michigan entry; the national criteria and Michigan’s statute apply.' },
       { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale.' },
+      { q: 'What is UnitedHealthcare’s clean-claim payment turnaround in Michigan?', a: 'Within 45 days of receipt for a clean claim on an insured plan (MCL 500.2006(8)), with 12% interest after that. Self-funded plans are not covered.' },
+      { q: 'Does UnitedHealthcare require a taxonomy code on the claim in Michigan?', a: 'Yes. The 2026 administrative guide requires a valid billing NPI, rendering NPI and relevant taxonomy code on all claims and encounters.' },
+      { q: 'What documents does UnitedHealthcare (Optum) need for ABA in Michigan?', a: 'Optum\'s ABA Supplemental Clinical Criteria require a valid DSM-5-TR ASD diagnosis from a state-licensed physician, psychologist or other qualified licensed clinician. The diagnosing clinician confirms the diagnosis and severity level "using at least one clinically validated tool," such as the ADOS-2, ADI-R or CARS-2. The ABA provider then completes its own behavioral assessment with baseline measurement on at least one validated tool (for example the VB-MAPP, ABLLS-R, AFLS or Vineland) and builds the treatment plan from it. "Prior authorization is required for ABA (unless otherwise specified or mandated by contract or law)." The criteria set no expiry on the diagnosis.' },
     ],
   },
 };

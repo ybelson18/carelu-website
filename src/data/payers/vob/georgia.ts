@@ -57,6 +57,14 @@ const GAMMIS_COMPANION_GUIDE_INDEX = src(
   'https://www.mmis.georgia.gov/portal/PubAccess.EDI/Companion%20Guides/tabId/45/Default.aspx',
   "Lists \"GAMMIS 5010 270-271 Companion Guide v2.19\" (released 2026-06-16) among GAMMIS's published companion guides. The document itself is served only via an interactive ASP.NET postback link on this portal page, not a static URL — content (loop/segment, carrier codes, eligibility granularity) could not be retrieved this pass."
 );
+const GAMMIS_270271_GUIDE = src(
+  'https://www.mmis.georgia.gov/portal/Portals/0/StaticContent/Public/ALL/Companion%20Guides/GAMMIS_5010_270-271_Companion_Guide_v2.19%2020260616140819.pdf',
+  'GAMMIS 5010 270-271 Companion Guide v2.19 (Gainwell, 101 pp., released 2026-06-16), retrieved 2026-10-18 by replaying the Companion Guides list postback (the Select response opens this static Portals path). Section 4: Georgia Medicaid accepts 270s by GAMMIS web portal, SFTP (batch only), Network Routing Module (real-time only), approved VAN, or Healthcare Transaction Services (batch or real-time); a real-time 270 gets a real-time 271 or an AAA error.'
+);
+const GAMMIS_IVRS_GUIDE = src(
+  'https://www.mmis.georgia.gov/portal/Portals/0/StaticContent/Public/ALL/Handbooks/IVRS_Brochure_v12%2020260225144220.pdf',
+  'Georgia Medicaid Inquiry System / IVRS quick reference card v12 (posted 02/26/2026): a 12-digit numeric entry is read as the Member ID, 9 digits as an SSN, and 9 digits plus one letter as a provider or PeachCare for Kids ID; no alpha prefix is keyed in front of the Medicaid ID.'
+);
 const PVERIFY_PAYER_LIST = src(
   'https://pverify.com/wp-content/uploads/2026/03/pVerifyPayers_All-Payers-List-3-2026.pdf',
   'pVerify public payer list, dated March 2026.'
@@ -465,7 +473,7 @@ const FANOUT_GA_GAINWELL_2023: SourceRef = {
 const georgiaMedicaidEdi: EdiRouting = {
   payerId: { pverify: '00100', availity: '77034', changeHealthcare: 'GAMCD' },
   supports270271: true,
-  supportsRealtime: 'unverified',
+  supportsRealtime: true,
   bhCarveOut: {
     administrator: 'none',
     administratorPayerId: '',
@@ -477,33 +485,30 @@ const georgiaMedicaidEdi: EdiRouting = {
     mcoCarrierCodes: {},
     eligibilitySpanGranularity: 'unverified',
   },
-  memberIdPrefix: 'unverified',
+  memberIdPrefix: 'not-used',
   fieldStatus: {
     'payerId.pverify': 'verified',
     'payerId.availity': 'inferred',
     'payerId.changeHealthcare': 'verified',
     supports270271: 'verified',
-    supportsRealtime: 'unverified',
+    supportsRealtime: 'verified',
     'bhCarveOut.administrator': 'verified',
     'medicaid271Notes.mcoSegmentLocation': 'unverified',
     'medicaid271Notes.mcoCarrierCodes': 'unverified',
     'medicaid271Notes.eligibilitySpanGranularity': 'unverified',
-    memberIdPrefix: 'unverified',
+    memberIdPrefix: 'verified',
   },
   verifyVia: {
     'payerId.availity':
       'QA re-check (2026-07-23): the cited Availity list carries an "As of 08/08/2012" footer — 77034=GAMEDICAID is confirmed present in that snapshot, but downgraded from verified to inferred pending reconfirmation against a current Availity export (same treatment already applied to aetna-florida for the identical staleness finding).',
     'payerId.changeHealthcare':
       'Resolved this pass: Change Healthcare\'s Real-Time Eligibility (270/271) list shows "Georgia Medicaid  GAMCD  GA" — GAMCD is the ELIGIBILITY payer ID. The two previously-conflicting candidates are transaction- or vendor-specific, not eligibility IDs: 12K05 is Change Healthcare\'s INSTITUTIONAL-claims (837I) payer ID for "Medicaid of Georgia" (Optum institutional list), and SKGA0 is a DIFFERENT clearinghouse\'s (claim.md) primary code for GA Medicaid, not an Optum/Change Healthcare value. Professional-claims (837P) also route on GAMCD.',
-    supportsRealtime:
-      'GAMMIS 5010 270-271 Companion Guide v2.19 — confirmed to exist on the GAMMIS EDI portal but not retrievable this pass (interactive-only, static mirror 403s).',
     'medicaid271Notes.mcoSegmentLocation':
       'GAMMIS 5010 270-271 Companion Guide v2.19 (released 2026-06-16), confirmed present on the GAMMIS portal "Companion Guides and Manuals" listing but published ONLY behind an interactive ASP.NET __doPostBack link (no static URL). Non-portal mirror sweep this pass (REQ-001): the DCH /document/document/<slug>/download path DOES serve other GAMMIS guides (the 837I encounter guide fetched cleanly there) but has NO 270/271 entry (404); the DCH /sites/dch.georgia.gov/files/*.pdf static path is WAF-blocked (403) for all GAMMIS PDFs; no search-indexed static copy exists on dch/mmis.georgia.gov, Gainwell, or Conduent. RE-CHECKED 2026-10-01: re-confirmed v2.19/2026-06-16 directly via the portal\'s TabName=Companion+Guides view and the same __doPostBack-only link — no static URL has appeared. Most precise next step: render the tabId/45 portal postback with a headless browser to capture the file stream, OR request the "GAMMIS 5010 270-271 Companion Guide v2.19" PDF from Georgia Medicaid EDI Services (Gainwell) by email/phone — Gainwell EDI Services (770) 325-9590 or (877) 261-8785, or the general GAMMIS Provider Contact Center 1-800-766-4456. REQ-001 remains open — do NOT fabricate this field.',
     'medicaid271Notes.mcoCarrierCodes': 'Same companion guide / same blocker as mcoSegmentLocation (REQ-001).',
     'medicaid271Notes.eligibilitySpanGranularity': 'Same companion guide / same blocker as mcoSegmentLocation (REQ-001).',
-    memberIdPrefix: 'GA Medicaid Part I Policies and Procedures manual (mmis.georgia.gov) member ID card section',
   },
-  sources: [GAMMIS_COMPANION_GUIDE_INDEX, PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, OPTUM_RTE_LIST, OPTUM_INSTITUTIONAL_LIST],
+  sources: [GAMMIS_270271_GUIDE, GAMMIS_IVRS_GUIDE, GAMMIS_COMPANION_GUIDE_INDEX, PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, OPTUM_RTE_LIST, OPTUM_INSTITUTIONAL_LIST],
 };
 
 const georgiaMedicaidCodeGrid: Record<string, CodeGridEntry> = {

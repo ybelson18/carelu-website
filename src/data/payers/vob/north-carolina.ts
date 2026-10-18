@@ -212,6 +212,43 @@ const WELLCARE_PROVIDER_RESOURCES = src(
   'WellCare of North Carolina provider-resources site (base domain — the specific Provider Quick Reference Guide PDF path was not captured this pass); confirms Payer ID 68069, matching Carolina Complete Health post-merger.'
 );
 
+/* G7 unit caps (weekly refresh 2026-10-18): per-day MUE claim edits. */
+const REFRESH_ACCESS_DATE_20261018 = '2026-10-18';
+const CMS_MEDICAID_MUE_2026Q4 = srcAt(
+  'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip',
+  REFRESH_ACCESS_DATE_20261018,
+  'CMS Medicaid NCCI MUE table, practitioner services, DOS 10/1/2026-12/31/2026 (public file MCD-MUE-PractitionerServices-Effective_10012026.txt): 0362T 16, 0373T 32, 97151 32, 97152 16, 97153 32, 97154 18, 97155 24, 97156 16, 97157 16, 97158 16 units per beneficiary per date of service.'
+);
+const NC_MEDICAID_NCCI_FACT_SHEET = srcAt(
+  'https://medicaid.ncdhhs.gov/documents/national-correct-coding-initiative-ncci-fact-sheet/open',
+  REFRESH_ACCESS_DATE_20261018,
+  'NC Medicaid NCCI fact sheet (April 2024): the CMS mandate has two components, PTP edits and Medically Unlikely Edits — "units of service edits for practitioners ... defines for each HCPCS or CPT code the number of units of service that is unlikely to be correct".'
+);
+const NC_PHP_BILLING_GUIDANCE_V36 = srcAt(
+  'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=',
+  REFRESH_ACCESS_DATE_20261018,
+  'NC Medicaid Managed Care Billing Guidance to Health Plans v36 (9/4/2026) §3.6.2: professional services are reimbursed on a HCPCS/CPT fee schedule, "therefore, NCCI and MUE editing will be applied to these claims"; "PHPs shall apply NCCI edits as outlined above." §3.54.1: 97152-97154 in person only; GT claims for them "are not reimbursable and should be denied."'
+);
+const TRILLIUM_CLAIMS_BILLING_GUIDE = srcAt(
+  'https://www.trilliumhealthresources.org/sites/default/files/docs/Provider-documents/Claims/Trillium-Claims-Billing-Guide.pdf',
+  REFRESH_ACCESS_DATE_20261018,
+  'Trillium Claims Billing Guide 2026 (PDF modified 9/3/2026), pp. 42-43: NCCI PTP and MUE edits apply; MUEs "define for each HCPCS or CPT code, the maximum units of service that a provider should bill under most circumstances for a member on a single date of service"; "Any claims billed in violation of the NCCI methodologies will be denied."'
+);
+const ALLIANCE_PROVIDER_MANUAL_EDITS = srcAt(
+  'https://www.alliancehealthplan.org/document-library/79431/',
+  REFRESH_ACCESS_DATE_20261018,
+  'Alliance Health Provider Manual (V.26, revised March 2026): claim edits are in place to identify "unbundled procedures, misuse of modifiers, medically unlikely procedures, procedure to procedure exclusions, duplicate claims, frequency limits".'
+);
+const VAYA_PARTNERS_POM_NCCI = srcAt(
+  'https://resources.vayapartners.org/wp-content/uploads/Vaya_Partners_Provider_Operations_Manual_1.0_20261001.pdf',
+  REFRESH_ACCESS_DATE_20261018,
+  'Vaya Partners Provider Operations Manual v1.0 (Oct. 1, 2026): "Vaya Partners uses National Correct Coding Initiative (NCCI) edits and Medically Unlikely Edits (MUE) during adjudication to validate claims to prevent improper payment."'
+);
+const NC_MEDICAID_MUE: Record<string, string> = { '97151': '32', '97152': '16', '97153': '32', '97154': '18', '97155': '24', '97156': '16', '97157': '16' };
+function ncMueCap(code: string): string {
+  return `${NC_MEDICAID_MUE[code]} units per date of service — CMS Medicaid NCCI practitioner MUE (DOS 10/1–12/31/2026), a claim edit NC Medicaid and its health plans apply; units above it on one date of service deny regardless of the authorization`;
+}
+
 /* -------------------- codeGrid: north-carolina-medicaid -------------------- */
 
 /* Telehealth eligibility below reflects the REWRITTEN, PUBLISHED CCP 8F
@@ -247,25 +284,25 @@ function ncMedicaidCoveredEntry(code: string, assessmentCode: boolean): CodeGrid
   return {
     covered: `Yes (${code})`,
     paRequired: 'Required — PA required for ALL RB-BHT services, assessment included (CCP 8F §5.0-5.2, Prior Approval)',
-    unitCap: 'unverified',
-    capPeriod: 'unverified',
+    unitCap: ncMueCap(code),
+    capPeriod: 'Per date of service for the MUE claim edit; the authorization itself runs per CCP 8F period (up to 180 days at 16 hrs/week or fewer, up to 90 days above)',
     posAllowed: ['unverified'],
     telehealth: telehealthNote,
     modifiers,
     notes:
-      'No confirmed general unit-cap, cap-period, or POS-code table was located for this code in the current CCP 8F PDF or the NCTracks Fee Schedules Portal (a dynamic search tool, not a fetchable static document) this pass. Verify via: NCTracks Fee Schedules Portal / CCP 8F Attachment A. Telehealth eligibility/caps (this cell) ARE confirmed from the finalized, published CCP 8F (Amended Date 8/1/2026), and the modifier letters are quoted from its Attachment A ("Modifier GT must be appended…"; "Modifier KX must be appended…" for telephonic) — re-read 2026-09-27.',
+      'Unit cap (2026-10-18): CCP 8F itself sets no per-day cap; the per-day ceiling is the CMS Medicaid NCCI MUE, which NC Medicaid applies to professional claims (NCCI fact sheet; Managed Care Billing Guidance v36 §3.6.2). No POS-code table was located in the current CCP 8F (Section F is narrative). Telehealth eligibility/caps (this cell) ARE confirmed from the finalized, published CCP 8F (Amended Date 8/1/2026), and the modifier letters are quoted from its Attachment A ("Modifier GT must be appended…"; "Modifier KX must be appended…" for telephonic) — re-read 2026-09-27.',
     fieldStatus: {
       covered: 'verified',
       paRequired: 'verified',
-      unitCap: 'unverified',
-      capPeriod: 'unverified',
+      unitCap: 'verified',
+      capPeriod: 'verified',
       posAllowed: 'unverified',
       telehealth: 'verified',
       modifiers: 'verified',
     },
     sources: assessmentCode
-      ? [CCP_8F_CURRENT, NC_MEDICAID_8F_BULLETIN_083126, HB696_BILL_TEXT, NC_MEDICAID_8F_BLOG_072126]
-      : [CCP_8F_CURRENT, NC_MEDICAID_8F_BULLETIN_083126, WELLCARE_WNC_CP_109, HEALTHY_BLUE_TELEHEALTH_REPOST, HB696_BILL_TEXT, NC_MEDICAID_8F_BLOG_072126],
+      ? [CMS_MEDICAID_MUE_2026Q4, NC_MEDICAID_NCCI_FACT_SHEET, CCP_8F_CURRENT, NC_MEDICAID_8F_BULLETIN_083126, HB696_BILL_TEXT, NC_MEDICAID_8F_BLOG_072126]
+      : [CMS_MEDICAID_MUE_2026Q4, NC_MEDICAID_NCCI_FACT_SHEET, CCP_8F_CURRENT, NC_MEDICAID_8F_BULLETIN_083126, WELLCARE_WNC_CP_109, HEALTHY_BLUE_TELEHEALTH_REPOST, HB696_BILL_TEXT, NC_MEDICAID_8F_BLOG_072126],
   };
 }
 
@@ -441,7 +478,7 @@ function healthyBlueDefersEntry(code: string): CodeGridEntry {
     covered: `Yes (${code}) — per CCP 8F deference; Healthy Blue publishes no ABA-specific code list of its own`,
     paRequired:
       'Required — per CCP 8F; check the Availity Interactive Care Reviewer / Precertification Lookup Tool for the current code-specific PA flag (no ABA-specific static list was found)',
-    unitCap: 'unverified',
+    unitCap: ncMueCap(code),
     capPeriod: 'unverified',
     posAllowed: ['unverified'],
     telehealth:
@@ -452,13 +489,13 @@ function healthyBlueDefersEntry(code: string): CodeGridEntry {
     fieldStatus: {
       covered: 'verified',
       paRequired: 'verified',
-      unitCap: 'unverified',
+      unitCap: 'verified',
       capPeriod: 'unverified',
       posAllowed: 'unverified',
       telehealth: 'unverified',
       modifiers: 'unverified',
     },
-    sources: [HEALTHY_BLUE_PROVIDER_MANUAL, HEALTHY_BLUE_TELEHEALTH_REPOST, CCP_8F_CURRENT],
+    sources: [NC_PHP_BILLING_GUIDANCE_V36, CMS_MEDICAID_MUE_2026Q4, HEALTHY_BLUE_PROVIDER_MANUAL, HEALTHY_BLUE_TELEHEALTH_REPOST, CCP_8F_CURRENT],
   };
 }
 
@@ -523,7 +560,7 @@ function amerihealthDefersEntry(code: string): CodeGridEntry {
     covered: `Yes (${code}) — per CCP 8F deference; confirmed in AmeriHealth's own UM Guide, which cites "8F. (ncdhhs.gov)" rather than restating anything`,
     paRequired:
       "Required — per CCP 8F. AmeriHealth eliminated PA on 240+ physical/BH codes effective 1/1/2025; whether any 9715x code is among them is not stated on the PA Lookup Tool's public page and requires an interactive per-code query.",
-    unitCap: 'unverified',
+    unitCap: ncMueCap(code),
     capPeriod: 'unverified',
     posAllowed: ['unverified'],
     telehealth: 'unverified — no ABA-specific telehealth mechanics are published anywhere in AmeriHealth\'s own materials',
@@ -533,13 +570,13 @@ function amerihealthDefersEntry(code: string): CodeGridEntry {
     fieldStatus: {
       covered: 'verified',
       paRequired: 'verified',
-      unitCap: 'unverified',
+      unitCap: 'verified',
       capPeriod: 'unverified',
       posAllowed: 'unverified',
       telehealth: 'unverified',
       modifiers: 'unverified',
     },
-    sources: [AMERIHEALTH_UM_GUIDE, AMERIHEALTH_PA_LOOKUP, CCP_8F_CURRENT],
+    sources: [NC_PHP_BILLING_GUIDANCE_V36, CMS_MEDICAID_MUE_2026Q4, AMERIHEALTH_UM_GUIDE, AMERIHEALTH_PA_LOOKUP, CCP_8F_CURRENT],
   };
 }
 
@@ -606,7 +643,7 @@ function cchDefersEntry(code: string): CodeGridEntry {
     covered: `Yes (${code}) — explicit deference to CCP 8F; no CCH-authored code list`,
     paRequired:
       "Required — per CCP 8F, before rendering any RB-BHT service; submit with CCH's ABA Outpatient Treatment Request Checklist",
-    unitCap: 'unverified',
+    unitCap: ncMueCap(code),
     capPeriod: 'unverified',
     posAllowed: ['unverified'],
     telehealth: 'unverified — no ABA-specific telehealth mechanics published by CCH',
@@ -616,13 +653,13 @@ function cchDefersEntry(code: string): CodeGridEntry {
     fieldStatus: {
       covered: 'verified',
       paRequired: 'verified',
-      unitCap: 'unverified',
+      unitCap: 'verified',
       capPeriod: 'unverified',
       posAllowed: 'unverified',
       telehealth: 'unverified',
       modifiers: 'unverified',
     },
-    sources: [CCH_BEHAVIORAL_HEALTH_PAGE, CCH_ABA_CHECKLIST, CCP_8F_CURRENT],
+    sources: [NC_PHP_BILLING_GUIDANCE_V36, CMS_MEDICAID_MUE_2026Q4, CCH_BEHAVIORAL_HEALTH_PAGE, CCH_ABA_CHECKLIST, CCP_8F_CURRENT],
   };
 }
 
@@ -690,7 +727,7 @@ function uhcNcEntry(code: string): CodeGridEntry {
     covered: `Yes (${code})`,
     paRequired:
       "Required — all autism/ABA services require prior authorization, submitted via the Treatment Authorization Request Form online at providerexpress.com (per the NC ABA Program Quick Reference Guide). Both authorizations and claims run through the same Optum/UHC payer ID.",
-    unitCap: 'unverified',
+    unitCap: ncMueCap(code),
     capPeriod: 'unverified',
     posAllowed: ['unverified'],
     telehealth: 'unverified — the NC ABA Program QRG contains no telehealth mechanics for this code',
@@ -702,13 +739,13 @@ function uhcNcEntry(code: string): CodeGridEntry {
     fieldStatus: {
       covered: 'verified',
       paRequired: 'verified',
-      unitCap: 'unverified',
+      unitCap: 'verified',
       capPeriod: 'unverified',
       posAllowed: 'unverified',
       telehealth: 'unverified',
       modifiers: 'unverified',
     },
-    sources: [UHC_NC_ABA_QRG, OPTUM_MODIFIER_FAQ, CCP_8F_CURRENT],
+    sources: [NC_PHP_BILLING_GUIDANCE_V36, CMS_MEDICAID_MUE_2026Q4, UHC_NC_ABA_QRG, OPTUM_MODIFIER_FAQ, CCP_8F_CURRENT],
   };
 }
 
@@ -949,9 +986,10 @@ const TRILLIUM_RATE_TABLE = src(
   'https://www.trilliumhealthresources.org/sites/default/files/docs/Billing-Codes-Rates/Trillium-Rate-Table-FY-26-27.pdf',
   'Trillium Health Resources — Rate Table FY 26-27 — 97151-97157 (marked "**" = unified rate across legacy LME/MCOs) at $30.56/$61.73/$20.81/$11.37/$32.22/$23.70/$11.51 per 15-min unit, matching Alliance’s posted figures exactly. The table’s own Effective/End Date columns for these rows read 1/1/2024-12/31/2099 (a validity window in the rate-engine sense, not a distinct effective date) rather than restating 10/1/2025 — flagged here rather than silently reconciled. No 97158, 0362T, or 0373T rows exist in the document.'
 );
-const TRILLIUM_CLAIMS_PROTOCOL = src(
+const TRILLIUM_CLAIMS_PROTOCOL = srcAt(
   'https://www.trilliumhealthresources.org/sites/default/files/docs/Provider-documents/Claims/Trillium-Medicaid-Direct-Tailored-Plan-Claims-Submission-Protocol.pdf',
-  'Trillium — Tailored Plan & Medicaid Direct Claims Submission Protocol (rev. 9/23/2025) — states verbatim: Behavioral Health clearinghouse claims use Change Healthcare (payer ID 56089) or The SSI Group (payer ID 43071); Physical Health claims route to Carolina Complete Health via payer ID 68069 (a Centene delegation, confirmed separately on the Availity list). Retrieved and full-text extracted directly.'
+  '2026-10-07',
+  'Trillium — Claims Submission Guidelines, effective 10/01/2026 (reissued at the URL of the 9/23/2025 protocol; re-read 10/7/2026): Tailored Plan claims — iTransact portal, or Change Healthcare 43072, The SSI Group 43072, Availity 43072. Medicaid Direct and State Funded claims — Provider Direct portal, Change Healthcare 56089, SSI 43071, Availity 43071. A Tailored Plan claim sent to the Medicaid Direct system denies ("Please submit to MediTrac/iTransact for Trillium Tailored Plan claims processing"). Contact block: Provider Support Service Line 1-855-250-1539; Business & Administrative Matters 1-866-998-2597. (The 2025 edition routed BH claims to 56089/43071 and physical health to CCH 68069.)'
 );
 const TRILLIUM_BENEFIT_PLAN = srcAt(
   'https://www.trilliumhealthresources.org/sites/default/files/docs/Benefit-Plans-Services-Definitions/Trillium-Medicaid-Child-BH-Benefit-Plan.pdf',
@@ -1206,22 +1244,23 @@ function allianceCodeGrid(): Record<string, CodeGridEntry> {
   return {
     '97151': ncTailoredPlanEntry({
       code: '97151', paRequired: cover, paFieldStatus: 'verified',
-      unitCap: 'unverified — no Alliance-specific or statewide per-code unit cap document located (the CCP 8F authorization period — up to 180 days at ≤16 hrs/week, up to 90 above — is the governing limit)',
-      unitCapFieldStatus: 'unverified',
+      unitCap: ncMueCap('97151'),
+      unitCapFieldStatus: 'verified',
       notes: 'Diagnostic-instrument bar applies at this step: a non-provisional ASD diagnosis made with BOSA, Tele-ASD-Peds, ADOS-2 or CARS2-ST/CARS2-HF (CCP 8F 3.2.4, eff. 8/1/2026); ADI-R is not on the state list. Alliance\'s Feb-2026 guidance that named ADI-R has been archived (HTTP 410 as of 2026-09-27).',
-      extraSources: [CCP_8F_CURRENT, ALLIANCE_RBBHT_GUIDANCE, ALLIANCE_RBBHT_COVER_SHEET],
+      extraSources: [CCP_8F_CURRENT, ALLIANCE_RBBHT_GUIDANCE, ALLIANCE_RBBHT_COVER_SHEET, ALLIANCE_PROVIDER_MANUAL_EDITS, CMS_MEDICAID_MUE_2026Q4, NC_PHP_BILLING_GUIDANCE_V36],
     }),
-    '97152': ncTailoredPlanEntry({ code: '97152', paRequired: cover, paFieldStatus: 'verified', unitCap: 'unverified', unitCapFieldStatus: 'unverified' }),
-    '97153': ncTailoredPlanEntry({ code: '97153', paRequired: cover, paFieldStatus: 'verified', unitCap: 'unverified', unitCapFieldStatus: 'unverified' }),
-    '97154': ncTailoredPlanEntry({ code: '97154', paRequired: cover, paFieldStatus: 'verified', unitCap: 'unverified', unitCapFieldStatus: 'unverified' }),
+    '97152': ncTailoredPlanEntry({ code: '97152', paRequired: cover, paFieldStatus: 'verified', unitCap: ncMueCap('97152'), unitCapFieldStatus: 'verified', extraSources: [ALLIANCE_PROVIDER_MANUAL_EDITS, CMS_MEDICAID_MUE_2026Q4, NC_PHP_BILLING_GUIDANCE_V36] }),
+    '97153': ncTailoredPlanEntry({ code: '97153', paRequired: cover, paFieldStatus: 'verified', unitCap: ncMueCap('97153'), unitCapFieldStatus: 'verified', extraSources: [ALLIANCE_PROVIDER_MANUAL_EDITS, CMS_MEDICAID_MUE_2026Q4, NC_PHP_BILLING_GUIDANCE_V36] }),
+    '97154': ncTailoredPlanEntry({ code: '97154', paRequired: cover, paFieldStatus: 'verified', unitCap: ncMueCap('97154'), unitCapFieldStatus: 'verified', extraSources: [ALLIANCE_PROVIDER_MANUAL_EDITS, CMS_MEDICAID_MUE_2026Q4, NC_PHP_BILLING_GUIDANCE_V36] }),
     '97155': ncTailoredPlanEntry({
       code: '97155', paRequired: cover, paFieldStatus: 'verified',
-      unitCap: 'Inferred from Vaya’s statewide-pattern passthrough: routinely approved up to 1 hour per 10 hours of 97153/97154 (10%); above that, reviewed for medical necessity. Not confirmed as an Alliance-specific rule.',
-      unitCapFieldStatus: 'inferred',
-      extraSources: [VAYA_RBBHT_GUIDANCE],
+      unitCap: ncMueCap('97155'),
+      unitCapFieldStatus: 'verified',
+      notes: 'Corrected 2026-10-18: the per-day ceiling is the Medicaid MUE Alliance applies (manual V.26 claim edits). The 1-hour-per-10 figure carried here before was inferred from Vaya’s pass-through rule, not an Alliance rule.',
+      extraSources: [ALLIANCE_PROVIDER_MANUAL_EDITS, CMS_MEDICAID_MUE_2026Q4, NC_PHP_BILLING_GUIDANCE_V36],
     }),
-    '97156': ncTailoredPlanEntry({ code: '97156', paRequired: cover, paFieldStatus: 'verified', unitCap: 'unverified', unitCapFieldStatus: 'unverified' }),
-    '97157': ncTailoredPlanEntry({ code: '97157', paRequired: cover, paFieldStatus: 'verified', unitCap: 'unverified', unitCapFieldStatus: 'unverified' }),
+    '97156': ncTailoredPlanEntry({ code: '97156', paRequired: cover, paFieldStatus: 'verified', unitCap: ncMueCap('97156'), unitCapFieldStatus: 'verified', extraSources: [ALLIANCE_PROVIDER_MANUAL_EDITS, CMS_MEDICAID_MUE_2026Q4, NC_PHP_BILLING_GUIDANCE_V36] }),
+    '97157': ncTailoredPlanEntry({ code: '97157', paRequired: cover, paFieldStatus: 'verified', unitCap: ncMueCap('97157'), unitCapFieldStatus: 'verified', extraSources: [ALLIANCE_PROVIDER_MANUAL_EDITS, CMS_MEDICAID_MUE_2026Q4, NC_PHP_BILLING_GUIDANCE_V36] }),
     '97158': ncCodeNotInStateSet('97158'),
     '0362T': ncCodeNotInStateSet('0362T'),
     '0373T': ncCodeNotInStateSet('0373T'),
@@ -1248,9 +1287,15 @@ const allianceRates: RateTable = {
 
 /* ==================== trillium-health-resources ==================== */
 
+const TRILLIUM_UCS_FAQ: SourceRef = {
+  url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Provider-documents/Claims/Trillium-Unified-Claims-Platform-Questions-Answer.pdf',
+  accessDate: '2026-10-07',
+  note: 'Trillium — Unified Claims System Provider FAQ (revised 9/30/2026): from 10/1/2026 all Trillium Tailored Plan claims (behavioral health included; Q33 "The Payer ID 43072 is designated for all Tailored Plan claims") go to the unified claims system — iTransact direct entry, SFTP, or clearinghouses Optum/Change Healthcare, The SSI Group and Availity, all under payer ID 43072; Medicaid Direct and State-funded claims keep Change Healthcare 56089 and SSI/Availity 43071 (Q21, Q42). Q47: providers can upload a 270 EDI file and receive a 271 in return.',
+};
+
 const trilliumEdi: EdiRouting = {
-  payerId: { pverify: 'unverified', availity: 'unverified', changeHealthcare: '56089' },
-  supports270271: 'unverified',
+  payerId: { pverify: 'unverified', availity: '43072', changeHealthcare: '43072' },
+  supports270271: true,
   supportsRealtime: 'unverified',
   bhCarveOut: {
     administrator: 'none',
@@ -1261,9 +1306,9 @@ const trilliumEdi: EdiRouting = {
   memberIdPrefix: 'unverified',
   fieldStatus: {
     'payerId.pverify': 'unverified',
-    'payerId.availity': 'unverified',
+    'payerId.availity': 'verified',
     'payerId.changeHealthcare': 'verified',
-    supports270271: 'unverified',
+    supports270271: 'verified',
     'bhCarveOut.administrator': 'inferred',
     'bhCarveOut.abaRidesOn': 'inferred',
     'bhCarveOut.twoHopRequired': 'inferred',
@@ -1271,12 +1316,13 @@ const trilliumEdi: EdiRouting = {
   },
   verifyVia: {
     'payerId.pverify': 'Trillium does not appear on pVerify’s national payer list under any name variant.',
-    'payerId.availity': 'Trillium does not appear on the Availity Essentials 837 payer list either.',
-    supports270271: 'Confirm 270/271 eligibility routing directly with Trillium — its own Claims Submission Protocol documents 837 claims routing (Change Healthcare 56089, The SSI Group 43071) but not eligibility-check routing specifically.',
+    'payerId.availity': 'Corrected 2026-10-07: Tailored Plan claims moved to Trillium\'s unified claims system on 10/1/2026 under payer ID 43072 at Change Healthcare, The SSI Group and Availity (Trillium FAQ rev. 9/30/2026; Claims Submission Guidelines eff. 10/1/2026). The old 56089 (Change Healthcare) / 43071 (SSI, Availity) IDs now apply only to NC Medicaid Direct and State-funded claims — a Tailored Plan claim sent there denies.',
+    'payerId.changeHealthcare': 'Was 56089 until 9/30/2026; 43072 for Tailored Plan dates of service processed from 10/1/2026. Use 56089 only for a member on NC Medicaid Direct.',
+    supports270271: 'Trillium FAQ Q47 (rev. 9/30/2026): providers can upload a 270 EDI file and receive a 271 in return; eligibility for Tailored Plan members also shows in iTransact. Real-time vs batch not stated.',
     'bhCarveOut.administrator': 'Trillium is itself the LME/MCO administering behavioral health (including RB-BHT) directly — inferred from its role as a Tailored Plan and from its own claims protocol routing BH claims in-house (not to a third-party administrator).',
     memberIdPrefix: 'Trillium TP Provider Manual (trilliumhealthresources.org) - PDF unreachable (blocked/empty via proxy)',
   },
-  sources: [PVERIFY_PAYER_LIST_NCB, AVAILITY_PAYER_LIST_NCB, TRILLIUM_CLAIMS_PROTOCOL, TRILLIUM_BENEFIT_PLAN],
+  sources: [PVERIFY_PAYER_LIST_NCB, AVAILITY_PAYER_LIST_NCB, TRILLIUM_UCS_FAQ, TRILLIUM_CLAIMS_PROTOCOL, TRILLIUM_BENEFIT_PLAN],
 };
 
 function trilliumCodeGrid(): Record<string, CodeGridEntry> {
@@ -1284,22 +1330,23 @@ function trilliumCodeGrid(): Record<string, CodeGridEntry> {
   return {
     '97151': ncTailoredPlanEntry({
       code: '97151', paRequired: tar, paFieldStatus: 'verified',
-      unitCap: 'unverified — no Trillium-specific per-code unit cap document located',
-      unitCapFieldStatus: 'unverified',
-      notes: 'No published unit caps (per the base corpus prose); units run in 15-minute increments. Inferred from Vaya’s statewide pattern: other Tailored Plans notify-approve up to 32 units/6 months before requiring medical-necessity review.',
-      extraSources: [TRILLIUM_BENEFIT_PLAN, VAYA_AUTH_GUIDELINES],
+      unitCap: ncMueCap('97151'),
+      unitCapFieldStatus: 'verified',
+      notes: 'Corrected 2026-10-18: Trillium’s Claims Billing Guide 2026 applies NCCI MUEs and denies claims that violate them, so the per-day ceiling is the CMS Medicaid MUE; the benefit plan itself sets no unit cap ("Units: One unit = 15 minutes"). Units run in 15-minute increments.',
+      extraSources: [TRILLIUM_CLAIMS_BILLING_GUIDE, CMS_MEDICAID_MUE_2026Q4, NC_PHP_BILLING_GUIDANCE_V36, TRILLIUM_BENEFIT_PLAN],
     }),
-    '97152': ncTailoredPlanEntry({ code: '97152', paRequired: tar, paFieldStatus: 'verified', unitCap: 'unverified', unitCapFieldStatus: 'unverified', extraSources: [TRILLIUM_BENEFIT_PLAN] }),
-    '97153': ncTailoredPlanEntry({ code: '97153', paRequired: tar, paFieldStatus: 'verified', unitCap: 'unverified', unitCapFieldStatus: 'unverified', extraSources: [TRILLIUM_BENEFIT_PLAN] }),
-    '97154': ncTailoredPlanEntry({ code: '97154', paRequired: tar, paFieldStatus: 'verified', unitCap: 'unverified', unitCapFieldStatus: 'unverified', extraSources: [TRILLIUM_BENEFIT_PLAN] }),
+    '97152': ncTailoredPlanEntry({ code: '97152', paRequired: tar, paFieldStatus: 'verified', unitCap: ncMueCap('97152'), unitCapFieldStatus: 'verified', extraSources: [TRILLIUM_CLAIMS_BILLING_GUIDE, CMS_MEDICAID_MUE_2026Q4, TRILLIUM_BENEFIT_PLAN] }),
+    '97153': ncTailoredPlanEntry({ code: '97153', paRequired: tar, paFieldStatus: 'verified', unitCap: ncMueCap('97153'), unitCapFieldStatus: 'verified', extraSources: [TRILLIUM_CLAIMS_BILLING_GUIDE, CMS_MEDICAID_MUE_2026Q4, TRILLIUM_BENEFIT_PLAN] }),
+    '97154': ncTailoredPlanEntry({ code: '97154', paRequired: tar, paFieldStatus: 'verified', unitCap: ncMueCap('97154'), unitCapFieldStatus: 'verified', extraSources: [TRILLIUM_CLAIMS_BILLING_GUIDE, CMS_MEDICAID_MUE_2026Q4, TRILLIUM_BENEFIT_PLAN] }),
     '97155': ncTailoredPlanEntry({
       code: '97155', paRequired: tar, paFieldStatus: 'verified',
-      unitCap: 'Inferred from Vaya’s statewide-pattern passthrough: up to 1 hour per 10 hours of 97153/97154 (10%); above that, medical-necessity review. Not confirmed as a Trillium-specific rule.',
-      unitCapFieldStatus: 'inferred',
-      extraSources: [TRILLIUM_BENEFIT_PLAN, VAYA_RBBHT_GUIDANCE],
+      unitCap: ncMueCap('97155'),
+      unitCapFieldStatus: 'verified',
+      notes: 'Corrected 2026-10-18: the per-day ceiling is the CMS Medicaid MUE that Trillium applies (Claims Billing Guide 2026). The earlier figure here — up to 1 hour per 10 hours of 97153/97154 — was inferred from Vaya’s pass-through rule and is not a Trillium rule; CCP 8F’s own ratio band is 10–20% of paraprofessional hours once they pass 200 in 180 days.',
+      extraSources: [TRILLIUM_CLAIMS_BILLING_GUIDE, CMS_MEDICAID_MUE_2026Q4, TRILLIUM_BENEFIT_PLAN],
     }),
-    '97156': ncTailoredPlanEntry({ code: '97156', paRequired: tar, paFieldStatus: 'verified', unitCap: 'unverified', unitCapFieldStatus: 'unverified', extraSources: [TRILLIUM_BENEFIT_PLAN] }),
-    '97157': ncTailoredPlanEntry({ code: '97157', paRequired: tar, paFieldStatus: 'verified', unitCap: 'unverified', unitCapFieldStatus: 'unverified', extraSources: [TRILLIUM_BENEFIT_PLAN] }),
+    '97156': ncTailoredPlanEntry({ code: '97156', paRequired: tar, paFieldStatus: 'verified', unitCap: ncMueCap('97156'), unitCapFieldStatus: 'verified', extraSources: [TRILLIUM_CLAIMS_BILLING_GUIDE, CMS_MEDICAID_MUE_2026Q4, TRILLIUM_BENEFIT_PLAN] }),
+    '97157': ncTailoredPlanEntry({ code: '97157', paRequired: tar, paFieldStatus: 'verified', unitCap: ncMueCap('97157'), unitCapFieldStatus: 'verified', extraSources: [TRILLIUM_CLAIMS_BILLING_GUIDE, CMS_MEDICAID_MUE_2026Q4, TRILLIUM_BENEFIT_PLAN] }),
     '97158': ncCodeNotInStateSet('97158'),
     '0362T': ncCodeNotInStateSet('0362T'),
     '0373T': ncCodeNotInStateSet('0373T'),
@@ -1484,18 +1531,19 @@ function partnersCodeGrid(): Record<string, CodeGridEntry> {
   const allCodes =
     'Required — ONE "ALL codes" authorization on the base code (submitted via ProAuth, base code as Primary Procedure Code on the Prescreen, Treatment Type selected from the dropdown) covers every RB-BHT code and modifier combination, telehealth included. Billing must still trace to the approved treatment plan or risk recoupment on post-payment review.';
   return {
-    '97151': ncTailoredPlanEntry({ code: '97151', paRequired: allCodes, paFieldStatus: 'verified', unitCap: 'unverified — no Partners-specific or statewide per-code unit cap document located', unitCapFieldStatus: 'unverified', extraSources: [PARTNERS_ALL_CODES_ALERT] }),
-    '97152': ncTailoredPlanEntry({ code: '97152', paRequired: allCodes, paFieldStatus: 'verified', unitCap: 'unverified', unitCapFieldStatus: 'unverified', extraSources: [PARTNERS_ALL_CODES_ALERT] }),
-    '97153': ncTailoredPlanEntry({ code: '97153', paRequired: allCodes, paFieldStatus: 'verified', unitCap: 'unverified', unitCapFieldStatus: 'unverified', extraSources: [PARTNERS_ALL_CODES_ALERT] }),
-    '97154': ncTailoredPlanEntry({ code: '97154', paRequired: allCodes, paFieldStatus: 'verified', unitCap: 'unverified', unitCapFieldStatus: 'unverified', extraSources: [PARTNERS_ALL_CODES_ALERT] }),
+    '97151': ncTailoredPlanEntry({ code: '97151', paRequired: allCodes, paFieldStatus: 'verified', unitCap: ncMueCap('97151'), unitCapFieldStatus: 'verified', extraSources: [VAYA_PARTNERS_POM_NCCI, CMS_MEDICAID_MUE_2026Q4, NC_PHP_BILLING_GUIDANCE_V36, PARTNERS_ALL_CODES_ALERT] }),
+    '97152': ncTailoredPlanEntry({ code: '97152', paRequired: allCodes, paFieldStatus: 'verified', unitCap: ncMueCap('97152'), unitCapFieldStatus: 'verified', extraSources: [VAYA_PARTNERS_POM_NCCI, CMS_MEDICAID_MUE_2026Q4, NC_PHP_BILLING_GUIDANCE_V36, PARTNERS_ALL_CODES_ALERT] }),
+    '97153': ncTailoredPlanEntry({ code: '97153', paRequired: allCodes, paFieldStatus: 'verified', unitCap: ncMueCap('97153'), unitCapFieldStatus: 'verified', extraSources: [VAYA_PARTNERS_POM_NCCI, CMS_MEDICAID_MUE_2026Q4, NC_PHP_BILLING_GUIDANCE_V36, PARTNERS_ALL_CODES_ALERT] }),
+    '97154': ncTailoredPlanEntry({ code: '97154', paRequired: allCodes, paFieldStatus: 'verified', unitCap: ncMueCap('97154'), unitCapFieldStatus: 'verified', extraSources: [VAYA_PARTNERS_POM_NCCI, CMS_MEDICAID_MUE_2026Q4, NC_PHP_BILLING_GUIDANCE_V36, PARTNERS_ALL_CODES_ALERT] }),
     '97155': ncTailoredPlanEntry({
       code: '97155', paRequired: allCodes, paFieldStatus: 'verified',
-      unitCap: 'Inferred from Vaya’s statewide-pattern passthrough: up to 1 hour per 10 hours of 97153/97154 (10%). Not confirmed as a Partners-specific rule — the ALL-codes model may not enforce a distinct 97155 ratio at all.',
-      unitCapFieldStatus: 'inferred',
-      extraSources: [PARTNERS_ALL_CODES_ALERT, VAYA_RBBHT_GUIDANCE],
+      unitCap: ncMueCap('97155'),
+      unitCapFieldStatus: 'verified',
+      notes: 'Corrected 2026-10-18: the per-day ceiling is the Medicaid MUE Vaya Partners applies at adjudication (manual v1.0). The 1-hour-per-10 figure carried here before was inferred from legacy Vaya’s pass-through rule.',
+      extraSources: [VAYA_PARTNERS_POM_NCCI, CMS_MEDICAID_MUE_2026Q4, NC_PHP_BILLING_GUIDANCE_V36, PARTNERS_ALL_CODES_ALERT],
     }),
-    '97156': ncTailoredPlanEntry({ code: '97156', paRequired: allCodes, paFieldStatus: 'verified', unitCap: 'unverified', unitCapFieldStatus: 'unverified', extraSources: [PARTNERS_ALL_CODES_ALERT] }),
-    '97157': ncTailoredPlanEntry({ code: '97157', paRequired: allCodes, paFieldStatus: 'verified', unitCap: 'unverified', unitCapFieldStatus: 'unverified', extraSources: [PARTNERS_ALL_CODES_ALERT] }),
+    '97156': ncTailoredPlanEntry({ code: '97156', paRequired: allCodes, paFieldStatus: 'verified', unitCap: ncMueCap('97156'), unitCapFieldStatus: 'verified', extraSources: [VAYA_PARTNERS_POM_NCCI, CMS_MEDICAID_MUE_2026Q4, NC_PHP_BILLING_GUIDANCE_V36, PARTNERS_ALL_CODES_ALERT] }),
+    '97157': ncTailoredPlanEntry({ code: '97157', paRequired: allCodes, paFieldStatus: 'verified', unitCap: ncMueCap('97157'), unitCapFieldStatus: 'verified', extraSources: [VAYA_PARTNERS_POM_NCCI, CMS_MEDICAID_MUE_2026Q4, NC_PHP_BILLING_GUIDANCE_V36, PARTNERS_ALL_CODES_ALERT] }),
     '97158': ncCodeNotInStateSet('97158'),
     '0362T': ncCodeNotInStateSet('0362T'),
     '0373T': ncCodeNotInStateSet('0373T'),
@@ -1941,9 +1989,9 @@ const trilliumContact: VobContact = {
   providerServicesPhone: '866-998-2597',
   ivrPath:
     'Listed as "Business & Administrative Matters" in the Claims Submission Protocol\'s Tailored Plan Medicaid contact block; "Member & Recipient Services" (877-685-2415) is the separate member-facing line — do not use it for provider calls.',
-  portal: { name: 'Trillium Provider Direct Portal', url: 'https://www.trilliumhealthresources.org' },
+  portal: { name: 'Trillium iTransact (Tailored Plan claims, authorizations and eligibility from 10/1/2026; Medicaid Direct stays on Provider Direct)', url: 'https://provider.trilliumitransact.com/' },
   scriptedQuestions: [
-    'Do you support real-time 270/271 eligibility checks, and what is your Availity/pVerify payer ID — neither is found on their national lists?',
+    'Is our iTransact access (system administrator, Vendor ID and access code from the onboarding email) active, and does a 270 sent to payer ID 43072 return RB-BHT benefit detail in real time or batch?',
     'What are Trillium\'s per-code unit caps for 97151-97157, beyond the 180-day TAR cycle?',
     'Is there a copay or coinsurance for RB-BHT, and if so is it per-visit or per-day?',
     'Does the deductible apply to RB-BHT, and is there an out-of-pocket max?',

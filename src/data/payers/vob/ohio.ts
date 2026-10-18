@@ -190,7 +190,7 @@ const CIGNA_EN0499 = src(
 const AETNA_CPB0554 = src('https://www.aetna.com/cpb/medical/data/500_599/0554.html', 'Aetna CPB 0554 — Applied Behavior Analysis; medical-necessity policy only.');
 const AETNA_CPB0648 = src('https://www.aetna.com/cpb/medical/data/600_699/0648.html', 'Aetna CPB 0648 — Autism Spectrum Disorders; 97151-97158 covered when selection criteria are met; no unit caps/POS/telehealth/modifier detail.');
 
-/* Aetna precertification sources (fetched 2026-10-01): CPB 0554 (last review 11/26/2025) only addresses non-ASD indications and carries no precertification content. */
+/* Aetna precertification sources (fetched 2026-10-01): CPB 0554 (last review 10/14/2026; re-read 2026-10-18) only addresses non-ASD indications (Down syndrome without ASD named) and carries no precertification content. */
 const AETNA_PRECERT_LIST_ABA = src(
   'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf',
   'Aetna "Participating provider behavioral health precertification list," effective 8/1/2024 — item 3, Applied behavioral analysis (ABA): 97151, 97152, 97153, 97154, 97155, 97156, 97157, 97158, 0362T, 0373T require precertification.', true
@@ -270,7 +270,7 @@ const ABA_CODES = ['97151', '97152', '97153', '97154', '97155', '97156', '97157'
 /* -------------------- Layer 4: rate tables -------------------- */
 
 const OHIO_MEDICAID_RATES: RateTable = {
-  source: 'ODM ABA fee appendix (Appendix A to draft rule 5160-34-03, package ERF188422B.pdf) — "CURRENT MAXIMUM PAYMENT AMOUNT," per 15-min unit, by practitioner tier. DRAFT (not-yet-filed) filing with a blank effective-date column; the only published ODM ABA fee document and the one ohio.ts prose already quotes. No billing-modifier column — priced by practitioner-tier descriptor.',
+  source: 'ODM ABA fee appendix (Appendix A to draft rule 5160-34-03, package ERF188422B.pdf) — "CURRENT MAXIMUM PAYMENT AMOUNT," per 15-min unit, by practitioner tier. DRAFT (not-yet-filed) filing with a blank effective-date column; the only published ODM ABA fee document and the one ohio.ts prose already quotes. No billing-modifier column — priced by practitioner-tier descriptor. Rechecked 2026-10-07: ODM’s Appendix DD to OAC 5160-1-60 (revised 1/1/2026) has no ABA rows and chapter 5160-34 is still absent from the OAC, so no in-force schedule replaces these draft figures.',
   effectiveDate: 'unverified — the ODM ABA fee appendix is a DRAFT (not-yet-filed) rule package; its effective-date column is blank',
   byCode: {
     '97151': { rate: 'Tiered — see modifierTiers (assessment)', unit: '15min', modifierTiers: { 'Independent (COBA/BCBA/BCBA-D)': '$30.49', BCaBA: '$22.67' } },

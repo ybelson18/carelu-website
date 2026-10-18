@@ -36,7 +36,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
       { label: 'Covers ABA?', value: 'Yes — adaptive behavior services for ASD (OAC 5160-34-02)' },
       { label: 'Prior auth', value: 'Required for all covered ABA codes (current rule)' },
       { label: 'Reviews', value: 'Medical necessity at baseline, then every 6 months' },
-      { label: 'Rates (per 15 min)', value: '97153 $16.04 (RBT) · 97155 $27.28 · 97151 $30.49 (COBA/BCBA tier)' },
+      { label: 'Rates (per 15 min)', value: 'No in-force published ABA schedule; ODM’s unfiled draft lists 97153 $16.04 (RBT) · 97155 $27.28 · 97151 $30.49 (COBA/BCBA tier)' },
       { label: 'Credentialing', value: 'COBA or BCBA/BCBA-D as independent practitioner; ODM Provider Type 19' },
       { label: 'OhioRISE', value: 'Does NOT pay ABA — bill the member\'s MCO (or FFS), always' },
       { label: 'Staff screening', value: 'COBA: BCI + FBI fingerprint check (OAC 4783-4-03) · RBTs: BACB background + abuse-registry check within 180 days' },
@@ -56,12 +56,17 @@ export const ohioPayers: Record<string, PayerConfig> = {
         ],
       },
       {
-        h2: 'Rates: tiered by credential',
+        h2: 'Rates: what Ohio Medicaid pays for 97153 and the other ABA codes',
         body: [
-          'ODM\'s ABA fee schedule pays per 15-minute unit by practitioner tier. Current maximum payment amounts: 97151 assessment $30.49 at the independent-practitioner tier (COBA/BCBA/BCBA-D) and $22.67 at the BCaBA tier; 97153 direct treatment $16.04 (RBT tier); 97155 protocol modification $27.28 / $20.63; 97156 family training $30.09 / $22.37; group codes and 0362T/0373T ($33.54) have their own lines. MCO-contracted rates are negotiated, with the ODM schedule as the reference point. These amounts come from ODM\'s rule filing labeled "current maximum payment amount" — confirm the in-force appendix to 5160-34-02 when modeling revenue precisely.',
+          'Ohio Medicaid has no in-force, published ABA rate table to quote. ODM’s main non-institutional fee schedule (Appendix DD to OAC 5160-1-60, revised January 1, 2026) has no rows for 97151–97158, 0362T or 0373T, and the ABA rule chapter 5160-34 is not in the Ohio Administrative Code (codes.ohio.gov, rechecked October 7, 2026). The only ODM table for these codes is Appendix A to the draft rule 5160-34-03 in package ERF188422B, headed “Fee schedule for Applied Behavior Analysis” with a “current maximum payment amount” column, on pages marked “DRAFT - NOT YET FILED”: 97153 (RBT) $16.04 per 15-minute unit; 97151 $30.49 (independent practitioner: COBA/BCBA/BCBA-D) or $22.67 (BCaBA); 97152 $17.00; 97154 $7.61; 97155 $27.28 / $20.63; 97156 $30.09 / $22.37; 97157 and 97158 $14.46 / $10.62; 0362T and 0373T $33.54. Treat those as ODM’s draft figures and confirm the amount on a paid fee-for-service remittance or with ODM before modelling revenue.',
+          'Most members are in an MCO, which pays under its own provider contract, and no Ohio MCO publishes its ABA rates. House Bill 453 (introduced September 15, 2025; in the House Insurance Committee since October 1, 2025) would set MCO payment rates for 97151–97158 at “one hundred per cent of the fee-for-service rate” for fiscal year 2027 and require commercial payers to pay at least 100% of the Medicaid fee schedule. It is a pending bill, not law.',
         ],
         cites: [
-          { title: 'ODM — ABA rule package with Appendix A fee schedule', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Stakeholders,%20Partners/LegalandContracts/Rules/ERF188422B.pdf' },
+          { title: 'ODM — draft ABA rule package ERF188422B (5160-34-01 and 5160-34-03 with Appendix A fee schedule; marked “DRAFT - NOT YET FILED”)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Stakeholders,%20Partners/LegalandContracts/Rules/ERF188422B.pdf' },
+          { title: 'ODM — Appendix DD to OAC 5160-1-60, non-institutional fee schedule (updates for 1/1/2026, XLSX)', url: 'https://dam.assets.ohio.gov/raw/upload/medicaid.ohio.gov/Providers/FeeScheduleRates/OutpatientHospital/5160-1-60-_App_DD-_Updates_for_01_01_2026-_FINAL.xlsx' },
+          { title: 'codes.ohio.gov — Chapter 5160-34 lookup (“No Ohio Administrative Code rule number corresponds,” checked October 7, 2026)', url: 'https://codes.ohio.gov/ohio-administrative-code/chapter-5160-34' },
+          { title: 'Ohio House Bill 453 (136th General Assembly), as introduced — ABA coverage and payment rates', url: 'https://search-prod.lis.state.oh.us/api/v2/general_assembly_136/legislation/hb453/00_IN/html/' },
+          { title: 'Ohio Legislature — HB 453 status (introduced 9/15/2025; referred to House Insurance 10/1/2025)', url: 'https://www.legislature.ohio.gov/legislation/136/hb453/status' },
         ],
       },
       {
@@ -102,6 +107,20 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'ODM — ABA provider stakeholder presentation (7/30/2026)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/BH/provider/Presentations/7.30_ABA_Presentation.pdf' },
         ],
       },
+      {
+        h2: 'Ohio Medicaid ABA claims: filing deadline, referring provider, payment clock and EVV',
+        body: [
+          'Filing deadline: a fee-for-service claim is timely if ODM receives it within 365 days of the date the service was provided, and a denied claim resubmitted for payment has the same 365 days from the date of service; underpaid claims should be adjusted within 365 days too (OAC 5160-1-19(D)). Paper claims are not accepted. The Medicaid MCOs’ manuals apply the same 365-day limit by reference to this rule.',
+          'Rendering, supervising and referring providers: “Claims for items and services that necessitate a rendering or supervising provider, order, prescription, referral, or certification will be denied if” they do not carry that provider’s NPI and legal name, or the provider has no active Medicaid provider agreement (5160-1-19(C)).',
+          'Payment clock: federal rules require ODM to pay 90% of clean practitioner claims within 30 days of receipt and 99% within 90 days (42 CFR 447.45(d)).',
+          'EVV does not apply to ABA in Ohio. OAC 5160-32-01 lists the services subject to Ohio’s EVV program — named waiver services in the home care, MyCare, PASSPORT and developmental-disability waivers, plus state-plan home health, private duty nursing and RN assessment and consultation — and makes managed care entities responsible for applying it; ABA is not on the list, and services delivered by telehealth are exempt.',
+        ],
+        cites: [
+          { title: 'OAC 5160-1-19 — Claim submission and payment (timely filing), codes.ohio.gov', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-1-19' },
+          { title: '42 CFR 447.45(d) — timely processing of Medicaid fee-for-service claims (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-447.45' },
+          { title: 'OAC 5160-32-01 — Electronic visit verification: programs and services subject to EVV, codes.ohio.gov', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-32-01' },
+        ],
+      },
     ],
     collect: [
       { title: 'Member ID & Next Gen MCO', desc: 'CareSource, Buckeye, Molina, Anthem, UHC, AmeriHealth Caritas, or Humana — several run materially different ABA policies.' },
@@ -131,6 +150,10 @@ export const ohioPayers: Record<string, PayerConfig> = {
       { title: 'OAC 5160-1-18 — Telehealth', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-1-18' },
       { title: 'OAC 5160-1-42 — Medicaid provider credentialing', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-1-42' },
       { title: 'AmeriHealth Caritas Ohio — Provider Manual (v6, January 2026)', url: 'https://www.amerihealthcaritasoh.com/content/dam/amerihealth-caritas/acoh/pdf/provider/provider-manual.pdf' },
+      { title: 'OAC 5160-1-19 — Claim submission and payment (timely filing), codes.ohio.gov', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-1-19' },
+      { title: '42 CFR 447.45(d) — timely processing of Medicaid fee-for-service claims (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-447.45' },
+      { title: 'OAC 5160-32-01 — Electronic visit verification: programs and services subject to EVV, codes.ohio.gov', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-32-01' },
+      { title: 'CMS — Medicaid NCCI MUE edits, practitioner services (2026 Q4, active 10/1–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' },
     ],
     intakeGates: {
       ageLimit: {
@@ -185,7 +208,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       telehealth: {
-        value: 'No per-code state telehealth rule for ABA could be verified. What is published at the plan level: Optum’s Ohio Medicaid criteria state that ABA is available through telehealth under guidelines effective June 2018, conditioned on the member having the basic and advanced prerequisite skills to benefit, a caregiver willing and able to support telehealth, and a thorough provider assessment of the environment and safety concerns — with the session note required to indicate when a service was delivered by telehealth. CareSource covers parent training and supervision by telehealth, and 1:1 ABA by telehealth only when medically necessary under a documented service-delivery plan. ODM’s own Telehealth Billing Guidelines (fee-for-service, dates of service on or after 1/1/2026, under OAC 5160-1-18) do not list any ABA code — 97151–97158, 0362T or 0373T — in their telehealth-eligible code tables, and behavior analysts are not among the practitioner types they name as eligible to render telehealth; OAC 5160-1-18 does let payment extend to “other practitioners” and “other services if specifically authorized in rule,” which would be the ABA rule we cannot read. The same guidelines say the MCOs “cover the same telehealth services as in fee-for-service but may have different billing requirements.” So whether 97151 (assessment) or 97155 (supervision) may be delivered remotely for an Ohio Medicaid member is, today, a question for the member’s MCO.',
+        value: 'No per-code state telehealth rule for ABA could be verified. What is published at the plan level: Optum’s Ohio Medicaid criteria state that ABA is available through telehealth under guidelines effective June 2018, conditioned on the member having the basic and advanced prerequisite skills to benefit, a caregiver willing and able to support telehealth, and a thorough provider assessment of the environment and safety concerns — with the session note required to indicate when a service was delivered by telehealth. CareSource covers parent training and supervision by telehealth, and 1:1 ABA by telehealth only when medically necessary under a documented service-delivery plan. ODM’s own Telehealth Billing Guidelines (fee-for-service, dates of service on or after 1/1/2026, under OAC 5160-1-18) do not list any ABA code — 97151–97158, 0362T or 0373T — in their telehealth-eligible code tables, and behavior analysts are not among the practitioner types they name as eligible to render telehealth; OAC 5160-1-18 does let payment extend to “other practitioners” and “other services if specifically authorized in rule,” which would be the ABA rule we cannot read. The same guidelines say the MCOs “cover the same telehealth services as in fee-for-service but may have different billing requirements.” So whether 97151 (assessment) or 97155 (supervision) may be delivered remotely for an Ohio Medicaid member is, today, a question for the member’s MCO. ODM’s general fee-for-service telehealth claim rules (effective 1/1/2026) also differ from most payers’: “In most cases, the ‘GT’ modifier is required,” the place of service reported “must be the location of the practitioner,” and “telehealth place of service codes 02 and 10 will not be accepted on claims where Medicaid is the primary payer unless stated otherwise in provider specific billing guidelines.” The guidelines add that the MCOs “cover the same telehealth services as in fee-for-service but may have different billing requirements.”',
         status: 'unverified',
         cites: [
           { title: 'Optum — Ohio Medicaid Supplemental Clinical Criteria (BH803OH012026.E, eff. 7/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/optumLOCG/ohlocg/ohMedcadLOCG.pdf' },
@@ -238,15 +261,12 @@ export const ohioPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       dailyLimits: {
-        value: 'No state-level per-day unit ceiling could be verified; Ohio’s daily limits are plan-level and worth knowing individually. CareSource’s reimbursement policy PY-1638 applies the CMS MUE maxima — 97151 at 32, 97153 at 32, 97155 at 24 and 97156 at 16 daily units, among others — and caps behavioral assessments at roughly 6–10 hours per 6-month period without justification. Buckeye’s CP.BH.104 sets 6 hours a day and 30 hours a week as the ceiling absent detailed clinical justification, with under 20 hours a week expected for children attending school full-time. Anthem applies the CG-BEH-02 family parameters of up to 40 hours a week. codes.ohio.gov now returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026) rather than refusing the connection, and the chapter remains absent from the Title 5160 index, so no in-force rule text exists to read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Per ODM’s 7/30/2026 provider stakeholder presentation, the rewrite was paused in 2025 for reevaluation (budget pressure, national ABA-spend scrutiny, other-state audit findings) and the draft (ERF188422B) still carries a “DRAFT — NOT FOR FILING” header and no JCARR filing, so draft content does not govern.',
-        status: 'unverified',
+        value: 'The per-day ceiling is a claim edit, not an ABA rule. Ohio’s claim-submission rule says claims “should be submitted pursuant to the national correct coding initiative” (OAC 5160-1-19(B)), and the CMS Medicaid NCCI practitioner MUE table active 10/1–12/31/2026 sets 97151 at 32 units, 97152 at 16, 97153 at 32, 97154 at 18, 97155 at 24, 97156 at 16, 97157 at 16, 97158 at 16, 0362T at 16 and 0373T at 32 units per date of service. No in-force Ohio ABA rule sets an hours-per-day or hours-per-week cap that we can read: codes.ohio.gov still returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-checked 10/18/2026) and ODM’s draft rewrite (ERF188422B, “DRAFT — NOT FOR FILING”) does not govern, so any weekly ceiling comes from the prior authorization itself. Managed care plans set their own limits — see each plan’s guide.',
+        status: 'verified',
         cites: [
-          { title: 'CareSource — OH MCD reimbursement policy PY-1638 (eff. 9/1/2026)', url: 'https://www.caresource.com/documents/medicaid-oh-policy-reimburse-py-1638-20260901' },
-          { title: 'Buckeye — CP.BH.104 Applied Behavior Analysis (rev. 2/2026)', url: 'https://www.buckeyehealthplan.com/content/dam/centene/Buckeye/policies/clinical-policies/CP.BH.104.pdf' },
-          { title: 'Anthem OH Medicaid — Clinical UM Guidelines list (CG-BEH-02)', url: 'https://providers.anthem.com/docs/gpp/OH_CAID_FEB23CUMG.pdf' },
+          { title: 'OAC 5160-1-19 — Submission of medicaid claims (eff. 2/1/2023), codes.ohio.gov', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-1-19' },
+          { title: 'CMS — Medicaid NCCI MUE edits, practitioner services (2026 Q4, active 10/1–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' },
         ],
-        verifyVia: 'Rules@Medicaid.Ohio.gov for the in-force state rule; the member’s MCO reimbursement policy for the operative daily maxima.',
-        blocker: 'document',
       },
       noteSignature: {
         value: 'No state-level session-note signature rule could be verified. The plan-level standards are concrete: Optum’s Ohio Medicaid criteria require the clinician’s signature, date of signature and credentials on the service note, with the clinician credentialed to provide everything documented, evidence of clinical supervision where required, and an explicit indication when a service was delivered by telehealth; the initial individualized treatment plan must be signed and dated by the responsible staff member and the supervising clinician (or carry documentation of clinical supervision), and every review must be signed and dated by the staff member completing it and the supervising clinician. CareSource adds an anti-boilerplate rule — generic copy-pasted symptom language is not sufficient documentation — and, distinctively, requires treatment records to reach the plan before claims: claims are not accepted without accompanying treatment documentation. codes.ohio.gov now returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026) rather than refusing the connection, and the chapter remains absent from the Title 5160 index, so no in-force rule text exists to read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Per ODM’s 7/30/2026 provider stakeholder presentation, the rewrite was paused in 2025 for reevaluation (budget pressure, national ABA-spend scrutiny, other-state audit findings) and the draft (ERF188422B) still carries a “DRAFT — NOT FOR FILING” header and no JCARR filing, so draft content does not govern.',
@@ -282,9 +302,13 @@ export const ohioPayers: Record<string, PayerConfig> = {
     faq: [
       { q: 'Does Ohio Medicaid cover ABA therapy?', a: 'Yes — as adaptive behavior services for ASD under OAC 5160-34-02, with prior authorization on all covered ABA codes and medical-necessity reviews at baseline and every six months.' },
       { q: 'Does OhioRISE cover ABA?', a: 'No — ODM\'s Mixed Services Protocol assigns ABA claims to the member\'s Medicaid MCO (or FFS) even for OhioRISE-enrolled youth. Always identify the underlying MCO.' },
-      { q: 'What does Ohio Medicaid pay for ABA?', a: 'Per 15-minute unit by credential tier: 97153 at $16.04 (RBT), 97155 at $27.28 and 97151 at $30.49 at the COBA/BCBA tier, with lower BCaBA-tier amounts. MCO rates are contractual against this benchmark.' },
+      { q: 'What does Ohio Medicaid pay for ABA?', a: 'No in-force schedule is published. ODM’s only ABA rate table is in its unfiled draft rule (ERF188422B): per 15-minute unit, 97153 at $16.04 (RBT), 97155 at $27.28 and 97151 at $30.49 at the COBA/BCBA tier, with lower BCaBA-tier amounts. MCOs pay their own contracted rates, which are not published.' },
       { q: 'Who can provide ABA under Ohio Medicaid?', a: 'Independent practitioners are COBAs (Ohio Board of Psychology, ORC 4783) or BCBAs/BCBA-Ds enrolled as ODM Provider Type 19, Specialty 190; BCaBAs and RBTs deliver under supervision.' },
       { q: 'Is Ohio Medicaid accepting new ABA providers?', a: 'There is no ABA enrollment moratorium we can cite. Behavior analysts (COBAs) are credentialed once, centrally, by ODM under OAC 5160-1-42, but you still contract with each MCO separately, and whether a plan\'s ABA panel is open is its own decision. Start MCO contracting while your ODM enrollment and credentialing are in process.' },
+      { q: 'What does Ohio Medicaid pay for 97153?', a: 'There is no in-force published rate to quote. ODM’s main fee schedule (Appendix DD, revised 1/1/2026) has no ABA rows, and the ABA rule chapter 5160-34 is not in the Ohio Administrative Code. ODM’s only table is the appendix to its unfiled draft rule (ERF188422B), which lists 97153 at $16.04 per 15-minute unit (RBT) under a “current maximum payment amount” heading on pages marked “DRAFT - NOT YET FILED.” MCOs pay their own contracted rates and do not publish them. House Bill 453 would set MCO ABA rates at 100% of the fee-for-service rate for fiscal year 2027, but it is still in committee.' },
+      { q: 'What is Ohio Medicaid’s timely filing limit for ABA claims?', a: '365 days from the date of service, including resubmissions of denied claims (OAC 5160-1-19). The Ohio Medicaid MCOs apply the same 365 days.' },
+      { q: 'Does Ohio Medicaid require the referring or supervising provider on the claim?', a: 'Yes, when the service needs one: ODM denies claims that lack the NPI and legal name of the required rendering, supervising, ordering, referring or certifying provider, or where that provider has no active Medicaid agreement (OAC 5160-1-19(C)).' },
+      { q: 'Does Ohio Medicaid require EVV for ABA?', a: 'No. OAC 5160-32-01 limits EVV to listed waiver services and state-plan home health, private duty nursing and RN visits; ABA is not included, and telehealth services are exempt.' },
     ],
   },
 
@@ -356,6 +380,28 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'CareSource — Ohio Medicaid prior authorization list', url: 'https://www.caresource.com/documents/ohio-medicaid-prior-authorization-list/' },
         ],
       },
+      {
+        h2: 'CareSource Ohio ABA claims: filing deadline, payment clock, disputes and EVV',
+        body: [
+          'Filing deadline: claims and corrected claims “should be submitted within 365 days of the date of service or discharge.” Payment: unless the provider contract sets another schedule, CareSource must pay or deny 90% of clean claims within 21 calendar days of receipt, 99% within 60 calendar days and 100% of all claims within 90 calendar days.',
+          'Claim disputes (any provider disagreement with a claim decision): “within 12 months from the date of service or 60 calendar days after the payment, denial or partial denial of a timely claim submission, whichever is later.” Appeals of medical-necessity decisions must be received within 60 calendar days of the denial.',
+          'EVV does not apply to ABA in Ohio. OAC 5160-32-01 lists the services subject to Ohio’s EVV program — named waiver services in the home care, MyCare, PASSPORT and developmental-disability waivers, plus state-plan home health, private duty nursing and RN assessment and consultation — and makes managed care entities responsible for applying it; ABA is not on the list, and services delivered by telehealth are exempt.',
+        ],
+        cites: [
+          { title: 'CareSource — Ohio Medicaid Provider Manual (OH-MED-P-1745200d)', url: 'https://www.caresource.com/documents/oh-provider-manual.pdf' },
+          { title: 'OAC 5160-32-01 — Electronic visit verification: programs and services subject to EVV, codes.ohio.gov', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-32-01' },
+        ],
+      },
+      {
+        h2: 'Reauthorization: what a CareSource continuation request must contain',
+        body: [
+          'Continuation requests are due every six months, and a request after a temporary break (summer, vacation, a change in school hours) must be filed as a continuation, not a new initial request. MM-0028 (effective 9/1/2026) requires either (a) a persisting definitive ASD diagnosis with symptoms that will benefit from treatment in at least two settings, a treatment plan with “an updated progress report with assessment scores that note improvement and member response to treatment from baseline … using the same mode(s) of measurement utilized for baseline measurements” and a plan to step intensity down, and caregivers who are involved and progressing; or (b) where progress was inadequate within six months, the documented reasons and the changes made (techniques, caregiver training, time on targets, barriers, new co-existing disorders, revised goals). Discontinuation follows when there is no meaningful progress across two successive six-month periods on standardized assessments. Neither MM-0028 nor PY-1638 requires graphs — the requirement is comparable assessment scores against baseline — and PY-1638 pays telemedicine “in the same manner and subject to the same limits as in-person” delivery.',
+        ],
+        cites: [
+          { title: 'CareSource — OH MCD-MM-0028 (eff. 9/1/2026)', url: 'https://www.caresource.com/documents/medicaid-oh-policy-medical-mm-0028-20260901' },
+          { title: 'CareSource — OH MCD reimbursement policy PY-1638 (eff. 9/1/2026)', url: 'https://www.caresource.com/documents/medicaid-oh-policy-reimburse-py-1638-20260901' },
+        ],
+      },
     ],
     collect: [
       { title: 'Diagnostician specialty + instrument', desc: 'Must be one of the four named specialties using ADOS, ADI-R, or CARS-2 — screen before submission.' },
@@ -370,6 +416,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
       { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
       { title: 'Ohio Administrative Code — rule 4783-6-02 (COBA supervision responsibilities)', url: 'https://www.law.cornell.edu/regulations/ohio/Ohio-Admin-Code-4783-6-02' },
       { title: 'ODM — OhioRISE Mixed Services Protocol (4/1/2025)', url: 'https://dam.assets.ohio.gov/image/upload/v1743449666/managedcare.medicaid.ohio.gov/OhioRISE/OhioRISE_Mixed_Services_Protocol_20250401.pdf' },
+      { title: 'OAC 5160-32-01 — Electronic visit verification: programs and services subject to EVV, codes.ohio.gov', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-32-01' },
     ],
     intakeGates: {
       ageLimit: {
@@ -414,14 +461,14 @@ export const ohioPayers: Record<string, PayerConfig> = {
         ],
       },
       referral: {
-        value: 'No Medicaid-side referral or service-order requirement could be verified for this plan or for the state framework. Ohio’s ordering requirement — a psychologist trained in autism, a developmental pediatrician, or a pediatric clinical nurse specialist or certified nurse practitioner — lives in the commercial insurance mandate at R.C. 3923.84, not in Medicaid.',
+        value:
+          'No referral or physician order appears in CareSource\'s own ABA policy. OH MCD-MM-0028 (eff. 9/1/2026), read in full, lists what initiation needs: a definitive primary ASD diagnosis from a child and adolescent psychiatrist, psychologist, child neurologist or developmental pediatrician; ADOS, ADI-R or CARS-2 results; and, if the evaluation is over 24 months old, a provider letter on DSM symptoms in the past year. It names no ordering or referring practitioner, no order form and no validity period. Ohio\'s ordering requirement (psychologist trained in autism, developmental pediatrician, or pediatric CNS/CNP) is in the commercial mandate at R.C. 3923.84, not Medicaid, and the in-force Medicaid ABA rule text could not be read. So whether CareSource will ask for a referral is a question for the plan. Ask its behavioral health UM line before the first request whether a PCP or diagnosing-provider referral must be attached.',
         status: 'unverified',
         cites: [
-          { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
           { title: 'CareSource — OH MCD-MM-0028 (eff. 9/1/2026)', url: 'https://www.caresource.com/documents/medicaid-oh-policy-medical-mm-0028-20260901' },
-          { title: 'CareSource — OH MCD reimbursement policy PY-1638 (eff. 9/1/2026)', url: 'https://www.caresource.com/documents/medicaid-oh-policy-reimburse-py-1638-20260901' },
+          { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
         ],
-        verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
+        verifyVia: 'CareSource Ohio behavioral health utilization management (provider portal or the number on the member ID card): "Do you require a referral or physician order for ABA, and from whom?" Rules@Medicaid.Ohio.gov or JCARR for the in-force OAC 5160-34-02.',
         blocker: 'per-case',
       },
       telehealth: {
@@ -526,6 +573,9 @@ export const ohioPayers: Record<string, PayerConfig> = {
       { q: 'Who can diagnose autism for CareSource Ohio ABA?', a: 'A child/adolescent psychiatrist, psychologist, child neurologist, or developmental pediatrician, using ADOS, ADI-R, or CARS-2 — narrower than the state baseline.' },
       { q: 'Why did CareSource reject our claim?', a: 'A distinctive rule, now sited in reimbursement policy PY-1638: treatment documentation must be submitted before claims. Claims without accompanying treatment records are not accepted — check the documentation pipeline first.' },
       { q: 'Does CareSource Ohio still accept H0036 in lieu of ABA CPT codes?', a: 'Not as a blanket rule anymore. As of PY-1638 (eff. 9/1/2026), CareSource will not reimburse H0036 for ABA when a designated ABA CPT code is usable — confirm which code applies before billing.' },
+      { q: 'What is CareSource Ohio’s timely filing limit for ABA claims?', a: '365 days from the date of service; claim disputes within 12 months of the date of service or 60 calendar days after the payment or denial, whichever is later (CareSource Ohio provider manual).' },
+      { q: 'What documents does CareSource Ohio need to start ABA?', a: 'Under OH MCD-MM-0028 (eff. 9/1/2026): a definitive primary ASD diagnosis from a child and adolescent psychiatrist, psychologist, child neurologist or developmental pediatrician, with ADOS, ADI-R or CARS-2 results. If the evaluation is more than 24 months old, add a provider letter describing DSM symptoms present in the past year. Then a BCBA behavior assessment (generally 6 to 10 hours per six months). The initial treatment plan must be signed by the parent or guardian and the BCBA and include biopsychosocial history, medications and prescriber, school hours with any IEP or 504 plan (required for consideration), prior ABA history and all behavioral health diagnoses. Medical necessity is reviewed at the start and every six months.' },
+      { q: 'Does CareSource Ohio require graphs for an ABA reauthorization?', a: 'No graph requirement appears in MM-0028 or PY-1638. Every six months the continuation needs an updated progress report with assessment scores showing change from baseline using the same measures, a plan to step intensity down, and evidence of caregiver involvement — or, if progress stalled, the reasons and the treatment changes.' },
     ],
   },
 
@@ -592,6 +642,28 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Buckeye — CP.BH.104 Applied Behavior Analysis (rev. 2/2026)', url: 'https://www.buckeyehealthplan.com/content/dam/centene/Buckeye/policies/clinical-policies/CP.BH.104.pdf' },
         ],
       },
+      {
+        h2: 'Buckeye ABA claims: filing deadline, disputes and EVV',
+        body: [
+          'Filing deadline: “Providers will have 365 days to timely file a claim, including any timely filing exceptions, in accordance with Ohio Administrative Code (OAC) rule 5160-1-19”; unless the provider agreement says otherwise, clean claims (initial, corrected and voided) must be submitted within 365 days of the date of service. Claim disputes (any provider disagreement with a claim decision): “within 12 months from the date of service or 60 calendar days after the payment, denial or partial denial of a timely claim submission, whichever is later.” Pre-service provider appeals are due within 60 calendar days of the notice of adverse action.',
+          'EVV does not apply to ABA in Ohio. OAC 5160-32-01 lists the services subject to Ohio’s EVV program — named waiver services in the home care, MyCare, PASSPORT and developmental-disability waivers, plus state-plan home health, private duty nursing and RN assessment and consultation — and makes managed care entities responsible for applying it; ABA is not on the list, and services delivered by telehealth are exempt.',
+          'Payment clock: Buckeye’s 2026 provider manual defines a clean claim but prints no payment timeframe or check-run schedule, so the state contract standard governs: ODM’s managed care provider agreement (Rev. 12/2025, App. L §10) requires every Ohio MCO — unless the MCO and the provider agreed an alternative payment schedule in the provider contract — to pay or deny 90% of clean claims within 21 calendar days of receipt, 99% within 60 calendar days and 100% of all claims within 90 calendar days; behavioral health claims are measured as their own category, and the standard applies to network and out-of-network providers alike. The same agreement requires the MCO to accept claims for 365 calendar days from the date of service under OAC 5160-1-19 (App. K §5a).',
+        ],
+        cites: [
+          { title: 'Buckeye Health Plan — Medicaid Provider Manual 2026 (amended 1/6/2026)', url: 'https://www.buckeyehealthplan.com/content/dam/centene/Buckeye/WebsitePDFs/Manuals/Buckeye_Provider%20Manual_BHP%20MEDICAID%20Provider%20Manual%202026_FINAL_amd%201.6.26_R.pdf' },
+          { title: 'OAC 5160-32-01 — Electronic visit verification: programs and services subject to EVV, codes.ohio.gov', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-32-01' },
+          { title: 'ODM — Ohio Medicaid Provider Agreement for Managed Care Organization (Rev. 12/2025): App. K §5 claims, App. L §10 prompt pay', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Providers/ProviderTypes/Managed%20Care/Provider%20Agreements/2025_12_MCO_Final.pdf' },
+        ],
+      },
+      {
+        h2: 'Reauthorization: what Buckeye’s continuation review requires (graphs on behavior goals)',
+        body: [
+          'CP.BH.104 (last revised 02/26) continues ABA when behavior concerns are not worsened by treatment and all of the following are documented: an updated behavior assessment at least every six months that meets the initial-assessment standard — including results “to include visual representations [graphs, tables, grids] as appropriate”; the percentage of scheduled sessions completed and caregiver participation, with justification when attendance falls below 80% of authorized hours; two to four performance-based caregiver training goals with baseline data and mastery criteria and documented family participation (ideally at least two hours a month); documented coordination of care with schools and other therapists; and an updated treatment plan at least every six months whose behavior-reduction goals include “baseline data, operational definition/topography of behavior, treatment strategies and graphs,” plus a titration plan with progress over the prior authorization period. So Buckeye expects graphs on behavior-reduction goals and graphs, tables or grids in the assessment results.',
+        ],
+        cites: [
+          { title: 'Buckeye — CP.BH.104 Applied Behavior Analysis (rev. 2/2026)', url: 'https://www.buckeyehealthplan.com/content/dam/centene/Buckeye/policies/clinical-policies/CP.BH.104.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Network status', desc: 'In-network assessments skip PA entirely — confirm contracting before promising the fast path.' },
@@ -606,6 +678,9 @@ export const ohioPayers: Record<string, PayerConfig> = {
       { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
       { title: 'Ohio Administrative Code — rule 4783-6-02 (COBA supervision responsibilities)', url: 'https://www.law.cornell.edu/regulations/ohio/Ohio-Admin-Code-4783-6-02' },
       { title: 'ODM — Telehealth Billing Guidelines (FFS, DOS on or after 1/1/2026)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Providers/Billing/BillingInstructions/Telehealth_Billing_Guidelines_updates_for_2026_final.pdf' },
+      { title: 'OAC 5160-32-01 — Electronic visit verification: programs and services subject to EVV, codes.ohio.gov', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-32-01' },
+      { title: 'Buckeye — Medicaid Provider Manual 2026 (amended 1/6/2026)', url: 'https://www.buckeyehealthplan.com/content/dam/centene/Buckeye/WebsitePDFs/Manuals/Buckeye_Provider%20Manual_BHP%20MEDICAID%20Provider%20Manual%202026_FINAL_amd%201.6.26_R.pdf' },
+      { title: 'ODM — Ohio Medicaid Provider Agreement for Managed Care Organization (Rev. 12/2025): App. K §5 claims, App. L §10 prompt pay', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Providers/ProviderTypes/Managed%20Care/Provider%20Agreements/2025_12_MCO_Final.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -755,6 +830,9 @@ export const ohioPayers: Record<string, PayerConfig> = {
       { q: 'Does Buckeye Health Plan cover ABA therapy?', a: 'Yes — under Centene\'s CP.BH.104 policy. In-network assessments (97151, 97152) need no prior authorization; treatment codes require PA via the Autism Services form.' },
       { q: 'What are Buckeye\'s ABA hour limits?', a: 'No more than 6 hours/day and 30 hours/week without detailed clinical justification, and under 20 hours/week expected for full-time students. Protocol modification runs 2 hrs/week or 10% of direct hours, capped at 20% unless justified.' },
       { q: 'How current must the autism diagnosis be for Buckeye?', a: 'The comprehensive diagnostic evaluation is accepted if conducted within the past 5 years.' },
+      { q: 'What is Buckeye’s timely filing limit for ABA claims?', a: '365 days from the date of service, per OAC 5160-1-19; claim disputes within 12 months of the date of service or 60 days after the payment or denial, whichever is later (Buckeye provider manual 2026).' },
+      { q: 'How fast does Buckeye pay a clean ABA claim?', a: 'Buckeye’s manual prints no payment timeframe, so ODM’s MCO contract standard applies unless your provider contract sets another schedule: 90% of clean claims paid or denied within 21 calendar days of receipt, 99% within 60 and all claims within 90. No weekly submission cutoff is published.' },
+      { q: 'Does Buckeye require graphs for an ABA reauthorization?', a: 'Yes for behavior-reduction goals: CP.BH.104 requires the updated treatment plan’s behavior-reduction goals to include baseline data, definitions, strategies and graphs, and the six-monthly behavior assessment to present results with graphs, tables or grids as appropriate. Attendance below 80% of authorized hours must be justified.' },
     ],
   },
 
@@ -809,6 +887,25 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Molina OH — prior authorization information (access via portal; site blocks automated retrieval)', url: 'https://www.molinahealthcare.com/members/oh/en-US/mem/medicaid/overvw/care/prior-authorizations.aspx' },
         ],
       },
+      {
+        h2: 'Does Molina require EVV for ABA in Ohio?',
+        body: [
+          'No. Ohio’s EVV rule, OAC 5160-32-01, lists the services subject to EVV — named waiver services in the home care, MyCare, PASSPORT and developmental-disability waivers, plus state-plan home health, private duty nursing and RN assessment and consultation — and makes managed care entities, Molina included, responsible for applying it. ABA is not on the list, and services delivered by telehealth are exempt.',
+        ],
+        cites: [
+          { title: 'OAC 5160-32-01 — Electronic visit verification: programs and services subject to EVV, codes.ohio.gov', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-32-01' },
+        ],
+      },
+      {
+        h2: 'Molina Ohio ABA claims: filing deadline and payment clock',
+        body: [
+          'Molina’s own Ohio provider manual could not be retrieved this review (the manual page no longer links a readable PDF), so these are the state contract terms every Ohio MCO, Molina included, signs: ODM’s managed care provider agreement (Rev. 12/2025, App. L §10) requires every Ohio MCO — unless the MCO and the provider agreed an alternative payment schedule in the provider contract — to pay or deny 90% of clean claims within 21 calendar days of receipt, 99% within 60 calendar days and 100% of all claims within 90 calendar days; behavioral health claims are measured as their own category, and the standard applies to network and out-of-network providers alike. The same agreement requires the MCO to accept claims for 365 calendar days from the date of service under OAC 5160-1-19 (App. K §5a). Under OAC 5160-1-19 a denied claim resubmitted for payment has the same 365 days from the date of service, and a claim delayed by a third-party payer’s recovery is timely within 180 days of that recovery. Your Molina provider contract can set a different payment schedule, and Molina may publish its own corrected-claim and secondary-claim windows — confirm them with Molina before relying on the state terms.',
+        ],
+        cites: [
+          { title: 'ODM — Ohio Medicaid Provider Agreement for Managed Care Organization (Rev. 12/2025): App. K §5 claims, App. L §10 prompt pay', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Providers/ProviderTypes/Managed%20Care/Provider%20Agreements/2025_12_MCO_Final.pdf' },
+          { title: 'OAC 5160-1-19 — Submission of medicaid claims (eff. 2/1/2023), codes.ohio.gov', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-1-19' },
+        ],
+      },
     ],
     collect: [
       { title: 'Availity access', desc: 'The only PA channel since January 2026 — make sure the team\'s registration and payer connection are live.' },
@@ -819,6 +916,9 @@ export const ohioPayers: Record<string, PayerConfig> = {
       { title: 'Molina OH — prior authorization page (verify via portal)', url: 'https://www.molinahealthcare.com/members/oh/en-US/mem/medicaid/overvw/care/prior-authorizations.aspx' },
       { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
       { title: 'ODM — Telehealth Billing Guidelines (FFS, DOS on or after 1/1/2026)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Providers/Billing/BillingInstructions/Telehealth_Billing_Guidelines_updates_for_2026_final.pdf' },
+      { title: 'ODM — Ohio Medicaid Provider Agreement for Managed Care Organization (Rev. 12/2025): App. K §5 claims, App. L §10 prompt pay', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Providers/ProviderTypes/Managed%20Care/Provider%20Agreements/2025_12_MCO_Final.pdf' },
+      { title: 'CMS — Medicaid NCCI MUE edits, practitioner services (2026 Q4, active 10/1–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' },
+      { title: 'OAC 5160-1-19 — Submission of medicaid claims (eff. 2/1/2023), codes.ohio.gov', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-1-19' },
     ],
     intakeGates: {
       ageLimit: {
@@ -919,13 +1019,14 @@ export const ohioPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       dailyLimits: {
-        value: 'No plan-specific per-day unit table found, and no state-level ceiling could be verified. Other Ohio MCOs publish real numbers (CareSource applies the CMS MUE maxima; Buckeye caps at 6 hours a day and 30 hours a week absent justification), so run the codes through this plan’s portal rather than assuming. codes.ohio.gov now returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026) rather than refusing the connection, and the chapter remains absent from the Title 5160 index, so no in-force rule text exists to read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Per ODM’s 7/30/2026 provider stakeholder presentation, the rewrite was paused in 2025 for reevaluation (budget pressure, national ABA-spend scrutiny, other-state audit findings) and the draft (ERF188422B) still carries a “DRAFT — NOT FOR FILING” header and no JCARR filing, so draft content does not govern.',
+        value: 'Molina publishes no Ohio ABA per-day unit table we could find (its current Ohio provider manual could not be retrieved — the manual page no longer links a readable PDF). The state rule it works under: ODM’s managed care provider agreement requires every MCO to “implement claims edits (e.g., … National Correct Coding Initiative [NCCI]) at the direction of ODM” (App. K §5c), and OAC 5160-1-19(B) has claims submitted pursuant to NCCI. The CMS Medicaid NCCI practitioner MUE table active 10/1–12/31/2026 sets 97151 at 32 units, 97152 at 16, 97153 at 32, 97154 at 18, 97155 at 24, 97156 at 16, 97157 at 16, 97158 at 16, 0362T at 16 and 0373T at 32 units per date of service. Those are claim edits; the weekly ceiling is whatever the prior authorization approves.',
         status: 'unverified',
         cites: [
-          { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
-          { title: 'Molina OH — prior authorization page (verify via portal)', url: 'https://www.molinahealthcare.com/members/oh/en-US/mem/medicaid/overvw/care/prior-authorizations.aspx' },
+          { title: 'OAC 5160-1-19 — Submission of medicaid claims (eff. 2/1/2023), codes.ohio.gov', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-1-19' },
+          { title: 'ODM — Ohio Medicaid Provider Agreement for Managed Care Organization (Rev. 12/2025): App. K §5 claims, App. L §10 prompt pay', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Providers/ProviderTypes/Managed%20Care/Provider%20Agreements/2025_12_MCO_Final.pdf' },
+          { title: 'CMS — Medicaid NCCI MUE edits, practitioner services (2026 Q4, active 10/1–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' },
         ],
-        verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
+        verifyVia: 'Molina Ohio provider services (number on the member card) or the Availity portal: ask whether Molina applies any ABA unit limit beyond the Medicaid NCCI MUEs and whether units are authorized per week.',
         blocker: 'document',
       },
       noteSignature: {
@@ -960,6 +1061,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
     faq: [
       { q: 'Does Molina Healthcare of Ohio cover ABA therapy?', a: 'Yes — under the Ohio Medicaid framework (OAC 5160-34), with prior authorization required on ABA services. No distinct Molina clinical policy layers on top.' },
       { q: 'How do I submit an ABA authorization to Molina Ohio?', a: 'Through Availity Essentials — Molina discontinued fax PA submissions in Ohio effective January 1, 2026.' },
+      { q: 'What is Molina Ohio’s timely filing limit and payment time for ABA claims?', a: 'ODM’s MCO contract requires Molina to accept claims for 365 calendar days from the date of service and to pay or deny 90% of clean claims within 21 calendar days, 99% within 60 and all within 90, unless your provider contract sets another schedule. Molina’s own manual could not be read, so confirm its corrected-claim and secondary-claim windows with Molina.' },
     ],
   },
 
@@ -1014,6 +1116,21 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Anthem OH Medicaid — provider manual (10/2025)', url: 'https://providers.anthem.com/docs/gpp/OH_CAID_ProviderManual.pdf' },
         ],
       },
+      {
+        h2: 'Anthem Ohio Medicaid ABA claims: filing deadline, taxonomy, disputes and EVV',
+        body: [
+          'Filing deadline: “Providers will have 365 days to timely file a claim, including any timely filing exceptions, in accordance with Ohio Administrative Code (OAC) rule 5160-1-19”; when other insurance is primary, the clock runs from the primary plan’s explanation of payment. All claims are electronic.',
+          'Taxonomy: claims must show the billing provider’s name, address and “taxonomy code, as certified with Ohio Medicaid,” and the rendering provider’s NPI and taxonomy code as certified with Ohio Medicaid; missing or invalid numbers “may result in nonpayment.”',
+          'Disputes and appeals: a claim reconsideration filed more than 365 calendar days from the date of service or 60 calendar days from the EOP, whichever is later, is untimely. Utilization-management denials: reconsideration within 30 calendar days, peer-to-peer within 7, and a provider appeal within 60 calendar days of the initial determination.',
+          'EVV does not apply to ABA in Ohio. OAC 5160-32-01 lists the services subject to Ohio’s EVV program — named waiver services in the home care, MyCare, PASSPORT and developmental-disability waivers, plus state-plan home health, private duty nursing and RN assessment and consultation — and makes managed care entities responsible for applying it; ABA is not on the list, and services delivered by telehealth are exempt.',
+          'Payment clock: “Anthem will make every effort to finalize a clean electronic claim submission within 21 calendar days from the date the claim is received.” The contract floor behind that: ODM’s managed care provider agreement (Rev. 12/2025, App. L §10) requires every Ohio MCO — unless the MCO and the provider agreed an alternative payment schedule in the provider contract — to pay or deny 90% of clean claims within 21 calendar days of receipt, 99% within 60 calendar days and 100% of all claims within 90 calendar days; behavioral health claims are measured as their own category, and the standard applies to network and out-of-network providers alike. The same agreement requires the MCO to accept claims for 365 calendar days from the date of service under OAC 5160-1-19 (App. K §5a). Corrections Anthem requests must come back as a corrected claim through ODM’s fiscal intermediary within 365 days from the date of service, and when other insurance pays first the 365-day clock runs from the other carrier’s explanation of payment — Anthem needs the primary carrier’s remittance advice or denial letter with the claim.',
+        ],
+        cites: [
+          { title: 'Anthem Blue Cross and Blue Shield — Ohio Medicaid Managed Care Provider Manual (10/2025)', url: 'https://providers.anthem.com/docs/gpp/OH_CAID_ProviderManual.pdf' },
+          { title: 'OAC 5160-32-01 — Electronic visit verification: programs and services subject to EVV, codes.ohio.gov', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-32-01' },
+          { title: 'ODM — Ohio Medicaid Provider Agreement for Managed Care Organization (Rev. 12/2025): App. K §5 claims, App. L §10 prompt pay', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Providers/ProviderTypes/Managed%20Care/Provider%20Agreements/2025_12_MCO_Final.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'PA lookup check', desc: 'The assessment-vs-treatment PA split isn\'t published — run the codes through the lookup tool per case.' },
@@ -1027,6 +1144,10 @@ export const ohioPayers: Record<string, PayerConfig> = {
       { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
       { title: 'Ohio Administrative Code — rule 4783-6-02 (COBA supervision responsibilities)', url: 'https://www.law.cornell.edu/regulations/ohio/Ohio-Admin-Code-4783-6-02' },
       { title: 'ODM — Telehealth Billing Guidelines (FFS, DOS on or after 1/1/2026)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Providers/Billing/BillingInstructions/Telehealth_Billing_Guidelines_updates_for_2026_final.pdf' },
+      { title: 'OAC 5160-32-01 — Electronic visit verification: programs and services subject to EVV, codes.ohio.gov', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-32-01' },
+      { title: 'ODM — Ohio Medicaid Provider Agreement for Managed Care Organization (Rev. 12/2025): App. K §5 claims, App. L §10 prompt pay', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Providers/ProviderTypes/Managed%20Care/Provider%20Agreements/2025_12_MCO_Final.pdf' },
+      { title: 'CMS — Medicaid NCCI MUE edits, practitioner services (2026 Q4, active 10/1–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' },
+      { title: 'OAC 5160-1-19 — Submission of medicaid claims (eff. 2/1/2023), codes.ohio.gov', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-1-19' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1134,15 +1255,12 @@ export const ohioPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       dailyLimits: {
-        value: 'Not published in any current Anthem Ohio Medicaid document we could read. Anthem\'s Ohio Medicaid Clinical UM Guidelines list names CG-BEH-02 as the adopted criteria for adaptive behavioral treatment, but no Anthem Ohio document states an hours-per-week ceiling, a protocol-modification ratio or a per-day unit cap, so none is stated here.',
-        status: 'unverified',
-        verifyVia: 'Anthem Ohio Medicaid UM (Availity Essentials Interactive Care Reviewer) or the PA lookup tool at providers.anthem.com/oh — ask for the current adaptive behavioral treatment guideline text and any hours-per-week or per-day limits it applies.',
-        blocker: 'document',
+        value: 'Anthem’s Ohio Medicaid provider manual (10/2025) publishes no ABA per-day unit table, and its Clinical UM Guidelines list only names CG-BEH-02 as the adopted criteria. The state rule it works under: ODM’s managed care provider agreement requires every MCO to “implement claims edits (e.g., … National Correct Coding Initiative [NCCI]) at the direction of ODM” (App. K §5c), and OAC 5160-1-19(B) has claims submitted pursuant to NCCI. The CMS Medicaid NCCI practitioner MUE table active 10/1–12/31/2026 sets 97151 at 32 units, 97152 at 16, 97153 at 32, 97154 at 18, 97155 at 24, 97156 at 16, 97157 at 16, 97158 at 16, 0362T at 16 and 0373T at 32 units per date of service. Those are claim edits; the weekly ceiling is whatever the prior authorization approves.',
+        status: 'verified',
         cites: [
-          { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
-          { title: 'Anthem OH Medicaid — Clinical UM Guidelines list (CG-BEH-02)', url: 'https://providers.anthem.com/docs/gpp/OH_CAID_FEB23CUMG.pdf' },
-          { title: 'Anthem OH Medicaid — provider manual (10/2025)', url: 'https://providers.anthem.com/docs/gpp/OH_CAID_ProviderManual.pdf' },
-          { title: 'Anthem OH Medicaid — Clinical UM Guidelines list (CG-BEH-02)', url: 'https://providers.anthem.com/docs/gpp/OH_CAID_FEB23CUMG.pdf' },
+          { title: 'OAC 5160-1-19 — Submission of medicaid claims (eff. 2/1/2023), codes.ohio.gov', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-1-19' },
+          { title: 'ODM — Ohio Medicaid Provider Agreement for Managed Care Organization (Rev. 12/2025): App. K §5 claims, App. L §10 prompt pay', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Providers/ProviderTypes/Managed%20Care/Provider%20Agreements/2025_12_MCO_Final.pdf' },
+          { title: 'CMS — Medicaid NCCI MUE edits, practitioner services (2026 Q4, active 10/1–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' },
         ],
       },
       noteSignature: {
@@ -1180,6 +1298,8 @@ export const ohioPayers: Record<string, PayerConfig> = {
     faq: [
       { q: 'Does Anthem Ohio Medicaid cover ABA therapy?', a: 'Yes — under its adopted CG-BEH-02 adaptive behavioral treatment guideline on top of OAC 5160-34, submitted via Availity\'s Interactive Care Reviewer, with EPSDT protections for under-21 members.' },
       { q: 'Does OhioRISE change anything for Anthem ABA members?', a: 'Inpatient psychiatric care for under-21s routes to OhioRISE, but ABA always stays with Anthem (per ODM\'s mixed-services protocol) — bill the MCO, not OhioRISE.' },
+      { q: 'Does Anthem Ohio Medicaid require taxonomy on ABA claims?', a: 'Yes. Show the billing and rendering providers’ taxonomy codes as certified with Ohio Medicaid; missing or invalid numbers may result in nonpayment (Anthem Ohio Medicaid provider manual).' },
+      { q: 'How fast does Anthem Ohio Medicaid pay a clean ABA claim?', a: 'Anthem says it makes every effort to finalize a clean electronic claim within 21 calendar days of receipt; ODM’s MCO contract requires 90% of clean claims within 21 calendar days, 99% within 60 and all claims within 90, unless your provider contract sets another schedule. Secondary (COB) claims are due within 365 days counted from the primary carrier’s explanation of payment.' },
     ],
   },
 
@@ -1239,6 +1359,28 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Optum — Ohio Medicaid Supplemental Clinical Criteria (BH803OH012026.E)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/optumLOCG/ohlocg/ohMedcadLOCG.pdf' },
         ],
       },
+      {
+        h2: 'UnitedHealthcare Community Plan of Ohio ABA claims: filing deadline, disputes and EVV',
+        body: [
+          'Filing deadline: “Providers have 365 days to file a claim, including any timely filing exceptions, in accordance with Ohio Administrative Code (OAC) rule 5160-1-19.” Claim disputes (any provider disagreement with a claim decision): “within 12 months from the date of service or 60 calendar days after the payment, denial or partial denial of a timely claim submission, whichever is later.” A provider appeal of a denied prior authorization may be filed within 60 calendar days of the initial notice of action; UnitedHealthcare answers within 10 calendar days (48 hours if urgent).',
+          'EVV does not apply to ABA in Ohio. OAC 5160-32-01 lists the services subject to Ohio’s EVV program — named waiver services in the home care, MyCare, PASSPORT and developmental-disability waivers, plus state-plan home health, private duty nursing and RN assessment and consultation — and makes managed care entities responsible for applying it; ABA is not on the list, and services delivered by telehealth are exempt.',
+          'Payment clock: the 2026 Ohio care provider manual prints no payment timeframe or check-run schedule, so the state contract standard governs: ODM’s managed care provider agreement (Rev. 12/2025, App. L §10) requires every Ohio MCO — unless the MCO and the provider agreed an alternative payment schedule in the provider contract — to pay or deny 90% of clean claims within 21 calendar days of receipt, 99% within 60 calendar days and 100% of all claims within 90 calendar days; behavioral health claims are measured as their own category, and the standard applies to network and out-of-network providers alike. The same agreement requires the MCO to accept claims for 365 calendar days from the date of service under OAC 5160-1-19 (App. K §5a). When other coverage is primary, bill it first and submit its explanation of benefits or remittance advice with the claim; timeliness is counted from the date on the other carrier’s correspondence.',
+        ],
+        cites: [
+          { title: 'UnitedHealthcare Community Plan — 2026 Care Provider Manual, Ohio Medicaid', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/OH-Care-Provider-Manual.pdf' },
+          { title: 'OAC 5160-32-01 — Electronic visit verification: programs and services subject to EVV, codes.ohio.gov', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-32-01' },
+          { title: 'ODM — Ohio Medicaid Provider Agreement for Managed Care Organization (Rev. 12/2025): App. K §5 claims, App. L §10 prompt pay', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Providers/ProviderTypes/Managed%20Care/Provider%20Agreements/2025_12_MCO_Final.pdf' },
+        ],
+      },
+      {
+        h2: 'Reauthorization: what Optum’s Ohio Medicaid continued-service review requires',
+        body: [
+          'Optum’s Ohio Medicaid supplemental clinical criteria (effective 7/1/2026) require, at each continued-treatment review, that progress be “assessed and documented for each targeted symptom and behavior … including the same modes of measurement that were utilized for baseline measurement,” expressed as rates and percentages of mastered programs and targets, change scores on outcome measures, updated standardized adaptive measures and change scores on skills-based assessments, with progress also documented on a norm-referenced adaptive-functioning assessment; caregiver involvement where applicable; and, where progress stalled within a six-month period, the reasons and the treatment changes. The criteria ask for comparable measured data, not graphs as such.',
+        ],
+        cites: [
+          { title: 'Optum — Ohio Medicaid Supplemental Clinical Criteria (BH803OH012026.E, eff. 7/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/optumLOCG/ohlocg/ohMedcadLOCG.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Diagnosis + both tools', desc: 'A validated screener and a formal instrument (ADOS/ADI-R/DISCO) — confirm both exist before the request.' },
@@ -1251,6 +1393,9 @@ export const ohioPayers: Record<string, PayerConfig> = {
       { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
       { title: 'Ohio Administrative Code — rule 4783-6-02 (COBA supervision responsibilities)', url: 'https://www.law.cornell.edu/regulations/ohio/Ohio-Admin-Code-4783-6-02' },
       { title: 'ODM — OhioRISE Mixed Services Protocol (4/1/2025)', url: 'https://dam.assets.ohio.gov/image/upload/v1743449666/managedcare.medicaid.ohio.gov/OhioRISE/OhioRISE_Mixed_Services_Protocol_20250401.pdf' },
+      { title: 'OAC 5160-32-01 — Electronic visit verification: programs and services subject to EVV, codes.ohio.gov', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-32-01' },
+      { title: 'UnitedHealthcare Community Plan — 2026 Care Provider Manual, Ohio Medicaid', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/OH-Care-Provider-Manual.pdf' },
+      { title: 'ODM — Ohio Medicaid Provider Agreement for Managed Care Organization (Rev. 12/2025): App. K §5 claims, App. L §10 prompt pay', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Providers/ProviderTypes/Managed%20Care/Provider%20Agreements/2025_12_MCO_Final.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1300,9 +1445,10 @@ export const ohioPayers: Record<string, PayerConfig> = {
         ],
       },
       telehealth: {
-        value: 'ABA is available through telehealth under the guidelines effective June 2018, with three conditions Optum states explicitly: the member needs certain basic and advanced prerequisite skills to benefit from telehealth, the caregiver must be willing and able to support it, and the provider must complete a thorough assessment of the environment and address any safety concerns. The service note must indicate when a service was provided via telehealth. Optum points providers to the CASP telehealth practice parameters for additional guidance.',
+        value: 'ABA is available through telehealth under the guidelines effective June 2018, with three conditions Optum states explicitly: the member needs certain basic and advanced prerequisite skills to benefit from telehealth, the caregiver must be willing and able to support it, and the provider must complete a thorough assessment of the environment and address any safety concerns. The service note must indicate when a service was provided via telehealth. Optum points providers to the CASP telehealth practice parameters for additional guidance. Optum, which manages the behavioral benefit, adds a claim rule across all lines of business including Medicaid/Community Plan: every behavioral health telehealth claim must carry POS 02 (member not at home) or POS 10 (member at home), and claims billed with only a telehealth modifier are not reimbursed (Telehealth Billing Quick Reference Guide, September 2025).',
         status: 'verified',
         cites: [
+          { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
           { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
           { title: 'Optum — Ohio Medicaid Supplemental Clinical Criteria (BH803OH012026.E, eff. 7/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/optumLOCG/ohlocg/ohMedcadLOCG.pdf' },
           { title: 'Optum — Ohio Medicaid Supplemental Clinical Criteria (BH803OH012026.E, eff. 7/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/optumLOCG/ohlocg/ohMedcadLOCG.pdf' },
@@ -1391,6 +1537,9 @@ export const ohioPayers: Record<string, PayerConfig> = {
       { q: 'Does UnitedHealthcare Community Plan of Ohio cover ABA?', a: 'Yes — through Optum under Ohio-specific supplemental clinical criteria that defer to the OAC on eligibility and PA while adding Optum\'s UM requirements (diagnostic tools, supervision ratios, the 80% utilization trigger).' },
       { q: 'What happens if a family uses fewer hours than authorized?', a: 'Utilization below 80% of authorized hours over a two-week period triggers scrutiny at continued-treatment review, with barrier documentation required — request hours the family can actually attend.' },
       { q: 'How do I credential for UHC Ohio ABA?', a: 'Enroll with Ohio Medicaid as Provider Type 19, Specialty 190 (rendering + group NPIs), then join the Optum network via Provider Express\'s Ohio Medicaid ABA Program page.' },
+      { q: 'What is UnitedHealthcare Community Plan of Ohio’s timely filing limit for ABA?', a: '365 days, per OAC 5160-1-19; claim disputes within 12 months of the date of service or 60 calendar days after the payment or denial, whichever is later (UnitedHealthcare Community Plan Ohio manual).' },
+      { q: 'How fast does UnitedHealthcare Community Plan of Ohio pay a clean claim?', a: 'The plan’s manual prints no payment timeframe, so ODM’s MCO contract standard applies unless your provider contract sets another schedule: 90% of clean claims paid or denied within 21 calendar days of receipt, 99% within 60 and all within 90. Secondary claims need the primary payer’s EOB.' },
+      { q: 'Does UnitedHealthcare Community Plan of Ohio require graphs for an ABA reauthorization?', a: 'Optum’s Ohio Medicaid criteria require progress for every target measured the same way as baseline — mastery rates, change scores and an updated norm-referenced adaptive assessment — but do not specifically require graphs.' },
     ],
   },
 
@@ -1466,6 +1615,20 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'OAC 5160-1-42 — Medicaid provider credentialing', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-1-42' },
         ],
       },
+      {
+        h2: 'AmeriHealth Caritas Ohio ABA claims: filing deadline, taxonomy, disputes and EVV',
+        body: [
+          'Filing deadline: “Providers will have 365 days to timely file a claim, including any timely filing exceptions, in accordance with Ohio Administrative Code (OAC) rule 5160-1-19”; original claims must be received within 365 days of the date of service. Claims rejected for missing or invalid provider or member data do not count as received.',
+          'Taxonomy: the required claim data include the NPI of the ordering, rendering and prescribing physician and the “NPI and Taxonomy.” Claim disputes (any provider disagreement with a claim decision): “within 12 months from the date of service or 60 calendar days after the payment, denial or partial denial of a timely claim submission, whichever is later.”',
+          'EVV does not apply to ABA in Ohio. OAC 5160-32-01 lists the services subject to Ohio’s EVV program — named waiver services in the home care, MyCare, PASSPORT and developmental-disability waivers, plus state-plan home health, private duty nursing and RN assessment and consultation — and makes managed care entities responsible for applying it; ABA is not on the list, and services delivered by telehealth are exempt.',
+          'Corrected and secondary claims: a corrected claim “must be submitted within 180 days of the paid claim date,” with the original claim number and the correct frequency code; claims carrying a primary insurer’s EOB “must be submitted within 180 days of the date the other insurer paid on the claim.” Payment clock: the manual defines a clean claim but prints no payment timeframe, so the state contract standard governs: ODM’s managed care provider agreement (Rev. 12/2025, App. L §10) requires every Ohio MCO — unless the MCO and the provider agreed an alternative payment schedule in the provider contract — to pay or deny 90% of clean claims within 21 calendar days of receipt, 99% within 60 calendar days and 100% of all claims within 90 calendar days; behavioral health claims are measured as their own category, and the standard applies to network and out-of-network providers alike. The same agreement requires the MCO to accept claims for 365 calendar days from the date of service under OAC 5160-1-19 (App. K §5a).',
+        ],
+        cites: [
+          { title: 'AmeriHealth Caritas Ohio — Provider Manual (v6, January 2026)', url: 'https://www.amerihealthcaritasoh.com/content/dam/amerihealth-caritas/acoh/pdf/provider/provider-manual.pdf' },
+          { title: 'OAC 5160-32-01 — Electronic visit verification: programs and services subject to EVV, codes.ohio.gov', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-32-01' },
+          { title: 'ODM — Ohio Medicaid Provider Agreement for Managed Care Organization (Rev. 12/2025): App. K §5 claims, App. L §10 prompt pay', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Providers/ProviderTypes/Managed%20Care/Provider%20Agreements/2025_12_MCO_Final.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'NaviNet/Jiva access', desc: 'The working authorization channel — confirm registration before the first case.' },
@@ -1478,6 +1641,10 @@ export const ohioPayers: Record<string, PayerConfig> = {
       { title: 'AmeriHealth Caritas Ohio — Provider Manual (v6, January 2026)', url: 'https://www.amerihealthcaritasoh.com/content/dam/amerihealth-caritas/acoh/pdf/provider/provider-manual.pdf' },
       { title: 'ODM — Telehealth Billing Guidelines (FFS, DOS on or after 1/1/2026)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Providers/Billing/BillingInstructions/Telehealth_Billing_Guidelines_updates_for_2026_final.pdf' },
       { title: 'OAC 5160-1-42 — Medicaid provider credentialing', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-1-42' },
+      { title: 'OAC 5160-32-01 — Electronic visit verification: programs and services subject to EVV, codes.ohio.gov', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-32-01' },
+      { title: 'ODM — Ohio Medicaid Provider Agreement for Managed Care Organization (Rev. 12/2025): App. K §5 claims, App. L §10 prompt pay', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Providers/ProviderTypes/Managed%20Care/Provider%20Agreements/2025_12_MCO_Final.pdf' },
+      { title: 'CMS — Medicaid NCCI MUE edits, practitioner services (2026 Q4, active 10/1–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' },
+      { title: 'OAC 5160-1-19 — Submission of medicaid claims (eff. 2/1/2023), codes.ohio.gov', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-1-19' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1579,14 +1746,13 @@ export const ohioPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       dailyLimits: {
-        value: 'No plan-specific per-day unit table found, and no state-level ceiling could be verified. Other Ohio MCOs publish real numbers (CareSource applies the CMS MUE maxima; Buckeye caps at 6 hours a day and 30 hours a week absent justification), so run the codes through this plan’s portal rather than assuming. codes.ohio.gov now returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026) rather than refusing the connection, and the chapter remains absent from the Title 5160 index, so no in-force rule text exists to read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Per ODM’s 7/30/2026 provider stakeholder presentation, the rewrite was paused in 2025 for reevaluation (budget pressure, national ABA-spend scrutiny, other-state audit findings) and the draft (ERF188422B) still carries a “DRAFT — NOT FOR FILING” header and no JCARR filing, so draft content does not govern.',
-        status: 'unverified',
+        value: 'AmeriHealth Caritas Ohio’s provider manual (January 2026) publishes no ABA per-day unit table. The state rule it works under: ODM’s managed care provider agreement requires every MCO to “implement claims edits (e.g., … National Correct Coding Initiative [NCCI]) at the direction of ODM” (App. K §5c), and OAC 5160-1-19(B) has claims submitted pursuant to NCCI. The CMS Medicaid NCCI practitioner MUE table active 10/1–12/31/2026 sets 97151 at 32 units, 97152 at 16, 97153 at 32, 97154 at 18, 97155 at 24, 97156 at 16, 97157 at 16, 97158 at 16, 0362T at 16 and 0373T at 32 units per date of service. Those are claim edits; the weekly ceiling is whatever the prior authorization approves.',
+        status: 'verified',
         cites: [
-          { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
-          { title: 'AmeriHealth Caritas OH — BH prior authorization page (verify via portal)', url: 'https://www.amerihealthcaritasoh.com/provider/resources/behavioral-prior-auth' },
+          { title: 'OAC 5160-1-19 — Submission of medicaid claims (eff. 2/1/2023), codes.ohio.gov', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-1-19' },
+          { title: 'ODM — Ohio Medicaid Provider Agreement for Managed Care Organization (Rev. 12/2025): App. K §5 claims, App. L §10 prompt pay', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Providers/ProviderTypes/Managed%20Care/Provider%20Agreements/2025_12_MCO_Final.pdf' },
+          { title: 'CMS — Medicaid NCCI MUE edits, practitioner services (2026 Q4, active 10/1–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' },
         ],
-        verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
-        blocker: 'document',
       },
       noteSignature: {
         value: 'No plan-specific session-note signature standard found, and none could be verified at state level. codes.ohio.gov now returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026) rather than refusing the connection, and the chapter remains absent from the Title 5160 index, so no in-force rule text exists to read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Per ODM’s 7/30/2026 provider stakeholder presentation, the rewrite was paused in 2025 for reevaluation (budget pressure, national ABA-spend scrutiny, other-state audit findings) and the draft (ERF188422B) still carries a “DRAFT — NOT FOR FILING” header and no JCARR filing, so draft content does not govern.',
@@ -1622,6 +1788,8 @@ export const ohioPayers: Record<string, PayerConfig> = {
       { q: 'How long do AmeriHealth Caritas Ohio ABA authorizations take?', a: 'Standard decisions are due “no later than seven calendar days following receipt of the request for service” under OAC 5160-26-03.1 (effective 1/1/2026), and expedited decisions within 48 hours. The plan’s January 2026 provider manual still prints “no later than 10 calendar days” — treat 7 as the binding outer limit.' },
       { q: 'What does AmeriHealth Caritas Ohio pay for ABA?', a: 'No ABA rate table is published. In-network rates are in your plan contract. A non-contracted provider is paid 75% of the applicable fee schedule amount for covered non-emergent services, and out-of-network care needs prior authorization.' },
       { q: 'Can I join AmeriHealth Caritas Ohio\'s network as an ABA provider?', a: 'You need ODM enrollment and credentialing (centralized at ODM for behavior analysts) plus a separate contract with the plan, and you are not participating until both are done. Start contracting while ODM processes your enrollment. Ask Provider Services at 1-833-644-6001 whether the ABA panel has openings.' },
+      { q: 'What is AmeriHealth Caritas Ohio’s timely filing limit for ABA claims?', a: '365 days from the date of service; claim disputes within 12 months of the date of service or 60 calendar days after the payment or denial, whichever is later (AmeriHealth Caritas Ohio provider manual, January 2026).' },
+      { q: 'What are AmeriHealth Caritas Ohio’s corrected-claim and secondary-claim deadlines?', a: 'Original claims within 365 days of the date of service; corrected claims within 180 days of the paid claim date; claims with a primary insurer’s EOB within 180 days of the date the other insurer paid. Payment follows ODM’s contract standard: 90% of clean claims within 21 calendar days, 99% within 60, all within 90, unless your contract says otherwise.' },
     ],
   },
 
@@ -1677,6 +1845,18 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Humana Healthy Horizons OH — PA and notification list (eff. 1/1/2026)', url: 'https://assets.humana.com/is/content/humana/OH%20MCD%20PAL%20Dpdf' },
         ],
       },
+      {
+        h2: 'Humana Healthy Horizons in Ohio ABA claims: filing deadline, payment, taxonomy, disputes and EVV',
+        body: [
+          'Filing deadline: “Claims must be submitted within 365 days from the date of service or discharge date”; corrected claims within 365 days of the date of service or 180 days from the date Medicare or the other insurer paid. Payment: Humana pays 90% of clean claims within 21 calendar days of receipt, 99% within 60 and 100% within 90.',
+          'Taxonomy: claims need “Billing and rendering taxonomy codes that match the ODM Master Provider List (MPL),” and billing and rendering addresses that match the MPL. Claim disputes (any provider disagreement with a claim decision): “within 12 months from the date of service or 60 calendar days after the payment, denial or partial denial of a timely claim submission, whichever is later.” Humana resolves a claim dispute within 15 business days.',
+          'EVV does not apply to ABA in Ohio. OAC 5160-32-01 lists the services subject to Ohio’s EVV program — named waiver services in the home care, MyCare, PASSPORT and developmental-disability waivers, plus state-plan home health, private duty nursing and RN assessment and consultation — and makes managed care entities responsible for applying it; ABA is not on the list, and services delivered by telehealth are exempt. Humana’s own EVV list names home health, nursing, therapy and personal-care codes (G0156, G0299, G0300, T1000–T1003, S5125, T1019, T2025, G0151–G0153), not ABA codes.',
+        ],
+        cites: [
+          { title: 'Humana Healthy Horizons in Ohio — 2026 Provider Manual', url: 'https://assets.humana.com/is/content/humana/2025_OH_Provider_Manualpdf' },
+          { title: 'OAC 5160-32-01 — Electronic visit verification: programs and services subject to EVV, codes.ohio.gov', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-32-01' },
+        ],
+      },
     ],
     collect: [
       { title: 'Assessment PA first', desc: 'Unlike some plans, the assessment needs authorization — build it into the intake sequence.' },
@@ -1687,6 +1867,10 @@ export const ohioPayers: Record<string, PayerConfig> = {
       { title: 'Humana Healthy Horizons OH — PA and notification list', url: 'https://assets.humana.com/is/content/humana/OH%20MCD%20PAL%20Dpdf' },
       { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
       { title: 'ODM — Telehealth Billing Guidelines (FFS, DOS on or after 1/1/2026)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Providers/Billing/BillingInstructions/Telehealth_Billing_Guidelines_updates_for_2026_final.pdf' },
+      { title: 'OAC 5160-32-01 — Electronic visit verification: programs and services subject to EVV, codes.ohio.gov', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-32-01' },
+      { title: 'ODM — Ohio Medicaid Provider Agreement for Managed Care Organization (Rev. 12/2025): App. K §5 claims, App. L §10 prompt pay', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Providers/ProviderTypes/Managed%20Care/Provider%20Agreements/2025_12_MCO_Final.pdf' },
+      { title: 'CMS — Medicaid NCCI MUE edits, practitioner services (2026 Q4, active 10/1–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' },
+      { title: 'OAC 5160-1-19 — Submission of medicaid claims (eff. 2/1/2023), codes.ohio.gov', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-1-19' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1787,14 +1971,13 @@ export const ohioPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       dailyLimits: {
-        value: 'No plan-specific per-day unit table found, and no state-level ceiling could be verified. Other Ohio MCOs publish real numbers (CareSource applies the CMS MUE maxima; Buckeye caps at 6 hours a day and 30 hours a week absent justification), so run the codes through this plan’s portal rather than assuming. codes.ohio.gov now returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026) rather than refusing the connection, and the chapter remains absent from the Title 5160 index, so no in-force rule text exists to read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Per ODM’s 7/30/2026 provider stakeholder presentation, the rewrite was paused in 2025 for reevaluation (budget pressure, national ABA-spend scrutiny, other-state audit findings) and the draft (ERF188422B) still carries a “DRAFT — NOT FOR FILING” header and no JCARR filing, so draft content does not govern.',
-        status: 'unverified',
+        value: 'Humana’s 2026 Ohio provider manual publishes no ABA per-day unit table. The state rule it works under: ODM’s managed care provider agreement requires every MCO to “implement claims edits (e.g., … National Correct Coding Initiative [NCCI]) at the direction of ODM” (App. K §5c), and OAC 5160-1-19(B) has claims submitted pursuant to NCCI. The CMS Medicaid NCCI practitioner MUE table active 10/1–12/31/2026 sets 97151 at 32 units, 97152 at 16, 97153 at 32, 97154 at 18, 97155 at 24, 97156 at 16, 97157 at 16, 97158 at 16, 0362T at 16 and 0373T at 32 units per date of service. Those are claim edits; the weekly ceiling is whatever the prior authorization approves.',
+        status: 'verified',
         cites: [
-          { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
-          { title: 'Humana Healthy Horizons OH — PA and notification list (eff. 1/1/2026)', url: 'https://assets.humana.com/is/content/humana/OH%20MCD%20PAL%20Dpdf' },
+          { title: 'OAC 5160-1-19 — Submission of medicaid claims (eff. 2/1/2023), codes.ohio.gov', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-1-19' },
+          { title: 'ODM — Ohio Medicaid Provider Agreement for Managed Care Organization (Rev. 12/2025): App. K §5 claims, App. L §10 prompt pay', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Providers/ProviderTypes/Managed%20Care/Provider%20Agreements/2025_12_MCO_Final.pdf' },
+          { title: 'CMS — Medicaid NCCI MUE edits, practitioner services (2026 Q4, active 10/1–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' },
         ],
-        verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
-        blocker: 'document',
       },
       noteSignature: {
         value: 'No plan-specific session-note signature standard found, and none could be verified at state level. codes.ohio.gov now returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026) rather than refusing the connection, and the chapter remains absent from the Title 5160 index, so no in-force rule text exists to read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Per ODM’s 7/30/2026 provider stakeholder presentation, the rewrite was paused in 2025 for reevaluation (budget pressure, national ABA-spend scrutiny, other-state audit findings) and the draft (ERF188422B) still carries a “DRAFT — NOT FOR FILING” header and no JCARR filing, so draft content does not govern.',
@@ -1828,6 +2011,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
     faq: [
       { q: 'Does Humana Healthy Horizons in Ohio cover ABA?', a: 'Yes — on the state clinical framework, with prior authorization required on every ABA code including assessments, submitted via Availity Essentials.' },
       { q: 'What happens if we deliver ABA without a Humana authorization?', a: 'The service is subject to retrospective medical-necessity review and financial penalties — treat authorization-before-service as non-negotiable.' },
+      { q: 'Does Humana Healthy Horizons in Ohio require taxonomy on ABA claims?', a: 'Yes. Billing and rendering taxonomy codes must match the ODM Master Provider List (Humana Ohio provider manual, 2026). Claims are due within 365 days of the date of service.' },
     ],
   },
 
@@ -1840,7 +2024,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
       status: 'verified',
       cites: [
         { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
-        { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+        { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
       ],
     },
     treatmentPA: {
@@ -1856,7 +2040,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
       value: 'Yes \u2014 ASD only (F84.0\u2013F84.9); ABA for other diagnoses considered experimental',
       status: 'verified',
       cites: [
-        { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+        { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
       ],
     },
     payer: 'Aetna in Ohio',
@@ -1881,10 +2065,10 @@ export const ohioPayers: Record<string, PayerConfig> = {
       {
         h2: 'The national policy, applied in Ohio',
         body: [
-          'Aetna covers ABA for autism spectrum disorder under its national clinical policy CPB 0554 (paired with CPB 0648 for ASD), and considers ABA experimental for anything else. Precertification is required for both the assessment and treatment — form GR-69017-4, submitted via Availity or phone — with reauthorization commonly on a roughly 6-month cadence. That clinical policy is national — what changes in Ohio is the legal floor underneath it: the state mandate below governs what fully-insured plans must cover, while self-funded employer plans answer to ERISA and federal parity instead. Plan funding type is therefore the first fact to establish on every benefits check. The full national policy breakdown lives in our Aetna guide; this page covers what changes in Ohio.',
+          'Aetna covers ABA for autism spectrum disorder under its national clinical policy CPB 0554 (paired with CPB 0648 for ASD), and considers ABA experimental for anything else — its 10/14/2026 review names Down syndrome without an ASD co-morbidity, and “all other non-ASD indications.” Precertification is required for both the assessment and treatment — form GR-69017-4, submitted via Availity or phone — with reauthorization commonly on a roughly 6-month cadence. That clinical policy is national — what changes in Ohio is the legal floor underneath it: the state mandate below governs what fully-insured plans must cover, while self-funded employer plans answer to ERISA and federal parity instead. Plan funding type is therefore the first fact to establish on every benefits check. The full national policy breakdown lives in our Aetna guide; this page covers what changes in Ohio.',
         ],
         cites: [
-      { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+      { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
       { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
       { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
       { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
@@ -1906,7 +2090,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           'We checked: Aetna publishes no Ohio-specific ABA policy, form, or supplement — the national policy plus the state mandate is the whole picture. That’s worth knowing in itself: it means benefits verification (plan funding type, mandate applicability, benefit limits) is where Ohio-specific answers come from, not a carrier document.',
         ],
         cites: [
-      { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+      { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
         ],
       },
       {
@@ -1918,6 +2102,32 @@ export const ohioPayers: Record<string, PayerConfig> = {
       { title: 'Ohio Admin. Code 4783-4-01 — COBA requirements', url: 'https://www.law.cornell.edu/regulations/ohio/Ohio-Admin-Code-4783-4-01' },
         ],
       },
+      {
+        h2: 'How fast must Aetna pay an ABA claim in Ohio, and is there a rate floor?',
+        body: [
+          'Payment clock: Ohio’s prompt-pay law (R.C. 3901.381) requires a third-party payer to pay or deny a claim on the standard form within 30 days of receipt, or within 45 days when it needs supporting documentation (and it must ask for that documentation within 30 days); a materially deficient claim must be flagged within 15 days. An electronic claim is presumed received 24 hours after submission. A self-funded employer plan may sit outside Ohio insurance law, so confirm the funding type first.',
+          'Ohio sets no minimum commercial rate for ABA today. House Bill 453, introduced September 15, 2025 and sitting in the House Insurance Committee since October 1, 2025, would require third-party payers to pay ABA assessment and treatment codes “at not less than one hundred per cent of the medicaid fee schedule,” but it is a pending bill, not law.',
+          'Filing deadline: Aetna’s provider manual (edition 6/26) prints no numeric filing limit for original, corrected or secondary claims. It defines a clean claim as one “received in a timely manner” with all CMS-1500 data elements, and a claim that involves coordination of benefits is not a clean claim — so the filing window is the one in your Aetna participation agreement, and that is where to look before a deadline passes.',
+        ],
+        cites: [
+          { title: 'Ohio Rev. Code 3901.381 — third-party payer claim payment deadlines, codes.ohio.gov', url: 'https://codes.ohio.gov/ohio-revised-code/section-3901.381' },
+          { title: 'Ohio House Bill 453 (136th General Assembly), as introduced — ABA coverage and payment rates', url: 'https://search-prod.lis.state.oh.us/api/v2/general_assembly_136/legislation/hb453/00_IN/html/' },
+          { title: 'Ohio Legislature — HB 453 status (introduced 9/15/2025; referred to House Insurance 10/1/2025)', url: 'https://www.legislature.ohio.gov/legislation/136/hb453/status' },
+          { title: 'Aetna Provider Manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+        ],
+      },
+      {
+        h2: 'Aetna reauthorization, supervision and the code set',
+        body: [
+          'Reauthorization: Aetna’s ABA medical necessity guide evaluates progress “every six months.” Each request must show a functional impairment on a standardized scale in the past 12 months (Vineland-3, ABAS, VB-MAPP or ABLLS are the examples), a treatment plan whose target behaviors have recorded baseline levels and “quantifiable criteria for progress,” and either documentation that the frequency of the target behavior improved or, if it did not, documentation of treatment modification, added assessment or expert consultation; the level of impairment must justify the hours requested. Coverage ends on the guide’s thresholds — two or more standard deviations of improvement in multiple domains (one or more for a focused plan), or less than one standard deviation in all domains across successive authorization periods. The guide asks for objective, quantified data; it does not require graphs.',
+          'Supervision: “additional authorization may be provided for QHP protocol modification and direction at 1 to 2 hours per 10 hours of treatment by protocol,” plus caregiver training. Aetna sets no cap on the number of technicians one behavior analyst may supervise.',
+          'Code set: CPB 0554 lists the ABA codes as CPT 97151–97158 with 0362T and 0373T. Neither CPB 0554 nor the medical necessity guide lists a HCPCS H-code (H0031, H0032, H2019) for ABA, so whether your Aetna contract pays one is a question for Aetna, not something its policies grant.',
+        ],
+        cites: [
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -1926,13 +2136,18 @@ export const ohioPayers: Record<string, PayerConfig> = {
       { title: 'Age', desc: 'Where the mandate carries age terms, flag edge cases for the parity analysis rather than turning families away.' },
     ],
     sources: [
-      { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+      { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
       { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
       { title: 'Ohio Rev. Code § 3923.84 (autism coverage mandate)', url: 'https://codes.findlaw.com/oh/title-xxxix-insurance/oh-rev-code-sect-3923-84/' },
       { title: 'Ohio Admin. Code 4783-4-01 — COBA requirements', url: 'https://www.law.cornell.edu/regulations/ohio/Ohio-Admin-Code-4783-4-01' },
       { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
       { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
       { title: 'Aetna — Behavioral Health Provider Manual', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' },
+      { title: 'Ohio Rev. Code 3901.381 — third-party payer claim payment deadlines, codes.ohio.gov', url: 'https://codes.ohio.gov/ohio-revised-code/section-3901.381' },
+      { title: 'Ohio House Bill 453 (136th General Assembly), as introduced — ABA coverage and payment rates', url: 'https://search-prod.lis.state.oh.us/api/v2/general_assembly_136/legislation/hb453/00_IN/html/' },
+      { title: 'Ohio Legislature — HB 453 status (introduced 9/15/2025; referred to House Insurance 10/1/2025)', url: 'https://www.legislature.ohio.gov/legislation/136/hb453/status' },
+      { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+      { title: 'Aetna Provider Manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2016,7 +2231,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
     },
     deliveryRules: {
       supervision: {
-        value: 'Services must be provided directly or billed by licensed behavior analysts (in states with behavior analyst licensure laws), board-certified behavior analysts, or licensed psychologists where behavior analysis is within their scope, unless state mandates, plan documents or contracts require otherwise. Where a mandate, plan document or contract does allow authorization for services not directly provided by such a person, there must be supervision and direction of the unlicensed or non-certified provider in line with practice standards. Aetna publishes no numeric supervision ratio.',
+        value: 'Services must be provided directly or billed by licensed behavior analysts (in states with behavior analyst licensure laws), board-certified behavior analysts, or licensed psychologists where behavior analysis is within their scope, unless state mandates, plan documents or contracts require otherwise. Where a mandate, plan document or contract does allow authorization for services not directly provided by such a person, there must be supervision and direction of the unlicensed or non-certified provider in line with practice standards. Aetna publishes no numeric supervision ratio. Aetna’s medical necessity guide does authorize the analyst’s time against a ratio: QHP protocol modification and direction “at 1 to 2 hours per 10 hours of treatment by protocol”; it sets no cap on the number of technicians per analyst.',
         status: 'verified',
         cites: [
           { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
@@ -2026,7 +2241,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
         value: 'Not addressed in Aetna’s published ABA policies — CPB 0554, CPB 0648 and the ABA medical necessity guide are silent on billing 97153 and 97155 for the same clock time.',
         status: 'unverified',
         cites: [
-          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
           { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
         ],
         verifyVia: 'Aetna provider services / the participating-provider agreement, or a written coding determination from Aetna Behavioral Health (BACABACases@Aetna.com).',
@@ -2069,6 +2284,11 @@ export const ohioPayers: Record<string, PayerConfig> = {
       { q: 'Does Aetna cover ABA therapy in Ohio?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Ohio\'s mandate (Ohio R.C. § 3923.84) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the Ohio autism mandate require?', a: 'Ohio’s mandate (HB 463, 2017; R.C. See the mandate section above for ages, caps, and exemptions — and remember federal parity limits how hard the numeric caps can be enforced against group plans.' },
       { q: 'What does Aetna pay for ABA in Ohio?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the Ohio Medicaid fee schedule where one exists, and treat rate-setting as part of contracting.' },
+      { q: 'How fast must Aetna pay an ABA claim in Ohio?', a: 'On a plan subject to Ohio law, within 30 days of receiving a claim on the standard form, or 45 days when it needs supporting documentation; a materially deficient claim must be flagged within 15 days (R.C. 3901.381).' },
+      { q: 'Is there a minimum rate for 97153 on Aetna plans in Ohio?', a: 'No. Ohio law sets no commercial ABA rate floor; rates come from your contract. House Bill 453 (introduced September 2025, still in the House Insurance Committee) would require commercial plans to pay at least 100% of the Ohio Medicaid fee schedule, but it is not law.' },
+      { q: 'What documents does Aetna need for an ABA authorization in Ohio?', a: 'Aetna\'s precertification form GR-69017-4 (7-26), which replaced its other ABA forms from August 1, 2026 (Maryland and Massachusetts excepted), lists them. It asks for the current DSM diagnosis code and the diagnosing provider\'s name and credentials, plus hours by code (assessment codes per authorization period, treatment codes per week) and any hours during class. Supporting documents: "Results of a standardized assessment (i.e. Vineland, ABAS, VB-MAPP) completed within the past 12 months," with the IQ if available. Add a time-limited treatment plan with baselines and measurable targets, FBA or skills-assessment results, data showing severity justifies the hours, measurable caregiver goals, titration and discharge criteria, and coordination with other providers. Start the request on Availity or by phone and attach the form and records.' },
+      { q: 'What is Aetna’s timely filing limit for ABA claims in Ohio?', a: 'Aetna’s provider manual publishes no number: a clean claim must be “received in a timely manner,” and the actual window (original, corrected and secondary claims) is set in your Aetna agreement. Ohio’s prompt-pay law then gives Aetna 30 days to pay or deny a clean claim on the standard form (45 days when it needs supporting documentation).' },
+      { q: 'Does Aetna require graphs for an ABA reauthorization?', a: 'Aetna’s ABA medical necessity guide reviews progress every six months and requires quantified baseline and progress data, a standardized functional scale from the past 12 months, and documentation of improvement (or of treatment changes when there is none). It does not require the data to be graphed.' },
     ],
   },
 
@@ -2155,6 +2375,33 @@ export const ohioPayers: Record<string, PayerConfig> = {
       { title: 'Ohio Admin. Code 4783-4-01 — COBA requirements', url: 'https://www.law.cornell.edu/regulations/ohio/Ohio-Admin-Code-4783-4-01' },
         ],
       },
+      {
+        h2: 'How fast must Cigna pay an ABA claim in Ohio, and is there a rate floor?',
+        body: [
+          'Payment clock: Ohio’s prompt-pay law (R.C. 3901.381) requires a third-party payer to pay or deny a claim on the standard form within 30 days of receipt, or within 45 days when it needs supporting documentation (and it must ask for that documentation within 30 days); a materially deficient claim must be flagged within 15 days. An electronic claim is presumed received 24 hours after submission. A self-funded employer plan may sit outside Ohio insurance law, so confirm the funding type first.',
+          'Ohio sets no minimum commercial rate for ABA today. House Bill 453, introduced September 15, 2025 and sitting in the House Insurance Committee since October 1, 2025, would require third-party payers to pay ABA assessment and treatment codes “at not less than one hundred per cent of the medicaid fee schedule,” but it is a pending bill, not law.',
+          'Filing deadline: Cigna’s behavioral benefits, ABA included, are administered by Evernorth Behavioral Health, whose administrative guidelines (September 2026) “will only consider claims submitted within 90 days of the date of service or as otherwise defined in your Provider Agreement.” Exceptions: a longer state-law limit applies; a coordination-of-benefits claim gets 90 days from the primary payer’s processing date on its EOB or EOP; Medicaid-secondary claims get three years; and a timely claim returned for more information restarts its 90 days on the date of the request. The guidelines’ Ohio regulatory addendum adds that, under R.C. 3901.388(A), an underpayment appeal or adjustment request must reach Evernorth within two years of the payment or explanation of payment.',
+        ],
+        cites: [
+          { title: 'Ohio Rev. Code 3901.381 — third-party payer claim payment deadlines, codes.ohio.gov', url: 'https://codes.ohio.gov/ohio-revised-code/section-3901.381' },
+          { title: 'Ohio House Bill 453 (136th General Assembly), as introduced — ABA coverage and payment rates', url: 'https://search-prod.lis.state.oh.us/api/v2/general_assembly_136/legislation/hb453/00_IN/html/' },
+          { title: 'Ohio Legislature — HB 453 status (introduced 9/15/2025; referred to House Insurance 10/1/2025)', url: 'https://www.legislature.ohio.gov/legislation/136/hb453/status' },
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
+      },
+      {
+        h2: 'Cigna reauthorization, telehealth billing and the code set',
+        body: [
+          'Reauthorization: EN0499’s continued-treatment criteria require an updated treatment plan; “quantitative baseline, interim and current data” with the dates they were collected, for every behavior and skill, across all settings; current data collected no more than 60 days before the start date of the continued-treatment request and no more than 60 days before the request is received; data showing “ongoing and sustained progress”; a reliable, valid, standardized assessment completed no more than one year before the request; a documented barriers plan when progress is not shown; a fresh standardized assessment after any break in treatment longer than 60 calendar days; and dated quantitative data on stakeholder (caregiver) training. EN0499 asks for dated quantitative data, not graphs — the policy never uses the word — so a graph is a presentation choice, while the dated numbers are mandatory.',
+          'Telehealth billing: “All ABA CPT codes are covered telehealth services” (autism resource guide). On the claim, Evernorth’s administrative guidelines (September 2026) call for “Modifier 95 in Field 24-D to specify telehealth” and “02 for Place of Service in Field 24-B”; a provider delivers virtual sessions after attesting to the telehealth specialty on Evernorth’s Attested Specialty Form. Neither document requires the authorization itself to name telehealth.',
+          'Code set: “All ABA services must be billed with CPT codes 97151–97158, 0362T, and 0373T ONLY,” in 15-minute units — HCPCS H-codes (H0031, H0032, H2019, H2014) are not accepted for ABA. Supervision: one to two hours of case supervision per ten hours of direct treatment, with at least one to two hours a week when direct treatment is ten hours a week or less; EN0499 sets no cap on how many technicians one BCBA may supervise.',
+        ],
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+          { title: 'Cigna / Evernorth autism resource guide (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -2167,6 +2414,10 @@ export const ohioPayers: Record<string, PayerConfig> = {
       { title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
       { title: 'Ohio Rev. Code § 3923.84 (autism coverage mandate)', url: 'https://codes.findlaw.com/oh/title-xxxix-insurance/oh-rev-code-sect-3923-84/' },
       { title: 'Ohio Admin. Code 4783-4-01 — COBA requirements', url: 'https://www.law.cornell.edu/regulations/ohio/Ohio-Admin-Code-4783-4-01' },
+      { title: 'Ohio Rev. Code 3901.381 — third-party payer claim payment deadlines, codes.ohio.gov', url: 'https://codes.ohio.gov/ohio-revised-code/section-3901.381' },
+      { title: 'Ohio House Bill 453 (136th General Assembly), as introduced — ABA coverage and payment rates', url: 'https://search-prod.lis.state.oh.us/api/v2/general_assembly_136/legislation/hb453/00_IN/html/' },
+      { title: 'Ohio Legislature — HB 453 status (introduced 9/15/2025; referred to House Insurance 10/1/2025)', url: 'https://www.legislature.ohio.gov/legislation/136/hb453/status' },
+      { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2210,9 +2461,10 @@ export const ohioPayers: Record<string, PayerConfig> = {
         ],
       },
       telehealth: {
-        value: 'All ABA CPT codes are covered telehealth services per the Evernorth autism resource guide, and EN0499 allows delivery in person, via telehealth, or as a hybrid — the modality chosen on individual characteristics, the treatment plan, caregiver participation, environment, evidence of efficacy and safety, and technological requirements. The requirement that the ABA provider remain in line of sight and close proximity to the individual expressly does not apply to telehealth services. Where treatment is delivered in settings with additional behavioral expectations, telehealth included, the plan must document that the service still meets the definition of direct treatment and direct engagement.',
+        value: 'All ABA CPT codes are covered telehealth services per the Evernorth autism resource guide, and EN0499 allows delivery in person, via telehealth, or as a hybrid — the modality chosen on individual characteristics, the treatment plan, caregiver participation, environment, evidence of efficacy and safety, and technological requirements. The requirement that the ABA provider remain in line of sight and close proximity to the individual expressly does not apply to telehealth services. Where treatment is delivered in settings with additional behavioral expectations, telehealth included, the plan must document that the service still meets the definition of direct treatment and direct engagement. On the claim, Evernorth’s administrative guidelines (September 2026) call for modifier 95 in field 24-D and place of service 02 in field 24-B; the authorization need not name telehealth.',
         status: 'verified',
         cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
           { title: 'Cigna / Evernorth autism resource guide (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
           { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
         ],
@@ -2294,6 +2546,12 @@ export const ohioPayers: Record<string, PayerConfig> = {
       { q: 'Does Cigna cover ABA therapy in Ohio?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Ohio\'s mandate (Ohio R.C. § 3923.84) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the Ohio autism mandate require?', a: 'Ohio’s mandate (HB 463, 2017; R.C. See the mandate section above for ages, caps, and exemptions — and remember federal parity limits how hard the numeric caps can be enforced against group plans.' },
       { q: 'What does Cigna pay for ABA in Ohio?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the Ohio Medicaid fee schedule where one exists, and treat rate-setting as part of contracting.' },
+      { q: 'How fast must Cigna pay an ABA claim in Ohio?', a: 'On a plan subject to Ohio law, within 30 days of receiving a claim on the standard form, or 45 days when it needs supporting documentation; a materially deficient claim must be flagged within 15 days (R.C. 3901.381).' },
+      { q: 'Is there a minimum rate for 97153 on Cigna plans in Ohio?', a: 'No. Ohio law sets no commercial ABA rate floor; rates come from your contract. House Bill 453 (introduced September 2025, still in the House Insurance Committee) would require commercial plans to pay at least 100% of the Ohio Medicaid fee schedule, but it is not law.' },
+      { q: 'What documents does Cigna (Evernorth) need for ABA in Ohio?', a: 'EN0499 (effective 5/15/2026) requires a confirmed DSM-5-TR ASD diagnosis from an independently licensed clinician whose scope includes diagnosis. The record must give "the name, credentials, and type of licensure" of the diagnosing clinician and "the date on which the diagnosis was most recently made." A provisional or rule-out diagnosis, or an IDEA educational identification, does not count. For treatment, the BCBA\'s assessment must use a current-edition standardized instrument, completed in full and administered "within 60 days prior to the start of treatment," with score tables. The treatment plan\'s goals must match the deficits it found.' },
+      { q: 'What is Cigna’s timely filing limit for ABA claims in Ohio?', a: 'Evernorth (Cigna’s behavioral administrator) considers claims submitted within 90 days of the date of service unless your provider agreement or a longer state-law limit says otherwise; secondary (COB) claims get 90 days from the primary payer’s EOB, and a claim returned for more information restarts the 90 days on the request date. Underpayment appeals in Ohio are due within two years of the payment.' },
+      { q: 'Does Cigna require graphs for an ABA reauthorization?', a: 'No — EN0499 requires dated quantitative baseline, interim and current data for every target, with current data no more than 60 days old, plus a standardized assessment from the past year; it never requires the data to be graphed. Graphs are a common way to present it.' },
+      { q: 'How do I bill ABA telehealth to Cigna, and are H-codes accepted?', a: 'All ABA CPT codes are covered by telehealth; bill modifier 95 with place of service 02 after attesting to the telehealth specialty with Evernorth. Only CPT 97151–97158, 0362T and 0373T are accepted for ABA — no H-codes.' },
     ],
   },
 
@@ -2384,6 +2642,34 @@ export const ohioPayers: Record<string, PayerConfig> = {
       { title: 'Ohio Admin. Code 4783-4-01 — COBA requirements', url: 'https://www.law.cornell.edu/regulations/ohio/Ohio-Admin-Code-4783-4-01' },
         ],
       },
+      {
+        h2: 'UnitedHealthcare (Optum) ABA claims in Ohio: filing deadline, payment, appeals and rate floor',
+        body: [
+          'Optum, which runs UnitedHealthcare’s commercial behavioral network, sets the claim rules in its National Network Manual (effective September 1, 2026): “All information necessary to process claims must be received by Optum no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan,” and corrections should be made within 90 days of initial receipt. Clean claims with any required authorization are “generally” paid within 45 calendar days, or as state law requires. To contest a claim or authorization decision on a commercial plan, request a reconsideration first and then an appeal; the two steps together allow 12 months unless state law or the participation agreement says otherwise. A non-urgent prior-authorization appeal can be filed within 180 days.',
+          'Payment clock: Ohio’s prompt-pay law (R.C. 3901.381) requires a third-party payer to pay or deny a claim on the standard form within 30 days of receipt, or within 45 days when it needs supporting documentation (and it must ask for that documentation within 30 days); a materially deficient claim must be flagged within 15 days. An electronic claim is presumed received 24 hours after submission. A self-funded employer plan may sit outside Ohio insurance law, so confirm the funding type first.',
+          'Ohio sets no minimum commercial rate for ABA today. House Bill 453, introduced September 15, 2025 and sitting in the House Insurance Committee since October 1, 2025, would require third-party payers to pay ABA assessment and treatment codes “at not less than one hundred per cent of the medicaid fee schedule,” but it is a pending bill, not law.',
+        ],
+        cites: [
+          { title: 'Optum Behavioral Health — National Network Manual (published July 1, 2026; effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+          { title: 'Ohio Rev. Code 3901.381 — third-party payer claim payment deadlines, codes.ohio.gov', url: 'https://codes.ohio.gov/ohio-revised-code/section-3901.381' },
+          { title: 'Ohio House Bill 453 (136th General Assembly), as introduced — ABA coverage and payment rates', url: 'https://search-prod.lis.state.oh.us/api/v2/general_assembly_136/legislation/hb453/00_IN/html/' },
+          { title: 'Ohio Legislature — HB 453 status (introduced 9/15/2025; referred to House Insurance 10/1/2025)', url: 'https://www.legislature.ohio.gov/legislation/136/hb453/status' },
+        ],
+      },
+      {
+        h2: 'UnitedHealthcare (Optum) reauthorization, supervision and telehealth billing',
+        body: [
+          'Reauthorization: with each clinical review for continued ABA, Optum’s supplemental clinical criteria require updated documentation that progress “is assessed and documented for each targeted symptom and behavior … including the same modes of measurement that were utilized for baseline measurement,” reported as the rate and percentage of mastered programs and targets, change scores on outcome measures, updated standardized adaptive measures and change scores on skills-based assessments, with movement from baseline shown on validated, norm-referenced assessments; caregiver involvement where applicable; and, when progress is inadequate within a six-month period, the reasons and the treatment changes made. Use below 80% of authorized hours over a two-week period is addressed at review. The criteria ask for measured, comparable data, not graphs specifically; Optum’s CPT FAQ treats time spent on data analysis and graphs as treatment planning bundled into the direct-service codes.',
+          'Supervision: Optum’s ABA CPT FAQ says “in general, we see 2 hours for every 10 hours of direct Behavior Technician hours,” and a request above that 2:10 ratio needs a clinical rationale; no cap on the number of technicians per BCBA is published.',
+          'Telehealth billing and code set: only 97155, 97156 and 97157 may be delivered by telehealth, by an attested Optum virtual-visits provider; Optum requires every behavioral health telehealth claim to carry POS 02 or POS 10 — “Optum will not reimburse for services billed with only telehealth modifiers 93, 95, FQ, GQ or GT” — and the FAQ asks providers to alert the Optum ABA Care Advocate that services will be virtual when completing the authorization. The commercial reimbursement policy bills ABA under CPT 97151–97158, 0362T and 0373T with a credential modifier; no HCPCS H-code is on it.',
+        ],
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+          { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
+          { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
+          { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -2401,6 +2687,10 @@ export const ohioPayers: Record<string, PayerConfig> = {
       { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
       { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
       { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' },
+      { title: 'Optum Behavioral Health — National Network Manual (published July 1, 2026; effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+      { title: 'Ohio Rev. Code 3901.381 — third-party payer claim payment deadlines, codes.ohio.gov', url: 'https://codes.ohio.gov/ohio-revised-code/section-3901.381' },
+      { title: 'Ohio House Bill 453 (136th General Assembly), as introduced — ABA coverage and payment rates', url: 'https://search-prod.lis.state.oh.us/api/v2/general_assembly_136/legislation/hb453/00_IN/html/' },
+      { title: 'Ohio Legislature — HB 453 status (introduced 9/15/2025; referred to House Insurance 10/1/2025)', url: 'https://www.legislature.ohio.gov/legislation/136/hb453/status' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2532,6 +2822,10 @@ export const ohioPayers: Record<string, PayerConfig> = {
       { q: 'What does the Ohio autism mandate require?', a: 'Ohio’s mandate (HB 463, 2017; R.C. See the mandate section above for ages, caps, and exemptions — and remember federal parity limits how hard the numeric caps can be enforced against group plans.' },
       { q: 'What does UnitedHealthcare pay for ABA in Ohio?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the Ohio Medicaid fee schedule where one exists, and treat rate-setting as part of contracting.' },
       { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale.' },
+      { q: 'What is UnitedHealthcare’s timely filing limit for ABA in Ohio?', a: 'Optum’s National Network Manual: 90 calendar days from the date of service unless state law, the plan or your agreement allows longer; reconsideration and appeal together within 12 months.' },
+      { q: 'Is there a minimum rate for 97153 on UnitedHealthcare plans in Ohio?', a: 'No. Ohio law sets no commercial ABA rate floor; rates come from your contract. House Bill 453 (introduced September 2025, still in the House Insurance Committee) would require commercial plans to pay at least 100% of the Ohio Medicaid fee schedule, but it is not law.' },
+      { q: 'What documents does UnitedHealthcare (Optum) need for ABA in Ohio?', a: 'Optum\'s ABA Supplemental Clinical Criteria require a valid DSM-5-TR ASD diagnosis from a state-licensed physician, psychologist or other qualified licensed clinician. The diagnosing clinician confirms the diagnosis and severity level "using at least one clinically validated tool," such as the ADOS-2, ADI-R or CARS-2. The ABA provider then completes its own behavioral assessment with baseline measurement on at least one validated tool (for example the VB-MAPP, ABLLS-R, AFLS or Vineland) and builds the treatment plan from it. "Prior authorization is required for ABA (unless otherwise specified or mandated by contract or law)." The criteria set no expiry on the diagnosis.' },
+      { q: 'Does UnitedHealthcare (Optum) require graphs for an ABA reauthorization?', a: 'Optum requires progress measured the same way as baseline for every target — mastery rates, change scores and updated standardized adaptive measures — but does not specifically require graphs. Telehealth (97155, 97156, 97157 only) must be billed with POS 02 or 10, and flagged to the Optum care advocate at authorization.' },
     ],
   },
 
@@ -2642,6 +2936,43 @@ export const ohioPayers: Record<string, PayerConfig> = {
           'Alongside it, note the criteria change. Anthem told Ohio commercial providers that effective June 1, 2024 it would transition from CG-BEH-02 (Adaptive Behavioral Treatment) and MCG W0153 to MCG B-806-T, Behavioral Health Care Applied Behavioral Analysis, for medical necessity and clinical appropriateness reviews. If your templates or a denial letter still reference CG-BEH-02, they are out of date. MCG guidelines are proprietary and unpublished, so leverage comes from a complete, data-anchored treatment plan rather than from quoting criteria back.',
         ],
       },
+      {
+        h2: 'How fast must Anthem pay an ABA claim in Ohio, and is there a rate floor?',
+        body: [
+          'Payment clock: Ohio’s prompt-pay law (R.C. 3901.381) requires a third-party payer to pay or deny a claim on the standard form within 30 days of receipt, or within 45 days when it needs supporting documentation (and it must ask for that documentation within 30 days); a materially deficient claim must be flagged within 15 days. An electronic claim is presumed received 24 hours after submission. A self-funded employer plan may sit outside Ohio insurance law, so confirm the funding type first.',
+          'Ohio sets no minimum commercial rate for ABA today. House Bill 453, introduced September 15, 2025 and sitting in the House Insurance Committee since October 1, 2025, would require third-party payers to pay ABA assessment and treatment codes “at not less than one hundred per cent of the medicaid fee schedule,” but it is a pending bill, not law.',
+          'Filing deadline: Anthem’s 2026 Ohio commercial provider manual (effective August 1, 2026) prints no number — “Claims must be submitted within the timely filing timeframe specified in the Provider or Facility Agreement,” claims filed after it “will be denied” unless proof of timely filing (a computer-printed filing date, a fax confirmation, or an accepted clearinghouse report) is shown, and “any rejected Claims must be corrected and resubmitted within the timely filing period.” Corrections go in as a full replacement claim (frequency code 7), and a secondary claim on paper must carry the primary carrier’s EOB.',
+        ],
+        cites: [
+          { title: 'Ohio Rev. Code 3901.381 — third-party payer claim payment deadlines, codes.ohio.gov', url: 'https://codes.ohio.gov/ohio-revised-code/section-3901.381' },
+          { title: 'Ohio House Bill 453 (136th General Assembly), as introduced — ABA coverage and payment rates', url: 'https://search-prod.lis.state.oh.us/api/v2/general_assembly_136/legislation/hb453/00_IN/html/' },
+          { title: 'Ohio Legislature — HB 453 status (introduced 9/15/2025; referred to House Insurance 10/1/2025)', url: 'https://www.legislature.ohio.gov/legislation/136/hb453/status' },
+          { title: 'Anthem Blue Cross and Blue Shield — 2026 Ohio Commercial Provider Manual (eff. 8/1/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_OH_00014.pdf' },
+        ],
+      },
+      {
+        h2: 'BlueCard: treating an Anthem Ohio member from another state\'s Blue network',
+        body: [
+          'BlueCard is the program that lets an Anthem Ohio member be treated by a Blue-contracted provider in another state. Anthem\'s BlueCard Provider Manual defines it as "a national program that enables members of one BCBS Plan to obtain healthcare service benefits while traveling or living in another BCBS Plan\'s service area." It works through each provider\'s own local plan: "The program lets you submit claims for patients from other BCBS Plans, domestic and international, to your local BCBS Plan. Your local BCBS Plan is your sole contact for claims payment, adjustments and issue resolution."',
+          'So for a practice contracted with another Blue, such as CareFirst in Maryland, treating an Anthem Ohio member, the claim goes to your local Blue, not to Anthem. The manual\'s worked example: "the provider ... files a claim locally," and the local plan "forwards the claim to [the member\'s plan] that adjudicates the claim according to the member\'s benefits and the provider\'s arrangement with" the local plan. Put the member\'s full ID, including the three-character prefix, on the claim. "Claims with incorrect or missing prefixes and member identification numbers cannot be processed." Network status comes from your contract with your local Blue, matched to the member\'s product. A PPO member must see a BlueCard PPO provider "if they want to access PPO in-network benefits."',
+          'Prior authorization stays with the home plan, Anthem. Anthem\'s out-of-area tool (anthem.com, Prior Authorization, "Medical Policy and Prior Authorization for Blue Plans," entered with the member\'s alpha prefix) shows its general precertification rules. The BlueCard manual gives the routes: Electronic Provider Access through your own local Blue\'s portal, which forwards you to the home plan\'s pre-service review tool; a HIPAA 278 transaction; or 1-800-676-BLUE (2583), asking for the utilization review area, which has a Behavioral Health option. ABA is on Anthem\'s commercial precertification list, so obtain it from Anthem before services start. The manual reminds providers that the member is technically "responsible for obtaining pre-certification/preauthorization for out-patient services from their BCBS Plan," and most practices get it for them. Anthem\'s Ohio provider manual adds that appeals of pre-certification decisions for BlueCard members are "the responsibility of the Blue Plan, insuring or administering benefits" (the home plan).',
+        ],
+        cites: [
+          { title: 'Anthem — The BlueCard Program Provider Manual (eff. 1/1/2022; current edition in the Ohio provider manual library)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_MO_OH_WI_00004.pdf' },
+          { title: 'Anthem Blue Cross and Blue Shield — 2026 Ohio Commercial Provider Manual (eff. 8/1/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_OH_00014.pdf' },
+          { title: 'Anthem and CDHP products Precertification/Prior Authorization List — IN, KY, MO, OH, WI (updated January 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/Central_Blues_CDHP_PA_List.pdf' },
+        ],
+      },
+      {
+        h2: 'Anthem reauthorization, code set and documentation rules',
+        body: [
+          'Reauthorization: Anthem’s ABA provider resource guide (June 2025) sets no reauthorization data list and no graph requirement; medical necessity is decided against the clinical criteria named on Anthem’s precertification list for the member’s product, so what a continued-review packet must show — and whether progress must be graphed — is the reviewer’s call. Ask the Anthem behavioral health reviewer at the initial request what data, measures and format the next review will need. What the guide does fix is documentation: every record entry must be complete, dated and signed with credentials, entered at or shortly after the service and not later than 30 days, with the signature dated within 30 days of the date of service.',
+          'Code set and supervision: the guide lists the ABA Category I CPT codes 97151–97158 and Category III 0362T and 0373T, and tells providers to bill industry-standard CPT, HCPCS or revenue codes and to check the provider contract for any specific billing requirement — it lists no HCPCS H-code for ABA. Claims carry a licensure modifier (HM, HN or HO) and, for technician-delivered services, the supervising BCBA or other QHP in box 31. A QHP billing 97155 may add 97153 only when both are face to face with the patient and the QHP is directing the technician; no supervision ratio or technician cap is published.',
+        ],
+        cites: [
+          { title: 'Anthem — ABA provider resource guide (MULTI-BCBS-CM-084583-25, June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Market segment, first', desc: 'Non-grandfathered individual and small group plans are carved out of R.C. 3923.84 entirely, and self-funded ERISA plans are outside state law. Large-group fully insured is where the mandate actually bites — establish which before you cite any of it.' },
@@ -2664,6 +2995,11 @@ export const ohioPayers: Record<string, PayerConfig> = {
       { title: 'Anthem Ohio — submit behavioral health authorizations through Availity Essentials', url: 'https://providernews.anthem.com/ohio/articles/streamline-your-workflow-submit-behavioral-health-authorizat-27235' },
       { title: 'Anthem — MCG care guidelines 27th edition update (Ohio, Commercial, Feb 1 2024)', url: 'https://providernews.anthem.com/ohio/articles/mcg-care-guidelines-27th-edition-update-17867-17867' },
       { title: 'Anthem Ohio — delegation of care management to Carelon Health, Inc. (March 2025)', url: 'https://providernews.anthem.com/ohio/articles/anthem-will-delegate-care-management-to-carelon-health-inc-24327' },
+      { title: 'Ohio Rev. Code 3901.381 — third-party payer claim payment deadlines, codes.ohio.gov', url: 'https://codes.ohio.gov/ohio-revised-code/section-3901.381' },
+      { title: 'Ohio House Bill 453 (136th General Assembly), as introduced — ABA coverage and payment rates', url: 'https://search-prod.lis.state.oh.us/api/v2/general_assembly_136/legislation/hb453/00_IN/html/' },
+      { title: 'Ohio Legislature — HB 453 status (introduced 9/15/2025; referred to House Insurance 10/1/2025)', url: 'https://www.legislature.ohio.gov/legislation/136/hb453/status' },
+      { title: 'Anthem — The BlueCard Program Provider Manual (eff. 1/1/2022; current edition in the Ohio provider manual library)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_MO_OH_WI_00004.pdf' },
+      { title: 'Anthem Blue Cross and Blue Shield — 2026 Ohio Commercial Provider Manual (eff. 8/1/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_OH_00014.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -2800,6 +3136,12 @@ export const ohioPayers: Record<string, PayerConfig> = {
       { q: 'Does a BCBA need an Ohio credential?', a: 'Yes. Ohio requires a Certified Ohio Behavior Analyst certificate from the State Board of Psychology to practise applied behavior analysis, and the COBA application itself requires current BACB certification. Staff working under a COBA\'s authority and direction, and family members implementing a plan, are exempt from certification — Ohio does not separately license technicians.' },
       { q: 'How often can Anthem re-review an Ohio ABA treatment plan?', a: 'Outside inpatient services the statute lets the insurer review the treatment plan annually, unless the insurer and the treating physician, clinical nurse specialist, certified nurse practitioner or psychologist agree more frequent review is necessary — and the insurer covers the cost of obtaining the review or plan.' },
       { q: 'Which criteria does Anthem apply to ABA in Ohio?', a: 'MCG B-806-T. Anthem notified Ohio commercial providers that effective June 1, 2024 it would move from CG-BEH-02 and MCG W0153 to MCG B-806-T for medical-necessity and clinical-appropriateness reviews. MCG guidelines are proprietary and unpublished, so a denial letter still citing CG-BEH-02 is working from a retired document.' },
+      { q: 'How fast must Anthem pay an ABA claim in Ohio?', a: 'On a plan subject to Ohio law, within 30 days of receiving a claim on the standard form, or 45 days when it needs supporting documentation; a materially deficient claim must be flagged within 15 days (R.C. 3901.381).' },
+      { q: 'Is there a minimum rate for 97153 on Anthem plans in Ohio?', a: 'No. Ohio law sets no commercial ABA rate floor; rates come from your contract. House Bill 453 (introduced September 2025, still in the House Insurance Committee) would require commercial plans to pay at least 100% of the Ohio Medicaid fee schedule, but it is not law.' },
+      { q: 'I am a provider contracted with CareFirst (or another Blue plan outside Ohio). Can I treat an Anthem Ohio member under BlueCard?', a: 'Yes, if the member\'s product gives you network benefits through your local Blue contract. File the claim with your own local Blue plan, with the member\'s three-character prefix. Your local plan sends it to Anthem, which adjudicates it on the member\'s benefits and your local contract. Get ABA precertification from Anthem as the home plan, through Electronic Provider Access in your local Blue\'s portal or by calling 1-800-676-BLUE. Anthem\'s alpha-prefix router on anthem.com shows its general precertification rules. Precertification appeals go to Anthem, and claim questions go to your local Blue.' },
+      { q: 'What is the BlueCard policy for Anthem Ohio members?', a: 'BlueCard sends an out-of-area claim through the treating provider\'s local Blue plan, which routes it to Anthem as the member\'s home plan. Anthem decides benefits and precertification, and the local plan pays the provider under its own contract. When an Ohio provider treats another Blue plan\'s member, Anthem Ohio is the local plan: "Submit all BCBS claims to your local Anthem Plan," and the member\'s plan decides precertification.' },
+      { q: 'What is Anthem’s timely filing limit for ABA claims in Ohio?', a: 'Anthem’s Ohio commercial provider manual sets no number of its own: the deadline is the one in your provider agreement, rejected claims must be corrected and resubmitted inside that same window, and corrections go in as replacement claims (frequency code 7). Ohio’s prompt-pay law gives Anthem 30 days to pay or deny a clean claim on the standard form.' },
+      { q: 'Does Anthem require graphs for an ABA reauthorization?', a: 'Anthem’s ABA provider resource guide sets no graph or data-format requirement for reviews — ask the Anthem behavioral health reviewer what the next review needs. It does require dated, signed documentation entered within 30 days, and lists only CPT 97151–97158, 0362T and 0373T for ABA.' },
     ],
   },
 };

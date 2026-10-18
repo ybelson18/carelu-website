@@ -269,7 +269,7 @@ const SUNSHINE_EDI_PAGE = src(
 );
 const SUNSHINE_PAUSE_NOTICE = src(
   'https://www.sunshinehealth.com/newsroom/aba-pause.html',
-  'Sunshine Health newsroom — confirms (primary source, not the previously-cited 3piesquared.com industry blog) a temporary pause on adding new practitioners to existing BA provider groups, effective 2025-10-01, in all AHCA regions except A and B, "to ensure the existing BA network...is fully loaded and functions accurately." Sunshine retains discretion to enroll select providers where a need is identified; an Exception Request Form is available.'
+  'Sunshine Health newsroom — confirms (primary source, not the previously-cited 3piesquared.com industry blog) a temporary pause on adding new practitioners to existing BA provider groups, effective 2025-10-01, in all AHCA regions except A and B, "to ensure that our existing network of BA groups and practitioners with verified credentials are fully loaded and all related functions are timely and accurate" (re-read 2026-10-11). Sunshine retains discretion to enroll select providers where a need is identified; an Exception Request Form is available.'
 );
 const SUNSHINE_PAUSE_ENDS_NOTICE = src(
   'https://www.sunshinehealth.com/newsroom/pause-ends.html',

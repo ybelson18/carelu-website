@@ -180,7 +180,7 @@ const BCBSTX_MEDICAID_NEWS = src(
   'https://www.bcbstx.com/provider/medicaid/education-and-reference/news/2024/05-10-2024-md-behavioral-health-aba-forms',
   'BCBSTX — Medicaid Behavioral Health / ABA Forms Update (5/10/2024) — announces "insourcing of Behavioral Health Services for Medicaid," ending the prior Magellan carve-out (last referenced in a 7/5/2023-dated PA summary).'
 );
-const BCBSTX_ABA_CHECKLIST = src('https://www.bcbstx.com/docs/provider/tx/provider-medicaid/um/applied-behavioral-analysis-pa-requirement-checklist.pdf', 'BCBSTX — Applied Behavioral Analysis PA Requirement Checklist (rev. 4/26/2024) — routes ABA PA to BCBSTX\'s own BH intake fax (1-888-530-9809) or Availity Essentials, no Magellan reference.');
+const BCBSTX_ABA_CHECKLIST = src('https://www.bcbstx.com/docs/provider/tx/provider-medicaid/education/forms/behavioral-health/2024/SKSCPB-90710324-ABA-request-form.pdf', 'BCBSTX Medicaid — Autism Service Benefit Initial/Continued Treatment Plan Template (ABA request form, SKSCPB-9071, rev. 03/2024) — "After completing the form, please fax to: 1-888-530-9809"; no Magellan reference. Replaces the 4/26/2024 ABA PA Requirement Checklist, which 404s since October 2026.');
 const BCBSTX_PA_CODE_GRID = src(
   'https://www.bcbstx.com/docs/provider/tx/provider-medicaid/um/prior-auth-proc-code-grid-06012026.pdf',
   'BCBSTX — Texas Medicaid Benefit Prior Authorization Procedure Code List — lists 97151,97153,97154,97155,97156,97158 each as "Applied Behavioral Health (Allowable only for members 20 years of age or younger)," PA-required, eff. 1/1/2024. No 0362T or 99366 row found.'
@@ -1639,7 +1639,7 @@ const firstcareContact: VobContact = {
   hours: 'Utilization Management: Mon-Fri 6:00am-6:00pm CT, weekends/holidays 9:00am-12:00pm CT; online submissions accepted 24/7',
   portal: { name: 'myFirstCare Self-Service Portal', url: 'https://my.firstcare.com/Web' },
   scriptedQuestions: [
-    'CONFIRMED: Baylor Scott & White/FirstCare is exiting Texas Medicaid managed care effective 9/1/2026 (TMHP 7/17/2026, Texas HHS 7/21/2026) — confirm this family\'s post-exit MCO reassignment status before building a long-term authorization plan around FirstCare.',
+    'CONFIRMED: FirstCare exited Texas Medicaid managed care on 8/31/2026 (TMHP 7/17/2026 and 9/2/2026 update; FirstCare homepage) — identify the family\'s current STAR/CHIP plan; FirstCare claims for DOS on or before 8/31/2026 are due within 95 days.',
     'Confirm the correct Availity payer ID (94998 FirstCare Medicaid, distinct from 94999 general/commercial) is being used for this member\'s 270/271 eligibility check.',
     'Is the ABA copay or coinsurance charged per visit or per day, and does the plan\'s out-of-pocket maximum apply?',
     'Since FirstCare files ABA under "Therapy services" rather than "Behavioral health," confirm whether ABA PA routes through the Medical PA line or the Behavioral Health PA line (1-855-395-9652).',
@@ -1670,7 +1670,7 @@ const RIGHTCARE_PROVIDER_MANUAL = src(
 );
 const TMHP_BSW_EXIT_NEWS = src(
   'https://www.tmhp.com/news/2026-07-17-baylor-scott-white-and-firstcare-health-plans-will-end-participation-texas-medicaid',
-  'TMHP news (7/17/2026) — Baylor Scott & White (RightCare, MRSA Central) and FirstCare Health Plans (MRSA West) will end participation in Texas Medicaid managed care effective 8/31/2026 (regulatory approval pending); claims for DOS on/after 9/1/2026 rejected; providers have until 8/31/2028 to submit claims for earlier DOS.',
+  'TMHP news (7/17/2026, updated 9/2/2026) — Baylor Scott & White (RightCare, MRSA Central) and FirstCare Health Plans (MRSA West) ended participation in Texas Medicaid managed care after 8/31/2026; claims for DOS on/after 9/1/2026 rejected; per the 9/2/2026 update providers have 95 days (not 24 months) to submit claims for DOS on or before 8/31/2026.',
   true
 );
 
@@ -1714,7 +1714,7 @@ const rightcareContact: VobContact = {
   ivrPath: 'General Provider Relations: 1-855-TX-RIGHT (1-855-897-4448).',
   portal: { name: 'RightCare Self-Service Portal', url: 'https://rightcare.swhp.org/providers' },
   scriptedQuestions: [
-    'CONFIRMED: RightCare is exiting Texas Medicaid managed care effective 8/31/2026 (TMHP 7/17/2026 announcement) — confirm this family\'s post-exit MCO reassignment status.',
+    'CONFIRMED: RightCare exited Texas Medicaid managed care on 8/31/2026 (TMHP 7/17/2026 and 9/2/2026 update; RightCare homepage) — identify the family\'s current STAR plan; RightCare claims for DOS on or before 8/31/2026 are due within 95 days.',
     'Does ABA prior authorization route through Medical Management (1-855-691-7947) or Behavioral Health Management (1-855-395-9652)? RightCare\'s own PA code list does not separate these codes by routing channel.',
     'What EDI payer ID should be used for this member\'s 270/271 eligibility check?',
     'Is the ABA copay or coinsurance charged per visit or per day, and does the plan\'s out-of-pocket maximum apply?',
@@ -1726,7 +1726,7 @@ const rightcareContact: VobContact = {
 };
 
 const rightcareCodeGrid: Record<string, CodeGridEntry> = tmppmCodeGrid({
-  '97151': "RightCare's own Medicaid/CHIP PA Codes list (eff. 7/1/2026) confirms 97151 as PA-required since 1/3/2020, matching the TMPPM baseline exactly. PLAN IS WINDING DOWN — exits Texas Medicaid 8/31/2026 (regulatory approval pending); PA processes remain unaffected during the transition per TMHP/RightCare's own notices.",
+  '97151': "RightCare's own Medicaid/CHIP PA Codes list (eff. 7/1/2026) confirms 97151 as PA-required since 1/3/2020, matching the TMPPM baseline exactly. PLAN EXITED Texas Medicaid on 8/31/2026 (TMHP 9/2/2026 update; RightCare homepage); this row describes dates of service through 8/31/2026.",
 });
 
 /* ==================== dell-childrens-health-plan ==================== */

@@ -24,7 +24,7 @@ import type { PayerConfig, PayerSource } from './types.js';
 
 // ---- Med-QUEST sources ----
 const MQ_MEMO: PayerSource = { title: 'Med-QUEST memo QI-2431 / FFS 24-13 (Dec 31, 2024) — Coverage of IBT for children under 21 with ASD: Guidelines for ABA (Attachments A–C)', url: 'https://medquest.hawaii.gov/content/dam/formsanddocuments/provider-memos/qi-memos/qi-memos-2024/QI-2431,%20FFS%2024-13%20Replaces%20QI-2301,%20FFS%2023-01%20Coverage%20of%20IBT%20for%20treatment%20of%20children%20under%2021%20years%20of%20age%20with%20ASD_Guidelines%20for%20ABA._FINAL%20(part%201)%20-%20signed.pdf' };
-const MQ_INDEX: PayerSource = { title: 'Med-QUEST — provider memo index (QI-2431 still the current ABA memo, checked 9/23/2026)', url: 'https://medquest.hawaii.gov/en/plans-providers/provider-memo.html' };
+const MQ_INDEX: PayerSource = { title: 'Med-QUEST — provider memo index (QI-2431 still the current ABA memo, checked 10/11/2026)', url: 'https://medquest.hawaii.gov/en/plans-providers/provider-memo.html' };
 const MQ_PRES: PayerSource = { title: 'Med-QUEST / Milliman — ABA policy and rates updates presentation (Oct 30, 2024)', url: 'https://medquest.hawaii.gov/content/dam/formsanddocuments/plans-and-providers/fee-for-service/20241030%20-%20ABA%20Policy%20and%20Rates%20Updates%20Presentation.pdf' };
 const MQ_FAQ: PayerSource = { title: 'Med-QUEST — 2024 ABA FAQ on the QI-memo updates (Dec 13, 2024)', url: 'https://medquest.hawaii.gov/content/dam/formsanddocuments/plans-and-providers/fee-for-service/2024%20ABA%20FAQ.pdf' };
 const MQ_TELE: PayerSource = { title: 'Med-QUEST memo QI-2527 / FFS 25-12 / CCS-2509 — Telehealth Implementation (Dec 8, 2025)', url: 'https://medquest.hawaii.gov/content/dam/formsanddocuments/provider-memos/qi-memos/qi-memos-2025/QI-2527%20FFS%2025-12%20CCS-2509%20%20Telehealth%20Implementation%20-%20signed.pdf' };
@@ -33,7 +33,7 @@ const MQ_FEES: PayerSource = { title: 'Med-QUEST — Fee schedules page (ABA Rat
 
 // ---- Plan sources ----
 const AC_MP37: PayerSource = { title: 'AlohaCare Medical Policy MP-37 — Applied Behavior Analysis (ABA) Services (QUEST; eff. 3/22/2026, rev. 5/8/2026)', url: 'https://www.alohacare.org/userfiles/2026%20Updates/Other/321-MP-37_ABA%20Policy%20-%20Applied%20Behavior%20Analysis%20Services%20(003).pdf' };
-const AC_PA: PayerSource = { title: 'AlohaCare — Prior Authorization Lookup Tool (QUEST; 97151–97158, 0362T, 0373T checked 9/23/2026)', url: 'https://www.alohacare.org/PriorAuth/' };
+const AC_PA: PayerSource = { title: 'AlohaCare — Prior Authorization Lookup Tool (QUEST; 97151–97158, 0362T, 0373T checked 10/11/2026)', url: 'https://www.alohacare.org/PriorAuth/' };
 const AC_MAN: PayerSource = { title: 'AlohaCare QUEST (Medicaid) Provider Manual (9/10/2025)', url: 'https://www.alohacare.org/userfiles/2025%20Updates/2025%20Provider%20Publications%20and%20docs/Quest%20Provider%20Manual_9.10.25%20.pdf' };
 const AC_AUTH: PayerSource = { title: 'AlohaCare — Provider authorization page', url: 'https://www.alohacare.org/Providers/Authorization' };
 const OH_PA: PayerSource = { title: 'ʻOhana Health Plan — CMS-0057-F Prior Authorization Requirements, CCS & QI (list effective 12/31/2025)', url: 'https://www.ohanahealthplan.com/content/dam/centene/wellcare/hi/pdfs/provider/HI_OhanaHP_Medicaid_CCS_QI_PriorAuthReq_R.pdf' };
@@ -42,7 +42,7 @@ const OH_AUTH: PayerSource = { title: 'ʻOhana Health Plan — Medicaid authoriz
 const OH_BH: PayerSource = { title: 'ʻOhana Health Plan — Medicaid behavioral health provider page (BH prior-authorization list)', url: 'https://www.ohanahealthplan.com/providers/medicaid/behavioral-health.html' };
 const OH_QRG: PayerSource = { title: 'ʻOhana Health Plan — QUEST Provider Quick Reference Guide (2026)', url: 'https://www.ohanahealthplan.com/content/dam/centene/wellcare/hi/pdfs/provider/HI_Caid_Quest_Provider_Quick_Reference_Guide_2026_R.pdf' };
 const UHCCP_PA: PayerSource = { title: 'UnitedHealthcare Community Plan of Hawaii — Prior authorization requirements (effective June 1, 2026)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/hi/prior-authorization/HI-UHCCP-Prior-Authorization-Effective-6-1-2026.pdf' };
-const UHCCP_MAN: PayerSource = { title: 'UnitedHealthcare Community Plan — 2026 Care Provider Manual, Hawai‘i QUEST', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/HI-Care-Provider-Manual.pdf' };
+const UHCCP_MAN: PayerSource = { title: 'UnitedHealthcare Community Plan — 2026 Care Provider Manual, Hawai‘i QUEST (Doc# PMI 09142026)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/HI-Care-Provider-Manual.pdf' };
 const OPT_HI: PayerSource = { title: 'Optum Provider Express — Hawaii QUEST ABA Program page', url: 'https://public.providerexpress.com/content/ope-provexpr/us/en/clinical-resources/autismABA2/abaHI.html' };
 const OPT_HI_ORIENT: PayerSource = { title: 'Optum — Hawaii QUEST Integration ABA Provider Orientation (BH4131, 05/2022)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/hiABA/hiABAOrientation.pdf' };
 const OPT_HI_QRG: PayerSource = { title: 'Optum — QUEST Integration Health Plan ABA Program Quick Reference Guide (BH4051, 04/2022)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/hiABA/hiABAQRG.pdf' };
@@ -58,7 +58,7 @@ const KP_QI: PayerSource = { title: 'Kaiser Permanente Hawaii — Community Prov
 const KP_AUTH: PayerSource = { title: 'Kaiser Permanente Hawaii — Community Provider Portal: Authorizations', url: 'https://healthy.kaiserpermanente.org/hawaii/community-providers/authorizations' };
 
 // ---- Commercial carrier sources ----
-const AET_0554: PayerSource = { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 11/26/2025)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' };
+const AET_0554: PayerSource = { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' };
 const AET_0648: PayerSource = { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' };
 const AET_GUIDE: PayerSource = { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' };
 const AET_PRECERT: PayerSource = { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' };
@@ -160,7 +160,7 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
         h2: 'The document that governs, and what it is called',
         body: [
           'Med-QUEST issues ABA guidance to the QI plans and to fee-for-service through paired provider memos. The current pair is QI-2431 and FFS 24-13, dated December 31, 2024, titled "Coverage of Intensive Behavioral Therapy (IBT) for Treatment of Children Under 21 Years of Age with Autism Spectrum Disorder (ASD): Guidelines for Applied Behavioral Analysis (ABA)." It restates the EPSDT duty — QI plans must provide medically necessary IBT, "which include ABA, for children under 21 years of age" — and attaches three documents: the access guideline (Attachment A), a process flow chart (Attachment B), and FFS codes and rates (Attachment C). The guideline says it aligns with the current CASP practice guidelines for funders, and that ABA "is not a long-term service and support (LTSS), respite, or home and community-based service (HCBS)."',
-          'Because the guidance is issued to plans rather than adopted as a rule, it changes by memo number. As of September 23, 2026 the Med-QUEST memo index still lists QI-2431 as the current ABA memo; the separate telehealth memo was reissued as QI-2527 on December 8, 2025.',
+          'Because the guidance is issued to plans rather than adopted as a rule, it changes by memo number. As of October 11, 2026 the Med-QUEST memo index still lists QI-2431 as the current ABA memo (the newest memos, QI-2620 to QI-2623, do not touch ABA); the separate telehealth memo was reissued as QI-2527 on December 8, 2025.',
         ],
         cites: [MQ_MEMO, MQ_INDEX],
       },
@@ -198,6 +198,22 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
           MQ_MEMO,
         ],
       },
+      {
+        h2: 'Appealing a denial for the family: get the member’s written consent first',
+        body: [
+          'Med-QUEST memo QI-2620 (September 25, 2026, effective immediately) applies to every QUEST Integration plan and to fee-for-service. A provider or authorized representative may file a grievance, an appeal, a state-level grievance review or a State Fair Hearing for a member "only with the Member’s written consent." If the consent is missing, the plan should try to get it within 30 calendar days, with three phone calls and one letter. If it still has no consent by day 30, it dismisses the appeal. A late consent restarts the appeal only if it arrives within the 60 calendar days that run from the notice of adverse benefit determination. For an ABA denial, get the parent’s signed consent with the appeal, not after it.',
+        ],
+        cites: [
+          { title: 'Med-QUEST memo QI-2620 / CCS-2604 / FFS 26-08 — Third-party authorizations for grievances and appeals (9/25/2026)', url: 'https://medquest.hawaii.gov/content/dam/formsanddocuments/provider-memos/qi-memos/qi-memos-2026/QI-2620,%20CCS-2604,%20FFS%2026-08%20Third%20party%20authorizations%20(part%201)%20-%20signed.pdf' },
+        ],
+      },
+      {
+        h2: 'Claim filing and payment rules for Med-QUEST',
+        body: [
+          'Almost every Hawaii Medicaid member is in a QUEST Integration plan, so the plan’s own filing limit governs most ABA claims (see the plan guides). Federal rules bind Med-QUEST’s own fee-for-service payments: the agency "must pay 90 percent of all clean claims from practitioners, who are in individual or group practice or who practice in shared health facilities, within 30 days of the date of receipt" and 99 percent within 90 days, with the date of receipt being the agency’s date stamp and the date of payment the date of the check or other payment (42 CFR 447.45(d)(2), (3), (5), (6)). The same rule makes 12 months from the date of service the outer limit any state may allow for filing (42 CFR 447.45(d)(1)). Managed care plans are held to the same 90/99 percent clean-claim standard through their state contracts (42 CFR 447.46). Med-QUEST’s own fee-for-service filing limit and payment schedule were not in the documents read for this guide.',
+        ],
+        cites: [{ title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, { title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }],
+      },
     ],
     collect: [
       { title: 'Which QUEST Integration plan', desc: 'AlohaCare, HMSA, Kaiser, ʻOhana or UnitedHealthcare Community Plan. The plan runs authorization; ʻOhana members change plans on January 1, 2027.' },
@@ -206,7 +222,7 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
       { title: 'Other insurance', desc: 'Medicaid is secondary to all other coverage — bill any commercial plan first.' },
       { title: 'School and state-agency services', desc: 'DOE provides school ABA under the IEP; EIP covers ages 0–3; the I/DD waiver runs alongside. The plan coordinates, and the provider must document no duplication.' },
     ],
-    sources: [MQ_MEMO, MQ_INDEX, MQ_PRES, MQ_FAQ, MQ_TELE, MQ_AA, MQ_FEES, OH_EXIT, AC_MP37, CFR_438_210, CFR_440_230, CFR_433_139],
+    sources: [{ title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, { title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, MQ_MEMO, MQ_INDEX, MQ_PRES, MQ_FAQ, MQ_TELE, MQ_AA, MQ_FEES, OH_EXIT, AC_MP37, CFR_438_210, CFR_440_230, CFR_433_139],
     deliveryRules: {
       supervision: {
         value: 'The licensed behavior analyst (BCBA-D or BCBA) supervises BCaBAs and RBTs and is responsible for clinical direction, supervision and case management. Case supervision "generally consists of at least one to two hours for every 10 hours of all RBT service hours with at least one of the two hours being direct supervision," direct supervision "must always be provided at least 5% of all BCaBA and RBT service delivery hours," and supervision of unlicensed staff must meet current BACB guidelines.',
@@ -221,7 +237,7 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
       dailyLimits: {
         value: 'The memo sets no per-day or per-week unit cap. Hours are requested per week for up to 26 weeks and approved plan by plan; extra hours may be requested for school-aged members when school is not in session. Plans set their own review thresholds (AlohaCare MP-37 needs "strong clinical justification" above 30–40 hours a week), and Med-QUEST’s rate-study meetings recorded that one MCO had a much lower assessment-hours limit.',
         status: 'plan-dependent',
-        cites: [MQ_MEMO, AC_MP37, MQ_PRES],
+        cites: [{ title: 'CMS — NCCI for Medicaid (ACA § 6507: states must apply compatible NCCI methodologies to Medicaid fee-for-service claims; optional for MCOs; deactivation requests)', url: 'https://www.cms.gov/medicare/coding-billing/ncci-medicaid' }, { title: 'CMS — Medicaid NCCI MUE edit file, practitioner services, effective October 1, 2026 (dates of service 10/1–12/31/2026)', url: 'https://www.cms.gov/medicare/coding-billing/ncci-medicaid/medicaid-ncci-edit-files' }, MQ_MEMO, AC_MP37, MQ_PRES],
         verifyVia: 'The member’s QI plan — ask for its weekly-hour review threshold and any assessment-unit limit before submitting.',
         blocker: 'per-case',
       },
@@ -233,7 +249,7 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       placeOfService: {
-        value: 'Services go where they address the behaviors found in the assessment — "a clinic, member’s home, or other community settings," named in the treatment plan. In school, the Department of Education provides educationally necessary ABA under the IDEA and the IEP, and the QI plan coordinates services outside school. Services outside Hawaii are not covered. Telehealth follows the separate MQD telehealth memo.',
+        value: 'Services go where they address the behaviors found in the assessment — "a clinic, member’s home, or other community settings," named in the treatment plan. In school, the Department of Education provides educationally necessary ABA under the IDEA and the IEP, and the QI plan coordinates services outside school. Services outside Hawaii are not covered. Telehealth follows the separate MQD telehealth memo.' + ' Underneath the program rule sit federal claim edits, which are a different thing from the authorization: section 6507 of the Affordable Care Act requires state Medicaid programs to apply CMS’s Medicaid NCCI methodologies, including medically unlikely edits (MUEs), to fee-for-service claims (a state may ask CMS to deactivate an individual edit; for managed care plans it is optional). CMS’s published Medicaid MUE table for practitioner services, dates of service October 1 – December 31, 2026, sets the per-provider, per-member, per-day values at 97151 32 units, 97152 16, 97153 32, 97154 18, 97155 24, 97156 16, 97157 16, 97158 16, 0362T 16 and 0373T 32. Nearly all Hawaii Medicaid ABA runs through QUEST Integration plans, for which the federal edit is optional, so the plan’s own edits and authorization govern.',
         status: 'verified',
         cites: [MQ_MEMO, MQ_TELE],
       },
@@ -265,11 +281,12 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
         cites: [MQ_MEMO, AC_MP37],
       },
       referral: {
-        value: 'No PA for the diagnostic evaluation, but "QI health plans may require a referral from the PCP." After diagnosis, the diagnosing provider refers the child to a rendering provider, and the plan must help find one on request.',
-        status: 'plan-dependent',
-        cites: [MQ_MEMO],
-        verifyVia: 'The member’s QI plan — ask whether a PCP referral is needed for the diagnostic evaluation and for ABA.',
-        blocker: 'per-case',
+        value:
+          'Med-QUEST requires no physician order or prescription for ABA itself. Under QI-2431, "The QI health plan will issue a PA for ABA when it determines ABA is medically necessary and recommended by a rendering provider," so the licensed behavior analyst\'s assessment and treatment plan is the request. The referrals in the memo come earlier in the chain. The PCP screens at EPSDT visits and "will either perform the diagnostic evaluation or refer to a diagnosing provider." Then "The diagnosing provider will refer members diagnosed with ASD to a rendering provider for assessment and treatment plan development." One plan-level gate: "No PA is required for a diagnostic evaluation. (The QI health plan may require a referral from the PCP.)" Whether a PCP referral is needed before the diagnostic evaluation therefore depends on the QI plan. Treatment plans and progress reports must be resubmitted at least every 26 weeks. Med-QUEST publishes no order template and no validity period.',
+        status: 'verified',
+        cites: [
+          { title: 'Med-QUEST memo QI-2431 / FFS 24-13 (Dec 31, 2024) — Coverage of IBT for children under 21 with ASD: Guidelines for ABA (Attachments A–C)', url: 'https://medquest.hawaii.gov/content/dam/formsanddocuments/provider-memos/qi-memos/qi-memos-2024/QI-2431,%20FFS%2024-13%20Replaces%20QI-2301,%20FFS%2023-01%20Coverage%20of%20IBT%20for%20treatment%20of%20children%20under%2021%20years%20of%20age%20with%20ASD_Guidelines%20for%20ABA._FINAL%20(part%201)%20-%20signed.pdf' },
+        ],
       },
       telehealth: {
         value: 'The ABA memo defers to MQD’s telehealth policy, QI-2527 (Dec 8, 2025): audio-video telehealth billed with modifier 95, GT or GQ, by providers eligible to bill Hawaii Medicaid, for services appropriate to the modality. ABA codes are not on the suggested-code list, though "other codes may also be billed." A provider that cannot offer in-person care must tell the family, each time, that they have a right to it. Place of service and plan limits are set by each QI plan; Optum’s 2022 UnitedHealthcare Community Plan orientation, for example, allowed only 97155 and 97156 by BCBAs, billed with POS 02. Neither QI-2431 nor QI-2527 says whether the 97151 assessment or 97155 supervision may be remote, or caps the remote share of supervision; QI-2527 sends QI providers to their MCO for place-of-service and other billing guidance, so the answer is the plan’s.',
@@ -292,6 +309,7 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'How fast must Med-QUEST pay a clean claim?', a: 'Federal rules require a state Medicaid agency to pay 90% of clean practitioner claims within 30 days of receipt and 99% within 90 days (42 CFR 447.45); QUEST Integration plans are held to the same standard by contract (42 CFR 447.46). Most ABA claims go to the member’s QUEST plan, whose filing limit governs.' },
       { q: 'Does Hawaii Medicaid cover ABA therapy?', a: 'Yes. Med-QUEST covers ABA as Intensive Behavioral Therapy under memo QI-2431 / FFS 24-13 for members under 21 with ASD, delivered through the member’s QUEST Integration plan. A child with suspected ASD may get a trial of up to 26 weeks before a definitive diagnosis.' },
       { q: 'Why does Hawaii call it Intensive Behavioral Therapy?', a: 'IBT is the heading Med-QUEST files the benefit under; the memo’s subtitle is "Guidelines for Applied Behavioral Analysis." Searching Hawaii Medicaid documents for "ABA" alone can miss it.' },
       { q: 'Does the ABA assessment need prior authorization?', a: 'It depends on the plan. The memo says assessment "may require PA from the QI plan." AlohaCare and ʻOhana list 97151 and 97152 as PA codes. The diagnostic evaluation needs no PA, though a plan may want a PCP referral.' },
@@ -306,7 +324,7 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
     slug: 'alohacare',
     cardDesc: 'QUEST Integration plan, Medicaid-only and Hawaii-based. Has its own ABA policy (MP-37, 2026) and requires PA on every ABA code, including 97151.',
     assessmentPA: {
-      value: 'Required — AlohaCare’s PA lookup lists 97151, 97152 and 0362T as "Prior Auth Required: YES" for QUEST (checked 9/23/2026); the diagnostic evaluation itself needs no PA',
+      value: 'Required — AlohaCare’s PA lookup lists 97151, 97152 and 0362T as "Prior Auth Required: YES" for QUEST (checked 10/11/2026); the diagnostic evaluation itself needs no PA',
       status: 'verified',
       cites: [AC_PA, AC_MP37],
     },
@@ -351,10 +369,20 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
       {
         h2: 'Authorization mechanics',
         body: [
-          'AlohaCare’s PA lookup, which the plan calls the most current source, lists 97151 through 97158, 0362T and 0373T as prior-authorization codes for QUEST, effective since 2018–2019 and confirmed on September 23, 2026. The diagnostic evaluation (for example 90791) needs no authorization. Requests go on the Request for Authorization and Notification form. AlohaCare reviews against its own policies and "nationally developed clinical criteria (such as MCG ...)," and asks for missing information twice before denying: within 2 days and then 7 days for a standard request.',
+          'AlohaCare’s PA lookup, which the plan calls the most current source, lists 97151 through 97158, 0362T and 0373T as prior-authorization codes for QUEST, effective since 2018–2019 and confirmed on October 11, 2026. The diagnostic evaluation (for example 90791) needs no authorization. Requests go on the Request for Authorization and Notification form. AlohaCare reviews against its own policies and "nationally developed clinical criteria (such as MCG ...)," and asks for missing information twice before denying: within 2 days and then 7 days for a standard request.',
           'Timing: the September 2025 provider manual still prints the 14-calendar-day standard (plus a 14-day extension) and 72 hours for expedited requests. The federal managed-care rule has required 7 calendar days for standard decisions since rating periods starting January 1, 2026, so hold AlohaCare to that. AlohaCare’s published 2025 metrics show an average standard turnaround of 107 hours and a median of 28 hours.',
         ],
         cites: [AC_PA, AC_AUTH, AC_MAN, CFR_438_210],
+      },
+      {
+        h2: 'Claims: filing deadline and provider appeals',
+        body: [
+          'AlohaCare’s QUEST manual: "Claims where AlohaCare is the primary payer must be received within 365 days of date of service," and resubmissions must also arrive within 365 days of the date of service; third-party-liability claims need the other carrier’s EOB attached. Exceptions are granted "only for unusual and extenuating circumstances," by resubmitting with a letter explaining the delay. Provider grievances and appeals "must be filed within one year from the date of the occurrence," are acknowledged within ten calendar days, and decided in writing within sixty days.',
+          'Federal Medicaid rules set the payment floor for every managed care plan: a state’s contract with an MCO "must provide that the organization will meet the requirements of § 447.45(d)(2) and (d)(3)" (42 CFR 447.46) — pay 90 percent of clean claims from practitioners within 30 days of receipt and 99 percent within 90 days — unless the plan and the provider agree in writing to an alternative schedule stipulated in the contract. A "clean claim" is one that "can be processed without obtaining additional information from the provider of the service or from a third party" (42 CFR 447.45(b)).',
+        ],
+        cites: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, 
+          { title: 'AlohaCare QUEST (Medicaid) Provider Manual (9/10/2025)', url: 'https://www.alohacare.org/userfiles/2025%20Updates/2025%20Provider%20Publications%20and%20docs/Quest%20Provider%20Manual_9.10.25%20.pdf' },
+        ],
       },
     ],
     collect: [
@@ -364,7 +392,7 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
       { title: 'Treatment plan pieces', desc: 'FBA, baseline for every goal, parent-training plan, titration plan, and a reason for the intensity requested (especially above 30 hours).' },
       { title: 'Other insurance', desc: 'AlohaCare pays last; most primary-plan denials must be appealed before it will review.' },
     ],
-    sources: [AC_MP37, AC_PA, AC_MAN, AC_AUTH, MQ_MEMO, CFR_438_210, CFR_433_139],
+    sources: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, AC_MP37, AC_PA, AC_MAN, AC_AUTH, MQ_MEMO, CFR_438_210, CFR_433_139],
     deliveryRules: {
       supervision: {
         value: 'LBA supervision of RBTs and BCaBAs must meet current BACB and MQD requirements. For RBTs, at least 5% of total service hours must be supervised by an LBA and documented, including direct observation with the member, ongoing case review and feedback, and records of supervision in the clinical file. MQD’s memo sets the wider standard: 1–2 hours of case supervision per 10 RBT hours, at least one of them direct.',
@@ -447,6 +475,7 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
       { q: 'Does AlohaCare cover ABA therapy?', a: 'Yes — under EPSDT for members under 21 with ASD, following Med-QUEST memo QI-2431 and AlohaCare’s own ABA policy MP-37 (effective March 22, 2026).' },
       { q: 'Does AlohaCare require prior authorization for the ABA assessment?', a: 'Yes. AlohaCare’s PA lookup lists 97151, 97152 and 0362T as prior-authorization codes for QUEST. The diagnostic evaluation needs none.' },
       { q: 'What diagnosis documentation does AlohaCare want?', a: 'A DSM-5 ASD diagnosis with documented early symptoms and a standardized tool — ADOS-2, CARS-2 or ADI-R — from a developmental-behavioral or developmental pediatrician, pediatrician, neurologist, psychologist or psychiatrist.' },
+      { q: 'What is AlohaCare’s timely filing limit for ABA claims?', a: '365 days from the date of service, for original claims and resubmissions alike (AlohaCare QUEST provider manual, 9/10/2025).' },
     ],
   },
 
@@ -509,6 +538,15 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
           'Not yet read: HMSA’s ABA medical policy and its code-level prior-authorization list — both now at hmsa.policytransparency.com, which asks users to accept HMSA’s medical policy terms of use before it shows content, so we did not open them. So the following are unknown here: whether 97151 itself is precertified, HMSA’s clinical criteria and diagnostic-tool requirements, hour thresholds, telehealth rules, and whether behavioral health is handled in-house. Note for maintainers: pVerify spells this payer "Hawaii Medical Service Assoc (HMSA)" and the payer name matches that spelling on purpose; a separate "BCBS of Hawaii" row in that directory is not covered by this name.',
         ],
         cites: [HMSA_POLICIES, HMSA_PT],
+      },
+      {
+        h2: 'How fast must HMSA pay a clean ABA claim in Hawaii?',
+        body: [
+          'Hawaii’s prompt-pay statute covers mutual benefit societies such as HMSA, as well as insurers and HMOs. "Unless shorter payment timeframes are otherwise specified in a contract," a claim that is not contested or denied must be paid within thirty calendar days of receiving a written claim or fifteen calendar days of receiving an electronic one. A contested or denied claim must be flagged within 15 days (written) or 7 days (electronic), naming the contested part and the reason, unless the plan sends at least a monthly reimbursement report carrying that information. After you supply requested information the same 30- or 15-day clock applies, and late payments carry interest "at a rate of fifteen per cent a year," added automatically once it reaches $2. Before recouping a payment the plan must give 30 days’ written notice, and you have 60 days from that notice to appeal (HRS § 431:13-108). Self-funded employer plans are not covered by the statute.',
+        ],
+        cites: [
+          { title: 'HRS § 431:13-108 — Reimbursement for accident and health or sickness insurance benefits (Hawaii Revised Statutes)', url: 'https://www.capitol.hawaii.gov/hrscurrent/Vol09_Ch0431-0435H/HRS0431/HRS_0431-0013-0108.htm' },
+        ],
       },
     ],
     collect: [
@@ -681,6 +719,16 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
         ],
         cites: [OH_PA, OH_AUTH, MQ_MEMO],
       },
+      {
+        h2: 'Claim payment disputes and appeals',
+        body: [
+          'ʻOhana’s 2026 QUEST quick reference guide sends claim payment disputes (untimely filing, unlisted or non-covered codes and the like) in writing through the provider portal or to P.O. Box 31370, Tampa, FL 33631-3370, "within the time frame as indicated in the ʻOhana Provider Manual or as specified in your provider contract". A provider may appeal on its own behalf "within 90 calendar days of a claims denial" for lack of prior authorization, services exceeding the authorization, insufficient documentation or late notification, and on the member’s behalf, with written consent, within 60 calendar days of the notice of adverse benefit determination. The guide does not state a timely filing limit; it is in the provider manual or your contract.',
+          'Federal Medicaid rules set the payment floor for every managed care plan: a state’s contract with an MCO "must provide that the organization will meet the requirements of § 447.45(d)(2) and (d)(3)" (42 CFR 447.46) — pay 90 percent of clean claims from practitioners within 30 days of receipt and 99 percent within 90 days — unless the plan and the provider agree in writing to an alternative schedule stipulated in the contract. A "clean claim" is one that "can be processed without obtaining additional information from the provider of the service or from a third party" (42 CFR 447.45(b)).',
+        ],
+        cites: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, 
+          { title: 'ʻOhana Health Plan — QUEST Provider Quick Reference Guide (2026)', url: 'https://www.ohanahealthplan.com/content/dam/centene/wellcare/hi/pdfs/provider/HI_Caid_Quest_Provider_Quick_Reference_Guide_2026_R.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Which plan the family is moving to', desc: 'ʻOhana coverage ends December 31, 2026. Ask which plan they picked in the October 1–20 enrollment, or which one they were assigned.' },
@@ -688,7 +736,7 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
       { title: 'ASD diagnosis and age', desc: 'The Med-QUEST benefit is for members under 21 with ASD, diagnosed by one of the memo’s listed providers.' },
       { title: 'Assessment authorization', desc: '97151 and 97152 are on ʻOhana’s PA list — get the authorization before the assessment.' },
     ],
-    sources: [OH_EXIT, OH_PA, OH_AUTH, OH_BH, OH_QRG, MQ_AA, MQ_MEMO, MQ_INDEX, CFR_438_210, CFR_433_139],
+    sources: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, OH_EXIT, OH_PA, OH_AUTH, OH_BH, OH_QRG, MQ_AA, MQ_MEMO, MQ_INDEX, CFR_438_210, CFR_433_139],
     deliveryRules: {
       supervision: {
         value: 'ʻOhana publishes no ABA supervision rule of its own that we could find; the MQD memo sets it: 1–2 hours of case supervision per 10 RBT hours, at least one direct, direct supervision at least 5% of BCaBA and RBT hours, per BACB guidelines.',
@@ -842,6 +890,16 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
         ],
         cites: [OPT_HI, OPT_HI_ORIENT, OPT_HI_QRG, OPT_SCC, UHCCP_PA, UHCCP_MAN],
       },
+      {
+        h2: 'Claims: filing deadline and payment disputes',
+        body: [
+          'UnitedHealthcare Community Plan’s 2026 Hawai‘i QUEST manual: "All primary claims must be filed to us within 1 year from the date of service," claims involving coordination of benefits within 1 year of the other payer’s EOB, and a rejected claim not corrected within 365 days is denied as late. Disputes run in two steps, a claim reconsideration and then an appeal "within 60 days of the date of the health plan’s notice of adverse benefit determination or decision", and the plan allows one year in total to complete both steps, counted from the first EOB.',
+          'Federal Medicaid rules set the payment floor for every managed care plan: a state’s contract with an MCO "must provide that the organization will meet the requirements of § 447.45(d)(2) and (d)(3)" (42 CFR 447.46) — pay 90 percent of clean claims from practitioners within 30 days of receipt and 99 percent within 90 days — unless the plan and the provider agree in writing to an alternative schedule stipulated in the contract. A "clean claim" is one that "can be processed without obtaining additional information from the provider of the service or from a third party" (42 CFR 447.45(b)).',
+        ],
+        cites: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, 
+          { title: 'UnitedHealthcare Community Plan — 2026 Care Provider Manual, Hawai‘i QUEST (Doc# PMI 09142026)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/HI-Care-Provider-Manual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Optum benefits check', desc: 'Verify ABA eligibility in Provider Express or through the behavioral health number on the card — not the medical line.' },
@@ -849,7 +907,7 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
       { title: 'ASD diagnosis and age', desc: 'Documented DSM-5 ASD, under 21. For suspected ASD, the working diagnosis for a trial period.' },
       { title: 'Assessment authorization status', desc: 'Optum’s documents conflict on 97151 — ask before the assessment.' },
     ],
-    sources: [OPT_HI, OPT_HI_ORIENT, OPT_HI_QRG, OPT_SCC, UHCCP_PA, UHCCP_MAN, MQ_MEMO, MQ_TELE, CFR_438_210, CFR_433_139, { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' }],
+    sources: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, OPT_HI, OPT_HI_ORIENT, OPT_HI_QRG, OPT_SCC, UHCCP_PA, UHCCP_MAN, MQ_MEMO, MQ_TELE, CFR_438_210, CFR_433_139, { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' }],
     deliveryRules: {
       supervision: {
         value: 'Optum’s ABA criteria (applied to this program) require direct case supervision of 1–2 hours for every 10 hours of direct treatment per week, consistent with CASP — the same ratio as the MQD memo, which adds direct supervision of at least 5% of BCaBA and RBT hours. Technicians work under a BCBA or licensed clinician; Optum’s Hawaii credentialing expects a BCBA to directly supervise technicians in joint sessions.',
@@ -938,6 +996,7 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
       { q: 'Does the assessment need prior authorization?', a: 'Optum’s documents conflict — its 2022 orientation says no, its 2022 quick reference guide says all autism services need PA. Confirm with Optum before the assessment.' },
       { q: 'Can the ABA assessment (97151) be done by telehealth with UnitedHealthcare Community Plan of Hawaii?', a: 'Optum\'s Hawaii QUEST orientation allows telehealth only for BCBA supervision (97155) and caregiver training (97156), after a virtual-visits attestation, billed with POS 02 (or 10 at home). The assessment is not on that list.' },
       { q: 'Is UnitedHealthcare Community Plan of Hawaii accepting new ABA providers?', a: 'Through Optum\'s ABA credentialing: BCBAs need active BACB certification, Hawaii licensure, 6 months of supervised ABA experience and $1M/$1M liability cover; groups need a BCBA on staff, RBTs meeting state requirements, higher liability limits and a record and site audit. Optum\'s orientation does not say whether the network is open or closed.' },
+      { q: 'What is UnitedHealthcare Community Plan of Hawaii’s timely filing limit?', a: 'One year from the date of service for primary claims (2026 Hawai‘i QUEST care provider manual).' },
     ],
   },
 
@@ -989,6 +1048,16 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
         ],
         cites: [KP_MAN, MQ_MEMO, KP_QI],
       },
+      {
+        h2: 'Claims: when to submit',
+        body: [
+          'Kaiser’s QUEST provider manual: "Claims for services provided to Members should be submitted for payment within ninety (90) days of such service," but all claims and encounter data must arrive no later than 365 days after the date of service (or a longer period your agreement or the law sets). Payment disputes go to Kaiser’s Claims Administration Department with the signed waiver of liability, the original claim and the denial remittance.',
+          'Federal Medicaid rules set the payment floor for every managed care plan: a state’s contract with an MCO "must provide that the organization will meet the requirements of § 447.45(d)(2) and (d)(3)" (42 CFR 447.46) — pay 90 percent of clean claims from practitioners within 30 days of receipt and 99 percent within 90 days — unless the plan and the provider agree in writing to an alternative schedule stipulated in the contract. A "clean claim" is one that "can be processed without obtaining additional information from the provider of the service or from a third party" (42 CFR 447.45(b)).',
+        ],
+        cites: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, 
+          { title: 'Kaiser Permanente Hawaii — QUEST Provider Manual (KP25-013)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/hi/ever/quest-integration-provider-manual-en.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Kaiser QUEST member ID', desc: 'Confirm QUEST Integration enrollment with Kaiser.' },
@@ -996,7 +1065,7 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
       { title: 'ASD diagnosis and age', desc: 'Under 21, diagnosed by one of the Med-QUEST memo’s provider types (often inside Kaiser).' },
       { title: 'Transferring from ʻOhana?', desc: 'Members moving from another QUEST plan are an exception to Kaiser’s no-retro rule; transition-of-care rules apply.' },
     ],
-    sources: [KP_MAN, KP_QI, KP_AUTH, MQ_MEMO, MQ_TELE, CFR_438_210, CFR_433_139, HRS_133, SB791],
+    sources: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, KP_MAN, KP_QI, KP_AUTH, MQ_MEMO, MQ_TELE, CFR_438_210, CFR_433_139, HRS_133, SB791],
     deliveryRules: {
       supervision: {
         value: 'No Kaiser-specific rule published; the MQD memo sets it: 1–2 hours of case supervision per 10 RBT hours, at least one direct, direct supervision at least 5% of BCaBA and RBT hours.',
@@ -1096,6 +1165,7 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
     faq: [
       { q: 'Does Kaiser Permanente Hawaii QUEST cover ABA?', a: 'Yes — its QUEST manual describes EPSDT intensive behavioral therapy, including ABA, for children with an ASD diagnosis, under the Med-QUEST benefit for members under 21.' },
       { q: 'Can an outside ABA agency treat a Kaiser QUEST child?', a: 'Only with a Kaiser authorization through Authorization and Referral Management, naming the services, frequency and duration. Kaiser does not process retro authorizations except in narrow cases, including members transferring from another QUEST plan.' },
+      { q: 'What is Kaiser Permanente Hawaii’s timely filing limit for QUEST claims?', a: 'Submit within 90 days of the service; the hard limit is 365 days after the date of service unless your agreement or the law allows longer (Kaiser QUEST provider manual).' },
     ],
   },
 
@@ -1149,6 +1219,45 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
         ],
         cites: [MQ_MEMO],
       },
+      {
+        h2: 'How fast must Aetna pay a clean ABA claim in Hawaii?',
+        body: [
+          'Hawaii’s prompt-pay statute covers insurers issuing comprehensive medical plans, as well as mutual benefit societies and HMOs. "Unless shorter payment timeframes are otherwise specified in a contract," a claim that is not contested or denied must be paid within thirty calendar days of receiving a written claim or fifteen calendar days of receiving an electronic one. A contested or denied claim must be flagged within 15 days (written) or 7 days (electronic), naming the contested part and the reason, unless the plan sends at least a monthly reimbursement report carrying that information. After you supply requested information the same 30- or 15-day clock applies, and late payments carry interest "at a rate of fifteen per cent a year," added automatically once it reaches $2. Before recouping a payment the plan must give 30 days’ written notice, and you have 60 days from that notice to appeal (HRS § 431:13-108). Self-funded employer plans are not covered by the statute.',
+          'Aetna’s provider manual (edition 6/26) publishes no numeric filing deadline: a clean claim is one "received in a timely manner," so the operative limit is the one in your Aetna agreement or state law. The manual says a clean claim "Doesn’t involve coordination of benefits," and that COB, corrected and voided claims can all be submitted through Availity at no charge; it sets no separate deadline for corrected or secondary claims and publishes no weekly payment cycle or submission cutoff.',
+        ],
+        cites: [{ title: 'Aetna — Provider manual (8102800-01-01, 6/26): Clean claims; Coordination of benefits; electronic claims', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }, 
+          { title: 'HRS § 431:13-108 — Reimbursement for accident and health or sickness insurance benefits (Hawaii Revised Statutes)', url: 'https://www.capitol.hawaii.gov/hrscurrent/Vol09_Ch0431-0435H/HRS0431/HRS_0431-0013-0108.htm' },
+        ],
+      },
+      {
+        h2: 'Does Aetna need a referring provider on the ABA claim?',
+        body: [
+          'Aetna publishes no requirement to report a referring or ordering provider on an ABA claim. Its office manual defines a clean claim as including “A corresponding referral (whether in paper or electronic format), if required for the applicable claim” plus “All the data elements of the UB-04 or CMS-1500 (or successor standard) forms (including but not limited to member identification number, National Provider Identifier (NPI), date(s) of service, and a complete and accurate breakdown of services).”',
+          'A referral matters only on plans that require PCP referrals for specialist care. Those referrals must be issued before the visit (“Referrals should not be retroactive”), and “In Aetna Open Access® plans, referrals also are not necessary.” Aetna’s behavioral health manual lists direct access as the first way into care: members may reach behavioral health “Through direct access to the behavioral health provider,” through a recommendation from their PCP or another treating provider, or through an EAP referral.',
+        ],
+        cites: [
+          { title: 'Aetna Health Care Professional Toolkit / office manual (2026): clean claims and referral policies', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna Behavioral Health Provider Manual (8/22): access to care', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' },
+        ],
+      },
+      {
+        h2: 'What goes in an Aetna ABA precertification request?',
+        body: [
+          'Since August 1, 2026, one Aetna form — “Outpatient Behavioral Health (BH) – ABA Treatment Request: Required Information for Precertification” (GR-69017-4) — “replaces all other” ABA precertification information forms. It does not start a request. Start the request on Availity (Authorization Add) or by phone, then attach the form and the records to the case, or fax them to FaxHub 833-596-0339 with the reference number.',
+          'Section 1 asks for the member and provider group details; the current DSM-5 diagnosis code(s); the diagnosing provider’s name and credentials; hours per authorization period for the assessment codes 97151, 97152 and 0362T; hours per week for 97153–97158 and 0373T; and whether any hours fall during class. Section 2 asks who supervises the ABA services, and whether the child also gets PT, OT, speech, mental health or school services and whether you coordinate with those providers. It also asks for current impairment areas with supporting severity data.',
+          'Attach the results of a standardized assessment (“i.e. Vineland, ABAS, VB-MAPP”) completed within the past 12 months. Also attach a time-limited, individualized treatment plan with baselines and measurable progress criteria, caregiver goals, titration and discharge criteria with an aftercare plan, and baseline, interim and current data for every goal. The form names CPB 0648 and the ABA Medical Necessity Guide as the review criteria.',
+        ],
+        cites: [
+          { title: 'Aetna — Outpatient Behavioral Health (BH) – ABA Treatment Request: Required Information for Precertification (GR-69017-4, 7-26; effective August 1, 2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+        ],
+      },
+      {
+        h2: 'What must an Aetna ABA reauthorization request contain, and are graphs required?',
+        body: [
+          'Aetna’s ABA medical necessity guide (©2026) says "A member\'s progress is to be evaluated every six months," and a member not making progress "will be transitioned to other appropriate services"; coverage ends when medical necessity is no longer met or when standardized improvement thresholds (for example, two or more standard deviations in multiple domains) are reached. The guide does not specify a graph or data-presentation format for the reassessment; send the updated treatment plan with measurable progress against each goal and the standardized scores the termination criteria are tested against.',
+        ],
+        cites: [{ title: 'Aetna — Applied behavior analysis medical necessity guide (©2026): Termination of coverage', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Luke’s Law applies) or self-funded employer plan (exempt). Get the employer and group number.' },
@@ -1177,11 +1286,13 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
         cites: [AET_GUIDE, HRS_133],
       },
       noteSignature: {
-        value: 'Not addressed — Aetna’s ABA documents set treatment-plan content, not session-note signature rules.',
-        status: 'unverified',
-        cites: [AET_GUIDE, AET_BHMAN],
-        verifyVia: 'The participating-provider agreement and the Aetna Behavioral Health Provider Manual documentation section.',
-        blocker: 'per-case',
+        value:
+          'Aetna has a general rule, not an ABA-specific one. Its medical-record standards apply to "all participating practitioners," who "agree to maintain medical records in a current, detailed, organized, and comprehensive manner." The core components are: "All entries are dated," "All entries are legible to someone other than the writer," and "All entries in the record must contain the provider\'s signature/initials or electronic identifier." Aetna audits records against these at least every two years, with an 85% performance goal. Aetna\'s ABA documents do not say whether the technician, the supervising BCBA or both sign a session note, or how soon after the session it must be signed. Each person who writes an entry should sign or e-sign and date it.',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna Health Care Professional Toolkit / office manual (2026): medical records — standards and criteria for documentation', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+        ],
       },
       placeOfService: {
         value: 'Outpatient ABA is setting-agnostic in Aetna’s guide, which expects coordination with the school district as applicable. Luke’s Law excludes "services provided outside of the State" and does not reduce IEP or IFSP obligations.',
@@ -1244,9 +1355,13 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Aetna require graphs for ABA reassessments?', a: 'Aetna’s guide requires a progress evaluation every six months but does not prescribe graphs; send measurable progress against each goal and the standardized scores its termination criteria use.' },
+      { q: 'What is Aetna’s timely filing limit for ABA claims, and when does it pay?', a: 'Aetna publishes no numeric filing limit; it comes from your Aetna agreement or state law. COB, corrected and voided claims go through Availity; no weekly payment cutoff is published.' },
       { q: 'Does Aetna cover ABA therapy in Hawaii?', a: 'Yes — for ASD under Aetna’s national policy, with precertification on every ABA code. Fully insured Hawaii plans also carry Luke’s Law: coverage for children under 14, with ABA capped at $25,000 a year for ages 13 and under.' },
       { q: 'What does Hawaii’s autism mandate require?', a: 'Luke’s Law (HRS § 431:10A-133) requires state-regulated plans to cover autism diagnosis and treatment for individuals under 14, with ABA subject to a $25,000 annual maximum for children 13 and under. Self-funded employer plans are exempt.' },
       { q: 'What does Aetna pay for ABA in Hawaii?', a: 'Commercial rates are negotiated in your provider agreement and not published.' },
+      { q: 'Does Aetna require a referring provider (box 17) on ABA claims?', a: 'Aetna publishes no such requirement for ABA. A referral has to accompany a claim only when the member’s plan requires PCP referrals for specialist care. Behavioral health is a direct-access benefit in Aetna’s behavioral health manual.' },
+      { q: 'Which form does Aetna want with an ABA prior-authorization request?', a: 'Since August 1, 2026, use form GR-69017-4, “ABA Treatment Request: Required Information for Precertification.” Start the request on Availity or by phone first, then attach the completed form plus a standardized assessment from the past 12 months and the treatment plan.' },
     ],
   },
 
@@ -1305,6 +1420,44 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
           CIG_ARG,
         ],
       },
+      {
+        h2: 'How fast must Cigna pay a clean ABA claim in Hawaii?',
+        body: [
+          'Hawaii’s prompt-pay statute covers insurers issuing comprehensive medical plans, as well as mutual benefit societies and HMOs. "Unless shorter payment timeframes are otherwise specified in a contract," a claim that is not contested or denied must be paid within thirty calendar days of receiving a written claim or fifteen calendar days of receiving an electronic one. A contested or denied claim must be flagged within 15 days (written) or 7 days (electronic), naming the contested part and the reason, unless the plan sends at least a monthly reimbursement report carrying that information. After you supply requested information the same 30- or 15-day clock applies, and late payments carry interest "at a rate of fifteen per cent a year," added automatically once it reaches $2. Before recouping a payment the plan must give 30 days’ written notice, and you have 60 days from that notice to appeal (HRS § 431:13-108). Self-funded employer plans are not covered by the statute.',
+        ],
+        cites: [
+          { title: 'HRS § 431:13-108 — Reimbursement for accident and health or sickness insurance benefits (Hawaii Revised Statutes)', url: 'https://www.capitol.hawaii.gov/hrscurrent/Vol09_Ch0431-0435H/HRS0431/HRS_0431-0013-0108.htm' },
+        ],
+      },
+      {
+        h2: 'What is Cigna’s timely filing limit for ABA claims?',
+        body: [
+          'Cigna’s timely filing policy, for claims submitted directly to Cigna: it will consider "Participating provider claims submitted three (3) months [90 days] after the date of service" and out-of-network claims submitted six months (180 days) after the date of service. The limit is longer where applicable law requires it or your provider agreement allows more time, and in coordination-of-benefits cases it runs from the processing date on the primary carrier’s EOB.',
+          'More of Evernorth’s filing rules (administrative guidelines, September 2026): for a secondary claim the 90 days run from "the primary payer’s processing date as stated on an explanation of benefits [EOB] or explanation of payment [EOP]," and the primary EOP goes in with the claim unless the COB data is sent electronically; Medicaid gets three years; a claim returned for more information gets a fresh 90 days from the date of the request. Corrected or replacement claims carry frequency code 7 (replace) or 8 (void) in box 22, not a "Corrected Claim" stamp, and no separate corrected-claim deadline is published. Evernorth publishes no weekly payment cycle or submission cutoff; it offers ERA and EFT "to help reduce your payment cycle."',
+          'Which codes: Evernorth’s autism resource guide (March 2025) says "All ABA services must be billed with CPT codes 97151–97158, 0362T, and 0373T ONLY," so state HCPCS ABA codes such as H0031, H0032, H2014 or H2019 are not billable to Cigna for ABA. The same guide says "All ABA CPT codes are covered telehealth services."',
+        ],
+        cites: [{ title: 'Cigna/Evernorth Autism Resource Guide (PCOMM-2025-225, March 2025): billing codes', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026): Claims filing deadline, Coordination of benefits, corrected claims, ERA, Appeals', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }, 
+          { title: 'Cigna for Health Care Professionals — When to File (timely filing policy)', url: 'https://static.cigna.com/assets/chcp/resourceLibrary/clinicalReimbursementPayment/medicalClinicalReimburseWhenToFile.html' },
+        ],
+      },
+      {
+        h2: 'Does Cigna need a referring provider on the ABA claim?',
+        body: [
+          'No. Evernorth’s administrative guidelines (September 2026) define a complete CMS-1500 claim as the patient’s ID number, name, address and date of birth; the subscriber’s name and address; release of information and assignment of benefits; diagnosis codes and pointer; date and place of service; CPT/HCPCS code and modifier; billed charge, units, TIN and total charge; the “Rendering provider’s name, NPI, and license type”; and the “Billing provider’s name, address, and NPI.” No referring or ordering provider is on that list. If you do report one on an 837, “Any additional provider identification on the claim, such as the “Rendering Provider” or “Referring Provider,” must include the name and NPI when submitted.”',
+          'The ABA-specific paper-claim rules sit in the autism resource guide: use Form CMS-1500, “Print your name in box 31,” and “List only a BCBA or other licensed provider in box 33.” Evernorth does not credential non-licensed or non-certified staff, so their services are billed under the supervising provider.',
+        ],
+        cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191): complete-claim definition and 837 provider identifiers', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+          { title: 'Cigna / Evernorth autism resource guide (March 2025): paper-claim rules', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+        ],
+      },
+      {
+        h2: 'What must a Cigna ABA reauthorization request contain, and are graphs required?',
+        body: [
+          'Evernorth’s EN0499 (effective May 15, 2026) sets what a continued-treatment request must show: an updated treatment plan covering current deficits and progress in every targeted area; "Quantitative baseline, interim and current data ... with dates reported from when the data were collected" for every behavior and skill, across all settings; current data collected "within no more than 60 days prior to the start date of the continued treatment request" and within 60 days before the request is received; data showing "ongoing and sustained progress"; and a reliable, valid, standardized assessment completed no more than one year before the continued-treatment start date. Where progress is not shown, the request must name the barriers and the protocol changes made. EN0499 asks for dated quantitative data, not for graphs as such; graphs are a common way to present it, but the policy does not require them.',
+        ],
+        cites: [{ title: 'Evernorth Coverage Policy EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026): Criteria for Continued Treatment with ABA', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Luke’s Law applies) or self-funded employer plan (exempt).' },
@@ -1312,7 +1465,7 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis details', desc: 'Name, credentials and licensure of the diagnoser and the date of the most recent diagnosis — EN0499 asks for all of them. Rett syndrome (F84.2) is excluded.' },
       { title: 'Treatment order', desc: 'Luke’s Law covers treatment prescribed or ordered by a physician, psychiatrist, psychologist, LCSW or registered nurse practitioner.' },
     ],
-    sources: [CIG_EN0499, CIG_ARG, HRS_133, SB791, HRS_465D7, HRS_465D8, CFR_2560, CFR_147_136, HRS_432E5],
+    sources: [{ title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026): Claims filing deadline, Coordination of benefits, corrected claims, ERA, Appeals', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }, CIG_EN0499, CIG_ARG, HRS_133, SB791, HRS_465D7, HRS_465D8, CFR_2560, CFR_147_136, HRS_432E5],
     deliveryRules: {
       supervision: {
         value: 'Case supervision by a BCBA, LBA or independently licensed mental health professional trained in ABA, consistent with "one to two hours per ten hours of direct treatment"; at least one to two hours a week of direct case supervision when direct treatment is 10 hours a week or less; the supervisor’s name and credentials documented.',
@@ -1320,9 +1473,13 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
         cites: [CIG_EN0499],
       },
       concurrentBilling: {
-        value: 'Only one provider may bill for a unit of time, "with the exception of CPT codes 97153, 97154, and 97155 (direct supervision when the BCBA/qualified health care provider directs the technician and both are face-to-face with the patient at the same time)."',
+        value:
+          'Only one provider may bill for a unit of time, "with the exception of CPT codes 97153, 97154, and 97155 (direct supervision when the BCBA/qualified health care provider directs the technician and both are face-to-face with the patient at the same time)." Speech, OT and other therapies are a separate rule: EN0499 says ABA "is not covered or reimbursable when delivered to the same individual, at the same time as any other treatment modality (e.g., ABA and speech therapy, or ABA and occupational therapy)." Schedule ABA and other therapies in separate time blocks. ABA built into a speech or OT session is not billable.',
         status: 'verified',
-        cites: [CIG_ARG],
+        cites: [
+          { title: 'Cigna / Evernorth autism resource guide for behavioral health providers (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (effective 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
       },
       dailyLimits: {
         value: 'No per-day unit cap in EN0499 or the resource guide; hours are authorized on medical necessity. On fully insured Hawaii plans Luke’s Law caps ABA at $25,000 a year for children 13 and under.',
@@ -1330,11 +1487,12 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
         cites: [CIG_EN0499, HRS_133],
       },
       noteSignature: {
-        value: 'EN0499 requires documentation of the specific service delivered and the supervisor’s name and credentials, but sets no session-note signature rule.',
-        status: 'unverified',
-        cites: [CIG_EN0499],
-        verifyVia: 'Evernorth Provider Services 800-926-2273 or the provider agreement.',
-        blocker: 'per-case',
+        value:
+          'The person who delivered the service signs the note. EN0499\'s Documentation Expectations require "A separate written record ... for each individual receiving ABA intervention corresponding with each service noted through identified CPT® Code." Each record must include at least the start and end date and time, the location, the focus of service, a detailed description of the intervention, the individuals present, the specific service delivered (direct service, supervision, stakeholder training and so on), and the "Name, credential (if applicable), and signature of ABA provider who rendered the service." EN0499 sets no deadline for signing.',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (effective 5/15/2026): Documentation Expectations', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
       },
       placeOfService: {
         value: 'EN0499 expects treatment across the settings where behaviors occur (including academic settings and telehealth); all ABA codes are covered by telehealth. Luke’s Law excludes "services provided outside of the State."',
@@ -1396,6 +1554,8 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Cigna require graphs for ABA reassessments?', a: 'Not graphs as such. EN0499 requires dated quantitative baseline, interim and current data (current data no more than 60 days old), an updated plan and a standardized assessment no more than a year old; graphs are a common way to show the data, but the policy does not require them.' },
+      { q: 'Does Cigna accept H0031 or H0032 for ABA?', a: 'CPT 97151–97158, 0362T and 0373T only; HCPCS H-codes such as H0031/H0032 are not billable for ABA (Evernorth autism resource guide).' },
       { q: 'Does Cigna cover ABA therapy in Hawaii?', a: 'Yes — for ASD (excluding Rett syndrome) under EN0499. Fully insured Hawaii plans also carry Luke’s Law: coverage for children under 14, ABA capped at $25,000 a year for ages 13 and under.' },
       { q: 'Does Cigna require prior authorization for the ABA assessment?', a: 'No — 97151, 97152 and 0362T need no prior authorization with an autism diagnosis, when the provider is independently licensed or a BCBA. Treatment does.' },
       { q: 'Does Cigna pay for ABA by telehealth?', a: 'Cigna’s autism resource guide says all ABA CPT codes are covered telehealth services.' },
@@ -1404,6 +1564,8 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
       { q: 'Is Cigna accepting new ABA providers in Hawaii?', a: 'Evernorth says it is committed to expanding its autism network. Apply with the Behavioral Provider Information Form (individuals) or the Screening Application for Autism Clinics (groups); allow up to 90 days, plus 60 to 90 days of individual credentialing for a clinic.' },
       { q: 'Does Cigna require RBT certification for ABA technicians?', a: 'Evernorth credentials only certified or licensed clinicians (BCBA, BCBA-D, BCaBA, licensed behavior analyst or other licensure). It does not credential technicians; their services are billed under the supervising provider. EN0499 describes direct supervision of the RBT or BCaBA delivering treatment.' },
       { q: 'Does Cigna pay for ABA delivered at school in Hawaii?', a: 'EN0499 treats school as a possible treatment setting but excludes educational services. It lists school among the settings where treatment goals may be set ("home, clinic, school, community setting"), requires the record to show that ABA in an academic setting still meets the direct-treatment definition, and excludes services "primarily educational or vocational in nature, or related to academic or work performance." Whether school hours are payable on a given plan is a benefit-document question.' },
+      { q: 'What is Cigna’s timely filing limit in Hawaii?', a: '90 days from the date of service for a participating provider and 180 days out of network, unless your agreement or applicable law allows longer (Cigna’s When to File policy).' },
+      { q: 'Does Cigna require a referring provider (box 17) on ABA claims?', a: 'No. Evernorth’s complete-claim definition for the CMS-1500 lists the rendering and billing providers but no referring provider. If you report a referring provider on an electronic claim, include both the name and the NPI.' },
     ],
   },
 
@@ -1467,6 +1629,44 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
           { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
         ],
       },
+      {
+        h2: 'How fast must UnitedHealthcare pay a clean ABA claim in Hawaii?',
+        body: [
+          'Hawaii’s prompt-pay statute covers insurers issuing comprehensive medical plans, as well as mutual benefit societies and HMOs. "Unless shorter payment timeframes are otherwise specified in a contract," a claim that is not contested or denied must be paid within thirty calendar days of receiving a written claim or fifteen calendar days of receiving an electronic one. A contested or denied claim must be flagged within 15 days (written) or 7 days (electronic), naming the contested part and the reason, unless the plan sends at least a monthly reimbursement report carrying that information. After you supply requested information the same 30- or 15-day clock applies, and late payments carry interest "at a rate of fifteen per cent a year," added automatically once it reaches $2. Before recouping a payment the plan must give 30 days’ written notice, and you have 60 days from that notice to appeal (HRS § 431:13-108). Self-funded employer plans are not covered by the statute.',
+        ],
+        cites: [
+          { title: 'HRS § 431:13-108 — Reimbursement for accident and health or sickness insurance benefits (Hawaii Revised Statutes)', url: 'https://www.capitol.hawaii.gov/hrscurrent/Vol09_Ch0431-0435H/HRS0431/HRS_0431-0013-0108.htm' },
+        ],
+      },
+      {
+        h2: 'What is the timely filing limit for UnitedHealthcare ABA claims?',
+        body: [
+          'UnitedHealthcare commercial ABA runs through Optum Behavioral Health, whose National Provider Network Manual (effective 9/1/2026) says "All information necessary to process claims must be received by Optum no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan." Corrections are due within 90 days of the first claim’s receipt, the member cannot be billed for a late claim, and reconsideration plus appeal must be filed within 12 months in total unless state law or your agreement says otherwise.',
+          'Optum’s National Network Manual (effective September 1, 2026) also sets the payment clock: claims with all required information and any required authorization "will be paid within 45 calendar days after Optum receives the claim, or as required by state and federal laws," which may exclude claims needing a coordination-of-benefits determination, and when Optum is secondary it pays up to the Optum contracted rate. UnitedHealthcare’s 2026 administrative guide adds that a corrected claim (frequency code 7, with the original claim number) must arrive within the same timely-filing limit as the original. No weekly payment cycle or submission cutoff is published.',
+          'Which codes: Optum’s commercial ABA reimbursement policy (2022RP501A, updated June 2026) lists the reimbursable codes for the commercial ABA program as 97151–97158, 0362T and 0373T, each in 15-minute units with a credential modifier (HM, HN, HO or HP); no HCPCS H-code (H0031, H0032, H2014, H2019) is on that list.',
+        ],
+        cites: [{ title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026): reimbursable codes', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial): Timely filing of corrected claims; Subrogation and COB', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, 
+          { title: 'Optum Behavioral Health — National Provider Network Manual (published 7/1/2026, effective 9/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+        ],
+      },
+      {
+        h2: 'Does UnitedHealthcare need a referring provider on the ABA claim?',
+        body: [
+          'Not for ABA. Optum, which manages UnitedHealthcare’s behavioral benefit, says in its National Network Manual (effective September 1, 2026) that a claim must carry the coding (ICD diagnosis, CPT/HCPCS and modifiers), the member ID number, customary charges, and the provider’s TIN and NPI. Paper Form 1500 claims add the member and subscriber names and dates of birth, the length of session, the type and duration of service, and the clinician’s name, credentials, Tax ID and NPI. A referring provider is not on either list.',
+          'UnitedHealthcare’s 2026 administrative guide requires the referring provider’s name and NPI only on laboratory, DME, imaging and home health claims. For every other claim, it requires “a valid billing NPI, rendering NPI and relevant taxonomy code(s)” and says “we encourage you to submit the referring health care provider’s NPI.” In short, the referring NPI is optional on an ABA claim, and leaving it off is not a denial reason under either document.',
+        ],
+        cites: [
+          { title: 'Optum National Network Manual (BH02330, effective September 1, 2026): claims submission and Form 1500 required fields', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+          { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial), Chapter 10: complete claim and NPI requirements', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+        ],
+      },
+      {
+        h2: 'What must a UnitedHealthcare ABA reauthorization request contain, and are graphs required?',
+        body: [
+          'Optum’s ABA Supplemental Clinical Criteria (interim review April 2026) say that "With each clinical review for continued ABA treatment, the provider must submit updated documentation" showing progress "for each targeted symptom and behavior, including progress toward defined goals, including the same modes of measurement that were utilized for baseline measurement." Progress "should include rate and percentage of mastered programs, rates of mastered targets, change scores for any outcome measures, updated standardized adaptive measures, and change scores for skills-based assessments," with movement from baseline shown on validated, norm-referenced assessments and, where applicable, the caregiver’s own progress. Inadequate progress over six months calls for an analysis of the reasons and modified interventions, and the review looks at use below 80 percent of authorized hours over two weeks. The criteria do not require graphs as such.',
+        ],
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026): Continued Service Criteria', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+      },
     ],
     collect: [
       { title: 'Fully insured or self-funded', desc: 'Decides whether Luke’s Law applies at all.' },
@@ -1474,7 +1674,7 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis with a validated tool', desc: 'Optum wants the DSM-5 diagnosis and severity confirmed with at least one clinically validated tool.' },
       { title: 'Child’s age', desc: 'Luke’s Law covers children under 14, with ABA capped at $25,000 a year for ages 13 and under.' },
     ],
-    sources: [OPT_SCC, HRS_133, SB791, HRS_465D7, HRS_465D8, CFR_2560, CFR_147_136, HRS_432E5, { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' }, { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' }, { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' }],
+    sources: [{ title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): Coordination of Benefits; Timely Filing; Payment Timelines', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial): Timely filing of corrected claims; Subrogation and COB', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, OPT_SCC, HRS_133, SB791, HRS_465D7, HRS_465D8, CFR_2560, CFR_147_136, HRS_432E5, { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' }, { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' }, { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' }],
     deliveryRules: {
       supervision: {
         value: '"Consistent with CASP standards of care, direct case supervision is required 1–2 hours for every 10 hours of direct treatment per week." Technicians must be under a BCBA or licensed behavioral health clinician; in Hawaii, RBTs and BCaBAs practice only under a licensed behavior analyst’s direction (HRS § 465D-7).',
@@ -1572,12 +1772,16 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare require graphs for ABA reassessments?', a: 'Optum’s criteria require updated progress data in the same measures used at baseline (mastery rates, change scores, updated standardized adaptive measures) at every continued review; they do not require graphs as such.' },
+      { q: 'Does UnitedHealthcare accept H0031 or H0032 for ABA?', a: 'Optum’s commercial ABA reimbursement policy lists only CPT 97151–97158, 0362T and 0373T as reimbursable ABA codes, each with a credential modifier; no H-code (H0031, H0032, H2014, H2019) is on the list.' },
       { q: 'Does UnitedHealthcare cover ABA in Hawaii?', a: 'Yes, under Optum’s ABA clinical criteria, with behavioral health administered by Optum. Fully insured plans also carry Luke’s Law: coverage for children under 14, ABA capped at $25,000 a year for ages 13 and under.' },
       { q: 'Does Luke’s Law apply to every UnitedHealthcare plan?', a: 'No. Self-funded employer plans follow their plan documents, not state insurance mandates, so check funding type first.' },
       { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale.' },
       { q: 'Can the ABA assessment (97151) or BCBA supervision (97155) be done by telehealth with UnitedHealthcare in Hawaii?', a: 'Supervision yes, assessment no. For commercial plans Optum allows telehealth only on 97155, 97156 and 97157, after a virtual-visits attestation, billed with POS 02 or 10. The 97151 assessment is not on that list.' },
       { q: 'What is UnitedHealthcare\'s ABA fee schedule in Hawaii?', a: 'There is no public one. Optum pays contracted providers at the rate on the fee schedule in their Optum agreement.' },
       { q: 'Is UnitedHealthcare (Optum) accepting new ABA providers in Hawaii?', a: 'Optum takes ABA applications through the "Join Our Autism/ABA Network" section of Provider Express. Credentialing takes 45 to 120 days after a complete submission, plus a site audit for new agencies. Optum publishes no statement that its network is closed.' },
+      { q: 'What is UnitedHealthcare’s timely filing limit for ABA in Hawaii?', a: '90 calendar days from the date of service under Optum’s National Provider Network Manual, unless law or the member’s plan allows longer.' },
+      { q: 'Does UnitedHealthcare require a referring provider (box 17) on ABA claims?', a: 'No. Optum’s claim requirements do not include a referring provider. UnitedHealthcare makes the referring name and NPI mandatory only for lab, DME, imaging and home health claims. For other claims it encourages the referring NPI but does not require it.' },
     ],
   },
 };

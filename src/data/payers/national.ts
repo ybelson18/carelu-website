@@ -47,7 +47,7 @@ export const nationalPayers: Record<string, PayerConfig> = {
       { label: 'Precert', value: 'Required — via Availity or phone; form GR-69017-4 (7-26, eff. 8/1/2026) carries the clinical detail (not for MD/MA)' },
       { label: 'Provider bar', value: 'BACB certification or state BA licensure' },
       { label: 'Telehealth', value: 'Covered for 97151, 97153, 97155, 97156, 97157' },
-      { label: 'Reauth cadence', value: 'Commonly ~6 months (verify per plan)' },
+      { label: 'Reauth cadence', value: 'Progress evaluated every 6 months; standardized assessment within 12 months (repeat every 6–12)' },
     ],
     sections: [
       {
@@ -86,6 +86,18 @@ export const nationalPayers: Record<string, PayerConfig> = {
         ],
       },
       {
+        h2: 'What does an Aetna ABA reauthorization need, and are graphs required?',
+        cites: [
+          { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+          { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+        ],
+        body: [
+          'Aetna does not ask for graphs. Its precertification form GR-69017-4 (7-26) asks for numbers: “Include baseline, interim and current data for all goals,” plus “supporting data that demonstrates current severity level of each impairment.” A dated table or a graph with its values will both carry that data.',
+          'How recent: the form wants “Results of a standardized assessment (i.e. Vineland, ABAS, VB-MAPP) completed within the past 12 months.” It adds: “Re‐evaluation of interventions and progress has been performed (every 6 months) to assess the need for ongoing ABA; AND a repeat validated assessment has been done every 6-12 months to demonstrate response to intervention.” The Medical Necessity Guide says “A member\'s progress is to be evaluated every six months.”',
+          'What else goes in: a time-limited treatment plan with measured target behaviors, baselines and “quantifiable criteria for progress”; data showing the impairment justifies the hours requested; measurable caregiver goals; titration and discharge criteria with an aftercare plan; and the clinical rationale for any change from the hours approved at the last review. The guide wants proof of improvement. Where there is none, it wants “documentation of modification of the treatment, additional assessments that have been conducted, and/or there has been appropriate consultations from other staff or experts.” Coverage ends after improvement of less than one standard deviation in all domains over successive authorization periods. It also ends after improvement of two or more standard deviations in multiple domains, or one or more in a Focused ABA plan. The form is not used for Maryland or Massachusetts plans.',
+        ],
+      },
+      {
         h2: 'Can a BCBA licensed in another state deliver ABA by telehealth to an Aetna member?',
         cites: [
           { title: 'Aetna — Behavioral Health Televideo Services (DocFind)', url: 'https://es.aetna.com/dse/cms/codeAssets/html/static/Behavioral_Health_Televideo.html' },
@@ -96,6 +108,34 @@ export const nationalPayers: Record<string, PayerConfig> = {
           'Aetna applies the law at both ends of the call. Its Behavioral Health Televideo Services page says providers “comply with all relevant laws in the jurisdiction where they and the member getting services are located,” and adds that “Not all benefits plans cover Behavioral Health Televideo Services.” Aetna’s 2026 provider manual sets the ABA credential: “either national certification is needed from the Behavior Analyst Certification Board (BACB), or the practitioner must be licensed as a behavior analyst in the state in which they practice.” Its Behavioral Health Provider Manual (8/22 edition) says telemedicine providers “must act within the scope of their license and ensure that they have the proper licensure based on state requirements.”',
           'Aetna publishes no ABA-specific cross-state rule beyond that. A BCBA can treat an Aetna child in another state by telehealth only if that state’s law lets them practise there and the member’s plan covers televideo. Check both on the benefits call, along with which ABA codes the plan pays by telehealth.',
         ],
+      },
+      {
+        h2: 'How do you dispute or appeal an Aetna ABA claim?',
+        body: [
+          'Aetna runs two steps. A reconsideration is “a formal review of a previous claim decision” covering reimbursement, coding and reprocessing, and “You need to file your reconsideration within 180 calendar days of the initial claim decision.” An appeal follows: “File your appeal within 60 calendar days of the reconsideration decision.” Some denials skip the first step and go straight to appeal, including medical-necessity and payment-policy decisions, adverse utilization review decisions, outpatient denials for no precertification and retroactive authorizations; for those Aetna allows up to 180 days on commercial plans. Aetna says most reconsiderations get an EOB or letter within 30 business days. File on Availity, or by mail with the Practitioner and Provider Complaint and Appeal form, which is mandatory for written appeals.',
+          'State law changes the 180-day standard for fully insured members. Aetna’s exceptions table gives Maryland 365 days for all providers; New Jersey 90 calendar days from the notice to reach New Jersey’s PICPA arbitration program, and 18 months from first payment to seek an underpayment; North Carolina 2 years from the original claim payment. Self-funded plans stay on the 180-day standard.',
+        ],
+        cites: [{ title: 'Aetna — The disputes process: reconsiderations and post-service appeals', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' }, { title: 'Aetna — Dispute & appeal process: state exceptions to filing standard', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/provider-appeals.html' }, { title: 'Aetna — Provider manual (8102800-01-01, 6/26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }],
+      },
+      {
+        h2: 'Aetna ABA claims: codes, filing limit and payment time',
+        cites: [
+          { title: 'Aetna — Participating provider behavioral health precertification list (eff. Aug. 1, 2024) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+          { title: 'Aetna — Provider manual (8102800-01-01, 6/26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna — The disputes process: reconsiderations and post-service appeals', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' },
+        ],
+        body: [
+          'Codes: Aetna’s behavioral health precertification list puts ABA under CPT 97151–97158, 0362T and 0373T, and CPB 0554’s code table lists the same CPT set. Neither document lists a HCPCS H-code (H0031, H0032, H2019) for commercial ABA.',
+          'Filing limit and payment time: Aetna’s June 2026 national provider manual publishes neither. It defines a clean claim as one “received in a timely manner” that includes all the data elements of the CMS-1500. It adds that a clean claim “Doesn’t involve coordination of benefits,” so secondary claims fall outside the clean-claim clock. The manual does not mention taxonomy codes on claims or electronic visit verification. The filing deadline and payment terms are in your participation agreement. On fully insured plans, the state’s prompt-pay and timely-filing law also applies. After a decision, you have 180 calendar days to file a reconsideration and then 60 calendar days to appeal. No weekly submission cutoff or check-run day is published.',
+        ],
+      },
+      {
+        h2: 'Does Aetna require a referring provider on ABA claims?',
+        body: [
+          'Not as a standing rule. Aetna\u2019s provider manual (June 2026) says a clean claim includes \u201cA corresponding referral (whether in paper or electronic format), if required for the applicable claim,\u201d along with \u201cAll the data elements of the UB-04 or CMS-1500.\u201d For behavioral health, which is where Aetna places ABA, \u201cMembers may access behavioral health care in three ways: Through direct access to the behavioral health provider; Through a recommendation from the primary care physician or other treatment provider; Through a referral from an employee assistance or student assistance program provider.\u201d So box 17 is needed only when the member\u2019s plan requires a referral for the service; in Aetna Open Access plans \u201creferrals also are not necessary.\u201d Where a PCP referral is required, it must be issued before the visit: \u201cReferrals should not be retroactive.\u201d',
+        ],
+        cites: [{ title: 'Aetna — Provider manual (8102800-01-01, 6/26): clean claims, referrals, behavioral health access', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }],
       },
     ],
     collect: [
@@ -114,11 +154,19 @@ export const nationalPayers: Record<string, PayerConfig> = {
       { title: 'Aetna — Telemedicine and Direct Patient Contact Payment Policy (ABA code table: Commercial vs. Medicare columns; posted policy shows last review June 2021)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pdf/telemedicine.pdf' },
       { title: 'Aetna — Behavioral Health Televideo Services (DocFind)', url: 'https://es.aetna.com/dse/cms/codeAssets/html/static/Behavioral_Health_Televideo.html' },
       { title: 'Aetna — Behavioral Health Provider Manual (1158252-01-01, 8/22) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' },
+      { title: 'Aetna — Provider manual (8102800-01-01, 6/26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+      { title: 'Aetna — The disputes process: reconsiderations and post-service appeals', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' },
+      { title: 'Aetna — Dispute & appeal process: state exceptions to filing standard', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/provider-appeals.html' },
+      { title: 'Aetna — Provider manual State Supplement, Texas section (8705750-01-01, 7/26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/ProviderManual-StateSpplmt.pdf' },
+      { title: '29 CFR § 2560.503-1(f)(2) — ERISA group health plan claim decision deadlines', url: 'https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XXV/subchapter-F/part-2560/section-2560.503-1' },
+      { title: '42 CFR § 433.139 — Medicaid payment of claims involving third party liability', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+      { title: '32 CFR § 199.8 — TRICARE double coverage', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/part-199/section-199.8' },
+      { title: 'VA — CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/files/2025-12/CHAMPVA-Guidebook.pdf' },
     ],
     deliveryRules: {
       supervision: {
         value:
-          'Aetna\'s ABA medical necessity guide: services "must be provided directly or billed by licensed behavior analysts (in states with behavior analyst licensure laws), board-certified behavior analysts, or licensed psychologists" unless state mandates, plan documents or contracts require otherwise, and where those allow unlicensed or non-certified staff "there must be supervision and direction of the unlicensed or non-certified providers in line with practice standards." No RBT credential is named. Aetna publishes no hours-per-hours ratio of its own. The precertification form does make supervision a submission fact rather than an internal one: it asks for the name and credential of the BCBA or licensed clinician overseeing the case. For context on intensity rather than supervision, CPB 0648 references intensive-intervention research norms of 25 hours a week, 12 months a year.',
+          'Aetna\'s ABA medical necessity guide: services "must be provided directly or billed by licensed behavior analysts (in states with behavior analyst licensure laws), board-certified behavior analysts, or licensed psychologists" unless state mandates, plan documents or contracts require otherwise, and where those allow unlicensed or non-certified staff "there must be supervision and direction of the unlicensed or non-certified providers in line with practice standards." No RBT credential is named. The guide does set the supervision allowance: “additional authorization may be provided for QHP protocol modification and direction at 1 to 2 hours per 10 hours of treatment by protocol, as well as authorization for caregiver training.” It sets no cap on how many technicians or cases one analyst may supervise. The precertification form does make supervision a submission fact rather than an internal one: it asks for the name and credential of the BCBA or licensed clinician overseeing the case. For context on intensity rather than supervision, CPB 0648 references intensive-intervention research norms of 25 hours a week, 12 months a year.',
         status: 'verified',
         cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'Aetna CPB 0648 \u2014 Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }],
       },
@@ -132,17 +180,17 @@ export const nationalPayers: Record<string, PayerConfig> = {
       },
       billAsProvider: {
         value:
-          'Not published for ABA. Aetna\'s ABA medical necessity guide sets who may deliver or bill the service \u2014 BACB-certified or state-licensed behavior analysts, with unlicensed staff supervised \u2014 but does not state whose NPI carries a technician-delivered 97153 claim, or which degree-level modifiers apply.',
-        status: 'unverified',
+          'Billed by the licensed or certified analyst, unless the plan or state says otherwise. Aetna’s ABA Medical Necessity Guide: “Services must be provided directly or billed by licensed behavior analysts (in states with behavior analyst licensure laws), board-certified behavior analysts, or licensed psychologists where behavior analysis is within their scope of practice definition, unless state mandates, plan documents or contracts require otherwise.” Where unlicensed or non-certified staff deliver services, “there must be supervision and direction” of them in line with practice standards. Aetna does not publish whose NPI goes in the rendering field of a technician-delivered 97153 line, or any degree-level modifiers.',
+        status: 'plan-dependent',
         cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
-        verifyVia: 'Aetna provider services or Availity \u2014 confirm the rendering-versus-billing NPI convention and any required modifiers before the first claim.',
+        verifyVia: 'Your Aetna participation agreement, or Aetna provider services / Availity — confirm the rendering-NPI convention and any modifiers before the first claim.',
         blocker: 'per-case',
       },
       dailyLimits: {
         value:
-          'Not published. CPB 0554 lists the covered ABA codes but sets no per-day unit ceiling, and Aetna publishes no ABA-specific MUE table. The operative ceiling is the precertification itself, which requires requested hours to be listed code by code \u2014 so the authorization, not a policy, is what bounds the day. CPB 0648 references intensive-intervention research norms of 25 hours a week, 12 months a year as clinical context rather than as a limit.',
+          'Not published as a per-day unit ceiling. CPB 0554 lists the covered ABA codes but sets no per-day cap, and Aetna publishes no ABA-specific MUE table. The operative ceiling is the precertification itself: form GR-69017-4 asks for treatment hours per week code by code, and assessment hours per authorization period. The ABA Medical Necessity Guide sizes those weekly hours with a severity table. For each impaired domain (maladaptive behavior, social communication, self-care) it allows 1 to 4 hours a week for mild impairment (more than 1 SD below the mean), 4 to 7 for moderate (more than 1.5 SD) and 7 to 10 for severe (more than 2 SD). “Authorized hours will be based on documented severity of impairments.” Its typical intensity is 10–25 hours a week for comprehensive ABA and 1–20 for focused ABA. These are authorization limits, not claim edits.',
         status: 'unverified',
-        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
+        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }],
         verifyVia: 'The authorization letter itself, plus Availity Essentials for the plan\'s claim-editing and reimbursement policies. Ask whether CMS MUE limits are applied to ABA codes on this plan.',
         blocker: 'per-case',
       },
@@ -232,11 +280,18 @@ export const nationalPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Aetna accept H0031 or H0032 for commercial ABA?', a: 'Aetna’s commercial ABA documents use CPT codes only: 97151–97158, 0362T and 0373T are the codes on its behavioral health precertification list and in CPB 0554. Bill commercial ABA with those CPT codes.' },
+      { q: 'What is Aetna’s timely filing limit for commercial ABA claims?', a: 'Aetna’s national provider manual does not publish one. The deadline is in your participation agreement, and on a fully insured plan the state’s timely-filing law applies too. The manual treats any claim involving coordination of benefits as outside its clean-claim definition. Reconsiderations are due within 180 calendar days of the claim decision.' },
+      { q: 'Does Aetna require graphs for ABA reauthorizations?', a: 'No. Aetna’s precertification form asks for baseline, interim and current data for every goal, plus data showing how severe each impairment is now. It also asks for a standardized assessment (Vineland, ABAS or VB-MAPP) from the past 12 months, a progress re-evaluation every 6 months and a repeat validated assessment every 6–12 months. A graph is fine if it shows the values and dates, but none is required.' },
+      { q: 'Does Aetna require a referring provider on ABA claims?', a: 'Only when the member\u2019s plan requires a referral. Aetna\u2019s June 2026 provider manual counts a referral as part of a clean claim only "if required for the applicable claim," and members can reach behavioral health care by direct access. Open Access plans need no referral. Check the member\u2019s plan on the eligibility response.' },
       { q: 'Does Aetna cover ABA therapy?', a: 'Yes — for autism spectrum disorder (ICD-10 F84.0–F84.9) under clinical policy CPB 0554, with precertification. Aetna considers ABA experimental for non-ASD indications.' },
       { q: 'Does Aetna require prior authorization for ABA?', a: 'Yes. Precertification is initiated on Availity or by phone, and form GR-69017-4 (7-26 revision, eff. 8/1/2026) supplies diagnosis details, requested hours per CPT code, the supervising clinician, and concurrent services.' },
       { q: 'Does Aetna cover ABA by telehealth?', a: 'Yes, for codes 97151, 97153, 97155, 97156, and 97157 (not 97152) — but the policy has shifted before, so confirm the current rule during each benefits verification.' },
       { q: 'Does Aetna require RBT certification for ABA technicians?', a: 'Not by name. Aetna\'s ABA medical necessity guide says services must be provided directly or billed by licensed behavior analysts, BCBAs or licensed psychologists "unless state mandates, plan documents or contracts require otherwise." Where those allow services by unlicensed or non-certified staff, "there must be supervision and direction" in line with practice standards. Your contract and any state licensure law decide the technician credential.' },
       { q: 'Can an out-of-state BCBA provide ABA to an Aetna member by telehealth?', a: 'Only within the law at both ends. Aetna requires televideo providers to comply with all relevant laws in the jurisdiction where they and the member are located, and not every plan covers televideo. Confirm that the child’s state allows the BCBA to practise there, and verify telehealth coverage for the specific plan.' },
+      { q: 'How long do we have to appeal an Aetna commercial ABA claim?', a: 'File a reconsideration within 180 calendar days of the claim decision, then an appeal within 60 calendar days of the reconsideration decision. Medical-necessity, payment-policy, no-precertification and retro-authorization denials go straight to appeal, with up to 180 days on commercial plans. Fully insured plans in some states get longer: Maryland 365 days, North Carolina 2 years from the original payment.' },
+      { q: 'Does Aetna commercial require EVV for ABA?', a: 'No Aetna commercial ABA document we read mentions electronic visit verification: not the ABA Medical Necessity Guide, the ABA precertification form or the 2026 provider manual. The federal EVV mandate, 42 U.S.C. § 1396b(l), applies to Medicaid personal care and home health services, not to commercial plans. Aetna Better Health (Medicaid) plans follow their state’s EVV rules, so check the state Medicaid guide for those.' },
+      { q: 'Does Aetna bill ABA under the supervising BCBA or the rendering technician?', a: 'Aetna’s ABA Medical Necessity Guide says services “must be provided directly or billed by licensed behavior analysts (in states with behavior analyst licensure laws), board-certified behavior analysts, or licensed psychologists,” with unlicensed staff supervised, “unless state mandates, plan documents or contracts require otherwise.” So technician services are billed by the licensed or certified provider. Aetna does not publish which NPI goes in the rendering field; confirm it with your Aetna contract or provider services.' },
     ],
   },
 
@@ -305,6 +360,18 @@ export const nationalPayers: Record<string, PayerConfig> = {
         ],
       },
       {
+        h2: 'Does Cigna require graphs for an ABA reassessment?',
+        cites: [
+          { title: 'Cigna EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+          { title: 'Evernorth Behavioral Health — Applied Behavior Analysis Prior Authorization Form (PCOMM-2025-224, 07/26) (PDF)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/applied-behavior-analysis.pdf' },
+        ],
+        body: [
+          'Not as such. Neither EN0499 (eff. 5/15/2026) nor Evernorth’s ABA Prior Authorization Form (07/26 edition) asks for graphs. What both require is numbers with dates. For continued treatment EN0499 asks for “Quantitative baseline, interim and current data … with dates reported from when the data were collected for all behaviors and skills previously identified and/or proposed for intervention … across all settings and environments.” The form says: “Ensure treatment goal data are quantitative rather than anecdotal in nature” and “Include baseline, interim, and current goal data, with dates recorded, to demonstrate progress over time.” EN0499 defines interim data as covering “at a minimum … the previous 6 months of treatment” and says it “may be reported as patient data points and/or as a relevant average.” So a graph with dated data points works, and so does a dated table. A narrative summary does not. EN0499 mentions figures in one place only, for the standardized assessment: “Standardized scores and score tables, and/or scoring grids/figures must be provided, when applicable.”',
+          'How recent: current data must be “collected within no more than 60 days prior to the start date of the continued treatment request, as well as collected within no more than 60 days prior to the date the authorization request is received.” The standardized assessment must be “completed no more than one year prior to the start date of the continued treatment request.” The form puts it as “readministered at least once every year.” After any break in treatment longer than 60 calendar days, a new standardized assessment and updated data are required.',
+          'What else the reassessment needs: an updated treatment plan covering current deficits and progress; data showing “ongoing and sustained progress”; where progress is not shown, the barriers and a documented plan with adjusted protocols; data reported separately for each setting; dated baseline data within 60 days for any new goal; and caregiver (stakeholder) training data showing that each stakeholder still takes part and is progressing. To ask for more hours, add the clinical rationale and quantitative data showing how the increase would improve the outcome. On the form, tick “Continued stay,” say whether treatment broke since the last request, and list the standardized assessments with their dates. The form also warns that the AFLS, Essential for Living and the PEAK Comprehensive Assessment do not, on their own, show medical necessity. A request counts as continued treatment when the child had ABA with the requesting provider within the last 90 days. Approved treatment is authorized per month under 97155, which can be swapped with 97153–97158 and 0373T. Weekly hours are multiplied by 4.33 to get the monthly figure.',
+        ],
+      },
+      {
         h2: 'Billing restrictions worth knowing at intake',
         cites: [{ title: 'Cigna EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
         body: [
@@ -335,6 +402,33 @@ export const nationalPayers: Record<string, PayerConfig> = {
           'The guidelines do not name the member’s state in so many words. Check the child’s state licensing law for whether an out-of-state BCBA may practise there by telehealth before scheduling remote sessions.',
         ],
       },
+      {
+        h2: 'How do you bill Cigna ABA claims: telehealth modifier, filing limit and codes?',
+        body: [
+          'Telehealth: Evernorth Behavioral Health lets individual providers and outpatient clinics “permanently use telehealth for outpatient therapy, applied behavior analysis (ABA).” On a CMS-1500 put the CPT code in field 24-D with “Modifier 95,” and “Place of Service (POS) 02 in Field 24-B.” GT is retired by CMS but “still acceptable on claim forms.”',
+          'Filing limit: Evernorth’s Behavioral Health Administrative Guidelines (September 2026) say “We will only consider claims submitted within 90 days of the date of service or as otherwise defined in your Provider Agreement.” A longer state timely-filing law applies where there is one. For COB claims “the 90-day filing limit is applied based on the primary payer’s processing date as stated on an explanation of benefits [EOB] or explanation of payment [EOP].” A claim sent back to you for more information gets a fresh 90 days from the date of the request. Corrected claims are not stamped “Corrected Claim.” They follow NUBC rules: on a CMS-1500, “Field 22 should include a ‘7’ or ‘8’ to indicate a replacement or voided claim.” Evernorth’s older (2021) electronic claim submission course adds a 180-day limit for “Non-participating provider or patient claims” and says a claim acceptance from Evernorth can serve as proof of timely filing. Payment time: the guidelines publish no national clean-claim payment deadline. Prompt-pay clocks for fully insured plans come from state law and sit in the guide’s state addenda. Evernorth offers ERA (835) to “Shorten the payment cycle.” It publishes no weekly submission cutoff or check-run day. The 2021 course also lists what an electronic claim carries: the billing provider’s name, TIN and NPI, the place of service, the prior authorization number, and the name and NPI of the rendering provider, attending physician and referring physician.',
+          'Codes and who bills: Evernorth’s autism resource guide is explicit: “All ABA services must be billed with CPT codes 97151–97158, 0362T, and 0373T ONLY.” So HCPCS codes such as H0031, H0032 or H2019 are not used for ABA on Cigna plans. Evernorth’s ABA billing-code table lists 97151 through 97158 plus 0362T and 0373T, all in 15-minute units. Technicians and BCaBAs may provide 97152, 97153 and 97154, but the bill for those codes goes out under the BCBA-D, BCBA or licensed mental health provider; every other code is both provided and billed by the BCBA-D, BCBA or licensed provider. Precertification is not needed for 97151, 97152 or 0362T with an autism diagnosis when the provider is independently licensed or a BCBA, except when a network exception is requested.',
+        ],
+        cites: [{ title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026) — Claims filing deadline, corrected claims (PDF)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }, { title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Evernorth Behavioral Health — Behavioral telehealth billing (COVID-19: Interim Guidance page, updated Jun 23, 2023)', url: 'https://static.evernorth.com/assets/evernorth/provider/resourceLibrary/behavioralResources/doingBusinessWithUs/cbhDbwcCOVID-19.html' }, { title: 'Evernorth — Electronic claim submission (EDI eCourse, ©2021) (PDF)', url: 'https://chk.static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/eCourses/medical/ediOptions/medBehaviorClaimSubmit.pdf' }, { title: 'Evernorth Behavioral Health — Billing Codes for Applied Behavior Analysis (Dec 16, 2022)', url: 'https://static.evernorth.com/assets/evernorth/provider/resourceLibrary/behavioralResources/doingBusinessWithUs/cbhDBwCBillingCodesForABA.html' }],
+      },
+      {
+        h2: 'Cigna ABA appeals, fee schedule, taxonomy and EVV',
+        cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026) — Dispute resolution, appeals (PDF)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
+        body: [
+          'Appeals: Evernorth’s Behavioral Health Administrative Guidelines (September 2026) say to call Provider Services at 800.926.2273 first. Payment appeals are then “initiated in writing within 180 calendar days of the date of the initial payment or denial decision,” or within 180 days of an adjustment. A clinical appeal is due “within 180 calendar days from the claim denial unless determined otherwise by plan or state regulation.” A second-level appeal is due within 60 days of the first-level decision. “Most appeals are resolved within 60 calendar days of receipt,” with notice within 75 days unless state law differs. A late-filing denial (no claim within 90 days of the date of service) needs proof with the appeal, such as the EDI transmission report or COB evidence. Each appeal has to be submitted by a person; Evernorth does not accept appeals filed by automation. Fee-schedule adjustments can go through the reconsideration feature on Provider.Evernorth.com instead of an appeal.',
+          'Fee schedule: Evernorth does not publish ABA rates. “For your fee schedule and a listing of autism spectrum disorder–related services eligible for reimbursement, refer to Exhibit A in your Provider Agreement.” Fee-schedule and contract questions go to Provider Services at 800.926.2273.',
+          'Taxonomy and EVV: the 290-page guidelines do not mention a taxonomy code on claims or electronic visit verification. The 837 rule they state is that the billing provider’s TIN and NPI are required, and any rendering or referring provider listed must carry a name and NPI. Ask Provider Services if your contract adds a taxonomy requirement.',
+        ],
+      },
+      {
+        h2: 'Does Cigna require a referring provider on ABA claims?',
+        body: [
+          'Not required. Evernorth\u2019s Behavioral Health Administrative Guidelines (September 2026), which govern Cigna behavioral claims including ABA, say for 837 claims: \u201cThe \u2018Billing Provider\u2019 Taxpayer Identification Number (TIN) and NPI are required. Any additional provider identification on the claim, such as the \u2018Rendering Provider\u2019 or \u2018Referring Provider,\u2019 must include the name and NPI when submitted.\u201d So box 17/17b is optional, but if you fill it in, give the referring clinician\u2019s name and NPI together.',
+        ],
+        cites: [{ title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026) — NPI on 837 claims', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }],
+      },
     ],
     collect: [
       { title: 'Member ID + plan details', desc: 'Card photo, subscriber info, and whether the plan actually includes the ABA benefit.' },
@@ -346,12 +440,20 @@ export const nationalPayers: Record<string, PayerConfig> = {
     sources: [
       { title: 'Cigna EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
       { title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+      { title: 'Evernorth Behavioral Health — Applied Behavior Analysis Prior Authorization Form (PCOMM-2025-224, 07/26) (PDF)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/applied-behavior-analysis.pdf' },
       { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026) (PDF)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+      { title: 'Evernorth Behavioral Health — Behavioral telehealth billing (COVID-19: Interim Guidance page, updated Jun 23, 2023)', url: 'https://static.evernorth.com/assets/evernorth/provider/resourceLibrary/behavioralResources/doingBusinessWithUs/cbhDbwcCOVID-19.html' },
+      { title: 'Evernorth — Electronic claim submission (EDI eCourse, ©2021) (PDF)', url: 'https://chk.static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/eCourses/medical/ediOptions/medBehaviorClaimSubmit.pdf' },
+      { title: 'Evernorth Behavioral Health — Billing Codes for Applied Behavior Analysis (Dec 16, 2022)', url: 'https://static.evernorth.com/assets/evernorth/provider/resourceLibrary/behavioralResources/doingBusinessWithUs/cbhDBwCBillingCodesForABA.html' },
+      { title: '29 CFR § 2560.503-1(f)(2) — ERISA group health plan claim decision deadlines', url: 'https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XXV/subchapter-F/part-2560/section-2560.503-1' },
+      { title: '42 CFR § 433.139 — Medicaid payment of claims involving third party liability', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+      { title: '32 CFR § 199.8 — TRICARE double coverage', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/part-199/section-199.8' },
+      { title: 'VA — CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/files/2025-12/CHAMPVA-Guidebook.pdf' },
     ],
     deliveryRules: {
       supervision: {
         value:
-          'Assessment and case supervision must come from a BCBA, a licensed behavior analyst, or an independently licensed clinician with documented ABA training, with direct supervision at the standard 1\u20132 hours per 10 hours of direct treatment. Evernorth does not credential non-licensed staff at all, so the supervising clinician is also the contractual party. The treatment plan must name a credentialed supervisor and define discharge criteria with a fading plan.',
+          'Assessment and case supervision must come from a BCBA, a licensed behavior analyst, or an independently licensed clinician with documented ABA training, with direct supervision at the standard 1\u20132 hours per 10 hours of direct treatment. Evernorth does not credential non-licensed staff at all, so the supervising clinician is also the contractual party. The treatment plan must name a credentialed supervisor and define discharge criteria with a fading plan. EN0499 adds that when direct treatment is 10 hours a week or less, “a minimum of one to two hours per week of direct case supervision is provided.” It sets no limit on how many technicians or cases one BCBA may supervise. That cap comes from the BACB and state licensure rules, not from Cigna.',
         status: 'verified',
         cites: [{ title: 'Cigna EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
       },
@@ -369,15 +471,15 @@ export const nationalPayers: Record<string, PayerConfig> = {
       },
       billAsProvider: {
         value:
-          'Evernorth does not credential non-licensed staff, so RBT-delivered services bill under the supervising provider. The treatment plan must carry a named, credentialed supervisor, and assessment codes are payable only when performed by an independently licensed provider or a BCBA.',
+          'Evernorth does not credential non-licensed staff, so RBT-delivered services bill under the supervising provider. The treatment plan must carry a named, credentialed supervisor, and assessment codes are payable only when performed by an independently licensed provider or a BCBA. Evernorth’s ABA billing-code table says the same code by code: 97152, 97153 and 97154 may be provided by a “BCaBA, Technician,” but the provider who can bill for them is the “BCBA-D, BCBA, or licensed mental health provider.”',
         status: 'verified',
-        cites: [{ title: 'Cigna EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+        cites: [{ title: 'Cigna EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Evernorth Behavioral Health — Billing Codes for Applied Behavior Analysis (Dec 16, 2022)', url: 'https://static.evernorth.com/assets/evernorth/provider/resourceLibrary/behavioralResources/doingBusinessWithUs/cbhDBwCBillingCodesForABA.html' }],
       },
       dailyLimits: {
         value:
-          'Not published as a per-day unit ceiling. EN0499 bounds the day from a different direction: ABA is not covered when delivered at the same time as another therapy to the same child, and only one provider can bill a unit of time, with the standard supervision exceptions. Requested intensity is set in the treatment plan and authorized on the ABA PA form rather than against a published cap.',
-        status: 'unverified',
-        cites: [{ title: 'Cigna EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+          'Not published as a per-day unit ceiling. EN0499 bounds the day from a different direction: ABA is not covered when delivered at the same time as another therapy to the same child, and only one provider can bill a unit of time, with the standard supervision exceptions. Requested intensity is set in the treatment plan and authorized on the ABA PA form rather than against a published cap. The limit that does apply is the authorization itself. Evernorth’s ABA Prior Authorization Form (07/26) says an approved authorization “will be written on a per month basis with CPT code 97155 and can be interchanged with ongoing treatment codes 97153–97158 and 0373T. ABA hours requested per week are multiplied by 4.33 to determine monthly averages.” So the cap is a monthly bank of authorized hours, not a daily claim edit.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Cigna EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Evernorth Behavioral Health — Applied Behavior Analysis Prior Authorization Form (PCOMM-2025-224, 07/26) (PDF)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/applied-behavior-analysis.pdf' }],
         verifyVia: 'The treatment authorization itself, and Evernorth Behavioral Health provider services (the behavioral health number on the member\'s card) \u2014 ask whether any per-day MUE is applied to ABA codes on this plan.',
         blocker: 'per-case',
       },
@@ -407,17 +509,15 @@ export const nationalPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'EN0499 as quoted in this guide sets the credential bar for who performs the ABA assessment and supervises the case \u2014 an independently licensed provider or a BCBA \u2014 rather than naming who may make the ASD diagnosis. What the policy does fix about the diagnosis is its content: a DSM-5-TR autism spectrum diagnosis, with Rett syndrome (F84.2) expressly excluded.',
-        status: 'unverified',
-        cites: [{ title: 'Cigna EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
-        verifyVia: 'Evernorth Behavioral Health provider services (the behavioral health number on the member\'s card) \u2014 ask which diagnosing credentials EN0499 accepts before relying on a diagnosis from a non-doctoral clinician.',
-        blocker: 'per-case',
+          'EN0499 (eff. 5/15/2026) requires a DSM-5-TR autism spectrum diagnosis (F84.0\u2013F84.9, except F84.2 Rett syndrome) made \u201cby a healthcare professional who is licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice.\u201d The request must give \u201cThe name, credentials, and type of licensure\u201d of the person who made the diagnosis and \u201cThe date on which the diagnosis was most recently made.\u201d A school (IDEA) eligibility finding \u201cmay not meet criteria as a formal diagnosis of ASD\u201d unless it also meets that standard. A diagnosis called \u201cprovisional,\u201d \u201crule out\u201d or \u201cat risk of\u201d does not count as confirmed. Evernorth\u2019s ABA Prior Authorization Form asks for the evaluator\u2019s credential: medical doctor, licensed psychologist or other.',
+        status: 'verified',
+        cites: [{ title: 'Cigna EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Evernorth Behavioral Health \u2014 Applied Behavior Analysis Prior Authorization Form (PCOMM-2025-224, 07/26) (PDF)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/applied-behavior-analysis.pdf' }],
       },
       diagnosticTools: {
         value:
-          'A standardized, validated instrument in its current edition \u2014 EN0499 gives Vineland-3 as the example rather than a closed list \u2014 administered within 60 days before treatment start, with the deficits it measures mapped to DSM-5-TR ASD domains and carried through into the treatment plan\'s goals. Continued treatment requires a repeat standardized assessment within a year. The instrument is the hinge of the treatment authorization, so pick it before the assessment rather than after.',
+          'A standardized, validated instrument in its current edition \u2014 EN0499 gives Vineland-3 as the example rather than a closed list \u2014 administered within 60 days before treatment start, with the deficits it measures mapped to DSM-5-TR ASD domains and carried through into the treatment plan\'s goals. Continued treatment requires a repeat standardized assessment within a year. The instrument is the hinge of the treatment authorization, so pick it before the assessment rather than after. Evernorth\u2019s ABA Prior Authorization Form (07/26) says the AFLS, the Essential for Living and the PEAK Comprehensive Assessment \u201cdo not, on their own, sufficiently demonstrate medical necessity.\u201d Where a tool scores on a grid or towers, fill in the bubbles to show each domain was fully assessed.',
         status: 'verified',
-        cites: [{ title: 'Cigna EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+        cites: [{ title: 'Cigna EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Evernorth Behavioral Health \u2014 Applied Behavior Analysis Prior Authorization Form (PCOMM-2025-224, 07/26) (PDF)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/applied-behavior-analysis.pdf' }],
       },
       referral: {
         value:
@@ -427,9 +527,9 @@ export const nationalPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'The most permissive published position in this directory: Cigna\'s March 2025 autism resource guide states that all ABA CPT codes are covered telehealth services, with the delivery model \u2014 in person, telehealth or hybrid \u2014 chosen on the individual\'s needs rather than by code. State Medicaid telehealth restrictions do not reach commercial Cigna business. That includes the 97151 assessment and 97155 protocol modification. EN0499 describes direct case supervision as occurring "concurrently with the delivery of direct treatment," with the BCBA "face-to-face with the individual and either the Registered Behavior Technician® [RBT®] or the Board Certified Assistant Behavior Analyst® [BCaBA®]," at one to two hours per ten hours of direct treatment; it publishes no separate in-person minimum for supervision delivered by telehealth.',
+          'The most permissive published position in this directory: Cigna\'s March 2025 autism resource guide states that all ABA CPT codes are covered telehealth services, with the delivery model — in person, telehealth or hybrid — chosen on the individual\'s needs rather than by code. State Medicaid telehealth restrictions do not reach commercial Cigna business. That includes the 97151 assessment and 97155 protocol modification. EN0499 describes direct case supervision as occurring "concurrently with the delivery of direct treatment," with the BCBA "face-to-face with the individual and either the Registered Behavior Technician® [RBT®] or the Board Certified Assistant Behavior Analyst® [BCaBA®]," at one to two hours per ten hours of direct treatment; it publishes no separate in-person minimum for supervision delivered by telehealth. How to bill it: Evernorth Behavioral Health says individual providers and outpatient clinics “may permanently use telehealth for outpatient therapy, applied behavior analysis (ABA)” and must put the CPT code in field 24-D, “Modifier 95 in Field 24-D to specify telehealth” and “Place of Service (POS) 02 in Field 24-B.” The GT modifier “has been retired by the Centers for Medicare & Medicaid Services (CMS), but it still acceptable on claim forms.” On the authorization side, Evernorth’s ABA Prior Authorization Form (07/26) lists Telehealth as a place of service to tick (with clinic, home and school), so declare remote delivery on the request.',
         status: 'verified',
-        cites: [{ title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
+        cites: [{ title: 'Evernorth Behavioral Health — Applied Behavior Analysis Prior Authorization Form (PCOMM-2025-224, 07/26) (PDF)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/applied-behavior-analysis.pdf' }, { title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Cigna EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Evernorth Behavioral Health — Behavioral telehealth billing (COVID-19: Interim Guidance page, updated Jun 23, 2023)', url: 'https://static.evernorth.com/assets/evernorth/provider/resourceLibrary/behavioralResources/doingBusinessWithUs/cbhDbwcCOVID-19.html' }],
       },
       authTurnaround: {
         value:
@@ -457,12 +557,21 @@ export const nationalPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Where do I find Cigna’s ABA fee schedule?', a: 'In your contract. Evernorth says your fee schedule and the list of reimbursable autism services are in Exhibit A of your Provider Agreement. It publishes no ABA rate table, and fee-schedule questions go to Provider Services at 800.926.2273.' },
+      { q: 'How long do I have to appeal a Cigna ABA claim?', a: 'Evernorth’s September 2026 guidelines give 180 calendar days from the initial payment or denial decision for a written payment appeal, and 180 days from the denial for a clinical appeal unless the plan or state law says otherwise. A second-level appeal is due within 60 days of the first decision, and most appeals are resolved within 60 days.' },
+      { q: 'Does Cigna require graphs for ABA reassessments?', a: 'No graph is required as such. EN0499 and Evernorth’s ABA Prior Authorization Form require quantitative baseline, interim and current goal data with dates, for every goal and every setting. Interim data covers at least the last 6 months and may be shown as data points or averages, and current data must be no more than 60 days old. A standardized assessment from the last 12 months is also required. A dated graph or a dated table both meet the requirement; a narrative summary does not.' },
+      { q: 'Does Cigna require a referring provider on ABA claims?', a: 'No. Evernorth\u2019s September 2026 administrative guidelines require only the billing provider\u2019s TIN and NPI; a referring provider is optional, but if you report one it "must include the name and NPI."' },
       { q: 'Does Cigna require prior authorization for ABA?', a: 'Not for assessment codes (97151, 97152, 0362T) when there\'s an autism diagnosis and the provider is independently licensed or a BCBA. Treatment services do require authorization — assessment plus treatment plan with the PA form.' },
       { q: 'Does Cigna cover ABA by telehealth?', a: 'Yes — its March 2025 provider guide states all ABA CPT codes are covered telehealth services, with delivery (in-person, telehealth, hybrid) based on the individual\'s needs.' },
       { q: 'Can a child receive ABA and speech therapy under Cigna?', a: 'Yes, but not at the same time of day — Cigna doesn\'t cover ABA delivered concurrently with another therapy session. Intake should capture the existing therapy schedule to plan around it.' },
       { q: 'Is Cigna accepting new ABA providers?', a: 'Evernorth, which runs Cigna\'s behavioral network, says it is "committed to expanding our network of autism providers." Individual providers submit the Evernorth Behavioral Provider Information Form and clinics the Screening Application for Autism Clinics; allow up to 90 days for the application plus 60 to 90 days of credentialing per provider.' },
       { q: 'Does Cigna credential RBTs?', a: 'No. "Evernorth does not credential nonlicensed/noncertified staff. Services for these staff members must be billed under the supervising provider." EN0499 expects the direct work from an RBT or BCaBA under BCBA case supervision.' },
       { q: 'Can an out-of-state BCBA provide ABA to a Cigna member by telehealth?', a: 'Only if state law allows it. Evernorth requires providers to meet all state requirements for virtual behavioral services, including licences and certifications, and to attest to the telehealth specialty. Check the child’s state licensing rules before scheduling remote sessions.' },
+      { q: 'Does Cigna require a telehealth modifier for ABA?', a: 'Yes. Evernorth Behavioral Health asks for modifier 95 in field 24-D and place of service 02 in field 24-B on telehealth claims, and ABA is on its list of services providers may permanently deliver by telehealth. GT is retired but still accepted.' },
+      { q: 'What is Cigna’s timely filing limit for ABA claims?', a: 'Evernorth’s September 2026 administrative guidelines give 90 days from the date of service, or whatever your provider agreement says, and a longer state law wins. Secondary (COB) claims get 90 days from the primary payer’s processing date on its EOB. Corrected claims use frequency code 7 or 8 in box 22. An older Evernorth course gives 180 days for non-participating providers.' },
+      { q: 'Does Cigna accept H0031 or H0032 for ABA?', a: 'No. Evernorth’s autism resource guide says all ABA services must be billed with CPT 97151–97158, 0362T and 0373T only.' },
+      { q: 'How fast does Cigna pay a clean ABA claim?', a: 'Evernorth publishes no national clean-claim payment deadline or weekly cutoff. On fully insured plans the state prompt-pay law sets the clock, and Evernorth’s guidelines carry those in their state addenda. Enrolling in ERA (835) shortens the payment cycle.' },
+      { q: 'Which ABA billing codes does Cigna use, and who can bill them?', a: 'Evernorth lists 97151–97158, 0362T and 0373T. Technicians and BCaBAs may deliver 97152, 97153 and 97154, but those are billed by the BCBA-D, BCBA or licensed mental health provider; the other codes are delivered and billed by those licensed or certified providers.' },
     ],
   },
 
@@ -531,9 +640,10 @@ export const nationalPayers: Record<string, PayerConfig> = {
       },
       {
         h2: 'Continued-service reviews',
-        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'Optum — Applied Behavior Analysis (ABA) Treatment Reviews Via Portal (BH00705, 11/2024) (PDF)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/national/Portal_Review_Autism_CPT%20UPDATED.pdf%20(1).pdf' }, { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' }],
         body: [
           'Reviews land every 4–6 months and want progress documented per targeted behavior using the same measurement methods as baseline — mastered-program rates, change scores, updated standardized adaptive measures. Two operational tripwires matter for scheduling and intake: inadequate progress within 6 months requires documented reasons plus treatment modification, and utilization below 80% of authorized hours over a two-week window draws scrutiny. Families whose availability can\'t support the authorized intensity are a reauthorization risk from day one — capture real availability honestly at intake.',
+          'Does Optum require graphs at reauthorization? No document we read asks for them. The Supplemental Clinical Criteria (interim review April 2026) ask for numbers measured the way the baseline was: “Progress is assessed and documented for each targeted symptom and behavior, including progress toward defined goals, including the same modes of measurement that were utilized for baseline measurement.” That progress “should include rate and percentage of mastered programs, rates of mastered targets, change scores for any outcome measures, updated standardized adaptive measures, and change scores for skills-based assessments.” Movement from baseline must be shown “using validated and norm referenced assessments of functioning,” with caregiver progress where it applies. Each review must also show how generalization is targeted, list the barriers and their fixes, and say which goals were modified or removed. Optum’s portal review guide (BH00705) asks, for each domain, for the main goals, the total number of goals and the “Progress made in this area including number of goals mastered.” Clinical updates are reviewed “ordinarily 6 months” apart and “should include all areas from the initial plan.” Optum’s CPT FAQ sets no fixed reassessment interval (“There is no required frequency at which an assessment must take place”). It asks for the continued-care request “no more than 30 days prior to the current approvals on file expiring.” Time spent on “data analysis, graphs” is not billed separately; it is bundled into 97151 or the direct-service codes.',
         ],
       },
       {
@@ -561,6 +671,24 @@ export const nationalPayers: Record<string, PayerConfig> = {
           'Only as an exception. The National Network Manual says: “On occasion, emergent or other unusual circumstances will interfere with the pre-authorization processes. In those cases, requests for a retrospective review of services must be submitted within 180 calendar days of the date(s) of service, unless otherwise mandated by state law.” A retrospective review covers an initial request “made after services have already been delivered but no claim has been filed.” The request “must include information regarding the reason or circumstances preventing required prior authorization or notification and include the medical record and will be processed at the sole discretion of Optum.” Optum decides within 30 calendar days of receipt, and requests outside the time frame “will not be processed.” Treat retro review as a safety valve, not a workflow.',
         ],
       },
+      {
+        h2: 'Timely filing, appeals and credentialing time with Optum',
+        body: [
+          'Payment time and codes: Optum’s National Network Manual says “Generally, claims that contain all required information and have the required authorization, if applicable, will be paid within 45 calendar days after Optum receives the claim, or as required by state and federal laws. This may exclude claims that require coordination of benefits determinations.” Bill the primary carrier first when the child has other coverage. No weekly submission cutoff is published. Optum’s commercial ABA reimbursement policy (2022RP501A, updated June 2026) covers “CPT codes 97151-97158 along with the appropriate modifier” for the credential that delivered the service. Indirect work has no separate code and is bundled into the direct codes. HCPCS H-codes are not on its commercial ABA code list.',
+          'Fee schedule, taxonomy and EVV: Optum publishes no ABA rate table. Its CPT FAQ says contracted providers “should bill your contracted billing codes and customary charges as outlined on your Fee Schedule after receiving appropriate authorization,” and “You will be reimbursed based on your contracted rate.” The National Network Manual adds that “Failure to follow the terms and conditions as set forth on your fee schedule may result in claim denial(s).” The manual mentions taxonomy only as a directory field you can update. It says nothing about taxonomy on claims or about electronic visit verification. Ask Optum if your agreement requires either.',
+          'Optum’s National Network Manual (effective Oct. 1, 2025): “All information necessary to process claims must be received by Optum no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan.” Late claims “may be rejected,” the member may not be billed for them, and corrections should be made “within 90 days of receipt of the initial claim.”',
+          'Disputes on commercial plans run in two steps: reconsideration first, then appeal. “The 2-step process allows for a total of 12 months for submission for both steps,” unless state law or the participation agreement sets another deadline.',
+          'Every ABA line carries a credential modifier under Optum’s reimbursement policy 2022RP501A: HM for an RBT, HN for a BCaBA, HO for a master’s-level BCBA or licensed clinician, HP for a BCBA-D. On joining the network, Optum’s ABA CPT FAQ says “Solo Behavior Analysts/Specialists and Group credentialing can take from 45 to 120 days after submission of all materials,” and a new agency audit “normally” takes up to 90 days to schedule.',
+        ],
+        cites: [{ title: 'Optum — Behavioral Health Solutions National Network Manual (published Aug. 1, 2025, effective Oct. 1, 2025) (PDF)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/netwManual/2024/NNMJune2024.pdf' }, { title: 'Optum — ABA reimbursement policy 2022RP501A (updated June 2026) (PDF)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' }],
+      },
+      {
+        h2: 'Does UnitedHealthcare / Optum require a referring provider on ABA claims?',
+        body: [
+          'Not for ABA. Optum\u2019s National Network Manual (effective September 1, 2026), which governs UnitedHealthcare behavioral health claims including ABA, lists what a Form 1500 claim should carry: member and subscriber names and dates of birth, member ID, ICD diagnosis, dates of service, length of session, type and duration of service, and the clinician\u2019s name, credentials, tax ID and NPI. A referring provider is not on the list. UnitedHealthcare\u2019s 2026 Administrative Guide asks for a valid billing NPI, rendering NPI and taxonomy on all claims and adds \u201cwe encourage you to submit the referring health care provider\u2019s NPI\u201d; it makes the referring provider\u2019s name and NPI mandatory only on \u201claboratory, DME, imaging and home health claims.\u201d',
+        ],
+        cites: [{ title: 'Optum National Network Manual (BH02330, effective Sept. 1, 2026) — claim submission requirements', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide — Chapter 10, claims and NPI', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }],
+      },
     ],
     collect: [
       { title: 'Member ID + card photo', desc: 'Plus subscriber details for the benefits check.' },
@@ -577,11 +705,17 @@ export const nationalPayers: Record<string, PayerConfig> = {
       { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
       { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' },
       { title: 'Optum Behavioral Health Solutions National Network Manual (eff. Oct. 1, 2025) (PDF)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/netwManual/2024/NNMJune2024.pdf' },
+      { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial, Exchange, MA) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+      { title: '29 CFR § 2560.503-1(f)(2) — ERISA group health plan claim decision deadlines', url: 'https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XXV/subchapter-F/part-2560/section-2560.503-1' },
+      { title: '42 CFR § 433.139 — Medicaid payment of claims involving third party liability', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+      { title: '32 CFR § 199.8 — TRICARE double coverage', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/part-199/section-199.8' },
+      { title: 'VA — CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/files/2025-12/CHAMPVA-Guidebook.pdf' },
+      { title: 'Optum — Applied Behavior Analysis (ABA) Treatment Reviews Via Portal (BH00705, 11/2024) (PDF)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/national/Portal_Review_Autism_CPT%20UPDATED.pdf%20(1).pdf' },
     ],
     deliveryRules: {
       supervision: {
         value:
-          'Optum publishes both a band and a floor: supervision at 1\u20132 hours per 10 hours of direct treatment, and a minimum of one hour of 97155 per case per month. The floor is the one that catches people \u2014 a light month still owes an hour of billed supervision.',
+          'Optum publishes both a band and a floor: supervision at 1\u20132 hours per 10 hours of direct treatment, and a minimum of one hour of 97155 per case per month. The floor is the one that catches people \u2014 a light month still owes an hour of billed supervision. The Supplemental Clinical Criteria (interim review April 2026) put the band as “direct case supervision is required 1–2 hours for every 10 hours of direct treatment per week,” consistent with CASP. They set no cap on how many technicians or cases one BCBA may supervise. Technicians “should be registered behavior technicians (RBT) or another appropriately certified behavior technician as allowable by state mandate.”',
         status: 'verified',
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
       },
@@ -619,10 +753,10 @@ export const nationalPayers: Record<string, PayerConfig> = {
       },
       billAsProvider: {
         value:
-          'Not published in the Supplemental Clinical Criteria. Optum authorizes by code cluster and names a QHP services cluster (97155\u201397158) distinct from the direct-care cluster (97153, 97154), which implies a credential split on the rendering line but does not state whose NPI carries a technician-delivered 97153 claim or which degree-level modifiers apply.',
+          'Optum names the rendering credential on every line but not whose NPI carries it. Its commercial ABA reimbursement policy (2022RP501A, updated June 2026): “The appropriate modifier must be billed to reflect the appropriate credentials of the provider delivering the services” — HM for an RBT (“less than a bachelor’s degree level”), HN for a BCaBA, HO for a master’s-level BCBA or licensed mental health provider, HP for a BCBA-D. Its ABA CPT FAQ adds that “Any ABA Supervisor who is credentialed under the group or facility contract can see a member,” and that BCaBAs bill “with the outlined modifiers under your group model.” Neither document says whether the technician’s or the supervisor’s NPI goes in the rendering field.',
         status: 'unverified',
-        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
-        verifyVia: 'Optum provider services or the authorization letter on Provider Express \u2014 confirm the rendering-versus-billing NPI convention and any required modifiers before the first claim.',
+        cites: [{ title: 'Optum — ABA reimbursement policy 2022RP501A (updated June 2026) (PDF)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' }],
+        verifyVia: 'Optum provider services (877-614-0484) or your participation agreement — confirm the rendering-NPI convention for HM-modifier lines before the first claim.',
         blocker: 'per-case',
       },
     },
@@ -699,6 +833,9 @@ export const nationalPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'How fast does Optum pay a clean UnitedHealthcare ABA claim?', a: 'Optum’s National Network Manual says complete, authorized claims are generally paid within 45 calendar days after Optum receives them, or faster where state or federal law requires. Claims that need a coordination-of-benefits determination may take longer. No weekly billing cutoff is published.' },
+      { q: 'Does UnitedHealthcare/Optum require graphs for ABA reauthorization?', a: 'No graph is required. Optum wants progress on every target measured the same way as the baseline. That means rates and percentages of mastered programs and targets, change scores on outcome and skills-based measures, and updated standardized adaptive (norm-referenced) scores, plus caregiver progress. Reviews ordinarily come every 6 months. Submit the continued-care request no more than 30 days before the current authorization expires.' },
+      { q: 'Does UnitedHealthcare / Optum require a referring provider on ABA claims?', a: 'No. Optum\u2019s National Network Manual lists the required claim fields for behavioral health claims without a referring provider, and UnitedHealthcare\u2019s 2026 Administrative Guide only encourages the referring NPI. It is mandatory there only on lab, DME, imaging and home health claims.' },
       { q: 'Does UnitedHealthcare require prior authorization for ABA?', a: 'Yes — a two-step process via Optum\'s Provider Express portal: an assessment authorization first, then a treatment authorization, generally under Optum\'s Supplemental Clinical Criteria unless state law specifies otherwise.' },
       { q: 'How often does Optum review ABA authorizations?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale.' },
       { q: 'What happens if a family uses fewer hours than authorized?', a: 'Utilization below 80% of authorized hours over a two-week period draws scrutiny at review. Intake should capture realistic availability so the requested intensity matches what the family can actually attend.' },
@@ -706,6 +843,9 @@ export const nationalPayers: Record<string, PayerConfig> = {
       { q: 'Can the ABA assessment be done by telehealth with UnitedHealthcare?', a: 'No, not on commercial plans. Optum\'s telehealth billing guide allows only 97155, 97156 and 97157 by telehealth for ABA, so 97151 and 97152 are delivered in person. Supervision (97155) and caregiver training can be remote once the provider has completed Optum\'s virtual-visits attestation.' },
       { q: 'Can an out-of-state BCBA provide ABA to a UnitedHealthcare member by telehealth?', a: 'Only if licensed where the child is. Optum requires telehealth providers to be licensed in the state where the member is located at the time of service, and to follow the licensing and telehealth laws of both their own state and the member’s.' },
       { q: 'Does Optum allow retro-authorization for ABA?', a: 'Only in emergent or unusual circumstances. A retrospective review must be requested within 180 calendar days of the service (unless state law says otherwise), must explain why prior authorization was not obtained, and is at Optum’s sole discretion. Optum decides within 30 calendar days.' },
+      { q: 'What is UnitedHealthcare/Optum’s timely filing limit for ABA claims?', a: '90 calendar days from the date of service under Optum’s National Network Manual, unless state or federal law or the member’s plan allows longer. Corrections should be made within 90 days of the original claim.' },
+      { q: 'How long do we have to appeal an Optum ABA claim decision?', a: 'Twelve months in total for both steps (reconsideration, then appeal) on commercial plans, unless state law or your participation agreement sets a different deadline.' },
+      { q: 'How long does Optum ABA credentialing take?', a: 'Optum’s ABA CPT FAQ says 45 to 120 days after all materials are submitted, for solo analysts and groups alike. New agencies also need a site audit, which can take up to 90 days to schedule.' },
     ],
   },
   'meritain-health': {
@@ -776,8 +916,8 @@ export const nationalPayers: Record<string, PayerConfig> = {
       {
         h2: 'Settle the funding question before quoting a mandate',
         cites: [
-          { title: '29 U.S.C. § 1144 — ERISA preemption, including the “deemer” clause at (b)(2)(B)', url: 'https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title29-section1144&num=0&edition=prelim' },
-          { title: '29 U.S.C. § 1003 — ERISA coverage and exceptions (governmental and church plans)', url: 'https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title29-section1003&num=0&edition=prelim' },
+          { title: '29 U.S.C. § 1144 — ERISA preemption, including the “deemer” clause at (b)(2)(B)', url: 'https://www.govinfo.gov/content/pkg/USCODE-2024-title29/html/USCODE-2024-title29-chap18-subchapI-subtitleB-part5-sec1144.htm' },
+          { title: '29 U.S.C. § 1003 — ERISA coverage and exceptions (governmental and church plans)', url: 'https://www.govinfo.gov/content/pkg/USCODE-2024-title29/html/USCODE-2024-title29-chap18-subchapI-subtitleA-sec1003.htm' },
         ],
         body: [
           'State autism mandates regulate insurance. Under ERISA\'s "deemer" clause, an employee benefit plan "shall [not] be deemed to be an insurance company or other insurer … for purposes of any law of any State purporting to regulate insurance companies, insurance contracts." In practice, a self-funded employer plan is generally outside the state mandate\'s direct reach, so the mandate a family cites for their state may not apply to their plan. Some sponsors still choose to cover ABA and some do not. The plan document is the only answer.',
@@ -821,8 +961,13 @@ export const nationalPayers: Record<string, PayerConfig> = {
       { title: 'Meritain Health — What is precertification and why do I need it?', url: 'https://www.meritain.com/what-is-precertification-and-why-do-i-need-it/' },
       { title: 'Meritain Health — Network solutions', url: 'https://www.meritain.com/network-solutions/' },
       { title: 'Meritain Health — Electronic transaction vendors', url: 'https://www.meritain.com/about-us-self-funded-employee-benefit-plans/meritain-health-electronic-transaction-vendors/' },
-      { title: '29 U.S.C. § 1144 — ERISA preemption', url: 'https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title29-section1144&num=0&edition=prelim' },
+      { title: '29 U.S.C. § 1144 — ERISA preemption', url: 'https://www.govinfo.gov/content/pkg/USCODE-2024-title29/html/USCODE-2024-title29-chap18-subchapI-subtitleB-part5-sec1144.htm' },
       { title: '29 CFR § 2560.503-1 — ERISA claims procedure', url: 'https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XXV/subchapter-F/part-2560/section-2560.503-1' },
+      { title: '29 U.S.C. § 1003 — ERISA coverage and exceptions (governmental and church plans)', url: 'https://www.govinfo.gov/content/pkg/USCODE-2024-title29/html/USCODE-2024-title29-chap18-subchapI-subtitleA-sec1003.htm' },
+      { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+      { title: '42 CFR § 433.139 — Medicaid payment of claims involving third party liability', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+      { title: '32 CFR § 199.8 — TRICARE double coverage', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/part-199/section-199.8' },
+      { title: 'VA — CHAMPVA Guidebook (PDF)', url: 'https://www.va.gov/files/2025-12/CHAMPVA-Guidebook.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -873,8 +1018,8 @@ export const nationalPayers: Record<string, PayerConfig> = {
         value: 'Set by the plan document. Because a self-funded ERISA plan is generally outside state insurance mandates, a mandate\'s age band may not apply. A governmental or church plan is outside ERISA and has to be checked on its own terms.',
         status: 'plan-dependent',
         cites: [
-          { title: '29 U.S.C. § 1144 — ERISA preemption', url: 'https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title29-section1144&num=0&edition=prelim' },
-          { title: '29 U.S.C. § 1003 — ERISA coverage and exceptions (governmental and church plans)', url: 'https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title29-section1003&num=0&edition=prelim' },
+          { title: '29 U.S.C. § 1144 — ERISA preemption', url: 'https://www.govinfo.gov/content/pkg/USCODE-2024-title29/html/USCODE-2024-title29-chap18-subchapI-subtitleB-part5-sec1144.htm' },
+          { title: '29 U.S.C. § 1003 — ERISA coverage and exceptions (governmental and church plans)', url: 'https://www.govinfo.gov/content/pkg/USCODE-2024-title29/html/USCODE-2024-title29-chap18-subchapI-subtitleA-sec1003.htm' },
         ],
         verifyVia: 'The plan document in the Meritain provider portal — read any ABA age limit directly.',
         blocker: 'per-case',
@@ -919,7 +1064,7 @@ export const nationalPayers: Record<string, PayerConfig> = {
         status: 'plan-dependent',
         cites: [
           { title: '29 CFR § 2560.503-1 — ERISA claims procedure (decision deadlines)', url: 'https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XXV/subchapter-F/part-2560/section-2560.503-1' },
-          { title: '29 U.S.C. § 1003 — ERISA coverage and exceptions (governmental and church plans)', url: 'https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title29-section1003&num=0&edition=prelim' },
+          { title: '29 U.S.C. § 1003 — ERISA coverage and exceptions (governmental and church plans)', url: 'https://www.govinfo.gov/content/pkg/USCODE-2024-title29/html/USCODE-2024-title29-chap18-subchapI-subtitleA-sec1003.htm' },
         ],
         verifyVia: 'Benefits verification: confirm the plan type (ERISA, governmental or church), and ask Meritain Medical Management how early a continued-service request may be filed.',
         blocker: 'per-case',
@@ -1051,12 +1196,21 @@ export const nationalPayers: Record<string, PayerConfig> = {
         h2: 'Provider claims and benefits questions',
         body: [
           'ASR lists its Claims Department for provider claims or benefits questions: (800) 968-2449 or (616) 957-1751. These are not verified prior-authorization numbers. Ask which department or vendor handles ABA authorization for this employer group.',
-          'Provider phone hours, the eligibility portal and ABA authorization contacts have not been verified for this guide. Confirm them before relying on a contact route.',
+          'Hours and portal: ASR’s contact page gives business hours of “8:00 a.m. to 4:30 p.m. EST” and a claims mailing address of ASR Health Benefits, PO Box 6392, Grand Rapids, MI 49516-6392. Its provider page lists two online features, “Verify Eligibility” and “Claims Inquiry,” behind a provider log-in at asrhealthbenefits.com. Providers without a log-in complete ASR’s request form on the same page.',
+          'Authorization: ASR publishes no ABA policy or ABA authorization contact. Its medical cost-management page describes a Care Review program in which “Pre-certification is used to evaluate each employee’s treatment plan and the employee’s need for inpatient or outpatient care,” combining “medical expertise with nationally recognized criteria and treatment guidelines.” It does not name the criteria. Whether a group puts ABA through that pre-certification, and which criteria apply, comes from the employer’s plan document. Ask the Claims Department for the group.',
         ],
         cites: [
           {
             title: 'ASR Health Benefits - Contact Us',
             url: 'https://www.asrhealthbenefits.com/contact-us/',
+          },
+          {
+            title: 'ASR Health Benefits - Providers (provider log-in: Verify Eligibility, Claims Inquiry)',
+            url: 'https://www.asrhealthbenefits.com/providers/',
+          },
+          {
+            title: 'ASR Health Benefits - Medical Cost Management (Care Review pre-certification)',
+            url: 'https://www.asrhealthbenefits.com/products-and-services/self-funded-health-plans/medical-cost-management/',
           },
         ],
       },
@@ -1108,6 +1262,14 @@ export const nationalPayers: Record<string, PayerConfig> = {
       {
         title: 'ASR Health Benefits - Home',
         url: 'https://www.asrhealthbenefits.com/',
+      },
+      {
+        title: 'ASR Health Benefits - Providers (provider log-in: Verify Eligibility, Claims Inquiry)',
+        url: 'https://www.asrhealthbenefits.com/providers/',
+      },
+      {
+        title: 'ASR Health Benefits - Medical Cost Management (Care Review pre-certification)',
+        url: 'https://www.asrhealthbenefits.com/products-and-services/self-funded-health-plans/medical-cost-management/',
       },
     ],
     intakeGates: {
@@ -1166,6 +1328,7 @@ export const nationalPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'How do providers check ASR eligibility and who handles ABA authorization?', a: 'Use the provider log-in at asrhealthbenefits.com for Verify Eligibility and Claims Inquiry, or call the Claims Department at (800) 968-2449 between 8:00 a.m. and 4:30 p.m. Eastern. ASR publishes no ABA policy. Its Care Review pre-certification uses unnamed “nationally recognized criteria,” and the employer’s plan document decides whether ABA goes through it.' },
       {
         q: 'Does ASR Health Benefits cover ABA?',
         a: 'Coverage depends on the employer group plan. Obtain its plan document and confirm ABA coverage, diagnosis requirements and authorization before scheduling services.',
@@ -1204,7 +1367,7 @@ export const nationalPayers: Record<string, PayerConfig> = {
       value: 'Line-of-business dependent — Humana\'s medical coverage policy library carries ABA policies only for Medicaid (Oklahoma, South Carolina, Louisiana); no national or Medicare Advantage ABA policy is published',
       status: 'plan-dependent',
       cites: [
-        { title: 'Humana — Medical Coverage Policies library, keyword search "behavior" (read 2026-09-27)', url: 'https://mcp.humana.com/tad/tad_new/Search.aspx?criteria=behavior&searchtype=freetext&policyType=medical' },
+        { title: 'Humana — Medical Coverage Policies library, keyword search "behavior" (read 2026-10-07)', url: 'https://mcp.humana.com/tad/tad_new/Search.aspx?criteria=behavior&searchtype=freetext&policyType=medical' },
       ],
       verifyVia: 'The state Healthy Horizons guide for a Medicaid member; for any other Humana line, ask Humana provider services which criteria govern ABA on that plan.',
       blocker: 'per-case',
@@ -1245,7 +1408,7 @@ export const nationalPayers: Record<string, PayerConfig> = {
         h2: 'Route by line of business',
         cites: [
           { title: 'Humana Inc. — Form 10-K for fiscal year 2025 (SEC EDGAR)', url: 'https://www.sec.gov/Archives/edgar/data/49071/000004907126000009/hum-20251231.htm' },
-          { title: 'Humana — Medical Coverage Policies library, keyword search "behavior" (read 2026-09-27)', url: 'https://mcp.humana.com/tad/tad_new/Search.aspx?criteria=behavior&searchtype=freetext&policyType=medical' },
+          { title: 'Humana — Medical Coverage Policies library, keyword search "behavior" (read 2026-10-07)', url: 'https://mcp.humana.com/tad/tad_new/Search.aspx?criteria=behavior&searchtype=freetext&policyType=medical' },
           { title: 'Humana Military — Applied Behavior Analysis (ABA) provider FAQ (PDF)', url: 'https://assets.humana.com/is/content/humana/aba-provider-faqpdf-1' },
         ],
         body: [
@@ -1283,52 +1446,55 @@ export const nationalPayers: Record<string, PayerConfig> = {
     sources: [
       { title: 'Humana Inc. — Form 10-K for fiscal year 2025 (SEC EDGAR)', url: 'https://www.sec.gov/Archives/edgar/data/49071/000004907126000009/hum-20251231.htm' },
       { title: 'Humana — Humana to Exit Employer Group Commercial Medical Products Business (Feb. 23, 2023)', url: 'https://humana.gcs-web.com/news-releases/news-release-details/humana-exit-employer-group-commercial-medical-products-business' },
-      { title: 'Humana — Medical Coverage Policies library, keyword search "behavior" (read 2026-09-27)', url: 'https://mcp.humana.com/tad/tad_new/Search.aspx?criteria=behavior&searchtype=freetext&policyType=medical' },
+      { title: 'Humana — Medical Coverage Policies library, keyword search "behavior" (read 2026-10-07)', url: 'https://mcp.humana.com/tad/tad_new/Search.aspx?criteria=behavior&searchtype=freetext&policyType=medical' },
       { title: 'Humana — Prior authorization lists (provider page)', url: 'https://provider.humana.com/coverage-claims/prior-authorizations/prior-authorization-lists' },
       { title: 'Humana — Medicare Advantage and D-SNP Prior Authorization and Notification List (eff. 7/1/2026, rev. 9/1/2026) (PDF)', url: 'https://assets.humana.com/is/content/humana/FINAL_Medicare%20and%20DSNP%20Prior%20Authorization%20and%20Notification%20List%20-%207-1-2026pdf' },
       { title: 'Humana — Commercial Summary of Medical Preauthorization and Notification List Changes (last updated Nov. 5, 2024) (PDF)', url: 'https://assets.humana.com/is/content/humana/Commercial%20SOCpdf' },
       { title: 'Humana — 2026 Provider Manual for physicians, hospitals and healthcare providers (773902ALL0725-A) (PDF)', url: 'https://assets.humana.com/is/content/humana/FINAL_773902ALL0725-A_2026_ProviderManual-Delegated_formattedpdf' },
+      { title: 'Humana Military — Applied Behavior Analysis (ABA) provider FAQ (PDF)', url: 'https://assets.humana.com/is/content/humana/aba-provider-faqpdf-1' },
+      { title: '42 CFR § 433.139 — Medicaid payment of claims involving third party liability', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+      { title: '32 CFR § 199.8 — TRICARE double coverage', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/part-199/section-199.8' },
     ],
     deliveryRules: {
       supervision: {
         value: 'Humana publishes no national ABA supervision rule. Its coverage-policy library has ABA policies only for Oklahoma, South Carolina and Louisiana Medicaid, and those are state policies that must not be read across. Supervision rules come from the line of business: the state Healthy Horizons policy, or TRICARE for Humana Military.',
         status: 'unverified',
-        cites: [{ title: 'Humana — Medical Coverage Policies library, keyword search "behavior" (read 2026-09-27)', url: 'https://mcp.humana.com/tad/tad_new/Search.aspx?criteria=behavior&searchtype=freetext&policyType=medical' }],
+        cites: [{ title: 'Humana — Medical Coverage Policies library, keyword search "behavior" (read 2026-10-07)', url: 'https://mcp.humana.com/tad/tad_new/Search.aspx?criteria=behavior&searchtype=freetext&policyType=medical' }],
         verifyVia: 'Route to the state Healthy Horizons guide or the TRICARE East guide once the line of business is known.',
         blocker: 'per-case',
       },
       concurrentBilling: {
         value: 'No national Humana rule. Whether 97153 and 97155 may overlap is set by the state Medicaid program for Healthy Horizons members, or by TRICARE for Humana Military.',
         status: 'unverified',
-        cites: [{ title: 'Humana — Medical Coverage Policies library, keyword search "behavior" (read 2026-09-27)', url: 'https://mcp.humana.com/tad/tad_new/Search.aspx?criteria=behavior&searchtype=freetext&policyType=medical' }],
+        cites: [{ title: 'Humana — Medical Coverage Policies library, keyword search "behavior" (read 2026-10-07)', url: 'https://mcp.humana.com/tad/tad_new/Search.aspx?criteria=behavior&searchtype=freetext&policyType=medical' }],
         verifyVia: 'The line-of-business guide (state Healthy Horizons or TRICARE East).',
         blocker: 'per-case',
       },
       dailyLimits: {
         value: 'No national Humana rule. Unit ceilings come from the state Medicaid fee schedule and PA for Healthy Horizons members, or from TRICARE for Humana Military.',
         status: 'unverified',
-        cites: [{ title: 'Humana — Medical Coverage Policies library, keyword search "behavior" (read 2026-09-27)', url: 'https://mcp.humana.com/tad/tad_new/Search.aspx?criteria=behavior&searchtype=freetext&policyType=medical' }],
+        cites: [{ title: 'Humana — Medical Coverage Policies library, keyword search "behavior" (read 2026-10-07)', url: 'https://mcp.humana.com/tad/tad_new/Search.aspx?criteria=behavior&searchtype=freetext&policyType=medical' }],
         verifyVia: 'The line-of-business guide (state Healthy Horizons or TRICARE East).',
         blocker: 'per-case',
       },
       noteSignature: {
         value: 'No national Humana rule. Documentation standards follow the state Medicaid program or TRICARE.',
         status: 'unverified',
-        cites: [{ title: 'Humana — Medical Coverage Policies library, keyword search "behavior" (read 2026-09-27)', url: 'https://mcp.humana.com/tad/tad_new/Search.aspx?criteria=behavior&searchtype=freetext&policyType=medical' }],
+        cites: [{ title: 'Humana — Medical Coverage Policies library, keyword search "behavior" (read 2026-10-07)', url: 'https://mcp.humana.com/tad/tad_new/Search.aspx?criteria=behavior&searchtype=freetext&policyType=medical' }],
         verifyVia: 'The line-of-business guide (state Healthy Horizons or TRICARE East).',
         blocker: 'per-case',
       },
       placeOfService: {
         value: 'No national Humana rule. Payable settings follow the state Medicaid program or TRICARE.',
         status: 'unverified',
-        cites: [{ title: 'Humana — Medical Coverage Policies library, keyword search "behavior" (read 2026-09-27)', url: 'https://mcp.humana.com/tad/tad_new/Search.aspx?criteria=behavior&searchtype=freetext&policyType=medical' }],
+        cites: [{ title: 'Humana — Medical Coverage Policies library, keyword search "behavior" (read 2026-10-07)', url: 'https://mcp.humana.com/tad/tad_new/Search.aspx?criteria=behavior&searchtype=freetext&policyType=medical' }],
         verifyVia: 'The line-of-business guide (state Healthy Horizons or TRICARE East).',
         blocker: 'per-case',
       },
       billAsProvider: {
         value: 'No national Humana rule. Rendering-versus-billing NPI conventions follow the state Medicaid program or TRICARE.',
         status: 'unverified',
-        cites: [{ title: 'Humana — Medical Coverage Policies library, keyword search "behavior" (read 2026-09-27)', url: 'https://mcp.humana.com/tad/tad_new/Search.aspx?criteria=behavior&searchtype=freetext&policyType=medical' }],
+        cites: [{ title: 'Humana — Medical Coverage Policies library, keyword search "behavior" (read 2026-10-07)', url: 'https://mcp.humana.com/tad/tad_new/Search.aspx?criteria=behavior&searchtype=freetext&policyType=medical' }],
         verifyVia: 'The line-of-business guide (state Healthy Horizons or TRICARE East).',
         blocker: 'per-case',
       },
@@ -1339,7 +1505,7 @@ export const nationalPayers: Record<string, PayerConfig> = {
         status: 'plan-dependent',
         cites: [
           { title: 'Humana Inc. — Form 10-K for fiscal year 2025 (SEC EDGAR)', url: 'https://www.sec.gov/Archives/edgar/data/49071/000004907126000009/hum-20251231.htm' },
-          { title: 'Humana — Medical Coverage Policies library, keyword search "behavior" (read 2026-09-27)', url: 'https://mcp.humana.com/tad/tad_new/Search.aspx?criteria=behavior&searchtype=freetext&policyType=medical' },
+          { title: 'Humana — Medical Coverage Policies library, keyword search "behavior" (read 2026-10-07)', url: 'https://mcp.humana.com/tad/tad_new/Search.aspx?criteria=behavior&searchtype=freetext&policyType=medical' },
         ],
         verifyVia: 'Route by line of business, then read the age rule in the state Healthy Horizons guide or the TRICARE East guide.',
         blocker: 'per-case',
@@ -1347,21 +1513,21 @@ export const nationalPayers: Record<string, PayerConfig> = {
       dxRecency: {
         value: 'No national Humana rule. Recency requirements are set by the state Medicaid ABA policy or by TRICARE.',
         status: 'unverified',
-        cites: [{ title: 'Humana — Medical Coverage Policies library, keyword search "behavior" (read 2026-09-27)', url: 'https://mcp.humana.com/tad/tad_new/Search.aspx?criteria=behavior&searchtype=freetext&policyType=medical' }],
+        cites: [{ title: 'Humana — Medical Coverage Policies library, keyword search "behavior" (read 2026-10-07)', url: 'https://mcp.humana.com/tad/tad_new/Search.aspx?criteria=behavior&searchtype=freetext&policyType=medical' }],
         verifyVia: 'The line-of-business guide (state Healthy Horizons or TRICARE East).',
         blocker: 'per-case',
       },
       diagnosingProviders: {
         value: 'No national Humana rule. Who may diagnose is set by the state Medicaid ABA policy or by TRICARE\'s ASD-diagnosing-provider rules.',
         status: 'unverified',
-        cites: [{ title: 'Humana — Medical Coverage Policies library, keyword search "behavior" (read 2026-09-27)', url: 'https://mcp.humana.com/tad/tad_new/Search.aspx?criteria=behavior&searchtype=freetext&policyType=medical' }],
+        cites: [{ title: 'Humana — Medical Coverage Policies library, keyword search "behavior" (read 2026-10-07)', url: 'https://mcp.humana.com/tad/tad_new/Search.aspx?criteria=behavior&searchtype=freetext&policyType=medical' }],
         verifyVia: 'The line-of-business guide (state Healthy Horizons or TRICARE East).',
         blocker: 'per-case',
       },
       diagnosticTools: {
         value: 'No national Humana rule. Required instruments are set by the state Medicaid ABA policy or by TRICARE.',
         status: 'unverified',
-        cites: [{ title: 'Humana — Medical Coverage Policies library, keyword search "behavior" (read 2026-09-27)', url: 'https://mcp.humana.com/tad/tad_new/Search.aspx?criteria=behavior&searchtype=freetext&policyType=medical' }],
+        cites: [{ title: 'Humana — Medical Coverage Policies library, keyword search "behavior" (read 2026-10-07)', url: 'https://mcp.humana.com/tad/tad_new/Search.aspx?criteria=behavior&searchtype=freetext&policyType=medical' }],
         verifyVia: 'The line-of-business guide (state Healthy Horizons or TRICARE East).',
         blocker: 'per-case',
       },
@@ -1375,7 +1541,7 @@ export const nationalPayers: Record<string, PayerConfig> = {
       telehealth: {
         value: 'No national Humana rule. Telehealth ABA follows the state Medicaid program or TRICARE.',
         status: 'unverified',
-        cites: [{ title: 'Humana — Medical Coverage Policies library, keyword search "behavior" (read 2026-09-27)', url: 'https://mcp.humana.com/tad/tad_new/Search.aspx?criteria=behavior&searchtype=freetext&policyType=medical' }],
+        cites: [{ title: 'Humana — Medical Coverage Policies library, keyword search "behavior" (read 2026-10-07)', url: 'https://mcp.humana.com/tad/tad_new/Search.aspx?criteria=behavior&searchtype=freetext&policyType=medical' }],
         verifyVia: 'The line-of-business guide (state Healthy Horizons or TRICARE East).',
         blocker: 'per-case',
       },

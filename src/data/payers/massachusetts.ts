@@ -215,6 +215,34 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
           { title: 'Carelon/MBHP Performance Specifications — Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' },
         ],
       },
+      {
+        h2: 'What is MassHealth’s timely filing limit?',
+        body: [
+          'For claims billed to MassHealth directly, 90 days: “all claims must be received by the MassHealth agency within 90 days from the date of service or the date of the explanation of benefits from another insurer,” measured from the latest date when a service runs on consecutive dates (130 CMR 450.309, under M.G.L. c. 118E, § 38). Late claims that fit a listed exception need a 90-day waiver request, submitted electronically. Members whose ABA runs through MBHP or a managed care plan follow that administrator’s filing limit.',
+        ],
+        cites: [
+          { title: '130 CMR 450.309 — Claims: billing deadlines (MassHealth)', url: 'https://www.law.cornell.edu/regulations/massachusetts/130-CMR-450-309' },
+        ],
+      },
+      {
+        h2: 'How fast does MassHealth pay a clean claim?',
+        body: [
+          'For claims MassHealth pays directly, the federal rule sets the clock: the agency “must pay 90 percent of all clean claims from practitioners, who are in individual or group practice or who practice in shared health facilities, within 30 days of the date of receipt,” 99 percent within 90 days, and all other claims within 12 months of receipt (42 CFR 447.45(d)). Most ABA members are enrolled with an ACO, MCO or MBHP, and each of those plans pays on its own schedule: WellSense aims for 30 calendar days and states that there is no late-payment penalty on MassHealth claims, Tufts Health Together sends a weekly explanation of payment, and Carelon’s documents for Fallon publish no day count. See each plan’s guide.',
+        ],
+        cites: [
+          { title: '42 CFR 447.45(d) — Medicaid timely claims processing (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' },
+        ],
+      },
+      {
+        h2: 'Which codes does MassHealth pay for ABA? (H0031 and other H-codes)',
+        body: [
+          'The rate regulation is the code list. 101 CMR 358.03(3) prices seven codes: 97151, 97153, 97154, 97155, 97156, 97157, and one HCPCS code, H0031-U2 (“Mental health assessment by physician or other qualified health professional (Assessment and case planning for home services by a licensed professional. 15-minute rate.)”), at $30.73 a unit. 97152, 97158, 0362T, 0373T and H0032 carry no MassHealth rate. The proposed re-adoption filed May 22, 2026 for dates of service from December 1, 2026 keeps the same seven codes and the same rates; the mass.gov regulation page still showed the 10/01/2024 version on October 18, 2026. Each managed care plan’s own code list governs its members (Tufts Health Together, for example, lists H0031 for BCBA assessment and treatment planning).',
+        ],
+        cites: [
+          { title: '101 CMR 358.03 Rate Provisions (Cornell LII mirror)', url: 'https://www.law.cornell.edu/regulations/massachusetts/101-CMR-358-03' },
+          { title: 'EOHHS — Proposed Regulation, 101 CMR 358.00: Rates for Applied Behavior Analysis (filed 5/22/2026, proposed eff. 12/1/2026)', url: 'https://www.mass.gov/doc/proposed-regulation-date-filed-may-22-2026/download' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan → BH administrator', desc: 'PCC/ACO/HNE → MBHP; Fallon → Carelon; WellSense → in-house (since 1/1/2026, previously Carelon); Tufts Together → Point32 internal; MGB → Optum. It decides the form and portal.' },
@@ -245,6 +273,8 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'Point32Health — Tufts Health Public Plans Provider Manual, Behavioral Health chapter (2026)', url: 'https://www.point32health.org/documents/thpp-08-bh-pm' },
       { title: 'MassHealth All Provider Bulletin 379 — Access to Health Services through Telehealth Options (October 2023)', url: 'https://www.mass.gov/doc/all-provider-bulletin-379-access-to-health-services-through-telehealth-options-0/download' },
       { title: 'MassHealth Managed Care Entity Bulletin 115 — Telehealth for members enrolled in managed care entities (April 2024)', url: 'https://www.mass.gov/doc/managed-care-entity-bulletin-115-access-to-health-services-through-telehealth-options-for-members-enrolled-in-managed-care-entities-0/download' },
+      { title: '130 CMR 450.309 — Claims: billing deadlines (MassHealth)', url: 'https://www.law.cornell.edu/regulations/massachusetts/130-CMR-450-309' },
+      { title: '42 CFR 447.45(d) — Medicaid timely claims processing (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' },
     ],
     faq: [
       { q: 'Does MassHealth cover ABA therapy?', a: 'Yes — for members under 21 (under 19 on Family Assistance) through EPSDT, with no annual or lifetime dollar or unit caps. Prior authorization is required for all ABA services, submitted to the behavioral-health administrator behind the member\'s plan.' },
@@ -253,6 +283,9 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { q: 'What is the MassHealth 1:10 supervision rule?', a: 'MassHealth\'s CY2024 audit enforced a minimum one hour of 97155 supervision per ten hours of 97153 direct treatment; ratios above that drew partial or full recoupment (letters issued Feb–Mar 2026, currently disputed by provider groups). Staff and schedule to at least 1:10.' },
       { q: 'Can the ABA assessment or BCBA supervision be done by telehealth under MassHealth?', a: 'Yes. MassHealth\'s telehealth bulletin (All Provider Bulletin 379) excludes no ABA code, every managed-care plan must be at least as generous (MCE Bulletin 115), and the ABA performance specification allows telehealth at the family\'s request when clinically appropriate. Bill POS 02 or 10 with modifier 95 (video) or 93 (audio-only). Telehealth must not replace in-person availability.' },
       { q: 'What happens to a MassHealth ABA authorization if the family switches providers?', a: 'No MassHealth document says whether it transfers, so ask the member\'s behavioral-health administrator before the switch. The agency the family leaves must give the family an up-to-date treatment plan on the last day of service and send it to the child\'s other current providers within seven days.' },
+      { q: 'What is MassHealth’s timely filing limit?', a: '90 days from the date of service, or from the other insurer’s explanation of benefits, for claims billed to MassHealth directly (130 CMR 450.309). Plan- and MBHP-administered ABA follows the administrator’s own limit.' },
+      { q: 'How fast does MassHealth pay a clean ABA claim?', a: 'On claims MassHealth pays directly, federal rule 42 CFR 447.45(d) requires 90 percent of clean practitioner claims paid within 30 days of receipt and 99 percent within 90 days. ABA billed through an ACO, MCO or MBHP follows that plan’s own payment schedule.' },
+      { q: 'Does MassHealth accept H0031 for ABA?', a: 'Yes, as H0031-U2: 101 CMR 358.03 pays it at $30.73 per 15 minutes for assessment and case planning by a licensed professional. 97152, 97158, 0362T, 0373T and H0032 have no MassHealth ABA rate.' },
     ],
   },
 
@@ -609,6 +642,17 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
           { title: 'MassHealth ABA supervision audit & recoupment (Acuity News)', url: 'https://acuity.news/regulation/masshealth-aba-supervision-audit-recoupment-litigation-2026/' },
         ],
       },
+      {
+        h2: 'WellSense claims: filing deadlines and payment',
+        body: [
+          'For MassHealth members the WellSense Massachusetts provider manual (effective January 1, 2026) sets a 150-day filing limit: “Providers must submit initial claims and encounters no later than 150 calendar days from the date of service, unless you are awaiting a payment and remittance (or explanation of payment) from a primary insurer via coordination of benefits.” When another insurer pays first, the claim and that insurer’s remittance advice are due “within 150 days of receipt of the remittance advice from the other insurer.” Corrected claims (frequency code 7 with the original claim number) are due within 150 calendar days of the original process remit date for MCO and ACO members, and a resubmission of a claim WellSense processed incorrectly or denied for missing documentation must arrive “no later than 300 days from the date of service.” Behavioral-health claims for dates of service after January 1, 2026 go to WellSense, not Carelon. WellSense’s BH insourcing reference guide repeats the 150-day MassHealth claims limit (90 days for its QHP/ConnectorCare plans), sets the appeals limit at 150 calendar days from the original denial and no later than 300 calendar days from the date of service, and lists payer ID 13337.',
+          'Payment: WellSense’s stated goal “is to process clean claims and reimburse providers within 30 calendar days of receipt of the claim,” by check to the treating provider who billed or by EFT for providers enrolled in its EFT program. The 45-day pay-or-notify rule with 1.5% monthly interest in the same manual covers only the MA Clarity commercial plans; for this product the manual says plainly, “There is no late payment penalty for MassHealth claims.” The manual publishes no weekly check-run day or submission cutoff.',
+        ],
+        cites: [
+          { title: 'WellSense Health Plan — Massachusetts Provider Manual (eff. Jan. 1, 2026)', url: 'https://www.wellsense.org/hubfs/Provider/Provider%20Manual/MA_Provider_Manual.pdf' },
+          { title: 'WellSense — Behavioral Health (BH) Insourcing Reference Guide (March 2026)', url: 'https://www.wellsense.org/hubfs/Provider/Behavioral_Health/Behavioral_Health_Insourcing_Reference_Guide.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'ACPP name → WellSense', desc: 'Eight ACPPs plus Essential all route to the same WellSense in-house BH / standard-form flow (Carelon only for pre-1/1/2026 run-off) — map the plan name at intake.' },
@@ -627,11 +671,14 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'AIRC — MassHealth ABA Coverage factsheet', url: 'https://massairc.org/factsheets/masshealth-aba-coverage/' },
       { title: 'MassHealth All Provider Bulletin 379 — Access to Health Services through Telehealth Options (October 2023)', url: 'https://www.mass.gov/doc/all-provider-bulletin-379-access-to-health-services-through-telehealth-options-0/download' },
       { title: 'MassHealth Managed Care Entity Bulletin 115 — Telehealth for members enrolled in managed care entities (April 2024)', url: 'https://www.mass.gov/doc/managed-care-entity-bulletin-115-access-to-health-services-through-telehealth-options-for-members-enrolled-in-managed-care-entities-0/download' },
+      { title: 'WellSense — Behavioral Health (BH) Insourcing Reference Guide (March 2026)', url: 'https://www.wellsense.org/hubfs/Provider/Behavioral_Health/Behavioral_Health_Insourcing_Reference_Guide.pdf' },
     ],
     faq: [
       { q: 'Does WellSense cover ABA therapy?', a: 'Yes — across the WellSense Essential MCO and its eight MassHealth ACPPs, on the state-baseline benefit: EPSDT under 21, no caps, PA on all services via the Massachusetts Standard ABA PA Form. Behavioral health, including ABA, has been administered in-house by WellSense since January 1, 2026 (previously Carelon).' },
       { q: 'How do I submit an ABA authorization to WellSense?', a: 'Via the HealthTrio Connect portal or ABA PA fax 857-264-2673, using the standard form — initial-evaluation requests attach the diagnostic evaluation and cover 3 months; continued services submit pages 1–7 in 6-month timeframes.' },
       { q: 'Why isn\'t ABA on WellSense\'s prior-authorization matrix?', a: 'Because the matrix covers medical services — ABA routes through the behavioral-health performance specifications and, since January 1, 2026, WellSense\'s in-house behavioral-health UM (Carelon handled it before then). PA is still required for all ABA services.' },
+      { q: 'What is WellSense’s timely filing limit for ABA claims?', a: 'For MassHealth members, 150 calendar days from the date of service (150 days from the primary insurer’s remittance when WellSense is secondary). Corrected claims are due within 150 days of the original remit, resubmissions within 300 days of the date of service, and appeals within 150 days of the denial and no later than 300 days from the date of service. MA Clarity commercial plans use 90 days.' },
+      { q: 'How fast does WellSense pay a clean ABA claim?', a: 'WellSense aims to pay clean claims within 30 calendar days of receipt, by check or EFT. The 45-day rule with interest applies only to its MA Clarity commercial plans; the manual states there is no late-payment penalty for MassHealth claims, and it publishes no weekly check-run schedule.' },
     ],
   },
 
@@ -696,12 +743,12 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'No referral and no physician order is a condition of authorization. The Massachusetts Standard ABA PA Form has no referral field and is completed by the rendering or supervising BCBA/LABA, and the performance specification\'s referral language is about timeliness rather than permission: "Fourteen calendar days from referral is the Medicaid standard of timely provision for services established in accordance with 42 CFR 441.56(e)," with a waitlist duty (and an obligation to hand caregivers other regional providers\' contact information) where the provider cannot start inside it. What the state does require is PCP evidence in the chart rather than at the door: the complete medical record must hold "Referral and assessment documentation" and "Documentation confirming physical examinations by a PCP," and the continued-services pages ask for a dated primary-care care-coordination entry. None of that is republished on Point32Health\'s own ABA PA form, which is the form this plan actually takes.',
+          'Mostly no. Point32Health\'s 2026 Public Plans Provider Manual applies its PCP-referral rule only to "Tufts Health Together with Cambridge Health Alliance (CHA)": specialty services outside the CHA ACO network need a valid referral on file, normally valid for one year or the approved number of visits, and "Tufts Health Together members do not require a PCP referral for services designated by MassHealth as exceptions to referral requirements as communicated and/or referenced in All Provider Bulletin 409." For other Together members no referral applies. No physician order is a condition of ABA authorization: the Massachusetts standard ABA request has no referral field and is completed by the BCBA/LABA, and the MBHP performance specification\'s referral language is about the 14-day timeliness standard. APB 409 (October 2025), read in full, does not name ABA among its added exceptions, but it builds on the base list in 130 CMR 450.118(J)(5), which exempts “services delivered by a behavioral health provider (including inpatient and outpatient psychiatric services)” from the PCC referral requirement. Point32 has not said in writing whether it treats an ABA agency as a behavioral health provider for that exception.',
         status: 'unverified',
-        cites: [{ title: 'Carelon/MBHP Performance Specifications — Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }, { title: 'Point32Health — ABA policy and coverage updates (Oct 2025)', url: 'https://www.point32health.org/provider/applied-behavioral-analysis-policy-and-coverage-updates-102025' }],
+        cites: [ { title: 'MassHealth All Provider Bulletin 409 — Update to Certain Exceptions to Referral Requirements (October 2025)', url: 'https://www.mass.gov/doc/all-provider-bulletin-409-update-to-certain-exceptions-to-referral-requirements-for-services-through-the-primary-care-clinician-plan-and-primary-care-accountable-care-organizations-0/download' }, { title: '130 CMR 450.118(J) — PCC Plan referral requirement and exceptions (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/massachusetts/130-CMR-450-118' },{ title: 'Tufts Health Public Plans Provider Manual — Referrals, Prior Authorizations and Notifications (2026)', url: 'https://www.point32health.org/documents/thpp-04-referrals-pa-notification-pm' }, { title: 'Carelon/MBHP Performance Specifications — Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
         verifyVia:
-          'Point32Health provider services / the Tufts Health Public Plans provider manual — Together members use Point32Health\'s own ABA PA form and, from 1/1/2026, InterQual criteria, so the Massachusetts standard-form answers are the floor rather than the rule here.',
-        blocker: 'document',
+          'Tufts Health Public Plans Provider Services, 888-257-1985 — for a CHA-attributed member, ask whether ABA from a non-CHA provider needs a PCP referral on file, or whether Point32 applies the 130 CMR 450.118(J)(5)(p) behavioral-health-provider exception.',
+        blocker: 'per-case',
       },
       telehealth: {
         value:
@@ -738,13 +785,22 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
           'Point32Health provider services / the Tufts Health Public Plans provider manual; note the Together MCO was slated for discontinuation effective January 1, 2026, so confirm the member\u2019s current product first.',
         blocker: 'document',
       },
+      concurrentBilling: {
+        value:
+          'Not published for 97153 with 97155. Point32Health\u2019s ABA payment policy (rev. 05/2026), which applies to Tufts Health Together, does not reimburse \u201cServices provided concurrent with another treatment modality, such as occupational or speech therapy, where the ABA provider\u2019s role is to escort/accompany the member to the appointment.\u201d Its General Coding and Claims Editing policy applies generic incidental and mutually-exclusive edits but no ABA rule.',
+        status: 'unverified',
+        cites: [{ title: 'Point32Health Payment Policy \u2014 Applied Behavioral Analysis (ABA) Services (rev. 05/2026)', url: 'https://www.point32health.org/documents/applied-behavioral-analysis-aba-services-pp' }, { title: 'Point32Health Payment Policy \u2014 General Coding and Claims Editing (rev. 10/2026)', url: 'https://www.point32health.org/documents/general-coding-and-claims-editing-pp' }],
+        verifyVia:
+          'Tufts Health Public Plans Provider Services, 888-257-1985 — ask whether a BCBA\u2019s 97155 pays for the same minutes as the technician\u2019s 97153 on a Together claim.',
+        blocker: 'per-case',
+      },
       dailyLimits: {
         value:
-          'Massachusetts is a no-cap state that nonetheless has one published per-day number. There are no annual, lifetime or unit-of-service ceilings on the EPSDT benefit, and 101 CMR 358.03 is a rate regulation, not a limit regulation \u2014 it fixes per-15-minute rates and states they are \u201cfull compensation\u201d including \u201cnecessary administration and professional supervision associated with patient care.\u201d The only per-day cap in the performance specification is for group instruction, which \u201cmay occur up to 4.5 hours a day as clinically indicated, in groups of 2-8 Members.\u201d No per-code MUE regime is published, so what bites in practice is medical-necessity review and the supervision-ratio audit, not a unit edit. No Together-specific per-day edit is published.',
+          'Massachusetts is a no-cap state that nonetheless has one published per-day number. There are no annual, lifetime or unit-of-service ceilings on the EPSDT benefit, and 101 CMR 358.03 is a rate regulation, not a limit regulation \u2014 it fixes per-15-minute rates and states they are \u201cfull compensation\u201d including \u201cnecessary administration and professional supervision associated with patient care.\u201d The only per-day cap in the performance specification is for group instruction, which \u201cmay occur up to 4.5 hours a day as clinically indicated, in groups of 2-8 Members.\u201d No per-code MUE regime is published, so what bites in practice is medical-necessity review and the supervision-ratio audit, not a unit edit. Point32Health\u2019s Maximum Units payment policy (rev. 09/2026) does apply to Tufts Health Together: \u201cEffective for DOS beginning May 1, 2026, Tufts Health Plan products will apply and adhere to CMS and/or Medicaid MUE unit limitations where applicable,\u201d units billed beyond the maximum are not paid, and a medically necessary excess can be appealed with supporting records. The policy does not say which table (CMS practitioner or Medicaid) sets the ABA numbers for this MassHealth plan.',
         status: 'unverified',
-        cites: [{ title: '101 CMR 358.03 Rate Provisions (Cornell LII mirror)', url: 'https://www.law.cornell.edu/regulations/massachusetts/101-CMR-358-03' }],
+        cites: [{ title: '101 CMR 358.03 Rate Provisions (Cornell LII mirror)', url: 'https://www.law.cornell.edu/regulations/massachusetts/101-CMR-358-03' }, { title: 'Point32Health Payment Policy \u2014 Maximum Units (rev. 09/2026)', url: 'https://www.point32health.org/documents/maximum-units-pp' }],
         verifyVia:
-          'Point32Health provider services.',
+          'Point32Health provider services (Tufts Health Public Plans, 888-257-1985): ask whether the CMS practitioner MUE (97153 = 32 units/day) or a Medicaid MUE applies to Together ABA claims.',
         blocker: 'per-case',
       },
       placeOfService: {
@@ -798,6 +854,34 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
           { title: 'MassHealth ABA supervision audit & recoupment (Acuity News)', url: 'https://acuity.news/regulation/masshealth-aba-supervision-audit-recoupment-litigation-2026/' },
         ],
       },
+      {
+        h2: 'Tufts Health Together claims: filing deadlines and payment',
+        body: [
+          'Point32Health’s 2026 Public Plans claims chapter sets the clock for Tufts Health Together: “For first time claims submissions, the filing deadline is 90 calendar days from the date of service (for professional or outpatient claims),” and claims received after that window “will be denied for failure to meet timely filing requirements.” When Tufts is secondary, the claim is due within 60 calendar days of the date on the primary carrier’s EOP or third-party determination letter (60 days from a retraction statement). Late charges follow the same 90-day rule, and corrected claims (frequency code 7, or “Corrected Claim” and the original claim number on paper with a Request for Claim Review Form) go in on the timeframe in your provider contract. Payment disputes must be filed within 60 calendar days of the EOP on which the claim first denied, with a maximum of two appeal levels. Appeals of timely-filing denials are reviewed only for the MassHealth exceptions in G.L. c. 118E, § 38: the member was enrolled retroactively, the member did not tell you about MassHealth eligibility in time, or MassHealth expressly authorized the exception.',
+          'Payment: the chapter publishes no clean-claim day count. It uses MassHealth’s definition of a clean claim (one that “can be processed without obtaining additional information from the provider of the service or from a third party”) and says the explanation of payment “is a weekly report of all claims that have been paid or denied,” viewable with 835 remittances through Payspan Health. No submission cutoff day or time is published.',
+        ],
+        cites: [
+          { title: 'Point32Health — Public Plans Provider Manual: Claim Requirements, Coordination of Benefits and Dispute Guidelines (2026)', url: 'https://www.point32health.org/documents/thpp05claimspm' },
+        ],
+      },
+      {
+        h2: 'Which codes does Tufts Health Together use for ABA? (H0031 and other H-codes)',
+        body: [
+          'Point32Health’s Tufts Health Together ABA guideline (effective January 1, 2026, revised February 18, 2026) lists the codes that require prior authorization: 97151, 97153, 97154, 97155, 97156, 97157 and H0031, described as “Mental health assessment, by non-physician - Assessment and treatment planning by a BCBA.” The guideline’s history records that H0032, H2012 and H2019 were removed in April 2023 when the CPT codes were added. 97152, 97158, 0362T and 0373T are not on the list. The eligible diagnoses are F84.0, F84.3, F84.5, F84.8 and F84.9, plus Q90.0–Q90.9 (Down syndrome) from January 1, 2026.',
+        ],
+        cites: [
+          { title: 'Point32Health — Medical Necessity Guideline: Applied Behavior Analysis (ABA) Therapy for Autism Spectrum Disorder for Tufts Health Together (eff. 1/1/2026)', url: 'https://www.point32health.org/documents/aba-tuftsheath-together-mng' },
+        ],
+      },
+      {
+        h2: 'What must a Tufts Health Together reauthorization contain? (graphs)',
+        body: [
+          'Point32Health’s Together guideline lists the continuing-stay criteria. The treatment plan “is updated no less than every six months” and includes “Data demonstrating change from baseline across treatment goals,” data from updated assessment tools as applicable, and updated or added goals. Progress must be “monitored regularly and appropriately documented by: a. Behavioral graphs that visually demonstrate changes from baseline; and b. Daily session notes” covering the treatment provided, how treatment time was used and the member’s response. Where progress stalls, the request must show the barriers found and what was done about them (protocol changes, other services, reassessment); lack of progress “does not inherently warrant an increase in service hours.” Utilization below 75% of approved direct hours over a review cycle may trigger extra review, and a continued request must show the steps taken to address adherence barriers.',
+        ],
+        cites: [
+          { title: 'Point32Health — Medical Necessity Guideline: Applied Behavior Analysis (ABA) Therapy for Autism Spectrum Disorder for Tufts Health Together (eff. 1/1/2026)', url: 'https://www.point32health.org/documents/aba-tuftsheath-together-mng' },
+        ],
+      },
     ],
     collect: [
       { title: 'MCO vs. ACPP', desc: 'The Tufts Health Together MCO no longer exists (discontinued 1/1/2026) — confirm the family is on one of the two active ACPPs, not a stale MCO card.' },
@@ -812,7 +896,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'MassHealth — All Provider Bulletin 410: Changes to MassHealth\'s ACOs on January 1, 2026', url: 'https://www.mass.gov/doc/all-provider-bulletin-410-changes-to-masshealths-accountable-care-organizations-on-january-1-2026/download' },
       { title: 'Point32Health — Reminder: Tufts Health Together MCO discontinuing as of Jan. 1', url: 'https://www.point32health.org/provider/reminder-tufts-health-together-mco-discontinuing-jan-1-112025' },
       { title: 'Point32Health — ABA policy and coverage updates (Oct 2025)', url: 'https://www.point32health.org/provider/applied-behavioral-analysis-policy-and-coverage-updates-102025' },
-      { title: 'Tufts Health Together ABA Medical Necessity Guideline (PDF)', url: 'https://www.point32health.org/provider/wp-content/uploads/sites/2/2024/11/ABA-THP-Together.MNG_.pdf' },
+      { title: 'Point32Health — Medical Necessity Guideline: Applied Behavior Analysis (ABA) Therapy for Autism Spectrum Disorder for Tufts Health Together (eff. 1/1/2026)', url: 'https://www.point32health.org/documents/aba-tuftsheath-together-mng' },
       { title: 'MassHealth Managed Care Options — plan/BH-vendor map (April 2023)', url: 'https://abh.memberclicks.net/assets/docs/KeepingCoverage/2023%20MassHealth%20Accountable%20and%20Managed%20Care%20Options%20031723.pdf' },
       { title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' },
       { title: '101 CMR 358.03 Rate Provisions (Cornell LII mirror)', url: 'https://www.law.cornell.edu/regulations/massachusetts/101-CMR-358-03' },
@@ -821,12 +905,19 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' },
       { title: 'MassHealth All Provider Bulletin 379 — Access to Health Services through Telehealth Options (October 2023)', url: 'https://www.mass.gov/doc/all-provider-bulletin-379-access-to-health-services-through-telehealth-options-0/download' },
       { title: 'MassHealth Managed Care Entity Bulletin 115 — Telehealth for members enrolled in managed care entities (April 2024)', url: 'https://www.mass.gov/doc/managed-care-entity-bulletin-115-access-to-health-services-through-telehealth-options-for-members-enrolled-in-managed-care-entities-0/download' },
+      { title: 'Point32Health — Public Plans Provider Manual: Claim Requirements, Coordination of Benefits and Dispute Guidelines (2026)', url: 'https://www.point32health.org/documents/thpp05claimspm' },
+      { title: 'MassHealth All Provider Bulletin 409 — Update to Certain Exceptions to Referral Requirements (October 2025)', url: 'https://www.mass.gov/doc/all-provider-bulletin-409-update-to-certain-exceptions-to-referral-requirements-for-services-through-the-primary-care-clinician-plan-and-primary-care-accountable-care-organizations-0/download' },
+      { title: '130 CMR 450.118(J) — PCC Plan referral requirement and exceptions (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/massachusetts/130-CMR-450-118' },
     ],
     faq: [
       { q: 'Is the Tufts Health Together MCO still active?', a: 'No — MassHealth discontinued the Tufts Health Together MCO product effective January 1, 2026 (All Provider Bulletin 410). Only the two ACPPs, with Cambridge Health Alliance and with UMass Memorial Health, remain active.' },
       { q: 'Does Tufts Health Together cover ABA?', a: 'Yes, through its two active ACPPs — the MassHealth EPSDT benefit with no published hour caps, reviewed by Point32Health\'s internal UM against its own medical-necessity guideline (InterQual + SmartSheets; new MNG effective 1/1/2026).' },
       { q: 'Does Tufts Health Together use the Massachusetts standard ABA form?', a: 'No — as of the October 2025 update, members use Point32Health\'s own updated ABA PA form, submitted through the MHK portal with the form uploaded or faxed to 888-977-0776 (the Together fax printed on the form). Even the initial evaluation is a PA request: pages 1-3 with the child\'s IEP and the comprehensive diagnostic evaluation. It\'s the one MassHealth plan family where the standard form doesn\'t apply.' },
       { q: 'What is Point32Health\'s ABA accreditation requirement?', a: 'Per Point32Health\'s February 2026 provider update, all contracted ABA providers must be accredited by a nationally recognized accrediting body specializing in ABA, across Harvard Pilgrim and Tufts Health Plan products. Center-based providers in Massachusetts and Rhode Island must be accredited by January 1, 2027; all other providers by January 1, 2028 — treat it as a contracting prerequisite.' },
+      { q: 'What is the timely filing limit for Tufts Health Together ABA claims?', a: '90 calendar days from the date of service for first-time claims. As secondary payer, 60 days from the primary carrier’s EOP. Payment disputes are due within 60 days of the EOP that denied the claim, and late-filing denials are reconsidered only for the MassHealth exceptions (retroactive enrollment, late notice of eligibility, or an exception MassHealth authorized).' },
+      { q: 'How often does Tufts Health Together pay ABA claims?', a: 'Point32Health issues a weekly explanation of payment through Payspan Health. Its claims chapter publishes no clean-claim payment day count and no weekly submission cutoff.' },
+      { q: 'Does Tufts Health Together accept H0031 for ABA?', a: 'Yes. Its ABA guideline lists H0031 (assessment and treatment planning by a BCBA) with 97151, 97153, 97154, 97155, 97156 and 97157, all requiring prior authorization. H0032, H2012 and H2019 were removed in 2023.' },
+      { q: 'Does Tufts Health Together require graphs for ABA reauthorization?', a: 'Yes. Its guideline requires progress documented by behavioral graphs showing change from baseline, plus daily session notes, and an updated treatment plan at least every six months with data on change from baseline across goals.' },
     ],
   },
 
@@ -976,6 +1067,26 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
           { title: 'MassHealth ABA supervision audit & recoupment (Acuity News)', url: 'https://acuity.news/regulation/masshealth-aba-supervision-audit-recoupment-litigation-2026/' },
         ],
       },
+      {
+        h2: 'Fallon claims via Carelon: the filing deadline',
+        body: [
+          'Fallon’s behavioral-health claims are processed and paid by Carelon, which lists “Claims processing and claims payment” among the areas Fallon delegates to it. Carelon’s Massachusetts addendum, which supersedes its national handbook for Fallon providers, sets the limit: “Timely Filing for Fallon Health: Within 120 days of the dates of service on outpatient claims.” The national handbook’s default is 90 calendar days “Unless otherwise identified in the provider agreement,” so for Fallon the addendum’s 120 days and your agreement are what count. The addendum also allows supervisory billing: in-network groups may list the licensed supervisor as the rendering clinician (box 24J) for a clinician who has completed an independent-license-eligible degree and is accruing supervised hours toward licensure.',
+          'Payment: neither the Massachusetts addendum nor the national handbook publishes a clean-claim payment day count or a check-run schedule for Fallon. Ask Carelon provider services for Fallon’s payment cycle.',
+        ],
+        cites: [
+          { title: 'Carelon Behavioral Health — Massachusetts Addendum to the National Provider Handbook (114_0526 revised)', url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/ma/massachusetts-provider-addendum.pdf' },
+          { title: 'Carelon Behavioral Health — National Provider Handbook (2026)', url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/global/carelon-behavioral-health-provider-handbook.pdf' },
+        ],
+      },
+      {
+        h2: 'What must a Fallon (Carelon) ABA reauthorization contain? (graphs)',
+        body: [
+          'Carelon’s Massachusetts medical necessity criteria (04/29/26) carry a separate “Applied Behavior Analysis (ABA) Therapy (Medicaid Only)” section. Its continuing-stay criteria require a treatment plan “updated no less than every six months” with “Data demonstrating change from baseline across treatment goals,” updated assessment data as applicable and updated goals. Progress must be “monitored regularly and appropriately documented by: a. Behavioral graphs that visually demonstrate changes from baseline; and b. Daily session notes.” Utilization below 75% of approved direct hours across a review cycle may draw additional review.',
+        ],
+        cites: [
+          { title: 'Carelon Behavioral Health — Massachusetts Medical Necessity Criteria (04/29/26), Applied Behavior Analysis (Medicaid)', url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/global/massachusetts-medical-necessity-criteria.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Exact plan name', desc: 'Fallon 365 Care, Fallon-Atrius, or Berkshire Fallon — and verify the plan still exists in its 2023 form.' },
@@ -992,10 +1103,15 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' },
       { title: 'MassHealth All Provider Bulletin 379 — Access to Health Services through Telehealth Options (October 2023)', url: 'https://www.mass.gov/doc/all-provider-bulletin-379-access-to-health-services-through-telehealth-options-0/download' },
       { title: 'MassHealth Managed Care Entity Bulletin 115 — Telehealth for members enrolled in managed care entities (April 2024)', url: 'https://www.mass.gov/doc/managed-care-entity-bulletin-115-access-to-health-services-through-telehealth-options-for-members-enrolled-in-managed-care-entities-0/download' },
+      { title: 'Carelon Behavioral Health — Massachusetts Addendum to the National Provider Handbook (114_0526 revised)', url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/ma/massachusetts-provider-addendum.pdf' },
+      { title: 'Carelon Behavioral Health — National Provider Handbook (2026)', url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/global/carelon-behavioral-health-provider-handbook.pdf' },
+      { title: 'Carelon Behavioral Health — Massachusetts Medical Necessity Criteria (04/29/26), Applied Behavior Analysis (Medicaid)', url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/global/massachusetts-medical-necessity-criteria.pdf' },
     ],
     faq: [
       { q: 'Does Fallon Health cover ABA?', a: 'Yes — its MassHealth ACPPs carry the state-baseline EPSDT benefit, with behavioral health (including ABA authorization) administered by Carelon on the Massachusetts Standard ABA PA Form in 6-month periods.' },
       { q: 'Does Fallon have its own ABA policy?', a: 'No distinct Fallon ABA criteria are published — it defers to Carelon UM and the state baseline. Confirm submission mechanics with Carelon directly.' },
+      { q: 'What is the timely filing limit for Fallon ABA claims?', a: '120 days from the date of service on outpatient claims, per Carelon’s Massachusetts addendum for Fallon Health. Carelon processes and pays Fallon’s behavioral-health claims, and neither of its documents publishes a payment day count or check-run schedule.' },
+      { q: 'Does Fallon require graphs for ABA reauthorization?', a: 'Yes. Carelon’s Massachusetts Medicaid ABA criteria require behavioral graphs showing change from baseline, daily session notes, and a treatment plan updated at least every six months.' },
     ],
   },
 
@@ -1118,6 +1234,14 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         verifyVia:
           'Confirm MBHP routing for the specific member.',
       },
+      dailyLimits: {
+        value: 'HNE sets no ABA unit limits of its own: its Be Healthy Partnership addendum says the plan covers services “except for behavioral health services, which are covered by the MassHealth behavioral health services contractor, the Massachusetts Behavioral Health Partnership (MBHP).” So MBHP’s ABA performance specification governs, and the only per-day number it publishes is for group instruction, which “may occur up to 4.5 hours a day as clinically indicated, in groups of 2-8 Members.” No per-code daily unit ceiling or MUE table is published for individual ABA codes; hours are bounded by MBHP’s authorization.',
+        status: 'verified',
+        cites: [
+          { title: 'Health New England — Be Healthy Partnership Addendum to the Provider Manual (Medicaid)', url: 'https://healthnewengland.org/Portals/_default/Shared%20Documents/providers/HNE_Be_Healthy_ProviderManual-Medicaid_addendum.pdf' },
+          { title: 'Carelon/MBHP Performance Specifications — Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' },
+        ],
+      },
     },
     pill: 'Payer Guide · HNE BeHealthy',
     h1: 'Health New England BeHealthy Partnership ABA coverage (MassHealth ACPP).',
@@ -1170,6 +1294,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' },
       { title: 'MassHealth All Provider Bulletin 379 — Access to Health Services through Telehealth Options (October 2023)', url: 'https://www.mass.gov/doc/all-provider-bulletin-379-access-to-health-services-through-telehealth-options-0/download' },
       { title: 'MassHealth Managed Care Entity Bulletin 115 — Telehealth for members enrolled in managed care entities (April 2024)', url: 'https://www.mass.gov/doc/managed-care-entity-bulletin-115-access-to-health-services-through-telehealth-options-for-members-enrolled-in-managed-care-entities-0/download' },
+      { title: 'Health New England — Be Healthy Partnership Addendum to the Provider Manual (Medicaid)', url: 'https://healthnewengland.org/Portals/_default/Shared%20Documents/providers/HNE_Be_Healthy_ProviderManual-Medicaid_addendum.pdf' },
     ],
     faq: [
       { q: 'Does HNE\'s BeHealthy Partnership cover ABA?', a: 'Yes — the state-baseline MassHealth EPSDT benefit, with behavioral health administered by MBHP (Carelon): standard PA form, 6-month authorizations, no published caps.' },
@@ -1331,6 +1456,17 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
           { title: 'MassHealth Managed Care Options — plan/BH-vendor map (April 2023)', url: 'https://abh.memberclicks.net/assets/docs/KeepingCoverage/2023%20MassHealth%20Accountable%20and%20Managed%20Care%20Options%20031723.pdf' },
         ],
       },
+      {
+        h2: 'MGB claims: where ABA claims go and the filing deadline',
+        body: [
+          'ABA claims do not go to the health plan. MGB’s claims page says “All behavioral health providers should submit claims to Optum” (payer ID 87726; paper claims to PO Box 30757, Salt Lake City, UT 84130-0757; Optum provider service 844-451-3520), and the MGB ACO provider manual lists “Claims processing and claims payment” among the behavioral-health functions delegated to Optum BH. The plan’s Timely Filing Best Practices sheet, which “pertain[s] to Commercial and MGB ACO programs,” says the plan “requires the submission of all paper and electronic claims within 90 days of the date of service unless otherwise contractually agreed.” A request to review a claim denied as late must be filed “within 90 days of the EOP date on which the claim originally denied.” The sheet does not say whether Optum applies the same window to the behavioral-health claims it processes for MGB, and neither document publishes a payment day count, so confirm both with Optum provider service before the first claim.',
+        ],
+        cites: [
+          { title: 'Mass General Brigham Health Plan — Claims information (provider page)', url: 'https://massgeneralbrighamhealthplan.org/providers/claims' },
+          { title: 'Mass General Brigham Health Plan — Timely Filing Best Practices (Commercial and MGB ACO, Oct. 2024)', url: 'https://5977230.fs1.hubspotusercontent-na1.net/hubfs/5977230/Timely%20Filing%20Best%20Practices.pdf' },
+          { title: 'Mass General Brigham ACO Provider Manual (2026)', url: 'https://resources.massgeneralbrighamhealthplan.org/providers/MGB%20ACO%20Provider%20Manual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Early Intervention status', desc: 'EI members carry the 30 hr/week cap and possible dual-presence home-visit rule — establish EI enrollment at intake.' },
@@ -1349,11 +1485,15 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' },
       { title: 'MassHealth All Provider Bulletin 379 — Access to Health Services through Telehealth Options (October 2023)', url: 'https://www.mass.gov/doc/all-provider-bulletin-379-access-to-health-services-through-telehealth-options-0/download' },
       { title: 'MassHealth Managed Care Entity Bulletin 115 — Telehealth for members enrolled in managed care entities (April 2024)', url: 'https://www.mass.gov/doc/managed-care-entity-bulletin-115-access-to-health-services-through-telehealth-options-for-members-enrolled-in-managed-care-entities-0/download' },
+      { title: 'Mass General Brigham Health Plan — Claims information (provider page)', url: 'https://massgeneralbrighamhealthplan.org/providers/claims' },
+      { title: 'Mass General Brigham Health Plan — Timely Filing Best Practices (Commercial and MGB ACO, Oct. 2024)', url: 'https://5977230.fs1.hubspotusercontent-na1.net/hubfs/5977230/Timely%20Filing%20Best%20Practices.pdf' },
+      { title: 'Mass General Brigham ACO Provider Manual (2026)', url: 'https://resources.massgeneralbrighamhealthplan.org/providers/MGB%20ACO%20Provider%20Manual.pdf' },
     ],
     faq: [
       { q: 'Does Mass General Brigham Health Plan cover ABA?', a: 'Yes — the MassHealth EPSDT benefit, administered through Optum Behavioral Health under Optum\'s ABA criteria plus its Massachusetts state-mandate supplement. PA is required for assessment and treatment.' },
       { q: 'Does MGB Health Plan cap ABA hours?', a: 'Only for Early Intervention members: Optum\'s supplement limits EI-member ABA to 30 hours/week (effective 10/1/2021) with 1:10 BCBA-to-paraprofessional supervision. No cap is stated for non-EI members.' },
       { q: 'How is MGB different from other MassHealth plans for ABA?', a: 'It\'s the only plan whose ABA runs through Optum — with the 1:10 supervision ratio codified in written policy and the EI hour cap no other MA plan publishes. Everything else follows the state baseline.' },
+      { q: 'What is the timely filing limit for MGB Health Plan ABA claims?', a: 'MGB’s timely-filing guidance for Commercial and MGB ACO programs is 90 days from the date of service unless your contract says otherwise, and 90 days from the denial EOP to contest a late-filing denial. ABA claims go to Optum (payer ID 87726), which processes and pays MGB’s behavioral-health claims, so confirm with Optum at 844-451-3520 that it applies the same window.' },
     ],
   },
 
@@ -1372,7 +1512,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       cites: [{ title: 'Aetna — Participating provider behavioral health precertification list (ABA: 97151–97158, 0362T, 0373T)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' }, { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
     },
     dxRequired: {
-      value: 'Yes — ASD only (F84.0–F84.9) under CPB 0554; fully-insured MA plans must also cover sole-diagnosis Down syndrome from 1/1/2026 (Ch. 388)',
+      value: 'Yes — ASD only (F84.0–F84.9) under CPB 0554, whose October 14, 2026 review names ABA experimental for “Down Syndrome in the absence of an autism spectrum disorder (ASD) co-morbidity” and all other non-ASD indications; fully-insured MA plans must still cover sole-diagnosis Down syndrome from 1/1/2026 (Ch. 388), so on those plans the state mandate, not the CPB, decides',
       status: 'plan-dependent',
       cites: [{ title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'The Arc of Massachusetts — ABA for Down syndrome expansion (eff. 1/1/2026)', url: 'https://thearcofmass.org/post/expansion-of-coverage-of-applied-behavior-analysis-aba-for-individuals-with-down-syndrome/' }],
       verifyVia:
@@ -1411,12 +1551,9 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'Not published. Aetna\'s ABA Medical Necessity Guide and its ABA clinical policy bulletin set a diagnosis requirement, a precertification requirement and a provider-licensure requirement, but state no referral or physician order as a condition of coverage. The gate that does exist is precertification itself — required for both the assessment and treatment.',
-        status: 'unverified',
-        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
-        verifyVia:
-          'Aetna precertification/provider services at the number on the member\'s ID card, and the member\'s benefit document — ask whether the plan layers a referral requirement on behavioral health.',
-        blocker: 'per-case',
+          'No PCP referral and no Aetna order form; precertification is the gate. Aetna\'s provider manual (6/26) says members "may access behavioral health care" three ways, the first being "Through direct access to the behavioral health provider," and its ABA Medical Necessity Guide and CPB 0554 set a diagnosis and precertification requirement for both the assessment and treatment, not a referral. For a fully insured Massachusetts plan, ARICA defines covered autism treatment as care "prescribed, provided or ordered for an individual diagnosed with 1 of the autism spectrum disorders by a licensed physician or a licensed psychologist who determines the care to be medically necessary" (M.G.L. c. 175 § 47AA; c. 176G § 4V for HMOs). In practice the diagnosing physician\'s or psychologist\'s signed evaluation, recommending ABA, is the document that goes in with the first request. The statute sets no validity period, and self-funded ERISA plans sit outside it.',
+        status: 'verified',
+        cites: [{ title: 'Aetna Provider Manual (8102800-01-01, 6/26) — Behavioral health: access to care', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }, { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'M.G.L. c. 175, § 47AA — Coverage for diagnosis and treatment of autism spectrum disorder', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter175/Section47AA' }, { title: 'M.G.L. c. 176G, § 4V — HMO coverage for autism spectrum disorder', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter176G/Section4V' }],
       },
       telehealth: {
         value:
@@ -1548,6 +1685,47 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
           { title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' },
         ],
       },
+      {
+        h2: 'Claims: filing deadline and disputes',
+        body: [
+          'Aetna’s national provider manual (edition 6/26) publishes no numeric filing limit: it defines a clean claim as one “received in a timely manner,” so the operative deadline is the one in your Aetna agreement. Claim disputes go through Availity — the claim must be in Finalized status, then “Dispute Claim” from the Claim Status transaction — and Aetna runs one level of provider appeal for payment decisions; medical-necessity appeals go through the member appeal process.',
+        ],
+        cites: [
+          { title: 'Aetna Provider Manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+        ],
+      },
+      {
+        h2: 'How fast must Aetna pay a clean claim in Massachusetts?',
+        body: [
+          'Massachusetts gives the payer 45 days. An HMO’s provider contract must require it, within 45 days after receiving completed claim forms, to pay, to say in writing why it is not paying, or to say what additional information it needs; if it misses that window it owes interest “at the rate of 1.5 per cent per month, not to exceed 18 per cent per year” from day 45 (M.G.L. c. 176G, § 6). Insured accident and sickness policies carry the same 45-day notice rule and the same 1.5%-a-month interest (c. 175, § 110(G)). These statutes bind fully insured plans issued in the state; a self-funded employer plan (ERISA) is not subject to them and follows its plan documents and your contract.',
+        ],
+        cites: [
+          { title: 'M.G.L. c. 175, § 110(G) — Accident and sickness claims', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter175/Section110' },
+          { title: 'M.G.L. c. 176G, § 6 — HMO provider contracts (45-day payment)', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter176G/Section6' },
+        ],
+      },
+      {
+        h2: 'Which codes does Aetna use for ABA? (H0031/H0032 and other H-codes)',
+        body: [
+          'Aetna’s ABA documents name CPT codes only. Its behavioral-health precertification list puts applied behavioral analysis under “97151, 97152, 97153, 97154, 97155, 97156, 97157, 97158, 0362T, 0373T.” Its ABA precertification request asks for hours by those same codes: assessment codes 97151, 97152 and 0362T per authorization period, treatment codes 97153–97158 and 0373T per week. CPB 0554 (reviewed October 14, 2026) also lists 97151–97158, with 0362T and 0373T as related codes. None of these documents lists a HCPCS H-code (H0031, H0032, H2014, H2019) for ABA. If a plan or contract seems to call for one, confirm with Aetna before billing it.',
+        ],
+        cites: [
+          { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
+          { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+        ],
+      },
+      {
+        h2: 'What must an Aetna ABA reauthorization contain? Are graphs required?',
+        body: [
+          'Aetna’s ABA Medical Necessity Guide sets the evidence for any authorization: “demonstration of functional impairment on a standardized scale of functioning in the past 12 months” (for instance VABS-3, ABAS, VB-MAPP or ABLLS), target behaviors with “frequency, rate, symptom intensity or duration, or other objective measures of baseline levels” and “quantifiable criteria for progress,” and either documentation that the target behavior has improved or, if not, documentation of treatment modification, added assessments or consultation. The level of impairment must justify the hours requested. The guide does not require graphs.',
+          'Aetna’s national precertification information request says “Don’t use this form for Maryland and Massachusetts,” so confirm the state’s submission package with Aetna precertification.',
+        ],
+        cites: [
+          { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+          { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification (GR-69017-4, 7-26; eff. 8/1/2026; not for MD or MA)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (ARICA applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -1568,6 +1746,9 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'Aetna CPB state deviations page', url: 'https://www.aetna.com/health-care-professionals/cpb-state-deviations.html' },
       { title: 'Aetna — Telemedicine and Direct Patient Contact Payment Policy (ABA code table: Commercial vs. Medicare columns; posted policy shows last review June 2021)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pdf/telemedicine.pdf' },
       { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+      { title: 'M.G.L. c. 175, § 110(G) — Accident and sickness claims', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter175/Section110' },
+      { title: 'M.G.L. c. 176G, § 6 — HMO provider contracts (45-day payment)', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter176G/Section6' },
+      { title: 'Aetna Provider Manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
     ],
     faq: [
       { q: 'Does Aetna cover ABA therapy in Massachusetts?', a: 'Yes — under the carrier\'s national policy for ASD, layered on ARICA for fully-insured plans, which bars age limits and benefit caps. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
@@ -1577,6 +1758,10 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { q: 'Does Aetna require RBT certification for ABA technicians?', a: 'Not by name. Aetna\'s ABA medical necessity guide says services must be provided directly or billed by licensed behavior analysts, BCBAs or licensed psychologists "unless state mandates, plan documents or contracts require otherwise." Where those allow services by unlicensed or non-certified staff, "there must be supervision and direction" in line with practice standards. Your contract and any state licensure law decide the technician credential.' },
       { q: 'Can the ABA assessment (97151) be done by telehealth with Aetna?', a: 'On commercial plans, yes: Aetna\'s telemedicine payment policy lists 97151, 97153, 97155, 97156 and 97157 with modifier GT, 95 or FR. 97152, 97154 and 97158 are listed for Medicare Advantage only. Confirm the policy is current and that the plan has a telehealth benefit.' },
       { q: 'Does Aetna cover ABA for Down syndrome in Massachusetts?', a: 'It depends on the plan. Aetna\'s national policy CPB 0554 (last reviewed 11/26/2025) still calls ABA experimental for Down syndrome without an autism co-morbidity and publishes no Massachusetts exception. Chapter 388 requires fully insured Massachusetts plans to cover sole-diagnosis Down syndrome from 1/1/2026, so on a fully insured plan a denial on CPB 0554 grounds is worth escalating on the mandate.' },
+      { q: 'What is Aetna’s timely filing limit in Massachusetts?', a: 'Aetna’s national provider manual (6/26) does not publish a number — the filing limit is the one in your Aetna agreement.' },
+      { q: 'How fast must Aetna pay a clean ABA claim in Massachusetts?', a: 'Massachusetts law gives a fully insured plan 45 days from receiving a completed claim to pay it, explain the non-payment or ask for what is missing, with interest of 1.5% a month (capped at 18% a year) after that (M.G.L. c. 176G, § 6; c. 175, § 110(G)). Self-funded employer plans are not bound by the statute.' },
+      { q: 'Does Aetna accept H0031 or H0032 for ABA?', a: 'Aetna’s precertification list, its ABA precertification request and CPB 0554 list only CPT 97151–97158, 0362T and 0373T for ABA. No H-code appears in them, so bill the CPT codes unless Aetna tells you otherwise for a specific plan.' },
+      { q: 'Does Aetna require graphs for ABA reassessments?', a: 'Aetna’s documents ask for data, not graphs: a standardized functioning assessment within the past 12 months, baseline and quantifiable progress measures for each target behavior, and documentation of improvement or of treatment changes.' },
     ],
   },
 
@@ -1634,18 +1819,15 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'Not published as a requirement. EN0499 gates coverage on a confirmed DSM-5-TR diagnosis, a qualifying assessment and a compliant treatment plan, and Evernorth\'s front door is famously open on the assessment side — no prior authorization on 97151, 97152 or 0362T. Neither document states a referral or physician order as a condition.',
-        status: 'unverified',
-        cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
-        verifyVia:
-          'Evernorth Provider Services at 800.926.2273 and the member\'s benefit document — referral rules, where they exist, are a plan-design feature rather than a policy feature.',
-        blocker: 'per-case',
+          'No PCP referral and no Evernorth order form. Evernorth\'s Behavioral Health Administrative Guidelines (September 2026) say, for Cigna HMO and POS plans and for Cigna SureFit and Cigna Connect, "Referrals are not required for behavioral health services"; the open-access, Network Open Access and LocalPlus plans need no referral to see specialists at all. ABA is gated by prior authorization through the Evernorth autism team (EN0499: confirmed DSM-5-TR diagnosis, qualifying assessment, compliant treatment plan), not by an order. For a fully insured Massachusetts plan, ARICA defines covered autism treatment as care "prescribed, provided or ordered for an individual diagnosed with 1 of the autism spectrum disorders by a licensed physician or a licensed psychologist who determines the care to be medically necessary" (M.G.L. c. 175 § 47AA; c. 176G § 4V for HMOs). In practice the diagnosing physician\'s or psychologist\'s signed evaluation, recommending ABA, is the document that goes in with the first request. The statute sets no validity period, and self-funded ERISA plans sit outside it.',
+        status: 'verified',
+        cites: [{ title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026) — benefit plan types', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }, { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'M.G.L. c. 175, § 47AA — Coverage for diagnosis and treatment of autism spectrum disorder', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter175/Section47AA' }, { title: 'M.G.L. c. 176G, § 4V — HMO coverage for autism spectrum disorder', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter176G/Section4V' }],
       },
       telehealth: {
         value:
-          'The most permissive telehealth position of the three national carriers, stated in one line: "All ABA CPT codes are covered telehealth services." EN0499 backs it structurally — "ABA treatment may be rendered via traditional in-person service delivery, telehealth, or a hybrid of in-person and telehealth service modalities," with the modality chosen on individual characteristics, the treatment plan, caregiver participation, environment, evidence of efficacy and safety, and technological requirements. Two qualifications worth carrying into scheduling: telehealth delivery is one of the settings the policy expects treatment goals to address, and the requirement to have the treatment plan signed does not apply to telehealth services. No POS code list is published. That includes the 97151 assessment and 97155 protocol modification. EN0499 describes direct case supervision as occurring "concurrently with the delivery of direct treatment," with the BCBA "face-to-face with the individual and either the Registered Behavior Technician® [RBT®] or the Board Certified Assistant Behavior Analyst® [BCaBA®]," at one to two hours per ten hours of direct treatment; it publishes no separate in-person minimum for supervision delivered by telehealth.',
+          'The most permissive telehealth position of the three national carriers, stated in one line: "All ABA CPT codes are covered telehealth services." EN0499 backs it structurally — "ABA treatment may be rendered via traditional in-person service delivery, telehealth, or a hybrid of in-person and telehealth service modalities," with the modality chosen on individual characteristics, the treatment plan, caregiver participation, environment, evidence of efficacy and safety, and technological requirements. Two qualifications worth carrying into scheduling: telehealth delivery is one of the settings the policy expects treatment goals to address, and the requirement to have the treatment plan signed does not apply to telehealth services. No POS code list is published. That includes the 97151 assessment and 97155 protocol modification. EN0499 describes direct case supervision as occurring "concurrently with the delivery of direct treatment," with the BCBA "face-to-face with the individual and either the Registered Behavior Technician® [RBT®] or the Board Certified Assistant Behavior Analyst® [BCaBA®]," at one to two hours per ten hours of direct treatment; it publishes no separate in-person minimum for supervision delivered by telehealth. On the claim, Evernorth’s Behavioral Health Administrative Guidelines (September 2026) say: “If billing telehealth services, please use the following guidance: Modifier 95 in Field 24-D to specify telehealth. 02 for Place of Service in Field 24-B.” Modifier 95 “will not change the reimbursement.” To deliver virtual sessions the provider first attests to Evernorth’s telehealth specialty requirements on the Attested Specialty Form, which adds “telehealth” to the provider profile. The guidelines and EN0499 say nothing about flagging telehealth on the ABA authorization itself.',
         status: 'verified',
-        cites: [{ title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+        cites: [ { title: 'Evernorth Behavioral Health Administrative Guidelines (rev. Sept. 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },{ title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
       },
       authTurnaround: {
         value:
@@ -1675,18 +1857,18 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       },
       concurrentBilling: {
         value:
-          'Yes \u2014 and Evernorth writes it as an explicit carve-out from its general rule: \u201cOnly one provider can bill for a unit of time, with the exception of CPT codes 97153, 97154, and 97155 (direct supervision when the BCBA/qualified health care provider directs the technician and both are face-to-face with the patient at the same time).\u201d Both must be with the patient; analyst time away from the patient is not inside the exception.',
+          'Yes \u2014 and Evernorth writes it as an explicit carve-out from its general rule: \u201cOnly one provider can bill for a unit of time, with the exception of CPT codes 97153, 97154, and 97155 (direct supervision when the BCBA/qualified health care provider directs the technician and both are face-to-face with the patient at the same time).\u201d Both must be with the patient; analyst time away from the patient is not inside the exception. Other therapies are a separate rule: EN0499 (eff. 5/15/2026) says \u201cProvision of ABA treatment is not covered or reimbursable when delivered to the same individual, at the same time as any other treatment modality (e.g., ABA and speech therapy, or ABA and occupational therapy).\u201d',
         status: 'verified',
-        cites: [{ title: 'Evernorth \u2014 Autism Resource Guide for behavioral health providers (March 2025, PCOMM-2025-225)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
+        cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Evernorth \u2014 Autism Resource Guide for behavioral health providers (March 2025, PCOMM-2025-225)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
       },
       dailyLimits: {
-        value:
-          'Not published. The resource guide sets the code set (97151\u201397158, 0362T, 0373T only, all in 15-minute increments) but no per-day unit ceiling and no statement of which MUE table Evernorth applies.',
-        status: 'unverified',
-        cites: [{ title: 'Evernorth \u2014 Autism Resource Guide for behavioral health providers (March 2025, PCOMM-2025-225)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
-        verifyVia:
-          'Evernorth Provider Services at 800.926.2273.',
-        blocker: 'per-case',
+        value: 'No per-day or per-week unit cap is published. Evernorth’s autism resource guide says “All of the ABA CPT codes are in 15-minute increments” and “All ABA services must be billed with CPT codes 97151–97158, 0362T, and 0373T ONLY,” and adds that “Only one provider can bill for a unit of time,” except 97153, 97154 and 97155 during direct supervision. Neither the guide, EN0499 nor Evernorth’s Behavioral Health Administrative Guidelines (September 2026) sets a unit maximum or names an MUE table for ABA. The authorization, sized to the treatment plan under EN0499, is what bounds the day; ask Evernorth at authorization if a schedule needs more than eight hours of 97153 in a day.',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth — Autism Resource Guide for behavioral health providers (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (rev. Sept. 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
       },
       noteSignature: {
         value:
@@ -1775,6 +1957,44 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'Evernorth Behavioral Health — Autism resource guide (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
       },
+      {
+        h2: 'Claims: filing deadline and disputes',
+        body: [
+          'Cigna’s behavioral benefits, ABA included, are administered by Evernorth Behavioral Health, whose administrative guidelines (revised September 2026) “will only consider claims submitted within 90 days of the date of service or as otherwise defined in your Provider Agreement” — a longer state-law limit overrides it, the clock resets to the date Cigna asks for more information, and Medicaid-secondary claims get three years. Appeals must be started in writing within 180 calendar days of the payment or denial decision. Its Massachusetts addendum writes the 45-day pay-or-explain rule and the 1.5%-a-month interest into the provider agreement.',
+        ],
+        cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (rev. Sept. 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
+      },
+      {
+        h2: 'How fast must Cigna pay a clean claim in Massachusetts?',
+        body: [
+          'Massachusetts gives the payer 45 days. An HMO’s provider contract must require it, within 45 days after receiving completed claim forms, to pay, to say in writing why it is not paying, or to say what additional information it needs; if it misses that window it owes interest “at the rate of 1.5 per cent per month, not to exceed 18 per cent per year” from day 45 (M.G.L. c. 176G, § 6). Insured accident and sickness policies carry the same 45-day notice rule and the same 1.5%-a-month interest (c. 175, § 110(G)). These statutes bind fully insured plans issued in the state; a self-funded employer plan (ERISA) is not subject to them and follows its plan documents and your contract.',
+        ],
+        cites: [
+          { title: 'M.G.L. c. 175, § 110(G) — Accident and sickness claims', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter175/Section110' },
+          { title: 'M.G.L. c. 176G, § 6 — HMO provider contracts (45-day payment)', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter176G/Section6' },
+        ],
+      },
+      {
+        h2: 'Which codes does Cigna pay for ABA? (H0031/H0032 and other H-codes)',
+        body: [
+          'CPT codes only. Evernorth’s autism resource guide states that “All ABA services must be billed with CPT codes 97151–97158, 0362T, and 0373T ONLY,” that “All of the ABA CPT codes are in 15-minute increments,” and that “Only one provider can bill for a unit of time,” except 97153, 97154 and 97155 billed during direct supervision. HCPCS H-codes such as H0031, H0032, H2014 or H2019 are not accepted for ABA on Cigna plans. EN0499’s coding section lists the same ten CPT codes as medically necessary when the policy’s criteria are met.',
+        ],
+        cites: [
+          { title: 'Evernorth — Autism Resource Guide for behavioral health providers (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+      },
+      {
+        h2: 'What must a Cigna ABA reauthorization contain? Are graphs required?',
+        body: [
+          'EN0499’s “Criteria for Continued Treatment with ABA” require dated numbers rather than graphs. The request needs an updated treatment plan and “Quantitative baseline, interim and current data … with dates reported from when the data were collected for all behaviors and skills” across every setting where treatment occurs. Current data must be “collected within no more than 60 days prior to the start date of the continued treatment request, as well as … within no more than 60 days prior to the date the authorization request is received.” It also needs a reliable, valid, standardized assessment “completed no more than one year prior to the start date,” dated data on stakeholder (caregiver) training goals, and, where progress has stalled, the barriers and the protocol changes made. A new standardized assessment and fresh data are required after any break in treatment longer than 60 days. The policy defines interim data as covering at least the previous six months and allows it to be “reported as patient data points and/or as a relevant average.” The policy does not require graphs.',
+        ],
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (ARICA applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -1789,6 +2009,9 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'Session Law — Acts of 2010, Chapter 207 (malegislature.gov)', url: 'https://malegislature.gov/Laws/SessionLaws/Acts/2010/Chapter207' },
       { title: 'The Arc of Massachusetts — Down syndrome ABA expansion', url: 'https://thearcofmass.org/post/expansion-of-coverage-of-applied-behavior-analysis-aba-for-individuals-with-down-syndrome/' },
       { title: '262 CMR 10.00 — LABA/LAABA licensure requirements (mass.gov)', url: 'https://www.mass.gov/regulations/262-CMR-1000-requirements-for-licensure-as-an-applied-behavior-analyst-and-assistant-applied-behavior-analyst' },
+      { title: 'M.G.L. c. 175, § 110(G) — Accident and sickness claims', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter175/Section110' },
+      { title: 'M.G.L. c. 176G, § 6 — HMO provider contracts (45-day payment)', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter176G/Section6' },
+      { title: 'Evernorth Behavioral Health Administrative Guidelines (rev. Sept. 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
     ],
     faq: [
       { q: 'Does Cigna cover ABA therapy in Massachusetts?', a: 'Yes — under national policy EN0499 for ASD (no PA on assessment codes), layered on ARICA for fully-insured plans, which bars age limits and benefit caps. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
@@ -1796,6 +2019,10 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { q: 'Does EN0499 apply differently in Massachusetts?', a: 'No — unlike Virginia, EN0499 carries no Massachusetts carve-out, so the standard policy (including the no-PA assessment path) applies, with ARICA controlling for fully-insured plans where they diverge.' },
       { q: 'Is Cigna accepting new ABA providers?', a: 'Evernorth, which runs Cigna\'s behavioral network, says it is "committed to expanding our network of autism providers." Individual providers submit the Evernorth Behavioral Provider Information Form and clinics the Screening Application for Autism Clinics; allow up to 90 days for the application plus 60 to 90 days of credentialing per provider.' },
       { q: 'Does Cigna credential RBTs?', a: 'No. "Evernorth does not credential nonlicensed/noncertified staff. Services for these staff members must be billed under the supervising provider." EN0499 expects the direct work from an RBT or BCaBA under BCBA case supervision.' },
+      { q: 'What is Cigna’s timely filing limit in Massachusetts?', a: 'Evernorth Behavioral Health, which administers Cigna’s ABA benefit, considers claims submitted within 90 days of the date of service unless your provider agreement or a longer state-law limit says otherwise.' },
+      { q: 'How fast must Cigna pay a clean ABA claim in Massachusetts?', a: 'Massachusetts law gives a fully insured plan 45 days from receiving a completed claim to pay it, explain the non-payment or ask for what is missing, with interest of 1.5% a month (capped at 18% a year) after that (M.G.L. c. 176G, § 6; c. 175, § 110(G)). Self-funded employer plans are not bound by the statute.' },
+      { q: 'Does Cigna accept H0031 or H0032 for ABA?', a: 'No. Evernorth’s autism resource guide requires all ABA services to be billed with CPT 97151–97158, 0362T and 0373T only, in 15-minute units.' },
+      { q: 'Does Cigna require graphs for ABA reassessments?', a: 'No graph is required. EN0499 requires dated quantitative baseline, interim and current data for every behavior and skill (current data no older than 60 days at the request and the start date), a standardized assessment within the past year, and caregiver-goal data. Data may be reported as data points or averages.' },
     ],
   },
 
@@ -1856,12 +2083,9 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'Not published as a coverage condition. Optum gates ABA on prior authorization — "Prior authorization is required for ABA (unless otherwise specified or mandated by contract or law)" — delivered as a two-step assessment-then-treatment workflow on Provider Express, with a valid diagnosis rather than a referral as the clinical trigger. What the criteria do require is coordination: documentation of communication with day care, preschool, school, early intervention and allied health providers to avoid duplication.',
-        status: 'unverified',
-        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
-        verifyVia:
-          'Optum via Provider Express and the member\'s benefit document — referral requirements, where they exist, are a plan-design feature.',
-        blocker: 'per-case',
+          'No PCP referral and no Optum order form. UnitedHealthcare\'s 2026 Care Provider Administrative Guide lists, among commercial services that do not need a referral even on referral-required plans, "Mental health/substance use disorder services with network behavioral health clinicians." Optum gates ABA on prior authorization instead: "Prior authorization is required for ABA (unless otherwise specified or mandated by contract or law)," as a two-step assessment-then-treatment request. For a fully insured Massachusetts plan, ARICA defines covered autism treatment as care "prescribed, provided or ordered for an individual diagnosed with 1 of the autism spectrum disorders by a licensed physician or a licensed psychologist who determines the care to be medically necessary" (M.G.L. c. 175 § 47AA; c. 176G § 4V for HMOs). In practice the diagnosing physician\'s or psychologist\'s signed evaluation, recommending ABA, is the document that goes in with the first request. The statute sets no validity period, and self-funded ERISA plans sit outside it.',
+        status: 'verified',
+        cites: [{ title: 'UnitedHealthcare — 2026 Care Provider Administrative Guide, Ch. 6 Referrals (commercial services not requiring a referral)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'M.G.L. c. 175, § 47AA — Coverage for diagnosis and treatment of autism spectrum disorder', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter175/Section47AA' }, { title: 'M.G.L. c. 176G, § 4V — HMO coverage for autism spectrum disorder', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter176G/Section4V' }],
       },
       telehealth: {
         value: 'Three codes, after an attestation. Optum’s Telehealth Billing guide (updated September 2025) is explicit for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157” — virtual supervision of technicians and family training — so technician-delivered 97153 is not payable by telehealth, and neither is the 97151 assessment or the technician-assisted 97152: plan the assessment in person. The provider must first be “an approved Optum virtual visits provider who has attested” (the virtual-visits attestation on Provider Express) and must tell the ABA Care Advocate at authorization. Bill the in-person code with the member’s location as the place of service: POS 10 when the member is at home, POS 02 anywhere else (the older ABA CPT FAQ says POS 02; the 2025 guide requires one of the two on every behavioral-health telehealth claim, and POS 11 or a telehealth modifier alone is not paid). Optum’s criteria add that telehealth is “not intended to supplant in-person service.”',
@@ -1999,6 +2223,43 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
           { title: '262 CMR 10.00 — LABA/LAABA licensure requirements (mass.gov)', url: 'https://www.mass.gov/regulations/262-CMR-1000-requirements-for-licensure-as-an-applied-behavior-analyst-and-assistant-applied-behavior-analyst' },
         ],
       },
+      {
+        h2: 'Claims: filing deadline and disputes',
+        body: [
+          'UnitedHealthcare’s ABA benefit is managed by Optum Behavioral Health, whose National Network Manual (effective September 1, 2026) requires everything needed to process a claim to reach Optum “no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan,” with corrections within 90 days of first receipt. Clean, authorized claims are “generally” paid within 45 calendar days of receipt or as state or federal law requires. Disputes run in two steps — reconsideration, then appeal — with 12 months in total for both unless state law or your participation agreement sets a different deadline.',
+        ],
+        cites: [
+          { title: 'Optum Behavioral Health National Network Manual (published July 1, 2026; effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+        ],
+      },
+      {
+        h2: 'How fast must UnitedHealthcare pay a clean claim in Massachusetts?',
+        body: [
+          'Massachusetts gives the payer 45 days. An HMO’s provider contract must require it, within 45 days after receiving completed claim forms, to pay, to say in writing why it is not paying, or to say what additional information it needs; if it misses that window it owes interest “at the rate of 1.5 per cent per month, not to exceed 18 per cent per year” from day 45 (M.G.L. c. 176G, § 6). Insured accident and sickness policies carry the same 45-day notice rule and the same 1.5%-a-month interest (c. 175, § 110(G)). These statutes bind fully insured plans issued in the state; a self-funded employer plan (ERISA) is not subject to them and follows its plan documents and your contract.',
+        ],
+        cites: [
+          { title: 'M.G.L. c. 175, § 110(G) — Accident and sickness claims', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter175/Section110' },
+          { title: 'M.G.L. c. 176G, § 6 — HMO provider contracts (45-day payment)', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter176G/Section6' },
+        ],
+      },
+      {
+        h2: 'Which codes does UnitedHealthcare / Optum pay for ABA? (H0031/H0032 and other H-codes)',
+        body: [
+          'Optum’s commercial ABA reimbursement policy (2022RP501A) “describes the correct coding methodology and reimbursement for reporting behavior assessment/intervention services (ABA) for the assessment and treatment of Autism Spectrum Disorders with CPT codes 97151-97158 along with the appropriate modifier,” and its code tables cover 97151–97158, 0362T and 0373T. It lists no HCPCS H-code (H0031, H0032, H2014, H2019) for commercial ABA. The same policy says “97151 and 97152 are the only codes eligible for reimbursement for assessment or reassessment activities,” so 97153 or 97155 cannot be billed for assessment work.',
+        ],
+        cites: [
+          { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+        ],
+      },
+      {
+        h2: 'What must a UnitedHealthcare / Optum ABA reauthorization contain? Are graphs required?',
+        body: [
+          'Optum’s Supplemental Clinical Criteria (“Continued Service Criteria”) say that “With each clinical review for continued ABA treatment, the provider must submit updated documentation.” Progress must be “assessed and documented for each targeted symptom and behavior … including the same modes of measurement that were utilized for baseline measurement.” It “should include rate and percentage of mastered programs, rates of mastered targets, change scores for any outcome measures, updated standardized adaptive measures, and change scores for skills-based assessments,” with movement from baseline shown on validated, norm-referenced assessments and caregiver progress where applicable. Inadequate progress within a six-month period calls for an assessment of the reasons and modified interventions, and utilization below 80% of authorized hours over a two-week period is reviewed. The criteria do not require graphs; they require the measures above.',
+        ],
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (ARICA applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -2019,6 +2280,9 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
       { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
       { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' },
+      { title: 'M.G.L. c. 175, § 110(G) — Accident and sickness claims', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter175/Section110' },
+      { title: 'M.G.L. c. 176G, § 6 — HMO provider contracts (45-day payment)', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter176G/Section6' },
+      { title: 'Optum Behavioral Health National Network Manual (published July 1, 2026; effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
     ],
     faq: [
       { q: 'Does UnitedHealthcare cover ABA therapy in Massachusetts?', a: 'Yes — under Optum\'s national two-step authorization for ASD, layered on ARICA for fully-insured plans, which bars age limits and benefit caps. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
@@ -2029,6 +2293,282 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { q: 'Does UnitedHealthcare (Optum) require RBT certification for ABA technicians?', a: 'Optum\'s ABA criteria say technicians "should be registered behavior technicians (RBT) or another appropriately certified behavior technician as allowable by state mandate," working under BCBA or licensed-clinician supervision. They also advise against a parent serving as the RBT for their own child.' },
       { q: 'Does UnitedHealthcare pay for ABA in a school?', a: 'Not for classroom aide work or anything owed under IDEA: Optum\'s criteria exclude "1:1 aid delivered simultaneously during classroom instruction" and "services covered under the Individuals with Disabilities Education Act." School-related coordination is covered, such as teacher training, meetings with school personnel and observations in the school setting.' },
       { q: 'Can the ABA assessment be done by telehealth with UnitedHealthcare?', a: 'No, not on commercial plans. Optum\'s telehealth billing guide allows only 97155, 97156 and 97157 by telehealth for ABA, so 97151 and 97152 are delivered in person. Supervision (97155) and caregiver training can be remote once the provider has completed Optum\'s virtual-visits attestation.' },
+      { q: 'What is UnitedHealthcare’s timely filing limit in Massachusetts?', a: 'Optum Behavioral Health, which manages UnitedHealthcare’s ABA benefit, requires claims within 90 calendar days of the date of service unless state or federal law or the member’s plan allows longer (National Network Manual, effective September 1, 2026).' },
+      { q: 'How fast must UnitedHealthcare pay a clean ABA claim in Massachusetts?', a: 'Massachusetts law gives a fully insured plan 45 days from receiving a completed claim to pay it, explain the non-payment or ask for what is missing, with interest of 1.5% a month (capped at 18% a year) after that (M.G.L. c. 176G, § 6; c. 175, § 110(G)). Self-funded employer plans are not bound by the statute.' },
+      { q: 'Does UnitedHealthcare accept H0031 or H0032 for ABA?', a: 'Not on commercial plans. Optum’s commercial ABA reimbursement policy codes ABA on CPT 97151–97158, 0362T and 0373T and lists no H-codes; only 97151 and 97152 may be billed for assessment or reassessment.' },
+      { q: 'Does UnitedHealthcare require graphs for ABA reauthorization?', a: 'Optum’s criteria do not require graphs. They require updated progress for each target measured the same way as baseline: mastery rates, change scores, updated standardized adaptive measures and caregiver progress, plus an explanation and changed plan if progress lagged over six months.' },
+    ],
+  },
+  'blue-cross-blue-shield-massachusetts': {
+    slug: 'blue-cross-blue-shield-massachusetts',
+    family: 'bcbs',
+    cardDesc: 'Medical Policy 091 (ASD and Down syndrome, 30–40 hr/wk comprehensive) + ARICA + prior auth for every ABA code, faxed or via Authorization Manager.',
+    assessmentPA: {
+      value: 'Required. Medical Policy 091 says prior authorization "is required" for outpatient ABA on Commercial Managed Care (HMO and POS) and on Commercial PPO and Indemnity, and BCBSMA\'s Outpatient Prior Authorization Code List (policy 072) lists 97151, 97152, 97153, 97154, 97155, 97156, 97157, 97158, 0373T and 0362T as "Prior authorization is required, in effect." The assessment is requested on its own: the Applied Behavior Analysis Service Request Form (144) has a separate "initial assessment request" path (sections A and B only) asking for the 97151 hours and units and a copy of the autism diagnosis.',
+      status: 'verified',
+      cites: [{ title: 'BCBSMA Medical Policy 091 — Applied Behavior Analysis (ABA) (last annual review 10/1/2025)', url: 'https://www.bluecrossma.org/medical-policies/sites/g/files/csphws2091/files/acquiadam-assets/091%20Applied%20Behavioral%20Analysis%20%28ABA%29.pdf' }, { title: 'BCBSMA Medical Policy 072 — Outpatient Prior Authorization Code List for Commercial Plans (rev. 9/2026)', url: 'https://www.bluecrossma.org/medical-policies/sites/g/files/csphws2091/files/acquiadam-assets/072%20Outpatient%20Prior%20Authorization%20Code%20List%20prn.pdf' }, { title: 'BCBSMA — Applied Behavior Analysis Service Request Form for Initial Assessment and Treatment (144, MPC-100915-1R rev. 8/23)', url: 'https://www.bluecrossma.org/medical-policies/sites/g/files/csphws2091/files/acquiadam-assets/144%20Applied%20Behavior%20Analysis%20Service%20Request%20Form%20prn.pdf' }],
+    },
+    treatmentPA: {
+      value: 'Required for every ABA treatment code (97153–97158, 0373T) on HMO, POS, PPO and Indemnity commercial plans. A treatment request completes sections A, C and D of form 144 (or the Massachusetts Collaborative standard ABA form) and must attach an updated treatment plan with measurable goals, progress data, goal status and a plan for supervision.',
+      status: 'verified',
+      cites: [{ title: 'BCBSMA Medical Policy 091 — Applied Behavior Analysis (ABA) (last annual review 10/1/2025)', url: 'https://www.bluecrossma.org/medical-policies/sites/g/files/csphws2091/files/acquiadam-assets/091%20Applied%20Behavioral%20Analysis%20%28ABA%29.pdf' }, { title: 'BCBSMA — Applied Behavior Analysis Service Request Form for Initial Assessment and Treatment (144, MPC-100915-1R rev. 8/23)', url: 'https://www.bluecrossma.org/medical-policies/sites/g/files/csphws2091/files/acquiadam-assets/144%20Applied%20Behavior%20Analysis%20Service%20Request%20Form%20prn.pdf' }],
+    },
+    dxRequired: {
+      value: 'Yes — autism spectrum disorder and/or Down syndrome. Since the 10/1/2025 revision Medical Policy 091 covers ABA "for the treatment of autism spectrum disorders (ASD) and/or Down Syndrome" and lists F84.0 and Q90.0, Q90.1, Q90.2 and Q90.9; ABA "for diagnoses other than autism spectrum disorder or Down Syndrome" is not covered. Self-funded employer plans follow their own plan document.',
+      status: 'verified',
+      cites: [{ title: 'BCBSMA Medical Policy 091 — Applied Behavior Analysis (ABA) (last annual review 10/1/2025)', url: 'https://www.bluecrossma.org/medical-policies/sites/g/files/csphws2091/files/acquiadam-assets/091%20Applied%20Behavioral%20Analysis%20%28ABA%29.pdf' }, { title: 'Acts of 2024, Chapter 388 — An Act relative to applied behavioral analysis therapy (Down syndrome; effective 1/1/2026)', url: 'https://malegislature.gov/Laws/SessionLaws/Acts/2024/Chapter388' }],
+    },
+    payer: 'Blue Cross Blue Shield of Massachusetts',
+    state: 'MA', kind: 'commercial',
+    intakeGates: {
+      ageLimit: {
+        value:
+          'None in BCBSMA\'s policy. Medical Policy 091 says "ABA services may be provided across age and severity levels," and it sets no age bound in any of its code criteria. The state mandate sets none either: the ARICA sections for Blue Cross (M.G.L. c. 176A § 8DD, c. 176B § 4DD) and HMO Blue (c. 176G § 4V) define autism treatment without an age limit. A self-funded employer plan BCBSMA administers can write its own limits into the plan document.',
+        status: 'verified',
+        cites: [{ title: 'BCBSMA Medical Policy 091 — Applied Behavior Analysis (ABA) (last annual review 10/1/2025)', url: 'https://www.bluecrossma.org/medical-policies/sites/g/files/csphws2091/files/acquiadam-assets/091%20Applied%20Behavioral%20Analysis%20%28ABA%29.pdf' }, { title: 'M.G.L. c. 176B, § 4DD — Coverage for diagnosis and treatment of autism spectrum disorder', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter176B/Section4DD' }],
+      },
+      dxRecency: {
+        value:
+          'Not set in BCBSMA\'s public documents. Medical Policy 091 and the ABA Service Request Form (144) ask for "documentation of autism spectrum disorder signed by a licensed physician or licensed psychologist" but state no maximum age for that evaluation. Form 144 points to "Treatment Plan Guidelines for Applied Behavior Analysis" inside the Autism Payment Policy, which is posted only behind the Provider Central login, so any recency rule there could not be read.',
+        status: 'unverified',
+        cites: [{ title: 'BCBSMA — Applied Behavior Analysis Service Request Form for Initial Assessment and Treatment (144, MPC-100915-1R rev. 8/23)', url: 'https://www.bluecrossma.org/medical-policies/sites/g/files/csphws2091/files/acquiadam-assets/144%20Applied%20Behavior%20Analysis%20Service%20Request%20Form%20prn.pdf' }],
+        verifyVia: 'BCBSMA Autism Payment Policy (Provider Central > Office Resources > Policies & Guidelines > Payment Policies, login required), or BCBSMA behavioral health authorizations at 1-800-524-4010 — ask whether an older diagnostic evaluation is accepted for an initial ABA request.',
+        blocker: 'document',
+      },
+      diagnosingProviders: {
+        value:
+          'Medical Policy 091 covers ABA when the ASD or Down syndrome is "diagnosed by a psychiatrist, psychologist, neurologist, developmental pediatrician, or other licensed physician experienced in the diagnosis and treatment of autism/Down Syndrome." The request form asks for the diagnosis "signed by a licensed physician or licensed psychologist." A nurse practitioner or LABA diagnosis is not on either list.',
+        status: 'verified',
+        cites: [{ title: 'BCBSMA Medical Policy 091 — Applied Behavior Analysis (ABA) (last annual review 10/1/2025)', url: 'https://www.bluecrossma.org/medical-policies/sites/g/files/csphws2091/files/acquiadam-assets/091%20Applied%20Behavioral%20Analysis%20%28ABA%29.pdf' }, { title: 'BCBSMA — Applied Behavior Analysis Service Request Form for Initial Assessment and Treatment (144, MPC-100915-1R rev. 8/23)', url: 'https://www.bluecrossma.org/medical-policies/sites/g/files/csphws2091/files/acquiadam-assets/144%20Applied%20Behavior%20Analysis%20Service%20Request%20Form%20prn.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'No named instrument. Medical Policy 091 describes the ABA assessment as interviews, "rating scales," standardized and non-standardized assessments and direct observation, and it says assessment is "not clinically indicated when multiple assessment tools are utilized to assess the same domain of functioning (e.g., multiple assessments of adaptive functioning)." It names no ADOS, Vineland or other required tool for the diagnosis or the assessment. The login-only Treatment Plan Guidelines could not be read.',
+        status: 'unverified',
+        cites: [{ title: 'BCBSMA Medical Policy 091 — Applied Behavior Analysis (ABA) (last annual review 10/1/2025)', url: 'https://www.bluecrossma.org/medical-policies/sites/g/files/csphws2091/files/acquiadam-assets/091%20Applied%20Behavioral%20Analysis%20%28ABA%29.pdf' }],
+        verifyVia: 'BCBSMA Autism Payment Policy / Treatment Plan Guidelines for ABA (Provider Central, login required).',
+        blocker: 'document',
+      },
+      referral: {
+        value:
+          'No PCP referral and no separate physician order form. BCBSMA\'s referral rules say "Behavioral health services, urgent care, and Emergency Department services (for emergency conditions) don\'t require a referral," even on the HMO plans (HMO Blue, Blue Choice in-network, Network Blue) that otherwise need one; prior authorization is still needed. What stands in for an order is the diagnosis document: the request form must attach "documentation of autism spectrum disorder signed by a licensed physician or licensed psychologist," and the state mandate defines covered autism treatment as care "prescribed, provided or ordered" by a licensed physician or licensed psychologist who finds it medically necessary. In practice the diagnosing physician\'s or psychologist\'s signed report goes in with the first request. BCBSMA publishes no validity period for it and no order template of its own.',
+        status: 'verified',
+        cites: [{ title: 'BCBSMA Provider Central — Referrals (which services do not require a referral)', url: 'https://provider.bluecrossma.com/ProviderHome/portal/home/office-resources/policies-and-guidelines/referrals' }, { title: 'BCBSMA — Applied Behavior Analysis Service Request Form for Initial Assessment and Treatment (144, MPC-100915-1R rev. 8/23)', url: 'https://www.bluecrossma.org/medical-policies/sites/g/files/csphws2091/files/acquiadam-assets/144%20Applied%20Behavior%20Analysis%20Service%20Request%20Form%20prn.pdf' }, { title: 'M.G.L. c. 176B, § 4DD — Coverage for diagnosis and treatment of autism spectrum disorder', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter176B/Section4DD' }],
+      },
+      telehealth: {
+        value:
+          'Telehealth is a covered site of care on BCBSMA commercial plans: "We cover medically necessary services conducted via telehealth for suitable medical and mental health services," on the provider\'s own HIPAA-compliant platform, with no special credentialing, and "The same referral and authorization requirements apply for telehealth visits as in-person visits." Which ABA codes count as suitable is listed only in the Telehealth (Telemedicine) – Mental Health payment policy, which sits behind the Provider Central login. Medical Policy 091 itself requires every ABA code to be "administered face-to-face" and does not say whether video meets that.',
+        status: 'unverified',
+        cites: [{ title: 'BCBSMA Provider Central — Telehealth', url: 'https://provider.bluecrossma.com/ProviderHome/portal/home/patient-resources/sites-of-care/telehealth' }, { title: 'BCBSMA Medical Policy 091 — Applied Behavior Analysis (ABA) (last annual review 10/1/2025)', url: 'https://www.bluecrossma.org/medical-policies/sites/g/files/csphws2091/files/acquiadam-assets/091%20Applied%20Behavioral%20Analysis%20%28ABA%29.pdf' }],
+        verifyVia: 'BCBSMA Telehealth (Telemedicine) – Mental Health payment policy (Provider Central login) — check whether 97151, 97155 and 97156 are on its covered-services list and which modifier and place of service it requires.',
+        blocker: 'document',
+      },
+      authTurnaround: {
+        value:
+          'For a fully insured plan, M.G.L. c. 176O § 12 sets the clock: an initial determination "within two working days of obtaining all necessary information," with an approval phoned to the provider within 24 hours and confirmed in writing within two working days; a concurrent review (reauthorization) within one working day of obtaining all necessary information, and the service "shall be continued without liability to the insured until the insured has been notified of the determination." A self-funded employer plan BCBSMA administers follows its own plan document and federal rules instead.',
+        status: 'plan-dependent',
+        cites: [{ title: 'M.G.L. c. 176O, § 12 — Utilization review', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter176O/Section12' }],
+        verifyVia: 'Benefits check (ConnectCenter or the number on the card): ask whether the plan is fully insured in Massachusetts or self-funded, and how long before an authorization ends BCBSMA wants the continued-services request.',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value:
+          'BCBSMA\'s own COB rules: for a child whose parents are married or living together, "the plan of parent whose birthday falls first in the calendar year is primary"; if the birthdays match, the plan in effect longer is primary. If the parents are not married or living together, the custodial parent\'s plan is primary, the custodial parent\'s spouse\'s plan secondary and the non-custodial parent\'s plan tertiary, unless a court decree assigns responsibility. As secondary payer BCBSMA pays "the balance up to the amount we would have paid if we had been the primary insurer," although some accounts use maintenance of benefits and pay less.',
+        status: 'verified',
+        cites: [{ title: 'BCBSMA Provider Central — Coordination of Benefits', url: 'https://provider.bluecrossma.com/ProviderHome/portal/home/office-resources/billing-and-reimbursement/coordination-of-benefits-new' }],
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value:
+          'Medical Policy 091 sets a typical supervision dose: protocol modification (97155, "clinical direction") runs "a minimum of 1 hour and maximum of 2 hours for every 10 direct hours provided by the behavior technician," that is 10–20% of technician time. Clinical direction must come from an appropriately trained licensed psychologist or a LABA/BCBA. "Supervision/training of behavior technician, LABA/BCBA, LAABA" is not separately covered. Every treatment request must attach a treatment plan that includes a "plan for supervision." The policy sets no caseload cap and no count of technicians per BCBA.',
+        status: 'verified',
+        cites: [{ title: 'BCBSMA Medical Policy 091 — Applied Behavior Analysis (ABA) (last annual review 10/1/2025)', url: 'https://www.bluecrossma.org/medical-policies/sites/g/files/csphws2091/files/acquiadam-assets/091%20Applied%20Behavioral%20Analysis%20%28ABA%29.pdf' }, { title: 'BCBSMA — Applied Behavior Analysis Service Request Form for Initial Assessment and Treatment (144, MPC-100915-1R rev. 8/23)', url: 'https://www.bluecrossma.org/medical-policies/sites/g/files/csphws2091/files/acquiadam-assets/144%20Applied%20Behavior%20Analysis%20Service%20Request%20Form%20prn.pdf' }],
+      },
+      concurrentBilling: {
+        value:
+          'Two overlap rules are written down. ABA "provided simultaneously with other medical services such as occupational therapy, speech and language therapy, physical therapy, and psychotherapy" is not covered, so 97153 cannot run during a speech or OT session. "More than one appropriately trained licensed psychologist or ... LABA/BCBA delivering services to a member during a specific time interval" is not covered either. 97155 may include "observation of the behavior technician implementing treatment protocols," and clinician-directed services are "provided in addition to direct treatment services." The policy does not say in so many words that 97153 and 97155 both pay for the same minutes. 97158 does not cover clinical direction of a technician.',
+        status: 'verified',
+        cites: [{ title: 'BCBSMA Medical Policy 091 — Applied Behavior Analysis (ABA) (last annual review 10/1/2025)', url: 'https://www.bluecrossma.org/medical-policies/sites/g/files/csphws2091/files/acquiadam-assets/091%20Applied%20Behavioral%20Analysis%20%28ABA%29.pdf' }],
+      },
+      dailyLimits: {
+        value:
+          'No per-day unit ceiling is published. Medical Policy 091 gives typical courses instead: 97151 assessment "completed in 12 hours," 97152 in 12 hours, 0362T in 12 hours; comprehensive treatment "between 30 to 40 hours of treatment per week," with "up to 40 hours per week" inclusive of technician and analyst face-to-face time; social-skills group (97158) typically two hours a week; and 97155 one to two hours per ten technician hours. Weekly hours and units are what gets authorized, on form 144\'s day-by-day schedule. For fully insured plans ARICA bars dollar or unit-of-service limits stricter than those on physical conditions, and visit limits.',
+        status: 'verified',
+        cites: [{ title: 'BCBSMA Medical Policy 091 — Applied Behavior Analysis (ABA) (last annual review 10/1/2025)', url: 'https://www.bluecrossma.org/medical-policies/sites/g/files/csphws2091/files/acquiadam-assets/091%20Applied%20Behavioral%20Analysis%20%28ABA%29.pdf' }, { title: 'M.G.L. c. 176B, § 4DD — Coverage for diagnosis and treatment of autism spectrum disorder', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter176B/Section4DD' }],
+      },
+      noteSignature: {
+        value:
+          'Medical Policy 091 requires that "The medical record must include documentation of individual services provided, session notes, treatment plans, data collection, and assessment results," available to BCBSMA on request. It sets no rule on who signs a session note or by when.',
+        status: 'unverified',
+        cites: [{ title: 'BCBSMA Medical Policy 091 — Applied Behavior Analysis (ABA) (last annual review 10/1/2025)', url: 'https://www.bluecrossma.org/medical-policies/sites/g/files/csphws2091/files/acquiadam-assets/091%20Applied%20Behavioral%20Analysis%20%28ABA%29.pdf' }],
+        verifyVia: 'BCBSMA Autism Payment Policy (Provider Central login) and your provider agreement\'s documentation clause.',
+        blocker: 'document',
+      },
+      placeOfService: {
+        value:
+          'Medical Policy 091: coverage "may include medically necessary ABA services in certain community settings, such as the home, center (office), daycare, preschool, or camp." Not covered: services that are part of an IEP, working as an educational aide during the school day "in a public, private, or homeschool program," training school staff, and camp or program tuition. Form 144 records location per day as H (home), O (office) or C (community).',
+        status: 'verified',
+        cites: [{ title: 'BCBSMA Medical Policy 091 — Applied Behavior Analysis (ABA) (last annual review 10/1/2025)', url: 'https://www.bluecrossma.org/medical-policies/sites/g/files/csphws2091/files/acquiadam-assets/091%20Applied%20Behavioral%20Analysis%20%28ABA%29.pdf' }, { title: 'BCBSMA — Applied Behavior Analysis Service Request Form for Initial Assessment and Treatment (144, MPC-100915-1R rev. 8/23)', url: 'https://www.bluecrossma.org/medical-policies/sites/g/files/csphws2091/files/acquiadam-assets/144%20Applied%20Behavior%20Analysis%20Service%20Request%20Form%20prn.pdf' }],
+      },
+      billAsProvider: {
+        value:
+          'Partly published. The authorization goes in under the clinician: Medical Policy 091 says to "Enter the appropriate provider NPI or provider ID as the servicing provider, not the billing group," and form 144 names the LABA and the agency NPI. Form 144\'s code grid marks 97151, 97155, 97156, 97157 and 97158 "not reimbursed" for a behavior technician, so those are analyst lines. Whose NPI renders a technician\'s 97153 line is not stated publicly. BCBSMA\'s "Incident To Billing for Supervising Providers for Mental Health Services" payment policy covers billing for non-credentialed staff but is login-only.',
+        status: 'unverified',
+        cites: [{ title: 'BCBSMA Medical Policy 091 — Applied Behavior Analysis (ABA) (last annual review 10/1/2025)', url: 'https://www.bluecrossma.org/medical-policies/sites/g/files/csphws2091/files/acquiadam-assets/091%20Applied%20Behavioral%20Analysis%20%28ABA%29.pdf' }, { title: 'BCBSMA — Applied Behavior Analysis Service Request Form for Initial Assessment and Treatment (144, MPC-100915-1R rev. 8/23)', url: 'https://www.bluecrossma.org/medical-policies/sites/g/files/csphws2091/files/acquiadam-assets/144%20Applied%20Behavior%20Analysis%20Service%20Request%20Form%20prn.pdf' }],
+        verifyVia: 'BCBSMA Autism Payment Policy and Incident To Billing for Supervising Providers for Mental Health Services payment policy (Provider Central login).',
+        blocker: 'document',
+      },
+    },
+    pill: 'Payer Guide · Blue Cross Blue Shield · Massachusetts',
+    h1: 'Blue Cross Blue Shield of Massachusetts ABA coverage: the intake guide.',
+    metaTitle: 'Blue Cross Blue Shield of Massachusetts ABA Coverage: Prior Auth & ARICA | Carelu',
+    metaDescription:
+      'How Blue Cross Blue Shield of Massachusetts covers ABA: Medical Policy 091 (autism and Down syndrome), prior authorization for every code, the ABA request form, supervision and hour norms, the ARICA mandate, BlueCard members, and what intake should verify.',
+    intro: [
+      'Blue Cross Blue Shield of Massachusetts (BCBSMA) is the state\'s largest commercial carrier, and it writes its ABA rules down in one public document: Medical Policy 091. It covers ABA for autism spectrum disorder and, since its October 2025 revision, for Down syndrome. Every ABA code needs prior authorization on HMO, POS, PPO and Indemnity plans, and the policy states typical hours for each code.',
+      'Underneath that policy sits ARICA, the Massachusetts autism mandate. It applies to fully insured BCBSMA plans and bars age caps and dollar or visit limits. Self-funded employer plans that BCBSMA only administers are outside it. This guide covers the policy, the request form, how BCBSMA handles out-of-state Blue members, and what intake should collect.',
+    ],
+    atGlance: [
+      { label: 'Covers ABA?', value: 'Yes — ASD and/or Down syndrome (Medical Policy 091)' },
+      { label: 'Prior auth', value: 'Required for 97151–97158, 0362T, 0373T (HMO, POS, PPO, Indemnity)' },
+      { label: 'State mandate', value: 'ARICA — Ch. 207, Acts of 2010 (M.G.L. c. 176A § 8DD, c. 176B § 4DD, c. 176G § 4V)' },
+      { label: 'Mandate age', value: 'No age limit in the statute' },
+      { label: 'Mandate caps', value: 'No visit limits; no dollar or unit limits stricter than for physical conditions' },
+      { label: 'Exempt from mandate', value: 'Self-funded ERISA employer plans' },
+      { label: 'New for 2026', value: 'Down syndrome ABA mandated from 1/1/2026 (Ch. 388, Acts of 2024); already in Policy 091 since 10/1/2025' },
+      { label: 'Licensure', value: 'MA Licensed Applied Behavior Analyst (LABA), M.G.L. c. 112 § 165' },
+    ],
+    sections: [
+      {
+        h2: 'Medical Policy 091: what BCBSMA covers',
+        body: [
+          'BCBSMA "covers medically necessary ABA services for the treatment of autism spectrum disorders (ASD) and/or Down Syndrome when diagnosed by a psychiatrist, psychologist, neurologist, developmental pediatrician, or other licensed physician experienced in the diagnosis and treatment of autism/Down Syndrome and when clinical direction is provided by an appropriately trained licensed psychologist or a licensed applied behavior analyst (LABA)/ board certified behavior analyst (BCBA)." ICD-10 codes listed are F84.0 and Q90.0–Q90.9. ABA for any other diagnosis is not covered.',
+          'The policy gives typical amounts for each service. Assessment (97151) takes 12 hours and the analyst must do both the face-to-face and non-face-to-face parts. Supporting assessment (97152) and multi-technician assessment (0362T) are 12 hours each. Comprehensive treatment is 30 to 40 hours a week, counting technician and analyst face-to-face time together. Social-skills groups (97158) are two hours a week. Protocol modification (97155) is one to two hours for every ten technician hours. Groups may have two to eight patients.',
+          'The policy also lists what is not covered: supervision or training of staff as a separate service; two analysts with the member at the same time; respite, chores, transport, or outings that are not in the treatment plan; nap or rest time; IEP services or educational-aide work during the school day; camp or program tuition; and ABA "provided simultaneously with other medical services such as occupational therapy, speech and language therapy, physical therapy, and psychotherapy."',
+        ],
+        cites: [
+          { title: 'BCBSMA Medical Policy 091 — Applied Behavior Analysis (ABA) (last annual review 10/1/2025)', url: 'https://www.bluecrossma.org/medical-policies/sites/g/files/csphws2091/files/acquiadam-assets/091%20Applied%20Behavioral%20Analysis%20%28ABA%29.pdf' },
+        ],
+      },
+      {
+        h2: 'Prior authorization: how to request it',
+        body: [
+          'Prior authorization is required for outpatient ABA on Commercial HMO/POS and on Commercial PPO and Indemnity, and BCBSMA\'s Outpatient Prior Authorization Code List shows all ten ABA codes as "Prior authorization is required, in effect." Policy 091 tells providers to submit the request in Authorization Manager and to list the clinician\'s NPI as the servicing provider, "not the billing group." The request form is BCBSMA\'s Applied Behavior Analysis Service Request Form (144). Out-of-network providers fax to 888-641-5199.',
+          'Form 144 has two paths. An initial assessment request completes sections A and B: member and agency details, the LABA name and license number, the 97151 hours and units, and the signed autism diagnosis. A treatment request completes sections A, C and D: CORI/SORI background checks, technician training hours, the child\'s other services (OT, PT, speech, mental health, pediatrician, IEP hours) and whether each coordinates with the LABA, ABA hours and location for each day of the week, weekly hours and units by code, and an updated treatment plan. The form\'s fax number is 1-617-246-4281 (BCBSMA employees: 1-888-608-3693). Behavioral health authorizations by phone are at 1-800-524-4010.',
+          'BCBSMA also accepts the multi-payer Massachusetts Collaborative Standard Form for ABA Services Prior Authorization Requests. Its February 2024 Mental Health Brief said it would accept that form from April 16, 2024 under Division of Insurance Bulletin 2024-01, and the prior-authorization code list names the "Massachusetts Collaborative Prior Authorization Form" as a submission option.',
+        ],
+        cites: [
+          { title: 'BCBSMA Medical Policy 091 — Applied Behavior Analysis (ABA) (last annual review 10/1/2025)', url: 'https://www.bluecrossma.org/medical-policies/sites/g/files/csphws2091/files/acquiadam-assets/091%20Applied%20Behavioral%20Analysis%20%28ABA%29.pdf' },
+          { title: 'BCBSMA — Applied Behavior Analysis Service Request Form for Initial Assessment and Treatment (144, MPC-100915-1R rev. 8/23)', url: 'https://www.bluecrossma.org/medical-policies/sites/g/files/csphws2091/files/acquiadam-assets/144%20Applied%20Behavior%20Analysis%20Service%20Request%20Form%20prn.pdf' },
+          { title: 'BCBSMA Medical Policy 072 — Outpatient Prior Authorization Code List for Commercial Plans (rev. 9/2026)', url: 'https://www.bluecrossma.org/medical-policies/sites/g/files/csphws2091/files/acquiadam-assets/072%20Outpatient%20Prior%20Authorization%20Code%20List%20prn.pdf' },
+          { title: 'BCBSMA Provider Central — Prior Authorization Overview (phone and fax numbers)', url: 'https://provider.bluecrossma.com/ProviderHome/portal/home/clinical-resources/prior-authorization/prior-auth-overview' },
+          { title: 'BCBSMA Mental Health Brief, February 2024 — New standard ABA authorization form', url: 'https://provider.bluecrossma.com/ProviderHome/wcm/connect/d8751aeb-3fc6-40f3-b4eb-a8d872546474/MHBrief_Feb24.pdf?MOD=AJPERES' },
+        ],
+      },
+      {
+        h2: 'The Massachusetts mandate: ARICA',
+        body: [
+          'ARICA (Chapter 207 of the Acts of 2010) put autism coverage into each of the statutes BCBSMA operates under: M.G.L. c. 176A § 8DD (hospital service corporations), c. 176B § 4DD (medical service corporations) and c. 176G § 4V (HMOs, so HMO Blue). Covered treatment includes "applied behavior analysis supervised by a board certified behavior analyst" when "prescribed, provided or ordered" by a licensed physician or licensed psychologist who finds it medically necessary. A plan may not limit the number of visits to an autism services provider, and any dollar or unit-of-service limit may not be stricter than for physical conditions. IEP services provided by school staff are not reimbursable under the mandate.',
+          'Chapter 388 of the Acts of 2024 added Down syndrome. From January 1, 2026, fully insured plans, including a new c. 176B § 4DD½, must cover "the treatment of Down syndrome through speech therapy, occupational therapy, physical therapy and applied behavior analysis services." BCBSMA added Down syndrome to Medical Policy 091 on October 1, 2025. Self-funded ERISA plans are not bound by either statute, so check the plan document for those members.',
+        ],
+        cites: [
+          { title: 'M.G.L. c. 176B, § 4DD — Coverage for diagnosis and treatment of autism spectrum disorder', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter176B/Section4DD' },
+          { title: 'M.G.L. c. 176A, § 8DD — Coverage for diagnosis and treatment of autism spectrum disorder', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter176A/Section8DD' },
+          { title: 'M.G.L. c. 176G, § 4V — HMO coverage for autism spectrum disorder', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter176G/Section4V' },
+          { title: 'Acts of 2024, Chapter 388 — An Act relative to applied behavioral analysis therapy (Down syndrome; effective 1/1/2026)', url: 'https://malegislature.gov/Laws/SessionLaws/Acts/2024/Chapter388' },
+        ],
+      },
+      {
+        h2: 'Out-of-state Blue members: BlueCard',
+        body: [
+          'A child with another state\'s Blue plan who gets ABA in Massachusetts is a BlueCard member. BCBSMA is the local (host) plan and the other plan is the home plan, and "The member\'s benefits are determined by their Home plan." BCBSMA tells Massachusetts providers to submit claims "the same way you do for Massachusetts members," with the member\'s three-character prefix and an ID of up to 17 characters entered exactly as on the card, and to contact BCBSMA for all claim questions.',
+          'Prior authorization for these members goes to the home plan. Use BCBSMA\'s "Pre-service Review for BlueCard members" tool (the Blue plans\' Electronic Provider Access router), which takes you to the home plan\'s own pre-service page from the prefix, or call BlueCard Eligibility at 1-800-676-BLUE (2583). Behavioral health is one of the four request types that route supports. Check eligibility the same ways. If your practice is outside Massachusetts and the child has a BCBSMA card, BCBSMA says to contact "your local, in-state Blue plan" for claim questions.',
+        ],
+        cites: [
+          { title: 'BCBSMA Provider Central — BlueCard & Out-of-Area Programs', url: 'https://provider.bluecrossma.com/ProviderHome/portal/home/patient-resources/plans-and-products/bluecard-and-out-of-area-programs' },
+          { title: 'BCBSMA Provider Central — Pre-service review for BlueCard members', url: 'https://provider.bluecrossma.com/ProviderHome/portal/home/etools/etools/pre-service-review-for-bluecard-members' },
+        ],
+      },
+      {
+        h2: 'Licensure in Massachusetts',
+        body: [
+          'Massachusetts licenses behavior analysts through the Board of Registration of Allied Mental Health and Human Services Professions. A licensed applied behavior analyst (LABA) needs a qualifying graduate degree with behavior-analysis coursework, supervised experience and a board-approved exam. A licensed assistant applied behavior analyst works under a LABA or under a physician or psychologist qualified in ABA. BCBSMA\'s policy accepts clinical direction by a LABA/BCBA or an appropriately trained licensed psychologist, and form 144 asks for the LABA\'s license number.',
+        ],
+        cites: [
+          { title: 'M.G.L. c. 112, § 165 — Licensing of applied behavior analysts and assistant applied behavior analysts', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXVI/Chapter112/Section165' },
+          { title: 'M.G.L. c. 112, § 163 — Definitions (licensed applied behavior analyst)', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXVI/Chapter112/Section163' },
+        ],
+      },
+      {
+        h2: 'Claims, appeals and payment timing',
+        body: [
+          'Professional claims go on the 1500 form, preferably electronically (clearinghouse, Direct Connection, or ConnectCenter direct entry). Paper 1500s go to Blue Cross Blue Shield Data Capture, PO Box 986020, Boston, MA 02298. Enter the member\'s name exactly as on the ID card and the full ID with prefix. BCBSMA refers billers to the NUCC 1500 instruction manual for field-by-field rules. Its claim filing limit is published only to logged-in providers. BCBSMA posts its appeal queue dates, including a "Timely Filing Limit" queue.',
+          'First-level provider appeals are due "within 180 days of the initial claim being denied or processed," through Appeals Manager or a Request for Claim Review Form. A second-level appeal is due within 60 days of the first-level decision. For HMO Blue, M.G.L. c. 176G § 6 requires the provider contract to commit the HMO to pay, deny with reasons, or ask for what is missing within 45 days of a completed claim, with interest of 1.5% a month (capped at 18% a year) after that.',
+        ],
+        cites: [
+          { title: 'BCBSMA Provider Central — Claim Submission', url: 'https://provider.bluecrossma.com/ProviderHome/portal/home/office-resources/billing-and-reimbursement/Claim%20Submission' },
+          { title: 'BCBSMA Provider Central — Reviews & Appeals', url: 'https://provider.bluecrossma.com/ProviderHome/portal/home/office-resources/policies-and-guidelines/reviews-appeals' },
+          { title: 'M.G.L. c. 176G, § 6 — HMO provider contracts (45-day payment)', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter176G/Section6' },
+        ],
+      },
+      {
+        h2: 'Which codes does BCBSMA cover for ABA? (H0031/H0032 and other H-codes)',
+        body: [
+          'Medical Policy 091 defines ABA by CPT code. It describes each service by its code (97151 assessment, 97152 and 0362T supporting assessment, 97153/97154 treatment by protocol, 97155 and 97158 protocol modification, 97156/97157 caregiver guidance, 0373T), and its coding table lists 97151–97158, 0373T and 0362T. No HCPCS H-code is listed for ABA.',
+        ],
+        cites: [
+          { title: 'BCBSMA Medical Policy 091 — Applied Behavior Analysis (ABA) (last annual review 10/1/2025)', url: 'https://www.bluecrossma.org/medical-policies/sites/g/files/csphws2091/files/acquiadam-assets/091%20Applied%20Behavioral%20Analysis%20%28ABA%29.pdf' },
+        ],
+      },
+      {
+        h2: 'What must a BCBSMA ABA treatment request contain? Are graphs required?',
+        body: [
+          'Form 144, BCBSMA’s ABA service request form, asks for “an individualized, updated treatment plan” that includes “measurable goals,” “data related to progress within individual treatment goals,” “goal status (met, progressing, regressing),” and a “plan for supervision.” It does not ask for graphs. The fuller Treatment Plan Guidelines for Applied Behavior Analysis sit inside the Autism Payment Policy, behind the Provider Central login, so any graph or data-recency rule there could not be read. Medical Policy 091 itself sets no reauthorization content beyond its coverage criteria.',
+        ],
+        cites: [
+          { title: 'BCBSMA — Applied Behavior Analysis Service Request Form for Initial Assessment and Treatment (form 144, MPC-100915-1R rev. 8/23)', url: 'https://www.bluecrossma.org/medical-policies/sites/g/files/csphws2091/files/acquiadam-assets/144%20Applied%20Behavior%20Analysis%20Service%20Request%20Form%20prn.pdf' },
+          { title: 'BCBSMA Medical Policy 091 — Applied Behavior Analysis (ABA) (last annual review 10/1/2025)', url: 'https://www.bluecrossma.org/medical-policies/sites/g/files/csphws2091/files/acquiadam-assets/091%20Applied%20Behavioral%20Analysis%20%28ABA%29.pdf' },
+        ],
+      },
+    ],
+    collect: [
+      { title: 'Plan funding type', desc: 'Fully insured (ARICA and Ch. 388 apply) or self-funded employer plan administered by BCBSMA (plan document governs). Ask for the employer name.' },
+      { title: 'Member ID + card photo', desc: 'Full ID with the three-character prefix. A non-Massachusetts prefix means a BlueCard member, whose home plan decides benefits and authorization.' },
+      { title: 'Signed diagnosis', desc: 'ASD and/or Down syndrome diagnosis signed by a licensed physician or licensed psychologist (psychiatrist, psychologist, neurologist, developmental pediatrician) for the form 144 attachment.' },
+      { title: 'Other services', desc: 'Weekly OT, PT, speech, mental-health and IEP/school hours. Form 144 asks for them, and ABA cannot overlap with them.' },
+      { title: 'LABA of record', desc: 'LABA name and license number, plus agency NPI. Background checks (CORI/SORI) for everyone who works with the family.' },
+    ],
+    sources: [
+      { title: 'BCBSMA Medical Policy 091 — Applied Behavior Analysis (ABA) (last annual review 10/1/2025)', url: 'https://www.bluecrossma.org/medical-policies/sites/g/files/csphws2091/files/acquiadam-assets/091%20Applied%20Behavioral%20Analysis%20%28ABA%29.pdf' },
+      { title: 'BCBSMA — Applied Behavior Analysis Service Request Form for Initial Assessment and Treatment (144, MPC-100915-1R rev. 8/23)', url: 'https://www.bluecrossma.org/medical-policies/sites/g/files/csphws2091/files/acquiadam-assets/144%20Applied%20Behavior%20Analysis%20Service%20Request%20Form%20prn.pdf' },
+      { title: 'BCBSMA Medical Policy 072 — Outpatient Prior Authorization Code List for Commercial Plans (rev. 9/2026)', url: 'https://www.bluecrossma.org/medical-policies/sites/g/files/csphws2091/files/acquiadam-assets/072%20Outpatient%20Prior%20Authorization%20Code%20List%20prn.pdf' },
+      { title: 'BCBSMA Provider Central — Prior Authorization Overview (phone and fax numbers)', url: 'https://provider.bluecrossma.com/ProviderHome/portal/home/clinical-resources/prior-authorization/prior-auth-overview' },
+      { title: 'BCBSMA Provider Central — Referrals (which services do not require a referral)', url: 'https://provider.bluecrossma.com/ProviderHome/portal/home/office-resources/policies-and-guidelines/referrals' },
+      { title: 'BCBSMA Provider Central — Telehealth', url: 'https://provider.bluecrossma.com/ProviderHome/portal/home/patient-resources/sites-of-care/telehealth' },
+      { title: 'BCBSMA Provider Central — BlueCard & Out-of-Area Programs', url: 'https://provider.bluecrossma.com/ProviderHome/portal/home/patient-resources/plans-and-products/bluecard-and-out-of-area-programs' },
+      { title: 'BCBSMA Provider Central — Coordination of Benefits', url: 'https://provider.bluecrossma.com/ProviderHome/portal/home/office-resources/billing-and-reimbursement/coordination-of-benefits-new' },
+      { title: 'BCBSMA Provider Central — Reviews & Appeals', url: 'https://provider.bluecrossma.com/ProviderHome/portal/home/office-resources/policies-and-guidelines/reviews-appeals' },
+      { title: 'BCBSMA Mental Health Brief, February 2024 — New standard ABA authorization form', url: 'https://provider.bluecrossma.com/ProviderHome/wcm/connect/d8751aeb-3fc6-40f3-b4eb-a8d872546474/MHBrief_Feb24.pdf?MOD=AJPERES' },
+      { title: 'M.G.L. c. 176B, § 4DD — Coverage for diagnosis and treatment of autism spectrum disorder', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter176B/Section4DD' },
+      { title: 'Acts of 2024, Chapter 388 — An Act relative to applied behavioral analysis therapy (Down syndrome; effective 1/1/2026)', url: 'https://malegislature.gov/Laws/SessionLaws/Acts/2024/Chapter388' },
+      { title: 'M.G.L. c. 176O, § 12 — Utilization review', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter176O/Section12' },
+      { title: 'M.G.L. c. 176G, § 6 — HMO provider contracts (45-day payment)', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter176G/Section6' },
+      { title: 'M.G.L. c. 112, § 165 — Licensing of applied behavior analysts and assistant applied behavior analysts', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXVI/Chapter112/Section165' },
+    ],
+    faq: [
+      { q: 'Does Blue Cross Blue Shield of Massachusetts cover ABA therapy?', a: 'Yes. Medical Policy 091 covers medically necessary ABA for autism spectrum disorder and/or Down syndrome on HMO, POS, PPO and Indemnity plans, with prior authorization. Fully insured plans are also bound by ARICA, which bars visit limits and age caps. Self-funded employer plans follow their own plan document.' },
+      { q: 'Does BCBSMA require prior authorization for the ABA assessment (97151)?', a: 'Yes. All ten ABA codes, 97151–97158, 0362T and 0373T, need prior authorization on commercial plans. Request the assessment alone using sections A and B of form 144: the 97151 hours and units, plus the autism diagnosis signed by a licensed physician or psychologist. A typical assessment course is 12 hours.' },
+      { q: 'Does a child need a referral or doctor\'s order for ABA with BCBSMA?', a: 'No PCP referral. BCBSMA says behavioral health services do not require a referral, even on HMO Blue. You do need prior authorization and a signed diagnosis from a licensed physician or licensed psychologist. That signed diagnosis is what the request form asks for, and the state mandate defines covered autism treatment as care prescribed, provided or ordered by one of them.' },
+      { q: 'Can ABA overlap with speech or occupational therapy under BCBSMA?', a: 'No. Medical Policy 091 lists as non-covered ABA "provided simultaneously with other medical services such as occupational therapy, speech and language therapy, physical therapy, and psychotherapy." Schedule ABA around those sessions. Form 144 also asks for the child\'s weekly OT, PT, speech and mental-health hours.' },
+      { q: 'How many hours of ABA does BCBSMA authorize?', a: 'No daily unit cap is published. The policy calls comprehensive ABA 30 to 40 hours a week, counting technician and analyst time, and focused ABA is lower and individualized. Clinical direction (97155) typically runs 1–2 hours per 10 technician hours, and social-skills groups (97158) about 2 hours a week.' },
+      { q: 'How much BCBA supervision does BCBSMA expect?', a: 'Policy 091 puts the typical dose of 97155 clinical direction at a minimum of 1 hour and a maximum of 2 hours for every 10 direct technician hours. The treatment plan must include a plan for supervision. Supervision or training of staff is not billable as a separate service, and the policy sets no technician-per-BCBA ratio.' },
+      { q: 'Does BCBSMA cover ABA by telehealth?', a: 'BCBSMA covers telehealth as a site of care for suitable mental health services, with the same authorization rules as in person. Which ABA codes qualify is listed only in its login-only Telehealth (Telemedicine) – Mental Health payment policy, and Policy 091 says each ABA service is "administered face-to-face." Confirm before scheduling remote 97155 or 97156.' },
+      { q: 'I am a Massachusetts provider and the child has an out-of-state Blue card. Who authorizes ABA?', a: 'The home plan. Under BlueCard, benefits come from the member\'s home Blue plan, and pre-service review goes through BCBSMA\'s Pre-service Review for BlueCard members tool or 1-800-676-BLUE. You still submit the claim to BCBSMA with the full prefixed ID, the same way as for Massachusetts members.' },
+      { q: 'Does BCBSMA pay for ABA at school?', a: 'Not for school-day educational support. Policy 091 excludes services that are part of an IEP, educational-aide work during the school day, and training school staff. It does allow medically necessary ABA in community settings such as the home, center, daycare, preschool or camp.' },
+      { q: 'What is the appeal deadline with BCBSMA?', a: 'First-level provider appeals are due within 180 days of the claim being denied or processed. A second-level appeal is due within 60 days of the first-level decision. Use Appeals Manager or the Request for Claim Review Form.' },
+      { q: 'Does BCBSMA accept H0031 or H0032 for ABA?', a: 'Medical Policy 091 lists only CPT 97151–97158, 0362T and 0373T for ABA, with no H-codes.' },
+      { q: 'Does BCBSMA require graphs for ABA reauthorization?', a: 'Form 144 asks for an updated treatment plan with measurable goals, progress data for each goal, goal status and a supervision plan, but not graphs. The detailed Treatment Plan Guidelines are in the login-only Autism Payment Policy, so confirm there.' },
     ],
   },
 };
