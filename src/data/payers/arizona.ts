@@ -218,6 +218,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'AHCCCS FFS Provider Billing Manual, Chapter 5 — Billing on the CMS 1500', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSProviderManual/FFS_Chap05.pdf' },
       { title: 'AMPM 540 — Electronic Visit Verification (effective 08/06/26)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/500/540.pdf' },
       { title: 'AHCCCS — Electronic Visit Verification (What is EVV?, updated Oct. 22, 2025)', url: 'https://www.azahcccs.gov/AHCCCS/Initiatives/EVV/' },
+      { title: 'AHCCCS — Claims Clues newsletter archive (DFSM monthly FFS provider newsletter)', url: 'https://www.azahcccs.gov/PlansProviders/RatesAndBilling/FFS/claimsclues.html' },
     ],
     intakeGates: {
       ageLimit: {
@@ -496,6 +497,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'AHCCCS — Provider Claim Disputes', url: 'https://www.azahcccs.gov/PlansProviders/RatesAndBilling/ManagedCare/claimdisputes.html' },
       { title: 'AMPM 540 — Electronic Visit Verification (effective 08/06/26)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/500/540.pdf' },
       { title: 'AHCCCS — Electronic Visit Verification (What is EVV?, updated Oct. 22, 2025)', url: 'https://www.azahcccs.gov/AHCCCS/Initiatives/EVV/' },
+      { title: 'Mercy Care — Provider newsletters and notices (dated provider notice archive)', url: 'https://www.mercycareaz.org/providers/newsletters-notices.html' },
     ],
     intakeGates: {
       ageLimit: {
@@ -795,6 +797,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'AHCCCS — Provider Claim Disputes', url: 'https://www.azahcccs.gov/PlansProviders/RatesAndBilling/ManagedCare/claimdisputes.html' },
       { title: 'AMPM 540 — Electronic Visit Verification (effective 08/06/26)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/500/540.pdf' },
       { title: 'AHCCCS — Electronic Visit Verification (What is EVV?, updated Oct. 22, 2025)', url: 'https://www.azahcccs.gov/AHCCCS/Initiatives/EVV/' },
+      { title: 'UnitedHealthcare Community Plan of Arizona — Bulletins and newsletters', url: 'https://www.uhcprovider.com/en/health-plans-by-state/arizona-health-plans/az-comm-plan-home/az-cp-news.html' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1082,6 +1085,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'AHCCCS — Provider Claim Disputes', url: 'https://www.azahcccs.gov/PlansProviders/RatesAndBilling/ManagedCare/claimdisputes.html' },
       { title: 'AMPM 540 — Electronic Visit Verification (effective 08/06/26)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/500/540.pdf' },
       { title: 'AHCCCS — Electronic Visit Verification (What is EVV?, updated Oct. 22, 2025)', url: 'https://www.azahcccs.gov/AHCCCS/Initiatives/EVV/' },
+      { title: 'Arizona Complete Health — Medicaid provider news (provider notices archive)', url: 'https://www.azcompletehealth.com/providers/provider-news/medicaid-news.html' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1368,6 +1372,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'AHCCCS — Provider Claim Disputes', url: 'https://www.azahcccs.gov/PlansProviders/RatesAndBilling/ManagedCare/claimdisputes.html' },
       { title: 'AMPM 540 — Electronic Visit Verification (effective 08/06/26)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/500/540.pdf' },
       { title: 'AHCCCS — Electronic Visit Verification (What is EVV?, updated Oct. 22, 2025)', url: 'https://www.azahcccs.gov/AHCCCS/Initiatives/EVV/' },
+      { title: 'Banner Plans & Networks — Provider newsletters and notifications (B-UFC)', url: 'https://www.bannerhealth.com/bhpprovider/news/newsletters' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1675,6 +1680,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'AHCCCS — Provider Claim Disputes', url: 'https://www.azahcccs.gov/PlansProviders/RatesAndBilling/ManagedCare/claimdisputes.html' },
       { title: 'AMPM 540 — Electronic Visit Verification (effective 08/06/26)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/500/540.pdf' },
       { title: 'AHCCCS — Electronic Visit Verification (What is EVV?, updated Oct. 22, 2025)', url: 'https://www.azahcccs.gov/AHCCCS/Initiatives/EVV/' },
+      { title: 'Blue Cross Blue Shield of Arizona Health Choice — Medicaid provider announcements (recent + archived notices)', url: 'https://www.azblue.com/medicaid/providers/provider-announcements' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1965,6 +1971,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'AHCCCS — Provider Claim Disputes', url: 'https://www.azahcccs.gov/PlansProviders/RatesAndBilling/ManagedCare/claimdisputes.html' },
       { title: 'AMPM 540 — Electronic Visit Verification (effective 08/06/26)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/500/540.pdf' },
       { title: 'AHCCCS — Electronic Visit Verification (What is EVV?, updated Oct. 22, 2025)', url: 'https://www.azahcccs.gov/AHCCCS/Initiatives/EVV/' },
+      { title: 'Molina Healthcare of Arizona — Provider communications (bulletins + quarterly newsletters, by year)', url: 'https://www.molinahealthcare.com/providers/az/communications' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2267,6 +2274,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'A.R.S. § 32-2091.14 — AHCCCS recognizes licensed behavior analysts as behavioral health professionals', url: 'https://www.azleg.gov/ars/32/02091-14.htm' },
       { title: 'AMPM 540 — Electronic Visit Verification (effective 08/06/26)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/500/540.pdf' },
       { title: 'AHCCCS — Electronic Visit Verification (What is EVV?, updated Oct. 22, 2025)', url: 'https://www.azahcccs.gov/AHCCCS/Initiatives/EVV/' },
+      { title: 'DES/DDD — Vendor announcements (provider policy updates, QM bulletins, claims notices)', url: 'https://des.az.gov/services/disabilities/developmental-disabilities/vendors-providers/vendor-announcements' },
     ],
     intakeGates: {
       ageLimit: {

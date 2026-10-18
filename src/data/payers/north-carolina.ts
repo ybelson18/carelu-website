@@ -226,6 +226,8 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Session Law 2026-1 (H.B. 696), §3C.18(c) — new G.S. 108C-9(e): no out-of-state Medicaid enrollment for BCBAs/QASP supervisors', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-1.pdf' },
       { title: 'NC Medicaid Managed Care Provider Playbook — Prompt Payment fact sheet (Standard Plans, NC Medicaid Direct, Tailored Plans)', url: 'https://medicaid.ncdhhs.gov/provider-playbook-prompt-payment-fact-sheet/download' },
       { title: 'NC Medicaid — Electronic Visit Verification (EVV)', url: 'https://medicaid.ncdhhs.gov/providers/programs-and-services/long-term-care/electronic-visit-verification' },
+      { title: 'NC Medicaid — Medicaid Bulletin (index of provider bulletins)', url: 'https://medicaid.ncdhhs.gov/providers/medicaid-bulletin' },
+      { title: 'NCTracks — Provider Announcements 2026', url: 'https://www.nctracks.nc.gov/content/public/providers/provider-communications/2026----Announcements.html' },
     ],
     intakeGates: {
       ageLimit: {
@@ -504,6 +506,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
       { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
       { title: 'NC Medicaid Managed Care Provider Playbook — Prompt Payment fact sheet (Standard Plans, NC Medicaid Direct, Tailored Plans)', url: 'https://medicaid.ncdhhs.gov/provider-playbook-prompt-payment-fact-sheet/download' },
+      { title: 'Healthy Blue (NC) — Provider News (all provider news articles and newsletters)', url: 'https://providernews.healthybluenc.com/' },
     ],
     intakeGates: {
       ageLimit: {
@@ -760,6 +763,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
       { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
       { title: 'AmeriHealth Caritas NC — Provider Manual (Version 18, revision log 9/17/2026)', url: 'https://www.amerihealthcaritasnc.com/assets/pdf/provider/provider-manual.pdf' },
+      { title: 'AmeriHealth Caritas North Carolina — Provider newsletters and updates (provider notices archive)', url: 'https://www.amerihealthcaritasnc.com/provider/newsletters-and-updates/index.aspx' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1019,6 +1023,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
       { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
       { title: 'NC Medicaid Managed Care Provider Playbook — Prompt Payment fact sheet (Standard Plans, NC Medicaid Direct, Tailored Plans)', url: 'https://medicaid.ncdhhs.gov/provider-playbook-prompt-payment-fact-sheet/download' },
+      { title: 'Carolina Complete Health — Provider announcements (bulletins and newsletters archive)', url: 'https://network.carolinacompletehealth.com/cchn-bulletins-and-newsletters.html' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1278,6 +1283,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
       { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
       { title: 'NC Medicaid Managed Care Provider Playbook — Prompt Payment fact sheet (Standard Plans, NC Medicaid Direct, Tailored Plans)', url: 'https://medicaid.ncdhhs.gov/provider-playbook-prompt-payment-fact-sheet/download' },
+      { title: 'UnitedHealthcare Community Plan of North Carolina — Bulletins and newsletters', url: 'https://www.uhcprovider.com/en/health-plans-by-state/north-carolina-health-plans/nc-comm-plan-home/nc-cp-news.html' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1527,6 +1533,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Session Law 2026-1 (H.B. 696), §3C.18(c) — new G.S. 108C-9(e): no out-of-state Medicaid enrollment for BCBAs/QASP supervisors', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-1.pdf' },
       { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
       { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
+      { title: 'Carolina Complete Health — Provider announcements (bulletins and newsletters archive)', url: 'https://network.carolinacompletehealth.com/cchn-bulletins-and-newsletters.html' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1811,6 +1818,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
       { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
       { title: 'NC Medicaid Managed Care Provider Playbook — Prompt Payment fact sheet (Standard Plans, NC Medicaid Direct, Tailored Plans)', url: 'https://medicaid.ncdhhs.gov/provider-playbook-prompt-payment-fact-sheet/download' },
+      { title: 'Alliance Health — Provider updates archive', url: 'https://www.alliancehealthplan.org/provider-updates/' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2119,6 +2127,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Trillium Health Resources — Claims Submission Guidelines (effective 10/1/2026)', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Provider-documents/Claims/Trillium-Medicaid-Direct-Tailored-Plan-Claims-Submission-Protocol.pdf' },
       { title: 'Trillium Health Resources — Special announcement: Onboarding into the Trillium Provider Claims System (8/5/2026)', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Special-Announcement-Providers/080526-Onboarding-Trillium-Provider-Claims.pdf' },
       { title: 'NC Medicaid Managed Care Provider Playbook — Prompt Payment fact sheet (Standard Plans, NC Medicaid Direct, Tailored Plans)', url: 'https://medicaid.ncdhhs.gov/provider-playbook-prompt-payment-fact-sheet/download' },
+      { title: 'Trillium Health Resources — Urgent Notifications for network providers (notice archive)', url: 'https://www.trilliumhealthresources.org/for-providers/provider-communications/urgent-notification' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2420,6 +2429,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
       { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
       { title: 'NC Medicaid Managed Care Provider Playbook — Prompt Payment fact sheet (Standard Plans, NC Medicaid Direct, Tailored Plans)', url: 'https://medicaid.ncdhhs.gov/provider-playbook-prompt-payment-fact-sheet/download' },
+      { title: 'Vaya Partners — Provider Communication Bulletin archive', url: 'https://providers.vayapartners.org/bulletins/' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2710,6 +2720,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
       { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
       { title: 'NC Medicaid Managed Care Provider Playbook — Prompt Payment fact sheet (Standard Plans, NC Medicaid Direct, Tailored Plans)', url: 'https://medicaid.ncdhhs.gov/provider-playbook-prompt-payment-fact-sheet/download' },
+      { title: 'Vaya Partners — Provider Communication Bulletin archive', url: 'https://providers.vayapartners.org/bulletins/' },
     ],
     intakeGates: {
       ageLimit: {
@@ -3856,6 +3867,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'NCBALB — Requirements for Licensure', url: 'https://ncbehavioranalystboard.org/requirements-for-licensure/' },
       { title: 'N.C.G.S. Chapter 90, Article 43 — behavior analyst licensure (G.S. 90-740, 90-741, 90-745, 90-746)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_90/Article_43.html' },
       { title: 'N.C. Gen. Stat. § 58-3-225 — prompt claim payments under health benefit plans', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_58/GS_58-3-225.html' },
+      { title: 'MedCost — Provider news (Provider E-News and e-blasts)', url: 'https://www.medcost.com/providers/education-and-training/provider-news' },
     ],
     intakeGates: {
       ageLimit: {
@@ -4152,6 +4164,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'N.C.G.S. § 58-3-167 — "health benefit plan" defined', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_58/GS_58-3-167.html' },
       { title: 'NCBALB — Requirements for Licensure', url: 'https://ncbehavioranalystboard.org/requirements-for-licensure/' },
       { title: 'N.C.G.S. Chapter 90, Article 43 — behavior analyst licensure (G.S. 90-740, 90-741, 90-745, 90-746)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_90/Article_43.html' },
+      { title: 'Blue Cross NC — Provider news', url: 'https://www.bluecrossnc.com/providers/provider-news' },
     ],
     intakeGates: {
       ageLimit: {

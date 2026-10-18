@@ -201,6 +201,7 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { title: '13 CSR 70-98.030 — Applied Behavior Analysis Services (Code of State Regulations, 6/30/26)', url: 'https://www.sos.mo.gov/cmsimages/adrules/csr/current/13csr/13c70-98.pdf' },
       { title: 'MO HealthNet Request for Applied Behavior Analysis, form 2575-045 (January 2026)', url: 'https://dss.mo.gov/sites/mydss/files/media/pdf/2026/07/Remediated_2575-045-Request-for-Applied-Behavior-Analysis-Jan-2026.pdf' },
       { title: 'MO HealthNet hot tip — Important Information for Documenting and Billing for Applied Behavior Analysis Services (9/9/2026)', url: 'https://mydss.mo.gov/mhd/hot-tips/important-information-documenting-and-billing-applied-behavior-analysis-services' },
+      { title: 'MO HealthNet — News (provider bulletins and provider newsletters index)', url: 'https://dss.mo.gov/mhd/news' },
     ],
     deliveryRules: {
       supervision: {
@@ -1491,6 +1492,7 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { title: 'Anthem — Treatment Plan Request Form for Autism Spectrum Disorders (commercial, December 2025)', url: 'https://www.anthembluecross.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/NY_BH_00001.pdf' },
       { title: 'Anthem Missouri Provider Manual (effective January 1, 2026): Paper Claims Submissions; BlueCard Program Overview; Pre-certification', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_MO_00010.pdf' },
       { title: 'Anthem — Commercial Reimbursement Policy C-08002, Virtual Visits (Missouri RIT/HALIC/HMO Missouri; last approval 03/26/2026)', url: 'https://www.anthembluecross.com/content/dam/digital/docs/provider/commercial/policy/reimb/C-08002.pdf' },
+      { title: 'Anthem Missouri — Provider News (index of articles)', url: 'https://providernews.anthem.com/missouri' },
     ],
     deliveryRules: {
       concurrentBilling: {

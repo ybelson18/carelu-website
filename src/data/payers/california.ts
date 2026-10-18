@@ -162,6 +162,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'DDS — Rate Reform: Complete Rate Models by Regional Center (rates eff. 7/1/2026)', url: 'https://www.dds.ca.gov/rc/vendor-provider/rate-reform/rate-models/' },
       { title: 'CHHS Open Data — Medi-Cal Managed Care Enrollment Report (August 2026)', url: 'https://data.chhs.ca.gov/dataset/medi-cal-managed-care-enrollment-report' },
       { title: 'BACB — U.S. Licensure of Behavior Analysts', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
+      { title: 'Medi-Cal Providers — News (index of Medi-Cal provider news/bulletin articles)', url: 'https://mcweb.apps.prd.cammis.medi-cal.ca.gov/news' },
     ],
     intakeGates: {
       ageLimit: {
@@ -399,6 +400,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'L.A. Care — Behavioral Health Services (provider page)', url: 'https://www.lacare.org/providers/tools/behavioral-health-services' },
       { title: 'DHCS APL 23-010 (Revised 11/22/2023) — BHT Coverage for Members Under 21', url: 'https://www.dhcs.ca.gov/file/apl23-010-pdf/' },
       { title: 'CHHS Open Data — Medi-Cal Managed Care Enrollment Report (August 2026)', url: 'https://data.chhs.ca.gov/dataset/medi-cal-managed-care-enrollment-report' },
+      { title: 'L.A. Care — thePULSE provider e-newsletter archive', url: 'https://lacare.org/providers/news/thepulse' },
     ],
     intakeGates: {
       ageLimit: {
@@ -627,6 +629,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'Health Net Medi-Cal — Coordination of Benefits Overview (last updated 9/25/2026)', url: 'https://providerlibrary.healthnetcalifornia.com/medi-cal/provider-manual/coordination-benefits/overview-medi-cal.html' },
       { title: 'CHHS Open Data — Medi-Cal Managed Care Enrollment Report (August 2026)', url: 'https://data.chhs.ca.gov/dataset/medi-cal-managed-care-enrollment-report' },
       { title: 'DHCS APL 23-010 (Revised 11/22/2023) — BHT Coverage for Members Under 21', url: 'https://www.dhcs.ca.gov/file/apl23-010-pdf/' },
+      { title: 'Health Net — Medi-Cal provider updates and notices (index)', url: 'https://providerlibrary.healthnetcalifornia.com/medi-cal/news.html' },
     ],
     intakeGates: {
       ageLimit: {
@@ -843,6 +846,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'IEHP 2024 Medi-Cal Provider Manual — Chapter 20, Claims Processing', url: 'https://www.providerservices.iehp.org/content/dam/provider-services/en/documents/providers/provider-manual/2024/medi-cal/approved/20%20-%20CLAIMS%20PROCESSING_01-01-24%20APPROVED.pdf' },
       { title: 'DHCS APL 23-010 (Revised 11/22/2023) — BHT Coverage for Members Under 21', url: 'https://www.dhcs.ca.gov/file/apl23-010-pdf/' },
       { title: 'CHHS Open Data — Medi-Cal Managed Care Enrollment Report (August 2026)', url: 'https://data.chhs.ca.gov/dataset/medi-cal-managed-care-enrollment-report' },
+      { title: 'IEHP — Provider notices (index of provider notices by date)', url: 'https://www.providerservices.iehp.org/en/news-and-updates/notices' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1067,6 +1071,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'CalOptima Health — BHT Access to Care Form', url: 'https://cop-p-001.sitecorecontenthub.cloud/api/public/content/a74842e3a92441d3abd31ef61437a596?v=b92ded3f' },
       { title: 'DHCS APL 23-010 (Revised 11/22/2023) — BHT Coverage for Members Under 21', url: 'https://www.dhcs.ca.gov/file/apl23-010-pdf/' },
       { title: 'CHHS Open Data — Medi-Cal Managed Care Enrollment Report (August 2026)', url: 'https://data.chhs.ca.gov/dataset/medi-cal-managed-care-enrollment-report' },
+      { title: 'CalOptima Health — Provider Updates and Provider Press newsletters (archive)', url: 'https://www.caloptima.org/for-providers/news-and-announcements/provider-updates-and-newsletters' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1292,6 +1297,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'Anthem CA_PCXX_009 — EPSDT Requirements for Members Under 21 (rev. 12/19/2023)', url: 'https://mss.anthem.com/california-medicaid/ca_pcxx_009.pdf' },
       { title: 'DHCS APL 23-010 (Revised 11/22/2023) — BHT Coverage for Members Under 21', url: 'https://www.dhcs.ca.gov/file/apl23-010-pdf/' },
       { title: 'CHHS Open Data — Medi-Cal Managed Care Enrollment Report (August 2026)', url: 'https://data.chhs.ca.gov/dataset/medi-cal-managed-care-enrollment-report' },
+      { title: 'Anthem Blue Cross California — Provider News (Medi-Cal + commercial)', url: 'https://providernews.anthem.com/california' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1529,6 +1535,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'Molina Clinical Policy No. 482 — Applied Behavioral Analysis for ASD (approved 6/10/2026)', url: 'https://www.molinaclinicalpolicy.com/molinaclinicalpolicy/-/media/Molina/PublicWebsite/PDF/Common/Molina-Clinical-Policy/Applied-Behavioral-Analysis-for-Autism-Spectrum-Disorder_R.ashx' },
       { title: 'DHCS APL 23-010 (Revised 11/22/2023) — BHT Coverage for Members Under 21', url: 'https://www.dhcs.ca.gov/file/apl23-010-pdf/' },
       { title: 'CHHS Open Data — Medi-Cal Managed Care Enrollment Report (August 2026)', url: 'https://data.chhs.ca.gov/dataset/medi-cal-managed-care-enrollment-report' },
+      { title: 'Molina Healthcare of California — Provider communications (provider bulletins + quarterly newsletters)', url: 'https://www.molinahealthcare.com/providers/ca/communications' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1992,6 +1999,8 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'Partnership MPBP8003 — Mental Health Services (reviewed 6/10/2026; Carelon delegation)', url: 'https://public.powerdms.com/PHC/documents/3443929' },
       { title: 'CHHS Open Data — Medi-Cal Managed Care Enrollment Report (August 2026)', url: 'https://data.chhs.ca.gov/dataset/medi-cal-managed-care-enrollment-report' },
       { title: 'DHCS APL 23-010 (Revised 11/22/2023) — BHT Coverage for Members Under 21', url: 'https://www.dhcs.ca.gov/file/apl23-010-pdf/' },
+      { title: 'Partnership HealthPlan of California — Provider Newsletter archive', url: 'https://www.partnershiphp.org/providers/medi-cal/provider-newsletter' },
+      { title: 'Partnership HealthPlan of California — Provider Bulletins (2026/2025)', url: 'https://www.partnershiphp.org/providers/medi-cal/provider-bulletins' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2523,6 +2532,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'Insurance Code § 10144.51 (as amended by SB 402, eff. 1/1/2026)', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=INS&sectionNum=10144.51' },
       { title: 'Health & Safety Code § 1367.01 — utilization review timelines', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=HSC&sectionNum=1367.01' },
       { title: 'BACB — U.S. Licensure of Behavior Analysts', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
+      { title: 'Blue Shield of California — Provider news and announcements', url: 'https://www.blueshieldca.com/en/provider/news-education/news' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2780,6 +2790,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'Insurance Code § 10123.135 — utilization review timelines (CDI)', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=INS&sectionNum=10123.135' },
       { title: 'DMHC — licensed health plan list', url: 'https://wpso.dmhc.ca.gov/hpsearch/viewall.aspx' },
       { title: 'BACB — U.S. Licensure of Behavior Analysts', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
+      { title: 'Anthem Blue Cross California — Provider News (commercial + Medi-Cal)', url: 'https://providernews.anthem.com/california' },
     ],
     intakeGates: {
       ageLimit: {
@@ -3056,6 +3067,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'Health & Safety Code § 1374.73 (as amended by SB 402, eff. 1/1/2026)', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=HSC&sectionNum=1374.73' },
       { title: 'Insurance Code § 10144.51 (as amended by SB 402, eff. 1/1/2026)', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=INS&sectionNum=10144.51' },
       { title: 'BACB — U.S. Licensure of Behavior Analysts', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
+      { title: 'Health Net — Commercial (HMO/PPO) provider updates and notices (index)', url: 'https://providerlibrary.healthnetcalifornia.com/hmo/news.html' },
     ],
     intakeGates: {
       ageLimit: {

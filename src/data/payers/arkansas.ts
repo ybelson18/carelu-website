@@ -198,7 +198,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
       { title: 'Age and program', desc: 'Ages 18 months to 21 only. Ask whether the child is in the Autism Waiver (no ABA therapy) or ARKids First-B (limited EPSDT).' },
       { title: 'Other insurance', desc: 'Bill the commercial plan first; Medicaid pays only up to its maximum after the primary pays.' },
     ],
-    sources: [S.abaII, S.abaFee, S.abaPage, S.secI, S.secIII, S.passeII, S.passeList, S.acentra, S.acentraPPT, S.act432, S.bacbLic, S.cfr440, S.cfr433],
+    sources: [S.abaII, S.abaFee, S.abaPage, S.secI, S.secIII, S.passeII, S.passeList, S.acentra, S.acentraPPT, S.act432, S.bacbLic, S.cfr440, S.cfr433, { title: 'Arkansas DHS Medical Services — Official Notices (index of Medicaid official notices)', url: 'https://humanservices.arkansas.gov/divisions-shared-services/medical-services/official-notices/' }],
     deliveryRules: {
       supervision: {
         value: AR_MEDICAID_SUPERVISION,
@@ -346,7 +346,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
       { title: 'School schedule', desc: 'Full-time school usually means under 20 hours a week of ABA in the plan’s criteria.' },
       { title: 'Other insurance', desc: 'Bill the primary first; Arkansas Total Care must receive the secondary claim within 365 days of the primary EOP.' },
     ],
-    sources: [S.atcPolicy, S.atcDoc, S.atcPM, S.atcPolicies, S.passeII, S.passeList, S.abaII, S.acentra, S.secI, S.atcPreauth],
+    sources: [S.atcPolicy, S.atcDoc, S.atcPM, S.atcPolicies, S.passeII, S.passeList, S.abaII, S.acentra, S.secI, S.atcPreauth, { title: 'Arkansas Total Care — Provider news (provider notices archive)', url: 'https://www.arkansastotalcare.com/providers/providernews.html' }],
     deliveryRules: {
       supervision: {
         value: 'Arkansas Total Care’s criteria require 97155 (protocol modification) for “at least two hours per week or 5% of the direct service hours provided, whichever is greater” (one to two hours a week is acceptable below 10 hours of treatment), and treatment “delivered or supervised by an ABA-credentialed professional.” The state floor in the ABA manual also applies to PASSE members: a Medicaid-enrolled BCBA observes at least 5% of each technician’s hours and one hour every 30 days, and supervises no more than 12 BCaBAs and RBTs.',
@@ -494,7 +494,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
       { title: 'Other insurance', desc: 'Medicaid pays last; CareSource needs the primary payer’s determination and pays no more than the Medicaid rate.' },
       { title: 'Autism Waiver status', desc: 'Members in the Autism Waiver are excluded from ABA therapy.' },
     ],
-    sources: [S.csMM, S.csPY, S.csPM, S.csAdd, S.passeII, S.passeList, S.abaII, S.acentra, S.secI],
+    sources: [S.csMM, S.csPY, S.csPM, S.csAdd, S.passeII, S.passeList, S.abaII, S.acentra, S.secI, { title: 'CareSource PASSE — Provider updates & announcements (dated provider notices)', url: 'https://www.caresource.com/ar/providers/tools-resources/updates-announcements/caresource-passe/' }],
     deliveryRules: {
       supervision: {
         value: 'CareSource says supervision requirements “are published by the State of Arkansas and the BACB” and adds that “RBT supervisors must hold BCBA or BCaBA certification.” The state floor: a Medicaid-enrolled BCBA observes at least 5% of each technician’s treatment hours and one hour every 30 days, stays on call, approves notes before billing, and supervises no more than 12 BCaBAs and RBTs.',
@@ -636,7 +636,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
       { title: 'Empower member ID', desc: 'Confirm PASSE attribution on the date of service; retrospective review is available for newly attributed members.' },
       { title: 'Other insurance', desc: 'Empower is the payer of last resort; bill the primary first.' },
     ],
-    sources: [S.empPA, S.empPAList, S.empHB, S.passeII, S.passeList, S.abaII, S.abaFee, S.acentra, S.secI],
+    sources: [S.empPA, S.empPAList, S.empHB, S.passeII, S.passeList, S.abaII, S.abaFee, S.acentra, S.secI, { title: 'Empower Healthcare Solutions — Provider newsletter archive', url: 'https://getempowerhealth.com/provider-newsletter/' }],
     deliveryRules: {
       supervision: {
         value: 'Empower publishes no ABA supervision rule of its own, so the state rule applies. ' + AR_MEDICAID_SUPERVISION,
@@ -783,7 +783,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
       { title: 'Summit member ID', desc: 'Confirm PASSE attribution on the date of service.' },
       { title: 'Other insurance', desc: 'Bill the primary first; the Summit secondary claim is due within 180 days of the primary payment.' },
     ],
-    sources: [S.sccPA, S.sccPM, S.passeII, S.passeList, S.abaII, S.abaFee, S.acentra, S.acentraPPT, S.secI],
+    sources: [S.sccPA, S.sccPM, S.passeII, S.passeList, S.abaII, S.abaFee, S.acentra, S.acentraPPT, S.secI, { title: 'Summit Community Care — Provider News (Arkansas; monthly provider newsletters + articles)', url: 'https://providernews.summitcommunitycare.com/' }],
     deliveryRules: {
       supervision: {
         value: 'Summit publishes no ABA supervision rule of its own, so the state rule applies. ' + AR_MEDICAID_SUPERVISION,
@@ -955,7 +955,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
       { title: 'Adaptive behavior assessment', desc: 'Within six months of the treatment start date.' },
       { title: 'Prescription', desc: 'Signed ABA prescription from a licensed physician or licensed psychologist.' },
     ],
-    sources: [S.abcbs, S.act196, S.act575, S.act1106, S.act432, S.bacbLic, S.abaFee, S.erisa, S.secI, S.cfr433, S.tricare, S.champva],
+    sources: [S.abcbs, S.act196, S.act575, S.act1106, S.act432, S.bacbLic, S.abaFee, S.erisa, S.secI, S.cfr433, S.tricare, S.champva, { title: 'Arkansas Blue Cross and Blue Shield — Providers\' News (provider newsletter archive)', url: 'https://www.arkansasbluecross.com/providers/resource-center/providers-news' }],
     deliveryRules: {
       supervision: {
         value: 'ABA must be “provided or supervised by a therapist certified by the nationally accredited Behavior Analyst Certification Board.” Absent a state law, line therapy is delivered by an RBT, BCaBA, or master’s- or doctoral-level BCBA, consistent with the Lucet provider manual and the BACB ethics code. No numeric supervision ratio is published in the policy.',

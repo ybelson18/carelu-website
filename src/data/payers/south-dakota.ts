@@ -177,7 +177,7 @@ export const southDakotaPayers: Record<string, PayerConfig> = {
       { title: 'Other insurance', desc: 'Commercial coverage is billed first; record it, plus any EOBs, for the Medicaid claim.' },
       { title: 'Age', desc: 'EPSDT covers children 20 years old or younger.' },
     ],
-    sources: [S.abaManual, S.paManual, S.feeABA, S.feePage, S.teleManual, S.claimManual, S.docManual, S.evvManual, S.oosManual, S.referralManual, S.pcpManual, S.reconManual, S.sdcl3638, S.sdcl3452, S.bacbLic, S.cfr440, S.cfr433],
+    sources: [S.abaManual, S.paManual, S.feeABA, S.feePage, S.teleManual, S.claimManual, S.docManual, S.evvManual, S.oosManual, S.referralManual, S.pcpManual, S.reconManual, S.sdcl3638, S.sdcl3452, S.bacbLic, S.cfr440, S.cfr433, { title: 'South Dakota Medicaid — Provider Communications (index of provider bulletins, newsletters and notices by year)', url: 'https://dss.sd.gov/medicaid/providers/communication.aspx' }],
     deliveryRules: {
       supervision: {
         value: 'Technician services may be provided by a BCaBA or an RBT certified by the BACB "when supervised by a licensed and enrolled behavior analyst." 97155 may be used to bill "case supervision." No numeric supervision ratio is published. For telemedicine, the BCBA must see the child in person within the first 30 days and every 90 days after that. State law also requires each supervised BCaBA or technician to pass a fingerprint background check paid for by the supervising analyst (SDCL 36-38-25).',

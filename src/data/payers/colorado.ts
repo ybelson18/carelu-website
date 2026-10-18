@@ -182,6 +182,8 @@ export const coloradoPayers: Record<string, PayerConfig> = {
       { title: 'HCPF Provider News & Resources 6/29/2026, Issue 147 — Rate Reductions (HB 26-1410)', url: 'https://hcpf.colorado.gov/sites/hcpf/files/Provider%20News%20%26%20Resources%20-%2006-29-2026%20Issue%20147%20_1.pdf' },
       { title: 'HCPF — Telemedicine Provider Information (allowed procedure codes, POS rules)', url: 'https://hcpf.colorado.gov/telemedicine-provider-information' },
       { title: 'Colorado General Assembly — HB26-1425 (signed act): Colorado Behavior Analyst Licensing Board; licensure required from July 1, 2028', url: 'https://leg.colorado.gov/bills/HB26-1425' },
+      { title: 'HCPF — Provider News & Resources (issue archive + monthly provider bulletins)', url: 'https://hcpf.colorado.gov/provider-news' },
+      { title: 'HCPF — Provider Bulletins (index of Health First Colorado monthly bulletins)', url: 'https://hcpf.colorado.gov/bulletins' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1398,6 +1400,7 @@ export const coloradoPayers: Record<string, PayerConfig> = {
       { title: 'Colorado DORA — Behavior Analyst program page', url: 'https://dpo.colorado.gov/BehaviorAnalyst' },
       { title: 'Anthem Colorado — MCG Care Guidelines 27th edition update (Feb 1, 2024)', url: 'https://files.providernews.elevancehealth.com/3731/COBCBS-CM-047275-23-MCG-Care-Gdlns-27th-Ed-6.1.24-Updte-BH_FINALv2.pdf' },
       { title: 'C.R.S. § 10-16-106.5 — Prompt payment of claims (CRS 2024 official printout, Title 10)', url: 'https://leg.colorado.gov/sites/default/files/images/olls/crs2024-title-10.pdf' },
+      { title: 'Anthem Blue Cross and Blue Shield Colorado — Provider News', url: 'https://providernews.anthem.com/colorado' },
     ],
     deliveryRules: {
       supervision: {

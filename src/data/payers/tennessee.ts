@@ -138,6 +138,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { title: 'BACB RBT Handbook', url: 'https://assets.bacb.com/wp-content/uploads/2022/01/RBTHandbook_230622-a.pdf' },
       { title: 'TennCare Kids (EPSDT) \u2014 birth through age 20', url: 'https://www.tn.gov/tenncare/tenncare-kids.html' },
       { title: 'TN ABA Program Description (shared tri-MCO, UHC copy 6/2024)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/tn/behavioral-health/TN-ABA-Program-Description.pdf' },
+      { title: 'TennCare — Newsroom (index of TennCare announcements)', url: 'https://www.tn.gov/tenncare/news.html' },
     ],
     intakeGates: {
       ageLimit: {
@@ -390,6 +391,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { title: 'BCBST \u2014 ABA Therapy Services Assessment Request Form', url: 'https://content.bcbst.com/api/public/content/aba_therapy_assessment_request_form.pdf' },
       { title: 'TN ABA Program Description (shared tri-MCO, UHC copy 6/2024)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/tn/behavioral-health/TN-ABA-Program-Description.pdf' },
       { title: 'Tenn. Comp. R. & Regs. 1180-05 — Applied Behavior Analyst Licensing Committee rules (May 2025 revision)', url: 'https://publications.tnsosfiles.com/rules/1180/1180-05.20250507.pdf' },
+      { title: 'BlueCross BlueShield of Tennessee — Provider News & Updates (links the current BlueAlert monthly newsletter)', url: 'https://provider.bcbst.com/news-updates' },
     ],
     intakeGates: {
       ageLimit: {
@@ -610,6 +612,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { title: 'TennCare Kids (EPSDT) \u2014 birth through age 20', url: 'https://www.tn.gov/tenncare/tenncare-kids.html' },
       { title: 'ABA Provider Requirements & Program Description — TennCare MCOs (rev. 06/13/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' },
       { title: 'Tenn. Comp. R. & Regs. 1180-05 — Applied Behavior Analyst Licensing Committee rules (May 2025 revision)', url: 'https://publications.tnsosfiles.com/rules/1180/1180-05.20250507.pdf' },
+      { title: 'UnitedHealthcare Community Plan of Tennessee — Current news, bulletins and alerts (index)', url: 'https://www.uhcprovider.com/en/health-plans-by-state/tennessee-health-plans/tn-comm-plan-home/tn-cp-news.html' },
     ],
     intakeGates: {
       ageLimit: {
@@ -828,6 +831,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { title: 'TennCare Kids (EPSDT) \u2014 birth through age 20', url: 'https://www.tn.gov/tenncare/tenncare-kids.html' },
       { title: 'TN ABA Program Description (shared tri-MCO, UHC copy 6/2024)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/tn/behavioral-health/TN-ABA-Program-Description.pdf' },
       { title: 'Tenn. Comp. R. & Regs. 1180-05 — Applied Behavior Analyst Licensing Committee rules (May 2025 revision)', url: 'https://publications.tnsosfiles.com/rules/1180/1180-05.20250507.pdf' },
+      { title: 'Wellpoint — Provider News, Tennessee (index of provider news articles)', url: 'https://providernews.wellpoint.com/tn' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1079,6 +1083,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { title: 'TennCare MCO Statewide Contract (template, current through Amendment 25, eff. 7/1/2026)', url: 'https://www.tn.gov/content/dam/tn/tenncare/documents/MCOStatewideContract.pdf' },
       { title: 'TennCare Kids (EPSDT) \u2014 birth through age 20', url: 'https://www.tn.gov/tenncare/tenncare-kids.html' },
       { title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' },
+      { title: 'BlueCross BlueShield of Tennessee — Provider News & Updates (links the current BlueAlert monthly newsletter)', url: 'https://provider.bcbst.com/news-updates' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2213,6 +2218,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { title: 'Tenn. Comp. R. & Regs. 0780-01-53 — Coordination of Benefits (group contracts)', url: 'https://publications.tnsosfiles.com/rules/0780/0780-01/0780-01-53.pdf' },
       { title: 'Rules of the TN Applied Behavior Analyst Licensing Committee, Ch. 1180-05 (rev. May 2025)', url: 'https://publications.tnsosfiles.com/rules/1180/1180-05.20250507.pdf' },
       { title: 'Tenn. Code Ann. § 56-7-109 — prompt payment of health insurance claims (FindLaw)', url: 'https://codes.findlaw.com/tn/title-56-insurance/tn-code-sect-56-7-109/' },
+      { title: 'BlueCross BlueShield of Tennessee — Provider News & Updates (links the current BlueAlert monthly newsletter)', url: 'https://provider.bcbst.com/news-updates' },
     ],
     faq: [
       { q: 'How long does BCBST allow for a corrected ABA claim?', a: 'Until the end of the second year after the year the claim was first submitted (BCBST\'s example: a claim filed February 15, 2020 could be corrected through December 31, 2022). Returned or rejected claims are filed again as new claims, not corrected bills.' },

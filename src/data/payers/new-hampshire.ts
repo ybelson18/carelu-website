@@ -347,7 +347,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { title: 'Other insurance', desc: 'The plan is payer of last resort; bill the primary first and attach its EOB within 60 days.' },
       { title: 'Current authorizations', desc: 'New members get 60 days of continuity for ongoing treatment; capture any prior plan’s authorization.' },
     ],
-    sources: [S.acnhPM, S.acnhPA, S.mcm, S.heW500, S.cfr438, S.cfr433, S.bacbLic, S.rsa167, S.acnhLookup, S.evvList],
+    sources: [S.acnhPM, S.acnhPA, S.mcm, S.heW500, S.cfr438, S.cfr433, S.bacbLic, S.rsa167, S.acnhLookup, S.evvList, { title: 'AmeriHealth Caritas New Hampshire — Provider newsletters and updates (provider notices archive)', url: 'https://www.amerihealthcaritasnh.com/provider/newsletters-and-updates/index.aspx' }],
     deliveryRules: {
       supervision: {
         value: 'The plan publishes no ABA supervision rule of its own. The state rule applies: He-W 589.04(ah) requires a BCBA with a BACB supervisory certification when supervising, and lets a BCaBA, RBT or rehabilitation assistant deliver ABA under that BCBA’s "appropriate supervision," with no numeric ratio.',
@@ -524,7 +524,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { title: 'Treatment plan for the OTR', desc: 'Direct treatment, supervision and parent-training hours, which map to 97153, 97155 and 97156.' },
       { title: 'Other insurance', desc: 'The plan is payer of last resort; tell it if the family won’t help identify other coverage.' },
     ],
-    sources: [S.nhhfPP07, S.nhhfTip, S.nhhfPM, S.nhhfPreAuth, S.mcm, S.heW500, S.cfr438, S.cfr433, S.rsa167, S.nhhfIQ, S.nhhf105, S.nhhfLookup, S.evvList],
+    sources: [S.nhhfPP07, S.nhhfTip, S.nhhfPM, S.nhhfPreAuth, S.mcm, S.heW500, S.cfr438, S.cfr433, S.rsa167, S.nhhfIQ, S.nhhf105, S.nhhfLookup, S.evvList, { title: 'NH Healthy Families — Provider newsroom (provider notices archive)', url: 'https://www.nhhealthyfamilies.com/newsroom.html' }],
     deliveryRules: {
       supervision: {
         value: 'NH.PP.07 treats 97155 as "Supervision of a Technician" but sets no ratio, and the plan publishes no other supervision rule. The state rule applies: a BCBA with BACB supervisory certification supervises BCaBAs, RBTs and rehabilitation assistants, with no numeric ratio (He-W 589.04(ah)).',
@@ -692,7 +692,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { title: 'Care-coordination contacts', desc: 'PCP, behavioral health provider and school contacts with dates of communication.' },
       { title: 'Other insurance', desc: 'WellSense pays after the primary; you have 120 days from the primary’s determination to bill it.' },
     ],
-    sources: [S.wsForm, S.wsMatrix, S.wsPM, S.wsPA, S.wsBH, S.mcm, S.heW500, S.cfr438, S.cfr433, S.rsa167, S.evvList],
+    sources: [S.wsForm, S.wsMatrix, S.wsPM, S.wsPA, S.wsBH, S.mcm, S.heW500, S.cfr438, S.cfr433, S.rsa167, S.evvList, { title: 'WellSense Health Plan (NH) — Provider news (NH provider communications archive)', url: 'https://www.wellsense.org/providers/nh/provider-news' }],
     deliveryRules: {
       supervision: {
         value: 'WellSense publishes no New Hampshire ABA supervision ratio; the form only requires naming the BCBA "who will perform/supervise services." The state rule applies: a BCBA with BACB supervisory certification supervises BCaBAs, RBTs and rehabilitation assistants, with no numeric ratio (He-W 589.04(ah)).',
@@ -885,7 +885,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { title: 'Signed treatment plan', desc: 'RSA 417-E:2 lets the insurer require one signed by the PCP or a listed specialist, with frequency and duration.' },
       { title: 'Other coverage', desc: 'Second parent’s plan (birthday rule), Medicaid, TRICARE or CHAMPVA.' },
     ],
-    sources: [S.anthemNHPA, S.anthemRG, S.rsa417E, S.hb569, S.rsa420J, S.ins1904, S.bacbLic, S.erisa, S.fee, S.rsa415J, { title: 'Anthem Blue Cross and Blue Shield — 2026 New Hampshire Commercial Provider Manual (effective July 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_NH_00018.pdf' }],
+    sources: [S.anthemNHPA, S.anthemRG, S.rsa417E, S.hb569, S.rsa420J, S.ins1904, S.bacbLic, S.erisa, S.fee, S.rsa415J, { title: 'Anthem Blue Cross and Blue Shield — 2026 New Hampshire Commercial Provider Manual (effective July 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_NH_00018.pdf' }, { title: 'Anthem Blue Cross and Blue Shield New Hampshire — Provider News (all NH provider news articles)', url: 'https://providernews.anthem.com/new-hampshire' }],
     deliveryRules: {
       supervision: {
         value: 'Anthem publishes no numeric supervision ratio. It recognizes "providers practicing under the direction and supervision of the BCBA," and allows 97153 alongside 97155 only when the QHP and technician are both face-to-face with the patient and the QHP is directing the technician. The NH mandate itself requires ABA to be provided by, or "under the supervision of," a BACB certificant.',
@@ -1078,7 +1078,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { title: 'School services', desc: 'Services covered by the school’s special education resources under an IEP are not paid.' },
       { title: 'Other coverage', desc: 'Second parent’s plan (birthday rule), Medicaid, TRICARE or CHAMPVA.' },
     ],
-    sources: [S.hpMNG, S.hpPP, S.hpRef, S.hpMaxUnits, S.hpCoding, S.cmsMUE, S.rsa417E, S.hb569, S.rsa420J, S.ins1904, S.bacbLic, S.erisa, S.fee, S.p32Tele, S.rsa415J, S.hpNotice0226, S.hpNotice0926, S.hpSubmit, S.hpClean, S.hpReplace, S.hpCOB, S.hpFLA, S.hp1500],
+    sources: [S.hpMNG, S.hpPP, S.hpRef, S.hpMaxUnits, S.hpCoding, S.cmsMUE, S.rsa417E, S.hb569, S.rsa420J, S.ins1904, S.bacbLic, S.erisa, S.fee, S.p32Tele, S.rsa415J, S.hpNotice0226, S.hpNotice0926, S.hpSubmit, S.hpClean, S.hpReplace, S.hpCOB, S.hpFLA, S.hp1500, { title: 'Point32Health (Harvard Pilgrim) — Insights and Updates for Providers newsletter archive', url: 'https://www.point32health.org/provider/office-resources/provider-newsletter' }],
     deliveryRules: {
       supervision: {
         value: 'Point32Health requires InterQual’s "Applied Behavior Analysis (ABA) Program-Applied Behavior Analysis Supervision" subset for supervision requests, but the criteria inside it are licensed and not published.',

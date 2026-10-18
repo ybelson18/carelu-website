@@ -194,7 +194,7 @@ export const mississippiPayers: Record<string, PayerConfig> = {
       { title: 'Ordering provider', desc: 'Telligen’s PA form asks for an ordering provider name and NPI as well as the treating provider.' },
       { title: 'Other insurance', desc: 'Medicaid pays last; capture every other coverage and the primary’s EOBs.' },
     ],
-    sources: [S.spa1620, S.spa2302, S.asdFee, S.feePage, S.paList, S.telPA, S.vendors, S.p200, S.p223, S.p225, S.p300, S.p306, S.adminCode, S.mcPage, S.sep, S.ccoMag, S.bacbLic, S.lic13, S.lic5, S.mabRules, S.magPM, S.cfr440, S.cfr433],
+    sources: [S.spa1620, S.spa2302, S.asdFee, S.feePage, S.paList, S.telPA, S.vendors, S.p200, S.p223, S.p225, S.p300, S.p306, S.adminCode, S.mcPage, S.sep, S.ccoMag, S.bacbLic, S.lic13, S.lic5, S.mabRules, S.magPM, S.cfr440, S.cfr433, { title: 'Mississippi DOM — Late Breaking News (provider notices archive)', url: 'https://medicaid.ms.gov/late-breaking-news/' }],
     deliveryRules: {
       supervision: {
         value: 'The State Plan lets a Mississippi-licensed BCaBA deliver ASD services under the supervision of a Mississippi-licensed BCBA, and an RBT "under the direct supervision and direction of a BCBA or BCaBA"; licensed practitioners "assume professional responsibility" for unlicensed staff. No numeric supervision ratio is published. The Autism Board requires supervisors to follow the BACB supervision policy.',
@@ -361,7 +361,7 @@ export const mississippiPayers: Record<string, PayerConfig> = {
       { title: 'School schedule', desc: 'CP.BH.104 expects fewer than 20 hours a week for a child in school full time.' },
       { title: 'Other insurance', desc: 'Bill the primary first; Magnolia’s secondary deadline is 365 days from the primary EOP.' },
     ],
-    sources: [S.magPAReq, S.magPAList, S.magASD, S.magBH, S.mag104, S.mag105, S.magPM, S.ccoMag, S.ccoMagA4, S.spa1620, S.asdFee, S.p225, S.p306, S.bacbLic, S.lic13, S.lic5, S.mabRules, S.cfr433],
+    sources: [S.magPAReq, S.magPAList, S.magASD, S.magBH, S.mag104, S.mag105, S.magPM, S.ccoMag, S.ccoMagA4, S.spa1620, S.asdFee, S.p225, S.p306, S.bacbLic, S.lic13, S.lic5, S.mabRules, S.cfr433, { title: 'Magnolia Health — Provider newsroom (provider news notices)', url: 'https://www.magnoliahealthplan.com/newsroom.html' }],
     deliveryRules: {
       supervision: {
         value: 'CP.BH.104 requires treatment to be "delivered or supervised by an ABA-credentialed professional," and protocol modification (97155) "for at least two hours per week or 10% of the direct service hours provided (whichever is greater), and no more than 20%." CP.BH.105 adds at least monthly one-on-one protocol work by the ABA supervisor, not by telehealth unless state guidelines allow. The State Plan requires RBTs to work "under the direct supervision and direction of a BCBA or BCaBA."',
@@ -515,7 +515,7 @@ export const mississippiPayers: Record<string, PayerConfig> = {
       { title: 'Adaptive baseline', desc: 'Vineland or ABAS results.' },
       { title: 'Other insurance', desc: 'Molina pays EPSDT claims and then seeks third-party reimbursement; still record every other coverage.' },
     ],
-    sources: [S.molPA, S.molPAPage, S.molPM, S.mcp482, S.ccoMol, S.spa1620, S.asdFee, S.p225, S.p306, S.bacbLic, S.lic13, S.lic5, S.mabRules, S.cfr433],
+    sources: [S.molPA, S.molPAPage, S.molPM, S.mcp482, S.ccoMol, S.spa1620, S.asdFee, S.p225, S.p306, S.bacbLic, S.lic13, S.lic5, S.mabRules, S.cfr433, { title: 'Molina Healthcare of Mississippi — Provider announcements and Molina Matters newsletters', url: 'https://www.molinahealthcare.com/providers/ms/communications' }],
     deliveryRules: {
       supervision: {
         value: 'MCP-482: the BCBA or BCBA-D who develops the plan "provides direct and consistent supervision to Board-Certified Assistant Behavior Analyst (BCaBA) or Registered Behavior Technicians (RBTs)," with no numeric ratio. The State Plan requires RBTs to work "under the direct supervision and direction of a BCBA or BCaBA."',
@@ -671,7 +671,7 @@ export const mississippiPayers: Record<string, PayerConfig> = {
       { title: 'IEP / 504 plan and school hours', desc: 'MM-1477 says IEP/504 information must be provided to TrueCare.' },
       { title: 'Treatment documentation before billing', desc: 'PY-1639: claims are not accepted without the treatment record.' },
     ],
-    sources: [S.tc1477, S.tc1639, S.tcPM, S.tcPAList, S.tcLookup, S.tcPAPage, S.ccoTC, S.spa1620, S.asdFee, S.p225, S.p306, S.bacbLic, S.lic13, S.lic5, S.mabRules, S.cfr433],
+    sources: [S.tc1477, S.tc1639, S.tcPM, S.tcPAList, S.tcLookup, S.tcPAPage, S.ccoTC, S.spa1620, S.asdFee, S.p225, S.p306, S.bacbLic, S.lic13, S.lic5, S.mabRules, S.cfr433, { title: 'TrueCare — Updates & Announcements (MississippiCAN)', url: 'https://www.mstruecare.com/ms/providers/tools-resources/updates-announcements/mscan/' }],
     deliveryRules: {
       supervision: {
         value: 'ABA must be provided by a Mississippi LBA, or an LABA "under the supervision of an LBA"; RBTs must be listed with the Board under a supervising LBA (MM-1477). PY-1639 points to Mississippi and BACB supervision standards, requires supervision records kept at least 5 years, and lets an RBT work only under an enrolled independent practitioner affiliated with the same organization. No numeric ratio is published.',

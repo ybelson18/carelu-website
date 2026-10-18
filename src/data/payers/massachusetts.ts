@@ -275,6 +275,8 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'MassHealth Managed Care Entity Bulletin 115 — Telehealth for members enrolled in managed care entities (April 2024)', url: 'https://www.mass.gov/doc/managed-care-entity-bulletin-115-access-to-health-services-through-telehealth-options-for-members-enrolled-in-managed-care-entities-0/download' },
       { title: '130 CMR 450.309 — Claims: billing deadlines (MassHealth)', url: 'https://www.law.cornell.edu/regulations/massachusetts/130-CMR-450-309' },
       { title: '42 CFR 447.45(d) — Medicaid timely claims processing (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' },
+      { title: 'MassHealth — Provider bulletins (index of MassHealth provider bulletins by year)', url: 'https://www.mass.gov/masshealth-provider-bulletins' },
+      { title: 'MassHealth — 2026 provider bulletins (list of all 2026 MassHealth provider bulletins)', url: 'https://www.mass.gov/lists/2026-masshealth-provider-bulletins' },
     ],
     faq: [
       { q: 'Does MassHealth cover ABA therapy?', a: 'Yes — for members under 21 (under 19 on Family Assistance) through EPSDT, with no annual or lifetime dollar or unit caps. Prior authorization is required for all ABA services, submitted to the behavioral-health administrator behind the member\'s plan.' },
@@ -672,6 +674,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'MassHealth All Provider Bulletin 379 — Access to Health Services through Telehealth Options (October 2023)', url: 'https://www.mass.gov/doc/all-provider-bulletin-379-access-to-health-services-through-telehealth-options-0/download' },
       { title: 'MassHealth Managed Care Entity Bulletin 115 — Telehealth for members enrolled in managed care entities (April 2024)', url: 'https://www.mass.gov/doc/managed-care-entity-bulletin-115-access-to-health-services-through-telehealth-options-for-members-enrolled-in-managed-care-entities-0/download' },
       { title: 'WellSense — Behavioral Health (BH) Insourcing Reference Guide (March 2026)', url: 'https://www.wellsense.org/hubfs/Provider/Behavioral_Health/Behavioral_Health_Insourcing_Reference_Guide.pdf' },
+      { title: 'WellSense Health Plan (MA) — Provider news (provider communications archive)', url: 'https://www.wellsense.org/providers/ma/provider-news' },
     ],
     faq: [
       { q: 'Does WellSense cover ABA therapy?', a: 'Yes — across the WellSense Essential MCO and its eight MassHealth ACPPs, on the state-baseline benefit: EPSDT under 21, no caps, PA on all services via the Massachusetts Standard ABA PA Form. Behavioral health, including ABA, has been administered in-house by WellSense since January 1, 2026 (previously Carelon).' },
@@ -908,6 +911,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'Point32Health — Public Plans Provider Manual: Claim Requirements, Coordination of Benefits and Dispute Guidelines (2026)', url: 'https://www.point32health.org/documents/thpp05claimspm' },
       { title: 'MassHealth All Provider Bulletin 409 — Update to Certain Exceptions to Referral Requirements (October 2025)', url: 'https://www.mass.gov/doc/all-provider-bulletin-409-update-to-certain-exceptions-to-referral-requirements-for-services-through-the-primary-care-clinician-plan-and-primary-care-accountable-care-organizations-0/download' },
       { title: '130 CMR 450.118(J) — PCC Plan referral requirement and exceptions (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/massachusetts/130-CMR-450-118' },
+      { title: 'Point32Health — Insights and Updates for Providers (Harvard Pilgrim / Tufts provider news archive)', url: 'https://www.point32health.org/provider/office-resources/provider-newsletter' },
     ],
     faq: [
       { q: 'Is the Tufts Health Together MCO still active?', a: 'No — MassHealth discontinued the Tufts Health Together MCO product effective January 1, 2026 (All Provider Bulletin 410). Only the two ACPPs, with Cambridge Health Alliance and with UMass Memorial Health, remain active.' },
@@ -1106,6 +1110,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'Carelon Behavioral Health — Massachusetts Addendum to the National Provider Handbook (114_0526 revised)', url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/ma/massachusetts-provider-addendum.pdf' },
       { title: 'Carelon Behavioral Health — National Provider Handbook (2026)', url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/global/carelon-behavioral-health-provider-handbook.pdf' },
       { title: 'Carelon Behavioral Health — Massachusetts Medical Necessity Criteria (04/29/26), Applied Behavior Analysis (Medicaid)', url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/global/massachusetts-medical-necessity-criteria.pdf' },
+      { title: 'Fallon Health — Provider announcements (provider notices archive)', url: 'https://fallonhealth.org/en/providers/announcements' },
     ],
     faq: [
       { q: 'Does Fallon Health cover ABA?', a: 'Yes — its MassHealth ACPPs carry the state-baseline EPSDT benefit, with behavioral health (including ABA authorization) administered by Carelon on the Massachusetts Standard ABA PA Form in 6-month periods.' },
@@ -1295,6 +1300,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'MassHealth All Provider Bulletin 379 — Access to Health Services through Telehealth Options (October 2023)', url: 'https://www.mass.gov/doc/all-provider-bulletin-379-access-to-health-services-through-telehealth-options-0/download' },
       { title: 'MassHealth Managed Care Entity Bulletin 115 — Telehealth for members enrolled in managed care entities (April 2024)', url: 'https://www.mass.gov/doc/managed-care-entity-bulletin-115-access-to-health-services-through-telehealth-options-for-members-enrolled-in-managed-care-entities-0/download' },
       { title: 'Health New England — Be Healthy Partnership Addendum to the Provider Manual (Medicaid)', url: 'https://healthnewengland.org/Portals/_default/Shared%20Documents/providers/HNE_Be_Healthy_ProviderManual-Medicaid_addendum.pdf' },
+      { title: 'Health New England — HNE Talk provider news (provider updates archive)', url: 'http://hnetalk.com/provider/' },
     ],
     faq: [
       { q: 'Does HNE\'s BeHealthy Partnership cover ABA?', a: 'Yes — the state-baseline MassHealth EPSDT benefit, with behavioral health administered by MBHP (Carelon): standard PA form, 6-month authorizations, no published caps.' },
@@ -1488,6 +1494,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'Mass General Brigham Health Plan — Claims information (provider page)', url: 'https://massgeneralbrighamhealthplan.org/providers/claims' },
       { title: 'Mass General Brigham Health Plan — Timely Filing Best Practices (Commercial and MGB ACO, Oct. 2024)', url: 'https://5977230.fs1.hubspotusercontent-na1.net/hubfs/5977230/Timely%20Filing%20Best%20Practices.pdf' },
       { title: 'Mass General Brigham ACO Provider Manual (2026)', url: 'https://resources.massgeneralbrighamhealthplan.org/providers/MGB%20ACO%20Provider%20Manual.pdf' },
+      { title: 'Mass General Brigham Health Plan — Admin Newsletter Archive (provider newsletter archive)', url: 'https://news.massgeneralbrighamhealthplan.org/admin-newsletter' },
     ],
     faq: [
       { q: 'Does Mass General Brigham Health Plan cover ABA?', a: 'Yes — the MassHealth EPSDT benefit, administered through Optum Behavioral Health under Optum\'s ABA criteria plus its Massachusetts state-mandate supplement. PA is required for assessment and treatment.' },
@@ -2555,6 +2562,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'M.G.L. c. 176O, § 12 — Utilization review', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter176O/Section12' },
       { title: 'M.G.L. c. 176G, § 6 — HMO provider contracts (45-day payment)', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter176G/Section6' },
       { title: 'M.G.L. c. 112, § 165 — Licensing of applied behavior analysts and assistant applied behavior analysts', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXVI/Chapter112/Section165' },
+      { title: 'Blue Cross Blue Shield of Massachusetts — Provider Central News (current + archived provider news)', url: 'https://provider.bluecrossma.com/ProviderHome/portal/news' },
     ],
     faq: [
       { q: 'Does Blue Cross Blue Shield of Massachusetts cover ABA therapy?', a: 'Yes. Medical Policy 091 covers medically necessary ABA for autism spectrum disorder and/or Down syndrome on HMO, POS, PPO and Indemnity plans, with prior authorization. Fully insured plans are also bound by ARICA, which bars visit limits and age caps. Self-funded employer plans follow their own plan document.' },

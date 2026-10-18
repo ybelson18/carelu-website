@@ -238,7 +238,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       { title: 'Other insurance', desc: 'If private coverage has an ABA benefit that is not exhausted, HCA PA is not required; bill the private plan first.' },
       { title: 'Forms', desc: 'HCA 13-400 assessment and plan (or equivalent) and HCA 12-411 Level of Support; HCA 13-835 cover sheet for faxed FFS requests.' },
     ],
-    sources: [{ title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, { title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: 'HCA — Prior authorization, claims, and billing (ProviderOne claims submission deadlines)', url: 'https://www.hca.wa.gov/billers-providers-partners/prior-authorization-claims-and-billing' }, S.wac531a, S.abaBG, S.abaFee, S.coeList, S.hcaMC, S.hcaTA, S.teleBG, S.wac0165, S.wac0200, S.wac0150, S.wac526, S.rcw18380, S.wac246805, S.bacbLic, S.cfr440, S.cfr433, { title: 'HCA — ProviderOne Billing and Resource Guide (September 2025 edition, posted February 2026): Providers required to enroll; DDE claim questions', url: 'https://www.hca.wa.gov/assets/billers-and-providers/providerone-billing-and-resource-guide.pdf' }],
+    sources: [{ title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, { title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: 'HCA — Prior authorization, claims, and billing (ProviderOne claims submission deadlines)', url: 'https://www.hca.wa.gov/billers-providers-partners/prior-authorization-claims-and-billing' }, S.wac531a, S.abaBG, S.abaFee, S.coeList, S.hcaMC, S.hcaTA, S.teleBG, S.wac0165, S.wac0200, S.wac0150, S.wac526, S.rcw18380, S.wac246805, S.bacbLic, S.cfr440, S.cfr433, { title: 'HCA — ProviderOne Billing and Resource Guide (September 2025 edition, posted February 2026): Providers required to enroll; DDE claim questions', url: 'https://www.hca.wa.gov/assets/billers-and-providers/providerone-billing-and-resource-guide.pdf' }, { title: 'HCA — Provider Alerts 2026 (index of Apple Health provider alerts)', url: 'https://www.hca.wa.gov/billers-providers-partners/provider-alerts-2026' }],
     deliveryRules: {
       supervision: {
         value: AH_SUPERVISION,
@@ -393,7 +393,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       { title: 'Assessment package', desc: 'Functional assessment, skill assessment or FBA, and the treatment plan for the six-month period.' },
       { title: 'Other insurance', desc: 'CHPW is secondary to commercial coverage; it follows the primary payer’s processing decisions.' },
     ],
-    sources: [S.chpwPA, S.chpwForm, S.chpwBHPA, S.hcaTA, S.hcaMC, S.wac531a, S.abaBG, S.cfr438, S.cfr433],
+    sources: [S.chpwPA, S.chpwForm, S.chpwBHPA, S.hcaTA, S.hcaMC, S.wac531a, S.abaBG, S.cfr438, S.cfr433, { title: 'CHPW — Bulletin Board (provider alerts and newsletter archive)', url: 'https://www.chpw.org/bulletin-board/' }],
     deliveryRules: {
       supervision: {
         value: 'CHPW publishes no ABA supervision ratio in the documents read; its provider manual could not be opened. The state rule: ' + AH_SUPERVISION,
@@ -562,7 +562,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       { title: 'HCA 13-400 and 12-411', desc: 'LBAT assessment and behavior change plan, and the Level of Support form.' },
       { title: 'Other services', desc: 'School, speech, OT and other providers, so the plan can show coordination and no duplication.' },
     ],
-    sources: [{ title: 'Coordinated Care of Washington — Apple Health Provider Manual (July 2026): §§ 19 (prompt pay), 19.4 (corrected claims), 19.10 (timely filing), 11.13 (secondary payer)', url: 'https://www.coordinatedcarehealth.com/content/dam/centene/Coordinated%20Care/provider/PDFs/508-CoordinatedCareProviderManual.pdf' }, { title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, S.ccBH104, S.hcaTA, S.hcaMC, S.wac531a, S.abaBG, S.teleBG, S.cfr438, S.cfr433],
+    sources: [{ title: 'Coordinated Care of Washington — Apple Health Provider Manual (July 2026): §§ 19 (prompt pay), 19.4 (corrected claims), 19.10 (timely filing), 11.13 (secondary payer)', url: 'https://www.coordinatedcarehealth.com/content/dam/centene/Coordinated%20Care/provider/PDFs/508-CoordinatedCareProviderManual.pdf' }, { title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, S.ccBH104, S.hcaTA, S.hcaMC, S.wac531a, S.abaBG, S.teleBG, S.cfr438, S.cfr433, { title: 'Coordinated Care of Washington — Provider News (provider notices archive)', url: 'https://www.coordinatedcarehealth.com/providers/provider-news.html' }],
     deliveryRules: {
       supervision: {
         value: 'WA.CP.BH.104: "Supervision by a Lead Behavioral Analysis Therapist of care provided by a Certified Behavioral Therapist (CBT) should occur at a minimum of five percent of the total direct care per week (e.g., one hour of supervision per twenty hours of care)," and treatment must be "delivered or supervised by an ABA-credentialed professional."',
@@ -716,7 +716,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       { title: 'Group affiliation', desc: 'Molina authorizes at the group level: confirm the rendering clinicians are on the group’s Molina roster.' },
       { title: 'Other insurance', desc: 'Medicaid pays last; bill the commercial plan first.' },
     ],
-    sources: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, S.hcaTA, S.hcaMC, S.wac531a, S.abaBG, S.abaFee, S.teleBG, S.cfr438, S.cfr433],
+    sources: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, S.hcaTA, S.hcaMC, S.wac531a, S.abaBG, S.abaFee, S.teleBG, S.cfr438, S.cfr433, { title: 'Molina Healthcare of Washington — Provider communications (Medicaid notices/bulletins and quarterly newsletters by year)', url: 'https://www.molinahealthcare.com/providers/wa/communications' }],
     deliveryRules: {
       supervision: {
         value: 'Molina’s own ABA policy could not be read. The state rule: ' + AH_SUPERVISION,
@@ -881,7 +881,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       { title: 'LBAT assessment and plan', desc: 'On HCA’s template, signed by the LBAT; the request must go in within 60 days of it.' },
       { title: 'Other insurance', desc: 'UHC pays ABA claims and pursues the other payer (Pay & Chase), but tell it about every coverage.' },
     ],
-    sources: [S.optumWA, S.uhcPM, S.uhcBH, S.hcaTA, S.hcaMC, S.wac531a, S.abaBG, S.teleBG, S.wac526, S.cfr438, S.cfr433],
+    sources: [S.optumWA, S.uhcPM, S.uhcBH, S.hcaTA, S.hcaMC, S.wac531a, S.abaBG, S.teleBG, S.wac526, S.cfr438, S.cfr433, { title: 'UnitedHealthcare Community Plan of Washington — Bulletins and Newsletters', url: 'https://www.uhcprovider.com/en/health-plans-by-state/washington-health-plans/wa-comm-plan-home/wa-cp-news.html' }],
     deliveryRules: {
       supervision: {
         value: 'Optum’s Washington criteria: a CBT must "Be supervised directly by an LBAT for at least five percent of total direct care per week" and review the client’s progress with the supervisor at least every two weeks; when a LABA is the LBAT, the LABA and the supervising LBA or licensed psychologist share the duties.',
@@ -1028,7 +1028,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       { title: 'Treatment plan and Level of Support form', desc: 'Updated plan with dosage, frequency and duration, plus HCA’s ABA Level of Support form.' },
       { title: 'Other insurance', desc: 'Wellpoint resolves primacy with the other plan within 30 days; if the primary has not adjudicated within 60 days, Wellpoint pays as primary.' },
     ],
-    sources: [S.wlpPM, S.hcaTA, S.hcaMC, S.wac531a, S.abaBG, S.teleBG, S.wac526, S.cfr438, S.cfr433],
+    sources: [S.wlpPM, S.hcaTA, S.hcaMC, S.wac531a, S.abaBG, S.teleBG, S.wac526, S.cfr438, S.cfr433, { title: 'Wellpoint Washington — Provider News (all provider news articles, filterable by Medicaid)', url: 'https://providernews.wellpoint.com/wa' }],
     deliveryRules: {
       supervision: {
         value: 'Wellpoint’s manual publishes no ABA supervision rule of its own, so the state rule applies: ' + AH_SUPERVISION,
@@ -1836,7 +1836,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       { title: 'Treatment plan', desc: 'Updated every six months; kept on file.' },
       { title: 'Other providers', desc: 'Speech, OT and school services, so sessions are not scheduled at the same time as ABA.' },
     ],
-    sources: [S.premPolicy, S.premABA, S.premCodeInd, S.premCodeGrp, S.premPAPage, S.rcw44341, S.rcw46291, S.rcw21241, S.wac5642, S.hb1432, S.rcw43766, S.rcw18380, S.wac246805, S.rcw18134, S.bacbLic, S.wac431, S.rcw43830, S.rcw43735, S.rcw43535, S.wac51205, S.erisa, S.abaFee, { title: 'Premera — BlueCard Resources (prefix list, out-of-area medical policy and pre-service review)', url: 'https://www.premera.com/wa/provider/bluecard-resources/' }, { title: 'Premera — Medical Reference Manual: BlueCard and Shared Administration chapter', url: 'https://www.premera.com/wa/provider/reference/medical-manuals/bluecard/' }],
+    sources: [S.premPolicy, S.premABA, S.premCodeInd, S.premCodeGrp, S.premPAPage, S.rcw44341, S.rcw46291, S.rcw21241, S.wac5642, S.hb1432, S.rcw43766, S.rcw18380, S.wac246805, S.rcw18134, S.bacbLic, S.wac431, S.rcw43830, S.rcw43735, S.rcw43535, S.wac51205, S.erisa, S.abaFee, { title: 'Premera — BlueCard Resources (prefix list, out-of-area medical policy and pre-service review)', url: 'https://www.premera.com/wa/provider/bluecard-resources/' }, { title: 'Premera — Medical Reference Manual: BlueCard and Shared Administration chapter', url: 'https://www.premera.com/wa/provider/reference/medical-manuals/bluecard/' }, { title: 'Premera — Provider News (WA provider news site)', url: 'https://providernews.premera.com/' }],
     deliveryRules: {
       supervision: {
         value: 'Premera’s ABA resources page: technicians "should receive weekly clinical supervision from the program manager/lead behavioral therapist as follows for each patient: Generally, 2 hours for every 10 hours of direct service provision, with a minimum of 2 hours weekly when direct service provision is 10 hours per week or less." Policy 3.01.510 adds that some supervisory time should be direct observation, and supervision may be in person or by real-time video. DOH’s CBT supervision rule (WAC 246-805-330) also applies in Washington.',

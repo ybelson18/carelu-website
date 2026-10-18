@@ -185,7 +185,7 @@ export const wyomingPayers: Record<string, PayerConfig> = {
       { title: 'Other insurance', desc: 'Commercial coverage is billed first; Medicaid pays only the remaining patient responsibility.' },
       { title: 'Wraparound status', desc: 'If the family is in Magellan’s high-fidelity wraparound, get the care coordinator’s contact for the plan of care.' },
     ],
-    sources: [S.cms1500, S.telligenPM, S.telligenABA, S.fee, S.feePage, S.spa, S.spaNotice, S.w1915b, S.cmeDeck, S.title33, S.hb110, S.psy14, S.psy4, S.psy3, S.bacbLic, S.cfr447, S.cfr440, S.cfr440130, S.cfr433],
+    sources: [S.cms1500, S.telligenPM, S.telligenABA, S.fee, S.feePage, S.spa, S.spaNotice, S.w1915b, S.cmeDeck, S.title33, S.hb110, S.psy14, S.psy4, S.psy3, S.bacbLic, S.cfr447, S.cfr440, S.cfr440130, S.cfr433, { title: 'Wyoming Medicaid — Provider Manuals and Bulletins (quarterly bulletins index, by year)', url: 'https://wyomingmedicaid.com/portal/Provider-Manuals-and-Bulletins' }],
     deliveryRules: {
       supervision: {
         value: 'Supervision "by a QHP/BCBA is required (approximately 1-2 hours per 10 hours of direct care by the technician)" (manual 12.7.3, raised from 1 hour per 10 on 10/01/2026). It is bundled into the technician codes; face-to-face direction with protocol modification is billed as 97155. BCaBAs and RBTs are covered when supervised by a BCBA-D or BCBA (state plan). Wyoming Board rules separately require BCaBA supervision of at least 2% of monthly service hours.',
@@ -371,7 +371,7 @@ export const wyomingPayers: Record<string, PayerConfig> = {
       { title: 'Availity pre-check result', desc: 'Run each ABA code through the Authorization Pre-Check and save the result.' },
       { title: 'Other coverage', desc: 'Both parents’ plans and any Medicaid; BCBSWY uses the birthday rule for children.' },
     ],
-    sources: [S.bcbsABA, S.bcbsPM, S.bcbsPA, S.bcbsPolicy, S.bcbsCred, S.doiBull, S.doiMemos, S.title26, S.hb14, S.title33, S.hb110, S.psy14, S.psy4, S.psy3, S.bacbLic, S.cms1500, S.fee, S.erisa, S.cfr433, S.tricare, S.champva, S.cobRule],
+    sources: [S.bcbsABA, S.bcbsPM, S.bcbsPA, S.bcbsPolicy, S.bcbsCred, S.doiBull, S.doiMemos, S.title26, S.hb14, S.title33, S.hb110, S.psy14, S.psy4, S.psy3, S.bacbLic, S.cms1500, S.fee, S.erisa, S.cfr433, S.tricare, S.champva, S.cobRule, { title: 'BCBS Wyoming — Provider Updates (provider notices archive)', url: 'https://www.bcbswy.com/providers/updates/' }],
     deliveryRules: {
       supervision: {
         value: 'BCBSWY’s ABA policy 15.01.002 sets no supervision ratio, hours or technician cap. It requires documentation "that all individuals providing ABA services are licensed or certified," with copies of certifications for anyone who is not a licensed psychologist or psychiatrist, and RBTs "are benefited if certified by BACB." Wyoming law sets the floor: technicians practice "under the supervision of a licensed behavior analyst or licensed assistant behavior analyst" (W.S. 33-27-125(a)(viii)), and BCaBA supervision must be at least 2% of monthly service hours (Board Rules § 14-5).',

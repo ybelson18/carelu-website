@@ -217,7 +217,7 @@ export const westVirginiaPayers: Record<string, PayerConfig> = {
       { title: 'IEP or homeschool letter', desc: 'The reviewer may ask for it to rule out duplication; educational services are not authorized.' },
       { title: 'Other insurance', desc: 'Commercial coverage is billed first, in network, with its PA; Medicaid pays last.' },
     ],
-    sources: [S.aba519, S.ch519, S.tele519, S.teleA, S.abaFee, S.feePage, S.ch100, S.ch300, S.ch527, S.mht, S.mhp, S.bmsPA, S.c9532, S.chipAut, S.bacbLic, S.c30, S.cfr440, S.cfr433],
+    sources: [S.aba519, S.ch519, S.tele519, S.teleA, S.abaFee, S.feePage, S.ch100, S.ch300, S.ch527, S.mht, S.mhp, S.bmsPA, S.c9532, S.chipAut, S.bacbLic, S.c30, S.cfr440, S.cfr433, { title: 'WV BMS — News (Medicaid and provider announcements)', url: 'https://bms.wv.gov/news' }, { title: 'WV BMS — Provider News Archive (provider memos)', url: 'https://bms.wv.gov/provider-news-archive' }],
     deliveryRules: {
       supervision: { value: WV_MCD_SUPERVISION, status: 'verified', cites: [S.aba519] },
       concurrentBilling: {
@@ -493,7 +493,7 @@ export const westVirginiaPayers: Record<string, PayerConfig> = {
       { title: 'THP’s written PA answer', desc: 'Its PA list names no ABA code; keep THP’s confirmation in the chart.' },
       { title: 'Other insurance', desc: 'COB claims are due within 180 days of service or 90 days from the primary EOB.' },
     ],
-    sources: [S.thpMHT, S.thpPAL, S.thpClinical, S.thpClaims, S.aba519, S.tele519, S.teleA, S.abaFee, S.ch527, S.mht, S.c9532, S.cfr438, S.cfr433, S.bacbLic],
+    sources: [S.thpMHT, S.thpPAL, S.thpClinical, S.thpClaims, S.aba519, S.tele519, S.teleA, S.abaFee, S.ch527, S.mht, S.c9532, S.cfr438, S.cfr433, S.bacbLic, { title: 'The Health Plan — Provider Communications (Core Communications email archive)', url: 'https://www.healthplan.org/providers/training-education/provider-email-communications' }],
     deliveryRules: {
       supervision: { value: 'THP publishes no ABA supervision rule of its own, so the state rule applies. ' + WV_MCD_SUPERVISION, status: 'verified', cites: [S.thpMHT, S.aba519] },
       concurrentBilling: {
@@ -620,7 +620,7 @@ export const westVirginiaPayers: Record<string, PayerConfig> = {
       { title: 'Sessions and frequency requested', desc: 'The HHO form asks for ABA by sessions and frequency.' },
       { title: 'Other insurance', desc: 'Bill the primary first; HHO needs the EOB within 12 months of service.' },
     ],
-    sources: [S.hhoPM, S.hhoForm, S.hhoLookup, S.aba519, S.tele519, S.teleA, S.abaFee, S.ch527, S.mht, S.c9532, S.cfr438, S.cfr433, S.bacbLic],
+    sources: [S.hhoPM, S.hhoForm, S.hhoLookup, S.aba519, S.tele519, S.teleA, S.abaFee, S.ch527, S.mht, S.c9532, S.cfr438, S.cfr433, S.bacbLic, { title: 'Highmark Health Options WV — Provider Manual and Newsletters (quarterly provider newsletter archive)', url: 'https://providers.highmark.com/hho-wv/resources/provider-manual' }],
     deliveryRules: {
       supervision: { value: 'HHO publishes no ABA supervision rule of its own, so the state rule applies. ' + WV_MCD_SUPERVISION, status: 'verified', cites: [S.hhoPM, S.aba519] },
       concurrentBilling: {
@@ -751,7 +751,7 @@ export const westVirginiaPayers: Record<string, PayerConfig> = {
       { title: 'Annual physician’s order', desc: 'Required with ABA PA requests under the state policy.' },
       { title: 'Other insurance', desc: 'Wellpoint defers UM to the primary insurer; bring the primary’s decision or notice of noncoverage.' },
     ],
-    sources: [S.wpPM, S.wpABA, S.wpCUMG, S.wpPAReq, S.aba519, S.tele519, S.teleA, S.abaFee, S.ch527, S.mht, S.bmsPA, S.c9532, S.cfr438, S.cfr433, S.bacbLic],
+    sources: [S.wpPM, S.wpABA, S.wpCUMG, S.wpPAReq, S.aba519, S.tele519, S.teleA, S.abaFee, S.ch527, S.mht, S.bmsPA, S.c9532, S.cfr438, S.cfr433, S.bacbLic, { title: 'Wellpoint West Virginia — Provider News (all provider news articles, filterable by Medicaid)', url: 'https://providernews.wellpoint.com/wv' }],
     deliveryRules: {
       supervision: { value: 'Wellpoint publishes no ABA supervision rule of its own, so the state rule applies. ' + WV_MCD_SUPERVISION, status: 'verified', cites: [S.wpPM, S.aba519] },
       concurrentBilling: {
@@ -1430,7 +1430,7 @@ export const westVirginiaPayers: Record<string, PayerConfig> = {
       { title: 'Physician or psychologist order + BCBA treatment plan', desc: 'Required by the West Virginia mandate on insured group plans.' },
       { title: 'Other coverage', desc: 'Second parent’s plan, Medicaid, TRICARE or CHAMPVA.' },
     ],
-    sources: [S.hmPAL, S.hmNews, S.hmPM, S.c3316v, S.c3324k, S.c3325Aj, S.c5167, S.c3324s, S.c3345, S.c3357, S.bacbLic, S.c30, S.erisa, S.abaFee, S.ch100, S.tricare, S.champva],
+    sources: [S.hmPAL, S.hmNews, S.hmPM, S.c3316v, S.c3324k, S.c3325Aj, S.c5167, S.c3324s, S.c3345, S.c3357, S.bacbLic, S.c30, S.erisa, S.abaFee, S.ch100, S.tricare, S.champva, { title: 'Highmark — Provider News monthly newsletter (Communications Hub, all regions incl. WV)', url: 'https://providers.highmark.com/communications-hub/provider-news.html' }],
     deliveryRules: {
       supervision: {
         value: 'Highmark’s West Virginia ABA medical policy, where supervision rules would sit, was not retrievable this run. The West Virginia mandate requires ABA "provided or supervised by a certified behavior analyst."',

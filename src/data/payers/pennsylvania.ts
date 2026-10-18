@@ -179,6 +179,8 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: 'PA State Board of Medicine — Behavior Specialist Licensure Requirements Snapshot', url: 'https://www.pa.gov/agencies/dos/department-and-offices/bpoa/boards-commissions/medicine/behavior-specialist-licensure-snapshot' },
       { title: 'PA DHS — MA Program Outpatient Fee Schedule, online search (provider type 11, specialty 592; queried October 18, 2026)', url: 'https://www.humanservices.dhs.pa.gov/OUTPATIENTFEESCHEDULE/' },
       { title: 'PA DHS — Electronic Visit Verification (EVV) and EVV FAQ', url: 'https://www.pa.gov/agencies/dhs/resources/for-providers/evv/faq-evv' },
+      { title: 'PA DHS — MA Electronic Bulletins listserv archive (index of New Bulletin Notifications)', url: 'http://listserv.dhs.pa.gov/Scripts/WA.exe?A0=MA-ELECTRONIC-BULLETINS' },
+      { title: 'PA DHS — Medicaid/Medical Assistance Provider Quick Tips (index of PROMISe Quick Tips)', url: 'https://www.pa.gov/agencies/dhs/resources/for-providers/providers-quick-tips' },
     ],
     intakeGates: {
       ageLimit: {
@@ -451,6 +453,8 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: 'OMHSAS-22-02 — Revised Guidelines for Delivery of BH Services Through Telehealth (eff. 7/1/2022)', url: 'https://www.pa.gov/content/dam/copapwp-pagov/en/dhs/documents/docs/documents/omhsas/Bulletin%20OMHSAS-22-02%20-%20Revised%20Guidelines%20for%20Delivery%20of%20BH%20Services%20Through%20Telehealth%207.1.22.pdf' },
       { title: 'PA DHS — Behavioral Health Managed Care Organizations (BH-MCOs) by county', url: 'https://www.pa.gov/agencies/dhs/resources/medicaid/bhc/bhc-mcos' },
       { title: 'PA DHS — Electronic Visit Verification (EVV) and EVV FAQ', url: 'https://www.pa.gov/agencies/dhs/resources/for-providers/evv/faq-evv' },
+      { title: 'Community Care — Provider Alerts (index of HealthChoices provider alerts by year)', url: 'https://providers.ccbh.com/provider-resources/provider-alerts' },
+      { title: 'Community Care — Provider Newsletter archive', url: 'https://providers.ccbh.com/provider-resources/provider-newsletter' },
     ],
     faq: [
       { q: 'How often does Community Care pay claims?', a: 'Weekly. Community Care generates weekly reimbursement with an 835 remittance; no submission cut-off day is published.' },
@@ -763,6 +767,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: '55 Pa. Code Chapter 1155 — Intensive Behavioral Health Services (payment)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter1155/chap1155toc.html' },
       { title: '55 Pa. Code Chapter 5240 — Intensive Behavioral Health Services (licensing)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter5240/chap5240toc.html' },
       { title: 'PA DHS — Electronic Visit Verification (EVV) and EVV FAQ', url: 'https://www.pa.gov/agencies/dhs/resources/for-providers/evv/faq-evv' },
+      { title: 'CBH — Provider Bulletins and Notices (index of all CBH provider bulletins)', url: 'https://cbhphilly.org/cbh-providers/provider-bulletins/' },
     ],
     faq: [
       { q: 'Does CBH require a referring provider and taxonomy on ABA claims?', a: 'Yes. CBH’s claim table marks box 17/17b (referring provider name and NPI) and box 33b (billing taxonomy code) as required.' },
@@ -1083,6 +1088,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: '55 Pa. Code Chapter 5240 — Intensive Behavioral Health Services (licensing)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter5240/chap5240toc.html' },
       { title: 'PA DHS — Behavioral Health Managed Care Organizations (BH-MCOs) by county', url: 'https://www.pa.gov/agencies/dhs/resources/medicaid/bhc/bhc-mcos' },
       { title: 'PA DHS — Electronic Visit Verification (EVV) and EVV FAQ', url: 'https://www.pa.gov/agencies/dhs/resources/for-providers/evv/faq-evv' },
+      { title: 'Magellan of PA — Providers page (Provider Announcements and Compliance Alerts archive)', url: 'https://www.magellanofpa.com/for-providers/' },
     ],
     faq: [
       { q: 'What is Magellan of Pennsylvania’s timely filing limit?', a: 'Sixty days from the date of service for most services, 60 days from the other carrier’s EOB for secondary claims, and 60 days from Magellan’s EOB for resubmissions.' },
@@ -1383,6 +1389,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: '55 Pa. Code Chapter 5240 — Intensive Behavioral Health Services (licensing)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter5240/chap5240toc.html' },
       { title: 'PA DHS — Behavioral Health Managed Care Organizations (BH-MCOs) by county', url: 'https://www.pa.gov/agencies/dhs/resources/medicaid/bhc/bhc-mcos' },
       { title: 'PA DHS — Electronic Visit Verification (EVV) and EVV FAQ', url: 'https://www.pa.gov/agencies/dhs/resources/for-providers/evv/faq-evv' },
+      { title: 'PerformCare — Provider Notices (index of AD/IBHS provider notices by year)', url: 'https://pa.performcare.org/providers/resources-information/notices' },
     ],
     faq: [
       { q: 'How fast does PerformCare pay ABA claims?', a: 'PerformCare pays all clean claims within 45 days and says its turnaround averages about 18 days, with most paid within 30.' },
@@ -1683,6 +1690,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: 'DHS HealthChoices BH Program Standards and Requirements, Appendix AA — Prior Authorization Requirements (Jan. 1, 2026)', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/79/Appendix-AA-Prior-Authorization-Requirements.pdf' },
       { title: 'PA DHS — Behavioral Health Managed Care Organizations (BH-MCOs) by county', url: 'https://www.pa.gov/agencies/dhs/resources/medicaid/bhc/bhc-mcos' },
       { title: 'PA DHS — Electronic Visit Verification (EVV) and EVV FAQ', url: 'https://www.pa.gov/agencies/dhs/resources/for-providers/evv/faq-evv' },
+      { title: 'Carelon Health of PA — Provider Alerts (index of provider alerts by year)', url: 'https://providers.pa.carelon.com/providers/provider-alerts/' },
     ],
     faq: [
       { q: 'Which ABA codes does Carelon Health of Pennsylvania pay?', a: 'CPT 97151–97156 and 97158 under IBHS ABA (specialty 592), with U7/U8 and group-size modifiers. 97157, 0362T and 0373T are not on its covered-services grid, and H0031 is an assessment code, not an ABA code.' },
@@ -2029,6 +2037,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: '49 Pa. Code Ch. 18 Subch. N (§§ 18.521–18.527) — Behavior Specialists', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/049/chapter18/chap18toc.html' },
       { title: 'Highmark Provider Manual — Chapter 2, Unit 6: The BlueCard Program', url: 'https://providers.highmark.com/resources-and-education/highmark-provider-manual/chapter-2-product-information/unit-6-the-bluecard-program' },
       { title: 'Highmark Provider Manual — Chapter 6, Unit 1: General Claim Submission Guidelines', url: 'https://providers.highmark.com/resources-and-education/highmark-provider-manual/chapter-6-billing-and-payment/unit-1-general-claim-submission-guidelines' },
+      { title: 'Highmark — Communications Hub: News and Updates (provider news index)', url: 'https://providers.highmark.com/communications-hub/news-and-updates' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2334,6 +2343,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: 'Act 146 of 2022 — Insurance Company Law Art. XXI amendments incl. § 2155 prior authorization review (Justia)', url: 'https://law.justia.com/codes/pennsylvania/2022/act-146/' },
       { title: 'BACB — U.S. Licensure of Behavior Analysts (PA absent; checked September 2026)', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
       { title: '49 Pa. Code Ch. 18 Subch. N (§§ 18.521–18.527) — Behavior Specialists', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/049/chapter18/chap18toc.html' },
+      { title: 'Capital Blue Cross — Provider News and announcements (index of monthly AB bulletins)', url: 'https://www.capbluecross.com/wps/portal/cap/provider/news-updates/news-announcements' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2647,6 +2657,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: 'Independence Blue Cross — Provider Manual, Section 16: BlueCard (October 2021)', url: 'https://provcomm.ibx.com/pnc-ibc/Manuals/Provider/IBX_Provider_16_BlueCard.pdf' },
       { title: 'IBX Provider Manual — Chapter 9: Billing (November 2025)', url: 'https://provcomm.ibx.com/pnc-ibc/Manuals/Provider/IBX_Provider_09_Billing.pdf' },
       { title: 'IBX Provider Manual — Chapter 15: Appeals (July 2025)', url: 'https://provcomm.ibx.com/pnc-ibc/Manuals/Provider/IBX_Provider_15_Appeals.pdf' },
+      { title: 'IBX — Provider News Center (provider news index)', url: 'https://provcomm.ibx.com/pnc-ibc/Pages/Home.aspx' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2935,6 +2946,8 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: 'Act 146 of 2022 — Insurance Company Law Art. XXI amendments incl. § 2155 prior authorization review (Justia)', url: 'https://law.justia.com/codes/pennsylvania/2022/act-146/' },
       { title: 'PA State Board of Medicine — Behavior Specialist Licensure Requirements Snapshot', url: 'https://www.pa.gov/agencies/dos/department-and-offices/bpoa/boards-commissions/medicine/behavior-specialist-licensure-snapshot' },
       { title: 'UPMC Health Plan Provider Manual — Chapter H, Claims Procedures (updated 10-28-24)', url: 'https://www.upmchealthplan.com/docs/providers/2025_ProviderManual_H.pdf' },
+      { title: 'UPMC Health Plan — Provider Partner Update archive (monthly newsletter)', url: 'https://www.upmchealthplan.com/providers/medical/announcements-updates/physician-updates' },
+      { title: 'UPMC Health Plan — Provider Announcements (index by year)', url: 'https://www.upmchealthplan.com/providers/medical/announcements-updates/announcements' },
     ],
     intakeGates: {
       ageLimit: {
@@ -3205,6 +3218,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: 'Act 62 of 2008 (HB 1150, PN 4115) — Insurance Company Law § 635.2 enacted text', url: 'https://www.palegis.us/legislation/bills/text/HTM/2007/0/HB1150/PN4115' },
       { title: 'PA Insurance Department Notice 2026-06 — Autism coverage CPI-U adjustment and parity reminder (56 Pa.B. 1396)', url: 'https://www.pacodeandbulletin.gov/secure/pabulletin/data/vol56/56-10/352.html' },
       { title: 'Act 146 of 2022 — Insurance Company Law Art. XXI amendments incl. § 2155 prior authorization review (Justia)', url: 'https://law.justia.com/codes/pennsylvania/2022/act-146/' },
+      { title: 'Geisinger Health Plan — Search GHP Updates (provider news index)', url: 'https://www.geisinger.org/health-plan/providers/updates/search-updates' },
     ],
     intakeGates: {
       ageLimit: {

@@ -308,6 +308,8 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'DMAHS Newsletter Vol 36 No 09 — EVV compliance requirements for MCO providers billing PCA and Home Health Services (Sept 2026; eff. 1/1/2027)', url: 'https://www.njmmis.com/documentDownload.aspx?document=36-09.pdf' },
       { title: 'DMAHS Newsletter Vol 36 No 04 — New Licensure Requirements for ABA Providers (April 2026; claims with service dates on/after 7/1/2025)', url: 'https://www.njmmis.com/documentDownload.aspx?document=36-04.pdf' },
       { title: 'DMAHS Medicaid Alert MA-2026-03 — New Claims Edits for Provider Licensure (claims submitted on/after 6/1/2026)', url: 'https://www.njmmis.com/documentDownload.aspx?document=MA-2026-03.pdf' },
+      { title: 'NJ DMAHS — Recent provider newsletters and Medicaid Alerts (NJMMIS index)', url: 'https://www.njmmis.com/documentDownload.aspx?fileType=RecentNewsLetters' },
+      { title: 'NJMMIS — Announcements (NJ Medicaid provider announcements)', url: 'https://www.njmmis.com/announcements.aspx' },
     ],
     faq: [
       { q: 'Does NJ Medicaid deny ABA claims if the BCBA is not licensed in New Jersey?', a: 'Yes, now. Since July 1, 2025 BCBAs enrolling in NJ FamilyCare must hold a New Jersey LBA license (BCaBAs an LaBA), and from June 1, 2026 claims pend and then deny when the rendering, billing or supervising provider’s license is not on file with NJMMIS. Send a current license to Gainwell Provider Enrollment.' },
@@ -553,6 +555,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'Horizon NJ Health — Telemedicine and Telehealth reimbursement policy (revised 9/24/2026)', url: 'https://www.horizonnjhealth.com/for-providers/resources/policies/reimbursement-policies-guidelines/telemedicine-and-telehealth' },
       { title: 'Horizon NJ Health — Applied Behavior Analysis in the Treatment of ASD reimbursement policy (revised 3/26/2026)', url: 'https://www.horizonnjhealth.com/for-providers/resources/policies/reimbursement-policies-guidelines/applied-behavior-analysis' },
       { title: 'DMAHS Medicaid Alert MA-2023-02 — Facility Code (place of service) values for telehealth (April 2023)', url: 'https://www.njmmis.com/documentDownload.aspx?document=MA-2023-02.pdf' },
+      { title: 'Horizon NJ Health — Provider updates and announcements (provider notices archive)', url: 'https://www.horizonnjhealth.com/for-providers/news/updates-and-announcements' },
     ],
     faq: [
       { q: 'Does Horizon NJ Health cover ABA therapy?', a: 'Yes — it administers the NJ FamilyCare ABA benefit under EPSDT, with its own medical policy and MCG-based review layered on the state code set. Both assessment and treatment require prior authorization via NaviNet.' },
@@ -811,6 +814,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'DMAHS Medicaid Alert MA-2023-02 — Facility Code (place of service) values for telehealth (April 2023)', url: 'https://www.njmmis.com/documentDownload.aspx?document=MA-2023-02.pdf' },
       { title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 7.16.5 timely payments; App. B.4.4 ABA service description', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' },
       { title: 'DMAHS Newsletter Vol 36 No 09 — EVV compliance requirements for MCO providers billing PCA and Home Health Services (Sept 2026; eff. 1/1/2027)', url: 'https://www.njmmis.com/documentDownload.aspx?document=36-09.pdf' },
+      { title: 'Aetna Better Health of New Jersey — Provider notices & newsletters (notices archive)', url: 'https://www.aetnabetterhealth.com/newjersey/providers/notices-newsletters.html' },
     ],
     faq: [
       { q: 'What POS and modifier does Aetna Better Health of New Jersey want for telehealth ABA?', a: 'Its telehealth page says to bill the same codes as in person with no extra modifier, and to use POS 02. The state’s 2023 Medicaid Alert requires POS 10 when the child is at home, so confirm with the plan which it wants for home sessions.' },
@@ -1040,6 +1044,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'DMAHS Medicaid Alert MA-2023-02 — Facility Code (place of service) values for telehealth (April 2023)', url: 'https://www.njmmis.com/documentDownload.aspx?document=MA-2023-02.pdf' },
       { title: 'DMAHS Newsletter Vol 30 No 09 — Temporary Telehealth Guidelines (April 2020)', url: 'https://www.nj.gov/humanservices/library/slides/30-09.pdf' },
       { title: 'Fidelis Care NJ — Medicaid Provider Quick Reference Guide (October 2026)', url: 'https://www.fideliscarenj.com/content/dam/centene/wellcare/nj/pdfs/ProviderQRG/NJ_Caid_Provider_Quick_Reference_Guide_10_2026_R.pdf' },
+      { title: 'Fidelis Care New Jersey — Provider bulletins (provider notices archive)', url: 'https://www.fideliscarenj.com/providers/news-and-education/bulletins.html' },
     ],
     faq: [
       { q: 'What POS and modifier does Fidelis Care NJ want for telehealth ABA?', a: 'Fidelis publishes no telehealth billing rule of its own. The state requires POS 10 when the child is at home and POS 02 elsewhere on Medicaid claims, and its last billing guidance needed no extra modifier. Confirm the modifier with Fidelis before billing.' },
@@ -1272,6 +1277,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'UnitedHealthcare Community Plan of New Jersey — Care Provider Manual (2025)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NJ-Care-Provider-Manual.pdf' },
       { title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 7.16.5 timely payments; App. B.4.4 ABA service description', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' },
       { title: 'DMAHS Medicaid Alert MA-2023-02 — Facility Code (place of service) values for telehealth (April 2023)', url: 'https://www.njmmis.com/documentDownload.aspx?document=MA-2023-02.pdf' },
+      { title: 'UnitedHealthcare Community Plan of New Jersey — Bulletins and newsletters', url: 'https://www.uhcprovider.com/en/health-plans-by-state/new-jersey-health-plans/nj-comm-plan-home/nj-cp-news.html' },
     ],
     faq: [
       { q: 'Does UnitedHealthcare Community Plan of NJ accept H0031 or H0032 for ABA?', a: 'Not as published. The NJ FamilyCare contract lists the ABA billing codes as 97151–97158, 0362T and 0373T, and neither the plan manual nor Optum’s NJ ABA orientation names an H-code for ABA.' },
@@ -1519,6 +1525,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'Wellpoint New Jersey — Reimbursement Policy G-15003, Maximum Units Per Day (Medicaid; approved 12/2/2025)', url: 'https://www.provider.wellpoint.com/docs/gpp/NJ_WLP_RP_MaximumUnits.pdf' },
       { title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 7.16.5 timely payments; App. B.4.4 ABA service description', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' },
       { title: 'DMAHS Newsletter Vol 36 No 09 — EVV compliance requirements for MCO providers billing PCA and Home Health Services (Sept 2026; eff. 1/1/2027)', url: 'https://www.njmmis.com/documentDownload.aspx?document=36-09.pdf' },
+      { title: 'Wellpoint New Jersey — Provider News (all NJ provider news articles)', url: 'https://providernews.wellpoint.com/nj' },
     ],
     faq: [
       { q: 'Does Wellpoint Medicaid of New Jersey require referring providers on ABA claims?', a: 'Wellpoint lists the referring provider among clean-claim elements only "if applicable," says it does not run a paper referral process, and needs no referral for EPSDT services from its own providers. NJ FamilyCare sets no physician order for ABA. No Wellpoint document makes box 17/17b mandatory for ABA; if a claim rejects for it, report the diagnosing clinician and confirm the rule with Wellpoint provider services (833-731-2149).' },
@@ -2726,6 +2733,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'P.L.2005, c.352 — Health Claims Authorization, Processing and Payment Act (N.J.S.A. 17B:30-48 et seq.; prompt pay in 17B:26-9.1, 17B:27-44.2, 17:48E-10.1, 26:2J-8.1)', url: 'https://pub.njleg.state.nj.us/Bills/2004/PL05/352_.PDF' },
       { title: 'NJ DOBI — Prompt Pay Regulations FAQ (N.J.A.C. 11:22-1)', url: 'https://www.nj.gov/dobi/division_insurance/promptfaqs.htm' },
       { title: 'N.J.S.A. 45:1-10.1 — Title 45 professionals file third-party claims within 60 days (patient-filed) or 180 days (assigned benefits) of the last date of service (FindLaw)', url: 'https://codes.findlaw.com/nj/title-45-professions-and-occupations/nj-st-sect-45-1-10-1.html' },
+      { title: 'Horizon BCBSNJ — Blue Review provider newsletter archive', url: 'https://www.horizonblue.com/providers/news/blue-review/archives' },
     ],
     faq: [
       { q: 'Does Horizon BCBSNJ require graphs in ABA progress reports?', a: 'Yes. Horizon’s ABA Provider Report Guidelines make a graph of each goal’s data for the current authorization period, with baseline and parent goals, mandatory. Plot it per session or per week as the goal is written, not as monthly averages. Send the progress report two to four weeks before the authorization ends.' },

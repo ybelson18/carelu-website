@@ -195,6 +195,7 @@ export const iowaPayers: Record<string, PayerConfig> = {
       { title: 'Molina Clinical Policy 482 — Applied Behavioral Analysis for ASD (approved 6/10/2026)', url: 'https://www.molinaclinicalpolicy.com/molinaclinicalpolicy/-/media/Molina/PublicWebsite/PDF/Common/Molina-Clinical-Policy/Applied-Behavioral-Analysis-for-Autism-Spectrum-Disorder_R.ashx' },
       { title: 'Iowa Admin. Code 441—80.3 — Time limit for submission of claims (eff. 7/1/26)', url: 'https://www.legis.iowa.gov/docs/iac/chapter/441.80.pdf' },
       { title: 'Iowa HHS — Behavioral Health Intervention Services Provider Manual, Ch. III (rev. 10/22/2021)', url: 'https://hhs.iowa.gov/media/4311/download' },
+      { title: 'Iowa Medicaid — Informational Letters (index of all Iowa Medicaid informational letters)', url: 'https://secureapp.dhs.state.ia.us/IMPA/Information/Bulletins.aspx' },
     ],
     deliveryRules: {
       supervision: {
@@ -507,6 +508,7 @@ export const iowaPayers: Record<string, PayerConfig> = {
       { title: 'Iowa Admin. Code r. 441—77.31 — Behavioral health services providers', url: 'https://www.legis.iowa.gov/docs/iac/chapter/441.77.pdf' },
       { title: 'Iowa Medicaid Informational Letter 2431-MC-FFS — ABA Code Update (eff. 4/1/2023)', url: 'https://secureapp.dhs.state.ia.us/IMPA/Information/ViewDocument.aspx?viewdocument=497e2fa3-f199-4f95-bdad-461a28ff9d83' },
       { title: 'Iowa HHS — Behavioral Health Intervention Services Provider Manual, Ch. III (rev. 10/22/2021)', url: 'https://hhs.iowa.gov/media/4311/download' },
+      { title: 'Iowa Total Care — Provider newsroom (provider alerts archive)', url: 'https://www.iowatotalcare.com/newsroom.html' },
     ],
     deliveryRules: {
       supervision: {
@@ -773,6 +775,7 @@ export const iowaPayers: Record<string, PayerConfig> = {
       { title: 'Carelon Behavioral Health — Provider Quick Reference Guide, Wellpoint, Inc. (Iowa Medicaid)', url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/ia/provider-quick-reference-guide-caid-ia.pdf' },
       { title: 'Iowa Admin. Code r. 441—77.31 — Behavioral health services providers', url: 'https://www.legis.iowa.gov/docs/iac/chapter/441.77.pdf' },
       { title: 'Iowa Medicaid Informational Letter 2431-MC-FFS — ABA Code Update (eff. 4/1/2023)', url: 'https://secureapp.dhs.state.ia.us/IMPA/Information/ViewDocument.aspx?viewdocument=497e2fa3-f199-4f95-bdad-461a28ff9d83' },
+      { title: 'Wellpoint Iowa — Provider News (provider news archive)', url: 'https://providernews.wellpoint.com/ia' },
     ],
     deliveryRules: {
       supervision: {

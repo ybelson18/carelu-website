@@ -182,7 +182,7 @@ export const mainePayers: Record<string, PayerConfig> = {
       { title: 'Other insurance', desc: 'MaineCare pays last; a commercial medical-necessity denial must be appealed before MaineCare will consider the claim.' },
       { title: 'IEP or IFSP', desc: 'Needed for school-related Section 28 services, and useful to separate school ABA from community ABA (they are not duplicative).' },
     ],
-    sources: [S.s28, S.adopt28, S.s7, S.saLaunch, S.grid, S.s65, S.s4, S.s1, S.cola, S.mbm, S.bacbLic, S.t32, S.cfr440, S.cfr433],
+    sources: [S.s28, S.adopt28, S.s7, S.saLaunch, S.grid, S.s65, S.s4, S.s1, S.cola, S.mbm, S.bacbLic, S.t32, S.cfr440, S.cfr433, { title: 'MaineCare — MaineCare Bulletins (index of provider e-messages/bulletins)', url: 'https://www.maine.gov/dhhs/oms/about-us/mainecare-bulletins' }],
     deliveryRules: {
       supervision: {
         value: 'ABA direct care staff must be supervised by "A BCBA; or A duly licensed psychologist with training and/or experience in behavioral analytic principles." Staff delivering 20 or more hours of direct service a week must receive at least four hours of supervision a month; staff with fewer hours get a prorated amount, minimum one hour a month. Functional behavior assessments, care coordination and progress-data analysis may be delivered only by a supervisor.',
@@ -364,7 +364,7 @@ export const mainePayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis report', desc: 'ASD diagnosis by a licensed physician or psychologist, with the date and clinician.' },
       { title: 'Other coverage', desc: 'Second parent’s plan, MaineCare (pays last), TRICARE or CHAMPVA.' },
     ],
-    sources: [S.anthemMEPA, S.anthemRG, S.st2768, S.st2847T, S.st4259, S.pl597, S.st4304, S.st4316, S.st4303, S.st2436, S.ch790, S.bacbLic, S.t32, S.erisa, S.s1, { title: 'Anthem Blue Cross and Blue Shield — 2026 Maine Commercial Provider Manual (effective October 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_ME_00115.pdf' }],
+    sources: [S.anthemMEPA, S.anthemRG, S.st2768, S.st2847T, S.st4259, S.pl597, S.st4304, S.st4316, S.st4303, S.st2436, S.ch790, S.bacbLic, S.t32, S.erisa, S.s1, { title: 'Anthem Blue Cross and Blue Shield — 2026 Maine Commercial Provider Manual (effective October 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_ME_00115.pdf' }, { title: 'Anthem Maine — Provider News (provider news archive)', url: 'https://providernews.anthem.com/maine' }],
     deliveryRules: {
       supervision: {
         value: 'Anthem publishes no numeric supervision ratio. It recognizes "providers practicing under the direction and supervision of the BCBA," and allows 97153 alongside 97155 only when the QHP and technician are both face-to-face with the patient and the QHP is directing the technician. The Maine mandate requires ABA to be provided by, or supervised by, a person certified by a national board of behavior analysts.',
@@ -1095,7 +1095,7 @@ export const mainePayers: Record<string, PayerConfig> = {
       { title: 'HPHConnect access', desc: 'The InterQual questionnaire runs there; register before the first request.' },
       { title: 'Other coverage', desc: 'Second parent’s plan, MaineCare (pays last), TRICARE or CHAMPVA.' },
     ],
-    sources: [S.hpMNG, S.hpPP, S.hpRef, S.hpMaxUnits, S.hpCoding, S.cmsMUE, S.hpTele, S.hpForm, S.st2768, S.st2847T, S.st4259, S.pl597, S.st4304, S.st4316, S.st4303, S.st2436, S.ch790, S.bacbLic, S.t32, S.erisa, S.s1],
+    sources: [S.hpMNG, S.hpPP, S.hpRef, S.hpMaxUnits, S.hpCoding, S.cmsMUE, S.hpTele, S.hpForm, S.st2768, S.st2847T, S.st4259, S.pl597, S.st4304, S.st4316, S.st4303, S.st2436, S.ch790, S.bacbLic, S.t32, S.erisa, S.s1, { title: 'Point32Health — Insights and Updates for Providers (Harvard Pilgrim / Tufts provider news archive)', url: 'https://www.point32health.org/provider/office-resources/provider-newsletter' }],
     deliveryRules: {
       supervision: {
         value: 'Point32Health requires InterQual’s "Applied Behavior Analysis (ABA) Program-Applied Behavior Analysis Supervision" subset for supervision requests, but the criteria inside it are licensed and not published. The Maine mandate requires ABA to be provided by, or supervised by, a national-board certificant.',

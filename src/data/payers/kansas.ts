@@ -194,6 +194,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { title: 'Optum — ABA State Mandates supplemental criteria (Kansas Medicaid section)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
       { title: 'KMAP General Bulletin 21234 — New Place of Service Code 10 (telehealth in the home; POS 10 code list incl. 97151–97153, 97155, 97156; eff. 1/1/2022)', url: 'https://portal.kmap-state-ks.us/Documents/Provider/Bulletins/21234%20-%20General%20-%20New_POS_Code_10.pdf' },
       { title: 'K.S.A. 40-2,213 — Kansas telemedicine act coverage parity (applies to the Kansas medical assistance program)', url: 'https://www.ksrevisor.gov/statutes/chapters/ch40/040_002_0213.html' },
+      { title: 'KMAP — Provider bulletins (searchable index of all KMAP bulletins)', url: 'https://portal.kmap-state-ks.us/PublicPage/Public/Bulletins' },
     ],
     intakeGates: {
       ageLimit: {
@@ -558,6 +559,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { title: 'K.S.A. 65-7503 — behavior analyst licensure required; exemptions', url: 'https://www.ksrevisor.gov/statutes/chapters/ch65/065_075_0003.html' },
       { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
       { title: 'KMAP Bulletin 18259 — Mental Health/Autism CPT crosswalk (eff. 1/1/2019)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-18259.html' },
+      { title: 'Sunflower Health Plan — Newsroom (provider bulletins + KMAP bulletin reposts)', url: 'https://www.sunflowerhealthplan.com/newsroom.html' },
     ],
     intakeGates: {
       ageLimit: {
@@ -851,6 +853,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { title: 'K.S.A. 65-7503 — behavior analyst licensure required; exemptions', url: 'https://www.ksrevisor.gov/statutes/chapters/ch65/065_075_0003.html' },
       { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
       { title: 'UnitedHealthcare Community Plan KanCare Care Provider Manual (2026), Chapter 11 Billing and submission', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/KS-AdminGuide.pdf' },
+      { title: 'UnitedHealthcare Community Plan of Kansas — Bulletins and Newsletters (state bulletins archive)', url: 'https://www.uhcprovider.com/en/health-plans-by-state/kansas-health-plans/ks-comm-plan-home/ks-cp-news.html' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1129,6 +1132,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { title: 'Healthy Blue Kansas Medicaid Provider Manual (June 2026): Payment of Claims', url: 'https://www.healthybluekansas.com/content/dam/digital/healthyblue/documents/provider/ks/general/KSHB-CD-PM-061368-24-EXPRESS-KanCare.pdf' },
       { title: 'KMAP Bulletin 18259 — Mental Health/Autism CPT crosswalk (eff. 1/1/2019)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-18259.html' },
       { title: 'KMAP General Bulletin 24125 — Autism Codes: CCTS/IIS Coverage (eff. 7/1/2024)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-24125.html' },
+      { title: 'Healthy Blue Kansas — Provider News (provider news archive)', url: 'https://providernews.healthybluekansas.com/' },
     ],
     intakeGates: {
       ageLimit: {

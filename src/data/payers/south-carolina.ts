@@ -212,7 +212,7 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Other insurance', desc: 'Commercial coverage goes first; the Medicaid authorization is needed only if the primary denies or does not cover ABA.' },
       { title: 'Caregiver availability', desc: 'In-home ABA requires an adult caregiver present the whole session, and 97156 parent training is required every month.' },
     ],
-    sources: [S.asdManual, S.asdTraining, S.asdBulletin, S.asdFee, S.pabm, S.mcoList, S.carveIn, S.bacbLic, S.t40c75, S.cfr440, S.cfr438, S.cfr433],
+    sources: [S.asdManual, S.asdTraining, S.asdBulletin, S.asdFee, S.pabm, S.mcoList, S.carveIn, S.bacbLic, S.t40c75, S.cfr440, S.cfr438, S.cfr433, { title: 'SCDHHS — Communications: Medicaid bulletins index', url: 'https://www.scdhhs.gov/communications' }],
     deliveryRules: {
       supervision: {
         value: SC_SUPERVISION_STATE + ' BCaBAs must be supervised by a BCBA-D or BCBA and must disclose that supervision to the family in the consent form.',
@@ -362,7 +362,7 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'IEP / 504 / IFSP', desc: 'Attach a copy if the child has one.' },
       { title: 'Other insurance', desc: 'Medicaid is payer of last resort; bill the primary first.' },
     ],
-    sources: [S.atcPM, S.atcPA, S.atcASD, S.atcPreAuth, S.asdManual, S.asdBulletin, S.carveIn, S.cfr438, S.cfr433, S.bacbLic],
+    sources: [S.atcPM, S.atcPA, S.atcASD, S.atcPreAuth, S.asdManual, S.asdBulletin, S.carveIn, S.cfr438, S.cfr433, S.bacbLic, { title: 'Absolute Total Care — Provider News (provider notices archive)', url: 'https://www.absolutetotalcare.com/providers/provider-news.html' }],
     deliveryRules: {
       supervision: {
         value: 'Absolute Total Care publishes no ABA supervision ratio of its own; its ASD form only requires the supervising provider to attest to "actively participating in the treatment plan." The SCDHHS ASD manual sets the state baseline, which the plan may apply: ' + SC_SUPERVISION_STATE,
@@ -526,7 +526,7 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Recommendation for services', desc: 'From a licensed psychologist, developmental pediatrician or LPES.' },
       { title: 'Other insurance', desc: 'Medicaid pays last; bill the primary plan first.' },
     ],
-    sources: [S.hbPOM, S.asdManual, S.asdTraining, S.asdBulletin, S.carveIn, S.cfr438, S.cfr433, S.bacbLic],
+    sources: [S.hbPOM, S.asdManual, S.asdTraining, S.asdBulletin, S.carveIn, S.cfr438, S.cfr433, S.bacbLic, { title: 'Healthy Blue SC — Provider News and Events (BlueBlast and provider updates)', url: 'https://www.healthybluesc.com/providers/news-and-events' }],
     deliveryRules: {
       supervision: {
         value: 'Healthy Blue uses the SCDHHS Autism Provider Manual as its autism criteria, so the state rules apply: ' + SC_SUPERVISION_STATE,
@@ -685,7 +685,7 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Diagnostic report', desc: 'Have the full evaluation ready; Molina publishes no SC-specific diagnosis rule, so plan to the SCDHHS standard.' },
       { title: 'Other insurance', desc: 'Medicaid is payer of last resort; bill the primary and send its EOB.' },
     ],
-    sources: [S.molPM, S.molPA, S.asdManual, S.asdBulletin, S.carveIn, S.cfr438, S.cfr433, S.bacbLic],
+    sources: [S.molPM, S.molPA, S.asdManual, S.asdBulletin, S.carveIn, S.cfr438, S.cfr433, S.bacbLic, { title: 'Molina Healthcare of SC — Provider Communications (Palmetto Partners newsletter and announcements)', url: 'https://www.molinahealthcare.com/providers/sc/communications' }],
     deliveryRules: {
       supervision: {
         value: 'Molina publishes no ABA supervision rule for South Carolina. The state baseline in the SCDHHS ASD manual: ' + SC_SUPERVISION_STATE,
@@ -851,7 +851,7 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Prior ABA records', desc: 'If the child was already in treatment: progress summary with graphs, sample schedule and caregiver goals.' },
       { title: 'Other insurance', desc: 'First Choice pays last; secondary claims go in within 60 days of the primary’s EOB.' },
     ],
-    sources: [S.shPM, S.shChk, S.shReq, S.shPA, S.shClaim, S.asdManual, S.asdBulletin, S.carveIn, S.cfr438, S.cfr433, S.bacbLic],
+    sources: [S.shPM, S.shChk, S.shReq, S.shPA, S.shClaim, S.asdManual, S.asdBulletin, S.carveIn, S.cfr438, S.cfr433, S.bacbLic, { title: 'First Choice by Select Health — Provider newsletters and updates (provider alerts index)', url: 'https://www.selecthealthofsc.com/provider/newsletter-and-updates' }],
     deliveryRules: {
       supervision: {
         value: 'Select Health applies the medical-necessity requirements "outlined for each service in the SCDHHS Autism Spectrum Disorder Services Manual," which sets: ' + SC_SUPERVISION_STATE,
@@ -1007,7 +1007,7 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Supervising BCBA', desc: 'Name and BACB certification number.' },
       { title: 'Other insurance', desc: 'The form asks for the other insurer’s card; Humana pays after it.' },
     ],
-    sources: [S.humPM, S.humPMnov, S.humBill, S.humABA, S.humPApage, S.humBH, S.asdManual, S.asdBulletin, S.carveIn, S.cfr438, S.cfr433, S.bacbLic],
+    sources: [S.humPM, S.humPMnov, S.humBill, S.humABA, S.humPApage, S.humBH, S.asdManual, S.asdBulletin, S.carveIn, S.cfr438, S.cfr433, S.bacbLic, { title: 'Humana Healthy Horizons in SC — Communications and network notices (provider newsletter archive)', url: 'https://provider.humana.com/medicaid/south-carolina-medicaid/communications-network-notices' }],
     deliveryRules: {
       supervision: {
         value: 'Humana adheres to the SCDHHS ASD manual, which sets: ' + SC_SUPERVISION_STATE + ' The ABA form asks for the supervising BCBA’s name and certification number.',
@@ -1719,7 +1719,7 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Caregiver commitment', desc: 'CAM 387 requires parent participation and routine 97156; in-home sessions need an adult caregiver present.' },
       { title: 'Treatment plan signed by the treating doctor', desc: 'For a mandated plan, coverage follows a treatment plan prescribed by the child’s treating medical doctor.' },
     ],
-    sources: [S.bcCAM, S.bcPAList, S.bcPApage, S.cbaPre, S.cbaClaims, S.cbaJoin, S.sc280, S.doiBull, S.sc3859, S.sc3870, S.reg6943, S.t40c75, S.bacbLic, S.erisa, S.cfr147, S.asdFee],
+    sources: [S.bcCAM, S.bcPAList, S.bcPApage, S.cbaPre, S.cbaClaims, S.cbaJoin, S.sc280, S.doiBull, S.sc3859, S.sc3870, S.reg6943, S.t40c75, S.bacbLic, S.erisa, S.cfr147, S.asdFee, { title: 'BlueCross BlueShield of SC — Provider News Bulletins (index)', url: 'https://www.southcarolinablues.com/en/home/providers/news-and-events/news-bulletins.html' }, { title: 'BlueCross BlueShield of SC — BlueNews for Providers (monthly newsletter archive)', url: 'https://www.southcarolinablues.com/en/home/providers/news-and-events/monthly-newsletter.html' }],
     deliveryRules: {
       supervision: {
         value: 'CAM 387 requires delivery "by qualified providers who possess appropriate education, training, and supervision" and defines the tiers: BCaBAs practice under a BCBA, RBTs "under the close, ongoing supervision of a BCBA-D, BCBA or BCaBA," and an uncredentialed behavior technician gets one 90-day grace period, during which they may work only in a practice-based location with a BCaBA/BCBA/BCBA-D physically on site. It sets no numeric supervision ratio, and BACB supervision hours are not billable treatment.',

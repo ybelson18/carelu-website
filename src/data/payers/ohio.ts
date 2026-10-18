@@ -154,6 +154,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
       { title: '42 CFR 447.45(d) — timely processing of Medicaid fee-for-service claims (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-447.45' },
       { title: 'OAC 5160-32-01 — Electronic visit verification: programs and services subject to EVV, codes.ohio.gov', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-32-01' },
       { title: 'CMS — Medicaid NCCI MUE edits, practitioner services (2026 Q4, active 10/1–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' },
+      { title: 'Ohio Department of Medicaid — News for Providers (index of ODM Press provider bulletins and notices)', url: 'https://managedcare.medicaid.ohio.gov/news/news-for-providers' },
     ],
     intakeGates: {
       ageLimit: {
@@ -417,6 +418,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
       { title: 'Ohio Administrative Code — rule 4783-6-02 (COBA supervision responsibilities)', url: 'https://www.law.cornell.edu/regulations/ohio/Ohio-Admin-Code-4783-6-02' },
       { title: 'ODM — OhioRISE Mixed Services Protocol (4/1/2025)', url: 'https://dam.assets.ohio.gov/image/upload/v1743449666/managedcare.medicaid.ohio.gov/OhioRISE/OhioRISE_Mixed_Services_Protocol_20250401.pdf' },
       { title: 'OAC 5160-32-01 — Electronic visit verification: programs and services subject to EVV, codes.ohio.gov', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-32-01' },
+      { title: 'CareSource Ohio — Updates & Announcements, Medicaid (provider notices archive)', url: 'https://www.caresource.com/oh/providers/tools-resources/updates-announcements/medicaid/' },
     ],
     intakeGates: {
       ageLimit: {
@@ -681,6 +683,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
       { title: 'OAC 5160-32-01 — Electronic visit verification: programs and services subject to EVV, codes.ohio.gov', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-32-01' },
       { title: 'Buckeye — Medicaid Provider Manual 2026 (amended 1/6/2026)', url: 'https://www.buckeyehealthplan.com/content/dam/centene/Buckeye/WebsitePDFs/Manuals/Buckeye_Provider%20Manual_BHP%20MEDICAID%20Provider%20Manual%202026_FINAL_amd%201.6.26_R.pdf' },
       { title: 'ODM — Ohio Medicaid Provider Agreement for Managed Care Organization (Rev. 12/2025): App. K §5 claims, App. L §10 prompt pay', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Providers/ProviderTypes/Managed%20Care/Provider%20Agreements/2025_12_MCO_Final.pdf' },
+      { title: 'Buckeye Health Plan — Provider Update Newsletter (running log of provider notices)', url: 'https://www.buckeyehealthplan.com/providers/provider-communications/provider-update-newsletter.html' },
     ],
     intakeGates: {
       ageLimit: {
@@ -919,6 +922,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
       { title: 'ODM — Ohio Medicaid Provider Agreement for Managed Care Organization (Rev. 12/2025): App. K §5 claims, App. L §10 prompt pay', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Providers/ProviderTypes/Managed%20Care/Provider%20Agreements/2025_12_MCO_Final.pdf' },
       { title: 'CMS — Medicaid NCCI MUE edits, practitioner services (2026 Q4, active 10/1–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' },
       { title: 'OAC 5160-1-19 — Submission of medicaid claims (eff. 2/1/2023), codes.ohio.gov', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-1-19' },
+      { title: 'Molina Healthcare of Ohio — Provider communications (newsletters and bulletins archive)', url: 'https://www.molinahealthcare.com/providers/oh/communications' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1148,6 +1152,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
       { title: 'ODM — Ohio Medicaid Provider Agreement for Managed Care Organization (Rev. 12/2025): App. K §5 claims, App. L §10 prompt pay', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Providers/ProviderTypes/Managed%20Care/Provider%20Agreements/2025_12_MCO_Final.pdf' },
       { title: 'CMS — Medicaid NCCI MUE edits, practitioner services (2026 Q4, active 10/1–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' },
       { title: 'OAC 5160-1-19 — Submission of medicaid claims (eff. 2/1/2023), codes.ohio.gov', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-1-19' },
+      { title: 'Anthem Ohio — Provider News (index of articles and monthly newsletters, Medicaid and commercial)', url: 'https://providernews.anthem.com/ohio' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1396,6 +1401,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
       { title: 'OAC 5160-32-01 — Electronic visit verification: programs and services subject to EVV, codes.ohio.gov', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-32-01' },
       { title: 'UnitedHealthcare Community Plan — 2026 Care Provider Manual, Ohio Medicaid', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/OH-Care-Provider-Manual.pdf' },
       { title: 'ODM — Ohio Medicaid Provider Agreement for Managed Care Organization (Rev. 12/2025): App. K §5 claims, App. L §10 prompt pay', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Providers/ProviderTypes/Managed%20Care/Provider%20Agreements/2025_12_MCO_Final.pdf' },
+      { title: 'UnitedHealthcare Community Plan of Ohio — State news, bulletins and alerts (provider home page list)', url: 'https://www.uhcprovider.com/en/health-plans-by-state/ohio-health-plans/oh-comm-plan-home.html' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1645,6 +1651,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
       { title: 'ODM — Ohio Medicaid Provider Agreement for Managed Care Organization (Rev. 12/2025): App. K §5 claims, App. L §10 prompt pay', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Providers/ProviderTypes/Managed%20Care/Provider%20Agreements/2025_12_MCO_Final.pdf' },
       { title: 'CMS — Medicaid NCCI MUE edits, practitioner services (2026 Q4, active 10/1–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' },
       { title: 'OAC 5160-1-19 — Submission of medicaid claims (eff. 2/1/2023), codes.ohio.gov', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-1-19' },
+      { title: 'AmeriHealth Caritas Ohio — Alerts and Newsletters (provider alerts and newsletter archive)', url: 'https://www.amerihealthcaritasoh.com/provider/newsletters-and-updates' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1871,6 +1878,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
       { title: 'ODM — Ohio Medicaid Provider Agreement for Managed Care Organization (Rev. 12/2025): App. K §5 claims, App. L §10 prompt pay', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Providers/ProviderTypes/Managed%20Care/Provider%20Agreements/2025_12_MCO_Final.pdf' },
       { title: 'CMS — Medicaid NCCI MUE edits, practitioner services (2026 Q4, active 10/1–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' },
       { title: 'OAC 5160-1-19 — Submission of medicaid claims (eff. 2/1/2023), codes.ohio.gov', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-1-19' },
+      { title: 'Humana Healthy Horizons in Ohio — Communications and Network Notices (notices grouped by year)', url: 'https://provider.humana.com/medicaid/ohio-medicaid/communications-network-notices' },
     ],
     intakeGates: {
       ageLimit: {
@@ -3000,6 +3008,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
       { title: 'Ohio Legislature — HB 453 status (introduced 9/15/2025; referred to House Insurance 10/1/2025)', url: 'https://www.legislature.ohio.gov/legislation/136/hb453/status' },
       { title: 'Anthem — The BlueCard Program Provider Manual (eff. 1/1/2022; current edition in the Ohio provider manual library)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_MO_OH_WI_00004.pdf' },
       { title: 'Anthem Blue Cross and Blue Shield — 2026 Ohio Commercial Provider Manual (eff. 8/1/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_OH_00014.pdf' },
+      { title: 'Anthem Ohio — Provider News (index of articles and monthly newsletters)', url: 'https://providernews.anthem.com/ohio' },
     ],
     deliveryRules: {
       supervision: {

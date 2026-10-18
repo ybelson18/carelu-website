@@ -174,6 +174,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
       { title: '8.310.2.12(M) NMAC — Telehealth services (srca.nm.gov, amended 1/1/2025)', url: 'https://www.srca.nm.gov/parts/title08/08.310.0002.html' },
       { title: '8.321.2.13 NMAC — Applied Behavior Analysis (srca.nm.gov)', url: 'https://www.srca.nm.gov/parts/title08/08.321.0002.html' },
+      { title: 'NM HCA — Managed Care Letters of Direction (Turquoise Care LOD index)', url: 'https://www.hca.nm.gov/lookingforinformation/managed-care-letters-of-direction/' },
     ],
     intakeGates: {
       ageLimit: {
@@ -419,6 +420,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
       { title: '8.310.2.12(M) NMAC — Telehealth services (srca.nm.gov, amended 1/1/2025)', url: 'https://www.srca.nm.gov/parts/title08/08.310.0002.html' },
       { title: '8.321.2.13 NMAC — Applied Behavior Analysis (srca.nm.gov)', url: 'https://www.srca.nm.gov/parts/title08/08.321.0002.html' },
+      { title: 'Blue Cross and Blue Shield of New Mexico — Provider News and Updates', url: 'https://www.bcbsnm.com/provider/education-reference/education/news' },
     ],
     intakeGates: {
       ageLimit: {
@@ -680,6 +682,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
       { title: '8.310.2.12(M) NMAC — Telehealth services (srca.nm.gov, amended 1/1/2025)', url: 'https://www.srca.nm.gov/parts/title08/08.310.0002.html' },
       { title: '8.321.2.13 NMAC — Applied Behavior Analysis (srca.nm.gov)', url: 'https://www.srca.nm.gov/parts/title08/08.321.0002.html' },
+      { title: 'Presbyterian Health Plan — Provider news and communications (Network Connection archive)', url: 'https://www.phs.org/providers/contact-us/news-and-communications' },
     ],
     intakeGates: {
       ageLimit: {
@@ -939,6 +942,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
       { title: 'Molina Healthcare of New Mexico Turquoise Care Provider Manual (2024 edition, last updated May 2024)', url: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/NM_2024/Medicaid/Provider-Manual.pdf' },
       { title: '8.321.2.13 NMAC — Applied Behavior Analysis (srca.nm.gov)', url: 'https://www.srca.nm.gov/parts/title08/08.321.0002.html' },
+      { title: 'Molina Healthcare of New Mexico — Provider communications (newsletters and bulletins)', url: 'https://www.molinahealthcare.com/providers/nm/communications' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1198,6 +1202,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { title: '8.310.2.12(M) NMAC — Telehealth services (srca.nm.gov, amended 1/1/2025)', url: 'https://www.srca.nm.gov/parts/title08/08.310.0002.html' },
       { title: 'UnitedHealthcare Community Plan of New Mexico Care Provider Manual (2026)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NM-UHCCP-Provider-Manual.pdf' },
       { title: '8.321.2.13 NMAC — Applied Behavior Analysis (srca.nm.gov)', url: 'https://www.srca.nm.gov/parts/title08/08.321.0002.html' },
+      { title: 'UnitedHealthcare Community Plan of New Mexico — Bulletins and newsletters', url: 'https://www.uhcprovider.com/en/health-plans-by-state/new-mexico-health-plans/nm-comm-plan-home/nm-cp-news.html' },
     ],
     intakeGates: {
       ageLimit: {

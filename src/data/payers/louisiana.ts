@@ -250,7 +250,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       { title: 'PCP name and contact', desc: 'Must appear on every treatment plan; the PCP gets the plan and six-month progress notes.' },
       { title: 'Other insurance', desc: 'The primary insurer’s ABA approval or denial; Medicaid plans hold the authorization pending until they see it.' },
     ],
-    sources: [S.msm, S.fee, S.plans, S.plansContact, S.ib2612, S.ib2603, S.t2027, S.uhcLA, S.lhccForm, S.lhccUniform, S.abhCDE, S.abhPM26, S.aclaHB, S.humPM, S.hbPM, S.abhPM, S.evv, S.rs3716, S.rs12234, S.bacbLic, S.cfr438, S.cfr433],
+    sources: [S.msm, S.fee, S.plans, S.plansContact, S.ib2612, S.ib2603, S.t2027, S.uhcLA, S.lhccForm, S.lhccUniform, S.abhCDE, S.abhPM26, S.aclaHB, S.humPM, S.hbPM, S.abhPM, S.evv, S.rs3716, S.rs12234, S.bacbLic, S.cfr438, S.cfr433, { title: 'LDH — Medicaid Informational Bulletins (index of all Healthy Louisiana informational bulletins)', url: 'https://ldh.la.gov/page/informational-bulletins' }],
     deliveryRules: {
       supervision: {
         value: LA_MCD_SUPERVISION,
@@ -400,7 +400,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       { title: 'IEP and waiver pages', desc: 'IEP with the treatment request; waiver Plan Profile Table and schedule if applicable.' },
       { title: 'Other insurance', desc: 'Medicaid pays last; send the primary insurer’s ABA decision.' },
     ],
-    sources: [S.abhPol, S.abhNotice, S.abhCDE, S.abhPM26, S.abhPM, S.msm, S.fee, S.lhccUniform, S.cfr438, S.cfr433],
+    sources: [S.abhPol, S.abhNotice, S.abhCDE, S.abhPM26, S.abhPM, S.msm, S.fee, S.lhccUniform, S.cfr438, S.cfr433, { title: 'Aetna Better Health of Louisiana — Provider Notices & Newsletters (archive)', url: 'https://www.aetnabetterhealth.com/louisiana/providers/notices-newsletters.html' }],
     deliveryRules: {
       supervision: {
         value: 'The plan’s policy repeats the state’s staffing rule (technician services require supervision by a licensed behavior analyst in the treatment plan) and publishes no ratio of its own, so the LDH manual’s ratio applies. ' + LA_MCD_SUPERVISION,
@@ -545,7 +545,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       { title: 'IEP and waiver pages', desc: 'IEP with the treatment request; waiver Plan Profile Table and schedule if applicable.' },
       { title: 'Other insurance', desc: 'The plan is payer of last resort; claims with a primary EOB still have to arrive within 365 days of service.' },
     ],
-    sources: [S.aclaCCP, S.aclaHB, S.aclaAlert, S.lhccUniform, S.msm, S.fee, S.cfr438, S.cfr433],
+    sources: [S.aclaCCP, S.aclaHB, S.aclaAlert, S.lhccUniform, S.msm, S.fee, S.cfr438, S.cfr433, { title: 'AmeriHealth Caritas Louisiana — Provider newsletters and updates (provider alerts archive)', url: 'https://www.amerihealthcaritasla.com/provider/newsletters-and-updates' }],
     deliveryRules: {
       supervision: {
         value: 'CCP.4040 adopts the state ratio: supervision "shall be approved on a 2:10 basis," part of it in the presence of the member and the CaBA or RLT, not approved when the supervisor is delivering direct therapy, and no more than 24 technicians a day or 10 CaBAs per licensed professional.',
@@ -690,7 +690,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       { title: 'Current authorization end date', desc: 'The new plan honors it for up to 60 days or to its end date; diary the new request before then.' },
       { title: 'Other insurance', desc: 'Medicaid pays last; send the primary insurer’s ABA decision.' },
     ],
-    sources: [S.hbPM, S.hbPAL, S.hbWeekly, S.ib2612, S.t2027, S.msm, S.fee, S.lhccUniform, S.cfr438, S.cfr433],
+    sources: [S.hbPM, S.hbPAL, S.hbWeekly, S.ib2612, S.t2027, S.msm, S.fee, S.lhccUniform, S.cfr438, S.cfr433, { title: 'Healthy Blue Louisiana — Provider News (provider news archive)', url: 'https://providernews.healthybluela.com/' }],
     deliveryRules: {
       supervision: {
         value: 'The manual says ABA is "rendered by an ABA assistant or technician under the supervision of a board-certified behavior analyst" and publishes no ratio of its own; it points providers to the LDH manual, whose ratio applies. ' + LA_MCD_SUPERVISION,
@@ -835,7 +835,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       { title: 'IEP', desc: 'Required with the treatment request, or a written reason it is unavailable; school-based plans wait for it.' },
       { title: 'Other insurance', desc: 'The authorization form asks about a primary payor; send its ABA decision.' },
     ],
-    sources: [S.humCLI, S.humForm, S.humPM, S.msm, S.fee, S.lhccUniform, S.cfr438, S.cfr433],
+    sources: [S.humCLI, S.humForm, S.humPM, S.msm, S.fee, S.lhccUniform, S.cfr438, S.cfr433, { title: 'Humana Healthy Horizons in Louisiana — Communications and network notices (provider notices + newsletter archive)', url: 'https://provider.humana.com/medicaid/louisiana-medicaid/communications-network-notices' }],
     deliveryRules: {
       supervision: {
         value: 'LA.CLI.022 adopts the state ratio: "Supervision shall be approved on a 2:10 basis, that is two hours of supervision for every ten hours of therapy," part of it in the presence of the member and the CaBA or RLT, not when the supervisor is delivering direct therapy, and no more than 24 technicians a day or 10 CaBAs.',
@@ -978,7 +978,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       { title: 'IEP or IFSP', desc: 'Dated copy, if the child has one; the form asks whether services happen at school.' },
       { title: 'Primary insurer decision', desc: 'Required when the child has other coverage; without it the authorization stays pending.' },
     ],
-    sources: [S.lhccUM49, S.lhccUniform, S.lhccForm, S.lhccPA, S.msm, S.fee, S.cfr438, S.cfr433],
+    sources: [S.lhccUM49, S.lhccUniform, S.lhccForm, S.lhccPA, S.msm, S.fee, S.cfr438, S.cfr433, { title: 'Louisiana Healthcare Connections — Newsroom (provider notices archive)', url: 'https://www.louisianahealthconnect.com/newsroom.html' }],
     deliveryRules: {
       supervision: {
         value: 'LA.UM.49 follows and attaches the LDH manual, whose ratio applies. ' + LA_MCD_SUPERVISION,
@@ -1654,7 +1654,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       { title: 'School plan', desc: 'If ABA is at school: the high-support periods, teacher interviews and expected hours per day.' },
       { title: 'Louisiana prescriber', desc: 'The mandate covers treatment ordered by a Louisiana-licensed physician or psychologist.' },
     ],
-    sources: [S.labPol, S.labFAQ, S.labAut, S.labBH, S.labClaims, S.rs1050, S.rs3702, S.rs3706, S.rs3708, S.rs3715, S.rs3716, S.rs3704, S.rs12234, S.rs3718, S.rs1821, S.rs1832, S.rs1833, S.rs1836, S.bacbLic, S.fee, S.erisa, S.cfr433, S.tricare, S.champva],
+    sources: [S.labPol, S.labFAQ, S.labAut, S.labBH, S.labClaims, S.rs1050, S.rs3702, S.rs3706, S.rs3708, S.rs3715, S.rs3716, S.rs3704, S.rs12234, S.rs3718, S.rs1821, S.rs1832, S.rs1833, S.rs1836, S.bacbLic, S.fee, S.erisa, S.cfr433, S.tricare, S.champva, { title: 'Louisiana Blue — Provider newsletters (Provider Network News, current issues + archive)', url: 'https://providers.lablue.com/newsletters' }],
     deliveryRules: {
       supervision: {
         value: 'Louisiana Blue publishes no numeric ratio. SCABAs and RLTs "Cannot bill directly" and are billed through the supervising LBA, and the school rules expect RLTs to be trained and certified in ABA, preferably with 6 months’ experience. State law requires RLTs to be registered by their supervising LBA.',
