@@ -12,6 +12,11 @@ const S: Record<string, PayerSource> = {
   saInstr: { title: 'NH Medicaid — Service Authorization Requirements, FFS Authorization Form Instructions (07/01/2023)', url: 'https://nhmmis.nh.gov/portals/wps/wcm/connect/cfb10baa-0c2d-4ee3-9561-98800ef579ce/Instructions+Fee-for-Service+Authorization+Forms+07.2023.pdf?MOD=AJPERES&CVID=oDviiov' },
   nonPrimary: { title: 'NH Medicaid — Non-Primary Payer Claim Billing Requirements (updated May 23, 2023)', url: 'https://nhmmis.nh.gov/portals/wps/wcm/connect/9d07a0a4-82af-46c4-b758-d1a911bd9753/NH+Medicaid+Non-Primary+Claim+Billing+Requirements.pdf?MOD=AJPERES&CVID=oywGTyK' },
   mmisDocs: { title: 'NH MMIS — Documents and Forms (FFS service authorizations, fee schedules)', url: 'https://nhmmis.nh.gov/portals/wps/portal/DocumentsandForms' },
+  gbm: { title: 'NH Medicaid General Billing Manual — Volume I (August 2026)', url: 'https://nhmmis.nh.gov/portals/wps/wcm/connect/d05dd92b-8581-449d-8565-cf73197ea167/GENERAL+BILLING+-+Volume+I+-+August+2026.pdf?MOD=AJPERES&CVID=q0nQrG9' },
+  epsdtMan: { title: 'NH Medicaid EPSDT Services Provider Manual — Volume II (August 2026)', url: 'https://nhmmis.nh.gov/portals/wps/wcm/connect/d05e39f7-4984-4df6-9325-e43f1d45fa08/EPSDT+Manual+-+Provider+Manual+II+-+August+2026.pdf?MOD=AJPERES&CVID=q0nQMKv' },
+  evvList: { title: 'NH DHHS — Services under consideration for Electronic Visit Verification (EVV), updated May 2026', url: 'https://www.dhhs.nh.gov/sites/g/files/ehbemt476/files/documents2/evv-services-list.pdf' },
+  acnhLookup: { title: 'AmeriHealth Caritas — Prior Authorization Lookup (acnh), code queries 97151–97158, 0362T, 0373T, H0031, H0032, H2019 (Oct. 18, 2026)', url: 'https://priorauthlookup.amerihealthcaritas.com/api/CptCodeLookup?planname=acnh&cptCode=97152&cptDate=2026-10-18' },
+  nhhfLookup: { title: 'NH Healthy Families — Medicaid Pre-Auth Check (Centene lookup), code queries 97151–97158, 0362T, 0373T, H0031, H0032, H2019 (Oct. 18, 2026)', url: 'https://www.nhhealthyfamilies.com/providers/preauth-check/medicaid-pre-auth.html' },
   mcm: { title: 'NH DHHS — Medicaid Care Management (the three Medicaid health plans)', url: 'https://www.dhhs.nh.gov/programs-services/medicaid/medicaid-care-management' },
   rsa417E: { title: 'RSA 417-E:1–2 — Coverage for biologically-based mental illnesses; treatment of pervasive developmental disorder or autism', url: 'https://www.gencourt.state.nh.us/rsa/html/XXXVII/417-E/417-E-mrg.htm' },
   hb569: { title: 'HB 569 (2010), Laws 2010 ch. 363 — as enacted, with the original ABA dollar caps', url: 'https://gc.nh.gov/legislation/2010/HB0569.html' },
@@ -31,20 +36,27 @@ const S: Record<string, PayerSource> = {
   nhhfTip: { title: 'NH Healthy Families — Transition of ABA Services to Behavioral Health Platform, Billing Tip Sheet (eff. 6/1/2024)', url: 'https://www.nhhealthyfamilies.com/content/dam/centene/NH%20Healthy%20Families/Medicaid/pdfs/NHHF_Ambetter_ABA_Transition.pdf' },
   nhhfPreAuth: { title: 'NH Healthy Families — Medicaid Pre-Auth Check (code lookup)', url: 'https://www.nhhealthyfamilies.com/providers/preauth-check/medicaid-pre-auth.html' },
   wsForm: { title: 'WellSense — Applied Behavioral Analysis Prior Authorization Form, New Hampshire (updated 11/14/2025)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_NH.pdf' },
-  wsMatrix: { title: 'WellSense — Behavioral Health Prior Authorization/Notification Requirements, NH (effective 07/01/2026)', url: 'https://www.wellsense.org/hubfs/Provider/Prior%20Authorization/Behavioral_Health_Prior_Auth_Matrix_NH.pdf' },
+  wsMatrix: { title: 'WellSense — Behavioral Health Prior Authorization/Notification Requirements, NH (effective 10/01/2026)', url: 'https://www.wellsense.org/hubfs/Provider/Prior%20Authorization/Behavioral_Health_Prior_Auth_Matrix_NH.pdf' },
   wsPM: { title: 'WellSense — New Hampshire Provider Manual (effective December 1, 2025; 2026 posting)', url: 'https://www.wellsense.org/hubfs/Provider/Provider%20Manual/NH_Provider_Manual_2026.pdf' },
   wsBH: { title: 'WellSense — Behavioral health (where to submit claims: Carelon vs. WellSense by date of service)', url: 'https://www.wellsense.org/providers/behavioral-health' },
   wsPA: { title: 'WellSense — Prior authorization (forms and portal)', url: 'https://www.wellsense.org/providers/prior-authorization' },
   anthemRG: { title: 'Anthem BCBS — Applied Behavior Analysis Provider Resource Guide (multi-state incl. New Hampshire, June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' },
-  anthemNHPA: { title: 'Anthem BCBS — New Hampshire Precertification/Prior Authorization List (updated 7/1/26)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/NH_PA_List.pdf' },
+  anthemNHPA: { title: 'Anthem BCBS — New Hampshire Precertification/Prior Authorization List (updated 10/15/26)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/NH_PA_List.pdf' },
   hpMNG: { title: 'Point32Health MNG — Applied Behavioral Analysis (ABA) for Commercial Products and Tufts Health Direct (eff. July 1, 2026)', url: 'https://wwwassets.point32health.org/documents/aba-commercial-iq-comm-mng' },
   hpPP: { title: 'Point32Health Payment Policy — Applied Behavioral Analysis (ABA) Services (rev. 05/2026)', url: 'https://www.point32health.org/documents/applied-behavioral-analysis-aba-services-pp' },
   hpRef: { title: 'Harvard Pilgrim Health Care Provider Manual — Referral Policy and Procedures (March 2026)', url: 'https://www.point32health.org/documents/d-1-referral-policy-pm' },
   hpMaxUnits: { title: 'Point32Health Payment Policy — Maximum Units (rev. 09/2026)', url: 'https://www.point32health.org/documents/maximum-units-pp' },
   hpCoding: { title: 'Point32Health Payment Policy — General Coding and Claims Editing (rev. 10/2026)', url: 'https://www.point32health.org/documents/general-coding-and-claims-editing-pp' },
   cmsMUE: { title: 'CMS — Medicare NCCI Practitioner Services MUE table, effective 10/1/2026 (97151–97158, 0362T, 0373T)', url: 'https://www.cms.gov/files/zip/medicare-ncci-2026-q4-practitioner-services-mue-table.zip' },
-  hpNews: { title: 'Point32Health — Applied behavioral analysis policy and coverage updates (Oct 2025, eff. 1/1/2026)', url: 'https://www.point32health.org/provider/applied-behavioral-analysis-policy-and-coverage-updates-102025' },
-  aetnaCPB: { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+  hpNotice0226: { title: 'Point32Health — ABA services: authorization and accreditation updates (February 2026)', url: 'https://www.point32health.org/provider/aba-services-authorization-and-accreditation-updates-022026' },
+  hpNotice0926: { title: 'Point32Health — ABA accreditation requirements and deadlines (September 2026)', url: 'https://www.point32health.org/provider/aba-accreditation-requirements-and-deadlines-092026' },
+  hpClean: { title: 'Harvard Pilgrim Provider Manual — Clean Claims (F.2, 2026)', url: 'https://www.point32health.org/documents/f-clean-claims-pm' },
+  hpSubmit: { title: 'Harvard Pilgrim Provider Manual — Claims Submission Guidelines (F.9, May 2025)', url: 'https://www.point32health.org/documents/f-claims-submission-guidelines-pm' },
+  hp1500: { title: 'Harvard Pilgrim Provider Manual — Completing a Paper CMS-1500 (02-12) Form (F.17, May 2025)', url: 'https://www.point32health.org/documents/f-completing-cms-1500-02-12-form-pm' },
+  hpReplace: { title: 'Harvard Pilgrim Provider Manual — Replacement Claim Billing (F.29, January 2024)', url: 'https://www.point32health.org/documents/f-replacement-claims-billing-pm' },
+  hpCOB: { title: 'Harvard Pilgrim Provider Manual — Coordination of Benefits (COB) Claims (F.32, January 2024)', url: 'https://www.point32health.org/documents/f-coordination-benefits-cob-claims-pm' },
+  hpFLA: { title: 'Harvard Pilgrim Provider Manual — Filing Limit Appeals (G.3, July 2025)', url: 'https://www.point32health.org/documents/g-filing-limit-appeals-pm' },
+  aetnaCPB: { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
   aetnaCPB648: { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
   aetnaGuide: { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
   aetnaPrecert: { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
@@ -134,6 +146,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
         body: [
           'Members not enrolled in a health plan go through DHHS. Form 272A, "Request for Service Authorization for ABA Services (Fee-for-Service (FFS) Program Only - Not for Managed Care program use)," goes by encrypted email to ServiceAuthorizationFFS@dhhs.nh.gov or fax to (603) 314-8101. It asks for the diagnosis in words, any alternate insurance, the performing therapist’s and requesting facility’s Medicaid IDs, and for each code the hours per week, total units and dates. The packet must include the physician’s order, clinical notes supporting medical necessity (therapy care plan, progress notes, and a "Face to Face PCP visit note within one year"), goals and objectives, and a letter of medical necessity, with the ABA provider certifying the services are "medically necessary and cost effective." Incomplete requests are held 30 days, not denied; once DHHS approves, the fiscal agent has "up to three business days" to create the authorization.',
           'Which codes need that authorization is set by the fee schedule’s SA column. On the 2026 Covered Procedures Report (run July 24, 2026) the ABA lines are: 97151 $16.43 (SA Y, max 32 units), 97153 $17.79 (SA Y, 32), 97154 $6.50 (SA N, 18; priced from 9/1/2025), 97155 $16.43 (SA Y, 24), 97156 $16.43 (SA Y, 32), and 0373T $35.58 (SA N, 32), all per 15-minute unit and, except 97154, priced since 7/1/2023. 97151 and 97153 also carry a TM-modifier line at the same rate with no SA and an 8-unit maximum. 97152, 97157, 97158 and 0362T do not appear on the schedule. These are the only published ABA rates in the state and a floor, not a guide, for plan negotiations.',
+          'What a request must carry: Form 272A asks providers to attach the physician’s order and “clinical notes supporting the medical necessity for the requested services, including but not limited to the following: Therapy Care Plan, and progress notes, Face to Face PCP visit note within one year,” with goals and objectives specified, plus a letter of medical necessity. It sets no separate reauthorization checklist and does not ask for graphs.',
         ],
         cites: [S.form272A, S.saInstr, S.fee, S.mmisDocs],
       },
@@ -149,9 +162,16 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
         h2: 'What is the New Hampshire Medicaid timely filing limit?',
         body: [
           'He-W 521.04(a): a provider "shall submit fee-for-service claims for payment to the department’s fiscal agent within 12 months of the earliest date of service, as required by 42 CFR 447.45." A denied claim that can be corrected may be resubmitted within 12 months of the earliest date of service, and MCO claims follow "the MCO contract obligation" instead, so each Granite Advantage or Medicaid Care Management plan’s manual sets its own limit.',
+          'The General Billing Manual (Volume I, August 2026) adds the mechanics. Initial claims are due “within one year following the earliest date of service on the claim.” A claim filed on time but denied, and now past a year, is resubmitted on paper with Form 957X (“Override Request”) and the RA with the denial circled, and must arrive within 15 months of the date of service. Denied claims are corrected by resubmitting them as a new claim; a paid claim is corrected only through an adjustment, and resubmitting it denies as a duplicate. Medicare crossover claims are due within 12 months of the date of service. If another insurer has not answered within six months of billing, you may send Medicaid a paper claim saying so.',
+          'Payment runs weekly: “The NH Medicaid program issues payment on a weekly basis for claims adjudicated in the previous week,” with one net payment and a weekly Remittance Advice. The manual publishes no submission cut-off day or time. Claim disputes go first to the fiscal agent (Provider Inquiry on the portal or Provider Relations), then to the Department in writing, then to the Administrative Appeals Unit within 30 days of the Department’s letter; MCO-enrolled providers must first exhaust the plan’s process.',
+          'On the claim, providers identified as “rendering, ordering, referring, prescribing” must have an NPI on file with NH Medicaid and on the claim, and processing depends on crosswalking the NPI and taxonomy code to the Medicaid provider ID; when several locations share one NPI, taxonomy and address, processing is affected. The service authorization number is not required on the claim. ABA is billed on the CPT lines of the fee schedule; it lists no H0031 or H0032 line. DHHS’s EVV service list (updated May 2026), which applies to services delivered in the home, names home health, personal care, private duty nursing and respite codes and no ABA code, so EVV does not apply to ABA.',
         ],
         cites: [
           { title: 'N.H. Admin. Rules He-W 521.04 — Claim Submission (He-W 500 chapter)', url: 'https://www.gencourt.state.nh.us/rules/state_agencies/he-w500.html' },
+          S.gbm,
+          S.epsdtMan,
+          S.fee,
+          S.evvList,
         ],
       },
     ],
@@ -162,7 +182,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { title: 'Other insurance', desc: 'Commercial coverage is billed first and its PA rules must be followed; Medicaid only picks up what is left.' },
       { title: 'Age', desc: 'EPSDT covers members under 21. No adult ABA benefit was found.' },
     ],
-    sources: [S.heW500, S.mcm, S.form272A, S.saInstr, S.fee, S.mmisDocs, S.nonPrimary, S.acnhPM, S.wsPM, S.nhhfTip, S.bacbLic, S.cfr440, S.cfr433, S.rsa167],
+    sources: [S.heW500, S.mcm, S.form272A, S.saInstr, S.fee, S.mmisDocs, S.nonPrimary, S.acnhPM, S.wsPM, S.nhhfTip, S.bacbLic, S.cfr440, S.cfr433, S.rsa167, S.gbm, S.epsdtMan, S.evvList],
     deliveryRules: {
       supervision: {
         value: 'No numeric ratio is published. The only written NH Medicaid ABA staffing rule, He-W 589.04(ah), requires a BCBA with a BACB supervisory certification when supervising, and lets a rehabilitation assistant, BCaBA or RBT deliver ABA "under the appropriate supervision of" that BCBA. It appears in the Medicaid to Schools rule; no separate supervision rule for home or clinic ABA was found.',
@@ -170,11 +190,11 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
         cites: [S.heW500],
       },
       concurrentBilling: {
-        value: 'Not addressed in any NH Medicaid source read. The fee schedule lists 97153 and 97155 as separate lines with separate SA flags but says nothing about billing them for the same clock time.',
+        value: 'No NH Medicaid document addresses it. The fee schedule lists 97153 and 97155 as separate lines with separate SA flags, and neither the General Billing Manual (Volume I, August 2026) nor the EPSDT provider manual (Volume II, August 2026), which has no ABA-specific section, says whether they may be billed for the same clock time. Ask before billing overlapping time.',
         status: 'unverified',
-        cites: [S.fee],
-        verifyVia: 'NH Medicaid Provider Relations, (603) 223-4774 or (866) 291-1674, or the NH MMIS provider-specific billing manual (Volume II) for the ABA provider type.',
-        blocker: 'document',
+        cites: [S.fee, S.gbm, S.epsdtMan],
+        verifyVia: 'NH Medicaid Provider Relations, (603) 223-4774 or (866) 291-1674 (FFS), or the member’s health plan for MCO members: ask whether 97155 may overlap 97153 for the same minutes.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value: 'The 2026 fee schedule’s maximum-units column lists: 97151, 32; 97153, 32; 97154, 18; 97155, 24; 97156, 32; 0373T, 32; and 8 on the TM-modifier lines for 97151 and 97153. Authorized amounts beyond that are set per request on Form 272A (hours per week, total units, dates of service).',
@@ -182,11 +202,9 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
         cites: [S.fee, S.form272A],
       },
       noteSignature: {
-        value: 'Form 272A must be signed by the ABA provider, certifying the services are "medically necessary and cost effective," and needs a signed physician’s order and letter of medical necessity. EPSDT providers must keep supporting records under He-W 520. No NH Medicaid source read says who signs each session note or by when.',
-        status: 'unverified',
-        cites: [S.form272A, S.saInstr, S.heW500],
-        verifyVia: 'NH MMIS General Billing Manual Volume I (record-keeping) and the provider-specific Volume II, via nhmmis.nh.gov; or NH Medicaid Provider Relations, (866) 291-1674.',
-        blocker: 'document',
+        value: 'NH Medicaid’s General Billing Manual (Volume I, August 2026) sets the record rules for every provider. Records must be typed or legible, dated, identify the member, “Document the name of the performing provider,” and support medical necessity. Clinical records must “document each member encounter”, including the date of service, the procedures performed, the member’s progress and response to treatment, physician orders and the “Signature and title” of the provider. Billing records are kept at least six years from the date of service. The manual sets no deadline for signing a note. For FFS ABA, Form 272A must also be signed by the ABA provider, with a signed physician’s order and letter of medical necessity, and a paper CMS-1500 must be signed and dated in box 31 on or after the last date of service.',
+        status: 'verified',
+        cites: [S.gbm, S.epsdtMan, S.form272A],
       },
       placeOfService: {
         value: 'School-based ABA is billed through the Medicaid to Schools program (He-W 589), where the school district is the enrolled provider and the BCBA is a "performing-only" provider. The fee schedule carries separate TM-modifier lines for 97151 and 97153 with no SA. No NH Medicaid source read restricts home, clinic or community settings.',
@@ -211,18 +229,18 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
         cites: [S.form272A],
       },
       diagnosingProviders: {
-        value: 'No NH Medicaid source read names who may make the ASD diagnosis. He-W 589.04(aj) names who must recommend ABA: a licensed clinician experienced in diagnosing and treating ASD who is a physician, psychologist, or a nurse practitioner or physician’s associate specializing in developmental medicine.',
+        value: 'No NH Medicaid document names who may make the ASD diagnosis; the General Billing Manual and the EPSDT provider manual (August 2026) are silent too. He-W 589.04(aj) names who must recommend ABA: a licensed clinician experienced in diagnosing and treating ASD who is a physician, psychologist, or a nurse practitioner or physician’s associate specializing in developmental medicine.',
         status: 'unverified',
-        cites: [S.heW500],
+        cites: [S.heW500, S.gbm, S.epsdtMan],
         verifyVia: 'DHHS Medicaid Medical Services (ServiceAuthorizationFFS@dhhs.nh.gov) for FFS members, or the member’s health plan for MCO members.',
-        blocker: 'document',
+        blocker: 'per-case',
       },
       diagnosticTools: {
-        value: 'No named diagnostic instrument appears in any NH Medicaid source read. He-W 546 covers developmental screening "with a standardized validated tool of the provider’s choice," but says nothing about the ASD diagnostic tool.',
+        value: 'No NH Medicaid document names an ASD diagnostic instrument, including the General Billing Manual and the EPSDT provider manual (August 2026). He-W 546 covers developmental screening "with a standardized validated tool of the provider’s choice," but says nothing about the ASD diagnostic tool.',
         status: 'unverified',
-        cites: [S.heW500],
+        cites: [S.heW500, S.gbm, S.epsdtMan],
         verifyVia: 'DHHS Medicaid Medical Services (ServiceAuthorizationFFS@dhhs.nh.gov) or the member’s health plan.',
-        blocker: 'document',
+        blocker: 'per-case',
       },
       referral: {
         value: 'Yes. ABA must be "recommended by a licensed clinician" (physician, psychologist, or developmental-medicine NP or PA) under He-W 589.04(aj), and the FFS Form 272A packet must include a signed physician’s order, a letter of medical necessity, and a PCP face-to-face visit note from within one year.',
@@ -251,6 +269,9 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { q: 'What does New Hampshire Medicaid pay for ABA?', a: 'The 2026 fee-for-service schedule pays, per 15-minute unit: 97151, 97155 and 97156 $16.43; 97153 $17.79; 97154 $6.50; 0373T $35.58. The health plans pay contracted rates, which are not published.' },
       { q: 'Does a BCBA need a New Hampshire license?', a: 'No. New Hampshire does not license behavior analysts. Medicaid, the plans and the commercial mandate all rely on BACB certification (BCBA, BCaBA, RBT).' },
       { q: 'Can NH Medicaid ABA be done by telehealth, including the assessment?', a: 'Yes. RSA 167:4-d makes NH Medicaid cover telehealth on the same basis as in-person care, from any site including the home, and names BACB-certified professionals and the staff they supervise among the providers who may use it. That covers the 97151 assessment and 97155 supervision when medically necessary. No NH document sets an ABA code list or POS, so confirm billing details with NH MMIS or the health plan.' },
+      { q: 'When does New Hampshire Medicaid pay ABA claims?', a: 'Weekly. Fee-for-service payment is issued each week for claims adjudicated the previous week, with a weekly Remittance Advice. No submission cut-off time is published. MCO members follow their plan’s payment schedule.' },
+      { q: 'Does EVV apply to ABA in New Hampshire Medicaid?', a: 'No ABA code is on DHHS’s EVV service list (updated May 2026), which covers home health, personal care, private duty nursing and respite delivered in the home.' },
+      { q: 'Does New Hampshire Medicaid need a taxonomy or referring NPI on the claim?', a: 'Rendering, ordering and referring providers must have an NPI on file and on the claim, and claims are processed by crosswalking the NPI and taxonomy to the Medicaid provider ID.' },
       { q: 'What is the New Hampshire Medicaid timely filing limit?', a: 'Twelve months from the earliest date of service for fee-for-service claims (He-W 521.04). MCO claims follow each plan’s contract; the three NH MCOs allow 120 days.' },
     ],
   },
@@ -311,9 +332,12 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
         h2: 'What are AmeriHealth Caritas New Hampshire’s claim filing, payment and appeal deadlines?',
         body: [
           'AmeriHealth Caritas NH’s manual: in-network claims "must be submitted to AmeriHealth Caritas New Hampshire within 120 calendar days from the date of service," and claims need the NPI of the ordering, rendering and prescribing provider plus "NPI and Taxonomy." The plan pays or denies 95% of clean claims within 30 calendar days and pays 99% within 90. Provider appeals must be filed in writing "within 60 calendar days" of the plan’s adverse-action notice, with a written resolution within 30 calendar days. The plan may extend that deadline by 60 calendar days when it needs more documentation from the provider, and then resolves the appeal within 30 calendar days of receiving it. Peer-to-peer review is offered before an appeal if you call 1-833-472-2264 within five business days of the determination.',
+          'Codes and claim fields. AmeriHealth Caritas NH’s prior-authorization lookup (queried October 18, 2026) requires authorization for 97151, 97153, 97154, 97155, 97156 and 0373T, and answers for 97152, 97157, 97158 and 0362T that the code “is not on the New Hampshire Medicaid Fee Schedule and prior authorization is required.” It gives the same answer for H0031 and H0032; H2019 (therapeutic behavioral services) requires authorization but is not an ABA code on the state fee schedule. The manual’s mandatory claim fields include the “Name of referring physician, if appropriate,” CPT codes “with appropriate modifiers,” the CMS place-of-service code, the NPI of the ordering, rendering and prescribing physician, and NPI and taxonomy. EVV: the manual says claims for home-based services (home therapy, skilled nursing, home infusion, home health aide, private duty nursing and personal care) “must be submitted through Authenticare”; ABA is not on that list, and DHHS’s EVV service list (updated May 2026) names no ABA code.',
         ],
         cites: [
           { title: 'AmeriHealth Caritas New Hampshire — Provider Manual (Claims Submission Protocols; Provider Appeals)', url: 'https://www.amerihealthcaritasnh.com/content/dam/amerihealth-caritas/acnh/pdf/provider/provider-manual.pdf.coredownload.inline.pdf' },
+          S.acnhLookup,
+          S.evvList,
         ],
       },
     ],
@@ -323,7 +347,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { title: 'Other insurance', desc: 'The plan is payer of last resort; bill the primary first and attach its EOB within 60 days.' },
       { title: 'Current authorizations', desc: 'New members get 60 days of continuity for ongoing treatment; capture any prior plan’s authorization.' },
     ],
-    sources: [S.acnhPM, S.acnhPA, S.mcm, S.heW500, S.cfr438, S.cfr433, S.bacbLic, S.rsa167],
+    sources: [S.acnhPM, S.acnhPA, S.mcm, S.heW500, S.cfr438, S.cfr433, S.bacbLic, S.rsa167, S.acnhLookup, S.evvList],
     deliveryRules: {
       supervision: {
         value: 'The plan publishes no ABA supervision rule of its own. The state rule applies: He-W 589.04(ah) requires a BCBA with a BACB supervisory certification when supervising, and lets a BCaBA, RBT or rehabilitation assistant deliver ABA under that BCBA’s "appropriate supervision," with no numeric ratio.',
@@ -485,9 +509,12 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
         h2: 'What are NH Healthy Families’ claim filing, payment and appeal deadlines?',
         body: [
           'NH Healthy Families’ January 2026 manual: "Claims will not be accepted for payment after one hundred and twenty (120) days from the date of service" (120 days from the primary payer’s disposition when it is secondary). Reconsiderations and corrected claims are due within 180 days of the payment or denial notice and no later than 15 months from the date of service, and claim appeals within 60 calendar days of the EOP. Clean claims are adjudicated 95% within 30 calendar days and 99% within 90. When a rendering provider is required, the rendering NPI goes in box 24Jb, and the plan encourages the taxonomy code in 24Ja.',
+          'Codes. NH Healthy Families’ Medicaid pre-auth check (queried October 18, 2026) requires pre-authorization for 97151, 97153, 97155, 97156 and 0373T as behavioral health services, and for 97154 adds that it “is covered only when the member qualifies under the EPSDT benefit.” For 97152, 97157 and 97158 it answers “This service is not covered under New Hampshire Healthy Families,” and 0362T returns no entry. H0031 and H0032 are “not covered under NHHF Behavioral Health.” EVV: the January 2026 manual has no EVV rule for ABA, and DHHS’s EVV service list (updated May 2026) names no ABA code.',
         ],
         cites: [
           { title: 'NH Healthy Families — Provider Manual (January 2026): Timely Filing, Claim Payment, Reconsiderations and Appeals', url: 'https://www.nhhealthyfamilies.com/content/dam/centene/NH%20Healthy%20Families/Medicaid/pdfs/NHHF_Provider_Manual_January_2026_CLEAN_version.pdf' },
+          S.nhhfLookup,
+          S.evvList,
         ],
       },
     ],
@@ -497,7 +524,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { title: 'Treatment plan for the OTR', desc: 'Direct treatment, supervision and parent-training hours, which map to 97153, 97155 and 97156.' },
       { title: 'Other insurance', desc: 'The plan is payer of last resort; tell it if the family won’t help identify other coverage.' },
     ],
-    sources: [S.nhhfPP07, S.nhhfTip, S.nhhfPM, S.nhhfPreAuth, S.mcm, S.heW500, S.cfr438, S.cfr433, S.rsa167, S.nhhfIQ, S.nhhf105],
+    sources: [S.nhhfPP07, S.nhhfTip, S.nhhfPM, S.nhhfPreAuth, S.mcm, S.heW500, S.cfr438, S.cfr433, S.rsa167, S.nhhfIQ, S.nhhf105, S.nhhfLookup, S.evvList],
     deliveryRules: {
       supervision: {
         value: 'NH.PP.07 treats 97155 as "Supervision of a Technician" but sets no ratio, and the plan publishes no other supervision rule. The state rule applies: a BCBA with BACB supervisory certification supervises BCaBAs, RBTs and rehabilitation assistants, with no numeric ratio (He-W 589.04(ah)).',
@@ -602,7 +629,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       cites: [S.wsForm, S.wsMatrix],
     },
     treatmentPA: {
-      value: 'Yes. "Prior authorization required" for NH Medicaid ABA (matrix eff. 7/1/2026); continued services requested for up to 6 months on pages 1–6 of the form, units per period',
+      value: 'Yes. "Prior authorization required" for NH Medicaid ABA (matrix eff. 10/1/2026); continued services requested for up to 6 months on pages 1–6 of the form, units per period',
       status: 'verified',
       cites: [S.wsMatrix, S.wsForm, S.wsPM],
     },
@@ -635,23 +662,27 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
         body: [
           'WellSense’s "Applied Behavioral Analysis Prior Authorization Form, New Hampshire" (updated November 14, 2025) runs in two steps. A "Request for initial evaluation" is pages 1–3 plus the "Comprehensive diagnostic evaluation completed by a neurologist, pediatrician, psychiatrist, psychologist, or other licensed physician experienced in autism." A "Request for continued services" is pages 1–6: prior ABA providers, school and community services, parent participation, coordination with the PCP, behavioral health, school and occupational therapy providers, medications, and a goals table (or an attached treatment plan with the same content), signed by the treating BCBA. "For initial request, you may request services for 3-month timeframe. For continued services, you may request services for 6-month timeframe." Units are requested for the whole period: "Please do NOT request units per week."',
           'The Medicaid code list on the form is 97151, 97153, 97154, 97155 and 97156; 97152, 97157 and 97158 appear only in the NH Clarity and Medicare section. The form asks for the agency NPI and tax ID, the BCBA’s NPI and "BCBA license #" (New Hampshire issues none, so expect to give the BACB certification number and confirm with the plan). Submit through the HealthTrio provider portal, which WellSense says can return real-time decisions, or fax 857-264-2670.',
+          'Reauthorization: continued services are requested for up to six months by submitting pages 1–6 of the form, completed by the BCBA rendering or supervising the services. Those pages ask for every ABA provider the child has had, school and community services, other therapies and medications, and a treatment-goals table for the behaviors being changed (a treatment plan with the same content may be attached instead). The form does not ask for graphs.',
         ],
         cites: [S.wsForm, S.wsPA, S.wsMatrix],
       },
       {
         h2: 'Criteria, credentialing and the behavioral health vendor change',
         body: [
-          'WellSense’s July 2026 behavioral health matrix says the plan uses InterQual criteria (the 2026 sets from June 1, 2026), ASAM or internal medical policies, and for ABA refers New Hampshire Medicaid members to its medical policy "for additional requirements." That policy sits on WellSense’s PolicyTech site, which did not load for automated retrieval. Behavioral health claims also moved in-house: for New Hampshire Medicaid, dates of service through November 30, 2025 went to Carelon and dates of service from December 1, 2025 go to WellSense (inpatient excepted), so older Carelon-era billing instructions no longer apply. On credentialing, the provider manual lists "applied behavioral analysts" among the practitioners WellSense credentials when they are "permitted to practice independently under New Hampshire law."',
+          'WellSense’s behavioral health matrix (effective October 1, 2026) says the plan uses InterQual criteria (the 2026 sets from June 1, 2026), ASAM or internal medical policies, and for ABA refers New Hampshire Medicaid members to its medical policy "for additional requirements." That policy sits on WellSense’s PolicyTech site, which did not load for automated retrieval. Behavioral health claims also moved in-house: for New Hampshire Medicaid, dates of service through November 30, 2025 went to Carelon and dates of service from December 1, 2025 go to WellSense (inpatient excepted), so older Carelon-era billing instructions no longer apply. On credentialing, the provider manual lists "applied behavioral analysts" among the practitioners WellSense credentials when they are "permitted to practice independently under New Hampshire law."',
         ],
         cites: [S.wsMatrix, S.wsPM, S.wsBH],
       },
       {
         h2: 'What are WellSense New Hampshire’s claim filing and payment deadlines?',
         body: [
-          'WellSense’s NH manual (effective December 1, 2025): claims "must be submitted within one hundred 120 calendar days of service for NH Medicaid" (180 days for CCBHCs), and resubmissions within 240 days of the date of service. WellSense "seeks to process clean claims and reimburse providers within thirty (30) calendar days," and pays interest at the Medicare rate on clean claims unpaid after 30 days. Its CMS-1500 table marks box 24J, rendering provider ID/taxonomy code, as required. Timely-filing denials are disputed through the administrative claims appeal with a Request for Claim Review form.',
+          'WellSense’s NH manual (effective December 1, 2025): claims "must be submitted within one hundred 120 calendar days of service for NH Medicaid" (180 days for CCBHCs), and resubmissions within 240 days of the date of service. WellSense "seeks to process clean claims and reimburse providers within thirty (30) calendar days," and pays interest at the Medicare rate on clean claims unpaid after 30 days. Its CMS-1500 table marks box 24J, rendering provider ID/taxonomy code, as required. Timely-filing denials are disputed through the administrative claims appeal with a Request for Claim Review form. WellSense offers one level of internal administrative claims appeal, filed “within sixty (60) calendar days from the original denial date” through the provider portal or by mail to WellSense Health Plan Provider Appeals, P.O. Box 55049, Boston, MA 02205, with a written narrative, the claim and the remittance advice. After that, a participating provider may ask DHHS’s Administrative Appeals Unit for a State Fair Hearing within 30 calendar days of WellSense’s appeal denial.',
+          'Corrected and secondary claims, and the claim form. Corrected claims for NH Medicaid must carry the original claim number and be received “within 120 calendar days of the original process paid date”; secondary (COB) claims within 120 days of the primary payer’s final payment determination, and the primary’s remittance with the claim within 90 calendar days of receiving it. WellSense’s required-data table for the CMS-1500 marks box 17, “Name of Referring Provider or Other Source,” and 24J, rendering provider ID and taxonomy code, as required on paper and electronic claims. The NH Medicaid code list on the ABA form is 97151, 97153, 97154, 97155 and 97156; no HCPCS H-code appears. EVV: the manual has no EVV rule for ABA, and DHHS’s EVV service list (updated May 2026) names no ABA code.',
         ],
         cites: [
           { title: 'WellSense Health Plan (NH) — Provider Manual (effective December 1, 2025), §§ 9.2, 9.7, 9.15', url: 'https://www.wellsense.org/hubfs/Provider/Provider%20Manual/NH_Provider_Manual_2026.pdf' },
+          S.wsForm,
+          S.evvList,
         ],
       },
     ],
@@ -661,7 +692,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { title: 'Care-coordination contacts', desc: 'PCP, behavioral health provider and school contacts with dates of communication.' },
       { title: 'Other insurance', desc: 'WellSense pays after the primary; you have 120 days from the primary’s determination to bill it.' },
     ],
-    sources: [S.wsForm, S.wsMatrix, S.wsPM, S.wsPA, S.wsBH, S.mcm, S.heW500, S.cfr438, S.cfr433, S.rsa167],
+    sources: [S.wsForm, S.wsMatrix, S.wsPM, S.wsPA, S.wsBH, S.mcm, S.heW500, S.cfr438, S.cfr433, S.rsa167, S.evvList],
     deliveryRules: {
       supervision: {
         value: 'WellSense publishes no New Hampshire ABA supervision ratio; the form only requires naming the BCBA "who will perform/supervise services." The state rule applies: a BCBA with BACB supervisory certification supervises BCaBAs, RBTs and rehabilitation assistants, with no numeric ratio (He-W 589.04(ah)).',
@@ -762,7 +793,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
     family: 'anthem',
     cardDesc: 'New Hampshire’s Blue plan: every ABA code is on the NH precert list, reviewed by Anthem BH on MCG criteria.',
     assessmentPA: {
-      value: 'Yes: 97151 and 97152 are on the New Hampshire precertification list (updated 7/1/26), reviewed by Anthem on MCG criteria; Anthem notes requirements "vary by product and plan"',
+      value: 'Yes: 97151 and 97152 are on the New Hampshire precertification list (updated 10/15/26), reviewed by Anthem on MCG criteria; Anthem notes requirements "vary by product and plan"',
       status: 'verified',
       cites: [S.anthemNHPA],
     },
@@ -802,7 +833,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       {
         h2: 'Precertification in New Hampshire',
         body: [
-          'Anthem’s New Hampshire Precertification/Prior Authorization List (updated July 1, 2026) lists 97151, 97152, 97153, 97154, 97155, 97156, 97157, 97158, 0362T and 0373T. For each, the reviewer is "Anthem" (not Carelon, which handles therapy and imaging on the same list), the criteria are "MCG Guidelines," and the instruction is "Contact Behavioral Health at 800-755-0851," with the caveat that requirements "vary by product and plan. Contact the number on the member’s ID card to verify requirements and eligibility." On HMO plans the rendering provider must request precertification; on PPO plans the network provider is responsible, while a BlueCard or non-participating provider leaves that to the member.',
+          'Anthem’s New Hampshire Precertification/Prior Authorization List (updated October 15, 2026) lists 97151, 97152, 97153, 97154, 97155, 97156, 97157, 97158, 0362T and 0373T. For each, the reviewer is "Anthem" (not Carelon, which handles therapy and imaging on the same list), the criteria are "MCG Guidelines," and the instruction is "Contact Behavioral Health at 800-755-0851," with the caveat that requirements "vary by product and plan. Contact the number on the member’s ID card to verify requirements and eligibility." On HMO plans the rendering provider must request precertification; on PPO plans the network provider is responsible, while a BlueCard or non-participating provider leaves that to the member.',
         ],
         cites: [S.anthemNHPA],
       },
@@ -827,9 +858,13 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
         h2: 'How fast must Anthem pay a clean ABA claim in New Hampshire?',
         body: [
           'New Hampshire’s RSA 420-J:8-a makes health carriers pay clean claims for services rendered in New Hampshire "within 30 calendar days upon receipt of a clean non-electronic claim or 15 calendar days upon receipt of a clean electronic claim," with 1.5% interest per month on overdue claims. A carrier is not in violation for a claim submitted more than 90 days after the service.',
+          'Anthem’s New Hampshire commercial provider manual (effective July 1, 2026) leaves the initial filing limit to the contract: claims “must be submitted within the timely filing timeframe specified in the Provider or Facility Agreement.” Adjustments and corrected claims are due “no later than twelve (12) months from the date of payment or explanation of payment,” sent electronically with frequency code 7 (replacement) or 8 (void) and the original claim number. Claims must carry “complete provider information, including referring, rendering, and billing NPI.” Payment disputes run in two steps: a Claim Payment Reconsideration within 365 days of the EOP issue date, then a Claim Payment Appeal “within ninety (90) days from the date of the determination” of the reconsideration. The manual says nothing about taxonomy codes or electronic visit verification.',
+          'Codes: Anthem’s ABA Provider Resource Guide lists CPT 97151–97158 and Category III codes 0362T and 0373T, with credential modifiers HM (less than bachelor’s), HN (bachelor’s) and HO (master’s), and no HCPCS H-code such as H0031 or H0032. Its place-of-service list gives 12 home, 11 office/clinic, 99 community, 03 school, 10 telehealth with the member at home and 02 telehealth elsewhere, subject to the member’s coverage; allowed telehealth codes come from Anthem’s Virtual Visits reimbursement policy.',
         ],
         cites: [
           { title: 'RSA 420-J:8-a — Prompt Payment Required (New Hampshire)', url: 'https://www.gencourt.state.nh.us/rsa/html/XXXVII/420-J/420-J-8-a.htm' },
+          { title: 'Anthem Blue Cross and Blue Shield — 2026 New Hampshire Commercial Provider Manual (effective July 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_NH_00018.pdf' },
+          S.anthemRG,
         ],
       },
       {
@@ -964,7 +999,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
     treatmentPA: {
       value: 'Yes: 97153–97158, 0362T and 0373T require prior authorization; request via HPHConnect’s InterQual questionnaire or fax 800-232-0816',
       status: 'verified',
-      cites: [S.hpMNG, S.hpNews],
+      cites: [S.hpMNG, S.hpNotice0226],
     },
     dxRequired: {
       value: 'Yes: a definitive ASD diagnosis, ICD-10 F84.0, F84.3, F84.5, F84.8 or F84.9 (Down syndrome is a Massachusetts-only addition)',
@@ -995,10 +1030,10 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       {
         h2: 'The Point32Health guideline, applied in New Hampshire',
         body: [
-          'Point32Health’s October 2025 notice replaced its ABA guideline for commercial plans effective January 1, 2026, and said the new version "will apply for Rhode Island Commercial products in addition to those in MA, ME, and NH." The current edition, "Applied Behavioral Analysis (ABA) for Commercial Products and Tufts Health Direct" (effective July 1, 2026), marks prior authorization "Yes" and lists 97151, 97152, 97153, 97154, 97155, 97156, 97157, 97158, 0362T and 0373T for Harvard Pilgrim commercial products. Harvard Pilgrim requests go through the automated InterQual questionnaire on HPHConnect, with clinical notes uploaded there or faxed to 800-232-0816; outside Massachusetts, use the "Autism Spectrum Disorder Services Prior Authorization Request Form." Two 2026 changes matter for billing: "For Harvard Pilgrim Commercial plans, HCPCS codes H0031 and H0032 will no longer be covered," and for members aged 13–20 the plan "will not use the age-related ‘Limited Evidence’. Age alone will not initiate secondary review" (effective March 1, 2026). Down syndrome coverage without an ASD diagnosis applies to Massachusetts products only.',
+          'Point32Health replaced its commercial ABA guideline effective January 1, 2026. The current edition, "Applied Behavioral Analysis (ABA) for Commercial Products and Tufts Health Direct" (effective July 1, 2026), marks prior authorization "Yes" and lists 97151, 97152, 97153, 97154, 97155, 97156, 97157, 97158, 0362T and 0373T for Harvard Pilgrim commercial products. Harvard Pilgrim requests go through the automated InterQual questionnaire on HPHConnect, with clinical notes uploaded there or faxed to 800-232-0816; outside Massachusetts, use the "Autism Spectrum Disorder Services Prior Authorization Request Form." Two 2026 changes matter for billing. The guideline’s history records “H0031 and H0032 removed from list of applicable codes for HPHC Commercial” from January 1, 2026, and for members aged 13–20 the plan “will not use the age-related ‘Limited Evidence’. Age alone will not initiate secondary review” (effective March 1, 2026). Since February 2026, Point32Health wants ABA prior-authorization requests “under the billing NPI of your practice (type 2) rather than under the NPI of the individual therapist,” for every Point32Health product. Down syndrome coverage without an ASD diagnosis applies to Massachusetts products only.',
           'The payment policy (revised May 2026) lists what Point32Health does not pay for: recreational therapy, respite, "Services provided in a school setting that are covered by the educational system’s special education resources as part of the individual education plan (IEP)," escorting a member to another therapy, "Services provided by an immediate family member," vocational rehabilitation, and unproven treatments such as facilitated communication. For self-insured groups, "coverage may vary depending on the terms of the benefit document."',
         ],
-        cites: [S.hpNews, S.hpMNG, S.hpPP],
+        cites: [S.hpMNG, S.hpPP, S.hpNotice0226],
       },
       {
         h2: 'The New Hampshire mandate: what it guarantees',
@@ -1021,9 +1056,18 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
         h2: 'How fast must Harvard Pilgrim pay a clean ABA claim in New Hampshire?',
         body: [
           'New Hampshire’s RSA 420-J:8-a makes health carriers pay clean claims for services rendered in New Hampshire "within 30 calendar days upon receipt of a clean non-electronic claim or 15 calendar days upon receipt of a clean electronic claim," with 1.5% interest per month on overdue claims. A carrier is not in violation for a claim submitted more than 90 days after the service.',
+          'Harvard Pilgrim’s provider manual sets a standard filing limit of “90 days from the date of service,” and rejected or returned claims must be “corrected, resubmitted and accepted by Harvard Pilgrim no later than 90 days from the date of service.” Replacement claims (frequency code 7, or 8 to void) “must be submitted 90 days from the date of the first Explanation of Payment of the original claim.” When Harvard Pilgrim is secondary, a claim past the 90-day limit must arrive within 90 days of the primary carrier’s EOB, with a copy of it; in New Hampshire, when a primary insurer retroactively denies a previously paid claim, the limit is 180 days from that denial. Benefits for a child on two parents’ plans follow the NAIC birthday rule. Filing-limit appeals are due within 90 days of the original EOP. Harvard Pilgrim says it pays clean claims “within an average of 30 calendar days after receipt.”',
+          'On a paper CMS-1500, box 17 (referring provider) and 17b (its NPI) are optional fields, “the professional who referred or ordered the service”; 24J carries the individual rendering provider’s NPI and 33a the billing NPI. The manual sections read do not ask for a taxonomy code or mention electronic visit verification. Separately, Point32Health now requires every contracted ABA provider to be accredited by an ABA-specific body (it names the Autism Commission on Quality, Jade Health, formerly BHCOE, and Global Autism Project Accreditation): providers in New Hampshire, including center-based ones, by January 1, 2028.',
         ],
         cites: [
           { title: 'RSA 420-J:8-a — Prompt Payment Required (New Hampshire)', url: 'https://www.gencourt.state.nh.us/rsa/html/XXXVII/420-J/420-J-8-a.htm' },
+          S.hpSubmit,
+          S.hpClean,
+          S.hpReplace,
+          S.hpCOB,
+          S.hpFLA,
+          S.hp1500,
+          S.hpNotice0926,
         ],
       },
     ],
@@ -1034,7 +1078,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { title: 'School services', desc: 'Services covered by the school’s special education resources under an IEP are not paid.' },
       { title: 'Other coverage', desc: 'Second parent’s plan (birthday rule), Medicaid, TRICARE or CHAMPVA.' },
     ],
-    sources: [S.hpMNG, S.hpPP, S.hpRef, S.hpMaxUnits, S.hpCoding, S.cmsMUE, S.hpNews, S.rsa417E, S.hb569, S.rsa420J, S.ins1904, S.bacbLic, S.erisa, S.fee, S.p32Tele, S.rsa415J],
+    sources: [S.hpMNG, S.hpPP, S.hpRef, S.hpMaxUnits, S.hpCoding, S.cmsMUE, S.rsa417E, S.hb569, S.rsa420J, S.ins1904, S.bacbLic, S.erisa, S.fee, S.p32Tele, S.rsa415J, S.hpNotice0226, S.hpNotice0926, S.hpSubmit, S.hpClean, S.hpReplace, S.hpCOB, S.hpFLA, S.hp1500],
     deliveryRules: {
       supervision: {
         value: 'Point32Health requires InterQual’s "Applied Behavior Analysis (ABA) Program-Applied Behavior Analysis Supervision" subset for supervision requests, but the criteria inside it are licensed and not published.',
@@ -1056,11 +1100,9 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
         cites: [S.hpMaxUnits, S.cmsMUE],
       },
       noteSignature: {
-        value: 'Not addressed in the ABA MNG or payment policy.',
-        status: 'unverified',
-        cites: [S.hpMNG, S.hpPP],
-        verifyVia: 'Harvard Pilgrim provider manual (documentation standards) or the commercial Provider Service Center, 800-708-4414.',
-        blocker: 'document',
+        value: 'The ABA guideline and payment policy set no rule on who signs a session note. Point32Health’s General Coding and Claims Editing payment policy (rev. 10/2026) sets the timing rule that matters for claims: it “will not accept retrospectively amended medical records or physician queries beyond 30 days from the date of service,” and documentation amended after that “will not be accepted to defend reimbursement, increase reimbursement, or for consideration of a previously denied claim.” Services are billed only once delivered.',
+        status: 'verified',
+        cites: [S.hpCoding, S.hpMNG, S.hpPP],
       },
       placeOfService: {
         value: 'Not paid: "Services provided in a school setting that are covered by the educational system’s special education resources as part of the individual education plan (IEP)," and services "primarily educational in nature." Point32Health’s InterQual subsets include consultation with school personnel. No other setting restriction is published.',
@@ -1134,6 +1176,8 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'What is Harvard Pilgrim’s timely filing limit for ABA in New Hampshire?', a: 'Ninety days from the date of service. Replacement claims are due 90 days from the first EOP, and a secondary claim within 90 days of the primary carrier’s EOB.' },
+      { q: 'Does Harvard Pilgrim require ABA providers to be accredited?', a: 'Yes, from January 1, 2028 for New Hampshire providers: accreditation by an ABA-specific body such as the Autism Commission on Quality, Jade Health (formerly BHCOE) or Global Autism Project.' },
       { q: 'Does Harvard Pilgrim cover ABA in New Hampshire?', a: 'Yes, for members with a definitive ASD diagnosis, under Point32Health’s commercial ABA guideline (effective July 1, 2026), with prior authorization on every ABA code.' },
       { q: 'What criteria does Harvard Pilgrim use for ABA?', a: 'InterQual, through an automated questionnaire on HPHConnect. The criteria are licensed; registered providers can view them in HPHConnect.' },
       { q: 'Does Harvard Pilgrim pay H0031 or H0032 for ABA?', a: 'No. Since January 1, 2026 those codes are no longer covered for Harvard Pilgrim commercial plans.' },
@@ -1187,7 +1231,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       {
         h2: 'The national policy, applied in New Hampshire',
         body: [
-          'Aetna covers ABA for autism spectrum disorder under CPB 0554 (with CPB 0648 for ASD) and considers ABA experimental for other diagnoses. Its behavioral health precertification list names all ten ABA codes, 97151 through 97158, 0362T and 0373T, and ABA precertification runs on form GR-69017-4 through Availity or the number on the card. We checked Aetna’s ABA medical necessity guide: its state exhibits do not include New Hampshire, so the national criteria apply unchanged. Aetna runs no New Hampshire Medicaid plan.',
+          'Aetna covers ABA for autism spectrum disorder under CPB 0648, which CPB 0554 names as the policy “for Applied Behavior Analysis for autism”; CPB 0554 (last review 10/14/2026) considers ABA experimental for Down syndrome without co-occurring ASD and for all other non-ASD indications. Its behavioral health precertification list names all ten ABA codes, 97151 through 97158, 0362T and 0373T, and ABA precertification runs on form GR-69017-4 through Availity or the number on the card. We checked Aetna’s ABA medical necessity guide: its state exhibits do not include New Hampshire, so the national criteria apply unchanged. Aetna runs no New Hampshire Medicaid plan.',
         ],
         cites: [S.aetnaCPB, S.aetnaCPB648, S.aetnaPrecert, S.aetnaGuide],
       },
@@ -1220,6 +1264,14 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
           { title: 'Aetna — Disputes and appeals overview (reconsideration and appeal time frames)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' },
           { title: 'Aetna — Provider appeals: state exceptions to the 180-day dispute filing standard', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/provider-appeals.html' },
         ],
+      },
+      {
+        h2: 'Aetna ABA codes, clean-claim rules and reauthorization data',
+        body: [
+          'Aetna’s behavioral health precertification list (eff. 8/1/2024) identifies ABA as CPT 97151, 97152, 97153, 97154, 97155, 97156, 97157, 97158, 0362T and 0373T, and CPB 0648 lists 97151–97158, “Adaptive Behavior Assessments and treatment”, among the CPT codes covered when its criteria are met. Neither lists a HCPCS H-code such as H0031, H0032 or H2019 for ABA. Aetna’s provider manual (6/26) defines a clean claim as one with all the data elements of the CMS-1500, including the member ID, NPI, dates of service and “a complete and accurate breakdown of services”, plus “a corresponding referral (whether in paper or electronic format), if required for the applicable claim”. A claim that involves coordination of benefits is not a clean claim. The manual does not mention a taxonomy code, a corrected-claim deadline or electronic visit verification. Benefits are coordinated under the NAIC order-of-benefit rules, including the birthday rule for a child whose parents are not separated or divorced, where state or federal law allows; otherwise by the member’s plan.',
+          'For continued authorization, Aetna’s ABA medical necessity guide requires a standardized scale of functioning from the past 12 months (for instance the Vineland-3, ABAS, VB-MAPP or ABLLS), target behaviors with recorded baseline measures and quantifiable criteria for progress, and documentation that the target behavior has improved, or, if it has not, documentation of treatment modification, added assessments or consultation. A member’s progress is evaluated every six months. The guide does not require graphs.',
+        ],
+        cites: [S.aetnaPrecert, S.aetnaCPB648, S.aetnaOM, S.aetnaGuide],
       },
     ],
     collect: [
@@ -1321,6 +1373,8 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Aetna accept H0031 or other H-codes for ABA?', a: 'Aetna’s precertification list and CPB 0648 identify ABA by CPT 97151–97158, 0362T and 0373T. No H-codes are listed for ABA.' },
+      { q: 'Does Aetna require graphs with an ABA reauthorization?', a: 'The ABA medical necessity guide does not say graphs. It requires a standardized functioning scale from the past 12 months, baseline measures with quantifiable progress criteria, and documentation of improvement or of how treatment changed. Progress is evaluated every six months.' },
       { q: 'Does Aetna cover ABA therapy in New Hampshire?', a: 'Yes, under its national policy for ASD, with New Hampshire’s RSA 417-E mandate layered on for fully insured plans. Self-funded employer plans follow their own documents.' },
       { q: 'What does the New Hampshire autism mandate require?', a: 'Coverage of autism treatment including ABA by or under a BACB-certified provider, on terms no less extensive than physical illness, without denial because services are habilitative. The current statute carries no age or dollar cap.' },
       { q: 'What does Aetna pay for ABA in New Hampshire?', a: 'Aetna publishes no ABA rates. Its provider manual says payment follows “the rates and compensation under your agreement,” so the numbers are in your Aetna participation agreement. The only public benchmark is NH Medicaid’s fee-for-service schedule (97153 $17.79 per 15 minutes).' },
@@ -1398,10 +1452,22 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
         body: [
           'New Hampshire’s RSA 420-J:8-a makes health carriers pay clean claims for services rendered in New Hampshire "within 30 calendar days upon receipt of a clean non-electronic claim or 15 calendar days upon receipt of a clean electronic claim," with 1.5% interest per month on overdue claims. A carrier is not in violation for a claim submitted more than 90 days after the service.',
           'Evernorth "will only consider claims submitted within 90 days of the date of service or as otherwise defined in your Provider Agreement," and a longer state-law limit applies where one exists. Appeals are initiated in writing within 180 calendar days of the initial payment or denial decision, and most are resolved within 60 calendar days.',
+          'The same guidelines set the exceptions. When Cigna is secondary, the 90 days run from the primary payer’s processing date on its EOB or EOP; Medicaid has three years. A claim filed on time and returned for more information gets a fresh 90 days from the date of the request. Corrected or replacement claims are not stamped “Corrected Claim”: put frequency code 7 (replacement) or 8 (void) in CMS-1500 field 22. The guidelines’ definition of a complete CMS-1500 lists, among other fields, CPT or HCPCS codes and modifier, place of service, units, the rendering provider’s name, NPI and license type, and the billing provider’s name, address and NPI. It does not list a taxonomy code or a referring provider, and the guidelines say nothing about electronic visit verification.',
         ],
         cites: [
           { title: 'RSA 420-J:8-a — Prompt Payment Required (New Hampshire)', url: 'https://www.gencourt.state.nh.us/rsa/html/XXXVII/420-J/420-J-8-a.htm' },
           { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
+      },
+      {
+        h2: 'Which codes Cigna pays for ABA, and what a reauthorization must show',
+        body: [
+          'EN0499’s coding table lists CPT 97151 through 97158, 0362T and 0373T as the codes considered medically necessary when its criteria are met, and the autism resource guide says Evernorth “utilizes the CPT billing codes proposed by the American Medical Association (AMA) for ABA treatment.” Neither lists a HCPCS H-code such as H0031, H0032 or H2019 for ABA, and EN0499 warns that claims “not accompanied by covered code(s) under the applicable Coverage Policy will be denied as not covered.”',
+          'For continued treatment, EN0499 requires an updated treatment plan; quantitative baseline, interim and current data, with collection dates, for every targeted behavior and skill in every setting; current data collected within 60 days before the start of the continued-treatment request and within 60 days before Evernorth receives it; evidence of progress on a reliable, valid, standardized instrument no more than one year old; and caregiver-training data. The policy does not use the word “graph”. What it asks for is dated quantitative data, plus standardized scores and score tables or “scoring grids/figures”, when applicable, for the assessment instrument. A break in treatment longer than 60 calendar days means a new standardized assessment.',
+        ],
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+          { title: 'Cigna / Evernorth autism resource guide (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
         ],
       },
     ],
@@ -1504,6 +1570,9 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { q: 'What does Cigna pay for ABA in New Hampshire?', a: 'Cigna publishes no ABA rates. Evernorth says your fee schedule and the list of reimbursable autism services are in Exhibit A of your Provider Agreement; call Evernorth Provider Services (800.926.2273) with fee questions. NH Medicaid’s fee-for-service rate for 97153 ($17.79 per 15 minutes) is the only public benchmark.' },
       { q: 'What is Cigna’s clean-claim payment turnaround in New Hampshire?', a: 'Fifteen calendar days for a clean electronic claim and 30 for paper (RSA 420-J:8-a), on plans subject to the Managed Care Law. Claims filed more than 90 days after service lose that protection.' },
       { q: 'What is Cigna’s timely filing limit in New Hampshire?', a: 'Ninety days from the date of service under Evernorth’s administrative guidelines, unless your provider agreement or a longer state-law limit says otherwise.' },
+      { q: 'How long do I have to file a secondary or corrected Cigna claim?', a: 'A secondary claim is due 90 days from the primary payer’s processing date on its EOB or EOP. A claim returned for more information gets 90 days from the date of the request. Mark a corrected claim with frequency code 7 or 8 in field 22.' },
+      { q: 'Does Cigna accept H0031 or other H-codes for ABA?', a: 'No H-codes are listed. Evernorth bills ABA on CPT 97151–97158, 0362T and 0373T, and claims without a covered code are denied as not covered.' },
+      { q: 'Does Cigna require graphs with an ABA reauthorization?', a: 'EN0499 does not say “graphs”. It requires dated baseline, interim and current quantitative data, with current data no more than 60 days old, plus a standardized instrument from within the past year.' },
     ],
   },
 
@@ -1583,6 +1652,14 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
           { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial): timely filing, NPI/taxonomy, claim reconsideration and appeals', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
         ],
       },
+      {
+        h2: 'UnitedHealthcare claim filing, ABA codes and reauthorization data',
+        body: [
+          'Optum’s National Network Manual (effective September 1, 2026), which governs the behavioral health claims Optum administers for UnitedHealthcare, sets the filing clock: “All information necessary to process claims must be received by Optum no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan,” and “Any corrections or additions to a claim should be made within 90 days of initial claim receipt.” Claims with all required information and any required authorization are generally paid “within 45 calendar days after Optum receives the claim, or as required by state and federal laws.” If Optum is secondary you are paid up to the Optum contracted rate; the manual sets no separate secondary-claim deadline and does not mention electronic visit verification.',
+          'Optum’s commercial ABA reimbursement policy (2022RP501A, updated June 2026) lists CPT 97151–97158, each with a credential modifier (HM for an RBT, HN for a BCaBA, HO for a BCBA or licensed clinician, HP for a BCBA-D), plus 0362T and 0373T without modifiers. It lists no HCPCS H-codes such as H0031 or H0032, and says “97151 and 97152 are the only codes eligible for reimbursement for assessment or reassessment activities.” At each continued-treatment review, Optum’s ABA criteria ask for updated documentation showing progress “for each targeted symptom and behavior, including progress toward defined goals, including the same modes of measurement that were utilized for baseline measurement.” They do not require graphs as such.',
+        ],
+        cites: [S.optumNNM, S.optumReimb, S.optumSCC],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (RSA 417-E applies) vs. self-funded ERISA (plan document governs).' },
@@ -1603,9 +1680,9 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
         cites: [S.optumReimb, S.optumSCC],
       },
       dailyLimits: {
-        value: 'No numeric cap. Requested hours must be justified by documented clinical need at the least restrictive appropriate level. At continued-service review, use below 80% of authorized hours over a two-week period must be explained with barriers and a plan.',
+        value: 'Per-day maximums, enforced on the claim. Optum’s commercial ABA reimbursement policy (2022RP501A, updated June 2026) sets a maximum frequency per day for every code: 97151 32 units (8 hours), 97152 16 (4 hours), 97153 32 (8 hours), 97154 18 (4.5 hours), 97155 24 (6 hours), 97156 16, 97157 16, 97158 16, 0362T 16 and 0373T 32. It says “For commercial ABA program MUE’s apply, per CMS guidelines” and “If a provider bills in excess of 32 units per day, claims may be subject to non-reimbursement or recovery.” There is no weekly hour cap: requested hours must be justified by documented clinical need, and at continued-service review use below 80% of authorized hours over a two-week period must be explained with barriers and a plan.',
         status: 'verified',
-        cites: [S.optumSCC],
+        cites: [S.optumReimb, S.optumSCC],
       },
       noteSignature: {
         value: 'Not addressed. The SCC set what must be documented for coverage, not who signs a session note or when.',
@@ -1654,7 +1731,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
         cites: [S.optumSCC, S.rsa417E],
       },
       telehealth: {
-        value: 'Three codes, after an attestation. Optum’s Telehealth Billing guide (updated September 2025) says for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157. These are the procedure codes that identify the virtual supervision of ABA Behavior Technicians and Family Training and Guidance.” So the 97151 assessment and technician 97153 are not on Optum’s telehealth list. Bill POS 10 (home) or 02 (elsewhere). The SCC add that telehealth options “are not intended to supplant in-person service; rather, they are intended to supplement” it. For a fully insured New Hampshire plan, RSA 415-J:3 says an insurer “may not deny coverage on the sole basis that the coverage is provided through telemedicine” and must cover and reimburse it “on the same basis” as in person, with “no restriction on eligible originating or distant sites,” for “all modes of telehealth.” Its list of providers who may use all modes includes “Professionals certified by the national behavior analyst certification board or persons performing services under the supervision of” a BACB certificant “as required by RSA 417-E:2.” Self-funded employer plans are outside the state statute. Ask Optum how it applies the three-code list to a fully insured New Hampshire plan.',
+        value: 'Three codes, after an attestation. Optum’s Telehealth Billing guide (updated September 2025) says for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157. These are the procedure codes that identify the virtual supervision of ABA Behavior Technicians and Family Training and Guidance.” So the 97151 assessment and technician 97153 are not on Optum’s telehealth list. Bill POS 10 (home) or 02 (elsewhere). The SCC add that telehealth options “are not intended to supplant in-person service; rather, they are intended to supplement” it. For a fully insured New Hampshire plan, RSA 415-J:3 says an insurer “may not deny coverage on the sole basis that the coverage is provided through telemedicine” and must cover and reimburse it “on the same basis” as in person, with “no restriction on eligible originating or distant sites,” for “all modes of telehealth.” Its list of providers who may use all modes includes “Professionals certified by the national behavior analyst certification board or persons performing services under the supervision of” a BACB certificant “as required by RSA 417-E:2.” Self-funded employer plans are outside the state statute. Ask Optum how it applies the three-code list to a fully insured New Hampshire plan. The same guide lists telehealth modifiers 93, 95, FQ, GT and GQ as optional on commercial claims; the POS code is what is mandatory.',
         status: 'verified',
         cites: [S.optumTele, S.optumSCC, S.rsa415J],
       },
@@ -1678,6 +1755,9 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'What is UnitedHealthcare’s timely filing limit for ABA in New Hampshire?', a: 'Optum, which administers UnitedHealthcare’s behavioral health claims, needs all claim information within 90 calendar days of the date of service unless state law, federal law or the benefit plan allows longer; corrections are due within 90 days of initial claim receipt.' },
+      { q: 'Does UnitedHealthcare accept H0031 or other H-codes for ABA?', a: 'Optum’s commercial ABA reimbursement policy lists only CPT 97151–97158 (with an HM, HN, HO or HP credential modifier), 0362T and 0373T. No H-codes are listed.' },
+      { q: 'How many units of 97153 can I bill per day with UnitedHealthcare?', a: 'Thirty-two units (8 hours). Optum’s commercial ABA reimbursement policy caps each code per day, and units over the maximum may be denied or recovered.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in New Hampshire?', a: 'Yes, under Optum’s national ABA criteria for ASD, with New Hampshire’s RSA 417-E mandate layered on for fully insured plans. Self-funded employer plans follow their own documents.' },
       { q: 'Does Optum have New Hampshire-specific ABA criteria?', a: 'No. Optum’s ABA State Mandates supplement does not list New Hampshire, so the standard national criteria and two-step authorization apply.' },
       { q: 'Is UnitedHealthcare a New Hampshire Medicaid plan?', a: 'No. New Hampshire’s Medicaid plans are AmeriHealth Caritas New Hampshire, NH Healthy Families and WellSense.' },

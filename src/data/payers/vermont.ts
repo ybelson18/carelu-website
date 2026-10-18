@@ -21,8 +21,8 @@ const S: Record<string, PayerSource> = {
   faq1208: { title: 'DVHA — Applied Behavior Analysis January 1, 2026 Billing Changes FAQ (12/8/2025)', url: 'https://dvha.vermont.gov/sites/dvha/files/documents/2025-12-08-AppliedBehaviorAnalysisFAQ.pdf' },
   gcr26058: { title: 'Global Commitment Register GCR 26-058 (Final) — ABA Transition to Fee for Service Payment (eff. 7/1/2026)', url: 'https://humanservices.vermont.gov/sites/ahsnew/files/documents/26-058-F-GCR-ABA-Transition-to-FFS.pdf' },
   groves: { title: 'DVHA testimony to House Health Care — Applied Behavior Analysis (ABA) Changes (Feb. 5, 2026)', url: 'https://legislature.vermont.gov/Documents/2026/Workgroups/House%20Health%20Care/Miscellaneous/W~DaShawn%20Groves~ABA%20Presentation~2-5-2026.pdf' },
-  fee: { title: 'Vermont Medicaid Portal — Fee Schedule, CPT codes (online schedule, data updated Oct. 2, 2026)', url: 'https://vtmedicaid.com/#/feeSchedule' },
-  gpm: { title: 'Vermont Medicaid General Provider Manual (2026-08-20)', url: 'https://vtmedicaid.com/assets/manuals/GeneralProviderManual.pdf' },
+  fee: { title: 'Vermont Medicaid Portal — Fee Schedule, CPT codes (online schedule, data updated Oct. 9, 2026)', url: 'https://vtmedicaid.com/#/feeSchedule' },
+  gpm: { title: 'Vermont Medicaid General Provider Manual (2026-10-15)', url: 'https://vtmedicaid.com/assets/manuals/GeneralProviderManual.pdf' },
   gbfm: { title: 'Vermont Medicaid General Billing and Forms Manual (2026-10-01)', url: 'https://www.vtmedicaid.com/assets/manuals/GeneralBillingFormsManual.pdf' },
   mandate: { title: '8 V.S.A. § 4082 — Early childhood development disorders (recodified from § 4088i by Act 11 of 2025, eff. 9/1/2025)', url: 'https://legislature.vermont.gov/statutes/section/08/107/04082' },
   defs4011: { title: '8 V.S.A. § 4011 — Health insurance definitions (chapter 107)', url: 'https://legislature.vermont.gov/statutes/section/08/107/04011' },
@@ -137,7 +137,7 @@ export const vermontPayers: Record<string, PayerConfig> = {
       {
         h2: 'Prior authorization: the prescription, the Comprehensive Assessment, and the six-month cycle',
         body: [
-          'Assessment codes need no authorization. 97151, 97152 and 0362T are each limited to 4 hours every 6 months. Every other ABA code needs DVHA approval on the State of Vermont ABA Prior Authorization Request form, "updated and resubmitted at least every six months." Since October 1, 2026 the packet for a new member, and for each current member’s first authorization on or after 10/1/26, is: the PA form, the prescription for ABA, the current diagnostic assessment, DVHA’s standardized Comprehensive ABA Assessment form, and an ABA treatment plan. Later requests need the treatment plan, the PA form and the updated Comprehensive Assessment. The Comprehensive Assessment must be completed in full, with no references to outside documents. Sections E (developmental domains), G (current services) and H (treatment recommendations) must be updated every time. Either the prescriber or the diagnosing clinician signs it, attesting that the child would benefit from the recommended intensity. DVHA says that clinician "does not independently evaluate the child."',
+          'Assessment codes need no authorization. 97151, 97152 and 0362T are each limited to 4 hours every 6 months. Every other ABA code needs DVHA approval on the State of Vermont ABA Prior Authorization Request form, "updated and resubmitted at least every six months." Since October 1, 2026 the packet for a new member, and for each current member’s first authorization on or after 10/1/26, is: the PA form, the prescription for ABA, the current diagnostic assessment, DVHA’s standardized Comprehensive ABA Assessment form, and an ABA treatment plan. Later requests need the treatment plan, the PA form and the updated Comprehensive Assessment. The Comprehensive Assessment must be completed in full, with no references to outside documents. Sections E (developmental domains), G (current services) and H (treatment recommendations) must be updated every time. Either the prescriber or the diagnosing clinician signs it, attesting that the child would benefit from the recommended intensity. DVHA says that clinician "does not independently evaluate the child." Neither the ABA Supplement (08-04-2026) nor the August 2026 FAQ asks for graphs: the reauthorization evidence is the updated Comprehensive Assessment, the six-monthly PEAK, VB-MAPP or ESDM results and the treatment plan’s measurable goals and monthly progress notes. ABA is billed on CPT 97151–97158, 0362T and 0373T; the online fee schedule (queried October 18, 2026) returns no line for H0031, H0032 or H2019.',
           'One assessment tool is required at least every six months: PEAK, VB-MAPP or the Early Start Denver Model. Other tools can be added but not substituted. The treatment plan must have measurable goals, at least one family or caregiver goal, the list of staff and their credentials, and at least one progress note a month that reflects session duration. Prescriptions must be dated before services start. A new prescription is needed after any change in diagnosis, and for children who started before age 6, again within six months after the 6th birthday. On who may prescribe, HCAR 4.229 lists board-certified or board-eligible psychiatrists, pediatricians and neurologists, doctorate-level licensed psychologists, and developmental-behavioral or neurodevelopmental disabilities pediatricians. The Supplement’s shorter list leaves out general pediatricians, and DVHA has said that is an error it will correct to match the rule. DVHA decides medical necessity with its Medical Necessity Determination Tool, the Comprehensive Assessment score, InterQual and its own guidelines. Under HCAR 4.103 (effective January 1, 2026) it must decide a standard request within seven days and an expedited one within 72 hours, with up to 14 more days if justified.',
         ],
         cites: [S.abaSupp, S.abaFaq, S.hcar4229, S.hcar4103, S.fee],
@@ -250,6 +250,8 @@ export const vermontPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'What does a Vermont Medicaid ABA reauthorization need, and are graphs required?', a: 'Every later request needs the ABA treatment plan, the State of Vermont ABA Prior Authorization Request form and the updated Comprehensive ABA Assessment. DVHA’s ABA Supplement and FAQ do not require graphs.' },
+      { q: 'Does Vermont Medicaid pay H0031, H0032 or H2019 for ABA?', a: 'No. ABA is billed on CPT 97151–97158, 0362T and 0373T; the online fee schedule returns no H0031, H0032 or H2019 line.' },
       { q: 'Does Vermont Medicaid cover ABA therapy?', a: 'Yes, for members from birth to 21 with autism spectrum disorder, an early childhood developmental disorder, or a successor diagnosis, and a prescription from a listed specialist (HCAR 4.229). DVHA authorizes and pays it directly.' },
       { q: 'Does Vermont Medicaid use managed care plans for ABA?', a: 'No. Vermont has no Medicaid MCOs. Its only managed care entity is PC Plus, a primary care case management program DVHA runs. ABA prior authorization and payment go to DVHA and its fiscal agent, Gainwell, and no DVHA ABA document gives an ACO a role.' },
       { q: 'What does Vermont Medicaid pay for ABA in 2026?', a: 'Fee-for-service since July 1, 2026, per 15-minute unit: 97151 $65.80, 97152 $30.00, 97153 $15.00, 97154 $7.50, 97155 $49.35, 97156 and 97157 $21.39, 97158 $16.45, 0362T $52.00, 0373T $26.00. The tiered monthly case rate for Medicaid-only members ended June 30, 2026.' },
@@ -511,6 +513,14 @@ export const vermontPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.aetnaOM, S.fee],
       },
+      {
+        h2: 'Aetna ABA codes, clean-claim rules and reauthorization data',
+        body: [
+          'Aetna’s behavioral health precertification list (eff. 8/1/2024) identifies ABA as CPT 97151, 97152, 97153, 97154, 97155, 97156, 97157, 97158, 0362T and 0373T, and CPB 0648 lists 97151–97158, “Adaptive Behavior Assessments and treatment”, among the CPT codes covered when its criteria are met. Neither lists a HCPCS H-code such as H0031, H0032 or H2019 for ABA. Aetna’s provider manual (6/26) defines a clean claim as one with all the data elements of the CMS-1500, including the member ID, NPI, dates of service and “a complete and accurate breakdown of services”, plus “a corresponding referral (whether in paper or electronic format), if required for the applicable claim”. A claim that involves coordination of benefits is not a clean claim. The manual does not mention a taxonomy code, a corrected-claim deadline or electronic visit verification. Benefits are coordinated under the NAIC order-of-benefit rules, including the birthday rule for a child whose parents are not separated or divorced, where state or federal law allows; otherwise by the member’s plan.',
+          'For continued authorization, Aetna’s ABA medical necessity guide requires a standardized scale of functioning from the past 12 months (for instance the Vineland-3, ABAS, VB-MAPP or ABLLS), target behaviors with recorded baseline measures and quantifiable criteria for progress, and documentation that the target behavior has improved, or, if it has not, documentation of treatment modification, added assessments or consultation. A member’s progress is evaluated every six months. The guide does not require graphs.',
+        ],
+        cites: [S.aetnaPrecert, S.aetnaCPB648, S.aetnaOM, S.aetnaGuide],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (8 V.S.A. § 4082 applies) vs. self-funded ERISA (plan document governs). Most Aetna cards in Vermont are employer plans, so ask.' },
@@ -607,6 +617,8 @@ export const vermontPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Aetna accept H0031 or other H-codes for ABA?', a: 'Aetna’s precertification list and CPB 0648 identify ABA by CPT 97151–97158, 0362T and 0373T. No H-codes are listed for ABA.' },
+      { q: 'Does Aetna require graphs with an ABA reauthorization?', a: 'The ABA medical necessity guide does not say graphs. It requires a standardized functioning scale from the past 12 months, baseline measures with quantifiable progress criteria, and documentation of improvement or of how treatment changed. Progress is evaluated every six months.' },
       { q: 'Does Aetna cover ABA therapy in Vermont?', a: 'Yes, under its national criteria for ASD. Fully insured plans must also meet Vermont’s 8 V.S.A. § 4082 mandate (birth to 21, no dollar cap). Self-funded employer plans follow their own documents.' },
       { q: 'Does Aetna sell health plans in Vermont?', a: 'Not in the individual or small-group market: Vermont regulators describe Blue Cross VT and MVP as the two carriers offering that coverage. Aetna cards in Vermont come from larger employer plans, so confirm whether the plan is fully insured or self-funded.' },
       { q: 'Does the Aetna ABA assessment need prior authorization in Vermont?', a: 'Yes. 97151 and the other nine ABA codes are on Aetna’s behavioral health precertification list.' },
@@ -683,6 +695,22 @@ export const vermontPayers: Record<string, PayerConfig> = {
           'Cigna publishes no ABA rate table. Evernorth’s Administrative Guidelines (September 2026) say the Provider Agreement terms "include the reimbursement rates applicable to covered services." They also tell ABA providers: "For your fee schedule and a listing of autism spectrum disorder–related services eligible for reimbursement, refer to Exhibit A in your Provider Agreement." Virtual behavioral services carry modifier 95, which Evernorth says "will not change the reimbursement." Non-credentialed technicians are paid only through the supervising provider’s claim. For a public benchmark, Vermont Medicaid’s fee-for-service schedule pays 97153 at $15.00 and 97155 at $49.35 per 15 minutes.',
         ],
         cites: [S.ebhAdmin, S.cignaARG, S.fee],
+      },
+      {
+        h2: 'Cigna claim filing: deadlines, corrected and secondary claims, and the CMS-1500',
+        body: [
+          'Evernorth’s Administrative Guidelines (September 2026): "We will only consider claims submitted within 90 days of the date of service or as otherwise defined in your Provider Agreement," unless a state law sets a longer limit. When Cigna is secondary, the 90 days run from the primary payer’s processing date on its EOB or EOP; Medicaid has three years. A claim filed on time and returned for more information gets a fresh 90 days from the date of the request. Corrected or replacement claims are not stamped “Corrected Claim”: put frequency code 7 (replacement) or 8 (void) in CMS-1500 field 22. Appeals of application-of-contract rates are due within 180 days of the initial denial.',
+          'The guidelines’ definition of a complete CMS-1500 lists, among other fields, CPT or HCPCS codes and modifier, place of service, units, the rendering provider’s name, NPI and license type, and the billing provider’s name, address and NPI. It does not list a taxonomy code or a referring provider, and the guidelines say nothing about electronic visit verification.',
+        ],
+        cites: [S.ebhAdmin],
+      },
+      {
+        h2: 'Which codes Cigna pays for ABA, and what a reauthorization must show',
+        body: [
+          'EN0499’s coding table lists CPT 97151 through 97158, 0362T and 0373T as the codes considered medically necessary when its criteria are met, and the autism resource guide says Evernorth “utilizes the CPT billing codes proposed by the American Medical Association (AMA) for ABA treatment.” Neither lists a HCPCS H-code such as H0031, H0032 or H2019 for ABA, and EN0499 warns that claims “not accompanied by covered code(s) under the applicable Coverage Policy will be denied as not covered.”',
+          'For continued treatment, EN0499 requires an updated treatment plan; quantitative baseline, interim and current data, with collection dates, for every targeted behavior and skill in every setting; current data collected within 60 days before the start of the continued-treatment request and within 60 days before Evernorth receives it; evidence of progress on a reliable, valid, standardized instrument no more than one year old; and caregiver-training data. The policy does not use the word “graph”. What it asks for is dated quantitative data, plus standardized scores and score tables or “scoring grids/figures”, when applicable, for the assessment instrument. A break in treatment longer than 60 calendar days means a new standardized assessment.',
+        ],
+        cites: [S.en0499, S.cignaARG],
       },
     ],
     collect: [
@@ -777,6 +805,9 @@ export const vermontPayers: Record<string, PayerConfig> = {
       { q: 'Does Cigna cover ABA therapy in Vermont?', a: 'Yes, under national policy EN0499 for ASD. Fully insured plans must also meet Vermont’s 8 V.S.A. § 4082 mandate (birth to 21, no dollar cap). Self-funded employer plans follow their own documents.' },
       { q: 'Does the Cigna ABA assessment need prior authorization in Vermont?', a: 'No, for 97151, 97152 and 0362T with an autism diagnosis when the provider is independently licensed or a BCBA. PA starts at treatment.' },
       { q: 'Can ABA be delivered by telehealth with Cigna in Vermont?', a: 'Yes. Cigna’s autism resource guide says all ABA CPT codes are covered telehealth services; bill modifier 95. The clinician still needs a Vermont license, telehealth license or telehealth registration.' },
+      { q: 'What is Cigna’s timely filing limit in Vermont?', a: 'Ninety days from the date of service under Evernorth’s administrative guidelines, unless your provider agreement or a longer state-law limit says otherwise. A secondary claim is due 90 days from the primary payer’s processing date.' },
+      { q: 'Does Cigna accept H0031 or other H-codes for ABA?', a: 'No H-codes are listed. Evernorth bills ABA on CPT 97151–97158, 0362T and 0373T, and claims without a covered code are denied as not covered.' },
+      { q: 'Does Cigna require graphs with an ABA reauthorization?', a: 'EN0499 does not say “graphs”. It requires dated baseline, interim and current quantitative data, with current data no more than 60 days old, plus a standardized instrument from within the past year.' },
       { q: 'What does Cigna pay for ABA in Vermont?', a: 'Cigna publishes no ABA rates. Evernorth puts your fee schedule in Exhibit A of your Provider Agreement; call Evernorth Provider Services (800.926.2273) with fee questions. Vermont Medicaid’s schedule (97153 $15.00 per 15 minutes) is the public benchmark.' },
     ],
   },
@@ -852,6 +883,14 @@ export const vermontPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.optumNNM, S.optumReimb, S.fee],
       },
+      {
+        h2: 'UnitedHealthcare claim filing, ABA codes and reauthorization data',
+        body: [
+          'Optum’s National Network Manual (effective September 1, 2026), which governs the behavioral health claims Optum administers for UnitedHealthcare, sets the filing clock: “All information necessary to process claims must be received by Optum no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan,” and “Any corrections or additions to a claim should be made within 90 days of initial claim receipt.” Claims with all required information and any required authorization are generally paid “within 45 calendar days after Optum receives the claim, or as required by state and federal laws.” If Optum is secondary you are paid up to the Optum contracted rate; the manual sets no separate secondary-claim deadline and does not mention electronic visit verification.',
+          'Optum’s commercial ABA reimbursement policy (2022RP501A, updated June 2026) lists CPT 97151–97158, each with a credential modifier (HM for an RBT, HN for a BCaBA, HO for a BCBA or licensed clinician, HP for a BCBA-D), plus 0362T and 0373T without modifiers. It lists no HCPCS H-codes such as H0031 or H0032, and says “97151 and 97152 are the only codes eligible for reimbursement for assessment or reassessment activities.” At each continued-treatment review, Optum’s ABA criteria ask for updated documentation showing progress “for each targeted symptom and behavior, including progress toward defined goals, including the same modes of measurement that were utilized for baseline measurement.” They do not require graphs as such.',
+        ],
+        cites: [S.optumNNM, S.optumReimb, S.optumSCC],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (8 V.S.A. § 4082 applies) vs. self-funded ERISA (plan document governs).' },
@@ -872,9 +911,9 @@ export const vermontPayers: Record<string, PayerConfig> = {
         cites: [S.optumReimb, S.optumSCC],
       },
       dailyLimits: {
-        value: 'No numeric cap. Hours must be justified by documented clinical need. At continued-service review, use of authorized hours below 80% over a two-week period must be explained with barriers and a plan.',
+        value: 'Per-day maximums, enforced on the claim. Optum’s commercial ABA reimbursement policy (2022RP501A, updated June 2026) sets a maximum frequency per day for every code: 97151 32 units (8 hours), 97152 16 (4 hours), 97153 32 (8 hours), 97154 18 (4.5 hours), 97155 24 (6 hours), 97156 16, 97157 16, 97158 16, 0362T 16 and 0373T 32. It says “For commercial ABA program MUE’s apply, per CMS guidelines” and “If a provider bills in excess of 32 units per day, claims may be subject to non-reimbursement or recovery.” There is no weekly hour cap: requested hours must be justified by documented clinical need, and at continued-service review use below 80% of authorized hours over a two-week period must be explained with barriers and a plan.',
         status: 'verified',
-        cites: [S.optumSCC],
+        cites: [S.optumReimb, S.optumSCC],
       },
       noteSignature: {
         value: 'Not addressed. The SCC set what must be documented for coverage, not who signs a session note or when.',
@@ -923,7 +962,7 @@ export const vermontPayers: Record<string, PayerConfig> = {
         cites: [S.optumSCC, S.ch95],
       },
       telehealth: {
-        value: 'Three codes on commercial plans. Optum’s Telehealth Billing guide (updated September 2025): "For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157." Claims must carry POS 02 or POS 10; a telehealth modifier alone is not paid. The SCC say telehealth is "not intended to supplant in-person service."' + VT_TELE_TAIL + ' Ask Optum how it applies the three-code list to a fully insured Vermont plan.',
+        value: 'Three codes on commercial plans. Optum’s Telehealth Billing guide (updated September 2025): "For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157." Claims must carry POS 02 or POS 10; a telehealth modifier alone is not paid. The SCC say telehealth is "not intended to supplant in-person service."' + VT_TELE_TAIL + ' Ask Optum how it applies the three-code list to a fully insured Vermont plan. The same guide lists telehealth modifiers 93, 95, FQ, GT and GQ as optional on commercial claims; the POS code is what is mandatory.',
         status: 'plan-dependent',
         cites: [S.optumTele, S.optumSCC, S.tele4098a],
         verifyVia: 'Optum Provider Express support or the behavioral health number on the card: confirm funding (fully insured in Vermont vs. self-funded) and which ABA codes Optum pays by telehealth for this member.',
@@ -945,6 +984,9 @@ export const vermontPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'What is UnitedHealthcare’s timely filing limit for ABA in Vermont?', a: 'Optum, which administers UnitedHealthcare’s behavioral health claims, needs all claim information within 90 calendar days of the date of service unless state law, federal law or the benefit plan allows longer; corrections are due within 90 days of initial claim receipt.' },
+      { q: 'Does UnitedHealthcare accept H0031 or other H-codes for ABA?', a: 'Optum’s commercial ABA reimbursement policy lists only CPT 97151–97158 (with an HM, HN, HO or HP credential modifier), 0362T and 0373T. No H-codes are listed.' },
+      { q: 'How many units of 97153 can I bill per day with UnitedHealthcare?', a: 'Thirty-two units (8 hours). Optum’s commercial ABA reimbursement policy caps each code per day, and units over the maximum may be denied or recovered.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in Vermont?', a: 'Yes, under Optum’s national ABA criteria for ASD. Fully insured plans must also meet Vermont’s 8 V.S.A. § 4082 mandate (birth to 21, no dollar cap). Self-funded employer plans follow their own documents.' },
       { q: 'Does Optum have Vermont-specific ABA criteria?', a: 'No. Optum’s ABA State Mandates supplement does not list Vermont, so the national criteria apply.' },
       { q: 'Is UnitedHealthcare a Vermont Medicaid plan?', a: 'No. Vermont Medicaid has no managed care plans; DVHA authorizes and pays ABA directly.' },

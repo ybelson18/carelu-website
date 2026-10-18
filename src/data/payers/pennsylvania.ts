@@ -139,9 +139,14 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         h2: 'What is the Pennsylvania Medical Assistance timely filing limit?',
         body: [
           '55 Pa. Code § 1101.68: a provider "shall submit original or initial invoices to be received by the Department within a maximum of 180 days after the date the services were rendered," and resubmissions of a rejected claim or adjustments within 365 days of the date of service. HealthChoices members’ IBHS ABA claims go to the county’s behavioral health MCO, whose own limits are shorter (60 to 90 days).',
+          'Which codes pay. On the MA Fee Schedule, IBHS ABA bills under provider type 11, specialty 592, on CPT 97151, 97152, 97153, 97154, 97155, 97156 and 97158, with pricing modifiers U7 (BCBA behavior analytic or BC-ABA), U8 (Asst. BC-ABA) and U5/U6 (group size); 97157 is not on the schedule (queried October 18, 2026). The one HCPCS code ABA agencies may also bill is H0031 with U9 or UB, the mental health assessment of need for services, which OMHSAS-21-03 opened to specialty 592; H0032, H2014 and H2019 are individual-services (specialty 590) codes, not ABA codes. EVV does not reach ABA: DHS applies electronic visit verification to Medicaid personal care and home health care services that require an in-home visit, as the 21st Century Cures Act requires, and IBHS is not among them.',
         ],
         cites: [
           { title: '55 Pa. Code § 1101.68 — Invoicing for services (MA time frames)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter1101/s1101.68.html' },
+          { title: 'PA DHS — MA Program Outpatient Fee Schedule, online search (provider type 11, specialty 592; queried October 18, 2026)', url: 'https://www.humanservices.dhs.pa.gov/OUTPATIENTFEESCHEDULE/' },
+          { title: 'OMHSAS-21-03 — Updates to Procedure Codes for IBHS Agencies (eff. 1/17/2021)', url: 'https://www.pa.gov/content/dam/copapwp-pagov/en/dhs/documents/healthchoices/hc-providers/documents/IBHS%20Updated%20Procedure%20Codes%20OMHSAS-21-03%201.22.21.pdf' },
+          { title: 'OMHSAS-21-03 Attachment A — Updated IBHS Agency Procedure Codes (fees, PA flags, POS)', url: 'https://www.pa.gov/content/dam/copapwp-pagov/en/dhs/documents/healthchoices/hc-providers/documents/IBHS%20Procedure%20Codes%20Bulletin%20Attachment%20A%20OMHSAS-21-03%201.22.21.pdf' },
+          { title: 'PA DHS — Electronic Visit Verification (EVV) and EVV FAQ', url: 'https://www.pa.gov/agencies/dhs/resources/for-providers/evv/faq-evv' },
         ],
       },
     ],
@@ -172,6 +177,8 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: 'Act 146 of 2022 — Insurance Company Law Art. XXI amendments incl. § 2155 prior authorization review (Justia)', url: 'https://law.justia.com/codes/pennsylvania/2022/act-146/' },
       { title: 'BACB — U.S. Licensure of Behavior Analysts (PA absent; checked September 2026)', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
       { title: 'PA State Board of Medicine — Behavior Specialist Licensure Requirements Snapshot', url: 'https://www.pa.gov/agencies/dos/department-and-offices/bpoa/boards-commissions/medicine/behavior-specialist-licensure-snapshot' },
+      { title: 'PA DHS — MA Program Outpatient Fee Schedule, online search (provider type 11, specialty 592; queried October 18, 2026)', url: 'https://www.humanservices.dhs.pa.gov/OUTPATIENTFEESCHEDULE/' },
+      { title: 'PA DHS — Electronic Visit Verification (EVV) and EVV FAQ', url: 'https://www.pa.gov/agencies/dhs/resources/for-providers/evv/faq-evv' },
     ],
     intakeGates: {
       ageLimit: {
@@ -214,15 +221,14 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         ],
       },
       telehealth: {
-        value: 'OMHSAS-22-02 lets MA behavioral health services, including IBHS, be delivered by telehealth when clinically appropriate and with documented consent, but flags IBHS as a "high intensity" service where providers should weigh how much must stay in person; for young children it recommends a caregiver participate (ages 3–5) or observe (6–9). In fee-for-service, telehealth claims use POS 02 (not at home) or POS 10 (home) only on codes the MA fee schedule lists with those POS, plus FQ for audio-only; the 2021 IBHS code table lists ABA codes only with POS 03, 11, 12 and 99. HealthChoices providers "must follow the billing instructions of the BH-MCO." The licensing rule draws two lines of its own. Assessment: \u201cWithin 30 days of the initiation of ABA services and prior to completing the ITP, a face-to-face assessment shall be completed\u201d by a behavior analytic or BC-ABA-qualified clinician (\u00a7 5240.85(a)); the rule does not say whether audio-video satisfies \u201cface-to-face\u201d for the assessment. Supervision: for BHT-ABA, Asst. BC-ABA and analyst staff alike, \u201cface-to face supervision may be delivered through secure, real-time, two-way audio and video transmission\u201d meeting HIPAA standards, with the supervision note recording \u201cthe location and modality of the session\u201d (\u00a7 5240.82) \u2014 though the onsite hours before a new BHT-ABA or Asst. BC-ABA works alone are onsite by definition. Which ABA codes currently carry telehealth POS could not be confirmed \u2014 the live fee schedule sits behind a CPT licence click-through.',
-        status: 'unverified',
+        value: 'Yes for most ABA codes, billed by place of service. OMHSAS-22-02 lets MA behavioral health services, including IBHS, be delivered by telehealth when clinically appropriate and with documented consent, but flags IBHS as a "high intensity" service where providers should weigh how much must stay in person; for young children it recommends a caregiver participate (ages 3–5) or observe (6–9). Fee-for-service claims are paid at the in-person rate and carry POS 02 (telehealth outside the home) or POS 10 (in the home), on codes the MA Fee Schedule lists with those POS; audio-only adds informational modifier FQ. No video modifier (95 or GT) is required. The online MA Fee Schedule (provider type 11, specialty 592, queried October 18, 2026) lists POS 02 and 10 for 97151, 97153, 97155 and 97156 (with and without U7/U8) and for 97152 with U8; 97154 and 97158 carry POS 02 but not 10; each has an FQ line. Base 97152 (BHT-ABA) is listed for POS 03, 11, 12, 27 and 99 only. The FFS prior-authorization handbook does not mention telehealth, so nothing on the request flags it. HealthChoices providers "must follow the billing instructions of the BH-MCO." The licensing rule draws two lines of its own. Assessment: \u201cWithin 30 days of the initiation of ABA services and prior to completing the ITP, a face-to-face assessment shall be completed\u201d by a behavior analytic or BC-ABA-qualified clinician (\u00a7 5240.85(a)); the rule does not say whether audio-video satisfies \u201cface-to-face\u201d for the assessment. Supervision: for BHT-ABA, Asst. BC-ABA and analyst staff alike, \u201cface-to face supervision may be delivered through secure, real-time, two-way audio and video transmission\u201d meeting HIPAA standards, with the supervision note recording \u201cthe location and modality of the session\u201d (\u00a7 5240.82), though the onsite hours before a new BHT-ABA or Asst. BC-ABA works alone are onsite by definition.',
+        status: 'verified',
         cites: [
           { title: 'OMHSAS-22-02 — Revised Guidelines for Delivery of BH Services Through Telehealth (eff. 7/1/2022)', url: 'https://www.pa.gov/content/dam/copapwp-pagov/en/dhs/documents/docs/documents/omhsas/Bulletin%20OMHSAS-22-02%20-%20Revised%20Guidelines%20for%20Delivery%20of%20BH%20Services%20Through%20Telehealth%207.1.22.pdf' },
+          { title: 'PA DHS — MA Program Outpatient Fee Schedule, online search (provider type 11, specialty 592; queried October 18, 2026)', url: 'https://www.humanservices.dhs.pa.gov/OUTPATIENTFEESCHEDULE/' },
           { title: '55 Pa. Code Chapter 5240 — Intensive Behavioral Health Services (licensing)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter5240/chap5240toc.html' },
-          { title: 'OMHSAS-21-03 Attachment A — Updated IBHS Agency Procedure Codes (fees, PA flags, POS)', url: 'https://www.pa.gov/content/dam/copapwp-pagov/en/dhs/documents/healthchoices/hc-providers/documents/IBHS%20Procedure%20Codes%20Bulletin%20Attachment%20A%20OMHSAS-21-03%201.22.21.pdf' },
+          { title: 'OMHSAS-20-07 Attachment A — IBHS FFS Prior Authorization Handbook (12/18/2020)', url: 'https://www.pa.gov/content/dam/copapwp-pagov/en/dhs/documents/healthchoices/hc-providers/documents/IBHS%20FFS%20Prior%20Auth%20Handbook%20-%20OMHSAS-20-07-Attachment%20A%20-%2012.18.20.pdf' },
         ],
-        verifyVia: 'The MA Program Outpatient Fee Schedule (humanservices.dhs.pa.gov/OUTPATIENTFEESCHEDULE — requires accepting the AMA CPT licence) for POS 02/10 on 97151–97158, or the member\'s BH-MCO telehealth billing instructions.',
-        blocker: 'document',
       },
       authTurnaround: {
         value: 'Fee-for-service (OMHSAS): the FFS handbook commits to "issue a decision within 21 days of receipt of the request" and says the request "is deemed approved" if OMHSAS misses it; expedited review (child at immediate risk of a more restrictive placement, or services must start before the assessment/ITP) is decided "within three business days"; continuation requests must arrive "at least 30 days prior to the expiration of the current authorization." That 2020 handbook predates 42 CFR 440.230(e), which since January 1, 2026 requires FFS standard decisions "in no case later than 7 calendar days after receiving the request" (72 hours expedited). HealthChoices BH-MCOs (PIHPs) fall under 42 CFR 438.210(d): standard decisions within 7 calendar days for rating periods starting on or after January 1, 2026 (up to 14 more on extension), expedited within 72 hours. DHS\'s own HealthChoices standard is tighter still: Appendix AA (January 1, 2026) requires every BH-MCO to communicate a prospective or expedited decision "within two (2) Business Days of the receipt of all supporting information" (one business day for concurrent review), to request missing information within 48 hours and allow 14 days to supply it, and deems the service "automatically approved" if the member has no written decision within 21 days of the request. Act 146 of 2022 sets the same two-business-day clock for an "MA or CHIP managed care plan".',
@@ -302,12 +308,14 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Can 97153 be billed as telehealth in Pennsylvania Medicaid, and with what modifier?', a: 'In fee-for-service, yes: the MA Fee Schedule lists 97153 (and 97151, 97155, 97156) with POS 02 and POS 10, paid at the in-person rate. No video modifier is needed; FQ marks audio-only. HealthChoices members follow their BH-MCO’s billing instructions.' },
+      { q: 'Does Pennsylvania Medicaid accept H0031 or H0032 for ABA?', a: 'ABA agencies bill CPT 97151–97158 (97157 excepted). H0031 with U9 or UB is allowed for the mental health assessment of need; H0032 is an individual-services code, not an ABA code.' },
       { q: 'Does Pennsylvania Medicaid cover ABA therapy?', a: 'Yes — as ABA services within Intensive Behavioral Health Services (55 Pa. Code Chapter 1155), for children, youth and young adults under 21 with a behavioral health diagnosis, delivered by a licensed IBHS agency on a written order from a licensed prescriber.' },
       { q: 'Does my child need an autism diagnosis for ABA under Pennsylvania Medicaid?', a: 'No. The written order needs a DSM or ICD behavioral health diagnosis, and OMHSAS says IBHS is available when medically necessary regardless of the specific diagnosis.' },
       { q: 'Who approves ABA for Pennsylvania Medicaid members?', a: 'The Behavioral Health MCO assigned by the family\'s county — CBH in Philadelphia, Community Care, Magellan, PerformCare or Carelon elsewhere — not the physical-health plan on the card. The few members outside HealthChoices go through OMHSAS fee-for-service prior authorization.' },
       { q: 'Can a child with private insurance also get Medical Assistance for ABA?', a: 'Often, yes. The PH-95 category covers children under 18 with SSA-level disabilities and excludes parental income. The private plan pays first under Act 62 and 55 Pa. Code § 1101.64, and MA can pay what remains up to its fee.' },
       { q: 'Does a technician need RBT certification for Pennsylvania Medicaid ABA?', a: 'No. RBT is one of six ways to qualify for BHT-ABA under 55 Pa. Code \u00a7 5240.81(g); a high school diploma plus a 40-hour RBT Task List training certified by a BCBA or BCaBA also qualifies. Technicians do not enroll in MA \u2014 the licensed IBHS agency bills.' },
-      { q: 'Can ABA supervision or the assessment be done by telehealth in Pennsylvania Medicaid?', a: 'Supervision, yes: \u00a7 5240.82 lets face-to-face supervision run over secure real-time audio-video. The assessment must be \u201cface-to-face\u201d (\u00a7 5240.85), and the rule does not say whether video counts. OMHSAS-22-02 allows telehealth for IBHS when clinically appropriate; HealthChoices providers follow their BH-MCO\u2019s billing rules.' },
+      { q: 'Can ABA supervision or the assessment be done by telehealth in Pennsylvania Medicaid?', a: 'Supervision, yes: \u00a7 5240.82 lets face-to-face supervision run over secure real-time audio-video. The assessment must be \u201cface-to-face\u201d (\u00a7 5240.85), and the rule does not say whether video counts. In fee-for-service the MA Fee Schedule does list 97151 with telehealth POS 02 and 10. OMHSAS-22-02 allows telehealth for IBHS when clinically appropriate; HealthChoices providers follow their BH-MCO\u2019s billing rules.' },
       { q: 'Is Pennsylvania Medicaid accepting new ABA providers?', a: 'An agency needs an OMHSAS IBHS licence (with a county letter of support requested), MA enrollment as an IBHS provider, and, for HealthChoices members, a contract with the county\u2019s BH-MCO, which decides network admission.' },
       { q: 'If a family changes ABA agencies, what carries over?', a: 'The state sets no transfer procedure. The new agency works from a valid written order, gets fresh consent, and completes its own assessment (30 days) and ITP (45 days). If an agency cannot provide ordered services it must tell the BH-MCO, which helps the family find another provider. Ask the BH-MCO about the authorization.' },
       { q: 'What does Pennsylvania Medicaid pay for ABA?', a: 'The FFS IBHS table (OMHSAS-21-03, January 2021) lists 97153 at $12.73 per 15 minutes for a BHT-ABA ($15.76 for an Assistant BC-ABA) and 97151/97155/97156 at $22.09 ($24.73 for a BCBA). HealthChoices rates are set in each BH-MCO\'s provider contract.' },
@@ -343,12 +351,12 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       {
         h2: 'How Community Care approves ABA (IBHS-ABA)',
         body: [
-          'Community Care’s provider manual sends providers to its “Guidelines for Obtaining Approval” (Appendix A) to see whether a service needs registration, notification or prior authorization. The July 2026 grid lists “IBHS — Written Order: 60 Days from Service Start, ePortal, Registration” and “IBHS — Assessment: 30 Days from Service Start, ePortal, Registration”; IBHS treatment is “45 Days from Service Start … Before Last Covered Day … Packet Review … Prior Auth”. The manual’s own list of registration services includes “IBHS ORDER and ASSESS”, and its prior-authorization list starts with “Intensive Behavioral Health Services (IBHS)”.',
+          'Community Care’s provider manual sends providers to its “Guidelines for Obtaining Approval” (Appendix A) to see whether a service needs registration, notification or prior authorization. The September 2026 grid lists “IBHS — Written Order: 60 Days from Service Start, ePortal, Registration” and “IBHS — Assessment: 30 Days from Service Start, ePortal, Registration”; IBHS treatment is “45 Days from Service Start … Before Last Covered Day … Packet Review … Prior Auth”. The manual’s own list of registration services includes “IBHS ORDER and ASSESS”, and its prior-authorization list starts with “Intensive Behavioral Health Services (IBHS)”.',
           'Provider Alert 18 (August 17, 2026) changes the clock: “Effective September 17, 2026: IBHS authorizations will be approved for a maximum of 6 months per authorization period” (previously up to 12 months), and requests for longer periods “will not be processed as submitted”. The same alert sets ePortal assessment maximums of 100 units for Individual/Group/EBP “ASSESS” and “200 units for ABA Individual ‘ASSESS-ABA’ authorizations”. A full formal assessment is still required at least every 12 months, with a reassessment/update acceptable for the in-between six-month request, and written orders stay valid for up to 12 months. Authorizations issued before September 17, 2026 run to their approved end date.',
           'Community Care does not require the authorization number on the claim, but warns that an authorization “is not a guarantee of payment” and that claims should not be held while an authorization is pending.',
         ],
         cites: [
-          { title: 'Community Care — Guidelines for Obtaining Approval for In-Plan Supplemental Services (July 2026)', url: 'https://providers.ccbh.com/uploads/files/Guidelines-for-Obtaining-Approval_2026-07-14-134655_jsis.pdf' },
+          { title: 'Community Care — Guidelines for Obtaining Approval for In-Plan Supplemental Services (September 2026)', url: 'https://providers.ccbh.com/uploads/files/Guidelines-for-Obtaining-Approval-1.pdf' },
           { title: 'Community Care Provider Manual (February 2026, 202602SH)', url: 'https://providers.ccbh.com/uploads/files/202602-providermanual_2026-02-03-153100_lbib.pdf' },
           { title: 'Community Care Provider Alert 18 — IBHS: Adjustment to Authorization Timeframes (August 17, 2026)', url: 'https://providers.ccbh.com/uploads/img/Provider%20Alerts/Intensive-Behavioral-Health-Services-IBHS-Adjustment-to-Authorization-Timeframes.pdf' },
         ],
@@ -410,9 +418,12 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         h2: 'What is Community Care’s timely filing limit?',
         body: [
           'Community Care’s February 2026 manual sets it by county contract, counted from the date of service: Allegheny, Blair, Carbon/Monroe/Pike, Erie, Lycoming/Clinton, North Central, Northeast and York/Adams allow 90 days (180 days to complete the claim process); Berks allows 60 days (120 to complete); Chester and Delaware allow 60 days (180 to complete). Non-participating contracts get 365 days, and no claim at 365 days or more from the date of service is considered. COB claims outside the county limit must arrive within 30 calendar days of the primary payer’s decision.',
+          'Payment and claim fields. “Community Care generates weekly reimbursement,” sent as 835 remittance files (the manual publishes no submission cut-off). On the CMS-1500, boxes 17, 17a and 17b (referring physician name and NPI) are “Required for ORP”, the ordering, rendering and prescribing data DHS requires for the provider types listed in its 2018 provider alert PA01; on the 837P the ordering provider goes in loop 2310A. The manual has no taxonomy rule and no ABA code list: billable codes and allowed places of service come from the fee schedule attached to each provider’s contract. Community Care’s manual says nothing about EVV, and DHS applies EVV only to personal care and home health services delivered in the home, not IBHS.',
         ],
         cites: [
           { title: 'Community Care Provider Manual (February 2026), Timely Filing Guidelines', url: 'https://providers.ccbh.com/uploads/files/202602-providermanual_2026-02-03-153100_lbib.pdf' },
+          { title: 'Community Care Provider Alert 15 — New Place of Service Code Available and Accurate Reporting of Place of Service (June 24, 2026)', url: 'https://providers.ccbh.com/uploads/files/New-Place-of-Service-Code-Available-and-Accurate-Reporting-of-Place-of-Service.pdf' },
+          { title: 'PA DHS — Electronic Visit Verification (EVV) and EVV FAQ', url: 'https://www.pa.gov/agencies/dhs/resources/for-providers/evv/faq-evv' },
         ],
       },
     ],
@@ -425,7 +436,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
     ],
     sources: [
       { title: 'Community Care Provider Manual (February 2026, 202602SH)', url: 'https://providers.ccbh.com/uploads/files/202602-providermanual_2026-02-03-153100_lbib.pdf' },
-      { title: 'Community Care — Guidelines for Obtaining Approval for In-Plan Supplemental Services (July 2026)', url: 'https://providers.ccbh.com/uploads/files/Guidelines-for-Obtaining-Approval_2026-07-14-134655_jsis.pdf' },
+      { title: 'Community Care — Guidelines for Obtaining Approval for In-Plan Supplemental Services (September 2026)', url: 'https://providers.ccbh.com/uploads/files/Guidelines-for-Obtaining-Approval-1.pdf' },
       { title: 'Community Care Provider Alert 18 — IBHS: Adjustment to Authorization Timeframes (August 17, 2026)', url: 'https://providers.ccbh.com/uploads/img/Provider%20Alerts/Intensive-Behavioral-Health-Services-IBHS-Adjustment-to-Authorization-Timeframes.pdf' },
       { title: 'Community Care — Intensive Behavioral Health Services Performance Standards', url: 'https://providers.ccbh.com/uploads/files/CCBH-IBHS-Performance-Standards.pdf' },
       { title: 'Community Care — Performance Standards: Applied Behavior Analysis', url: 'https://providers.ccbh.com/uploads/files/Performance-Standards-Applied-Behavior-Analysis_2026-02-20-201406_lery.pdf' },
@@ -439,8 +450,10 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: '55 Pa. Code Chapter 5240 — Intensive Behavioral Health Services (licensing)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter5240/chap5240toc.html' },
       { title: 'OMHSAS-22-02 — Revised Guidelines for Delivery of BH Services Through Telehealth (eff. 7/1/2022)', url: 'https://www.pa.gov/content/dam/copapwp-pagov/en/dhs/documents/docs/documents/omhsas/Bulletin%20OMHSAS-22-02%20-%20Revised%20Guidelines%20for%20Delivery%20of%20BH%20Services%20Through%20Telehealth%207.1.22.pdf' },
       { title: 'PA DHS — Behavioral Health Managed Care Organizations (BH-MCOs) by county', url: 'https://www.pa.gov/agencies/dhs/resources/medicaid/bhc/bhc-mcos' },
+      { title: 'PA DHS — Electronic Visit Verification (EVV) and EVV FAQ', url: 'https://www.pa.gov/agencies/dhs/resources/for-providers/evv/faq-evv' },
     ],
     faq: [
+      { q: 'How often does Community Care pay claims?', a: 'Weekly. Community Care generates weekly reimbursement with an 835 remittance; no submission cut-off day is published.' },
       { q: 'Does Community Care require prior authorization for an ABA assessment?', a: 'No — the IBHS written order and assessment are registered in the ePortal (assessment within 30 days of service start; up to 200 units for “ASSESS-ABA”). ABA treatment itself needs prior authorization by packet review.' },
       { q: 'How long does a Community Care ABA authorization last?', a: 'For requests submitted on or after September 17, 2026, at most six months per authorization period. Written orders stay valid for up to 12 months, and a full formal assessment is still needed at least every 12 months.' },
       { q: 'My client has commercial insurance too. Who pays first?', a: 'The commercial plan (or CHIP/Medicare). Community Care is always the payer of last resort: you must be eligible in the primary plan’s network, follow its authorization rules, appeal its denials to the last level, and send its EOB with each claim. Out-of-network denials are not paid.' },
@@ -458,7 +471,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       value: 'No prior authorization — registration. Community Care’s approval grid lists “IBHS — Written Order: 60 Days from Service Start, ePortal, Registration” and “IBHS — Assessment: 30 Days from Service Start, ePortal, Registration”, and the provider manual’s registration list includes “IBHS ORDER and ASSESS”. Provider Alert 18 sets the ePortal maximum at “200 units for ABA Individual ‘ASSESS-ABA’ authorizations”. The written order must come first.',
       status: 'verified',
       cites: [
-        { title: 'Community Care — Guidelines for Obtaining Approval for In-Plan Supplemental Services (July 2026)', url: 'https://providers.ccbh.com/uploads/files/Guidelines-for-Obtaining-Approval_2026-07-14-134655_jsis.pdf' },
+        { title: 'Community Care — Guidelines for Obtaining Approval for In-Plan Supplemental Services (September 2026)', url: 'https://providers.ccbh.com/uploads/files/Guidelines-for-Obtaining-Approval-1.pdf' },
         { title: 'Community Care Provider Manual (February 2026, 202602SH)', url: 'https://providers.ccbh.com/uploads/files/202602-providermanual_2026-02-03-153100_lbib.pdf' },
         { title: 'Community Care Provider Alert 18 — IBHS: Adjustment to Authorization Timeframes (August 17, 2026)', url: 'https://providers.ccbh.com/uploads/img/Provider%20Alerts/Intensive-Behavioral-Health-Services-IBHS-Adjustment-to-Authorization-Timeframes.pdf' },
       ],
@@ -467,7 +480,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       value: 'Yes. IBHS treatment is “Prior Auth” by “Packet Review”, due within “45 Days from Service Start”, with continued-stay requests “Before Last Covered Day”. From September 17, 2026 authorizations run a maximum of six months; longer requests “will not be processed as submitted”. New BHT/BHT-ABA requests need an FBA (or a commercial skill-based assessment such as the VB-MAPP when skill building is the goal). One-to-one center-based ABA follows Community Care’s own MNG (eff. 7/8/2026); other ABA follows state Appendix S.',
       status: 'verified',
       cites: [
-        { title: 'Community Care — Guidelines for Obtaining Approval for In-Plan Supplemental Services (July 2026)', url: 'https://providers.ccbh.com/uploads/files/Guidelines-for-Obtaining-Approval_2026-07-14-134655_jsis.pdf' },
+        { title: 'Community Care — Guidelines for Obtaining Approval for In-Plan Supplemental Services (September 2026)', url: 'https://providers.ccbh.com/uploads/files/Guidelines-for-Obtaining-Approval-1.pdf' },
         { title: 'Community Care Provider Alert 18 — IBHS: Adjustment to Authorization Timeframes (August 17, 2026)', url: 'https://providers.ccbh.com/uploads/img/Provider%20Alerts/Intensive-Behavioral-Health-Services-IBHS-Adjustment-to-Authorization-Timeframes.pdf' },
         { title: 'Community Care — Intensive Behavioral Health Services Performance Standards', url: 'https://providers.ccbh.com/uploads/files/CCBH-IBHS-Performance-Standards.pdf' },
         { title: 'Community Care — MNG: ABA One-to-One Center-based Services (effective 7/8/2026)', url: 'https://providers.ccbh.com/uploads/files/Applied-Behavior-Analysis-One-to-One-Center-based-Services-Provision-of-One-to-One-IBHS-in-a-Licensed-Location_2026-06-10-193543_kurl.pdf' },
@@ -500,7 +513,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           { title: 'Community Care Provider Manual (February 2026, 202602SH)', url: 'https://providers.ccbh.com/uploads/files/202602-providermanual_2026-02-03-153100_lbib.pdf' },
         ],
         verifyVia: 'The Community Care fee schedule attached to your IBHS-ABA contract (the manual says to “reference the fee schedule attached to the contract for both approval and billing rules”), or Provider Reimbursement at 1-888-251-2224, option 1. Get the answer on overlapping 97155/97153 units in writing.',
-        blocker: 'document',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value: 'No per-day unit ceiling for ABA treatment is published by Community Care. Its published unit limits are ePortal assessment maximums (200 units for “ASSESS-ABA”, 100 for other IBHS “ASSESS”). Treatment hours are set per member by the written order’s monthly maximums and the authorization, and billing units come from the contracted fee schedule.',
@@ -510,7 +523,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           { title: 'Community Care Provider Manual (February 2026, 202602SH)', url: 'https://providers.ccbh.com/uploads/files/202602-providermanual_2026-02-03-153100_lbib.pdf' },
         ],
         verifyVia: 'The billing-unit column of the Community Care fee schedule in your contract, or Provider Reimbursement at 1-888-251-2224, option 1.',
-        blocker: 'document',
+        blocker: 'per-case',
       },
       noteSignature: {
         value: 'Follows the state rule. 55 Pa. Code § 5240.41 requires each service note to be signed by the staff person who provided the service. Community Care’s manual, ABA and IBHS standards set no different signer or deadline (we checked). For telehealth, OMHSAS-22-02 allows physical or electronic consent/verification signatures if an audit trail validates the signer.',
@@ -537,7 +550,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           { title: 'Community Care Provider Manual (February 2026, 202602SH)', url: 'https://providers.ccbh.com/uploads/files/202602-providermanual_2026-02-03-153100_lbib.pdf' },
         ],
         verifyVia: 'Your Community Care contract and fee schedule, or Provider Reimbursement at 1-888-251-2224, option 1. Ask which NPI goes in the rendering field for BHT-ABA and assistant BC-ABA lines.',
-        blocker: 'document',
+        blocker: 'per-case',
       },
     },
     intakeGates: {
@@ -595,14 +608,14 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           { title: 'Community Care — Intensive Behavioral Health Services Performance Standards', url: 'https://providers.ccbh.com/uploads/files/CCBH-IBHS-Performance-Standards.pdf' },
         ],
         verifyVia: 'The POS column of the Community Care fee schedule for each ABA code (Provider Alert 15: “allowable POSs vary by level of care and even billing code”), or your Community Care Provider Relations Representative. Confirm which ABA codes allow POS 02/10 and whether FQ is accepted.',
-        blocker: 'document',
+        blocker: 'per-case',
       },
       authTurnaround: {
         value: 'Community Care’s member handbook: it “will tell you of its decision within two business days of the date Community Care received the request if Community Care has enough information”. If information is missing, it must tell the provider “within 48 hours” and “allow 14 days” to send it, then decide within two business days of receiving it. This matches the Act 146 rule for MA plans. Federal floor: 42 CFR 438.210(d), 7 calendar days standard / 72 hours expedited for rating periods from 1/1/2026. Deadlines on the provider side: the IBHS treatment packet is due within 45 days of service start, and continued-stay requests “Before Last Covered Day”. Authorizations max out at 6 months from 9/17/2026, so reauthorize at least twice a year.',
         status: 'verified',
         cites: [
           { title: 'Community Care HealthChoices Member Handbook — Allegheny County (rev. 2025)', url: 'https://members.ccbh.com/uploads/files/counties/25ISD5609250-Allegheny-Handbook-Revised-for-Print-8-5-25-102025-ju.pdf' },
-          { title: 'Community Care — Guidelines for Obtaining Approval for In-Plan Supplemental Services (July 2026)', url: 'https://providers.ccbh.com/uploads/files/Guidelines-for-Obtaining-Approval_2026-07-14-134655_jsis.pdf' },
+          { title: 'Community Care — Guidelines for Obtaining Approval for In-Plan Supplemental Services (September 2026)', url: 'https://providers.ccbh.com/uploads/files/Guidelines-for-Obtaining-Approval-1.pdf' },
           { title: 'Community Care Provider Alert 18 — IBHS: Adjustment to Authorization Timeframes (August 17, 2026)', url: 'https://providers.ccbh.com/uploads/img/Provider%20Alerts/Intensive-Behavioral-Health-Services-IBHS-Adjustment-to-Authorization-Timeframes.pdf' },
           { title: '42 CFR 438.210(d) — Medicaid managed care authorization timeframes', url: 'https://www.ecfr.gov/current/title-42/section-438.210' },
           { title: 'Act 146 of 2022 — Insurance Company Law Art. XXI amendments incl. § 2155 prior authorization review (Justia)', url: 'https://law.justia.com/codes/pennsylvania/2022/act-146/' },
@@ -711,9 +724,12 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         h2: 'What are CBH’s claim filing and payment deadlines?',
         body: [
           'CBH’s August 2026 manual: "Providers must submit a clean claim within 90 days of the service date." With other insurance, the provider must get the primary payer’s final determination within 180 days of service and file with CBH within 90 days of it. "CBH will adjudicate all clean claims within 45 days and adjudicate all claims within 90 days."',
+          'Codes and claim fields. CBH’s IBHS billing guide maps ABA to CPT 97151, 97152, 97153, 97155 and 97156 (with U7 or U8 where the credential calls for it), group ABA to 97154 and 97158 with U5/U6 group-size modifiers, and the IBHS level-of-care assessment that can support the written order to H0031 with U9 (425-1). H0032 and H2019 appear only on non-ABA IBHS levels of care such as behavior consultation and mobile therapy. The August 2026 manual’s CMS-1500/837P table marks box 17, “Name of Referring Provider or Other Source”, and 17b, its NPI, as required (loop 2310A), and box 33b as required for the provider taxonomy code (loop 2000A PRV03). The manual sets no EVV requirement, and DHS applies EVV only to personal care and home health services delivered in the home.',
         ],
         cites: [
           { title: 'CBH Provider Manual (updated August 28, 2026), §§ 6.2.1.1 and 6.2.4.1', url: 'https://cbhphilly.org/wp-content/uploads/2022/10/CBH_Provider-Manual_2026-08-28.pdf' },
+          { title: 'CBH IBHS Billing Guide (updated May 2023)', url: 'https://cbhphilly.org/wp-content/uploads/2023/08/CBH_IBHS_Billing-Guide_2023-05.pdf' },
+          { title: 'PA DHS — Electronic Visit Verification (EVV) and EVV FAQ', url: 'https://www.pa.gov/agencies/dhs/resources/for-providers/evv/faq-evv' },
         ],
       },
     ],
@@ -746,8 +762,11 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: 'CBH Member Handbook (January 2025)', url: 'https://cbhphilly.org/wp-content/uploads/2022/10/CBH_Member-Handbook_2025-01_WEB.pdf' },
       { title: '55 Pa. Code Chapter 1155 — Intensive Behavioral Health Services (payment)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter1155/chap1155toc.html' },
       { title: '55 Pa. Code Chapter 5240 — Intensive Behavioral Health Services (licensing)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter5240/chap5240toc.html' },
+      { title: 'PA DHS — Electronic Visit Verification (EVV) and EVV FAQ', url: 'https://www.pa.gov/agencies/dhs/resources/for-providers/evv/faq-evv' },
     ],
     faq: [
+      { q: 'Does CBH require a referring provider and taxonomy on ABA claims?', a: 'Yes. CBH’s claim table marks box 17/17b (referring provider name and NPI) and box 33b (billing taxonomy code) as required.' },
+      { q: 'Does CBH pay H0031 or H0032 for ABA?', a: 'ABA itself bills on CPT 97151–97156 and 97158. H0031 with U9 is used for the IBHS level-of-care assessment; H0032 belongs to non-ABA behavior consultation.' },
       { q: 'Does CBH require prior authorization for ABA, or is it registration only?', a: 'Prior authorization. CBH’s member handbook marks IBHS-ABA “Prior Authorization Required: Yes”. The first two authorizations, ABA Initial Assessment (100 units/30 days) and ABA Initial Treatment (200 units/45 days), need only a written order. Every later request needs the written order, the assessment (FBA and/or skills assessment) and a signed ITP.' },
       { q: 'How long is a CBH ABA authorization?', a: 'At most six months since February 23, 2025, even though a written order can be used for up to 365 days. Submit continued requests 14–30 days before the last covered date; CBH no longer backdates concurrent authorizations.' },
       { q: 'Can a BCBA and a BHT both bill for the same session at CBH?', a: 'Only as a “rare exception”: each must bill a distinct CPT code (for example 97155 or 97156 alongside 97153), all four people (parent, child, BCBA, BHT) must be present, and each must document the other’s service. Supervision and direct observation are never billable.' },
@@ -1030,6 +1049,17 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/25)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },
         ],
       },
+      {
+        h2: 'What are Magellan’s claim filing, payment and appeal rules?',
+        body: [
+          'Magellan’s Pennsylvania HealthChoices supplement (rev. 11/25): claims must be received “within 60 days of the date of service for most levels of care,” and third-party (secondary) claims within 60 days of the other carrier’s EOB, which must be attached. Resubmissions of claims with billing errors are due “within 60 days of the date on Magellan’s explanation of benefits.” Magellan “will pay clean claims within 45 days of the date of receipt,” with 10 percent annual interest on late clean claims. A written claim appeal with supporting documentation goes to Claim Appeals (ClaimAppealsPAHC@MagellanHealth.com) and is decided within 30 days; “No claim appeal will be considered past 365 days from the date of service.” After that comes the two-level provider complaint process.',
+          'On the claim, services that require ordering, referring or prescribing (ORP) data under OMHSAS rules must carry it on every submission, and every ORP practitioner reported must be actively enrolled in Pennsylvania Medicaid; the IBHS written-order writer must be ORP-enrolled. Procedure codes and modifiers come from your Magellan agreement and reimbursement schedules, not a public list. The supplement states no taxonomy rule for claims and does not mention EVV; DHS applies EVV only to personal care and home health services delivered in the home.',
+        ],
+        cites: [
+          { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/25)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },
+          { title: 'PA DHS — Electronic Visit Verification (EVV) and EVV FAQ', url: 'https://www.pa.gov/agencies/dhs/resources/for-providers/evv/faq-evv' },
+        ],
+      },
     ],
     collect: [
       { title: 'Medicaid ID and county', desc: 'Magellan covers only its seven counties; the TAR asks which county the member’s MA is tied to, and a county change needs a new authorization line.' },
@@ -1052,8 +1082,11 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: '55 Pa. Code Chapter 1155 — Intensive Behavioral Health Services (payment)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter1155/chap1155toc.html' },
       { title: '55 Pa. Code Chapter 5240 — Intensive Behavioral Health Services (licensing)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter5240/chap5240toc.html' },
       { title: 'PA DHS — Behavioral Health Managed Care Organizations (BH-MCOs) by county', url: 'https://www.pa.gov/agencies/dhs/resources/medicaid/bhc/bhc-mcos' },
+      { title: 'PA DHS — Electronic Visit Verification (EVV) and EVV FAQ', url: 'https://www.pa.gov/agencies/dhs/resources/for-providers/evv/faq-evv' },
     ],
     faq: [
+      { q: 'What is Magellan of Pennsylvania’s timely filing limit?', a: 'Sixty days from the date of service for most services, 60 days from the other carrier’s EOB for secondary claims, and 60 days from Magellan’s EOB for resubmissions.' },
+      { q: 'How fast does Magellan pay a clean claim in Pennsylvania?', a: 'Within 45 days of receipt, with 10 percent annual interest on clean claims paid late.' },
       { q: 'Does Magellan of Pennsylvania require prior authorization for the ABA assessment?', a: 'It requires a registration, not a medical-necessity review. Submit the IBHS Registration TAR and the written order in Availity; Magellan authorizes 96 units (24 hours) over 45 calendar days for the ABA initial assessment (97151 HA). Reassessments are done within the approved BC-ABA units before the reauthorization request.' },
       { q: 'Does my child need an autism diagnosis for ABA through Magellan?', a: 'No. IBHS ABA is available to children, youth and young adults under 21 with a behavioral health diagnosis; the written order must name a DSM/ICD behavioral health diagnosis, which need not be autism.' },
       { q: 'How long does a Magellan IBHS authorization last?', a: 'Up to 6 months per Magellan’s 2026 workgroup materials; Somerset-Bedford ABA authorizations can run up to one year. Reauthorization packets may be submitted up to 30 days before the last covered day.' },
@@ -1318,9 +1351,11 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         h2: 'What are PerformCare’s claim filing and taxonomy rules?',
         body: [
           'PerformCare’s manual: original claims must be received within 60 days for the Capital Area (Cumberland, Dauphin, Lancaster, Lebanon, Perry) and TCMA (Franklin, Fulton) contracts; third-party-liability claims within 365 days of service and no more than 60 days after the EOB. Claims 365 days or more past the date of service are not considered, and claim appeals filed more than 60 days after the denial notice are denied. Every claim needs a taxonomy code with its qualifier: billing NPI in box 33a with ZZ and the billing taxonomy in 33b, and the rendering NPI and taxonomy in 24J when the rendering provider differs.',
+          'Payment: “PerformCare’s turnaround time for claims is averaging approximately 18 days. PerformCare pays all ‘clean’ claims (claims that are accurate and complete) within 45 days,” with a goal of paying most within 30 days; if you have heard nothing 30 days after sending a claim, check NaviNet or call the Claims Help Desk at 1-888-700-7370. The manual publishes no weekly cut-off. Its CMS-1500 instructions ask for the attending, prescribing or supervising physician’s name, MA number and NPI in boxes 17, 17a and 17b “if required for your provider type,” and all ordering, referring and prescribing providers must be MA-enrolled. The manual does not mention EVV, and DHS applies EVV only to personal care and home health services delivered in the home.',
         ],
         cites: [
           { title: 'PerformCare HealthChoices Provider Manual (updated February 2023), claims and CMS-1500 completion guidelines', url: 'https://pa.performcare.org/content/dam/amerihealth-caritas/performcare-pa/pdf/providers/resources-information/provider-manual.pdf' },
+          { title: 'PA DHS — Electronic Visit Verification (EVV) and EVV FAQ', url: 'https://www.pa.gov/agencies/dhs/resources/for-providers/evv/faq-evv' },
         ],
       },
     ],
@@ -1347,8 +1382,10 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: 'DHS HealthChoices BH Program Standards and Requirements, Appendix AA — Prior Authorization Requirements (Jan. 1, 2026)', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/79/Appendix-AA-Prior-Authorization-Requirements.pdf' },
       { title: '55 Pa. Code Chapter 5240 — Intensive Behavioral Health Services (licensing)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter5240/chap5240toc.html' },
       { title: 'PA DHS — Behavioral Health Managed Care Organizations (BH-MCOs) by county', url: 'https://www.pa.gov/agencies/dhs/resources/medicaid/bhc/bhc-mcos' },
+      { title: 'PA DHS — Electronic Visit Verification (EVV) and EVV FAQ', url: 'https://www.pa.gov/agencies/dhs/resources/for-providers/evv/faq-evv' },
     ],
     faq: [
+      { q: 'How fast does PerformCare pay ABA claims?', a: 'PerformCare pays all clean claims within 45 days and says its turnaround averages about 18 days, with most paid within 30.' },
       { q: 'Does PerformCare require prior authorization for the ABA assessment?', a: 'It requires a registration, not a medical-necessity decision. The agency submits an IBHS Assessment Registration Form in Jiva within 4 calendar days of starting the assessment, and PerformCare authorizes 45 calendar days for an ABA assessment. Registering 97151 also allows billing 97152.' },
       { q: 'Can we bill 97153 and 97155 at the same time with PerformCare?', a: 'Yes, when both code descriptors are met. PerformCare adopted the 2019 CPT supplemental guidance for adaptive behavior services, which answers "Yes, as long as the criteria in the descriptors of both codes are met" — but a single QHP may not report both concurrently.' },
       { q: 'How long is a PerformCare ABA authorization?', a: 'Up to 12 months, starting on the medical-necessity decision date (or the day after the current authorization ends for timely reauths). Reauthorization packets are due within 60 days before the current authorization ends, with a new written order and assessment/ITP updated within 30 days.' },
@@ -1610,9 +1647,12 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         h2: 'What are Carelon’s claim filing and payment deadlines?',
         body: [
           'Carelon’s billing guide: initial HealthChoices claims are due "within 90 days of" the date of service, the date of discharge, or the primary carrier’s EOB for secondary claims, and Carelon encourages billing within 30 days. Its standard is to adjudicate 90% of clean claims within 30 days, 100% of clean claims within 45 days and all claims within 90 days. Exceptions to the 90-day rule go to the Timely Filing Committee with documentation.',
+          'Codes and claim fields. Carelon’s covered-services grid (version 07/22/2026) lists IBHS ABA (program P.ABA, provider type 11, specialty 592) on CPT 97151, 97152, 97153, 97154, 97155, 97156 and 97158, with U7/U8 credential modifiers, group-size modifiers on 97154/97158 and FQ for audio-only; 97157, 0362T and 0373T are not on it. H0031 appears under specialty 592 only as a mental health assessment (child/adolescent) or IBHS school-based program code, not as an ABA code. The billing guide requires the “Ordering, Referring, or Prescribing Provider’s NPI” and name on claims and warns that claims without them may be rejected; it states no taxonomy rule. Carelon’s billing guide does not mention EVV, and DHS applies EVV only to personal care and home health services delivered in the home.',
         ],
         cites: [
           { title: 'Carelon Health of Pennsylvania — Billing Guide (rev. 06/27/2019)', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/79/Carelon-Billing-Guide.pdf' },
+          { title: 'Carelon Pennsylvania HealthChoices Covered Services Grid (PV 07/22/2026)', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/79/Carelon-Pennsylvania-HealthChoices-Covered-Services-Grid-PV-07222026.xlsx' },
+          { title: 'PA DHS — Electronic Visit Verification (EVV) and EVV FAQ', url: 'https://www.pa.gov/agencies/dhs/resources/for-providers/evv/faq-evv' },
         ],
       },
     ],
@@ -1642,8 +1682,10 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: 'Carelon Health of PA — IBHS Summit, March 6, 2026', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/79/IBHS-Summit-March-2026.pdf' },
       { title: 'DHS HealthChoices BH Program Standards and Requirements, Appendix AA — Prior Authorization Requirements (Jan. 1, 2026)', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/79/Appendix-AA-Prior-Authorization-Requirements.pdf' },
       { title: 'PA DHS — Behavioral Health Managed Care Organizations (BH-MCOs) by county', url: 'https://www.pa.gov/agencies/dhs/resources/medicaid/bhc/bhc-mcos' },
+      { title: 'PA DHS — Electronic Visit Verification (EVV) and EVV FAQ', url: 'https://www.pa.gov/agencies/dhs/resources/for-providers/evv/faq-evv' },
     ],
     faq: [
+      { q: 'Which ABA codes does Carelon Health of Pennsylvania pay?', a: 'CPT 97151–97156 and 97158 under IBHS ABA (specialty 592), with U7/U8 and group-size modifiers. 97157, 0362T and 0373T are not on its covered-services grid, and H0031 is an assessment code, not an ABA code.' },
       { q: 'Does Carelon Health of Pennsylvania require prior authorization for the ABA assessment?', a: 'No. Policy CN.48: "The assessment does not require a prior authorization process however treatment does require a prior authorization process." Providers can use up to 92 units (23 hours) for the assessment; the covered-services grid lists the assessment as 97151 with modifier AO or AP and "Auth Req? N".' },
       { q: 'How long does a Carelon IBHS authorization last?', a: 'Up to 180 days. Submit continued-stay requests through ProviderConnect at least 10 business days before the current authorization expires.' },
       { q: 'Does my child need an autism diagnosis for ABA through Carelon?', a: 'No — IBHS ABA is available with any DSM/ICD behavioral health diagnosis on the written order. An autism diagnosis triggers Carelon’s Act 62 cover sheet and primary-insurance process.' },
@@ -1941,9 +1983,13 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         h2: 'How fast must Highmark pay a clean ABA claim in Pennsylvania?',
         body: [
           'Pennsylvania’s prompt-pay rule, 31 Pa. Code § 154.18, requires licensed insurers and managed care plans to pay clean claims "within 45 days of the licensed insurer’s or managed care plan’s receipt of the claim," with interest on late clean claims paid within 30 days of the claim payment. It applies to claims under health insurance policies.',
+          'Highmark’s provider manual (Chapter 6, Unit 1) restates the Act 68 rule: clean claims are paid within 45 days of receipt, the clock starts only once all needed information is in, and late payment carries 10 percent annual interest (self-funded ASO, FEP and BlueCard home claims are excluded from the penalty). Filing limits come from your contract; where the contract sets none, Pennsylvania claims must be received “within 365 days of the last date of service” (CHIP: 180 days). When Highmark is secondary, the same limits run from the primary payer’s finalized or payment date on the attached EOB. Since September 1, 2026, corrected claims (professional frequency code 5 or 7) must be received “within 15 months (455 calendar days) from the finalization date of the original claim.” The unit says nothing about taxonomy codes, referring providers or EVV.',
+          'Codes: V-37 lists 97151–97158, 0362T and 0373T among its ASD codes, alongside HCPCS codes such as H0031, H2019 and H2021 for the Act 62 services it names (community-based wraparound behavioral treatment, service plan development, therapeutic behavioral services); it does not assign individual codes to ABA. Bill ABA on the CPT codes Highmark authorizes.',
         ],
         cites: [
           { title: '31 Pa. Code § 154.18 — Prompt payment', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/031/chapter154/s154.18.html' },
+          { title: 'Highmark Provider Manual — Chapter 6, Unit 1: General Claim Submission Guidelines (timely filing, corrected claims, prompt payment)', url: 'https://providers.highmark.com/resources-and-education/highmark-provider-manual/chapter-6-billing-and-payment/unit-1-general-claim-submission-guidelines' },
+          { title: 'Highmark Medical Policy V-37-044 — Autism Spectrum Disorders (PA commercial, eff. August 4, 2025)', url: 'https://securecms.highmark.com/content/medpolicy/en/highmark/pa/commercial/policies/Visits/V-37/V-37-044.html' },
         ],
       },
       {
@@ -1982,6 +2028,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: 'BACB — U.S. Licensure of Behavior Analysts (PA absent; checked September 2026)', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
       { title: '49 Pa. Code Ch. 18 Subch. N (§§ 18.521–18.527) — Behavior Specialists', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/049/chapter18/chap18toc.html' },
       { title: 'Highmark Provider Manual — Chapter 2, Unit 6: The BlueCard Program', url: 'https://providers.highmark.com/resources-and-education/highmark-provider-manual/chapter-2-product-information/unit-6-the-bluecard-program' },
+      { title: 'Highmark Provider Manual — Chapter 6, Unit 1: General Claim Submission Guidelines', url: 'https://providers.highmark.com/resources-and-education/highmark-provider-manual/chapter-6-billing-and-payment/unit-1-general-claim-submission-guidelines' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2119,6 +2166,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'What is Highmark’s timely filing limit for ABA in Pennsylvania?', a: 'Whatever your contract sets; if it sets none, 365 days from the last date of service (CHIP 180 days). Corrected claims are due within 455 days of the original claim’s finalization since September 1, 2026.' },
       { q: 'Does Highmark cover ABA therapy in Pennsylvania?', a: 'Yes, for a DSM-5 autism diagnosis under Medical Policy V-37. Fully insured large-group plans (51+ employees) and CHIP must cover it under Act 62 for members under 21. Self-funded, individual and small-group plans cover it per the benefit contract, and self-funded groups choose whether V-37 applies.' },
       { q: 'Does Highmark require prior authorization for ABA?', a: 'Yes. Since March 1, 2026, all ABA codes (97151–97158, 0362T, 0373T) are on Highmark’s prior authorization list, managed by Highmark Behavioral Health. That includes the assessment. Submit through Availity.' },
       { q: 'Does Highmark Wholecare cover ABA?', a: 'No. Highmark Wholecare is a Medicaid physical-health plan. Its handbook says behavioral health services come through the county BH-MCO, which manages ABA (IBHS) for Medicaid children in Pennsylvania.' },
@@ -2248,9 +2296,11 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         h2: 'How fast must Capital Blue Cross pay a clean ABA claim in Pennsylvania?',
         body: [
           'Pennsylvania’s prompt-pay rule, 31 Pa. Code § 154.18, requires licensed insurers and managed care plans to pay clean claims "within 45 days of the licensed insurer’s or managed care plan’s receipt of the claim," with interest on late clean claims paid within 30 days of the claim payment. It applies to claims under health insurance policies.',
+          'Capital’s provider manual sets the filing clock for professional claims: “CMS 1500 claims must be submitted to Us no later than 180 days after the date of service,” and CMS-1500 adjustments “must be submitted within 180 days of the original date of service” (some groups’ agreements set shorter limits). When Capital is secondary, the claim is due no later than 180 or 365 days, depending on provider type, from the other carrier’s notice. Administrative claim reviews and medical-necessity appeals must be filed in writing “within 180 calendar days following the date the Provider is given notice via a Statement of Remittance,” and Capital reviews a complete dispute within 60 calendar days. The billing provider NPI and, when applicable, taxonomy code “must match what is registered with Capital Blue Cross”; the taxonomy field is required for an institution with more than one billing subpart. The manual says nothing about EVV.',
         ],
         cites: [
           { title: '31 Pa. Code § 154.18 — Prompt payment', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/031/chapter154/s154.18.html' },
+          { title: 'Capital Blue Cross Provider Manual (Claims submission; Denials, grievances and appeals)', url: 'https://www.capbluecross.com/wps/portal/cap/provider/provider-hub/provider-manual/provider-manual' },
         ],
       },
       {
@@ -2422,6 +2472,8 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'What is Capital Blue Cross’s timely filing limit for ABA claims?', a: 'CMS-1500 claims are due within 180 days of the date of service, and adjustments within 180 days of the original date of service, unless your agreement sets a shorter limit.' },
+      { q: 'How long do I have to dispute a Capital Blue Cross claim?', a: '180 calendar days from the Statement of Remittance; Capital reviews a complete dispute within 60 calendar days.' },
       { q: 'Does Capital Blue Cross cover ABA therapy?', a: 'Yes. ABA is a preauthorized service for Commercial and CHIP members. Fully insured large groups, CHIP and self-funded groups that opted in must cover it under Act 62 for members under 21. Other plans follow the benefit booklet.' },
       { q: 'Does Capital Blue Cross require prior authorization for ABA?', a: 'Yes, before treatment starts. 97151–97158, 0362T and 0373T are on the Single Source Preauthorization List for Commercial/CHIP. Submit through the Provider Portal with the plan of care and clinical notes.' },
       { q: 'How long does Capital take to decide an ABA request?', a: 'For commercial members, the manual allows up to 15 calendar days for a standard request and 72 hours for an expedited one, with a missing-information notice within 48 hours. CHIP requests are decided within two business days.' },
@@ -2502,6 +2554,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         body: [
           'IBX’s commercial ABA policy is Medical Policy Bulletin 14.00.03b, "Applied Behavior Analysis (ABA) for the Treatment of Autism Spectrum Disorder (ASD)" (version effective 12/29/2025). Initial ABA is covered when all of these are met: an established DSM-5-TR ASD diagnosis made with validated autism tools (ADOS, ADI-R, PEDS or Brigance are the examples); target behaviors or skill deficits at least 1 standard deviation below the mean or posing a significant threat of harm; a developmental assessment (e.g. Vineland, ABAS) within the last 6 months unless state law or the contract allows longer; a functional behavioral assessment by a BCBA or licensed behavior specialist (LBS) with baseline adaptive-functioning data from the last 6 months; an expectation of clinically meaningful improvement in at least two settings; an individualized treatment plan by a qualified health professional that is "reviewed and approved every 6 months"; caregiver commitment; and medical stability.',
           'Continuation turns on measured improvement from baseline, a continuing 1-SD deficit or safety risk, ongoing caregiver participation and gains that would be lost if care were reduced — and "An updated diagnosis must be submitted every 24 months". Discontinuation triggers include no progress across two or more successive authorization periods and caregiver refusal of treatment recommendations. The 12/31/2025 revision named BCBAs and licensed behavior specialists explicitly (replacing "ABA provider") and widened the treatment-plan author to any qualified health professional.',
+          'The policy’s coding section lists CPT 0362T, 0373T, 97151, 97153, 97154, 97155, 97156, 97157 and 97158 (97152 is not among them, though the precertification list includes it) and no HCPCS H-code for ABA.',
         ],
         cites: [
           { title: 'IBX Medical Policy 14.00.03b — Applied Behavior Analysis (ABA) for the Treatment of Autism Spectrum Disorder (ASD)', url: 'https://medpolicy.ibx.com/ibc/Commercial/Pages/Policy/d805c027-d99b-4e5b-8127-41e3ced25613.aspx' },
@@ -2549,9 +2602,12 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         h2: 'How fast must Independence Blue Cross pay a clean ABA claim in Pennsylvania?',
         body: [
           'Pennsylvania’s prompt-pay rule, 31 Pa. Code § 154.18, requires licensed insurers and managed care plans to pay clean claims "within 45 days of the licensed insurer’s or managed care plan’s receipt of the claim," with interest on late clean claims paid within 30 days of the claim payment. It applies to claims under health insurance policies.',
+          'IBX’s Billing chapter (November 2025): “Providers must submit claims within 365 days of the date of service per timely filing requirements.” A clean claim needs the group NPI, the performing provider’s NPI (claims without it are rejected), the tax ID, the practice address and the member’s ID and date of birth. If a group NPI is associated with more than one IBX specialty, “the Provider must include the appropriate Provider taxonomy code in addition to the NPI on all claims.” Corrected claims carry the original claim number and the same NPI as the original. Billing disputes run in two levels: the first within 180 days of the Provider EOB (decided within 30 days of complete information), the second within 60 days of the first-level decision (Appeals chapter, July 2025). The chapters do not mention a referring-provider field or EVV.',
         ],
         cites: [
           { title: '31 Pa. Code § 154.18 — Prompt payment', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/031/chapter154/s154.18.html' },
+          { title: 'IBX Provider Manual — Chapter 9: Billing (November 2025)', url: 'https://provcomm.ibx.com/pnc-ibc/Manuals/Provider/IBX_Provider_09_Billing.pdf' },
+          { title: 'IBX Provider Manual — Chapter 15: Appeals (July 2025)', url: 'https://provcomm.ibx.com/pnc-ibc/Manuals/Provider/IBX_Provider_15_Appeals.pdf' },
         ],
       },
       {
@@ -2589,6 +2645,8 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: 'Act 146 of 2022 — Insurance Company Law Art. XXI amendments incl. § 2155 prior authorization review (Justia)', url: 'https://law.justia.com/codes/pennsylvania/2022/act-146/' },
       { title: 'PA State Board of Medicine — Behavior Specialist Licensure Requirements Snapshot', url: 'https://www.pa.gov/agencies/dos/department-and-offices/bpoa/boards-commissions/medicine/behavior-specialist-licensure-snapshot' },
       { title: 'Independence Blue Cross — Provider Manual, Section 16: BlueCard (October 2021)', url: 'https://provcomm.ibx.com/pnc-ibc/Manuals/Provider/IBX_Provider_16_BlueCard.pdf' },
+      { title: 'IBX Provider Manual — Chapter 9: Billing (November 2025)', url: 'https://provcomm.ibx.com/pnc-ibc/Manuals/Provider/IBX_Provider_09_Billing.pdf' },
+      { title: 'IBX Provider Manual — Chapter 15: Appeals (July 2025)', url: 'https://provcomm.ibx.com/pnc-ibc/Manuals/Provider/IBX_Provider_15_Appeals.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2727,6 +2785,8 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does IBX accept H0031 or H-codes for ABA?', a: 'No H-code appears in IBX’s ABA policy 14.00.03b, which codes ABA on CPT 97151 and 97153–97158 plus 0362T and 0373T; 97152 is on the precertification list.' },
+      { q: 'What is Independence Blue Cross’s timely filing limit?', a: 'Claims must be submitted within 365 days of the date of service. Billing disputes are due within 180 days of the Provider EOB.' },
       { q: 'Does Independence Blue Cross cover ABA therapy?', a: 'Yes, for autism spectrum disorder, under medical policy 14.00.03b. Large-group insured plans must cover it under Act 62. IBX added individual ACA plans in 2025 by its own choice, and self-funded employer plans cover it only if the employer elected it.' },
       { q: 'Does IBX still use Magellan for ABA?', a: 'No. From April 1, 2026, IBX’s own Autism Case Management team manages ABA for IBX and Independence Administrators members. Use the 2026 ABA Prior Authorization Form, fax 215-238-2500, call 1-800-688-1911. Magellan’s old ABA fax closed May 1, 2026.' },
       { q: 'Does the ABA assessment need prior authorization with IBX?', a: 'Yes. 97151, 97152 and 0362T are on IBX’s commercial precertification list with every other ABA code, and the PA form has a separate "Assessment request" option.' },
@@ -2846,9 +2906,11 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         h2: 'How fast must UPMC Health Plan pay a clean ABA claim in Pennsylvania?',
         body: [
           'Pennsylvania’s prompt-pay rule, 31 Pa. Code § 154.18, requires licensed insurers and managed care plans to pay clean claims "within 45 days of the licensed insurer’s or managed care plan’s receipt of the claim," with interest on late clean claims paid within 30 days of the claim payment. It applies to claims under health insurance policies.',
+          'UPMC’s claims chapter (Chapter H, updated 10-28-24) sets the commercial clocks. New claims are accepted up to 365 calendar days after the date of service. When UPMC is secondary, the claim must arrive with the primary carrier’s EOP within 90 days of the EOP date or 365 days of the service date, whichever is later, and corrected claims follow the same 90/365 rule. All commercial clean claims are processed within 45 calendar days of receipt, and a claim not paid within 45 days of submission may be resubmitted. Claim appeals are due within the number of business days stated on the EOP or denial notice. Every claim needs the NPI, and “when care is coordinated, the referring provider’s name and NPI or UPIN are also required.” The chapter has no taxonomy rule, and its EVV requirement covers UPMC Community HealthChoices services (Chapter N), not commercial ABA.',
         ],
         cites: [
           { title: '31 Pa. Code § 154.18 — Prompt payment', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/031/chapter154/s154.18.html' },
+          { title: 'UPMC Health Plan Provider Manual — Chapter H, Claims Procedures (updated 10-28-24)', url: 'https://www.upmchealthplan.com/docs/providers/2025_ProviderManual_H.pdf' },
         ],
       },
     ],
@@ -2872,6 +2934,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: 'PA Insurance Department Notice 2026-06 — Autism coverage CPI-U adjustment and parity reminder (56 Pa.B. 1396)', url: 'https://www.pacodeandbulletin.gov/secure/pabulletin/data/vol56/56-10/352.html' },
       { title: 'Act 146 of 2022 — Insurance Company Law Art. XXI amendments incl. § 2155 prior authorization review (Justia)', url: 'https://law.justia.com/codes/pennsylvania/2022/act-146/' },
       { title: 'PA State Board of Medicine — Behavior Specialist Licensure Requirements Snapshot', url: 'https://www.pa.gov/agencies/dos/department-and-offices/bpoa/boards-commissions/medicine/behavior-specialist-licensure-snapshot' },
+      { title: 'UPMC Health Plan Provider Manual — Chapter H, Claims Procedures (updated 10-28-24)', url: 'https://www.upmchealthplan.com/docs/providers/2025_ProviderManual_H.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -3002,6 +3065,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'What is UPMC Health Plan’s timely filing limit for commercial ABA claims?', a: '365 days from the date of service for new claims. Secondary and corrected claims are due 90 days from the EOP or 365 days from the date of service, whichever is later.' },
       { q: 'Does UPMC Health Plan cover ABA therapy?', a: 'On insured employer plans with 51 or more employees, yes — Act 62 requires coverage of ASD treatment including ABA for members under 21. UPMC publishes no ABA medical policy, so for individual, small-group and self-funded plans confirm the benefit with UPMC Health Plan BHS at 1-866-441-4185.' },
       { q: 'Who manages ABA for UPMC commercial members?', a: 'UPMC Health Plan Behavioral Health Services manages commercial behavioral health in-house. Community Care Behavioral Health handles network credentialing and after-hours authorizations. UPMC for You and Community HealthChoices members get behavioral health from their county BH-MCO instead.' },
       { q: 'Can ABA be delivered by telehealth for UPMC members?', a: 'UPMC’s telemedicine policy MP.148 lists 97151–97158, 0362T and 0373T for commercial members, but audio-video is mandatory — audio-only sessions are denied. Bill with POS 02 or 10.' },
@@ -3090,6 +3154,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         body: [
           'GHP’s prior authorization list (updated August 24, 2026) groups ABA with other non-routine behavioral health services and lists 97151–97158, 0362T and 0373T. Its note reads: "Effective 7/15/2023, ABA service will require a Prior Authorization when billed for any diagnosis except Autism." The provider forms page says the same for network providers: "In-network applied behavioral analysis for autism with a valid diagnosis no longer needs prior authorization." Referrals to non-participating providers still need authorization, and the list marks behavioral health requirements as "Contract Dependent". For Medicare, Commercial, CHIP and most TPA plans, the behavioral health number is 888-839-7972.',
           'Where authorization does apply, GHP’s ABA Request Form covers initial assessment, initial treatment and concurrent review. It asks for hours by setting (home, school, facility/clinic, other) and computes units as hours × 4 × 26, which is a 26-week request. Submit by fax to 570-214-3573 or through the Cohere portal. GHP also requires behavioral health providers to "have a direct contract and be credentialed with GHP to see GHP patients." Commercial ABA rates are negotiated and not published.',
+          'The form’s service list is also GHP’s published ABA code set: 97151, 97152, 0362T, 97153, 97155, 0373T, 97154, 97158, 97156 and 97157, plus HCPCS H0032 (treatment planning), H2014 (skills training and development), H2019 (therapeutic behavioral services) and H2021 (community-based wraparound services), all in 15-minute units. So H-codes do appear on GHP’s ABA request. The form asks for a complete treatment plan, the DSM-5/ICD-10 diagnosis and the requesting and servicing providers’ NPI, TIN and certification or license; it has no field for a physician’s prescription or referral.',
         ],
         cites: [
           { title: 'Geisinger Health Plan — Prior authorization list (last updated 8/24/2026)', url: 'https://www.geisinger.org/-/media/OneGeisinger/Files/PDFs/Provider/PriorAuthList.pdf' },
@@ -3289,6 +3354,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Geisinger Health Plan accept H-codes for ABA?', a: 'GHP’s ABA request form lists H0032, H2014, H2019 and H2021 alongside CPT 97151–97158, 0362T and 0373T. Confirm which your contract pays.' },
       { q: 'Does Geisinger Health Plan require prior authorization for ABA?', a: 'Not in network for autism. GHP says in-network ABA for autism with a valid diagnosis no longer needs prior authorization. ABA billed for any other diagnosis, and out-of-network care, still does. Some self-funded or TPA groups may differ, so confirm at 888-839-7972.' },
       { q: 'What criteria does Geisinger use for ABA?', a: 'Policy MP232 says ABA coverage follows the Pennsylvania OMHSAS Medical Necessity Guideline for ABA (bulletin OMHSAS-17-01, January 13, 2017). It was written for Medical Assistance and asks for a recent evaluation, a prescription and an individualized treatment plan.' },
       { q: 'Does Geisinger cover ABA under Act 62?', a: 'Yes — insured Geisinger groups with 51 or more employees, and GHP Kids (CHIP), must cover ASD assessment and treatment, including ABA, for members under 21. Individual, small-group and self-funded plans fall outside Act 62; MP232 still governs ABA criteria where the benefit exists.' },
@@ -3323,7 +3389,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       status: 'verified',
       cites: [
         { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
-        { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 11/26/2025)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }
+        { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }
       ]
     },
     payer: 'Aetna in Pennsylvania',
@@ -3353,7 +3419,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
           { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
-          { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 11/26/2025)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
           { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' }
         ]
       },
@@ -3465,6 +3531,19 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           { title: 'Aetna — Provider appeals: state exceptions to the 180-day dispute filing standard', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/provider-appeals.html' },
         ],
       },
+      {
+        h2: 'Aetna ABA codes, clean-claim rules and reauthorization data',
+        body: [
+          'Aetna’s behavioral health precertification list (eff. 8/1/2024) identifies ABA as CPT 97151, 97152, 97153, 97154, 97155, 97156, 97157, 97158, 0362T and 0373T, and CPB 0648 lists 97151–97158, “Adaptive Behavior Assessments and treatment”, among the CPT codes covered when its criteria are met. Neither lists a HCPCS H-code such as H0031, H0032 or H2019 for ABA. Aetna’s provider manual (6/26) defines a clean claim as one with all the data elements of the CMS-1500, including the member ID, NPI, dates of service and “a complete and accurate breakdown of services”, plus “a corresponding referral (whether in paper or electronic format), if required for the applicable claim”. A claim that involves coordination of benefits is not a clean claim. The manual does not mention a taxonomy code, a corrected-claim deadline or electronic visit verification. Benefits are coordinated under the NAIC order-of-benefit rules, including the birthday rule for a child whose parents are not separated or divorced, where state or federal law allows; otherwise by the member’s plan.',
+          'For continued authorization, Aetna’s ABA medical necessity guide requires a standardized scale of functioning from the past 12 months (for instance the Vineland-3, ABAS, VB-MAPP or ABLLS), target behaviors with recorded baseline measures and quantifiable criteria for progress, and documentation that the target behavior has improved, or, if it has not, documentation of treatment modification, added assessments or consultation. A member’s progress is evaluated every six months. The guide does not require graphs.',
+        ],
+        cites: [
+          { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
+          { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+          { title: 'Aetna Health Care Professional Toolkit / provider manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+        ],
+      },
     ],
     collect: [
       {
@@ -3494,7 +3573,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
     ],
     sources: [
       { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
-      { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 11/26/2025)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+      { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
       { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
       { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
       { title: 'Aetna — Behavioral Health Provider Manual (8/22)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' },
@@ -3509,7 +3588,8 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: '55 Pa. Code § 1101.64 — Third-party medical resources (TPR)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter1101/s1101.64.html' },
       { title: 'PA DHS — Pennsylvania Autism Insurance Act (Act 62)', url: 'https://www.pa.gov/agencies/dhs/resources/intellectual-disabilities-autism/autism-services/pa-autism-insurance-act-62' },
       { title: 'PA DHS — Medicaid for Children with Special Needs (PH95)', url: 'https://www.pa.gov/agencies/dhs/resources/medicaid/medicaid-children-special-needs-ph95' },
-      { title: 'PA DHS — Behavioral Health Managed Care Organizations (BH-MCOs) by county', url: 'https://www.pa.gov/agencies/dhs/resources/medicaid/bhc/bhc-mcos' }
+      { title: 'PA DHS — Behavioral Health Managed Care Organizations (BH-MCOs) by county', url: 'https://www.pa.gov/agencies/dhs/resources/medicaid/bhc/bhc-mcos' },
+      { title: 'Aetna Health Care Professional Toolkit / provider manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }
     ],
     intakeGates: {
       ageLimit: {
@@ -3602,7 +3682,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         value: 'Not addressed in Aetna’s published ABA policies. CPB 0554, CPB 0648 and the ABA medical necessity guide say nothing about billing 97153 and 97155 for the same clock time.',
         status: 'unverified',
         cites: [
-          { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 11/26/2025)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
           { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }
         ],
         verifyVia: 'Aetna provider services or the participating-provider agreement, or a written coding determination from Aetna Behavioral Health.',
@@ -3642,6 +3722,8 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       }
     },
     faq: [
+      { q: 'Does Aetna accept H0031 or other H-codes for ABA?', a: 'Aetna’s precertification list and CPB 0648 identify ABA by CPT 97151–97158, 0362T and 0373T. No H-codes are listed for ABA.' },
+      { q: 'Does Aetna require graphs with an ABA reauthorization?', a: 'The ABA medical necessity guide does not say graphs. It requires a standardized functioning scale from the past 12 months, baseline measures with quantifiable progress criteria, and documentation of improvement or of how treatment changed. Progress is evaluated every six months.' },
       {
         q: 'Does Aetna cover ABA therapy in Pennsylvania?',
         a: 'Yes, for autism spectrum disorder under Aetna’s national ABA medical necessity guide. On fully insured policies for groups of 51 or more employees, Pennsylvania’s Act 62 adds a legal floor for members under 21. Self-funded, individual and small-group plans follow their own plan terms, so check group size and funding type first.'
@@ -3807,10 +3889,22 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         body: [
           'Pennsylvania’s prompt-pay rule, 31 Pa. Code § 154.18, requires licensed insurers and managed care plans to pay clean claims "within 45 days of the licensed insurer’s or managed care plan’s receipt of the claim," with interest on late clean claims paid within 30 days of the claim payment. It applies to claims under health insurance policies.',
           'Evernorth "will only consider claims submitted within 90 days of the date of service or as otherwise defined in your Provider Agreement," and a longer state-law limit applies where one exists. Appeals are initiated in writing within 180 calendar days of the initial payment or denial decision, and most are resolved within 60 calendar days.',
+          'The same guidelines set the exceptions. When Cigna is secondary, the 90 days run from the primary payer’s processing date on its EOB or EOP; Medicaid has three years. A claim filed on time and returned for more information gets a fresh 90 days from the date of the request. Corrected or replacement claims are not stamped “Corrected Claim”: put frequency code 7 (replacement) or 8 (void) in CMS-1500 field 22. The guidelines’ definition of a complete CMS-1500 lists, among other fields, CPT or HCPCS codes and modifier, place of service, units, the rendering provider’s name, NPI and license type, and the billing provider’s name, address and NPI. It does not list a taxonomy code or a referring provider, and the guidelines say nothing about electronic visit verification.',
         ],
         cites: [
           { title: '31 Pa. Code § 154.18 — Prompt payment', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/031/chapter154/s154.18.html' },
           { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
+      },
+      {
+        h2: 'Which codes Cigna pays for ABA, and what a reauthorization must show',
+        body: [
+          'EN0499’s coding table lists CPT 97151 through 97158, 0362T and 0373T as the codes considered medically necessary when its criteria are met, and the autism resource guide says Evernorth “utilizes the CPT billing codes proposed by the American Medical Association (AMA) for ABA treatment.” Neither lists a HCPCS H-code such as H0031, H0032 or H2019 for ABA, and EN0499 warns that claims “not accompanied by covered code(s) under the applicable Coverage Policy will be denied as not covered.”',
+          'For continued treatment, EN0499 requires an updated treatment plan; quantitative baseline, interim and current data, with collection dates, for every targeted behavior and skill in every setting; current data collected within 60 days before the start of the continued-treatment request and within 60 days before Evernorth receives it; evidence of progress on a reliable, valid, standardized instrument no more than one year old; and caregiver-training data. The policy does not use the word “graph”. What it asks for is dated quantitative data, plus standardized scores and score tables or “scoring grids/figures”, when applicable, for the assessment instrument. A break in treatment longer than 60 calendar days means a new standardized assessment.',
+        ],
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+          { title: 'Cigna / Evernorth autism resource guide (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
         ],
       },
     ],
@@ -3854,7 +3948,9 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: '55 Pa. Code § 1101.64 — Third-party medical resources (TPR)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter1101/s1101.64.html' },
       { title: 'PA DHS — Pennsylvania Autism Insurance Act (Act 62)', url: 'https://www.pa.gov/agencies/dhs/resources/intellectual-disabilities-autism/autism-services/pa-autism-insurance-act-62' },
       { title: 'PA DHS — Medicaid for Children with Special Needs (PH95)', url: 'https://www.pa.gov/agencies/dhs/resources/medicaid/medicaid-children-special-needs-ph95' },
-      { title: 'PA DHS — Behavioral Health Managed Care Organizations (BH-MCOs) by county', url: 'https://www.pa.gov/agencies/dhs/resources/medicaid/bhc/bhc-mcos' }
+      { title: 'PA DHS — Behavioral Health Managed Care Organizations (BH-MCOs) by county', url: 'https://www.pa.gov/agencies/dhs/resources/medicaid/bhc/bhc-mcos' },
+      { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+      { title: '31 Pa. Code § 154.18 — Prompt payment', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/031/chapter154/s154.18.html' }
     ],
     intakeGates: {
       ageLimit: {
@@ -4002,6 +4098,9 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       },
       { q: 'What is Cigna’s clean-claim payment turnaround in Pennsylvania?', a: 'Within 45 days of receipt of a clean claim (31 Pa. Code § 154.18), for insured plans.' },
       { q: 'What is Cigna’s timely filing limit in Pennsylvania?', a: 'Ninety days from the date of service under Evernorth’s administrative guidelines, unless your provider agreement or a longer state-law limit says otherwise.' },
+      { q: 'How long do I have to file a secondary or corrected Cigna claim?', a: 'A secondary claim is due 90 days from the primary payer’s processing date on its EOB or EOP. A claim returned for more information gets 90 days from the date of the request. Mark a corrected claim with frequency code 7 or 8 in field 22.' },
+      { q: 'Does Cigna accept H0031 or other H-codes for ABA?', a: 'No H-codes are listed. Evernorth bills ABA on CPT 97151–97158, 0362T and 0373T, and claims without a covered code are denied as not covered.' },
+      { q: 'Does Cigna require graphs with an ABA reauthorization?', a: 'EN0499 does not say “graphs”. It requires dated baseline, interim and current quantitative data, with current data no more than 60 days old, plus a standardized instrument from within the past year.' },
     ],
   },
 
@@ -4161,10 +4260,15 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         body: [
           'Pennsylvania’s prompt-pay rule, 31 Pa. Code § 154.18, requires licensed insurers and managed care plans to pay clean claims "within 45 days of the licensed insurer’s or managed care plan’s receipt of the claim," with interest on late clean claims paid within 30 days of the claim payment. It applies to claims under health insurance policies.',
           'UnitedHealthcare’s 2026 administrative guide publishes no single timely-filing number ("Timely filing limits vary based on state requirements and contracts"; check your agreement). It requires "a valid billing NPI, rendering NPI and relevant taxonomy code(s) on all claims," and encourages, but does not require, the referring provider’s NPI. Most claims are adjudicated within 15 days, up to 45. Claim reconsiderations and appeals are due within 12 months of the original EOB or PRA.',
+          'Optum’s National Network Manual (effective September 1, 2026), which governs the behavioral health claims Optum administers for UnitedHealthcare, is more specific: “All information necessary to process claims must be received by Optum no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan,” and “Any corrections or additions to a claim should be made within 90 days of initial claim receipt.” Claims with all required information and any required authorization are generally paid “within 45 calendar days after Optum receives the claim, or as required by state and federal laws,” which may exclude claims needing a coordination-of-benefits determination. If Optum is secondary you are paid up to the Optum contracted rate; neither guide sets a separate deadline for secondary claims, and neither mentions electronic visit verification.',
+          'Codes and reauthorization. Optum’s commercial ABA reimbursement policy (2022RP501A, updated June 2026) lists CPT 97151–97158, each with a credential modifier (HM for an RBT, HN for a BCaBA, HO for a BCBA or licensed clinician, HP for a BCBA-D), plus 0362T and 0373T without modifiers. It lists no HCPCS H-codes such as H0031 or H0032, and says “97151 and 97152 are the only codes eligible for reimbursement for assessment or reassessment activities.” At each continued-treatment review, Optum’s ABA criteria ask for updated documentation showing progress “for each targeted symptom and behavior, including progress toward defined goals, including the same modes of measurement that were utilized for baseline measurement.” They do not require graphs as such.',
         ],
         cites: [
           { title: '31 Pa. Code § 154.18 — Prompt payment', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/031/chapter154/s154.18.html' },
           { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial): timely filing, NPI/taxonomy, claim reconsideration and appeals', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+          { title: 'Optum National Network Manual (BH02330, effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+          { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
         ],
       },
     ],
@@ -4213,6 +4317,9 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: 'PA DHS — Pennsylvania Autism Insurance Act (Act 62)', url: 'https://www.pa.gov/agencies/dhs/resources/intellectual-disabilities-autism/autism-services/pa-autism-insurance-act-62' },
       { title: 'PA DHS — Medicaid for Children with Special Needs (PH95)', url: 'https://www.pa.gov/agencies/dhs/resources/medicaid/medicaid-children-special-needs-ph95' },
       { title: 'PA DHS — Behavioral Health Managed Care Organizations (BH-MCOs) by county', url: 'https://www.pa.gov/agencies/dhs/resources/medicaid/bhc/bhc-mcos' },
+      { title: 'Optum National Network Manual (BH02330, effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+      { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+      { title: '31 Pa. Code § 154.18 — Prompt payment', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/031/chapter154/s154.18.html' },
       { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
       { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
       { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
@@ -4264,7 +4371,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         ]
       },
       telehealth: {
-        value: 'Three codes, after an attestation. Optum’s Telehealth Billing guide (updated September 2025) is explicit for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157” — virtual supervision of technicians and family training — so technician-delivered 97153 is not payable by telehealth. The provider must first be “an approved Optum virtual visits provider who has attested” (the virtual-visits attestation on Provider Express) and must tell the ABA Care Advocate at authorization. Bill the in-person code with the member’s location as the place of service: POS 10 when the member is at home, POS 02 anywhere else (the older ABA CPT FAQ says POS 02; the 2025 guide requires one of the two on every behavioral-health telehealth claim, and POS 11 or a telehealth modifier alone is not paid). Optum’s criteria add that telehealth is “not intended to supplant in-person service.”',
+        value: 'Three codes, after an attestation. Optum’s Telehealth Billing guide (updated September 2025) is explicit for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157” — virtual supervision of technicians and family training — so technician-delivered 97153 is not payable by telehealth. The provider must first be “an approved Optum virtual visits provider who has attested” (the virtual-visits attestation on Provider Express) and must tell the ABA Care Advocate at authorization. Bill the in-person code with the member’s location as the place of service: POS 10 when the member is at home, POS 02 anywhere else (the older ABA CPT FAQ says POS 02; the 2025 guide requires one of the two on every behavioral-health telehealth claim, and POS 11 or a telehealth modifier alone is not paid). Optum’s criteria add that telehealth is “not intended to supplant in-person service.” The same guide lists telehealth modifiers 93, 95, FQ, GT and GQ as optional on commercial claims; the POS code is what is mandatory.',
         status: 'verified',
         cites: [
           { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
@@ -4368,6 +4475,8 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         a: 'Commercial ABA rates are not published. They are negotiated in your participating-provider agreement.'
       },
       { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale. On Act 62 plans the insurer may review the treatment plan once every six months unless a different interval is agreed.' },
+      { q: 'What is UnitedHealthcare’s timely filing limit for ABA in Pennsylvania?', a: 'Optum, which administers UnitedHealthcare’s behavioral health claims, needs all claim information within 90 calendar days of the date of service unless state law, federal law or the benefit plan allows longer; corrections are due within 90 days of initial claim receipt. Check your agreement too.' },
+      { q: 'Does UnitedHealthcare accept H0031 or other H-codes for ABA?', a: 'Optum’s commercial ABA reimbursement policy lists only CPT 97151–97158 (with an HM, HN, HO or HP credential modifier), 0362T and 0373T. No H-codes are listed.' },
       { q: 'What is UnitedHealthcare’s clean-claim payment turnaround in Pennsylvania?', a: 'Within 45 days of receipt of a clean claim (31 Pa. Code § 154.18), for insured plans.' },
       { q: 'Does UnitedHealthcare require a taxonomy code on the claim in Pennsylvania?', a: 'Yes. The 2026 administrative guide requires a valid billing NPI, rendering NPI and relevant taxonomy code on all claims and encounters.' },
     ],
