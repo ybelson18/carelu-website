@@ -21,7 +21,7 @@ import { useState, useEffect, useRef, useCallback } from 'react';
    still reaches the /demo page, which renders the same DemoFlow.
    ================================================================ */
 
-const CALENDLY_URL = 'https://calendly.com/d/cs28-9x7-qs3/leadtrap-demo';
+const CALENDLY_URL = 'https://calendly.com/avi-leadtrap/30min';
 const INK = '#1A1A1A';
 const BONE = '#FAF8F3';
 const MUTED = '#8C8674';
