@@ -50,7 +50,7 @@ export default function DuoGiveaway() {
       <Nav base="/carelu" />
 
       <main style={{ maxWidth: 760, margin: '0 auto', padding: 'clamp(140px, 16vw, 190px) clamp(20px, 5vw, 40px) 90px' }}>
-        {/* Apple's iPhone Duo hero: the phone unfolds once, then stays open. */}
+        {/* Apple's iPhone Duo hero, white backdrop keyed to our sky (public/sky.png); unfolds once, then stays open. */}
         <div style={{
           background: '#fff', border: '1px solid rgba(43,42,38,0.1)', borderRadius: 14,
           overflow: 'hidden', margin: '0 0 36px',
