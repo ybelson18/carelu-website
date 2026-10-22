@@ -13,6 +13,7 @@ import ProductPage from './pages/ProductPage'
 import TermsPage from './pages/TermsPage'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import CookiePolicy from './pages/CookiePolicy'
+import DuoGiveaway from './pages/DuoGiveaway'
 import LeadTrapPrivacy from './pages/LeadTrapPrivacy'
 import LeadTrapTerms from './pages/LeadTrapTerms'
 import Company from './pages/Company'
@@ -118,6 +119,7 @@ export default function App() {
         <Route path="/terms" element={isCareluDomain ? <TermsPage /> : <LeadTrapTerms />} />
         <Route path="/privacy" element={isCareluDomain ? <PrivacyPolicy /> : <LeadTrapPrivacy />} />
         <Route path="/cookies" element={<CookiePolicy />} />
+        <Route path="/duo-giveaway" element={<DuoGiveaway />} />
         <Route path="/brand" element={<BrandProposal />} />
         {/* --- V2 sandbox routes --- */}
         <Route path="/v2" element={<GatewayV2 />} />
