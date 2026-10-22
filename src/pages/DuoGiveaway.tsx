@@ -34,13 +34,14 @@ const SUMMARY = [
   'Introduce a business to Carelu between October 22 and November 30, 2026.',
   'The business tells us you referred them, by text or email, before our first call or within 5 days after it.',
   'They sign up within 60 days of our first conversation.',
-  'Once they become a client and make their first payment, we send you an iPhone Duo.',
+  'Once they become a client and make their first payment, you get an iPhone Duo or $1,500 cash, your choice.',
+  'Every referral after your first that qualifies earns $1,500 cash.',
 ];
 
 export default function DuoGiveaway() {
   useSeo({
     title: 'iPhone Duo Giveaway Terms — Carelu',
-    description: 'Terms for the Carelu referral giveaway: introduce a business that becomes a paying Carelu client and receive an iPhone Duo.',
+    description: 'Terms for the Carelu referral giveaway: introduce a business that becomes a paying Carelu client and receive an iPhone Duo or $1,500 cash.',
     canonical: '/duo-giveaway',
   });
   return (
@@ -80,8 +81,8 @@ export default function DuoGiveaway() {
         <P>
           This promotion is run by LeadTrap, Inc., doing business as Carelu, 169 Madison Avenue, Suite 62431, New York,
           NY 10016 (&ldquo;Carelu&rdquo;). The person who makes a referral is the &ldquo;Referrer.&rdquo; These terms set
-          out the conditions for earning an iPhone Duo by referring a business that becomes a paying Carelu client. The
-          promotion starts on October 22, 2026.
+          out the conditions for earning an iPhone Duo or a cash reward by referring a business that becomes a paying
+          Carelu client. The promotion starts on October 22, 2026.
         </P>
 
         <H2>1. Eligible business referral</H2>
@@ -138,9 +139,15 @@ export default function DuoGiveaway() {
 
         <H2>5. Reward and delivery</H2>
         <P>
-          Carelu will provide Referrer one new iPhone Duo for each qualifying referral, without charging Referrer for the
-          device. Exact manufacturer model, storage, configuration, and approximate retail value shall be determined by
-          Carelu in its sole discretion.
+          For Referrer&rsquo;s first qualifying referral, Carelu will provide Referrer, at Referrer&rsquo;s election,
+          either one new iPhone Duo, without charging Referrer for the device, or $1,500 in cash instead of the device.
+          Exact manufacturer model, storage, configuration, and approximate retail value of the iPhone Duo shall be
+          determined by Carelu in its sole discretion.
+        </P>
+        <P>
+          For each additional qualifying referral after the first, Carelu will pay Referrer $1,500 in cash. No additional
+          iPhone Duo will be provided. References in these terms to delivering or providing an iPhone Duo apply equally
+          to any cash reward, which will be paid within the same timeframe and subject to the same conditions.
         </P>
         <P>
           Carelu will deliver the reward within ten business days or, if the model of iPhone Duo selected by Carelu is
@@ -150,8 +157,8 @@ export default function DuoGiveaway() {
           or required to be provided by Carelu. Delivery shipping costs shall be borne by Carelu.
         </P>
         <P>
-          Activation, service plans, accessories, and any required tax reporting are the sole responsibility of the
-          Referrer. Carelu shall not be required to pay for or otherwise participate in the foregoing actions and items.
+          Activation, service plans, accessories, and any taxes or required tax reporting on any reward are the sole
+          responsibility of the Referrer. Carelu shall not be required to pay for or otherwise participate in the foregoing actions and items.
           If the specified device is unavailable, Carelu and Referrer must agree in writing to an alternative; these
           terms do not authorize unilateral substitution.
         </P>
@@ -184,7 +191,7 @@ export default function DuoGiveaway() {
         <H2>8. Administration and governing terms</H2>
         <P>
           Questions and notices should be sent to Carelu at{' '}
-          <a href="mailto:yoni@carelu.com" style={{ color: INK }}>yoni@carelu.com</a>. Carelu and Referrer will first
+          <a href="mailto:legal@leadtrap.com" style={{ color: INK }}>legal@leadtrap.com</a>. Carelu and Referrer will first
           attempt in good faith to resolve eligibility or delivery disputes using the referral records. These terms are
           governed by New York law, with jurisdiction in the courts of the State of New York in the borough of Manhattan.
         </P>
