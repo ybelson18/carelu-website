@@ -50,6 +50,18 @@ export default function DuoGiveaway() {
       <Nav base="/carelu" />
 
       <main style={{ maxWidth: 760, margin: '0 auto', padding: 'clamp(140px, 16vw, 190px) clamp(20px, 5vw, 40px) 90px' }}>
+        {/* Apple's iPhone Duo hero: the phone unfolds once, then stays open. */}
+        <div style={{
+          background: '#fff', border: '1px solid rgba(43,42,38,0.1)', borderRadius: 14,
+          overflow: 'hidden', margin: '0 0 36px',
+        }}>
+          <video
+            src="/iphone-duo-open.mp4" poster="/iphone-duo-open-poster.jpg"
+            autoPlay muted playsInline preload="auto" width={1932} height={1280}
+            aria-label="iPhone Duo unfolding in two hands"
+            style={{ width: '100%', height: 'auto', display: 'block' }}
+          />
+        </div>
         <h1 style={{
           fontFamily: 'var(--font-display)', fontSize: 'clamp(36px, 4.5vw, 54px)', fontWeight: 400,
           color: INK, letterSpacing: '-0.025em', lineHeight: 1.1, margin: 0,
