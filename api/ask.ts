@@ -174,20 +174,54 @@ const CHUNKS: Chunk[] = Object.values(payers).flatMap((p) => {
   return base.map((c) => ({ ...c, hay: `${c.payer} ${c.state} ${c.title} ${c.text}`.toLowerCase() }));
 });
 
-// The whole directory at a glance, one block per guide. Always sent (and cached)
-// so the assistant knows every payer and can answer general or comparative
-// questions ("which state pays best?") that no keyword pick of sections can serve.
-// Retrieved sections below then add the detail for the payers a question names.
-const DIRECTORY = Object.values(payers)
-  .map((p) => {
-    // At-a-glance lines only (~54K tokens). The long assessment/treatment PA and
-    // diagnosis facts used to ride along too (~101K tokens, $0.50 per cache write);
-    // they now come in as retrieved chunks, and swept across every state when a
-    // question asks for a comparison. Same answers on a side-by-side test.
-    const lines = p.atGlance.map((f) => `- ${f.label}: ${f.value}`);
-    return `## ${p.payer}${p.state ? ` (${p.state})` : ''} — /payers/${p.slug}\n${lines.join('\n')}`;
+/* The directory sent (and cached) on every call, so the assistant knows every
+   payer and can answer general or comparative questions ("which state pays
+   best?") that no keyword pick of sections can serve. Retrieved sections
+   below then add the detail for the payers a question names. Four parts:
+   1. at a glance for the 28 guides every comparison starts from: each state
+      Medicaid program and the national commercial / BH / military plans;
+   2. each state's commercial autism-insurance mandate, once (the Aetna, Cigna
+      and UHC guides for a state all repeat it);
+   3. every Medicaid MCO's published rate line(s), so a cross-plan rate
+      question ("which Medicaid plans pay below the state fee schedule?")
+      doesn't have to rely on retrieval picking the right MCOs;
+   4. a one-line index of every guide, so the model knows each plan exists and
+      that its details arrive in the excerpts. */
+const MANDATE_LABELS = ['Covers ABA?', 'State mandate', 'Mandate age', 'Mandate caps', 'Exempt from mandate', 'Licensure'];
+const CORE = Object.values(payers).filter((p) => p.kind === 'state-medicaid' || p.state === 'US');
+const MANDATES = Array.from(new Set(Object.values(payers).map((p) => p.state ?? '')))
+  .filter((st) => st && st !== 'US')
+  .sort()
+  .map((st) => {
+    // Several commercial guides per state repeat the mandate; some only name it
+    // ("State mandate") while others carry every detail. Pick the one with the
+    // most mandate labels (first commercial guide missed GA's "Mandate caps").
+    const candidates = Object.values(payers).filter((p) => p.state === st && p.kind === 'commercial' &&
+      p.atGlance.some((f) => f.label === 'State mandate'));
+    const g = candidates.sort((a, b) =>
+      b.atGlance.filter((f) => MANDATE_LABELS.includes(f.label)).length -
+      a.atGlance.filter((f) => MANDATE_LABELS.includes(f.label)).length,
+    )[0];
+    if (!g) return '';
+    const lines = g.atGlance.filter((f) => MANDATE_LABELS.includes(f.label) && f.label !== 'Covers ABA?')
+      .map((f) => `- ${f.label}: ${f.value}`);
+    return `## ${st} commercial insurance: state autism mandate (fully insured plans; from /payers/${g.slug})\n${lines.join('\n')}`;
   })
-  .join('\n\n');
+  .filter(Boolean);
+const MCO_RATES = Object.values(payers)
+  .filter((p) => p.kind === 'medicaid-mco')
+  .map((p) => {
+    const lines = p.atGlance.filter((f) => /rate/i.test(f.label)).map((f) => `- ${f.label}: ${f.value}`);
+    return lines.length === 0 ? '' : `- ${p.payer} (${p.state ?? ''}) — /payers/${p.slug}\n  ${lines.join('\n  ')}`;
+  })
+  .filter(Boolean);
+const DIRECTORY = [
+  ...CORE.map((p) => `## ${p.payer}${p.state ? ` (${p.state})` : ''} — /payers/${p.slug}\n${p.atGlance.map((f) => `- ${f.label}: ${f.value}`).join('\n')}`),
+  ...MANDATES,
+  `## Medicaid MCO published rates\n${MCO_RATES.join('\n')}`,
+  '## Index of every guide (details for any of these arrive in the excerpts when a question needs them)\n' +
+    Object.values(payers).map((p) => `- ${p.payer} (${p.state ?? ''}, ${p.kind ?? ''}) — /payers/${p.slug}`).join('\n'),
+].join('\n\n');
 
 // Words that say nothing about which guide a question is about. Without this,
 // "which ... has the ..." matched every section equally, and generic words like
@@ -324,7 +358,7 @@ function retrieve(question: string, prevUser: string | undefined, limit = 14): C
 const SYSTEM = `You are the Carelu ABA Payer Directory assistant, embedded on carelu.com/payers. You answer questions from ABA-provider intake and billing teams about insurance payers — prior authorization, assessment PA, diagnosis requirements, rates, reauthorization cadence, licensure, mandates.
 
 You have two sources:
-- The DIRECTORY below: every payer guide Carelu publishes, at a glance (key facts and guide page). Use it to know what the directory covers and to answer general or comparative questions across payers and states.
+- The DIRECTORY below: each state Medicaid program and the national plans at a glance, each state's commercial autism-insurance mandate, every Medicaid MCO's published rate line(s), and an index of every guide Carelu publishes. Details for Medicaid plans and state commercial guides arrive in the excerpts. Use it to know what the directory covers and to answer general or comparative questions across payers and states.
 - Detailed <excerpts> attached to each question: the full guide sections most relevant to it. Prefer them for detail and for citations.
 
 Hard rules:
@@ -412,7 +446,10 @@ export async function POST(request: Request): Promise<Response> {
     thinking: { type: 'adaptive' },
     output_config: { effort: 'low' },
     // The directory is identical on every call, so cache it: later questions
-    // read it at a tenth of the input price instead of paying for ~54K tokens.
+    // read it at a tenth of the input price. ~23.3K tokens measured in the
+    // 2026-09-23 side-by-side test (vs ~53.7K for the former full directory
+    // of every guide's at-a-glance lines), plus the Medicaid MCO rate lines
+    // added here (~1.9K tokens, chars/3.5 estimate).
     system: [
       { type: 'text', text: SYSTEM },
       { type: 'text', text: `<directory>\n${DIRECTORY}\n</directory>`, cache_control: { type: 'ephemeral' } },
