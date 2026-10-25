@@ -95,6 +95,7 @@ const S: Record<string, PayerSource> = {
   lcswScope: { title: 'ORS 675.510(2)(a) — Regulated social workers: "Clinical social work" includes the "assessment, diagnosis or treatment of mental, emotional or behavioral disorders"', url: 'https://www.oregonlegislature.gov/bills_laws/ors/ors675.html' },
   coABA2026: { title: 'CareOregon (Health Share, Jackson Care Connect, Columbia Pacific CCO) — Important update to ABA authorization requests (provider update, Oct 22, 2026)', url: 'https://jacksoncareconnect.org/providers/provider-updates/2026/10/22/important-update-to-aba-authorization-requests' },
   trilPAtool: { title: 'Trillium Community Health Plan — Medicaid Pre-Auth Check tool (97151, 97152, 97157 no PA; 0362T, 97153–97156, 97158, 0373T PA required; checked 10/25/2026)', url: 'https://www.trilliumohp.com/providers/preauth-check/medicaid-pre-auth.html' },
+  uhaGrid: { title: 'Umpqua Health Alliance — Mental Health/Substance Use Disorder Prior Authorization Grid (December 2025)', url: 'https://www.umpquahealth.com/wp-content/uploads/2025/05/mh-sud-preauth-grid-2025-12-01-en.pdf' },
 };
 
 /* ---- Shared Oregon state facts ---- */
@@ -1240,11 +1241,9 @@ export const oregonPayers: Record<string, PayerConfig> = {
     family: 'umpqua-health',
     cardDesc: 'Douglas County CCO: ABA on its behavioral health PA list with six-month authorizations; InterQual plus the Prioritized List; 90-day retro window.',
     assessmentPA: {
-      value: 'Not settled by the FAQ: it lists Applied Behavior Analysis among behavioral health services requiring PA, and code-level rules sit in the online Prior Authorization Grid',
-      status: 'unverified',
-      cites: [S.uhaFAQ],
-      verifyVia: 'Umpqua Health Alliance Prior Authorization Grid (umpquahealth.com/prior_authorizations) for 97151 and 97152, or 541-672-1685 / PriorAuthorizations@umpquahealth.com.',
-      blocker: 'document',
+      value: 'Split by code. Umpqua\'s MH/SUD Prior Authorization Grid (December 2025) marks 97151 (behavior identification assessment by the QHP) "PA Not Required: For any provider," but 97152 (technician-administered supporting assessment) "PA Required: For all providers," as are 97153–97158. Requests go to PriorAuthorizations@umpquahealth.com, fax 541-677-5881',
+      status: 'verified',
+      cites: [S.uhaGrid, S.uhaFAQ],
     },
     treatmentPA: {
       value: 'Yes: ABA is listed as an in-network behavioral health service requiring PA, authorized for six months at a time',
@@ -1297,7 +1296,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       { title: 'Rate expectation', desc: 'Requests without a stated rate are reviewed at the OHA (DMAP) rate; ask for an SFA/SCA if you need more.' },
       { title: 'Other insurance', desc: 'If commercial is primary and its auth rules are met, Umpqua does not require its own PA.' },
     ],
-    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.uhaFAQ, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, S.gn, { title: 'Umpqua Health Alliance — Provider Newsletter (UHA Connection archive)', url: 'https://www.umpquahealth.com/providers/provider-resources/provider-newsletter/' }],
+    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.uhaFAQ, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, S.gn, { title: 'Umpqua Health Alliance — Provider Newsletter (UHA Connection archive)', url: 'https://www.umpquahealth.com/providers/provider-resources/provider-newsletter/' }, S.uhaGrid],
     deliveryRules: {
       supervision: {
         value: 'Umpqua publishes no ABA supervision rule, so the state rule applies. ' + STATE_SUPERVISION,

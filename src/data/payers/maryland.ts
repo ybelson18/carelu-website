@@ -316,7 +316,7 @@ export const marylandPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'A closed list of seven. The ASD diagnosis must be made by a qualified health care professional (QHCP) \u201cwith training and experience to diagnose ASD\u201d: a developmental pediatrician, a pediatrician, a pediatric neurologist, a child psychiatrist, a clinical psychologist, a neuropsychologist, or a nurse practitioner. The ABA assessment that follows is a separate role and a separate credential \u2014 only a licensed psychologist, BCBA-D or BCBA may complete it and write the treatment plan.',
+          'A closed list of seven. The ASD diagnosis must be made by a qualified health care professional (QHCP) \u201cwith training and experience to diagnose ASD\u201d: a developmental pediatrician, a pediatrician, a pediatric neurologist, a child psychiatrist, a clinical psychologist, a neuropsychologist, or a nurse practitioner. The ABA assessment that follows is a separate role and a separate credential \u2014 only a licensed psychologist, BCBA-D or BCBA may complete it and write the treatment plan. LCSW: no. The QHCP list is closed and names no social worker of any licence level, whatever Maryland\'s social-work scope allows; an LCSW-C\'s evaluation does not open the ABA benefit without a diagnosis from one of the seven.',
         status: 'verified',
         cites: [{ title: 'MDH ABA Provider Manual (eff. Feb 1, 2026)', url: 'https://health.maryland.gov/mmcp/epsdt/ABA/Documents/ABA%20Provider%20Manual%202_1_26%20(2).pdf' }],
       },
@@ -578,6 +578,7 @@ export const marylandPayers: Record<string, PayerConfig> = {
       { title: 'CMS — Maryland EVV compliance determination letter (Feb 27, 2024)', url: 'https://www.medicaid.gov/medicaid/home-community-based-services/downloads/md-evv-aprvl-ltr-02272024.pdf' },
       { title: 'CareFirst — Provider Medical News (provider news archive)', url: 'https://provider.carefirst.com/providers/news/medical.page' },
       { title: 'CareFirst — Utilization Management Outpatient Authorization Request for Services (SUM7690-1E, 4/26)', url: 'https://provider.carefirst.com/carefirst-resources/provider/pdf/authorization-form-outpatient-services.pdf' },
+      { title: 'Md. Code, Health Occupations § 19-101 — definitions (LCSW-C practice includes "evaluation, diagnosis, and treatment")', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gho&section=19-101&enactments=false' },
     ],
     deliveryRules: {
       supervision: {
@@ -640,9 +641,9 @@ export const marylandPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'A "qualified healthcare provider." Medical Policy 3.01.015 requires a "confirmed diagnosis of autism spectrum disorder (ASD) from a qualified healthcare provider" and does not list which credentials qualify. On a fully insured Maryland contract, COMAR 31.10.39.03 lets the carrier require a comprehensive evaluation by the child\'s primary care provider or a specialty physician.',
+          'A "qualified healthcare provider." Medical Policy 3.01.015 requires a "confirmed diagnosis of autism spectrum disorder (ASD) from a qualified healthcare provider" and does not list which credentials qualify. On a fully insured Maryland contract, COMAR 31.10.39.03 lets the carrier require a comprehensive evaluation by the child\'s primary care provider or a specialty physician. LCSW: not named. 3.01.015 asks only for a "qualified healthcare provider", and Maryland lets a licensed certified social worker–clinical (LCSW-C) do the "evaluation, diagnosis, and treatment" of biopsychosocial conditions and behavioral health disorders (Health Occ. § 19-101(n)(5)); an LMSW or LCSW-A may formulate a diagnosis only under an LCSW-C\'s supervision. Ask CareFirst at authorization whether it accepts an LCSW-C diagnosis.',
         status: 'verified',
-        cites: [{ title: 'CareFirst Medical Policy 3.01.015 — Autism Spectrum Disorder (ASD) (eff. 3/1/2026), Medical Policy Reference Manual', url: 'https://provider.carefirst.com/providers/medical/medical-policy.page' }, { title: 'COMAR 31.10.39.03 — Utilization Review Criteria for Treatment of Autism and Autism Spectrum Disorders', url: 'https://regs.maryland.gov/us/md/exec/comar/31.10.39.03' }],
+        cites: [{ title: 'Md. Code, Health Occupations § 19-101 — definitions (LCSW-C practice includes "evaluation, diagnosis, and treatment")', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gho&section=19-101&enactments=false' }, { title: 'CareFirst Medical Policy 3.01.015 — Autism Spectrum Disorder (ASD) (eff. 3/1/2026), Medical Policy Reference Manual', url: 'https://provider.carefirst.com/providers/medical/medical-policy.page' }, { title: 'COMAR 31.10.39.03 — Utilization Review Criteria for Treatment of Autism and Autism Spectrum Disorders', url: 'https://regs.maryland.gov/us/md/exec/comar/31.10.39.03' }],
       },
       diagnosticTools: {
         value:
@@ -884,6 +885,7 @@ export const marylandPayers: Record<string, PayerConfig> = {
       { title: 'Aetna — Disputes and appeals overview', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' },
       { title: 'Aetna — Provider appeals: state exceptions to filing standard', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/provider-appeals.html' },
       { title: 'Md. Insurance Article § 15-1005 — claims payment, filing and appeal minimums, interest', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gin&section=15-1005&enactments=false' },
+      { title: 'Md. Code, Health Occupations § 19-101 — definitions (LCSW-C practice includes "evaluation, diagnosis, and treatment")', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gho&section=19-101&enactments=false' },
     ],
     deliveryRules: {
       supervision: {
@@ -950,9 +952,9 @@ export const marylandPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'The diagnosis must come from a provider qualified to diagnose within their scope \u2014 a licensed psychologist, psychiatrist or physician. Aetna\'s national precertification form (GR-69017-4) asks for the DSM-5 diagnosis code, the diagnosing provider and their credentials, but that form says not to use it for Maryland, so confirm what Aetna wants on a Maryland request through Availity or the precertification line.',
+          'The diagnosis must come from a provider qualified to diagnose within their scope \u2014 a licensed psychologist, psychiatrist or physician. Aetna\'s national precertification form (GR-69017-4) asks for the DSM-5 diagnosis code, the diagnosing provider and their credentials, but that form says not to use it for Maryland, so confirm what Aetna wants on a Maryland request through Availity or the precertification line. LCSW: not named. The guide\'s catch-all ("other health care professional qualified to diagnose mental health conditions within their scope of practice") can reach an LCSW-C: Maryland lets a licensed certified social worker–clinical (LCSW-C) do the "evaluation, diagnosis, and treatment" of biopsychosocial conditions and behavioral health disorders (Health Occ. § 19-101(n)(5)); an LMSW or LCSW-A may formulate a diagnosis only under an LCSW-C\'s supervision. CPB 0648\'s evaluator list does not include social workers, so confirm at precertification.',
         status: 'verified',
-        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Aetna CPB 0648 \u2014 Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }],
+        cites: [{ title: 'Md. Code, Health Occupations § 19-101 — definitions (LCSW-C practice includes "evaluation, diagnosis, and treatment")', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gho&section=19-101&enactments=false' }, { title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Aetna CPB 0648 \u2014 Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }],
       },
       diagnosticTools: {
         value:
@@ -1192,6 +1194,7 @@ export const marylandPayers: Record<string, PayerConfig> = {
       { title: 'Cigna — 837P Companion Guide (version 1.18, February 2022)', url: 'https://www.cigna.com/static/www-cigna-com/docs/5010-837P-companion-guide.pdf' },
       { title: 'Md. Insurance Article § 15-1005 — claims payment, filing and appeal minimums, interest', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gin&section=15-1005&enactments=false' },
       { title: 'COMAR 31.10.39.03 — Utilization Review Criteria for Treatment of Autism and Autism Spectrum Disorders', url: 'https://regs.maryland.gov/us/md/exec/comar/31.10.39.03' },
+      { title: 'Md. Code, Health Occupations § 19-101 — definitions (LCSW-C practice includes "evaluation, diagnosis, and treatment")', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gho&section=19-101&enactments=false' },
     ],
     deliveryRules: {
       supervision: {
@@ -1253,9 +1256,9 @@ export const marylandPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'EN0499 as quoted in this guide sets the credential bar for who performs the ABA assessment and supervises the case \u2014 an independently licensed provider or a BCBA \u2014 rather than naming who may make the ASD diagnosis. The diagnosis itself must be a DSM-5-TR autism spectrum diagnosis, with Rett syndrome (F84.2) excluded.',
+          'EN0499 as quoted in this guide sets the credential bar for who performs the ABA assessment and supervises the case \u2014 an independently licensed provider or a BCBA \u2014 rather than naming who may make the ASD diagnosis. The diagnosis itself must be a DSM-5-TR autism spectrum diagnosis, with Rett syndrome (F84.2) excluded. LCSW: EN0499\'s test is independent licensure plus a board that puts diagnosis in scope. Maryland lets a licensed certified social worker–clinical (LCSW-C) do the "evaluation, diagnosis, and treatment" of biopsychosocial conditions and behavioral health disorders (Health Occ. § 19-101(n)(5)); an LMSW or LCSW-A may formulate a diagnosis only under an LCSW-C\'s supervision. So an LCSW-C meets the wording; an LMSW or LCSW-A does not practise independently.',
         status: 'unverified',
-        cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
+        cites: [{ title: 'Md. Code, Health Occupations § 19-101 — definitions (LCSW-C practice includes "evaluation, diagnosis, and treatment")', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gho&section=19-101&enactments=false' }, { title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
         verifyVia: 'Evernorth Behavioral Health provider services (the behavioral health number on the member\'s card) \u2014 ask which diagnosing credentials EN0499 accepts before you rely on a diagnosis from a non-doctoral clinician.',
         blocker: 'per-case',
       },
@@ -1497,6 +1500,7 @@ export const marylandPayers: Record<string, PayerConfig> = {
       { title: 'Md. Code, Health Occupations § 17-6A-10 — license required to practice behavior analysis', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gho&section=17-6A-10&enactments=false' },
       { title: 'UnitedHealthcare 2026 Administrative Guide — Chapter 10, NPI', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
       { title: 'Md. Insurance Article § 15-1005 — claims payment, filing and appeal minimums, interest', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gin&section=15-1005&enactments=false' },
+      { title: 'Md. Code, Health Occupations § 19-101 — definitions (LCSW-C practice includes "evaluation, diagnosis, and treatment")', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gho&section=19-101&enactments=false' },
     ],
     deliveryRules: {
       supervision: {
@@ -1563,9 +1567,9 @@ export const marylandPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'A DSM-5-TR autism spectrum diagnosis from a state-licensed physician, psychologist, or other qualified clinician. Optum asks for the diagnosing clinician and the instrument at the assessment-authorization step, so both are intake fields.',
+          'A DSM-5-TR autism spectrum diagnosis from a state-licensed physician, psychologist, or other qualified clinician. Optum asks for the diagnosing clinician and the instrument at the assessment-authorization step, so both are intake fields. LCSW: covered by "other qualified clinician" where state scope allows. Maryland lets a licensed certified social worker–clinical (LCSW-C) do the "evaluation, diagnosis, and treatment" of biopsychosocial conditions and behavioral health disorders (Health Occ. § 19-101(n)(5)); an LMSW or LCSW-A may formulate a diagnosis only under an LCSW-C\'s supervision. Optum asks for the diagnosing clinician at the assessment authorization.',
         status: 'verified',
-        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+        cites: [{ title: 'Md. Code, Health Occupations § 19-101 — definitions (LCSW-C practice includes "evaluation, diagnosis, and treatment")', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gho&section=19-101&enactments=false' }, { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
       },
       diagnosticTools: {
         value:

@@ -1582,7 +1582,7 @@ export const texasPayers: Record<string, PayerConfig> = {
   'molina-healthcare-texas': {
     slug: 'molina-healthcare-texas',
     family: 'molina',
-    cardDesc: 'TMPPM baseline; verify codes in Molina\'s PA Code Matrix — its PA guide PDFs sit behind bot walls.',
+    cardDesc: 'TMPPM baseline; Molina\'s Oct 2026 PA Code Matrix requires PA on 97151 and 97153–97158 (not 97152).',
     assessmentPA: {
       value: 'Required for 97151. Molina\'s Medicaid BH and Medical PA Code Matrix (October 1, 2026) lists 97151 under Applied Behavior Analysis with "Texas Medicaid Provider Procedures Manual" as the criteria, matching the TMPPM rule that the evaluation is prior-authorized; 97152 is not on the matrix',
       status: 'verified',
@@ -1640,11 +1640,12 @@ export const texasPayers: Record<string, PayerConfig> = {
       {
         h2: 'What to pull manually',
         body: [
-          'Molina directs providers to its Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool for code-level PA handling, and its current-year "MHT Prior Authorization Guide" PDF is the document of record — but those files sit behind bot protection, so we could not verify their ABA specifics for this guide. Before your first Molina submission: download the current PA guide from molinahealthcare.com manually, run the ABA codes (97151–97158, 99366) through the look-up tool, and confirm the submission channel (Molina plans typically use Availity or the Molina Provider Portal, but confirm for Texas ABA specifically). Note also which program the child is on: a family that says "Molina" after the Cigna transition may be a STAR+PLUS adult — not an ABA case profile.',
+          'Molina publishes its code-level PA list as a quarterly Medicaid Behavioral Health and Medical PA Code Matrix. The October 1, 2026 edition lists 97151, 97153, 97154, 97155, 97156, 97157, 97158 and 0373T under Applied Behavior Analysis, each reviewed against the Texas Medicaid Provider Procedures Manual (0373T against third-party proprietary criteria); 97152 is not on it. Before your first Molina submission, re-check the current quarter\'s matrix (it is reissued each quarter) and confirm the submission channel (Molina plans typically use Availity or the Molina Provider Portal, but confirm for Texas ABA specifically). Note also which program the child is on: a family that says "Molina" after the Cigna transition may be a STAR+PLUS adult — not an ABA case profile.',
         ],
         cites: [
           { title: 'Molina TX — Medicaid/CHIP Prior Authorization Guide (2025; ABA for ASD requires PA)', url: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/tx/medicaid/forms/MHT-Prior-Authorization-Guide-2025_R.ashx' },
           { title: 'Molina Healthcare of Texas — Prior Authorization for Providers (links the quarterly Medicaid BH/Medical PA Code Matrix)', url: 'https://www.molinahealthcare.com/providers/tx/prior-auth' },
+          { title: 'Molina Healthcare of Texas — Medicaid Behavioral Health and Medical Prior Authorization (PA) Code Matrix, October 1, 2026 (Q4)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/Prior-Auth/10-2026-MHTX-Q4-Medicaid-BH-Medical-PA-Code-Matrix-508.pdf' },
         ],
       },
       {
@@ -1683,142 +1684,142 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
       { title: 'Molina Healthcare of Texas — Announcements and Notifications for Texas Providers (HHSC notices, Medicaid announcements, quarterly newsletters)', url: 'https://www.molinahealthcare.com/providers/tx/communications' },
       { title: 'Molina Healthcare of Texas — Medicaid Behavioral Health and Medical Prior Authorization (PA) Code Matrix, October 1, 2026 (Q4)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/Prior-Auth/10-2026-MHTX-Q4-Medicaid-BH-Medical-PA-Code-Matrix-508.pdf' },
+      { title: 'Molina Healthcare of Texas — Medicaid/CHIP Provider Manual (MHTPROVMN0426)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/MHTX-MEDICAID-CHIP-Provider-Manual-EN-508.pdf' },
     ],
     deliveryRules: {
       supervision: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: the manual sets no numeric ratio of its own, requiring LBAs to directly supervise LaBAs and behavior technicians in accordance with Texas licensure and deferring to the certifying body\'s minimums — for RBT-credentialed staff the BACB floor of supervision on at least 5% of service hours each month with two face-to-face contacts. Only direct supervision, where the LBA observes the LaBA or BT with the child, is reimbursable (under 97155); indirect supervision is unpaid. No distinct Molina Texas ABA criteria surfaced, but its own PA documents could not be read, so plan-level deviation could not be ruled out.',
-        status: 'unverified',
+          'Follows the Texas Medicaid (TMPPM) rule: the manual sets no numeric ratio of its own, requiring LBAs to directly supervise LaBAs and behavior technicians in accordance with Texas licensure and deferring to the certifying body\'s minimums — for RBT-credentialed staff the BACB floor of supervision on at least 5% of service hours each month with two face-to-face contacts. Only direct supervision, where the LBA observes the LaBA or BT with the child, is reimbursable (under 97155); indirect supervision is unpaid. Molina\'s 2026 Medicaid/CHIP provider manual adds no ABA rule of its own (its telehealth chapter is generic), and its October 1, 2026 PA Code Matrix names the Texas Medicaid Provider Procedures Manual as the criteria for the ABA codes.',
+        status: 'verified',
         cites: [
+          { title: 'Molina Healthcare of Texas — Medicaid/CHIP Provider Manual (MHTPROVMN0426)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/MHTX-MEDICAID-CHIP-Provider-Manual-EN-508.pdf' },
+          { title: 'Molina Healthcare of Texas — Medicaid Behavioral Health and Medical Prior Authorization (PA) Code Matrix, October 1, 2026 (Q4)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/Prior-Auth/10-2026-MHTX-Q4-Medicaid-BH-Medical-PA-Code-Matrix-508.pdf' },
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
           { title: 'Molina Healthcare of Texas — Prior Authorization for Providers (links the quarterly Medicaid BH/Medical PA Code Matrix)', url: 'https://www.molinahealthcare.com/providers/tx/prior-auth' },
         ],
-        verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
-        blocker: 'document',
       },
       concurrentBilling: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: concurrent billing is prohibited — Texas Medicaid will not reimburse multiple ABA providers during one session with the child when more than one provider is present. The single exception is when the family and the child receive separate services and the child is not present in the family session. Total authorized hours may be requested under either 97153 or 97155 and billed as the code matching the service actually delivered — not both for the same clock time with the child present. No distinct Molina Texas ABA criteria surfaced, but its own PA documents could not be read, so plan-level deviation could not be ruled out.',
-        status: 'unverified',
+          'Follows the Texas Medicaid (TMPPM) rule: concurrent billing is prohibited — Texas Medicaid will not reimburse multiple ABA providers during one session with the child when more than one provider is present. The single exception is when the family and the child receive separate services and the child is not present in the family session. Total authorized hours may be requested under either 97153 or 97155 and billed as the code matching the service actually delivered — not both for the same clock time with the child present. Molina\'s 2026 Medicaid/CHIP provider manual adds no ABA rule of its own (its telehealth chapter is generic), and its October 1, 2026 PA Code Matrix names the Texas Medicaid Provider Procedures Manual as the criteria for the ABA codes.',
+        status: 'verified',
         cites: [
+          { title: 'Molina Healthcare of Texas — Medicaid/CHIP Provider Manual (MHTPROVMN0426)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/MHTX-MEDICAID-CHIP-Provider-Manual-EN-508.pdf' },
+          { title: 'Molina Healthcare of Texas — Medicaid Behavioral Health and Medical Prior Authorization (PA) Code Matrix, October 1, 2026 (Q4)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/Prior-Auth/10-2026-MHTX-Q4-Medicaid-BH-Medical-PA-Code-Matrix-508.pdf' },
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
           { title: 'Molina Healthcare of Texas — Prior Authorization for Providers (links the quarterly Medicaid BH/Medical PA Code Matrix)', url: 'https://www.molinahealthcare.com/providers/tx/prior-auth' },
         ],
-        verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
-        blocker: 'document',
       },
       dailyLimits: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: direct treatment is capped at 8 hours (32 units) per day combined across 97153, 97154, 97155 and 97158; 97151 is capped at 6 hours (24 units) per evaluation and per re-evaluation; group treatment runs 2 to 8 children. TMPPM: “If services billed exceed the limitations outlined in this section, the claim will be denied, and may be appealed,” so the cap is a claim edit as well as an authorization limit. Authorization periods are two consecutive 90-day terms then recertifications of up to 180 days. Molina’s 2025 Texas PA guide lists ABA for autism among the services needing PA and sets no unit rule of its own; its provider manual and code matrix could not be read, so plan-level claim edits are unchecked.',
-        status: 'unverified',
+          'Follows the Texas Medicaid (TMPPM) rule: direct treatment is capped at 8 hours (32 units) per day combined across 97153, 97154, 97155 and 97158; 97151 is capped at 6 hours (24 units) per evaluation and per re-evaluation; group treatment runs 2 to 8 children. TMPPM: “If services billed exceed the limitations outlined in this section, the claim will be denied, and may be appealed,” so the cap is a claim edit as well as an authorization limit. Authorization periods are two consecutive 90-day terms then recertifications of up to 180 days. Molina’s 2025 Texas PA guide lists ABA for autism among the services needing PA and sets no unit rule of its own; its provider manual and code matrix could not be read, so plan-level claim edits are unchecked. Molina\'s 2026 Medicaid/CHIP provider manual adds no ABA rule of its own (its telehealth chapter is generic), and its October 1, 2026 PA Code Matrix names the Texas Medicaid Provider Procedures Manual as the criteria for the ABA codes.',
+        status: 'verified',
         cites: [
+          { title: 'Molina Healthcare of Texas — Medicaid/CHIP Provider Manual (MHTPROVMN0426)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/MHTX-MEDICAID-CHIP-Provider-Manual-EN-508.pdf' },
+          { title: 'Molina Healthcare of Texas — Medicaid Behavioral Health and Medical Prior Authorization (PA) Code Matrix, October 1, 2026 (Q4)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/Prior-Auth/10-2026-MHTX-Q4-Medicaid-BH-Medical-PA-Code-Matrix-508.pdf' },
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
           { title: 'Molina TX — Medicaid/CHIP Prior Authorization Guide (2025; ABA for ASD requires PA)', url: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/tx/medicaid/forms/MHT-Prior-Authorization-Guide-2025_R.ashx' },
         ],
-        verifyVia:
-          'Molina Healthcare of Texas provider manual and its Behavioral Health PA code matrix (molinahealthcare.com serves a bot wall) — or Molina provider services, for any unit edit beyond the TMPPM cap.',
-        blocker: 'document',
       },
       noteSignature: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: rendering ABA providers must sign each entry with full signature and credentials, with additional supervisory signatures per state licensure. Treatment notes carry the child\'s name, date of service, start and stop times, goals addressed, progress and a summary of interventions; 97155/97158 notes add protocol-modification decision points. The 97151 evaluation and the 90-day progress summary each need a dated signature from the LBA and from the parent or caregiver. No distinct Molina Texas ABA criteria surfaced, but its own PA documents could not be read, so plan-level deviation could not be ruled out.',
-        status: 'unverified',
+          'Follows the Texas Medicaid (TMPPM) rule: rendering ABA providers must sign each entry with full signature and credentials, with additional supervisory signatures per state licensure. Treatment notes carry the child\'s name, date of service, start and stop times, goals addressed, progress and a summary of interventions; 97155/97158 notes add protocol-modification decision points. The 97151 evaluation and the 90-day progress summary each need a dated signature from the LBA and from the parent or caregiver. Molina\'s 2026 Medicaid/CHIP provider manual adds no ABA rule of its own (its telehealth chapter is generic), and its October 1, 2026 PA Code Matrix names the Texas Medicaid Provider Procedures Manual as the criteria for the ABA codes.',
+        status: 'verified',
         cites: [
+          { title: 'Molina Healthcare of Texas — Medicaid/CHIP Provider Manual (MHTPROVMN0426)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/MHTX-MEDICAID-CHIP-Provider-Manual-EN-508.pdf' },
+          { title: 'Molina Healthcare of Texas — Medicaid Behavioral Health and Medical Prior Authorization (PA) Code Matrix, October 1, 2026 (Q4)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/Prior-Auth/10-2026-MHTX-Q4-Medicaid-BH-Medical-PA-Code-Matrix-508.pdf' },
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
           { title: 'Molina Healthcare of Texas — Prior Authorization for Providers (links the quarterly Medicaid BH/Medical PA Code Matrix)', url: 'https://www.molinahealthcare.com/providers/tx/prior-auth' },
         ],
-        verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
-        blocker: 'document',
       },
       placeOfService: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: home, clinic, office and community settings are payable. In schools, services delivered by a behavior technician as a shadow, an aide, or as general support are excluded; school personnel participating to coordinate care are not counted as duplicate providers, and interdisciplinary team meetings bill under 99366 against an ABA PA. BT and LaBA direct treatment must be in person in every setting. No distinct Molina Texas ABA criteria surfaced, but its own PA documents could not be read, so plan-level deviation could not be ruled out.',
-        status: 'unverified',
+          'Follows the Texas Medicaid (TMPPM) rule: home, clinic, office and community settings are payable. In schools, services delivered by a behavior technician as a shadow, an aide, or as general support are excluded; school personnel participating to coordinate care are not counted as duplicate providers, and interdisciplinary team meetings bill under 99366 against an ABA PA. BT and LaBA direct treatment must be in person in every setting. Molina\'s 2026 Medicaid/CHIP provider manual adds no ABA rule of its own (its telehealth chapter is generic), and its October 1, 2026 PA Code Matrix names the Texas Medicaid Provider Procedures Manual as the criteria for the ABA codes.',
+        status: 'verified',
         cites: [
+          { title: 'Molina Healthcare of Texas — Medicaid/CHIP Provider Manual (MHTPROVMN0426)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/MHTX-MEDICAID-CHIP-Provider-Manual-EN-508.pdf' },
+          { title: 'Molina Healthcare of Texas — Medicaid Behavioral Health and Medical Prior Authorization (PA) Code Matrix, October 1, 2026 (Q4)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/Prior-Auth/10-2026-MHTX-Q4-Medicaid-BH-Medical-PA-Code-Matrix-508.pdf' },
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
           { title: 'Molina Healthcare of Texas — Prior Authorization for Providers (links the quarterly Medicaid BH/Medical PA Code Matrix)', url: 'https://www.molinahealthcare.com/providers/tx/prior-auth' },
         ],
-        verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
-        blocker: 'document',
       },
       billAsProvider: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: only the LBA enrolls in Texas Medicaid and bills. LaBAs and behavior technicians may not enroll — their services go out under the supervising LBA\'s NPI with the credential modifier identifying who rendered (HO = LBA, HN = LaBA, HM = behavior technician; 97151 takes HO only, 97155/97156/97158 take HO or HN). The LBA must directly employ or contract with every LaBA and BT on the team. One Molina-specific rule is confirmed from its PA guidance: out-of-network requests require authorization regardless of the service, which matters while credentialing is in flight.',
-        status: 'unverified',
+          'Follows the Texas Medicaid (TMPPM) rule: only the LBA enrolls in Texas Medicaid and bills. LaBAs and behavior technicians may not enroll — their services go out under the supervising LBA\'s NPI with the credential modifier identifying who rendered (HO = LBA, HN = LaBA, HM = behavior technician; 97151 takes HO only, 97155/97156/97158 take HO or HN). The LBA must directly employ or contract with every LaBA and BT on the team. One Molina-specific rule is confirmed from its PA guidance: out-of-network requests require authorization regardless of the service, which matters while credentialing is in flight. Molina\'s 2026 Medicaid/CHIP provider manual adds no ABA rule of its own (its telehealth chapter is generic), and its October 1, 2026 PA Code Matrix names the Texas Medicaid Provider Procedures Manual as the criteria for the ABA codes.',
+        status: 'verified',
         cites: [
+          { title: 'Molina Healthcare of Texas — Medicaid/CHIP Provider Manual (MHTPROVMN0426)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/MHTX-MEDICAID-CHIP-Provider-Manual-EN-508.pdf' },
+          { title: 'Molina Healthcare of Texas — Medicaid Behavioral Health and Medical Prior Authorization (PA) Code Matrix, October 1, 2026 (Q4)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/Prior-Auth/10-2026-MHTX-Q4-Medicaid-BH-Medical-PA-Code-Matrix-508.pdf' },
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
           { title: 'Molina Healthcare of Texas — Prior Authorization for Providers (links the quarterly Medicaid BH/Medical PA Code Matrix)', url: 'https://www.molinahealthcare.com/providers/tx/prior-auth' },
         ],
-        verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
-        blocker: 'document',
       },
     },
     intakeGates: {
       ageLimit: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: birth through 20 years of age on the date of service, with eligibility ending the day of the 21st birthday. CHIP members are excluded from the ABA benefit. No distinct Molina Texas ABA criteria surfaced, but its own PA documents could not be read, so plan-level deviation could not be ruled out.',
-        status: 'unverified',
+          'Follows the Texas Medicaid (TMPPM) rule: birth through 20 years of age on the date of service, with eligibility ending the day of the 21st birthday. CHIP members are excluded from the ABA benefit. Molina\'s 2026 Medicaid/CHIP provider manual adds no ABA rule of its own (its telehealth chapter is generic), and its October 1, 2026 PA Code Matrix names the Texas Medicaid Provider Procedures Manual as the criteria for the ABA codes.',
+        status: 'verified',
         cites: [
+          { title: 'Molina Healthcare of Texas — Medicaid/CHIP Provider Manual (MHTPROVMN0426)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/MHTX-MEDICAID-CHIP-Provider-Manual-EN-508.pdf' },
+          { title: 'Molina Healthcare of Texas — Medicaid Behavioral Health and Medical Prior Authorization (PA) Code Matrix, October 1, 2026 (Q4)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/Prior-Auth/10-2026-MHTX-Q4-Medicaid-BH-Medical-PA-Code-Matrix-508.pdf' },
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
           { title: 'Molina Healthcare of Texas — Prior Authorization for Providers (links the quarterly Medicaid BH/Medical PA Code Matrix)', url: 'https://www.molinahealthcare.com/providers/tx/prior-auth' },
         ],
-        verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
-        blocker: 'document',
       },
       dxRecency: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: the ASD diagnosis must be made or reconfirmed within 3 years of initiation or recertification; past 3 years a comprehensive re-evaluation of ASD symptom severity levels per DSM criteria is required first. No distinct Molina Texas ABA criteria surfaced, but its own PA documents could not be read, so plan-level deviation could not be ruled out.',
-        status: 'unverified',
+          'Follows the Texas Medicaid (TMPPM) rule: the ASD diagnosis must be made or reconfirmed within 3 years of initiation or recertification; past 3 years a comprehensive re-evaluation of ASD symptom severity levels per DSM criteria is required first. Molina\'s 2026 Medicaid/CHIP provider manual adds no ABA rule of its own (its telehealth chapter is generic), and its October 1, 2026 PA Code Matrix names the Texas Medicaid Provider Procedures Manual as the criteria for the ABA codes.',
+        status: 'verified',
         cites: [
+          { title: 'Molina Healthcare of Texas — Medicaid/CHIP Provider Manual (MHTPROVMN0426)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/MHTX-MEDICAID-CHIP-Provider-Manual-EN-508.pdf' },
+          { title: 'Molina Healthcare of Texas — Medicaid Behavioral Health and Medical Prior Authorization (PA) Code Matrix, October 1, 2026 (Q4)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/Prior-Auth/10-2026-MHTX-Q4-Medicaid-BH-Medical-PA-Code-Matrix-508.pdf' },
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
           { title: 'Molina Healthcare of Texas — Prior Authorization for Providers (links the quarterly Medicaid BH/Medical PA Code Matrix)', url: 'https://www.molinahealthcare.com/providers/tx/prior-auth' },
         ],
-        verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
-        blocker: 'document',
       },
       diagnosingProviders: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: a developmental pediatrician, neurologist, psychiatrist, licensed psychologist, or an interdisciplinary diagnostic team (a physician, PA or NP in consultation with qualified child specialists with autism expertise). No distinct Molina Texas ABA criteria surfaced, but its own PA documents could not be read, so plan-level deviation could not be ruled out.',
-        status: 'unverified',
+          'Follows the Texas Medicaid (TMPPM) rule: a developmental pediatrician, neurologist, psychiatrist, licensed psychologist, or an interdisciplinary diagnostic team (a physician, PA or NP in consultation with qualified child specialists with autism expertise). Molina\'s 2026 Medicaid/CHIP provider manual adds no ABA rule of its own (its telehealth chapter is generic), and its October 1, 2026 PA Code Matrix names the Texas Medicaid Provider Procedures Manual as the criteria for the ABA codes.',
+        status: 'verified',
         cites: [
+          { title: 'Molina Healthcare of Texas — Medicaid/CHIP Provider Manual (MHTPROVMN0426)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/MHTX-MEDICAID-CHIP-Provider-Manual-EN-508.pdf' },
+          { title: 'Molina Healthcare of Texas — Medicaid Behavioral Health and Medical Prior Authorization (PA) Code Matrix, October 1, 2026 (Q4)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/Prior-Auth/10-2026-MHTX-Q4-Medicaid-BH-Medical-PA-Code-Matrix-508.pdf' },
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
           { title: 'Molina Healthcare of Texas — Prior Authorization for Providers (links the quarterly Medicaid BH/Medical PA Code Matrix)', url: 'https://www.molinahealthcare.com/providers/tx/prior-auth' },
         ],
-        verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
-        blocker: 'document',
       },
       diagnosticTools: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: a reliable, valid, standardized diagnostic assessment tool or combination of tools — the manual names the ADOS, ADI-R and CARS as examples. Screening instruments alone (STAT, M-CHAT-R) do not substitute. No distinct Molina Texas ABA criteria surfaced, but its own PA documents could not be read, so plan-level deviation could not be ruled out.',
-        status: 'unverified',
+          'Follows the Texas Medicaid (TMPPM) rule: a reliable, valid, standardized diagnostic assessment tool or combination of tools — the manual names the ADOS, ADI-R and CARS as examples. Screening instruments alone (STAT, M-CHAT-R) do not substitute. Molina\'s 2026 Medicaid/CHIP provider manual adds no ABA rule of its own (its telehealth chapter is generic), and its October 1, 2026 PA Code Matrix names the Texas Medicaid Provider Procedures Manual as the criteria for the ABA codes.',
+        status: 'verified',
         cites: [
+          { title: 'Molina Healthcare of Texas — Medicaid/CHIP Provider Manual (MHTPROVMN0426)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/MHTX-MEDICAID-CHIP-Provider-Manual-EN-508.pdf' },
+          { title: 'Molina Healthcare of Texas — Medicaid Behavioral Health and Medical Prior Authorization (PA) Code Matrix, October 1, 2026 (Q4)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/Prior-Auth/10-2026-MHTX-Q4-Medicaid-BH-Medical-PA-Code-Matrix-508.pdf' },
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
           { title: 'Molina Healthcare of Texas — Prior Authorization for Providers (links the quarterly Medicaid BH/Medical PA Code Matrix)', url: 'https://www.molinahealthcare.com/providers/tx/prior-auth' },
         ],
-        verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
-        blocker: 'document',
       },
       referral: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: a signed, dated prescriber referral for the evaluation, signed within 60 calendar days before or on the anticipated evaluation date; and for treatment a signed, dated referral from a physician or allowed practitioner (MD/DO, PA, NP, or CNS with delegated authority) stating frequency and duration, signed on or before the service start date and no more than 3 months old. Since 4/1/2025 the prescriber signature is no longer required on the CCP PA form for the 90-day extension. No distinct Molina Texas ABA criteria surfaced, but its own PA documents could not be read, so plan-level deviation could not be ruled out.',
-        status: 'unverified',
+          'Follows the Texas Medicaid (TMPPM) rule: a signed, dated prescriber referral for the evaluation, signed within 60 calendar days before or on the anticipated evaluation date; and for treatment a signed, dated referral from a physician or allowed practitioner (MD/DO, PA, NP, or CNS with delegated authority) stating frequency and duration, signed on or before the service start date and no more than 3 months old. Since 4/1/2025 the prescriber signature is no longer required on the CCP PA form for the 90-day extension. Molina\'s 2026 Medicaid/CHIP provider manual adds no ABA rule of its own (its telehealth chapter is generic), and its October 1, 2026 PA Code Matrix names the Texas Medicaid Provider Procedures Manual as the criteria for the ABA codes.',
+        status: 'verified',
         cites: [
+          { title: 'Molina Healthcare of Texas — Medicaid/CHIP Provider Manual (MHTPROVMN0426)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/MHTX-MEDICAID-CHIP-Provider-Manual-EN-508.pdf' },
+          { title: 'Molina Healthcare of Texas — Medicaid Behavioral Health and Medical Prior Authorization (PA) Code Matrix, October 1, 2026 (Q4)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/Prior-Auth/10-2026-MHTX-Q4-Medicaid-BH-Medical-PA-Code-Matrix-508.pdf' },
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
           { title: 'Molina Healthcare of Texas — Prior Authorization for Providers (links the quarterly Medicaid BH/Medical PA Code Matrix)', url: 'https://www.molinahealthcare.com/providers/tx/prior-auth' },
         ],
-        verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
-        blocker: 'document',
       },
       telehealth: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: synchronous audio-visual only, modifier 95, on 97151, 97155, 97156, 97158 and 99366. One-on-one direct treatment delivered to the child by a behavior technician or LaBA must be in person — telehealth is prohibited for BT/LaBA-delivered direct service. No distinct Molina Texas ABA criteria surfaced, but its own PA documents could not be read, so plan-level deviation could not be ruled out.',
-        status: 'unverified',
+          'Follows the Texas Medicaid (TMPPM) rule: synchronous audio-visual only, modifier 95, on 97151, 97155, 97156, 97158 and 99366. One-on-one direct treatment delivered to the child by a behavior technician or LaBA must be in person — telehealth is prohibited for BT/LaBA-delivered direct service. Molina\'s 2026 Medicaid/CHIP provider manual adds no ABA rule of its own (its telehealth chapter is generic), and its October 1, 2026 PA Code Matrix names the Texas Medicaid Provider Procedures Manual as the criteria for the ABA codes.',
+        status: 'verified',
         cites: [
+          { title: 'Molina Healthcare of Texas — Medicaid/CHIP Provider Manual (MHTPROVMN0426)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/MHTX-MEDICAID-CHIP-Provider-Manual-EN-508.pdf' },
+          { title: 'Molina Healthcare of Texas — Medicaid Behavioral Health and Medical Prior Authorization (PA) Code Matrix, October 1, 2026 (Q4)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/Prior-Auth/10-2026-MHTX-Q4-Medicaid-BH-Medical-PA-Code-Matrix-508.pdf' },
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
           { title: 'Molina Healthcare of Texas — Prior Authorization for Providers (links the quarterly Medicaid BH/Medical PA Code Matrix)', url: 'https://www.molinahealthcare.com/providers/tx/prior-auth' },
         ],
-        verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
-        blocker: 'document',
       },
       authTurnaround: {
         value:

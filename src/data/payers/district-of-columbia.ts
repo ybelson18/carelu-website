@@ -244,7 +244,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       diagnosingProviders: {
-        value: 'Physician (including psychiatrist), physician assistant under a physician, psychologist, psychology associate under a psychologist, licensed professional counselor, LICSW, or APRN (SPA 23-0009, the "diagnosing providers").',
+        value: 'Physician (including psychiatrist), physician assistant under a physician, psychologist, psychology associate under a psychologist, licensed professional counselor, LICSW, or APRN (SPA 23-0009, the "diagnosing providers"). LCSW: yes, if licensed in DC as an LICSW (licensed independent clinical social worker), which SPA 23-0009 names among the diagnosing providers. A lower-level social work licence is not on the list.',
         status: 'verified',
         cites: [S.spa],
       },
@@ -403,7 +403,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       diagnosingProviders: {
-        value: 'The plan publishes nothing different, so the state list applies: physician, PA, psychologist, psychology associate, LPC, LICSW or APRN (SPA 23-0009).',
+        value: 'The plan publishes nothing different, so the state list applies: physician, PA, psychologist, psychology associate, LPC, LICSW or APRN (SPA 23-0009). LCSW: yes, if licensed in DC as an LICSW (licensed independent clinical social worker), which SPA 23-0009 names among the diagnosing providers. A lower-level social work licence is not on the list.',
         status: 'verified',
         cites: [S.acdcPM, S.spa],
       },
@@ -563,7 +563,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       diagnosingProviders: {
-        value: 'The plan publishes nothing different, so the state list applies: physician, PA, psychologist, psychology associate, LPC, LICSW or APRN (SPA 23-0009).',
+        value: 'The plan publishes nothing different, so the state list applies: physician, PA, psychologist, psychology associate, LPC, LICSW or APRN (SPA 23-0009). LCSW: yes, if licensed in DC as an LICSW (licensed independent clinical social worker), which SPA 23-0009 names among the diagnosing providers. A lower-level social work licence is not on the list.',
         status: 'verified',
         cites: [S.mfcPM, S.spa],
       },
@@ -675,7 +675,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
       { title: 'School schedule', desc: 'Treatment schedules must not disrupt school attendance.' },
       { title: 'Other insurance', desc: 'Bill the primary first and attach its EOB.' },
     ],
-    sources: [S.hscsnPM, S.hscsnNews, S.hscsnCodes, S.hscsnEval, S.hscsnAmend, S.mcps, S.spa, S.cfr438, S.cfr433],
+    sources: [S.hscsnPM, S.hscsnNews, S.hscsnCodes, S.hscsnEval, S.hscsnAmend, S.mcps, S.spa, S.cfr438, S.cfr433, { title: 'DC State Plan Amendment 23-0009 — Autism Spectrum Disorder services under EPSDT (approved Aug. 25, 2023; effective Oct. 1, 2023)', url: 'https://www.medicaid.gov/medicaid/spa/downloads/DC-23-0009.pdf' }],
     deliveryRules: {
       supervision: {
         value: 'BCaBAs and RBTs deliver direct care under a BCBA (UM_21, as summarized in the January 2026 manual); "Supervision will not be authorized separately" (2022 billing letter). No numeric ratio is published.',
@@ -728,9 +728,9 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       diagnosingProviders: {
-        value: 'Not stated by HSCSN. The ABA evaluation request form (used once the 12 units are exhausted) must be completed by an ordering MD or NP.',
+        value: 'Not stated by HSCSN. The ABA evaluation request form (used once the 12 units are exhausted) must be completed by an ordering MD or NP. LCSW: HSCSN says nothing; DHCF\'s SPA 23-0009 list, which HSCSN administers for its members, includes the LICSW, but confirm with HSCSN UM.',
         status: 'unverified',
-        cites: [S.hscsnEval, S.hscsnPM],
+        cites: [{ title: 'DC State Plan Amendment 23-0009 — Autism Spectrum Disorder services under EPSDT (approved Aug. 25, 2023; effective Oct. 1, 2023)', url: 'https://www.medicaid.gov/medicaid/spa/downloads/DC-23-0009.pdf' }, S.hscsnEval, S.hscsnPM],
         verifyVia: 'HSCSN UM: ask who may make the diagnosis it relies on.',
         blocker: 'per-case',
       },
@@ -860,7 +860,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
       { title: 'Standardized functional measure', desc: 'From the past 12 months (for example Vineland-3, ABAS, VB-MAPP or ABLLS).' },
       { title: 'School and EI services', desc: 'DC law does not make insurers pay for habilitative services delivered through early intervention or school.' },
     ],
-    sources: [S.aetnaGuide, S.aetnaCPB, S.aetnaCPB648, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.dc3271, S.dc3272, S.hbx, S.dc3132, S.dc3133, S.dc3862, S.dc3875_03, S.dc3875_07, S.dc1202_11, S.dc1207_71, S.bacbLic, S.erisa, S.mcps],
+    sources: [S.aetnaGuide, S.aetnaCPB, S.aetnaCPB648, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.dc3271, S.dc3272, S.hbx, S.dc3132, S.dc3133, S.dc3862, S.dc3875_03, S.dc3875_07, S.dc1202_11, S.dc1207_71, S.bacbLic, S.erisa, S.mcps, { title: 'D.C. Code § 3-1201.02 — definitions ("practice of social work" includes psychosocial evaluation and assessment, counseling, psychotherapy)', url: 'https://code.dccouncil.gov/us/dc/council/code/sections/3-1201.02' }, { title: 'DC State Plan Amendment 23-0009 — Autism Spectrum Disorder services under EPSDT (approved Aug. 25, 2023; effective Oct. 1, 2023)', url: 'https://www.medicaid.gov/medicaid/spa/downloads/DC-23-0009.pdf' }],
     deliveryRules: {
       supervision: {
         value: 'Aetna’s participation criteria (5/26): ABA services "must be provided directly or supervised by individuals licensed by the state or certified by the Behavior Analyst Certification Board"; supervised staff may be a BCaBA or a paraprofessional; at least "one hour of face-to-face supervision" per "10 hours of applied behavior analysis" by a paraprofessional, plus the supervisor "onsite with the child at least one hour a month." "All BCBAs, BCaBAs and paraprofessionals must meet state requirements."',
@@ -911,9 +911,9 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
         cites: [S.aetnaGuide],
       },
       diagnosingProviders: {
-        value: 'An appropriate provider: "licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice."',
+        value: 'An appropriate provider: "licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice." LCSW: not named. DC defines social work practice to include "psychosocial evaluation and assessment" and psychotherapy, "depending on an individual\'s level of social work licensure" (D.C. Code § 3-1201.02(18)), and DC Medicaid accepts an LICSW\'s ASD diagnosis (SPA 23-0009), so an LICSW is the social-work licence most likely to be accepted; confirm with the carrier before relying on it.',
         status: 'verified',
-        cites: [S.aetnaGuide],
+        cites: [{ title: 'DC State Plan Amendment 23-0009 — Autism Spectrum Disorder services under EPSDT (approved Aug. 25, 2023; effective Oct. 1, 2023)', url: 'https://www.medicaid.gov/medicaid/spa/downloads/DC-23-0009.pdf' }, { title: 'D.C. Code § 3-1201.02 — definitions ("practice of social work" includes psychosocial evaluation and assessment, counseling, psychotherapy)', url: 'https://code.dccouncil.gov/us/dc/council/code/sections/3-1201.02' }, S.aetnaGuide],
       },
       diagnosticTools: {
         value: 'CPB 0648 names ADI-R, ADOS-2, CARS-2 and the Asperger Syndrome Diagnostic Scale; the ABA guide requires a standardized functional measure (VABS-3, ABAS, VB-MAPP or ABLLS as examples).',
@@ -1044,7 +1044,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
       { title: 'Standardized assessment timing', desc: 'Instrument administered within 60 days before treatment starts.' },
       { title: 'School and EI services', desc: 'DC law does not make insurers pay for habilitative services delivered through early intervention or school.' },
     ],
-    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.dc3271, S.dc3272, S.hbx, S.dc3132, S.dc3133, S.dc3862, S.dc3875_03, S.dc3875_07, S.dc1202_11, S.dc1207_71, S.bacbLic, S.erisa, S.mcps],
+    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.dc3271, S.dc3272, S.hbx, S.dc3132, S.dc3133, S.dc3862, S.dc3875_03, S.dc3875_07, S.dc1202_11, S.dc1207_71, S.bacbLic, S.erisa, S.mcps, { title: 'D.C. Code § 3-1201.02 — definitions ("practice of social work" includes psychosocial evaluation and assessment, counseling, psychotherapy)', url: 'https://code.dccouncil.gov/us/dc/council/code/sections/3-1201.02' }, { title: 'DC State Plan Amendment 23-0009 — Autism Spectrum Disorder services under EPSDT (approved Aug. 25, 2023; effective Oct. 1, 2023)', url: 'https://www.medicaid.gov/medicaid/spa/downloads/DC-23-0009.pdf' }],
     deliveryRules: {
       supervision: {
         value: 'Direct and indirect case supervision at "one to two hours per ten hours of direct treatment"; when direct treatment is 10 hours a week or less, at least one to two hours a week of direct case supervision (EN0499).',
@@ -1091,9 +1091,9 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
         cites: [S.en0499],
       },
       diagnosingProviders: {
-        value: 'A healthcare professional "licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice," applying DSM-5-TR.',
+        value: 'A healthcare professional "licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice," applying DSM-5-TR. LCSW: not named. DC defines social work practice to include "psychosocial evaluation and assessment" and psychotherapy, "depending on an individual\'s level of social work licensure" (D.C. Code § 3-1201.02(18)), and DC Medicaid accepts an LICSW\'s ASD diagnosis (SPA 23-0009), so an LICSW is the social-work licence most likely to be accepted; confirm with the carrier before relying on it.',
         status: 'verified',
-        cites: [S.en0499],
+        cites: [{ title: 'DC State Plan Amendment 23-0009 — Autism Spectrum Disorder services under EPSDT (approved Aug. 25, 2023; effective Oct. 1, 2023)', url: 'https://www.medicaid.gov/medicaid/spa/downloads/DC-23-0009.pdf' }, { title: 'D.C. Code § 3-1201.02 — definitions ("practice of social work" includes psychosocial evaluation and assessment, counseling, psychotherapy)', url: 'https://code.dccouncil.gov/us/dc/council/code/sections/3-1201.02' }, S.en0499],
       },
       diagnosticTools: {
         value: 'No single instrument is mandated; the assessment must use "a reliable, valid, and standardized assessment instrument," with dates and scores reported.',
@@ -1223,7 +1223,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis with a validated tool', desc: 'DSM-5-TR ASD and severity level, confirmed with a validated tool (ADI-R, ADOS-2 and others).' },
       { title: 'Staff credentials', desc: 'Each line carries HM (RBT), HN (BCaBA), HO (BCBA) or HP (BCBA-D).' },
     ],
-    sources: [S.optumSCC, S.optumSM, S.optumTele, S.optumReimb, S.optumNNM, S.dc3271, S.dc3272, S.hbx, S.dc3132, S.dc3133, S.dc3862, S.dc3875_03, S.dc3875_07, S.dc1202_11, S.dc1207_71, S.bacbLic, S.erisa, S.mcps],
+    sources: [S.optumSCC, S.optumSM, S.optumTele, S.optumReimb, S.optumNNM, S.dc3271, S.dc3272, S.hbx, S.dc3132, S.dc3133, S.dc3862, S.dc3875_03, S.dc3875_07, S.dc1202_11, S.dc1207_71, S.bacbLic, S.erisa, S.mcps, { title: 'D.C. Code § 3-1201.02 — definitions ("practice of social work" includes psychosocial evaluation and assessment, counseling, psychotherapy)', url: 'https://code.dccouncil.gov/us/dc/council/code/sections/3-1201.02' }, { title: 'DC State Plan Amendment 23-0009 — Autism Spectrum Disorder services under EPSDT (approved Aug. 25, 2023; effective Oct. 1, 2023)', url: 'https://www.medicaid.gov/medicaid/spa/downloads/DC-23-0009.pdf' }],
     deliveryRules: {
       supervision: {
         value: '"Consistent with CASP standards of care, direct case supervision is required 1–2 hours for every 10 hours of direct treatment per week." Optum does not recommend parents serving as their own child’s RBT.',
@@ -1274,9 +1274,9 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
         cites: [S.optumSCC],
       },
       diagnosingProviders: {
-        value: 'A "state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis" under DSM-5-TR.',
+        value: 'A "state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis" under DSM-5-TR. LCSW: not named. DC defines social work practice to include "psychosocial evaluation and assessment" and psychotherapy, "depending on an individual\'s level of social work licensure" (D.C. Code § 3-1201.02(18)), and DC Medicaid accepts an LICSW\'s ASD diagnosis (SPA 23-0009), so an LICSW is the social-work licence most likely to be accepted; confirm with the carrier before relying on it.',
         status: 'verified',
-        cites: [S.optumSCC],
+        cites: [{ title: 'DC State Plan Amendment 23-0009 — Autism Spectrum Disorder services under EPSDT (approved Aug. 25, 2023; effective Oct. 1, 2023)', url: 'https://www.medicaid.gov/medicaid/spa/downloads/DC-23-0009.pdf' }, { title: 'D.C. Code § 3-1201.02 — definitions ("practice of social work" includes psychosocial evaluation and assessment, counseling, psychotherapy)', url: 'https://code.dccouncil.gov/us/dc/council/code/sections/3-1201.02' }, S.optumSCC],
       },
       diagnosticTools: {
         value: 'At least one clinically validated tool from a non-exhaustive list: screens (M-CHAT and others), second-level screens (CARS/CARS-2, RITA-T, STAT), and formal tools (ADI-R, ADOS/ADOS-2, DISCO).',
@@ -1419,7 +1419,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
       { title: 'Rendering clinician’s license', desc: 'CareFirst requires licensure where the member receives care; confirm how it credentials DC BCBAs.' },
       { title: 'Other coverage', desc: 'Second parent’s plan, DC Medicaid, TRICARE or CHAMPVA.' },
     ],
-    sources: [S.cfPre, S.cfCh2, S.cfCh3, S.cfCh5, S.cfCh7, S.cfMPU0126, S.cfMPU1224, S.cfMedPol, S.dc3271, S.dc3272, S.hbx, S.dc3132, S.dc3133, S.dc3862, S.dc3875_03, S.dc3875_07, S.dc1202_11, S.dc1207_71, S.bacbLic, S.erisa, { title: 'CareFirst BlueCross BlueShield — BlueLink provider newsletter (2026 issues; year selector to 2008)', url: 'https://provider.carefirst.com/providers/news/bluelink-newsletter-2026.page' }, { title: 'CareFirst — Utilization Management Outpatient Authorization Request for Services (SUM7690-1E, 4/26)', url: 'https://provider.carefirst.com/carefirst-resources/provider/pdf/authorization-form-outpatient-services.pdf' }, { title: 'CareFirst Payment Policy PP CO 020.01 — Limited Licensed Providers, Professional (last review 5/6/2025)', url: 'https://provider.carefirst.com/providers/medical/payment-policy.page' }],
+    sources: [S.cfPre, S.cfCh2, S.cfCh3, S.cfCh5, S.cfCh7, S.cfMPU0126, S.cfMPU1224, S.cfMedPol, S.dc3271, S.dc3272, S.hbx, S.dc3132, S.dc3133, S.dc3862, S.dc3875_03, S.dc3875_07, S.dc1202_11, S.dc1207_71, S.bacbLic, S.erisa, { title: 'CareFirst BlueCross BlueShield — BlueLink provider newsletter (2026 issues; year selector to 2008)', url: 'https://provider.carefirst.com/providers/news/bluelink-newsletter-2026.page' }, { title: 'CareFirst — Utilization Management Outpatient Authorization Request for Services (SUM7690-1E, 4/26)', url: 'https://provider.carefirst.com/carefirst-resources/provider/pdf/authorization-form-outpatient-services.pdf' }, { title: 'CareFirst Payment Policy PP CO 020.01 — Limited Licensed Providers, Professional (last review 5/6/2025)', url: 'https://provider.carefirst.com/providers/medical/payment-policy.page' }, { title: 'D.C. Code § 3-1201.02 — definitions ("practice of social work" includes psychosocial evaluation and assessment, counseling, psychotherapy)', url: 'https://code.dccouncil.gov/us/dc/council/code/sections/3-1201.02' }, { title: 'DC State Plan Amendment 23-0009 — Autism Spectrum Disorder services under EPSDT (approved Aug. 25, 2023; effective Oct. 1, 2023)', url: 'https://www.medicaid.gov/medicaid/spa/downloads/DC-23-0009.pdf' }],
     deliveryRules: {
       supervision: {
         value: 'CareFirst’s supervision terms for technicians sit in Payment Policy PP CO 020.01 (Limited Licensed Providers, covering assistant behavior analysts and RBTs), whose text we could not open.',
@@ -1480,9 +1480,9 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
         blocker: 'licensed',
       },
       diagnosingProviders: {
-        value: 'Not stated in the documents we could read; set in policy 3.01.015 and MCG.',
+        value: 'Not stated in the documents we could read; set in policy 3.01.015 and MCG. LCSW: not named. DC defines social work practice to include "psychosocial evaluation and assessment" and psychotherapy, "depending on an individual\'s level of social work licensure" (D.C. Code § 3-1201.02(18)), and DC Medicaid accepts an LICSW\'s ASD diagnosis (SPA 23-0009), so an LICSW is the social-work licence most likely to be accepted; confirm with the carrier before relying on it.',
         status: 'unverified',
-        cites: [S.cfMPU0126, S.cfCh7],
+        cites: [{ title: 'DC State Plan Amendment 23-0009 — Autism Spectrum Disorder services under EPSDT (approved Aug. 25, 2023; effective Oct. 1, 2023)', url: 'https://www.medicaid.gov/medicaid/spa/downloads/DC-23-0009.pdf' }, { title: 'D.C. Code § 3-1201.02 — definitions ("practice of social work" includes psychosocial evaluation and assessment, counseling, psychotherapy)', url: 'https://code.dccouncil.gov/us/dc/council/code/sections/3-1201.02' }, S.cfMPU0126, S.cfCh7],
         verifyVia: 'CareFirst Medical Policy 3.01.015 or 1-866-773-2884.',
         blocker: 'document',
       },
