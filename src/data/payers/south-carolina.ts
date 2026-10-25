@@ -1563,6 +1563,16 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.optumSCC],
       },
+      {
+        h2: 'Reconsiderations and appeals with Optum (what to include)',
+        body: [
+          'For commercial and Medicare Advantage plans Optum uses a two-step process for a disputed prior authorization or claim decision: request reconsideration first, then file an appeal if you still disagree. The two steps together have "a total of 12 months for submission," unless state law or your Participation Agreement sets a different deadline.',
+          'What to send: "member-specific treatment plans, clinical records, payment appendices or other items that support why you believe our decision was incorrect," plus proof of timely filing ("confirmation we received and accepted your claim within your timely filing requirement"). Optum decides on the materials it has at the time of review, so send the full packet the first time. Submit through the Provider Express secure portal (Appeals > Appeals Summary & Submission > Submit Claim Appeal), stating the factual or legal basis for the appeal, or mail the reconsideration request form with the documents to Optum Behavioral Health Solutions, P.O. Box 30757, Salt Lake City, UT 84123. The secure portal is also open to out-of-network individual clinicians. Services delivered without a required authorization can go in for retrospective review within 180 calendar days of the date of service.',
+        ],
+        cites: [
+          { title: 'Optum National Network Manual (BH02330-1-26-MAN, effective Sept. 1, 2026): Provider Reconsideration and Appeals Process', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan type and size', desc: 'Insured large group or State Health Plan (mandate applies) vs. individual, small-group or self-funded.' },
@@ -1570,7 +1580,7 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis with a validated tool', desc: 'DSM-5-TR ASD with severity, confirmed with a validated tool (ADI-R, ADOS-2 and others).' },
       { title: 'Treatment plan signed by the treating doctor', desc: 'For a mandated plan, coverage follows a treatment plan prescribed by the child’s treating medical doctor.' },
     ],
-    sources: [S.optumSCC, S.optumSM, S.optumTele, S.optumNNM, S.optumReimb, S.mcoList, S.sc280, S.doiBull, S.sc3859, S.sc3870, S.reg6943, S.t40c75, S.bacbLic, S.erisa, S.cfr147, S.asdFee, { title: 'S.C. Code § 40-63-20 — Social work definitions (clinical social work: assessment, diagnosis, and treatment of mental, emotional, and behavioral disorders)', url: 'https://www.scstatehouse.gov/code/t40c063.php' }],
+    sources: [S.optumSCC, S.optumSM, S.optumTele, S.optumNNM, S.optumReimb, S.mcoList, S.sc280, S.doiBull, S.sc3859, S.sc3870, S.reg6943, S.t40c75, S.bacbLic, S.erisa, S.cfr147, S.asdFee, { title: 'S.C. Code § 40-63-20 — Social work definitions (clinical social work: assessment, diagnosis, and treatment of mental, emotional, and behavioral disorders)', url: 'https://www.scstatehouse.gov/code/t40c063.php' }, { title: 'Optum National Network Manual (BH02330-1-26-MAN, effective Sept. 1, 2026): Provider Reconsideration and Appeals Process', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }],
     deliveryRules: {
       supervision: {
         value: 'Direct case supervision is required at 1–2 hours for every 10 hours of direct treatment. Technicians work under a BCBA or licensed clinician, and Optum does not recommend parents serving as their own child’s RBT.',

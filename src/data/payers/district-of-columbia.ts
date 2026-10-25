@@ -1229,6 +1229,16 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.optumSCC],
       },
+      {
+        h2: 'Reconsiderations and appeals with Optum (what to include)',
+        body: [
+          'For commercial and Medicare Advantage plans Optum uses a two-step process for a disputed prior authorization or claim decision: request reconsideration first, then file an appeal if you still disagree. The two steps together have "a total of 12 months for submission," unless state law or your Participation Agreement sets a different deadline.',
+          'What to send: "member-specific treatment plans, clinical records, payment appendices or other items that support why you believe our decision was incorrect," plus proof of timely filing ("confirmation we received and accepted your claim within your timely filing requirement"). Optum decides on the materials it has at the time of review, so send the full packet the first time. Submit through the Provider Express secure portal (Appeals > Appeals Summary & Submission > Submit Claim Appeal), stating the factual or legal basis for the appeal, or mail the reconsideration request form with the documents to Optum Behavioral Health Solutions, P.O. Box 30757, Salt Lake City, UT 84123. The secure portal is also open to out-of-network individual clinicians. Services delivered without a required authorization can go in for retrospective review within 180 calendar days of the date of service.',
+        ],
+        cites: [
+          { title: 'Optum National Network Manual (BH02330-1-26-MAN, effective Sept. 1, 2026): Provider Reconsideration and Appeals Process', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured DC plan (§ 31-3272 applies), federal employee plan, or self-funded ERISA.' },
@@ -1236,7 +1246,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis with a validated tool', desc: 'DSM-5-TR ASD and severity level, confirmed with a validated tool (ADI-R, ADOS-2 and others).' },
       { title: 'Staff credentials', desc: 'Each line carries HM (RBT), HN (BCaBA), HO (BCBA) or HP (BCBA-D).' },
     ],
-    sources: [S.optumSCC, S.optumSM, S.optumTele, S.optumReimb, S.optumNNM, S.dc3271, S.dc3272, S.hbx, S.dc3132, S.dc3133, S.dc3862, S.dc3875_03, S.dc3875_07, S.dc1202_11, S.dc1207_71, S.bacbLic, S.erisa, S.mcps, { title: 'D.C. Code § 3-1201.02 — definitions ("practice of social work" includes psychosocial evaluation and assessment, counseling, psychotherapy)', url: 'https://code.dccouncil.gov/us/dc/council/code/sections/3-1201.02' }, { title: 'DC State Plan Amendment 23-0009 — Autism Spectrum Disorder services under EPSDT (approved Aug. 25, 2023; effective Oct. 1, 2023)', url: 'https://www.medicaid.gov/medicaid/spa/downloads/DC-23-0009.pdf' }],
+    sources: [S.optumSCC, S.optumSM, S.optumTele, S.optumReimb, S.optumNNM, S.dc3271, S.dc3272, S.hbx, S.dc3132, S.dc3133, S.dc3862, S.dc3875_03, S.dc3875_07, S.dc1202_11, S.dc1207_71, S.bacbLic, S.erisa, S.mcps, { title: 'D.C. Code § 3-1201.02 — definitions ("practice of social work" includes psychosocial evaluation and assessment, counseling, psychotherapy)', url: 'https://code.dccouncil.gov/us/dc/council/code/sections/3-1201.02' }, { title: 'DC State Plan Amendment 23-0009 — Autism Spectrum Disorder services under EPSDT (approved Aug. 25, 2023; effective Oct. 1, 2023)', url: 'https://www.medicaid.gov/medicaid/spa/downloads/DC-23-0009.pdf' }, { title: 'Optum National Network Manual (BH02330-1-26-MAN, effective Sept. 1, 2026): Provider Reconsideration and Appeals Process', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }],
     deliveryRules: {
       supervision: {
         value: '"Consistent with CASP standards of care, direct case supervision is required 1–2 hours for every 10 hours of direct treatment per week." Optum does not recommend parents serving as their own child’s RBT.',

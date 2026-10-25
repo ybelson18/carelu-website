@@ -1259,6 +1259,16 @@ export const westVirginiaPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.optumSCC],
       },
+      {
+        h2: 'Reconsiderations and appeals with Optum (what to include)',
+        body: [
+          'For commercial and Medicare Advantage plans Optum uses a two-step process for a disputed prior authorization or claim decision: request reconsideration first, then file an appeal if you still disagree. The two steps together have "a total of 12 months for submission," unless state law or your Participation Agreement sets a different deadline.',
+          'What to send: "member-specific treatment plans, clinical records, payment appendices or other items that support why you believe our decision was incorrect," plus proof of timely filing ("confirmation we received and accepted your claim within your timely filing requirement"). Optum decides on the materials it has at the time of review, so send the full packet the first time. Submit through the Provider Express secure portal (Appeals > Appeals Summary & Submission > Submit Claim Appeal), stating the factual or legal basis for the appeal, or mail the reconsideration request form with the documents to Optum Behavioral Health Solutions, P.O. Box 30757, Salt Lake City, UT 84123. The secure portal is also open to out-of-network individual clinicians. Services delivered without a required authorization can go in for retrospective review within 180 calendar days of the date of service.',
+        ],
+        cites: [
+          { title: 'Optum National Network Manual (BH02330-1-26-MAN, effective Sept. 1, 2026): Provider Reconsideration and Appeals Process', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type and employer size', desc: 'Fully insured group (mandate applies) vs. self-funded ERISA or a small employer of 25 or fewer (exempt).' },
@@ -1266,7 +1276,7 @@ export const westVirginiaPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis with a validated tool', desc: 'DSM-5 ASD and severity level, confirmed with a validated tool (ADI-R, ADOS-2 and others).' },
       { title: 'Physician or psychologist order', desc: 'Required by the West Virginia mandate on insured group plans.' },
     ],
-    sources: [S.optumSCC, S.optumSM, S.optumTele, S.optumReimb, S.optumNNM, S.mht, S.c3316v, S.c3324k, S.c3325Aj, S.c5167, S.c3324s, S.c3345, S.c3357, S.bacbLic, S.c30, S.erisa, S.abaFee, S.ch100, S.tricare, S.champva, { title: 'W. Va. Code § 30-30-11 — Scope of practice for a licensed certified social worker (may "determine behavioral health diagnosis")', url: 'https://code.wvlegislature.gov/30-30-11/' }],
+    sources: [S.optumSCC, S.optumSM, S.optumTele, S.optumReimb, S.optumNNM, S.mht, S.c3316v, S.c3324k, S.c3325Aj, S.c5167, S.c3324s, S.c3345, S.c3357, S.bacbLic, S.c30, S.erisa, S.abaFee, S.ch100, S.tricare, S.champva, { title: 'W. Va. Code § 30-30-11 — Scope of practice for a licensed certified social worker (may "determine behavioral health diagnosis")', url: 'https://code.wvlegislature.gov/30-30-11/' }, { title: 'Optum National Network Manual (BH02330-1-26-MAN, effective Sept. 1, 2026): Provider Reconsideration and Appeals Process', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }],
     deliveryRules: {
       supervision: {
         value: 'Consistent with CASP standards, direct case supervision of 1–2 hours for every 10 hours of direct treatment. Optum does not recommend parents serving as their own child’s RBT. West Virginia’s mandate requires ABA "provided or supervised by a certified behavior analyst."',

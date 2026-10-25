@@ -2561,6 +2561,16 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
         ],
       },
+      {
+        h2: 'Reconsiderations and appeals with Optum (what to include)',
+        body: [
+          'For commercial and Medicare Advantage plans Optum uses a two-step process for a disputed prior authorization or claim decision: request reconsideration first, then file an appeal if you still disagree. The two steps together have "a total of 12 months for submission," unless state law or your Participation Agreement sets a different deadline.',
+          'What to send: "member-specific treatment plans, clinical records, payment appendices or other items that support why you believe our decision was incorrect," plus proof of timely filing ("confirmation we received and accepted your claim within your timely filing requirement"). Optum decides on the materials it has at the time of review, so send the full packet the first time. Submit through the Provider Express secure portal (Appeals > Appeals Summary & Submission > Submit Claim Appeal), stating the factual or legal basis for the appeal, or mail the reconsideration request form with the documents to Optum Behavioral Health Solutions, P.O. Box 30757, Salt Lake City, UT 84123. The secure portal is also open to out-of-network individual clinicians. Services delivered without a required authorization can go in for retrospective review within 180 calendar days of the date of service.',
+        ],
+        cites: [
+          { title: 'Optum National Network Manual (BH02330-1-26-MAN, effective Sept. 1, 2026): Provider Reconsideration and Appeals Process', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
