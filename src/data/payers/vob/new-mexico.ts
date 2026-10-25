@@ -834,7 +834,7 @@ export const newMexicoVob: Record<string, VobExtension> = {
   },
   'molina-healthcare-new-mexico': {
     edi: molinaNmEdi,
-    codeGrid: nmMedicaidGrid('State baseline; Molina publishes no NM-specific ABA policy — submit PAs via Availity Essentials and confirm code-level PA in the portal per case.'),
+    codeGrid: nmMedicaidGrid('State baseline grid shown; Molina\'s own NM Medicaid PA Code Matrix (eff. 10/1/2026, read 2026-10-25) differs on treatment: no PA on 97151/97152/0362T, PA required after 48 units per calendar year cumulative across 0373T and 97153-97158 for par providers (non-par: all services need PA). Submit via Availity Essentials.'),
     rates: nmMcoFloorRates('Molina Healthcare of New Mexico'),
     stcMap: molinaNmStc,
     vobContact: molinaNmContact,

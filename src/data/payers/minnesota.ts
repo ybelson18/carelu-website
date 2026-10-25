@@ -81,17 +81,17 @@ const S: Record<string, PayerSource> = {
   opMN: { title: 'Optum Provider Express — Welcome Minnesota Providers (Medica behavioral health; Medicaid EIDBI forms)', url: 'https://www.providerexpress.com/content/ope-provexpr/us/en/our-network/welcomeNtwk/wMN.html' },
   opEidbi: { title: 'Optum / Medica Behavioral Health — Guide to providing EIDBI services (BH02483-26-QRG, 10/13/2026)', url: 'https://www.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/mnABA/mnEIDBIOverview.pdf' },
   opMedQRG: { title: 'Optum — Information and resources for working with Medica Behavioral Health (BH5236, 10/2023)', url: 'https://www.providerexpress.com/content/dam/ope-provexpr/us/pdfs/ourNetworkMain/medica/5236MedicaQRG.pdf' },
-  pwEidbi: { title: 'PrimeWest Health Provider Manual — Early Intensive Development and Behavioral Intervention (EIDBI) (updated 09/04/2026)', url: 'https://www.primewest.org/eidbi' },
+  pwEidbi: { title: 'PrimeWest Health Provider Manual — Early Intensive Development and Behavioral Intervention (EIDBI) (updated 10/22/2026)', url: 'https://www.primewest.org/eidbi' },
   pwBill: { title: 'PrimeWest Health Provider Manual — Billing Requirements (180-day timely filing)', url: 'https://www.primewest.org/billing-requirements' },
   scBhPa: { title: 'South Country Health Alliance — Behavioral Health Prior Authorization and Notification List (form 7212, updated 3/5/2025)', url: 'https://mnscha.org/wp-content/uploads/7212.pdf' },
   scCh6: { title: 'South Country Provider Manual Ch. 6 — Service Authorizations & Notification Standards (Feb. 2026)', url: 'https://mnscha.org/wp-content/uploads/Ch6_02272026.pdf' },
-  scCh4: { title: 'South Country Provider Manual Ch. 4 — Provider Billing (July 2026)', url: 'https://mnscha.org/wp-content/uploads/Ch4_07292026.pdf' },
+  scCh4: { title: 'South Country Provider Manual Ch. 4 — Provider Billing (posted Oct. 21, 2026; EFT enrollment paused)', url: 'https://www.mnscha.org/wp-content/uploads/Ch4_10212026.pdf' },
   scCh14: { title: 'South Country Provider Manual Ch. 14 — Member Grievances and Appeals, Minnesota Health Care Programs (May 2026)', url: 'https://mnscha.org/wp-content/uploads/Ch14_05042026.pdf' },
   scCh33: { title: 'South Country Provider Manual Ch. 33 — Telehealth (Feb. 2026)', url: 'https://mnscha.org/wp-content/uploads/Ch33_02272026.pdf' },
   // National commercial policies (fetched this run)
   aetnaGuide: { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026; state exhibit: Maryland only)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
   aetnaPrecert: { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
-  aetnaCPB648: { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+  aetnaCPB648: { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/20/2026)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
   aetnaNPC: { title: 'Aetna — Provider and facility participation criteria (8100606-01-01, 5/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' },
   aetnaOM: { title: 'Aetna Health Care Professional Toolkit / provider manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
   en0499: { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
@@ -1160,6 +1160,13 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
         cites: [S.pwEidbi, S.mcoGrid],
       },
       {
+        h2: 'Switching EIDBI agencies at PrimeWest',
+        body: [
+          'PrimeWest’s manual (updated 10/22/2026): "Families have the right to transfer or change EIDBI provider agencies for any reason." The new agency gets a signed release, reviews the previous CMDE and ITP, and "If the CMDE and ITP are still valid, the new agency may use them for authorization"; it completes new ones when they are no longer valid, cannot be obtained, or a new evaluation is medically necessary (and may request units above the threshold if the CMDE/ITP units are used up). At the time of the request the previous agency must have either "Ended their service agreement or prior authorization before the requested EIDBI dates of service through the new agency" or "Provided a discharge summary that includes a discharge date and the previous agency’s signature"; otherwise "PrimeWest Health will reject the request." The previous agency should hand over the CMDE(s), ITP(s) "with an updated transition plan and discharge summary," and ask PrimeWest to end its service authorization on the discharge date, so the two authorizations do not overlap.',
+        ],
+        cites: [S.pwEidbi],
+      },
+      {
         h2: 'Billing PrimeWest for EIDBI',
         body: [
           'PrimeWest’s claim rules: the professional claim; only services already provided and approved on the authorization; never mix authorized and unauthorized services on one claim; "Do not exceed 9 hours a day for any individual or group intervention units"; include the pay-to provider, the rendering provider’s UMPI or NPI and "The supervising provider for any services that require the supervision of a QSP"; Level III claims always need the rendering provider’s UMPI; POS 12 for community, POS 11 for office and non-direct work. Its non-covered list includes "Two or more services provided by the same person at the same time" and "Simultaneous services by multiple providers at the same time," a stricter line than DHS’s. Telehealth bills "with place of service 02," modifier 93 for audio-only. "EIDBI providers are not required to bill a member’s commercial insurance before billing Medical Assistance." Claims are due "no later than 180 days from the date of service."',
@@ -1298,7 +1305,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       {
         h2: 'Claims, telehealth and appeals',
         body: [
-          'Since January 1, 2024, claims "must be received by South Country no later than 180 days from the date of service"; corrected claims within 180 days of the remittance advice; Medicare and TPL claims within six months of the primary’s payment or denial, or 180 days from service if later. Claims use the NPI or UMPI. Telehealth claims "require Place of Service 02 or 10," with modifier 93 for audio-only. Members must file appeals "within 60 days of the date of the" notice of action.',
+          'Since January 1, 2024, claims "must be received by South Country no later than 180 days from the date of service"; corrected claims within 180 days of the remittance advice; Medicare and TPL claims within six months of the primary’s payment or denial, or 180 days from service if later. Claims use the NPI or UMPI and must be submitted electronically. New electronic funds transfer (EFT) enrollment “is temporarily paused while South Country transitions to a new enrollment process” (October 2026 chapter). Telehealth claims "require Place of Service 02 or 10," with modifier 93 for audio-only. Members must file appeals "within 60 days of the date of the" notice of action.',
         ],
         cites: [S.scCh4, S.scCh33, S.scCh14],
       },

@@ -163,11 +163,11 @@ const NTC_FORMS_PAGE = src(
   'Nebraska Total Care behavioral-health forms page — ABA Form + OTR tip sheets; submission via provider.nebraskatotalcare.com portal or fax 866-593-1955.'
 );
 const MOLINA_PA_PAGE = srcR(
-  'https://www.molinahealthcare.com/providers/ne/medicaid/Claims/priorauth.aspx',
+  'https://www.molinahealthcare.com/providers/ne/prior-auth',
   'Molina NE Medicaid prior-authorization page (last updated 09/21/2026; re-read 2026-09-27 via r.jina.ai) — Availity Essentials (preferred), fax (833) 832-1015, phone (844) 782-2678; quarterly PA code-change PDFs through Q4 2026 (none names an ABA code); links a PA Code Matrix/Guide on the forms page and a PA look-up tool. The BH Certification of Need form is now on the forms page, not this page. No Nebraska-specific ABA clinical policy; no BH carve-out vendor named.',
 );
 const MOLINA_PA_GUIDE_2026 = srcR(
-  'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/ne/NE_PA-Request-Form.pdf',
+  'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/ne/NE_PA-Request-Form.pdf',
   'Molina Healthcare Nebraska Medicaid Pre-Service Review Guide / PA Request Form (effective 01/01/2026) — lists "Applied Behavioral Analysis (ABA) – for treatment of Autism Spectrum Disorder (ASD)" among Behavioral Health services requiring prior authorization; refers to the website or PA Look-Up Tool "for specific codes that require Prior Authorization." No code-level ABA list.',
 );
 const NTC_PA_LIST_0057 = srcR(

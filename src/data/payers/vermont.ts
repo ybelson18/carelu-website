@@ -47,7 +47,7 @@ const S: Record<string, PayerSource> = {
   bcvtNehp: { title: 'Blue Cross VT — NEHP/ABNE provider notice: ABA requires prior approval from 9/1/2023 (June 29, 2023)', url: 'https://www.bluecrossvt.org/sites/default/files/2023-06/NEHP%20ABNE%20changes%20for%20MD%20Rx%20and%20ABA%20effective%20September%201%2C%202023%20-%20FINAL%20-%20Publication%206.28.23.pdf' },
   bcvtTele: { title: 'Blue Cross VT Payment Policy CPP_03 — Telemedicine (eff. 01/01/2026)', url: 'https://www.bluecrossvt.org/documents/cpp03-telemedicine-january-2026' },
   bcvtTF: { title: 'Blue Cross VT — Timely Filing Reminder (Sept. 1, 2026; full enforcement from Nov. 1, 2026)', url: 'https://www.bluecrossvt.org/documents/timely-filing-reminder-november-2026' },
-  aetnaCPB648: { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+  aetnaCPB648: { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/20/2026)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
   aetnaGuide: { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
   aetnaPrecert: { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
   aetnaNPC: { title: 'Aetna — Provider and facility participation criteria (8100606-01-01, 5/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' },

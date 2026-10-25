@@ -238,7 +238,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
           { title: 'DHCS APL 22-027 — Cost Avoidance and Post-Payment Recovery for Other Health Coverage', url: 'https://www.dhcs.ca.gov/file/apl22-027-pdf/' },
           { title: 'Welfare & Institutions Code § 4659 — Regional Center use of generic resources', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=WIC&sectionNum=4659' },
           { title: '42 CFR 433.139 — Payment of claims (third-party liability)', url: 'https://www.ecfr.gov/current/title-42/section-433.139' },
-          { title: '10 U.S.C. 1079 — TRICARE pays after other coverage except Medicaid', url: 'https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title10-section1079&num=0&edition=prelim' },
+          { title: '10 U.S.C. 1079 — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
         ],
       },
     },
@@ -393,7 +393,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
     sources: [
       { title: 'AB 3275 (Ch. 763, Stats. 2024) — claim reimbursement within 30 calendar days from 1/1/2026 (H&S § 1371, Ins. Code § 10123.13, W&I § 14093.08)', url: 'https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240AB3275' },
       { title: 'L.A. Care — 2026 Universal Provider Manual (LA4289)', url: 'https://www.lacare.org/sites/default/files/la4289_upm_202512.pdf' },
-      { title: 'L.A. Care — 2026 Universal Provider Manual Errata v3 (9/23/2026)', url: 'https://www.lacare.org/sites/default/files/la8085_upm_errata_list_v3_20260923.pdf' },
+      { title: 'L.A. Care — 2026 Universal Provider Manual Errata (v3, issue dates 1/2, 4/30 and 10/14/2026; 10/14 rows effective 12/21/2026)', url: 'https://www.lacare.org/sites/default/files/la8158_upm_errata_v3_202610.pdf' },
       { title: 'L.A. Care — BHT/ABA Authorization Request Form LA5480 (05/26)', url: 'https://www.lacare.org/sites/default/files/la5480_bht_authorization_form_202605.pdf' },
       { title: 'L.A. Care — Behavioral Health Treatment Reporting Template (PL6030, 09/25)', url: 'https://www.lacare.org/sites/default/files/la6030_lac_bht_reporting_template_202509.pdf' },
       { title: 'L.A. Care — BHT Coverage for Members Under 21 (PCP flyer PL1757, 11/23)', url: 'https://www.lacare.org/sites/default/files/pl1757_bht_pcp_flyer_202311_0.pdf' },
@@ -426,7 +426,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'L.A. Care — 2026 Universal Provider Manual (LA4289)', url: 'https://www.lacare.org/sites/default/files/la4289_upm_202512.pdf' },
-          { title: 'L.A. Care — 2026 Universal Provider Manual Errata v3 (9/23/2026)', url: 'https://www.lacare.org/sites/default/files/la8085_upm_errata_list_v3_20260923.pdf' },
+          { title: 'L.A. Care — 2026 Universal Provider Manual Errata (v3, issue dates 1/2, 4/30 and 10/14/2026; 10/14 rows effective 12/21/2026)', url: 'https://www.lacare.org/sites/default/files/la8158_upm_errata_v3_202610.pdf' },
         ],
       },
       diagnosticTools: {

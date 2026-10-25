@@ -1584,31 +1584,29 @@ export const texasPayers: Record<string, PayerConfig> = {
     family: 'molina',
     cardDesc: 'TMPPM baseline; verify codes in Molina\'s PA Code Matrix — its PA guide PDFs sit behind bot walls.',
     assessmentPA: {
-      value: 'Required — per the statewide TMPPM benefit; verify code-level handling in Molina\'s BH/Medical PA Code Matrix',
-      status: 'unverified',
+      value: 'Required for 97151. Molina\'s Medicaid BH and Medical PA Code Matrix (October 1, 2026) lists 97151 under Applied Behavior Analysis with "Texas Medicaid Provider Procedures Manual" as the criteria, matching the TMPPM rule that the evaluation is prior-authorized; 97152 is not on the matrix',
+      status: 'verified',
       cites: [
+        { title: 'Molina Healthcare of Texas — Medicaid Behavioral Health and Medical Prior Authorization (PA) Code Matrix, October 1, 2026 (Q4)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/Prior-Auth/10-2026-MHTX-Q4-Medicaid-BH-Medical-PA-Code-Matrix-508.pdf' },
         { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
       ],
-      verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide — both bot-protected on molinahealthcare.com. The TMPPM rule this value restates is itself verified; what is unverified is that Molina applies it unchanged. Human retrieval via carelu.com/sources.',
-      blocker: 'document',
     },
     treatmentPA: {
-      value: 'Required — state cadence applies; out-of-network requests need authorization regardless of service',
-      status: 'unverified',
+      value: 'Required — the October 1, 2026 PA Code Matrix lists 97153, 97154, 97155, 97156, 97157, 97158 and 0373T under Applied Behavior Analysis, reviewed against the Texas Medicaid Provider Procedures Manual (0373T against third-party proprietary criteria); the TMPPM authorization cadence applies, and out-of-network requests need authorization regardless of service',
+      status: 'verified',
       cites: [
+        { title: 'Molina Healthcare of Texas — Medicaid Behavioral Health and Medical Prior Authorization (PA) Code Matrix, October 1, 2026 (Q4)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/Prior-Auth/10-2026-MHTX-Q4-Medicaid-BH-Medical-PA-Code-Matrix-508.pdf' },
         { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
       ],
-      verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide — both bot-protected on molinahealthcare.com. The TMPPM rule this value restates is itself verified; what is unverified is that Molina applies it unchanged. Human retrieval via carelu.com/sources.',
-      blocker: 'document',
     },
     dxRequired: {
-      value: 'Yes — ASD per the statewide TMPPM criteria',
-      status: 'unverified',
+      value: 'Yes — ASD per the statewide TMPPM criteria. Molina\'s 2026 Medicaid/CHIP provider manual adds no ABA criteria of its own, and its PA Code Matrix names the TMPPM as the criteria for the ABA codes',
+      status: 'verified',
       cites: [
         { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+        { title: 'Molina Healthcare of Texas — Medicaid/CHIP Provider Manual (MHTPROVMN0426)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/MHTX-MEDICAID-CHIP-Provider-Manual-EN-508.pdf' },
+        { title: 'Molina Healthcare of Texas — Medicaid Behavioral Health and Medical Prior Authorization (PA) Code Matrix, October 1, 2026 (Q4)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/Prior-Auth/10-2026-MHTX-Q4-Medicaid-BH-Medical-PA-Code-Matrix-508.pdf' },
       ],
-      verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide — both bot-protected on molinahealthcare.com. The TMPPM rule this value restates is itself verified; what is unverified is that Molina applies it unchanged. Human retrieval via carelu.com/sources.',
-      blocker: 'document',
     },
     payer: 'Molina Healthcare of Texas',
     state: 'TX', kind: 'medicaid-mco', parent: 'Texas Medicaid (THSteps-CCP)',
@@ -1636,7 +1634,7 @@ export const texasPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
-          { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
+          { title: 'Molina Healthcare of Texas — Prior Authorization for Providers (links the quarterly Medicaid BH/Medical PA Code Matrix)', url: 'https://www.molinahealthcare.com/providers/tx/prior-auth' },
         ],
       },
       {
@@ -1646,7 +1644,7 @@ export const texasPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'Molina TX — Medicaid/CHIP Prior Authorization Guide (2025; ABA for ASD requires PA)', url: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/tx/medicaid/forms/MHT-Prior-Authorization-Guide-2025_R.ashx' },
-          { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
+          { title: 'Molina Healthcare of Texas — Prior Authorization for Providers (links the quarterly Medicaid BH/Medical PA Code Matrix)', url: 'https://www.molinahealthcare.com/providers/tx/prior-auth' },
         ],
       },
       {
@@ -1679,11 +1677,12 @@ export const texasPayers: Record<string, PayerConfig> = {
     ],
     sources: [
       { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
-      { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
+      { title: 'Molina Healthcare of Texas — Prior Authorization for Providers (links the quarterly Medicaid BH/Medical PA Code Matrix)', url: 'https://www.molinahealthcare.com/providers/tx/prior-auth' },
       { title: 'Molina TX — Medicaid/CHIP Prior Authorization Guide (2025; ABA for ASD requires PA)', url: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/tx/medicaid/forms/MHT-Prior-Authorization-Guide-2025_R.ashx' },
       { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
       { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
       { title: 'Molina Healthcare of Texas — Announcements and Notifications for Texas Providers (HHSC notices, Medicaid announcements, quarterly newsletters)', url: 'https://www.molinahealthcare.com/providers/tx/communications' },
+      { title: 'Molina Healthcare of Texas — Medicaid Behavioral Health and Medical Prior Authorization (PA) Code Matrix, October 1, 2026 (Q4)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/Prior-Auth/10-2026-MHTX-Q4-Medicaid-BH-Medical-PA-Code-Matrix-508.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -1692,7 +1691,7 @@ export const texasPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
-          { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
+          { title: 'Molina Healthcare of Texas — Prior Authorization for Providers (links the quarterly Medicaid BH/Medical PA Code Matrix)', url: 'https://www.molinahealthcare.com/providers/tx/prior-auth' },
         ],
         verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
         blocker: 'document',
@@ -1703,7 +1702,7 @@ export const texasPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
-          { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
+          { title: 'Molina Healthcare of Texas — Prior Authorization for Providers (links the quarterly Medicaid BH/Medical PA Code Matrix)', url: 'https://www.molinahealthcare.com/providers/tx/prior-auth' },
         ],
         verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
         blocker: 'document',
@@ -1726,7 +1725,7 @@ export const texasPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
-          { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
+          { title: 'Molina Healthcare of Texas — Prior Authorization for Providers (links the quarterly Medicaid BH/Medical PA Code Matrix)', url: 'https://www.molinahealthcare.com/providers/tx/prior-auth' },
         ],
         verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
         blocker: 'document',
@@ -1737,7 +1736,7 @@ export const texasPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
-          { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
+          { title: 'Molina Healthcare of Texas — Prior Authorization for Providers (links the quarterly Medicaid BH/Medical PA Code Matrix)', url: 'https://www.molinahealthcare.com/providers/tx/prior-auth' },
         ],
         verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
         blocker: 'document',
@@ -1748,7 +1747,7 @@ export const texasPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
-          { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
+          { title: 'Molina Healthcare of Texas — Prior Authorization for Providers (links the quarterly Medicaid BH/Medical PA Code Matrix)', url: 'https://www.molinahealthcare.com/providers/tx/prior-auth' },
         ],
         verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
         blocker: 'document',
@@ -1761,7 +1760,7 @@ export const texasPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
-          { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
+          { title: 'Molina Healthcare of Texas — Prior Authorization for Providers (links the quarterly Medicaid BH/Medical PA Code Matrix)', url: 'https://www.molinahealthcare.com/providers/tx/prior-auth' },
         ],
         verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
         blocker: 'document',
@@ -1772,7 +1771,7 @@ export const texasPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
-          { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
+          { title: 'Molina Healthcare of Texas — Prior Authorization for Providers (links the quarterly Medicaid BH/Medical PA Code Matrix)', url: 'https://www.molinahealthcare.com/providers/tx/prior-auth' },
         ],
         verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
         blocker: 'document',
@@ -1783,7 +1782,7 @@ export const texasPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
-          { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
+          { title: 'Molina Healthcare of Texas — Prior Authorization for Providers (links the quarterly Medicaid BH/Medical PA Code Matrix)', url: 'https://www.molinahealthcare.com/providers/tx/prior-auth' },
         ],
         verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
         blocker: 'document',
@@ -1794,7 +1793,7 @@ export const texasPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
-          { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
+          { title: 'Molina Healthcare of Texas — Prior Authorization for Providers (links the quarterly Medicaid BH/Medical PA Code Matrix)', url: 'https://www.molinahealthcare.com/providers/tx/prior-auth' },
         ],
         verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
         blocker: 'document',
@@ -1805,7 +1804,7 @@ export const texasPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
-          { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
+          { title: 'Molina Healthcare of Texas — Prior Authorization for Providers (links the quarterly Medicaid BH/Medical PA Code Matrix)', url: 'https://www.molinahealthcare.com/providers/tx/prior-auth' },
         ],
         verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
         blocker: 'document',
@@ -1816,7 +1815,7 @@ export const texasPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
-          { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
+          { title: 'Molina Healthcare of Texas — Prior Authorization for Providers (links the quarterly Medicaid BH/Medical PA Code Matrix)', url: 'https://www.molinahealthcare.com/providers/tx/prior-auth' },
         ],
         verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
         blocker: 'document',
@@ -1826,7 +1825,7 @@ export const texasPayers: Record<string, PayerConfig> = {
           'Molina\'s 2026 manual: "For a standard authorization request, Molina makes the determination and provides notification within three (3) calendar days for CHIP and three (3) business days for Medicaid"; non-urgent pre-service decisions for STAR run "Within 3 business days after receipt of request." Expedited: "as promptly as the member\'s health requires and no later than seventy-two (72) hours after we receive the initial request," and "Supporting documentation is required to justify the expedited request" — the PA guide adds that requests outside the urgent definition "will be handled as routine or non-urgent." A request to extend an ongoing course of ambulatory treatment counts as concurrent review, decided "Within 24 clock hours of receipt of request" when urgent. ABA is on Molina\'s PA list; the manual sets no ABA reauthorization lead time and no incomplete-request timeline of its own, so the state process applies (1 TAC § 353.425).',
         status: 'verified',
         cites: [
-          { title: 'Molina Healthcare of Texas — Provider Manual, STAR/STAR+PLUS/CHIP 2026 (last updated 04/2026) (PDF)', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/tx/medicaid/manual/MHTX-Medicaid-CHIP-Provider-Manual-508.ashx' },
+          { title: 'Molina Healthcare of Texas — Provider Manual, STAR/STAR+PLUS/CHIP 2026 (last updated 04/2026) (PDF)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/MHTX-MEDICAID-CHIP-Provider-Manual-EN-508.pdf' },
           { title: 'Molina TX — Medicaid/CHIP Prior Authorization Guide (2025; ABA for ASD requires PA)', url: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/tx/medicaid/forms/MHT-Prior-Authorization-Guide-2025_R.ashx' },
           { title: 'Tex. Gov\'t Code § 540.0303 — MCO PA determinations for nonhospitalized recipients (eff. 4/1/2025)', url: 'https://texas.public.law/statutes/tex._gov\'t_code_section_540.0303' },
           { title: '1 Tex. Admin. Code § 353.425 — MCO processing of incomplete PA requests', url: 'https://www.law.cornell.edu/regulations/texas/1-Tex-Admin-Code-SS-353-425' },
@@ -1837,7 +1836,7 @@ export const texasPayers: Record<string, PayerConfig> = {
           '"Medicaid is the payer of last resort. Private and governmental carriers must be billed prior to billing Molina." After the other coverage pays or denies, submit to Molina with the primary\'s remittance advice — "A copy of the remittance advice from the primary payer must accompany the claim or the claim will be denied" — "within 95 calendar days after final determination by the primary payer." If the primary paid more than Molina\'s contracted allowable, the claim is paid in full at zero. The manual does not say whether Molina\'s own ABA PA is still needed when Molina pays second — request it.',
         status: 'verified',
         cites: [
-          { title: 'Molina Healthcare of Texas — Provider Manual, STAR/STAR+PLUS/CHIP 2026 (last updated 04/2026) (PDF)', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/tx/medicaid/manual/MHTX-Medicaid-CHIP-Provider-Manual-508.ashx' },
+          { title: 'Molina Healthcare of Texas — Provider Manual, STAR/STAR+PLUS/CHIP 2026 (last updated 04/2026) (PDF)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/MHTX-MEDICAID-CHIP-Provider-Manual-EN-508.pdf' },
           { title: 'TMPPM Vol. 1, Section 8: Third Party Liability (TPL)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/1_08_Third_Party_Liability/1_08_Third_Party_Liability.htm' },
         ],
       },

@@ -2563,10 +2563,10 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
     family: 'bcbs',
     cardDesc: 'Southeastern PA Blue plan: ABA policy 14.00.03b, in-house Autism Case Management since April 2026 (Magellan out), precert on all ABA codes.',
     assessmentPA: {
-      value: 'Required — 97151, 97152 and 0362T sit on IBX’s commercial precertification list (effective 7/1/2026, "Precertification Performed by: IBX"), and the 2026 ABA Prior Authorization Form carries its own "Assessment request" box. Fax the form to 215-238-2500.',
+      value: 'Required — 97151, 97152 and 0362T sit on IBX’s commercial precertification list (effective 10/1/2026, "Precertification Performed by" IBX, for Commercial and Medicare Advantage), and the 2026 ABA Prior Authorization Form carries its own "Assessment request" box. Fax the form to 215-238-2500.',
       status: 'verified',
       cites: [
-        { title: 'IBX — Billing Codes (CPT/HCPCS) Associated with Services That Require Precertification (Commercial, effective 07/01/2026)', url: 'https://medpolicy.ibx.com/ibc/Commercial/Pages/Services-Requiring-Precertification.aspx' },
+        { title: 'IBX — Billing Codes (CPT/HCPCS) Associated with Services That Require Precertification (Commercial and Medicare Advantage, effective 10/01/2026)', url: 'https://medpolicy.ibx.com/ibc/Commercial/Pages/Services-Requiring-Precertification.aspx' },
         { title: 'IBX — Applied Behavior Analysis Prior Authorization Form (General, 2026)', url: 'https://www.ibx.com/pdfs/resources/for-providers/forms/2026-applied-behavior-analysis-prior-authorization-form-general.pdf' },
       ],
     },
@@ -2574,7 +2574,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       value: 'Required — every ABA code (97151–97158, 0362T, 0373T) is on the commercial precertification list, and the Behavioral Health provider manual (April 2026) lists ABA among services where "Preapproval/Precertification is required". Requests go to the IBX Autism Case Management team on the ABA Prior Authorization Form (fax 215-238-2500), ideally "at least two weeks prior to the start of services". A BCBA Care Manager reviews against InterQual ABA criteria, IBX policy 14.00.03b and the member’s benefit plan; the treatment plan is "reviewed and approved every 6 months". The list applies to all fully insured groups, individual members and "most self-funded groups" — self-funded employers may customize.',
       status: 'verified',
       cites: [
-        { title: 'IBX — Billing Codes (CPT/HCPCS) Associated with Services That Require Precertification (Commercial, effective 07/01/2026)', url: 'https://medpolicy.ibx.com/ibc/Commercial/Pages/Services-Requiring-Precertification.aspx' },
+        { title: 'IBX — Billing Codes (CPT/HCPCS) Associated with Services That Require Precertification (Commercial and Medicare Advantage, effective 10/01/2026)', url: 'https://medpolicy.ibx.com/ibc/Commercial/Pages/Services-Requiring-Precertification.aspx' },
         { title: 'IBX Provider Manual — Section 8: Behavioral Health (April 2026)', url: 'https://provcomm.ibx.com/pnc-ibc/Manuals/Provider/IBX_Provider_08_Behavioral-Health.pdf' },
         { title: 'IBX Medical Policy 14.00.03b — Applied Behavior Analysis (ABA) for the Treatment of Autism Spectrum Disorder (ASD)', url: 'https://medpolicy.ibx.com/ibc/Commercial/Pages/Policy/d805c027-d99b-4e5b-8127-41e3ced25613.aspx' },
       ],
@@ -2641,7 +2641,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           'The 2026 ABA Prior Authorization Form asks for the request type (assessment, initial, continued stay, added units, continuation of care), the date and type of the most recent diagnostic evaluation and the evaluator’s credentials, standardized assessment scores (current, previous and baseline), hours by place of service with school hours broken out separately, and the supervising provider (BCBA, BCBA-D, LBS or licensed psychologist). IBX asks for submission at least two weeks before services start; decisions are communicated by telephone and letter, and a request that does not meet criteria goes either back to the provider for discussion or to peer review by a board-certified physician.',
         ],
         cites: [
-          { title: 'IBX — Billing Codes (CPT/HCPCS) Associated with Services That Require Precertification (Commercial, effective 07/01/2026)', url: 'https://medpolicy.ibx.com/ibc/Commercial/Pages/Services-Requiring-Precertification.aspx' },
+          { title: 'IBX — Billing Codes (CPT/HCPCS) Associated with Services That Require Precertification (Commercial and Medicare Advantage, effective 10/01/2026)', url: 'https://medpolicy.ibx.com/ibc/Commercial/Pages/Services-Requiring-Precertification.aspx' },
           { title: 'IBX — Applied Behavior Analysis Prior Authorization Form (General, 2026)', url: 'https://www.ibx.com/pdfs/resources/for-providers/forms/2026-applied-behavior-analysis-prior-authorization-form-general.pdf' },
           { title: 'IBX Provider Manual — Section 8: Behavioral Health (April 2026)', url: 'https://provcomm.ibx.com/pnc-ibc/Manuals/Provider/IBX_Provider_08_Behavioral-Health.pdf' },
         ],
@@ -2706,7 +2706,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
     ],
     sources: [
       { title: 'IBX Medical Policy 14.00.03b — Applied Behavior Analysis (ABA) for the Treatment of Autism Spectrum Disorder (ASD)', url: 'https://medpolicy.ibx.com/ibc/Commercial/Pages/Policy/d805c027-d99b-4e5b-8127-41e3ced25613.aspx' },
-      { title: 'IBX — Billing Codes (CPT/HCPCS) Associated with Services That Require Precertification (Commercial, effective 07/01/2026)', url: 'https://medpolicy.ibx.com/ibc/Commercial/Pages/Services-Requiring-Precertification.aspx' },
+      { title: 'IBX — Billing Codes (CPT/HCPCS) Associated with Services That Require Precertification (Commercial and Medicare Advantage, effective 10/01/2026)', url: 'https://medpolicy.ibx.com/ibc/Commercial/Pages/Services-Requiring-Precertification.aspx' },
       { title: 'IBX — Applied Behavior Analysis Prior Authorization Form (General, 2026)', url: 'https://www.ibx.com/pdfs/resources/for-providers/forms/2026-applied-behavior-analysis-prior-authorization-form-general.pdf' },
       { title: 'IBX Provider Manual — Section 8: Behavioral Health (April 2026)', url: 'https://provcomm.ibx.com/pnc-ibc/Manuals/Provider/IBX_Provider_08_Behavioral-Health.pdf' },
       { title: 'IBX Claim Payment Policy 00.10.41q — Telemedicine Services (effective 1/1/2026)', url: 'https://medpolicy.ibx.com/ibc/Commercial/Pages/Policy/dbc419ce-5ff7-4009-8913-a65cb35c75ed.aspx' },
@@ -3529,7 +3529,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
-          { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+          { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/20/2026)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
           { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
           { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' }
         ]
@@ -3650,7 +3650,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
-          { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+          { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/20/2026)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
           { title: 'Aetna Health Care Professional Toolkit / provider manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
           { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
         ],
@@ -3685,7 +3685,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
     sources: [
       { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
       { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
-      { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+      { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/20/2026)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
       { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
       { title: 'Aetna — Behavioral Health Provider Manual (8/22)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' },
       { title: 'Act 62 of 2008 (HB 1150, PN 4115) — Insurance Company Law § 635.2 enacted text', url: 'https://www.palegis.us/legislation/bills/text/HTM/2007/0/HB1150/PN4115' },
@@ -3735,7 +3735,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
-          { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+          { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/20/2026)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
           { title: 'Act 62 of 2008 (HB 1150, PN 4115) — Insurance Company Law § 635.2 enacted text', url: 'https://www.palegis.us/legislation/bills/text/HTM/2007/0/HB1150/PN4115' }
         ]
       },
@@ -3743,7 +3743,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         value: 'CPB 0648 names the diagnostic tools used with clinical assessment to establish autism: ADI-R, ADOS-2, CARS-2 and the Asperger Syndrome Diagnostic Scale. The ABA medical necessity guide then requires a standardized scale of functioning from the past 12 months, for example Vineland-3, ABAS, VB-MAPP or ABLLS.',
         status: 'verified',
         cites: [
-          { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+          { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/20/2026)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
           { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }
         ]
       },
@@ -3829,7 +3829,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
-          { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+          { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/20/2026)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
           { title: 'Act 62 of 2008 (HB 1150, PN 4115) — Insurance Company Law § 635.2 enacted text', url: 'https://www.palegis.us/legislation/bills/text/HTM/2007/0/HB1150/PN4115' }
         ]
       },

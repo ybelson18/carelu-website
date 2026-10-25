@@ -158,7 +158,7 @@ const UHC_STAR_KIDS_PA_LIST = src(
 );
 const UHC_TX_PA_PAGE = src('https://www.uhcprovider.com/en/health-plans-by-state/texas-health-plans/tx-comm-plan-home/tx-cp-prior-auth.html', 'UHC Community Plan of Texas — prior authorization page.');
 const AETNA_BH_TX_MANUAL = src('https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf', 'Aetna Better Health of Texas — provider manual (access-restricted per texas.ts prose; PA/EDI mechanics beyond payer IDs not independently verifiable this pass).');
-const MOLINA_TX_PA_PAGE = src('https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx', 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted per texas.ts prose).');
+const MOLINA_TX_PA_PAGE: SourceRef = { url: 'https://www.molinahealthcare.com/providers/tx/prior-auth', accessDate: '2026-10-25', note: 'Molina Healthcare of Texas — Prior Authorization for Providers (replaces the dead /providers/tx/medicaid/forms/PA.aspx); links the October 1, 2026 Medicaid BH/Medical PA Code Matrix.' };
 const SUPERIOR_ABA_LAUNCH = src('https://www.superiorhealthplan.com/newsroom/effective-0201222-new-medicaid-benefit-for-aba-services-prior-auth-required.html', 'Superior — New Medicaid Benefit for ABA Services, PA Required (eff. 2/1/2022).');
 const TCHP_GUIDELINE = src('https://www.texaschildrenshealthplan.org/sites/default/files/2025-02/Autism%20Services%20Guideline.pdf', "TCHP — Autism Services Guideline #11281 v3, a formatted restatement of TMPPM criteria.");
 const WELLPOINT_TX_BH_DOC = src('https://provider.amerigroup.com/docs/gpp/TX_CAID_TexasBehavioralHealth.pdf?v=202207071852', 'Wellpoint/Amerigroup — Texas Behavioral Health provider document; restates TMPPM modifier table and caps.');
@@ -1897,7 +1897,7 @@ export const texasVob: Record<string, VobExtension> = {
   'molina-healthcare-texas': {
     edi: molinaEdi,
     codeGrid: tmppmCodeGrid({
-      '97151': "Molina directs providers to its Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool for code-level PA handling — its PA guide PDFs sit behind bot protection and were not independently verified this pass.",
+      '97151': "Verified 2026-10-25: Molina's Medicaid Behavioral Health and Medical PA Code Matrix (October 1, 2026, Q4) lists 97151 and 97153-97158 (plus 0373T) under Applied Behavior Analysis with the TMPPM as criteria, i.e. PA required as in the state rule; 97152 is not on the matrix. Matrix URL: https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/Prior-Auth/10-2026-MHTX-Q4-Medicaid-BH-Medical-PA-Code-Matrix-508.pdf",
     }),
     rates: mcoUnverifiedRates('Molina Healthcare of Texas'),
     stcMap: txMcoInferredStc('Molina Healthcare of Texas'),

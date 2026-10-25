@@ -799,14 +799,14 @@ export const militaryPayers: Record<string, PayerConfig> = {
       value: 'Not required — the CHAMPVA Guidebook requires pre-authorization for ABA treatment only, "not the evaluation"',
       status: 'verified',
       cites: [
-        { title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' },
+        { title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/files/2025-12/CHAMPVA-Guidebook.pdf' },
       ],
     },
     treatmentPA: {
       value:
         'Required — ABA treatment is on CHAMPVA\u2019s pre-authorization list (the evaluation is not). The CHAMPVA Operational Policy Manual adds: \u201cPreauthorization for ABA services must include an ABA TP. Upon receipt of the ABA TP, preauthorization may be granted for one year of ABA services.\u201d',
       status: 'verified',
-      cites: [{ title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' }, { title: 'CHAMPVA Operational Policy Manual, Ch. 2 Sec. 18.6, Psychological Testing (ABA) — Transmittal 152, 5/22/2025', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009345/02-18-06-PSYCHOLOGICAL-TESTING' }],
+      cites: [{ title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/files/2025-12/CHAMPVA-Guidebook.pdf' }, { title: 'CHAMPVA Operational Policy Manual, Ch. 2 Sec. 18.6, Psychological Testing (ABA) — Transmittal 152, 5/22/2025', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009345/02-18-06-PSYCHOLOGICAL-TESTING' }],
     },
     dxRequired: {
       value:
@@ -838,7 +838,7 @@ export const militaryPayers: Record<string, PayerConfig> = {
         h2: 'Who CHAMPVA covers — and who it cannot',
         cites: [
           { title: 'VA — CHAMPVA', url: 'https://www.va.gov/family-and-caregiver-benefits/health-and-disability/champva/' },
-          { title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' },
+          { title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/files/2025-12/CHAMPVA-Guidebook.pdf' },
         ],
         body: [
           'CHAMPVA covers the spouse or dependent child of a veteran rated permanently and totally disabled from a service-connected disability; the surviving spouse or child of a veteran who died from a service-connected disability; and the surviving spouse or child of a veteran who was rated permanently and totally disabled from a service-connected disability at the time of death. Dependent children can remain eligible from 18 to 23 while enrolled in school, and a child who is permanently unable to support themselves because of a disability that began before age 18 can remain eligible. Surviving spouses who remarry at age 55 or older keep the benefit.',
@@ -848,7 +848,7 @@ export const militaryPayers: Record<string, PayerConfig> = {
       {
         h2: 'What the Guidebook says about ABA',
         cites: [
-          { title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' },
+          { title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/files/2025-12/CHAMPVA-Guidebook.pdf' },
         ],
         body: [
           'ABA appears twice in the current Guidebook, updated Jan. 1, 2025. It is listed among the services that require pre-authorization, as "Applied behavior analysis (ABA) for treatment only (not the evaluation)." And it has its own line in the Behavioral Health Services benefit table — "Autism – Applied Behavioral Analysis (ABA) requires pre-authorization for treatment only (not evaluation)" — with the cost-share shown alongside.',
@@ -877,7 +877,7 @@ export const militaryPayers: Record<string, PayerConfig> = {
       {
         h2: 'What the family pays',
         cites: [
-          { title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' },
+          { title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/files/2025-12/CHAMPVA-Guidebook.pdf' },
         ],
         body: [
           'Where CHAMPVA is the primary payer, ABA carries the standard outpatient split: the patient pays the annual deductible of $50 per individual or $100 per family, then a 25% cost-share, and CHAMPVA pays 75% of the allowable amount. Yearly catastrophic cap protection limits beneficiary cost sharing to $3,000 annually, after which CHAMPVA covers 100% of allowable costs for the rest of the year.',
@@ -887,7 +887,7 @@ export const militaryPayers: Record<string, PayerConfig> = {
       {
         h2: 'What CHAMPVA does not publish — and what to ask',
         cites: [
-          { title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' },
+          { title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/files/2025-12/CHAMPVA-Guidebook.pdf' },
           { title: 'VA — CHAMPVA', url: 'https://www.va.gov/family-and-caregiver-benefits/health-and-disability/champva/' },
         ],
         body: [
@@ -945,7 +945,7 @@ export const militaryPayers: Record<string, PayerConfig> = {
     ],
     sources: [
       { title: 'VA — CHAMPVA', url: 'https://www.va.gov/family-and-caregiver-benefits/health-and-disability/champva/' },
-      { title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' },
+      { title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/files/2025-12/CHAMPVA-Guidebook.pdf' },
       { title: 'VA — CHAMPVA Guidebook (March 2026 posting)', url: 'https://www.va.gov/files/2026-03/CHAMPVA-Guidebook_3-2026.pdf' },
       { title: 'eCFR — 38 CFR 17.270, General provisions (definition of authorized non-VA provider)', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
       { title: 'eCFR — 38 CFR 17.272, Benefits limitations/exclusions', url: 'https://www.ecfr.gov/current/title-38/section-17.272' },
@@ -993,7 +993,7 @@ export const militaryPayers: Record<string, PayerConfig> = {
         value:
           'No list of allowed settings is published. The CHAMPVA Operational Policy Manual\u2019s ABA section excludes \u201cEducational/academic and vocational rehabilitation,\u201d \u201cEducational ABA services,\u201d school tuition that includes ABA, and \u201cCustodial care, personal care, and/or child care.\u201d Services delivered in a VA medical center under CITI are exempt from pre-authorization and cost sharing (Guidebook).',
         status: 'unverified',
-        cites: [{ title: 'CHAMPVA Operational Policy Manual, Ch. 2 Sec. 18.6, Psychological Testing (ABA) — Transmittal 152, 5/22/2025', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009345/02-18-06-PSYCHOLOGICAL-TESTING' }, { title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' }],
+        cites: [{ title: 'CHAMPVA Operational Policy Manual, Ch. 2 Sec. 18.6, Psychological Testing (ABA) — Transmittal 152, 5/22/2025', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009345/02-18-06-PSYCHOLOGICAL-TESTING' }, { title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/files/2025-12/CHAMPVA-Guidebook.pdf' }],
         verifyVia: 'Confirm allowable settings in the pre-authorization decision before scheduling home, school or community sessions; CHAMPVA 800-733-8387',
         blocker: 'per-case',
       },
@@ -1003,13 +1003,13 @@ export const militaryPayers: Record<string, PayerConfig> = {
         value:
           'No ABA-specific age limit is published; what bounds the case is dependent eligibility. A dependent child can remain eligible from 18 to 23 while enrolled in school, and a child who is permanently unable to support themselves because of a disability that began before age 18 can remain eligible beyond that. Eligibility runs to the spouse or dependent child of a veteran rated permanently and totally disabled from a service-connected disability, and to the surviving spouse or child of a veteran who died from \u2014 or was rated permanently and totally disabled from \u2014 a service-connected disability.',
         status: 'verified',
-        cites: [{ title: 'VA \u2014 CHAMPVA', url: 'https://www.va.gov/family-and-caregiver-benefits/health-and-disability/champva/' }, { title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' }],
+        cites: [{ title: 'VA \u2014 CHAMPVA', url: 'https://www.va.gov/family-and-caregiver-benefits/health-and-disability/champva/' }, { title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/files/2025-12/CHAMPVA-Guidebook.pdf' }],
       },
       dxRecency: {
         value:
           'Not set. The CHAMPVA Operational Policy Manual\u2019s ABA section requires an ASD diagnosis \u201cusing the current Diagnostic and Statistical Manual of Mental Disorders (DSM) criteria\u201d but sets no maximum age for the diagnostic evaluation. Capture the evaluation date and the diagnosing provider anyway; the assessment and treatment plan must name the referring provider.',
         status: 'unverified',
-        cites: [{ title: 'CHAMPVA Operational Policy Manual, Ch. 2 Sec. 18.6, Psychological Testing (ABA) — Transmittal 152, 5/22/2025', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009345/02-18-06-PSYCHOLOGICAL-TESTING' }, { title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' }],
+        cites: [{ title: 'CHAMPVA Operational Policy Manual, Ch. 2 Sec. 18.6, Psychological Testing (ABA) — Transmittal 152, 5/22/2025', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009345/02-18-06-PSYCHOLOGICAL-TESTING' }, { title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/files/2025-12/CHAMPVA-Guidebook.pdf' }],
         verifyVia: 'CHAMPVA customer service and pre-authorization line, 800-733-8387, or VHAHAC.preauthorizationFM@va.gov. Ask when you request pre-authorization and get the answer in writing.',
         blocker: 'per-case',
       },
@@ -1031,7 +1031,7 @@ export const militaryPayers: Record<string, PayerConfig> = {
         value:
           'The split is the operationally useful fact, and it is published twice. ABA appears among the services requiring pre-authorization as \u201cApplied behavior analysis (ABA) for treatment only (not the evaluation),\u201d and again in the Behavioral Health Services benefit table as \u201cAutism \u2013 Applied Behavioral Analysis (ABA) requires pre-authorization for treatment only (not evaluation).\u201d So a family can be evaluated without waiting on CHAMPVA. Treatment requests go directly to CHAMPVA by phone on 800-733-8387, by email to VHAHAC.preauthorizationFM@va.gov, or by mail to the VHA Office of Integrated Veteran Care. Two published exceptions remove the requirement entirely: services provided through CITI, the CHAMPVA In-house Treatment Initiative at a VA medical center (also exempt from beneficiary cost sharing), and services another health insurer has already authorized \u2014 though if that insurer denies for failure to follow its rules or for lack of medical necessity, CHAMPVA will deny as well. There is no separate physician-order form; the referral travels inside the treatment plan. The CHAMPVA Operational Policy Manual requires the ABA assessment and treatment plan to show the \u201cDate the initial ABA assessment and initial TP was completed, and name of the referring provider,\u201d and excludes \u201cDiagnoses and referrals from Nurse Practitioners (NPs), Physician Assistants (PAs), or other providers not having the qualifications listed.\u201d No validity period for the referral is set.',
         status: 'verified',
-        cites: [{ title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' }, { title: 'CHAMPVA Operational Policy Manual, Ch. 2 Sec. 18.6, Psychological Testing (ABA) — Transmittal 152, 5/22/2025', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009345/02-18-06-PSYCHOLOGICAL-TESTING' }],
+        cites: [{ title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/files/2025-12/CHAMPVA-Guidebook.pdf' }, { title: 'CHAMPVA Operational Policy Manual, Ch. 2 Sec. 18.6, Psychological Testing (ABA) — Transmittal 152, 5/22/2025', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009345/02-18-06-PSYCHOLOGICAL-TESTING' }],
       },
       telehealth: {
         value:

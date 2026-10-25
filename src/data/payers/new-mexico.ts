@@ -854,22 +854,19 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
   'molina-healthcare-new-mexico': {
     slug: 'molina-healthcare-new-mexico',
     assessmentPA: {
-      value: 'Not published — Molina has no New Mexico ABA code-level PA list; the state baseline (97151/97152/0362T marked "Prior Auth: NO") should govern via the shared Turquoise Care Level of Care Guidelines. Run a code-level check in Availity Essentials and keep the answer in writing',
-      status: 'unverified',
+      value: 'Not required for participating providers. Molina\'s New Mexico Medicaid PA Code Matrix (effective October 1, 2026) says "Prior auth is required for all codes listed in this document" and does not list 97151, 97152 or 0362T, matching the state fee schedule\'s "Prior Auth: NO" on those codes. Non-participating providers need authorization for every service',
+      status: 'verified',
       cites: [
+        { title: 'Molina Healthcare of New Mexico — Medicaid Prior Authorization (PA) Code Matrix, effective October 1, 2026 (Q4)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/NM/New-Mexico-Prior-Authorization-PA-Code-Matrix-Q4-2026.pdf' },
         { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (MCO rate floor)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
       ],
-      verifyVia: 'Molina Healthcare of New Mexico\'s Medicaid prior-authorization code list — not published publicly and molinahealthcare.com 403s to automated retrieval. Run the ABA codes through Availity Essentials and keep the dated result, or request the PA code matrix via carelu.com/sources. The state floor (LOD #53: 97151/97152/0362T ‘Prior Auth: NO’) is the fallback.',
-      blocker: 'document',
     },
     treatmentPA: {
-      value: 'Not published at code level — the state baseline puts PA on 97153; Molina mandates electronic PA submission through Availity Essentials as its primary channel',
-      status: 'unverified',
+      value: 'Required once treatment passes 48 units a year. Molina\'s PA Code Matrix (effective October 1, 2026) lists 97153, 97154, 97155, 97156, 97157, 97158 and 0373T with the note "PA required after 48 units per calendar year for ABA therapy (cumulative of 0373T, 97153, 97154, 97155, 97156, 97157, 97158)." Non-participating providers need authorization for every service. Submit through Availity Essentials',
+      status: 'verified',
       cites: [
-        { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (MCO rate floor)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+        { title: 'Molina Healthcare of New Mexico — Medicaid Prior Authorization (PA) Code Matrix, effective October 1, 2026 (Q4)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/NM/New-Mexico-Prior-Authorization-PA-Code-Matrix-Q4-2026.pdf' },
       ],
-      verifyVia: 'Molina Healthcare of New Mexico\'s Medicaid prior-authorization code list, via Availity Essentials (its mandated PA channel) or carelu.com/sources. The state floor puts PA on 97153 only; Molina publishes no New Mexico ABA code-level list of its own.',
-      blocker: 'document',
     },
     family: 'molina',
     cardDesc: 'New to NM 7/2024; PA via Availity Essentials; no published ABA policy — verify in portal.',
@@ -894,18 +891,19 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { label: 'Plan type', value: 'Turquoise Care MCO — entered New Mexico 7/1/2024' },
       { label: 'Clinical rules', value: 'State baseline (shared Turquoise Care LOC guidelines); no distinct ABA policy published' },
       { label: 'PA submission', value: 'Electronic, via Availity Essentials — Molina\'s mandated primary channel' },
-      { label: 'ABA code-level PA list', value: 'Not published — verify 97151/97153 handling in Availity before submitting' },
+      { label: 'ABA code-level PA list', value: 'PA Code Matrix (eff. 10/1/2026): no PA on 97151/97152/0362T; PA after 48 units/calendar year across 97153–97158 + 0373T (par providers)' },
       { label: 'Rates', value: 'Must pay at least the state FFS ABA fee schedule (LOD #53)' },
     ],
     sections: [
       {
         h2: 'What\'s verified — and what to check in the portal',
         body: [
-          'Verified: Molina is a Turquoise Care MCO bound by the state\'s ABA criteria and the LOD #53 rate floor, its provider manual requires electronic PA submission, and Availity Essentials is the mandated primary channel (a contract-compliance item, not a preference). Not verified: any Molina-specific ABA clinical policy, PA form, or code-level PA list for New Mexico — we found none published. That gap cuts both ways: the state baseline (no PA on 97151, PA on 97153, the under-20-hrs quirk) should govern via the shared Level of Care Guidelines, but until Molina publishes its ABA mechanics, run a code-level PA check in Availity for each new case and get the answer in writing. As the newest plan alongside UHC, expect member churn from the Western Sky exit — verify plan identity on any card that predates July 2024.',
+          'Verified: Molina is a Turquoise Care MCO bound by the state\'s ABA criteria and the LOD #53 rate floor, its provider manual requires electronic PA submission, and Availity Essentials is the mandated primary channel (a contract-compliance item, not a preference). Molina\'s code-level PA list is now public: its New Mexico Medicaid PA Code Matrix (effective October 1, 2026) requires authorization for every code it lists, leaves 97151, 97152 and 0362T off the list, and notes on 97153\u201397158 and 0373T: "PA required after 48 units per calendar year for ABA therapy (cumulative of 0373T, 97153, 97154, 97155, 97156, 97157, 97158)." Non-participating providers need authorization for everything. Not verified: any Molina-specific ABA clinical policy or PA form for New Mexico \u2014 we found none published, so the state criteria (NMAC 8.321.2) govern the review. As the newest plan alongside UHC, expect member churn from the Western Sky exit — verify plan identity on any card that predates July 2024.',
         ],
         cites: [
           { title: 'Molina Healthcare of New Mexico Provider Manual (Medicaid 2025)', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/NM_2024/Medicaid/communications/MCAIDNM-Provider-Manual-2025-EN-508.pdf' },
-          { title: 'Molina NM Medicaid Authorizations page', url: 'https://www.molinahealthcare.com/providers/nm/medicaid/resource/priorauth.aspx' },
+          { title: 'Molina Healthcare of New Mexico — Prior Authorization for Providers (links the quarterly PA Code Matrix)', url: 'https://www.molinahealthcare.com/providers/nm/prior-auth' },
+          { title: 'Molina Healthcare of New Mexico — Medicaid Prior Authorization (PA) Code Matrix, effective October 1, 2026 (Q4)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/NM/New-Mexico-Prior-Authorization-PA-Code-Matrix-Q4-2026.pdf' },
         ],
       },
       {
@@ -970,7 +968,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
     ],
     sources: [
       { title: 'Molina Healthcare of New Mexico Provider Manual (Medicaid 2025)', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/NM_2024/Medicaid/communications/MCAIDNM-Provider-Manual-2025-EN-508.pdf' },
-      { title: 'Molina NM Medicaid Authorizations page', url: 'https://www.molinahealthcare.com/providers/nm/medicaid/resource/priorauth.aspx' },
+      { title: 'Molina Healthcare of New Mexico — Prior Authorization for Providers (links the quarterly PA Code Matrix)', url: 'https://www.molinahealthcare.com/providers/nm/prior-auth' },
       { title: 'MAD Supplement 24-13 — ABA Guidance (state criteria)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
       { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (MCO rate floor)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
       { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
@@ -978,6 +976,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { title: 'Molina Healthcare of New Mexico Turquoise Care Provider Manual (2024 edition, last updated May 2024)', url: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/NM_2024/Medicaid/Provider-Manual.pdf' },
       { title: '8.321.2.13 NMAC — Applied Behavior Analysis (srca.nm.gov)', url: 'https://www.srca.nm.gov/parts/title08/08.321.0002.html' },
       { title: 'Molina Healthcare of New Mexico — Provider communications (newsletters and bulletins)', url: 'https://www.molinahealthcare.com/providers/nm/communications' },
+      { title: 'Molina Healthcare of New Mexico — Medicaid Prior Authorization (PA) Code Matrix, effective October 1, 2026 (Q4)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/NM/New-Mexico-Prior-Authorization-PA-Code-Matrix-Q4-2026.pdf' },
     ],
     intakeGates: {
       ageLimit: {

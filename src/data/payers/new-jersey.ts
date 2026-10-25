@@ -169,7 +169,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' },
-          { title: 'NJMMIS — ABA Treatment Provider FFS enrollment packet (May 2026, Gainwell)', url: 'https://www.njmmis.com/documentDownload.aspx?document=Applied_Behavior_Analysis.pdf' },
+          { title: 'NJMMIS — ABA Treatment Provider FFS enrollment packet (October 2026, Gainwell)', url: 'https://www.njmmis.com/documentDownload.aspx?document=Applied_Behavior_Analysis.pdf' },
           { title: 'NJ DMAHS — NJ FamilyCare Health Plans (current MCO roster)', url: 'https://nj.gov/humanservices/dmahs/providers-stakeholders/provider-resources/health-plans' },
         ],
       },
@@ -289,7 +289,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 4.1.1.I non-participating providers; Art. 4.8.7.G out-of-network referral; App. B.4.4 ABA', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' },
       { title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' },
       { title: 'Autism NJ — Medicaid rate increase for ABA services', url: 'https://autismnj.org/news/autism-new-jerseys-advocacy-leads-to-medicaid-rate-increase-for-aba-services/' },
-      { title: 'NJMMIS — ABA Treatment Provider FFS enrollment packet (May 2026, Gainwell)', url: 'https://www.njmmis.com/documentDownload.aspx?document=Applied_Behavior_Analysis.pdf' },
+      { title: 'NJMMIS — ABA Treatment Provider FFS enrollment packet (October 2026, Gainwell)', url: 'https://www.njmmis.com/documentDownload.aspx?document=Applied_Behavior_Analysis.pdf' },
       { title: 'ProviderSpark NJ Medicaid rates (NJMMIS CY2026 Q2)', url: 'https://www.providerspark.com/for-providers/medicaid-rates/new-jersey/' },
       { title: 'DMAHS BH Integration Points of Contact V3.1 (per-MCO ABA contacts)', url: 'https://www.nj.gov/humanservices/dmhas/documents/pdf/resources/providers/DMAHS-BH-Integration-Points-of-Contact.pdf' },
       { title: 'Optum ABA State Mandates BH803ABASTM12026 — NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
@@ -1032,6 +1032,14 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         ],
       },
       {
+        h2: 'Fidelis Care NJ authorization changes in October 2026: 97157 and peer-to-peer reviews',
+        body: [
+          'Two Fidelis Care New Jersey bulletins change the ABA authorization workflow this fall. Its “Important Prior Authorization Updates (Effective October 1, 2026)” table lists Behavioral Health “Treatment Services” code 97157 (multiple-family group adaptive behavior treatment guidance) as “PA Required.”',
+          'From October 19, 2026, “pre-determination peer-to-peer reviews will no longer be available for behavioral health authorization requests.” Instead, “If an authorization request is denied, providers will follow the instructions in the denial letter to schedule a post-determination peer-to-peer review.” Fidelis says “The overall medical necessity review process and notification timelines will not change.” For ABA this means the clinical case has to be complete in the first submission, because there is no longer a chance to talk to the reviewer before the decision.',
+        ],
+        cites: [{ title: 'Fidelis Care NJ — Important Prior Authorization Updates (effective October 1, 2026)', url: 'https://www.fideliscarenj.com/content/dam/centene/wellcare/nj/pdfs/Prov/NJ_Caid_Prov_PA_Update_Notification_100126_R.pdf' }, { title: 'Fidelis Care NJ — Behavioral Health Peer-to-Peer Process Change (effective October 19, 2026)', url: 'https://www.fideliscarenj.com/providers/news-and-education/bulletins/peer-to-peer-process-change.html' }],
+      },
+      {
         h2: 'Does Fidelis Care New Jersey allow retroactive authorization for ABA?',
         body: [
           'Only after retroactive eligibility or an emergency. Fidelis Care\'s 2026 New Jersey Medicaid manual: Fidelis "will review post-service requests for authorization of inpatient admissions or outpatient services only if, at the time of treatment, the Member was not eligible but became eligible with Fidelis Care retroactively or in cases of emergency treatment and the payer is not known at the time of service." The review uses "the same approved medical criteria used for the pre-service decisions," and "All services performed without Prior Authorization are subject to Retrospective Review by Fidelis Care." So ABA delivered before a family\'s Fidelis enrollment was made retroactive can be reviewed; a missed authorization for a member who was already enrolled cannot.',
@@ -1066,6 +1074,8 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'Requested units vs. the state guide', desc: 'Absent published plan caps, assume the state daily unit table is the edit surface.' },
     ],
     sources: [
+      { title: 'Fidelis Care NJ — Important Prior Authorization Updates (effective October 1, 2026)', url: 'https://www.fideliscarenj.com/content/dam/centene/wellcare/nj/pdfs/Prov/NJ_Caid_Prov_PA_Update_Notification_100126_R.pdf' },
+      { title: 'Fidelis Care NJ — Behavioral Health Peer-to-Peer Process Change (effective October 19, 2026)', url: 'https://www.fideliscarenj.com/providers/news-and-education/bulletins/peer-to-peer-process-change.html' },
       { title: 'DMAHS BH Integration Points of Contact V3.1 — Fidelis ABA contacts', url: 'https://www.nj.gov/humanservices/dmhas/documents/pdf/resources/providers/DMAHS-BH-Integration-Points-of-Contact.pdf' },
       { title: 'Fidelis Care NJ — Authorizations', url: 'https://www.fideliscarenj.com/providers/medicaid/authorizations.html' },
       { title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' },
@@ -1084,6 +1094,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: '38 CFR 17.272 — CHAMPVA benefit limitations; Medicaid exception (eCFR)', url: 'https://www.ecfr.gov/current/title-38/section-17.272' },
     ],
     faq: [
+      { q: 'Can I request a peer-to-peer review before Fidelis Care NJ decides an ABA authorization?', a: 'Not since October 19, 2026. Fidelis says pre-determination peer-to-peer reviews “will no longer be available for behavioral health authorization requests.” If the request is denied, follow the denial letter\'s instructions to schedule a post-determination peer-to-peer review. Review timelines are unchanged.' },
       { q: 'What POS and modifier does Fidelis Care NJ want for telehealth ABA?', a: 'Fidelis publishes no telehealth billing rule of its own. The state requires POS 10 when the child is at home and POS 02 elsewhere on Medicaid claims, and its last billing guidance needed no extra modifier. Confirm the modifier with Fidelis before billing.' },
       { q: 'Does Fidelis Care NJ accept H0031 or H0032 for ABA?', a: 'Not as published. The NJ FamilyCare contract lists the ABA billing codes as 97151–97158, 0362T and 0373T, and Fidelis publishes no other ABA codes.' },
       { q: 'Does Fidelis Care New Jersey cover ABA?', a: 'Yes — it administers the NJ FamilyCare ABA benefit (EPSDT, ASD diagnosis, MCO-authorized assessment and treatment plan). No plan-specific ABA policy is published, so the state baseline is the rulebook to plan against.' },
@@ -1735,7 +1746,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         value:
           'Aetna publishes no ABA place-of-service list. On school settings it says two things. CPB 0648: "Many Aetna plans exclude coverage of educational services. For example, speech therapy or ABA services during class would be excluded under these plans. Please check benefit plan exclusions." And precertification form GR-69017-4 asks "Are any ABA hours being requested during class?" and, if so, how many and for which codes. The IEP/IDEA carve-out in Aetna\'s ABA medical necessity guide sits in its Maryland exhibit, not in the national criteria. Where ABA is payable in a school, the community or a group home is a benefit-document question. New Jersey adds a wrinkle worth checking separately: state Medicaid policy on school-setting ABA has moved since 2020, and a fully insured NJ commercial plan is bound by the state mandate rather than by Aetna\u2019s national default.',
         status: 'plan-dependent',
-        cites: [{ title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }],
+        cites: [{ title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/20/2026)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }],
         verifyVia: 'The member\'s benefit document (educational-services exclusion), and Aetna provider services for whether school-setting ABA is payable on that plan.',
         blocker: 'per-case',
       },

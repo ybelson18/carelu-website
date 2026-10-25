@@ -65,7 +65,7 @@ export const missouriPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'MO HealthNet Behavioral Health Services Manual, §1.16 ABA Services (May 2026)', url: 'https://mydss.mo.gov/sites/mydss/files/media/file/2026/05/Behavioral%20Health%20Services%20Manual.docx' },
           { title: 'MO HealthNet Managed Care Policy Statements (rev. 7/2023 — current, no newer edition found)', url: 'https://dss.mo.gov/business-processes/managed-care/vendor-docs-2022/mo-healthnet-managed-care-policy-statements-09-23.pdf' },
-          { title: 'Healthy Blue MO HealthNet Managed Care Provider Manual', url: 'https://provider.healthybluemo.com/docs/gpp/MO_CAID_HealthNetManagedCareProviderManual.pdf' },
+          { title: 'Healthy Blue MO HealthNet Managed Care Provider Manual (November 1, 2026 edition)', url: 'https://provider.healthybluemo.com/docs/gpp/MO_CAID_HealthNetManagedCareProviderManual.pdf' },
           { title: 'Show Me Healthy Kids Provider Reference Manual (benefit grid)', url: 'https://www.homestatehealth.com/content/dam/centene/home-state-health/pdfs/HSH-SMHK-Provider-Manual_508%20Compliant%20063022.pdf' },
         ],
       },
@@ -194,7 +194,7 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { title: 'MHD Applied Behavioral Analysis fee schedule (official download portal)', url: 'https://apps.dss.mo.gov/fmsfeeschedules/DLFiles.aspx' },
       { title: 'MO HealthNet Behavioral Health Services page (precert form 2575-045, bulletins)', url: 'https://mydss.mo.gov/mhd/behavioral-health-services' },
       { title: 'MHD ABA provider training — Applied Behavior Analysis Services (April 2022)', url: 'https://dss.mo.gov/mhd/providers/education/files/rodgers-applied-behavior-analysis.pdf' },
-      { title: 'Healthy Blue MO HealthNet Managed Care Provider Manual', url: 'https://provider.healthybluemo.com/docs/gpp/MO_CAID_HealthNetManagedCareProviderManual.pdf' },
+      { title: 'Healthy Blue MO HealthNet Managed Care Provider Manual (November 1, 2026 edition)', url: 'https://provider.healthybluemo.com/docs/gpp/MO_CAID_HealthNetManagedCareProviderManual.pdf' },
       { title: 'Show Me Healthy Kids Provider Reference Manual', url: 'https://www.homestatehealth.com/content/dam/centene/home-state-health/pdfs/HSH-SMHK-Provider-Manual_508%20Compliant%20063022.pdf' },
       { title: '13 CSR 70-98.030 — Applied Behavior Analysis Services', url: 'https://www.law.cornell.edu/regulations/missouri/13-CSR-70-98-030' },
       { title: 'MO HealthNet Provider Bulletin Vol. 47 No. 19 — Grace Period for RBT Credential', url: 'https://mydss.mo.gov/sites/mydss/files/media/pdf/2024/09/ABA-Grace-Period-RBT-Bulletin.pdf' },
@@ -351,7 +351,7 @@ export const missouriPayers: Record<string, PayerConfig> = {
       ],
     },
     dxRequired: {
-      value: 'Yes — ASD only. CPB 0554 (last review 11/26/2025) considers ABA "experimental, investigational, or unproven for all other non-ASD indications." On the code range Aetna’s documents differ: CPB 0648 lists "F84.0 - F84.9" as ICD-10 codes covered if selection criteria are met, while the ABA Medical Necessity Guide its behavioral-health reviewers apply requires "a DSM-V diagnosis of Autism Spectrum Disorder (ICD-10: F84.0; F84.3 - F84.9)," which leaves out F84.1 and F84.2. Bill F84.0 where it fits.',
+      value: 'Yes — ASD only. CPB 0554 (last review 10/14/2026) considers ABA experimental, investigational, or unproven for "Down Syndrome in the absence of an autism spectrum disorder (ASD) co-morbidity" and "All other non-ASD indications." On the code range Aetna’s documents now agree: CPB 0648 (last review 10/20/2026) lists F84.0, F84.3, F84.5, F84.8 and F84.9 as "ICD-10 codes covered if selection criteria are met," and the ABA Medical Necessity Guide its behavioral-health reviewers apply requires "a DSM-V diagnosis of Autism Spectrum Disorder (ICD-10: F84.0; F84.3 - F84.9)." Both leave out F84.1 and F84.2. Bill F84.0 where it fits.',
       status: 'verified',
       cites: [
         { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
@@ -560,9 +560,9 @@ export const missouriPayers: Record<string, PayerConfig> = {
       },
       placeOfService: {
         value:
-          'Aetna publishes no ABA place-of-service list. On school settings it says two things. CPB 0648: "Many Aetna plans exclude coverage of educational services. For example, speech therapy or ABA services during class would be excluded under these plans. Please check benefit plan exclusions." And precertification form GR-69017-4 asks "Are any ABA hours being requested during class?" and, if so, how many and for which codes. The IEP/IDEA carve-out in Aetna\'s ABA medical necessity guide sits in its Maryland exhibit, not in the national criteria. Where ABA is payable in a school, the community or a group home is a benefit-document question.',
+          'Aetna publishes no ABA place-of-service list. On school settings it says two things. CPB 0648: "Many Aetna plans exclude coverage of educational services. For example, speech therapy or applied behavior analysis (ABA) services during class would be excluded under these plans. Please check benefit plan exclusions." And precertification form GR-69017-4 asks "Are any ABA hours being requested during class?" and, if so, how many and for which codes. The IEP/IDEA carve-out in Aetna\'s ABA medical necessity guide sits in its Maryland exhibit, not in the national criteria. Where ABA is payable in a school, the community or a group home is a benefit-document question.',
         status: 'plan-dependent',
-        cites: [{ title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }],
+        cites: [{ title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/20/2026)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }],
         verifyVia: 'The member\'s benefit document (educational-services exclusion), and Aetna provider services for whether school-setting ABA is payable on that plan.',
         blocker: 'per-case',
       },

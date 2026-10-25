@@ -47,7 +47,7 @@ const S: Record<string, PayerSource> = {
   // CCOs
   psABA: { title: 'PacificSource Clinical Guideline — Applied Behavioral Analysis (ABA), Commercial and Medicaid (Oregon Medicaid section; Ops approval 3/2026, next review 1/1/2027)', url: 'https://pacificsource.com/media/24381' },
   psNews: { title: 'PacificSource — ABA treatment services and neuropsychological and psychological testing will require prior authorization (Sept. 29, 2023; eff. 1/1/2024)', url: 'https://pacificsource.com/article/aba-treatment-services-and-neuropsychological-and-psychological-testing-will-require-prior' },
-  trilAuth: { title: 'Trillium Community Health Plan — Medicaid (OHP) Service Authorization Handbook: Authorization or Denial of Covered Services', url: 'https://www.trilliumohp.com/content/dam/centene/trillium/ProviderResources/ProviderManuals/TrilliumMedPrvdrOhpAuth.pdf' },
+  trilAuth: { title: 'Trillium Community Health Plan — Medicaid (OHP) Service Authorization Handbook: Authorization or Denial of Covered Services (MCA_ZZ352, revised 09/2026)', url: 'https://www.trilliumohp.com/content/dam/centene/trillium/ProviderResources/ProviderManuals/TrilliumMedPrvdrOhpAuth.pdf' },
   trilTip: { title: 'Trillium Community Health Plan — Applied Behavioral Analysis Outpatient Treatment Request Checklist', url: 'https://www.trilliumohp.com/content/dam/centene/trillium/ProviderResources/ProviderForms/OR-ABA-Request-Tip-sheet.pdf' },
   trilPM: { title: 'Trillium Community Health Plan — Provider Manual 2026', url: 'https://www.trilliumohp.com/content/dam/centene/trillium/ProviderResources/ProviderManuals/ProviderManual%202026_FINAL_R.pdf' },
   trilRes: { title: 'Trillium Community Health Plan — Provider forms and resources', url: 'https://www.trilliumohp.com/providers/resources/forms-resources.html' },
@@ -93,6 +93,8 @@ const S: Record<string, PayerSource> = {
   regBH18: { title: 'Regence Medical Policy BH18 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (version read: effective 8/1/2025, last review June 2025; it notes a revision effective 11/1/2026)', url: 'https://beonbrand.getbynder.com/m/e4646f415eb7f4eb/' },
   regBH33: { title: 'Regence Medical Policy BH33 — ABA Initial Assessment for the Treatment of Autism Spectrum Disorder', url: 'https://beonbrand.getbynder.com/m/8360cc45444cab46/' },
   lcswScope: { title: 'ORS 675.510(2)(a) — Regulated social workers: "Clinical social work" includes the "assessment, diagnosis or treatment of mental, emotional or behavioral disorders"', url: 'https://www.oregonlegislature.gov/bills_laws/ors/ors675.html' },
+  coABA2026: { title: 'CareOregon (Health Share, Jackson Care Connect, Columbia Pacific CCO) — Important update to ABA authorization requests (provider update, Oct 22, 2026)', url: 'https://jacksoncareconnect.org/providers/provider-updates/2026/10/22/important-update-to-aba-authorization-requests' },
+  trilPAtool: { title: 'Trillium Community Health Plan — Medicaid Pre-Auth Check tool (97151, 97152, 97157 no PA; 0362T, 97153–97156, 97158, 0373T PA required; checked 10/25/2026)', url: 'https://www.trilliumohp.com/providers/preauth-check/medicaid-pre-auth.html' },
 };
 
 /* ---- Shared Oregon state facts ---- */
@@ -332,9 +334,9 @@ export const oregonPayers: Record<string, PayerConfig> = {
     family: 'health-share',
     cardDesc: 'Portland-metro CCO; CareOregon runs its behavioral health UM: PA for the ABA assessment and treatment, ADOS/CARS-2, Medical Director review at 13+ or over 25 hours.',
     assessmentPA: {
-      value: 'Yes. CareOregon’s BH UM handbook requires an ABA assessment authorization with clinical documentation showing the diagnosis and tool; for Health Share members it may be submitted with "TBD Behavioral Health Provider" as the rendering provider',
+      value: 'Yes. CareOregon’s BH UM handbook requires an ABA assessment authorization with clinical documentation showing the diagnosis and tool; for Health Share members it may be submitted with "TBD Behavioral Health Provider" as the rendering provider CareOregon\'s October 22, 2026 provider update: since August 7, 2026 the Connect Behavioral Health Template has a separate "ABA Assessment" service type — "ABA Assessment CPT codes are 97151 and 97152" — used "for a formal assessment conducted to initiate ABA treatment for a new or returning patient"; "Approved assessment requests are valid for 365 days while treatment authorizations are typically approved for no more than six months." Fax is allowed only on an exception form from Provider Customer Service (800-224-4840, option 3).',
       status: 'verified',
-      cites: [S.coUM],
+      cites: [S.coUM, S.coABA2026],
     },
     treatmentPA: {
       value: 'Yes, via CareOregon Connect or fax, with a comprehensive treatment plan; units are requested for a six-month authorization by CPT code',
@@ -395,7 +397,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       { title: 'School and other services', desc: 'IEP / Early Intervention, speech and OT hours, and any prior ABA providers.' },
       { title: 'Other insurance', desc: 'Bill commercial coverage first; Medicaid is the payer of last resort.' },
     ],
-    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.coUM, S.coBHPM, S.hsBH, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, S.gn],
+    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.coUM, S.coBHPM, S.hsBH, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, S.gn, S.coABA2026],
     deliveryRules: {
       supervision: {
         value: 'CareOregon’s handbook and manual publish no ABA supervision ratio of their own, so the state rule applies. ' + STATE_SUPERVISION,
@@ -489,11 +491,9 @@ export const oregonPayers: Record<string, PayerConfig> = {
     family: 'centene',
     cardDesc: 'Centene CCO for Lane and the Portland tri-county area: code-level PA tool, an ABA request checklist, 7-day decisions and 180-day dispute window.',
     assessmentPA: {
-      value: 'Not stated in a document we could read: Trillium points to its real-time Pre-Authorization Check Tool for code-level rules. Its ABA checklist expects assessment units to be requested and asks for rationale above "the market standard of 8-10 hours for assessment/reassessment"',
-      status: 'unverified',
-      cites: [S.trilAuth, S.trilTip],
-      verifyVia: 'Trillium Pre-Authorization Check Tool (trilliumohp.com → Providers) for 97151 and 97152, or Trillium Provider Services, 877-600-5472.',
-      blocker: 'document',
+      value: 'No for 97151 and 97152: Trillium\'s Medicaid Pre-Auth Check returns "No Pre-authorization required for all providers" for both; 0362T (supporting assessment for destructive behavior) returns "Pre-authorization is required for all providers." The tool works in real time and cannot be checked for a future date. Trillium\'s ABA checklist still asks for rationale above "the market standard of 8-10 hours for assessment/reassessment" when assessment units are requested with treatment',
+      status: 'verified',
+      cites: [S.trilPAtool, S.trilAuth, S.trilTip],
     },
     treatmentPA: {
       value: 'Yes: ABA treatment goes through Trillium’s prior-authorization process with its Applied Behavioral Analysis Outpatient Treatment Request Checklist (initial and ongoing requests)',
@@ -554,7 +554,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       { title: 'Caregiver sign-off', desc: 'Parent signature showing participation in and understanding of the plan.' },
       { title: 'Other insurance', desc: 'Bill commercial coverage first; OHP is the payer of last resort.' },
     ],
-    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, { title: 'Trillium Community Health Plan — Provider Manual 2026 (Requests for Redetermination)', url: 'https://www.trilliumohp.com/content/dam/centene/trillium/ProviderResources/ProviderManuals/ProviderManual%202026_FINAL_R.pdf' }, S.trilAuth, S.trilTip, S.trilPM, S.trilRes, S.plans, S.lane, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, { title: 'Trillium Community Health Plan — Provider News & Updates (Provider Digest archive)', url: 'https://www.trilliumohp.com/providers/provider-news.html' }],
+    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, { title: 'Trillium Community Health Plan — Provider Manual 2026 (Requests for Redetermination)', url: 'https://www.trilliumohp.com/content/dam/centene/trillium/ProviderResources/ProviderManuals/ProviderManual%202026_FINAL_R.pdf' }, S.trilAuth, S.trilTip, S.trilPM, S.trilRes, S.plans, S.lane, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, { title: 'Trillium Community Health Plan — Provider News & Updates (Provider Digest archive)', url: 'https://www.trilliumohp.com/providers/provider-news.html' }, S.trilPAtool],
     deliveryRules: {
       supervision: {
         value: 'Trillium’s ABA checklist and handbook publish no supervision ratio, so the state rule applies. ' + STATE_SUPERVISION,
@@ -795,9 +795,9 @@ export const oregonPayers: Record<string, PayerConfig> = {
     family: 'careoregon',
     cardDesc: 'Jackson County CCO (CareOregon): ABA assessments approved without clinical documentation; treatment PA with a full plan; 7-day decisions.',
     assessmentPA: {
-      value: 'An authorization is submitted, but CareOregon approves ABA assessment requests for JCC members "without the requirement of clinical documentation" (submit via Connect)',
+      value: 'An authorization is submitted, but CareOregon approves ABA assessment requests for JCC members "without the requirement of clinical documentation" (submit via Connect) CareOregon\'s October 22, 2026 provider update: since August 7, 2026 the Connect Behavioral Health Template has a separate "ABA Assessment" service type — "ABA Assessment CPT codes are 97151 and 97152" — used "for a formal assessment conducted to initiate ABA treatment for a new or returning patient"; "Approved assessment requests are valid for 365 days while treatment authorizations are typically approved for no more than six months." Fax is allowed only on an exception form from Provider Customer Service (800-224-4840, option 3).',
       status: 'verified',
-      cites: [S.coUM],
+      cites: [S.coUM, S.coABA2026],
     },
     treatmentPA: {
       value: 'Yes, via CareOregon Connect or fax, with a comprehensive treatment plan and units for a six-month authorization; JCC also posts an ABA treatment authorization form',
@@ -851,7 +851,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       { title: 'Age and hours', desc: 'Age 13+ or more than 25 hours a week triggers Medical Director review.' },
       { title: 'Other insurance', desc: 'Bill commercial coverage first; OHP is the payer of last resort.' },
     ],
-    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.coUM, S.jccForms, S.abaForm, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, { title: 'Jackson Care Connect — Provider updates (provider notices archive)', url: 'https://jacksoncareconnect.org/providers/provider-updates' }],
+    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.coUM, S.jccForms, S.abaForm, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, { title: 'Jackson Care Connect — Provider updates (provider notices archive)', url: 'https://jacksoncareconnect.org/providers/provider-updates' }, S.coABA2026],
     deliveryRules: {
       supervision: {
         value: 'CareOregon publishes no ABA supervision ratio, so the state rule applies. ' + STATE_SUPERVISION,
@@ -943,9 +943,9 @@ export const oregonPayers: Record<string, PayerConfig> = {
     family: 'careoregon',
     cardDesc: 'Clatsop/Columbia/Tillamook CCO (CareOregon): ABA assessments approved without clinical documentation; treatment PA; 7-day decisions.',
     assessmentPA: {
-      value: 'An authorization is submitted, but CareOregon approves ABA assessment requests for CPCCO members "without the requirement of clinical documentation" (submit via Connect)',
+      value: 'An authorization is submitted, but CareOregon approves ABA assessment requests for CPCCO members "without the requirement of clinical documentation" (submit via Connect) CareOregon\'s October 22, 2026 provider update: since August 7, 2026 the Connect Behavioral Health Template has a separate "ABA Assessment" service type — "ABA Assessment CPT codes are 97151 and 97152" — used "for a formal assessment conducted to initiate ABA treatment for a new or returning patient"; "Approved assessment requests are valid for 365 days while treatment authorizations are typically approved for no more than six months." Fax is allowed only on an exception form from Provider Customer Service (800-224-4840, option 3).',
       status: 'verified',
-      cites: [S.coUM],
+      cites: [S.coUM, S.coABA2026],
     },
     treatmentPA: {
       value: 'Yes, via CareOregon Connect or fax, with a comprehensive treatment plan and units for a six-month authorization; CPCCO also posts an ABA treatment authorization form',
@@ -999,7 +999,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       { title: 'Age and hours', desc: 'Age 13+ or more than 25 hours a week triggers Medical Director review.' },
       { title: 'Other insurance', desc: 'Bill commercial coverage first; OHP is the payer of last resort.' },
     ],
-    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.coUM, S.cpForms, S.abaForm, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, { title: 'Columbia Pacific CCO — Provider updates (provider notices archive)', url: 'https://colpachealth.org/providers/provider-updates' }],
+    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.coUM, S.cpForms, S.abaForm, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, { title: 'Columbia Pacific CCO — Provider updates (provider notices archive)', url: 'https://colpachealth.org/providers/provider-updates' }, S.coABA2026],
     deliveryRules: {
       supervision: {
         value: 'CareOregon publishes no ABA supervision ratio, so the state rule applies. ' + STATE_SUPERVISION,

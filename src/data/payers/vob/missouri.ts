@@ -81,7 +81,7 @@ const MO_MC_POLICY = src(
 );
 const HEALTHY_BLUE_MANUAL = src(
   'https://provider.healthybluemo.com/docs/gpp/MO_CAID_HealthNetManagedCareProviderManual.pdf',
-  'Healthy Blue MO HealthNet Managed Care Provider Manual (Sep 2025) — independently confirms the carve-out verbatim: "Applied Behavior Analysis (ABA) services for children with Autism Spectrum Disorder will be reimbursed by the state agency on a fee-for-service basis according to the terms and conditions of the MO HealthNet program."'
+  'Healthy Blue MO HealthNet Managed Care Provider Manual (November 1, 2026 edition, MO-HB-CD-PM-020574-26; re-read 2026-10-25) — independently confirms the carve-out verbatim: "Applied Behavior Analysis (ABA) services for children with Autism Spectrum Disorder will be reimbursed by the state agency on a fee-for-service basis according to the terms and conditions of the MO HealthNet program."'
 );
 const PVERIFY_PAYER_LIST = src(
   'https://pverify.com/wp-content/uploads/2026/03/pVerifyPayers_All-Payers-List-3-2026.pdf',
