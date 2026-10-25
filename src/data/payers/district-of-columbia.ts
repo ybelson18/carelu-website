@@ -254,7 +254,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
         cites: [S.spa],
       },
       referral: {
-        value: 'Yes. ASD services "must be recommended by a physician or other licensed practitioner of the healing arts within his or her scope of practice," and after screening "a referral may be made" by a qualified screener (physician, PA, psychologist, psychology associate, LPC, LICSW or APRN) for the diagnostic evaluation.',
+        value: 'Yes. ASD services "must be recommended by a physician or other licensed practitioner of the healing arts within his or her scope of practice," and after screening "a referral may be made" by a qualified screener (physician, PA, psychologist, psychology associate, LPC, LICSW or APRN) for the diagnostic evaluation. Assessment vs treatment: the recommendation requirement covers the whole benefit, which SPA 23-0009 lists as screening, diagnostic evaluation, treatment planning and ASD treatment services, so it applies to the assessment and treatment-planning codes as well as 97153. The SPA sets no form, validity period or required contents for the recommendation; treatment services must also be identified in a treatment plan. Ask DHCF or the member\'s plan what they accept as the written recommendation.',
         status: 'verified',
         cites: [S.spa],
       },
@@ -675,7 +675,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
       { title: 'School schedule', desc: 'Treatment schedules must not disrupt school attendance.' },
       { title: 'Other insurance', desc: 'Bill the primary first and attach its EOB.' },
     ],
-    sources: [S.hscsnPM, S.hscsnNews, S.hscsnCodes, S.hscsnEval, S.hscsnAmend, S.mcps, S.spa, S.cfr438, S.cfr433, { title: 'DC State Plan Amendment 23-0009 — Autism Spectrum Disorder services under EPSDT (approved Aug. 25, 2023; effective Oct. 1, 2023)', url: 'https://www.medicaid.gov/medicaid/spa/downloads/DC-23-0009.pdf' }],
+    sources: [S.hscsnPM, S.hscsnNews, S.hscsnCodes, S.hscsnEval, S.hscsnAmend, S.mcps, S.spa, S.cfr438, S.cfr433],
     deliveryRules: {
       supervision: {
         value: 'BCaBAs and RBTs deliver direct care under a BCBA (UM_21, as summarized in the January 2026 manual); "Supervision will not be authorized separately" (2022 billing letter). No numeric ratio is published.',
@@ -1036,6 +1036,18 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.en0499],
       },
+      {
+        h2: 'Appeals, reconsiderations and out-of-network (network exception) requests',
+        body: [
+          'Payment disputes and reconsiderations: Evernorth asks you to call Provider Services (800.926.2273) first, with the patient\'s name, date of service and the treating provider\'s name and TIN. Fee-schedule and reimbursement disputes "may be quickly resolved through submitting an adjustment request via the reconsideration feature on Provider.Evernorth.com." A formal appeal must be "initiated in writing within 180 calendar days of the date of the initial payment or denial decision" (or of the last payment adjustment), submitted by a person, not by automation software. Appeals go to Evernorth Appeals, PO Box 188064, Chattanooga, TN 37422 (fax 877.815.4827). Most are resolved within 60 calendar days, with notice within 75 days unless state law differs; after the internal process, the Provider Agreement\'s negotiation-then-arbitration steps apply.',
+          'What to include: for a medical-necessity denial, the clinical record behind the request (for ABA, the assessment, treatment plan, progress data and session notes); for an untimely-filing denial (claims are due within 90 days of service), the EDI transmission report or proof that coordination of benefits delayed the claim; for a late-payment dispute, the date you submitted the claim and your correspondence. A clinical coverage denial can be reviewed by a board-certified psychiatrist or doctoral-level psychologist not previously involved, on an expedited basis when urgent, with the appeal due within 180 calendar days of the denial.',
+          'Out-of-network providers: some out-of-network providers filing a standard appeal "must submit a valid Appointments of Representative form signed by the patient" for the appeal to be valid; call the number on the ID card to check. To treat a Cigna member without a contract, use the ABA prior authorization form, which covers "network exception requests," including for an ABA assessment (assessment codes otherwise need no prior authorization). Some Cigna products (for example Cigna Connect) have no out-of-network coverage except emergent or urgent care.',
+        ],
+        cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026): provider payment appeals, coverage denials', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+          { title: 'Evernorth — Applied Behavior Analysis Prior Authorization Form (PCOMM-2025-224; file dated 7/1/2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/applied-behavior-analysis.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured DC plan (§ 31-3272 applies), federal employee plan, or self-funded ERISA.' },
@@ -1044,7 +1056,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
       { title: 'Standardized assessment timing', desc: 'Instrument administered within 60 days before treatment starts.' },
       { title: 'School and EI services', desc: 'DC law does not make insurers pay for habilitative services delivered through early intervention or school.' },
     ],
-    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.dc3271, S.dc3272, S.hbx, S.dc3132, S.dc3133, S.dc3862, S.dc3875_03, S.dc3875_07, S.dc1202_11, S.dc1207_71, S.bacbLic, S.erisa, S.mcps, { title: 'D.C. Code § 3-1201.02 — definitions ("practice of social work" includes psychosocial evaluation and assessment, counseling, psychotherapy)', url: 'https://code.dccouncil.gov/us/dc/council/code/sections/3-1201.02' }, { title: 'DC State Plan Amendment 23-0009 — Autism Spectrum Disorder services under EPSDT (approved Aug. 25, 2023; effective Oct. 1, 2023)', url: 'https://www.medicaid.gov/medicaid/spa/downloads/DC-23-0009.pdf' }],
+    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.dc3271, S.dc3272, S.hbx, S.dc3132, S.dc3133, S.dc3862, S.dc3875_03, S.dc3875_07, S.dc1202_11, S.dc1207_71, S.bacbLic, S.erisa, S.mcps, { title: 'D.C. Code § 3-1201.02 — definitions ("practice of social work" includes psychosocial evaluation and assessment, counseling, psychotherapy)', url: 'https://code.dccouncil.gov/us/dc/council/code/sections/3-1201.02' }, { title: 'DC State Plan Amendment 23-0009 — Autism Spectrum Disorder services under EPSDT (approved Aug. 25, 2023; effective Oct. 1, 2023)', url: 'https://www.medicaid.gov/medicaid/spa/downloads/DC-23-0009.pdf' }, { title: 'Evernorth — Applied Behavior Analysis Prior Authorization Form (PCOMM-2025-224; file dated 7/1/2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/applied-behavior-analysis.pdf' }, { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026): provider payment appeals, coverage denials', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }],
     deliveryRules: {
       supervision: {
         value: 'Direct and indirect case supervision at "one to two hours per ten hours of direct treatment"; when direct treatment is 10 hours a week or less, at least one to two hours a week of direct case supervision (EN0499).',
@@ -1072,9 +1084,9 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
         cites: [S.en0499, S.dc3272],
       },
       billAsProvider: {
-        value: '"Evernorth does not credential nonlicensed/noncertified staff. Services for these staff members must be billed under the supervising provider." On paper claims list "only a BCBA or other licensed provider in box 33"; electronic payer ID 62308.',
+        value: '"Evernorth does not credential nonlicensed/noncertified staff. Services for these staff members must be billed under the supervising provider." On paper claims list "only a BCBA or other licensed provider in box 33"; electronic payer ID 62308. Is the authorization tied to an NPI or the group TIN? Evernorth\'s ABA prior authorization form identifies the request by the servicing clinic\'s name, Taxpayer Identification Number (TIN) and address, plus the supervising provider\'s name and credential; it has no NPI field, and asks "Will the same provider be supervising the patient’s entire treatment?" (if not, name the additional supervisor). An approval is "written on a per month basis with CPT code 97155 and can be interchanged with ongoing treatment codes 97153–97158 and 0373T." Evernorth publishes no rule on moving an approval to a different clinic TIN; a change of supervisor within the clinic is something the form expects you to declare.',
         status: 'verified',
-        cites: [S.cignaARG],
+        cites: [{ title: 'Evernorth — Applied Behavior Analysis Prior Authorization Form (PCOMM-2025-224; file dated 7/1/2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/applied-behavior-analysis.pdf' }, S.cignaARG],
       },
     },
     intakeGates: {
@@ -1133,6 +1145,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
       { q: 'Does the Cigna ABA assessment need prior authorization in DC?', a: 'No, for 97151, 97152 and 0362T with an autism diagnosis when the provider is independently licensed or a BCBA. PA starts at treatment.' },
       { q: 'What is Cigna’s timely filing limit for DC claims?', a: 'Evernorth’s default is 90 days, but it defers to a longer state limit, and D.C. Code § 31-3132 requires at least 180 days for District-regulated plans. Self-funded plans may hold you to 90.' },
       { q: 'What does Cigna pay for ABA in DC?', a: 'Cigna publishes no ABA rates. Your fee schedule is Exhibit A of your Evernorth Provider Agreement; call Provider Services at 800.926.2273.' },
+      { q: 'Is a Cigna/Evernorth ABA authorization tied to an individual NPI or the group tax ID?', a: 'To the servicing clinic. The Evernorth ABA prior authorization form asks for the clinic\'s name, TIN and address and the supervising provider\'s name and credential, with no NPI field, and asks whether the same provider will supervise the whole treatment. Approvals are written monthly on 97155, interchangeable with 97153–97158 and 0373T. A move to a different clinic TIN is not addressed, so expect a new request.' },
     ],
   },
 

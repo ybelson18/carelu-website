@@ -276,6 +276,13 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 7.16.5 timely payments; App. B.4.4 ABA service description', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' }, { title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Horizon to Stop Using H0032 for ABA Services (eff. 7/15/2026)', url: 'https://www.horizonnjhealth.com/for-providers/news/updates-and-announcements/horizon-to-stop-using-h0032-for-aba-services' }],
       },
+      {
+        h2: 'Are NJ FamilyCare MCO networks open to new ABA providers?',
+        body: [
+          'Yes, by contract. DMAHS\'s managed care contract (01/2026 edition) makes every NJ FamilyCare MCO an any-willing-provider plan for behavioral health, ABA included: “Any Willing Qualified Behavioral Health Provider: The Contractor shall be required to contract with any willing qualified BH provider defined by the provider specifications in the BH services dictionary in Section B.4.4 until specified by DMAHS.” ABA is one of the services in that dictionary (Appendix B.4.4), whose provider specifications require agency fingerprinting before enrollment and that each provider meet the requirements of the State Board of Applied Behavior Analyst Examiners. MCOs also had to start contracting with “all active fee-for-service behavioral health providers no later than September 1, 2024.” So a qualified, licensed ABA provider that meets those specifications cannot simply be turned away for a full network, until DMAHS says otherwise; credentialing timelines still apply.',
+        ],
+        cites: [{ title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 4.8.1.P any willing qualified BH provider; App. B.4.4 Behavioral Health Services Dictionary (ABA)', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' }],
+      },
     ],
     collect: [
       { title: 'MCO — or pending-enrollment status', desc: 'Horizon, Aetna, Fidelis, UHC, or Wellpoint decides the portal and process; a member still pending MCO assignment can start FFS with NO prior authorization.' },
@@ -284,7 +291,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'Supervising LBA licensure', desc: 'Confirm the NJ LBA (and LaBA where applicable) — the board treats supervision itself as licensed practice.' },
       { title: 'DCF/PerformCare check', desc: 'Member IDs starting "3560" are DCF children authorized through PerformCare, not an MCO.' },
     ],
-    sources: [
+    sources: [ { title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 4.8.1.P any willing qualified BH provider; App. B.4.4 Behavioral Health Services Dictionary (ABA)', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' },
       { title: 'DMAHS Newsletter Vol 36 No 01 — Revised Background Check Requirements (January 2026; ABA, DIR, BA and IIC providers)', url: 'https://www.njmmis.com/documentDownload.aspx?document=36-01.pdf' },
       { title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 4.1.1.I non-participating providers; Art. 4.8.7.G out-of-network referral; App. B.4.4 ABA', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' },
       { title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' },
@@ -333,6 +340,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: '38 CFR 17.272 — CHAMPVA benefit limitations; Medicaid exception (eCFR)', url: 'https://www.ecfr.gov/current/title-38/section-17.272' },
     ],
     faq: [
+      { q: 'Are NJ FamilyCare MCO networks open to new ABA providers?', a: 'Under the NJ FamilyCare managed care contract, yes: each MCO “shall be required to contract with any willing qualified BH provider” meeting the Appendix B.4.4 provider specifications, which include ABA, “until specified by DMAHS.” Qualified means meeting the ABA specifications, including NJ licensure and the fingerprint background check. Apply through the plan\'s provider contracting and credentialing process.' },
       { q: 'Does NJ Medicaid deny ABA claims if the BCBA is not licensed in New Jersey?', a: 'Yes, now. Since July 1, 2025 BCBAs enrolling in NJ FamilyCare must hold a New Jersey LBA license (BCaBAs an LaBA), and from June 1, 2026 claims pend and then deny when the rendering, billing or supervising provider’s license is not on file with NJMMIS. Send a current license to Gainwell Provider Enrollment.' },
       { q: 'Does NJ FamilyCare cover ABA therapy?', a: 'Yes — under EPSDT for members with autism (roughly 18 months to 21), delivered and prior-authorized through the five NJ FamilyCare MCOs since April 1, 2020.' },
       { q: 'Does the ABA assessment need prior authorization in New Jersey?', a: 'Through an MCO, yes — the MCO authorizes a QHP assessment (Horizon, for example, issues 32 units of 97151 for 30 days). But members still fee-for-service pending MCO enrollment need no prior authorization at all — a real fast-start window for newly eligible children.' },
@@ -563,6 +571,13 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'Horizon NJ Health — Provider Administrative Manual (approved July 14, 2026)', url: 'https://www.horizonnjhealth.com/provider-admin-manual' }, { title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 4.1.1.I non-participating providers; Art. 4.8.7.G out-of-network referral; App. B.4.4 ABA', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' }],
       },
+      {
+        h2: 'Is Horizon NJ Health accepting new ABA providers?',
+        body: [
+          'Yes, by contract. The state\'s managed care contract (01/2026 edition) makes Horizon NJ Health, like every NJ FamilyCare MCO, an any-willing-provider plan for behavioral health, ABA included: “Any Willing Qualified Behavioral Health Provider: The Contractor shall be required to contract with any willing qualified BH provider defined by the provider specifications in the BH services dictionary in Section B.4.4 until specified by DMAHS.” ABA is one of the services in that dictionary (Appendix B.4.4), whose provider specifications require agency fingerprinting before enrollment and that each provider meet the requirements of the State Board of Applied Behavior Analyst Examiners. MCOs also had to start contracting with “all active fee-for-service behavioral health providers no later than September 1, 2024.” So a qualified, licensed ABA provider that meets those specifications cannot simply be turned away for a full network, until DMAHS says otherwise; credentialing timelines still apply.',
+        ],
+        cites: [{ title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 4.8.1.P any willing qualified BH provider; App. B.4.4 Behavioral Health Services Dictionary (ABA)', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' }],
+      },
     ],
     collect: [
       { title: 'ASD script + diagnosis', desc: 'The QHP\'s ASD script triggers the 32-unit/30-day assessment fast-track — collect it at first contact.' },
@@ -570,7 +585,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'Requested units per code per day', desc: 'Horizon enforces the daily MUE table; claims above authorized units are not paid.' },
       { title: 'Assessment scheduling within 30 days', desc: 'The 97151 authorization expires in 30 days — book the assessment before requesting it.' },
     ],
-    sources: [
+    sources: [ { title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 4.8.1.P any willing qualified BH provider; App. B.4.4 Behavioral Health Services Dictionary (ABA)', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' },
       { title: 'Horizon Behavioral Health — ABA Government Programs overview (Nov 2020)', url: 'https://www.horizonnjhealth.com/sites/default/files/2020-12/Overview%20of%20ABA%20Services.pdf' },
       { title: 'Horizon: Medical Policy Changes — ABA (eff. 1/1/2026)', url: 'https://www.horizonnjhealth.com/for-providers/news/updates-and-announcements/medical-policy-changes-applied-behavior-analysis' },
       { title: 'Horizon to Stop Using H0032 for ABA Services (eff. 7/15/2026)', url: 'https://www.horizonnjhealth.com/for-providers/news/updates-and-announcements/horizon-to-stop-using-h0032-for-aba-services' },
@@ -593,6 +608,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: '38 CFR 17.272 — CHAMPVA benefit limitations; Medicaid exception (eCFR)', url: 'https://www.ecfr.gov/current/title-38/section-17.272' },
     ],
     faq: [
+      { q: 'Is Horizon NJ Health accepting new ABA providers?', a: 'Under the NJ FamilyCare managed care contract, yes: each MCO “shall be required to contract with any willing qualified BH provider” meeting the Appendix B.4.4 provider specifications, which include ABA, “until specified by DMAHS.” Qualified means meeting the ABA specifications, including NJ licensure and the fingerprint background check. Apply through the plan\'s provider contracting and credentialing process.' },
       { q: 'Does Horizon NJ Health give single case agreements to out-of-network ABA providers?', a: 'Yes. Its manual says any covered behavioral health service from an out-of-network provider “will require both an a prior-authorization and a single-case agreement.” Call Horizon NJ Health UM at 1-800-682-9094 for the authorization. Without a different agreement, nonparticipating claims pay at the lesser of billed charges or Horizon NJ Health\'s nonparticipating provider fee schedule.' },
       { q: 'Does Horizon NJ Health cover ABA therapy?', a: 'Yes — it administers the NJ FamilyCare ABA benefit under EPSDT, with its own medical policy and MCG-based review layered on the state code set. Both assessment and treatment require prior authorization via NaviNet.' },
       { q: 'How fast is Horizon\'s ABA assessment authorization?', a: 'Fast — once eligibility, an ASD diagnosis, and a QHP script are confirmed, Horizon issues a 32-unit 97151 authorization valid for 30 days without a full clinical review. Treatment requests then get MCG review within 14 days, in 6-month spans.' },
@@ -829,6 +845,13 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'Aetna Better Health of New Jersey — Provider Notification: Upcoming Enforcement of NJ Medicaid Claim Edits (July 16, 2026; effective Oct. 1, 2026)', url: 'https://es.aetnabetterhealth.com/content/dam/aetna/medicaid/newjersey/providers/pdf/abhnj_Self_Referral_Claim_Edits_7-16-26.pdf' }, { title: 'Aetna Better Health of New Jersey — Provider Manual', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/new-jersey-medicaid/provider/pdf/aetna_provider_manual.pdf' }],
       },
+      {
+        h2: 'Is Aetna Better Health of New Jersey accepting new ABA providers?',
+        body: [
+          'Yes, by contract. The state\'s managed care contract (01/2026 edition) makes Aetna Better Health of New Jersey, like every NJ FamilyCare MCO, an any-willing-provider plan for behavioral health, ABA included: “Any Willing Qualified Behavioral Health Provider: The Contractor shall be required to contract with any willing qualified BH provider defined by the provider specifications in the BH services dictionary in Section B.4.4 until specified by DMAHS.” ABA is one of the services in that dictionary (Appendix B.4.4), whose provider specifications require agency fingerprinting before enrollment and that each provider meet the requirements of the State Board of Applied Behavior Analyst Examiners. MCOs also had to start contracting with “all active fee-for-service behavioral health providers no later than September 1, 2024.” So a qualified, licensed ABA provider that meets those specifications cannot simply be turned away for a full network, until DMAHS says otherwise; credentialing timelines still apply.',
+        ],
+        cites: [{ title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 4.8.1.P any willing qualified BH provider; App. B.4.4 Behavioral Health Services Dictionary (ABA)', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' }],
+      },
     ],
     collect: [
       { title: 'ASD diagnosis + QHP script', desc: 'The state baseline applies — diagnosis from a physician/psychologist opens the assessment authorization.' },
@@ -836,7 +859,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'Requested units vs. MUE limits', desc: 'Aetna runs the state daily limits as hard claim edits — plan intensity within them or document the EPSDT override.' },
       { title: 'Current 97153 contract rate', desc: 'The published sheet predates the state\'s $15.00 increase — confirm what your contract actually pays.' },
     ],
-    sources: [
+    sources: [ { title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 4.8.1.P any willing qualified BH provider; App. B.4.4 Behavioral Health Services Dictionary (ABA)', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' },
       { title: 'Aetna Better Health NJ — ABA Program rates (eff. 4/1/2020)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/newjersey/pdf/Applied%20behavioral%20analysis%20program.pdf' },
       { title: 'DMAHS BH Integration Points of Contact V3.1 — Aetna ABA contacts', url: 'https://www.nj.gov/humanservices/dmhas/documents/pdf/resources/providers/DMAHS-BH-Integration-Points-of-Contact.pdf' },
       { title: 'Aetna Better Health NJ — BH prior authorization request form', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/new-jersey-medicaid/provider/pdf/aetna_bh_prior_auth_form.pdf' },
@@ -858,6 +881,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'Aetna Better Health of New Jersey — Provider Notification: Upcoming Enforcement of NJ Medicaid Claim Edits (July 16, 2026; effective Oct. 1, 2026)', url: 'https://es.aetnabetterhealth.com/content/dam/aetna/medicaid/newjersey/providers/pdf/abhnj_Self_Referral_Claim_Edits_7-16-26.pdf' },
     ],
     faq: [
+      { q: 'Is Aetna Better Health of New Jersey accepting new ABA providers?', a: 'Under the NJ FamilyCare managed care contract, yes: each MCO “shall be required to contract with any willing qualified BH provider” meeting the Appendix B.4.4 provider specifications, which include ABA, “until specified by DMAHS.” Qualified means meeting the ABA specifications, including NJ licensure and the fingerprint background check. Apply through the plan\'s provider contracting and credentialing process.' },
       { q: 'What POS and modifier does Aetna Better Health of New Jersey want for telehealth ABA?', a: 'Its telehealth page says to bill the same codes as in person with no extra modifier, and to use POS 02. The state’s 2023 Medicaid Alert requires POS 10 when the child is at home, so confirm with the plan which it wants for home sessions.' },
       { q: 'How often does Aetna Better Health of New Jersey pay, and is there a weekly cutoff?', a: 'Its manual says it generates checks biweekly and lists each payment cycle on a remittance advice. It publishes no submission cutoff. The state contract expects clean behavioral health claims, ABA included, to be processed within 15 days electronic and 30 days paper.' },
       { q: 'Can the referring provider on an Aetna Better Health of New Jersey ABA claim be our own BCBA or agency?', a: 'No. From October 1, 2026 Aetna Better Health of New Jersey enforces NJ Medicaid edit 1270: "The referring provider NPI cannot be the same as the billing and/or servicing provider NPI." EDI claims are rejected and paper claims denied. Use the referring or diagnosing clinician\u2019s NPI, or leave the field empty if no one referred.' },
@@ -1081,6 +1105,13 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'Fidelis Care — 2026 NJ Medicaid/NJ FamilyCare Provider Manual (effective April 15, 2026)', url: 'https://www.fideliscarenj.com/content/dam/centene/wellcare/nj/pdfs/Prov/NJ_Medicaid_Provider_Manual_R.pdf' }, { title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 4.1.1.I non-participating providers; Art. 4.8.7.G out-of-network referral; App. B.4.4 ABA', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' }],
       },
+      {
+        h2: 'Is Fidelis Care New Jersey accepting new ABA providers?',
+        body: [
+          'Yes, by contract. The state\'s managed care contract (01/2026 edition) makes Fidelis Care New Jersey, like every NJ FamilyCare MCO, an any-willing-provider plan for behavioral health, ABA included: “Any Willing Qualified Behavioral Health Provider: The Contractor shall be required to contract with any willing qualified BH provider defined by the provider specifications in the BH services dictionary in Section B.4.4 until specified by DMAHS.” ABA is one of the services in that dictionary (Appendix B.4.4), whose provider specifications require agency fingerprinting before enrollment and that each provider meet the requirements of the State Board of Applied Behavior Analyst Examiners. MCOs also had to start contracting with “all active fee-for-service behavioral health providers no later than September 1, 2024.” So a qualified, licensed ABA provider that meets those specifications cannot simply be turned away for a full network, until DMAHS says otherwise; credentialing timelines still apply.',
+        ],
+        cites: [{ title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 4.8.1.P any willing qualified BH provider; App. B.4.4 Behavioral Health Services Dictionary (ABA)', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan identity on "WellCare" inquiries', desc: 'WellCare of NJ is now Fidelis Care — same plan, new name; verify the current card.' },
@@ -1088,7 +1119,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'UM confirmation before first submission', desc: 'No ABA-specific forms or caps are published — call the ABA UM contact to confirm format and spans up front.' },
       { title: 'Requested units vs. the state guide', desc: 'Absent published plan caps, assume the state daily unit table is the edit surface.' },
     ],
-    sources: [
+    sources: [ { title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 4.8.1.P any willing qualified BH provider; App. B.4.4 Behavioral Health Services Dictionary (ABA)', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' },
       { title: 'Fidelis Care NJ — Important Prior Authorization Updates (effective October 1, 2026)', url: 'https://www.fideliscarenj.com/content/dam/centene/wellcare/nj/pdfs/Prov/NJ_Caid_Prov_PA_Update_Notification_100126_R.pdf' },
       { title: 'Fidelis Care NJ — Behavioral Health Peer-to-Peer Process Change (effective October 19, 2026)', url: 'https://www.fideliscarenj.com/providers/news-and-education/bulletins/peer-to-peer-process-change.html' },
       { title: 'DMAHS BH Integration Points of Contact V3.1 — Fidelis ABA contacts', url: 'https://www.nj.gov/humanservices/dmhas/documents/pdf/resources/providers/DMAHS-BH-Integration-Points-of-Contact.pdf' },
@@ -1109,6 +1140,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: '38 CFR 17.272 — CHAMPVA benefit limitations; Medicaid exception (eCFR)', url: 'https://www.ecfr.gov/current/title-38/section-17.272' },
     ],
     faq: [
+      { q: 'Is Fidelis Care New Jersey accepting new ABA providers?', a: 'Under the NJ FamilyCare managed care contract, yes: each MCO “shall be required to contract with any willing qualified BH provider” meeting the Appendix B.4.4 provider specifications, which include ABA, “until specified by DMAHS.” Qualified means meeting the ABA specifications, including NJ licensure and the fingerprint background check. Apply through the plan\'s provider contracting and credentialing process.' },
       { q: 'Does Fidelis Care New Jersey give single case agreements to out-of-network ABA providers?', a: 'Yes, when no participating provider is available or continuing an existing relationship is in the member\'s best medical interest. The 2026 manual allows “continuation of existing relationships with non-participating providers when single case agreements are needed” and permits administrative authorizations “for out-of-network providers as needed for single case agreements.” Ask Fidelis BH utilization management; the rate is negotiated.' },
       { q: 'Can I request a peer-to-peer review before Fidelis Care NJ decides an ABA authorization?', a: 'Not since October 19, 2026. Fidelis says pre-determination peer-to-peer reviews “will no longer be available for behavioral health authorization requests.” If the request is denied, follow the denial letter\'s instructions to schedule a post-determination peer-to-peer review. Review timelines are unchanged.' },
       { q: 'What POS and modifier does Fidelis Care NJ want for telehealth ABA?', a: 'Fidelis publishes no telehealth billing rule of its own. The state requires POS 10 when the child is at home and POS 02 elsewhere on Medicaid claims, and its last billing guidance needed no extra modifier. Confirm the modifier with Fidelis before billing.' },
@@ -1329,6 +1361,13 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'UnitedHealthcare Community Plan of New Jersey — Care Provider Manual (2025)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NJ-Care-Provider-Manual.pdf' }, { title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 4.1.1.I non-participating providers; Art. 4.8.7.G out-of-network referral; App. B.4.4 ABA', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' }],
       },
+      {
+        h2: 'Is UnitedHealthcare Community Plan of New Jersey accepting new ABA providers?',
+        body: [
+          'Yes, by contract. The state\'s managed care contract (01/2026 edition) makes UnitedHealthcare Community Plan of New Jersey, like every NJ FamilyCare MCO, an any-willing-provider plan for behavioral health, ABA included: “Any Willing Qualified Behavioral Health Provider: The Contractor shall be required to contract with any willing qualified BH provider defined by the provider specifications in the BH services dictionary in Section B.4.4 until specified by DMAHS.” ABA is one of the services in that dictionary (Appendix B.4.4), whose provider specifications require agency fingerprinting before enrollment and that each provider meet the requirements of the State Board of Applied Behavior Analyst Examiners. MCOs also had to start contracting with “all active fee-for-service behavioral health providers no later than September 1, 2024.” So a qualified, licensed ABA provider that meets those specifications cannot simply be turned away for a full network, until DMAHS says otherwise; credentialing timelines still apply.',
+        ],
+        cites: [{ title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 4.8.1.P any willing qualified BH provider; App. B.4.4 Behavioral Health Services Dictionary (ABA)', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' }],
+      },
     ],
     collect: [
       { title: 'ASD diagnosis — any physician/psychologist', desc: 'No comprehensive evaluation needed; a plain dx opens the benefit. Don\'t queue families for a full workup first.' },
@@ -1336,7 +1375,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'Optum credentialing status', desc: 'ABA runs on the Optum behavioral network via Provider Express — separate from UHC medical.' },
       { title: 'School-setting plans', desc: 'Billable outside normal school hours per Optum\'s NJ entry — capture the school schedule to design around it.' },
     ],
-    sources: [
+    sources: [ { title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 4.8.1.P any willing qualified BH provider; App. B.4.4 Behavioral Health Services Dictionary (ABA)', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' },
       { title: 'Optum ABA State Mandates BH803ABASTM12026 — NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
       { title: 'DMAHS BH Integration Points of Contact V3.1 — UHC/Optum ABA contacts', url: 'https://www.nj.gov/humanservices/dmhas/documents/pdf/resources/providers/DMAHS-BH-Integration-Points-of-Contact.pdf' },
       { title: 'Optum/UHC Community Plan \u2014 NJ FamilyCare ABA Provider Orientation (2022)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/njaba/NJ.FamilyCare.Medicaid.ABA.pdf' },
@@ -1355,6 +1394,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: '38 CFR 17.272 — CHAMPVA benefit limitations; Medicaid exception (eCFR)', url: 'https://www.ecfr.gov/current/title-38/section-17.272' },
     ],
     faq: [
+      { q: 'Is UnitedHealthcare Community Plan of New Jersey accepting new ABA providers?', a: 'Under the NJ FamilyCare managed care contract, yes: each MCO “shall be required to contract with any willing qualified BH provider” meeting the Appendix B.4.4 provider specifications, which include ABA, “until specified by DMAHS.” Qualified means meeting the ABA specifications, including NJ licensure and the fingerprint background check. Apply through the plan\'s provider contracting and credentialing process.' },
       { q: 'Does UnitedHealthcare Community Plan of New Jersey approve out-of-network ABA providers (single case agreements)?', a: 'Only when no in-network provider is available. The member\'s PCP submits a prior authorization request for in-network coverage of the out-of-network provider, and the plan decides whether an in-network provider can treat the condition. The state contract then requires a single case agreement for any authorized out-of-network provider.' },
       { q: 'Does UnitedHealthcare Community Plan of NJ accept H0031 or H0032 for ABA?', a: 'Not as published. The NJ FamilyCare contract lists the ABA billing codes as 97151–97158, 0362T and 0373T, and neither the plan manual nor Optum’s NJ ABA orientation names an H-code for ABA.' },
       { q: 'Does UnitedHealthcare Community Plan of New Jersey require a referring provider on ABA claims?', a: 'Its manual lists a missing referring care provider ID or NPI among the common reasons claims are rejected, but does not say ABA claims always need one. If an ABA claim rejects for it, add the referring or diagnosing clinician\u2019s NPI and resubmit.' },
@@ -1591,6 +1631,13 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'Wellpoint New Jersey — Provider Manual (October 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/NJ_WLP_Provider_Manual.pdf' }, { title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 7.16.5 timely payments; App. B.4.4 ABA service description', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' }, { title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }],
       },
+      {
+        h2: 'Is Wellpoint New Jersey accepting new ABA providers?',
+        body: [
+          'Yes, by contract. The state\'s managed care contract (01/2026 edition) makes Wellpoint New Jersey, like every NJ FamilyCare MCO, an any-willing-provider plan for behavioral health, ABA included: “Any Willing Qualified Behavioral Health Provider: The Contractor shall be required to contract with any willing qualified BH provider defined by the provider specifications in the BH services dictionary in Section B.4.4 until specified by DMAHS.” ABA is one of the services in that dictionary (Appendix B.4.4), whose provider specifications require agency fingerprinting before enrollment and that each provider meet the requirements of the State Board of Applied Behavior Analyst Examiners. MCOs also had to start contracting with “all active fee-for-service behavioral health providers no later than September 1, 2024.” So a qualified, licensed ABA provider that meets those specifications cannot simply be turned away for a full network, until DMAHS says otherwise; credentialing timelines still apply.',
+        ],
+        cites: [{ title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 4.8.1.P any willing qualified BH provider; App. B.4.4 Behavioral Health Services Dictionary (ABA)', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan identity on "Amerigroup" inquiries', desc: 'Amerigroup NJ is now Wellpoint — verify the current card.' },
@@ -1598,7 +1645,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'Carelon contracting status', desc: 'ABA contracting runs through Carelon, separately from the medical plan — confirm you\'re in the right network before quoting start dates.' },
       { title: 'Requested units vs. the state guide', desc: 'Absent published plan caps, assume the state daily unit table is the edit surface.' },
     ],
-    sources: [
+    sources: [ { title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 4.8.1.P any willing qualified BH provider; App. B.4.4 Behavioral Health Services Dictionary (ABA)', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' },
       { title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 4.1.1.I non-participating providers; Art. 4.8.7.G out-of-network referral; App. B.4.4 ABA', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' },
       { title: 'DMAHS BH Integration Points of Contact V3.1 — Wellpoint ABA contacts', url: 'https://www.nj.gov/humanservices/dmhas/documents/pdf/resources/providers/DMAHS-BH-Integration-Points-of-Contact.pdf' },
       { title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' },
@@ -1621,6 +1668,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: '38 CFR 17.272 — CHAMPVA benefit limitations; Medicaid exception (eCFR)', url: 'https://www.ecfr.gov/current/title-38/section-17.272' },
     ],
     faq: [
+      { q: 'Is Wellpoint New Jersey accepting new ABA providers?', a: 'Under the NJ FamilyCare managed care contract, yes: each MCO “shall be required to contract with any willing qualified BH provider” meeting the Appendix B.4.4 provider specifications, which include ABA, “until specified by DMAHS.” Qualified means meeting the ABA specifications, including NJ licensure and the fingerprint background check. Apply through the plan\'s provider contracting and credentialing process.' },
       { q: 'Does Wellpoint Medicaid of New Jersey require referring providers on ABA claims?', a: 'Wellpoint lists the referring provider among clean-claim elements only "if applicable," says it does not run a paper referral process, and needs no referral for EPSDT services from its own providers. NJ FamilyCare sets no physician order for ABA. No Wellpoint document makes box 17/17b mandatory for ABA; if a claim rejects for it, report the diagnosing clinician and confirm the rule with Wellpoint provider services (833-731-2149).' },
       { q: 'Does Wellpoint New Jersey cover ABA?', a: 'Yes — it administers the NJ FamilyCare ABA benefit on the state baseline (EPSDT, ASD diagnosis, MCO-authorized assessment and treatment plan), with authorization via Availity or (800) 454-3730. No plan-specific ABA criteria are published.' },
       { q: 'How does Wellpoint New Jersey pay secondary ABA claims?', a: 'Bill the other insurance first, then send Wellpoint the claim with the primary EOB within 60 days of that EOB or 180 days from the date of service, whichever is later. Wellpoint pays its own allowable minus what the primary paid, never more than it would have paid as primary. If the primary paid more than the Wellpoint rate, Wellpoint pays nothing, copays and deductibles included, and the family cannot be billed for medically necessary covered services. If the primary denied because its rules (authorization, network) were not followed, Wellpoint will not pay either. EPSDT services are an exception: Wellpoint may pay first and recover from the other insurer. The manual is silent on whether Wellpoint\'s own authorization is needed when it is secondary, so request it or get Wellpoint UM\'s answer in writing.' },
@@ -2865,9 +2913,9 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       {
         h2: 'Appealing an ABA claim payment in New Jersey: what to send',
         body: [
-          'On a fully insured New Jersey plan, a payment dispute (underpayment, coding, denial for non-clinical reasons) goes on DOBI\'s Health Care Provider Application to Appeal a Claims Determination, which carriers must make available “to both participating and non-participating health care providers.” Use one form per claim, signed and dated, and attach “The relevant claim form,” “The relevant Explanation(s) of Benefits or Remittance Advice,” “A statement specifying the line items that you are appealing,” any information the carrier asked for, the contract provisions you say are not being followed, pertinent correspondence, NCCI or other coding support when codes are disputed, and “Other documents you may believe support your position in this dispute (this may include medical records).” Medical-necessity denials go to the Stage 1 UM appeal instead. After the carrier\'s decision, disputes of “$1,000 or more” (claims can be combined by member or by CPT code) can go to PICPA arbitration within 90 days; PICPA excludes self-funded plans and the State Health Benefits Program. The DOBI generic form says “The Carrier will accept either form” (its own branded version or the generic one), and DOBI tells carriers to post the branded form on their websites.',
+          'On a fully insured New Jersey plan, a payment dispute (underpayment, coding, denial for non-clinical reasons) goes on DOBI\'s Health Care Provider Application to Appeal a Claims Determination, which carriers must make available “to both participating and non-participating health care providers.” Use one form per claim, signed and dated, and attach “The relevant claim form,” “The relevant Explanation(s) of Benefits or Remittance Advice,” “A statement specifying the line items that you are appealing,” any information the carrier asked for, the contract provisions you say are not being followed, pertinent correspondence, NCCI or other coding support when codes are disputed, and “Other documents you may believe support your position in this dispute (this may include medical records).” Medical-necessity denials go to the Stage 1 UM appeal instead. After the carrier\'s decision, disputes of “$1,000 or more” (claims can be combined by member or by CPT code) can go to PICPA arbitration within 90 days; PICPA excludes self-funded plans and the State Health Benefits Program. Horizon\'s Professional Provider Manual follows the same route: HCAPPA “affects only insured products offered by Horizon BCBSNJ” (not ASO plans, SHBP/SEHBP, FEP or Medicare); written appeals “must be initiated on the New Jersey Department of Banking and Insurance\'s (DOBI) required form on or before 90 calendar days following receipt of the health insurer\'s claim determination,” including “all pertinent information and documents necessary to explain your position,” mailed to Horizon BCBSNJ Appeals Department, PO Box 10129, Newark, NJ 07101-3129. Horizon must decide within 30 calendar days and, if it rules for the provider, pay within 30 days with any prompt-pay interest. External arbitration requests go directly to MAXIMUS, not through Horizon, within 90 calendar days of Horizon\'s internal decision.',
         ],
-        cites: [{ title: 'NJ DOBI — Instructions for the Health Care Provider Application to Appeal a Claims Determination', url: 'https://www.nj.gov/dobi/chap352/352instructapplication.pdf' }, { title: 'NJ DOBI — Health Care Provider Application to Appeal a Claims Determination (generic form DOBICAPPGEN 10/10)', url: 'https://www.nj.gov/dobi/chap352/352genapplication.pdf' }, { title: 'NJ DOBI — Claims Handling Appeals and the Program for Independent Claims Payment Arbitration (PICPA) FAQ', url: 'https://www.nj.gov/dobi/chap352/352appealqanda.html' }],
+        cites: [{ title: 'Horizon BCBSNJ — Professional Provider Manual: Inquiries, Complaints and Appeals', url: 'https://www.horizonblue.com/providers/resources/working-us-information-education-resources/manuals-user-guides/professional-provider-manual/inquiries-complaints-and-appeals' }, { title: 'NJ DOBI — Instructions for the Health Care Provider Application to Appeal a Claims Determination', url: 'https://www.nj.gov/dobi/chap352/352instructapplication.pdf' }, { title: 'NJ DOBI — Health Care Provider Application to Appeal a Claims Determination (generic form DOBICAPPGEN 10/10)', url: 'https://www.nj.gov/dobi/chap352/352genapplication.pdf' }, { title: 'NJ DOBI — Claims Handling Appeals and the Program for Independent Claims Payment Arbitration (PICPA) FAQ', url: 'https://www.nj.gov/dobi/chap352/352appealqanda.html' }],
       },
     ],
     collect: [
@@ -2877,7 +2925,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'IEP and school schedule', desc: 'Horizon wants to see the current IEP and school supports, and it does not pay school-hours ABA (narrowly allowed in non-instructional periods from 12/1/2026).' },
       { title: 'Baseline adaptive measure', desc: 'PDDBI, Vineland or ABAS score, repeated no more often than every 6 months.' },
     ],
-    sources: [ { title: 'NJ DOBI — Instructions for the Health Care Provider Application to Appeal a Claims Determination', url: 'https://www.nj.gov/dobi/chap352/352instructapplication.pdf' }, { title: 'NJ DOBI — Health Care Provider Application to Appeal a Claims Determination (generic form DOBICAPPGEN 10/10)', url: 'https://www.nj.gov/dobi/chap352/352genapplication.pdf' }, { title: 'NJ DOBI — Claims Handling Appeals and the Program for Independent Claims Payment Arbitration (PICPA) FAQ', url: 'https://www.nj.gov/dobi/chap352/352appealqanda.html' },
+    sources: [{ title: 'Horizon BCBSNJ — Professional Provider Manual: Inquiries, Complaints and Appeals', url: 'https://www.horizonblue.com/providers/resources/working-us-information-education-resources/manuals-user-guides/professional-provider-manual/inquiries-complaints-and-appeals' },  { title: 'NJ DOBI — Instructions for the Health Care Provider Application to Appeal a Claims Determination', url: 'https://www.nj.gov/dobi/chap352/352instructapplication.pdf' }, { title: 'NJ DOBI — Health Care Provider Application to Appeal a Claims Determination (generic form DOBICAPPGEN 10/10)', url: 'https://www.nj.gov/dobi/chap352/352genapplication.pdf' }, { title: 'NJ DOBI — Claims Handling Appeals and the Program for Independent Claims Payment Arbitration (PICPA) FAQ', url: 'https://www.nj.gov/dobi/chap352/352appealqanda.html' },
       { title: 'Horizon BCBSNJ Medical Policy 165 — Applied Behavior Analysis in the Treatment of ASD (effective 7/15/2026)', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/medical-policies/detail/01240ce2-1507-c5e4-b8aa-52f103dbf80c' },
       { title: 'Horizon BCBSNJ Medical Policy 165 — ASD Treatment Services: ABA and DIR/Floortime (effective 12/1/2026)', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/medical-policies/detail/cf5ac712-dd58-45df-11d5-01816106a41e' },
       { title: 'Horizon BCBSNJ reimbursement policy — Applied Behavior Analysis in the Treatment of Autism Spectrum Disorders (revised 3/26/2026)', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/reimbursement-policies-guidelines/applied-behavior-analysis-treatment-autism-spectrum-disorders' },

@@ -196,7 +196,7 @@ export const delawarePayers: Record<string, PayerConfig> = {
       { title: 'Planned weekly hours', desc: 'More than 40 hours a week needs prior authorization under the state plan; MCOs authorize below that too.' },
       { title: 'Other insurance', desc: 'Commercial coverage is billed first; Medicaid pays only what is left.' },
     ],
-    sources: [S.spa, S.dshp, S.abaFS, S.pfs2026, S.gpm, S.pract, S.memFaq, S.hhoPM, S.dfhBen, S.dfhPA, S.dfhPM, S.dfhBM, S.acdePM, S.acdeBHprov, S.acdeBHmem, S.acdeBHPA, S.bacbLic, S.cfr438, S.cfr440, S.cfr433, { title: 'Delaware DMAP — Provider Bulletins folder (Medicaid publications library, quarterly DMAP Provider Bulletins)', url: 'https://medicaidpublications.dhss.delaware.gov/docs/Search?EntryId=16' }],
+    sources: [S.spa, S.dshp, S.abaFS, S.pfs2026, S.gpm, S.pract, S.memFaq, S.hhoPM, S.dfhBen, S.dfhPA, S.dfhPM, S.dfhBM, S.acdePM, S.acdeBHprov, S.acdeBHmem, S.acdeBHPA, S.bacbLic, S.cfr438, S.cfr440, S.cfr433, { title: 'Delaware DMAP — Provider Bulletins folder (Medicaid publications library, quarterly DMAP Provider Bulletins)', url: 'https://medicaidpublications.dhss.delaware.gov/docs/Search?EntryId=16' }, { title: '24 Del. C. § 3902 — Social work definitions ("licensed clinical social work" includes assessment and diagnosis of mental and emotional disorders and developmental disabilities)', url: 'https://delcode.delaware.gov/title24/c039/index.html' }],
     deliveryRules: {
       supervision: {
         value: 'SPA 16-010: a BCBA may work without a licensed supervisor; a BCaBA "can only provide ASD services under the supervision of a BCBA®"; an RBT "can only provide ASD services under the supervision of a BCaBA® or BCBA®," with supervision requirements "specified by the Behavioral Analyst Certification Board." Unlicensed practitioners may work under a licensed practitioner who "regularly reviews the work performed," documented in writing. The state plan sets no numeric ratio.',
@@ -247,9 +247,9 @@ export const delawarePayers: Record<string, PayerConfig> = {
         cites: [S.spa],
       },
       diagnosingProviders: {
-        value: 'The state plan does not name who may make the ASD diagnosis. It says services are "recommended by a physician or other licensed practitioner of the healing arts within his or her scope of practice."',
+        value: 'The state plan does not name who may make the ASD diagnosis. It says services are "recommended by a physician or other licensed practitioner of the healing arts within his or her scope of practice." LCSW: not named and not excluded: the state plan names no diagnosing provider, and Delaware defines licensed clinical social work as including the "assessment, diagnosis, prevention, and treatment of biopsychosocial dysfunction ... including mental and emotional disorders, developmental disabilities" (24 Del. C. § 3902). Confirm with the plan before relying on an LCSW-only diagnosis.',
         status: 'unverified',
-        cites: [S.spa],
+        cites: [{ title: '24 Del. C. § 3902 — Social work definitions ("licensed clinical social work" includes assessment and diagnosis of mental and emotional disorders and developmental disabilities)', url: 'https://delcode.delaware.gov/title24/c039/index.html' }, S.spa],
         verifyVia: 'DMAP Provider Services or the member’s MCO utilization management line.',
         blocker: 'document',
       },
@@ -350,7 +350,7 @@ export const delawarePayers: Record<string, PayerConfig> = {
       { title: 'Hours already used this year', desc: 'For children under 18, ask how many behavioral health units or hours are used, and who pays after 30.' },
       { title: 'Other insurance', desc: 'The plan pays last; bill the primary and send its EOB within 60 days.' },
     ],
-    sources: [S.acdePM, S.acdeBHprov, S.acdeBHmem, S.acdeBHPA, S.acdePAG, S.spa, S.pract, S.dshp, S.cfr438, S.cfr433, S.bacbLic, { title: 'AmeriHealth Caritas Delaware — Newsletters and Updates (Connections provider newsletter archive)', url: 'https://www.amerihealthcaritasde.com/provider/newsletters-and-updates' }],
+    sources: [S.acdePM, S.acdeBHprov, S.acdeBHmem, S.acdeBHPA, S.acdePAG, S.spa, S.pract, S.dshp, S.cfr438, S.cfr433, S.bacbLic, { title: 'AmeriHealth Caritas Delaware — Newsletters and Updates (Connections provider newsletter archive)', url: 'https://www.amerihealthcaritasde.com/provider/newsletters-and-updates' }, { title: '24 Del. C. § 3902 — Social work definitions ("licensed clinical social work" includes assessment and diagnosis of mental and emotional disorders and developmental disabilities)', url: 'https://delcode.delaware.gov/title24/c039/index.html' }],
     deliveryRules: {
       supervision: {
         value: 'The plan publishes no ABA supervision rule of its own. The state plan applies: a BCBA may work independently, a BCaBA only under a BCBA, and an RBT only under a BCaBA or BCBA, with supervision requirements set by the BACB and no numeric ratio.',
@@ -405,9 +405,9 @@ export const delawarePayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       diagnosingProviders: {
-        value: 'Not stated by the plan; the state plan does not name who may diagnose.',
+        value: 'Not stated by the plan; the state plan does not name who may diagnose. LCSW: not named by the plan or the state plan; Delaware defines licensed clinical social work as including the "assessment, diagnosis, prevention, and treatment of biopsychosocial dysfunction ... including mental and emotional disorders, developmental disabilities" (24 Del. C. § 3902). Confirm with the plan before relying on an LCSW-only diagnosis.',
         status: 'unverified',
-        cites: [S.acdePM, S.spa],
+        cites: [{ title: '24 Del. C. § 3902 — Social work definitions ("licensed clinical social work" includes assessment and diagnosis of mental and emotional disorders and developmental disabilities)', url: 'https://delcode.delaware.gov/title24/c039/index.html' }, S.acdePM, S.spa],
         verifyVia: 'AmeriHealth Caritas Delaware behavioral health UM.',
         blocker: 'document',
       },
@@ -510,7 +510,7 @@ export const delawarePayers: Record<string, PayerConfig> = {
       { title: 'Staff credentials', desc: 'BCBA/BCBA-D, and technician records meeting the DHSS standards (training, background checks, CPR).' },
       { title: 'Other insurance', desc: 'The plan pays last; COB claims are due within 60 days of the primary’s adjudication.' },
     ],
-    sources: [S.hhoMP, S.hhoPM, S.reg2102, S.spa, S.pract, S.dshp, S.cfr438, S.cfr433, S.bacbLic, { title: 'Highmark Health Options Delaware — Quarterly provider newsletters (index)', url: 'https://providers.highmark.com/hho-de/latest-updates/quarterly-newsletters.html' }, { title: 'Highmark Health Options Delaware — Updates and Notices (provider notices list)', url: 'https://providers.highmark.com/hho-de/latest-updates/updates-and-notices.html' }],
+    sources: [S.hhoMP, S.hhoPM, S.reg2102, S.spa, S.pract, S.dshp, S.cfr438, S.cfr433, S.bacbLic, { title: 'Highmark Health Options Delaware — Quarterly provider newsletters (index)', url: 'https://providers.highmark.com/hho-de/latest-updates/quarterly-newsletters.html' }, { title: 'Highmark Health Options Delaware — Updates and Notices (provider notices list)', url: 'https://providers.highmark.com/hho-de/latest-updates/updates-and-notices.html' }, { title: '24 Del. C. § 3902 — Social work definitions ("licensed clinical social work" includes assessment and diagnosis of mental and emotional disorders and developmental disabilities)', url: 'https://delcode.delaware.gov/title24/c039/index.html' }],
     deliveryRules: {
       supervision: {
         value: 'MP-1045 adopts the DHSS provider regulation: ABA by a BCBA or BCBA-D, with behavioral technicians working under their supervision who meet its criteria. That regulation (16 Del. Admin. Code 2102) sets BCBA supervision at "not … less than 1.5:10 per week," and at least 1 hour a week when fewer than 10 hours of ABA are delivered.',
@@ -563,9 +563,9 @@ export const delawarePayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       diagnosingProviders: {
-        value: 'MP-1045 requires treatment prescribed or ordered by a licensed physician or licensed psychologist; it does not separately name who may make the diagnosis.',
+        value: 'MP-1045 requires treatment prescribed or ordered by a licensed physician or licensed psychologist; it does not separately name who may make the diagnosis. LCSW: MP-1045 names no diagnosing provider; Delaware defines licensed clinical social work as including the "assessment, diagnosis, prevention, and treatment of biopsychosocial dysfunction ... including mental and emotional disorders, developmental disabilities" (24 Del. C. § 3902). Confirm with the plan before relying on an LCSW-only diagnosis.',
         status: 'unverified',
-        cites: [S.hhoMP],
+        cites: [{ title: '24 Del. C. § 3902 — Social work definitions ("licensed clinical social work" includes assessment and diagnosis of mental and emotional disorders and developmental disabilities)', url: 'https://delcode.delaware.gov/title24/c039/index.html' }, S.hhoMP],
         verifyVia: 'Highmark Health Options behavioral health UM.',
         blocker: 'per-case',
       },
@@ -666,7 +666,7 @@ export const delawarePayers: Record<string, PayerConfig> = {
       { title: 'Treatment plan for PA', desc: 'Every ABA code needs prior authorization; submit at least five business days before services start.' },
       { title: 'Other insurance', desc: 'The plan pays last; send the primary’s EOB with the claim.' },
     ],
-    sources: [S.dfhPM, S.dfhBM, S.dfhPA, S.dfhBen, S.spa, S.pract, S.dshp, S.cfr438, S.cfr433, S.bacbLic, { title: 'Delaware First Health — Newsroom (provider notices archive)', url: 'https://www.delawarefirsthealth.com/newsroom.html' }],
+    sources: [S.dfhPM, S.dfhBM, S.dfhPA, S.dfhBen, S.spa, S.pract, S.dshp, S.cfr438, S.cfr433, S.bacbLic, { title: 'Delaware First Health — Newsroom (provider notices archive)', url: 'https://www.delawarefirsthealth.com/newsroom.html' }, { title: '24 Del. C. § 3902 — Social work definitions ("licensed clinical social work" includes assessment and diagnosis of mental and emotional disorders and developmental disabilities)', url: 'https://delcode.delaware.gov/title24/c039/index.html' }],
     deliveryRules: {
       supervision: {
         value: 'The plan publishes no ABA supervision rule of its own. The state plan applies: a BCBA may work independently, a BCaBA only under a BCBA, and an RBT only under a BCaBA or BCBA, with supervision requirements set by the BACB and no numeric ratio.',
@@ -719,9 +719,9 @@ export const delawarePayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       diagnosingProviders: {
-        value: 'Not stated by the plan; the state plan does not name who may diagnose.',
+        value: 'Not stated by the plan; the state plan does not name who may diagnose. LCSW: not named by the plan or the state plan; Delaware defines licensed clinical social work as including the "assessment, diagnosis, prevention, and treatment of biopsychosocial dysfunction ... including mental and emotional disorders, developmental disabilities" (24 Del. C. § 3902). Confirm with the plan before relying on an LCSW-only diagnosis.',
         status: 'unverified',
-        cites: [S.dfhPM, S.spa],
+        cites: [{ title: '24 Del. C. § 3902 — Social work definitions ("licensed clinical social work" includes assessment and diagnosis of mental and emotional disorders and developmental disabilities)', url: 'https://delcode.delaware.gov/title24/c039/index.html' }, S.dfhPM, S.spa],
         verifyVia: 'Delaware First Health utilization management.',
         blocker: 'document',
       },
@@ -847,7 +847,7 @@ export const delawarePayers: Record<string, PayerConfig> = {
       { title: 'ABA dollars used this plan year', desc: 'Fully insured plans may cap ABA at $38,601.65 per person (April 2026–March 2027).' },
       { title: 'Other coverage', desc: 'Second parent’s plan (birthday rule), Medicaid, TRICARE or CHAMPVA.' },
     ],
-    sources: [S.hmAuth, S.hmBHPA, S.hm97153, S.hmRP046, S.m3366, S.m3570A, S.cap2026, S.pa35, S.reg2102, S.reg1307, S.reg1310, S.bacbLic, S.ch30, S.psych1, S.psych3, S.erisa, S.abaFS, S.gpm, S.tricare, S.champva, { title: 'Highmark Provider Manual — Chapter 2, Unit 6: The BlueCard Program', url: 'https://providers.highmark.com/resources-and-education/highmark-provider-manual/chapter-2-product-information/unit-6-the-bluecard-program' }, { title: 'Highmark — Provider Communications Hub: News and Updates (Highmark BCBS Delaware provider news, Dec 2025 onward)', url: 'https://providers.highmark.com/communications-hub/news-and-updates' }],
+    sources: [S.hmAuth, S.hmBHPA, S.hm97153, S.hmRP046, S.m3366, S.m3570A, S.cap2026, S.pa35, S.reg2102, S.reg1307, S.reg1310, S.bacbLic, S.ch30, S.psych1, S.psych3, S.erisa, S.abaFS, S.gpm, S.tricare, S.champva, { title: 'Highmark Provider Manual — Chapter 2, Unit 6: The BlueCard Program', url: 'https://providers.highmark.com/resources-and-education/highmark-provider-manual/chapter-2-product-information/unit-6-the-bluecard-program' }, { title: 'Highmark — Provider Communications Hub: News and Updates (Highmark BCBS Delaware provider news, Dec 2025 onward)', url: 'https://providers.highmark.com/communications-hub/news-and-updates' }, { title: '24 Del. C. § 3902 — Social work definitions ("licensed clinical social work" includes assessment and diagnosis of mental and emotional disorders and developmental disabilities)', url: 'https://delcode.delaware.gov/title24/c039/index.html' }],
     deliveryRules: {
       supervision: {
         value: 'Highmark’s Delaware ABA policy could not be retrieved. For fully insured plans, the mandate’s DHSS standards apply: BCBA supervision of behavioral technicians "shall not be less than 1.5:10 per week," with at least 1 hour a week when fewer than 10 hours of ABA are delivered (16 Del. Admin. Code 2102).',
@@ -908,9 +908,9 @@ export const delawarePayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       diagnosingProviders: {
-        value: 'Not published in any Highmark Delaware source read. The mandate covers treatment prescribed or ordered by a licensed physician or licensed psychologist.',
+        value: 'Not published in any Highmark Delaware source read. The mandate covers treatment prescribed or ordered by a licensed physician or licensed psychologist. LCSW: not named in Highmark\'s Delaware sources; Delaware defines licensed clinical social work as including the "assessment, diagnosis, prevention, and treatment of biopsychosocial dysfunction ... including mental and emotional disorders, developmental disabilities" (24 Del. C. § 3902). Confirm with the plan before relying on an LCSW-only diagnosis.',
         status: 'unverified',
-        cites: [S.m3570A, S.hmAuth],
+        cites: [{ title: '24 Del. C. § 3902 — Social work definitions ("licensed clinical social work" includes assessment and diagnosis of mental and emotional disorders and developmental disabilities)', url: 'https://delcode.delaware.gov/title24/c039/index.html' }, S.m3570A, S.hmAuth],
         verifyVia: 'Highmark Medical Policy Search (Delaware commercial V-37) or Highmark Behavioral Health.',
         blocker: 'document',
       },
@@ -922,9 +922,9 @@ export const delawarePayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       referral: {
-        value: 'Highmark requires prior authorization of every ABA code through Highmark Behavioral Health, not a referral.' + MANDATE_REFERRAL_TAIL,
+        value: 'Highmark requires prior authorization of every ABA code through Highmark Behavioral Health, not a referral. Under the Delaware mandate (fully insured plans it reaches), "Treatment for autism spectrum disorders" means care "prescribed or ordered ... by a licensed physician or licensed psychologist who determines the care to be medically necessary" (18 Del. C. § 3570A). The mandate ties the order to treatment and says nothing about the assessment codes, names no form or validity period, and self-funded plans are outside it. Collect the physician or psychologist order before the assessment anyway.' + MANDATE_REFERRAL_TAIL,
         status: 'verified',
-        cites: [S.hmAuth, S.m3570A],
+        cites: [{ title: '18 Del. C. § 3570A — Autism spectrum disorders coverage (group and blanket plans); also § 3571R telehealth and § 3571V claim-submission time', url: 'https://delcode.delaware.gov/title18/c035/sc03/index.html' }, S.hmAuth, S.m3570A],
       },
       telehealth: {
         value: 'Highmark’s Telemedicine and Telehealth policy RP-046 (version 2026.09.01) covers Delaware commercial plans. It pays "All medically appropriate telehealth services rendered by network providers … at parity with comparable in-person services, subject to the member’s benefit plan," applies Delaware’s telemedicine mandate, and pays no originating-site access fee for a non-medical site such as the member’s home. It does not list ABA codes specifically.' + DE_TELEHEALTH_TAIL,
@@ -1039,7 +1039,7 @@ export const delawarePayers: Record<string, PayerConfig> = {
       { title: 'Physician or psychologist order', desc: 'The Delaware mandate covers treatment prescribed or ordered by a licensed physician or psychologist.' },
       { title: 'Child’s age and ABA dollars used', desc: 'Mandate coverage runs under 21, with a $38,601.65 ABA maximum (April 2026–March 2027) on fully insured plans.' },
     ],
-    sources: [S.aetnaGuide, S.aetnaCPB648, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.m3366, S.m3570A, S.cap2026, S.pa35, S.reg2102, S.reg1307, S.reg1310, S.bacbLic, S.ch30, S.psych1, S.psych3, S.erisa, S.abaFS, S.gpm, S.dshp, S.tricare, S.champva],
+    sources: [S.aetnaGuide, S.aetnaCPB648, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.m3366, S.m3570A, S.cap2026, S.pa35, S.reg2102, S.reg1307, S.reg1310, S.bacbLic, S.ch30, S.psych1, S.psych3, S.erisa, S.abaFS, S.gpm, S.dshp, S.tricare, S.champva, { title: '24 Del. C. § 3902 — Social work definitions ("licensed clinical social work" includes assessment and diagnosis of mental and emotional disorders and developmental disabilities)', url: 'https://delcode.delaware.gov/title24/c039/index.html' }],
     deliveryRules: {
       supervision: {
         value: 'Aetna’s Network Participation Criteria (5/26) require ABA to be "provided directly or supervised by individuals licensed by the state or certified by the Behavior Analyst Certification Board," with "A minimum of one hour of face-to-face supervision" of an unlicensed or noncertified paraprofessional "for each 10 hours of applied behavior analysis," and the supervisor "onsite with the child at least one hour a month." All staff "must meet state requirements." For fully insured Delaware plans the DHSS standard is higher: at least 1.5 hours of BCBA supervision per 10 hours a week (16 Del. Admin. Code 2102).',
@@ -1090,9 +1090,9 @@ export const delawarePayers: Record<string, PayerConfig> = {
         cites: [S.aetnaGuide],
       },
       diagnosingProviders: {
-        value: 'A DSM-5 ASD diagnosis by "an appropriate provider (i.e. licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice)."',
+        value: 'A DSM-5 ASD diagnosis by "an appropriate provider (i.e. licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice)." LCSW: not named, but the catch-all reaches a professional qualified to diagnose within scope, and Delaware defines licensed clinical social work as including the "assessment, diagnosis, prevention, and treatment of biopsychosocial dysfunction ... including mental and emotional disorders, developmental disabilities" (24 Del. C. § 3902). Confirm at precertification or authorization.',
         status: 'verified',
-        cites: [S.aetnaGuide],
+        cites: [{ title: '24 Del. C. § 3902 — Social work definitions ("licensed clinical social work" includes assessment and diagnosis of mental and emotional disorders and developmental disabilities)', url: 'https://delcode.delaware.gov/title24/c039/index.html' }, S.aetnaGuide],
       },
       diagnosticTools: {
         value: 'The guide requires a standardized functional measure from the past 12 months (Vineland-3, ABAS, VB-MAPP or ABLLS as examples). CPB 0648 covers the ASD diagnostic evaluation.',
@@ -1100,9 +1100,9 @@ export const delawarePayers: Record<string, PayerConfig> = {
         cites: [S.aetnaGuide, S.aetnaCPB648],
       },
       referral: {
-        value: 'Aetna’s guide requires no physician referral; it requires precertification of all ten ABA codes.' + MANDATE_REFERRAL_TAIL,
+        value: 'Aetna’s guide requires no physician referral; it requires precertification of all ten ABA codes. Under the Delaware mandate (fully insured plans it reaches), "Treatment for autism spectrum disorders" means care "prescribed or ordered ... by a licensed physician or licensed psychologist who determines the care to be medically necessary" (18 Del. C. § 3570A). The mandate ties the order to treatment and says nothing about the assessment codes, names no form or validity period, and self-funded plans are outside it. Collect the physician or psychologist order before the assessment anyway.' + MANDATE_REFERRAL_TAIL,
         status: 'verified',
-        cites: [S.aetnaPrecert, S.aetnaGuide, S.m3570A],
+        cites: [{ title: '18 Del. C. § 3570A — Autism spectrum disorders coverage (group and blanket plans); also § 3571R telehealth and § 3571V claim-submission time', url: 'https://delcode.delaware.gov/title18/c035/sc03/index.html' }, S.aetnaPrecert, S.aetnaGuide, S.m3570A],
       },
       telehealth: {
         value: 'Aetna’s provider manual (6/26) says Aetna Behavioral Health "offers telehealth services to all commercial fully insured members and to all commercial self-insured plan sponsors, unless those self-insured plan sponsors opt out," and providers must "ensure that they have the proper licensure based on state requirements." Aetna’s current ABA telehealth code list is not public.' + DE_TELEHEALTH_TAIL,
@@ -1217,6 +1217,18 @@ export const delawarePayers: Record<string, PayerConfig> = {
         ],
         cites: [S.en0499],
       },
+      {
+        h2: 'Appeals, reconsiderations and out-of-network (network exception) requests',
+        body: [
+          'Payment disputes and reconsiderations: Evernorth asks you to call Provider Services (800.926.2273) first, with the patient\'s name, date of service and the treating provider\'s name and TIN. Fee-schedule and reimbursement disputes "may be quickly resolved through submitting an adjustment request via the reconsideration feature on Provider.Evernorth.com." A formal appeal must be "initiated in writing within 180 calendar days of the date of the initial payment or denial decision" (or of the last payment adjustment), submitted by a person, not by automation software. Appeals go to Evernorth Appeals, PO Box 188064, Chattanooga, TN 37422 (fax 877.815.4827). Most are resolved within 60 calendar days, with notice within 75 days unless state law differs; after the internal process, the Provider Agreement\'s negotiation-then-arbitration steps apply.',
+          'What to include: for a medical-necessity denial, the clinical record behind the request (for ABA, the assessment, treatment plan, progress data and session notes); for an untimely-filing denial (claims are due within 90 days of service), the EDI transmission report or proof that coordination of benefits delayed the claim; for a late-payment dispute, the date you submitted the claim and your correspondence. A clinical coverage denial can be reviewed by a board-certified psychiatrist or doctoral-level psychologist not previously involved, on an expedited basis when urgent, with the appeal due within 180 calendar days of the denial.',
+          'Out-of-network providers: some out-of-network providers filing a standard appeal "must submit a valid Appointments of Representative form signed by the patient" for the appeal to be valid; call the number on the ID card to check. To treat a Cigna member without a contract, use the ABA prior authorization form, which covers "network exception requests," including for an ABA assessment (assessment codes otherwise need no prior authorization). Some Cigna products (for example Cigna Connect) have no out-of-network coverage except emergent or urgent care.',
+        ],
+        cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026): provider payment appeals, coverage denials', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+          { title: 'Evernorth — Applied Behavior Analysis Prior Authorization Form (PCOMM-2025-224; file dated 7/1/2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/applied-behavior-analysis.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Delaware mandate applies) vs. self-funded ERISA (plan document governs).' },
@@ -1225,7 +1237,7 @@ export const delawarePayers: Record<string, PayerConfig> = {
       { title: 'Physician or psychologist order', desc: 'The Delaware mandate covers treatment prescribed or ordered by a licensed physician or psychologist.' },
       { title: 'Child’s age and ABA dollars used', desc: 'Mandate coverage runs under 21, with a $38,601.65 ABA maximum (April 2026–March 2027) on fully insured plans.' },
     ],
-    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.m3366, S.m3570A, S.cap2026, S.pa35, S.reg2102, S.reg1307, S.reg1310, S.bacbLic, S.ch30, S.psych1, S.psych3, S.erisa, S.abaFS, S.gpm, S.tricare, S.champva],
+    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.m3366, S.m3570A, S.cap2026, S.pa35, S.reg2102, S.reg1307, S.reg1310, S.bacbLic, S.ch30, S.psych1, S.psych3, S.erisa, S.abaFS, S.gpm, S.tricare, S.champva, { title: '24 Del. C. § 3902 — Social work definitions ("licensed clinical social work" includes assessment and diagnosis of mental and emotional disorders and developmental disabilities)', url: 'https://delcode.delaware.gov/title24/c039/index.html' }, { title: 'Evernorth — Applied Behavior Analysis Prior Authorization Form (PCOMM-2025-224; file dated 7/1/2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/applied-behavior-analysis.pdf' }, { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026): provider payment appeals, coverage denials', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }],
     deliveryRules: {
       supervision: {
         value: 'EN0499: case supervision by a BCBA, Licensed Behavior Analyst or independently licensed clinician with ABA training, at one to two hours of direct plus indirect supervision per ten hours of direct treatment; at 10 hours a week or less, at least one to two hours a week. For fully insured Delaware plans the DHSS floor also applies: not less than 1.5 hours of BCBA supervision per 10 hours a week (16 Del. Admin. Code 2102).',
@@ -1253,9 +1265,9 @@ export const delawarePayers: Record<string, PayerConfig> = {
         cites: [S.en0499, S.m3570A],
       },
       billAsProvider: {
-        value: 'Non-credentialed staff are billed under the supervising provider. On a CMS-1500 the rendering provider prints their name in box 31 and only a BCBA or other licensed provider goes in box 33; electronic claims use payer ID 62308.',
+        value: 'Non-credentialed staff are billed under the supervising provider. On a CMS-1500 the rendering provider prints their name in box 31 and only a BCBA or other licensed provider goes in box 33; electronic claims use payer ID 62308. Is the authorization tied to an NPI or the group TIN? Evernorth\'s ABA prior authorization form identifies the request by the servicing clinic\'s name, Taxpayer Identification Number (TIN) and address, plus the supervising provider\'s name and credential; it has no NPI field, and asks "Will the same provider be supervising the patient’s entire treatment?" (if not, name the additional supervisor). An approval is "written on a per month basis with CPT code 97155 and can be interchanged with ongoing treatment codes 97153–97158 and 0373T." Evernorth publishes no rule on moving an approval to a different clinic TIN; a change of supervisor within the clinic is something the form expects you to declare.',
         status: 'verified',
-        cites: [S.cignaARG],
+        cites: [{ title: 'Evernorth — Applied Behavior Analysis Prior Authorization Form (PCOMM-2025-224; file dated 7/1/2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/applied-behavior-analysis.pdf' }, S.cignaARG],
       },
     },
     intakeGates: {
@@ -1272,9 +1284,9 @@ export const delawarePayers: Record<string, PayerConfig> = {
         cites: [S.en0499],
       },
       diagnosingProviders: {
-        value: 'A healthcare professional licensed to practice independently whose board considers diagnosis within scope, applying DSM-5-TR criteria.',
+        value: 'A healthcare professional licensed to practice independently whose board considers diagnosis within scope, applying DSM-5-TR criteria. LCSW: an independently licensed LCSW meets EN0499\'s wording, since Delaware defines licensed clinical social work as including the "assessment, diagnosis, prevention, and treatment of biopsychosocial dysfunction ... including mental and emotional disorders, developmental disabilities" (24 Del. C. § 3902). Confirm at precertification or authorization.',
         status: 'verified',
-        cites: [S.en0499],
+        cites: [{ title: '24 Del. C. § 3902 — Social work definitions ("licensed clinical social work" includes assessment and diagnosis of mental and emotional disorders and developmental disabilities)', url: 'https://delcode.delaware.gov/title24/c039/index.html' }, S.en0499],
       },
       diagnosticTools: {
         value: 'No single instrument is mandated, but it must be standardized and valid, completed in full, and the current edition ("must be the Vineland-3 vs. Vineland-II").',
@@ -1282,9 +1294,9 @@ export const delawarePayers: Record<string, PayerConfig> = {
         cites: [S.en0499],
       },
       referral: {
-        value: 'EN0499 requires no referral. Assessments need no PA with an autism diagnosis from an independently licensed provider or BCBA; treatment needs the PA form.' + MANDATE_REFERRAL_TAIL,
+        value: 'EN0499 requires no referral. Assessments need no PA with an autism diagnosis from an independently licensed provider or BCBA; treatment needs the PA form. Under the Delaware mandate (fully insured plans it reaches), "Treatment for autism spectrum disorders" means care "prescribed or ordered ... by a licensed physician or licensed psychologist who determines the care to be medically necessary" (18 Del. C. § 3570A). The mandate ties the order to treatment and says nothing about the assessment codes, names no form or validity period, and self-funded plans are outside it. Collect the physician or psychologist order before the assessment anyway.' + MANDATE_REFERRAL_TAIL,
         status: 'verified',
-        cites: [S.cignaARG, S.en0499, S.m3570A],
+        cites: [{ title: '18 Del. C. § 3570A — Autism spectrum disorders coverage (group and blanket plans); also § 3571R telehealth and § 3571V claim-submission time', url: 'https://delcode.delaware.gov/title18/c035/sc03/index.html' }, S.cignaARG, S.en0499, S.m3570A],
       },
       telehealth: {
         value: '"All ABA CPT codes are covered telehealth services," and EN0499 allows in-person, telehealth or hybrid delivery chosen on clinical factors; the line-of-sight requirement does not apply to telehealth. Bill modifier 95.' + DE_TELEHEALTH_TAIL,
@@ -1314,6 +1326,7 @@ export const delawarePayers: Record<string, PayerConfig> = {
       { q: 'What is Cigna’s timely filing limit in Delaware?', a: 'Evernorth’s Delaware addendum requires claims within 180 days of the date of service (it does not apply to self-funded plans).' },
       { q: 'How do I dispute an Evernorth payment decision in Delaware?', a: 'After trying to resolve it informally, petition the Delaware Department of Insurance for arbitration within 60 days of Evernorth’s final reimbursement decision. The fee is $50 for claims of $1,000 or less, $100 otherwise, and the decision comes within 45 days.' },
       { q: 'What does Cigna pay for ABA in Delaware?', a: 'Cigna publishes no ABA rates; your fee schedule is Exhibit A of your Evernorth Provider Agreement (Provider Services 800.926.2273). Delaware Medicaid’s 97153 base rate ($15.68 per 15 minutes) is the public benchmark.' },
+      { q: 'Is a Cigna/Evernorth ABA authorization tied to an individual NPI or the group tax ID?', a: 'To the servicing clinic. The Evernorth ABA prior authorization form asks for the clinic\'s name, TIN and address and the supervising provider\'s name and credential, with no NPI field, and asks whether the same provider will supervise the whole treatment. Approvals are written monthly on 97155, interchangeable with 97153–97158 and 0373T. A move to a different clinic TIN is not addressed, so expect a new request.' },
     ],
   },
 
@@ -1397,7 +1410,7 @@ export const delawarePayers: Record<string, PayerConfig> = {
       { title: 'Physician or psychologist order', desc: 'The Delaware mandate covers treatment prescribed or ordered by a licensed physician or psychologist.' },
       { title: 'Child’s age and ABA dollars used', desc: 'Mandate coverage runs under 21, with a $38,601.65 ABA maximum (April 2026–March 2027) on fully insured plans.' },
     ],
-    sources: [S.optumSCC, S.optumSM, S.optumTele, S.optumNNM, S.optumReimb, S.dshp, S.m3366, S.m3570A, S.cap2026, S.pa35, S.reg2102, S.reg1307, S.reg1310, S.bacbLic, S.ch30, S.psych1, S.psych3, S.erisa, S.abaFS, S.gpm, S.tricare, S.champva],
+    sources: [S.optumSCC, S.optumSM, S.optumTele, S.optumNNM, S.optumReimb, S.dshp, S.m3366, S.m3570A, S.cap2026, S.pa35, S.reg2102, S.reg1307, S.reg1310, S.bacbLic, S.ch30, S.psych1, S.psych3, S.erisa, S.abaFS, S.gpm, S.tricare, S.champva, { title: '24 Del. C. § 3902 — Social work definitions ("licensed clinical social work" includes assessment and diagnosis of mental and emotional disorders and developmental disabilities)', url: 'https://delcode.delaware.gov/title24/c039/index.html' }],
     deliveryRules: {
       supervision: {
         value: 'Optum’s criteria require direct case supervision of 1–2 hours for every 10 hours of direct treatment a week; technicians work under a BCBA or licensed clinician and should be RBTs or otherwise certified, and Optum does not recommend parents as RBTs for their own child. For fully insured Delaware plans the DHSS floor applies: not less than 1.5 hours of BCBA supervision per 10 hours a week (16 Del. Admin. Code 2102).',
@@ -1446,9 +1459,9 @@ export const delawarePayers: Record<string, PayerConfig> = {
         cites: [S.optumSCC],
       },
       diagnosingProviders: {
-        value: 'A state-licensed physician, psychologist or other licensed clinician qualified to diagnose under DSM-5-TR.',
+        value: 'A state-licensed physician, psychologist or other licensed clinician qualified to diagnose under DSM-5-TR. LCSW: covered by "other licensed clinician qualified to diagnose" where scope allows, and Delaware defines licensed clinical social work as including the "assessment, diagnosis, prevention, and treatment of biopsychosocial dysfunction ... including mental and emotional disorders, developmental disabilities" (24 Del. C. § 3902). Confirm at precertification or authorization.',
         status: 'verified',
-        cites: [S.optumSCC],
+        cites: [{ title: '24 Del. C. § 3902 — Social work definitions ("licensed clinical social work" includes assessment and diagnosis of mental and emotional disorders and developmental disabilities)', url: 'https://delcode.delaware.gov/title24/c039/index.html' }, S.optumSCC],
       },
       diagnosticTools: {
         value: 'At least one clinically validated tool, such as ADI-R or ADOS/ADOS-2 (the criteria list screening and diagnostic instruments, non-exhaustively).',
@@ -1456,9 +1469,9 @@ export const delawarePayers: Record<string, PayerConfig> = {
         cites: [S.optumSCC],
       },
       referral: {
-        value: 'No separate physician referral; the criteria require prior authorization.' + MANDATE_REFERRAL_TAIL,
+        value: 'No separate physician referral; the criteria require prior authorization. Under the Delaware mandate (fully insured plans it reaches), "Treatment for autism spectrum disorders" means care "prescribed or ordered ... by a licensed physician or licensed psychologist who determines the care to be medically necessary" (18 Del. C. § 3570A). The mandate ties the order to treatment and says nothing about the assessment codes, names no form or validity period, and self-funded plans are outside it. Collect the physician or psychologist order before the assessment anyway.' + MANDATE_REFERRAL_TAIL,
         status: 'verified',
-        cites: [S.optumSCC, S.m3570A],
+        cites: [{ title: '18 Del. C. § 3570A — Autism spectrum disorders coverage (group and blanket plans); also § 3571R telehealth and § 3571V claim-submission time', url: 'https://delcode.delaware.gov/title18/c035/sc03/index.html' }, S.optumSCC, S.m3570A],
       },
       telehealth: {
         value: 'Optum’s telehealth guide (updated September 2025) allows only three ABA codes by telehealth: 97155, 97156 and 97157, "the virtual supervision of ABA Behavior Technicians and Family Training and Guidance." Bill POS 10 (home) or 02 (elsewhere). So 97151 and 97153 are not on Optum’s list.' + DE_TELEHEALTH_TAIL + ' Ask Optum how it applies the three-code list to a fully insured Delaware plan.',

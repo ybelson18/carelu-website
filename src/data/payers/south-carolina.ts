@@ -203,6 +203,16 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.asdManual],
       },
+      {
+        h2: 'Switching ABA providers: what happens to the authorization?',
+        body: [
+          'The SCDHHS ASD manual has no rule that moves an existing authorization to a new agency. What it does say: "The authorizing entity is responsible for determining the duration of treatment," a member who "requests discharge (and is not imminently dangerous to self or others)" meets a discharge criterion, and referrals to an ASD network provider may be "provider-to-provider or self-referred" by phone, email, fax or mail. A new consent form "must be signed and dated with every new prior authorization, whenever a service is added, and/or each time a member is readmitted to services after discharge."',
+          'In practice the new agency starts with its own referral record, assessment and prior authorization through the member\'s plan or the QIO, and the outgoing agency should close its authorization with a discharge so the two do not overlap; ask the authorizing entity for the end date it needs on the old authorization.',
+        ],
+        cites: [
+          { title: 'SCDHHS — Autism Spectrum Disorder (ASD) Services Provider Manual (July 1, 2026)', url: 'https://www.scdhhs.gov/sites/dhhs/files/documents/ASD%20Services%20Provider%20Manual%207.1.26.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Which Medicaid card', desc: 'Absolute Total Care, Healthy Blue, Humana, Molina, First Choice, or fee-for-service. The plan owns authorization and payment.' },
@@ -212,7 +222,7 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Other insurance', desc: 'Commercial coverage goes first; the Medicaid authorization is needed only if the primary denies or does not cover ABA.' },
       { title: 'Caregiver availability', desc: 'In-home ABA requires an adult caregiver present the whole session, and 97156 parent training is required every month.' },
     ],
-    sources: [S.asdManual, S.asdTraining, S.asdBulletin, S.asdFee, S.pabm, S.mcoList, S.carveIn, S.bacbLic, S.t40c75, S.cfr440, S.cfr438, S.cfr433, { title: 'SCDHHS — Communications: Medicaid bulletins index', url: 'https://www.scdhhs.gov/communications' }],
+    sources: [S.asdManual, S.asdTraining, S.asdBulletin, S.asdFee, S.pabm, S.mcoList, S.carveIn, S.bacbLic, S.t40c75, S.cfr440, S.cfr438, S.cfr433, { title: 'SCDHHS — Communications: Medicaid bulletins index', url: 'https://www.scdhhs.gov/communications' }, { title: 'SCDHHS — Autism Spectrum Disorder (ASD) Services Provider Manual (July 1, 2026)', url: 'https://www.scdhhs.gov/sites/dhhs/files/documents/ASD%20Services%20Provider%20Manual%207.1.26.pdf' }],
     deliveryRules: {
       supervision: {
         value: SC_SUPERVISION_STATE + ' BCaBAs must be supervised by a BCBA-D or BCBA and must disclose that supervision to the family in the consent form.',
@@ -362,7 +372,7 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'IEP / 504 / IFSP', desc: 'Attach a copy if the child has one.' },
       { title: 'Other insurance', desc: 'Medicaid is payer of last resort; bill the primary first.' },
     ],
-    sources: [S.atcPM, S.atcPA, S.atcASD, S.atcPreAuth, S.asdManual, S.asdBulletin, S.carveIn, S.cfr438, S.cfr433, S.bacbLic, { title: 'Absolute Total Care — Provider News (provider notices archive)', url: 'https://www.absolutetotalcare.com/providers/provider-news.html' }, { title: 'SCDHHS — Autism Spectrum Disorder (ASD) Services Provider Manual (July 1, 2026)', url: 'https://www.scdhhs.gov/sites/dhhs/files/documents/ASD%20Services%20Provider%20Manual%207.1.26.pdf' }],
+    sources: [S.atcPM, S.atcPA, S.atcASD, S.atcPreAuth, S.asdManual, S.asdBulletin, S.carveIn, S.cfr438, S.cfr433, S.bacbLic, { title: 'Absolute Total Care — Provider News (provider notices archive)', url: 'https://www.absolutetotalcare.com/providers/provider-news.html' }],
     deliveryRules: {
       supervision: {
         value: 'Absolute Total Care publishes no ABA supervision ratio of its own; its ASD form only requires the supervising provider to attest to "actively participating in the treatment plan." The SCDHHS ASD manual sets the state baseline, which the plan may apply: ' + SC_SUPERVISION_STATE,
@@ -685,7 +695,7 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Diagnostic report', desc: 'Have the full evaluation ready; Molina publishes no SC-specific diagnosis rule, so plan to the SCDHHS standard.' },
       { title: 'Other insurance', desc: 'Medicaid is payer of last resort; bill the primary and send its EOB.' },
     ],
-    sources: [S.molPM, S.molPA, S.asdManual, S.asdBulletin, S.carveIn, S.cfr438, S.cfr433, S.bacbLic, { title: 'Molina Healthcare of SC — Provider Communications (Palmetto Partners newsletter and announcements)', url: 'https://www.molinahealthcare.com/providers/sc/communications' }, { title: 'SCDHHS — Autism Spectrum Disorder (ASD) Services Provider Manual (July 1, 2026)', url: 'https://www.scdhhs.gov/sites/dhhs/files/documents/ASD%20Services%20Provider%20Manual%207.1.26.pdf' }],
+    sources: [S.molPM, S.molPA, S.asdManual, S.asdBulletin, S.carveIn, S.cfr438, S.cfr433, S.bacbLic, { title: 'Molina Healthcare of SC — Provider Communications (Palmetto Partners newsletter and announcements)', url: 'https://www.molinahealthcare.com/providers/sc/communications' }],
     deliveryRules: {
       supervision: {
         value: 'Molina publishes no ABA supervision rule for South Carolina. The state baseline in the SCDHHS ASD manual: ' + SC_SUPERVISION_STATE,
@@ -851,7 +861,7 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Prior ABA records', desc: 'If the child was already in treatment: progress summary with graphs, sample schedule and caregiver goals.' },
       { title: 'Other insurance', desc: 'First Choice pays last; secondary claims go in within 60 days of the primary’s EOB.' },
     ],
-    sources: [S.shPM, S.shChk, S.shReq, S.shPA, S.shClaim, S.asdManual, S.asdBulletin, S.carveIn, S.cfr438, S.cfr433, S.bacbLic, { title: 'First Choice by Select Health — Provider newsletters and updates (provider alerts index)', url: 'https://www.selecthealthofsc.com/provider/newsletter-and-updates' }, { title: 'SCDHHS — Autism Spectrum Disorder (ASD) Services Provider Manual (July 1, 2026)', url: 'https://www.scdhhs.gov/sites/dhhs/files/documents/ASD%20Services%20Provider%20Manual%207.1.26.pdf' }],
+    sources: [S.shPM, S.shChk, S.shReq, S.shPA, S.shClaim, S.asdManual, S.asdBulletin, S.carveIn, S.cfr438, S.cfr433, S.bacbLic, { title: 'First Choice by Select Health — Provider newsletters and updates (provider alerts index)', url: 'https://www.selecthealthofsc.com/provider/newsletter-and-updates' }],
     deliveryRules: {
       supervision: {
         value: 'Select Health applies the medical-necessity requirements "outlined for each service in the SCDHHS Autism Spectrum Disorder Services Manual," which sets: ' + SC_SUPERVISION_STATE,
@@ -1187,7 +1197,7 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Standardized functional measure', desc: 'Aetna wants one from the past 12 months (for example Vineland-3, ABAS, VB-MAPP or ABLLS).' },
       { title: 'Treatment plan signed by the treating doctor', desc: 'For a mandated plan, coverage follows a treatment plan prescribed and signed by the child’s treating medical doctor.' },
     ],
-    sources: [S.aetnaGuide, S.aetnaCPB, S.aetnaCPB648, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.aetnaTele, S.sc280, S.doiBull, S.sc3859, S.sc3870, S.reg6943, S.t40c75, S.bacbLic, S.erisa, S.cfr147, S.asdFee],
+    sources: [S.aetnaGuide, S.aetnaCPB, S.aetnaCPB648, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.aetnaTele, S.sc280, S.doiBull, S.sc3859, S.sc3870, S.reg6943, S.t40c75, S.bacbLic, S.erisa, S.cfr147, S.asdFee, { title: 'S.C. Code § 40-63-20 — Social work definitions (clinical social work: assessment, diagnosis, and treatment of mental, emotional, and behavioral disorders)', url: 'https://www.scstatehouse.gov/code/t40c063.php' }],
     deliveryRules: {
       supervision: {
         value: 'Aetna’s Network Participation Criteria (5/26): ABA services "must be provided directly or supervised by individuals licensed by the state or certified by the Behavior Analyst Certification Board," supervised staff may be a BCaBA "or a paraprofessional," and Aetna requires "A minimum of one hour of face-to-face supervision" of an unlicensed or noncertified paraprofessional "for each 10 hours of applied behavior analysis," plus the supervisor "onsite with the child at least one hour a month." South Carolina has no state license, so BACB certification is the qualifying credential.',
@@ -1238,9 +1248,9 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
         cites: [S.aetnaGuide, S.sc280],
       },
       diagnosingProviders: {
-        value: 'A DSM-5 ASD diagnosis by "an appropriate provider (i.e. licensed psychologist/psychiatrist, physician or other health care" professional qualified to diagnose). CPB 0648 describes the professionals involved in an ASD evaluation.',
+        value: 'A DSM-5 ASD diagnosis by "an appropriate provider (i.e. licensed psychologist/psychiatrist, physician or other health care" professional qualified to diagnose). CPB 0648 describes the professionals involved in an ASD evaluation. LCSW: not named, but the catch-all reaches a professional qualified to diagnose within scope; South Carolina defines clinical social work as requiring "specialized clinical knowledge and advanced clinical skills in the areas of assessment, diagnosis, and treatment for mental, emotional, and behavioral disorders" (S.C. Code § 40-63-20), so an LISW-CP is the social-work licence that can diagnose. Confirm with the carrier; SC Medicaid, by contrast, does not accept social-worker diagnoses.',
         status: 'verified',
-        cites: [S.aetnaGuide, S.aetnaCPB648],
+        cites: [{ title: 'S.C. Code § 40-63-20 — Social work definitions (clinical social work: assessment, diagnosis, and treatment of mental, emotional, and behavioral disorders)', url: 'https://www.scstatehouse.gov/code/t40c063.php' }, S.aetnaGuide, S.aetnaCPB648],
       },
       diagnosticTools: {
         value: 'CPB 0648 names ADI-R, ADOS-2, CARS-2 and the Asperger Syndrome Diagnostic Scale as tools used with clinical assessment. The ABA guide requires a standardized functional measure from the past 12 months (Vineland-3, ABAS, VB-MAPP or ABLLS as examples).',
@@ -1362,6 +1372,18 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.en0499],
       },
+      {
+        h2: 'Appeals, reconsiderations and out-of-network (network exception) requests',
+        body: [
+          'Payment disputes and reconsiderations: Evernorth asks you to call Provider Services (800.926.2273) first, with the patient\'s name, date of service and the treating provider\'s name and TIN. Fee-schedule and reimbursement disputes "may be quickly resolved through submitting an adjustment request via the reconsideration feature on Provider.Evernorth.com." A formal appeal must be "initiated in writing within 180 calendar days of the date of the initial payment or denial decision" (or of the last payment adjustment), submitted by a person, not by automation software. Appeals go to Evernorth Appeals, PO Box 188064, Chattanooga, TN 37422 (fax 877.815.4827). Most are resolved within 60 calendar days, with notice within 75 days unless state law differs; after the internal process, the Provider Agreement\'s negotiation-then-arbitration steps apply.',
+          'What to include: for a medical-necessity denial, the clinical record behind the request (for ABA, the assessment, treatment plan, progress data and session notes); for an untimely-filing denial (claims are due within 90 days of service), the EDI transmission report or proof that coordination of benefits delayed the claim; for a late-payment dispute, the date you submitted the claim and your correspondence. A clinical coverage denial can be reviewed by a board-certified psychiatrist or doctoral-level psychologist not previously involved, on an expedited basis when urgent, with the appeal due within 180 calendar days of the denial.',
+          'Out-of-network providers: some out-of-network providers filing a standard appeal "must submit a valid Appointments of Representative form signed by the patient" for the appeal to be valid; call the number on the ID card to check. To treat a Cigna member without a contract, use the ABA prior authorization form, which covers "network exception requests," including for an ABA assessment (assessment codes otherwise need no prior authorization). Some Cigna products (for example Cigna Connect) have no out-of-network coverage except emergent or urgent care.',
+        ],
+        cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026): provider payment appeals, coverage denials', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+          { title: 'Evernorth — Applied Behavior Analysis Prior Authorization Form (PCOMM-2025-224; file dated 7/1/2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/applied-behavior-analysis.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan type and size', desc: 'Insured large group or State Health Plan (mandate applies) vs. individual, small-group or self-funded.' },
@@ -1370,7 +1392,7 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Standardized assessment timing', desc: 'Instrument administered within 60 days before treatment starts.' },
       { title: 'Treatment plan signed by the treating doctor', desc: 'For a mandated plan, coverage follows a treatment plan prescribed by the child’s treating medical doctor.' },
     ],
-    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.sc280, S.doiBull, S.sc3859, S.sc3870, S.reg6943, S.t40c75, S.bacbLic, S.erisa, S.cfr147, S.asdFee],
+    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.sc280, S.doiBull, S.sc3859, S.sc3870, S.reg6943, S.t40c75, S.bacbLic, S.erisa, S.cfr147, S.asdFee, { title: 'S.C. Code § 40-63-20 — Social work definitions (clinical social work: assessment, diagnosis, and treatment of mental, emotional, and behavioral disorders)', url: 'https://www.scstatehouse.gov/code/t40c063.php' }, { title: 'Evernorth — Applied Behavior Analysis Prior Authorization Form (PCOMM-2025-224; file dated 7/1/2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/applied-behavior-analysis.pdf' }, { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026): provider payment appeals, coverage denials', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }],
     deliveryRules: {
       supervision: {
         value: 'Case supervision by a BCBA, a Licensed Behavior Analyst, or an independently licensed mental health professional with ABA training, at one to two hours per ten hours of direct treatment; at 10 hours a week or less, at least one to two hours a week. The supervisor’s name and credentials must be documented.',
@@ -1398,9 +1420,9 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
         cites: [S.en0499],
       },
       billAsProvider: {
-        value: '"Evernorth does not credential nonlicensed/noncertified staff. Services for these staff members must be billed under the supervising provider." On paper claims list "only a BCBA or other licensed provider in box 33"; electronic claims use payer ID 62308.',
+        value: '"Evernorth does not credential nonlicensed/noncertified staff. Services for these staff members must be billed under the supervising provider." On paper claims list "only a BCBA or other licensed provider in box 33"; electronic claims use payer ID 62308. Is the authorization tied to an NPI or the group TIN? Evernorth\'s ABA prior authorization form identifies the request by the servicing clinic\'s name, Taxpayer Identification Number (TIN) and address, plus the supervising provider\'s name and credential; it has no NPI field, and asks "Will the same provider be supervising the patient’s entire treatment?" (if not, name the additional supervisor). An approval is "written on a per month basis with CPT code 97155 and can be interchanged with ongoing treatment codes 97153–97158 and 0373T." Evernorth publishes no rule on moving an approval to a different clinic TIN; a change of supervisor within the clinic is something the form expects you to declare.',
         status: 'verified',
-        cites: [S.cignaARG],
+        cites: [{ title: 'Evernorth — Applied Behavior Analysis Prior Authorization Form (PCOMM-2025-224; file dated 7/1/2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/applied-behavior-analysis.pdf' }, S.cignaARG],
       },
     },
     intakeGates: {
@@ -1417,9 +1439,9 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
         cites: [S.en0499, S.sc280],
       },
       diagnosingProviders: {
-        value: 'A "healthcare professional who is licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice," applying DSM-5-TR, with name, credentials and licensure type documented.',
+        value: 'A "healthcare professional who is licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice," applying DSM-5-TR, with name, credentials and licensure type documented. LCSW: an independently licensed LISW-CP meets EN0499\'s wording: South Carolina defines clinical social work as requiring "specialized clinical knowledge and advanced clinical skills in the areas of assessment, diagnosis, and treatment for mental, emotional, and behavioral disorders" (S.C. Code § 40-63-20), so an LISW-CP is the social-work licence that can diagnose. Confirm with the carrier; SC Medicaid, by contrast, does not accept social-worker diagnoses.',
         status: 'verified',
-        cites: [S.en0499],
+        cites: [{ title: 'S.C. Code § 40-63-20 — Social work definitions (clinical social work: assessment, diagnosis, and treatment of mental, emotional, and behavioral disorders)', url: 'https://www.scstatehouse.gov/code/t40c063.php' }, S.en0499],
       },
       diagnosticTools: {
         value: 'No single instrument is mandated; the assessment must use reliable, valid, standardized, current-edition instruments completed in full and administered within 60 days before treatment.',
@@ -1458,6 +1480,7 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
       { q: 'Does the Cigna ABA assessment need prior authorization in South Carolina?', a: 'No, for 97151, 97152 and 0362T with an autism diagnosis when the provider is independently licensed or a BCBA. Prior authorization starts at treatment.' },
       { q: 'Can ABA be delivered by telehealth with Cigna?', a: 'Yes. Cigna’s autism resource guide says all ABA CPT codes are covered telehealth services; bill with modifier 95.' },
       { q: 'Does a BCBA need a South Carolina license to bill Cigna?', a: 'South Carolina issues no behavior-analyst license, and Cigna accepts a BCBA as the billing credential for ABA.' },
+      { q: 'Is a Cigna/Evernorth ABA authorization tied to an individual NPI or the group tax ID?', a: 'To the servicing clinic. The Evernorth ABA prior authorization form asks for the clinic\'s name, TIN and address and the supervising provider\'s name and credential, with no NPI field, and asks whether the same provider will supervise the whole treatment. Approvals are written monthly on 97155, interchangeable with 97153–97158 and 0373T. A move to a different clinic TIN is not addressed, so expect a new request.' },
     ],
   },
 
@@ -1547,7 +1570,7 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis with a validated tool', desc: 'DSM-5-TR ASD with severity, confirmed with a validated tool (ADI-R, ADOS-2 and others).' },
       { title: 'Treatment plan signed by the treating doctor', desc: 'For a mandated plan, coverage follows a treatment plan prescribed by the child’s treating medical doctor.' },
     ],
-    sources: [S.optumSCC, S.optumSM, S.optumTele, S.optumNNM, S.optumReimb, S.mcoList, S.sc280, S.doiBull, S.sc3859, S.sc3870, S.reg6943, S.t40c75, S.bacbLic, S.erisa, S.cfr147, S.asdFee],
+    sources: [S.optumSCC, S.optumSM, S.optumTele, S.optumNNM, S.optumReimb, S.mcoList, S.sc280, S.doiBull, S.sc3859, S.sc3870, S.reg6943, S.t40c75, S.bacbLic, S.erisa, S.cfr147, S.asdFee, { title: 'S.C. Code § 40-63-20 — Social work definitions (clinical social work: assessment, diagnosis, and treatment of mental, emotional, and behavioral disorders)', url: 'https://www.scstatehouse.gov/code/t40c063.php' }],
     deliveryRules: {
       supervision: {
         value: 'Direct case supervision is required at 1–2 hours for every 10 hours of direct treatment. Technicians work under a BCBA or licensed clinician, and Optum does not recommend parents serving as their own child’s RBT.',
@@ -1598,9 +1621,9 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
         cites: [S.optumSCC, S.sc280],
       },
       diagnosingProviders: {
-        value: 'A diagnosis "issued by a state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis."',
+        value: 'A diagnosis "issued by a state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis." LCSW: covered by "other state licensed clinician qualified to make such diagnosis" where scope allows; South Carolina defines clinical social work as requiring "specialized clinical knowledge and advanced clinical skills in the areas of assessment, diagnosis, and treatment for mental, emotional, and behavioral disorders" (S.C. Code § 40-63-20), so an LISW-CP is the social-work licence that can diagnose. Confirm with the carrier; SC Medicaid, by contrast, does not accept social-worker diagnoses.',
         status: 'verified',
-        cites: [S.optumSCC],
+        cites: [{ title: 'S.C. Code § 40-63-20 — Social work definitions (clinical social work: assessment, diagnosis, and treatment of mental, emotional, and behavioral disorders)', url: 'https://www.scstatehouse.gov/code/t40c063.php' }, S.optumSCC],
       },
       diagnosticTools: {
         value: 'At least one clinically validated tool from a non-exhaustive list running from screens (M-CHAT, CARS, STAT) to formal diagnostic tools (ADI-R, ADOS/ADOS-2).',

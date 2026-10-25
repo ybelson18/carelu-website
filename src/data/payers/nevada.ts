@@ -257,7 +257,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
         cites: [S.msm3700, S.fa11f, S.fa11e],
       },
       diagnosingProviders: {
-        value: 'FA-11F must be signed by the practitioner ordering ABA, who “must be a Physician, Physician’s Assistant, Advanced Practice Registered Nurse (APRN) or Psychologist acting within their scope of practice,” and records the diagnosis date and tool. MSM 3704.1 likewise requires written orders from a physician, PA, psychologist or APRN/NP. Nevada’s ABA licensure statute excludes diagnosis from the practice of ABA (NRS 641D.080).',
+        value: 'FA-11F must be signed by the practitioner ordering ABA, who “must be a Physician, Physician’s Assistant, Advanced Practice Registered Nurse (APRN) or Psychologist acting within their scope of practice,” and records the diagnosis date and tool. MSM 3704.1 likewise requires written orders from a physician, PA, psychologist or APRN/NP. Nevada’s ABA licensure statute excludes diagnosis from the practice of ABA (NRS 641D.080).' + ' LCSW: no. FA-11F limits the certifying practitioner to a physician, physician assistant, APRN or psychologist.',
         status: 'verified',
         cites: [S.fa11f, S.msm3700, S.nrs641D],
       },
@@ -432,7 +432,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
         cites: [S.msm3700, S.anMcdPM],
       },
       diagnosingProviders: {
-        value: 'Anthem publishes nothing of its own. The state’s FA-11F must be signed by a physician, physician assistant, APRN or psychologist acting within scope.',
+        value: 'Anthem publishes nothing of its own. The state’s FA-11F must be signed by a physician, physician assistant, APRN or psychologist acting within scope.' + ' LCSW: no. FA-11F limits the certifying practitioner to a physician, physician assistant, APRN or psychologist.',
         status: 'verified',
         cites: [S.fa11f, S.msm3700],
       },
@@ -553,7 +553,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
       { title: 'School schedule and IEP', desc: 'The initial plan asks for school placement, weekly school hours and any IEP.' },
       { title: 'Other insurance', desc: 'Medicaid is the payer of last resort; the primary’s determination is required.' },
     ],
-    sources: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, S.csMM, S.csPY, S.plans, S.msm3700, S.msm3600, S.pt85, S.msm3400, S.cfr438, S.cfr433, S.nrs641D, S.nrs629, { title: 'CareSource Nevada — Updates & Announcements (Medicaid)', url: 'https://www.caresource.com/nv/providers/tools-resources/updates-announcements/medicaid/' }, { title: 'Nevada Medicaid — Provider Type 85 ABA Reimbursement Schedule (rate data as of 07/2026)', url: 'https://www.nevadamedicaid.nv.gov/siteassets/content/resources/rates/pt-85-fee-schedule-072026.xlsx' }],
+    sources: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, S.csMM, S.csPY, S.plans, S.msm3700, S.msm3600, S.pt85, S.msm3400, S.cfr438, S.cfr433, S.nrs641D, S.nrs629, { title: 'CareSource Nevada — Updates & Announcements (Medicaid)', url: 'https://www.caresource.com/nv/providers/tools-resources/updates-announcements/medicaid/' }, { title: 'Nevada Medicaid — Provider Type 85 ABA Reimbursement Schedule (rate data as of 07/2026)', url: 'https://www.nevadamedicaid.nv.gov/siteassets/content/resources/rates/pt-85-fee-schedule-072026.xlsx' }, { title: 'Nevada Medicaid Form FA-11F — ASD Diagnosis Certification for Requesting Initial ABA Services (updated 06/10/2025)', url: 'https://www.medicaid.nv.gov/Downloads/provider/FA-11F.pdf' }],
     deliveryRules: {
       supervision: {
         value: 'RBT services “must be supervised by a qualified RBT supervisor (ie, BCBA, BCBA-D, licensed psychologist …) and obtain ongoing supervision for a minimum of 5% of the hours spent providing ABA services per month”; BCaBAs must be supervised by a BCBA, BCBA-D or qualified psychologist. Supervision units are capped at 20% of direct therapy hours unless documentation supports more, and the licensed psychologist, BCBA-D or BCBA “is responsible for all aspects of clinical direction, supervision, and case management.”',
@@ -602,9 +602,9 @@ export const nevadaPayers: Record<string, PayerConfig> = {
         cites: [S.csMM],
       },
       diagnosingProviders: {
-        value: 'The diagnosis must be “rendered according to the written orders of” a physician, physician’s assistant, Nevada Board of Psychological Examiners licensee, or APRN/NP; the initial behavior assessment is by “a fully credentialed BCBA with state licensure.”',
+        value: 'The diagnosis must be “rendered according to the written orders of” a physician, physician’s assistant, Nevada Board of Psychological Examiners licensee, or APRN/NP; the initial behavior assessment is by “a fully credentialed BCBA with state licensure.”' + ' LCSW: no — CareSource’s list (physician, physician’s assistant, Nevada Board of Psychological Examiners licensee, APRN/NP) and the state FA-11F both leave out clinical social workers.',
         status: 'verified',
-        cites: [S.csMM],
+        cites: [S.csMM, S.fa11f],
       },
       diagnosticTools: {
         value: 'ADOS-2, CARS-2, GARS-2 (as printed in the policy; the state form now lists GARS-3) or the FASD diagnostic category; if DSM criteria alone are used, document the specific criteria met.',
@@ -774,7 +774,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
         blocker: 'licensed',
       },
       diagnosingProviders: {
-        value: 'HPN’s form (the same 2015 scan, still posted October 25, 2026) has the ordering practitioner certify the diagnosis and lists “a Physician, Physician’s Assistant, Advanced Practice Registered Nurse (APRN), Psychologist, Ph.D. or a Board Certified BCBA.” The current state FA-11F (updated 06/10/2025) drops the BCBA: “Practitioner must be a Physician, Physician’s Assistant, Advanced Practice Registered Nurse (APRN) or Psychologist acting within their scope of practice.” The safe course is a physician, PA, APRN or psychologist signature, which satisfies both forms.',
+        value: 'HPN’s form (the same 2015 scan, still posted October 25, 2026) has the ordering practitioner certify the diagnosis and lists “a Physician, Physician’s Assistant, Advanced Practice Registered Nurse (APRN), Psychologist, Ph.D. or a Board Certified BCBA.” The current state FA-11F (updated 06/10/2025) drops the BCBA: “Practitioner must be a Physician, Physician’s Assistant, Advanced Practice Registered Nurse (APRN) or Psychologist acting within their scope of practice.” The safe course is a physician, PA, APRN or psychologist signature, which satisfies both forms.' + ' LCSW: no — neither HPN’s form nor the state FA-11F lists a clinical social worker.',
         status: 'plan-dependent',
         cites: [S.hpnForm, S.fa11f, S.msm3600],
         verifyVia: 'HPN Behavioral Health, 702-240-8733: confirm which practitioners may sign the diagnosis certification.',
@@ -939,7 +939,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
         cites: [S.msm3700, S.molPM],
       },
       diagnosingProviders: {
-        value: 'Molina publishes nothing of its own. The state’s FA-11F must be signed by a physician, physician assistant, APRN or psychologist acting within scope.',
+        value: 'Molina publishes nothing of its own. The state’s FA-11F must be signed by a physician, physician assistant, APRN or psychologist acting within scope.' + ' LCSW: no. FA-11F limits the certifying practitioner to a physician, physician assistant, APRN or psychologist.',
         status: 'verified',
         cites: [S.fa11f, S.msm3700],
       },
@@ -1109,7 +1109,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
         cites: [S.sshpChk],
       },
       diagnosingProviders: {
-        value: 'FA-11F “must be completed and signed by a qualified diagnosing practitioner acting within their scope of practice”; the state form limits that to a physician, physician assistant, APRN or psychologist.',
+        value: 'FA-11F “must be completed and signed by a qualified diagnosing practitioner acting within their scope of practice”; the state form limits that to a physician, physician assistant, APRN or psychologist.' + ' LCSW: no. FA-11F limits the certifying practitioner to a physician, physician assistant, APRN or psychologist.',
         status: 'verified',
         cites: [S.sshpChk, S.fa11f],
       },
@@ -1269,6 +1269,16 @@ export const nevadaPayers: Record<string, PayerConfig> = {
           { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
         ],
       },
+      {
+        h2: 'Reconsideration and appeal: what to send',
+        body: [
+          'Aetna runs two levels. A reconsideration (“a formal review of a previous claim decision,” covering reimbursement and coding decisions) is filed within 180 calendar days of the initial claim decision, on Availity or by mail. Send “Medical records, office notes and other supporting documents” and either a completed dispute and appeal form or an explanation giving the reason for review, member ID, patient name, TIN, claim ID, dates of service and billed amounts, and the “Procedure codes and modifiers being disputed”; most answers come within 30 business days. If that fails, appeal within 60 calendar days of the reconsideration decision with a clear explanation, supporting documents, the denial letter or EOB and the original claim; a valid appeal needs the dispute and appeal form (not required on Availity), the denied codes or payments identified, and the records. Aetna decides within 60 calendar days. The 180-day standard can differ for fully insured plans in states on Aetna’s exception list.',
+        ],
+        cites: [
+          { title: 'Aetna — Disputes and appeals overview (reconsideration and appeal time frames and contents)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' },
+          { title: 'Aetna — Provider appeals: state exceptions to the 180-day dispute filing standard', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/provider-appeals.html' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured Nevada plan (mandate applies) vs. self-funded ERISA (plan document governs); individual plans may not carry the optional coverage.' },
@@ -1277,7 +1287,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis report', desc: 'DSM-5 ASD, diagnosing provider and credentials, evaluation date.' },
       { title: 'Standardized functional measure', desc: 'From the past 12 months (Vineland-3, ABAS, VB-MAPP or ABLLS).' },
     ],
-    sources: [{ title: 'NRS 689B.255 — Group health insurance: approval or denial of claims, payment and interest', url: 'https://www.leg.state.nv.us/NRS/NRS-689B.html' }, { title: 'NRS 689A.410 — Individual health insurance: approval or denial of claims, payment and interest', url: 'https://www.leg.state.nv.us/NRS/NRS-689A.html' }, { title: 'NRS chapter 695C — Health maintenance organizations (NRS 695C.185 shown as repealed by ch. 366, Statutes of Nevada 2025)', url: 'https://www.leg.state.nv.us/NRS/NRS-695C.html' }, S.aetnaGuide, S.aetnaCPB, S.aetnaCPB648, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.aetnaTele, S.nrs689B, S.nrs695C, S.nrs689C, S.nrs689A, S.nrs687B, S.nrs641D, S.nrs629, S.bacbLic, S.erisa, S.cfr433, S.billMan, S.tricare, S.fee85, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }],
+    sources: [{ title: 'NRS 689B.255 — Group health insurance: approval or denial of claims, payment and interest', url: 'https://www.leg.state.nv.us/NRS/NRS-689B.html' }, { title: 'NRS 689A.410 — Individual health insurance: approval or denial of claims, payment and interest', url: 'https://www.leg.state.nv.us/NRS/NRS-689A.html' }, { title: 'NRS chapter 695C — Health maintenance organizations (NRS 695C.185 shown as repealed by ch. 366, Statutes of Nevada 2025)', url: 'https://www.leg.state.nv.us/NRS/NRS-695C.html' }, S.aetnaGuide, S.aetnaCPB, S.aetnaCPB648, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.aetnaTele, S.nrs689B, S.nrs695C, S.nrs689C, S.nrs689A, S.nrs687B, S.nrs641D, S.nrs629, S.bacbLic, S.erisa, S.cfr433, S.billMan, S.tricare, S.fee85, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }, { title: 'Aetna — Disputes and appeals overview (reconsideration and appeal time frames and contents)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' }, { title: 'Aetna — Provider appeals: state exceptions to the 180-day dispute filing standard', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/provider-appeals.html' }],
     deliveryRules: {
       supervision: {
         value: 'Aetna’s guide requires services “provided directly or billed by licensed behavior analysts (in states with behavior analyst licensure laws), board-certified behavior analysts, or licensed psychologists,” with supervision of unlicensed staff “in line with practice standards.” Its participation criteria (5/26) require “A minimum of one hour of face-to-face supervision” of an unlicensed or noncertified paraprofessional “for each 10 hours of applied behavior analysis,” plus the supervisor “onsite with the child at least one hour a month,” and say all BCBAs, BCaBAs and paraprofessionals “must meet state requirements.” In Nevada that means NRS 641D.610: BCaBAs and RBTs practice only under a licensed behavior analyst (or qualified psychologist; RBTs also under a qualified licensed BCaBA).',
@@ -1330,7 +1340,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
         cites: [S.aetnaGuide, S.nrs689B],
       },
       diagnosingProviders: {
-        value: 'An “appropriate provider (i.e. licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice).” Nevada’s ABA licensure law excludes diagnosis from the practice of ABA (NRS 641D.080).',
+        value: 'An “appropriate provider (i.e. licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice).” Nevada’s ABA licensure law excludes diagnosis from the practice of ABA (NRS 641D.080).' + ' LCSW: not named. Aetna accepts a diagnosis from a “licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice,” so an LCSW qualifies only where state law puts that diagnosis within LCSW scope.',
         status: 'verified',
         cites: [S.aetnaGuide, S.nrs641D],
       },
@@ -1485,6 +1495,15 @@ export const nevadaPayers: Record<string, PayerConfig> = {
           { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191) — telehealth claim coding', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
         ],
       },
+      {
+        h2: 'Reconsideration and appeal: what to send',
+        body: [
+          'Evernorth (Cigna behavioral health) asks you to call Provider Services first with the patient’s name, date of service and the treating provider’s name and TIN. If the claim stands, file a written appeal within 180 calendar days of the initial payment or denial (or of the last payment adjustment). Fee-schedule and reimbursement disputes can go through the reconsideration feature on Provider.Evernorth.com. For a medical-necessity denial include the clinical record; for a timely-filing denial include the EDI transmission report or proof the delay came from coordination of benefits; for a late-payment dispute include proof of when you submitted. Appeals must be filed by a person, not by automation software. Most are resolved within 60 calendar days, with notice within 75 days unless state law says otherwise, and arbitration is the final step.',
+        ],
+        cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191): Provider payment appeals', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured Nevada plan (mandate applies) vs. self-funded ERISA (plan document governs).' },
@@ -1544,7 +1563,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
         cites: [S.en0499],
       },
       diagnosingProviders: {
-        value: 'A professional “licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice,” applying DSM-5-TR. The assessment is by a BCBA, Licensed Behavior Analyst or independently licensed clinician with ABA training.',
+        value: 'A professional “licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice,” applying DSM-5-TR. The assessment is by a BCBA, Licensed Behavior Analyst or independently licensed clinician with ABA training.' + ' LCSW: not named. EN0499 accepts a professional “licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice,” so an independently licensed LCSW qualifies only if the state social-work board treats diagnosis as within scope.',
         status: 'verified',
         cites: [S.en0499],
       },
@@ -1690,6 +1709,15 @@ export const nevadaPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026): Continued Service Criteria', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
       },
+      {
+        h2: 'Reconsideration and appeal: what to send',
+        body: [
+          'Optum, which handles UnitedHealthcare’s behavioral claims, uses a two-step process for commercial claims: reconsideration first, then appeal, within a combined 12 months unless state law or your participation agreement sets a different deadline. Include “member-specific treatment plans, clinical records, payment appendices or other items that support why you believe our decision was incorrect,” plus proof that the claim was received and accepted within your timely filing limit. File online in the Provider Express secure portal (Appeals > Appeals Summary & Submission, giving the factual or legal basis) or by mail with Optum’s reconsideration request form. Optum decides on the materials it has at the time of review; an overturned claim is reported on the remittance advice and an upheld one by letter.',
+        ],
+        cites: [
+          { title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): Provider Reconsideration and Appeal Process', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Which UHC company', desc: 'UHC-branded (Optum manages ABA) vs. Health Plan of Nevada / Sierra (HPN reviews on InterQual). It changes the portal, criteria and phone numbers.' },
@@ -1757,7 +1785,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
         blocker: 'licensed',
       },
       diagnosingProviders: {
-        value: 'Optum: a “state licensed clinician qualified to make such diagnosis” under DSM-5-TR. Nevada’s ABA licensure law excludes diagnosis from ABA practice (NRS 641D.080).',
+        value: 'Optum: a “state licensed clinician qualified to make such diagnosis” under DSM-5-TR. Nevada’s ABA licensure law excludes diagnosis from ABA practice (NRS 641D.080).' + ' LCSW: not named. Optum accepts a diagnosis from a “state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis,” so an LCSW qualifies only where state licensure allows it.',
         status: 'verified',
         cites: [S.optumSCC, S.nrs641D],
       },
@@ -1962,7 +1990,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       diagnosingProviders: {
-        value: 'Not published in Anthem’s Nevada documents. Nevada’s mandate requires the insurer to accept as dispositive a diagnosis made under the state’s statewide standard (NRS 689B.0335(1)).',
+        value: 'Not published in Anthem’s Nevada documents. Nevada’s mandate requires the insurer to accept as dispositive a diagnosis made under the state’s statewide standard (NRS 689B.0335(1)).' + ' LCSW: not addressed in Anthem’s published documents.',
         status: 'unverified',
         cites: [S.anthemRG, S.nrs689B],
         verifyVia: 'Anthem Behavioral Health, 800-424-4014.',

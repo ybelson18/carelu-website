@@ -608,6 +608,14 @@ export const californiaPayers: Record<string, PayerConfig> = {
           { title: 'AB 3275 (Ch. 763, Stats. 2024) — claim reimbursement within 30 calendar days from 1/1/2026 (H&S § 1371, Ins. Code § 10123.13, W&I § 14093.08)', url: 'https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240AB3275' },
         ],
       },
+      {
+        h2: 'Out-of-network ABA and continuity of care (Medi-Cal)',
+        body: [
+          'New Medi-Cal members "may continue with their existing out-of-network providers for up to 12 months" if they saw the provider at least once in the 12 months before enrolling. If the provider is out of network, Health Net "makes a good faith effort to enter into a contract, letter of agreement, single-case agreement, or other form of relationship." The provider must accept "the higher of contracted rates or Medi-Cal FFS rates," have no quality-of-care concerns, be a California State Plan-approved provider, follow Health Net\'s UM policies and supply the current treatment plan; otherwise the member is offered an in-network provider.',
+          'Timing: Health Net starts processing a non-clinical COC request within five business days; authorizations follow within 30 calendar days (15 for more immediate cases, three for urgent). The member is told about the move to an in-network provider 30 days before the COC period ends.',
+        ],
+        cites: [{ title: 'Health Net California provider manual (Medi-Cal) — Continuity of Care Assistance', url: 'https://providerlibrary.healthnetcalifornia.com/medi-cal/provider-manual/utilization-management/continuity-of-care-assistance-medi-cal.html' }],
+      },
     ],
     collect: [
       { title: 'Recommendation under a year old', desc: 'From an MD/DO or licensed clinical psychologist — must be less than one year old when there is no autism diagnosis.' },
@@ -630,6 +638,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'CHHS Open Data — Medi-Cal Managed Care Enrollment Report (August 2026)', url: 'https://data.chhs.ca.gov/dataset/medi-cal-managed-care-enrollment-report' },
       { title: 'DHCS APL 23-010 (Revised 11/22/2023) — BHT Coverage for Members Under 21', url: 'https://www.dhcs.ca.gov/file/apl23-010-pdf/' },
       { title: 'Health Net — Medi-Cal provider updates and notices (index)', url: 'https://providerlibrary.healthnetcalifornia.com/medi-cal/news.html' },
+      { title: 'Health Net California provider manual (Medi-Cal) — Continuity of Care Assistance', url: 'https://providerlibrary.healthnetcalifornia.com/medi-cal/provider-manual/utilization-management/continuity-of-care-assistance-medi-cal.html' },
     ],
     intakeGates: {
       ageLimit: {
@@ -747,6 +756,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Will Health Net Medi-Cal sign a single case agreement with an out-of-network ABA provider?', a: 'For a new member\'s existing provider, yes in principle: Health Net\'s continuity-of-care policy says it makes "a good faith effort to enter into a contract, letter of agreement, single-case agreement, or other form of relationship" for up to 12 months, if the provider accepts the higher of contracted or Medi-Cal FFS rates, follows Health Net\'s UM rules and is a State Plan-approved provider.' },
       { q: 'Does Health Net Medi-Cal (and CalViva) cover ABA?', a: 'Yes — Behavioral Health Treatment for members under 21 on a physician or licensed clinical psychologist recommendation, regardless of diagnosis, reviewed by Health Net’s Behavioral Health Autism Center under policy CA.CP.BH.104.' },
       { q: 'Is there an hour cap on Health Net Medi-Cal ABA?', a: 'Not a hard cap. CA.CP.BH.104 expects no more than 6 hours a day and 30 hours a week unless clinical documentation justifies more, and hours cannot be reduced for school time.' },
       { q: 'How do I change hours on a Health Net ABA authorization?', a: 'Submit a new complete PA request with a letter explaining the clinical reason — addendums are no longer accepted, and the existing authorization is ended.' },
@@ -2772,6 +2782,15 @@ export const californiaPayers: Record<string, PayerConfig> = {
           { title: '28 CCR § 1300.71.38 — Provider dispute resolution mechanism (DMHC plans)', url: 'https://www.law.cornell.edu/regulations/california/28-CCR-1300.71.38' },
         ],
       },
+      {
+        h2: 'Out-of-network ABA, network status and disputes',
+        body: [
+          'Out-of-network override (Anthem\'s single-case route): behavioral health professionals "not contracted with the Anthem network" request an "Out of Network Override or Benefit Exception," or an extension of a previously approved out-of-network request, on Anthem\'s Out of Network Override Request Form (January 2026) — through Availity or fax 877-521-4788. "Reviewing the request can take up to 15 business days," and "Prior Auth/Pre-Approval is required for all ONR requests." The form asks for the provider\'s tax ID, license, NPI, diagnosis, billing codes, telehealth and session frequency. Geographic and provider-access requests go to Member Services on the card instead.',
+          'Network status: Anthem\'s California commercial behavioral health page says it is "currently accepting requests to join our network from ... providers who render ABA services"; requests go through digital provider enrollment on Availity with CAQH ProView.',
+          'Disputes: after customer service, an Availity secure message and a supervisor, "submit a provider dispute" on the Provider Dispute Resolution Request form, which "is used to initiate the formal dispute process for a claim that has already been adjudicated or when a provider disagrees with a billing determination."',
+        ],
+        cites: [{ title: 'Anthem Blue Cross — Out of Network Override Request Form, California Commercial (CA-BC-CM-002123-25-S820, January 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/CA-BC-Out-of-Network-Request-Form.pdf' }, { title: 'Anthem Blue Cross — Behavioral Health Guide: Commercial BH and ABA Group Agreement (CABC-CM-082371-25)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_BHG_Groups.pdf' }],
+      },
     ],
     collect: [
       { title: 'Entity and funding', desc: 'Blue Cross of California (DMHC) vs. Anthem Blue Cross Life and Health (CDI) vs. self-funded ASO — it decides the criteria (AACAP vs. MCG) and whether the mandate applies.' },
@@ -2794,6 +2813,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'Anthem Blue Cross California — Provider News (commercial + Medi-Cal)', url: 'https://providernews.anthem.com/california' },
       { title: 'Anthem Blue Cross — Treatment Plan Request Form for Autism Spectrum Disorders, California Commercial (CA-BC-CM-008578-26-S2508, April 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/CA_TPRF_00001.pdf' },
       { title: 'Anthem Blue Cross — Applied Behavior Analysis Provider Resource Guide, California Commercial (CABC-CM-084582-25, June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/aba-provider-resource-guide-abc-ca.pdf' },
+      { title: 'Anthem Blue Cross — Out of Network Override Request Form, California Commercial (CA-BC-CM-002123-25-S820, January 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/CA-BC-Out-of-Network-Request-Form.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2936,6 +2956,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Anthem Blue Cross of California approve out-of-network ABA providers?', a: 'Through its Out of Network Override Request Form (January 2026): non-contracted behavioral health providers request an override or benefit exception, or an extension of an earlier one, via Availity or fax 877-521-4788. Review can take up to 15 business days, and pre-approval is required before services.' },
       { q: 'Does Anthem Blue Cross cover ABA therapy in California?', a: 'Yes — for autism, with precertification on every ABA code. Fully insured plans are reviewed on AACAP criteria to comply with SB 855; self-funded employer plans use MCG guideline B-806-T.' },
       { q: 'How do I request ABA authorization from Anthem Blue Cross?', a: 'Through Interactive Care Reviewer on Availity, or by faxing the Adaptive Behavioral Treatment Request to 866-582-2287. UM questions: 800-274-7767.' },
       { q: 'What does the California autism mandate require?', a: 'Fully insured plans must cover behavioral health treatment, including ABA, for autism with no age or dollar caps, a treatment plan reviewed at least every six months, and — from 2026 — no forced rediagnosis to keep coverage. Self-funded ERISA and Medi-Cal plans are exempt.' },
@@ -3047,6 +3068,14 @@ export const californiaPayers: Record<string, PayerConfig> = {
           { title: '28 CCR § 1300.71.38 — Provider dispute resolution mechanism (DMHC plans)', url: 'https://www.law.cornell.edu/regulations/california/28-CCR-1300.71.38' },
         ],
       },
+      {
+        h2: 'Out-of-network ABA and continuity of care',
+        body: [
+          'Continuity of care: Health Net lets new and existing members "continue with their existing out-of-network providers for up to 12 months" when criteria are met, and covers "Behavioral health conditions — all acute, serious or chronic mental health conditions, including treatment for children diagnosed with autism spectrum disorder (ASD). These services include applied behavioral analysis (ABA) — for up to 12 months." The provider must accept Health Net\'s rates and payment methods "unless a letter of agreement or letter of understanding is executed," and its utilization management; requests are decided within five business days (pendable 45 days for more information; three calendar days if urgent). A member may also ask to finish care with a provider who has left the network.',
+          'HMO referrals out of network: a participating physician group "must refer members to participating providers except in emergencies or as otherwise required by law"; an out-of-network referral needs prior authorization, and "once Health Net authorizes a referral, the authorization cannot be withdrawn and payment is required for services rendered." Out-of-network providers "cannot refer the member to another out-of-network provider without authorization."',
+        ],
+        cites: [{ title: 'Health Net California provider manual (EPO/HMO/HSP/PPO) — Continuity of Care Assistance', url: 'https://providerlibrary.healthnetcalifornia.com/hmo/provider-manual/utilization-management/continuity-of-care-assistance-epo-hmo-hsp-ppo.html' }, { title: 'Health Net California provider manual (HMO) — Out-of-Network Referrals (updated 07/01/2024)', url: 'https://providerlibrary.healthnetcalifornia.com/hmo/provider-manual/referrals/out-of-network-referrals.html' }],
+      },
     ],
     collect: [
       { title: 'Group or individual plan', desc: 'Employer-group Health Net plans are ending (~2/28/2027) — get the end date and the replacement carrier; Ambetter (Covered California) continues.' },
@@ -3070,6 +3099,8 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'Insurance Code § 10144.51 (as amended by SB 402, eff. 1/1/2026)', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=INS&sectionNum=10144.51' },
       { title: 'BACB — U.S. Licensure of Behavior Analysts', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
       { title: 'Health Net — Commercial (HMO/PPO) provider updates and notices (index)', url: 'https://providerlibrary.healthnetcalifornia.com/hmo/news.html' },
+      { title: 'Health Net California provider manual (EPO/HMO/HSP/PPO) — Continuity of Care Assistance', url: 'https://providerlibrary.healthnetcalifornia.com/hmo/provider-manual/utilization-management/continuity-of-care-assistance-epo-hmo-hsp-ppo.html' },
+      { title: 'Health Net California provider manual (HMO) — Out-of-Network Referrals (updated 07/01/2024)', url: 'https://providerlibrary.healthnetcalifornia.com/hmo/provider-manual/referrals/out-of-network-referrals.html' },
     ],
     intakeGates: {
       ageLimit: {
@@ -3196,6 +3227,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Can a family keep an out-of-network ABA provider when they join Health Net?', a: 'Often, for up to 12 months: Health Net\'s continuity-of-care rules list ABA for children with autism among covered behavioral health conditions, if the provider accepts Health Net\'s rates (or signs a letter of agreement) and its utilization management. Health Net decides within five business days.' },
       { q: 'Does Health Net cover ABA therapy in California?', a: 'Yes — for ASD under California’s mandate, with prior authorization through the Health Net Behavioral Health Autism Center (ABA@healthnet.com, fax 855-427-4798).' },
       { q: 'Is Health Net leaving California?', a: 'Its commercial employer-group business is: many group plans are expected to end February 28, 2027, and Health Net says its prior authorizations "may not transfer" to the new carrier. Medi-Cal, Ambetter (Covered California) and Medicare continue.' },
       { q: 'Can I add hours to an existing Health Net ABA authorization?', a: 'Not by addendum. Health Net requires a new, complete PA request covering all codes, with a letter explaining the clinical reason; the existing authorization is ended.' },
@@ -3323,6 +3355,16 @@ export const californiaPayers: Record<string, PayerConfig> = {
           { title: 'Aetna Behavioral Health Provider Manual (8/22): access to care', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' },
         ],
       },
+      {
+        h2: 'Network participation, out-of-network referrals and disputes (Aetna)',
+        body: [
+          'Joining the network: Aetna\'s participation criteria for ABA providers require services "provided directly or supervised by individuals licensed by the state or certified by the Behavior Analyst Certification Board as board-certified behavior analysts (BCBAs)"; a BCaBA or paraprofessional works under supervision, BCBAs must meet Aetna credentialing standards, and "All BCBAs, BCaBAs and paraprofessionals must meet state requirements." The criteria do not say the ABA network is open or closed in a given state.',
+          'Out-of-network care and single case agreements: Aetna does not use the term "single case agreement" in these documents. Its behavioral health manual describes a "nonparticipating referral" — "a written or verbal request that we review" — that may be approved when a preferred clinician "isn\'t available in network (and the member\'s plan provides coverage for out-of-network services)," when the member is continuing or returning to treatment with a nonparticipating clinician "in certain circumstances," or when the PCP identifies a nonparticipating expert. Plans without referral requirements let members self-refer to participating or nonparticipating providers, paying their cost share; Aetna Open Access plans let members self-refer to any participating provider.',
+          'Disputes: payment disputes on a finalized claim go through the Availity provider portal ("Dispute Claim" from Claim Status, then the Appeals dashboard, up to five 32 MB attachments) or the Disputes and Appeals page on Aetna.com. The behavioral health manual describes "One level of appeal" for payment decisions; pre-service and concurrent medical-necessity denials go through the member appeal process, and a provider appeal counts as "on behalf of the member" only with the member\'s written authorization. State rules may change the process.',
+          'Authorizations and changing agencies: none of these Aetna documents says whether an ABA precertification is issued to the rendering NPI, the group or the TIN, or whether it moves with the child to a new agency; ask the precertification line on the member\'s card before the first session with the new agency.',
+        ],
+        cites: [{ title: 'Aetna — Provider and facility participation criteria (Applied behavior analyst (ABA) services provider additional criteria; May 2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' }, { title: 'Aetna — Behavioral Health Provider Manual (1158252-01-01, 8/22): nonparticipating referrals; dispute and appeal process', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' }, { title: 'Aetna Health Care Professional Toolkit / provider manual (8102800-01-01, 6/26): Referral policies; Claim disputes and appeals', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies; California PA carve-out may apply) vs. self-funded ERISA (national precert rule, mandate does not bind).' },
@@ -3344,6 +3386,8 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'Health & Safety Code § 1374.73 (as amended by SB 402, eff. 1/1/2026)', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=HSC&sectionNum=1374.73' },
       { title: 'Insurance Code § 10144.51 (as amended by SB 402, eff. 1/1/2026)', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=INS&sectionNum=10144.51' },
       { title: 'BACB — U.S. Licensure of Behavior Analysts', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
+      { title: 'Aetna — Provider and facility participation criteria (Applied behavior analyst (ABA) services provider additional criteria; May 2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' },
+      { title: 'Aetna — Behavioral Health Provider Manual (1158252-01-01, 8/22): nonparticipating referrals; dispute and appeal process', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -3486,6 +3530,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Will Aetna approve an out-of-network ABA provider?', a: 'Possibly, through a "nonparticipating referral" that Aetna reviews — for example when the needed clinician "isn\'t available in network (and the member\'s plan provides coverage for out-of-network services)" or the child is continuing treatment with a nonparticipating clinician. Aetna\'s manuals do not describe a single case agreement program by name.' },
       { q: 'Does Aetna cover ABA therapy in California?', a: 'Yes — for autism under Aetna’s national policy, with California’s mandate (H&S § 1374.73 / Ins. § 10144.51) on fully insured plans. Self-funded employer plans are exempt from the mandate, so verify funding type first.' },
       { q: 'Does Aetna require prior authorization for ABA in California?', a: 'Nationally yes, but Aetna’s California supplement says outpatient behavioral health on fully insured plans has not required prior authorization since March 1, 2024, without mentioning ABA. Call Aetna precertification (1-888-632-3862) for each member and keep the reference number.' },
       { q: 'Does Aetna have a Medi-Cal plan in California?', a: 'No. Aetna Better Health of California stopped operating on January 1, 2024; Medi-Cal ABA runs through the county Medi-Cal plan.' },
@@ -3612,6 +3657,16 @@ export const californiaPayers: Record<string, PayerConfig> = {
           { title: 'Cigna / Evernorth autism resource guide (March 2025): paper-claim rules', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
         ],
       },
+      {
+        h2: 'Network, out-of-network benefits, billing credentials and payment appeals (Evernorth)',
+        body: [
+          'Who may deliver and who may bill (Evernorth\'s ABA code table): 97151, 97155, 97156, 97157, 97158, 0362T and 0373T are provided and billed by a BCBA-D, BCBA or licensed mental health provider; 97152, 97153 and 97154 may be provided by a BCaBA or technician but are billed by the BCBA-D, BCBA or licensed mental health provider. "All ABA services must be billed with CPT codes 97151–97158, 0362T, and 0373T ONLY." Evernorth\'s guide names no HM/HN/HO credential modifiers.',
+          'Joining the network: Evernorth says it "is committed to expanding our network of autism providers." Individuals file the Evernorth Behavioral Provider Information Form; autism clinics and large groups file the Screening Application for Autism Clinics; "It may take up to 90 days for an application to be processed," and after the clinic contract each certified or licensed provider must be credentialed, "an additional 60 to 90 days." "Providers must be fully credentialed to render in-network services." A departing provider or roster change goes to Provider Services (800.926.2273) or the Clinic Location Changes form.',
+          'Out-of-network: it depends on the product. HMO, HMO Open Access, Cigna Connect and OAP In-Network plans cover in-network care only (emergencies aside); POS and Open Access Plus plans cover out-of-network services at a reduced benefit level. Evernorth\'s guidelines publish no single case agreement process; a family without out-of-network benefits needs an in-network provider, and Evernorth\'s care managers email in-network providers near the family to find an opening.',
+          'Payment disputes: call Provider Services first; then appeal "in writing within 180 calendar days of the date of the initial payment or denial decision" (or of the last adjustment). Fee-schedule and reimbursement disputes can go through the reconsideration feature on Provider.Evernorth.com. Medical necessity appeals should include the clinical record; untimely-filing appeals need proof of timely submission or of a COB delay. "Most appeals are resolved within 60 calendar days," with notice within 75 days unless state law differs. Some out-of-network providers must attach a patient-signed Appointment of Representative form.',
+        ],
+        cites: [{ title: 'Cigna / Evernorth autism resource guide for behavioral health providers (PCOMM-2025-225, March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026): plan types, Joining the network, Provider payment appeals', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs.' },
@@ -3630,6 +3685,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'Health & Safety Code § 1374.73 (as amended by SB 402, eff. 1/1/2026)', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=HSC&sectionNum=1374.73' },
       { title: 'Insurance Code § 10144.51 (as amended by SB 402, eff. 1/1/2026)', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=INS&sectionNum=10144.51' },
       { title: 'BACB — U.S. Licensure of Behavior Analysts', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
+      { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026): plan types, Joining the network, Provider payment appeals', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -3760,6 +3816,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Cigna pay an out-of-network ABA provider?', a: 'Only on plans with out-of-network benefits. Evernorth\'s September 2026 guidelines say HMO, Connect and OAP In-Network plans cover in-network care only, while POS and Open Access Plus plans cover out-of-network services at a reduced benefit level. Evernorth publishes no single case agreement process for ABA; its care managers help families find an in-network provider.' },
       { q: 'Does Cigna cover ABA therapy in California?', a: 'Yes — for autism under Evernorth policy EN0499, with California’s mandate on fully insured plans. Self-funded employer plans are exempt from the mandate, so verify funding type first.' },
       { q: 'Does Cigna require prior authorization for the ABA assessment?', a: 'Not for standard in-network requests (97151, 97152, 0362T) when the provider is a BCBA or independently licensed and the plan covers ABA. Treatment requires prior authorization via ABA@Evernorth.com or fax 860.687.9230.' },
       { q: 'Does Cigna have California-specific ABA rules?', a: 'No. EN0499 carves out only Virginia fully insured plans; Evernorth’s California criteria list covers mental health levels of care, not ABA. California’s mandate and SB 855 still apply to fully insured plans.' },
@@ -3896,6 +3953,17 @@ export const californiaPayers: Record<string, PayerConfig> = {
           { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial), Chapter 10: complete claim and NPI requirements', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
         ],
       },
+      {
+        h2: 'Network, single case agreements, authorizations and disputes (Optum)',
+        body: [
+          'Single case agreements: Optum\'s ABA FAQ says an SCA during credentialing is granted "Not automatically. In exception cases, based on clinical need, new business implementations, or other gaps in the network, a SCA may be approved after review with the clinical team." Once an SCA provider becomes contracted, it sends its current member list to its Network Manager to have the authorizations updated. Out-of-network providers bill on the standard Form 1500.',
+          'Joining the network: Optum lists its ABA contracting criteria (a BCBA with state licensure where the state licenses behavior analysts, six months of supervised ABA experience, $1 million/$1 million professional liability for an individual; $1 million/$3 million plus general or supplemental liability for a group). Credentialing "can take from 45 to 120 days after submission of all materials," and every new ABA agency needs an Optum site audit that "can take up to 90 days to schedule." None of these Optum documents says the ABA network is closed to new providers.',
+          'Whose authorization it is: when an agency is credentialed, "their affiliated clinicians are not credentialed but are considered participating under the agency\'s Participation Agreement," but "Any claims submission for a rendering clinician who has not been added to the network is subject to denial." Approvals are issued in code clusters (assessment 97151/97152; direct care 97153/97154; multi-staff 0362T/0373T; QHP services 97155–97158) and units "can shift" within a cluster. Optum publishes no rule on moving an authorization from one agency to another; "All services require prior approval," so a new agency calls the ABA team for its own approval.',
+          'Credential modifiers (commercial ABA program): HM = RBT (less than a bachelor\'s), HN = BCaBA (bachelor\'s), HO = master\'s-level BCBA or licensed mental health provider, HP = BCBA-D or doctoral-level licensee; one provider-level modifier per line. 0362T and 0373T are listed as codes "that do not require modifiers."',
+          'Disputes: network providers follow a 2-step process — Step 1 reconsideration, Step 2 appeal — with "a total of 12 months for submission for both steps" unless state law or the Participation Agreement sets another deadline. Send "member-specific treatment plans, clinical records, payment appendices or other items that support why you believe our decision was incorrect," plus proof the claim was filed on time; mail to Optum Behavioral Health Solutions, P.O. Box 30757, Salt Lake City, UT 84123, or use Provider Express. Non-urgent clinical appeals have a 180-day window.',
+        ],
+        cites: [{ title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' }, { title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): network status of group clinicians; Provider Reconsideration and Appeal Process', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }, { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured California plan (mandate + Optum’s California criteria) vs. self-funded ERISA (national Optum criteria).' },
@@ -3919,6 +3987,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'BACB — U.S. Licensure of Behavior Analysts', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
       { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
       { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
+      { title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): network status of group clinicians; Provider Reconsideration and Appeal Process', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -4055,6 +4124,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare / Optum give single case agreements for ABA?', a: 'Not automatically. Optum\'s ABA FAQ says an SCA may be approved "In exception cases, based on clinical need, new business implementations, or other gaps in the network" after review with the clinical team. Credentialing takes 45 to 120 days, and new agencies also need a site audit.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in California?', a: 'Yes — through Optum Behavioral Health, for autism, with prior authorization on every ABA service. Fully insured California plans also fall under the state mandate and Optum’s California-specific criteria.' },
       { q: 'Can UHC deny ABA because the child has an IEP?', a: 'Not on that basis alone for California commercial members: Optum’s California State Mandates entry and H&S § 1374.72(h) bar limiting coverage because special education, an IEP or Medicaid could provide the service.' },
       { q: 'Does UnitedHealthcare have a Medi-Cal plan in California?', a: 'No — no UnitedHealthcare Medi-Cal plan operates in any county in 2026. Medi-Cal ABA runs through the county Medi-Cal plan.' },

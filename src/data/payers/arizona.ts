@@ -231,6 +231,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'AHCCCS — Covered Behavioral Health Services Guide (updated 10/01/2026)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/AHCCCSCoveredBHServicesManual.pdf' },
       { title: 'AHCCCS Medical Coding Newsletter — October 2026 (New Codes for 2027; Disallow Table)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/MedicalCodingNewsletterOct2026.pdf' },
       { title: 'AHCCCS — Medical Coding Resources (coding newsletters, B2 Matrix, Disallow Table, CBHSG)', url: 'https://www.azahcccs.gov/PlansProviders/MedicalCodingResources.html' },
+      { title: 'A.R.S. § 32-3293 — Licensed clinical social worker; licensure (Title 32, Chapter 33)', url: 'https://www.azleg.gov/ars/32/03293.htm' },
     ],
     intakeGates: {
       ageLimit: {
@@ -247,9 +248,9 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'AMPM 320-S gates on who recommends ABA, not on who diagnoses: services must be "prescribed or recommended... by a qualified BHP." A Behavioral Health Professional is defined as an individual licensed under A.R.S. Title 32, Chapter 33 whose scope allows independent behavioral health practice (or practice under direct supervision, except a licensed substance abuse technician); a psychiatrist (A.R.S. § 36-501); a psychologist (A.R.S. § 32-2061); a physician; a Behavior Analyst (A.R.S. § 32-2091); a registered nurse practitioner licensed as an adult psychiatric and mental health nurse; or a registered nurse with psychiatric-mental health certification or one year of behavioral health experience.',
+          'AMPM 320-S gates on who recommends ABA, not on who diagnoses: services must be "prescribed or recommended... by a qualified BHP." A Behavioral Health Professional is defined as an individual licensed under A.R.S. Title 32, Chapter 33 whose scope allows independent behavioral health practice (or practice under direct supervision, except a licensed substance abuse technician); a psychiatrist (A.R.S. § 36-501); a psychologist (A.R.S. § 32-2061); a physician; a Behavior Analyst (A.R.S. § 32-2091); a registered nurse practitioner licensed as an adult psychiatric and mental health nurse; or a registered nurse with psychiatric-mental health certification or one year of behavioral health experience.' + ' LCSW: AMPM 320-S never limits who diagnoses; what it requires is a prescription or recommendation from a Behavioral Health Professional, a term that covers a person licensed under A.R.S. Title 32, Chapter 33 whose scope allows independent behavioral health practice — the chapter under which Arizona licenses clinical social workers (A.R.S. § 32-3293). So an independently licensed LCSW can recommend ABA under the AHCCCS rule.',
         status: 'verified',
-        cites: [{ title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' }],
+        cites: [{ title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' }, { title: 'A.R.S. § 32-3293 — Licensed clinical social worker; licensure (Title 32, Chapter 33)', url: 'https://www.azleg.gov/ars/32/03293.htm' }],
       },
       diagnosticTools: {
         value:
@@ -529,6 +530,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'AHCCCS — Modifier List and Descriptions (Medical Coding Resources, 2024)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/AHCCCS_ModifiersList2024.pdf' },
       { title: 'AHCCCS — Final Applied Behavior Analysis (ABA) Fee Schedule, FFY26 (eff. 10/01/2025; last updated 6/30/2026, TJ rate added)', url: 'https://azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA/FY26_Final_ABA_FeeSchedule.xlsx' },
       { title: 'AHCCCS Medical Coding Unit — Code Closure memo: 0362T and 0373T not allowed from July 1, 2023 (6/21/2023)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/MEMO-0362T_0373T-CodeClosure.pdf' },
+      { title: 'A.R.S. § 32-3293 — Licensed clinical social worker; licensure (Title 32, Chapter 33)', url: 'https://www.azleg.gov/ars/32/03293.htm' },
     ],
     intakeGates: {
       ageLimit: {
@@ -551,11 +553,12 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'Follows the AHCCCS rule — Mercy Care runs no separate medical-necessity policy and links AMPM 320-S as its criteria: AMPM 320-S gates on who recommends ABA, not on who diagnoses: services must be "prescribed or recommended... by a qualified BHP." A Behavioral Health Professional is defined as an individual licensed under A.R.S. Title 32, Chapter 33 whose scope allows independent behavioral health practice (or practice under direct supervision, except a licensed substance abuse technician); a psychiatrist (A.R.S. § 36-501); a psychologist (A.R.S. § 32-2061); a physician; a Behavior Analyst (A.R.S. § 32-2091); a registered nurse practitioner licensed as an adult psychiatric and mental health nurse; or a registered nurse with psychiatric-mental health certification or one year of behavioral health experience.',
+          'Follows the AHCCCS rule — Mercy Care runs no separate medical-necessity policy and links AMPM 320-S as its criteria: AMPM 320-S gates on who recommends ABA, not on who diagnoses: services must be "prescribed or recommended... by a qualified BHP." A Behavioral Health Professional is defined as an individual licensed under A.R.S. Title 32, Chapter 33 whose scope allows independent behavioral health practice (or practice under direct supervision, except a licensed substance abuse technician); a psychiatrist (A.R.S. § 36-501); a psychologist (A.R.S. § 32-2061); a physician; a Behavior Analyst (A.R.S. § 32-2091); a registered nurse practitioner licensed as an adult psychiatric and mental health nurse; or a registered nurse with psychiatric-mental health certification or one year of behavioral health experience.' + ' LCSW: AMPM 320-S never limits who diagnoses; what it requires is a prescription or recommendation from a Behavioral Health Professional, a term that covers a person licensed under A.R.S. Title 32, Chapter 33 whose scope allows independent behavioral health practice — the chapter under which Arizona licenses clinical social workers (A.R.S. § 32-3293). So an independently licensed LCSW can recommend ABA under the AHCCCS rule.',
         status: 'verified',
         cites: [
           { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
           { title: 'Mercy Care — Applied Behavior Analysis provider page', url: 'https://www.mercycareaz.org/providers/applied-behavior-analysis.html' },
+          { title: 'A.R.S. § 32-3293 — Licensed clinical social worker; licensure (Title 32, Chapter 33)', url: 'https://www.azleg.gov/ars/32/03293.htm' },
         ],
       },
       diagnosticTools: {
@@ -849,6 +852,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'AHCCCS Behavioral Health Services Matrix (B2Matrix, October 2026 sheet)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/B2Matrix.xlsx' },
       { title: 'AHCCCS — Final Applied Behavior Analysis (ABA) Fee Schedule, FFY26 (eff. 10/01/2025; last updated 6/30/2026, TJ rate added)', url: 'https://azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA/FY26_Final_ABA_FeeSchedule.xlsx' },
       { title: 'AHCCCS Medical Coding Unit — Code Closure memo: 0362T and 0373T not allowed from July 1, 2023 (6/21/2023)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/MEMO-0362T_0373T-CodeClosure.pdf' },
+      { title: 'A.R.S. § 32-3293 — Licensed clinical social worker; licensure (Title 32, Chapter 33)', url: 'https://www.azleg.gov/ars/32/03293.htm' },
     ],
     intakeGates: {
       ageLimit: {
@@ -871,9 +875,9 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          '"Diagnosed with a condition for which ABA-based therapy services are recognized as therapeutically appropriate, including autism spectrum disorder, by a qualified health care professional. ASD diagnosis is not required for ABA services for Arizona Medicaid members." That last sentence is the one to quote in any diagnosis-gate dispute.',
+          '"Diagnosed with a condition for which ABA-based therapy services are recognized as therapeutically appropriate, including autism spectrum disorder, by a qualified health care professional. ASD diagnosis is not required for ABA services for Arizona Medicaid members." That last sentence is the one to quote in any diagnosis-gate dispute.' + ' LCSW: not named — Optum’s Arizona orientation asks only for a diagnosis “by a qualified health care professional” and says an ASD diagnosis is not required for Arizona Medicaid; AHCCCS’s AMPM 320-S lets an independently licensed LCSW, as a Behavioral Health Professional, recommend ABA.',
         status: 'verified',
-        cites: [{ title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation (BH4129)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' }],
+        cites: [{ title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation (BH4129)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' }, { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' }, { title: 'A.R.S. § 32-3293 — Licensed clinical social worker; licensure (Title 32, Chapter 33)', url: 'https://www.azleg.gov/ars/32/03293.htm' }],
       },
       diagnosticTools: {
         value:
@@ -1156,6 +1160,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'AHCCCS Behavioral Health Services Matrix (B2Matrix, October 2026 sheet)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/B2Matrix.xlsx' },
       { title: 'AHCCCS — Final Applied Behavior Analysis (ABA) Fee Schedule, FFY26 (eff. 10/01/2025; last updated 6/30/2026, TJ rate added)', url: 'https://azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA/FY26_Final_ABA_FeeSchedule.xlsx' },
       { title: 'AHCCCS Medical Coding Unit — Code Closure memo: 0362T and 0373T not allowed from July 1, 2023 (6/21/2023)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/MEMO-0362T_0373T-CodeClosure.pdf' },
+      { title: 'A.R.S. § 32-3293 — Licensed clinical social worker; licensure (Title 32, Chapter 33)', url: 'https://www.azleg.gov/ars/32/03293.htm' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1178,11 +1183,12 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          '"ABA is recommended by a qualified licensed health care provider working within their scope of practice and who is qualified to diagnose ASD." The diagnosis itself must be "a confirmed autism spectrum disorder (ASD) diagnosis, according to the most current version of the [DSM] criteria or an appropriate diagnosis as otherwise specified according to state-defined ABA criteria" — that second clause is what lets a non-ASD Arizona diagnosis through under AMPM 320-S.',
+          '"ABA is recommended by a qualified licensed health care provider working within their scope of practice and who is qualified to diagnose ASD." The diagnosis itself must be "a confirmed autism spectrum disorder (ASD) diagnosis, according to the most current version of the [DSM] criteria or an appropriate diagnosis as otherwise specified according to state-defined ABA criteria" — that second clause is what lets a non-ASD Arizona diagnosis through under AMPM 320-S.' + ' LCSW: not named — CP.BH.104 requires a “qualified licensed health care provider working within their scope of practice and who is qualified to diagnose ASD,” so it turns on the LCSW’s Arizona scope; AHCCCS’s own rule (AMPM 320-S) lets an independently licensed LCSW, as a Behavioral Health Professional, recommend ABA.',
         status: 'verified',
         cites: [
           { title: 'Centene/AzCH — Clinical Policy CP.BH.104, Applied Behavior Analysis (rev. 12/24)', url: 'https://www.azcompletehealth.com/content/dam/centene/policies/behavioral-policies/CP.BH.104.pdf' },
           { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'A.R.S. § 32-3293 — Licensed clinical social worker; licensure (Title 32, Chapter 33)', url: 'https://www.azleg.gov/ars/32/03293.htm' },
         ],
       },
       diagnosticTools: {
@@ -1463,6 +1469,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'AHCCCS — Final Applied Behavior Analysis (ABA) Fee Schedule, FFY26 (eff. 10/01/2025; last updated 6/30/2026, TJ rate added)', url: 'https://azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA/FY26_Final_ABA_FeeSchedule.xlsx' },
       { title: 'AHCCCS — Rate Setting for Applied Behavioral Analysis (ABA) Services FAQ (10/31/2023)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA_RateSettingFAQs.pdf' },
       { title: 'AHCCCS Medical Coding Unit — Code Closure memo: 0362T and 0373T not allowed from July 1, 2023 (6/21/2023)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/MEMO-0362T_0373T-CodeClosure.pdf' },
+      { title: 'A.R.S. § 32-3293 — Licensed clinical social worker; licensure (Title 32, Chapter 33)', url: 'https://www.azleg.gov/ars/32/03293.htm' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1485,11 +1492,12 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'Follows the AHCCCS rule — Banner publishes no distinct ABA clinical policy, only its own ABA Prior Authorization Form: AMPM 320-S gates on who recommends ABA, not on who diagnoses: services must be "prescribed or recommended... by a qualified BHP." A Behavioral Health Professional is defined as an individual licensed under A.R.S. Title 32, Chapter 33 whose scope allows independent behavioral health practice (or practice under direct supervision, except a licensed substance abuse technician); a psychiatrist (A.R.S. § 36-501); a psychologist (A.R.S. § 32-2061); a physician; a Behavior Analyst (A.R.S. § 32-2091); a registered nurse practitioner licensed as an adult psychiatric and mental health nurse; or a registered nurse with psychiatric-mental health certification or one year of behavioral health experience.',
+          'Follows the AHCCCS rule — Banner publishes no distinct ABA clinical policy, only its own ABA Prior Authorization Form: AMPM 320-S gates on who recommends ABA, not on who diagnoses: services must be "prescribed or recommended... by a qualified BHP." A Behavioral Health Professional is defined as an individual licensed under A.R.S. Title 32, Chapter 33 whose scope allows independent behavioral health practice (or practice under direct supervision, except a licensed substance abuse technician); a psychiatrist (A.R.S. § 36-501); a psychologist (A.R.S. § 32-2061); a physician; a Behavior Analyst (A.R.S. § 32-2091); a registered nurse practitioner licensed as an adult psychiatric and mental health nurse; or a registered nurse with psychiatric-mental health certification or one year of behavioral health experience.' + ' LCSW: AMPM 320-S never limits who diagnoses; what it requires is a prescription or recommendation from a Behavioral Health Professional, a term that covers a person licensed under A.R.S. Title 32, Chapter 33 whose scope allows independent behavioral health practice — the chapter under which Arizona licenses clinical social workers (A.R.S. § 32-3293). So an independently licensed LCSW can recommend ABA under the AHCCCS rule.',
         status: 'verified',
         cites: [
           { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
           { title: 'Banner Health Plans — behavioral health materials and forms', url: 'https://www.bannerhealth.com/bhpprovider/resources/bh/materials' },
+          { title: 'A.R.S. § 32-3293 — Licensed clinical social worker; licensure (Title 32, Chapter 33)', url: 'https://www.azleg.gov/ars/32/03293.htm' },
         ],
       },
       diagnosticTools: {
@@ -1794,6 +1802,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'AHCCCS — Final Applied Behavior Analysis (ABA) Fee Schedule, FFY26 (eff. 10/01/2025; last updated 6/30/2026, TJ rate added)', url: 'https://azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA/FY26_Final_ABA_FeeSchedule.xlsx' },
       { title: 'AHCCCS Medical Coding Unit — Code Closure memo: 0362T and 0373T not allowed from July 1, 2023 (6/21/2023)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/MEMO-0362T_0373T-CodeClosure.pdf' },
       { title: 'BCBSAZ Health Choice — Prior Authorization Grid (effective 05/01/26, revised 03/30/2026)', url: 'https://assets.azblue.com/asset/f9a260bc-3938-4816-941e-8305ec3595e6/BCBSAZ-Health-Choice-PA-Grid-eff-5-1-26.docx' },
+      { title: 'A.R.S. § 32-3293 — Licensed clinical social worker; licensure (Title 32, Chapter 33)', url: 'https://www.azleg.gov/ars/32/03293.htm' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1816,11 +1825,12 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'Follows the AHCCCS rule — BCBSAZ Health Choice publishes no distinct ABA clinical policy, running prior authorization from frequently revised PA grids instead: AMPM 320-S gates on who recommends ABA, not on who diagnoses: services must be "prescribed or recommended... by a qualified BHP." A Behavioral Health Professional is defined as an individual licensed under A.R.S. Title 32, Chapter 33 whose scope allows independent behavioral health practice (or practice under direct supervision, except a licensed substance abuse technician); a psychiatrist (A.R.S. § 36-501); a psychologist (A.R.S. § 32-2061); a physician; a Behavior Analyst (A.R.S. § 32-2091); a registered nurse practitioner licensed as an adult psychiatric and mental health nurse; or a registered nurse with psychiatric-mental health certification or one year of behavioral health experience.',
+          'Follows the AHCCCS rule — BCBSAZ Health Choice publishes no distinct ABA clinical policy, running prior authorization from frequently revised PA grids instead: AMPM 320-S gates on who recommends ABA, not on who diagnoses: services must be "prescribed or recommended... by a qualified BHP." A Behavioral Health Professional is defined as an individual licensed under A.R.S. Title 32, Chapter 33 whose scope allows independent behavioral health practice (or practice under direct supervision, except a licensed substance abuse technician); a psychiatrist (A.R.S. § 36-501); a psychologist (A.R.S. § 32-2061); a physician; a Behavior Analyst (A.R.S. § 32-2091); a registered nurse practitioner licensed as an adult psychiatric and mental health nurse; or a registered nurse with psychiatric-mental health certification or one year of behavioral health experience.' + ' LCSW: AMPM 320-S never limits who diagnoses; what it requires is a prescription or recommendation from a Behavioral Health Professional, a term that covers a person licensed under A.R.S. Title 32, Chapter 33 whose scope allows independent behavioral health practice — the chapter under which Arizona licenses clinical social workers (A.R.S. § 32-3293). So an independently licensed LCSW can recommend ABA under the AHCCCS rule.',
         status: 'verified',
         cites: [
           { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
           { title: 'Health Choice Arizona — PA guidelines (grids)', url: 'https://www.healthchoiceaz.com/providers/pa-guidelines' },
+          { title: 'A.R.S. § 32-3293 — Licensed clinical social worker; licensure (Title 32, Chapter 33)', url: 'https://www.azleg.gov/ars/32/03293.htm' },
         ],
       },
       diagnosticTools: {
@@ -2105,6 +2115,8 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'AHCCCS — Final Applied Behavior Analysis (ABA) Fee Schedule, FFY26 (eff. 10/01/2025; last updated 6/30/2026, TJ rate added)', url: 'https://azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA/FY26_Final_ABA_FeeSchedule.xlsx' },
       { title: 'AHCCCS — Rate Setting for Applied Behavioral Analysis (ABA) Services FAQ (10/31/2023)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA_RateSettingFAQs.pdf' },
       { title: 'AHCCCS Medical Coding Unit — Code Closure memo: 0362T and 0373T not allowed from July 1, 2023 (6/21/2023)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/MEMO-0362T_0373T-CodeClosure.pdf' },
+      { title: 'A.R.S. § 32-3293 — Licensed clinical social worker; licensure (Title 32, Chapter 33)', url: 'https://www.azleg.gov/ars/32/03293.htm' },
+      { title: 'Molina Healthcare of Arizona — Prior Auth and Pre-Service Review Guide', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/AZ/prior-auth/MHAZ-Prior-Auth-and-Pre-Service-Review-Guide-508.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2127,11 +2139,12 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'Follows the AHCCCS rule — Molina publishes no distinct ABA clinical policy, only its Prior Auth and Pre-Service Review Guide: AMPM 320-S gates on who recommends ABA, not on who diagnoses: services must be "prescribed or recommended... by a qualified BHP." A Behavioral Health Professional is defined as an individual licensed under A.R.S. Title 32, Chapter 33 whose scope allows independent behavioral health practice (or practice under direct supervision, except a licensed substance abuse technician); a psychiatrist (A.R.S. § 36-501); a psychologist (A.R.S. § 32-2061); a physician; a Behavior Analyst (A.R.S. § 32-2091); a registered nurse practitioner licensed as an adult psychiatric and mental health nurse; or a registered nurse with psychiatric-mental health certification or one year of behavioral health experience.',
+          'Follows the AHCCCS rule — Molina publishes no distinct ABA clinical policy, only its Prior Auth and Pre-Service Review Guide: AMPM 320-S gates on who recommends ABA, not on who diagnoses: services must be "prescribed or recommended... by a qualified BHP." A Behavioral Health Professional is defined as an individual licensed under A.R.S. Title 32, Chapter 33 whose scope allows independent behavioral health practice (or practice under direct supervision, except a licensed substance abuse technician); a psychiatrist (A.R.S. § 36-501); a psychologist (A.R.S. § 32-2061); a physician; a Behavior Analyst (A.R.S. § 32-2091); a registered nurse practitioner licensed as an adult psychiatric and mental health nurse; or a registered nurse with psychiatric-mental health certification or one year of behavioral health experience.' + ' LCSW: AMPM 320-S never limits who diagnoses; what it requires is a prescription or recommendation from a Behavioral Health Professional, a term that covers a person licensed under A.R.S. Title 32, Chapter 33 whose scope allows independent behavioral health practice — the chapter under which Arizona licenses clinical social workers (A.R.S. § 32-3293). So an independently licensed LCSW can recommend ABA under the AHCCCS rule.',
         status: 'verified',
         cites: [
           { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
           { title: 'Molina Healthcare of Arizona — Prior Auth and Pre-Service Review Guide', url: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/az/Forms/MHAZ-Prior-Auth-and-Pre-Service-Review-Guide-508.pdf' },
+          { title: 'A.R.S. § 32-3293 — Licensed clinical social worker; licensure (Title 32, Chapter 33)', url: 'https://www.azleg.gov/ars/32/03293.htm' },
         ],
       },
       diagnosticTools: {
@@ -2267,6 +2280,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { q: 'Can an out-of-state BCBA treat Molina members in Arizona, including by telehealth?', a: 'Arizona requires a license (A.R.S. § 32-2091.02) but lets an out-of-state provider deliver telehealth after registering under A.R.S. § 36-3606. AHCCCS defines a Behavior Analyst as one licensed under A.R.S. § 32-2091, so plan on an Arizona license for Medicaid work.' },
       { q: 'What is Molina Healthcare of Arizona’s timely filing limit for AHCCCS ABA claims?', a: 'Six months from the date of service (or from the date eligibility is posted, if later), and twelve months to reach clean-claim status. A.R.S. § 36-2904(G) sets those limits for every AHCCCS contracted health plan, Molina Healthcare of Arizona included; the plan’s payment terms are in its contract and provider manual.' },
       { q: 'What do the HM, HN, HO and HP modifiers mean on an Arizona Medicaid ABA claim?', a: 'They mark the education level of whoever delivered the service, as AHCCCS defines them: HM less than bachelor’s degree, HN bachelor’s, HO master’s, HP doctoral. On the AHCCCS fee-for-service schedule they price 97153 at $17.91, $21.32, $23.69 and $23.69 per 15 minutes; the plan pays its contracted rate. AHCCCS does not map them to RBT/BCaBA/BCBA, so confirm the tier for a bachelor’s-level technician with the plan.' },
+      { q: 'Can an out-of-network ABA provider see a Molina Arizona member?', a: 'Only with authorization: Molina’s Arizona Prior Auth and Pre-Service Review Guide says “Non-PAR provider services require authorizations regardless of services provided or codes submitted,” except emergency and family planning services or as required by law. It publishes no out-of-network ABA rate.' },
     ],
   },
 
@@ -2426,6 +2440,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'AHCCCS — Modifier List and Descriptions (Medical Coding Resources, 2024)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/AHCCCS_ModifiersList2024.pdf' },
       { title: 'AHCCCS — Final Applied Behavior Analysis (ABA) Fee Schedule, FFY26 (eff. 10/01/2025; last updated 6/30/2026, TJ rate added)', url: 'https://azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA/FY26_Final_ABA_FeeSchedule.xlsx' },
       { title: 'AHCCCS Medical Coding Unit — Code Closure memo: 0362T and 0373T not allowed from July 1, 2023 (6/21/2023)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/MEMO-0362T_0373T-CodeClosure.pdf' },
+      { title: 'A.R.S. § 32-3293 — Licensed clinical social worker; licensure (Title 32, Chapter 33)', url: 'https://www.azleg.gov/ars/32/03293.htm' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2448,11 +2463,12 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'Identical to the ACC path — AMPM 320-S applies to DES/DDD by its own terms, and authorization then runs through the member\'s chosen DDD Health Plan (Mercy Care DD or UHCCP DD) on that plan\'s ABA machinery: AMPM 320-S gates on who recommends ABA, not on who diagnoses: services must be "prescribed or recommended... by a qualified BHP." A Behavioral Health Professional is defined as an individual licensed under A.R.S. Title 32, Chapter 33 whose scope allows independent behavioral health practice (or practice under direct supervision, except a licensed substance abuse technician); a psychiatrist (A.R.S. § 36-501); a psychologist (A.R.S. § 32-2061); a physician; a Behavior Analyst (A.R.S. § 32-2091); a registered nurse practitioner licensed as an adult psychiatric and mental health nurse; or a registered nurse with psychiatric-mental health certification or one year of behavioral health experience.',
+          'Identical to the ACC path — AMPM 320-S applies to DES/DDD by its own terms, and authorization then runs through the member\'s chosen DDD Health Plan (Mercy Care DD or UHCCP DD) on that plan\'s ABA machinery: AMPM 320-S gates on who recommends ABA, not on who diagnoses: services must be "prescribed or recommended... by a qualified BHP." A Behavioral Health Professional is defined as an individual licensed under A.R.S. Title 32, Chapter 33 whose scope allows independent behavioral health practice (or practice under direct supervision, except a licensed substance abuse technician); a psychiatrist (A.R.S. § 36-501); a psychologist (A.R.S. § 32-2061); a physician; a Behavior Analyst (A.R.S. § 32-2091); a registered nurse practitioner licensed as an adult psychiatric and mental health nurse; or a registered nurse with psychiatric-mental health certification or one year of behavioral health experience.' + ' LCSW: AMPM 320-S never limits who diagnoses; what it requires is a prescription or recommendation from a Behavioral Health Professional, a term that covers a person licensed under A.R.S. Title 32, Chapter 33 whose scope allows independent behavioral health practice — the chapter under which Arizona licenses clinical social workers (A.R.S. § 32-3293). So an independently licensed LCSW can recommend ABA under the AHCCCS rule.',
         status: 'verified',
         cites: [
           { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
           { title: 'DES — DDD Health Plans information', url: 'https://des.az.gov/services/disabilities/developmental-disabilities/individuals-and-families/supports-and-services/ddd-health-plans-info' },
+          { title: 'A.R.S. § 32-3293 — Licensed clinical social worker; licensure (Title 32, Chapter 33)', url: 'https://www.azleg.gov/ars/32/03293.htm' },
         ],
       },
       diagnosticTools: {
@@ -2734,6 +2750,16 @@ export const arizonaPayers: Record<string, PayerConfig> = {
           { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
         ],
       },
+      {
+        h2: 'Reconsideration and appeal: what to send',
+        body: [
+          'Aetna runs two levels. A reconsideration (“a formal review of a previous claim decision,” covering reimbursement and coding decisions) is filed within 180 calendar days of the initial claim decision, on Availity or by mail. Send “Medical records, office notes and other supporting documents” and either a completed dispute and appeal form or an explanation giving the reason for review, member ID, patient name, TIN, claim ID, dates of service and billed amounts, and the “Procedure codes and modifiers being disputed”; most answers come within 30 business days. If that fails, appeal within 60 calendar days of the reconsideration decision with a clear explanation, supporting documents, the denial letter or EOB and the original claim; a valid appeal needs the dispute and appeal form (not required on Availity), the denied codes or payments identified, and the records. Aetna decides within 60 calendar days. The 180-day standard can differ for fully insured plans in states on Aetna’s exception list.',
+        ],
+        cites: [
+          { title: 'Aetna — Disputes and appeals overview (reconsideration and appeal time frames and contents)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' },
+          { title: 'Aetna — Provider appeals: state exceptions to the 180-day dispute filing standard', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/provider-appeals.html' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured group (mandate applies) vs. self-funded ERISA (exempt) vs. individual/small-group (EHB benchmark) — it decides which rulebook governs.' },
@@ -2759,6 +2785,8 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'A.R.S. § 20-3102 — Timely payment of health care provider claims', url: 'https://www.azleg.gov/ars/20/03102.htm' },
       { title: 'Aetna — Provider manual (8102800-01-01, 6/26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
       { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+      { title: 'Aetna — Disputes and appeals overview (reconsideration and appeal time frames and contents)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' },
+      { title: 'Aetna — Provider appeals: state exceptions to the 180-day dispute filing standard', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/provider-appeals.html' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2782,7 +2810,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          '"There is a DSM-V diagnosis of Autism Spectrum Disorder (ICD-10/ F84.0; F84.3 - F84.9) obtained by an appropriate provider (i.e. licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice)." Note the code set the guide actually prints: F84.0 plus F84.3–F84.9, which leaves out F84.1 and F84.2.',
+          '"There is a DSM-V diagnosis of Autism Spectrum Disorder (ICD-10/ F84.0; F84.3 - F84.9) obtained by an appropriate provider (i.e. licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice)." Note the code set the guide actually prints: F84.0 plus F84.3–F84.9, which leaves out F84.1 and F84.2.' + ' LCSW: not named. Aetna accepts a diagnosis from a “licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice,” so an LCSW qualifies only where state law puts that diagnosis within LCSW scope.',
         status: 'verified',
         cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
       },
@@ -3037,6 +3065,15 @@ export const arizonaPayers: Record<string, PayerConfig> = {
           { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191) — telehealth claim coding', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
         ],
       },
+      {
+        h2: 'Reconsideration and appeal: what to send',
+        body: [
+          'Evernorth (Cigna behavioral health) asks you to call Provider Services first with the patient’s name, date of service and the treating provider’s name and TIN. If the claim stands, file a written appeal within 180 calendar days of the initial payment or denial (or of the last payment adjustment). Fee-schedule and reimbursement disputes can go through the reconsideration feature on Provider.Evernorth.com. For a medical-necessity denial include the clinical record; for a timely-filing denial include the EDI transmission report or proof the delay came from coordination of benefits; for a late-payment dispute include proof of when you submitted. Appeals must be filed by a person, not by automation software. Most are resolved within 60 calendar days, with notice within 75 days unless state law says otherwise, and arbitration is the final step.',
+        ],
+        cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191): Provider payment appeals', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured group (mandate applies) vs. self-funded ERISA (exempt) vs. individual/small-group (EHB benchmark) — it decides which rulebook governs.' },
@@ -3081,7 +3118,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          '"A confirmed diagnosis of autism spectrum disorder (ASD); (ICD-10-CM Diagnosis Codes F84.0 – F84.9, with the exception of F84.2, Rett syndrome) based on the criteria in the DSM-5-TR by a healthcare professional who is licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice." The ABA assessment itself is then performed by a BCBA, LBA, or an independently licensed mental health clinician with documented ABA training.',
+          '"A confirmed diagnosis of autism spectrum disorder (ASD); (ICD-10-CM Diagnosis Codes F84.0 – F84.9, with the exception of F84.2, Rett syndrome) based on the criteria in the DSM-5-TR by a healthcare professional who is licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice." The ABA assessment itself is then performed by a BCBA, LBA, or an independently licensed mental health clinician with documented ABA training.' + ' LCSW: not named. EN0499 accepts a professional “licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice,” so an independently licensed LCSW qualifies only if the state social-work board treats diagnosis as within scope.',
         status: 'verified',
         cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
       },
@@ -3340,6 +3377,15 @@ export const arizonaPayers: Record<string, PayerConfig> = {
           { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial), Chapter 10: complete claim and NPI requirements', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
         ],
       },
+      {
+        h2: 'Reconsideration and appeal: what to send',
+        body: [
+          'Optum, which handles UnitedHealthcare’s behavioral claims, uses a two-step process for commercial claims: reconsideration first, then appeal, within a combined 12 months unless state law or your participation agreement sets a different deadline. Include “member-specific treatment plans, clinical records, payment appendices or other items that support why you believe our decision was incorrect,” plus proof that the claim was received and accepted within your timely filing limit. File online in the Provider Express secure portal (Appeals > Appeals Summary & Submission, giving the factual or legal basis) or by mail with Optum’s reconsideration request form. Optum decides on the materials it has at the time of review; an overturned claim is reported on the remittance advice and an upheld one by letter.',
+        ],
+        cites: [
+          { title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): Provider Reconsideration and Appeal Process', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured group (mandate applies) vs. self-funded ERISA (exempt) vs. individual/small-group (EHB benchmark) — it decides which rulebook governs.' },
@@ -3365,6 +3411,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'A.R.S. § 36-3606 — interstate telehealth services; registration of out-of-state providers', url: 'https://www.azleg.gov/ars/36/03606.htm' },
       { title: 'A.R.S. § 36-3601 — telehealth definitions (“health care provider” includes Title 32, ch. 19.1 licensees)', url: 'https://www.azleg.gov/ars/36/03601.htm' },
       { title: 'A.R.S. § 20-3102 — Timely payment of health care provider claims', url: 'https://www.azleg.gov/ars/20/03102.htm' },
+      { title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): Provider Reconsideration and Appeal Process', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -3389,7 +3436,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          '"A valid diagnosis of ASD (or other applicable diagnosis as required by governing laws) must be issued by a state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis according to the diagnostic criteria based on the DSM-5-TR." The diagnosing clinician must also confirm and document the severity level.',
+          '"A valid diagnosis of ASD (or other applicable diagnosis as required by governing laws) must be issued by a state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis according to the diagnostic criteria based on the DSM-5-TR." The diagnosing clinician must also confirm and document the severity level.' + ' LCSW: not named. Optum accepts a diagnosis from a “state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis,” so an LCSW qualifies only where state licensure allows it.',
         status: 'verified',
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
       },

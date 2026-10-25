@@ -1,5 +1,31 @@
 import type { PayerConfig } from './types.js';
 
+/* Optum commercial: appeals packet, auth binding, switching, out-of-network (National Network Manual, read 2026-10-25). */
+const OPTUM_NNM_G5 = { title: 'Optum Behavioral Health — National Network Manual (BH02330, July 2026 edition): Provider Reconsideration and Appeal Process; Services that require prior authorization; Continuity of Care', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' };
+const OPTUM_APPEALS_BODY_G5 =
+  'Reconsiderations and appeals. Optum’s National Network Manual sets a two-step process for commercial claim and clinical prior-authorization disputes: request reconsideration first, then appeal, with “a total of 12 months for submission for both steps” unless state law or your Participation Agreement sets a different deadline. On what to send, it says: “Include member-specific treatment plans, clinical records, payment appendices or other items that support why you believe our decision was incorrect,” and decisions are made “based on the materials available at the time of the review.” Add proof that Optum received the claim within your timely-filing limit. Submit through the Provider Express secure portal, or mail the reconsideration request form and documents to Optum Behavioral Health Solutions, P.O. Box 30757, Salt Lake City, UT 84123. For non-urgent clinical appeals the manual gives a 180-day window.';
+const OPTUM_AUTH_BODY_G5 =
+  'Who holds the authorization, and switching providers. “Authorizations for non-routine outpatient services are specific to the requesting clinician,” and ABA is requested through the Provider Express portal, so an approval does not move with the child to a new agency: the new provider requests its own. When a clinician or group leaves the Optum network, it must keep treating members who choose to continue for up to 90 calendar days (or as the Participation Agreement or state law provides), or until the member moves to another Optum clinician, and Optum “will assist these members in selecting a new clinician, group or agency.” Out-of-network: the manual describes no single case agreement process for ABA; its portal is open to “out-of-network individual clinicians” and members can “Submit out-of-network claims,” but whether this plan pays out-of-network ABA, and how much, is in the member’s plan, so ask Optum on the behavioral health number on the card.';
+
+/* Evernorth (Cigna) commercial: appeals packet and out-of-network by plan type (Administrative Guidelines Sept 2026, read 2026-10-25). */
+const EBH_ADMIN_G5 = { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026): plan types; Appeals; Appeal types and filing instructions', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' };
+const EBH_APPEALS_BODY_G5 =
+  'Reconsiderations and appeals. Evernorth’s administrative guidelines say “All appeals are to be initiated in writing within 180 calendar days of the date of the initial payment or denial decision” (or of the last payment adjustment). Fee-schedule and reimbursement disputes “may be quickly resolved through submitting an adjustment request via the reconsideration feature on Provider.Evernorth.com.” For a medical-necessity denial, send the complete clinical record; for an untimely-filing denial, send the EDI transmission report or “evidence that a claim was submitted due to coordination of benefits with another carrier.” “Most appeals are resolved within 60 calendar days of receipt,” with notice within 75 days unless state law requires otherwise. Each appeal must be submitted by a person: Evernorth will not accept appeals sent by automation software.';
+const EBH_OON_BODY_G5 =
+  'Out-of-network care depends on the plan type printed on the card. The guidelines list “no out-of-network coverage, except in emergencies” for Open Access Plus In-Network and Network Open Access plans, no out-of-network coverage except emergent or urgent care for SureFit, and in-network-only HMO and HMO Open Access plans, while Open Access Plus covers out-of-network providers “at a reduced benefit level” and POS plans cover both. The guidelines mention a single-case agreement only for inpatient specialing, not ABA, so whether Evernorth will sign a single case agreement with an out-of-network ABA provider is a case-by-case question for Evernorth care management.';
+
+/* Aetna commercial: dispute packet, transition/continuity of care (office manual 6/26, read 2026-10-25). */
+const AETNA_OM_G5 = { title: 'Aetna Health Care Professional Toolkit / office manual (8102800-01-01, 6/26): Claim dispute requirements; Transition and continuity of care', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' };
+const AETNA_APPEALS_BODY_G5 =
+  'Reconsiderations, disputes and appeals. Aetna’s office manual says claim disputes must be in writing (with the Provider and Practitioner Complaint and Appeals Form if sent by fax or mail), within contractual timeframes, and must include the billed TIN and NPI, the servicing provider’s name, your patient account number, member ID, patient name and date of birth, dates of service, claim ID, total billed charges, expected reimbursement, a reference number and the “Physician/Facility rationale for dispute.” “If these requirements are not met, the original claim decision will be deemed final.” The Practitioner and Provider Complaint and Appeal Request “is a mandatory form that must accompany any written appeal.” The fastest route is the Dispute Claim button on a finalized claim in Availity.';
+const AETNA_TOC_BODY_G5 =
+  'Out-of-network providers and changing plans. Aetna offers transition of care, which lets a new member keep seeing a current out-of-network provider “at in-network cost level for a defined period of time,” and continuity of care, for a member in active treatment whose provider leaves Aetna’s network. Both require “an active course of covered treatment,” are time-limited, start with the member asking Member Services or the employer for a Transition Coverage Request Form, and do not apply to Traditional Choice plans. The manual limits them to an individual practitioner (for example a specialist or speech therapist) or a home care agency, so ask Aetna whether an ABA group qualifies. It describes no separate single case agreement process.';
+
+/* Federal Medicaid managed-care floor for out-of-network care (42 CFR 438.206(b)(4)-(5); eCFR read 2026-10-25). */
+const CFR438206_G5 = { title: '42 CFR 438.206 — Availability of services (out-of-network coverage when the network cannot provide a covered service) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' };
+const MCO_OON_BODY_G5 =
+  'Out-of-network ABA and single case agreements. Federal Medicaid managed-care rules set the floor: “If the provider network is unable to provide necessary services, covered under the contract, to a particular enrollee,” the plan “must adequately and timely cover these services out of network for the enrollee, for as long as” its network cannot provide them, must require out-of-network providers “to coordinate with” the plan for payment, and must keep the enrollee’s cost no greater than in network (42 CFR 438.206(b)(4)-(5)). That is the basis for asking for a single case agreement when no in-network ABA provider can serve the child within the plan’s access standards. The terms and rate of any such agreement are set case by case, so document the network gap (who you called, wait times) and ask the plan’s utilization management or provider contracting team.';
+
 export const kansasPayers: Record<string, PayerConfig> = {
   'kansas-medicaid': {
     slug: 'kansas-medicaid',
@@ -531,6 +557,11 @@ export const kansasPayers: Record<string, PayerConfig> = {
           { title: 'Centene CP.BH.105 — Applied Behavioral Analysis Documentation Requirements (listed on Sunflower\'s Medicaid BH clinical-policy index; revised 02/26)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/policies/clinical-policies/CP.BH.105.pdf' },
         ],
       },
+      {
+        h2: 'Out-of-network care and single case agreements',
+        body: [MCO_OON_BODY_G5],
+        cites: [CFR438206_G5],
+      },
     ],
     collect: [
       { title: 'Diagnosis date + diagnosing clinician', desc: 'KS.CP.01 says validated by an MD or licensed psychologist within the last 6 months; KMAP 26140 (eff. 11/1/2026) says no re-evaluation once a qualified diagnostician has diagnosed. Record the date and diagnostician, and ask Sunflower UM before ordering a refresh.' },
@@ -541,7 +572,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { title: 'Assessment instruments on file', desc: 'One standardized (Vineland-3, ADOS, CARS, ADI-R, GARS, ASDS) + one skills-based (VB-MAPP, ABLLS, AFLS, ASRS).' },
       { title: 'Requested intensity tier', desc: 'Focused (10–25 h/wk) vs. comprehensive (25–40 h/wk); exceeding the state soft limits needs extra documentation.' },
     ],
-    sources: [
+    sources: [ CFR438206_G5,
       { title: 'Sunflower KS.CP.01 — Applied Behavioral Analysis (clinical policy)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/policies/clinical-policies/KS.CP.01-Applied-Behavioral-Analysis.pdf' },
       { title: 'KMAP Bulletin 19029 — Rate Increase for Autism Services (state CCTS/IIS limits)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-19029.html' },
       { title: 'KMAP Bulletin 26140 — ASD diagnosis credential requirement (issued 8/12/2026; reissued 8/31/2026, eff. 11/1/2026)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-26140.html' },
@@ -832,6 +863,11 @@ export const kansasPayers: Record<string, PayerConfig> = {
           { title: 'UHC/Optum — KanCare ASD getting-started guide (BH00567_10102024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/ksABA/ksHowToAuth.pdf' },
         ],
       },
+      {
+        h2: 'Out-of-network care and single case agreements',
+        body: [MCO_OON_BODY_G5],
+        cites: [CFR438206_G5],
+      },
     ],
     collect: [
       { title: 'Diagnosis report + evaluator credentials', desc: 'Kansas BSRB-licensed clinical psychologist or qualified physician, comprehensive evaluation with DSM severity and a validated tool (ADOS/CARS) — the initial-auth gate. No recency clock: an older report from a qualified diagnostician still counts.' },
@@ -840,7 +876,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { title: 'Concurrent services', desc: 'Screen against the exclusion list (speech/OT, respite, PRTF/hospital settings, duplicated services) before submitting.' },
       { title: 'KMAP + Optum credentialing status', desc: 'KMAP enrollment first, then Optum credentialing (~60 days); CCTS needs BACB proof + the BSRB license number.' },
     ],
-    sources: [
+    sources: [ CFR438206_G5,
       { title: 'Optum — ABA State Mandates supplemental criteria (Kansas Medicaid section)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
       { title: 'UHC/Optum — KanCare ASD getting-started guide (BH00567_10102024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/ksABA/ksHowToAuth.pdf' },
       { title: 'KMAP fee schedules — interactive lookup (rate source)', url: 'https://portal.kmap-state-ks.us/PublicPage/ProviderPricing/FeeSchedules' },
@@ -1107,6 +1143,11 @@ export const kansasPayers: Record<string, PayerConfig> = {
           { title: 'KMAP General Bulletin 24125 — Autism Codes: CCTS/IIS Coverage (eff. 7/1/2024)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-24125.html' },
         ],
       },
+      {
+        h2: 'Out-of-network care and single case agreements',
+        body: [MCO_OON_BODY_G5],
+        cites: [CFR438206_G5],
+      },
     ],
     collect: [
       { title: 'Prior-payer history', desc: 'Ex-Aetna Better Health families landed here 1/1/2025 — check for transition-honored auths and stale card details.' },
@@ -1114,7 +1155,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { title: 'ASD diagnosis + physician recommendation', desc: 'The state CCTS PA baseline applies; collect the diagnostic report and practitioner recommendation up front.' },
       { title: 'Portal-verified specifics', desc: 'Hour caps and review cadence aren\'t published — confirm per case via Availity or the ABA line 877-563-9347.' },
     ],
-    sources: [
+    sources: [ CFR438206_G5,
       { title: 'Healthy Blue Kansas — Prior Authorization Requirements', url: 'https://www.healthybluekansas.com/provider/state-federal/resources/prior-authorization-requirements' },
       { title: 'Healthy Blue KS — ASD Testing request form (KSHB-CD-066296-24)', url: 'https://www.healthybluekansas.com/content/dam/digital/healthyblue/documents/provider/ks/behavioral-health/KSHB-CD-066296-24-SRS66052%20BH%20Autism%20Testing%20Request%20Form_FINAL_v2%20FILLABLE.pdf' },
       { title: 'BCBSKS — Healthy Blue collaboration announcement (JV structure)', url: 'https://www.bcbsks.com/news-release/new-healthy-blue-collaboration-aims-offer-kansans-trusted-local-medicaid-solution-2024' },
@@ -1470,6 +1511,11 @@ export const kansasPayers: Record<string, PayerConfig> = {
           { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification (GR-69017-4, 7-26; eff. 8/1/2026; not for MD or MA)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
         ],
       },
+      {
+        h2: 'Disputes, appeals and transition of care (Aetna)',
+        body: [AETNA_APPEALS_BODY_G5, AETNA_TOC_BODY_G5],
+        cites: [AETNA_OM_G5],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured large group (mandate applies) vs. self-funded ERISA (exempt) vs. small group (waiver-eligible) — it decides which rulebook governs.' },
@@ -1478,7 +1524,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis report', desc: 'DSM-5 ASD diagnosis, diagnosing provider and credentials, evaluation date.' },
       { title: 'Age + diagnosis age', desc: 'The mandate\'s under-12 limit and its 1,300-vs-520 hour tiers key off age at diagnosis — flag edge cases for parity analysis rather than turning families away.' },
     ],
-    sources: [
+    sources: [ AETNA_OM_G5,
       { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
       { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
       { title: 'Aetna — Provider and facility participation criteria (Network Participation Criteria, 8100606-01-01, 5/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' },
@@ -1802,6 +1848,11 @@ export const kansasPayers: Record<string, PayerConfig> = {
           { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
         ],
       },
+      {
+        h2: 'Appeals and out-of-network care (Evernorth)',
+        body: [EBH_APPEALS_BODY_G5, EBH_OON_BODY_G5],
+        cites: [EBH_ADMIN_G5],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured large group (mandate applies) vs. self-funded ERISA (exempt) vs. small group (waiver-eligible) — it decides which rulebook governs.' },
@@ -1809,7 +1860,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis report', desc: 'DSM-5 ASD diagnosis, diagnosing provider and credentials, evaluation date.' },
       { title: 'Age + diagnosis age', desc: 'The mandate\'s under-12 limit and its 1,300-vs-520 hour tiers key off age at diagnosis — flag edge cases for parity analysis rather than turning families away.' },
     ],
-    sources: [
+    sources: [ EBH_ADMIN_G5,
       { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
       { title: 'Cigna autism resource guide', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
       { title: 'K.S.A. 40-2,194 (Kansas Revisor of Statutes)', url: 'https://ksrevisor.gov/statutes/chapters/ch40/040_002_0194.html' },
@@ -2122,6 +2173,11 @@ export const kansasPayers: Record<string, PayerConfig> = {
           { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
         ],
       },
+      {
+        h2: 'Appeals, authorizations and changing providers (Optum)',
+        body: [OPTUM_APPEALS_BODY_G5, OPTUM_AUTH_BODY_G5],
+        cites: [OPTUM_NNM_G5],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured large group (mandate applies) vs. self-funded ERISA (exempt) vs. small group (waiver-eligible) — it decides which rulebook governs.' },
@@ -2130,7 +2186,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis report', desc: 'DSM-5-TR ASD diagnosis confirmed with a validated tool, diagnosing provider and credentials, evaluation date.' },
       { title: 'Age + diagnosis age', desc: 'The mandate\'s under-12 limit and its 1,300-vs-520 hour tiers key off age at diagnosis — flag edge cases for parity analysis rather than turning families away.' },
     ],
-    sources: [
+    sources: [ OPTUM_NNM_G5,
       { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
       { title: 'Optum — ABA State Mandates supplemental criteria (Kansas Medicaid section)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
       { title: 'K.S.A. 40-2,194 (Kansas Revisor of Statutes)', url: 'https://ksrevisor.gov/statutes/chapters/ch40/040_002_0194.html' },

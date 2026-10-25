@@ -182,10 +182,10 @@ export const ohioPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       diagnosingProviders: {
-        value: 'The ASD diagnosis must come from a documented comprehensive diagnostic evaluation by a licensed physician, psychologist, or other clinician qualified to diagnose autism, demonstrating DSM-5-TR criteria. Optum’s Ohio Medicaid supplemental criteria, which defer to the Ohio Administrative Code on practitioner requirements, restate the same bar: a valid ASD diagnosis issued by a state licensed physician, psychologist, or other state licensed clinician qualified to make such a diagnosis under DSM-5-TR. Several MCOs narrow it further — CareSource restricts the diagnosis to a child or adolescent psychiatrist, psychologist, child neurologist, or developmental pediatrician.',
+        value: 'No in-force Ohio Medicaid rule names who may diagnose ASD for ABA: OAC 5160-34-02 is not on codes.ohio.gov, and ODM’s unfiled draft defines a comprehensive diagnostic evaluation but names no diagnosing credential. The plans set their own bars: Optum’s Ohio Medicaid criteria (UnitedHealthcare Community Plan) require a valid ASD diagnosis issued by a state licensed physician, psychologist, or other state licensed clinician qualified to make such a diagnosis under DSM-5-TR, and CareSource (MM-0028) accepts a diagnosis made by a child and adolescent psychiatrist, psychologist, child neurologist or developmental pediatrician. An LCSW is not named by either.',
         status: 'verified',
         cites: [
-          { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
+          { title: 'ODM — draft ABA rule package ERF188422B (5160-34-01/-02/-03; “DRAFT - NOT YET FILED”)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Stakeholders,%20Partners/LegalandContracts/Rules/ERF188422B.pdf' },
           { title: 'Optum — Ohio Medicaid Supplemental Clinical Criteria (BH803OH012026.E, eff. 7/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/optumLOCG/ohlocg/ohMedcadLOCG.pdf' },
           { title: 'CareSource — OH MCD-MM-0028 (eff. 9/1/2026)', url: 'https://www.caresource.com/documents/medicaid-oh-policy-medical-mm-0028-20260901' },
         ],
@@ -294,13 +294,15 @@ export const ohioPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       billAsProvider: {
-        value: 'Independent practitioners are Certified Ohio Behavior Analysts (COBA, under ORC Chapter 4783) or BACB BCBAs and BCBA-Ds, enrolled with ODM as Provider Type 19, Specialty 190; BCaBAs and RBTs work under supervision. Optum’s Ohio Medicaid criteria add the claim-level detail: COBA providers must be enrolled with Ohio Medicaid as Provider Type 19, Specialty Type 190 and hold a National Provider Identifier for both the rendering provider and the group provider, and a provider not enrolled with Medicaid needs a single case agreement. The routing rule that trips Ohio intake teams is separate and firm: OhioRISE does not pay for ABA — ODM’s Mixed Services Protocol assigns claims for 97151–97158, 0362T and 0373T to the member’s Medicaid MCO or fee-for-service even when the youth is enrolled in OhioRISE.',
-        status: 'verified',
+        value: 'No in-force Ohio Medicaid ABA rule says who may bill: codes.ohio.gov has no OAC 5160-34-02 (re-checked 10/25/2026), and ODM’s July 2026 ABA presentation says the rule work was paused in 2025. ODM’s unfiled draft 5160-34-01 would make COBAs (R.C. Chapter 4783) and BACB BCBAs/BCBA-Ds the independent practitioners, with BCaBAs and RBTs as dependent providers under their supervision, and plans a separate ABA organizational provider type. Optum’s Ohio Medicaid criteria (UnitedHealthcare Community Plan) say COBA providers “must be enrolled with Ohio Medicaid as Provider Type 19, Specialty Type 190” with an NPI for both the rendering and the group provider, and that a provider not enrolled with Medicaid needs a single case agreement. One routing rule is firm and verified: OhioRISE does not pay for ABA; ODM’s Mixed Services Protocol assigns ABA claims to the member’s MCO or fee-for-service even for OhioRISE-enrolled youth.',
+        status: 'unverified',
         cites: [
-          { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
+          { title: 'ODM — draft ABA rule package ERF188422B (5160-34-01/-02/-03; “DRAFT - NOT YET FILED”)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Stakeholders,%20Partners/LegalandContracts/Rules/ERF188422B.pdf' },
           { title: 'Optum — Ohio Medicaid Supplemental Clinical Criteria (BH803OH012026.E, eff. 7/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/optumLOCG/ohlocg/ohMedcadLOCG.pdf' },
           { title: 'ODM — OhioRISE Mixed Services Protocol (4/1/2025)', url: 'https://dam.assets.ohio.gov/image/upload/v1743449666/managedcare.medicaid.ohio.gov/OhioRISE/OhioRISE_Mixed_Services_Protocol_20250401.pdf' },
         ],
+        verifyVia: 'ODM Provider Network Management (PNM) enrollment for ABA rendering and billing providers, or the plan’s provider services: confirm the provider type/specialty and NPIs the plan requires on ABA claims.',
+        blocker: 'document',
       },
     },
     faq: [
@@ -508,14 +510,11 @@ export const ohioPayers: Record<string, PayerConfig> = {
     },
     deliveryRules: {
       supervision: {
-        value: 'Follows the Ohio framework (OAC 4783-6-02: a written supervision plan in each client’s treatment plan, consultation before initiation and modification, periodic direct observation, no fixed ratio). CareSource’s own addition is on records: supervision records must be retained 5 years for COBAs or 7 years for BCBAs and RBTs after supervision ends, and claims tied to documentation discrepancies are subject to recoupment.',
+        value: 'OAC 4783-6-02 sets the Ohio supervision frame for COBAs: “The certified Ohio behavior analyst shall develop a supervision plan as a part of each client treatment plan,” naming every supervisee, with consultation before initiation and modification and periodic direct observation, and no fixed ratio. CareSource’s PY-1638 (eff. 9/1/2026) adds that “RBTs must obtain ongoing supervision for a minimum of 5% of the hours spent providing ABA services per month,” that RBT supervisors “must hold BCBA or BCaBA certification,” and that “Supervision documentation must be maintained for a minimum of 5 years following the termination of supervision.”',
         status: 'verified',
         cites: [
-          { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
-          { title: 'CareSource — OH MCD-MM-0028 (eff. 9/1/2026)', url: 'https://www.caresource.com/documents/medicaid-oh-policy-medical-mm-0028-20260901' },
-          { title: 'CareSource — OH MCD reimbursement policy PY-1638 (eff. 9/1/2026)', url: 'https://www.caresource.com/documents/medicaid-oh-policy-reimburse-py-1638-20260901' },
-          { title: 'CareSource — OH MCD-MM-0028 (eff. 9/1/2026)', url: 'https://www.caresource.com/documents/medicaid-oh-policy-medical-mm-0028-20260901' },
           { title: 'Ohio Administrative Code — rule 4783-6-02 (COBA supervision responsibilities)', url: 'https://www.law.cornell.edu/regulations/ohio/Ohio-Admin-Code-4783-6-02' },
+          { title: 'CareSource — OH MCD reimbursement policy PY-1638 (eff. 9/1/2026)', url: 'https://www.caresource.com/documents/medicaid-oh-policy-reimburse-py-1638-20260901' },
         ],
       },
       concurrentBilling: {
@@ -530,13 +529,12 @@ export const ohioPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       dailyLimits: {
-        value: 'CareSource publishes real per-day maxima, moved from MM-0028 into companion reimbursement policy PY-1638 effective 9/1/2026 with the figures unchanged: daily units follow the CMS MUE maxima — 97151 at 32, 97153 at 32, 97155 at 24 and 97156 at 16 daily units, among others. Behavioral assessments should generally not exceed 6–10 hours per 6-month period without justification, and all ABA carries medical-necessity review at baseline and every 6 months, with discontinuation triggered by no meaningful progress across two successive 6-month authorization periods.',
+        value: 'CareSource defers to the federal edit table: PY-1638 (eff. 9/1/2026) says “CareSource complies with the Centers for Medicare and Medicaid Services (CMS) medically unlikely edit (MUE) table. If CMS updates the MUE list, the update will take precedence over this policy.” The CMS Medicaid practitioner MUE table effective 10/1/2026 sets 97151 at 32, 97153 at 32, 97155 at 24 and 97156 at 16 units per date of service. Behavior identification assessments are “generally, not to exceed 6-10 hours every 6 months unless additional justification is provided,” and MM-0028 requires medical-necessity review “initially with a baseline and then every 6 months,” with titration or discontinuation when the member does not show meaningful progress “for 2 successive 6- month authorization periods.”',
         status: 'verified',
         cites: [
-          { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
+          { title: 'CareSource — OH MCD reimbursement policy PY-1638 (eff. 9/1/2026)', url: 'https://www.caresource.com/documents/medicaid-oh-policy-reimburse-py-1638-20260901' },
+          { title: 'CMS — Medicaid NCCI MUE table, practitioner services (effective 10/1/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' },
           { title: 'CareSource — OH MCD-MM-0028 (eff. 9/1/2026)', url: 'https://www.caresource.com/documents/medicaid-oh-policy-medical-mm-0028-20260901' },
-          { title: 'CareSource — OH MCD reimbursement policy PY-1638 (eff. 9/1/2026)', url: 'https://www.caresource.com/documents/medicaid-oh-policy-reimburse-py-1638-20260901' },
-          { title: 'CareSource — OH MCD reimbursement policy PY-1638 (eff. 9/1/2026)', url: 'https://www.caresource.com/documents/medicaid-oh-policy-reimburse-py-1638-20260901' },
         ],
       },
       noteSignature: {
@@ -562,15 +560,15 @@ export const ohioPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       billAsProvider: {
-        value: 'Follows the Ohio Medicaid framework (COBA or BACB BCBA/BCBA-D as the independent practitioner, ODM Provider Type 19 Specialty 190, BCaBAs and RBTs under supervision; OhioRISE never pays ABA). One rule narrowed in PY-1638: CareSource will no longer reimburse H0036 for ABA whenever a designated ABA CPT code is usable, so the older blanket acceptance of H0036 (CPST) billing from certified CBHCs in lieu of ABA CPT codes no longer holds.',
-        status: 'verified',
+        value: 'No in-force Ohio Medicaid ABA rule says who may bill: codes.ohio.gov has no OAC 5160-34-02 (re-checked 10/25/2026), and ODM’s July 2026 ABA presentation says the rule work was paused in 2025. ODM’s unfiled draft 5160-34-01 would make COBAs (R.C. Chapter 4783) and BACB BCBAs/BCBA-Ds the independent practitioners, with BCaBAs and RBTs as dependent providers under their supervision, and plans a separate ABA organizational provider type. CareSource’s own rules: PY-1638 (eff. 9/1/2026) requires billing “at the appropriate practitioner level (ie, modifiers)”, and says “CareSource will not reimburse H0036 if the provider is able to use designated ABA codes.” One routing rule is firm and verified: OhioRISE does not pay for ABA; ODM’s Mixed Services Protocol assigns ABA claims to the member’s MCO or fee-for-service even for OhioRISE-enrolled youth.',
+        status: 'unverified',
         cites: [
-          { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
-          { title: 'CareSource — OH MCD-MM-0028 (eff. 9/1/2026)', url: 'https://www.caresource.com/documents/medicaid-oh-policy-medical-mm-0028-20260901' },
-          { title: 'CareSource — OH MCD reimbursement policy PY-1638 (eff. 9/1/2026)', url: 'https://www.caresource.com/documents/medicaid-oh-policy-reimburse-py-1638-20260901' },
+          { title: 'ODM — draft ABA rule package ERF188422B (5160-34-01/-02/-03; “DRAFT - NOT YET FILED”)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Stakeholders,%20Partners/LegalandContracts/Rules/ERF188422B.pdf' },
           { title: 'CareSource — OH MCD reimbursement policy PY-1638 (eff. 9/1/2026)', url: 'https://www.caresource.com/documents/medicaid-oh-policy-reimburse-py-1638-20260901' },
           { title: 'ODM — OhioRISE Mixed Services Protocol (4/1/2025)', url: 'https://dam.assets.ohio.gov/image/upload/v1743449666/managedcare.medicaid.ohio.gov/OhioRISE/OhioRISE_Mixed_Services_Protocol_20250401.pdf' },
         ],
+        verifyVia: 'ODM Provider Network Management (PNM) enrollment for ABA rendering and billing providers, or the plan’s provider services: confirm the provider type/specialty and NPIs the plan requires on ABA claims.',
+        blocker: 'document',
       },
     },
     faq: [
@@ -711,12 +709,11 @@ export const ohioPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'Follows the Ohio Medicaid framework: the ASD diagnosis comes from a documented comprehensive diagnostic evaluation by a licensed physician, psychologist, or other clinician qualified to diagnose autism, demonstrating DSM-5-TR criteria.',
+        value: 'Buckeye’s CP.BH.104: “The documented diagnosis of ASD is established by a licensed physician, psychologist, or other licensed professional with specialized training in diagnosis and treatment of ASD, or a provider otherwise authorized under state law/regulation.” No in-force Ohio Medicaid rule adds a credential list (OAC 5160-34-02 is not on codes.ohio.gov).',
         status: 'verified',
         cites: [
-          { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
-          { title: 'Buckeye — CP.BH.104 Applied Behavior Analysis (rev. 2/2026)', url: 'https://www.buckeyehealthplan.com/content/dam/centene/Buckeye/policies/clinical-policies/CP.BH.104.pdf' },
-          { title: 'Buckeye — Autism Services Prior Authorization Request Form', url: 'https://www.buckeyehealthplan.com/content/dam/centene/Buckeye/WebsitePDFs/BehavioralHealthEducation/Medicaid-ABA-OTR-P-Form-508-6-28-23.pdf' },
+          { title: 'Buckeye Health Plan — Clinical Policy CP.BH.104, Applied Behavior Analysis', url: 'https://www.buckeyehealthplan.com/content/dam/centene/Buckeye/policies/clinical-policies/CP.BH.104.pdf' },
+          { title: 'ODM — draft ABA rule package ERF188422B (5160-34-01/-02/-03; “DRAFT - NOT YET FILED”)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Stakeholders,%20Partners/LegalandContracts/Rules/ERF188422B.pdf' },
         ],
       },
       diagnosticTools: {
@@ -823,13 +820,14 @@ export const ohioPayers: Record<string, PayerConfig> = {
         ],
       },
       billAsProvider: {
-        value: 'Follows the Ohio Medicaid framework: independent practitioners are Certified Ohio Behavior Analysts (ORC Chapter 4783) or BACB BCBAs and BCBA-Ds enrolled with ODM as Provider Type 19, Specialty 190, with BCaBAs and RBTs delivering under supervision. The routing rule holds everywhere in Ohio: OhioRISE does not pay for ABA — ODM’s Mixed Services Protocol assigns ABA claims to the member’s MCO or fee-for-service even for OhioRISE-enrolled youth.',
-        status: 'verified',
+        value: 'No in-force Ohio Medicaid ABA rule says who may bill: codes.ohio.gov has no OAC 5160-34-02 (re-checked 10/25/2026), and ODM’s July 2026 ABA presentation says the rule work was paused in 2025. ODM’s unfiled draft 5160-34-01 would make COBAs (R.C. Chapter 4783) and BACB BCBAs/BCBA-Ds the independent practitioners, with BCaBAs and RBTs as dependent providers under their supervision, and plans a separate ABA organizational provider type. The plan publishes no ABA billing-provider rule of its own that we could read. One routing rule is firm and verified: OhioRISE does not pay for ABA; ODM’s Mixed Services Protocol assigns ABA claims to the member’s MCO or fee-for-service even for OhioRISE-enrolled youth.',
+        status: 'unverified',
         cites: [
-          { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
-          { title: 'Buckeye — CP.BH.104 Applied Behavior Analysis (rev. 2/2026)', url: 'https://www.buckeyehealthplan.com/content/dam/centene/Buckeye/policies/clinical-policies/CP.BH.104.pdf' },
-          { title: 'Buckeye — Autism Services Prior Authorization Request Form', url: 'https://www.buckeyehealthplan.com/content/dam/centene/Buckeye/WebsitePDFs/BehavioralHealthEducation/Medicaid-ABA-OTR-P-Form-508-6-28-23.pdf' },
+          { title: 'ODM — draft ABA rule package ERF188422B (5160-34-01/-02/-03; “DRAFT - NOT YET FILED”)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Stakeholders,%20Partners/LegalandContracts/Rules/ERF188422B.pdf' },
+          { title: 'ODM — OhioRISE Mixed Services Protocol (4/1/2025)', url: 'https://dam.assets.ohio.gov/image/upload/v1743449666/managedcare.medicaid.ohio.gov/OhioRISE/OhioRISE_Mixed_Services_Protocol_20250401.pdf' },
         ],
+        verifyVia: 'ODM Provider Network Management (PNM) enrollment for ABA rendering and billing providers, or the plan’s provider services: confirm the provider type/specialty and NPIs the plan requires on ABA claims.',
+        blocker: 'document',
       },
     },
     faq: [
@@ -949,12 +947,13 @@ export const ohioPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       diagnosingProviders: {
-        value: 'Follows the Ohio Medicaid framework: the ASD diagnosis comes from a documented comprehensive diagnostic evaluation by a licensed physician, psychologist, or other clinician qualified to diagnose autism, demonstrating DSM-5-TR criteria.',
-        status: 'verified',
+        value: 'No in-force Ohio Medicaid rule names who may diagnose ASD for ABA: OAC 5160-34-02 is not on codes.ohio.gov, and ODM’s unfiled draft defines a comprehensive diagnostic evaluation but names no diagnosing credential. The plan publishes no diagnosing-credential rule of its own that we could read.',
+        status: 'unverified',
         cites: [
-          { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
-          { title: 'Molina OH — prior authorization page (verify via portal)', url: 'https://www.molinahealthcare.com/members/oh/en-US/mem/medicaid/overvw/care/prior-authorizations.aspx' },
+          { title: 'ODM — draft ABA rule package ERF188422B (5160-34-01/-02/-03; “DRAFT - NOT YET FILED”)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Stakeholders,%20Partners/LegalandContracts/Rules/ERF188422B.pdf' },
         ],
+        verifyVia: 'Plan utilization management / provider services: ask which credentials the plan accepts for the ASD diagnosis behind an ABA request.',
+        blocker: 'document',
       },
       diagnosticTools: {
         value: 'No plan-specific instrument list found, and the state framework names none. Other Ohio MCOs do publish lists (CareSource: ADOS, ADI-R or CARS-2; Optum for UHC Community Plan: one validated screener plus one formal tool), so confirm in this plan’s portal rather than assuming. codes.ohio.gov now returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026) rather than refusing the connection, and the chapter remains absent from the Title 5160 index, so no in-force rule text exists to read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Per ODM’s 7/30/2026 provider stakeholder presentation, the rewrite was paused in 2025 for reevaluation (budget pressure, national ABA-spend scrutiny, other-state audit findings) and the draft (ERF188422B) still carries a “DRAFT — NOT FOR FILING” header and no JCARR filing, so draft content does not govern.',
@@ -1057,12 +1056,14 @@ export const ohioPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       billAsProvider: {
-        value: 'Follows the Ohio Medicaid framework: independent practitioners are Certified Ohio Behavior Analysts (ORC Chapter 4783) or BACB BCBAs and BCBA-Ds enrolled with ODM as Provider Type 19, Specialty 190, with BCaBAs and RBTs delivering under supervision. The routing rule holds everywhere in Ohio: OhioRISE does not pay for ABA — ODM’s Mixed Services Protocol assigns ABA claims to the member’s MCO or fee-for-service even for OhioRISE-enrolled youth.',
-        status: 'verified',
+        value: 'No in-force Ohio Medicaid ABA rule says who may bill: codes.ohio.gov has no OAC 5160-34-02 (re-checked 10/25/2026), and ODM’s July 2026 ABA presentation says the rule work was paused in 2025. ODM’s unfiled draft 5160-34-01 would make COBAs (R.C. Chapter 4783) and BACB BCBAs/BCBA-Ds the independent practitioners, with BCaBAs and RBTs as dependent providers under their supervision, and plans a separate ABA organizational provider type. The plan publishes no ABA billing-provider rule of its own that we could read. One routing rule is firm and verified: OhioRISE does not pay for ABA; ODM’s Mixed Services Protocol assigns ABA claims to the member’s MCO or fee-for-service even for OhioRISE-enrolled youth.',
+        status: 'unverified',
         cites: [
-          { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
-          { title: 'Molina OH — prior authorization page (verify via portal)', url: 'https://www.molinahealthcare.com/members/oh/en-US/mem/medicaid/overvw/care/prior-authorizations.aspx' },
+          { title: 'ODM — draft ABA rule package ERF188422B (5160-34-01/-02/-03; “DRAFT - NOT YET FILED”)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Stakeholders,%20Partners/LegalandContracts/Rules/ERF188422B.pdf' },
+          { title: 'ODM — OhioRISE Mixed Services Protocol (4/1/2025)', url: 'https://dam.assets.ohio.gov/image/upload/v1743449666/managedcare.medicaid.ohio.gov/OhioRISE/OhioRISE_Mixed_Services_Protocol_20250401.pdf' },
         ],
+        verifyVia: 'ODM Provider Network Management (PNM) enrollment for ABA rendering and billing providers, or the plan’s provider services: confirm the provider type/specialty and NPIs the plan requires on ABA claims.',
+        blocker: 'document',
       },
     },
     faq: [
@@ -1180,13 +1181,13 @@ export const ohioPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       diagnosingProviders: {
-        value: 'Follows the Ohio Medicaid framework: the ASD diagnosis comes from a documented comprehensive diagnostic evaluation by a licensed physician, psychologist, or other clinician qualified to diagnose autism, demonstrating DSM-5-TR criteria.',
-        status: 'verified',
+        value: 'No in-force Ohio Medicaid rule names who may diagnose ASD for ABA: OAC 5160-34-02 is not on codes.ohio.gov, and ODM’s unfiled draft defines a comprehensive diagnostic evaluation but names no diagnosing credential. The plan publishes no diagnosing-credential rule of its own that we could read.',
+        status: 'unverified',
         cites: [
-          { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
-          { title: 'Anthem OH Medicaid — Clinical UM Guidelines list (CG-BEH-02)', url: 'https://providers.anthem.com/docs/gpp/OH_CAID_FEB23CUMG.pdf' },
-          { title: 'Anthem OH Medicaid — provider manual (10/2025)', url: 'https://providers.anthem.com/docs/gpp/OH_CAID_ProviderManual.pdf' },
+          { title: 'ODM — draft ABA rule package ERF188422B (5160-34-01/-02/-03; “DRAFT - NOT YET FILED”)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Stakeholders,%20Partners/LegalandContracts/Rules/ERF188422B.pdf' },
         ],
+        verifyVia: 'Plan utilization management / provider services: ask which credentials the plan accepts for the ASD diagnosis behind an ABA request.',
+        blocker: 'document',
       },
       diagnosticTools: {
         value: 'No plan-specific instrument list found, and the state framework names none. Other Ohio MCOs do publish lists (CareSource: ADOS, ADI-R or CARS-2; Optum for UHC Community Plan: one validated screener plus one formal tool), so confirm in this plan’s portal rather than assuming. codes.ohio.gov now returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026) rather than refusing the connection, and the chapter remains absent from the Title 5160 index, so no in-force rule text exists to read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Per ODM’s 7/30/2026 provider stakeholder presentation, the rewrite was paused in 2025 for reevaluation (budget pressure, national ABA-spend scrutiny, other-state audit findings) and the draft (ERF188422B) still carries a “DRAFT — NOT FOR FILING” header and no JCARR filing, so draft content does not govern.',
@@ -1294,13 +1295,14 @@ export const ohioPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       billAsProvider: {
-        value: 'Follows the Ohio Medicaid framework: independent practitioners are Certified Ohio Behavior Analysts (ORC Chapter 4783) or BACB BCBAs and BCBA-Ds enrolled with ODM as Provider Type 19, Specialty 190, with BCaBAs and RBTs delivering under supervision. The routing rule holds everywhere in Ohio: OhioRISE does not pay for ABA — ODM’s Mixed Services Protocol assigns ABA claims to the member’s MCO or fee-for-service even for OhioRISE-enrolled youth.',
-        status: 'verified',
+        value: 'No in-force Ohio Medicaid ABA rule says who may bill: codes.ohio.gov has no OAC 5160-34-02 (re-checked 10/25/2026), and ODM’s July 2026 ABA presentation says the rule work was paused in 2025. ODM’s unfiled draft 5160-34-01 would make COBAs (R.C. Chapter 4783) and BACB BCBAs/BCBA-Ds the independent practitioners, with BCaBAs and RBTs as dependent providers under their supervision, and plans a separate ABA organizational provider type. The plan publishes no ABA billing-provider rule of its own that we could read. One routing rule is firm and verified: OhioRISE does not pay for ABA; ODM’s Mixed Services Protocol assigns ABA claims to the member’s MCO or fee-for-service even for OhioRISE-enrolled youth.',
+        status: 'unverified',
         cites: [
-          { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
-          { title: 'Anthem OH Medicaid — Clinical UM Guidelines list (CG-BEH-02)', url: 'https://providers.anthem.com/docs/gpp/OH_CAID_FEB23CUMG.pdf' },
-          { title: 'Anthem OH Medicaid — provider manual (10/2025)', url: 'https://providers.anthem.com/docs/gpp/OH_CAID_ProviderManual.pdf' },
+          { title: 'ODM — draft ABA rule package ERF188422B (5160-34-01/-02/-03; “DRAFT - NOT YET FILED”)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Stakeholders,%20Partners/LegalandContracts/Rules/ERF188422B.pdf' },
+          { title: 'ODM — OhioRISE Mixed Services Protocol (4/1/2025)', url: 'https://dam.assets.ohio.gov/image/upload/v1743449666/managedcare.medicaid.ohio.gov/OhioRISE/OhioRISE_Mixed_Services_Protocol_20250401.pdf' },
         ],
+        verifyVia: 'ODM Provider Network Management (PNM) enrollment for ABA rendering and billing providers, or the plan’s provider services: confirm the provider type/specialty and NPIs the plan requires on ABA claims.',
+        blocker: 'document',
       },
     },
     faq: [
@@ -1678,12 +1680,13 @@ export const ohioPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       diagnosingProviders: {
-        value: 'Follows the Ohio Medicaid framework: the ASD diagnosis comes from a documented comprehensive diagnostic evaluation by a licensed physician, psychologist, or other clinician qualified to diagnose autism, demonstrating DSM-5-TR criteria.',
-        status: 'verified',
+        value: 'No in-force Ohio Medicaid rule names who may diagnose ASD for ABA: OAC 5160-34-02 is not on codes.ohio.gov, and ODM’s unfiled draft defines a comprehensive diagnostic evaluation but names no diagnosing credential. The plan publishes no diagnosing-credential rule of its own that we could read.',
+        status: 'unverified',
         cites: [
-          { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
-          { title: 'AmeriHealth Caritas OH — BH prior authorization page (verify via portal)', url: 'https://www.amerihealthcaritasoh.com/provider/resources/behavioral-prior-auth' },
+          { title: 'ODM — draft ABA rule package ERF188422B (5160-34-01/-02/-03; “DRAFT - NOT YET FILED”)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Stakeholders,%20Partners/LegalandContracts/Rules/ERF188422B.pdf' },
         ],
+        verifyVia: 'Plan utilization management / provider services: ask which credentials the plan accepts for the ASD diagnosis behind an ABA request.',
+        blocker: 'document',
       },
       diagnosticTools: {
         value: 'No plan-specific instrument list found, and the state framework names none. Other Ohio MCOs do publish lists (CareSource: ADOS, ADI-R or CARS-2; Optum for UHC Community Plan: one validated screener plus one formal tool), so confirm in this plan’s portal rather than assuming. codes.ohio.gov now returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026) rather than refusing the connection, and the chapter remains absent from the Title 5160 index, so no in-force rule text exists to read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Per ODM’s 7/30/2026 provider stakeholder presentation, the rewrite was paused in 2025 for reevaluation (budget pressure, national ABA-spend scrutiny, other-state audit findings) and the draft (ERF188422B) still carries a “DRAFT — NOT FOR FILING” header and no JCARR filing, so draft content does not govern.',
@@ -1785,12 +1788,14 @@ export const ohioPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       billAsProvider: {
-        value: 'Follows the Ohio Medicaid framework: independent practitioners are Certified Ohio Behavior Analysts (ORC Chapter 4783) or BACB BCBAs and BCBA-Ds enrolled with ODM as Provider Type 19, Specialty 190, with BCaBAs and RBTs delivering under supervision. The routing rule holds everywhere in Ohio: OhioRISE does not pay for ABA — ODM’s Mixed Services Protocol assigns ABA claims to the member’s MCO or fee-for-service even for OhioRISE-enrolled youth.',
-        status: 'verified',
+        value: 'No in-force Ohio Medicaid ABA rule says who may bill: codes.ohio.gov has no OAC 5160-34-02 (re-checked 10/25/2026), and ODM’s July 2026 ABA presentation says the rule work was paused in 2025. ODM’s unfiled draft 5160-34-01 would make COBAs (R.C. Chapter 4783) and BACB BCBAs/BCBA-Ds the independent practitioners, with BCaBAs and RBTs as dependent providers under their supervision, and plans a separate ABA organizational provider type. The plan publishes no ABA billing-provider rule of its own that we could read. One routing rule is firm and verified: OhioRISE does not pay for ABA; ODM’s Mixed Services Protocol assigns ABA claims to the member’s MCO or fee-for-service even for OhioRISE-enrolled youth.',
+        status: 'unverified',
         cites: [
-          { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
-          { title: 'AmeriHealth Caritas OH — BH prior authorization page (verify via portal)', url: 'https://www.amerihealthcaritasoh.com/provider/resources/behavioral-prior-auth' },
+          { title: 'ODM — draft ABA rule package ERF188422B (5160-34-01/-02/-03; “DRAFT - NOT YET FILED”)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Stakeholders,%20Partners/LegalandContracts/Rules/ERF188422B.pdf' },
+          { title: 'ODM — OhioRISE Mixed Services Protocol (4/1/2025)', url: 'https://dam.assets.ohio.gov/image/upload/v1743449666/managedcare.medicaid.ohio.gov/OhioRISE/OhioRISE_Mixed_Services_Protocol_20250401.pdf' },
         ],
+        verifyVia: 'ODM Provider Network Management (PNM) enrollment for ABA rendering and billing providers, or the plan’s provider services: confirm the provider type/specialty and NPIs the plan requires on ABA claims.',
+        blocker: 'document',
       },
     },
     faq: [
@@ -1905,12 +1910,13 @@ export const ohioPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       diagnosingProviders: {
-        value: 'Follows the Ohio Medicaid framework: the ASD diagnosis comes from a documented comprehensive diagnostic evaluation by a licensed physician, psychologist, or other clinician qualified to diagnose autism, demonstrating DSM-5-TR criteria.',
-        status: 'verified',
+        value: 'No in-force Ohio Medicaid rule names who may diagnose ASD for ABA: OAC 5160-34-02 is not on codes.ohio.gov, and ODM’s unfiled draft defines a comprehensive diagnostic evaluation but names no diagnosing credential. The plan publishes no diagnosing-credential rule of its own that we could read.',
+        status: 'unverified',
         cites: [
-          { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
-          { title: 'Humana Healthy Horizons OH — PA and notification list (eff. 1/1/2026)', url: 'https://assets.humana.com/is/content/humana/OH%20MCD%20PAL%20Dpdf' },
+          { title: 'ODM — draft ABA rule package ERF188422B (5160-34-01/-02/-03; “DRAFT - NOT YET FILED”)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Stakeholders,%20Partners/LegalandContracts/Rules/ERF188422B.pdf' },
         ],
+        verifyVia: 'Plan utilization management / provider services: ask which credentials the plan accepts for the ASD diagnosis behind an ABA request.',
+        blocker: 'document',
       },
       diagnosticTools: {
         value: 'No plan-specific instrument list found, and the state framework names none. Other Ohio MCOs do publish lists (CareSource: ADOS, ADI-R or CARS-2; Optum for UHC Community Plan: one validated screener plus one formal tool), so confirm in this plan’s portal rather than assuming. codes.ohio.gov now returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026) rather than refusing the connection, and the chapter remains absent from the Title 5160 index, so no in-force rule text exists to read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Per ODM’s 7/30/2026 provider stakeholder presentation, the rewrite was paused in 2025 for reevaluation (budget pressure, national ABA-spend scrutiny, other-state audit findings) and the draft (ERF188422B) still carries a “DRAFT — NOT FOR FILING” header and no JCARR filing, so draft content does not govern.',
@@ -2011,12 +2017,14 @@ export const ohioPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       billAsProvider: {
-        value: 'Follows the Ohio Medicaid framework: independent practitioners are Certified Ohio Behavior Analysts (ORC Chapter 4783) or BACB BCBAs and BCBA-Ds enrolled with ODM as Provider Type 19, Specialty 190, with BCaBAs and RBTs delivering under supervision. The routing rule holds everywhere in Ohio: OhioRISE does not pay for ABA — ODM’s Mixed Services Protocol assigns ABA claims to the member’s MCO or fee-for-service even for OhioRISE-enrolled youth.',
-        status: 'verified',
+        value: 'No in-force Ohio Medicaid ABA rule says who may bill: codes.ohio.gov has no OAC 5160-34-02 (re-checked 10/25/2026), and ODM’s July 2026 ABA presentation says the rule work was paused in 2025. ODM’s unfiled draft 5160-34-01 would make COBAs (R.C. Chapter 4783) and BACB BCBAs/BCBA-Ds the independent practitioners, with BCaBAs and RBTs as dependent providers under their supervision, and plans a separate ABA organizational provider type. The plan publishes no ABA billing-provider rule of its own that we could read. One routing rule is firm and verified: OhioRISE does not pay for ABA; ODM’s Mixed Services Protocol assigns ABA claims to the member’s MCO or fee-for-service even for OhioRISE-enrolled youth.',
+        status: 'unverified',
         cites: [
-          { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
-          { title: 'Humana Healthy Horizons OH — PA and notification list (eff. 1/1/2026)', url: 'https://assets.humana.com/is/content/humana/OH%20MCD%20PAL%20Dpdf' },
+          { title: 'ODM — draft ABA rule package ERF188422B (5160-34-01/-02/-03; “DRAFT - NOT YET FILED”)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Stakeholders,%20Partners/LegalandContracts/Rules/ERF188422B.pdf' },
+          { title: 'ODM — OhioRISE Mixed Services Protocol (4/1/2025)', url: 'https://dam.assets.ohio.gov/image/upload/v1743449666/managedcare.medicaid.ohio.gov/OhioRISE/OhioRISE_Mixed_Services_Protocol_20250401.pdf' },
         ],
+        verifyVia: 'ODM Provider Network Management (PNM) enrollment for ABA rendering and billing providers, or the plan’s provider services: confirm the provider type/specialty and NPIs the plan requires on ABA claims.',
+        blocker: 'document',
       },
     },
     faq: [

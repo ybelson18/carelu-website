@@ -194,10 +194,11 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'Confirmation of the presence of — or risk for — ASD normally comes from an approved Autism Evaluation Provider (AEP) through a comprehensive diagnostic evaluation; a targeted evaluation is used when a fully diagnosed recipient presents with behaviors changed from the last CDE, and an ASD risk evaluation when the at-risk criteria in Subsection C are met. To avoid delaying stage two and three, a recipient may instead be referred with a presumptive ASD diagnosis from any licensed practitioner whose scope of practice allows them to render an ASD diagnosis, received within three years of the referral.',
+        value: 'Confirmation of the presence of — or risk for — ASD normally comes from an approved Autism Evaluation Provider (AEP) through a comprehensive diagnostic evaluation; a targeted evaluation is used when a fully diagnosed recipient presents with behaviors changed from the last CDE, and an ASD risk evaluation when the at-risk criteria in Subsection C are met. To avoid delaying stage two and three, a recipient may instead be referred with a presumptive ASD diagnosis from any licensed practitioner whose scope of practice allows them to render an ASD diagnosis, received within three years of the referral.' + ' LCSW: no for the state evaluation — Supplement 24-13 requires an Autism Evaluation Practitioner to be a licensed doctoral-level clinical psychologist or a physician board certified or eligible in developmental-behavioral pediatrics, pediatric neurology or child or adult psychiatry. While a CDE is pending, a recipient may start with a presumptive ASD diagnosis from “any licensed provider whose scope of practice allows them to render a diagnosis of ASD” (within 3 years), with a CDE scheduled.',
         status: 'verified',
         cites: [
           { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'MAD Supplement 24-13 — Applied Behavior Analysis (ABA) Guidance (9/17/2024)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
         ],
       },
       diagnosticTools: {
@@ -454,12 +455,13 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'Follows the New Mexico Medicaid rule: an approved Autism Evaluation Provider confirms the presence of or risk for ASD through a comprehensive diagnostic, targeted or ASD risk evaluation, or the recipient is referred on a presumptive diagnosis from any licensed practitioner whose scope of practice allows an ASD diagnosis, received within three years of referral.',
+        value: 'Follows the New Mexico Medicaid rule: an approved Autism Evaluation Provider confirms the presence of or risk for ASD through a comprehensive diagnostic, targeted or ASD risk evaluation, or the recipient is referred on a presumptive diagnosis from any licensed practitioner whose scope of practice allows an ASD diagnosis, received within three years of referral.' + ' LCSW: no for the state evaluation — Supplement 24-13 requires an Autism Evaluation Practitioner to be a licensed doctoral-level clinical psychologist or a physician board certified or eligible in developmental-behavioral pediatrics, pediatric neurology or child or adult psychiatry. While a CDE is pending, a recipient may start with a presumptive ASD diagnosis from “any licensed provider whose scope of practice allows them to render a diagnosis of ASD” (within 3 years), with a CDE scheduled.',
         status: 'verified',
         cites: [
           { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
           { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
           { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+          { title: 'MAD Supplement 24-13 — Applied Behavior Analysis (ABA) Guidance (9/17/2024)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
         ],
       },
       diagnosticTools: {
@@ -728,12 +730,13 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'Follows the New Mexico Medicaid rule: an approved Autism Evaluation Provider confirms the presence of or risk for ASD through a comprehensive diagnostic, targeted or ASD risk evaluation, or the recipient is referred on a presumptive diagnosis from any licensed practitioner whose scope of practice allows an ASD diagnosis, received within three years of referral.',
+        value: 'Follows the New Mexico Medicaid rule: an approved Autism Evaluation Provider confirms the presence of or risk for ASD through a comprehensive diagnostic, targeted or ASD risk evaluation, or the recipient is referred on a presumptive diagnosis from any licensed practitioner whose scope of practice allows an ASD diagnosis, received within three years of referral.' + ' LCSW: no for the state evaluation — Supplement 24-13 requires an Autism Evaluation Practitioner to be a licensed doctoral-level clinical psychologist or a physician board certified or eligible in developmental-behavioral pediatrics, pediatric neurology or child or adult psychiatry. While a CDE is pending, a recipient may start with a presumptive ASD diagnosis from “any licensed provider whose scope of practice allows them to render a diagnosis of ASD” (within 3 years), with a CDE scheduled.',
         status: 'verified',
         cites: [
           { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
           { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
           { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+          { title: 'MAD Supplement 24-13 — Applied Behavior Analysis (ABA) Guidance (9/17/2024)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
         ],
       },
       diagnosticTools: {
@@ -998,12 +1001,13 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'Follows the New Mexico Medicaid rule: an approved Autism Evaluation Provider confirms the presence of or risk for ASD through a comprehensive diagnostic, targeted or ASD risk evaluation, or the recipient is referred on a presumptive diagnosis from any licensed practitioner whose scope of practice allows an ASD diagnosis, received within three years of referral.',
+        value: 'Follows the New Mexico Medicaid rule: an approved Autism Evaluation Provider confirms the presence of or risk for ASD through a comprehensive diagnostic, targeted or ASD risk evaluation, or the recipient is referred on a presumptive diagnosis from any licensed practitioner whose scope of practice allows an ASD diagnosis, received within three years of referral.' + ' LCSW: no for the state evaluation — Supplement 24-13 requires an Autism Evaluation Practitioner to be a licensed doctoral-level clinical psychologist or a physician board certified or eligible in developmental-behavioral pediatrics, pediatric neurology or child or adult psychiatry. While a CDE is pending, a recipient may start with a presumptive ASD diagnosis from “any licensed provider whose scope of practice allows them to render a diagnosis of ASD” (within 3 years), with a CDE scheduled.',
         status: 'verified',
         cites: [
           { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
           { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
           { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+          { title: 'MAD Supplement 24-13 — Applied Behavior Analysis (ABA) Guidance (9/17/2024)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
         ],
       },
       diagnosticTools: {
@@ -1270,12 +1274,13 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'Follows the New Mexico Medicaid rule: an approved Autism Evaluation Provider confirms the presence of or risk for ASD through a comprehensive diagnostic, targeted or ASD risk evaluation, or the recipient is referred on a presumptive diagnosis from any licensed practitioner whose scope of practice allows an ASD diagnosis, received within three years of referral.',
+        value: 'Follows the New Mexico Medicaid rule: an approved Autism Evaluation Provider confirms the presence of or risk for ASD through a comprehensive diagnostic, targeted or ASD risk evaluation, or the recipient is referred on a presumptive diagnosis from any licensed practitioner whose scope of practice allows an ASD diagnosis, received within three years of referral.' + ' LCSW: no for the state evaluation — Supplement 24-13 requires an Autism Evaluation Practitioner to be a licensed doctoral-level clinical psychologist or a physician board certified or eligible in developmental-behavioral pediatrics, pediatric neurology or child or adult psychiatry. While a CDE is pending, a recipient may start with a presumptive ASD diagnosis from “any licensed provider whose scope of practice allows them to render a diagnosis of ASD” (within 3 years), with a CDE scheduled.',
         status: 'verified',
         cites: [
           { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
           { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
           { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+          { title: 'MAD Supplement 24-13 — Applied Behavior Analysis (ABA) Guidance (9/17/2024)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
         ],
       },
       diagnosticTools: {
@@ -1552,6 +1557,16 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
           { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
         ],
       },
+      {
+        h2: 'Reconsideration and appeal: what to send',
+        body: [
+          'Aetna runs two levels. A reconsideration (“a formal review of a previous claim decision,” covering reimbursement and coding decisions) is filed within 180 calendar days of the initial claim decision, on Availity or by mail. Send “Medical records, office notes and other supporting documents” and either a completed dispute and appeal form or an explanation giving the reason for review, member ID, patient name, TIN, claim ID, dates of service and billed amounts, and the “Procedure codes and modifiers being disputed”; most answers come within 30 business days. If that fails, appeal within 60 calendar days of the reconsideration decision with a clear explanation, supporting documents, the denial letter or EOB and the original claim; a valid appeal needs the dispute and appeal form (not required on Availity), the denied codes or payments identified, and the records. Aetna decides within 60 calendar days. The 180-day standard can differ for fully insured plans in states on Aetna’s exception list.',
+        ],
+        cites: [
+          { title: 'Aetna — Disputes and appeals overview (reconsideration and appeal time frames and contents)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' },
+          { title: 'Aetna — Provider appeals: state exceptions to the 180-day dispute filing standard', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/provider-appeals.html' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -1572,6 +1587,8 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { title: 'Aetna — Behavioral Health Provider Manual', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' },
       { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
       { title: 'Aetna — Provider manual (8102800-01-01, 6/26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+      { title: 'Aetna — Disputes and appeals overview (reconsideration and appeal time frames and contents)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' },
+      { title: 'Aetna — Provider appeals: state exceptions to the 180-day dispute filing standard', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/provider-appeals.html' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1592,7 +1609,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'A DSM-5 diagnosis of Autism Spectrum Disorder (ICD-10 F84.0, F84.3–F84.9) obtained by an appropriate provider — the medical necessity guide names a licensed psychologist or psychiatrist, a physician, or another health care professional qualified to diagnose mental health conditions within their scope of practice. CPB 0648 separately lists the professionals appropriate to an ASD evaluation: board certified behavior analyst, developmental pediatrician, neurologist, occupational therapist, physical therapist, primary care provider, psychiatrist, psychologist, and speech-language pathologist and audiologist.',
+        value: 'A DSM-5 diagnosis of Autism Spectrum Disorder (ICD-10 F84.0, F84.3–F84.9) obtained by an appropriate provider — the medical necessity guide names a licensed psychologist or psychiatrist, a physician, or another health care professional qualified to diagnose mental health conditions within their scope of practice. CPB 0648 separately lists the professionals appropriate to an ASD evaluation: board certified behavior analyst, developmental pediatrician, neurologist, occupational therapist, physical therapist, primary care provider, psychiatrist, psychologist, and speech-language pathologist and audiologist.' + ' LCSW: not named. Aetna accepts a diagnosis from a “licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice,” so an LCSW qualifies only where state law puts that diagnosis within LCSW scope.',
         status: 'verified',
         cites: [
           { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
@@ -1864,6 +1881,15 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
           { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191) — telehealth claim coding', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
         ],
       },
+      {
+        h2: 'Reconsideration and appeal: what to send',
+        body: [
+          'Evernorth (Cigna behavioral health) asks you to call Provider Services first with the patient’s name, date of service and the treating provider’s name and TIN. If the claim stands, file a written appeal within 180 calendar days of the initial payment or denial (or of the last payment adjustment). Fee-schedule and reimbursement disputes can go through the reconsideration feature on Provider.Evernorth.com. For a medical-necessity denial include the clinical record; for a timely-filing denial include the EDI transmission report or proof the delay came from coordination of benefits; for a late-payment dispute include proof of when you submitted. Appeals must be filed by a person, not by automation software. Most are resolved within 60 calendar days, with notice within 75 days unless state law says otherwise, and arbitration is the final step.',
+        ],
+        cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191): Provider payment appeals', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -1900,7 +1926,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'The ASD diagnosis (ICD-10 F84.0–F84.9 except F84.2, Rett syndrome) must be made under DSM-5-TR criteria by a healthcare professional who is licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice. The ABA assessment itself is performed by a Board Certified Behavior Analyst, a Licensed Behavior Analyst, or a mental health clinician licensed to practice independently who has documented training in ABA.',
+        value: 'The ASD diagnosis (ICD-10 F84.0–F84.9 except F84.2, Rett syndrome) must be made under DSM-5-TR criteria by a healthcare professional who is licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice. The ABA assessment itself is performed by a Board Certified Behavior Analyst, a Licensed Behavior Analyst, or a mental health clinician licensed to practice independently who has documented training in ABA.' + ' LCSW: not named. EN0499 accepts a professional “licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice,” so an independently licensed LCSW qualifies only if the state social-work board treats diagnosis as within scope.',
         status: 'verified',
         cites: [
           { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
@@ -2162,6 +2188,15 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026): Continued Service Criteria', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
       },
+      {
+        h2: 'Reconsideration and appeal: what to send',
+        body: [
+          'Optum, which handles UnitedHealthcare’s behavioral claims, uses a two-step process for commercial claims: reconsideration first, then appeal, within a combined 12 months unless state law or your participation agreement sets a different deadline. Include “member-specific treatment plans, clinical records, payment appendices or other items that support why you believe our decision was incorrect,” plus proof that the claim was received and accepted within your timely filing limit. File online in the Provider Express secure portal (Appeals > Appeals Summary & Submission, giving the factual or legal basis) or by mail with Optum’s reconsideration request form. Optum decides on the materials it has at the time of review; an overturned claim is reported on the remittance advice and an upheld one by letter.',
+        ],
+        cites: [
+          { title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): Provider Reconsideration and Appeal Process', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -2201,7 +2236,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'A valid diagnosis of ASD (or other applicable diagnosis as required by governing laws) must be issued by a state licensed physician, psychologist, or other state licensed clinician qualified to make such a diagnosis according to the DSM-5-TR criteria.',
+        value: 'A valid diagnosis of ASD (or other applicable diagnosis as required by governing laws) must be issued by a state licensed physician, psychologist, or other state licensed clinician qualified to make such a diagnosis according to the DSM-5-TR criteria.' + ' LCSW: not named. Optum accepts a diagnosis from a “state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis,” so an LCSW qualifies only where state licensure allows it.',
         status: 'verified',
         cites: [
           { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },

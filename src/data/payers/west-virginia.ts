@@ -93,7 +93,7 @@ const WV_MCD_DX_PROVIDERS =
   'Policy 519.23.2 names the "qualified diagnostic provider": a licensed physician "such as a neurologist, pediatric neurologist, developmental pediatrician, psychiatrist, supervising psychologist, or a licensed psychologist, licensed independent social worker, licensed independent counselor." The glossary’s narrower definition of "Diagnostic Assessment" lists only physicians (neurologist, pediatric neurologist, developmental pediatrician, psychiatrist) and licensed psychologists, so a psychologist or physician diagnosis is the safe choice. LCSW: a licensed independent social worker is one of the "qualified diagnostic providers" in 519.23.2, who conduct the current (within 24 months) diagnostic assessment, but the glossary\'s "Diagnostic Assessment" definition does not list social workers, and no social worker below the independent licence is named. Confirm before relying on an LICSW-only diagnosis.';
 
 const WV_MCD_REFERRAL =
-  'Yes. Members must be "referred for necessary diagnostic and treatment services identified during an Early and Periodic Screening, Diagnostic, and Treatment (EPSDT) encounter" (519.23.1), and every PA request must include "The annual physician’s order for ABA Services" (519.23.6).';
+  'Yes. Members must be "referred for necessary diagnostic and treatment services identified during an Early and Periodic Screening, Diagnostic, and Treatment (EPSDT) encounter" (519.23.1), and every PA request must include "The annual physician’s order for ABA Services" (519.23.6). Assessment vs treatment: the rule makes no split. PA "for all ABA services requests must be made prior to any service being rendered," and both assessment codes, H0031 and 97151, are marked "Prior Authorization: Required," so the physician\'s order has to be on file before the first assessment as well as before 97153. The order is annual; the policy names no form or required contents beyond that.';
 
 const WV_MCD_DX_RECENCY =
   'Within 24 months. The PA request must include "the qualifying diagnostic assessment establishing the ASD diagnosis prior to age eight and completed within the previous 24 months" and "A comprehensive diagnostic assessment completed by a qualifying provider within the previous 24 months" (519.23.6). The first request must also document that the primary diagnosis "was rendered prior to the child’s eighth year of age" (519.23.2).';
@@ -208,6 +208,16 @@ export const westVirginiaPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.ch100, S.mhpContract, S.abhPM, S.thpClaims, S.wpPM, S.hhoPM],
       },
+      {
+        h2: 'Switching ABA providers: what happens to the authorization?',
+        body: [
+          'Policy 519.23 has no rule that transfers an authorization between agencies. It requires prior authorization "prior to any service being rendered," with the annual physician\'s order, the qualifying diagnostic assessment and the consent or "Statement of Assurances" that the services do not duplicate services already provided; the utilization management contractor or MCO may ask for the consent form "to ensure continuity of care and to avoid duplication of services." The outgoing provider must file a discharge report "upon case closure."',
+          'So expect the new agency to submit its own PA request with that packet, and ask the outgoing agency to close the case with its discharge report so the UMC or MCO sees no duplicate authorization.',
+        ],
+        cites: [
+          { title: 'BMS Provider Manual Chapter 519, Policy 519.23 — Applied Behavior Analysis (effective April 1, 2020; current posting)', url: 'https://bms.wv.gov/media/40119/download?inline' },
+        ],
+      },
     ],
     collect: [
       { title: 'Which Medicaid plan', desc: 'Aetna Better Health (MHT or Mountain Health Promise), The Health Plan, Highmark Health Options, Wellpoint, or fee-for-service.' },
@@ -217,7 +227,7 @@ export const westVirginiaPayers: Record<string, PayerConfig> = {
       { title: 'IEP or homeschool letter', desc: 'The reviewer may ask for it to rule out duplication; educational services are not authorized.' },
       { title: 'Other insurance', desc: 'Commercial coverage is billed first, in network, with its PA; Medicaid pays last.' },
     ],
-    sources: [S.aba519, S.ch519, S.tele519, S.teleA, S.abaFee, S.feePage, S.ch100, S.ch300, S.ch527, S.mht, S.mhp, S.bmsPA, S.c9532, S.chipAut, S.bacbLic, S.c30, S.cfr440, S.cfr433, { title: 'WV BMS — News (Medicaid and provider announcements)', url: 'https://bms.wv.gov/news' }, { title: 'WV BMS — Provider News Archive (provider memos)', url: 'https://bms.wv.gov/provider-news-archive' }],
+    sources: [S.aba519, S.ch519, S.tele519, S.teleA, S.abaFee, S.feePage, S.ch100, S.ch300, S.ch527, S.mht, S.mhp, S.bmsPA, S.c9532, S.chipAut, S.bacbLic, S.c30, S.cfr440, S.cfr433, { title: 'WV BMS — News (Medicaid and provider announcements)', url: 'https://bms.wv.gov/news' }, { title: 'WV BMS — Provider News Archive (provider memos)', url: 'https://bms.wv.gov/provider-news-archive' }, { title: 'BMS Provider Manual Chapter 519, Policy 519.23 — Applied Behavior Analysis (effective April 1, 2020; current posting)', url: 'https://bms.wv.gov/media/40119/download?inline' }],
     deliveryRules: {
       supervision: { value: WV_MCD_SUPERVISION, status: 'verified', cites: [S.aba519] },
       concurrentBilling: {
@@ -896,7 +906,7 @@ export const westVirginiaPayers: Record<string, PayerConfig> = {
       { title: 'Standardized functional measure', desc: 'Aetna wants one from the past 12 months (for example Vineland-3).' },
       { title: 'Benefit year spend', desc: 'Mandated plans may cap ABA at $30,000 a year for three years from the start of treatment, then $2,000 a month.' },
     ],
-    sources: [S.aetnaCPB, S.aetnaCPB648, S.aetnaGuide, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.aetnaTele, S.c3316v, S.c3324k, S.c3325Aj, S.c5167, S.c3324s, S.c3345, S.c3357, S.bacbLic, S.c30, S.erisa, S.abaFee, S.ch100, S.tricare, S.champva],
+    sources: [S.aetnaCPB, S.aetnaCPB648, S.aetnaGuide, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.aetnaTele, S.c3316v, S.c3324k, S.c3325Aj, S.c5167, S.c3324s, S.c3345, S.c3357, S.bacbLic, S.c30, S.erisa, S.abaFee, S.ch100, S.tricare, S.champva, { title: 'W. Va. Code § 30-30-11 — Scope of practice for a licensed certified social worker (may "determine behavioral health diagnosis")', url: 'https://code.wvlegislature.gov/30-30-11/' }],
     deliveryRules: {
       supervision: {
         value: 'Aetna’s Network Participation Criteria (5/26): services "must be provided directly or supervised by individuals licensed by the state or certified by the Behavior Analyst Certification Board," supervised staff may be a BCaBA "or a paraprofessional," and Aetna requires "A minimum of one hour of face-to-face supervision" of an unlicensed or noncertified paraprofessional "for each 10 hours of applied behavior analysis," with the supervisor "onsite with the child at least one hour a month." "If state requirements are not defined, all BCBAs, BCaBAs and paraprofessionals must meet Aetna standards." West Virginia’s mandate requires ABA "provided or supervised by a certified behavior analyst."',
@@ -947,9 +957,9 @@ export const westVirginiaPayers: Record<string, PayerConfig> = {
         cites: [S.aetnaGuide, S.c3316v],
       },
       diagnosingProviders: {
-        value: 'A DSM-5 ASD diagnosis by an appropriate provider: a licensed psychologist or psychiatrist, a physician, or another professional qualified to diagnose within scope.',
+        value: 'A DSM-5 ASD diagnosis by an appropriate provider: a licensed psychologist or psychiatrist, a physician, or another professional qualified to diagnose within scope. LCSW: not named, but the catch-all reaches a professional qualified to diagnose within scope, and West Virginia lets a licensed certified social worker "determine behavioral health diagnosis" and apply social work methods to the diagnosis of mental disorders and developmental disabilities (W. Va. Code § 30-30-11). Confirm with the carrier before relying on an LCSW-only diagnosis.',
         status: 'verified',
-        cites: [S.aetnaGuide],
+        cites: [{ title: 'W. Va. Code § 30-30-11 — Scope of practice for a licensed certified social worker (may "determine behavioral health diagnosis")', url: 'https://code.wvlegislature.gov/30-30-11/' }, S.aetnaGuide],
       },
       diagnosticTools: {
         value: 'CPB 0648 names ADI-R, ADOS-2, CARS-2 and the Asperger Syndrome Diagnostic Scale; the ABA guide requires a standardized functional measure from the past 12 months (Vineland-3 is its example).',
@@ -957,9 +967,9 @@ export const westVirginiaPayers: Record<string, PayerConfig> = {
         cites: [S.aetnaCPB648, S.aetnaGuide],
       },
       referral: {
-        value: 'Aetna’s national policies require precertification of all ten ABA codes, not a physician referral. Aetna publishes no ABA order form or validity period, and its provider manual (6/26) says members "may access behavioral health care … through direct access to the behavioral health provider." A PCP referral matters only on plans that require referrals for specialist care; a clean claim then includes "a corresponding referral (whether in paper or electronic format), if required for the applicable claim." The manual names no ABA-specific referring-provider (box 17) requirement.' + MANDATE_REFERRAL_TAIL,
+        value: 'Aetna’s national policies require precertification of all ten ABA codes, not a physician referral. Aetna publishes no ABA order form or validity period, and its provider manual (6/26) says members "may access behavioral health care … through direct access to the behavioral health provider." A PCP referral matters only on plans that require referrals for specialist care; a clean claim then includes "a corresponding referral (whether in paper or electronic format), if required for the applicable claim." The manual names no ABA-specific referring-provider (box 17) requirement. Under the West Virginia mandate (insured plans it reaches), coverage is for treatment "ordered or prescribed by a licensed physician or licensed psychologist and in accordance with a treatment plan developed from a comprehensive evaluation by a certified behavior analyst" (W. Va. Code § 33-24-7k). It attaches the order to treatment, not the assessment, and names no form or validity period; self-funded plans are outside it. Collect the order before the assessment anyway.' + MANDATE_REFERRAL_TAIL,
         status: 'verified',
-        cites: [S.aetnaPrecert, S.c3316v, S.aetnaOM],
+        cites: [{ title: 'W. Va. Code § 33-24-7k — autism spectrum disorder coverage (hospital service corporations)', url: 'https://code.wvlegislature.gov/33-24-7K/' }, S.aetnaPrecert, S.c3316v, S.aetnaOM],
       },
       telehealth: {
         value: 'Aetna’s Telemedicine and Direct Patient Contact Payment Policy lists ABA codes payable by telehealth with modifier GT, 95 or FR; on commercial plans 97151, 97153, 97155, 97156 and 97157 are checked. The posted policy shows a last review of June 2021, so treat the list as perishable. Aetna’s provider manual (6/26) says Aetna Behavioral Health offers telehealth "to all commercial fully insured members and to all commercial self-insured plan sponsors, unless those self-insured plan sponsors opt out."' + WV_TELE_TAIL,
@@ -1064,6 +1074,18 @@ export const westVirginiaPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.en0499],
       },
+      {
+        h2: 'Appeals, reconsiderations and out-of-network (network exception) requests',
+        body: [
+          'Payment disputes and reconsiderations: Evernorth asks you to call Provider Services (800.926.2273) first, with the patient\'s name, date of service and the treating provider\'s name and TIN. Fee-schedule and reimbursement disputes "may be quickly resolved through submitting an adjustment request via the reconsideration feature on Provider.Evernorth.com." A formal appeal must be "initiated in writing within 180 calendar days of the date of the initial payment or denial decision" (or of the last payment adjustment), submitted by a person, not by automation software. Appeals go to Evernorth Appeals, PO Box 188064, Chattanooga, TN 37422 (fax 877.815.4827). Most are resolved within 60 calendar days, with notice within 75 days unless state law differs; after the internal process, the Provider Agreement\'s negotiation-then-arbitration steps apply.',
+          'What to include: for a medical-necessity denial, the clinical record behind the request (for ABA, the assessment, treatment plan, progress data and session notes); for an untimely-filing denial (claims are due within 90 days of service), the EDI transmission report or proof that coordination of benefits delayed the claim; for a late-payment dispute, the date you submitted the claim and your correspondence. A clinical coverage denial can be reviewed by a board-certified psychiatrist or doctoral-level psychologist not previously involved, on an expedited basis when urgent, with the appeal due within 180 calendar days of the denial.',
+          'Out-of-network providers: some out-of-network providers filing a standard appeal "must submit a valid Appointments of Representative form signed by the patient" for the appeal to be valid; call the number on the ID card to check. To treat a Cigna member without a contract, use the ABA prior authorization form, which covers "network exception requests," including for an ABA assessment (assessment codes otherwise need no prior authorization). Some Cigna products (for example Cigna Connect) have no out-of-network coverage except emergent or urgent care.',
+        ],
+        cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026): provider payment appeals, coverage denials', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+          { title: 'Evernorth — Applied Behavior Analysis Prior Authorization Form (PCOMM-2025-224; file dated 7/1/2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/applied-behavior-analysis.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type and employer size', desc: 'Fully insured group (mandate applies) vs. self-funded ERISA or a small employer of 25 or fewer (exempt).' },
@@ -1072,7 +1094,7 @@ export const westVirginiaPayers: Record<string, PayerConfig> = {
       { title: 'Standardized assessment timing', desc: 'Instrument administered within 60 days before treatment starts.' },
       { title: 'Physician or psychologist order', desc: 'Required by the West Virginia mandate on insured group plans.' },
     ],
-    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.c3316v, S.c3324k, S.c3325Aj, S.c5167, S.c3324s, S.c3345, S.c3357, S.bacbLic, S.c30, S.erisa, S.abaFee, S.ch100, S.tricare, S.champva],
+    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.c3316v, S.c3324k, S.c3325Aj, S.c5167, S.c3324s, S.c3345, S.c3357, S.bacbLic, S.c30, S.erisa, S.abaFee, S.ch100, S.tricare, S.champva, { title: 'W. Va. Code § 30-30-11 — Scope of practice for a licensed certified social worker (may "determine behavioral health diagnosis")', url: 'https://code.wvlegislature.gov/30-30-11/' }, { title: 'Evernorth — Applied Behavior Analysis Prior Authorization Form (PCOMM-2025-224; file dated 7/1/2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/applied-behavior-analysis.pdf' }, { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026): provider payment appeals, coverage denials', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }],
     deliveryRules: {
       supervision: {
         value: 'Direct plus indirect case supervision runs at one to two hours per ten hours of direct treatment; at 10 hours a week or less, at least one to two hours a week. Supervision is by a BCBA, a Licensed Behavior Analyst, or an independently licensed clinician with documented ABA training. West Virginia’s mandate requires ABA "provided or supervised by a certified behavior analyst."',
@@ -1100,9 +1122,9 @@ export const westVirginiaPayers: Record<string, PayerConfig> = {
         cites: [S.en0499, S.c3316v],
       },
       billAsProvider: {
-        value: 'Evernorth bills non-credentialed staff under the supervising provider; only a BCBA or other licensed provider goes in box 33, and 97152, 97153 and 97154 may be provided by a BCaBA or technician but billed only by a BCBA-D, BCBA or licensed mental health provider. Payer ID 62308.',
+        value: 'Evernorth bills non-credentialed staff under the supervising provider; only a BCBA or other licensed provider goes in box 33, and 97152, 97153 and 97154 may be provided by a BCaBA or technician but billed only by a BCBA-D, BCBA or licensed mental health provider. Payer ID 62308. Is the authorization tied to an NPI or the group TIN? Evernorth\'s ABA prior authorization form identifies the request by the servicing clinic\'s name, Taxpayer Identification Number (TIN) and address, plus the supervising provider\'s name and credential; it has no NPI field, and asks "Will the same provider be supervising the patient’s entire treatment?" (if not, name the additional supervisor). An approval is "written on a per month basis with CPT code 97155 and can be interchanged with ongoing treatment codes 97153–97158 and 0373T." Evernorth publishes no rule on moving an approval to a different clinic TIN; a change of supervisor within the clinic is something the form expects you to declare.',
         status: 'verified',
-        cites: [S.cignaARG],
+        cites: [{ title: 'Evernorth — Applied Behavior Analysis Prior Authorization Form (PCOMM-2025-224; file dated 7/1/2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/applied-behavior-analysis.pdf' }, S.cignaARG],
       },
     },
     intakeGates: {
@@ -1119,9 +1141,9 @@ export const westVirginiaPayers: Record<string, PayerConfig> = {
         cites: [S.en0499, S.c3316v],
       },
       diagnosingProviders: {
-        value: 'A healthcare professional licensed to practice independently whose board considers diagnosis within scope, applying DSM-5-TR criteria.',
+        value: 'A healthcare professional licensed to practice independently whose board considers diagnosis within scope, applying DSM-5-TR criteria. LCSW: EN0499 turns on independent licensure plus diagnosis in scope; West Virginia lets a licensed certified social worker "determine behavioral health diagnosis" and apply social work methods to the diagnosis of mental disorders and developmental disabilities (W. Va. Code § 30-30-11). Confirm with the carrier before relying on an LCSW-only diagnosis.',
         status: 'verified',
-        cites: [S.en0499],
+        cites: [{ title: 'W. Va. Code § 30-30-11 — Scope of practice for a licensed certified social worker (may "determine behavioral health diagnosis")', url: 'https://code.wvlegislature.gov/30-30-11/' }, S.en0499],
       },
       diagnosticTools: {
         value: 'No single instrument is mandated, but it must be reliable, valid and standardized, and the current edition (EN0499’s example: Vineland-3, not Vineland-II).',
@@ -1129,9 +1151,9 @@ export const westVirginiaPayers: Record<string, PayerConfig> = {
         cites: [S.en0499],
       },
       referral: {
-        value: 'EN0499 requires no referral; assessments need no PA with an autism diagnosis, and treatment needs the ABA PA form. Evernorth publishes no ABA order form or validity period. On the claim, Evernorth’s administrative guidelines (September 2026) define a complete CMS-1500 claim without a referring provider (they require the rendering provider’s name, NPI and license type and the billing provider’s name, address and NPI); any "Referring Provider" reported on an 837 claim "must include the name and NPI."' + MANDATE_REFERRAL_TAIL,
+        value: 'EN0499 requires no referral; assessments need no PA with an autism diagnosis, and treatment needs the ABA PA form. Evernorth publishes no ABA order form or validity period. On the claim, Evernorth’s administrative guidelines (September 2026) define a complete CMS-1500 claim without a referring provider (they require the rendering provider’s name, NPI and license type and the billing provider’s name, address and NPI); any "Referring Provider" reported on an 837 claim "must include the name and NPI." Under the West Virginia mandate (insured plans it reaches), coverage is for treatment "ordered or prescribed by a licensed physician or licensed psychologist and in accordance with a treatment plan developed from a comprehensive evaluation by a certified behavior analyst" (W. Va. Code § 33-24-7k). It attaches the order to treatment, not the assessment, and names no form or validity period; self-funded plans are outside it. Collect the order before the assessment anyway.' + MANDATE_REFERRAL_TAIL,
         status: 'verified',
-        cites: [S.cignaARG, S.c3316v, S.ebhAdmin],
+        cites: [{ title: 'W. Va. Code § 33-24-7k — autism spectrum disorder coverage (hospital service corporations)', url: 'https://code.wvlegislature.gov/33-24-7K/' }, S.cignaARG, S.c3316v, S.ebhAdmin],
       },
       telehealth: {
         value: '"All ABA CPT codes are covered telehealth services" per the autism resource guide, billed with modifier 95.' + WV_TELE_TAIL,
@@ -1160,6 +1182,7 @@ export const westVirginiaPayers: Record<string, PayerConfig> = {
       { q: 'Does the Cigna ABA assessment need prior authorization in West Virginia?', a: 'No, for 97151, 97152 and 0362T with an autism diagnosis when the provider is independently licensed or a BCBA. PA starts at treatment.' },
       { q: 'Can a BCBA and RBT both bill Cigna for the same time?', a: 'Only for 97153, 97154 and 97155 during direct supervision, with both present with the patient at the same time.' },
       { q: 'What does Cigna pay for ABA in West Virginia?', a: 'Cigna publishes no rates; Evernorth says your fee schedule is Exhibit A of your Provider Agreement (Provider Services 800.926.2273). West Virginia Medicaid’s 97153 rate ($9.90 per 15 minutes) is the only public benchmark.' },
+      { q: 'Is a Cigna/Evernorth ABA authorization tied to an individual NPI or the group tax ID?', a: 'To the servicing clinic. The Evernorth ABA prior authorization form asks for the clinic\'s name, TIN and address and the supervising provider\'s name and credential, with no NPI field, and asks whether the same provider will supervise the whole treatment. Approvals are written monthly on 97155, interchangeable with 97153–97158 and 0373T. A move to a different clinic TIN is not addressed, so expect a new request.' },
     ],
   },
 
@@ -1243,7 +1266,7 @@ export const westVirginiaPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis with a validated tool', desc: 'DSM-5 ASD and severity level, confirmed with a validated tool (ADI-R, ADOS-2 and others).' },
       { title: 'Physician or psychologist order', desc: 'Required by the West Virginia mandate on insured group plans.' },
     ],
-    sources: [S.optumSCC, S.optumSM, S.optumTele, S.optumReimb, S.optumNNM, S.mht, S.c3316v, S.c3324k, S.c3325Aj, S.c5167, S.c3324s, S.c3345, S.c3357, S.bacbLic, S.c30, S.erisa, S.abaFee, S.ch100, S.tricare, S.champva],
+    sources: [S.optumSCC, S.optumSM, S.optumTele, S.optumReimb, S.optumNNM, S.mht, S.c3316v, S.c3324k, S.c3325Aj, S.c5167, S.c3324s, S.c3345, S.c3357, S.bacbLic, S.c30, S.erisa, S.abaFee, S.ch100, S.tricare, S.champva, { title: 'W. Va. Code § 30-30-11 — Scope of practice for a licensed certified social worker (may "determine behavioral health diagnosis")', url: 'https://code.wvlegislature.gov/30-30-11/' }],
     deliveryRules: {
       supervision: {
         value: 'Consistent with CASP standards, direct case supervision of 1–2 hours for every 10 hours of direct treatment. Optum does not recommend parents serving as their own child’s RBT. West Virginia’s mandate requires ABA "provided or supervised by a certified behavior analyst."',
@@ -1292,9 +1315,9 @@ export const westVirginiaPayers: Record<string, PayerConfig> = {
         cites: [S.optumSCC, S.c3316v],
       },
       diagnosingProviders: {
-        value: 'The SCC require the diagnosis and severity level to be confirmed and documented "by the diagnosing clinician"; they do not name provider types beyond that.',
+        value: 'The SCC require the diagnosis and severity level to be confirmed and documented "by the diagnosing clinician"; they do not name provider types beyond that. LCSW: the SCC name no provider types; West Virginia lets a licensed certified social worker "determine behavioral health diagnosis" and apply social work methods to the diagnosis of mental disorders and developmental disabilities (W. Va. Code § 30-30-11). Confirm with the carrier before relying on an LCSW-only diagnosis.',
         status: 'verified',
-        cites: [S.optumSCC],
+        cites: [{ title: 'W. Va. Code § 30-30-11 — Scope of practice for a licensed certified social worker (may "determine behavioral health diagnosis")', url: 'https://code.wvlegislature.gov/30-30-11/' }, S.optumSCC],
       },
       diagnosticTools: {
         value: 'At least one clinically validated tool from a non-exhaustive list: first-level screens (M-CHAT and others), second-level screens (CARS/CARS-2, RITA-T, STAT), and formal diagnostic tools (ADI-R, ADOS/ADOS-2, DISCO).',
@@ -1302,9 +1325,9 @@ export const westVirginiaPayers: Record<string, PayerConfig> = {
         cites: [S.optumSCC],
       },
       referral: {
-        value: 'No separate physician referral in the SCC; prior authorization is required. Optum publishes no ABA order form or validity period. On the claim, Optum’s National Network Manual (effective Sept. 1, 2026) lists the Form 1500 fields it needs (member and subscriber, diagnosis, dates and length of session, and the clinician who actually provided the service with credentials, Tax ID and NPI) and does not ask for a referring provider in box 17.' + MANDATE_REFERRAL_TAIL,
+        value: 'No separate physician referral in the SCC; prior authorization is required. Optum publishes no ABA order form or validity period. On the claim, Optum’s National Network Manual (effective Sept. 1, 2026) lists the Form 1500 fields it needs (member and subscriber, diagnosis, dates and length of session, and the clinician who actually provided the service with credentials, Tax ID and NPI) and does not ask for a referring provider in box 17. Under the West Virginia mandate (insured plans it reaches), coverage is for treatment "ordered or prescribed by a licensed physician or licensed psychologist and in accordance with a treatment plan developed from a comprehensive evaluation by a certified behavior analyst" (W. Va. Code § 33-24-7k). It attaches the order to treatment, not the assessment, and names no form or validity period; self-funded plans are outside it. Collect the order before the assessment anyway.' + MANDATE_REFERRAL_TAIL,
         status: 'verified',
-        cites: [S.optumSCC, S.c3316v, S.optumNNM],
+        cites: [{ title: 'W. Va. Code § 33-24-7k — autism spectrum disorder coverage (hospital service corporations)', url: 'https://code.wvlegislature.gov/33-24-7K/' }, S.optumSCC, S.c3316v, S.optumNNM],
       },
       telehealth: {
         value: 'Optum’s commercial telehealth guide: "For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157," billed with POS 02 or POS 10. The SCC add that telehealth options are "not intended to supplant" in-person service.' + WV_TELE_TAIL,
@@ -1430,7 +1453,7 @@ export const westVirginiaPayers: Record<string, PayerConfig> = {
       { title: 'Physician or psychologist order + BCBA treatment plan', desc: 'Required by the West Virginia mandate on insured group plans.' },
       { title: 'Other coverage', desc: 'Second parent’s plan, Medicaid, TRICARE or CHAMPVA.' },
     ],
-    sources: [S.hmPAL, S.hmNews, S.hmPM, S.c3316v, S.c3324k, S.c3325Aj, S.c5167, S.c3324s, S.c3345, S.c3357, S.bacbLic, S.c30, S.erisa, S.abaFee, S.ch100, S.tricare, S.champva, { title: 'Highmark — Provider News monthly newsletter (Communications Hub, all regions incl. WV)', url: 'https://providers.highmark.com/communications-hub/provider-news.html' }],
+    sources: [S.hmPAL, S.hmNews, S.hmPM, S.c3316v, S.c3324k, S.c3325Aj, S.c5167, S.c3324s, S.c3345, S.c3357, S.bacbLic, S.c30, S.erisa, S.abaFee, S.ch100, S.tricare, S.champva, { title: 'Highmark — Provider News monthly newsletter (Communications Hub, all regions incl. WV)', url: 'https://providers.highmark.com/communications-hub/provider-news.html' }, { title: 'W. Va. Code § 30-30-11 — Scope of practice for a licensed certified social worker (may "determine behavioral health diagnosis")', url: 'https://code.wvlegislature.gov/30-30-11/' }],
     deliveryRules: {
       supervision: {
         value: 'Highmark’s West Virginia ABA medical policy, where supervision rules would sit, was not retrievable this run. The West Virginia mandate requires ABA "provided or supervised by a certified behavior analyst."',
@@ -1491,9 +1514,9 @@ export const westVirginiaPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       diagnosingProviders: {
-        value: 'Not stated in the Highmark sources read. The mandate requires treatment ordered or prescribed by a licensed physician or licensed psychologist.',
+        value: 'Not stated in the Highmark sources read. The mandate requires treatment ordered or prescribed by a licensed physician or licensed psychologist. LCSW: not named in Highmark\'s sources; West Virginia lets a licensed certified social worker "determine behavioral health diagnosis" and apply social work methods to the diagnosis of mental disorders and developmental disabilities (W. Va. Code § 30-30-11). Confirm with the carrier before relying on an LCSW-only diagnosis.',
         status: 'unverified',
-        cites: [S.c3316v],
+        cites: [{ title: 'W. Va. Code § 30-30-11 — Scope of practice for a licensed certified social worker (may "determine behavioral health diagnosis")', url: 'https://code.wvlegislature.gov/30-30-11/' }, S.c3316v],
         verifyVia: 'Highmark Behavioral Health, 800-258-9808.',
         blocker: 'document',
       },
@@ -1505,9 +1528,9 @@ export const westVirginiaPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       referral: {
-        value: 'Highmark requires prior authorization, not a referral, for ABA. Highmark publishes no ABA order form or validity period. Its CMS-1500 instructions use box 17 only when a referring, ordering or supervising provider is involved (one name, in that priority order, with qualifier DN, DK or DQ, and the NPI in 17b); the manual sets no ABA-specific referring-provider requirement.' + MANDATE_REFERRAL_TAIL,
+        value: 'Highmark requires prior authorization, not a referral, for ABA. Highmark publishes no ABA order form or validity period. Its CMS-1500 instructions use box 17 only when a referring, ordering or supervising provider is involved (one name, in that priority order, with qualifier DN, DK or DQ, and the NPI in 17b); the manual sets no ABA-specific referring-provider requirement. Under the West Virginia mandate (insured plans it reaches), coverage is for treatment "ordered or prescribed by a licensed physician or licensed psychologist and in accordance with a treatment plan developed from a comprehensive evaluation by a certified behavior analyst" (W. Va. Code § 33-24-7k). It attaches the order to treatment, not the assessment, and names no form or validity period; self-funded plans are outside it. Collect the order before the assessment anyway.' + MANDATE_REFERRAL_TAIL,
         status: 'verified',
-        cites: [S.hmPAL, S.c3316v, S.hmPM],
+        cites: [{ title: 'W. Va. Code § 33-24-7k — autism spectrum disorder coverage (hospital service corporations)', url: 'https://code.wvlegislature.gov/33-24-7K/' }, S.hmPAL, S.c3316v, S.hmPM],
       },
       telehealth: {
         value: 'Highmark lets participating behavioral health providers deliver "virtual" visits when the service falls within the provider’s scope and follows Highmark’s service and security guidelines; it publishes no ABA telehealth code list in the sources read.' + WV_TELE_TAIL,

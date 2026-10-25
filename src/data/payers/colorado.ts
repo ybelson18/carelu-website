@@ -187,6 +187,7 @@ export const coloradoPayers: Record<string, PayerConfig> = {
       { title: 'HCPF — Provider News & Resources (issue archive + monthly provider bulletins)', url: 'https://hcpf.colorado.gov/provider-news' },
       { title: 'HCPF — Provider Bulletins (index of Health First Colorado monthly bulletins)', url: 'https://hcpf.colorado.gov/bulletins' },
       { title: 'HCPF Provider News & Resources 10/23/2026, Issue 155', url: 'https://hcpf.colorado.gov/sites/g/files/lrnvjt4251/files/Provider%20News%20%26%20Resources%20-%2010-23-2026%20Issue%20155.pdf' },
+      { title: 'HCPF — PBT Criteria Update (November 2024)', url: 'https://hcpf.colorado.gov/sites/hcpf/files/PBT%20Criteria%20Update%20November%202024.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -209,12 +210,13 @@ export const coloradoPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'No autism diagnosis is required at all. The 2023 Criteria open the benefit on any one of three pathways, while the PBT manual revised 10/12/2026 lists a documented developmental or behavioral diagnosis (ASD, developmental delay, intellectual disability or another condition), or At Risk for Delay under 3, among its eligibility requirements. The three 2023 pathways are (a diagnosed condition for which behavioral therapy is evidence-based or evidence-informed, "including autism spectrum disorder"; inability to adequately participate in home, school or community activities; or a safety risk to self or others). Where an evaluation is performed, the Criteria name "a qualified health care professional such as the client\'s physician, nurse practitioner, or psychologist," and Section 8.281.2.E adds that a diagnostic evaluation "may be performed by a psychologist, developmental pediatrician, neurologist, or other credentialed clinician."',
+          'No autism diagnosis is required at all. The 2023 Criteria open the benefit on any one of three pathways, while the PBT manual revised 10/12/2026 lists a documented developmental or behavioral diagnosis (ASD, developmental delay, intellectual disability or another condition), or At Risk for Delay under 3, among its eligibility requirements. The three 2023 pathways are (a diagnosed condition for which behavioral therapy is evidence-based or evidence-informed, "including autism spectrum disorder"; inability to adequately participate in home, school or community activities; or a safety risk to self or others). Where an evaluation is performed, the Criteria name "a qualified health care professional such as the client\'s physician, nurse practitioner, or psychologist," and Section 8.281.2.E adds that a diagnostic evaluation "may be performed by a psychologist, developmental pediatrician, neurologist, or other credentialed clinician."' + ' LCSW: not named. Colorado needs no autism diagnosis at all; its PBT criteria ask for a prescription from a “qualified healthcare professional (i.e. physician, physician’s assistant, nurse practitioner, or psychologist)” (November 2024 update) and an evaluation by a professional “such as the client’s physician, nurse practitioner, or psychologist” (2023 criteria).',
         status: 'verified',
         cites: [
           { title: 'Health First Colorado Criteria for Behavioral Therapies (Feb 2023)', url: 'https://hcpf.colorado.gov/sites/hcpf/files/Health%20First%20Colorado%20Criteria%20for%20Behavioral%20Therapies%20February%202023.pdf' },
           { title: 'HCPF Emergency Rule MSB 25-09-04-A — Section 8.281 (Oct 2025)', url: 'https://hcpf.colorado.gov/sites/hcpf/files/Doc%2009%20MSB%2025-09-04-Av1%20Emergency%20-%20Oct%202025.pdf' },
           { title: 'Pediatric Behavioral Therapies Billing Manual (HCPF; revised 10/12/2026: Member Eligibility)', url: 'https://hcpf.colorado.gov/pbt-manual' },
+          { title: 'HCPF — PBT Criteria Update (November 2024)', url: 'https://hcpf.colorado.gov/sites/hcpf/files/PBT%20Criteria%20Update%20November%202024.pdf' },
         ],
       },
       diagnosticTools: {
@@ -490,6 +492,16 @@ export const coloradoPayers: Record<string, PayerConfig> = {
           { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
         ],
       },
+      {
+        h2: 'Reconsideration and appeal: what to send',
+        body: [
+          'Aetna runs two levels. A reconsideration (“a formal review of a previous claim decision,” covering reimbursement and coding decisions) is filed within 180 calendar days of the initial claim decision, on Availity or by mail. Send “Medical records, office notes and other supporting documents” and either a completed dispute and appeal form or an explanation giving the reason for review, member ID, patient name, TIN, claim ID, dates of service and billed amounts, and the “Procedure codes and modifiers being disputed”; most answers come within 30 business days. If that fails, appeal within 60 calendar days of the reconsideration decision with a clear explanation, supporting documents, the denial letter or EOB and the original claim; a valid appeal needs the dispute and appeal form (not required on Availity), the denied codes or payments identified, and the records. Aetna decides within 60 calendar days. The 180-day standard can differ for fully insured plans in states on Aetna’s exception list.',
+        ],
+        cites: [
+          { title: 'Aetna — Disputes and appeals overview (reconsideration and appeal time frames and contents)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' },
+          { title: 'Aetna — Provider appeals: state exceptions to the 180-day dispute filing standard', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/provider-appeals.html' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -508,6 +520,8 @@ export const coloradoPayers: Record<string, PayerConfig> = {
       { title: 'C.R.S. § 10-16-106.5 — Prompt payment of claims (CRS 2024 official printout, Title 10)', url: 'https://leg.colorado.gov/sites/default/files/images/olls/crs2024-title-10.pdf' },
       { title: 'Aetna — Provider manual (8102800-01-01, 6/26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
       { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+      { title: 'Aetna — Disputes and appeals overview (reconsideration and appeal time frames and contents)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' },
+      { title: 'Aetna — Provider appeals: state exceptions to the 180-day dispute filing standard', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/provider-appeals.html' },
     ],
     intakeGates: {
       ageLimit: {
@@ -530,7 +544,7 @@ export const coloradoPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          '"There is a DSM-V diagnosis of Autism Spectrum Disorder (ICD-10/ F84.0; F84.3 - F84.9) obtained by an appropriate provider (i.e. licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice)." Note the code set the guide actually prints: F84.0 plus F84.3–F84.9, which leaves out F84.1 and F84.2.',
+          '"There is a DSM-V diagnosis of Autism Spectrum Disorder (ICD-10/ F84.0; F84.3 - F84.9) obtained by an appropriate provider (i.e. licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice)." Note the code set the guide actually prints: F84.0 plus F84.3–F84.9, which leaves out F84.1 and F84.2.' + ' LCSW: not named. Aetna accepts a diagnosis from a “licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice,” so an LCSW qualifies only where state law puts that diagnosis within LCSW scope.',
         status: 'verified',
         cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
       },
@@ -786,6 +800,15 @@ export const coloradoPayers: Record<string, PayerConfig> = {
           { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191) — telehealth claim coding', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
         ],
       },
+      {
+        h2: 'Reconsideration and appeal: what to send',
+        body: [
+          'Evernorth (Cigna behavioral health) asks you to call Provider Services first with the patient’s name, date of service and the treating provider’s name and TIN. If the claim stands, file a written appeal within 180 calendar days of the initial payment or denial (or of the last payment adjustment). Fee-schedule and reimbursement disputes can go through the reconsideration feature on Provider.Evernorth.com. For a medical-necessity denial include the clinical record; for a timely-filing denial include the EDI transmission report or proof the delay came from coordination of benefits; for a late-payment dispute include proof of when you submitted. Appeals must be filed by a person, not by automation software. Most are resolved within 60 calendar days, with notice within 75 days unless state law says otherwise, and arbitration is the final step.',
+        ],
+        cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191): Provider payment appeals', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -822,7 +845,7 @@ export const coloradoPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          '"A confirmed diagnosis of autism spectrum disorder (ASD); (ICD-10-CM Diagnosis Codes F84.0 – F84.9, with the exception of F84.2, Rett syndrome) based on the criteria in the DSM-5-TR by a healthcare professional who is licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice." The ABA assessment itself is then performed by a BCBA, LBA, or an independently licensed mental health clinician with documented ABA training.',
+          '"A confirmed diagnosis of autism spectrum disorder (ASD); (ICD-10-CM Diagnosis Codes F84.0 – F84.9, with the exception of F84.2, Rett syndrome) based on the criteria in the DSM-5-TR by a healthcare professional who is licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice." The ABA assessment itself is then performed by a BCBA, LBA, or an independently licensed mental health clinician with documented ABA training.' + ' LCSW: not named. EN0499 accepts a professional “licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice,” so an independently licensed LCSW qualifies only if the state social-work board treats diagnosis as within scope.',
         status: 'verified',
         cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
       },
@@ -1078,6 +1101,15 @@ export const coloradoPayers: Record<string, PayerConfig> = {
           { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial), Chapter 10: complete claim and NPI requirements', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
         ],
       },
+      {
+        h2: 'Reconsideration and appeal: what to send',
+        body: [
+          'Optum, which handles UnitedHealthcare’s behavioral claims, uses a two-step process for commercial claims: reconsideration first, then appeal, within a combined 12 months unless state law or your participation agreement sets a different deadline. Include “member-specific treatment plans, clinical records, payment appendices or other items that support why you believe our decision was incorrect,” plus proof that the claim was received and accepted within your timely filing limit. File online in the Provider Express secure portal (Appeals > Appeals Summary & Submission, giving the factual or legal basis) or by mail with Optum’s reconsideration request form. Optum decides on the materials it has at the time of review; an overturned claim is reported on the remittance advice and an upheld one by letter.',
+        ],
+        cites: [
+          { title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): Provider Reconsideration and Appeal Process', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -1097,6 +1129,7 @@ export const coloradoPayers: Record<string, PayerConfig> = {
       { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
       { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' },
       { title: 'C.R.S. § 10-16-106.5 — Prompt payment of claims (CRS 2024 official printout, Title 10)', url: 'https://leg.colorado.gov/sites/default/files/images/olls/crs2024-title-10.pdf' },
+      { title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): Provider Reconsideration and Appeal Process', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1120,7 +1153,7 @@ export const coloradoPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          '"A valid diagnosis of ASD (or other applicable diagnosis as required by governing laws) must be issued by a state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis according to the diagnostic criteria based on the DSM-5-TR." The diagnosing clinician must also confirm and document the severity level.',
+          '"A valid diagnosis of ASD (or other applicable diagnosis as required by governing laws) must be issued by a state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis according to the diagnostic criteria based on the DSM-5-TR." The diagnosing clinician must also confirm and document the severity level.' + ' LCSW: not named. Optum accepts a diagnosis from a “state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis,” so an LCSW qualifies only where state licensure allows it.',
         status: 'verified',
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
       },
@@ -1490,7 +1523,7 @@ export const coloradoPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'Who may make the ASD diagnosis is not published — the criteria set is MCG B-806-T, which Anthem does not publish. What Colorado does fix is the prescriber: the treatment plan is "developed for an individual by an autism services provider and prescribed by a licensed physician or a licensed psychologist pursuant to a comprehensive evaluation or reevaluation," and the statute requires treatment for ASD to be prescribed or ordered by a licensed physician or licensed psychologist. A BCBA\'s recommendation alone does not satisfy it.',
+          'Who may make the ASD diagnosis is not published — the criteria set is MCG B-806-T, which Anthem does not publish. What Colorado does fix is the prescriber: the treatment plan is "developed for an individual by an autism services provider and prescribed by a licensed physician or a licensed psychologist pursuant to a comprehensive evaluation or reevaluation," and the statute requires treatment for ASD to be prescribed or ordered by a licensed physician or licensed psychologist. A BCBA\'s recommendation alone does not satisfy it.' + ' LCSW: not addressed in Anthem’s published documents.',
         status: 'unverified',
         cites: [
           { title: 'Anthem ABA Provider Resource Guide — Colorado (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-co.pdf' },
