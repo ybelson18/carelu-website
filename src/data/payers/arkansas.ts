@@ -44,6 +44,7 @@ const S: Record<string, PayerSource> = {
   sccPM: { title: 'Summit Community Care — Provider Manual (AR-SMT-CD-PM-010787-26, July 1, 2026)', url: 'https://provider.summitcommunitycare.com/docs/gpp/ARAR_CAID_ProviderManual.pdf' },
   sccPA: { title: 'Summit Community Care — List of items and services that require prior authorization (updated 2/11/2026)', url: 'https://www.summitcommunitycare.com/arkansas-passe/ar_medicaid_priorauthservices.pdf' },
   act196: { title: 'Act 196 of 2011 (HB 1315) — created Ark. Code § 23-99-418, autism spectrum disorder coverage (enrolled text)', url: 'https://www.arkleg.state.ar.us/Home/FTPDocument?path=%2FACTS%2F2011%2FPublic%2FACT196.pdf' },
+  act656: { title: 'Act 656 of 2021 (HB 1545) — amends Ark. Code § 23-99-418(a) definitions (DSM-based autism definition; speech-language pathologists); approved 4/12/21', url: 'https://www.arkleg.state.ar.us/Home/FTPDocument?path=%2FACTS%2F2021R%2FPublic%2FACT656.pdf' },
   act432: { title: 'Act 432 of 2025 (HB 1245) — Arkansas Behavior Analyst Registration Act, Ark. Code § 17-97-601 et seq. (enrolled text, approved 4/3/25)', url: 'https://www.arkleg.state.ar.us/Home/FTPDocument?path=%2FACTS%2F2025R%2FPublic%2FACT432.pdf' },
   act1106: { title: 'Act 1106 of 2015 (SB 318) — Prior Authorization Transparency Act (enrolled text; now Ark. Code § 23-99-1101 et seq.)', url: 'https://www.arkleg.state.ar.us/Home/FTPDocument?path=%2FACTS%2F2015%2FPublic%2FACT1106.pdf' },
   act575: { title: 'Act 575 of 2023 (HB 1271) — amends the Prior Authorization Transparency Act; prior-authorization exemptions (“gold card”)', url: 'https://www.arkleg.state.ar.us/Home/FTPDocument?path=%2FACTS%2F2023R%2FPublic%2FACT575.pdf' },
@@ -84,7 +85,7 @@ const AR_MEDICAID_DX =
 
 /* ---------------- Shared Arkansas commercial layer ---------------- */
 const AR_MANDATE_BODY =
-  'Arkansas’s autism mandate is Ark. Code § 23-99-418, created by Act 196 of 2011 (HB 1315) for health benefit plans delivered, issued or renewed on or after October 1, 2011. As enacted, it reaches group and blanket plans, HMOs and hospital and medical service corporations, and the state and public school employee plans, but not individual major medical plans. Mandated “treatment” is care “prescribed, provided, or ordered for a specfic individual diagnosed with an autism spectrum disorder by a licensed physician or a licensed psychologist who determines the care to be medically necessary and evidence-based,” including “Applied behavior analysis when provided by or supervised by a Board Certified Behavior Analyst,” plus pharmacy, psychiatric, psychological and speech, occupational and physical therapy care. The enacted text says ABA services “shall: (1) Have an annual limitation of fifty thousand dollars ($50,000); and (2) Be limited to children under eighteen (18) years of age.” Coverage may not carry visit limits or less favorable dollar limits, deductibles or coinsurance than physical illness, “shall not be denied on the basis that the treatment is habilitative in nature,” and an insurer may not review the medical necessity of ongoing autism treatment “to a greater extent than it does for other illnesses.” It does not displace IEP or IFSP obligations, and from 2014 exchange plans are excused from benefits beyond the essential health benefits. Those age and dollar terms have since moved in practice: Arkansas Blue Cross’s current ABA policy applies the $50,000 cap only to “Grandfathered” plans and quotes the Arkansas Insurance Department that it “will not allow age limits for any service for the treatment of autism.” We could not open the current codified text of § 23-99-418, so confirm the plan’s own terms. Self-funded ERISA plans sit outside the statute.';
+  'Arkansas’s autism mandate is Ark. Code § 23-99-418, created by Act 196 of 2011 (HB 1315) for health benefit plans delivered, issued or renewed on or after October 1, 2011. As enacted, it reaches group and blanket plans, HMOs and hospital and medical service corporations, and the state and public school employee plans, but not individual major medical plans. Mandated “treatment” is care “prescribed, provided, or ordered for a specific individual diagnosed with an autism spectrum disorder by a licensed physician or a licensed psychologist who determines the care to be medically necessary and evidence-based,” including “Applied behavior analysis when provided by or supervised by a board-certified behavior analyst,” plus pharmacy, psychiatric, psychological and speech, occupational and physical therapy care. The enacted text says ABA services “shall: (1) Have an annual limitation of fifty thousand dollars ($50,000); and (2) Be limited to children under eighteen (18) years of age.” Coverage may not carry visit limits or less favorable dollar limits, deductibles or coinsurance than physical illness, “shall not be denied on the basis that the treatment is habilitative in nature,” and an insurer may not review the medical necessity of ongoing autism treatment “to a greater extent than it does for other illnesses.” It does not displace IEP or IFSP obligations, and from 2014 exchange plans are excused from benefits beyond the essential health benefits. The only later Act we found on arkleg.state.ar.us that amends § 23-99-418 is Act 656 of 2021 (HB 1545), which rewrote only the definitions in subsection (a): autism spectrum disorder now means “a condition diagnosed according to the diagnostic criteria under the most recent edition of the American Psychiatric Association’s Diagnostic and Statistical Manual of Mental Disorders,” and “speech therapists” became speech-language pathologists. It left the ABA age and dollar terms in subsection (c) untouched. Those terms have still moved in practice: Arkansas Blue Cross’s current ABA policy applies the $50,000 cap only to “Grandfathered” plans and quotes the Arkansas Insurance Department that it “will not allow age limits for any service for the treatment of autism.” We could not open the current codified text of § 23-99-418 (Lexis-hosted), so confirm the plan’s own terms. Self-funded ERISA plans sit outside the statute.';
 
 const AR_LICENSURE_BODY =
   'Arkansas regulates behavior analysts by registration, not licensure, and only since 2025. Act 432 of 2025 (the Arkansas Behavior Analyst Registration Act, Ark. Code § 17-97-601 et seq.) has the Arkansas Psychology Board register a “registered behavior analyst” on proof of BCBA or BCBA-D certification and a criminal background check, for two years at a time. The Act protects the title: unless registered, a person may not hold themselves out as a registered behavior analyst. It does not make practice itself unlawful without registration. It also offers temporary registration to a behavior analyst licensed elsewhere, or BACB-certified, who practices in Arkansas “on a short-term basis,” and reciprocity for analysts licensed in comparable states. The BACB’s licensure table lists Arkansas (2025, AR Psychology Board). Payers credential on BACB certification: the mandate itself keys ABA to a Board Certified Behavior Analyst. Commercial ABA rates are negotiated and unpublished; the public benchmark is the Arkansas Medicaid fee schedule (97151 $20.00, 97153 $15.00, 97155 $22.50, 97156 $20.00 per 15-minute unit).';
@@ -930,7 +931,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
       {
         h2: 'The Arkansas mandate: what it guarantees',
         body: [AR_MANDATE_BODY],
-        cites: [S.act196, S.abcbs],
+        cites: [S.act196, S.act656, S.abcbs],
       },
       {
         h2: 'Credentialing, licensure and rates',
@@ -955,7 +956,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
       { title: 'Adaptive behavior assessment', desc: 'Within six months of the treatment start date.' },
       { title: 'Prescription', desc: 'Signed ABA prescription from a licensed physician or licensed psychologist.' },
     ],
-    sources: [S.abcbs, S.act196, S.act575, S.act1106, S.act432, S.bacbLic, S.abaFee, S.erisa, S.secI, S.cfr433, S.tricare, S.champva, { title: 'Arkansas Blue Cross and Blue Shield — Providers\' News (provider newsletter archive)', url: 'https://www.arkansasbluecross.com/providers/resource-center/providers-news' }],
+    sources: [S.abcbs, S.act196, S.act656, S.act575, S.act1106, S.act432, S.bacbLic, S.abaFee, S.erisa, S.secI, S.cfr433, S.tricare, S.champva, { title: 'Arkansas Blue Cross and Blue Shield — Providers\' News (provider newsletter archive)', url: 'https://www.arkansasbluecross.com/providers/resource-center/providers-news' }],
     deliveryRules: {
       supervision: {
         value: 'ABA must be “provided or supervised by a therapist certified by the nationally accredited Behavior Analyst Certification Board.” Absent a state law, line therapy is delivered by an RBT, BCaBA, or master’s- or doctoral-level BCBA, consistent with the Lucet provider manual and the BACB ethics code. No numeric supervision ratio is published in the policy.',
@@ -1099,7 +1100,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
       {
         h2: 'The Arkansas mandate: what it guarantees',
         body: [AR_MANDATE_BODY],
-        cites: [S.act196, S.abcbs],
+        cites: [S.act196, S.act656, S.abcbs],
       },
       {
         h2: 'Credentialing, licensure and rates',
@@ -1128,7 +1129,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
       { title: 'Standardized functional measure', desc: 'Aetna wants one from the past 12 months (for example Vineland-3, ABAS, VB-MAPP).' },
       { title: 'Prescription', desc: 'Arkansas’s mandate defines treatment as care prescribed or ordered by a licensed physician or psychologist.' },
     ],
-    sources: [S.aetnaGuide, S.aetnaPrecert, S.aetnaCPB648, S.aetnaNPC, S.aetnaOM, S.act196, S.act1106, S.act575, S.act432, S.bacbLic, S.abcbs, S.abaFee, S.erisa, S.secI, S.cfr433, S.tricare, S.champva, S.aetnaCPB, S.aetnaTele],
+    sources: [S.aetnaGuide, S.aetnaPrecert, S.aetnaCPB648, S.aetnaNPC, S.aetnaOM, S.act196, S.act1106, S.act575, S.act432, S.bacbLic, S.abcbs, S.abaFee, S.erisa, S.secI, S.cfr433, S.tricare, S.champva, S.aetnaCPB, S.aetnaTele, S.act656],
     deliveryRules: {
       supervision: {
         value: 'Services “must be provided directly or supervised by individuals licensed by the state or certified by the Behavior Analyst Certification Board”; supervised staff may be a BCaBA or a paraprofessional, with “A minimum of one hour of face-to-face supervision” per 10 hours of ABA by the supervised provider and the supervisor “onsite with the child at least one hour a month.” Arkansas’s mandate requires ABA “provided by or supervised by a Board Certified Behavior Analyst.”' + ' Aetna’s guide and Network Participation Criteria publish no cap on the number of technicians one BCBA may supervise.',
@@ -1271,7 +1272,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
       {
         h2: 'The Arkansas mandate: what it guarantees',
         body: [AR_MANDATE_BODY],
-        cites: [S.act196, S.abcbs],
+        cites: [S.act196, S.act656, S.abcbs],
       },
       {
         h2: 'Credentialing, licensure and rates',
@@ -1299,7 +1300,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis report', desc: 'Diagnosing clinician’s name, credentials and licensure, and the date of the most recent diagnosis.' },
       { title: 'Standardized assessment timing', desc: 'Instrument administered within 60 days before treatment starts.' },
     ],
-    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.act196, S.act1106, S.act575, S.act432, S.bacbLic, S.abcbs, S.abaFee, S.erisa, S.secI, S.cfr433, S.tricare, S.champva],
+    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.act196, S.act1106, S.act575, S.act432, S.bacbLic, S.abcbs, S.abaFee, S.erisa, S.secI, S.cfr433, S.tricare, S.champva, S.act656],
     deliveryRules: {
       supervision: {
         value: 'Case supervision by a BCBA, a Licensed Behavior Analyst, or an independently licensed clinician with ABA training, at one to two hours per ten hours of direct treatment; at 10 hours a week or less, at least one to two hours a week.' + ' EN0499 publishes no cap on the number of technicians one supervisor may oversee.',
@@ -1437,7 +1438,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
       {
         h2: 'The Arkansas mandate: what it guarantees',
         body: [AR_MANDATE_BODY],
-        cites: [S.act196, S.abcbs],
+        cites: [S.act196, S.act656, S.abcbs],
       },
       {
         h2: 'Credentialing, licensure and rates',
@@ -1464,7 +1465,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
       { title: 'Member ID + card photo', desc: 'Enough to run a live benefits verification on Provider Express.' },
       { title: 'Diagnosis with a validated tool', desc: 'DSM-5-TR ASD and severity level, confirmed with a validated tool (ADI-R, ADOS-2 and others).' },
     ],
-    sources: [S.optumSCC, S.optumSM, S.optumTele, S.optumReimb, S.optumNNM, S.act196, S.act1106, S.act575, S.act432, S.bacbLic, S.abcbs, S.abaFee, S.erisa, S.secI, S.cfr433, S.tricare, S.champva],
+    sources: [S.optumSCC, S.optumSM, S.optumTele, S.optumReimb, S.optumNNM, S.act196, S.act1106, S.act575, S.act432, S.bacbLic, S.abcbs, S.abaFee, S.erisa, S.secI, S.cfr433, S.tricare, S.champva, S.act656],
     deliveryRules: {
       supervision: {
         value: 'Consistent with CASP standards, “direct case supervision is required 1–2 hours for every 10 hours of direct treatment per week.” Technicians should be RBTs or otherwise appropriately certified; Optum does not recommend parents serving as their own child’s RBT.' + ' Optum’s criteria publish no cap on the number of technicians per BCBA.',
