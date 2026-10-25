@@ -1895,6 +1895,13 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'Aetna — Provider manual (8102800-01-01, 6/26): clean claims, referrals, behavioral health access', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }],
       },
+      {
+        h2: 'Appealing an ABA claim payment in New Jersey: what to send',
+        body: [
+          'Aetna\'s own New Jersey appeal procedures follow this route. For “fully-insured NJ contracted members,” submit the Health Care Provider Application to Appeal a Claims Determination “within 90 calendar days from the notice of the disputed claim determination”; “Your appeal will be resolved within 30 calendar days.” If you disagree, PICPA arbitration is available within 90 calendar days of the appeal decision, or, if the dispute is ineligible or you skip arbitration, “a second level internal appeal with Aetna (depending on provider type)” within 60 calendar days, resolved within 30 business days. Miss the 90 days and you may still request reconsideration “within 18 months from the date the first payment of a claim was made” under Aetna\'s standard process, but then PICPA is not available. Self-insured, Medicare and federal members follow Aetna\'s standard dispute process. On a fully insured New Jersey plan, a payment dispute (underpayment, coding, denial for non-clinical reasons) goes on DOBI\'s Health Care Provider Application to Appeal a Claims Determination, which carriers must make available “to both participating and non-participating health care providers.” Use one form per claim, signed and dated, and attach “The relevant claim form,” “The relevant Explanation(s) of Benefits or Remittance Advice,” “A statement specifying the line items that you are appealing,” any information the carrier asked for, the contract provisions you say are not being followed, pertinent correspondence, NCCI or other coding support when codes are disputed, and “Other documents you may believe support your position in this dispute (this may include medical records).” Medical-necessity denials go to the Stage 1 UM appeal instead. After the carrier\'s decision, disputes of “$1,000 or more” (claims can be combined by member or by CPT code) can go to PICPA arbitration within 90 days; PICPA excludes self-funded plans and the State Health Benefits Program.',
+        ],
+        cites: [{ title: 'Aetna — Provider Appeal Procedures for New Jersey', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/NJ_prov_appeal_proc.pdf' }, { title: 'NJ DOBI — Instructions for the Health Care Provider Application to Appeal a Claims Determination', url: 'https://www.nj.gov/dobi/chap352/352instructapplication.pdf' }, { title: 'NJ DOBI — Health Care Provider Application to Appeal a Claims Determination (generic form DOBICAPPGEN 10/10)', url: 'https://www.nj.gov/dobi/chap352/352genapplication.pdf' }, { title: 'NJ DOBI — Claims Handling Appeals and the Program for Independent Claims Payment Arbitration (PICPA) FAQ', url: 'https://www.nj.gov/dobi/chap352/352appealqanda.html' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies, no dollar cap in practice) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -1903,7 +1910,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis report', desc: 'DSM-5 ASD diagnosis, diagnosing provider and credentials, evaluation date.' },
       { title: 'Age', desc: 'Under 21 for the statutory ABA prong — but IHC/SEH-market plans extend ABA to adults, so flag 21+ cases for market analysis rather than turning them away.' },
     ],
-    sources: [
+    sources: [ { title: 'Aetna — Provider Appeal Procedures for New Jersey', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/NJ_prov_appeal_proc.pdf' }, { title: 'NJ DOBI — Instructions for the Health Care Provider Application to Appeal a Claims Determination', url: 'https://www.nj.gov/dobi/chap352/352instructapplication.pdf' }, { title: 'NJ DOBI — Health Care Provider Application to Appeal a Claims Determination (generic form DOBICAPPGEN 10/10)', url: 'https://www.nj.gov/dobi/chap352/352genapplication.pdf' }, { title: 'NJ DOBI — Claims Handling Appeals and the Program for Independent Claims Payment Arbitration (PICPA) FAQ', url: 'https://www.nj.gov/dobi/chap352/352appealqanda.html' },
       { title: 'Aetna — Participating provider behavioral health precertification list (ABA: 97151–97158, 0362T, 0373T)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
       { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
       { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
@@ -2188,6 +2195,13 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026) — NPI on 837 claims', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }],
       },
+      {
+        h2: 'Appealing an ABA claim payment in New Jersey: what to send',
+        body: [
+          'On a fully insured New Jersey plan, a payment dispute (underpayment, coding, denial for non-clinical reasons) goes on DOBI\'s Health Care Provider Application to Appeal a Claims Determination, which carriers must make available “to both participating and non-participating health care providers.” Use one form per claim, signed and dated, and attach “The relevant claim form,” “The relevant Explanation(s) of Benefits or Remittance Advice,” “A statement specifying the line items that you are appealing,” any information the carrier asked for, the contract provisions you say are not being followed, pertinent correspondence, NCCI or other coding support when codes are disputed, and “Other documents you may believe support your position in this dispute (this may include medical records).” Medical-necessity denials go to the Stage 1 UM appeal instead. After the carrier\'s decision, disputes of “$1,000 or more” (claims can be combined by member or by CPT code) can go to PICPA arbitration within 90 days; PICPA excludes self-funded plans and the State Health Benefits Program. Cigna\'s behavioral health administrator, Evernorth, describes New Jersey UM appeals and external review in its administrative guide but no claims-payment appeal address; DOBI\'s generic form says “The Carrier will accept either form” (the carrier\'s branded version or the generic one); ask Cigna provider services for the claims-appeal address.',
+        ],
+        cites: [{ title: 'NJ DOBI — Instructions for the Health Care Provider Application to Appeal a Claims Determination', url: 'https://www.nj.gov/dobi/chap352/352instructapplication.pdf' }, { title: 'NJ DOBI — Health Care Provider Application to Appeal a Claims Determination (generic form DOBICAPPGEN 10/10)', url: 'https://www.nj.gov/dobi/chap352/352genapplication.pdf' }, { title: 'NJ DOBI — Claims Handling Appeals and the Program for Independent Claims Payment Arbitration (PICPA) FAQ', url: 'https://www.nj.gov/dobi/chap352/352appealqanda.html' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies, no dollar cap in practice) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -2195,7 +2209,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis report', desc: 'DSM-5 ASD diagnosis, diagnosing provider and credentials, evaluation date — noting EN0499\'s Rett exclusion.' },
       { title: 'Age', desc: 'Under 21 for the statutory ABA prong — but IHC/SEH-market plans extend ABA to adults, so flag 21+ cases for market analysis rather than turning them away.' },
     ],
-    sources: [
+    sources: [ { title: 'NJ DOBI — Instructions for the Health Care Provider Application to Appeal a Claims Determination', url: 'https://www.nj.gov/dobi/chap352/352instructapplication.pdf' }, { title: 'NJ DOBI — Health Care Provider Application to Appeal a Claims Determination (generic form DOBICAPPGEN 10/10)', url: 'https://www.nj.gov/dobi/chap352/352genapplication.pdf' }, { title: 'NJ DOBI — Claims Handling Appeals and the Program for Independent Claims Payment Arbitration (PICPA) FAQ', url: 'https://www.nj.gov/dobi/chap352/352appealqanda.html' },
       { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
       { title: 'Cigna autism resource guide', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
       { title: 'NJ DOBI Bulletin 10-02 — Implementation of P.L. 2009, c.115', url: 'https://www.nj.gov/dobi/bulletins/blt10_02.pdf' },
@@ -2848,6 +2862,13 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'Horizon BCBSNJ Professional Provider Manual — The BlueCard Program', url: 'https://www.horizonblue.com/providers/resources/working-us-information-education-resources/manuals-user-guides/professional-provider-manual/bluecard-program' }],
       },
+      {
+        h2: 'Appealing an ABA claim payment in New Jersey: what to send',
+        body: [
+          'On a fully insured New Jersey plan, a payment dispute (underpayment, coding, denial for non-clinical reasons) goes on DOBI\'s Health Care Provider Application to Appeal a Claims Determination, which carriers must make available “to both participating and non-participating health care providers.” Use one form per claim, signed and dated, and attach “The relevant claim form,” “The relevant Explanation(s) of Benefits or Remittance Advice,” “A statement specifying the line items that you are appealing,” any information the carrier asked for, the contract provisions you say are not being followed, pertinent correspondence, NCCI or other coding support when codes are disputed, and “Other documents you may believe support your position in this dispute (this may include medical records).” Medical-necessity denials go to the Stage 1 UM appeal instead. After the carrier\'s decision, disputes of “$1,000 or more” (claims can be combined by member or by CPT code) can go to PICPA arbitration within 90 days; PICPA excludes self-funded plans and the State Health Benefits Program. The DOBI generic form says “The Carrier will accept either form” (its own branded version or the generic one), and DOBI tells carriers to post the branded form on their websites.',
+        ],
+        cites: [{ title: 'NJ DOBI — Instructions for the Health Care Provider Application to Appeal a Claims Determination', url: 'https://www.nj.gov/dobi/chap352/352instructapplication.pdf' }, { title: 'NJ DOBI — Health Care Provider Application to Appeal a Claims Determination (generic form DOBICAPPGEN 10/10)', url: 'https://www.nj.gov/dobi/chap352/352genapplication.pdf' }, { title: 'NJ DOBI — Claims Handling Appeals and the Program for Independent Claims Payment Arbitration (PICPA) FAQ', url: 'https://www.nj.gov/dobi/chap352/352appealqanda.html' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured, self-funded that opted into the NJ mandate, or self-funded that did not. It decides which rules apply. SHBP/SEHBP members use a separate phone line.' },
@@ -2856,7 +2877,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'IEP and school schedule', desc: 'Horizon wants to see the current IEP and school supports, and it does not pay school-hours ABA (narrowly allowed in non-instructional periods from 12/1/2026).' },
       { title: 'Baseline adaptive measure', desc: 'PDDBI, Vineland or ABAS score, repeated no more often than every 6 months.' },
     ],
-    sources: [
+    sources: [ { title: 'NJ DOBI — Instructions for the Health Care Provider Application to Appeal a Claims Determination', url: 'https://www.nj.gov/dobi/chap352/352instructapplication.pdf' }, { title: 'NJ DOBI — Health Care Provider Application to Appeal a Claims Determination (generic form DOBICAPPGEN 10/10)', url: 'https://www.nj.gov/dobi/chap352/352genapplication.pdf' }, { title: 'NJ DOBI — Claims Handling Appeals and the Program for Independent Claims Payment Arbitration (PICPA) FAQ', url: 'https://www.nj.gov/dobi/chap352/352appealqanda.html' },
       { title: 'Horizon BCBSNJ Medical Policy 165 — Applied Behavior Analysis in the Treatment of ASD (effective 7/15/2026)', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/medical-policies/detail/01240ce2-1507-c5e4-b8aa-52f103dbf80c' },
       { title: 'Horizon BCBSNJ Medical Policy 165 — ASD Treatment Services: ABA and DIR/Floortime (effective 12/1/2026)', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/medical-policies/detail/cf5ac712-dd58-45df-11d5-01816106a41e' },
       { title: 'Horizon BCBSNJ reimbursement policy — Applied Behavior Analysis in the Treatment of Autism Spectrum Disorders (revised 3/26/2026)', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/reimbursement-policies-guidelines/applied-behavior-analysis-treatment-autism-spectrum-disorders' },
