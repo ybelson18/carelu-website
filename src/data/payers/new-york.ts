@@ -213,7 +213,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          '\u201cThe NYS Medicaid member must be referred for ABA services by a NYS-licensed and NYS Medicaid-enrolled physician, psychologist, psychiatric nurse practitioner, pediatric nurse practitioner, or physician assistant,\u201d and those referring providers \u201cshould follow the criteria for diagnosing ASD found in the DSM-5 and outlined in the NYS Department of Health\u2019s publication, Clinical Practice Guideline on Assessment and Intervention Services for Young Children with Autism Spectrum Disorders.\u201d LBAs and CBAAs are outside that list \u2014 NYSED bars them from diagnosing the condition ABA is provided for and from prescribing or ordering ABA \u2014 which is why no New York case should open without a separate diagnosing clinician in the file.',
+          '\u201cThe NYS Medicaid member must be referred for ABA services by a NYS-licensed and NYS Medicaid-enrolled physician, psychologist, psychiatric nurse practitioner, pediatric nurse practitioner, or physician assistant,\u201d and those referring providers \u201cshould follow the criteria for diagnosing ASD found in the DSM-5 and outlined in the NYS Department of Health\u2019s publication, Clinical Practice Guideline on Assessment and Intervention Services for Young Children with Autism Spectrum Disorders.\u201d LBAs and CBAAs are outside that list \u2014 NYSED bars them from diagnosing the condition ABA is provided for and from prescribing or ordering ABA \u2014 which is why no New York case should open without a separate diagnosing clinician in the file. LCSW: no. A licensed clinical social worker is not on this list, so an LCSW\'s diagnosis alone does not meet it.',
         status: 'verified',
         cites: [{ title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }, { title: 'NYSED \u2014 LBA/CBAA assessment and treatment plans', url: 'https://www.op.nysed.gov/professions/licensed-behavior-analysts/professional-practice/assessment-and-treatment-plans' }],
       },
@@ -407,6 +407,13 @@ export const newYorkPayers: Record<string, PayerConfig> = {
           { title: 'eMedNY — Applied Behavior Analysis provider enrollment', url: 'https://www.emedny.org/info/providerenrollment/ABA/' },
         ],
       },
+      {
+        h2: 'Does Fidelis Care give single case agreements to out-of-network ABA providers in New York?',
+        body: [
+          'Yes, under set conditions. Fidelis Care\'s Medicaid manual (V26.0, 1/1/2026), Section 19, treats non-emergent care from a non-participating provider as an out-of-network referral that must meet all of these: the service is a covered benefit; Fidelis “does not have a participating provider within an appropriate geographic area, or with the appropriate training and experience, to meet the particular health care needs of the member”; “An authorization request is submitted to Fidelis Care prior to the start of the service”; and the “Provider must agree to accept as payment the negotiated fee via single case agreement,” share medical information and follow Fidelis\'s authorization and treatment-plan rules. The member then pays only in-network cost-sharing. Under New York\'s ABA enrollment moratorium, an analyst not already enrolled in NYS Medicaid cannot enroll for now.',
+        ],
+        cites: [{ title: 'Fidelis Care Medicaid Provider Manual (V26.0, 1/1/2026) — Section 19: Authorizations for Non-Par Providers', url: 'https://www.fideliscare.org/Portals/0/Providers/ProviderManuals/Provider-Manual-Medicaid-English.pdf' }],
+      },
     ],
     collect: [
       { title: 'Diagnostic evaluation + dates', desc: 'Two clocks: dx evaluation within 2 years of the request; validated diagnostic tool within 60 months for initial requests.' },
@@ -415,7 +422,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { title: 'Credentialing + MMIS status', desc: 'Both must be complete before serving Fidelis members — confirm before quoting start dates.' },
       { title: 'Waitlist-workaround eligibility', desc: 'If no diagnostic slot within 6 months and the member is in/recently in ABA, pursue the letter of confirmation.' },
     ],
-    sources: [
+    sources: [ { title: 'Fidelis Care Medicaid Provider Manual (V26.0, 1/1/2026) — Section 19: Authorizations for Non-Par Providers', url: 'https://www.fideliscare.org/Portals/0/Providers/ProviderManuals/Provider-Manual-Medicaid-English.pdf' },
       { title: 'NYS DOH — NYS Medicaid Provider Revalidation and Enrollment Moratoriums', url: 'https://health.ny.gov/health_care/medicaid/integrity/provider_revalidation.htm' },
       { title: 'NYS DOH Bureau of Provider Enrollment — Office Hours slides: revalidation, risk designations, temporary moratorium (October 1, 2026)', url: 'https://health.ny.gov/health_care/medicaid/integrity/docs/2026-09-17_bpe_call-in_hour_slide.pdf' },
       { title: 'eMedNY — Applied Behavior Analysis provider enrollment', url: 'https://www.emedny.org/info/providerenrollment/ABA/' },
@@ -445,7 +452,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'Follows the New York Medicaid rule: the diagnosis and referral must come from a NYS-licensed, NYS Medicaid-enrolled physician, psychologist, psychiatric nurse practitioner, pediatric nurse practitioner or physician assistant, following DSM-5 criteria and NYSDOH\u2019s Clinical Practice Guideline on ASD. LBAs and CBAAs sit outside that list \u2014 they may not diagnose and may not self-refer. Fidelis adds its own escape hatch rather than its own credential: where the diagnostic assessment cannot be scheduled within 6 months, a letter of confirmation from a NYS-licensed qualified professional will start services for a member already in or recently in ABA.',
+          'Follows the New York Medicaid rule: the diagnosis and referral must come from a NYS-licensed, NYS Medicaid-enrolled physician, psychologist, psychiatric nurse practitioner, pediatric nurse practitioner or physician assistant, following DSM-5 criteria and NYSDOH\u2019s Clinical Practice Guideline on ASD. LBAs and CBAAs sit outside that list \u2014 they may not diagnose and may not self-refer. Fidelis adds its own escape hatch rather than its own credential: where the diagnostic assessment cannot be scheduled within 6 months, a letter of confirmation from a NYS-licensed qualified professional will start services for a member already in or recently in ABA. LCSW: no. A licensed clinical social worker is not on this list, so an LCSW\'s diagnosis alone does not meet it.',
         status: 'verified',
         cites: [{ title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }, { title: 'Fidelis ABA Clinical Policy FC.CP.BH.301.04', url: 'https://www.fideliscare.org/Portals/0/Providers/Applied-Behavior-Analysis-Policy-FC.BH.301.04.pdf' }],
       },
@@ -527,6 +534,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Fidelis Care give single case agreements to out-of-network ABA providers in New York?', a: 'Yes, when Fidelis has no participating provider nearby or with the right training and experience. The authorization must be requested before services start, and the provider must accept “the negotiated fee via single case agreement” and follow Fidelis\'s authorization and treatment-plan rules.' },
       { q: 'Is Fidelis Care accepting new ABA providers for New York Medicaid?', a: 'Not providers who still need NYS Medicaid enrollment. New York has had a temporary enrollment moratorium on ABA providers since July 27, 2026, lasting at least 6 months, and Medicaid enrollment is a prerequisite for joining any Medicaid managed care network. Already-enrolled LBAs can ask Fidelis Care about contracting. Its provider documents state no ABA network status, so whether it has room is up to its provider contracting team.' },
       { q: 'Does Fidelis allow ABA by telehealth, including the assessment?', a: 'Case by case. Fidelis\u2019s ABA policy says some telehealth \u201cmay be allowed when clinically appropriate and in alignment with the\u201d NYS telehealth manual, and it must be documented in the treatment plan. No code is pre-approved, so get the telehealth plan approved with the authorization.' },
       { q: 'Does Fidelis Care cover ABA therapy?', a: 'Yes — for NY Medicaid members under 21 with ASD or Rett syndrome, under its own Centene-derived clinical policy: assessment completed first, treatment authorized with named instruments and graphed data, and 6-month reauthorization cycles.' },
@@ -629,6 +637,13 @@ export const newYorkPayers: Record<string, PayerConfig> = {
           { title: 'eMedNY — Applied Behavior Analysis provider enrollment', url: 'https://www.emedny.org/info/providerenrollment/ABA/' },
         ],
       },
+      {
+        h2: 'Does UnitedHealthcare Community Plan of New York give single case agreements for ABA?',
+        body: [
+          'Yes, but only at the Medicaid rate and only for an NYS Medicaid-enrolled provider. UnitedHealthcare Community Plan\'s 2026 New York manual: “Medicaid does not offer out-of-network or out-of-state benefit coverage. If the requested service is materially different than that provided by an in-network care provider, or addresses a gap in care, you must request a Single Case Agreement (SCA). An SCA can only offer the established Medicaid rate and you must be a New York State registered Medicaid care provider. An OON care provider must request prior authorization and SCA before providing any service.” SCAs “will be executed to meet clinical needs of members when in-network services are not available.” Request one through Provider Services at 1-866-362-3368. Because of New York\'s ABA enrollment moratorium (since July 27, 2026), an analyst not already enrolled in NYS Medicaid cannot meet the registration condition for now.',
+        ],
+        cites: [{ title: 'UnitedHealthcare Community Plan 2026 Care Provider Manual — New York (Doc# PMI 10132026), Ch. 7, 12 and 13', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NY-UHCCP-Dual-LTC-CHIP-Care-Provider-Manual.pdf' }],
+      },
     ],
     collect: [
       { title: 'Complete state referral packet', desc: 'The state\'s 2-year referral with DSM-5 checklist is the clinical core of the Optum PA — collect it first.' },
@@ -637,7 +652,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { title: 'Unit runway', desc: 'Additional units need a new PA — track burn-down and file before the auth exhausts.' },
       { title: 'Telehealth provider status', desc: 'Virtual 97155/97156/97157 requires virtual-visits approval; bill POS 02.' },
     ],
-    sources: [
+    sources: [ { title: 'UnitedHealthcare Community Plan 2026 Care Provider Manual — New York (Doc# PMI 10132026), Ch. 7, 12 and 13', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NY-UHCCP-Dual-LTC-CHIP-Care-Provider-Manual.pdf' },
       { title: 'NYS DOH — NYS Medicaid Provider Revalidation and Enrollment Moratoriums', url: 'https://health.ny.gov/health_care/medicaid/integrity/provider_revalidation.htm' },
       { title: 'NYS DOH Bureau of Provider Enrollment — Office Hours slides: revalidation, risk designations, temporary moratorium (October 1, 2026)', url: 'https://health.ny.gov/health_care/medicaid/integrity/docs/2026-09-17_bpe_call-in_hour_slide.pdf' },
       { title: 'eMedNY — Applied Behavior Analysis provider enrollment', url: 'https://www.emedny.org/info/providerenrollment/ABA/' },
@@ -668,7 +683,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'Follows the New York Medicaid rule, restated in Optum\u2019s State Mandates supplement: \u201cthe NYS Medicaid member must be referred for ABA services by a NYS-licensed and NYS Medicaid-enrolled physician (including psychiatrists and developmental/behavioral pediatricians), psychologist, psychiatric nurse practitioner, pediatric nurse practitioner, or physician assistant.\u201d Delivery is separate and state-specified: \u201cABA services are provided by Licensed Behavior Analyst (LBA), Certified Behavior Analyst Assistant (CBAA) working under the supervision of LBAs, or other individuals specified under Article 167 of NYS education law.\u201d',
+          'Follows the New York Medicaid rule, restated in Optum\u2019s State Mandates supplement: \u201cthe NYS Medicaid member must be referred for ABA services by a NYS-licensed and NYS Medicaid-enrolled physician (including psychiatrists and developmental/behavioral pediatricians), psychologist, psychiatric nurse practitioner, pediatric nurse practitioner, or physician assistant.\u201d Delivery is separate and state-specified: \u201cABA services are provided by Licensed Behavior Analyst (LBA), Certified Behavior Analyst Assistant (CBAA) working under the supervision of LBAs, or other individuals specified under Article 167 of NYS education law.\u201d LCSW: no. A licensed clinical social worker is not on this list, so an LCSW\'s diagnosis alone does not meet it.',
         status: 'verified',
         cites: [{ title: 'Optum ABA State Mandates supplemental criteria (BH 803ABA, Jan 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }, { title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }],
       },
@@ -747,6 +762,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare Community Plan of New York give single case agreements for ABA?', a: 'Yes, when in-network services are not available. The SCA pays only “the established Medicaid rate,” the provider must be NYS Medicaid-registered, and prior authorization and the SCA must be in place before any service. Call Provider Services at 1-866-362-3368.' },
       { q: 'Is UnitedHealthcare Community Plan accepting new ABA providers for New York Medicaid?', a: 'Not providers who still need NYS Medicaid enrollment. New York has had a temporary enrollment moratorium on ABA providers since July 27, 2026, lasting at least 6 months, and Medicaid enrollment is a prerequisite for joining any Medicaid managed care network. Already-enrolled LBAs can ask UnitedHealthcare Community Plan about contracting. Its provider documents state no ABA network status, so whether it has room is up to its provider contracting team.' },
       { q: 'Does UnitedHealthcare Community Plan of New York cover ABA?', a: 'Yes — for NY Medicaid members under 21 with ASD or Rett syndrome, on the state\'s clinical criteria, but with prior authorization required on all ABA services through Optum\'s providerexpress.com portal.' },
       { q: 'How do I get an ABA authorization from UHC Community Plan NY?', a: 'Submit the online ABA Assessment request on providerexpress.com for the assessment, then the treatment request through the portal or the Autism Care Advocate line with member info, diagnosis, and the treatment plan. Status is viewable online.' },
@@ -884,7 +900,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'Follows the New York Medicaid rule: the diagnosis and referral must come from a NYS-licensed, NYS Medicaid-enrolled physician, psychologist, psychiatric nurse practitioner, pediatric nurse practitioner or physician assistant, following DSM-5 criteria and NYSDOH\u2019s Clinical Practice Guideline on ASD. LBAs and CBAAs sit outside that list \u2014 they may not diagnose and may not self-refer. Anthem\u2019s Treatment Plan Request Form requires the treating BCBA/QHCP\u2019s information but names no diagnosing credential of its own for the Medicaid line.',
+          'Follows the New York Medicaid rule: the diagnosis and referral must come from a NYS-licensed, NYS Medicaid-enrolled physician, psychologist, psychiatric nurse practitioner, pediatric nurse practitioner or physician assistant, following DSM-5 criteria and NYSDOH\u2019s Clinical Practice Guideline on ASD. LBAs and CBAAs sit outside that list \u2014 they may not diagnose and may not self-refer. Anthem\u2019s Treatment Plan Request Form requires the treating BCBA/QHCP\u2019s information but names no diagnosing credential of its own for the Medicaid line. LCSW: no. A licensed clinical social worker is not on this list, so an LCSW\'s diagnosis alone does not meet it.',
         status: 'verified',
         cites: [{ title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }, { title: 'Anthem NY Medicaid ABA Treatment Plan Request Form (June 2026)', url: 'https://providers.anthem.com/docs/gpp/NY_ABC_CAID_ABA_AuthReqForm.pdf?v=202411221617' }],
       },
@@ -1073,6 +1089,13 @@ export const newYorkPayers: Record<string, PayerConfig> = {
           { title: 'eMedNY — Applied Behavior Analysis provider enrollment', url: 'https://www.emedny.org/info/providerenrollment/ABA/' },
         ],
       },
+      {
+        h2: 'Will Healthfirst approve an out-of-network ABA provider?',
+        body: [
+          'Only with Healthfirst\'s authorization. Its New York Provider Manual (updated 10/1/2026): “All non-emergent out-of-network services require prior authorization by Healthfirst except for members enrolled in Healthfirst’s Signature PPO plan.” Healthfirst decides “whether out-of-network care can be supplied by an in-network provider and whether the requested service(s) are medically necessary.” For children, providers should “seek authorization from Healthfirst for out-of-network providers when participating providers cannot meet the child’s needs.” The manual names no ABA single-case-agreement rate.',
+        ],
+        cites: [{ title: 'Healthfirst New York Provider Manual (updated 10/1/2026)', url: 'https://assets.healthfirst.org/pdf_9432a72611d0176a1f6a5503a1d88d94' }],
+      },
     ],
     collect: [
       { title: 'Current authorization policy', desc: 'The policy text is unpublished — pull the live version from hfproviders.org or provider services before quoting timelines.' },
@@ -1080,7 +1103,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { title: 'Availity payer selection', desc: 'Submit PA through Availity Essentials with "Healthfirst (New York)" as the payer.' },
       { title: 'Line of business', desc: 'Medicaid vs. Healthfirst commercial — on commercial group plans, all of 97151–97158 require PA.' },
     ],
-    sources: [
+    sources: [ { title: 'Healthfirst New York Provider Manual (updated 10/1/2026)', url: 'https://assets.healthfirst.org/pdf_9432a72611d0176a1f6a5503a1d88d94' },
       { title: 'Healthfirst — Important Update: NPI and TIN Requirements for Claims Submission (released October 2026; effective December 1, 2026)', url: 'https://hfproviders.org/resource-posts/npi-and-tin-requirements-for-claims-submission' },
       { title: 'NYS DOH — NYS Medicaid Provider Revalidation and Enrollment Moratoriums', url: 'https://health.ny.gov/health_care/medicaid/integrity/provider_revalidation.htm' },
       { title: 'NYS DOH Bureau of Provider Enrollment — Office Hours slides: revalidation, risk designations, temporary moratorium (October 1, 2026)', url: 'https://health.ny.gov/health_care/medicaid/integrity/docs/2026-09-17_bpe_call-in_hour_slide.pdf' },
@@ -1118,7 +1141,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'Follows the New York Medicaid rule: the diagnosis and referral must come from a NYS-licensed, NYS Medicaid-enrolled physician, psychologist, psychiatric nurse practitioner, pediatric nurse practitioner or physician assistant, following DSM-5 criteria and NYSDOH\u2019s Clinical Practice Guideline on ASD. LBAs and CBAAs sit outside that list \u2014 they may not diagnose and may not self-refer. Healthfirst republishes the state\u2019s LBA/CBAA structure on its provider site and names no additional diagnosing credential.',
+          'Follows the New York Medicaid rule: the diagnosis and referral must come from a NYS-licensed, NYS Medicaid-enrolled physician, psychologist, psychiatric nurse practitioner, pediatric nurse practitioner or physician assistant, following DSM-5 criteria and NYSDOH\u2019s Clinical Practice Guideline on ASD. LBAs and CBAAs sit outside that list \u2014 they may not diagnose and may not self-refer. Healthfirst republishes the state\u2019s LBA/CBAA structure on its provider site and names no additional diagnosing credential. LCSW: no. A licensed clinical social worker is not on this list, so an LCSW\'s diagnosis alone does not meet it.',
         status: 'verified',
         cites: [{ title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }, { title: 'Healthfirst \u2014 ABA supervision requirements (eff. 10/1/2025)', url: 'https://hfproviders.org/resource-posts/applied-behavior-analysis-supervision-requirements' }],
       },
@@ -1204,6 +1227,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Will Healthfirst approve an out-of-network ABA provider?', a: 'Only by prior authorization, when Healthfirst decides an in-network provider cannot supply the care and the service is medically necessary. Its manual names no ABA single-case-agreement rate.' },
       { q: 'What changes for Healthfirst ABA claims on December 1, 2026?', a: 'NPI and TIN edits, for all Healthfirst lines of business. The NPI on the claim must match your Healthfirst enrollment record and the right NPI type: Type 1 for an individual provider, Type 2 for an organization. Healthfirst will no longer accept an SSN in place of the TIN. Claims that fail are rejected and must be corrected and resubmitted. For ABA, check that the LBA billing and rendering NPIs on the claim match how each is enrolled.' },
       { q: 'Is Healthfirst accepting new ABA providers for New York Medicaid?', a: 'Not providers who still need NYS Medicaid enrollment. New York has had a temporary enrollment moratorium on ABA providers since July 27, 2026, lasting at least 6 months, and Medicaid enrollment is a prerequisite for joining any Medicaid managed care network. Already-enrolled LBAs can ask Healthfirst about contracting. Its provider documents state no ABA network status, so whether it has room is up to its provider contracting team.' },
       { q: 'Does Healthfirst require RBT certification for ABA technicians, and do technicians enroll?', a: 'Healthfirst\u2019s NY provider manual names no RBT requirement. It says ABA comes from LBAs, CBAAs or other individuals allowed under Education Law Article 167, that \u201cunlicensed aides\u201d cannot enroll as a provider, and that LBAs bill for the CBAAs and unlicensed staff they supervise (up to 6).' },
@@ -1307,6 +1331,13 @@ export const newYorkPayers: Record<string, PayerConfig> = {
           { title: 'eMedNY — Applied Behavior Analysis provider enrollment', url: 'https://www.emedny.org/info/providerenrollment/ABA/' },
         ],
       },
+      {
+        h2: 'Does MetroPlusHealth give single case agreements to out-of-network ABA providers?',
+        body: [
+          'Yes. MetroPlusHealth\'s June 2026 manual says that, for children under EPSDT, HCBS and CFCO rules, it “will execute Single Case Agreements (SCAs) with non-participating providers to meet the clinical needs of children when in-network services are not available.” Section 7.11.1 adds that payment for a non-participating provider “may be given only when the service is deemed medically necessary and is not available from a Participating Provider, or for continuity of care as appropriate.” The referring participating provider requests the prior authorization with the member\'s details, “A rationale for proposing the use of a non- participating provider,” the diagnosis, proposed treatment, history and “Number of visits requested and frequency of visits.”',
+        ],
+        cites: [{ title: 'MetroPlusHealth Provider Manual (updated June 2026, PRV-26073)', url: 'https://metroplus.org/wp-content/uploads/2026/07/H0423_PRV26_3833_C-06162026-PRV-26073_Jun26-Provider-Manual_R8_UA.pdf' }],
+      },
     ],
     collect: [
       { title: 'Comprehensive autism evaluation', desc: 'By a NYS-licensed clinician — it must accompany or precede the diagnosis, and an LBA\'s attestation doesn\'t count.' },
@@ -1314,7 +1345,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { title: 'CSS submission package', desc: 'Auth request + clinical information by fax, email or the provider portal; for fax or email, use a template and confirm receipt.' },
       { title: 'Complete state referral packet', desc: 'The state baseline (under 21, ASD/Rett, referral with DSM-5 checklist) still applies.' },
     ],
-    sources: [
+    sources: [ { title: 'MetroPlusHealth Provider Manual (updated June 2026, PRV-26073)', url: 'https://metroplus.org/wp-content/uploads/2026/07/H0423_PRV26_3833_C-06162026-PRV-26073_Jun26-Provider-Manual_R8_UA.pdf' },
       { title: 'NYS DOH — NYS Medicaid Provider Revalidation and Enrollment Moratoriums', url: 'https://health.ny.gov/health_care/medicaid/integrity/provider_revalidation.htm' },
       { title: 'NYS DOH Bureau of Provider Enrollment — Office Hours slides: revalidation, risk designations, temporary moratorium (October 1, 2026)', url: 'https://health.ny.gov/health_care/medicaid/integrity/docs/2026-09-17_bpe_call-in_hour_slide.pdf' },
       { title: 'eMedNY — Applied Behavior Analysis provider enrollment', url: 'https://www.emedny.org/info/providerenrollment/ABA/' },
@@ -1436,6 +1467,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does MetroPlusHealth give single case agreements to out-of-network ABA providers?', a: 'Yes, when in-network services are not available for a child\'s clinical needs. The participating referring provider requests prior authorization with a rationale for using the non-participating provider and the proposed treatment and visit frequency.' },
       { q: 'Is MetroPlusHealth accepting new ABA providers for New York Medicaid?', a: 'Not providers who still need NYS Medicaid enrollment. New York has had a temporary enrollment moratorium on ABA providers since July 27, 2026, lasting at least 6 months, and Medicaid enrollment is a prerequisite for joining any Medicaid managed care network. Already-enrolled LBAs can ask MetroPlusHealth about contracting. Its provider documents state no ABA network status, so whether it has room is up to its provider contracting team.' },
       { q: 'Does MetroPlusHealth cover ABA therapy?', a: 'Yes — it carries the NY Medicaid ABA carve-in for NYC members under 21 with ASD/Rett, with authorization requests and clinical information submitted by fax (212-908-5182), email (MetroPlusABA@Metroplus.org) or the provider portal, per its 2026 BH/HCBS PA Request Guide.' },
       { q: 'How often does the autism diagnosis need to be validated at MetroPlus?', a: 'For Medicaid members, on the state schedule: a PCP Medicaid referral updated every two years, backed by the comprehensive autism evaluation behind the diagnosis. The annual validation MetroPlus describes, by a physician, NP, LCSW or psychologist and never the LBA, is for its Qualified Health Plan (marketplace) members.' },
@@ -1530,13 +1562,20 @@ export const newYorkPayers: Record<string, PayerConfig> = {
           { title: 'eMedNY — Applied Behavior Analysis provider enrollment', url: 'https://www.emedny.org/info/providerenrollment/ABA/' },
         ],
       },
+      {
+        h2: 'Will EmblemHealth approve an out-of-network ABA provider?',
+        body: [
+          'Through preauthorization from the Managing Entity. EmblemHealth\'s Utilization and Care Management chapter says “All requests to see out-of-network providers are reviewed against the member\'s benefits, the provider network, and the medical necessity of treatment by an out-of-network provider,” and that the applicable Managing Entity\'s “preauthorization is required for a member to use out-of- network providers.” The chapter names no ABA single-case-agreement process or rate.',
+        ],
+        cites: [{ title: 'EmblemHealth Provider Manual — Utilization and Care Management (generated 06-26-2026)', url: 'https://www.emblemhealth.com/content/dam/emblemhealth/pdfs/provider-manual/care-management.pdf' }],
+      },
     ],
     collect: [
       { title: 'Complete state referral packet', desc: 'Emblem\'s published criteria are the state\'s — the under-21 ASD/Rett referral with DSM-5 checklist is the clinical core.' },
       { title: 'PA confirmation in writing', desc: 'Authorization specifics are unpublished — confirm assessment and treatment PA per case via the portal.' },
       { title: 'HIP entity on the card', desc: 'Greater NY, Westchester, or Nassau — capture the exact entity for eligibility checks.' },
     ],
-    sources: [
+    sources: [ { title: 'EmblemHealth Provider Manual — Utilization and Care Management (generated 06-26-2026)', url: 'https://www.emblemhealth.com/content/dam/emblemhealth/pdfs/provider-manual/care-management.pdf' },
       { title: 'NYS DOH — NYS Medicaid Provider Revalidation and Enrollment Moratoriums', url: 'https://health.ny.gov/health_care/medicaid/integrity/provider_revalidation.htm' },
       { title: 'NYS DOH Bureau of Provider Enrollment — Office Hours slides: revalidation, risk designations, temporary moratorium (October 1, 2026)', url: 'https://health.ny.gov/health_care/medicaid/integrity/docs/2026-09-17_bpe_call-in_hour_slide.pdf' },
       { title: 'eMedNY — Applied Behavior Analysis provider enrollment', url: 'https://www.emedny.org/info/providerenrollment/ABA/' },
@@ -1573,7 +1612,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'Follows the New York Medicaid rule, restated on EmblemHealth\u2019s benefit page: referral from the state\u2019s practitioner list \u2014 a NYS-licensed, NYS Medicaid-enrolled physician, psychologist, psychiatric NP, pediatric NP or PA. LBAs and CBAAs may not diagnose or self-refer. No Emblem-specific credential was located.',
+          'Follows the New York Medicaid rule, restated on EmblemHealth\u2019s benefit page: referral from the state\u2019s practitioner list \u2014 a NYS-licensed, NYS Medicaid-enrolled physician, psychologist, psychiatric NP, pediatric NP or PA. LBAs and CBAAs may not diagnose or self-refer. No Emblem-specific credential was located. LCSW: no. A licensed clinical social worker is not on this list, so an LCSW\'s diagnosis alone does not meet it.',
         status: 'verified',
         cites: [{ title: 'EmblemHealth \u2014 Medicaid ABA benefit page', url: 'https://www.emblemhealth.com/providers/resources/State-Sponsored-Programs/medicaid-applied-behavior-analysis-benefit-' }, { title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }],
       },
@@ -1658,6 +1697,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Will EmblemHealth approve an out-of-network ABA provider?', a: 'Only with the Managing Entity\'s preauthorization. EmblemHealth reviews each request against the member\'s benefits, its network and medical necessity, and publishes no ABA single-case-agreement rate.' },
       { q: 'Is EmblemHealth accepting new ABA providers for New York Medicaid?', a: 'Not providers who still need NYS Medicaid enrollment. New York has had a temporary enrollment moratorium on ABA providers since July 27, 2026, lasting at least 6 months, and Medicaid enrollment is a prerequisite for joining any Medicaid managed care network. Already-enrolled LBAs can ask EmblemHealth about contracting. Its provider documents state no ABA network status, so whether it has room is up to its provider contracting team.' },
       { q: 'Does EmblemHealth cover ABA therapy?', a: 'Yes — its Medicaid plans carry the NY ABA carve-in on the state criteria, restated verbatim in its published benefit content: under 21, ASD/Rett per DSM-5, with the state practitioner referral.' },
       { q: 'Does EmblemHealth require prior authorization for ABA?', a: 'The plan publishes no ABA-specific PA details — no distinct clinical policy was located. Verify the authorization workflow through the emblemhealth.com provider portal before booking, and get the answer in writing.' },
@@ -1817,7 +1857,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'Follows the New York Medicaid rule: the diagnosis and referral must come from a NYS-licensed, NYS Medicaid-enrolled physician, psychologist, psychiatric nurse practitioner, pediatric nurse practitioner or physician assistant, following DSM-5 criteria and NYSDOH\u2019s Clinical Practice Guideline on ASD. LBAs and CBAAs sit outside that list \u2014 they may not diagnose and may not self-refer. Molina\u2019s MCP 482 describes the diagnosis as made by \u201ca multidisciplinary team with expertise in diagnosing ASD\u201d and says evaluations are done by \u201ca qualified provider or multidisciplinary team with ASD expertise (e.g., clinical psychologists, developmental pediatrician, pediatric neurologist, psychiatrist, or other licensed clinicians permitted under applicable state law to diagnose ASD)\u201d; it also asks for documentation from the child\u2019s primary care physician of the initial developmental concerns, screenings and referrals.',
+          'Follows the New York Medicaid rule: the diagnosis and referral must come from a NYS-licensed, NYS Medicaid-enrolled physician, psychologist, psychiatric nurse practitioner, pediatric nurse practitioner or physician assistant, following DSM-5 criteria and NYSDOH\u2019s Clinical Practice Guideline on ASD. LBAs and CBAAs sit outside that list \u2014 they may not diagnose and may not self-refer. Molina\u2019s MCP 482 describes the diagnosis as made by \u201ca multidisciplinary team with expertise in diagnosing ASD\u201d and says evaluations are done by \u201ca qualified provider or multidisciplinary team with ASD expertise (e.g., clinical psychologists, developmental pediatrician, pediatric neurologist, psychiatrist, or other licensed clinicians permitted under applicable state law to diagnose ASD)\u201d; it also asks for documentation from the child\u2019s primary care physician of the initial developmental concerns, screenings and referrals. LCSW: no. A licensed clinical social worker is not on this list, so an LCSW\'s diagnosis alone does not meet it.',
         status: 'verified',
         cites: [{ title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }, { title: 'Molina Clinical Policy MCP 482 \u2014 Applied Behavioral Analysis for Autism Spectrum Disorder (approved 6/10/2026)', url: 'https://www.molinaclinicalpolicy.com/molinaclinicalpolicy/-/media/Molina/PublicWebsite/PDF/Common/Molina-Clinical-Policy/Applied-Behavioral-Analysis-for-Autism-Spectrum-Disorder_R.ashx' }],
       },
@@ -2001,6 +2041,13 @@ export const newYorkPayers: Record<string, PayerConfig> = {
           { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
         ],
       },
+      {
+        h2: 'Out of network with Aetna: transition of care, not a single case agreement',
+        body: [
+          'Aetna\'s provider manual (6/26) uses transition of care (TOC) and continuity of care rather than the term single case agreement. TOC “allows certain qualifying members the ability to request to continue receiving care from their current out-of-network provider at in-network cost level for a defined period of time,” typically at plan enrollment or renewal; continuity of care does the same when a provider leaves the network mid-treatment. The member must be in “an active course of covered treatment,” and the treating provider must be an individual practitioner (the manual\'s examples are a specialist, physical therapist or speech therapist) or home care agency that is not contracted in the member\'s plan. Steps: the member gets a Transition Coverage Request Form from Member Services or the employer, completes it with the non-participating provider\'s help, faxes it to Aetna, and Aetna sends a decision letter stating how long the transition benefits last. The process does not apply to Traditional Choice plans. Aetna publishes no ABA rate for this; ask Aetna behavioral health whether the ABA agency qualifies before the first session.',
+        ],
+        cites: [{ title: 'Aetna — Provider manual (8102800-01-01, 6/26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -2044,7 +2091,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'CPB 0648 frames the diagnosis as made by an \u201cappropriate certified/licensed health care professional\u201d and names the professional types it contemplates in an ASD workup \u2014 board certified behavioral analyst, developmental pediatrician, neurologist, occupational therapist, physical therapist, primary care provider, psychiatrist, psychologist, and speech-language pathologist and audiologist. New York narrows this from the other direction: NYSED bars LBAs and CBAAs from diagnosing the condition ABA is provided for and from prescribing or ordering ABA for a particular individual, and tells LBAs to verify a client\u2019s ASD diagnosis before providing services. So the diagnosis must come from someone other than your analyst.',
+          'CPB 0648 frames the diagnosis as made by an \u201cappropriate certified/licensed health care professional\u201d and names the professional types it contemplates in an ASD workup \u2014 board certified behavioral analyst, developmental pediatrician, neurologist, occupational therapist, physical therapist, primary care provider, psychiatrist, psychologist, and speech-language pathologist and audiologist. New York narrows this from the other direction: NYSED bars LBAs and CBAAs from diagnosing the condition ABA is provided for and from prescribing or ordering ABA for a particular individual, and tells LBAs to verify a client\u2019s ASD diagnosis before providing services. So the diagnosis must come from someone other than your analyst. LCSW: not named. The test turns on licensure and diagnostic scope, so an LCSW\'s diagnosis is accepted only if the plan agrees it is within the LCSW\'s licensed scope; confirm with the plan before relying on one.',
         status: 'verified',
         cites: [{ title: 'Aetna CPB 0648 \u2014 Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }, { title: 'NYSED Office of the Professions \u2014 Article 167 (Ed. Law \u00a7\u00a7 8800\u20138808)', url: 'https://www.op.nysed.gov/professions/licensed-behavior-analysts/laws-rules-regulations/article-167' }],
       },
@@ -2140,6 +2187,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Can an out-of-network ABA provider keep treating an Aetna member?', a: 'Possibly, through Aetna\'s transition-of-care or continuity-of-care process. The member must be in an active course of covered treatment; the member requests a Transition Coverage Request Form, completes it with the provider and faxes it to Aetna, which issues a time-limited decision. Aetna\'s manual names individual practitioners and home care agencies as eligible, so confirm with Aetna behavioral health that an ABA agency qualifies.' },
       { q: 'Does Aetna cover ABA therapy in New York?', a: 'Yes — under the carrier\'s national policy for ASD, layered on New York\'s autism mandate for fully-insured plans: no age limit, no ABA-only visit caps, LBA-delivered. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the New York autism mandate require?', a: 'State-regulated plans must cover screening, diagnosis, and treatment of ASD including ABA, with no age limit; and no limits on visits may be applied solely to ASD treatment — the 680-hour cap was repealed effective 1/1/2020, and the older $45,000 dollar figure is not in current guidance either, and mandated ABA must be provided or supervised by NYSED-licensed LBAs/CBAAs.' },
       { q: 'What does Aetna pay for ABA in New York?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the NY Medicaid fee schedule ($19.26/unit for most codes; $9.63 for 97153, current as of 10/1/2026) and treat rate-setting as part of contracting.' },
@@ -2232,6 +2280,13 @@ export const newYorkPayers: Record<string, PayerConfig> = {
           { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
         ],
       },
+      {
+        h2: 'Out of network with Cigna (Evernorth) for ABA',
+        body: [
+          'Evernorth\'s Behavioral Health Administrative Guidelines (September 2026) describe out-of-network use by plan type. On Open Access Plus, “Services from out-of-network providers are covered at a reduced benefit level,” and patients “whose plans include out-of-network benefits can use these benefits for services covered under their plan; however, in doing so, these patients will generally incur higher out-of-pocket costs.” An out-of-network provider who wants to contract is pointed to “the Join the Network page on the Evernorth Provider website.” On appeals, Evernorth says an appeal “must be submitted within 180 calendar days from the claim denial unless determined otherwise by plan or state regulation,” and that “out-of-network providers requesting a standard appeal must submit a valid Appointments of Representative form signed by the patient” in some circumstances. Evernorth publishes no single-case-agreement process or out-of-network ABA rate; benefits depend on the member\'s plan.',
+        ],
+        cites: [{ title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -2267,7 +2322,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'EN0499 requires the diagnosis to be made \u201cby a healthcare professional who is licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice,\u201d with the name, credentials and type of licensure of that person and the date of the most recent diagnosis all provided. New York narrows it further: NYSED bars LBAs and CBAAs from diagnosing or from prescribing/ordering ABA, and the mandate defines covered treatment as that prescribed or ordered by a licensed physician or licensed psychologist. One Cigna-specific trap \u2014 EN0499 excludes Rett syndrome (F84.2), which New York Medicaid covers, so a Rett family with a Cigna card goes to benefits verification, not straight to intake.',
+          'EN0499 requires the diagnosis to be made \u201cby a healthcare professional who is licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice,\u201d with the name, credentials and type of licensure of that person and the date of the most recent diagnosis all provided. New York narrows it further: NYSED bars LBAs and CBAAs from diagnosing or from prescribing/ordering ABA, and the mandate defines covered treatment as that prescribed or ordered by a licensed physician or licensed psychologist. One Cigna-specific trap \u2014 EN0499 excludes Rett syndrome (F84.2), which New York Medicaid covers, so a Rett family with a Cigna card goes to benefits verification, not straight to intake. LCSW: not named. The test turns on licensure and diagnostic scope, so an LCSW\'s diagnosis is accepted only if the plan agrees it is within the LCSW\'s licensed scope; confirm with the plan before relying on one.',
         status: 'verified',
         cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'NYSED Office of the Professions \u2014 Article 167 (Ed. Law \u00a7\u00a7 8800\u20138808)', url: 'https://www.op.nysed.gov/professions/licensed-behavior-analysts/laws-rules-regulations/article-167' }, { title: 'NY Insurance Law \u00a7 3216(i)(25) \u2014 current text (no ABA-only visit limits)', url: 'https://www.nysenate.gov/legislation/laws/ISC/3216' }],
       },
@@ -2351,6 +2406,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Cigna pay out-of-network ABA providers?', a: 'Only if the member\'s plan has out-of-network benefits; on Open Access Plus, out-of-network services “are covered at a reduced benefit level.” Evernorth publishes no single case agreement process or rate. Appeals are due within 180 calendar days of the denial, and an out-of-network provider may need an Appointment of Representative form signed by the patient.' },
       { q: 'Does Cigna cover ABA therapy in New York?', a: 'Yes — under national policy EN0499 (which applies fully in New York, with no state carve-out), layered on New York\'s autism mandate for fully-insured plans: no age limit, no ABA-only visit caps, LBA-delivered. Self-funded plans are exempt from the mandate, so verify plan funding type first.' },
       { q: 'What does the New York autism mandate require?', a: 'State-regulated plans must cover screening, diagnosis, and treatment of ASD including ABA, with no age limit; and no limits on visits may be applied solely to ASD treatment — the 680-hour cap was repealed effective 1/1/2020, and the older $45,000 dollar figure is not in current guidance either, and mandated ABA must be provided or supervised by NYSED-licensed LBAs/CBAAs.' },
       { q: 'Does the ABA assessment need prior authorization with Cigna in New York?', a: 'No — per EN0499, assessment codes 97151, 97152, and 0362T need no prior authorization. Treatment does, with the completed assessment and treatment plan on Cigna\'s ABA PA form.' },
@@ -2452,6 +2508,13 @@ export const newYorkPayers: Record<string, PayerConfig> = {
           { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
         ],
       },
+      {
+        h2: 'Out of network with UnitedHealthcare (Optum) for ABA',
+        body: [
+          'UnitedHealthcare says that when the member chooses an out-of-network provider, the No Surprises Act and state surprise-billing laws generally do not apply, and “United will look to the member’s benefit plan to determine if it is covered and how it should be paid.” Reimbursement may use a percentage of CMS rates, FAIR Health, Viant, a “Negotiated Rate” agreed “after the service was provided,” or other methods, and “Which option is used depends on various factors, including but not limited to the terms of the healthcare benefit plan.” On commercial HMO plans, “If the needed health care provider is not available in-network, not available within the needed time frame or too far away, the PCP needs to request an out-of-network prior authorization”; if approved, “the member is not responsible for costs over their applicable in-network cost-sharing.” For disputes, Optum\'s Provider Express portal “is available to network clinicians and group practices, as well as out-of-network individual clinicians,” and Optum asks for “member-specific treatment plans, clinical records, payment appendices or other items that support why you believe our decision was incorrect.”',
+        ],
+        cites: [{ title: 'UnitedHealthcare — Information on payment of out-of-network benefits', url: 'https://www.uhc.com/legal/information-on-payment-of-out-of-network-benefits' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (commercial)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, { title: 'Optum National Network Manual (BH02330, effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -2460,7 +2523,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis report', desc: 'DSM-5-TR ASD confirmed with a validated tool (ADI-R, ADOS-2, etc.), diagnosing provider and credentials, evaluation date.' },
       { title: 'Supervising LBA', desc: 'Mandated ABA must be LBA/CBAA-provided or supervised — confirm the NYSED license, not just BCBA status.' },
     ],
-    sources: [
+    sources: [ { title: 'UnitedHealthcare — Information on payment of out-of-network benefits', url: 'https://www.uhc.com/legal/information-on-payment-of-out-of-network-benefits' },
       { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
       { title: 'Optum ABA State Mandates supplemental criteria (BH 803ABA, Jan 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
       { title: 'DFS Insurance Circular Letter No. 6 (2014)', url: 'https://www.dfs.ny.gov/industry_guidance/circular_letters/cl2014_06' },
@@ -2494,7 +2557,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          '\u201cA valid diagnosis of ASD (or other applicable diagnosis as required by governing laws) must be issued by a state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis according to the diagnostic criteria based on the DSM-5-TR.\u201d New York narrows that: NYSED bars LBAs and CBAAs from diagnosing or from prescribing/ordering ABA, and the mandate defines covered treatment as that prescribed or ordered by a licensed physician or licensed psychologist. The ABA provider is a separate credential \u2014 a master\u2019s- or doctoral-level BCBA, a credentialed licensed behavioral health clinician, or a BCaBA or non-licensed individual under direct supervision \u2014 and in New York that person must hold the NYSED license.',
+          '\u201cA valid diagnosis of ASD (or other applicable diagnosis as required by governing laws) must be issued by a state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis according to the diagnostic criteria based on the DSM-5-TR.\u201d New York narrows that: NYSED bars LBAs and CBAAs from diagnosing or from prescribing/ordering ABA, and the mandate defines covered treatment as that prescribed or ordered by a licensed physician or licensed psychologist. The ABA provider is a separate credential \u2014 a master\u2019s- or doctoral-level BCBA, a credentialed licensed behavioral health clinician, or a BCaBA or non-licensed individual under direct supervision \u2014 and in New York that person must hold the NYSED license. LCSW: not named. The test turns on licensure and diagnostic scope, so an LCSW\'s diagnosis is accepted only if the plan agrees it is within the LCSW\'s licensed scope; confirm with the plan before relying on one.',
         status: 'verified',
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'NYSED Office of the Professions \u2014 Article 167 (Ed. Law \u00a7\u00a7 8800\u20138808)', url: 'https://www.op.nysed.gov/professions/licensed-behavior-analysts/laws-rules-regulations/article-167' }, { title: 'NY Insurance Law \u00a7 3216(i)(25) \u2014 current text (no ABA-only visit limits)', url: 'https://www.nysenate.gov/legislation/laws/ISC/3216' }],
       },
@@ -2588,6 +2651,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare pay out-of-network ABA providers?', a: 'Only under the member\'s out-of-network benefits, priced by a method the plan sets (a percentage of CMS rates, FAIR Health, Viant or a negotiated rate). On commercial HMO plans an out-of-network provider can be approved when no network provider is available in time or nearby; the PCP requests an out-of-network prior authorization, and the member then pays only in-network cost-sharing.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in New York?', a: 'Yes — under the carrier\'s national policy for ASD via Optum\'s two-step authorization, layered on New York\'s autism mandate for fully-insured plans: no age limit, no ABA-only visit caps, LBA-delivered. Self-funded plans are exempt from the mandate, so verify plan funding type first.' },
       { q: 'What does the New York autism mandate require?', a: 'State-regulated plans must cover screening, diagnosis, and treatment of ASD including ABA, with no age limit; and no limits on visits may be applied solely to ASD treatment — the 680-hour cap was repealed effective 1/1/2020, and the older $45,000 dollar figure is not in current guidance either, and mandated ABA must be provided or supervised by NYSED-licensed LBAs/CBAAs.' },
       { q: 'What does UnitedHealthcare pay for ABA in New York?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the NY Medicaid fee schedule ($19.26/unit for most codes; $9.63 for 97153, current as of 10/1/2026) and treat rate-setting as part of contracting.' },
@@ -2755,7 +2819,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'Follows the New York Medicaid rule: the diagnosis and referral must come from a NYS-licensed, NYS Medicaid-enrolled physician, psychologist, psychiatric nurse practitioner, pediatric nurse practitioner or physician assistant, following DSM-5 criteria and NYSDOH\u2019s Clinical Practice Guideline on ASD. LBAs and CBAAs sit outside that list \u2014 they may not diagnose and may not self-refer. Excellus\u2019s medical policy restates New York\u2019s licensure tiers on the delivery side \u2014 LBA/BCBA for assessment, treatment planning and oversight; CBAA/BCaBA to deliver under supervision; RBTs and behavior technicians restricted to protocol implementation and data collection, per NYS Education Law \u2014 but names no diagnosing credential of its own.',
+          'Follows the New York Medicaid rule: the diagnosis and referral must come from a NYS-licensed, NYS Medicaid-enrolled physician, psychologist, psychiatric nurse practitioner, pediatric nurse practitioner or physician assistant, following DSM-5 criteria and NYSDOH\u2019s Clinical Practice Guideline on ASD. LBAs and CBAAs sit outside that list \u2014 they may not diagnose and may not self-refer. Excellus\u2019s medical policy restates New York\u2019s licensure tiers on the delivery side \u2014 LBA/BCBA for assessment, treatment planning and oversight; CBAA/BCaBA to deliver under supervision; RBTs and behavior technicians restricted to protocol implementation and data collection, per NYS Education Law \u2014 but names no diagnosing credential of its own. LCSW: no. A licensed clinical social worker is not on this list, so an LCSW\'s diagnosis alone does not meet it.',
         status: 'verified',
         cites: [{ title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }, { title: 'Excellus Medical Policy 3.01.11 \u2014 Applied Behavior Analysis (eff. 6/18/2026)', url: 'https://www.excellusbcbs.com/documents/d/global/exc-prv-applied-behavior-analysis' }],
       },
@@ -3018,7 +3082,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'Follows the New York Medicaid rule, restated verbatim in MVP\u2019s ABA payment policy: the member must be referred by \u201can NYS-licensed and NYS Medicaid-enrolled physician (including psychiatrist and developmental/behavioral pediatrician), psychologist, psychiatric nurse practitioner, pediatric nurse practitioner, or physician assistant.\u201d LBAs may not diagnose or self-refer.',
+          'Follows the New York Medicaid rule, restated verbatim in MVP\u2019s ABA payment policy: the member must be referred by \u201can NYS-licensed and NYS Medicaid-enrolled physician (including psychiatrist and developmental/behavioral pediatrician), psychologist, psychiatric nurse practitioner, pediatric nurse practitioner, or physician assistant.\u201d LBAs may not diagnose or self-refer. LCSW: no. A licensed clinical social worker is not on this list, so an LCSW\'s diagnosis alone does not meet it.',
         status: 'verified',
         cites: [{ title: 'MVP Applied Behavior Analysis Services Payment Policy (eff. 4/1/2026)', url: 'https://www.mvphealthcare.com/-/media/project/mvp/healthcare/documents/provider-policies-and-payment-policies/2026/april/mvp-payment-policies-effective-april-1-2026.pdf' }, { title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }],
       },
@@ -3263,7 +3327,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'Follows the New York Medicaid rule: the diagnosis and referral must come from a NYS-licensed, NYS Medicaid-enrolled physician, psychologist, psychiatric nurse practitioner, pediatric nurse practitioner or physician assistant, following DSM-5 criteria and NYSDOH\u2019s Clinical Practice Guideline on ASD. LBAs and CBAAs sit outside that list \u2014 they may not diagnose and may not self-refer. CDPHP names a delivery credential rather than a diagnostic one: \u201cABA services must be provided by or supervised by a NYS-licensed, board-certified behavior analyst (BCBA/BCBA-D),\u201d with a credentialed ABA provider network maintained.',
+          'Follows the New York Medicaid rule: the diagnosis and referral must come from a NYS-licensed, NYS Medicaid-enrolled physician, psychologist, psychiatric nurse practitioner, pediatric nurse practitioner or physician assistant, following DSM-5 criteria and NYSDOH\u2019s Clinical Practice Guideline on ASD. LBAs and CBAAs sit outside that list \u2014 they may not diagnose and may not self-refer. CDPHP names a delivery credential rather than a diagnostic one: \u201cABA services must be provided by or supervised by a NYS-licensed, board-certified behavior analyst (BCBA/BCBA-D),\u201d with a credentialed ABA provider network maintained. LCSW: no. A licensed clinical social worker is not on this list, so an LCSW\'s diagnosis alone does not meet it.',
         status: 'verified',
         cites: [{ title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }, { title: 'CDPHP Provider Office Administrative Manual, Section 18 \u2014 Behavioral Health (rev. July 2025)', url: 'https://www.cdphp.com/-/media/files/providers/poam/section-18-behavioral-health.pdf' }],
       },
@@ -3508,7 +3572,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'Follows the New York Medicaid rule for the referral, with the handbook restating the delivery side: the ABA services include \u201cassessment and treatment by a physician, licensed behavioral analyst, or certified behavior analyst assistant,\u201d with CBAAs \u201cunder the supervision of an LBA.\u201d LBAs and CBAAs may not diagnose or self-refer, so the diagnosing clinician must come from the state\u2019s practitioner list.',
+          'Follows the New York Medicaid rule for the referral, with the handbook restating the delivery side: the ABA services include \u201cassessment and treatment by a physician, licensed behavioral analyst, or certified behavior analyst assistant,\u201d with CBAAs \u201cunder the supervision of an LBA.\u201d LBAs and CBAAs may not diagnose or self-refer, so the diagnosing clinician must come from the state\u2019s practitioner list. LCSW: no. A licensed clinical social worker is not on this list, so an LCSW\'s diagnosis alone does not meet it.',
         status: 'verified',
         cites: [{ title: 'Independent Health MediSource Member Handbook (2026)', url: 'https://www.independenthealth.com/content/dam/independenthealth/individuals-and-families/find-a-health-plan/documents/state/medisource-member-handbook.pdf' }, { title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }],
       },
@@ -3769,7 +3833,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'Follows the New York Medicaid rule: the diagnosis and referral must come from a NYS-licensed, NYS Medicaid-enrolled physician, psychologist, psychiatric nurse practitioner, pediatric nurse practitioner or physician assistant, following DSM-5 criteria and NYSDOH\u2019s Clinical Practice Guideline on ASD. LBAs and CBAAs sit outside that list \u2014 they may not diagnose and may not self-refer. Highmark WNY\u2019s ASD Testing authorization form covers the psychological and neuropsychological testing codes used to diagnose ASD (96130, 96131, 96136\u201396139) and asks for clinical history and DSM-5/ICD-10 codes, but names no diagnosing credential beyond the state\u2019s referral list.',
+          'Follows the New York Medicaid rule: the diagnosis and referral must come from a NYS-licensed, NYS Medicaid-enrolled physician, psychologist, psychiatric nurse practitioner, pediatric nurse practitioner or physician assistant, following DSM-5 criteria and NYSDOH\u2019s Clinical Practice Guideline on ASD. LBAs and CBAAs sit outside that list \u2014 they may not diagnose and may not self-refer. Highmark WNY\u2019s ASD Testing authorization form covers the psychological and neuropsychological testing codes used to diagnose ASD (96130, 96131, 96136\u201396139) and asks for clinical history and DSM-5/ICD-10 codes, but names no diagnosing credential beyond the state\u2019s referral list. LCSW: no. A licensed clinical social worker is not on this list, so an LCSW\'s diagnosis alone does not meet it.',
         status: 'verified',
         cites: [{ title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }, { title: 'Highmark WNY \u2014 Request for Authorization: Autism Spectrum Disorder Testing (Feb 2026)', url: 'https://providerpublic.mybcbswny.com/docs/gpp/NYHM_ReqAuth_AutismSpectrumDisorderTesting.pdf' }],
       },
@@ -4041,7 +4105,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'A licensed physician or a licensed psychologist, and this is not optional paperwork \u2014 the mandate defines covered treatment as that \u201cprescribed or ordered for an individual diagnosed with autism spectrum disorder by a licensed physician or a licensed psychologist.\u201d NYSED reinforces it from the licensure side: an LBA or CBAA \u201cmay not diagnose the condition ABA is being provided for, and may not prescribe or order ABA for a particular individual,\u201d and NYSED tells LBAs to verify a client\u2019s ASD diagnosis before providing services. Anthem\u2019s assessment-only pathway asks for \u201ca diagnostic evaluation by a doctorate-level clinician or allowable qualified healthcare provider.\u201d',
+          'A licensed physician or a licensed psychologist, and this is not optional paperwork \u2014 the mandate defines covered treatment as that \u201cprescribed or ordered for an individual diagnosed with autism spectrum disorder by a licensed physician or a licensed psychologist.\u201d NYSED reinforces it from the licensure side: an LBA or CBAA \u201cmay not diagnose the condition ABA is being provided for, and may not prescribe or order ABA for a particular individual,\u201d and NYSED tells LBAs to verify a client\u2019s ASD diagnosis before providing services. Anthem\u2019s assessment-only pathway asks for \u201ca diagnostic evaluation by a doctorate-level clinician or allowable qualified healthcare provider.\u201d LCSW: no. A licensed clinical social worker is not on this list, so an LCSW\'s diagnosis alone does not meet it.',
         status: 'verified',
         cites: [{ title: 'NY Insurance Law \u00a7 3216 (current)', url: 'https://law.justia.com/codes/new-york/isc/article-32/3216/' }, { title: 'NYSED \u2014 LBA/CBAA assessment and treatment plans', url: 'https://www.op.nysed.gov/professions/licensed-behavior-analysts/professional-practice/assessment-and-treatment-plans' }, { title: 'NYSED Office of the Professions \u2014 Licensed Behavior Analysts FAQ', url: 'https://www.op.nysed.gov/professions/licensed-behavior-analysts/frequently-asked-questions' }, { title: 'Anthem \u2014 Treatment Plan Request Form for Autism Spectrum Disorders (commercial, December 2025)', url: 'https://www.anthembluecross.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/NY_BH_00001.pdf' }],
       },

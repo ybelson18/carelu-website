@@ -219,7 +219,7 @@ export const vermontPayers: Record<string, PayerConfig> = {
         cites: [S.abaSupp, S.abaFaq],
       },
       diagnosingProviders: {
-        value: 'The diagnostic assessment must be done "by a clinician experienced in the diagnosis and treatment of autism and working within their scope of practice." The prescription must come from a board-certified or board-eligible psychiatrist, pediatrician or neurologist, a doctorate-level licensed psychologist, or a developmental-behavioral or neurodevelopmental disabilities pediatrician (HCAR 4.229.3). Vermont law keeps diagnosis outside a behavior analyst’s scope (26 V.S.A. § 4928).',
+        value: 'The diagnostic assessment must be done "by a clinician experienced in the diagnosis and treatment of autism and working within their scope of practice." The prescription must come from a board-certified or board-eligible psychiatrist, pediatrician or neurologist, a doctorate-level licensed psychologist, or a developmental-behavioral or neurodevelopmental disabilities pediatrician (HCAR 4.229.3). Vermont law keeps diagnosis outside a behavior analyst’s scope (26 V.S.A. § 4928). LCSW: an LCSW may do the diagnostic assessment only as a clinician “experienced in the diagnosis and treatment of autism and working within their scope of practice,” but an LCSW cannot write the ABA prescription, which HCAR 4.229.3 limits to the physicians and psychologists listed.',
         status: 'verified',
         cites: [S.abaSupp, S.hcar4229, S.abaFaq, S.ch95],
       },
@@ -403,7 +403,7 @@ export const vermontPayers: Record<string, PayerConfig> = {
         cites: [S.bcvtPolicy],
       },
       diagnosingProviders: {
-        value: 'Documentation from "the primary care provider, psychiatrist, or psychologist" of the ASD diagnosis. Intellectual disability needs an official psychologist’s report with standardized intelligence testing.',
+        value: 'Documentation from "the primary care provider, psychiatrist, or psychologist" of the ASD diagnosis. Intellectual disability needs an official psychologist’s report with standardized intelligence testing. LCSW: no. A licensed clinical social worker is not on this list, so an LCSW\'s diagnosis alone does not meet it.',
         status: 'verified',
         cites: [S.bcvtPolicy],
       },
@@ -527,6 +527,13 @@ export const vermontPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.aetnaPrecert, S.aetnaCPB648, S.aetnaOM, S.aetnaGuide],
       },
+      {
+        h2: 'Out of network with Aetna: transition of care, not a single case agreement',
+        body: [
+          'Aetna\'s provider manual (6/26) uses transition of care (TOC) and continuity of care rather than the term single case agreement. TOC “allows certain qualifying members the ability to request to continue receiving care from their current out-of-network provider at in-network cost level for a defined period of time,” typically at plan enrollment or renewal; continuity of care does the same when a provider leaves the network mid-treatment. The member must be in “an active course of covered treatment,” and the treating provider must be an individual practitioner (the manual\'s examples are a specialist, physical therapist or speech therapist) or home care agency that is not contracted in the member\'s plan. Steps: the member gets a Transition Coverage Request Form from Member Services or the employer, completes it with the non-participating provider\'s help, faxes it to Aetna, and Aetna sends a decision letter stating how long the transition benefits last. The process does not apply to Traditional Choice plans. Aetna publishes no ABA rate for this; ask Aetna behavioral health whether the ABA agency qualifies before the first session.',
+        ],
+        cites: [{ title: 'Aetna — Provider manual (8102800-01-01, 6/26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (8 V.S.A. § 4082 applies) vs. self-funded ERISA (plan document governs). Most Aetna cards in Vermont are employer plans, so ask.' },
@@ -535,7 +542,7 @@ export const vermontPayers: Record<string, PayerConfig> = {
       { title: 'Standardized functional measure', desc: 'Aetna wants one from the past 12 months (for example Vineland-3, ABAS, VB-MAPP or ABLLS).' },
       { title: 'Referral', desc: 'Vermont-licensed behavior analysts practice only on a referral from a licensed health professional or school official.' },
     ],
-    sources: [S.aetnaGuide, S.aetnaCPB648, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.aetnaTele, S.mandate, S.defs4011, S.tele4098a, S.ch95, S.ch56, S.bacbLic, S.pay9418, S.pa9418b, S.ext4063, S.cob4024, S.erisa, S.gmcb, S.fee,
+    sources: [ { title: 'Aetna — Provider manual (8102800-01-01, 6/26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },S.aetnaGuide, S.aetnaCPB648, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.aetnaTele, S.mandate, S.defs4011, S.tele4098a, S.ch95, S.ch56, S.bacbLic, S.pay9418, S.pa9418b, S.ext4063, S.cob4024, S.erisa, S.gmcb, S.fee,
       { title: 'Vermont Office of Professional Regulation — Applied Behavior Analysis', url: 'https://sos.vermont.gov/applied-behavior-analysis/' },
       { title: '42 CFR 433.139 — Medicaid third-party liability, payment of claims (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
       { title: 'Vermont Medicaid Applied Behavior Analysis Supplement (08-04-2026)', url: 'https://vtmedicaid.com/assets/manuals/ABASupplement.pdf' },
@@ -592,7 +599,7 @@ export const vermontPayers: Record<string, PayerConfig> = {
         cites: [S.aetnaGuide],
       },
       diagnosingProviders: {
-        value: 'An "appropriate provider (i.e. licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice)." In Vermont a behavior analyst cannot diagnose (26 V.S.A. § 4928).',
+        value: 'An "appropriate provider (i.e. licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice)." In Vermont a behavior analyst cannot diagnose (26 V.S.A. § 4928). LCSW: not named. The test turns on licensure and diagnostic scope, so an LCSW\'s diagnosis is accepted only if the plan agrees it is within the LCSW\'s licensed scope; confirm with the plan before relying on one.',
         status: 'verified',
         cites: [S.aetnaGuide, S.ch95],
       },
@@ -629,6 +636,7 @@ export const vermontPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Can an out-of-network ABA provider keep treating an Aetna member?', a: 'Possibly, through Aetna\'s transition-of-care or continuity-of-care process. The member must be in an active course of covered treatment; the member requests a Transition Coverage Request Form, completes it with the provider and faxes it to Aetna, which issues a time-limited decision. Aetna\'s manual names individual practitioners and home care agencies as eligible, so confirm with Aetna behavioral health that an ABA agency qualifies.' },
       { q: 'Does Aetna accept H0031 or other H-codes for ABA?', a: 'Aetna’s precertification list and CPB 0648 identify ABA by CPT 97151–97158, 0362T and 0373T. No H-codes are listed for ABA.' },
       { q: 'Does Aetna require graphs with an ABA reauthorization?', a: 'The ABA medical necessity guide does not say graphs. It requires a standardized functioning scale from the past 12 months, baseline measures with quantifiable progress criteria, and documentation of improvement or of how treatment changed. Progress is evaluated every six months.' },
       { q: 'Does Aetna cover ABA therapy in Vermont?', a: 'Yes, under its national criteria for ASD. Fully insured plans must also meet Vermont’s 8 V.S.A. § 4082 mandate (birth to 21, no dollar cap). Self-funded employer plans follow their own documents.' },
@@ -724,6 +732,13 @@ export const vermontPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.en0499, S.cignaARG],
       },
+      {
+        h2: 'Out of network with Cigna (Evernorth) for ABA',
+        body: [
+          'Evernorth\'s Behavioral Health Administrative Guidelines (September 2026) describe out-of-network use by plan type. On Open Access Plus, “Services from out-of-network providers are covered at a reduced benefit level,” and patients “whose plans include out-of-network benefits can use these benefits for services covered under their plan; however, in doing so, these patients will generally incur higher out-of-pocket costs.” An out-of-network provider who wants to contract is pointed to “the Join the Network page on the Evernorth Provider website.” On appeals, Evernorth says an appeal “must be submitted within 180 calendar days from the claim denial unless determined otherwise by plan or state regulation,” and that “out-of-network providers requesting a standard appeal must submit a valid Appointments of Representative form signed by the patient” in some circumstances. Evernorth publishes no single-case-agreement process or out-of-network ABA rate; benefits depend on the member\'s plan.',
+        ],
+        cites: [{ title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (8 V.S.A. § 4082 applies) vs. self-funded ERISA (plan document governs). Most Cigna cards in Vermont are employer plans.' },
@@ -732,7 +747,7 @@ export const vermontPayers: Record<string, PayerConfig> = {
       { title: 'Standardized assessment timing', desc: 'Instrument administered within 60 days before treatment starts.' },
       { title: 'Referral', desc: 'Vermont-licensed behavior analysts practice only on a referral from a licensed health professional or school official.' },
     ],
-    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.mandate, S.defs4011, S.tele4098a, S.ch95, S.ch56, S.bacbLic, S.pay9418, S.pa9418b, S.ext4063, S.cob4024, S.erisa, S.gmcb, S.fee,
+    sources: [ { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },S.en0499, S.cignaARG, S.ebhAdmin, S.mandate, S.defs4011, S.tele4098a, S.ch95, S.ch56, S.bacbLic, S.pay9418, S.pa9418b, S.ext4063, S.cob4024, S.erisa, S.gmcb, S.fee,
       { title: 'Vermont Office of Professional Regulation — Applied Behavior Analysis', url: 'https://sos.vermont.gov/applied-behavior-analysis/' },
       { title: '42 CFR 433.139 — Medicaid third-party liability, payment of claims (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
       { title: 'Vermont Medicaid Applied Behavior Analysis Supplement (08-04-2026)', url: 'https://vtmedicaid.com/assets/manuals/ABASupplement.pdf' },
@@ -785,7 +800,7 @@ export const vermontPayers: Record<string, PayerConfig> = {
         cites: [S.en0499],
       },
       diagnosingProviders: {
-        value: 'A healthcare professional "licensed to practice independently and whose licensure board considers diagnostics" within scope, applying DSM-5-TR criteria. In Vermont a behavior analyst cannot diagnose (26 V.S.A. § 4928).',
+        value: 'A healthcare professional "licensed to practice independently and whose licensure board considers diagnostics" within scope, applying DSM-5-TR criteria. In Vermont a behavior analyst cannot diagnose (26 V.S.A. § 4928). LCSW: not named. The test turns on licensure and diagnostic scope, so an LCSW\'s diagnosis is accepted only if the plan agrees it is within the LCSW\'s licensed scope; confirm with the plan before relying on one.',
         status: 'verified',
         cites: [S.en0499, S.ch95],
       },
@@ -820,6 +835,7 @@ export const vermontPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Cigna pay out-of-network ABA providers?', a: 'Only if the member\'s plan has out-of-network benefits; on Open Access Plus, out-of-network services “are covered at a reduced benefit level.” Evernorth publishes no single case agreement process or rate. Appeals are due within 180 calendar days of the denial, and an out-of-network provider may need an Appointment of Representative form signed by the patient.' },
       { q: 'Does Cigna cover ABA therapy in Vermont?', a: 'Yes, under national policy EN0499 for ASD. Fully insured plans must also meet Vermont’s 8 V.S.A. § 4082 mandate (birth to 21, no dollar cap). Self-funded employer plans follow their own documents.' },
       { q: 'Does the Cigna ABA assessment need prior authorization in Vermont?', a: 'No, for 97151, 97152 and 0362T with an autism diagnosis when the provider is independently licensed or a BCBA. PA starts at treatment.' },
       { q: 'Can ABA be delivered by telehealth with Cigna in Vermont?', a: 'Yes. Cigna’s autism resource guide says all ABA CPT codes are covered telehealth services; bill modifier 95. The clinician still needs a Vermont license, telehealth license or telehealth registration.' },
@@ -909,6 +925,13 @@ export const vermontPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.optumNNM, S.optumReimb, S.optumSCC],
       },
+      {
+        h2: 'Out of network with UnitedHealthcare (Optum) for ABA',
+        body: [
+          'UnitedHealthcare says that when the member chooses an out-of-network provider, the No Surprises Act and state surprise-billing laws generally do not apply, and “United will look to the member’s benefit plan to determine if it is covered and how it should be paid.” Reimbursement may use a percentage of CMS rates, FAIR Health, Viant, a “Negotiated Rate” agreed “after the service was provided,” or other methods, and “Which option is used depends on various factors, including but not limited to the terms of the healthcare benefit plan.” On commercial HMO plans, “If the needed health care provider is not available in-network, not available within the needed time frame or too far away, the PCP needs to request an out-of-network prior authorization”; if approved, “the member is not responsible for costs over their applicable in-network cost-sharing.” For disputes, Optum\'s Provider Express portal “is available to network clinicians and group practices, as well as out-of-network individual clinicians,” and Optum asks for “member-specific treatment plans, clinical records, payment appendices or other items that support why you believe our decision was incorrect.”',
+        ],
+        cites: [{ title: 'UnitedHealthcare — Information on payment of out-of-network benefits', url: 'https://www.uhc.com/legal/information-on-payment-of-out-of-network-benefits' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (commercial)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, { title: 'Optum National Network Manual (BH02330, effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (8 V.S.A. § 4082 applies) vs. self-funded ERISA (plan document governs).' },
@@ -916,7 +939,7 @@ export const vermontPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis with a validated tool', desc: 'DSM-5-TR ASD and severity level, confirmed with a validated tool (ADI-R, ADOS-2 and others).' },
       { title: 'Referral', desc: 'Vermont-licensed behavior analysts practice only on a referral from a licensed health professional or school official.' },
     ],
-    sources: [S.optumSCC, S.optumSM, S.optumNNM, S.optumTele, S.optumReimb, S.mandate, S.defs4011, S.tele4098a, S.ch95, S.ch56, S.bacbLic, S.pay9418, S.pa9418b, S.ext4063, S.cob4024, S.erisa, S.gmcb, S.fee,
+    sources: [ { title: 'UnitedHealthcare — Information on payment of out-of-network benefits', url: 'https://www.uhc.com/legal/information-on-payment-of-out-of-network-benefits' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (commercial)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, { title: 'Optum National Network Manual (BH02330, effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },S.optumSCC, S.optumSM, S.optumNNM, S.optumTele, S.optumReimb, S.mandate, S.defs4011, S.tele4098a, S.ch95, S.ch56, S.bacbLic, S.pay9418, S.pa9418b, S.ext4063, S.cob4024, S.erisa, S.gmcb, S.fee,
       { title: 'Vermont Office of Professional Regulation — Applied Behavior Analysis', url: 'https://sos.vermont.gov/applied-behavior-analysis/' },
       { title: '42 CFR 433.139 — Medicaid third-party liability, payment of claims (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
       { title: 'Vermont Medicaid Applied Behavior Analysis Supplement (08-04-2026)', url: 'https://vtmedicaid.com/assets/manuals/ABASupplement.pdf' },
@@ -971,7 +994,7 @@ export const vermontPayers: Record<string, PayerConfig> = {
         cites: [S.optumSCC],
       },
       diagnosingProviders: {
-        value: 'A "state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis" under DSM-5-TR. In Vermont a behavior analyst cannot diagnose (26 V.S.A. § 4928).',
+        value: 'A "state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis" under DSM-5-TR. In Vermont a behavior analyst cannot diagnose (26 V.S.A. § 4928). LCSW: not named. The test turns on licensure and diagnostic scope, so an LCSW\'s diagnosis is accepted only if the plan agrees it is within the LCSW\'s licensed scope; confirm with the plan before relying on one.',
         status: 'verified',
         cites: [S.optumSCC, S.ch95],
       },
@@ -1008,6 +1031,7 @@ export const vermontPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare pay out-of-network ABA providers?', a: 'Only under the member\'s out-of-network benefits, priced by a method the plan sets (a percentage of CMS rates, FAIR Health, Viant or a negotiated rate). On commercial HMO plans an out-of-network provider can be approved when no network provider is available in time or nearby; the PCP requests an out-of-network prior authorization, and the member then pays only in-network cost-sharing.' },
       { q: 'What is UnitedHealthcare’s timely filing limit for ABA in Vermont?', a: 'Optum, which administers UnitedHealthcare’s behavioral health claims, needs all claim information within 90 calendar days of the date of service unless state law, federal law or the benefit plan allows longer; corrections are due within 90 days of initial claim receipt.' },
       { q: 'Does UnitedHealthcare accept H0031 or other H-codes for ABA?', a: 'Optum’s commercial ABA reimbursement policy lists only CPT 97151–97158 (with an HM, HN, HO or HP credential modifier), 0362T and 0373T. No H-codes are listed.' },
       { q: 'How many units of 97153 can I bill per day with UnitedHealthcare?', a: 'Thirty-two units (8 hours). Optum’s commercial ABA reimbursement policy caps each code per day, and units over the maximum may be denied or recovered.' },

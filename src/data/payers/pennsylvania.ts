@@ -211,7 +211,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'The diagnosis travels in the written order, which may be written by "a licensed physician, licensed psychologist, certified registered nurse practitioner or other licensed professional whose scope of practice includes the diagnosis and treatment of behavioral health disorders and the prescribing of behavioral health services, including IBHS." The rule does not require the diagnosis to come from a specialist such as a developmental pediatrician.',
+        value: 'The diagnosis travels in the written order, which may be written by "a licensed physician, licensed psychologist, certified registered nurse practitioner or other licensed professional whose scope of practice includes the diagnosis and treatment of behavioral health disorders and the prescribing of behavioral health services, including IBHS." The rule does not require the diagnosis to come from a specialist such as a developmental pediatrician. LCSW: not named. The written order may come from one only if the LCSW\'s scope includes diagnosing behavioral health disorders and prescribing behavioral health services, which the rule does not settle; confirm with the BH-MCO.',
         status: 'verified',
         cites: [
           { title: '55 Pa. Code Chapter 1155 — Intensive Behavioral Health Services (payment)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter1155/chap1155toc.html' },
@@ -595,7 +595,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'The written order must come from a licensed physician, licensed psychologist, CRNP or another licensed professional whose scope covers diagnosing and treating behavioral health disorders and prescribing BH services (55 Pa. Code § 1155.33). Community Care lists acceptable routes: a PCP/CRNP wellness check, an outpatient intake or therapy session, a psychological or psychiatric evaluation, psychological testing, a discharge from inpatient/RTF/PHP, or a mental health assessment by a “licensed and PROMISe enrolled prescriber from an IBHS agency”.',
+        value: 'The written order must come from a licensed physician, licensed psychologist, CRNP or another licensed professional whose scope covers diagnosing and treating behavioral health disorders and prescribing BH services (55 Pa. Code § 1155.33). Community Care lists acceptable routes: a PCP/CRNP wellness check, an outpatient intake or therapy session, a psychological or psychiatric evaluation, psychological testing, a discharge from inpatient/RTF/PHP, or a mental health assessment by a “licensed and PROMISe enrolled prescriber from an IBHS agency”. LCSW: not named. The written order may come from one only if the LCSW\'s scope includes diagnosing behavioral health disorders and prescribing behavioral health services, which the rule does not settle; confirm with Community Care.',
         status: 'verified',
         cites: [
           { title: '55 Pa. Code Chapter 1155 — Intensive Behavioral Health Services (payment)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter1155/chap1155toc.html' },
@@ -910,7 +910,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'The written order may come from “a licensed physician, licensed psychologist, certified registered nurse practitioner or other licensed professional whose scope of practice includes the diagnosis and treatment of behavioral health disorders, and the prescribing of behavioral health services, including IBHS”. Ordering practitioners must be Medicaid-enrolled. The July 2025 ABA MNC adds that the comprehensive assessment must be by “a clinician with neurodevelopmental disorder diagnoses within their scope of practice”. Most ABA written orders are expected to come from CBH’s ABA-designated providers, but a non-designated provider may write one for Initial Assessment and Initial Treatment.',
+        value: 'The written order may come from “a licensed physician, licensed psychologist, certified registered nurse practitioner or other licensed professional whose scope of practice includes the diagnosis and treatment of behavioral health disorders, and the prescribing of behavioral health services, including IBHS”. Ordering practitioners must be Medicaid-enrolled. The July 2025 ABA MNC adds that the comprehensive assessment must be by “a clinician with neurodevelopmental disorder diagnoses within their scope of practice”. Most ABA written orders are expected to come from CBH’s ABA-designated providers, but a non-designated provider may write one for Initial Assessment and Initial Treatment. LCSW: not named. The written order may come from one only if the LCSW\'s scope includes diagnosing behavioral health disorders and prescribing behavioral health services, which the rule does not settle; confirm with CBH.',
         status: 'verified',
         cites: [
           { title: 'CBH Provider Manual (updated August 28, 2026)', url: 'https://cbhphilly.org/wp-content/uploads/2022/10/CBH_Provider-Manual_2026-08-28.pdf' },
@@ -1234,7 +1234,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'The written order (which carries the diagnosis) can come from a licensed physician, licensed psychologist, certified registered nurse practitioner, or other licensed practitioner whose scope includes diagnosing and treating behavioral health disorders and prescribing IBHS; Magellan requires the writer to be ORP-enrolled. A psychiatric/psychological evaluation or best-practice evaluation containing all written-order elements can substitute.',
+        value: 'The written order (which carries the diagnosis) can come from a licensed physician, licensed psychologist, certified registered nurse practitioner, or other licensed practitioner whose scope includes diagnosing and treating behavioral health disorders and prescribing IBHS; Magellan requires the writer to be ORP-enrolled. A psychiatric/psychological evaluation or best-practice evaluation containing all written-order elements can substitute. LCSW: not named. The written order may come from one only if the LCSW\'s scope includes diagnosing behavioral health disorders and prescribing behavioral health services, which the rule does not settle; confirm with Magellan.',
         status: 'verified',
         cites: [
           { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/25)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },
@@ -1540,7 +1540,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'The written order must come from an ORP-enrolled prescriber based on face-to-face interaction (state rule: licensed physician, licensed psychologist, CRNP or other licensed practitioner whose scope includes diagnosing BH disorders and prescribing BH services). PerformCare’s manual adds that IBHS prescribers must be enrolled as individual MA providers, and clinic-based prescribers must include the clinic or medical director MA number.',
+        value: 'The written order must come from an ORP-enrolled prescriber based on face-to-face interaction (state rule: licensed physician, licensed psychologist, CRNP or other licensed practitioner whose scope includes diagnosing BH disorders and prescribing BH services). PerformCare’s manual adds that IBHS prescribers must be enrolled as individual MA providers, and clinic-based prescribers must include the clinic or medical director MA number. LCSW: not named. The written order may come from one only if the LCSW\'s scope includes diagnosing behavioral health disorders and prescribing behavioral health services, which the rule does not settle; confirm with PerformCare.',
         status: 'verified',
         cites: [
           { title: 'PerformCare Policy CM-CAS-042 — Initial & Re-Authorization Requirements for Individual & ABA IBHS (rev. 03/11/26)', url: 'https://pa.performcare.org/content/dam/amerihealth-caritas/performcare-pa/pdf/providers/policies/202605/CM-CAS-042%20%2004.03.26.pdf' },
@@ -2117,7 +2117,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       diagnosingProviders: {
-        value: 'V-37 requires a confirmed DSM-5 ASD diagnosis but does not say who must make it. On Act 62 plans, the “diagnostic assessment” is one performed by a licensed physician, licensed physician assistant, licensed psychologist or certified registered nurse practitioner. The treatment plan must come from a state-licensed MD/DO or an independently licensed psychologist.',
+        value: 'V-37 requires a confirmed DSM-5 ASD diagnosis but does not say who must make it. On Act 62 plans, the “diagnostic assessment” is one performed by a licensed physician, licensed physician assistant, licensed psychologist or certified registered nurse practitioner. The treatment plan must come from a state-licensed MD/DO or an independently licensed psychologist. LCSW: not on the Act 62 list (physician, physician assistant, psychologist, CRNP), so on an Act 62 plan an LCSW\'s diagnostic assessment does not qualify.',
         status: 'plan-dependent',
         cites: [
           { title: 'Highmark Medical Policy V-37-044 — Autism Spectrum Disorders (PA commercial, eff. August 4, 2025)', url: 'https://securecms.highmark.com/content/medpolicy/en/highmark/pa/commercial/policies/Visits/V-37/V-37-044.html' },
@@ -2431,7 +2431,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       diagnosingProviders: {
-        value: 'MP 2.304 describes a comprehensive diagnostic evaluation that may include “clinical assessment by a qualified professional (e.g., developmental pediatrician, child psychologist, pediatric neurologist)”. These are examples, not a closed list. On Act 62 plans, the diagnostic assessment is performed by a licensed physician, licensed physician assistant, licensed psychologist or certified registered nurse practitioner.',
+        value: 'MP 2.304 describes a comprehensive diagnostic evaluation that may include “clinical assessment by a qualified professional (e.g., developmental pediatrician, child psychologist, pediatric neurologist)”. These are examples, not a closed list. On Act 62 plans, the diagnostic assessment is performed by a licensed physician, licensed physician assistant, licensed psychologist or certified registered nurse practitioner. LCSW: no published rule. The plan names no diagnosing-provider list, so ask it whether an LCSW\'s diagnosis is accepted.',
         status: 'plan-dependent',
         cites: [
           { title: 'Capital Blue Cross MP 2.304 — Medical Treatments of Autism Spectrum Disorder (eff. 8/1/2026)', url: 'https://www.capbluecross.com/wps/wcm/connect/prod_nws.capblue.com29556/7a42c571-6d3f-4964-a172-d51c88ae154c/medical-policy-medical-treatments-autism-spectrum-disorders.pdf?MOD=AJPERES&CVID=p-W4w9T' },
@@ -2757,7 +2757,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'The 2026 PA form asks whether "a complete diagnostic evaluation" was done "by a Qualified Health Practitioner (QHP)" (e.g. MD, DO, PhD, PsyD, PMHNP), with these specialty boxes: Family Practice, Pediatrics, Developmental Pediatrics, Pediatric Neurology, Psychiatry, Psychologist and Psychiatric Mental Health Nurse Practitioner. For Act 62 plans the statute defines the diagnostic assessment as one performed by a licensed physician, physician assistant, psychologist or certified registered nurse practitioner.',
+        value: 'The 2026 PA form asks whether "a complete diagnostic evaluation" was done "by a Qualified Health Practitioner (QHP)" (e.g. MD, DO, PhD, PsyD, PMHNP), with these specialty boxes: Family Practice, Pediatrics, Developmental Pediatrics, Pediatric Neurology, Psychiatry, Psychologist and Psychiatric Mental Health Nurse Practitioner. For Act 62 plans the statute defines the diagnostic assessment as one performed by a licensed physician, physician assistant, psychologist or certified registered nurse practitioner. LCSW: not among IBX\'s QHP examples or specialty boxes, and not on the Act 62 list (physician, physician assistant, psychologist, CRNP).',
         status: 'verified',
         cites: [
           { title: 'IBX — Applied Behavior Analysis Prior Authorization Form (General, 2026)', url: 'https://www.ibx.com/pdfs/resources/for-providers/forms/2026-applied-behavior-analysis-prior-authorization-form-general.pdf' },
@@ -3055,7 +3055,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       diagnosingProviders: {
-        value: 'UPMC publishes no ABA-specific list. On Act 62 plans the "diagnostic assessment" is one performed by a licensed physician, licensed physician assistant, licensed psychologist or certified registered nurse practitioner.',
+        value: 'UPMC publishes no ABA-specific list. On Act 62 plans the "diagnostic assessment" is one performed by a licensed physician, licensed physician assistant, licensed psychologist or certified registered nurse practitioner. LCSW: not on the Act 62 list (physician, physician assistant, psychologist, CRNP), so on an Act 62 plan an LCSW\'s diagnostic assessment does not qualify.',
         status: 'plan-dependent',
         cites: [
           { title: 'Act 62 of 2008 (HB 1150, PN 4115) — Insurance Company Law § 635.2 enacted text', url: 'https://www.palegis.us/legislation/bills/text/HTM/2007/0/HB1150/PN4115' },
@@ -3342,7 +3342,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       diagnosingProviders: {
-        value: 'GHP names no diagnosing-provider list for commercial ABA. The OMHSAS-17-01 guideline MP232 adopts expects the evaluation from a board-certified or board-eligible child and adolescent psychiatrist, developmental pediatrician, pediatric neurologist or licensed child psychologist (or a licensed physician or psychologist when none is available). Act 62 defines the diagnostic assessment as one by a licensed physician, physician assistant, psychologist or CRNP.',
+        value: 'GHP names no diagnosing-provider list for commercial ABA. The OMHSAS-17-01 guideline MP232 adopts expects the evaluation from a board-certified or board-eligible child and adolescent psychiatrist, developmental pediatrician, pediatric neurologist or licensed child psychologist (or a licensed physician or psychologist when none is available). Act 62 defines the diagnostic assessment as one by a licensed physician, physician assistant, psychologist or CRNP. LCSW: no published rule. The plan names no diagnosing-provider list, so ask it whether an LCSW\'s diagnosis is accepted.',
         status: 'plan-dependent',
         cites: [
           { title: 'OMHSAS-17-01 — Reissue of Medical Necessity Guidelines for ABA Using BSC-ASD and TSS Services (Jan. 13, 2017)', url: 'https://www.pa.gov/content/dam/copapwp-pagov/en/dhs/documents/services/mental-health-in-pa/documents/autism/OMHSAS-17-01.pdf' },
@@ -3656,6 +3656,13 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
         ],
       },
+      {
+        h2: 'Out of network with Aetna: transition of care, not a single case agreement',
+        body: [
+          'Aetna\'s provider manual (6/26) uses transition of care (TOC) and continuity of care rather than the term single case agreement. TOC “allows certain qualifying members the ability to request to continue receiving care from their current out-of-network provider at in-network cost level for a defined period of time,” typically at plan enrollment or renewal; continuity of care does the same when a provider leaves the network mid-treatment. The member must be in “an active course of covered treatment,” and the treating provider must be an individual practitioner (the manual\'s examples are a specialist, physical therapist or speech therapist) or home care agency that is not contracted in the member\'s plan. Steps: the member gets a Transition Coverage Request Form from Member Services or the employer, completes it with the non-participating provider\'s help, faxes it to Aetna, and Aetna sends a decision letter stating how long the transition benefits last. The process does not apply to Traditional Choice plans. Aetna publishes no ABA rate for this; ask Aetna behavioral health whether the ABA agency qualifies before the first session.',
+        ],
+        cites: [{ title: 'Aetna — Provider manual (8102800-01-01, 6/26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }],
+      },
     ],
     collect: [
       {
@@ -3732,7 +3739,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         ]
       },
       diagnosingProviders: {
-        value: 'Aetna requires a DSM-5 ASD diagnosis (ICD-10 F84.0, F84.3–F84.9) from an appropriate provider: a licensed psychologist or psychiatrist, a physician, or another health care professional qualified to diagnose mental health conditions within their scope of practice. CPB 0648 lists the professionals appropriate to an autism evaluation: board certified behavior analyst, developmental pediatrician, neurologist, occupational therapist, physical therapist, primary care provider, psychiatrist, psychologist, and speech-language pathologist and audiologist. On Act 62 plans, the statutory diagnostic assessment is performed by a licensed physician, licensed physician assistant, licensed psychologist or certified registered nurse practitioner.',
+        value: 'Aetna requires a DSM-5 ASD diagnosis (ICD-10 F84.0, F84.3–F84.9) from an appropriate provider: a licensed psychologist or psychiatrist, a physician, or another health care professional qualified to diagnose mental health conditions within their scope of practice. CPB 0648 lists the professionals appropriate to an autism evaluation: board certified behavior analyst, developmental pediatrician, neurologist, occupational therapist, physical therapist, primary care provider, psychiatrist, psychologist, and speech-language pathologist and audiologist. On Act 62 plans, the statutory diagnostic assessment is performed by a licensed physician, licensed physician assistant, licensed psychologist or certified registered nurse practitioner. LCSW: not named. The test turns on licensure and diagnostic scope, so an LCSW\'s diagnosis is accepted only if the plan agrees it is within the LCSW\'s licensed scope; confirm with the plan before relying on one.',
         status: 'verified',
         cites: [
           { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
@@ -3843,6 +3850,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       }
     },
     faq: [
+      { q: 'Can an out-of-network ABA provider keep treating an Aetna member?', a: 'Possibly, through Aetna\'s transition-of-care or continuity-of-care process. The member must be in an active course of covered treatment; the member requests a Transition Coverage Request Form, completes it with the provider and faxes it to Aetna, which issues a time-limited decision. Aetna\'s manual names individual practitioners and home care agencies as eligible, so confirm with Aetna behavioral health that an ABA agency qualifies.' },
       { q: 'Does Aetna accept H0031 or other H-codes for ABA?', a: 'Aetna’s precertification list and CPB 0648 identify ABA by CPT 97151–97158, 0362T and 0373T. No H-codes are listed for ABA.' },
       { q: 'Does Aetna require graphs with an ABA reauthorization?', a: 'The ABA medical necessity guide does not say graphs. It requires a standardized functioning scale from the past 12 months, baseline measures with quantifiable progress criteria, and documentation of improvement or of how treatment changed. Progress is evaluated every six months.' },
       {
@@ -4028,6 +4036,13 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           { title: 'Cigna / Evernorth autism resource guide (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
         ],
       },
+      {
+        h2: 'Out of network with Cigna (Evernorth) for ABA',
+        body: [
+          'Evernorth\'s Behavioral Health Administrative Guidelines (September 2026) describe out-of-network use by plan type. On Open Access Plus, “Services from out-of-network providers are covered at a reduced benefit level,” and patients “whose plans include out-of-network benefits can use these benefits for services covered under their plan; however, in doing so, these patients will generally incur higher out-of-pocket costs.” An out-of-network provider who wants to contract is pointed to “the Join the Network page on the Evernorth Provider website.” On appeals, Evernorth says an appeal “must be submitted within 180 calendar days from the claim denial unless determined otherwise by plan or state regulation,” and that “out-of-network providers requesting a standard appeal must submit a valid Appointments of Representative form signed by the patient” in some circumstances. Evernorth publishes no single-case-agreement process or out-of-network ABA rate; benefits depend on the member\'s plan.',
+        ],
+        cites: [{ title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }],
+      },
     ],
     collect: [
       {
@@ -4098,7 +4113,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         ]
       },
       diagnosingProviders: {
-        value: 'Under DSM-5-TR criteria, by a healthcare professional licensed to practice independently whose licensure board considers diagnostics within their scope of practice. The name, credentials and licensure type of the diagnosing clinician must be provided. On Act 62 plans, the statutory diagnostic assessment is performed by a licensed physician, licensed physician assistant, licensed psychologist or certified registered nurse practitioner.',
+        value: 'Under DSM-5-TR criteria, by a healthcare professional licensed to practice independently whose licensure board considers diagnostics within their scope of practice. The name, credentials and licensure type of the diagnosing clinician must be provided. On Act 62 plans, the statutory diagnostic assessment is performed by a licensed physician, licensed physician assistant, licensed psychologist or certified registered nurse practitioner. LCSW: not named. The test turns on licensure and diagnostic scope, so an LCSW\'s diagnosis is accepted only if the plan agrees it is within the LCSW\'s licensed scope; confirm with the plan before relying on one.',
         status: 'verified',
         cites: [
           { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
@@ -4206,6 +4221,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       }
     },
     faq: [
+      { q: 'Does Cigna pay out-of-network ABA providers?', a: 'Only if the member\'s plan has out-of-network benefits; on Open Access Plus, out-of-network services “are covered at a reduced benefit level.” Evernorth publishes no single case agreement process or rate. Appeals are due within 180 calendar days of the denial, and an out-of-network provider may need an Appointment of Representative form signed by the patient.' },
       {
         q: 'Does Cigna cover ABA therapy in Pennsylvania?',
         a: 'Yes, for autism spectrum disorder under Evernorth policy EN0499. On fully insured policies for groups of 51 or more employees, Pennsylvania’s Act 62 adds a legal floor for members under 21. Self-funded, individual and small-group plans follow their own plan terms.'
@@ -4397,6 +4413,13 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
         ],
       },
+      {
+        h2: 'Out of network with UnitedHealthcare (Optum) for ABA',
+        body: [
+          'UnitedHealthcare says that when the member chooses an out-of-network provider, the No Surprises Act and state surprise-billing laws generally do not apply, and “United will look to the member’s benefit plan to determine if it is covered and how it should be paid.” Reimbursement may use a percentage of CMS rates, FAIR Health, Viant, a “Negotiated Rate” agreed “after the service was provided,” or other methods, and “Which option is used depends on various factors, including but not limited to the terms of the healthcare benefit plan.” On commercial HMO plans, “If the needed health care provider is not available in-network, not available within the needed time frame or too far away, the PCP needs to request an out-of-network prior authorization”; if approved, “the member is not responsible for costs over their applicable in-network cost-sharing.” For disputes, Optum\'s Provider Express portal “is available to network clinicians and group practices, as well as out-of-network individual clinicians,” and Optum asks for “member-specific treatment plans, clinical records, payment appendices or other items that support why you believe our decision was incorrect.”',
+        ],
+        cites: [{ title: 'UnitedHealthcare — Information on payment of out-of-network benefits', url: 'https://www.uhc.com/legal/information-on-payment-of-out-of-network-benefits' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (commercial)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, { title: 'Optum National Network Manual (BH02330, effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }],
+      },
     ],
     collect: [
       {
@@ -4424,7 +4447,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         desc: 'Medical Assistance/PH-95, a second parent’s plan, TRICARE or CHAMPVA. UnitedHealthcare goes first ahead of MA.'
       }
     ],
-    sources: [
+    sources: [ { title: 'UnitedHealthcare — Information on payment of out-of-network benefits', url: 'https://www.uhc.com/legal/information-on-payment-of-out-of-network-benefits' },
       { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
       { title: 'Optum — ABA State Mandates supplemental criteria (BH 803ABA, eff. July 2026; Pennsylvania Commercial entry)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
       { title: 'Optum Provider Express — Applied Behavior Analysis Information (portal authorizations)', url: 'https://public.providerexpress.com/content/ope-provexpr/us/en/clinical-resources/autismABA2.html' },
@@ -4478,7 +4501,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         ]
       },
       diagnosingProviders: {
-        value: 'A state-licensed physician, psychologist, or other state-licensed clinician qualified to diagnose under DSM-5-TR. On Act 62 plans, the statutory diagnostic assessment is performed by a licensed physician, licensed physician assistant, licensed psychologist or certified registered nurse practitioner.',
+        value: 'A state-licensed physician, psychologist, or other state-licensed clinician qualified to diagnose under DSM-5-TR. On Act 62 plans, the statutory diagnostic assessment is performed by a licensed physician, licensed physician assistant, licensed psychologist or certified registered nurse practitioner. LCSW: not named. The test turns on licensure and diagnostic scope, so an LCSW\'s diagnosis is accepted only if the plan agrees it is within the LCSW\'s licensed scope; confirm with the plan before relying on one.',
         status: 'verified',
         cites: [
           { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
@@ -4589,6 +4612,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       }
     },
     faq: [
+      { q: 'Does UnitedHealthcare pay out-of-network ABA providers?', a: 'Only under the member\'s out-of-network benefits, priced by a method the plan sets (a percentage of CMS rates, FAIR Health, Viant or a negotiated rate). On commercial HMO plans an out-of-network provider can be approved when no network provider is available in time or nearby; the PCP requests an out-of-network prior authorization, and the member then pays only in-network cost-sharing.' },
       {
         q: 'Does UnitedHealthcare cover ABA therapy in Pennsylvania?',
         a: 'Yes, for autism spectrum disorder under Optum’s ABA criteria, with Optum’s Pennsylvania Commercial entry applied alongside them. On fully insured policies for groups of 51 or more employees, Act 62 adds a legal floor for members under 21.'

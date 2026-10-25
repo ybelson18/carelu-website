@@ -711,6 +711,13 @@ export const connecticutPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.aetnaCPB, S.aetnaTele, S.aetnaOM, S.aetnaGuide, S.aetnaNPC],
       },
+      {
+        h2: 'Out of network with Aetna: transition of care, not a single case agreement',
+        body: [
+          'Aetna\'s provider manual (6/26) uses transition of care (TOC) and continuity of care rather than the term single case agreement. TOC “allows certain qualifying members the ability to request to continue receiving care from their current out-of-network provider at in-network cost level for a defined period of time,” typically at plan enrollment or renewal; continuity of care does the same when a provider leaves the network mid-treatment. The member must be in “an active course of covered treatment,” and the treating provider must be an individual practitioner (the manual\'s examples are a specialist, physical therapist or speech therapist) or home care agency that is not contracted in the member\'s plan. Steps: the member gets a Transition Coverage Request Form from Member Services or the employer, completes it with the non-participating provider\'s help, faxes it to Aetna, and Aetna sends a decision letter stating how long the transition benefits last. The process does not apply to Traditional Choice plans. Aetna publishes no ABA rate for this; ask Aetna behavioral health whether the ABA agency qualifies before the first session.',
+        ],
+        cites: [{ title: 'Aetna — Provider manual (8102800-01-01, 6/26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (§ 38a-514b applies) or self-funded ERISA (plan document governs).' },
@@ -719,7 +726,7 @@ export const connecticutPayers: Record<string, PayerConfig> = {
       { title: 'Standardized functional measure', desc: 'Aetna wants one from the past 12 months (for example Vineland-3, ABAS, VB-MAPP or ABLLS).' },
       { title: 'Order from a licensed clinician', desc: 'The mandate covers ABA ordered by a licensed physician, psychologist or LCSW.' },
     ],
-    sources: [S.aetnaGuide, S.aetnaPrecert, S.aetnaNPC, S.aetnaCPB648, S.aetnaOM, S.aetnaTele, S.s38a514b, S.s38a488b, S.s38a526a, S.s38a591d, S.s38a816, S.ch382a, S.dphBA, S.bacbLic, S.s19a906, S.erisa, S.handbook, S.cfr433, S.tricare, S.champva, S.asdFee, S.aetnaCPB],
+    sources: [ { title: 'Aetna — Provider manual (8102800-01-01, 6/26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },S.aetnaGuide, S.aetnaPrecert, S.aetnaNPC, S.aetnaCPB648, S.aetnaOM, S.aetnaTele, S.s38a514b, S.s38a488b, S.s38a526a, S.s38a591d, S.s38a816, S.ch382a, S.dphBA, S.bacbLic, S.s19a906, S.erisa, S.handbook, S.cfr433, S.tricare, S.champva, S.asdFee, S.aetnaCPB],
     deliveryRules: {
       supervision: {
         value: 'Aetna’s participation criteria (5/26): ABA must be “provided directly or supervised by individuals licensed by the state or certified by the Behavior Analyst Certification Board”; “A minimum of one hour of face-to-face supervision” of an unlicensed or noncertified paraprofessional “for each 10 hours of applied behavior analysis,” plus the supervisor “onsite with the child at least one hour a month.” “All BCBAs, BCaBAs and paraprofessionals must meet state requirements.” For insured Connecticut plans, the statute sets the same 1-in-10 face-to-face standard and requires the supervisor to be a licensed behavior analyst, physician or psychologist.' + ' Aetna’s guide and Network Participation Criteria publish no cap on the number of technicians one BCBA may supervise.',
@@ -807,6 +814,7 @@ export const connecticutPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Can an out-of-network ABA provider keep treating an Aetna member?', a: 'Possibly, through Aetna\'s transition-of-care or continuity-of-care process. The member must be in an active course of covered treatment; the member requests a Transition Coverage Request Form, completes it with the provider and faxes it to Aetna, which issues a time-limited decision. Aetna\'s manual names individual practitioners and home care agencies as eligible, so confirm with Aetna behavioral health that an ABA agency qualifies.' },
       { q: 'Does Aetna accept H0031, H0032 or H2019 for ABA?', a: 'No. Aetna’s ABA policy lists only CPT 97151–97158, 0362T and 0373T.' },
       { q: 'Does Aetna require graphs for an ABA reauthorization?', a: 'Its ABA guide asks for repeated measurement with standardized measures and a progress evaluation every six months; it does not mention graphs.' },
       { q: 'What is Aetna’s timely filing limit for ABA claims?', a: 'Aetna’s provider toolkit (6/26) does not print one; the filing limit is in your Aetna agreement.' },
@@ -884,6 +892,13 @@ export const connecticutPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.cignaARG, S.ebhAdmin, S.en0499],
       },
+      {
+        h2: 'Out of network with Cigna (Evernorth) for ABA',
+        body: [
+          'Evernorth\'s Behavioral Health Administrative Guidelines (September 2026) describe out-of-network use by plan type. On Open Access Plus, “Services from out-of-network providers are covered at a reduced benefit level,” and patients “whose plans include out-of-network benefits can use these benefits for services covered under their plan; however, in doing so, these patients will generally incur higher out-of-pocket costs.” An out-of-network provider who wants to contract is pointed to “the Join the Network page on the Evernorth Provider website.” On appeals, Evernorth says an appeal “must be submitted within 180 calendar days from the claim denial unless determined otherwise by plan or state regulation,” and that “out-of-network providers requesting a standard appeal must submit a valid Appointments of Representative form signed by the patient” in some circumstances. Evernorth publishes no single-case-agreement process or out-of-network ABA rate; benefits depend on the member\'s plan.',
+        ],
+        cites: [{ title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (§ 38a-514b and Evernorth’s CT addendum apply) or self-funded ERISA (plan document governs).' },
@@ -892,7 +907,7 @@ export const connecticutPayers: Record<string, PayerConfig> = {
       { title: 'Order from a licensed clinician', desc: 'The mandate covers ABA ordered by a licensed physician, psychologist or LCSW.' },
       { title: 'Supervisor’s CT license', desc: 'Insured plans cover behavioral therapy provided or supervised by a licensed behavior analyst, physician or psychologist.' },
     ],
-    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.s38a514b, S.s38a488b, S.s38a526a, S.s38a591d, S.s38a816, S.ch382a, S.dphBA, S.bacbLic, S.s19a906, S.erisa, S.handbook, S.cfr433, S.tricare, S.champva, S.asdFee],
+    sources: [ { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },S.en0499, S.cignaARG, S.ebhAdmin, S.s38a514b, S.s38a488b, S.s38a526a, S.s38a591d, S.s38a816, S.ch382a, S.dphBA, S.bacbLic, S.s19a906, S.erisa, S.handbook, S.cfr433, S.tricare, S.champva, S.asdFee],
     deliveryRules: {
       supervision: {
         value: 'Case supervision by a BCBA, a Licensed Behavior Analyst, or an independently licensed mental health professional with ABA training. Direct plus indirect case supervision “consistent with the general accepted standard of care of one to two hours per ten hours of direct treatment,” and at 10 hours a week or less, at least one to two hours a week of direct case supervision. Insured Connecticut plans also require a licensed supervisor with at least 1 hour face-to-face per 10 hours.' + ' EN0499 publishes no cap on the number of technicians one supervisor may oversee.',
@@ -939,9 +954,9 @@ export const connecticutPayers: Record<string, PayerConfig> = {
         cites: [S.en0499, S.s38a514b],
       },
       diagnosingProviders: {
-        value: 'A professional “licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice,” applying DSM-5-TR. The ABA assessment itself is done by a BCBA, LBA, or a licensed mental health clinician with ABA training.',
+        value: 'A professional “licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice,” applying DSM-5-TR. The ABA assessment itself is done by a BCBA, LBA, or a licensed mental health clinician with ABA training. LCSW: not named. The test turns on licensure and diagnostic scope, so an LCSW\'s diagnosis is accepted only if the plan agrees it is within the LCSW\'s licensed scope; confirm with the plan before relying on one. On a fully insured Connecticut plan, § 38a-514b defines the diagnosis as assessment “performed by a licensed physician, licensed psychologist or licensed clinical social worker,” so an LCSW diagnosis qualifies there.',
         status: 'verified',
-        cites: [S.en0499],
+        cites: [S.en0499, S.s38a514b],
       },
       diagnosticTools: {
         value: 'No single instrument is mandated. It must be reliable, valid and standardized, cover the DSM-5-TR ASD domains, and be the current edition (“must be the Vineland-3 vs. Vineland-II”), with the date, respondent and form type reported.',
@@ -974,6 +989,7 @@ export const connecticutPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Cigna pay out-of-network ABA providers?', a: 'Only if the member\'s plan has out-of-network benefits; on Open Access Plus, out-of-network services “are covered at a reduced benefit level.” Evernorth publishes no single case agreement process or rate. Appeals are due within 180 calendar days of the denial, and an out-of-network provider may need an Appointment of Representative form signed by the patient.' },
       { q: 'Does Cigna accept H-codes for ABA?', a: 'No. Evernorth says all ABA services must be billed with CPT 97151–97158, 0362T and 0373T only.' },
       { q: 'Does Cigna require graphs for ABA reassessments?', a: 'EN0499 asks for dated quantitative baseline, interim and current data (current data within 60 days) and a standardized assessment within a year; it does not name graphs.' },
       { q: 'What is Cigna’s timely filing limit for ABA claims?', a: '90 days from the date of service unless your agreement or state law allows longer; for secondary claims, 90 days from the primary payer’s EOB.' },
@@ -1053,6 +1069,13 @@ export const connecticutPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.optumReimb, S.optumTele, S.optumNNM, S.optumSCC],
       },
+      {
+        h2: 'Out of network with UnitedHealthcare (Optum) for ABA',
+        body: [
+          'UnitedHealthcare says that when the member chooses an out-of-network provider, the No Surprises Act and state surprise-billing laws generally do not apply, and “United will look to the member’s benefit plan to determine if it is covered and how it should be paid.” Reimbursement may use a percentage of CMS rates, FAIR Health, Viant, a “Negotiated Rate” agreed “after the service was provided,” or other methods, and “Which option is used depends on various factors, including but not limited to the terms of the healthcare benefit plan.” On commercial HMO plans, “If the needed health care provider is not available in-network, not available within the needed time frame or too far away, the PCP needs to request an out-of-network prior authorization”; if approved, “the member is not responsible for costs over their applicable in-network cost-sharing.” For disputes, Optum\'s Provider Express portal “is available to network clinicians and group practices, as well as out-of-network individual clinicians,” and Optum asks for “member-specific treatment plans, clinical records, payment appendices or other items that support why you believe our decision was incorrect.”',
+        ],
+        cites: [{ title: 'UnitedHealthcare — Information on payment of out-of-network benefits', url: 'https://www.uhc.com/legal/information-on-payment-of-out-of-network-benefits' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (commercial)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, { title: 'Optum National Network Manual (BH02330, effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (§ 38a-514b applies) or self-funded ERISA (plan document governs).' },
@@ -1061,7 +1084,7 @@ export const connecticutPayers: Record<string, PayerConfig> = {
       { title: 'Order from a licensed clinician', desc: 'The mandate covers ABA ordered by a licensed physician, psychologist or LCSW.' },
       { title: 'Credential of each rendering staff member', desc: 'Every claim line needs the right HM/HN/HO/HP modifier.' },
     ],
-    sources: [S.optumSCC, S.optumSM, S.optumTele, S.optumReimb, S.optumNNM, S.s38a514b, S.s38a488b, S.s38a526a, S.s38a591d, S.s38a816, S.ch382a, S.dphBA, S.bacbLic, S.s19a906, S.erisa, S.handbook, S.cfr433, S.tricare, S.champva, S.asdFee],
+    sources: [ { title: 'UnitedHealthcare — Information on payment of out-of-network benefits', url: 'https://www.uhc.com/legal/information-on-payment-of-out-of-network-benefits' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (commercial)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, { title: 'Optum National Network Manual (BH02330, effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },S.optumSCC, S.optumSM, S.optumTele, S.optumReimb, S.optumNNM, S.s38a514b, S.s38a488b, S.s38a526a, S.s38a591d, S.s38a816, S.ch382a, S.dphBA, S.bacbLic, S.s19a906, S.erisa, S.handbook, S.cfr433, S.tricare, S.champva, S.asdFee],
     deliveryRules: {
       supervision: {
         value: '“Consistent with CASP standards of care, direct case supervision is required 1–2 hours for every 10 hours of direct treatment per week.” Technicians work under a BCBA or licensed behavioral health clinician and “should be registered behavior technicians (RBT) or another appropriately certified behavior technician.” For Connecticut, Optum’s state-mandate entry applies at least one hour of face-to-face supervision per ten hours by a licensed behavior analyst, physician or psychologist.' + ' Optum’s criteria publish no cap on the number of technicians per BCBA.',
@@ -1110,9 +1133,9 @@ export const connecticutPayers: Record<string, PayerConfig> = {
         cites: [S.optumSCC, S.s38a514b],
       },
       diagnosingProviders: {
-        value: '“a state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis” under DSM-5-TR.',
+        value: '“a state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis” under DSM-5-TR. LCSW: not named. The test turns on licensure and diagnostic scope, so an LCSW\'s diagnosis is accepted only if the plan agrees it is within the LCSW\'s licensed scope; confirm with the plan before relying on one. On a fully insured Connecticut plan, § 38a-514b defines the diagnosis as assessment “performed by a licensed physician, licensed psychologist or licensed clinical social worker,” so an LCSW diagnosis qualifies there.',
         status: 'verified',
-        cites: [S.optumSCC],
+        cites: [S.optumSCC, S.s38a514b],
       },
       diagnosticTools: {
         value: 'At least one clinically validated tool, from a list that is not exhaustive: first-level screens (M-CHAT and others), second-level screens (CARS/CARS-2, RITA-T, STAT), and formal tools (ADI-R, ADOS/ADOS-2, DISCO).',
@@ -1145,6 +1168,7 @@ export const connecticutPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare pay out-of-network ABA providers?', a: 'Only under the member\'s out-of-network benefits, priced by a method the plan sets (a percentage of CMS rates, FAIR Health, Viant or a negotiated rate). On commercial HMO plans an out-of-network provider can be approved when no network provider is available in time or nearby; the PCP requests an out-of-network prior authorization, and the member then pays only in-network cost-sharing.' },
       { q: 'Does UnitedHealthcare accept H0031 or H2019 for ABA?', a: 'No. Optum’s commercial ABA policy uses CPT 97151–97158, 0362T and 0373T with credential modifiers.' },
       { q: 'Does Optum require graphs for an ABA reauthorization?', a: 'The criteria ask for progress measured the same way as baseline, mastery rates, change scores and updated standardized adaptive measures; graphs are not named.' },
       { q: 'What is UnitedHealthcare’s timely filing limit for ABA claims?', a: 'Optum: 90 calendar days from the date of service unless state law or the plan allows longer, with corrections within 90 days of the first claim’s receipt.' },
