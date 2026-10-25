@@ -74,7 +74,7 @@ const NJMMIS_270271_CG = src(
   'NJ Medicaid / NJMMIS 5010 270/271 HIPAA Companion Guide (Gainwell, Dec 2022), read in full (the production-host www.njmmis.com copy 404s; the test-host copy is identical content). Documents managed-care enrollment in Loop 2110C (EB04="HM"; REF01="18" → REF02 = 3-digit Managed Care Plan Code, REF03 = plan name; MSG01 = managed-care messages) and Loop 2120C (NM101="PRP" → NM103 = MCO organization name, PER = MCO phone). No 3-digit-code → MCO-name crosswalk is published in this guide (Appendix 3 lists only eligibility-category names). Eligibility is real-time (MEVS), inquiry span up to 3 calendar months and not beyond end of the month following the current month; "eligibility for claim payment is not guaranteed beyond the end of the current month" (monthly guarantee), with begin/end dates returned as CCYYMMDD in DTP (2100C/2110C DTP03).'
 );
 const DMAHS_NEWSLETTER_V30N06 = src(
-  'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf',
+  'https://www.njmmis.com/documentDownload.aspx?document=30-%2006.pdf',
   'DMAHS Provider Newsletter Vol 30 No 06 (4/1/2020) — the founding ABA benefit design: MCO authorizes a QHP assessment then the treatment plan; FFS (billed to Gainwell) applies only to members pending MCO enrollment, with NO prior authorization required in that window; attaches the "suggested" daily unit limits "for guidance purposes only." The live nj.gov PDF now 404s; this is the web.archive.org copy. The unit table is corroborated verbatim by the Aetna Better Health NJ 2020 rate sheet.'
 );
 const NJMMIS_ABA_PACKET = src(

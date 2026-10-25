@@ -3160,7 +3160,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: 'IEP/504 and school schedule', desc: 'The policy requires IEP/504 information and weekly school hours in the treatment plan, and excludes services duplicating school services.' },
       { title: 'Caregiver availability', desc: 'At least 12 hours of caregiver coaching per 6-month authorization is expected; missed minimums can cut later authorizations.' },
     ],
-    sources: [
+    sources: [{ title: 'CareSource — Applied Behavior Analysis for Autism Spectrum Disorder reimbursement policy, MP-PY-1636 (GA, IN, KY, OH, WV Marketplace; eff. 12/01/2025)', url: 'https://www.caresource.com/documents/marketplace-oh-policy-reimburse-py-1636-20251201.pdf' }, 
       { title: 'CareSource — Indiana Marketplace 2026 Evidence of Coverage (POLMP-IN(2026))', url: 'https://www.caresource.com/documents/marketplace-2026-in-basic-eoc.pdf' },
       { title: 'CareSource — 2026 Indiana Marketplace Prior Authorization List (PA-INMP(2026))', url: 'https://www.caresource.com/documents/2026-in-marketplace-prior-authorization-list.pdf' },
       { title: 'CareSource — Applied Behavior Analysis for Autism Spectrum Disorder, MP-MM-1329 (GA, IN, OH, WV Marketplace; eff. 10/01/2026)', url: 'https://www.caresource.com/documents/marketplace-oh-policy-medical-mm-1329-20261001' },
@@ -3178,19 +3178,23 @@ export const indianaPayers: Record<string, PayerConfig> = {
     ],
     deliveryRules: {
       supervision: {
-        value: 'MP-MM-1329: "Services delivered by a BCaBA must be supervised by a BCBA, BCBA-D, or a licensed psychologist who tested in ABA and is certified by the American Board of Professional Psychology in Behavioral and Cognitive Psychology," and a BCaBA must be enrolled in the Marketplace program and affiliated with the employing organization. Paraprofessionals must be "supervised appropriately according to applicable state regulations"; in Indiana a direct-contact technician must act "under the extended authority and direction of" an Indiana-licensed behavior analyst. No supervision-hours ratio is published.',
+        value: 'CareSource sets a numeric floor in its Marketplace reimbursement policy MP-PY-1636 (eff. 12/1/2025, Indiana included): "A supervising BCBA must be enrolled with the CareSource plan and meet the following minimum in-person observation thresholds for each BCaBA or RBT under supervision: 01. 5% of total ABA treatment hours performed by the BCaBA or RBT 02. 1 hour of ABA delivery performed by BCaBA or RBT every 30 days." When not observing, the BCBA "must be on- call and immediately available" (telecommunication suffices) and "must review and approve the data collection and progress notes" before any claim. MP-MM-1329 adds that BCaBA services "must be supervised by a BCBA, BCBA-D, or a licensed psychologist who tested in ABA and is certified by the American Board of Professional Psychology in Behavioral and Cognitive Psychology." In Indiana a direct-contact technician must also act "under the extended authority and direction of" an Indiana-licensed behavior analyst (IC 25-8.5-3-6).',
         status: 'verified',
         cites: [
+          { title: 'CareSource — Applied Behavior Analysis for Autism Spectrum Disorder reimbursement policy, MP-PY-1636 (GA, IN, KY, OH, WV Marketplace; eff. 12/01/2025)', url: 'https://www.caresource.com/documents/marketplace-oh-policy-reimburse-py-1636-20251201.pdf' },
           { title: 'CareSource — Applied Behavior Analysis for Autism Spectrum Disorder, MP-MM-1329 (GA, IN, OH, WV Marketplace; eff. 10/01/2026)', url: 'https://www.caresource.com/documents/marketplace-oh-policy-medical-mm-1329-20261001' },
           { title: 'Ind. Code § 25-8.5-3-6 — practice restriction and exceptions', url: 'https://law.justia.com/codes/indiana/title-25/article-8-5/chapter-3/section-25-8-5-3-6/' },
         ],
       },
       concurrentBilling: {
-        value: 'MP-MM-1329 excludes "concurrent, overlapping billing (eg, speech therapy, occupational therapy, physical therapy) occurring during the provision of ABA services" ("Services must be distinct in time, scope and provider"), and services "provided simultaneously by more than 1 ABA provider, unless determined to be medically necessary, prior authorized and indicated in the approved behavior plan." Whether 97155 may be billed alongside 97153 is not addressed; payment rules sit in a separate reimbursement policy we did not locate.',
+        value: 'MP-MM-1329 excludes "concurrent, overlapping billing (eg, speech therapy, occupational therapy, physical therapy) occurring during the provision of ABA services" and services "provided simultaneously by more than 1 ABA provider, unless determined to be medically necessary, prior authorized and indicated in the approved behavior plan." The Marketplace reimbursement policy MP-PY-1636 does not address billing 97155 for the same clock time as 97153; it does say a BCBA delivering 1:1 treatment without supervising a technician bills it as treatment, not protocol modification.',
         status: 'unverified',
-        cites: [{ title: 'CareSource — Applied Behavior Analysis for Autism Spectrum Disorder, MP-MM-1329 (GA, IN, OH, WV Marketplace; eff. 10/01/2026)', url: 'https://www.caresource.com/documents/marketplace-oh-policy-medical-mm-1329-20261001' }],
-        verifyVia: 'CareSource\'s Marketplace "Applied Behavior Analysis for Autism Spectrum Disorder – Reimbursement Policy" (named in MP-MM-1329), or Provider Services at 1-833-230-2101.',
-        blocker: 'document',
+        cites: [
+          { title: 'CareSource — Applied Behavior Analysis for Autism Spectrum Disorder, MP-MM-1329 (GA, IN, OH, WV Marketplace; eff. 10/01/2026)', url: 'https://www.caresource.com/documents/marketplace-oh-policy-medical-mm-1329-20261001' },
+          { title: 'CareSource — Applied Behavior Analysis for Autism Spectrum Disorder reimbursement policy, MP-PY-1636 (GA, IN, KY, OH, WV Marketplace; eff. 12/01/2025)', url: 'https://www.caresource.com/documents/marketplace-oh-policy-reimburse-py-1636-20251201.pdf' },
+        ],
+        verifyVia: 'CareSource Marketplace Provider Services, 1-833-230-2101: ask whether 97155 and 97153 may be billed for overlapping time when the BCBA directs the RBT in session.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value: 'No per-day unit ceiling and no annual ABA benefit limit (EOC: "None"). Hours are set per member: "requested number of ABA hours per week based on the member\'s specific needs, not on a general program structure." Behavioral assessments "are not to exceed 8 hours every 6 months unless additional justification is provided," and caregiver coaching is authorized at up to 18 hours per 6-month period.',
@@ -3201,11 +3205,12 @@ export const indianaPayers: Record<string, PayerConfig> = {
         ],
       },
       noteSignature: {
-        value: 'Not published in the medical policy. MP-MM-1329 requires the treatment record to be "completed by the provider or practitioner and submitted to CareSource prior to claim submission," the treatment plan to be signed by the parent/guardian (or the member if 18 or older), and reserves the right to request documentation, "particularly related to telehealth services or supervision." Session-note signature timing is not stated.',
-        status: 'unverified',
-        cites: [{ title: 'CareSource — Applied Behavior Analysis for Autism Spectrum Disorder, MP-MM-1329 (GA, IN, OH, WV Marketplace; eff. 10/01/2026)', url: 'https://www.caresource.com/documents/marketplace-oh-policy-medical-mm-1329-20261001' }],
-        verifyVia: 'CareSource\'s Marketplace ABA reimbursement policy and its medical-record documentation standards, or Provider Services at 1-833-230-2101.',
-        blocker: 'document',
+        value: 'MP-PY-1636 (eff. 12/1/2025) lists the minimum documentation for every service, including "start and stop times including any pauses in services," "type/code of service provided," "rendering provider’s name, credentials, and dated signature," the parent/guardian’s dated signature on treatment plans, and others present; the supervising BCBA "must review and approve the data collection and progress notes completed by a BCaBA or RBT under supervision prior to submitting a claim." MP-MM-1329 requires the treatment record to be submitted to CareSource before the claim. No deadline for signing a note is stated.',
+        status: 'verified',
+        cites: [
+          { title: 'CareSource — Applied Behavior Analysis for Autism Spectrum Disorder reimbursement policy, MP-PY-1636 (GA, IN, KY, OH, WV Marketplace; eff. 12/01/2025)', url: 'https://www.caresource.com/documents/marketplace-oh-policy-reimburse-py-1636-20251201.pdf' },
+          { title: 'CareSource — Applied Behavior Analysis for Autism Spectrum Disorder, MP-MM-1329 (GA, IN, OH, WV Marketplace; eff. 10/01/2026)', url: 'https://www.caresource.com/documents/marketplace-oh-policy-medical-mm-1329-20261001' },
+        ],
       },
       placeOfService: {
         value: 'No POS list is published. MP-MM-1329 excludes "any program or service performed in nonconventional settings, even if performed by a licensed provider," education services available under IDEA, and "services provided by a healthcare provider located in-state when an individual receiving ABA services is out of state." Treatment plans must include school transition plans and IEP/504 information to avoid duplicating school services.',
@@ -3215,11 +3220,14 @@ export const indianaPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       billAsProvider: {
-        value: 'Not published in the medical policy. MP-MM-1329 requires "Documentation that a licensed or certified behavior analyst will be providing ABA services" and that a BCaBA be enrolled in the Marketplace program and affiliated with the organization, but does not say whose NPI renders technician time.',
+        value: 'Neither policy says whose NPI goes on technician time. MP-PY-1636 requires the supervising BCBA to be enrolled with CareSource, says "RBTs must use appropriate modifiers that indicate qualifications of staff delivering services, if applicable," allows an RBT to work under an independent practitioner only while both are affiliated with the same organization, and gives new RBTs 60 days from hire to complete BACB credentialing. MP-MM-1329 requires a BCaBA to be enrolled in the Marketplace program.',
         status: 'unverified',
-        cites: [{ title: 'CareSource — Applied Behavior Analysis for Autism Spectrum Disorder, MP-MM-1329 (GA, IN, OH, WV Marketplace; eff. 10/01/2026)', url: 'https://www.caresource.com/documents/marketplace-oh-policy-medical-mm-1329-20261001' }],
-        verifyVia: 'CareSource\'s Marketplace ABA reimbursement policy, or Provider Services at 1-833-230-2101: ask whether RBT time bills under the supervising BCBA or the RBT\'s own NPI.',
-        blocker: 'document',
+        cites: [
+          { title: 'CareSource — Applied Behavior Analysis for Autism Spectrum Disorder reimbursement policy, MP-PY-1636 (GA, IN, KY, OH, WV Marketplace; eff. 12/01/2025)', url: 'https://www.caresource.com/documents/marketplace-oh-policy-reimburse-py-1636-20251201.pdf' },
+          { title: 'CareSource — Applied Behavior Analysis for Autism Spectrum Disorder, MP-MM-1329 (GA, IN, OH, WV Marketplace; eff. 10/01/2026)', url: 'https://www.caresource.com/documents/marketplace-oh-policy-medical-mm-1329-20261001' },
+        ],
+        verifyVia: 'CareSource Marketplace Provider Services, 1-833-230-2101: ask whether RBT time bills under the supervising BCBA, the group, or the RBT’s own NPI, and which modifiers apply.',
+        blocker: 'per-case',
       },
     },
     intakeGates: {
