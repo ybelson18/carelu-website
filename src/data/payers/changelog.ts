@@ -4521,4 +4521,1911 @@ export const PAYER_CHANGELOG: PayerChangeEntry[] = [
     ],
     totals: { guides: 484, states: 51 },
   },
+  {
+    date: '2026-10-25',
+    type: 'correction',
+    summary:
+      'Weekly refresh 2026-10-25: corrections found while re-verifying changed sources, the ISO-week-43 rotation (AZ, DC, HI, IN, MA, MN, NC, NJ, OH, RI, TX, WA) and the visitor-question fan-out. Largest: Ohio — every guide presented OAC 5160-34-02 as an in-force ABA rule; codes.ohio.gov has no such rule and ODM\'s 7/30/2026 deck says the rule work was paused in 2025, so the package is now labelled as ODM\'s unfiled draft (ERF188422B) and facts that rested on it are unverified or re-sourced to each plan\'s own policy. New York Medicaid: an ABA enrollment moratorium (COS 0590/0591) has been in force since 7/27/2026, where the guides said there was none. NJ FamilyCare: FBI fingerprint checks are required for all ABA direct-care staff (Newsletter 36-01). AHCCCS: HM/HN/HO/HP are degree levels, not RBT/BCaBA/BCBA. Optum: 0362T/0373T take no credential modifier (fixed on 15 UHC state guides). Aetna CPB 0648 (review 10/20/2026) now lists F84.0, F84.3, F84.5, F84.8, F84.9. Also Alliance Health 7-day standard decisions, Molina Iowa portal-only PA, Anthem Blue Cross CA diagnosis/tools/supervision now verified, Premera Alaska supervision floor.',
+    guides: ['aetna', 'aetna-indiana', 'aetna-kansas', 'aetna-maryland', 'aetna-michigan', 'aetna-missouri', 'alliance-health-north-carolina', 'amerihealth-caritas-ohio', 'anthem-blue-cross-california', 'anthem-indiana-medicaid', 'anthem-ohio-medicaid', 'arizona-ahcccs', 'buckeye-health-plan', 'caresource-indiana', 'caresource-ohio', 'humana-healthy-horizons-ohio', 'molina-healthcare-iowa', 'molina-healthcare-ohio', 'new-jersey-medicaid', 'new-york-medicaid', 'ohio-medicaid', 'premera-blue-cross-blue-shield-alaska', 'unitedhealthcare-alaska', 'unitedhealthcare-arkansas', 'unitedhealthcare-hawaii', 'unitedhealthcare-idaho', 'unitedhealthcare-iowa', 'unitedhealthcare-louisiana', 'unitedhealthcare-montana', 'unitedhealthcare-nebraska', 'unitedhealthcare-nevada', 'unitedhealthcare-new-mexico', 'unitedhealthcare-oklahoma', 'unitedhealthcare-oregon', 'unitedhealthcare-utah', 'unitedhealthcare-washington', 'unitedhealthcare-wyoming'],
+    details: [
+      {
+        slug: 'new-jersey-medicaid',
+        field: 'Staffing section (background checks) + FAQ',
+        change:
+          'CORRECTION: "no NJ statute or FamilyCare ABA policy mandating fingerprint ... checks was found" -> DMAHS Newsletter 36-01 (Jan 2026) requires every direct-care ASD/ABA staff member to pass an FBI fingerprint check via DHS ECCU before services, every 2 years (existing staff by 4/26/2026); contract App. B.4.4 fingerprinting before enrollment',
+        sourceUrl: 'https://www.njmmis.com/documentDownload.aspx?document=36-01.pdf',
+      },
+      {
+        slug: 'new-york-medicaid',
+        field: 'section "Is New York Medicaid open to new ABA providers?" + FAQ',
+        change:
+          'CORRECTION: "The ABA manual states no enrollment cap or moratorium" / FAQ "states no cap or moratorium" -> NYS DOH temporary enrollment moratorium on ABA (COS 0590/0591) effective July 27, 2026, minimum 6 months; pending applications discontinued; enrolled providers unaffected; ABA now high-risk (3-yr revalidation, site visit, owner fingerprinting). Added FAQ answering Q7 (6-month pause).',
+        sourceUrl: 'https://health.ny.gov/health_care/medicaid/integrity/provider_revalidation.htm',
+      },
+      {
+        slug: 'alliance-health-north-carolina',
+        field: 'intakeGates.authTurnaround + claims section + cite titles',
+        change:
+          'CORRECTION: Alliance provider manual re-issued (effective July 1, 2026; file 10/22/2026): standard UM decision 14 -> 7 calendar days; the 180-day replacement-claim limit is gone (replacement for a paid claim allowed; void within fiscal year). Other quoted facts (retro review, 30-day COB replacement, taxonomy rejection, EPSDT pay-and-chase, claim edits, payer of last resort) re-verified unchanged',
+        sourceUrl: 'https://www.alliancehealthplan.org/document-library/79431/',
+      },
+      {
+        slug: 'aetna-maryland',
+        field: 'dxRequired.verifyVia',
+        change:
+          'CORRECTION: CPB 0648 no longer lists F84.0-F84.9; as of last review 10/20/2026 it lists F84.0, F84.3, F84.5, F84.8, F84.9. CPB 0554 (10/14/2026) still F84.0-F84.9 (cross-group note from G8, verified directly)',
+        sourceUrl: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html',
+      },
+      {
+        slug: 'aetna-indiana',
+        field: 'dxRequired.verifyVia',
+        change:
+          'CORRECTION: "CPB 0554 and CPB 0648 both list F84.0 - F84.9" -> CPB 0554 (10/14/2026) lists F84.0-F84.9 but CPB 0648 (10/20/2026 review) now lists F84.0, F84.3, F84.5, F84.8, F84.9 (no F84.2), like the MNG; field stays unverified/document',
+        sourceUrl: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html',
+      },
+      {
+        slug: 'caresource-ohio',
+        field: 'deliveryRules.dailyLimits',
+        change:
+          'CORRECTION: "PY-1638 ... with the figures unchanged: 97151 at 32 ..." -> PY-1638 prints no unit table; it says CareSource complies with the CMS MUE table (CMS Medicaid practitioner MUE 10/1/2026: 97151 32, 97153 32, 97155 24, 97156 16); assessments 6-10 hours per 6 months; MM-0028 6-month reviews and 2-successive-period discontinuation',
+        sourceUrl: 'https://www.caresource.com/documents/medicaid-oh-policy-reimburse-py-1638-20260901',
+      },
+      {
+        slug: 'caresource-ohio',
+        field: 'deliveryRules.supervision',
+        change:
+          'CORRECTION: "records retained 5 years for COBAs or 7 years for BCBAs and RBTs ... recoupment" (not in current MM-0028/PY-1638) -> PY-1638: supervision documentation kept minimum 5 years; RBT supervision minimum 5% of monthly service hours; RBT supervisors must hold BCBA/BCaBA; plus OAC 4783-6-02 supervision plan',
+        sourceUrl: 'https://www.caresource.com/documents/medicaid-oh-policy-reimburse-py-1638-20260901',
+      },
+      {
+        slug: 'ohio-medicaid',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'CORRECTION: "must come from ... licensed physician, psychologist, or other clinician" attributed to OAC 5160-34-02 (not an in-force rule) -> no in-force ODM rule names diagnosers; Optum (UHC CP) and CareSource rules stated; ODM 7/30/2026 proposal (psychologist, supervised psychologist assistant, pediatrician, primary care or independently licensed clinician; independent of ABA provider) labelled as proposal',
+        sourceUrl: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/BH/provider/Presentations/7.30_ABA_Presentation.pdf',
+      },
+      {
+        slug: 'ohio-medicaid, caresource-ohio, buckeye-health-plan, molina-healthcare-ohio, anthem-ohio-medicaid, amerihealth-caritas-ohio, humana-healthy-horizons-ohio',
+        field: 'deliveryRules.billAsProvider',
+        change:
+          'CORRECTION: verified -> unverified/document. The "Ohio Medicaid framework" (COBA/BCBA independent practitioners, PT 19 / specialty 190) came from ODM\'s unfiled draft 5160-34-01, not an in-force rule (ODM 7/30/2026: rule work paused in 2025). Now states the draft as draft, the PT19/190 statement as Optum\'s, and the OhioRISE Mixed Services Protocol routing (verified)',
+        sourceUrl: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Stakeholders,%20Partners/LegalandContracts/Rules/ERF188422B.pdf',
+      },
+      {
+        slug: 'molina-healthcare-ohio, anthem-ohio-medicaid, amerihealth-caritas-ohio, humana-healthy-horizons-ohio',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'CORRECTION: verified -> unverified/document ("follows the Ohio Medicaid framework" rested on nonexistent OAC 5160-34-02; plans publish no diagnoser rule)',
+        sourceUrl: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02',
+      },
+      {
+        slug: 'buckeye-health-plan',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'CORRECTION: re-sourced from nonexistent OAC 5160-34-02 to Buckeye CP.BH.104 quote (licensed physician, psychologist, or other licensed professional with specialized ASD training, or provider authorized under state law)',
+        sourceUrl: 'https://www.buckeyehealthplan.com/content/dam/centene/Buckeye/policies/clinical-policies/CP.BH.104.pdf',
+      },
+      {
+        slug: 'anthem-indiana-medicaid',
+        field: 'dxRequired, intakeGates.diagnosticTools',
+        change:
+          'CORRECTION (attribution): F84.0 / \'applicable testing results\' / intake-assessment requirements are in Anthem\'s IHCP Works PA 201 deck (2022), not the cited UM guideline; cites fixed and guideline quotes added (standardized assessment; developmental testing no later than two months after start)',
+        sourceUrl: 'https://www.in.gov/medicaid/providers/files/IHCP-Works-2022-Anthem-Prior-Authorization-201.pdf',
+      },
+      {
+        slug: 'anthem-indiana-medicaid',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'CORRECTION: \'UM guideline asks for F84.0 ... rather than restating the credential list\' -> the guideline does list: licensed physician, licensed HSPP, or other behavioral health specialist with ASD training (predates BT202562)',
+        sourceUrl: 'https://providers.anthem.com/docs/gpp/IN_CAID_ABAGuidelines.pdf',
+      },
+      {
+        slug: 'caresource-indiana',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'CORRECTION: misquoted archived MM-0900 (\'licensed physician, HSPP, or qualified specialist\') -> actual list: Licensed physician / Licensed HSPP / Other behavioral health specialist',
+        sourceUrl: 'https://www.caresource.com/documents/medicaid-in-policy-medical-mm-0900-20220601',
+      },
+      {
+        slug: 'all 12 Ohio guides + vob/ohio.ts',
+        field: 'intro, metaDescription, cardDesc, atGlance, sections, FAQ, assessmentPA/treatmentPA/dxRequired values, verifyVia; vob code-grid notes, paRequired, covered, source notes, scripted question',
+        change:
+          'CORRECTION: removed every statement presenting OAC 5160-34-02 (or a \'state rule / Ohio Medicaid framework\') as in force; now says Ohio has no in-force ABA rule, the 5160-34 package is ODM\'s unfiled draft (ERF188422B, \'DRAFT - NOT YET FILED\') and ODM paused the rule work in 2025, with plan policies (CareSource MM-0028/PY-1638, Buckeye CP.BH.104, Optum) named as the operative rules. ohio-medicaid atGlance Covers ABA / Prior auth / Reviews / Credentialing rows, FAQ, intro and section 1 rewritten; vob ohio-medicaid paRequired fieldStatus verified -> unverified; vob MUE notes corrected (PY-1638 adopts the CMS table by reference, prints no figures); CareSource \'7 years for BCBAs/RBTs\' retention claim removed from two more places (PY-1638: 5 years; RBT supervision 5% of monthly hours)',
+        sourceUrl: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/BH/provider/Presentations/7.30_ABA_Presentation.pdf',
+      },
+      {
+        slug: 'aetna-michigan',
+        field: 'sections (claims) appeal decision time',
+        change:
+          'CORRECTION: "with a written decision within 60 business days" -> "within 60 calendar days of receiving the appeal" (Aetna disputes-appeals overview: "We\'ll send a decision by mail or fax within 60 calendar days of receiving your appeal")',
+        sourceUrl: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html',
+      },
+      {
+        slug: 'aetna-missouri, aetna-kansas',
+        field: 'dxRequired',
+        change:
+          'CORRECTION: "CPB 0554 (last review 11/26/2025) ... experimental for all other non-ASD indications; CPB 0648 lists F84.0-F84.9 while the MNG leaves out F84.1/F84.2 (documents differ)" -> CPB 0554 (last review 10/14/2026) lists Down syndrome without ASD and all other non-ASD indications as E/I/U; CPB 0648 (last review 10/20/2026) now lists F84.0, F84.3, F84.5, F84.8, F84.9 - both documents exclude F84.1/F84.2',
+        sourceUrl: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html',
+      },
+      {
+        slug: 'molina-healthcare-iowa',
+        field: 'treatmentPA, atGlance Prior auth route, sections (Authorization mechanics), faq, metaDescription',
+        change:
+          'CORRECTION: "Availity encouraged or UM fax (877) 319-6828" -> Availity Provider Portal only for medical PA since 2/1/2026 (Molina: "no longer accepts fax submissions"); dead Molina IA URLs re-pointed (PA page -> /providers/ia/prior-auth; manual and July 2026 PA notice -> myhealthinhand host, same PDFs; clinical-policy page -> /providers/resources/policies)',
+        sourceUrl: 'https://www.molinahealthcare.com/providers/ia/prior-auth',
+      },
+      {
+        slug: 'unitedhealthcare-iowa, unitedhealthcare-nebraska, unitedhealthcare-oklahoma, unitedhealthcare-arkansas, unitedhealthcare-louisiana',
+        field: 'sections + faq (Optum ABA code set)',
+        change:
+          'CORRECTION: "97151-97158, 0362T and 0373T, each with a credential modifier" -> 97151-97158 carry HM/HN/HO/HP; 0362T and 0373T are listed by Optum as codes "that do not require modifiers" (policy 2022RP501A re-read 2026-10-25)',
+        sourceUrl: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf',
+      },
+      {
+        slug: 'arizona-ahcccs',
+        field: 'sections[Rates] + billAsProvider + faq + atGlance',
+        change:
+          'CORRECTION: HM/HN/HO/HP were glossed as RBT/BCaBA/BCBA/BCBA-D -> now AHCCCS\'s own definitions (HM \'Less than bachelor degree level\', HN \'Bachelors degree level\', HO \'Masters degree level\', HP \'Doctoral level\'), no AHCCCS credential crosswalk; added full FFY26 tier table (97152 tiers, no HM on 97151/97155/97158, blank-modifier lines priced at lowest tier), TJ on 97154 $14.93 (row added 6/30/2026, eff 10/1/2025), 97156/97157 still BR; new FAQ answering Q20',
+        sourceUrl: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/AHCCCS_ModifiersList2024.pdf',
+      },
+      {
+        slug: 'unitedhealthcare-nevada, unitedhealthcare-new-mexico, unitedhealthcare-utah',
+        field: 'sections (Which codes)',
+        change:
+          'CORRECTION: \'97151–97158, 0362T and 0373T, each ... with a credential modifier\' -> 0362T/0373T are listed by Optum among codes \'that do not require modifiers\' (2022RP501A, June 2026)',
+        sourceUrl: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf',
+      },
+      {
+        slug: 'anthem-blue-cross-california',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'CORRECTION: unverified "Anthem names no diagnosing-provider list" -> verified: diagnostic evaluation by "a doctorate-level clinician or allowable qualified healthcare provider per state regulations" (LCSW not named)',
+        sourceUrl: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/CA_TPRF_00001.pdf',
+      },
+      {
+        slug: 'anthem-blue-cross-california',
+        field: 'intakeGates.diagnosticTools',
+        change:
+          'CORRECTION: unverified/document "no instrument requirement found" -> verified: DSM-5-TR criteria + standardized tool (ADI-R, ADOS-2, CARS-2 as examples)',
+        sourceUrl: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/CA_TPRF_00001.pdf',
+      },
+      {
+        slug: 'anthem-blue-cross-california',
+        field: 'deliveryRules.supervision',
+        change:
+          'CORRECTION: "publishes no supervision ratio" -> form describes 97153 as "receiving 2 hours of supervision for every 10 hours of direct treatment"',
+        sourceUrl: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/CA_TPRF_00001.pdf',
+      },
+      {
+        slug: 'unitedhealthcare-hawaii, unitedhealthcare-idaho, unitedhealthcare-oregon, unitedhealthcare-washington, unitedhealthcare-alaska, unitedhealthcare-montana, unitedhealthcare-wyoming',
+        field: 'sections/values (credential modifiers)',
+        change:
+          'CORRECTION: "each code / every line carries HM/HN/HO/HP" -> 97151–97158 carry the credential modifier; 0362T and 0373T are listed in Optum 2022RP501A as "Additional Autism/Applied Behavior Analysis Codes that do not require modifiers" (10 sentences, cross-group lead from G6, verified in the policy)',
+        sourceUrl: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf',
+      },
+      {
+        slug: 'premera-blue-cross-blue-shield-alaska',
+        field: 'deliveryRules.supervision',
+        change:
+          'CORRECTION: "Premera points to the CASP guidelines and sets no ratio" -> Premera Alaska ABA resources page: generally 2 hours of supervision per 10 hours of direct service, minimum 2 hours weekly at 10 hours/week or less',
+        sourceUrl: 'https://www.premera.com/ak/provider/applied-behavior-analysis-resources/',
+      },
+      {
+        slug: 'aetna',
+        field: 'sections (Provider qualifications) + intakeGates.diagnosingProviders',
+        change:
+          'CORRECTION: diagnosing-provider list omitted the Medical Necessity Guide\'s \'or other health care professional qualified to diagnose mental health conditions within their scope of practice\'; now quoted in full, with an explicit LCSW answer (not named; state scope decides)',
+        sourceUrl: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf',
+      },
+      {
+        slug: 'aetna',
+        field: 'dxRequired.verifyVia + placeOfService cite title',
+        change:
+          'CORRECTION: verifyVia said CPB 0554 and CPB 0648 both list F84.0-F84.9; CPB 0648 (last review 10/20/2026) now lists F84.0, F84.3, F84.5, F84.8, F84.9 (no F84.2), matching the ABA MNG; CPB 0554 (last review 10/14/2026) still F84.0-F84.9. Field stays unverified/document. CPB 0648 cite title \'last review 10/02/2025\' -> \'10/20/2026\' (educational-services exclusion quote re-verified in the new revision).',
+        sourceUrl: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html',
+      },
+    ],
+    totals: { guides: 484, states: 51 },
+  },
+  {
+    date: '2026-10-25',
+    type: 'policy-update',
+    summary:
+      'Weekly refresh 2026-10-25: visitor questions 10/19-10/23 answered at primary sources and fanned out by topic across the directory — LCSW as a diagnosing provider (explicit yes/no on almost every guide), single case agreements / out-of-network authorization, reconsideration and appeal packets, out-of-network pricing, whether the authorization belongs to the clinician, group NPI or TIN, credential-by-code matrices and credential modifiers, assessment templates, service orders by code (NC), telehealth limits, Medicaid as secondary payer, switching agencies, NJ Medicaid ABA rates (DMAHS Newsletter 30-06), Missouri HMOs, and self-pay Good Faith Estimates (45 CFR 149.610). Newsletter leads applied: Minnesota EIDBI enrollment moratorium extended to 4/30/2027 and 0373T -> 97159 on 1/1/2027; NC Medicaid concurrent-billing bulletin; CareOregon ABA Assessment service type; Fidelis NJ 97157 PA; Healthfirst NPI/TIN edits; Magellan PA rate changes; Empower AR H2019 (not an ABA code). Changed sources re-verified (3,148 checked, 386 changed, 54 newly failing) and dead Molina, CHAMPVA, Vaya/Partners and L.A. Care links re-pointed.',
+    guides: ['absolute-total-care-south-carolina', 'aetna', 'aetna-', 'aetna-alabama', 'aetna-arizona', 'aetna-arkansas', 'aetna-better-health-florida', 'aetna-better-health-illinois', 'aetna-better-health-kentucky', 'aetna-better-health-louisiana', 'aetna-better-health-new-jersey', 'aetna-better-health-oklahoma', 'aetna-better-health-texas', 'aetna-better-health-virginia', 'aetna-colorado', 'aetna-delaware', 'aetna-florida', 'aetna-georgia', 'aetna-hawaii', 'aetna-illinois', 'aetna-indiana', 'aetna-iowa', 'aetna-kansas', 'aetna-kentucky', 'aetna-louisiana', 'aetna-maryland', 'aetna-michigan', 'aetna-minnesota', 'aetna-mississippi', 'aetna-missouri', 'aetna-nebraska', 'aetna-nevada', 'aetna-new-jersey', 'aetna-north-carolina', 'aetna-north-dakota', 'aetna-ohio', 'aetna-tennessee', 'aetna-virginia', 'aetna-wisconsin', 'alabama-medicaid', 'alliance-health-north-carolina', 'alohacare', 'amerigroup-georgia', 'amerihealth-caritas-north-carolina', 'amerihealth-caritas-ohio', 'anthem-bcbs-connecticut', 'anthem-bcbs-georgia', 'anthem-bcbs-indiana', 'anthem-bcbs-kentucky', 'anthem-bcbs-maine', 'anthem-bcbs-missouri', 'anthem-bcbs-new-hampshire', 'anthem-bcbs-virginia', 'anthem-blue-cross-california', 'anthem-healthkeepers-plus', 'anthem-healthplus-new-york', 'anthem-indiana', 'anthem-indiana-medicaid', 'anthem-nevada-medicaid', 'anthem-ohio-medicaid', 'ar', 'arizona', 'arizona-ahcccs', 'arizona-complete-health', 'arizona-ddd', 'arkansas-blue-cross-blue-shield', 'arkansas-medicaid', 'asr-health-benefits', 'banner-university-family-care', 'bcbs-texas-medicaid', 'blue-cross-blue-shield-louisiana', 'blue-cross-blue-shield-mississippi', 'blue-cross-blue-shield-new-mexico', 'blue-cross-blue-shield-north-dakota', 'blue-cross-blue-shield-of-alabama', 'blue-cross-community-health-plans-illinois', 'blue-cross-north-carolina', 'blue-plus-minnesota', 'bluecare-tennessee', 'bluecross-blueshield-of-south-carolina', 'bluecross-blueshield-of-tennessee', 'buckeye-health-plan', 'capital-blue-cross-pennsylvania', 'carefirst-district-of-columbia', 'carefirst-maryland', 'carelon-behavioral-health', 'carelon-behavioral-health-pennsylvania', 'caresource-georgia', 'caresource-indiana-marketplace', 'caresource-nevada', 'caresource-ohio', 'caresource-passe-arkansas', 'carolina-complete-health', 'cdphp-new-york', 'champva', 'cigna', 'cigna-', 'cigna-alabama', 'cigna-arkansas', 'cigna-delaware', 'cigna-florida', 'cigna-georgia', 'cigna-hawaii', 'cigna-illinois', 'cigna-indiana', 'cigna-kentucky', 'cigna-louisiana', 'cigna-maryland', 'cigna-michigan', 'cigna-minnesota', 'cigna-mississippi', 'cigna-missouri', 'cigna-new-jersey', 'cigna-north-carolina', 'cigna-north-dakota', 'cigna-ohio', 'cigna-tennessee', 'cigna-virginia', 'cigna-wisconsin', 'cms-health-plan-florida', 'colorado', 'colorado-medicaid', 'columbia-pacific-cco', 'community-care-plan-florida', 'compsych', 'coordinated-care-washington', 'countycare-illinois', 'detroit-wayne-integrated-health-network-michigan', 'district-of-columbia-medicaid', 'driscoll-health-plan', 'el-paso-health', 'emblemhealth-new-york', 'empower-healthcare-solutions-arkansas', 'excellus-bcbs-new-york', 'fallon-health-massachusetts', 'fidelis-care-new-jersey', 'fidelis-care-new-york', 'first-choice-select-health-south-carolina', 'florida-blue', 'florida-community-care', 'florida-medicaid', 'georgia-medicaid', 'hawaii-medicaid', 'health-choice-arizona', 'health-plan-of-nevada', 'health-share-of-oregon', 'healthfirst-new-york', 'healthpartners-minnesota', 'healthy-blue-kansas', 'healthy-blue-louisiana', 'healthy-blue-north-carolina', 'hennepin-health-minnesota', 'highmark-bcbs-delaware', 'highmark-pennsylvania', 'highmark-western-new-york', 'hmsa', 'horizon-bcbs-new-jersey', 'horizon-nj-health', 'humana', 'humana-healthy-horizons-florida', 'humana-healthy-horizons-kentucky', 'humana-healthy-horizons-louisiana', 'humana-healthy-horizons-ohio', 'humana-healthy-horizons-oklahoma', 'humana-healthy-horizons-virginia', 'ia', 'illinois-medicaid', 'imcare-minnesota', 'independence-blue-cross-pennsylvania', 'independent-health-new-york', 'indiana-medicaid', 'jackson-care-connect', 'johns-hopkins-usfhp', 'kaiser-permanente-hawaii', 'kansas-medicaid', 'kentucky-medicaid', 'ks', 'la-care-health-plan-california', 'louisiana-healthcare-connections', 'louisiana-medicaid', 'macomb-county-community-mental-health-michigan', 'magellan-behavioral-health-pennsylvania', 'magellan-health', 'magnolia-health-mississippi', 'martins-point-usfhp', 'maryland-medicaid', 'mass-general-brigham-health-plan', 'mdwise-indiana', 'medcost', 'medica-minnesota', 'medica-one-health-plan-minnesota', 'mercy-care-arizona', 'meridian-illinois', 'meritain-health', 'metroplus-health-new-york', 'mhs-indiana', 'mid-state-health-network-michigan', 'minnesota-medicaid', 'mississippi-medicaid', 'missouri-medicaid', 'molina-healthcare-arizona', 'molina-healthcare-florida', 'molina-healthcare-illinois', 'molina-healthcare-iowa', 'molina-healthcare-mississippi', 'molina-healthcare-nebraska', 'molina-healthcare-nevada', 'molina-healthcare-new-mexico', 'molina-healthcare-new-york', 'molina-healthcare-ohio', 'molina-healthcare-south-carolina', 'molina-healthcare-texas', 'molina-healthcare-washington', 'mvp-health-plan-new-york', 'nd', 'ne', 'nebraska-medicaid', 'nebraska-total-care', 'neighborhood-health-plan-rhode-island', 'nevada-medicaid', 'new-jersey-medicaid', 'new-mexico', 'new-mexico-medicaid', 'north-carolina-medicaid', 'north-dakota-medicaid', 'oakland-community-health-network-michigan', 'ohana-health-plan', 'ohio-medicaid', 'ok', 'oklahoma-complete-health', 'oklahoma-medicaid', 'oregon-medicaid', 'parkland-community-health-plan', 'partners-health-management', 'passport-by-molina-kentucky', 'peach-state-georgia', 'performcare-pennsylvania', 'premera-blue-cross-blue-shield-alaska', 'premera-blue-cross-washington', 'presbyterian-health-plan-new-mexico', 'primewest-health-minnesota', 'sd', 'select-health-utah', 'sentara-community-plan', 'silversummit-healthplan-nevada', 'simply-healthcare-florida', 'south-carolina-medicaid', 'south-country-health-alliance-minnesota', 'south-dakota-medicaid', 'southwest-michigan-behavioral-health', 'summit-community-care-arkansas', 'sunflower-health-plan-kansas', 'sunshine-health-florida', 'tenncare-select', 'tenncare-tennessee-medicaid', 'texas-medicaid', 'tricare-east-humana-military', 'tricare-west-triwest', 'trillium-community-health-plan-oregon', 'trillium-health-resources', 'truecare-mississippi', 'tufts-health-ritogether-rhode-island', 'tufts-health-together', 'umpqua-health-alliance', 'unitedhealthcare-alabama', 'unitedhealthcare-arkansas', 'unitedhealthcare-community-plan-arizona', 'unitedhealthcare-community-plan-florida', 'unitedhealthcare-community-plan-hawaii', 'unitedhealthcare-community-plan-indiana', 'unitedhealthcare-community-plan-kansas', 'unitedhealthcare-community-plan-kentucky', 'unitedhealthcare-community-plan-nebraska', 'unitedhealthcare-community-plan-new-jersey', 'unitedhealthcare-community-plan-new-mexico', 'unitedhealthcare-community-plan-new-york', 'unitedhealthcare-community-plan-north-carolina', 'unitedhealthcare-community-plan-ohio', 'unitedhealthcare-community-plan-tennessee', 'unitedhealthcare-community-plan-texas', 'unitedhealthcare-community-plan-virginia', 'unitedhealthcare-delaware', 'unitedhealthcare-florida', 'unitedhealthcare-georgia', 'unitedhealthcare-hawaii', 'unitedhealthcare-illinois', 'unitedhealthcare-indiana', 'unitedhealthcare-kentucky', 'unitedhealthcare-louisiana', 'unitedhealthcare-maryland', 'unitedhealthcare-michigan', 'unitedhealthcare-minnesota', 'unitedhealthcare-mississippi', 'unitedhealthcare-missouri', 'unitedhealthcare-new-jersey', 'unitedhealthcare-new-york', 'unitedhealthcare-north-carolina', 'unitedhealthcare-north-dakota', 'unitedhealthcare-ohio', 'unitedhealthcare-optum', 'unitedhealthcare-tennessee', 'unitedhealthcare-virginia', 'unitedhealthcare-wisconsin', 'upmc-health-plan-pennsylvania', 'utah', 'vaya-health', 'virginia-medicaid', 'wellcare-kentucky', 'wellcare-north-carolina', 'wellmark-blue-cross-blue-shield-iowa', 'wellmark-blue-cross-blue-shield-south-dakota', 'wellpoint-new-jersey', 'wellpoint-tennessee', 'wellpoint-texas', 'wellsense-new-hampshire', 'west-virginia-medicaid', 'youthcare-illinois'],
+    details: [
+      {
+        slug: 'unitedhealthcare-new-jersey',
+        field: 'section + FAQ (appeals-process, oon-reimbursement)',
+        change:
+          'added: Optum 2-step reconsideration/appeal (12 months, required documentation, P.O. Box 30757 / Provider Express incl. OON individual clinicians), NJ HCAPPA provider appeal form usable by non-participating providers (attachment list, 90 days, 30-day decision), PICPA arbitration ($1,000 threshold, fees, exclusions), UHC OON allowed-amount methods (CMS %, FAIR Health, Viant, negotiated rate)',
+        sourceUrl: 'https://www.nj.gov/dobi/chap352/352genapplication.pdf',
+      },
+      {
+        slug: 'wellpoint-new-jersey',
+        field: 'intakeGates.coordinationOfBenefits + FAQ',
+        change:
+          'added: secondary-payment math from the Oct 2026 manual (allowable minus TPL payment, cap at primary-payer amount, no payment incl. copays when TPL paid more, no balance billing; manual silent on PA when secondary)',
+        sourceUrl: 'https://www.provider.wellpoint.com/docs/gpp/NJ_WLP_Provider_Manual.pdf',
+      },
+      {
+        slug: 'wellpoint-new-jersey',
+        field: 'section + FAQ (single-case-agreement)',
+        change:
+          'added: Wellpoint procures an SCA after prior authorization; BH OON authorization documenting medical necessity; state contract SCA requirement',
+        sourceUrl: 'https://www.provider.wellpoint.com/docs/gpp/NJ_WLP_Provider_Manual.pdf',
+      },
+      {
+        slug: 'new-jersey-medicaid',
+        field: 'section + FAQ (single-case-agreement)',
+        change:
+          'added: NJ FamilyCare contract Art. 4.1.1.I (SCA required whenever MCO authorizes OON; disclosure; exclusion checks) and Art. 4.8.7.G (OON referral when no qualified network provider, no extra cost)',
+        sourceUrl: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf',
+      },
+      {
+        slug: '(all G1 guides)',
+        field: 'sources arrays',
+        change:
+          'hygiene: 430 cited-but-unlisted sources appended to the guides sources arrays so payer-watch watches them (no prose change)',
+      },
+      {
+        slug: 'fidelis-care-new-york, unitedhealthcare-community-plan-new-york, anthem-healthplus-new-york, healthfirst-new-york, metroplus-health-new-york, emblemhealth-new-york, molina-healthcare-new-york, excellus-bcbs-new-york, mvp-health-plan-new-york, cdphp-new-york, independent-health-new-york, highmark-western-new-york',
+        field: 'section + FAQ (network-status)',
+        change:
+          'added: new ABA providers cannot join MMC networks until the NYS ABA enrollment moratorium ends (Medicaid enrollment prerequisite per eMedNY); enrolled providers unaffected; no plan publishes an ABA network-status statement',
+        sourceUrl: 'https://health.ny.gov/health_care/medicaid/integrity/docs/2026-09-17_bpe_call-in_hour_slide.pdf',
+      },
+      {
+        slug: 'anthem-bcbs-connecticut',
+        field: 'assessmentPA + section + FAQ (assessment-template)',
+        change:
+          'added: CT manual says ABA "is not a standard benefit"; PA recommended if covered; Anthem posts no CT ABA assessment template (Dec 2025 commercial TPR form lists 10 states, not CT) — its 97151/97152/0362T packet requirements quoted; CT Outpatient Treatment Report is a general BH form',
+        sourceUrl: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_CT_00015.pdf',
+      },
+      {
+        slug: 'fidelis-care-new-jersey',
+        field: 'section + FAQ',
+        change:
+          'added: 97157 PA required from 10/1/2026 (Fidelis NJ PA update); BH pre-determination peer-to-peer reviews discontinued from 10/19/2026, post-determination P2P via denial letter',
+        sourceUrl: 'https://www.fideliscarenj.com/providers/news-and-education/bulletins/peer-to-peer-process-change.html',
+      },
+      {
+        slug: 'healthfirst-new-york',
+        field: 'deliveryRules.billAsProvider + FAQ',
+        change:
+          'added: from 12/1/2026 claim NPI must match enrollment and NPI type (Type 1 individual / Type 2 organization); SSN no longer accepted in place of TIN',
+        sourceUrl: 'https://hfproviders.org/resource-posts/npi-and-tin-requirements-for-claims-submission',
+      },
+      {
+        slug: 'magellan-behavioral-health-pennsylvania',
+        field: 'Rates section',
+        change:
+          'added: Oct 21, 2026 rate letter — IBHS/ABA value-based providers +3% plus +30% on assessment codes eff. 7/1/2026 (Bucks, Montgomery, Lehigh, Northampton); 2026 retro lump sums before 12/31/2026',
+        sourceUrl: 'https://www.magellanofpa.com/documents/2026/10/102126_providerratesannouncement.pdf/',
+      },
+      {
+        slug: 'independence-blue-cross-pennsylvania',
+        field: 'assessmentPA + source title',
+        change:
+          'precert code list now effective 10/1/2026 (Commercial + MA); ABA 97151-97158, 0362T, 0373T still listed, performed by IBX (was: effective 7/1/2026)',
+        sourceUrl: 'https://medpolicy.ibx.com/ibc/Commercial/Pages/Services-Requiring-Precertification.aspx',
+      },
+      {
+        slug: '(CT, MA, NJ, PA, VT Aetna guides)',
+        field: 'source titles',
+        change:
+          'Aetna CPB 0648 last review 10/02/2025 -> 10/20/2026; all quotes citing it re-checked against the new text (27 objects, 0 misses)',
+        sourceUrl: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html',
+      },
+      {
+        slug: 'new-jersey-medicaid, wellpoint-new-jersey',
+        field: 'source title',
+        change:
+          'NJMMIS ABA FFS enrollment packet May 2026 -> October 2026 edition (FD-462 rev. 09-25-2026); packet also requires agency employees to pass the DHS fingerprint check before direct services',
+        sourceUrl: 'https://www.njmmis.com/documentDownload.aspx?document=Applied_Behavior_Analysis.pdf',
+      },
+      {
+        slug: 'horizon-nj-health, fidelis-care-new-jersey, unitedhealthcare-community-plan-new-jersey',
+        field: 'section + FAQ (single-case-agreement)',
+        change:
+          'added each plan own OON/SCA rule from its manual (Horizon: OON BH needs PA + SCA, nonpar fee schedule; Fidelis: SCAs + administrative auths for OON; UHC CP: PCP requests in-network exception) + state contract SCA requirement',
+        sourceUrl: 'https://www.horizonnjhealth.com/provider-admin-manual',
+      },
+      {
+        slug: 'aetna-new-jersey, cigna-new-jersey, horizon-bcbs-new-jersey',
+        field: 'section (appeals-process)',
+        change:
+          'added NJ HCAPPA claim-appeal packet (DOBI form contents, usable by non-participating providers), PICPA arbitration; Aetna NJ provider appeal procedures (90 days/30-day decision, 2nd level 60 days, 18-month reconsideration outside HCAPPA)',
+        sourceUrl: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/NJ_prov_appeal_proc.pdf',
+      },
+      {
+        slug: 'fidelis-care-new-york',
+        field: 'deliveryRules.noteSignature + concurrent-review section',
+        change:
+          'rotation: re-read FC.CP.BH policy (rev 2/26): added its own continued-review wording (monthly session note per CPT with graphs, 80% sessions + caregiver participation per visit attestation form, parent + BCBA signatures on revised plan); the tip-sheet list (signed visit attestation, scoring grid) kept and now cited to the ABA Provider Tip Sheet it comes from',
+        sourceUrl: 'https://www.fideliscare.org/Portals/0/Providers/Applied-Behavior-Analysis-Policy-FC.BH.301.04.pdf',
+      },
+      {
+        slug: 'independent-health-new-york',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'rotation: quote corrected to the handbook exact wording ("assessment and treatment by a physician, licensed behavioral analyst, or certified behavior analyst assistant"); substance unchanged',
+        sourceUrl: 'https://www.independenthealth.com/content/dam/independenthealth/individuals-and-families/find-a-health-plan/documents/state/medisource-member-handbook.pdf',
+      },
+      {
+        slug: 'mvp-health-plan-new-york',
+        field: 'deliveryRules.supervision + billAsProvider',
+        change:
+          'rotation: quote corrected to April 2026 payment policy wording (RBTs/unlicensed "are only covered for CPT codes 97152, 97153, and 97154"); substance unchanged',
+        sourceUrl: 'https://www.mvphealthcare.com/-/media/project/mvp/healthcare/documents/provider-policies-and-payment-policies/2026/april/mvp-payment-policies-effective-april-1-2026.pdf',
+      },
+      {
+        slug: 'new-jersey-medicaid, horizon-nj-health, aetna-better-health-new-jersey, fidelis-care-new-jersey, unitedhealthcare-community-plan-new-jersey, wellpoint-new-jersey',
+        field: 'section + FAQ (network-status)',
+        change:
+          'added: contract Art. 4.8.1.P any-willing-qualified-BH-provider requirement covering ABA (App. B.4.4)',
+        sourceUrl: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf',
+      },
+      {
+        slug: 'healthfirst-new-york',
+        field: 'treatmentPA',
+        change:
+          'unverified (document) -> verified: Provider Manual (updated 10/1/2026) Appendix V preauthorization grid checks "ABA Treatment for Autism Spectrum Disorder" for Medicaid, HARP and CHPlus; Medical Management 1-888-394-4327',
+        sourceUrl: 'https://assets.healthfirst.org/pdf_9432a72611d0176a1f6a5503a1d88d94',
+      },
+      {
+        slug: 'new-jersey-medicaid',
+        field: 'Rates section + FAQ (fee-schedule, Q9)',
+        change:
+          'added: official DMAHS launch FFS rates for all ten codes (97152 $11.20, 97154 $4.80, 97157 $12.40, 97158 $5.60 newly published); founding newsletter re-sourced from web.archive to its official NJMMIS URL (90 cites); 97153 $15 (2022) and CY2026 Q2 values labelled as third-party',
+        sourceUrl: 'https://www.njmmis.com/documentDownload.aspx?document=30-%2006.pdf',
+      },
+      {
+        slug: '(80 G1 guides)',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added an explicit LCSW answer to every G1 guide that lacked one: 31 closed-list \'no\' (NY Medicaid + 11 MMC + Anthem NY, NJ Medicaid + 5 MCOs, Horizon BCBSNJ, MassHealth + 6 plans incl. BCBSMA, BCBSVT, MaineCare, WellSense NH); 13 state-rule-specific (VT HCAR prescriber list, NH He-W 589.04(aj) x3, RI licensing-law prescriber list, PA order rule x5, Act 62 list x3); 29 \'not named, scope-based test\' (Aetna/Cigna/UHC + RI MCOs; CT Cigna/UHC also cite § 38a-514b, which names LCSWs); 7 \'no published rule, ask the plan\'',
+      },
+      {
+        slug: '(26 Aetna/Cigna/UHC commercial guides in G1)',
+        field: 'section + FAQ (single-case-agreement / oon-reimbursement / network-status)',
+        change:
+          'added each carrier\'s own national OON rules: Aetna transition/continuity of care (provider manual 6/26); Evernorth OAP reduced OON benefit, Join the Network, 180-day appeals, AOR form (Sept 2026 guidelines); UHC OON pricing methods + HMO out-of-network prior authorization (2026 admin guide) + Optum portal for OON clinicians',
+        sourceUrl: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf',
+      },
+      {
+        slug: 'fidelis-care-new-york, unitedhealthcare-community-plan-new-york, metroplus-health-new-york, healthfirst-new-york, emblemhealth-new-york',
+        field: 'section + FAQ (single-case-agreement)',
+        change:
+          'added each plan\'s own SCA/OON rule (Fidelis Sec. 19 negotiated fee via SCA; UHC CP NY SCA only at Medicaid rate and NYS-Medicaid-registered providers; MetroPlus SCAs for children + 7.11.1 request contents; Healthfirst OON PA; Emblem Managing Entity preauth)',
+        sourceUrl: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NY-UHCCP-Dual-LTC-CHIP-Care-Provider-Manual.pdf',
+      },
+      {
+        slug: 'tufts-health-together, fallon-health-massachusetts, mass-general-brigham-health-plan, neighborhood-health-plan-rhode-island, tufts-health-ritogether-rhode-island, wellsense-new-hampshire, anthem-bcbs-new-hampshire, anthem-bcbs-maine, carelon-behavioral-health-pennsylvania, upmc-health-plan-pennsylvania, magellan-behavioral-health-pennsylvania, performcare-pennsylvania, highmark-pennsylvania, capital-blue-cross-pennsylvania',
+        field: 'section + FAQ (single-case-agreement)',
+        change:
+          'added each plan\'s own SCA/out-of-network rule from its manual/contract (Tufts Together 90-day ABA continuity with SCAs; Fallon DF218; MGB portal OON request; RI contract 2.06.05.03 QHP continuity; WellSense NH OON PA 877-957-1300; Anthem NH OON referral; Anthem ME completion of services; Carelon PA SCA line 1-877-615-8503; UPMC OON PA 1-866-441-4185; Magellan/PerformCare approval; Highmark gap exception; Capital HMO/POS preauth)',
+        sourceUrl: 'https://s18637.pcdn.co/wp-content/uploads/sites/79/Carelon-Billing-Guide.pdf',
+      },
+      {
+        slug: 'anthem-bcbs-connecticut, anthem-bcbs-maine, unitedhealthcare-new-york',
+        field: 'section (credential-modifiers)',
+        change:
+          'added HM/HN/HO table from Anthem\'s commercial ABA resource guide (CT, ME); Optum commercial reimbursement policy HM/HN/HO/HP (UHC NY)',
+        sourceUrl: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf',
+      },
+      {
+        slug: '(G1 guides)',
+        field: 'sources arrays',
+        change:
+          'hygiene: removed 41+ duplicate source entries created by the appends',
+      },
+      {
+        slug: 'north-carolina-medicaid',
+        field: 'intakeGates.telehealth',
+        change:
+          'added the exceptions/justification rules (97151 and >50% 97155 need Treatment Plan clinical justification; KX audio-only only for the two named caregiver conditions; none for 97152-97154; EPSDT 2.2.1) + FAQ',
+        sourceUrl: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open',
+      },
+      {
+        slug: 'north-carolina-medicaid',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer (no for non-provisional dx; provisional under-3 only as trained master-level clinician) + FAQ',
+        sourceUrl: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open',
+      },
+      {
+        slug: 'north-carolina-medicaid',
+        field: 'section + FAQs',
+        change:
+          'added credential x code matrix from 8F Attachment B (LBA bills 97152; LaBA 97155 + directs techs only), BCaBA in-state enrollment, no credential modifiers, full rate list incl. 97152 $61.73, 97151+97152 same date (no NCCI PTP pair)',
+        sourceUrl: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open',
+      },
+      {
+        slug: 'healthy-blue-north-carolina, amerihealth-caritas-north-carolina, carolina-complete-health, unitedhealthcare-community-plan-north-carolina, wellcare-north-carolina, alliance-health-north-carolina, trillium-health-resources, vaya-health, partners-health-management',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer (state 8F rule)',
+        sourceUrl: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open',
+      },
+      {
+        slug: 'healthy-blue-north-carolina, carolina-complete-health, unitedhealthcare-community-plan-north-carolina, alliance-health-north-carolina',
+        field: 'intakeGates.referral',
+        change:
+          'added code-level service-order rule (97151/97152 no SO for PA; SO before 97153-97157) quoted from 8F Attachment A C.1',
+        sourceUrl: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open',
+      },
+      {
+        slug: 'trillium-health-resources',
+        field: 'intakeGates.referral',
+        change:
+          'added code-level rule from Trillium Child BH Benefit Plan rev. 8/31/2026 (97151/97152 no SO for PA); cite titles rev. 7/2026 -> rev. 8/31/2026',
+        sourceUrl: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Benefit-Plans-Services-Definitions/Trillium-Medicaid-Child-BH-Benefit-Plan.pdf',
+      },
+      {
+        slug: 'vaya-health',
+        field: 'intakeGates.referral + all cites',
+        change:
+          'rewritten against Vaya RB-BHT Authorization Guidelines v3.0 (rev. 8/1/2026): 97151 passthrough to 32 units/180 days then SO; 97152 needs SO on initial (stricter than 8F); 97155 passthrough to 1:10. Cite title v2.0 -> v3.0 everywhere; URLs re-pointed to legacy.providers.vayahealth.com (old host now redirects to Vaya Partners home)',
+        sourceUrl: 'https://legacy.providers.vayahealth.com/wp-content/uploads/2025/09/Authorization_Guidelines_Medicaid_RB_BHT_ASD.pdf',
+      },
+      {
+        slug: 'partners-health-management (+vob/north-carolina.ts)',
+        field: 'cites',
+        change:
+          'all providers.partnersbhm.org URLs (now 403) re-pointed to legacy.providers.partnersbhm.org (verified 200 with real content)',
+        sourceUrl: 'https://legacy.providers.partnersbhm.org/authorizations-for-research-based-behavioral-health-treatment-transition-to-all-codes/',
+      },
+      {
+        slug: 'aetna-north-carolina, cigna-north-carolina, unitedhealthcare-north-carolina, blue-cross-north-carolina, medcost',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer (policy text + G.S. 90B-3 scope)',
+        sourceUrl: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_90B/GS_90B-3.html',
+      },
+      {
+        slug: 'aetna-north-carolina, cigna-north-carolina, unitedhealthcare-north-carolina, medcost',
+        field: 'intakeGates.referral',
+        change:
+          'added assessment-vs-treatment reading of G.S. 58-3-192 (order attaches to adaptive behavior treatment; diagnosis defined separately)',
+        sourceUrl: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_58/GS_58-3-192.html',
+      },
+      {
+        slug: 'blue-cross-north-carolina',
+        field: 'intakeGates.referral',
+        change:
+          'made code-specific: policy (last review 06/2026) requires the order for assessments and interventions',
+        sourceUrl: 'https://www.bluecrossnc.com/providers/policies-guidelines-codes/commercial/behavioral-health/updates/adaptive-behavioral-treatment',
+      },
+      {
+        slug: 'virginia-medicaid',
+        field: 'section + 2 FAQs',
+        change:
+          'added credential x code matrix: LBA may deliver technician-level 97152 (HO); LABA HN rows and QHP-as-determined rule; fee-file gap: 97152 has only HN $23.48 and tech $15.00 rows, no HO/TF row',
+        sourceUrl: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf',
+      },
+      {
+        slug: 'aetna-better-health-virginia, anthem-healthkeepers-plus, humana-healthy-horizons-virginia, sentara-community-plan, unitedhealthcare-community-plan-virginia',
+        field: 'deliveryRules.billAsProvider',
+        change:
+          'appended 97152/LBA (HO) and LABA (HN) rules + fee-file pricing gap (DMAS Appendix D, followed by MCOs)',
+        sourceUrl: 'https://www.dmas.virginia.gov/for-providers/rates-and-rate-setting/procedure-fee-files-cpt-codes/',
+      },
+      {
+        slug: 'virginia-medicaid + 5 Cardinal Care MCOs',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: yes - provisional psychiatric dx by an LMHP; LMHP per 12VAC35-105-20 includes LCSW',
+        sourceUrl: 'https://law.lis.virginia.gov/admincode/title12/agency35/chapter105/section20/',
+      },
+      {
+        slug: 'aetna-virginia, cigna-virginia, unitedhealthcare-virginia, anthem-bcbs-virginia',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer (mandate does not name diagnosers; Va. Code 54.1-3700 LCSW provides diagnostic services; treatment plan still physician/psychologist)',
+        sourceUrl: 'https://law.lis.virginia.gov/vacode/title54.1/chapter37/section54.1-3700/',
+      },
+      {
+        slug: 'carefirst-maryland, carefirst-district-of-columbia',
+        field: 'section + FAQ',
+        change:
+          'added auth-NPI binding answer: CareFirst UM outpatient auth form SUM7690-1E (4/26) keys requests to requesting + rendering NPI, no TIN field; claims need billing + rendering NPI; no published rule on transfer within group (call 1-866-773-2884). DC version flags PP CO 020.01 as unread',
+        sourceUrl: 'https://provider.carefirst.com/carefirst-resources/provider/pdf/authorization-form-outpatient-services.pdf',
+      },
+      {
+        slug: 'maryland-medicaid',
+        field: 'intakeGates.coordinationOfBenefits + section + FAQ',
+        change:
+          'added secondary-payer detail (pre-auth criteria still apply; CCF still required; primary denial -> Medicaid auth to pay as primary) and a switching-agencies / private-insurance-gap answer (Continuity of Care Form + parent note; no discharge needed; commercial becomes primary)',
+        sourceUrl: 'https://s18637.pcdn.co/wp-content/uploads/sites/75/ABA-FAQ-May-2026-.pdf',
+      },
+      {
+        slug: 'all G2 Aetna guides',
+        field: 'cite titles',
+        change:
+          'Aetna CPB 0648 re-reviewed 10/20/2026: evaluator list (BCBA, dev ped, neurologist, OT, PT, PCP, psychiatrist, psychologist, SLP/audiologist) unchanged; titles updated where they carried the old review date',
+        sourceUrl: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html',
+      },
+      {
+        slug: 'north-carolina-medicaid + healthy-blue-north-carolina, amerihealth-caritas-north-carolina, carolina-complete-health, unitedhealthcare-community-plan-north-carolina, wellcare-north-carolina, alliance-health-north-carolina, trillium-health-resources, vaya-health, partners-health-management',
+        field: 'deliveryRules.concurrentBilling',
+        change:
+          'added NC Medicaid 10/12/2026 Concurrent Billing Clarification (definition; only Attachment A exceptions; non-beneficiary-facing 97156/97151 not concurrent; 97156 with child present blocks 97153/97154; note time rules); NC Medicaid section adds 97151/97152 cannot overlap face-to-face',
+        sourceUrl: 'https://medicaid.ncdhhs.gov/blog/2026/10/12/concurrent-billing-clarification-research-based-behavioral-health-treatment',
+      },
+      {
+        slug: 'partners-health-management',
+        field: 'treatmentPA',
+        change:
+          'verified -> plan-dependent/per-case: ALL-codes auth is pre-merger; Vaya Partners Authorization Guidelines page now lists only the Vaya per-code RB-BHT guideline (v3.0); which applies to former Partners members unstated',
+        sourceUrl: 'https://providers.vayapartners.org/authorization-guidelines/',
+      },
+      {
+        slug: 'alliance-health-north-carolina',
+        field: 'treatmentPA',
+        change:
+          'unverified/document -> verified: tiered 180/90-day 8F cadence; Alliance July 2026 manual and cover sheet publish no cadence of their own (MCO inheritance checked)',
+        sourceUrl: 'https://www.alliancehealthplan.org/document-library/79431/',
+      },
+      {
+        slug: 'trillium-health-resources',
+        field: 'cite titles',
+        change:
+          'Unified Claims System Provider FAQ revised 9/30/2026 -> 10/21/2026; payer IDs 43072/56089/43071, July 1 2024 DOS, Vendor ID onboarding answer re-verified',
+        sourceUrl: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Provider-documents/Claims/Trillium-Unified-Claims-Platform-Questions-Answer.pdf',
+      },
+      {
+        slug: 'maryland-medicaid, carefirst-maryland, aetna-maryland, cigna-maryland, unitedhealthcare-maryland',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer (MD Medicaid closed list: no; commercial: LCSW-C scope per Health Occ. 19-101(n)(5))',
+        sourceUrl: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gho&section=19-101&enactments=false',
+      },
+      {
+        slug: 'all 8 DC guides',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer (DC Medicaid + ACDC/MedStar: yes as LICSW per SPA 23-0009; HSCSN ask; commercial: not named, D.C. Code 3-1201.02(18))',
+        sourceUrl: 'https://www.medicaid.gov/medicaid/spa/downloads/DC-23-0009.pdf',
+      },
+      {
+        slug: 'west-virginia-medicaid + 4 WV MCOs (WV_MCD_DX_PROVIDERS)',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: licensed independent social worker is a 519.23.2 qualified diagnostic provider, but the glossary Diagnostic Assessment definition lists only physicians/psychologists',
+        sourceUrl: 'https://bms.wv.gov/media/40119/download?inline',
+      },
+      {
+        slug: 'absolute-total-care-south-carolina, molina-healthcare-south-carolina, first-choice-select-health-south-carolina, bluecross-blueshield-of-south-carolina',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW: no (SCDHHS ASD manual 7/1/2026: tools administered directly by MD/DO, PhD/PsyD or LPES; BCBSSC CAM 387 physician/psychologist list)',
+        sourceUrl: 'https://www.scdhhs.gov/sites/dhhs/files/documents/ASD%20Services%20Provider%20Manual%207.1.26.pdf',
+      },
+      {
+        slug: 'delaware (8), aetna/cigna/unitedhealthcare/highmark-bcbs-west-virginia, aetna/cigna/unitedhealthcare-south-carolina',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer with state scope statutes (24 Del. C. 3902; W. Va. Code 30-30-11; S.C. Code 40-63-20)',
+        sourceUrl: 'https://delcode.delaware.gov/title24/c039/index.html',
+      },
+      {
+        slug: 'west-virginia-medicaid (+4 MCOs via WV_MCD_REFERRAL), district-of-columbia-medicaid',
+        field: 'intakeGates.referral',
+        change:
+          'added assessment-vs-treatment answer: WV order needed before H0031/97151 (PA on all codes, annual physician order in every PA); DC recommendation covers screening, evaluation, treatment planning and treatment',
+        sourceUrl: 'https://bms.wv.gov/media/40119/download?inline',
+      },
+      {
+        slug: 'highmark-bcbs-delaware, aetna-delaware, cigna-delaware, unitedhealthcare-delaware, aetna/cigna/unitedhealthcare/highmark-bcbs-west-virginia',
+        field: 'intakeGates.referral',
+        change:
+          'added state-mandate order rule (18 Del. C. 3570A; W. Va. Code 33-24-7k: treatment ordered/prescribed by physician or psychologist; silent on assessment)',
+        sourceUrl: 'https://code.wvlegislature.gov/33-24-7K/',
+      },
+      {
+        slug: 'south-carolina-medicaid, west-virginia-medicaid',
+        field: 'section',
+        change:
+          'added switching-providers section (no transfer rule; new PA/consent; discharge report)',
+        sourceUrl: 'https://www.scdhhs.gov/sites/dhhs/files/documents/ASD%20Services%20Provider%20Manual%207.1.26.pdf',
+      },
+      {
+        slug: 'cigna-* (7 G2 guides)',
+        field: 'billAsProvider + FAQ + section',
+        change:
+          'auth binding: Evernorth ABA PA form keys request to servicing clinic TIN + supervising provider (no NPI field), monthly auth on 97155 interchangeable with 97153-97158/0373T; appeals/reconsideration packet (180 days, contents, addresses), OON Appointment of Representative, network exception route',
+        sourceUrl: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf',
+      },
+      {
+        slug: 'unitedhealthcare-* (7 G2 guides)',
+        field: 'section',
+        change:
+          'Optum two-step reconsideration/appeal (12 months total), required documentation, portal/mail routes, retro review 180 days',
+        sourceUrl: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf',
+      },
+      {
+        slug: 'aetna-* (7 G2 guides)',
+        field: 'section',
+        change:
+          'Aetna reconsideration (180 days) / appeal (60 days) process, packet contents, state mailing address, 30-business-day response',
+        sourceUrl: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html',
+      },
+      {
+        slug: '28 Medicaid MCO guides (NC 8, VA 5, DC 3, WV 4, DE 3, SC 5)',
+        field: 'FAQ',
+        change:
+          'added out-of-network / single-case-agreement answer from 42 CFR 438.206(b)(4)-(5) (NC note: closed networks do not lift the duty)',
+        sourceUrl: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206',
+      },
+      {
+        slug: 'anthem-bcbs-georgia',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'clarified LCSW: Anthem lists LCSWs only as ABA renderers; Ava\'s Law covers diagnostic evaluations by a licensed physician or licensed psychologist; LCSW-only dx -> ask UM (MCG licensed). Added FAQ + O.C.G.A. 43-10A-3 source',
+        sourceUrl: 'https://codes.findlaw.com/ga/title-33-insurance/ga-code-sect-33-24-59-10/',
+      },
+      {
+        slug: 'georgia-medicaid',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: LCSW: not named',
+        sourceUrl: 'https://codes.findlaw.com/ga/title-43-professions-and-businesses/ga-code-sect-43-10a-3/',
+      },
+      {
+        slug: 'caresource-georgia',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: LCSW: not named',
+        sourceUrl: 'https://codes.findlaw.com/ga/title-43-professions-and-businesses/ga-code-sect-43-10a-3/',
+      },
+      {
+        slug: 'peach-state-georgia',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: LCSW: not named',
+        sourceUrl: 'https://www.mmis.georgia.gov/portal/Portals/0/StaticContent/Public/ALL/Handbooks/Autism%20Spectrum%20Disorder%20Q4-October%202026%2020261001130506.pdf',
+      },
+      {
+        slug: 'amerigroup-georgia',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: LCSW: not named',
+        sourceUrl: 'https://codes.findlaw.com/ga/title-43-professions-and-businesses/ga-code-sect-43-10a-3/',
+      },
+      {
+        slug: 'aetna-georgia',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: LCSW: not named by Aetna',
+        sourceUrl: 'https://codes.findlaw.com/ga/title-33-insurance/ga-code-sect-33-24-59-10/',
+      },
+      {
+        slug: 'cigna-georgia',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: LCSW: not named by Cigna',
+        sourceUrl: 'https://codes.findlaw.com/ga/title-33-insurance/ga-code-sect-33-24-59-10/',
+      },
+      {
+        slug: 'unitedhealthcare-georgia',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: LCSW: not named by Optum',
+        sourceUrl: 'https://codes.findlaw.com/ga/title-33-insurance/ga-code-sect-33-24-59-10/',
+      },
+      {
+        slug: 'florida-medicaid',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: LCSW: an LCSW cannot make the referral — the coverage policy’s referral list is physicians (primary care in family practice, internal medicine or pediatrics; de',
+        sourceUrl: 'https://www.flsenate.gov/Laws/Statutes/2026/491.003',
+      },
+      {
+        slug: 'sunshine-health-florida',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: LCSW: not on the referral list Sunshine restates, and Sunshine names no LCSW role in the CDE',
+        sourceUrl: 'https://www.flsenate.gov/Laws/Statutes/2026/491.003',
+      },
+      {
+        slug: 'cms-health-plan-florida',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: LCSW: no',
+        sourceUrl: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf',
+      },
+      {
+        slug: 'molina-healthcare-florida',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: LCSW: no',
+        sourceUrl: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf',
+      },
+      {
+        slug: 'simply-healthcare-florida',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: LCSW: no',
+        sourceUrl: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf',
+      },
+      {
+        slug: 'unitedhealthcare-community-plan-florida',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: LCSW: an LCSW cannot make the referral — the coverage policy’s referral list is physicians (primary care in family practice, internal medicine or pediatrics; de',
+        sourceUrl: 'https://www.flsenate.gov/Laws/Statutes/2026/491.003',
+      },
+      {
+        slug: 'humana-healthy-horizons-florida',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: LCSW: an LCSW cannot make the referral — the coverage policy’s referral list is physicians (primary care in family practice, internal medicine or pediatrics; de',
+        sourceUrl: 'https://www.flsenate.gov/Laws/Statutes/2026/491.003',
+      },
+      {
+        slug: 'aetna-better-health-florida',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: LCSW: an LCSW cannot make the referral — the coverage policy’s referral list is physicians (primary care in family practice, internal medicine or pediatrics; de',
+        sourceUrl: 'https://www.flsenate.gov/Laws/Statutes/2026/491.003',
+      },
+      {
+        slug: 'florida-community-care',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: LCSW: an LCSW cannot make the referral — the coverage policy’s referral list is physicians (primary care in family practice, internal medicine or pediatrics; de',
+        sourceUrl: 'https://www.flsenate.gov/Laws/Statutes/2026/491.003',
+      },
+      {
+        slug: 'community-care-plan-florida',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: LCSW: not named',
+        sourceUrl: 'https://www.flsenate.gov/Laws/Statutes/2026/491.003',
+      },
+      {
+        slug: 'aetna-florida',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: LCSW: not named by Aetna',
+        sourceUrl: 'https://www.flsenate.gov/Laws/Statutes/2026/491.003',
+      },
+      {
+        slug: 'cigna-florida',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: LCSW: not named by Cigna',
+        sourceUrl: 'https://www.flsenate.gov/Laws/Statutes/2026/491.003',
+      },
+      {
+        slug: 'unitedhealthcare-florida',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: LCSW: not named by Optum',
+        sourceUrl: 'https://www.flsenate.gov/Laws/Statutes/2026/491.003',
+      },
+      {
+        slug: 'florida-blue',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: LCSW: not on Lucet’s “usually” list (neurologists, developmental pediatricians, pediatricians, psychiatrists, licensed clinical psychologists or medical doctors',
+        sourceUrl: 'https://www.flsenate.gov/Laws/Statutes/2026/491.003',
+      },
+      {
+        slug: 'alabama-medicaid',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: LICSW: not named in Chapter 37’s wording',
+        sourceUrl: 'https://alison.legislature.state.al.us/code-of-alabama?section=34-30-3',
+      },
+      {
+        slug: 'aetna-alabama',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: LICSW: not named by Aetna',
+        sourceUrl: 'https://alison.legislature.state.al.us/code-of-alabama?section=34-30-3',
+      },
+      {
+        slug: 'cigna-alabama',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: LICSW: not named by Cigna',
+        sourceUrl: 'https://alison.legislature.state.al.us/code-of-alabama?section=34-30-3',
+      },
+      {
+        slug: 'unitedhealthcare-alabama',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: LICSW: not named by Optum',
+        sourceUrl: 'https://alison.legislature.state.al.us/code-of-alabama?section=34-30-3',
+      },
+      {
+        slug: 'blue-cross-blue-shield-of-alabama',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: LICSW: not named by Lucet (for BCBSAL)',
+        sourceUrl: 'https://alison.legislature.state.al.us/code-of-alabama?section=34-30-3',
+      },
+      {
+        slug: 'magnolia-health-mississippi',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: LCSW: not named',
+        sourceUrl: 'https://codes.findlaw.com/ms/title-73-professions-and-vocations/ms-code-sect-73-53-3/',
+      },
+      {
+        slug: 'molina-healthcare-mississippi',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: LCSW: not named',
+        sourceUrl: 'https://codes.findlaw.com/ms/title-73-professions-and-vocations/ms-code-sect-73-53-3/',
+      },
+      {
+        slug: 'truecare-mississippi',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: LCSW: no',
+      },
+      {
+        slug: 'aetna-mississippi',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: LCSW: not on a fully insured Mississippi plan — § 83-9-26 defines the diagnosis as assessments, evaluations or tests “as performed by a licensed psychologist or',
+        sourceUrl: 'https://www.mid.ms.gov/wp-content/uploads/2023/04/MissCodeAnn83-9-26.pdf',
+      },
+      {
+        slug: 'cigna-mississippi',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: LCSW: not on a fully insured Mississippi plan — § 83-9-26 defines the diagnosis as assessments, evaluations or tests “as performed by a licensed psychologist or',
+        sourceUrl: 'https://www.mid.ms.gov/wp-content/uploads/2023/04/MissCodeAnn83-9-26.pdf',
+      },
+      {
+        slug: 'unitedhealthcare-mississippi',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: LCSW: not on a fully insured Mississippi plan — § 83-9-26 defines the diagnosis as assessments, evaluations or tests “as performed by a licensed psychologist or',
+        sourceUrl: 'https://www.mid.ms.gov/wp-content/uploads/2023/04/MissCodeAnn83-9-26.pdf',
+      },
+      {
+        slug: 'blue-cross-blue-shield-mississippi',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: LCSW: no',
+      },
+      {
+        slug: 'tenncare-tennessee-medicaid',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: LCSW: not named, and not excluded by the wording',
+        sourceUrl: 'https://codes.findlaw.com/tn/title-63-professions-of-the-healing-arts/tn-code-sect-63-23-105/',
+      },
+      {
+        slug: 'bluecare-tennessee',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: LCSW: not named, and not excluded by the wording',
+        sourceUrl: 'https://codes.findlaw.com/tn/title-63-professions-of-the-healing-arts/tn-code-sect-63-23-105/',
+      },
+      {
+        slug: 'wellpoint-tennessee',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: LCSW: not named, and not excluded by the wording',
+        sourceUrl: 'https://codes.findlaw.com/tn/title-63-professions-of-the-healing-arts/tn-code-sect-63-23-105/',
+      },
+      {
+        slug: 'tenncare-select',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: LCSW: not named, and not excluded by the wording',
+        sourceUrl: 'https://codes.findlaw.com/tn/title-63-professions-of-the-healing-arts/tn-code-sect-63-23-105/',
+      },
+      {
+        slug: 'unitedhealthcare-community-plan-tennessee',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: LCSW: not excluded by the wording — UHC asks for a comprehensive evaluation “by a TN licensed clinician,” and Tennessee’s practice act says clinical social work',
+        sourceUrl: 'https://codes.findlaw.com/tn/title-63-professions-of-the-healing-arts/tn-code-sect-63-23-105/',
+      },
+      {
+        slug: 'aetna-tennessee',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: LCSW: not named by Aetna',
+        sourceUrl: 'https://codes.findlaw.com/tn/title-63-professions-of-the-healing-arts/tn-code-sect-63-23-105/',
+      },
+      {
+        slug: 'cigna-tennessee',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: LCSW: not named by Cigna',
+        sourceUrl: 'https://codes.findlaw.com/tn/title-63-professions-of-the-healing-arts/tn-code-sect-63-23-105/',
+      },
+      {
+        slug: 'unitedhealthcare-tennessee',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: LCSW: not named by Optum',
+        sourceUrl: 'https://codes.findlaw.com/tn/title-63-professions-of-the-healing-arts/tn-code-sect-63-23-105/',
+      },
+      {
+        slug: 'bluecross-blueshield-of-tennessee',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: LCSW: not stated by BCBST',
+        sourceUrl: 'https://codes.findlaw.com/tn/title-63-professions-of-the-healing-arts/tn-code-sect-63-23-105/',
+      },
+      {
+        slug: 'kentucky-medicaid',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: LCSW: not named by DMS',
+        sourceUrl: 'https://codes.findlaw.com/ky/title-xxvi-occupations-and-professions/ky-rev-st-sect-335-020/',
+      },
+      {
+        slug: 'aetna-better-health-kentucky',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: LCSW: not named by Aetna Better Health',
+        sourceUrl: 'https://codes.findlaw.com/ky/title-xxvi-occupations-and-professions/ky-rev-st-sect-335-020/',
+      },
+      {
+        slug: 'humana-healthy-horizons-kentucky',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: LCSW: not named by Humana',
+        sourceUrl: 'https://codes.findlaw.com/ky/title-xxvi-occupations-and-professions/ky-rev-st-sect-335-020/',
+      },
+      {
+        slug: 'passport-by-molina-kentucky',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: LCSW: not named by Passport',
+        sourceUrl: 'https://codes.findlaw.com/ky/title-xxvi-occupations-and-professions/ky-rev-st-sect-335-020/',
+      },
+      {
+        slug: 'unitedhealthcare-community-plan-kentucky',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: LCSW: not named by UnitedHealthcare',
+        sourceUrl: 'https://codes.findlaw.com/ky/title-xxvi-occupations-and-professions/ky-rev-st-sect-335-020/',
+      },
+      {
+        slug: 'wellcare-kentucky',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: LCSW: not named by WellCare',
+        sourceUrl: 'https://codes.findlaw.com/ky/title-xxvi-occupations-and-professions/ky-rev-st-sect-335-020/',
+      },
+      {
+        slug: 'aetna-kentucky',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: LCSW: not named by Aetna',
+        sourceUrl: 'https://codes.findlaw.com/ky/title-xxvi-occupations-and-professions/ky-rev-st-sect-335-020/',
+      },
+      {
+        slug: 'cigna-kentucky',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: LCSW: not named by Cigna',
+        sourceUrl: 'https://codes.findlaw.com/ky/title-xxvi-occupations-and-professions/ky-rev-st-sect-335-020/',
+      },
+      {
+        slug: 'unitedhealthcare-kentucky',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: LCSW: not named by Optum',
+        sourceUrl: 'https://codes.findlaw.com/ky/title-xxvi-occupations-and-professions/ky-rev-st-sect-335-020/',
+      },
+      {
+        slug: 'anthem-bcbs-kentucky',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: LCSW: not named by Anthem',
+        sourceUrl: 'https://codes.findlaw.com/ky/title-xxvi-occupations-and-professions/ky-rev-st-sect-335-020/',
+      },
+      {
+        slug: 'mississippi-medicaid',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added LCSW: not confirmed (DOM silent; § 73-53-3 scope; admin code PDFs 404)',
+        sourceUrl: 'https://codes.findlaw.com/ms/title-73-professions-and-vocations/ms-code-sect-73-53-3/',
+      },
+      {
+        slug: 'unitedhealthcare-community-plan-florida',
+        field: 'sections + faq (fee-schedule)',
+        change:
+          'added rates section: UHC pays per Payment Appendix of the agreement (2026 FL SMMC manual), no public BA table; AHCA 2026 BA FFS maximums listed for every code; carve-in 60-day prior-rate window closed',
+        sourceUrl: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/FL-Care-Provider-Manual-Statewide-Medicaid-Managed-Care.pdf',
+      },
+      {
+        slug: 'florida-medicaid',
+        field: 'sections (Rates) + atGlance Rates',
+        change:
+          'completed 2026 BA fee schedule for every code (97152 $12.19, 0362T/0373T $12.19, 97155HN $15.37, 97156HN $15.24, 97154 $7.58-$5.58, 97158 $9.58-$7.58, XP not reimbursed); softened unsourced "MCO-contracted rates use the state schedule as the reference baseline" to "MMA plans pay their own contracted rates; this schedule is the public benchmark"',
+        sourceUrl: 'https://ahca.myflorida.com/content/download/28096/file/2026%20BA%20Fee%20Schedule.pdf',
+      },
+      {
+        slug: 'unitedhealthcare-florida',
+        field: 'faq (fee-schedule)',
+        change:
+          'added FAQ answering "What is FL UHC rates" for commercial (not public) and Community Plan (Payment Appendix; AHCA 2026 benchmark); extended fee-schedule FAQ',
+        sourceUrl: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/FL-Care-Provider-Manual-Statewide-Medicaid-Managed-Care.pdf',
+      },
+      {
+        slug: 'caresource-georgia',
+        field: 'sections + faq (PY-1634 status)',
+        change:
+          '"as of October 18" -> "as of October 25, 2026" PY-1634 still not on the GA reimbursement list (re-checked)',
+        sourceUrl: 'https://www.caresource.com/ga/providers/tools-resources/health-partner-policies/reimbursement-policies/medicaid/',
+      },
+      {
+        slug: 'unitedhealthcare-community-plan-florida',
+        field: 'deliveryRules.concurrentBilling',
+        change:
+          'unverified -> verified: state rule (no concurrent billing by default; XP supervisee lines not reimbursed) after checking plan publishes nothing contrary',
+        sourceUrl: 'https://ahca.myflorida.com/content/download/28096/file/2026%20BA%20Fee%20Schedule.pdf',
+      },
+      {
+        slug: 'aetna-better-health-florida',
+        field: 'deliveryRules.concurrentBilling',
+        change:
+          'unverified -> verified: state rule (no concurrent billing by default; XP supervisee lines not reimbursed) after checking plan publishes nothing contrary',
+        sourceUrl: 'https://ahca.myflorida.com/content/download/28096/file/2026%20BA%20Fee%20Schedule.pdf',
+      },
+      {
+        slug: 'molina-healthcare-florida',
+        field: 'deliveryRules.concurrentBilling',
+        change:
+          'unverified -> verified: state rule (no concurrent billing by default; XP supervisee lines not reimbursed) after checking plan publishes nothing contrary',
+        sourceUrl: 'https://ahca.myflorida.com/content/download/28096/file/2026%20BA%20Fee%20Schedule.pdf',
+      },
+      {
+        slug: 'cms-health-plan-florida',
+        field: 'deliveryRules.concurrentBilling',
+        change:
+          'unverified -> verified: state rule (no concurrent billing by default; XP supervisee lines not reimbursed) after checking plan publishes nothing contrary',
+        sourceUrl: 'https://ahca.myflorida.com/content/download/28096/file/2026%20BA%20Fee%20Schedule.pdf',
+      },
+      {
+        slug: 'florida-medicaid',
+        field: 'sections (ABA Task Force)',
+        change:
+          'fifth meeting “TBD” -> October 29, 2026 with agenda topics; agenda PDF cited',
+        sourceUrl: 'https://ahca.myflorida.com/file/aba-task-force/ABATFMeeting5Agenda_102926.pdf',
+      },
+      {
+        slug: '(all georgia.ts / tennessee.ts guides citing it)',
+        field: 'cites/sources',
+        change:
+          'dead CHAMPVA-Guide.pdf -> CHAMPVA-Guidebook_3-2026.pdf (OHI chapter re-read, unchanged)',
+        sourceUrl: 'https://www.va.gov/files/2026-03/CHAMPVA-Guidebook_3-2026.pdf',
+      },
+      {
+        slug: '(florida.ts Molina guides)',
+        field: 'cites/sources',
+        change:
+          'www.molinahealthcare.com media URLs (404/bot wall) -> myhealthinhand.molinahealthcare.com same files',
+        sourceUrl: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/fl/medicaid/08-07-26-MHFL-Comprehensive-BA-QRG-508.ashx',
+      },
+      {
+        slug: 'caresource-georgia',
+        field: 'sections + faq (switching-agencies)',
+        change:
+          'added: plan publishes no transfer rule (ask UM); DCH manual rules on own assessment/treatment plan and no overlapping treatment PAs',
+        sourceUrl: 'https://www.mmis.georgia.gov/portal/Portals/0/StaticContent/Public/ALL/Handbooks/Autism%20Spectrum%20Disorder%20Q4-October%202026%2020261001130506.pdf',
+      },
+      {
+        slug: 'peach-state-georgia',
+        field: 'sections + faq (switching-agencies)',
+        change:
+          'added: plan publishes no transfer rule (ask UM); DCH manual rules on own assessment/treatment plan and no overlapping treatment PAs',
+        sourceUrl: 'https://www.mmis.georgia.gov/portal/Portals/0/StaticContent/Public/ALL/Handbooks/Autism%20Spectrum%20Disorder%20Q4-October%202026%2020261001130506.pdf',
+      },
+      {
+        slug: 'amerigroup-georgia',
+        field: 'sections + faq (switching-agencies)',
+        change:
+          'added: plan publishes no transfer rule (ask UM); DCH manual rules on own assessment/treatment plan and no overlapping treatment PAs',
+        sourceUrl: 'https://www.mmis.georgia.gov/portal/Portals/0/StaticContent/Public/ALL/Handbooks/Autism%20Spectrum%20Disorder%20Q4-October%202026%2020261001130506.pdf',
+      },
+      {
+        slug: 'minnesota-medicaid',
+        field: 'sections/atGlance/faq/intro (network status)',
+        change:
+          'added: DHS extended the moratorium on enrolling new EIDBI provider agencies, Nov. 1, 2026 through April 30, 2027 (new agencies restricted; provisional-license holders before 12/31/2026 may add locations; individuals may still enroll/affiliate; does not affect members)',
+        sourceUrl: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_DYNAMIC_CONVERSION&RevisionSelectionMethod=LatestReleased&dDocName=MNDHS-087875',
+      },
+      {
+        slug: 'minnesota-medicaid',
+        field: 'treatmentPA + section/atGlance/faq (2027 CPT)',
+        change:
+          'added: EIDBI high-intensity intervention moves from 0373T to CPT 97159 effective Jan. 1, 2027; DHS adds no other 2027 codes for now',
+        sourceUrl: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_DYNAMIC_CONVERSION&RevisionSelectionMethod=LatestReleased&dDocName=MNDHS-087861',
+      },
+      {
+        slug: 'blue-plus-minnesota, healthpartners-minnesota, hennepin-health-minnesota, imcare-minnesota, medica-minnesota, medica-one-health-plan-minnesota, primewest-health-minnesota, south-country-health-alliance-minnesota',
+        field: 'sections (new: 2027 changes)',
+        change:
+          'added DHS 0373T->97159 (1/1/2027) transition and EIDBI agency moratorium extension, with DHS instruction to confirm each MCO implementation',
+        sourceUrl: 'https://mn.gov/dhs/partners-and-providers/news-initiatives-reports-workgroups/minnesota-health-care-programs/provider-news/',
+      },
+      {
+        slug: 'indiana-medicaid',
+        field: 'sections (FFS claims) + sources',
+        change:
+          'added FFS claim appeal timelines from BT2026175: administrative review within 60 days of RA, appeal within 15 calendar days of the admin-review decision, missed hearing = dismissal, PA-denials need Acentra authorization not records',
+        sourceUrl: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026175.pdf',
+      },
+      {
+        slug: 'ohio-medicaid',
+        field: 'sections (claims: referring provider) + sources',
+        change:
+          'added ODM 4/20/2026 ORP memo: ordering/referring NPI errors denied from 1/1/2027; interim ORP service list does not include ABA; final single list pending',
+        sourceUrl: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Providers/ManagedCare/PolicyGuidance/2026_04_ORP_Requirements_Memo_clean.pdf',
+      },
+      {
+        slug: 'medica-minnesota',
+        field: 'assessmentPA',
+        change:
+          'unverified/document (no code list) -> verified: no PA for the CMDE for contracted providers (Optum BH02483-26 PA list = family training, intervention individual/group/higher intensity, observation and direction, travel time); out-of-network need auth for all',
+        sourceUrl: 'https://www.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/mnABA/mnEIDBIOverview.pdf',
+      },
+      {
+        slug: 'medica-minnesota',
+        field: 'treatmentPA, atGlance Prior auth, new section',
+        change:
+          'treatmentPA now names the codes needing PA, new ITP per ongoing request, progress monitoring every 6 months; added Optum EIDBI guide section (enrollment order, roster loading, payer ID 87726)',
+        sourceUrl: 'https://www.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/mnABA/mnEIDBIOverview.pdf',
+      },
+      {
+        slug: 'medica-minnesota',
+        field: 'deliveryRules.concurrentBilling, dailyLimits, placeOfService, billAsProvider',
+        change:
+          'unverified/per-case -> verified: Medica BH "follows DHS guidelines and rates" and points claims to the DHS EIDBI billing grid, so DHS simultaneous-services rule, grid daily limits, POS 12/11/02/10 and QSP-on-claim apply',
+        sourceUrl: 'https://www.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/mnABA/mnEIDBIOverview.pdf',
+      },
+      {
+        slug: 'minnesota-medicaid, blue-plus-minnesota, hennepin-health-minnesota, imcare-minnesota, medica-minnesota, medica-one-health-plan-minnesota, south-country-health-alliance-minnesota',
+        field: 'intakeGates.diagnosingProviders (EIDBI_DIAGNOSERS)',
+        change:
+          'added explicit LCSW answer: mental health professional per 245I.04 subd. 2 includes a licensed independent clinical social worker (LICSW); LSW/LGSW/LISW not listed',
+        sourceUrl: 'https://www.revisor.mn.gov/statutes/cite/245I.04',
+      },
+      {
+        slug: 'illinois-medicaid, aetna-better-health-illinois, blue-cross-community-health-plans-illinois, countycare-illinois, molina-healthcare-illinois, meridian-illinois',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: HFS CDE must be by a physician or clinical psychologist, so an LCSW/LCPC/LMFT cannot perform it (LCSW may be the clinical supervisor signing a BCBA BATP)',
+        sourceUrl: 'https://hfs.illinois.gov/medicalproviders/notices/notice.prn210930b.html',
+      },
+      {
+        slug: 'indiana-medicaid',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer: not on BT202562 list (HSPP psychologist, physician, APRN, PA); module v4.6 still allows "other behavioral health specialist" so confirm with Acentra/MCE',
+        sourceUrl: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf',
+      },
+      {
+        slug: 'all Indiana guides (18 cites)',
+        field: 'source titles',
+        change:
+          'IHCP BH module cite title v4.5 (Sept. 29, 2026) -> v4.6 (Oct. 20, 2026); v4.6 is an interim update adding only a BT2026174 (CCBHC ACT) note, ABA section unchanged',
+        sourceUrl: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf',
+      },
+      {
+        slug: 'minnesota-medicaid + 7 MN MCO guides using EIDBI_SUPERVISION',
+        field: 'deliveryRules.supervision',
+        change:
+          're-verified 1:16 / monthly O&D / telehealth 2-month rule on Clinical supervision page (now updated 10/16/26); added secondary-QSP co-signature and new Staff supervision page (10/16/26) personnel-record documentation and billing limits',
+        sourceUrl: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_DYNAMIC_CONVERSION&RevisionSelectionMethod=LatestReleased&dDocName=MNDHS-087812',
+      },
+      {
+        slug: 'minnesota-medicaid',
+        field: 'intakeGates.authTurnaround',
+        change:
+          'added DHS 10/16/2026 eList: Acentra backlog resolved as of 10/1/2026; post-10/1 requests reviewed (decision or info request) within seven days',
+        sourceUrl: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_DYNAMIC_CONVERSION&RevisionSelectionMethod=LatestReleased&dDocName=MNDHS-087705',
+      },
+      {
+        slug: 'south-country-health-alliance-minnesota',
+        field: 'sources/cites (Ch. 4) + claims section',
+        change:
+          'Ch4_07292026.pdf (now 404) -> Ch4_10212026.pdf; re-verified 180-day filing, corrected-claim, TPL, NPI/UMPI facts; added electronic-only claims and temporary EFT enrollment pause',
+        sourceUrl: 'https://www.mnscha.org/wp-content/uploads/Ch4_10212026.pdf',
+      },
+      {
+        slug: 'aetna-* (IN, MI, IL, MN)',
+        field: 'source titles',
+        change:
+          'Aetna CPB 0648 title last review 10/02/2025 -> 10/20/2026 after re-reading cited content (diagnostic tools, professionals list, educational-services exclusion unchanged)',
+        sourceUrl: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html',
+      },
+      {
+        slug: 'primewest-health-minnesota',
+        field: 'sections (new: switching agencies) + source title',
+        change:
+          'added PrimeWest transfer rules (reuse valid CMDE/ITP; prior agency must end SA or give signed discharge summary or request rejected); manual updated 10/22/2026',
+        sourceUrl: 'https://www.primewest.org/eidbi',
+      },
+      {
+        slug: 'all 12 Ohio guides',
+        field: 'cites (81) + 4 MCO prose phrases',
+        change:
+          '81 cites to codes.ohio.gov rule-5160-34-02 (returns Number Not Found) replaced by ODM draft package ERF188422B labelled as not in force; \'OAC 5160-34 baseline/framework\' wording in 4 MCO facts changed to ODM general rules (draft not in force)',
+        sourceUrl: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Stakeholders,%20Partners/LegalandContracts/Rules/ERF188422B.pdf',
+      },
+      {
+        slug: 'molina-healthcare-ohio',
+        field: 'cites (authTurnaround, coordinationOfBenefits, dailyLimits) + 12 PA-page cites',
+        change:
+          'Molina 2026 OH Medicaid manual (www host 404) re-read on myhealthinhand.molinahealthcare.com: 7-day standard / 48-hour expedited and payer-of-last-resort/EPSDT quotes confirmed; manual has no ABA section. Dead member PA page cites -> provider prior-auth page (2026 Q1-Q4 Medicaid PA code-change notices list no ABA codes)',
+        sourceUrl: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/oh/medicaid/manual/MHO-Medicaid-2026-Manual-508.pdf',
+      },
+      {
+        slug: 'anthem-indiana-medicaid, unitedhealthcare-community-plan-indiana',
+        field: 'intakeGates.authTurnaround cites',
+        change:
+          'added IC 27-1-37.5-28 (deemed-authorized quote) to cites; it was quoted without its source',
+        sourceUrl: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-28/',
+      },
+      {
+        slug: 'caresource-indiana-marketplace',
+        field: 'deliveryRules.supervision, noteSignature, concurrentBilling, billAsProvider',
+        change:
+          'found Marketplace ABA reimbursement policy MP-PY-1636 (GA/IN/OH/WV, eff. 12/1/2025): supervision now 5% of RBT/BCaBA hours + 1 hour every 30 days in person, BCBA approves notes before claim; noteSignature unverified/document -> verified (rendering provider name, credentials, dated signature; start/stop times); concurrentBilling and billAsProvider read, policy silent -> blocker document -> per-case',
+        sourceUrl: 'https://www.caresource.com/documents/marketplace-oh-policy-reimburse-py-1636-20251201.pdf',
+      },
+      {
+        slug: 'anthem-bcbs-indiana, anthem-indiana',
+        field: 'intakeGates.telehealth',
+        change:
+          'added Anthem C-08002 Virtual Visits policy (last approval 3/26/2026, names Indiana): POS 02/10, modifier 95/GT, CPT Appendix P or referenced code list, non-office rate; lists no ABA code (stays plan-dependent)',
+        sourceUrl: 'https://www.anthembluecross.com/content/dam/digital/docs/provider/commercial/policy/reimb/C-08002.pdf',
+      },
+      {
+        slug: 'all 24 OH/IN guides',
+        field: 'sources arrays',
+        change:
+          'added 175 cited-but-unlisted sources (68 OH, 107 IN) so every cite is in its guide\'s sources array (payer-watch coverage)',
+      },
+      {
+        slug: 'aetna-ohio, aetna-indiana, aetna-michigan, aetna-illinois, aetna-wisconsin, aetna-minnesota',
+        field: 'sections (new) + 3 FAQs + sources',
+        change:
+          'added \'Out-of-network ABA, reconsiderations, the precertification form and billing credentials (Aetna)\': no published SCA policy (manual: OON referral request + transition of care for individual practitioners); reconsideration 180 days / appeal 60 days with packet contents and state mailing address (MN not on Aetna\'s state table); GR-69017-4 identifies provider/group by TIN or PIN; GR-69017-4 assessment contents; MNG credential rule, no HM/HN/HO/HP modifiers',
+        sourceUrl: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf',
+      },
+      {
+        slug: 'cigna-ohio, cigna-indiana, cigna-michigan, cigna-illinois, cigna-wisconsin, cigna-minnesota',
+        field: 'sections (new) + 2 FAQs + sources',
+        change:
+          'added \'Network exceptions, appeals, the PA form and billing credentials (Cigna / Evernorth)\': network exception = PA incl. 97151/97152/0362T; HMO in-network only, POS OON, Connect special circumstances; appeals 180 days, fee disputes via reconsideration feature, AOR for OON; PA form servicing clinic TIN, monthly 97155 auth, EN0499 multi-agency rule; EN0499 assessment content (current edition, 60 days, score tables); Evernorth code/credential table. MN + western WI: HealthPartners alliance contracting; MI: Priority Health alliance',
+        sourceUrl: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf',
+      },
+      {
+        slug: 'unitedhealthcare-ohio, unitedhealthcare-indiana, unitedhealthcare-michigan, unitedhealthcare-illinois, unitedhealthcare-wisconsin, unitedhealthcare-minnesota',
+        field: 'sections (new) + 4 FAQs + sources',
+        change:
+          'added \'Single case agreements, out-of-network payment, reconsiderations and credential modifiers (UnitedHealthcare / Optum)\': Optum FAQ A63/A64 SCA; UHC network gap exception + W500; UHC OON payment methods; Optum NNM 2-step reconsideration/appeal 12 months, packet, PO Box 30757; auth \'specific to the requesting clinician\' + FAQ A25 group rule; BH00853 request checklist; 2022RP501A HM/HN/HO/HP definitions and per-code modifier table',
+        sourceUrl: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf',
+      },
+      {
+        slug: 'caresource-ohio, buckeye-health-plan, molina-healthcare-ohio, anthem-ohio-medicaid, unitedhealthcare-community-plan-ohio, amerihealth-caritas-ohio, humana-healthy-horizons-ohio',
+        field: 'sections (new) + FAQ + sources',
+        change:
+          'added \'Out-of-network ABA, single case agreements and claim disputes (<plan>)\': each plan\'s manual OON PA rule (Humana: SCA executed for non-PNM providers, 100% FFS pre-authorized / 90% default; AmeriHealth 75%; Anthem 100% during transition; Buckeye 90-day OON ongoing-care limit); 42 CFR 438.206(b)(4)-(5); ODM 10295 SCA application (120-day Medicaid ID, MCE-submitted) and ODM 10282; OAC 5160-26-03(E)(4); claim dispute window 12 months from DOS or 60 days after payment/denial with each plan\'s packet contents and address',
+        sourceUrl: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Resources/Publications/Forms/ODM10295Fillx.pdf',
+      },
+      {
+        slug: 'ohio-medicaid',
+        field: 'sections (new) + FAQ + sources',
+        change:
+          'added single case agreements section: ODM 10295 / 10282 and 42 CFR 438.206(b)(4)-(5)',
+        sourceUrl: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Resources/Publications/Forms/ODM10295Fillx.pdf',
+      },
+      {
+        slug: 'anthem-indiana-medicaid, mhs-indiana, mdwise-indiana, unitedhealthcare-community-plan-indiana',
+        field: 'sections (new) + FAQ + sources',
+        change:
+          'added OON/SCA section from each plan manual (Anthem: OON referrals \'on a limited basis\', 60-mile rule; MHS: non-contracted PA 48h, OON existing provider 90 days at IHCP rates; MDwise: OON paid at negotiated rate or lesser of FFS/U&C, NPI sufficient; UHC CP: all OON need PA) + 42 CFR 438.206; dispute windows and packet (Anthem PDR form 60 days; MHS 60 days; MDwise 90 days)',
+        sourceUrl: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206',
+      },
+      {
+        slug: 'indiana-medicaid',
+        field: 'sections (new)',
+        change:
+          'added OON ABA for managed care members (42 CFR 438.206(b)(4)-(5))',
+        sourceUrl: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206',
+      },
+      {
+        slug: 'aetna-better-health-illinois, blue-cross-community-health-plans-illinois, countycare-illinois, meridian-illinois, molina-healthcare-illinois, youthcare-illinois, illinois-medicaid',
+        field: 'sections (new) + FAQ + sources',
+        change:
+          'added OON/SCA section: ABHIL 7-step SCA procedure; BCCHP IMPACT registration + benefit preauthorization; CountyCare/Meridian/Molina OON PA; YouthCare \'will NOT authorize\' OON except continuity of care/discretion; 42 CFR 438.206(b)(4)-(5)',
+        sourceUrl: 'https://ch.aetnabetterhealth.com/content/dam/aetna/medicaid/illinois/providers/pdf/Aetna%20Better%20Health%20of%20Illinois%20Provider%20Manual%202026.pdf',
+      },
+      {
+        slug: 'detroit-wayne-integrated-health-network-michigan, oakland-community-health-network-michigan, macomb-county-community-mental-health-michigan, mid-state-health-network-michigan, southwest-michigan-behavioral-health',
+        field: 'sections (new) + sources',
+        change:
+          'added "Out-of-network ABA when the network has no provider": 42 CFR 438.206(b)(4)-(5) applies to the PIHP; says plainly the PIHP\'s own OON/SCA procedure was not reviewed',
+        sourceUrl: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206',
+      },
+      {
+        slug: 'blue-plus-minnesota, healthpartners-minnesota, hennepin-health-minnesota, imcare-minnesota, medica-minnesota, medica-one-health-plan-minnesota, primewest-health-minnesota, south-country-health-alliance-minnesota',
+        field: 'sections (new) + sources',
+        change:
+          'added "Out-of-network ABA when the network has no provider": 42 CFR 438.206(b)(4)-(5); plan procedure not reviewed (worklist)',
+        sourceUrl: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206',
+      },
+      {
+        slug: 'minnesota-medicaid, medica-minnesota',
+        field: 'sections (new) + FAQ + sources',
+        change:
+          'added "Who may bill each EIDBI code, and the modifier": UB modifier on every line; level by enrollment specialty (DE/DF/DG/QP/QS/QD); per-code level table with 100/80/50% (97155 and 97156/97157 no Level III; 0373T all levels 100% under on-site Level I/QSP direction; 97155 ~20% of intervention); 97152/97158 absent; H0046 travel. Medica: Optum EIDBI guide "follows DHS guidelines and rates" and points to the grid',
+        sourceUrl: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_FILE&RevisionSelectionMethod=LatestReleased&Rendition=Primary&allowInterrupt=1&noSaveAs=1&dDocName=DHS16_195657',
+      },
+      {
+        slug: 'indiana-medicaid',
+        field: 'sections (new) + FAQ + sources',
+        change:
+          'added "Whose prior authorization is it, and does it move?": FFS PA letter to member + requesting provider, different rendering provider gets copy from them; no rule moves an ABA PA between agencies; plan-change transition: new contractor honors existing PAs for first 30 days / rest of PA / units exhausted, whichever first',
+        sourceUrl: 'https://www.in.gov/medicaid/providers/files/modules/prior-authorization.pdf',
+      },
+      {
+        slug: 'aetna-arkansas, cigna-arkansas, unitedhealthcare-arkansas, arkansas-blue-cross-blue-shield',
+        field: 'sections (Arkansas autism mandate)',
+        change:
+          'added: Act 656 of 2021 amended only the 23-99-418(a) definitions (DSM-based ASD definition, speech-language pathologists); the ABA age/dollar terms in (c) were not amended by any Act; quote updated to the amended treatment definition',
+        sourceUrl: 'https://www.arkleg.state.ar.us/Home/FTPDocument?path=%2FACTS%2F2021R%2FPublic%2FACT656.pdf',
+      },
+      {
+        slug: 'louisiana-medicaid, aetna-louisiana, cigna-louisiana, unitedhealthcare-louisiana, blue-cross-blue-shield-louisiana',
+        field: 'sections (licensure / out-of-state BCBA telehealth)',
+        change:
+          'unverified route (ask the board) -> Board rule LAC 46:VIII 204(C): telehealth providers must hold a Louisiana license (plus the client-state license if required); written telehealth consent and per-session identity/location verification',
+        sourceUrl: 'https://lababoard.org/rules-chapter-2/',
+      },
+      {
+        slug: 'aetna-missouri, cigna-missouri, unitedhealthcare-missouri, anthem-bcbs-missouri',
+        field: 'sections + faq (HMOs in Missouri)',
+        change:
+          'added: DCI lists 17 licensed Missouri HMOs with authorized counties (carrier HMO entity per guide: Aetna Health Inc 48, Cigna Healthcare of St Louis 23, UnitedHealthcare of the Midwest 70, HMO Missouri Inc 96 counties); RSMo 376.1224 reaches HMOs via the 376.1350 health-carrier definition; mandate excludes MO HealthNet',
+        sourceUrl: 'https://insurance.mo.gov/health-insurance/find-hmo-service-areas-missouri',
+      },
+      {
+        slug: 'empower-healthcare-solutions-arkansas',
+        field: 'sections (new: Behavioral Assistance H2019)',
+        change:
+          'added: Empower alert 10/23/2026 - H2019 Behavioral Assistance $20.08/unit from 1/1/2027 regardless of degree/POS, billed H2019-U4-UC only; noted it is not an ABA code (AR ABA fee schedule lists 97151/97153/97155/97156 only), so ABA rates unchanged',
+        sourceUrl: 'https://getempowerhealth.com/providers/behavioral-assistance-h2019-reimbursement-update/',
+      },
+      {
+        slug: 'oklahoma-medicaid',
+        field: 'sections (contracting gate / network-status)',
+        change:
+          'added: OHCA Provider Letters 2026-18 (claims resubmission exception form for contracting-delay claims, due 1/31/2027; 15-business-day wait) and 2026-19 (contracting back to normal processing times, 10/23/2026)',
+        sourceUrl: 'https://oklahoma.gov/content/dam/ok/en/okhca/docs/providers/provider-letters/2026/OHCA%202026-19%20Provider%20Contracting%20Returned%20to%20Normal%20Processing%20Times.pdf',
+      },
+      {
+        slug: 'missouri-medicaid, kansas-medicaid, sunflower-health-plan-kansas, unitedhealthcare-community-plan-kansas, healthy-blue-kansas, nebraska-medicaid, nebraska-total-care, molina-healthcare-nebraska, unitedhealthcare-community-plan-nebraska, south-dakota-medicaid, oklahoma-medicaid, aetna-better-health-oklahoma, oklahoma-complete-health, humana-healthy-horizons-oklahoma, arkansas-medicaid, caresource-passe-arkansas',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer (no) - each guide already quotes a closed credential list from its cited source (MO BHS manual 1.16, KMAP 26140, NE IDI definition, SD ABA manual, OAC 317:30-5-313 / OK.CP.BH.500, Acentra/ CareSource MM-1227)',
+        sourceUrl: '(existing cites on each field)',
+      },
+      {
+        slug: 'aetna-missouri, aetna-kansas, aetna-nebraska, aetna-iowa',
+        field: 'sections (school-setting quote) + source titles',
+        change:
+          'CPB 0648 educational-exclusion quote updated to current wording ("applied behavior analysis (ABA) services during class"); CPB 0648 source titles last review 10/02/2025 -> 10/20/2026 (also aetna-arkansas)',
+        sourceUrl: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html',
+      },
+      {
+        slug: 'molina-healthcare-nebraska',
+        field: 'sources/cites (URL repoint only)',
+        change:
+          'dead Molina NE URLs re-pointed: PA page -> /providers/ne/prior-auth (still lists Availity + fax (833) 832-1015); 2026 manual and Pre-Service Review Guide -> myhealthinhand.molinahealthcare.com (same PDFs); forms page -> /providers/ne/resources; also vob/nebraska.ts',
+        sourceUrl: 'https://www.molinahealthcare.com/providers/ne/prior-auth',
+      },
+      {
+        slug: 'missouri-medicaid (+ vob/missouri)',
+        field: 'source title',
+        change:
+          'Healthy Blue MO HealthNet Managed Care Provider Manual is now the November 1, 2026 edition; re-read - ABA FFS carve-out quote unchanged',
+        sourceUrl: 'https://provider.healthybluemo.com/docs/gpp/MO_CAID_HealthNetManagedCareProviderManual.pdf',
+      },
+      {
+        slug: 'north-dakota-medicaid, aetna-north-dakota, cigna-north-dakota, unitedhealthcare-north-dakota, blue-cross-blue-shield-north-dakota',
+        field: 'fee-schedule source + date references',
+        change:
+          'ND Medicaid Professional Services Fee Schedule August 2026 file (now 404) -> October 1, 2026 file; ABA rates and flags re-read and unchanged (97151/97155 $31.76, 97152 $23.51, 97153 $10.81, 97154 $2.72, 97156 $29.48, 0373T $12.99; telehealth allowed, SA required; 97157/97158/0362T not covered)',
+        sourceUrl: 'https://www.hhs.nd.gov/sites/default/files/documents/rate-2026-oct-professional-fee-schedule.xlsx',
+      },
+      {
+        slug: 'wellmark-blue-cross-blue-shield-iowa, wellmark-blue-cross-blue-shield-south-dakota',
+        field: 'sections (BlueCard / out-of-area pre-service quote)',
+        change:
+          'quote updated to the page current wording: providers outside Iowa and South Dakota seeing Wellmark members "should log in to their local plan website" (was "home plan website"); meaning unchanged, rest of page re-read (prior approval denial rule unchanged)',
+        sourceUrl: 'https://www.wellmark.com/provider/medical-policies-authorizations/manage-authorizations/types-of-authorizations',
+      },
+      {
+        slug: 'unitedhealthcare-{mo,ks,ne,ia,nd,sd,ok,ar,la} (9)',
+        field: 'sections (new: Appeals, authorizations and changing providers)',
+        change:
+          'added from Optum NNM (July 2026): 2-step reconsideration/appeal, 12 months total, packet contents (treatment plans, clinical records, payment appendices, timely-filing proof), mail/portal; authorizations specific to the requesting clinician (new agency requests its own); 90-day continuity after network exit; no SCA process published',
+        sourceUrl: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf',
+      },
+      {
+        slug: 'cigna-{mo,ks,ne,ia,nd,sd,ok,ar,la} (9)',
+        field: 'sections (new: Appeals and out-of-network care)',
+        change:
+          'added from Evernorth BH Administrative Guidelines (Sept 2026): written appeals within 180 days, reconsideration feature for fee disputes, packet contents, 60/75-day resolution; out-of-network coverage by plan type (OAP reduced benefit, POS both, OAPIN/NOA/SureFit/HMO none); no ABA single-case policy published',
+        sourceUrl: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf',
+      },
+      {
+        slug: 'aetna-{mo,ks,ne,ia,nd,sd,ok,ar,la} (9)',
+        field: 'sections (new: Disputes, appeals and transition of care)',
+        change:
+          'added from Aetna office manual (6/26): mandatory dispute data elements and complaint/appeal form, Availity Dispute Claim; transition of care and continuity of care rules (active course of treatment, individual practitioner, Transition Coverage Request Form, not Traditional Choice); no SCA process published',
+        sourceUrl: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf',
+      },
+      {
+        slug: '21 Medicaid MCO/PASSE guides in KS, NE, IA, OK, AR, LA',
+        field: 'sections (new: Out-of-network care and single case agreements)',
+        change:
+          'added federal floor 42 CFR 438.206(b)(4)-(5): plan must cover a covered service out of network while its network cannot provide it, with enrollee cost no greater than in network; SCA terms case by case',
+        sourceUrl: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206',
+      },
+      {
+        slug: 'north-dakota-medicaid',
+        field: 'sections (fee schedule) - credential-modifiers',
+        change:
+          'added: October 2026 professional fee schedule lists Modifier Required: none on every covered ABA line - no credential modifier, rate is credential-flat',
+        sourceUrl: 'https://www.hhs.nd.gov/sites/default/files/documents/rate-2026-oct-professional-fee-schedule.xlsx',
+      },
+      {
+        slug: 'molina-healthcare-nebraska, molina-healthcare-iowa, summit-community-care-arkansas, aetna-better-health-louisiana, healthy-blue-louisiana, humana-healthy-horizons-louisiana, louisiana-healthcare-connections',
+        field: 'sections (new: Member appeals and State fair hearings)',
+        change:
+          'added federal floor: 60 days to appeal, one plan level, provider may appeal with written enrollee consent, 30-day standard / 72-hour expedited resolution, 90-120 days for State fair hearing, deemed exhaustion',
+        sourceUrl: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-F/section-438.408',
+      },
+      {
+        slug: 'missouri-medicaid',
+        field: 'sections (new: Appeals: denied ABA precertification)',
+        change:
+          'added BHS manual participant appeal rights: denial letter, State Fair Hearing via PSU (800) 392-2161 / StateFairHearings@dss.mo.gov / P.O. Box 6500, 90-day deadline; noted it sits in section 1.5 (ABA section has none)',
+        sourceUrl: 'https://mydss.mo.gov/sites/mydss/files/media/file/2026/05/Behavioral%20Health%20Services%20Manual.docx',
+      },
+      {
+        slug: 'blue-cross-blue-shield-north-dakota',
+        field: 'sections (new: Appeals and out-of-network providers)',
+        change:
+          'added from BCBSND Provider Manual (8-26): appeal packet (nature of appeal + all supporting information and rationale), pre-service appeal 180 days / one level / 30-day response, post-service 180 days two levels via local plan, retrospective 180 days; non-participating allowed amount, balance billing, no SCA process published',
+        sourceUrl: 'https://www.bcbsnd.com/content/dam/bcbsnd/documents/manuals/provider-manual-full.pdf',
+      },
+      {
+        slug: 'arizona-ahcccs',
+        field: 'sections[Rates] + faq \'What does AHCCCS pay\'',
+        change:
+          'added: 0362T and 0373T closed by AHCCCS Medical Coding Unit for reporting from 7/1/2023 (memo 6/21/2023); FFY26 ABA fee schedule re-read (unchanged dollars)',
+        sourceUrl: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/MEMO-0362T_0373T-CodeClosure.pdf',
+      },
+      {
+        slug: 'arizona-ahcccs',
+        field: 'deliveryRules.billAsProvider',
+        change:
+          'added CBHSG (updated 10/01/2026) rule: a BHP may not bill under own NPI for another person\'s services \'with the exception of PT BC in accordance with AMPM Policy 320-S ... and ARS 32-2091\'',
+        sourceUrl: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/AHCCCSCoveredBHServicesManual.pdf',
+      },
+      {
+        slug: 'vob/arizona (AZ_AHCCCS_RATES + azBenchmarkRates)',
+        field: 'rates 0362T/0373T + source note',
+        change:
+          '\'unverified — not on fee schedule\' -> \'Not payable — closed by AHCCCS from 7/1/2023\'; modifier definitions per AHCCCS Modifier List; new SourceRefs (accessDate 2026-10-25)',
+        sourceUrl: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/MEMO-0362T_0373T-CodeClosure.pdf',
+      },
+      {
+        slug: 'mercy-care-arizona, unitedhealthcare-community-plan-arizona, arizona-complete-health, banner-university-family-care, health-choice-arizona, molina-healthcare-arizona, arizona-ddd',
+        field: 'new section \'Rate-tier modifiers on the claim (HM, HN, HO, HP)\' + FAQ',
+        change:
+          'added: each plan\'s own manual checked (UHCCP 2027 manual, AzCH manual s.8, Banner 7/9/2026 manual, Health Choice Ch.7/18, Molina 2026 manual) — none defines ABA modifiers; all point to AHCCCS coding/BH Matrix, so AHCCCS definitions + B2 Matrix (Oct 2026) valid modifiers per code stated. Mercy Care unreadable (403) and said so.',
+        sourceUrl: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/B2Matrix.xlsx',
+      },
+      {
+        slug: 'colorado-medicaid',
+        field: 'assessmentPA + faq (97151 proposal)',
+        change:
+          're-checked 10/25: no HCPF adoption notice (Provider News page lists only the 10/9 proposal; Issue 155 silent); PBT manual still 6-month PARs; added Provider News + Issue 155 cites',
+        sourceUrl: 'https://hcpf.colorado.gov/provider-news',
+      },
+      {
+        slug: 'nevada-medicaid',
+        field: 'faq',
+        change:
+          'added: NV uses specialty-based pricing (310/311/312/314) + modifier UD on BCaBA/RBT claims and PA requests (PT 85 Billing Guide updated 10/13/2026), no HM/HN/HO/HP',
+        sourceUrl: 'https://www.medicaid.nv.gov/Downloads/provider/NV_BillingGuidelines_PT85.pdf',
+      },
+      {
+        slug: 'anthem-nevada-medicaid, caresource-nevada, health-plan-of-nevada, molina-healthcare-nevada, silversummit-healthplan-nevada',
+        field: 'new section \'Credential modifiers on the claim (UD, not HM/HN/HO/HP)\' + FAQ',
+        change:
+          'added; plan docs checked (Anthem NV Medicaid PM 7/2025, CareSource NV MCD-PY-1695 \'Appropriate modifiers indicating qualifications of staff ... if applicable\', Molina NV 2026 PM, SilverSummit 2026 PM + ABA checklist 6/29/2026) — none names its own; state PT 85 rule + MSM 3600 same amount/duration/scope',
+        sourceUrl: 'https://www.medicaid.nv.gov/Downloads/provider/NV_BillingGuidelines_PT85.pdf',
+      },
+      {
+        slug: 'health-plan-of-nevada',
+        field: 'intakeGates.ageLimit + diagnosingProviders',
+        change:
+          're-checked 10/25: HPN still posts the 2015 scanned form (0–21, BCBA may sign); added MSM 3600 (eff. 1/1/2026) \'same timeliness, amount, duration, and scope as ... FFS\' and FA-11F \'Medicaid Eligible (any age)\' / signer list quotes; still plan-dependent',
+        sourceUrl: 'https://www.nevadamedicaid.nv.gov/siteassets/content/resources/adminsupport/manuals/msm/c3600/MSM_3600_26_01-01.pdf',
+      },
+      {
+        slug: 'new-mexico-medicaid + blue-cross-blue-shield-new-mexico, presbyterian-health-plan-new-mexico, molina-healthcare-new-mexico, unitedhealthcare-community-plan-new-mexico',
+        field: 'faq + new section \'Credential modifiers on the claim (U5, U4, U3, U9, U1)\'',
+        change:
+          'added: LOD #53 fee schedule U-modifier tiers and MCO floor; each MCO\'s manual checked (BCBSNM PRM 7/2026, Presbyterian manual 7/2026 [U7 trainee rule], Molina NM 2024 manual, UHCCP NM 2026 manual + Optum QRG) — none defines its own ABA credential modifiers',
+        sourceUrl: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf',
+      },
+      {
+        slug: 'aetna-{texas,arizona,new-mexico,colorado,utah,nevada}',
+        field: 'new section \'Credential modifiers on the claim\' + FAQ',
+        change:
+          'added: Aetna\'s public ABA docs (MNG ©2026, provider manual 6/26, form GR-69017-4 7-26) name no HM/HN/HO/HP; quote \'Services must be provided directly or billed by the appropriately licensed provider\'; ask Aetna re contract',
+        sourceUrl: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf',
+      },
+      {
+        slug: 'cigna-{texas,arizona,new-mexico,colorado,utah,nevada}',
+        field: 'new section \'Credential modifiers on the claim\' + FAQ',
+        change:
+          'added: Evernorth ARG (3/2025) provider/biller by code, nonlicensed staff billed under supervising provider, no tier modifiers; admin guidelines (9/2026) modifier 95 + POS 02 for telehealth',
+        sourceUrl: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf',
+      },
+      {
+        slug: 'unitedhealthcare-texas (+ FAQ on unitedhealthcare-{arizona,new-mexico,colorado,utah,nevada})',
+        field: 'new section \'Credential modifiers on the claim\' + FAQ',
+        change:
+          'added: Optum 2022RP501A (June 2026) HM/HN/HO/HP definitions, allowed modifiers per code, one per line, 0362T/0373T no modifier',
+        sourceUrl: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf',
+      },
+      {
+        slug: 'texas-medicaid',
+        field: 'faq',
+        change:
+          'added: TMPPM ABA modifiers HO LBA / HN LaBA / HM BT, required per code; 95 telehealth (re-read TMPPM Children\'s Services Handbook 2.3.12)',
+        sourceUrl: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm',
+      },
+      {
+        slug: 'select-health-utah',
+        field: 'faq + sources',
+        change:
+          'added: Select Health\'s behavioral policies (3/2026), PRM (4/2026) and ABA PA form (6/2026) name no rate-tier modifiers; Medicaid members billed to Utah FFS (HP/HO/HN)',
+        sourceUrl: 'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/Reference%20Manuals/prm-comm-govt.pdf',
+      },
+      {
+        slug: 'molina-healthcare-texas',
+        field: 'assessmentPA, treatmentPA, dxRequired (+ dead URLs repointed, vob note)',
+        change:
+          'unverified (document) -> verified: Molina TX Medicaid BH/Medical PA Code Matrix (Oct 1, 2026) lists 97151 and 97153-97158 + 0373T under ABA with TMPPM as criteria (97152 not listed); manual MHTPROVMN0426 has no own ABA criteria',
+        sourceUrl: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/Prior-Auth/10-2026-MHTX-Q4-Medicaid-BH-Medical-PA-Code-Matrix-508.pdf',
+      },
+      {
+        slug: 'molina-healthcare-new-mexico',
+        field: 'assessmentPA, treatmentPA, section, atGlance, vob codeGrid note',
+        change:
+          'unverified (document) -> verified: NM Medicaid PA Code Matrix eff. 10/1/2026 — no PA on 97151/97152/0362T; \'PA required after 48 units per calendar year for ABA therapy (cumulative of 0373T, 97153-97158)\'; non-par needs PA for all',
+        sourceUrl: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/NM/New-Mexico-Prior-Authorization-PA-Code-Matrix-Q4-2026.pdf',
+      },
+      {
+        slug: 'nevada (all guides citing billMan)',
+        field: 'source title',
+        change:
+          'Billing Manual \'updated July 10, 2026\' -> \'updated October 22, 2026\'; quoted COB/timely-filing text re-verified',
+        sourceUrl: 'https://www.medicaid.nv.gov/Downloads/provider/nv_billing_general.pdf',
+      },
+      {
+        slug: 'aetna-arizona, aetna-colorado, aetna-nevada',
+        field: 'source title',
+        change:
+          'CPB 0648 last review 10/02/2025 -> 10/20/2026 (appendix added; provider list unchanged)',
+        sourceUrl: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html',
+      },
+      {
+        slug: 'health-choice-arizona',
+        field: 'assessmentPA, treatmentPA, section, atGlance, collect',
+        change:
+          'unverified (document: \'read the live grid\') -> plan-dependent/per-case: current PA Grid (eff. 05/01/26, rev. 03/30/2026) and the 1/12/2026 and 10/1/2025 grids list no ABA code (\'All codes listed on the grid require prior authorization\'); out-of-network always needs PA; confirm in-network rule on PA line',
+        sourceUrl: 'https://assets.azblue.com/asset/f9a260bc-3938-4816-941e-8305ec3595e6/BCBSAZ-Health-Choice-PA-Grid-eff-5-1-26.docx',
+      },
+      {
+        slug: 'molina-healthcare-texas',
+        field: 'deliveryRules.* (6) + intakeGates ageLimit/dxRecency/diagnosingProviders/diagnosticTools/referral/telehealth + cardDesc + PA section',
+        change:
+          '12 fields unverified (document) -> verified as the TMPPM rule: Molina TX manual (MHTPROVMN0426, new URL) adds no ABA rules (telehealth chapter generic) and the Oct 2026 PA Code Matrix names TMPPM as criteria; TMPPM 2.3 re-read (modifiers, 8 h/day, concurrent-billing ban, telehealth list) and TX fee schedule (9/14/2026: 97153 $14.50, 97151 $27.56, 97155 $20.08/$25.10, 97156 $18.40/$23.01) re-verified',
+        sourceUrl: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/MHTX-MEDICAID-CHIP-Provider-Manual-EN-508.pdf',
+      },
+      {
+        slug: 'arizona-ahcccs',
+        field: 'sections[Rates]',
+        change:
+          'added: AHCCCS Oct 2026 Medical Coding Newsletter — 2027 CPT codes loaded 1/1/2027 and \'ABA codes will also have some new code sets\'',
+        sourceUrl: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/MedicalCodingNewsletterOct2026.pdf',
+      },
+      {
+        slug: 'all 59 guides in TX/AZ/NM/CO/UT/NV',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit \'LCSW:\' yes/no/conditional answer from each payer\'s own source: TMPPM list (no; tool results may feed team), AMPM 320-S BHP + A.R.S. 32-3293 (independently licensed LCSW may recommend), NM Supplement 24-13 AEP (no; presumptive-dx exception), CO PBT criteria (not named), Utah ASD manual (scope-dependent), NV FA-11F / CareSource / HPN (no), Aetna MNG / Evernorth EN0499 / Optum BH803ABASCC (not named; scope-dependent), Anthem (not addressed)',
+        sourceUrl: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm',
+      },
+      {
+        slug: 'aetna-, cigna-, unitedhealthcare-{texas,arizona,new-mexico,colorado,utah,nevada} (18)',
+        field: 'new section \'Reconsideration and appeal: what to send\'',
+        change:
+          'added: Aetna (180-day reconsideration, packet contents, 30 business days; appeal 60 days, 60-day decision), Evernorth (180-day written appeal, docs by denial type, 60/75 days, arbitration), Optum (2-step, 12 months combined, required documentation, portal/mail)',
+        sourceUrl: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html',
+      },
+      {
+        slug: 'texas-medicaid + 16 TX Medicaid MCOs',
+        field: 'faq (auth-npi-binding)',
+        change:
+          'added: TMPPM 2.3.9 — authorization stays with the group (same evaluation/plan of care, period unchanged within group); new provider outside group needs a new request + change-of-therapy-provider letter',
+        sourceUrl: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm',
+      },
+      {
+        slug: 'wellpoint-texas, unitedhealthcare-community-plan-texas, aetna-better-health-texas, molina-healthcare-texas, driscoll-health-plan, bcbs-texas-medicaid, parkland-community-health-plan, el-paso-health',
+        field: 'faq (fee-schedule)',
+        change:
+          'added: plan rates not published; Texas Medicaid fee schedule (9/14/2026) benchmark per code',
+        sourceUrl: 'https://public.tmhp.com/FeeSchedules/StaticFeeSchedule/FeeSchedules.aspx?fn=%5c%5ctmhp.net%5cFeeSchedule%5cPROD%5cStatic%5cTexas_Medicaid_Fee_Schedule_PRCR615C.pdf',
+      },
+      {
+        slug: 'molina-healthcare-arizona',
+        field: 'faq (oon)',
+        change:
+          'added: non-PAR providers need authorization for all services (Molina AZ PA and Pre-Service Review Guide)',
+        sourceUrl: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/AZ/prior-auth/MHAZ-Prior-Auth-and-Pre-Service-Review-Guide-508.pdf',
+      },
+      {
+        slug: 'anthem-blue-cross-california',
+        field: 'intakeGates.dxRecency',
+        change:
+          'added: diagnostic report required at initial assessment request or new coverage; no recency window; treatment plan dated within 30 days of start',
+        sourceUrl: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/CA_TPRF_00001.pdf',
+      },
+      {
+        slug: 'anthem-blue-cross-california',
+        field: 'faq/section/collect/sources',
+        change:
+          'FAQ on diagnostic requirements rewritten from the April 2026 form; form + ABA Provider Resource Guide added to sources',
+        sourceUrl: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/CA_TPRF_00001.pdf',
+      },
+      {
+        slug: 'hawaii-medicaid, alohacare, hmsa, ohana-health-plan, unitedhealthcare-community-plan-hawaii, kaiser-permanente-hawaii, aetna-hawaii, cigna-hawaii, unitedhealthcare-hawaii',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW answer + Hawaii scope rule (HRS 467E-1(8) clinical diagnosis by LCSW; Luke’s Law prescribe/order list incl. LCSW). LCSW yes: Aetna, Cigna, UHC, UHC CP (state-licensed clinician tests); AlohaCare MP-37 does not list LCSW (MQD guidance prevails); Med-QUEST/Ohana/Kaiser: only via memo catch-all; HMSA commercial unread',
+        sourceUrl: 'https://www.capitol.hawaii.gov/hrscurrent/Vol10_Ch0436-0474/HRS0467E/HRS_0467E-0001.htm',
+      },
+      {
+        slug: 'hawaii-medicaid, hmsa',
+        field: 'faq',
+        change:
+          'added Who can diagnose / LCSW FAQ',
+        sourceUrl: 'https://www.capitol.hawaii.gov/hrscurrent/Vol10_Ch0436-0474/HRS0467E/HRS_0467E-0001.htm',
+      },
+      {
+        slug: '63 guides in CA, OR, WA, ID, MT, WY, AK (all except anthem-blue-cross-california and caloptima, already explicit)',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW yes/no per guide: closed lists -> no (from the cited list); scope-of-practice tests (Aetna/Cigna/UHC/Premera) -> yes via each state LCSW scope statute (ORS 675.510(2)(a), RCW 18.225.010(7), IDAPA 24.14.01.200.03, MCA 37-39-102(12)(a), W.S. 33-38-102(a)(v), AS 08.95.990(2)); OR fully insured mandate list and WY bulletin name no LCSW; CA scope (B&P 4996.9) unreadable -> not confirmed. Statute sources added to each guide.',
+        sourceUrl: 'https://app.leg.wa.gov/RCW/default.aspx?cite=18.225.010',
+      },
+      {
+        slug: 'coordinated-care-washington',
+        field: 'assessmentPA',
+        change:
+          'unverified/document -> verified: Pre-Auth Check: 97151 no authorization required; 0362T authorization required; 97152 not a covered benefit (matches HCA ABA fee schedule)',
+        sourceUrl: 'https://www.coordinatedcarehealth.com/providers/preauth-check/medicaid-pre-auth.html',
+      },
+      {
+        slug: 'oregon-medicaid',
+        field: 'faq/sources',
+        change:
+          'added: out-of-state ABA agencies and CCOs — temporary 75-mile out-of-state allowance (DMAP 26-2026) suspended by DMAP 43-2026 eff. 10/14/2026; OHA certification under OAR 309-008-0250 required',
+        sourceUrl: 'https://www.oregon.gov/oha/HSD/OHP/Policies/141-3545-10142026.pdf',
+      },
+      {
+        slug: 'health-share-of-oregon, jackson-care-connect, columbia-pacific-cco',
+        field: 'assessmentPA',
+        change:
+          'added: separate \'ABA Assessment\' service type (97151/97152) since 8/7/2026; assessment approvals valid 365 days; treatment auths typically <= 6 months; fax by exception only',
+        sourceUrl: 'https://jacksoncareconnect.org/providers/provider-updates/2026/10/22/important-update-to-aba-authorization-requests',
+      },
+      {
+        slug: 'la-care-health-plan-california',
+        field: 'sources/cites',
+        change:
+          'errata v3 (9/23/2026, now 404) -> la8158_upm_errata_v3_202610.pdf; facts unchanged',
+        sourceUrl: 'https://www.lacare.org/sites/default/files/la8158_upm_errata_v3_202610.pdf',
+      },
+      {
+        slug: 'idaho/montana/wyoming/hawaii Aetna guides; trillium-community-health-plan-oregon; medi-cal-california-medicaid',
+        field: 'source titles/urls',
+        change:
+          'CPB 0648 last review 10/20/2026; Trillium auth handbook rev 09/2026; 10 U.S.C. 1079 cite -> govinfo (uscode.house.gov 404). No fact changed',
+        sourceUrl: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html',
+      },
+      {
+        slug: 'molina-healthcare-washington',
+        field: 'treatmentPA, dailyLimits, dxRecency, coordinationOfBenefits, referral, billAsProvider, authTurnaround, telehealth, assessmentPA, atGlance, claims section',
+        change:
+          'treatmentPA plan-dependent -> verified required (Pre-Service Review Guide 1/1/2026; PA form); dailyLimits unverified -> verified weekly approved units from 8/1/2026 (97153/97154/97155/97158/0373T, Sun-Sat, no carryover, no daily max; 97151 28 units x2/yr, 0362T 2 hr x3/yr); dxRecency unverified -> verified (assessment instrument within 60 days; continuation data within 6 months); COB unverified -> verified (payer of last resort, EOB, 180 days after primary); timely filing 180 calendar days added; referral/billAsProvider/authTurnaround/telehealth enriched from Molina docs',
+        sourceUrl: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/WA/Prior-Auth/Guides/aba-weekly-approved-units-policy-provider-faqs.pdf',
+      },
+      {
+        slug: 'trillium-community-health-plan-oregon',
+        field: 'assessmentPA',
+        change:
+          'unverified -> verified: 97151/97152 no PA, 0362T PA required (Medicaid Pre-Auth Check)',
+        sourceUrl: 'https://www.trilliumohp.com/providers/preauth-check/medicaid-pre-auth.html',
+      },
+      {
+        slug: 'umpqua-health-alliance',
+        field: 'assessmentPA',
+        change:
+          'unverified -> verified: 97151 no PA; 97152 PA required (MH/SUD PA Grid Dec 2025)',
+        sourceUrl: 'https://www.umpquahealth.com/wp-content/uploads/2025/05/mh-sud-preauth-grid-2025-12-01-en.pdf',
+      },
+      {
+        slug: '8 UHC + 8 Cigna + 8 Aetna guides (CA, OR, WA, ID, MT, WY, AK, HI), anthem-blue-cross-california, premera-blue-cross-washington, premera-blue-cross-blue-shield-alaska',
+        field: 'new cited section + FAQ',
+        change:
+          'fan-out: single case agreements / out-of-network route, network status and joining, auth binding / changing agencies, credential modifiers or code matrix, disputes/reconsideration packet, OON coverage by product (Cigna HMO/Connect/OAPIN in-network only)',
+        sourceUrl: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf',
+      },
+      {
+        slug: 'aetna',
+        field: 'sections + faq',
+        change:
+          'added: diagnosing providers/LCSW section; authorizations, OON transition of care and agency changes; self-pay + federal Good Faith Estimate (45 CFR 149.610/149.620) + Aetna non-covered consent rule; discharge/transition (not legal advice); FAQs on LCSW, BCBA supervision cap (none), modifiers (none published), GFE',
+        sourceUrl: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf',
+      },
+      {
+        slug: 'cigna',
+        field: 'intakeGates.diagnosingProviders + sections + faq',
+        change:
+          'added: explicit LCSW answer (not named; independent-licensure + board-scope test); authorizations (PA form TIN/supervisor), multi-agency rule, network exception for OON; self-pay agreement rule + federal GFE; discharge/transition + severe-behavior criteria (not legal advice); 4 FAQs',
+        sourceUrl: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf',
+      },
+      {
+        slug: 'unitedhealthcare-optum',
+        field: 'intakeGates.diagnosingProviders + sections + faq',
+        change:
+          'added: exact SCC diagnosing-provider quote + explicit LCSW answer; reconsideration packet (NNM Sept 2026 + UHC 2026 admin guide) and UHC out-of-network pricing methods; authorization binding (specific to requesting clinician; any group-credentialed supervisor), SCA by exception, UHC OON prior-approval route, termination continuity; credential x code modifier matrix (2022RP501A); self-pay statement rule + federal GFE; discharge/transition (not legal advice); 6 FAQs incl. eligibility line/NPI (VC-2398/VC-2551)',
+        sourceUrl: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf',
+      },
+      {
+        slug: 'tricare-east-humana-military',
+        field: 'intakeGates.diagnosingProviders + sections + faq',
+        change:
+          'added: explicit LCSW = not an authorized ACD diagnosing provider (TOM 18.3 ¶11.13.1); ACD discharge/45-day termination-plan section (TOM 18.3 ¶8.8); 2 FAQs',
+        sourceUrl: 'https://manuals.dha.mil/View-Publication/TOT5/Revision/66/FileName/C18S3',
+      },
+      {
+        slug: 'tricare-west-triwest',
+        field: 'intakeGates.diagnosingProviders + sections + faq',
+        change:
+          'added: explicit LCSW = not an authorized ACD diagnosing provider (TOM 18.3 ¶11.13.1); ACD discharge/45-day termination-plan section (TOM 18.3 ¶8.8); 2 FAQs',
+        sourceUrl: 'https://manuals.dha.mil/View-Publication/TOT5/Revision/66/FileName/C18S3',
+      },
+      {
+        slug: 'johns-hopkins-usfhp',
+        field: 'intakeGates.diagnosingProviders + sections + faq',
+        change:
+          'added: explicit LCSW = not an authorized ACD diagnosing provider (TOM 18.3 ¶11.13.1); ACD discharge/45-day termination-plan section (TOM 18.3 ¶8.8); 2 FAQs',
+        sourceUrl: 'https://manuals.dha.mil/View-Publication/TOT5/Revision/66/FileName/C18S3',
+      },
+      {
+        slug: 'martins-point-usfhp',
+        field: 'intakeGates.diagnosingProviders + sections + faq',
+        change:
+          'added: explicit LCSW = not an authorized ACD diagnosing provider (TOM 18.3 ¶11.13.1); ACD discharge/45-day termination-plan section (TOM 18.3 ¶8.8); 2 FAQs',
+        sourceUrl: 'https://manuals.dha.mil/View-Publication/TOT5/Revision/66/FileName/C18S3',
+      },
+      {
+        slug: 'champva',
+        field: 'intakeGates.diagnosingProviders + sections + faq',
+        change:
+          'added: explicit LCSW answer (not excluded, not expressly approved); one-ABA-provider-at-a-time + ending services section (not legal advice); LCSW FAQ',
+        sourceUrl: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009345/02-18-06-PSYCHOLOGICAL-TESTING',
+      },
+      {
+        slug: 'magellan-health',
+        field: 'intakeGates.diagnosingProviders + sections + faq',
+        change:
+          'added: explicit LCSW = no (doctoral-level confirmation); discharge criteria section (not legal advice); LCSW FAQ',
+        sourceUrl: 'https://www.magellanprovider.com/media/553052/mcg_2025-2026.pdf',
+      },
+      {
+        slug: 'carelon-behavioral-health',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW line (no published answer; per-case)',
+      },
+      {
+        slug: 'compsych',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW line (no published answer; per-case)',
+      },
+      {
+        slug: 'humana',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW line (no published answer; per-case)',
+      },
+      {
+        slug: 'meritain-health',
+        field: 'intakeGates.diagnosingProviders',
+        change:
+          'added explicit LCSW line (no published answer; per-case)',
+      },
+      {
+        slug: 'asr-health-benefits',
+        field: 'deliveryRules.* (6) + intakeGates diagnosingProviders/diagnosticTools/telehealth/authTurnaround/coordinationOfBenefits',
+        change:
+          'added as plan-dependent/per-case with call scripts (ASR publishes no ABA policy; pages re-read 2026-10-25)',
+        sourceUrl: 'https://www.asrhealthbenefits.com/providers/',
+      },
+      {
+        slug: 'tricare-east-humana-military',
+        field: 'sections + faq',
+        change:
+          'added credential x code matrix (TOM 18.3 ¶8.11.6-8.11.7: who may render/bill 97151-97158, rates by level, rendering NPI per line, no credential modifiers, one ongoing direct-treatment authorization)',
+        sourceUrl: 'https://manuals.dha.mil/View-Publication/TOT5/Revision/66/FileName/C18S3',
+      },
+      {
+        slug: 'tricare-west-triwest',
+        field: 'sections + faq',
+        change:
+          'added credential x code matrix (TOM 18.3 ¶8.11.6-8.11.7: who may render/bill 97151-97158, rates by level, rendering NPI per line, no credential modifiers, one ongoing direct-treatment authorization)',
+        sourceUrl: 'https://manuals.dha.mil/View-Publication/TOT5/Revision/66/FileName/C18S3',
+      },
+      {
+        slug: 'johns-hopkins-usfhp',
+        field: 'sections + faq',
+        change:
+          'added credential x code matrix (TOM 18.3 ¶8.11.6-8.11.7: who may render/bill 97151-97158, rates by level, rendering NPI per line, no credential modifiers, one ongoing direct-treatment authorization)',
+        sourceUrl: 'https://manuals.dha.mil/View-Publication/TOT5/Revision/66/FileName/C18S3',
+      },
+      {
+        slug: 'martins-point-usfhp',
+        field: 'sections + faq',
+        change:
+          'added credential x code matrix (TOM 18.3 ¶8.11.6-8.11.7: who may render/bill 97151-97158, rates by level, rendering NPI per line, no credential modifiers, one ongoing direct-treatment authorization)',
+        sourceUrl: 'https://manuals.dha.mil/View-Publication/TOT5/Revision/66/FileName/C18S3',
+      },
+      {
+        slug: 'magellan-health',
+        field: 'sections',
+        change:
+          'added notice: 2026-2027 Magellan Care Guidelines take effect Nov. 14, 2026 (rescheduled from Oct. 10)',
+        sourceUrl: 'https://provider.magellanhealthcare.com/w/medical-necessity-criteria-updates-to-occur-in-fall-2026',
+      },
+      {
+        slug: 'aetna, cigna, unitedhealthcare-optum',
+        field: 'faq',
+        change:
+          'added assessment-template FAQ per carrier (Aetna GR-69017-4; Evernorth PA form + EN0499 content; Optum BH00705 portal review items, no template)',
+        sourceUrl: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/national/Portal_Review_Autism_CPT%20UPDATED.pdf%20(1).pdf',
+      },
+    ],
+    totals: { guides: 484, states: 51 },
+  },
 ];

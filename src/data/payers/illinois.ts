@@ -229,6 +229,15 @@ export const illinoisPayers: Record<string, PayerConfig> = {
         body: [IL_LICENSURE_BODY + ' HFS’s enrollment notices still key ABS Clinicians to BACB certification, so plan on both: the IDFPR license for the right to practice, and BCBA status plus IMPACT enrollment for Medicaid billing.'],
         cites: [S.idfpr, S.ilga6_20, S.ilga6_150, S.ilgaTele, S.bacbLic, S.hfs230824],
       },
+      {
+        h2: 'Out-of-network ABA for HealthChoice Illinois members',
+        body: [
+          'For a child in a HealthChoice Illinois plan, the federal rule applies: when a plan’s network “is unable to provide necessary services, covered under the contract, to a particular enrollee,” the plan “must adequately and timely cover these services out of network for the enrollee, for as long as” the network cannot provide them, and the family pays no more than in network (42 CFR 438.206(b)(4)–(5)). The plans handle it differently. Aetna Better Health of Illinois publishes a single-case-agreement procedure; Blue Cross Community, CountyCare, Meridian and Molina require out-of-network prior authorization; YouthCare authorizes out-of-network care only for continuity of care or, at its discretion, when the service is unavailable in network. Each plan’s guide quotes its manual.',
+        ],
+        cites: [
+          { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
+        ],
+      },
     ],
     collect: [
       { title: 'Which Medicaid card', desc: 'Aetna Better Health, Blue Cross Community Health Plans, CountyCare, Meridian, Molina, YouthCare, or fee-for-service. The plan owns authorization; HFS handles only FFS.' },
@@ -238,7 +247,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       { title: 'Other insurance', desc: 'Commercial coverage is billed first; HFS is the payer of last resort.' },
       { title: 'Age', desc: 'ABS covers ages 0 through 20. Comprehensive BAI is intended for under-7s, Focused BAI for ages 7–20.' },
     ],
-    sources: [S.ilga5_30_1, S.hfs201030, S.hfs210119, S.hfs210930, S.hfs230824, S.hfs220126, S.hfsFee, S.hfsFeePage, S.hfsPAForm, S.hfsCh100, S.hfsMap, S.hfsMC, S.hfsEVV, S.idfpr, S.ilga6_20, S.ilga6_150, S.ilgaTele, S.bacbLic, S.pa10428, S.ilga370c, S.cfr440, S.cfr438, S.cfr433, { title: 'Illinois HFS — Provider Notices (index of all HFS provider notices)', url: 'https://hfs.illinois.gov/medicalproviders/notices.html' }],
+    sources: [S.ilga5_30_1, S.hfs201030, S.hfs210119, S.hfs210930, S.hfs230824, S.hfs220126, S.hfsFee, S.hfsFeePage, S.hfsPAForm, S.hfsCh100, S.hfsMap, S.hfsMC, S.hfsEVV, S.idfpr, S.ilga6_20, S.ilga6_150, S.ilgaTele, S.bacbLic, S.pa10428, S.ilga370c, S.cfr440, S.cfr438, S.cfr433, { title: 'Illinois HFS — Provider Notices (index of all HFS provider notices)', url: 'https://hfs.illinois.gov/medicalproviders/notices.html' }, { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' } ],
     deliveryRules: {
       supervision: {
         value: 'RBTs “must receive supervision from a BCBA” (2023). The 2021 notice set the floor still in HFS’s ABS guidance: RBTs “are expected to receive Case Leadership for 5%, or more, of all direct services,” with “at a minimum, two face-to-face, real-time contacts per month” of observation, modeling, problem-solving guidance and documentation review, the BCBA “present with the RBT.” The 2023 notice removed LPHA clinical supervision and written collaborative agreements but did not restate the 5% figure, so confirm it with HFS if your program relies on a lower rate.',
@@ -386,6 +395,17 @@ export const illinoisPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.abhilPM, S.ilga5_30_1],
       },
+      {
+        h2: 'Out-of-network ABA and single case agreements (Aetna Better Health of Illinois)',
+        body: [
+          'Aetna Better Health of Illinois publishes a single-case-agreement procedure. “How to obtain a Single Case Agreement (SCA): 1. First, the provider must obtain a prior authorization from Medical Management. 2. If the out-of-network is not willing to accept the fee schedule rates, then a Single Case Agreement (SCA) is necessary.” Medical Management does a level-one medical necessity review and sends the case to the Advisor Review Committee. If it is approved, the SCA request goes to Network Contracting, and “Negotiation between Network Contracting and the provider, will initiate within 24 hours.” Coverage from a non-participating provider applies only if the care is medically necessary and “there are no Aetna Better Health of Illinois in-network providers who can provide the same service.” A provider still in contracting “will remain classified as an out-of-network provider” and should not treat “unless you secure a prior authorization or single case agreement in advance.”',
+          'Federal floor: when a plan’s network “is unable to provide necessary services, covered under the contract, to a particular enrollee,” the plan “must adequately and timely cover these services out of network for the enrollee, for as long as” the network cannot provide them. The out-of-network provider must “coordinate with the MCO … for payment,” and the family pays no more than in network (42 CFR 438.206(b)(4)–(5)). Ask the plan’s utilization management team for an out-of-network authorization, and agree the rate, before the first session.',
+        ],
+        cites: [
+          { title: 'Aetna Better Health of Illinois — Provider Manual 2026', url: 'https://ch.aetnabetterhealth.com/content/dam/aetna/medicaid/illinois/providers/pdf/Aetna%20Better%20Health%20of%20Illinois%20Provider%20Manual%202026.pdf' },
+          { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
+        ],
+      },
     ],
     collect: [
       { title: 'Member ID', desc: 'Confirm Aetna Better Health of Illinois (not another HealthChoice plan or FFS) on the date of service.' },
@@ -394,7 +414,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       { title: 'Physician order', desc: 'HFS requires a physician order for ABS, valid one year.' },
       { title: 'Other insurance', desc: 'Aetna is payer of last resort; file with the primary first and submit within 90 days of its EOB.' },
     ],
-    sources: [S.ilga5_30_1, S.abhilUM, S.abhilPM, S.hfs210930, S.hfs230824, S.hfsFee, S.hfsMap, S.cfr438, S.cfr433, S.idfpr, { title: 'Aetna Better Health of Illinois — Notices and newsletters', url: 'https://www.aetnabetterhealth.com/illinois-medicaid/providers/newsletters.html' }],
+    sources: [S.ilga5_30_1, S.abhilUM, S.abhilPM, S.hfs210930, S.hfs230824, S.hfsFee, S.hfsMap, S.cfr438, S.cfr433, S.idfpr, { title: 'Aetna Better Health of Illinois — Notices and newsletters', url: 'https://www.aetnabetterhealth.com/illinois-medicaid/providers/newsletters.html' }, { title: 'Aetna Better Health of Illinois — Provider Manual 2026', url: 'https://ch.aetnabetterhealth.com/content/dam/aetna/medicaid/illinois/providers/pdf/Aetna%20Better%20Health%20of%20Illinois%20Provider%20Manual%202026.pdf' }, { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' } ],
     deliveryRules: {
       supervision: {
         value: 'The plan publishes no ABA supervision rule. HFS’s rule applies: RBTs “must receive supervision from a BCBA,” and HFS’s ABS guidance sets Case Leadership at “5%, or more, of all direct services” with at least two face-to-face contacts a month.',
@@ -482,6 +502,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       { q: 'What happens after the assessment?', a: 'Treatment goes to concurrent utilization review, and the plan says an authorization is still required for claims payment. Ask UM at 1-866-329-4701 how it wants the first treatment request submitted.' },
       { q: 'What is the timely filing limit?', a: '180 days from the date of service for new and corrected claims; 90 days from the primary insurer’s EOB when another plan pays first.' },
       { q: 'Can ABA be done by telehealth for Aetna Better Health of Illinois members?', a: 'The plan publishes no ABA-specific rule, so HFS’s fee schedule governs: 97151, 97155, 97156 and 97157 with modifier GT or 93 and POS 02 or 10.' },
+      { q: 'Does Aetna Better Health of Illinois give single case agreements to out-of-network ABA providers?', a: 'Yes. Its 2026 manual publishes the steps: get a prior authorization from Medical Management first; if the out-of-network provider will not accept fee-schedule rates, an SCA goes through medical-necessity review and the Advisor Review Committee, then Network Contracting negotiates with the provider.' },
     ],
   },
 
@@ -540,6 +561,17 @@ export const illinoisPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.bcbsilABSBill, S.bcchpPM, S.ilga5_30_1],
       },
+      {
+        h2: 'Out-of-network ABA and single case agreements (Blue Cross Community Health Plans)',
+        body: [
+          'The BCCHP manual: “Non-contracted providers must be registered with IMPACT to be eligible for claims payment,” and “benefit preauthorization is required from BCBSIL for services rendered by all non-contracted providers before the services are rendered.” Services from non-contracted providers without referral, preauthorization or IMPACT registration “will not be considered for reimbursement.” Providers “registered in IMPACT but not contracted with BCCHP may see Members and submit claims,” and “All services may require preauthorization.” The manual does not use the term single case agreement and publishes no out-of-network ABA rate.',
+          'Federal floor: when a plan’s network “is unable to provide necessary services, covered under the contract, to a particular enrollee,” the plan “must adequately and timely cover these services out of network for the enrollee, for as long as” the network cannot provide them. The out-of-network provider must “coordinate with the MCO … for payment,” and the family pays no more than in network (42 CFR 438.206(b)(4)–(5)). Ask the plan’s utilization management team for an out-of-network authorization, and agree the rate, before the first session.',
+        ],
+        cites: [
+          { title: 'Blue Cross Community Health Plans (BCCHP) — Provider Manual', url: 'https://www.bcbsil.com/docs/provider/il/standards/manual/bcchp/bcchp-provider-manual.pdf' },
+          { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
+        ],
+      },
     ],
     collect: [
       { title: 'Member ID', desc: 'Confirm BCCHP (Medicaid), not a BCBSIL commercial card: the rules differ.' },
@@ -548,7 +580,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       { title: 'Rendering and supervising clinicians', desc: 'The rendering provider on the claim must match the authorization; RBT claims name the supervising clinician.' },
       { title: 'Other insurance', desc: 'Medicaid pays last; bill the primary first.' },
     ],
-    sources: [S.ilga5_30_1, S.bcchpSum, S.bcchpCodes, S.bcchpPM, S.bcbsilABSBill, S.bcbsilUM, S.bcbsilPA104, S.hfs210930, S.hfs230824, S.hfsFee, S.hfsMap, S.cfr433, S.idfpr, { title: 'Blue Cross and Blue Shield of Illinois — Provider News and Updates (incl. Blue Cross Community Health Plans Medicaid notices)', url: 'https://www.bcbsil.com/provider/education/education-reference/news' }],
+    sources: [S.ilga5_30_1, S.bcchpSum, S.bcchpCodes, S.bcchpPM, S.bcbsilABSBill, S.bcbsilUM, S.bcbsilPA104, S.hfs210930, S.hfs230824, S.hfsFee, S.hfsMap, S.cfr433, S.idfpr, { title: 'Blue Cross and Blue Shield of Illinois — Provider News and Updates (incl. Blue Cross Community Health Plans Medicaid notices)', url: 'https://www.bcbsil.com/provider/education/education-reference/news' }, { title: 'Blue Cross Community Health Plans (BCCHP) — Provider Manual', url: 'https://www.bcbsil.com/docs/provider/il/standards/manual/bcchp/bcchp-provider-manual.pdf' }, { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' } ],
     deliveryRules: {
       supervision: {
         value: 'BCCHP publishes no ABA supervision ratio in the documents read. HFS’s rule applies: RBTs “must receive supervision from a BCBA,” with Case Leadership of 5% or more of direct services and two face-to-face contacts a month in HFS’s ABS guidance. MCG B-806-T may add requirements but is licensed and not public.',
@@ -644,6 +676,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       { q: 'Which forms does BCCHP use for ABA?', a: 'The ABA Initial Assessment Request form for 97151/97152 and the ABA Clinical Service Request form for 97153–97158, per the BCCHP code list.' },
       { q: 'Whose NPI goes on a BCCHP ABA claim?', a: 'The rendering provider in box 24J (loop 2310B). When an RBT renders, the supervising ABS clinician goes in box 17 (loop 2310D).' },
       { q: 'Is BCCHP the same as a BCBSIL commercial plan?', a: 'No. BCCHP is BCBSIL’s Medicaid plan and follows HFS’s ABS benefit and the 24-hour notification rule; commercial BCBSIL plans have their own ABA PA list and phone-based preservice process.' },
+      { q: 'Does Blue Cross Community Health Plans give single case agreements to out-of-network ABA providers?', a: 'BCCHP’s manual does not describe single case agreements. A non-contracted provider must be registered in IMPACT and get benefit preauthorization from BCBSIL before treating; otherwise the services “will not be considered for reimbursement.”' },
     ],
   },
 
@@ -700,6 +733,17 @@ export const illinoisPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.ccPM, S.ilga5_30_1],
       },
+      {
+        h2: 'Out-of-network ABA and single case agreements (CountyCare)',
+        body: [
+          'CountyCare’s 2025 manual: “Out-of-network services are not covered unless services are for emergency services, family planning, or when the health plan provides prior authorization,” and its prior authorization table lists “Out-of-network physician/ facility/service: Required.” The manual does not use the term single case agreement and publishes no out-of-network ABA rate. If an authorization is denied, a participating or non-contracted provider “may request a peer-to-peer review within two (2) days of the decision.”',
+          'Federal floor: when a plan’s network “is unable to provide necessary services, covered under the contract, to a particular enrollee,” the plan “must adequately and timely cover these services out of network for the enrollee, for as long as” the network cannot provide them. The out-of-network provider must “coordinate with the MCO … for payment,” and the family pays no more than in network (42 CFR 438.206(b)(4)–(5)). Ask the plan’s utilization management team for an out-of-network authorization, and agree the rate, before the first session.',
+        ],
+        cites: [
+          { title: 'CountyCare Health Plan — 2025 Provider Manual', url: 'https://countycare.com/wp-content/uploads/2025-Provider-Manual-011425-2.pdf' },
+          { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
+        ],
+      },
     ],
     collect: [
       { title: 'Member ID and county', desc: 'CountyCare serves Cook County only; confirm enrollment on the date of service.' },
@@ -708,7 +752,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       { title: 'Prior treatment', desc: 'Members treated in the last 90 days can keep their provider for 90 days while they transition.' },
       { title: 'Other insurance', desc: 'CountyCare pays last; bill the primary first.' },
     ],
-    sources: [S.ilga5_30_1, S.ccNotice, S.ccPM, S.hfs210930, S.hfs230824, S.hfsFee, S.hfsMap, S.cfr433, S.cfr438, S.idfpr, { title: 'CountyCare Health Plan — Provider Notices', url: 'https://countycare.com/provider-notices/' }, { title: 'CountyCare Health Plan — Provider Newsletters', url: 'https://countycare.com/providers/provider-newsletters/' }],
+    sources: [S.ilga5_30_1, S.ccNotice, S.ccPM, S.hfs210930, S.hfs230824, S.hfsFee, S.hfsMap, S.cfr433, S.cfr438, S.idfpr, { title: 'CountyCare Health Plan — Provider Notices', url: 'https://countycare.com/provider-notices/' }, { title: 'CountyCare Health Plan — Provider Newsletters', url: 'https://countycare.com/providers/provider-newsletters/' }, { title: 'CountyCare Health Plan — 2025 Provider Manual', url: 'https://countycare.com/wp-content/uploads/2025-Provider-Manual-011425-2.pdf' }, { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' } ],
     deliveryRules: {
       supervision: {
         value: 'CountyCare publishes no ABA supervision rule in the documents read. HFS’s rule applies: RBTs “must receive supervision from a BCBA,” with Case Leadership of 5% or more of direct services and two face-to-face contacts a month in HFS’s ABS guidance.',
@@ -796,6 +840,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       { q: 'How fast does CountyCare decide an ABA request?', a: 'Routine requests within 4 calendar days, urgent within 48 hours, per its provider manual.' },
       { q: 'What is CountyCare’s timely filing limit?', a: '180 calendar days from the date of service; disputes within 60 days of the EOP.' },
       { q: 'Who can enroll in CountyCare?', a: 'CountyCare is the HealthChoice Illinois plan for Cook County only, per HFS’s managed care map.' },
+      { q: 'Does CountyCare give single case agreements to out-of-network ABA providers?', a: 'CountyCare’s manual does not describe single case agreements. Out-of-network services are covered only for emergencies, family planning, or “when the health plan provides prior authorization.”' },
     ],
   },
 
@@ -860,6 +905,17 @@ export const illinoisPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.merBH104, S.merBH105, S.merPM, S.ilga5_30_1],
       },
+      {
+        h2: 'Out-of-network ABA and single case agreements (Meridian)',
+        body: [
+          'Meridian’s June 2026 manual: “All services (except emergency services) for out-of-network providers require prior authorization”; PAs are submitted “through Meridian’s provider portals.” Its appeal and claim dispute process “are available to all providers, regardless of whether they are in- or out-of-network,” with “only one level of dispute available within Meridian.” The manual does not use the term single case agreement and publishes no out-of-network ABA rate.',
+          'Federal floor: when a plan’s network “is unable to provide necessary services, covered under the contract, to a particular enrollee,” the plan “must adequately and timely cover these services out of network for the enrollee, for as long as” the network cannot provide them. The out-of-network provider must “coordinate with the MCO … for payment,” and the family pays no more than in network (42 CFR 438.206(b)(4)–(5)). Ask the plan’s utilization management team for an out-of-network authorization, and agree the rate, before the first session.',
+        ],
+        cites: [
+          { title: 'Meridian (Illinois Medicaid) — Provider Manual, June 24, 2026', url: 'https://www.ilmeridian.com/content/dam/centene/meridian/il/pdf/Meridian_ProviderManual_06.24.26.pdf' },
+          { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
+        ],
+      },
     ],
     collect: [
       { title: 'Member ID', desc: 'Confirm Meridian (not YouthCare or another plan) on the date of service.' },
@@ -869,7 +925,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       { title: 'School schedule', desc: 'Full-time school caps requested hours below 20 a week under CP.BH.104.' },
       { title: 'Other insurance', desc: 'Meridian is billed as secondary and pays up to the Medicaid allowable.' },
     ],
-    sources: [S.ilga5_30_1, S.merNotif, S.merPM, S.merBH104, S.merBH105, S.hfs210930, S.hfs230824, S.hfsFee, S.hfsMap, S.cfr438, S.cfr433, S.idfpr, { title: 'Meridian Health Plan of Illinois — Newsroom (provider notices archive)', url: 'https://www.ilmeridian.com/newsroom.html' }],
+    sources: [S.ilga5_30_1, S.merNotif, S.merPM, S.merBH104, S.merBH105, S.hfs210930, S.hfs230824, S.hfsFee, S.hfsMap, S.cfr438, S.cfr433, S.idfpr, { title: 'Meridian Health Plan of Illinois — Newsroom (provider notices archive)', url: 'https://www.ilmeridian.com/newsroom.html' }, { title: 'Meridian (Illinois Medicaid) — Provider Manual, June 24, 2026', url: 'https://www.ilmeridian.com/content/dam/centene/meridian/il/pdf/Meridian_ProviderManual_06.24.26.pdf' }, { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' } ],
     deliveryRules: {
       supervision: {
         value: 'CP.BH.104: Adaptive Behavior Treatment with Protocol Modification “occurs for at least two hours per week or 10% of the direct service hours provided, whichever is greater” (one to two hours a week is acceptable below 10 hours a week), and treatment must be “delivered or supervised by an ABA-credentialed professional.” HFS adds that RBTs “must receive supervision from a BCBA.”',
@@ -954,6 +1010,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       { q: 'How recent must the diagnosis be for Meridian?', a: 'CP.BH.104 wants a CDE from the last three years to start treatment, or a new diagnostic interview within 12 months if the CDE is three to five years old.' },
       { q: 'How many ABA hours will Meridian authorize?', a: 'Up to 6 hours a day and 30 a week unless documentation justifies more, and under 20 hours a week for a child in school full-time (CP.BH.104).' },
       { q: 'What is Meridian’s timely filing limit?', a: '180 days from the date of service.' },
+      { q: 'Does Meridian give single case agreements to out-of-network ABA providers?', a: 'Meridian’s manual does not describe single case agreements. All non-emergency services from out-of-network providers need prior authorization, and its one-level dispute process is open to out-of-network providers.' },
     ],
   },
 
@@ -1010,6 +1067,17 @@ export const illinoisPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.molPM, S.molABS22, S.hfs210930, S.ilga5_30_1],
       },
+      {
+        h2: 'Out-of-network ABA and single case agreements (Molina)',
+        body: [
+          'Molina’s 2026 Illinois manual: “If there is a need to go to a non-contracted Provider, all care provided by non-contracted, non-network Providers must be preauthorized by Molina.” Molina itself reviews “all out-of-network Servicing Provider PA requests and PA requests for Molina Members under the age of 18.” When a member transfers in, Molina “will honor the Member’s existing service plans, level of care, and Providers (including out-of-network Providers) for 90 days.” The manual does not use the term single case agreement and publishes no out-of-network ABA rate.',
+          'Federal floor: when a plan’s network “is unable to provide necessary services, covered under the contract, to a particular enrollee,” the plan “must adequately and timely cover these services out of network for the enrollee, for as long as” the network cannot provide them. The out-of-network provider must “coordinate with the MCO … for payment,” and the family pays no more than in network (42 CFR 438.206(b)(4)–(5)). Ask the plan’s utilization management team for an out-of-network authorization, and agree the rate, before the first session.',
+        ],
+        cites: [
+          { title: 'Molina Healthcare of Illinois — 2026 Medicaid Provider Manual', url: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/il/Provider-Manuals/2026_MHIL_Medicaid_Provider_Manual_V1_Final508.pdf' },
+          { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
+        ],
+      },
     ],
     collect: [
       { title: 'Member ID', desc: 'Confirm Molina HealthChoice Illinois on the date of service.' },
@@ -1018,7 +1086,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       { title: 'Physician referral', desc: 'Molina’s memo requires referral by a physician; HFS’s order is valid one year.' },
       { title: 'Other insurance', desc: 'Molina is payer of last resort.' },
     ],
-    sources: [S.ilga5_30_1, S.molMemo, S.molPM, S.molABS22, S.hfs210930, S.hfs230824, S.hfsFee, S.hfsMap, S.cfr433, S.idfpr, { title: 'Molina Healthcare of Illinois — Provider Communications (provider memos and newsletters by year)', url: 'https://www.molinahealthcare.com/providers/il/communications' }],
+    sources: [S.ilga5_30_1, S.molMemo, S.molPM, S.molABS22, S.hfs210930, S.hfs230824, S.hfsFee, S.hfsMap, S.cfr433, S.idfpr, { title: 'Molina Healthcare of Illinois — Provider Communications (provider memos and newsletters by year)', url: 'https://www.molinahealthcare.com/providers/il/communications' }, { title: 'Molina Healthcare of Illinois — 2026 Medicaid Provider Manual', url: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/il/Provider-Manuals/2026_MHIL_Medicaid_Provider_Manual_V1_Final508.pdf' }, { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' } ],
     deliveryRules: {
       supervision: {
         value: 'Molina publishes no ABA ratio of its own in the documents read (its 2022 memo’s collaborative-agreement language predates HFS’s 2023 change). HFS’s rule applies: RBTs “must receive supervision from a BCBA,” with Case Leadership of 5% or more of direct services in HFS’s ABS guidance.',
@@ -1104,6 +1172,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       { q: 'When does Molina’s concurrent review start?', a: 'Submit concurrent clinical no later than 24 hours after starting the 49th unit of the year, counted across 0373T and 97153–97158.' },
       { q: 'How do I submit to Molina Illinois?', a: 'Through Availity Essentials, which Molina calls the only way to submit authorization requests, with clinical documents attached.' },
       { q: 'What does Molina Illinois pay for ABA?', a: 'Molina directs providers to the HFS ABS fee schedule (97153 $13.00, 97155 $20.39 per 15 minutes); contracted rates are in your agreement.' },
+      { q: 'Does Molina give single case agreements to out-of-network ABA providers?', a: 'Molina’s Illinois manual does not describe single case agreements. All care from non-contracted providers “must be preauthorized by Molina,” and Molina itself reviews out-of-network requests and requests for members under 18.' },
     ],
   },
 
@@ -1168,6 +1237,17 @@ export const illinoisPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.ycPolicies, S.merBH104, S.merBH105, S.ycPM, S.ilga5_30_1],
       },
+      {
+        h2: 'Out-of-network ABA and single case agreements (YouthCare)',
+        body: [
+          'YouthCare’s September 2026 manual is the strictest: “we will NOT authorize services for out-of-network or non-participating providers, unless the services are necessary for continuity of care reasons. We may also authorize services for out-of-network providers at our discretion if the services are not available through our in-network providers.” Services “provided by an out-of-network provider and not authorized by YouthCare” are not covered. The manual does not use the term single case agreement and publishes no out-of-network ABA rate.',
+          'Federal floor: when a plan’s network “is unable to provide necessary services, covered under the contract, to a particular enrollee,” the plan “must adequately and timely cover these services out of network for the enrollee, for as long as” the network cannot provide them. The out-of-network provider must “coordinate with the MCO … for payment,” and the family pays no more than in network (42 CFR 438.206(b)(4)–(5)). Ask the plan’s utilization management team for an out-of-network authorization, and agree the rate, before the first session.',
+        ],
+        cites: [
+          { title: 'YouthCare (Illinois) — Provider Manual, September 28, 2026', url: 'https://www.ilyouthcare.com/content/dam/centene/meridian/il/pdf/YouthCare_ProviderManual_09.28.26.pdf' },
+          { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
+        ],
+      },
     ],
     collect: [
       { title: 'DCFS status', desc: 'Youth in care or former youth in care; YouthCare enrolls only these children.' },
@@ -1176,7 +1256,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       { title: 'Physician order', desc: 'HFS requires a physician order for ABS, valid one year.' },
       { title: 'Start date', desc: 'Notify within 24 hours of the initial assessment; request treatment PA 14 days ahead.' },
     ],
-    sources: [S.ilga5_30_1, S.ycPM, S.ycPolicies, S.merBH104, S.merBH105, S.hfsMap, S.hfsMC, S.hfs210930, S.hfs230824, S.hfsFee, S.cfr433, S.idfpr, { title: 'YouthCare (Meridian) — Newsroom (provider notices archive)', url: 'https://www.ilyouthcare.com/newsroom.html' }],
+    sources: [S.ilga5_30_1, S.ycPM, S.ycPolicies, S.merBH104, S.merBH105, S.hfsMap, S.hfsMC, S.hfs210930, S.hfs230824, S.hfsFee, S.cfr433, S.idfpr, { title: 'YouthCare (Meridian) — Newsroom (provider notices archive)', url: 'https://www.ilyouthcare.com/newsroom.html' }, { title: 'YouthCare (Illinois) — Provider Manual, September 28, 2026', url: 'https://www.ilyouthcare.com/content/dam/centene/meridian/il/pdf/YouthCare_ProviderManual_09.28.26.pdf' }, { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' } ],
     deliveryRules: {
       supervision: {
         value: 'CP.BH.104 (listed on YouthCare’s policy page): protocol modification “for at least two hours per week or 10% of the direct service hours provided, whichever is greater” (one to two hours a week acceptable under 10 hours). HFS: RBTs “must receive supervision from a BCBA.”',
@@ -1259,6 +1339,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       { q: 'Who is in YouthCare?', a: 'Only DCFS youth in care and former youth in care, statewide, per HFS’s managed care map.' },
       { q: 'Does the ABA assessment need PA with YouthCare?', a: 'No PA, but notify YouthCare within 24 hours of the initial assessment. Treatment needs prior authorization.' },
       { q: 'Is YouthCare the same as Meridian?', a: 'Meridian operates YouthCare and the two share Centene’s ABA policies, but YouthCare is a separate plan with its own manual and member ID.' },
+      { q: 'Does YouthCare give single case agreements to out-of-network ABA providers?', a: 'YouthCare’s manual does not describe single case agreements. It “will NOT authorize services for out-of-network or non-participating providers” except for continuity of care, or at its discretion when the service is not available in network.' },
     ],
   },
 
@@ -1336,6 +1417,22 @@ export const illinoisPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.aetnaOM, S.hfsFee],
       },
+      {
+        h2: 'Out-of-network ABA, reconsiderations, the precertification form and billing credentials (Aetna)',
+        body: [
+          'Single case agreements and out-of-network care. Aetna publishes no single-case-agreement policy for ABA. Its provider manual (6/26) describes two routes instead. An out-of-network referral is “a written or oral request that we review”; reasons it may be approved include a preferred professional who “isn’t available in network (and the member’s plan provides coverage for out-of-network services)” and a member “continuing, or returning to, treatment with a nonparticipating health care professional.” Transition of care lets a qualifying member keep “their current out-of-network provider at in-network cost level for a defined period of time,” and the treating provider “must be an individual practitioner” or a home care agency. ABA itself still needs precertification either way. Neither the manual nor the ABA medical necessity guide publishes an out-of-network ABA rate. What a non-participating Illinois provider is paid comes from the member’s plan, so ask Aetna on the member’s benefits line before you start.',
+          'Reconsideration and appeal packet. File a reconsideration “within 180 calendar days of the initial claim decision” and an appeal “within 60 calendar days of the reconsideration decision.” Some cases skip reconsideration and go straight to appeal: denials for no precertification, adverse utilization review decisions and retroactive authorizations. For a reconsideration, send “medical records, office notes and other supporting documents” plus a completed dispute and appeal form or an explanation with the member ID, patient name, TIN, claim ID, dates of service and billed amounts, and the procedure codes and modifiers you are disputing. A valid appeal needs the completed dispute and appeal form, “an explanation identifying the denied codes or payments being disputed,” and the medical records. The manual adds that a written dispute must carry the TIN and NPI billed, the servicing provider, the expected reimbursement and your rationale, or “the original claim decision will be deemed final.” Aetna answers appeals within 60 calendar days. For Illinois, Aetna’s state table sends a mailed reconsideration to Aetna Provider Resolution Team, PO Box 981106, El Paso, TX 79998-1106; written commercial appeals go to Aetna Provider Resolution Team, PO Box 14020, Lexington, KY 40512 (fax 1-859-455-8650). Availity is the fastest route for both.',
+          'Whose authorization is it? The ABA precertification form identifies the requester as the “Provider/Provider Group” by “TIN or PIN number,” with its network status (Participating or Non-Participating) and the service location. It also names who “is supervising/directing the ABA services.” None of Aetna’s ABA documents (the form, the manual or the medical necessity guide) says an approval follows the child to another agency. A practice taking over a case should request its own precertification.',
+          'What the 97151 request must contain. Form GR-69017-4 (7-26) replaced every other Aetna ABA precertification document from August 1, 2026 (“Don’t use this form for Maryland and Massachusetts”). It asks for the DSM-5 diagnosis code and the “Diagnosing Provider (name and credentials)”; hours per authorization period for 97151, 97152 and 0362T; hours per week for each treatment code; and any hours during class. It also asks for the results of a standardized assessment (Vineland, ABAS or VB-MAPP) from the past 12 months, a treatment plan with baseline, interim and current data for every goal, FBA or skills-assessment results, caregiver goals, and titration and discharge criteria. Start the request on Availity or by phone, then attach the form; the form cannot open a request.',
+          'Who may bill which code. Aetna’s ABA medical necessity guide requires that services “be provided directly or billed by licensed behavior analysts (in states with behavior analyst licensure laws), board-certified behavior analysts, or licensed psychologists” where ABA is within their scope, “unless state mandates, plan documents or contracts require otherwise.” Unlicensed or uncertified staff must work under supervision “in line with practice standards.” The guide, the precertification form and the manual set no per-code credential table and define no HM/HN/HO/HP credential modifiers, so modifier use comes from your Aetna agreement.',
+        ],
+        cites: [
+          { title: 'Aetna Provider Manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna — Disputes and appeals overview (reconsideration and appeal time frames)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' },
+          { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Illinois mandate applies) vs. self-funded ERISA (plan document governs). Ask for the employer and check the card.' },
@@ -1344,7 +1441,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       { title: 'Standardized functional measure', desc: 'Aetna wants one from the past 12 months (for example Vineland-3, ABAS, VB-MAPP or ABLLS).' },
       { title: 'Illinois license numbers', desc: 'IDFPR license for each BCBA/BCaBA as well as BACB certification.' },
     ],
-    sources: [S.ilga357_9, S.aetnaCPB, S.aetnaCPB648, S.aetnaGuide, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.ilga356, S.fl356, S.ilga370c, S.pa10428, S.idoiCB2417, S.idfpr, S.ilga6_20, S.ilgaTele, S.bacbLic, S.erisa, S.hfsFee, S.hfsCh100, S.cfr433, S.tricare, S.champva],
+    sources: [S.ilga357_9, S.aetnaCPB, S.aetnaCPB648, S.aetnaGuide, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.ilga356, S.fl356, S.ilga370c, S.pa10428, S.idoiCB2417, S.idfpr, S.ilga6_20, S.ilgaTele, S.bacbLic, S.erisa, S.hfsFee, S.hfsCh100, S.cfr433, S.tricare, S.champva, { title: 'Aetna — Disputes and appeals overview (reconsideration and appeal time frames)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' } ],
     deliveryRules: {
       supervision: {
         value: 'Aetna’s Network Participation Criteria (5/26): services “must be provided directly or supervised by individuals licensed by the state or certified by the Behavior Analyst Certification Board,” supervised staff may be a BCaBA “or a paraprofessional,” and “A minimum of one hour of face-to-face supervision is required of the unlicensed or noncertified paraprofessional by a BCBA or licensed psychologist (or behavioral health professional) for each 10 hours of applied behavior analysis,” plus the supervisor “onsite with the child at least one hour a month.” “All BCBAs, BCaBAs and paraprofessionals must meet state requirements” — in Illinois that includes IDFPR licensure.',
@@ -1437,6 +1534,9 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       { q: 'Does Aetna require prior authorization for the ABA assessment in Illinois?', a: 'Aetna’s national precertification list includes 97151 and every other ABA code. But for fully insured Illinois policies, 215 ILCS 5/370c(w) has barred prior authorization of outpatient mental health treatment since January 1, 2026 (notification plus concurrent review is allowed), and the statute does not name ABA, so ask Aetna how it handles ABA on this plan. Self-funded plans follow their own rules.' },
       { q: 'Does a BCBA need an Illinois license to bill Aetna?', a: 'Illinois has licensed behavior analysts since January 15, 2025 (enforcement from April 21, 2025), and Aetna requires staff to meet state requirements, so yes: plan on the IDFPR license as well as BACB certification.' },
       { q: 'Can my ABA clinic run sessions in the community for an Aetna member in Illinois?', a: 'For fully insured Illinois plans, the Department of Insurance has told carriers they may not deny covered ABA solely because of where it is delivered, including non-school, non-home and non-provider settings (Company Bulletin 2024-17). Self-funded plans follow their own terms.' },
+      { q: 'Does Aetna give single case agreements for ABA in Illinois?', a: 'Aetna publishes no single-case-agreement policy. Its provider manual offers an out-of-network referral request (approved, for example, when no in-network professional is available and the plan has out-of-network benefits) and transition of care for a member already in treatment with an out-of-network individual practitioner. ABA still needs precertification.' },
+      { q: 'What should an Aetna ABA reconsideration in Illinois include?', a: 'Medical records and supporting documents, plus a dispute and appeal form or a letter with the member ID, patient name, TIN, claim ID, dates of service, billed amounts, and the codes and modifiers in dispute. File within 180 days of the claim decision; an appeal follows within 60 days of the reconsideration decision.' },
+      { q: 'Is an Aetna ABA authorization in Illinois tied to the BCBA or to the group?', a: 'The precertification form identifies the provider or group by TIN or PIN, with the supervising clinician named separately. Aetna publishes no rule that moves an authorization to another agency, so a new agency requests its own precertification.' },
     ],
   },
 
@@ -1513,6 +1613,22 @@ export const illinoisPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.ebhAdmin, S.hfsFee],
       },
+      {
+        h2: 'Network exceptions, appeals, the PA form and billing credentials (Cigna / Evernorth)',
+        body: [
+          'Network exceptions, the Cigna term for a single case agreement. Evernorth “requires prior authorization for the applied behavior analysis (ABA) level of care, including network exception requests.” Assessment codes normally need no authorization, but “authorization is required for 97151, 97152, or 0362T when requesting a network exception.” The request goes on the ABA prior authorization form (07/26) to ABA@Evernorth.com (preferred) or fax 860.687.9230. Product type matters: Evernorth’s guidelines say “HMO plans offer in-network coverage only” while “POS plans offer in- and out-of-network coverage,” and Cigna Connect covers out-of-network providers only for emergencies and “special circumstances.” On the HMO, SureFit and Cigna Connect products the guidelines describe, “Referrals are not required for behavioral health services.” Evernorth publishes no out-of-network ABA rate; the member’s plan sets it.',
+          'Appeals packet. Evernorth wants every appeal “in writing within 180 calendar days of the date of the initial payment or denial decision,” or within 180 days of the last payment adjustment. Each appeal must be submitted by a person, not by automation software. Rate and fee-schedule disputes “may be quickly resolved through submitting an adjustment request via the reconsideration feature on Provider.Evernorth.com.” Contract-rate appeals can be faxed to 877.804.1679 or mailed to Cigna Healthcare, PO Box 188062, Chattanooga, TN 37422, unless your agreement says otherwise. For medical-necessity denials, send the clinical information; Evernorth “strongly encourage[s] the submission of clinical information prior to the peer-to-peer review or appeal process.” An out-of-network provider may also need “a valid Appointments of Representative form signed by the patient” for a standard appeal to count, so confirm on the number on the ID card.',
+          'Whose authorization is it? The prior authorization form identifies the “Servicing clinic” by name, Taxpayer Identification Number (TIN) and servicing address, then the supervising provider and their credential, and asks whether the same provider will supervise the whole treatment. An approval “will be written on a per month basis with CPT code 97155” and can be interchanged with 97153–97158 and 0373T. EN0499 adds that ABA from “multiple ABA provider organizations/agencies/companies during the same authorization period” is not medically necessary unless the agencies document a coordination plan, consistent strategies and a combined intensity that fits. So a switching family’s new agency needs its own authorization.',
+          'What the assessment must contain. Standard 97151, 97152 and 0362T need no prior authorization when a BCBA or independently licensed provider bills with an ASD diagnosis. The report still has to meet EN0499 when treatment is requested. It must use a standardized instrument in its current edition (“must be the Vineland-3 vs. Vineland-II”), completed in full, with the date, the respondent and the form type. It must include “Standardized scores and score tables, and/or scoring grids/figures.” Administration must fall “within 60 days prior to the start of treatment,” with dated quantitative baseline data from the same window. It must also name the diagnosing clinician, their credentials and the date of the diagnosis.',
+          'Who may bill which code. Evernorth’s ABA billing-code table: 97151, 0362T, 97155, 97156, 97157, 97158 and 0373T are both provided and billed by a “BCBA-D, BCBA, or licensed mental health provider.” 97152, 97153 and 97154 may be provided by a “BCaBA, Technician” but are billed by the BCBA-D, BCBA or licensed provider. Evernorth’s code table, PA form and administrative guidelines define no HM/HN/HO/HP credential modifiers.',
+        ],
+        cites: [
+          { title: 'Evernorth — Applied Behavior Analysis Prior Authorization Form (07/26)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/applied-behavior-analysis.pdf' },
+          { title: 'Evernorth — Billing Codes for Applied Behavior Analysis', url: 'https://static.evernorth.com/assets/evernorth/provider/resourceLibrary/behavioralResources/doingBusinessWithUs/cbhDBwCBillingCodesForABA.html' },
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+          { title: 'Evernorth Coverage Policy EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Illinois mandate and Evernorth’s Illinois addendum apply) vs. self-funded ERISA (plan document governs).' },
@@ -1521,7 +1637,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       { title: 'Standardized assessment timing', desc: 'Instrument administered within 60 days before treatment starts.' },
       { title: 'Illinois license numbers', desc: 'IDFPR license for each behavior analyst as well as BACB certification.' },
     ],
-    sources: [S.ilga357_9, S.en0499, S.cignaARG, S.ebhAdmin, S.ilga356, S.fl356, S.ilga370c, S.pa10428, S.idoiCB2417, S.idfpr, S.ilga6_20, S.ilgaTele, S.bacbLic, S.erisa, S.hfsFee, S.hfsCh100, S.cfr433, S.tricare, S.champva],
+    sources: [S.ilga357_9, S.en0499, S.cignaARG, S.ebhAdmin, S.ilga356, S.fl356, S.ilga370c, S.pa10428, S.idoiCB2417, S.idfpr, S.ilga6_20, S.ilgaTele, S.bacbLic, S.erisa, S.hfsFee, S.hfsCh100, S.cfr433, S.tricare, S.champva, { title: 'Evernorth — Applied Behavior Analysis Prior Authorization Form (07/26)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/applied-behavior-analysis.pdf' }, { title: 'Evernorth — Billing Codes for Applied Behavior Analysis', url: 'https://static.evernorth.com/assets/evernorth/provider/resourceLibrary/behavioralResources/doingBusinessWithUs/cbhDBwCBillingCodesForABA.html' } ],
     deliveryRules: {
       supervision: {
         value: 'EN0499: case supervision by a BCBA, Licensed Behavior Analyst, or independently licensed mental health clinician with ABA training, at “one to two hours per ten hours of direct treatment”; when direct treatment is 10 hours a week or less, at least one to two hours a week. In Illinois the supervising behavior analyst also needs the IDFPR license.',
@@ -1609,6 +1725,8 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       { q: 'Does the Cigna ABA assessment need prior authorization in Illinois?', a: 'No, for 97151, 97152 and 0362T with an autism diagnosis when the provider is independently licensed or a BCBA. PA starts at treatment.' },
       { q: 'Can Cigna ABA be delivered by telehealth in Illinois?', a: 'Yes. Cigna’s autism resource guide covers all ABA CPT codes by telehealth, billed with modifier 95. The clinician still needs an Illinois license for a client in Illinois.' },
       { q: 'What does Cigna pay for ABA in Illinois?', a: 'Cigna publishes no ABA rates. Evernorth puts your fee schedule in Exhibit A of your Provider Agreement; call 800.926.2273. Illinois Medicaid’s 97153 rate ($13.00 per 15 minutes) is the public benchmark.' },
+      { q: 'Does Cigna give single case agreements for ABA in Illinois?', a: 'Cigna/Evernorth calls it a network exception. It needs prior authorization on the Evernorth ABA PA form, including for the 97151, 97152 and 0362T assessment codes that otherwise need none. HMO plans cover in-network providers only.' },
+      { q: 'Is a Cigna ABA authorization in Illinois tied to the BCBA or to the clinic?', a: 'The PA form names the servicing clinic by TIN and the supervising provider by credential. Approvals are written per month on 97155. A new agency requests its own authorization, and two agencies in the same period must document coordination.' },
     ],
   },
 
@@ -1686,6 +1804,25 @@ export const illinoisPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.optumNNM, S.optumReimb, S.hfsFee],
       },
+      {
+        h2: 'Single case agreements, out-of-network payment, reconsiderations and credential modifiers (UnitedHealthcare / Optum)',
+        body: [
+          'Single case agreements and out-of-network care. Optum’s ABA FAQ answers whether a provider can get a single case agreement while credentialing: “Not automatically. In exception cases, based on clinical need, new business implementations, or other gaps in the network, a SCA may be approved after review with the clinical team.” Once the provider is contracted, send Optum network management your member list “who will coordinate with the clinical team to update your authorizations.” UnitedHealthcare’s administrative guide gives the general gap rule: when no network provider is available, a network provider may request an exception, and “If approved, we apply the network benefits to the services done by the out-of-network care provider.” Some cards carry a W500 Emergent Wrap for “network gap exception services.”',
+          'Out-of-network payment. Where the No Surprises Act or a state surprise-billing law does not apply, “United will look to the member’s benefit plan.” The amount may come from a percentage of CMS rates, a FAIR Health percentile, Viant, a rate “negotiate[d] with an out-of-network provider after the service was provided,” or a third-party network discount. “Which option is used depends on … the terms of the healthcare benefit plan.” No public document gives a UnitedHealthcare out-of-network ABA rate, so the plan document (SPD or certificate) is the answer.',
+          'Reconsideration and appeal packet. Optum’s network manual runs a two-step process for commercial and Medicare Advantage plans (“This process does not apply to Medicaid plans”): reconsideration, then appeal, with “a total of 12 months for submission for both steps” unless state law or your agreement says otherwise. Include “member-specific treatment plans, clinical records, payment appendices or other items that support why you believe our decision was incorrect,” plus proof of timely filing: “confirmation we received and accepted your claim within your timely filing requirement.” Optum decides “based on the materials available at the time of the review.” Mail the reconsideration form and documents to Optum Behavioral Health Solutions, P.O. Box 30757, Salt Lake City, UT 84123, or use Provider Express > Appeals > Submit Claim Appeal, stating “the factual or legal basis for appeal.” UnitedHealthcare’s guide adds: “Please be detailed in why you feel the payment is not the adjudication outcome you expected.” At the appeal step, attach only new material: “Please do not include any materials that you sent to us as part of the reconsideration request.”',
+          'Whose authorization is it? Optum’s manual lists ABA among non-routine outpatient services and says “Authorizations for non-routine outpatient services are specific to the requesting clinician. The clinician will receive a copy of the authorization approval.” Inside a contracted group, “Any ABA Supervisor who is credentialed under the group or facility contract can see a member, billing with the applicable CPT code(s).” Optum publishes no rule that moves an authorization to a different agency or TIN, so a new agency requests its own.',
+          'What the request must contain. Optum publishes no mandatory assessment-report template. Its ABA Request for Services Checklist (BH00853) lists what the portal asks for: the supervisor, “Agency name and Tax ID,” service address, the diagnosing clinician and date of diagnosis, the service location (with IEP and school details for school-based hours), other services, current symptoms, “Assessments used and applicable scores (if completed i.e., Vineland, VB-MAPP, ABLLS),” the severity of deficits, the goals per domain, and “Progress made in this area including number of goals mastered.”',
+          'Credential modifiers and who may bill each code. Optum’s commercial ABA reimbursement policy (2022RP501A) applies to network and non-network providers. HM = RBT (“less than a bachelor’s degree level”; “State regulatory requirements may supplement, modify or supersede this policy”), HN = BCaBA (bachelor’s level), HO = BCBA or licensed mental health provider (master’s level), HP = BCBA-D or licensed mental health provider (doctorate). Allowed modifiers by code: 97151 HN, HO or HP; 97152, 97153 and 97154 HN, HM, HO or HP; 97155, 97156, 97157 and 97158 HN, HO or HP. 0362T and 0373T take no modifier. Bill “only one provider-level modifier per ABA service line.”',
+        ],
+        cites: [
+          { title: 'Optum — FAQ: Autism/ABA Using CPT Codes', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
+          { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial, Exchange, MA)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+          { title: 'UnitedHealthcare — Information on payment of out-of-network benefits', url: 'https://www.uhc.com/legal/information-on-payment-of-out-of-network-benefits' },
+          { title: 'Optum Behavioral Health — National Provider Network Manual (BH02330, eff. Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+          { title: 'Optum — Applied Behavior Analysis Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+          { title: 'Optum — ABA Request for Services Checklist (BH00853-25-QRG)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/BH00853-25-QRG_ABAQRG.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Illinois mandate applies) vs. self-funded ERISA (plan document governs).' },
@@ -1694,7 +1831,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       { title: 'Technician credentials', desc: 'Optum’s HM line is billed for an RBT; bring RBT numbers for every technician.' },
       { title: 'Illinois license numbers', desc: 'IDFPR license for each behavior analyst as well as BACB certification.' },
     ],
-    sources: [S.ilga357_9, S.optumSCC, S.optumSM, S.optumTele, S.optumReimb, S.optumNNM, S.hfsMap, S.ilga356, S.fl356, S.ilga370c, S.pa10428, S.idoiCB2417, S.idfpr, S.ilga6_20, S.ilgaTele, S.bacbLic, S.erisa, S.hfsFee, S.hfsCh100, S.cfr433, S.tricare, S.champva],
+    sources: [S.ilga357_9, S.optumSCC, S.optumSM, S.optumTele, S.optumReimb, S.optumNNM, S.hfsMap, S.ilga356, S.fl356, S.ilga370c, S.pa10428, S.idoiCB2417, S.idfpr, S.ilga6_20, S.ilgaTele, S.bacbLic, S.erisa, S.hfsFee, S.hfsCh100, S.cfr433, S.tricare, S.champva, { title: 'Optum — FAQ: Autism/ABA Using CPT Codes', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial, Exchange, MA)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, { title: 'UnitedHealthcare — Information on payment of out-of-network benefits', url: 'https://www.uhc.com/legal/information-on-payment-of-out-of-network-benefits' }, { title: 'Optum — ABA Request for Services Checklist (BH00853-25-QRG)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/BH00853-25-QRG_ABAQRG.pdf' } ],
     deliveryRules: {
       supervision: {
         value: '“Consistent with CASP standards of care, direct case supervision is required 1–2 hours for every 10 hours of direct treatment per week.” Optum does not recommend parents serving as their own child’s RBT. In Illinois the supervising behavior analyst also needs the IDFPR license.',
@@ -1785,6 +1922,10 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       { q: 'Does Optum have Illinois-specific ABA criteria?', a: 'No. Optum’s ABA State Mandates supplement (July 2026) does not list Illinois.' },
       { q: 'Is UnitedHealthcare an Illinois Medicaid plan?', a: 'No. HFS’s 2026 map lists Aetna Better Health, Blue Cross Community Health Plans, CountyCare, Meridian, Molina and YouthCare.' },
       { q: 'Can ABA be delivered by telehealth with UnitedHealthcare in Illinois?', a: 'Optum’s commercial telehealth guide allows only 97155, 97156 and 97157, billed POS 02 or 10. The 97151 assessment and 97153 are not on that list.' },
+      { q: 'Does UnitedHealthcare give single case agreements for ABA in Illinois?', a: 'Not automatically. Optum approves an SCA only “in exception cases, based on clinical need, new business implementations, or other gaps in the network,” after clinical review. UnitedHealthcare can also apply network benefits to an out-of-network provider when no network provider is available.' },
+      { q: 'What supporting documents go with a UnitedHealthcare (Optum) ABA reconsideration in Illinois?', a: 'Member-specific treatment plans, clinical records, payment appendices or anything else showing why the decision was wrong, plus proof the claim was filed on time. Both steps must be filed within 12 months in total. At the appeal step, send only new material.' },
+      { q: 'Is a UnitedHealthcare ABA authorization in Illinois tied to the BCBA or the group?', a: 'Optum says non-routine outpatient authorizations, ABA included, are “specific to the requesting clinician,” but any ABA supervisor credentialed under the same group contract can see the member. A different agency requests its own authorization.' },
+      { q: 'What do HM, HN, HO and HP mean on a UnitedHealthcare ABA claim in Illinois?', a: 'HM = RBT, HN = BCaBA, HO = BCBA or master’s-level licensed provider, HP = BCBA-D or doctoral-level licensed provider. 97151 and 97155–97158 cannot carry HM; 0362T and 0373T take no modifier.' },
     ],
   },
 

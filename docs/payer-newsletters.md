@@ -370,3 +370,4 @@ The URL is the payer's official index, but no automated route could read it on 2
 | OR | AllCare CCO |  | no | No provider newsletter or bulletin archive found on allcarehealth.com. |
 | SD | Wellmark Blue Cross and Blue Shield of South Dakota |  | yes | Only login-gated portal; no public newsletter/news archive found. |
 | WA | Regence BlueShield (Washington) | <https://web.regence.com/ProviderSubscription> | no | Candidate index (unverified): https://www.regence.com/provider/whats-new-publications. news.regence.com is the corporate newsroom, not provider news. Sign-up page confirms bimonthly 'The Connection' + monthly policy bulletins. |
+| AR | Empower Healthcare Solutions | Provider Alerts | <https://getempowerhealth.com/provider-alerts/> | <https://getempowerhealth.com/newsletter-signup/> | no | `empower-healthcare-solutions-arkansas` |

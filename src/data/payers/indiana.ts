@@ -203,6 +203,25 @@ export const indianaPayers: Record<string, PayerConfig> = {
           { title: 'IHCP Bulletin BT202627 — ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' },
         ],
       },
+      {
+        h2: 'Out-of-network ABA for managed care members',
+        body: [
+          'For members in a managed care entity (Anthem, CareSource, MDwise, MHS or UnitedHealthcare Community Plan), the federal rule applies: when a plan’s network “is unable to provide necessary services, covered under the contract, to a particular enrollee,” the plan “must adequately and timely cover these services out of network for the enrollee, for as long as” the network cannot provide them. The out-of-network provider must “coordinate with the MCO … for payment,” and the family pays no more than it would in network (42 CFR 438.206(b)(4)–(5)). Each plan’s guide quotes its own out-of-network authorization rule and rate. A provider that is not enrolled with the IHCP should ask the plan before treating.',
+        ],
+        cites: [
+          { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
+        ],
+      },
+      {
+        h2: 'Whose prior authorization is it, and does it move?',
+        body: [
+          'In fee-for-service, the PA belongs to the provider that requested it. The PA-UM contractor mails its decision letter “to the member and the requesting provider,” and the letter lists the “Requesting provider information.” “The rendering provider, if different from the requesting provider, must contact either the requesting provider or the member to secure a copy.” The IHCP module publishes no rule that moves an ABA PA from one agency to another, so a new agency should expect to submit its own request.',
+          'When the member changes plans (managed care to fee-for-service, fee-for-service to managed care, or one MCE to another), “the member’s new PA contractor must honor all existing PAs” for the first 30 calendar days in the new plan, the rest of the PA dates of service, or until the approved units run out, whichever comes first. “MCEs may be required to reimburse out-of-network providers during the transition period.”',
+        ],
+        cites: [
+          { title: 'IHCP Provider Reference Module — Prior Authorization (v7.3, published Sept. 29, 2026)', url: 'https://www.in.gov/medicaid/providers/files/modules/prior-authorization.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Member ID & managed-care plan', desc: 'Anthem, MHS, CareSource, or UHC (Hoosier Care Connect/PathWays) — the plan decides the PA process and forms. MDwise ended as an HIP/Hoosier Healthwise MCE 1/1/2026; former MDwise members now carry one of the other three.' },
@@ -243,6 +262,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: 'CMS — Medicaid NCCI MUE edits, practitioner services (2026 Q4, active 10/1–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' },
       { title: 'IHCP — Financial Transactions and Remittance Advice module (v7.0, publ. March 13, 2025)', url: 'https://www.in.gov/medicaid/providers/files/modules/financial-transactions-and-remittance-advice.pdf' },
       { title: 'IHCP — Provider bulletins archive (index of all IHCP bulletins)', url: 'https://www.in.gov/medicaid/providers/provider-references/bulletins-banner-pages-and-reference-modules/ihcp-bulletins' },
+      { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
     ],
     deliveryRules: {
       supervision: {
@@ -350,6 +370,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { q: 'Does Indiana Medicaid require the referring provider on the ABA claim (box 17b)?', a: 'The IHCP requires the NPI of the ordering, prescribing or referring provider on claims for services that result from an order or referral, and denies claims without it or when that provider is not IHCP-enrolled. It goes in CMS-1500 field 17b (837P loop 2310A). ABA specialty 615 is not on the list of specialties where every claim hard-edits for it. But Indiana ABA is delivered on a physician\'s referral, so report the referring practitioner\'s NPI and check that they are enrolled in the IHCP (OPR Provider Search Tool) before services start.' },
       { q: 'What is Indiana Medicaid’s timely filing limit, and when does IHCP pay?', a: 'Fee-for-service claims are due within 180 calendar days of the date of service (adjustments and administrative reviews within 60 days of the RA). Gainwell must adjudicate clean electronic claims within 21 days and paper within 30; the financial cycle runs every Friday and payment (check date or EFT deposit) follows on the Wednesday after.' },
       { q: 'Does Indiana Medicaid require graphs for an ABA reauthorization?', a: 'Yes. Every ABA PA request, continuation included, must carry the behavior assessment’s complete scoring report “including outcome measure scores and graphs,” plus an updated treatment plan showing measurable progress on each goal. ABA bills under CPT 97151–97158, 0362T and 0373T with IHCP modifiers.' },
+      { q: 'Is an Indiana Medicaid ABA prior authorization tied to the agency or the BCBA?', a: 'In fee-for-service, to the requesting provider: the decision letter goes to the member and the requesting provider, and a different rendering provider must get a copy from them. No IHCP rule moves an ABA PA to a new agency. When the member changes plans, the new plan honors existing PAs for the first 30 days, the rest of the PA dates or until its units run out, whichever comes first.' },
     ],
   },
 
@@ -473,6 +494,18 @@ dxRequired: {
           { title: 'IHCP Bulletin BT202627 — ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' },
         ],
       },
+      {
+        h2: 'Out-of-network ABA, single case agreements and claim disputes (Anthem)',
+        body: [
+          'Out-of-network ABA. Anthem’s Indiana Medicaid manual: “We recognize that there may be instances when an out-of-network referral is justified”; UM works with the PMP on medical necessity, “after that, out-of-network referrals will be authorized on a limited basis.” Get “a prior authorization approval number before referring members to an out-of-network provider,” and out-of-network providers need that authorization “for the initial consultation and each subsequent service provided.” Anthem also commits that it “will provide members with timely and adequate access to out-of-network services for as long as those services are necessary and not available within the network.” If it cannot provide a covered service “within 60 miles of the member’s residence,” it “authorizes out-of-network services.” Out-of-network outpatient requests go to 844-765-5157.',
+          'Federal floor: when the plan’s network “is unable to provide necessary services, covered under the contract, to a particular enrollee,” the plan “must adequately and timely cover these services out of network for the enrollee, for as long as” the network cannot provide them. The out-of-network provider must “coordinate with the MCO … for payment,” and the family pays no more than in network (42 CFR 438.206(b)(4)–(5)). The plan’s own manual (quoted here) is the process; none of these Indiana manuals uses the term “single case agreement.” Ask the plan’s utilization management line for an out-of-network authorization and the rate before starting.',
+          'Disputes and what to send. Claim disputes: “A complete Provider Dispute Resolution Request Form must be received by Anthem within 60 days from the date on the EOB” (several claims for the same issue can share one form), mailed to Anthem Blue Cross and Blue Shield Provider Disputes and Appeals, P.O. Box 61599, Virginia Beach, VA 23466. A formal appeal of the dispute response “must be received by Anthem within 60 days from the date on the claims dispute response.” For denied services, a reconsideration is due within seven business days of the denial and an appeal within 60 calendar days.',
+        ],
+        cites: [
+          { title: 'Anthem Blue Cross and Blue Shield — Indiana Medicaid Provider Manual (HIP, Hoosier Healthwise, Hoosier Care Connect, PathWays)', url: 'https://providers.anthem.com/docs/gpp/IN_CAID_ProviderManual.pdf' },
+          { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
+        ],
+      },
     ],
     collect: [
       { title: 'Program + delivery system', desc: 'Hoosier Healthwise vs. HIP vs. Hoosier Care Connect, and whether an ACO/PMG/IPA controls the auth path.' },
@@ -506,6 +539,7 @@ dxRequired: {
       { title: 'Anthem Blue Cross and Blue Shield — Indiana Medicaid Provider Manual (INBCBS-CD-PM-070775-24)', url: 'https://providers.anthem.com/docs/gpp/IN_CAID_ProviderManual.pdf' },
       { title: '42 CFR 447.46 — timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-447.46' },
       { title: 'Anthem Indiana — Provider News, Medicaid filter (provider news archive)', url: 'https://providernews.anthem.com/indiana/plan-type/CD' },
+      { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
     ],
     deliveryRules: {
       supervision: {
@@ -608,6 +642,7 @@ dxRequired: {
       { q: 'Do we bill this plan for ABA written into a child’s IEP?', a: 'No. Indiana carves school-based Medicaid services out of managed care: the IHCP School Corporation Services module (Sept. 29, 2026) says school corporations “must not submit claims for these services to the student’s managed care entity (MCE)” and bill fee-for-service (Gainwell) instead, with modifier TM on every code and the education plan serving as prior authorization. ABA your agency delivers outside the school program still goes through the plan.' },
       { q: 'What is Anthem Indiana Medicaid’s timely filing limit for ABA claims?', a: '90 calendar days from the date of service; secondary claims 90 days from the primary payer’s remittance advice; corrected claims and disputes 60 days from the EOB. Anthem finalizes clean electronic claims within 21 calendar days and pays clean paper claims within 30.' },
       { q: 'Does Anthem Indiana Medicaid require graphs for an ABA reauthorization?', a: 'Yes — IHCP’s ABA documentation rules apply to managed care: the behavior assessment’s complete scoring report, including outcome scores and graphs, goes with every PA request, along with an updated treatment plan showing measurable progress on each goal.' },
+      { q: 'Does Anthem pay an out-of-network ABA provider in Indiana?', a: 'Only with prior authorization. Anthem authorizes out-of-network referrals “on a limited basis” after a medical-necessity review, requires authorization for the first visit and each later service, and authorizes out-of-network care when it cannot provide a covered service within 60 miles.' },
     ],
   },
 
@@ -719,6 +754,18 @@ dxRequired: {
           { title: 'IHCP Bulletin BT202627 — ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' },
         ],
       },
+      {
+        h2: 'Out-of-network ABA, single case agreements and claim disputes (MHS)',
+        body: [
+          'Out-of-network ABA. MHS’s 2025 manual: “Non-contracted providers requesting authorization for elective/routine services that require a PA must obtain it 48 hours prior to the date of service,” and “Retroactive authorizations will not be granted except in the event of an emergent situation.” When an out-of-network provider was already treating a new member, that provider “must comply with the MHS Medical Management program and accept the IHCP fee schedule rates” and “will not be authorized for ongoing care for more than 90 days” while the member moves to an MHS provider.',
+          'Federal floor: when the plan’s network “is unable to provide necessary services, covered under the contract, to a particular enrollee,” the plan “must adequately and timely cover these services out of network for the enrollee, for as long as” the network cannot provide them. The out-of-network provider must “coordinate with the MCO … for payment,” and the family pays no more than in network (42 CFR 438.206(b)(4)–(5)). The plan’s own manual (quoted here) is the process; none of these Indiana manuals uses the term “single case agreement.” Ask the plan’s utilization management line for an out-of-network authorization and the rate before starting.',
+          'Disputes and what to send. Informal claim disputes (reconsiderations) “must be submitted either via the Secure Provider Portal or in writing within 60 calendar days from the date on the EOP,” with “sufficient information for MHS to identify the claim(s) in question and the reason the provider is disputing.” Behavioral health claim disputes are mailed to Managed Health Services, P.O. Box 6800, Farmington, MO 63640-3809. MHS answers within 30 calendar days. An administrative claim appeal “must be filed within 60 calendar days from receipt of the informal dispute resolution notice.”',
+        ],
+        cites: [
+          { title: 'MHS (Managed Health Services) — Indiana Provider Manual 2025', url: 'https://www.mhsindiana.com/content/dam/centene/mhsindiana/medicaid/pdfs/Provider-Manual-2025-508.pdf' },
+          { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
+        ],
+      },
     ],
     collect: [
       { title: 'Diagnostic instrument + score', desc: 'The named tool, date, score, and diagnosing provider — mandatory on the OTR and the most common intake bottleneck.' },
@@ -751,6 +798,7 @@ dxRequired: {
       { title: 'IHCP Works 2026 — MHS: Common Denials', url: 'https://www.in.gov/medicaid/providers/files/IHCP-Works-2026-MHS-Common-Denials.pdf' },
       { title: '42 CFR 447.46 — timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-447.46' },
       { title: 'MHS Indiana — Provider newsroom (provider notices archive)', url: 'https://www.mhsindiana.com/newsroom.html' },
+      { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
     ],
     deliveryRules: {
       supervision: {
@@ -853,6 +901,7 @@ dxRequired: {
       { q: 'Do we bill this plan for ABA written into a child’s IEP?', a: 'No. Indiana carves school-based Medicaid services out of managed care: the IHCP School Corporation Services module (Sept. 29, 2026) says school corporations “must not submit claims for these services to the student’s managed care entity (MCE)” and bill fee-for-service (Gainwell) instead, with modifier TM on every code and the education plan serving as prior authorization. ABA your agency delivers outside the school program still goes through the plan.' },
       { q: 'What is MHS Indiana’s timely filing limit for ABA claims?', a: '90 calendar days from the date of service; 365 days from the date of service when another insurer paid first (attach its EOP); resubmissions within 60 days of the EOP. MHS publishes no payment-day figure; the federal MCO floor is 90% of clean claims within 30 days.' },
       { q: 'Does MHS require graphs for an ABA reauthorization?', a: 'Yes — IHCP’s ABA documentation rules apply to managed care: the behavior assessment’s complete scoring report, including outcome scores and graphs, goes with every PA request, along with an updated treatment plan showing measurable progress on each goal.' },
+      { q: 'Does MHS pay an out-of-network ABA provider in Indiana?', a: 'Only with prior authorization requested at least 48 hours before the service; retro authorizations are not granted except in emergencies. An out-of-network provider already treating a new member is paid IHCP fee-schedule rates for up to 90 days while care moves in network.' },
     ],
   },
 
@@ -1191,6 +1240,18 @@ dxRequired: {
           { title: 'IHCP — Out-of-State Providers module (PROMOD00011, published May 29, 2026)', url: 'https://www.in.gov/medicaid/providers/files/modules/out-of-state-providers.pdf' },
         ],
       },
+      {
+        h2: 'Out-of-network ABA, single case agreements and claim disputes (MDwise)',
+        body: [
+          'Out-of-network ABA. MDwise’s manual: out-of-network care “may be authorized for coverage when appropriate contracted providers, services or facilities are unavailable within the member’s service area,” and “MDwise requires providers not contracted in the MDwise network to obtain prior authorization to render any non-self-referral or non-emergent services.” It also publishes the out-of-network rate: authorized out-of-network claims are paid “at the rate MDwise negotiates with the provider, or the lesser of” the Medicaid fee schedule rate on the date of service or “The usual and customary charge made to the public by the provider.” No MDwise provider number is needed: “The NPI number is sufficient for out-of-network provider reimbursement.”',
+          'Federal floor: when the plan’s network “is unable to provide necessary services, covered under the contract, to a particular enrollee,” the plan “must adequately and timely cover these services out of network for the enrollee, for as long as” the network cannot provide them. The out-of-network provider must “coordinate with the MCO … for payment,” and the family pays no more than in network (42 CFR 438.206(b)(4)–(5)). The plan’s own manual (quoted here) is the process; none of these Indiana manuals uses the term “single case agreement.” Ask the plan’s utilization management line for an out-of-network authorization and the rate before starting.',
+          'Disputes and what to send. “Providers must file their claims dispute within 90 calendar days of the initial EOP determination.” Include “the Claims Dispute Form, explanation of payment, and a summary of the reason for disputing the claim.” New claims, corrected claims and stand-alone medical records are not disputes. Mail to MDwise, Attention: Dispute Department, P.O. Box 441423, Indianapolis, IN 46244-1423. In-network and out-of-network providers “follow the same process and timeframes,” and MDwise answers within 30 business days.',
+        ],
+        cites: [
+          { title: 'MDwise — Hoosier Healthwise and HIP Provider Manual', url: 'https://www.mdwise.org/Uploads/Public/Documents/MDwise/hhw_hip_providermanual.pdf' },
+          { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
+        ],
+      },
     ],
     collect: [
       { title: 'Redirect to new MCE', desc: 'MDwise no longer serves HIP/Hoosier Healthwise as of 1/1/2026 — confirm which of Anthem, CareSource, or MHS the member was reassigned to, and use that guide.' },
@@ -1211,6 +1272,7 @@ dxRequired: {
       { title: 'IHCP — Out-of-State Providers module (PROMOD00011, published May 29, 2026)', url: 'https://www.in.gov/medicaid/providers/files/modules/out-of-state-providers.pdf' },
       { title: 'IHCP — National Correct Coding Initiative module (PROMOD00010, v7.0, publ. Dec. 23, 2024)', url: 'https://www.in.gov/medicaid/providers/files/modules/national-correct-coding-initiative.pdf' },
       { title: 'CMS — Medicaid NCCI MUE edits, practitioner services (2026 Q4, active 10/1–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-mue-edits-practitioner-services.zip' },
+      { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
     ],
     deliveryRules: {
       supervision: {
@@ -1308,6 +1370,7 @@ dxRequired: {
       { q: 'Why did Indiana end MDwise\'s Medicaid contract?', a: 'FSSA\'s review found MDwise was "both the most expensive and the lowest in quality" of the four legacy plans; federal rules require at least three plans, which the state still meets with Anthem, CareSource, and MHS.' },
       { q: 'Can an out-of-state BCBA treat Indiana Medicaid (former MDwise) members in Indiana, including by telehealth?', a: 'Indiana requires an Indiana license (IC 25-8.5-3-6), and its telehealth law counts only Indiana-licensed behavior analysts as practitioners. The IHCP enrolls some out-of-state providers, but out-of-state services generally need extra PA and some specialties are ineligible; check the Enrollment Matrix.' },
       { q: 'Did MDwise authorize ABA retroactively?', a: 'No. Its historical manual says “MDwise does not provide prior authorizations retroactively,” though it could do a post-service review to determine payment. MDwise left Hoosier Healthwise and HIP on 1/1/2026; follow the new MCE’s rules.' },
+      { q: 'Does MDwise pay an out-of-network ABA provider in Indiana?', a: 'Yes, with prior authorization when no contracted provider is available. MDwise pays authorized out-of-network claims at a negotiated rate or the lesser of the Medicaid fee schedule and the provider’s usual charge, and the NPI is enough to be paid.' },
     ],
   },
 
@@ -1427,6 +1490,17 @@ dxRequired: {
           { title: 'IHCP Bulletin BT202627 — ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' },
         ],
       },
+      {
+        h2: 'Out-of-network ABA and single case agreements (UnitedHealthcare Community Plan)',
+        body: [
+          'Out-of-network ABA. The posted Indiana care provider manual (a 2024 Hoosier Care Connect edition) says: “We require prior authorization for all out-of-network services that are not self-referral services.” A nurse reviews each request, and out-of-network referrals are approved for, among other things, continuity of care and services not available in network. An out-of-network Indiana Medicaid provider is paid 100% of the Medicaid fee schedule “for ER services only”; no out-of-network ABA rate is published. Out-of-network providers have “180 days from date of service or date of discharge to submit the claim.”',
+          'Federal floor: when the plan’s network “is unable to provide necessary services, covered under the contract, to a particular enrollee,” the plan “must adequately and timely cover these services out of network for the enrollee, for as long as” the network cannot provide them. The out-of-network provider must “coordinate with the MCO … for payment,” and the family pays no more than in network (42 CFR 438.206(b)(4)–(5)). The plan’s own manual (quoted here) is the process; none of these Indiana manuals uses the term “single case agreement.” Ask the plan’s utilization management line for an out-of-network authorization and the rate before starting.',
+        ],
+        cites: [
+          { title: 'UnitedHealthcare Community Plan — Hoosier Care Connect Care Provider Manual (2024, v65.11.2022)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/Indiana_Provider_Manual.pdf' },
+          { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
+        ],
+      },
     ],
     collect: [
       { title: 'Program confirmation', desc: 'Confirm the member is on Hoosier Care Connect or PathWays for Aging — UHC does not administer HIP or Hoosier Healthwise in Indiana.' },
@@ -1459,6 +1533,7 @@ dxRequired: {
       { title: 'IHCP Works 2026 — UnitedHealthcare: Behavioral Health', url: 'https://www.in.gov/medicaid/providers/files/IHCP-Works-2026-UHC-Behavioral-Health.pdf' },
       { title: '42 CFR 447.46 — timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-447.46' },
       { title: 'UnitedHealthcare Community Plan of Indiana — Bulletins and Newsletters (state bulletins archive)', url: 'https://www.uhcprovider.com/en/health-plans-by-state/indiana-health-plans/in-comm-plan-home/in-cp-news.html' },
+      { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
     ],
     deliveryRules: {
       supervision: {
@@ -1562,6 +1637,7 @@ dxRequired: {
       { q: 'Do we bill this plan for ABA written into a child’s IEP?', a: 'No. Indiana carves school-based Medicaid services out of managed care: the IHCP School Corporation Services module (Sept. 29, 2026) says school corporations “must not submit claims for these services to the student’s managed care entity (MCE)” and bill fee-for-service (Gainwell) instead, with modifier TM on every code and the education plan serving as prior authorization. ABA your agency delivers outside the school program still goes through the plan.' },
       { q: 'What is UnitedHealthcare Community Plan of Indiana’s timely filing limit?', a: '90 calendar days from the date of service; secondary claims 90 days from the primary EOB; reconsiderations and corrected claims 90 days from the original EOB. No payment-day figure is published; the federal MCO floor is 90% of clean claims within 30 days.' },
       { q: 'Does UnitedHealthcare Community Plan of Indiana require graphs for an ABA reauthorization?', a: 'Yes — IHCP’s ABA documentation rules apply to managed care: the behavior assessment’s complete scoring report, including outcome scores and graphs, goes with every PA request, along with an updated treatment plan showing measurable progress on each goal.' },
+      { q: 'Does UnitedHealthcare Community Plan pay an out-of-network ABA provider in Indiana?', a: 'Only with prior authorization: the posted manual requires it “for all out-of-network services that are not self-referral services.” No out-of-network ABA rate is published, and out-of-network claims are due within 180 days of service.' },
     ],
   },
 
@@ -1699,6 +1775,22 @@ dxRequired: {
           { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
         ],
       },
+      {
+        h2: 'Out-of-network ABA, reconsiderations, the precertification form and billing credentials (Aetna)',
+        body: [
+          'Single case agreements and out-of-network care. Aetna publishes no single-case-agreement policy for ABA. Its provider manual (6/26) describes two routes instead. An out-of-network referral is “a written or oral request that we review”; reasons it may be approved include a preferred professional who “isn’t available in network (and the member’s plan provides coverage for out-of-network services)” and a member “continuing, or returning to, treatment with a nonparticipating health care professional.” Transition of care lets a qualifying member keep “their current out-of-network provider at in-network cost level for a defined period of time,” and the treating provider “must be an individual practitioner” or a home care agency. ABA itself still needs precertification either way. Neither the manual nor the ABA medical necessity guide publishes an out-of-network ABA rate. What a non-participating Indiana provider is paid comes from the member’s plan, so ask Aetna on the member’s benefits line before you start.',
+          'Reconsideration and appeal packet. File a reconsideration “within 180 calendar days of the initial claim decision” and an appeal “within 60 calendar days of the reconsideration decision.” Some cases skip reconsideration and go straight to appeal: denials for no precertification, adverse utilization review decisions and retroactive authorizations. For a reconsideration, send “medical records, office notes and other supporting documents” plus a completed dispute and appeal form or an explanation with the member ID, patient name, TIN, claim ID, dates of service and billed amounts, and the procedure codes and modifiers you are disputing. A valid appeal needs the completed dispute and appeal form, “an explanation identifying the denied codes or payments being disputed,” and the medical records. The manual adds that a written dispute must carry the TIN and NPI billed, the servicing provider, the expected reimbursement and your rationale, or “the original claim decision will be deemed final.” Aetna answers appeals within 60 calendar days. For Indiana, Aetna’s state table sends a mailed reconsideration to Aetna Provider Resolution Team, PO Box 981106, El Paso, TX 79998-1106; written commercial appeals go to Aetna Provider Resolution Team, PO Box 14020, Lexington, KY 40512 (fax 1-859-455-8650). Availity is the fastest route for both.',
+          'Whose authorization is it? The ABA precertification form identifies the requester as the “Provider/Provider Group” by “TIN or PIN number,” with its network status (Participating or Non-Participating) and the service location. It also names who “is supervising/directing the ABA services.” None of Aetna’s ABA documents (the form, the manual or the medical necessity guide) says an approval follows the child to another agency. A practice taking over a case should request its own precertification.',
+          'What the 97151 request must contain. Form GR-69017-4 (7-26) replaced every other Aetna ABA precertification document from August 1, 2026 (“Don’t use this form for Maryland and Massachusetts”). It asks for the DSM-5 diagnosis code and the “Diagnosing Provider (name and credentials)”; hours per authorization period for 97151, 97152 and 0362T; hours per week for each treatment code; and any hours during class. It also asks for the results of a standardized assessment (Vineland, ABAS or VB-MAPP) from the past 12 months, a treatment plan with baseline, interim and current data for every goal, FBA or skills-assessment results, caregiver goals, and titration and discharge criteria. Start the request on Availity or by phone, then attach the form; the form cannot open a request.',
+          'Who may bill which code. Aetna’s ABA medical necessity guide requires that services “be provided directly or billed by licensed behavior analysts (in states with behavior analyst licensure laws), board-certified behavior analysts, or licensed psychologists” where ABA is within their scope, “unless state mandates, plan documents or contracts require otherwise.” Unlicensed or uncertified staff must work under supervision “in line with practice standards.” The guide, the precertification form and the manual set no per-code credential table and define no HM/HN/HO/HP credential modifiers, so modifier use comes from your Aetna agreement.',
+        ],
+        cites: [
+          { title: 'Aetna Provider Manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna — Disputes and appeals overview (reconsideration and appeal time frames)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' },
+          { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -1723,6 +1815,7 @@ dxRequired: {
       { title: 'IC 27-8-5.7-5 — Notice of claim deficiencies', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-5/' },
       { title: 'IC 27-8-5.7-6 — Payment of clean claims; interest', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-6/' },
       { title: 'Aetna Provider Manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+      { title: 'Aetna — Disputes and appeals overview (reconsideration and appeal time frames)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' },
     ],
     deliveryRules: {
       supervision: {
@@ -1846,6 +1939,9 @@ dxRequired: {
       { q: 'How fast must Aetna pay a clean ABA claim in Indiana?', a: 'Indiana law (IC 27-8-5.7-6) requires an insurer to pay or deny a clean claim within 30 days of receipt if filed electronically and 45 days on paper; a deficiency not flagged within that window makes the claim clean. Self-funded employer plans are not bound by the statute.' },
       { q: 'What documents does Aetna need for an ABA authorization in Indiana?', a: 'Aetna\'s precertification form GR-69017-4 (7-26), which replaced its other ABA forms from August 1, 2026 (Maryland and Massachusetts excepted), lists them. It asks for the current DSM diagnosis code and the diagnosing provider\'s name and credentials, plus hours by code (assessment codes per authorization period, treatment codes per week) and any hours during class. Supporting documents: "Results of a standardized assessment (i.e. Vineland, ABAS, VB-MAPP) completed within the past 12 months," with the IQ if available. Add a time-limited treatment plan with baselines and measurable targets, FBA or skills-assessment results, data showing severity justifies the hours, measurable caregiver goals, titration and discharge criteria, and coordination with other providers. Start the request on Availity or by phone and attach the form and records.' },
       { q: 'Does Aetna require graphs for an ABA reauthorization?', a: 'Aetna’s ABA medical necessity guide reviews progress every six months and requires quantified baseline and progress data, a standardized functional scale from the past 12 months, and documentation of improvement (or of treatment changes when there is none). It does not require the data to be graphed.' },
+      { q: 'Does Aetna give single case agreements for ABA in Indiana?', a: 'Aetna publishes no single-case-agreement policy. Its provider manual offers an out-of-network referral request (approved, for example, when no in-network professional is available and the plan has out-of-network benefits) and transition of care for a member already in treatment with an out-of-network individual practitioner. ABA still needs precertification.' },
+      { q: 'What should an Aetna ABA reconsideration in Indiana include?', a: 'Medical records and supporting documents, plus a dispute and appeal form or a letter with the member ID, patient name, TIN, claim ID, dates of service, billed amounts, and the codes and modifiers in dispute. File within 180 days of the claim decision; an appeal follows within 60 days of the reconsideration decision.' },
+      { q: 'Is an Aetna ABA authorization in Indiana tied to the BCBA or to the group?', a: 'The precertification form identifies the provider or group by TIN or PIN, with the supervising clinician named separately. Aetna publishes no rule that moves an authorization to another agency, so a new agency requests its own precertification.' },
     ],
   },
 
@@ -1976,6 +2072,22 @@ dxRequired: {
           { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
         ],
       },
+      {
+        h2: 'Network exceptions, appeals, the PA form and billing credentials (Cigna / Evernorth)',
+        body: [
+          'Network exceptions, the Cigna term for a single case agreement. Evernorth “requires prior authorization for the applied behavior analysis (ABA) level of care, including network exception requests.” Assessment codes normally need no authorization, but “authorization is required for 97151, 97152, or 0362T when requesting a network exception.” The request goes on the ABA prior authorization form (07/26) to ABA@Evernorth.com (preferred) or fax 860.687.9230. Product type matters: Evernorth’s guidelines say “HMO plans offer in-network coverage only” while “POS plans offer in- and out-of-network coverage,” and Cigna Connect covers out-of-network providers only for emergencies and “special circumstances.” On the HMO, SureFit and Cigna Connect products the guidelines describe, “Referrals are not required for behavioral health services.” Evernorth publishes no out-of-network ABA rate; the member’s plan sets it.',
+          'Appeals packet. Evernorth wants every appeal “in writing within 180 calendar days of the date of the initial payment or denial decision,” or within 180 days of the last payment adjustment. Each appeal must be submitted by a person, not by automation software. Rate and fee-schedule disputes “may be quickly resolved through submitting an adjustment request via the reconsideration feature on Provider.Evernorth.com.” Contract-rate appeals can be faxed to 877.804.1679 or mailed to Cigna Healthcare, PO Box 188062, Chattanooga, TN 37422, unless your agreement says otherwise. For medical-necessity denials, send the clinical information; Evernorth “strongly encourage[s] the submission of clinical information prior to the peer-to-peer review or appeal process.” An out-of-network provider may also need “a valid Appointments of Representative form signed by the patient” for a standard appeal to count, so confirm on the number on the ID card.',
+          'Whose authorization is it? The prior authorization form identifies the “Servicing clinic” by name, Taxpayer Identification Number (TIN) and servicing address, then the supervising provider and their credential, and asks whether the same provider will supervise the whole treatment. An approval “will be written on a per month basis with CPT code 97155” and can be interchanged with 97153–97158 and 0373T. EN0499 adds that ABA from “multiple ABA provider organizations/agencies/companies during the same authorization period” is not medically necessary unless the agencies document a coordination plan, consistent strategies and a combined intensity that fits. So a switching family’s new agency needs its own authorization.',
+          'What the assessment must contain. Standard 97151, 97152 and 0362T need no prior authorization when a BCBA or independently licensed provider bills with an ASD diagnosis. The report still has to meet EN0499 when treatment is requested. It must use a standardized instrument in its current edition (“must be the Vineland-3 vs. Vineland-II”), completed in full, with the date, the respondent and the form type. It must include “Standardized scores and score tables, and/or scoring grids/figures.” Administration must fall “within 60 days prior to the start of treatment,” with dated quantitative baseline data from the same window. It must also name the diagnosing clinician, their credentials and the date of the diagnosis.',
+          'Who may bill which code. Evernorth’s ABA billing-code table: 97151, 0362T, 97155, 97156, 97157, 97158 and 0373T are both provided and billed by a “BCBA-D, BCBA, or licensed mental health provider.” 97152, 97153 and 97154 may be provided by a “BCaBA, Technician” but are billed by the BCBA-D, BCBA or licensed provider. Evernorth’s code table, PA form and administrative guidelines define no HM/HN/HO/HP credential modifiers.',
+        ],
+        cites: [
+          { title: 'Evernorth — Applied Behavior Analysis Prior Authorization Form (07/26)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/applied-behavior-analysis.pdf' },
+          { title: 'Evernorth — Billing Codes for Applied Behavior Analysis', url: 'https://static.evernorth.com/assets/evernorth/provider/resourceLibrary/behavioralResources/doingBusinessWithUs/cbhDBwCBillingCodesForABA.html' },
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+          { title: 'Evernorth Coverage Policy EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -1996,6 +2108,8 @@ dxRequired: {
       { title: 'Evernorth Behavioral Health — Administrative Guidelines (September 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
       { title: 'IC 27-8-5.7-5 — Notice of claim deficiencies', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-5/' },
       { title: 'IC 27-8-5.7-6 — Payment of clean claims; interest', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-6/' },
+      { title: 'Evernorth — Applied Behavior Analysis Prior Authorization Form (07/26)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/applied-behavior-analysis.pdf' },
+      { title: 'Evernorth — Billing Codes for Applied Behavior Analysis', url: 'https://static.evernorth.com/assets/evernorth/provider/resourceLibrary/behavioralResources/doingBusinessWithUs/cbhDBwCBillingCodesForABA.html' },
     ],
     deliveryRules: {
       supervision: {
@@ -2112,6 +2226,8 @@ dxRequired: {
       { q: 'What documents does Cigna (Evernorth) need for ABA in Indiana?', a: 'EN0499 (effective 5/15/2026) requires a confirmed DSM-5-TR ASD diagnosis from an independently licensed clinician whose scope includes diagnosis. The record must give "the name, credentials, and type of licensure" of the diagnosing clinician and "the date on which the diagnosis was most recently made." A provisional or rule-out diagnosis, or an IDEA educational identification, does not count. For treatment, the BCBA\'s assessment must use a current-edition standardized instrument, completed in full and administered "within 60 days prior to the start of treatment," with score tables. The treatment plan\'s goals must match the deficits it found.' },
       { q: 'Does Cigna require graphs for an ABA reauthorization?', a: 'No — EN0499 requires dated quantitative baseline, interim and current data for every target, with current data no more than 60 days old, plus a standardized assessment from the past year; it never requires the data to be graphed. Graphs are a common way to present it.' },
       { q: 'How do I bill ABA telehealth to Cigna, and are H-codes accepted?', a: 'All ABA CPT codes are covered by telehealth; bill modifier 95 with place of service 02 after attesting to the telehealth specialty with Evernorth. Only CPT 97151–97158, 0362T and 0373T are accepted for ABA — no H-codes.' },
+      { q: 'Does Cigna give single case agreements for ABA in Indiana?', a: 'Cigna/Evernorth calls it a network exception. It needs prior authorization on the Evernorth ABA PA form, including for the 97151, 97152 and 0362T assessment codes that otherwise need none. HMO plans cover in-network providers only.' },
+      { q: 'Is a Cigna ABA authorization in Indiana tied to the BCBA or to the clinic?', a: 'The PA form names the servicing clinic by TIN and the supervising provider by credential. Approvals are written per month on 97155. A new agency requests its own authorization, and two agencies in the same period must document coordination.' },
     ],
   },
 
@@ -2252,6 +2368,25 @@ dxRequired: {
           { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
         ],
       },
+      {
+        h2: 'Single case agreements, out-of-network payment, reconsiderations and credential modifiers (UnitedHealthcare / Optum)',
+        body: [
+          'Single case agreements and out-of-network care. Optum’s ABA FAQ answers whether a provider can get a single case agreement while credentialing: “Not automatically. In exception cases, based on clinical need, new business implementations, or other gaps in the network, a SCA may be approved after review with the clinical team.” Once the provider is contracted, send Optum network management your member list “who will coordinate with the clinical team to update your authorizations.” UnitedHealthcare’s administrative guide gives the general gap rule: when no network provider is available, a network provider may request an exception, and “If approved, we apply the network benefits to the services done by the out-of-network care provider.” Some cards carry a W500 Emergent Wrap for “network gap exception services.”',
+          'Out-of-network payment. Where the No Surprises Act or a state surprise-billing law does not apply, “United will look to the member’s benefit plan.” The amount may come from a percentage of CMS rates, a FAIR Health percentile, Viant, a rate “negotiate[d] with an out-of-network provider after the service was provided,” or a third-party network discount. “Which option is used depends on … the terms of the healthcare benefit plan.” No public document gives a UnitedHealthcare out-of-network ABA rate, so the plan document (SPD or certificate) is the answer.',
+          'Reconsideration and appeal packet. Optum’s network manual runs a two-step process for commercial and Medicare Advantage plans (“This process does not apply to Medicaid plans”): reconsideration, then appeal, with “a total of 12 months for submission for both steps” unless state law or your agreement says otherwise. Include “member-specific treatment plans, clinical records, payment appendices or other items that support why you believe our decision was incorrect,” plus proof of timely filing: “confirmation we received and accepted your claim within your timely filing requirement.” Optum decides “based on the materials available at the time of the review.” Mail the reconsideration form and documents to Optum Behavioral Health Solutions, P.O. Box 30757, Salt Lake City, UT 84123, or use Provider Express > Appeals > Submit Claim Appeal, stating “the factual or legal basis for appeal.” UnitedHealthcare’s guide adds: “Please be detailed in why you feel the payment is not the adjudication outcome you expected.” At the appeal step, attach only new material: “Please do not include any materials that you sent to us as part of the reconsideration request.”',
+          'Whose authorization is it? Optum’s manual lists ABA among non-routine outpatient services and says “Authorizations for non-routine outpatient services are specific to the requesting clinician. The clinician will receive a copy of the authorization approval.” Inside a contracted group, “Any ABA Supervisor who is credentialed under the group or facility contract can see a member, billing with the applicable CPT code(s).” Optum publishes no rule that moves an authorization to a different agency or TIN, so a new agency requests its own.',
+          'What the request must contain. Optum publishes no mandatory assessment-report template. Its ABA Request for Services Checklist (BH00853) lists what the portal asks for: the supervisor, “Agency name and Tax ID,” service address, the diagnosing clinician and date of diagnosis, the service location (with IEP and school details for school-based hours), other services, current symptoms, “Assessments used and applicable scores (if completed i.e., Vineland, VB-MAPP, ABLLS),” the severity of deficits, the goals per domain, and “Progress made in this area including number of goals mastered.”',
+          'Credential modifiers and who may bill each code. Optum’s commercial ABA reimbursement policy (2022RP501A) applies to network and non-network providers. HM = RBT (“less than a bachelor’s degree level”; “State regulatory requirements may supplement, modify or supersede this policy”), HN = BCaBA (bachelor’s level), HO = BCBA or licensed mental health provider (master’s level), HP = BCBA-D or licensed mental health provider (doctorate). Allowed modifiers by code: 97151 HN, HO or HP; 97152, 97153 and 97154 HN, HM, HO or HP; 97155, 97156, 97157 and 97158 HN, HO or HP. 0362T and 0373T take no modifier. Bill “only one provider-level modifier per ABA service line.”',
+        ],
+        cites: [
+          { title: 'Optum — FAQ: Autism/ABA Using CPT Codes', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
+          { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial, Exchange, MA)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+          { title: 'UnitedHealthcare — Information on payment of out-of-network benefits', url: 'https://www.uhc.com/legal/information-on-payment-of-out-of-network-benefits' },
+          { title: 'Optum Behavioral Health — National Provider Network Manual (BH02330, eff. Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+          { title: 'Optum — Applied Behavior Analysis Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+          { title: 'Optum — ABA Request for Services Checklist (BH00853-25-QRG)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/BH00853-25-QRG_ABAQRG.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -2278,6 +2413,9 @@ dxRequired: {
       { title: 'Optum Behavioral Health — National Network Manual (published July 1, 2026; effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
       { title: 'IC 27-8-5.7-5 — Notice of claim deficiencies', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-5/' },
       { title: 'IC 27-8-5.7-6 — Payment of clean claims; interest', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-6/' },
+      { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial, Exchange, MA)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+      { title: 'UnitedHealthcare — Information on payment of out-of-network benefits', url: 'https://www.uhc.com/legal/information-on-payment-of-out-of-network-benefits' },
+      { title: 'Optum — ABA Request for Services Checklist (BH00853-25-QRG)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/BH00853-25-QRG_ABAQRG.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -2403,6 +2541,10 @@ dxRequired: {
       { q: 'How fast must UnitedHealthcare pay a clean ABA claim in Indiana?', a: 'Indiana law (IC 27-8-5.7-6) requires an insurer to pay or deny a clean claim within 30 days of receipt if filed electronically and 45 days on paper; a deficiency not flagged within that window makes the claim clean. Self-funded employer plans are not bound by the statute.' },
       { q: 'What documents does UnitedHealthcare (Optum) need for ABA in Indiana?', a: 'Optum\'s ABA Supplemental Clinical Criteria require a valid DSM-5-TR ASD diagnosis from a state-licensed physician, psychologist or other qualified licensed clinician. The diagnosing clinician confirms the diagnosis and severity level "using at least one clinically validated tool," such as the ADOS-2, ADI-R or CARS-2. The ABA provider then completes its own behavioral assessment with baseline measurement on at least one validated tool (for example the VB-MAPP, ABLLS-R, AFLS or Vineland) and builds the treatment plan from it. "Prior authorization is required for ABA (unless otherwise specified or mandated by contract or law)." The criteria set no expiry on the diagnosis.' },
       { q: 'Does UnitedHealthcare (Optum) require graphs for an ABA reauthorization?', a: 'Optum requires progress measured the same way as baseline for every target — mastery rates, change scores and updated standardized adaptive measures — but does not specifically require graphs. Telehealth (97155, 97156, 97157 only) must be billed with POS 02 or 10, and flagged to the Optum care advocate at authorization.' },
+      { q: 'Does UnitedHealthcare give single case agreements for ABA in Indiana?', a: 'Not automatically. Optum approves an SCA only “in exception cases, based on clinical need, new business implementations, or other gaps in the network,” after clinical review. UnitedHealthcare can also apply network benefits to an out-of-network provider when no network provider is available.' },
+      { q: 'What supporting documents go with a UnitedHealthcare (Optum) ABA reconsideration in Indiana?', a: 'Member-specific treatment plans, clinical records, payment appendices or anything else showing why the decision was wrong, plus proof the claim was filed on time. Both steps must be filed within 12 months in total. At the appeal step, send only new material.' },
+      { q: 'Is a UnitedHealthcare ABA authorization in Indiana tied to the BCBA or the group?', a: 'Optum says non-routine outpatient authorizations, ABA included, are “specific to the requesting clinician,” but any ABA supervisor credentialed under the same group contract can see the member. A different agency requests its own authorization.' },
+      { q: 'What do HM, HN, HO and HP mean on a UnitedHealthcare ABA claim in Indiana?', a: 'HM = RBT, HN = BCaBA, HO = BCBA or master’s-level licensed provider, HP = BCBA-D or doctoral-level licensed provider. 97151 and 97155–97158 cannot carry HM; 0362T and 0373T take no modifier.' },
     ],
   },
 
