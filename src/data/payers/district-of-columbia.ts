@@ -1399,6 +1399,18 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.cfBlueCard],
       },
+      {
+        h2: 'Is a CareFirst ABA authorization tied to an individual NPI or the group tax ID?',
+        body: [
+          'CareFirst publishes no ABA-specific rule on whether an authorization belongs to the clinician or the group. What its own documents show is that authorizations and claims are keyed to NPIs, not to the tax ID. The Utilization Management Outpatient Authorization Request (form SUM7690-1E, April 2026; the portal request in CareFirst Direct asks for the same) identifies a requesting provider by name and NPI and a rendering provider by name and NPI, with a box to tick when they are the same, and has no tax ID field. On the claim, "Your billing and rendering National Provider Identifier (NPI) are required on all claim submissions" (Provider Manual Chapter 5), with the federal tax ID in box 25.',
+          'Who goes on it for ABA: CareFirst\'s rule for assistant behavior analysts and registered behavior technicians is Payment Policy PP CO 020.01 (Limited Licensed Providers; listed in Provider Manual Chapter 3), whose text sits in the SAI360 policy portal we could not open, so confirm with CareFirst which NPI (the supervising BCBA\'s or the group\'s) it wants as rendering provider on the authorization, and bill with the rendering NPI the authorization names. CareFirst does not say whether an approved authorization carries over when a different BCBA in the same group takes over the case. Before the change, ask CareFirst at 1-866-773-2884 (1-866-PRE-AUTH), or through CareFirst Direct, to update the rendering provider on the authorization.',
+        ],
+        cites: [
+          { title: 'CareFirst — Utilization Management Outpatient Authorization Request for Services (SUM7690-1E, 4/26)', url: 'https://provider.carefirst.com/carefirst-resources/provider/pdf/authorization-form-outpatient-services.pdf' },
+          { title: 'CareFirst Provider Manual, Chapter 5: Claims, Billing and Payments (billing and rendering NPI required on every claim)', url: 'https://provider.carefirst.com/carefirst-resources/provider/pdf/provider-manual-chapter-5-claims-billing-and-payments.pdf' },
+          { title: 'CareFirst Payment Policy PP CO 020.01 — Limited Licensed Providers, Professional (last review 5/6/2025)', url: 'https://provider.carefirst.com/providers/medical/payment-policy.page' },
+        ],
+      },
     ],
     collect: [
       { title: 'Product and funding type', desc: 'BlueChoice HMO, PPO, FEP, or a self-funded group; the PA route and the mandate both depend on it.' },
@@ -1407,7 +1419,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
       { title: 'Rendering clinician’s license', desc: 'CareFirst requires licensure where the member receives care; confirm how it credentials DC BCBAs.' },
       { title: 'Other coverage', desc: 'Second parent’s plan, DC Medicaid, TRICARE or CHAMPVA.' },
     ],
-    sources: [S.cfPre, S.cfCh2, S.cfCh3, S.cfCh5, S.cfCh7, S.cfMPU0126, S.cfMPU1224, S.cfMedPol, S.dc3271, S.dc3272, S.hbx, S.dc3132, S.dc3133, S.dc3862, S.dc3875_03, S.dc3875_07, S.dc1202_11, S.dc1207_71, S.bacbLic, S.erisa, { title: 'CareFirst BlueCross BlueShield — BlueLink provider newsletter (2026 issues; year selector to 2008)', url: 'https://provider.carefirst.com/providers/news/bluelink-newsletter-2026.page' }],
+    sources: [S.cfPre, S.cfCh2, S.cfCh3, S.cfCh5, S.cfCh7, S.cfMPU0126, S.cfMPU1224, S.cfMedPol, S.dc3271, S.dc3272, S.hbx, S.dc3132, S.dc3133, S.dc3862, S.dc3875_03, S.dc3875_07, S.dc1202_11, S.dc1207_71, S.bacbLic, S.erisa, { title: 'CareFirst BlueCross BlueShield — BlueLink provider newsletter (2026 issues; year selector to 2008)', url: 'https://provider.carefirst.com/providers/news/bluelink-newsletter-2026.page' }, { title: 'CareFirst — Utilization Management Outpatient Authorization Request for Services (SUM7690-1E, 4/26)', url: 'https://provider.carefirst.com/carefirst-resources/provider/pdf/authorization-form-outpatient-services.pdf' }, { title: 'CareFirst Payment Policy PP CO 020.01 — Limited Licensed Providers, Professional (last review 5/6/2025)', url: 'https://provider.carefirst.com/providers/medical/payment-policy.page' }],
     deliveryRules: {
       supervision: {
         value: 'CareFirst’s supervision terms for technicians sit in Payment Policy PP CO 020.01 (Limited Licensed Providers, covering assistant behavior analysts and RBTs), whose text we could not open.',
@@ -1517,6 +1529,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
       { q: 'Does the DC mandate apply to a federal employee’s CareFirst plan?', a: 'No. D.C. Code § 31-3271 excludes federal employee health plans. FEP plans still list ABA as needing prior authorization, so follow the FEP rules.' },
       { q: 'Can a DC-based BCBA join CareFirst’s network?', a: 'CareFirst requires practitioners to be licensed where the member receives care, and its credentialing list names licensed BCBAs in Maryland and Virginia only. The District began licensing behavior analysts in 2024, so ask CareFirst credentialing how it handles DC BCBAs.' },
       { q: 'What is CareFirst’s timely filing limit?', a: '365 days from the date of service, per CareFirst’s provider manual.' },
+      { q: 'Are CareFirst BCBS ABA authorizations tied to an individual NPI or the group tax ID?', a: 'To NPIs. CareFirst\'s outpatient authorization request names a requesting provider NPI and a rendering provider NPI and has no tax ID field, and every claim must carry the billing and rendering NPI. CareFirst\'s technician and BCaBA rules (PP CO 020.01) sit in a portal we could not open, so confirm which NPI it wants as rendering provider. It publishes no rule on moving an authorization to another BCBA in the same group, so call 1-866-773-2884 to update the rendering provider before a change in supervisor.' },
     ],
   },
 };

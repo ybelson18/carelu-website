@@ -40,6 +40,8 @@ const S: Record<string, PayerSource> = {
   atcPreauth: { title: 'Arkansas Total Care — Pre-Auth Check tool (Medicaid/PASSE; queried 2026-10-18 through the tool’s JSON endpoint)', url: 'https://www.arkansastotalcare.com/providers/resources/pre-auth.html' },
   empPA: { title: 'Empower Healthcare Solutions — Prior Authorization List page (BH/IDD PA form, fax 800-886-6839)', url: 'https://getempowerhealth.com/for-providers/utilization-management/prior-authorization-list/' },
   empPAList: { title: 'Empower Healthcare Solutions — Full PA code list (PA-List-4.24.26): 97151, 97153, 97155, 97156 “AUTISM-EPSDT”, PA required', url: 'https://getempowerhealth.com/wp-content/uploads/2026/04/PA-List-4.24.26-2.xlsx' },
+  empH2019: { title: 'Empower Healthcare Solutions — Provider Alert: Behavioral Assistance (H2019) reimbursement update (October 23, 2026; effective January 1, 2027)', url: 'https://getempowerhealth.com/providers/behavioral-assistance-h2019-reimbursement-update/' },
+  empAlerts: { title: 'Empower Healthcare Solutions — Provider Alerts (archive)', url: 'https://getempowerhealth.com/provider-alerts/' },
   empHB: { title: 'Empower Healthcare Solutions — Provider Handbook (Version 9.08.2026)', url: 'https://getempowerhealth.com/wp-content/uploads/2026/09/Empowerproviderhandbook9926.pdf' },
   sccPM: { title: 'Summit Community Care — Provider Manual (AR-SMT-CD-PM-010787-26, July 1, 2026)', url: 'https://provider.summitcommunitycare.com/docs/gpp/ARAR_CAID_ProviderManual.pdf' },
   sccPA: { title: 'Summit Community Care — List of items and services that require prior authorization (updated 2/11/2026)', url: 'https://www.summitcommunitycare.com/arkansas-passe/ar_medicaid_priorauthservices.pdf' },
@@ -246,7 +248,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
         cites: [S.abaII],
       },
       diagnosingProviders: {
-        value: 'Qualified professionals under Ark. Code Ann. § 20-77-124. Acentra lists them as a licensed psychologist (PhD, PsyD, LP, LPE, LPE-I), a licensed physician (MD, DO) or a speech-language pathologist, and also requires an MD or DO to confirm the diagnosis, either in well-child or PCP notes “documenting Autism diagnosis and how it was diagnosed” or in a letter agreeing with the evaluation.',
+        value: 'Qualified professionals under Ark. Code Ann. § 20-77-124. Acentra lists them as a licensed psychologist (PhD, PsyD, LP, LPE, LPE-I), a licensed physician (MD, DO) or a speech-language pathologist, and also requires an MD or DO to confirm the diagnosis, either in well-child or PCP notes “documenting Autism diagnosis and how it was diagnosed” or in a letter agreeing with the evaluation. An LCSW is not on the list.',
         status: 'verified',
         cites: [S.acentraPPT, S.abaII],
       },
@@ -542,7 +544,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
         cites: [S.csMM, S.abaII],
       },
       diagnosingProviders: {
-        value: 'A “Qualified Professional,” which the policy defines as “A licensed physician, licensed psychologist, or licensed speech-language pathologist,” consistent with Ark. Code Ann. § 20-77-124.',
+        value: 'A “Qualified Professional,” which the policy defines as “A licensed physician, licensed psychologist, or licensed speech-language pathologist,” consistent with Ark. Code Ann. § 20-77-124. An LCSW is not on the list.',
         status: 'verified',
         cites: [S.csMM],
       },
@@ -631,13 +633,20 @@ export const arkansasPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.empHB],
       },
+      {
+        h2: 'Behavioral Assistance (H2019) is a separate service, not ABA',
+        body: [
+          'Empower’s October 23, 2026 provider alert changes Behavioral Assistance (H2019), a home- and community-based behavioral health service, not ABA: after the DHS HCBS rate study, Empower will pay H2019 at “$20.08 per unit beginning January 1, 2027,” for “all Behavioral Assistance regardless of degree status or place of service,” and from that date H2019 claims “should be filed with only U4-UC modifiers” (H2019-U4-UC). ABA itself is billed on the CPT codes of the Arkansas Medicaid ABA fee schedule (97151, 97153, 97155 and 97156), which does not list H2019, so the alert does not change ABA rates.',
+        ],
+        cites: [S.empH2019, S.abaFee],
+      },
     ],
     collect: [
       { title: 'State ABA packet', desc: 'DMS-641 ER referral, DMS-641 TP prescription, diagnosis documentation and the BCBA’s comprehensive evaluation.' },
       { title: 'Empower member ID', desc: 'Confirm PASSE attribution on the date of service; retrospective review is available for newly attributed members.' },
       { title: 'Other insurance', desc: 'Empower is the payer of last resort; bill the primary first.' },
     ],
-    sources: [S.empPA, S.empPAList, S.empHB, S.passeII, S.passeList, S.abaII, S.abaFee, S.acentra, S.secI, { title: 'Empower Healthcare Solutions — Provider newsletter archive', url: 'https://getempowerhealth.com/provider-newsletter/' }],
+    sources: [S.empPA, S.empPAList, S.empHB, S.empH2019, S.empAlerts, S.passeII, S.passeList, S.abaII, S.abaFee, S.acentra, S.secI, { title: 'Empower Healthcare Solutions — Provider newsletter archive', url: 'https://getempowerhealth.com/provider-newsletter/' }],
     deliveryRules: {
       supervision: {
         value: 'Empower publishes no ABA supervision rule of its own, so the state rule applies. ' + AR_MEDICAID_SUPERVISION,

@@ -205,6 +205,17 @@ export const marylandPayers: Record<string, PayerConfig> = {
           { title: 'Carelon Maryland — ABA FAQs (May 2026)', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/75/ABA-FAQ-May-2026-.pdf' },
         ],
       },
+      {
+        h2: 'Switching ABA agencies, and whether private insurance helps the gap',
+        body: [
+          'Switching to a new agency does not need a discharge or a gap. Carelon\'s May 2026 ABA FAQ: "Participants can obtain authorization from an initial assessment while still receiving services from their current provider. The Continuity of Care Form will be required along with a parent/guardian note, in order for the initial assessment to be authorized." If the old agency has already stopped but its authorization still shows as active, the new agency "will need to secure a parent/guardian\'s note," which "will serve as a documented request to amend the authorization and allow Provider B to initiate services." Ask every family at intake whether another ABA agency holds an active authorization.',
+          'Would adding private insurance close a gap? Not by itself. "Medicaid is always the payer of last resort" (PBHS manual §16.07), so once the children have commercial coverage the new agency must bill that plan first, within its timely filing limit, and meet its own prior authorization and network rules before Medicaid pays anything. Carelon then pays as secondary without preauthorization, up to the Medicaid allowed amount, and the family cannot be billed the difference. Medicaid\'s pre-authorization criteria still have to be met even as secondary (the CDE, a referral dated within six months of the initial assessment, and the Clinical Confirmation Form where it applies). The quickest route to restarting ABA is usually the Continuity of Care Form with Medicaid, not a new policy, whose own authorization can take as long as Medicaid\'s.',
+        ],
+        cites: [
+          { title: 'Carelon Maryland — Applied Behavior Analysis (ABA) FAQ (May 2026)', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/75/ABA-FAQ-May-2026-.pdf' },
+          { title: 'Carelon Maryland PBHS Provider Manual (version 5, August 2026), §16.07 Coordination of Benefits', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/75/carelon-maryland-pbhs-provider-manual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Medicaid eligibility — not the MCO', desc: 'Verify Medical Assistance eligibility and route everything to Carelon; the HealthChoice MCO on the card is irrelevant for ABA.' },
@@ -335,9 +346,9 @@ export const marylandPayers: Record<string, PayerConfig> = {
       },
       coordinationOfBenefits: {
         value:
-          '“Medicaid is always the payer of last resort.” Verify other coverage in EVS at intake. When commercial insurance is primary: “Submit the claim to the commercial carrier first and within the commercial carrier’s timely filing requirements,” then submit to Carelon “within 12 months of the first date of service or 120 days of the commercial carrier’s EOB, whichever is later,” with the primary payment or EOB attached — claims without it deny (“Primary insurance information or EOB required”). Maryland’s big simplifier: “Preauthorization is not required when Carelon is paying as secondary.” Carelon pays the difference between the commercial payment and the Medicaid allowed amount, and the family may not be billed for the gap between charges and what the two payers paid.',
+          '“Medicaid is always the payer of last resort.” Verify other coverage in EVS at intake. When commercial insurance is primary: “Submit the claim to the commercial carrier first and within the commercial carrier’s timely filing requirements,” then submit to Carelon “within 12 months of the first date of service or 120 days of the commercial carrier’s EOB, whichever is later,” with the primary payment or EOB attached — claims without it deny (“Primary insurance information or EOB required”). Maryland’s big simplifier: “Preauthorization is not required when Carelon is paying as secondary.” Carelon pays the difference between the commercial payment and the Medicaid allowed amount, and the family may not be billed for the gap between charges and what the two payers paid. No authorization, but not no rules: Carelon\'s May 2026 ABA FAQ says that when Medicaid is secondary "an authorization may not be required, but pre-authorization criteria must be met" (the CDE, a referral or prescription dated within six months of the initial assessment, and the Clinical Confirmation Form where it applies), because "All Medicaid standards must be met for Medicaid to cover services, regardless of its position as secondary payor." If the commercial plan does not cover a code (the FAQ\'s example is 97157), get its denial on file, and Medicaid then needs its own authorization to pay that code as primary.',
         status: 'verified',
-        cites: [{ title: 'Carelon Maryland PBHS Provider Manual (version 5, August 2026), §16.07 Coordination of Benefits', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/75/carelon-maryland-pbhs-provider-manual.pdf' }],
+        cites: [{ title: 'Carelon Maryland PBHS Provider Manual (version 5, August 2026), §16.07 Coordination of Benefits', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/75/carelon-maryland-pbhs-provider-manual.pdf' }, { title: 'Carelon Maryland — Applied Behavior Analysis (ABA) FAQ (May 2026)', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/75/ABA-FAQ-May-2026-.pdf' }],
       },
     },
     faq: [
@@ -363,6 +374,7 @@ export const marylandPayers: Record<string, PayerConfig> = {
       { q: 'Does Carelon allow retro authorizations for Maryland Medicaid ABA?', a: 'Only a short backdate. Carelon’s May 2026 FAQ: “Carelon allows backdating of ABA authorizations up to 20 calendar days.” COMAR 10.09.28.04 covers ABA only when “Preauthorized by the Program or its designee.” No authorization is needed when Maryland Medicaid is the secondary payer.' },
       { q: 'Does Maryland Medicaid accept H0031 or H0032 for ABA?', a: 'No. The Maryland ABA fee schedule lists only CPT 97151–97158, 0362T and 0373T (97156 also with U2), billed in 15-minute units.' },
       { q: 'Does Maryland Medicaid require graphs for ABA reauthorization?', a: 'Yes. Since April 1, 2026, Carelon requires graphs for every skill-acquisition, behavior-reduction and parent/caregiver goal in the treatment plan and reassessment, showing the data collection method and mastery criteria for each goal.' },
+      { q: 'A Maryland Medicaid family is switching ABA clinics. Would getting the kids private insurance help with the gap in services?', a: 'Usually not. The new clinic does not need the child discharged first: Carelon authorizes the new agency\'s initial assessment with a Continuity of Care Form and a parent/guardian note, even while the old agency is still serving the child. Private insurance would become the primary payer (Medicaid is always the payer of last resort), so the new clinic would have to get that plan\'s authorization and bill it first; Carelon then pays as secondary without preauthorization, as long as Medicaid\'s criteria (CDE, referral within six months, CCF where needed) are met.' },
     ],
   },
 
@@ -520,6 +532,18 @@ export const marylandPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'CareFirst Provider Manual, Chapter 2: Product Descriptions — BlueCard Program (January 2025 edition)', url: 'https://provider.carefirst.com/carefirst-resources/provider/pdf/provider-manual-chapter-2-product-descriptions.pdf' }],
       },
+      {
+        h2: 'Is a CareFirst ABA authorization tied to an individual NPI or the group tax ID?',
+        body: [
+          'CareFirst publishes no ABA-specific rule on whether an authorization belongs to the clinician or the group. What its own documents show is that authorizations and claims are keyed to NPIs, not to the tax ID. The Utilization Management Outpatient Authorization Request (form SUM7690-1E, April 2026; the portal request in CareFirst Direct asks for the same) identifies a requesting provider by name and NPI and a rendering provider by name and NPI, with a box to tick when they are the same, and has no tax ID field. On the claim, "Your billing and rendering National Provider Identifier (NPI) are required on all claim submissions" (Provider Manual Chapter 5), with the federal tax ID in box 25.',
+          'For ABA the rendering NPI is the supervising BCBA, not the technician: CareFirst does not contract with assistant behavior analysts or registered behavior technicians, and their services are submitted under the supervising licensed BCBA\'s name and provider number (PP CO 020.01). In practice, then, list the supervising BCBA (or the group, as requesting provider) on the authorization, and bill the claim with the same rendering NPI the authorization names. CareFirst does not say whether an approved authorization carries over when a different BCBA in the same group takes over the case. Before the change, ask CareFirst at 1-866-773-2884 (1-866-PRE-AUTH), or through CareFirst Direct, to update the rendering provider on the authorization.',
+        ],
+        cites: [
+          { title: 'CareFirst — Utilization Management Outpatient Authorization Request for Services (SUM7690-1E, 4/26)', url: 'https://provider.carefirst.com/carefirst-resources/provider/pdf/authorization-form-outpatient-services.pdf' },
+          { title: 'CareFirst Provider Manual, Chapter 5: Claims, Billing and Payments (billing and rendering NPI required on every claim)', url: 'https://provider.carefirst.com/carefirst-resources/provider/pdf/provider-manual-chapter-5-claims-billing-and-payments.pdf' },
+          { title: 'CareFirst Payment Policy PP CO 020.01 — Limited Licensed Providers, Professional (last review 5/6/2025)', url: 'https://provider.carefirst.com/providers/medical/payment-policy.page' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type and product', desc: 'Fully insured Maryland contract (mandate and hour floors apply), self-funded employer plan (exempt), FEP or a NASCO national account (may differ from CareFirst\'s local policies), or CareFirst Community Health Plan Maryland (Medicaid, so ABA goes to Carelon).' },
@@ -553,6 +577,7 @@ export const marylandPayers: Record<string, PayerConfig> = {
       { title: 'CMS — Medicare NCCI Procedure-to-Procedure (PTP) Edits, practitioner file 2026 Q4 (v32.3)', url: 'https://www.cms.gov/medicare/coding-billing/national-correct-coding-initiative-ncci-edits/medicare-ncci-procedure-procedure-ptp-edits' },
       { title: 'CMS — Maryland EVV compliance determination letter (Feb 27, 2024)', url: 'https://www.medicaid.gov/medicaid/home-community-based-services/downloads/md-evv-aprvl-ltr-02272024.pdf' },
       { title: 'CareFirst — Provider Medical News (provider news archive)', url: 'https://provider.carefirst.com/providers/news/medical.page' },
+      { title: 'CareFirst — Utilization Management Outpatient Authorization Request for Services (SUM7690-1E, 4/26)', url: 'https://provider.carefirst.com/carefirst-resources/provider/pdf/authorization-form-outpatient-services.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -675,6 +700,7 @@ export const marylandPayers: Record<string, PayerConfig> = {
       { q: 'What is CareFirst’s timely filing limit in Maryland?', a: '365 days from the date of service (Provider Manual Chapter 5). Maryland law (Insurance § 15-1005) sets a 180-day minimum for fully insured plans, so CareFirst’s window is longer. The same statute requires payment, or a written notice of what is wrong, within 30 days of receipt, with interest on clean claims still unpaid after 30 days.' },
       { q: 'Who do ABA services get billed under for CareFirst, the supervising BCBA or the rendering technician?', a: 'The supervising licensed BCBA. Payment Policy PP CO 020.01: technician and assistant-behavior-analyst services are “submitted under that supervising physician’s or licensed board-certified behavior analyst’s name and provider number,” with no extra modifier for the provider type, and are allowed at the supervising BCBA’s fee schedule. CareFirst does not contract with RBTs or BCaBAs directly.' },
       { q: 'Can an out-of-state BCBA treat CareFirst members in Maryland, including by telehealth?', a: 'Maryland requires a Maryland license to practice behavior analysis (Health Occupations § 17-6A-10). CareFirst credentials only practitioners “licensed in the state where the member receives the service” and within its Maryland, D.C. and Northern Virginia service area.' },
+      { q: 'Are CareFirst BCBS ABA authorizations tied to an individual NPI or the group tax ID?', a: 'To NPIs. CareFirst\'s outpatient authorization request names a requesting provider NPI and a rendering provider NPI and has no tax ID field, and every claim must carry the billing and rendering NPI. For ABA the rendering NPI is the supervising licensed BCBA, because technician and BCaBA services bill under that BCBA\'s name and provider number (PP CO 020.01). CareFirst publishes no rule on moving an authorization to another BCBA in the same group, so call 1-866-773-2884 to update the rendering provider before a change in supervisor.' },
     ],
   },
 

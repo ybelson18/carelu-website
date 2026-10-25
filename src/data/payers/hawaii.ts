@@ -73,6 +73,7 @@ const SB791: PayerSource = { title: 'S.B. 791 C.D. 1 (2015), enacted as Act 235 
 const HRS_465D2: PayerSource = { title: 'HRS § 465D-2 — Behavior analysts: definitions', url: 'https://www.capitol.hawaii.gov/hrscurrent/Vol10_Ch0436-0474/HRS0465D/HRS_0465D-0002.htm' };
 const HRS_465D7: PayerSource = { title: 'HRS § 465D-7 — Behavior analysts: exemptions (am. L 2023, c 167)', url: 'https://www.capitol.hawaii.gov/hrscurrent/Vol10_Ch0436-0474/HRS0465D/HRS_0465D-0007.htm' };
 const HRS_465D8: PayerSource = { title: 'HRS § 465D-8 — Behavior analysts: application for licensure', url: 'https://www.capitol.hawaii.gov/hrscurrent/Vol10_Ch0436-0474/HRS0465D/HRS_0465D-0008.htm' };
+const HRS_467E1: PayerSource = { title: 'HRS § 467E-1 — Social workers: definitions (practice of social work incl. "(8) Clinical diagnosis or psychotherapy, or both, provided by a licensed clinical social worker")', url: 'https://www.capitol.hawaii.gov/hrscurrent/Vol10_Ch0436-0474/HRS0467E/HRS_0467E-0001.htm' };
 const HRS_432E5: PayerSource = { title: 'HRS § 432E-5 — Complaints and appeals procedure for enrollees', url: 'https://www.capitol.hawaii.gov/hrscurrent/Vol09_Ch0431-0435H/HRS0432E/HRS_0432E-0005.htm' };
 
 // ---- Federal ----
@@ -222,7 +223,7 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
       { title: 'Other insurance', desc: 'Medicaid is secondary to all other coverage — bill any commercial plan first.' },
       { title: 'School and state-agency services', desc: 'DOE provides school ABA under the IEP; EIP covers ages 0–3; the I/DD waiver runs alongside. The plan coordinates, and the provider must document no duplication.' },
     ],
-    sources: [{ title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, { title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, MQ_MEMO, MQ_INDEX, MQ_PRES, MQ_FAQ, MQ_TELE, MQ_AA, MQ_FEES, OH_EXIT, AC_MP37, CFR_438_210, CFR_440_230, CFR_433_139, { title: 'Hawaii Med-QUEST — Provider Memos (QI, FFS and CCS memos by year)', url: 'https://medquest.hawaii.gov/en/plans-providers/provider-memo.html' }],
+    sources: [{ title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, { title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, MQ_MEMO, MQ_INDEX, MQ_PRES, MQ_FAQ, MQ_TELE, MQ_AA, MQ_FEES, OH_EXIT, AC_MP37, CFR_438_210, CFR_440_230, CFR_433_139, { title: 'Hawaii Med-QUEST — Provider Memos (QI, FFS and CCS memos by year)', url: 'https://medquest.hawaii.gov/en/plans-providers/provider-memo.html' }, HRS_467E1, HRS_133],
     deliveryRules: {
       supervision: {
         value: 'The licensed behavior analyst (BCBA-D or BCBA) supervises BCaBAs and RBTs and is responsible for clinical direction, supervision and case management. Case supervision "generally consists of at least one to two hours for every 10 hours of all RBT service hours with at least one of the two hours being direct supervision," direct supervision "must always be provided at least 5% of all BCaBA and RBT service delivery hours," and supervision of unlicensed staff must meet current BACB guidelines.',
@@ -271,9 +272,9 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
         cites: [MQ_MEMO],
       },
       diagnosingProviders: {
-        value: 'Developmental behavioral pediatrician, developmental pediatrician, neurologist, pediatrician, psychiatrist, psychologist, or "other licensed practitioner with specialized expertise in ASD" (APRNs and LCSWs bill with TD and AJ modifiers). Plans may narrow this — AlohaCare’s MP-37 lists only the first six.',
+        value: 'Developmental behavioral pediatrician, developmental pediatrician, neurologist, pediatrician, psychiatrist, psychologist, or "other licensed practitioner with specialized expertise in ASD" (APRNs and LCSWs bill with TD and AJ modifiers). Plans may narrow this — AlohaCare’s MP-37 lists only the first six. LCSW: yes under Hawaii law, and the MQD memo\'s catch-all — "other licensed practitioner with specialized expertise in ASD" — is the category an LCSW diagnosis falls under (the LCSW needs that ASD expertise); a plan may narrow the list, as AlohaCare does. Hawaii scope rule: the practice of social work includes "(8) Clinical diagnosis or psychotherapy, or both, provided by a licensed clinical social worker" (HRS § 467E-1), and Luke\'s Law covers autism treatment "prescribed or ordered" by a licensed physician, psychiatrist, psychologist, licensed clinical social worker or registered nurse practitioner (HRS § 431:10A-133).',
         status: 'verified',
-        cites: [MQ_MEMO, AC_MP37],
+        cites: [MQ_MEMO, AC_MP37, HRS_467E1, HRS_133],
       },
       diagnosticTools: {
         value: 'No instrument named: diagnosing providers must "use evidence-based assessments." The treatment plan must track each goal with a standardized measurement system such as VB-MAPP or ABLLS-R. Plans may add requirements — AlohaCare requires ADOS-2, CARS-2 or ADI-R.',
@@ -309,6 +310,7 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Who can diagnose autism for Hawaii Medicaid ABA — can an LCSW?', a: 'The Med-QUEST memo (QI-2431) accepts a diagnosis from a developmental-behavioral or developmental pediatrician, neurologist, pediatrician, psychiatrist, psychologist, or another licensed practitioner with specialized expertise in ASD. An LCSW can diagnose under Hawaii law — the practice of social work includes "Clinical diagnosis or psychotherapy, or both, provided by a licensed clinical social worker" (HRS § 467E-1) — so an LCSW with ASD expertise fits the memo\'s last category. Plans may narrow the list: AlohaCare\'s MP-37 names only the six physician and psychologist types.' },
       { q: 'How fast must Med-QUEST pay a clean claim?', a: 'Federal rules require a state Medicaid agency to pay 90% of clean practitioner claims within 30 days of receipt and 99% within 90 days (42 CFR 447.45); QUEST Integration plans are held to the same standard by contract (42 CFR 447.46). Most ABA claims go to the member’s QUEST plan, whose filing limit governs.' },
       { q: 'Does Hawaii Medicaid cover ABA therapy?', a: 'Yes. Med-QUEST covers ABA as Intensive Behavioral Therapy under memo QI-2431 / FFS 24-13 for members under 21 with ASD, delivered through the member’s QUEST Integration plan. A child with suspected ASD may get a trial of up to 26 weeks before a definitive diagnosis.' },
       { q: 'Why does Hawaii call it Intensive Behavioral Therapy?', a: 'IBT is the heading Med-QUEST files the benefit under; the memo’s subtitle is "Guidelines for Applied Behavioral Analysis." Searching Hawaii Medicaid documents for "ABA" alone can miss it.' },
@@ -392,7 +394,7 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
       { title: 'Treatment plan pieces', desc: 'FBA, baseline for every goal, parent-training plan, titration plan, and a reason for the intensity requested (especially above 30 hours).' },
       { title: 'Other insurance', desc: 'AlohaCare pays last; most primary-plan denials must be appealed before it will review.' },
     ],
-    sources: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, AC_MP37, AC_PA, AC_MAN, AC_AUTH, MQ_MEMO, CFR_438_210, CFR_433_139, { title: 'AlohaCare — Plan Publications (provider advisories and provider newsletters by year)', url: 'https://www.alohacare.org/Providers/PlanPublications' }],
+    sources: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, AC_MP37, AC_PA, AC_MAN, AC_AUTH, MQ_MEMO, CFR_438_210, CFR_433_139, { title: 'AlohaCare — Plan Publications (provider advisories and provider newsletters by year)', url: 'https://www.alohacare.org/Providers/PlanPublications' }, HRS_467E1, HRS_133],
     deliveryRules: {
       supervision: {
         value: 'LBA supervision of RBTs and BCaBAs must meet current BACB and MQD requirements. For RBTs, at least 5% of total service hours must be supervised by an LBA and documented, including direct observation with the member, ongoing case review and feedback, and records of supervision in the clinical file. MQD’s memo sets the wider standard: 1–2 hours of case supervision per 10 RBT hours, at least one of them direct.',
@@ -437,9 +439,9 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
         cites: [AC_MP37, MQ_MEMO],
       },
       diagnosingProviders: {
-        value: 'Developmental behavioral pediatrician, developmental pediatrician, pediatrician, neurologist, psychologist or psychiatrist. The MQD memo also allows another licensed practitioner with ASD expertise, and MP-37 says MQD guidance governs if the two conflict.',
+        value: 'Developmental behavioral pediatrician, developmental pediatrician, pediatrician, neurologist, psychologist or psychiatrist. The MQD memo also allows another licensed practitioner with ASD expertise, and MP-37 says MQD guidance governs if the two conflict. LCSW: not on MP-37\'s six-item list (2.3.1–2.3.6), so AlohaCare\'s own policy does not accept an LCSW diagnosis on its face; MP-37 also says "In the event of conflict, MQD guidance prevails," and the MQD memo allows another licensed practitioner with ASD expertise — confirm with AlohaCare UM before relying on an LCSW-only diagnosis. Hawaii scope rule: the practice of social work includes "(8) Clinical diagnosis or psychotherapy, or both, provided by a licensed clinical social worker" (HRS § 467E-1), and Luke\'s Law covers autism treatment "prescribed or ordered" by a licensed physician, psychiatrist, psychologist, licensed clinical social worker or registered nurse practitioner (HRS § 431:10A-133).',
         status: 'verified',
-        cites: [AC_MP37, MQ_MEMO],
+        cites: [AC_MP37, MQ_MEMO, HRS_467E1, HRS_133],
       },
       diagnosticTools: {
         value: 'Required: DSM-5 criteria plus documented early developmental symptoms AND standardized diagnostic evaluation tools — ADOS-2, CARS-2 or ADI-R. The treatment plan then needs an FBA and baseline data for every goal area.',
@@ -556,7 +558,7 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
       { title: 'Treatment order and plan', desc: 'Luke’s Law requires a treatment plan with each request and covers care prescribed or ordered by a physician, psychiatrist, psychologist, LCSW or registered nurse practitioner.' },
       { title: 'Whether the referrer said "precertification"', desc: 'HMSA’s word for prior authorization.' },
     ],
-    sources: [HMSA_QI_PRECERT, HMSA_QI_PROC, HMSA_COMM_PRECERT, HMSA_POLICIES, HMSA_PT, HMSA_HB, MQ_MEMO, HRS_133, SB791, HRS_465D7, HRS_465D8, CFR_438_210, CFR_2560, CFR_147_136, { title: 'HMSA — HealthPro News (monthly provider newsletter)', url: 'https://hmsa.com/prc/working-with-hmsa/healthpro-news/' }, { title: 'HMSA — Provider Resource Center News (provider news list)', url: 'https://hmsa.com/prc/news/' }],
+    sources: [HMSA_QI_PRECERT, HMSA_QI_PROC, HMSA_COMM_PRECERT, HMSA_POLICIES, HMSA_PT, HMSA_HB, MQ_MEMO, HRS_133, SB791, HRS_465D7, HRS_465D8, CFR_438_210, CFR_2560, CFR_147_136, { title: 'HMSA — HealthPro News (monthly provider newsletter)', url: 'https://hmsa.com/prc/working-with-hmsa/healthpro-news/' }, { title: 'HMSA — Provider Resource Center News (provider news list)', url: 'https://hmsa.com/prc/news/' }, HRS_467E1],
     deliveryRules: {
       supervision: {
         value: 'QUEST line: MQD memo — 1–2 hours of case supervision per 10 RBT hours, at least one direct, and direct supervision at least 5% of BCaBA and RBT hours. Commercial line: HMSA’s ABA medical policy sets it and could not be read; Hawaii law lets RBTs and BCaBAs practice only under a licensed behavior analyst’s direction.',
@@ -617,9 +619,9 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       diagnosingProviders: {
-        value: 'QUEST line: the MQD memo’s list (developmental-behavioral or developmental pediatrician, neurologist, pediatrician, psychiatrist, psychologist, other licensed ASD-expert practitioner). Commercial: not verified.',
+        value: 'QUEST line: the MQD memo’s list (developmental-behavioral or developmental pediatrician, neurologist, pediatrician, psychiatrist, psychologist, other licensed ASD-expert practitioner). Commercial: not verified. LCSW: HMSA\'s commercial ABA policy could not be read; QUEST members follow the MQD memo (an LCSW fits only its "other licensed practitioner with specialized expertise in ASD" category). Hawaii scope rule: the practice of social work includes "(8) Clinical diagnosis or psychotherapy, or both, provided by a licensed clinical social worker" (HRS § 467E-1), and Luke\'s Law covers autism treatment "prescribed or ordered" by a licensed physician, psychiatrist, psychologist, licensed clinical social worker or registered nurse practitioner (HRS § 431:10A-133).',
         status: 'plan-dependent',
-        cites: [MQ_MEMO],
+        cites: [MQ_MEMO, HRS_467E1, HRS_133],
         verifyVia: 'HMSA ABA medical policy at hmsa.policytransparency.com.',
         blocker: 'document',
       },
@@ -658,6 +660,7 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Can an LCSW diagnose autism for HMSA ABA coverage?', a: 'Under Hawaii law an LCSW may make a clinical diagnosis (HRS § 467E-1(8)), and Luke\'s Law covers autism treatment prescribed or ordered by a licensed physician, psychiatrist, psychologist, licensed clinical social worker or registered nurse practitioner. HMSA\'s own commercial ABA policy could not be read this cycle, so confirm with HMSA before relying on an LCSW-only diagnosis; QUEST members follow the Med-QUEST memo\'s list, where an LCSW fits the "other licensed practitioner with specialized expertise in ASD" category.' },
       { q: 'Does HMSA cover ABA therapy?', a: 'On the QUEST line HMSA administers the Med-QUEST ABA benefit for members under 21 with ASD. On fully insured commercial plans Luke’s Law requires coverage for children under 14, with ABA capped at $25,000 a year for ages 13 and under. ABA therapy is on both HMSA precertification lists.' },
       { q: 'What is precertification at HMSA?', a: 'HMSA’s word for prior authorization. QUEST requests go by fax to (808) 944-5611 or through HHIN+; the precertification unit is at (808) 948-6464.' },
       { q: 'Is HMSA the same as Blue Cross Blue Shield of Hawaii?', a: 'Yes — HMSA is Hawaii’s Blue Cross Blue Shield licensee.' },
@@ -736,7 +739,7 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
       { title: 'ASD diagnosis and age', desc: 'The Med-QUEST benefit is for members under 21 with ASD, diagnosed by one of the memo’s listed providers.' },
       { title: 'Assessment authorization', desc: '97151 and 97152 are on ʻOhana’s PA list — get the authorization before the assessment.' },
     ],
-    sources: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, OH_EXIT, OH_PA, OH_AUTH, OH_BH, OH_QRG, MQ_AA, MQ_MEMO, MQ_INDEX, CFR_438_210, CFR_433_139, { title: 'Ohana Health Plan — Provider Bulletins (Medicaid)', url: 'https://www.ohanahealthplan.com/providers/news-and-education/bulletins.html' }],
+    sources: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, OH_EXIT, OH_PA, OH_AUTH, OH_BH, OH_QRG, MQ_AA, MQ_MEMO, MQ_INDEX, CFR_438_210, CFR_433_139, { title: 'Ohana Health Plan — Provider Bulletins (Medicaid)', url: 'https://www.ohanahealthplan.com/providers/news-and-education/bulletins.html' }, HRS_467E1, HRS_133],
     deliveryRules: {
       supervision: {
         value: 'ʻOhana publishes no ABA supervision rule of its own that we could find; the MQD memo sets it: 1–2 hours of case supervision per 10 RBT hours, at least one direct, direct supervision at least 5% of BCaBA and RBT hours, per BACB guidelines.',
@@ -795,9 +798,9 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       diagnosingProviders: {
-        value: 'MQD memo list: developmental-behavioral or developmental pediatrician, neurologist, pediatrician, psychiatrist, psychologist, or other licensed practitioner with ASD expertise. No ʻOhana variation found.',
+        value: 'MQD memo list: developmental-behavioral or developmental pediatrician, neurologist, pediatrician, psychiatrist, psychologist, or other licensed practitioner with ASD expertise. No ʻOhana variation found. LCSW: no ʻOhana-specific answer; under the MQD memo an LCSW fits only the "other licensed practitioner with specialized expertise in ASD" category. Hawaii scope rule: the practice of social work includes "(8) Clinical diagnosis or psychotherapy, or both, provided by a licensed clinical social worker" (HRS § 467E-1), and Luke\'s Law covers autism treatment "prescribed or ordered" by a licensed physician, psychiatrist, psychologist, licensed clinical social worker or registered nurse practitioner (HRS § 431:10A-133).',
         status: 'unverified',
-        cites: [MQ_MEMO],
+        cites: [MQ_MEMO, HRS_467E1, HRS_133],
         verifyVia: 'ʻOhana Clinical Coverage Guidelines or Provider Services 1-888-846-4262.',
         blocker: 'document',
       },
@@ -907,7 +910,7 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
       { title: 'ASD diagnosis and age', desc: 'Documented DSM-5 ASD, under 21. For suspected ASD, the working diagnosis for a trial period.' },
       { title: 'Assessment authorization status', desc: 'Optum’s documents conflict on 97151 — ask before the assessment.' },
     ],
-    sources: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, OPT_HI, OPT_HI_ORIENT, OPT_HI_QRG, OPT_SCC, UHCCP_PA, UHCCP_MAN, MQ_MEMO, MQ_TELE, CFR_438_210, CFR_433_139, { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' }, { title: 'UnitedHealthcare Community Plan of Hawaii — Bulletins and Newsletters (current bulletins, news and alerts)', url: 'https://www.uhcprovider.com/en/health-plans-by-state/hawaii-health-plans/hi-comm-plan-home/hi-cp-news.html' }],
+    sources: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, OPT_HI, OPT_HI_ORIENT, OPT_HI_QRG, OPT_SCC, UHCCP_PA, UHCCP_MAN, MQ_MEMO, MQ_TELE, CFR_438_210, CFR_433_139, { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' }, { title: 'UnitedHealthcare Community Plan of Hawaii — Bulletins and Newsletters (current bulletins, news and alerts)', url: 'https://www.uhcprovider.com/en/health-plans-by-state/hawaii-health-plans/hi-comm-plan-home/hi-cp-news.html' }, HRS_467E1, HRS_133],
     deliveryRules: {
       supervision: {
         value: 'Optum’s ABA criteria (applied to this program) require direct case supervision of 1–2 hours for every 10 hours of direct treatment per week, consistent with CASP — the same ratio as the MQD memo, which adds direct supervision of at least 5% of BCaBA and RBT hours. Technicians work under a BCBA or licensed clinician; Optum’s Hawaii credentialing expects a BCBA to directly supervise technicians in joint sessions.',
@@ -956,9 +959,9 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
         cites: [OPT_HI_ORIENT, OPT_SCC, MQ_MEMO],
       },
       diagnosingProviders: {
-        value: 'MQD memo list (developmental-behavioral or developmental pediatrician, neurologist, pediatrician, psychiatrist, psychologist, other licensed ASD-expert practitioner). Optum’s criteria: a state-licensed physician, psychologist or other state-licensed clinician qualified to diagnose.',
+        value: 'MQD memo list (developmental-behavioral or developmental pediatrician, neurologist, pediatrician, psychiatrist, psychologist, other licensed ASD-expert practitioner). Optum’s criteria: a state-licensed physician, psychologist or other state-licensed clinician qualified to diagnose. LCSW: yes — Optum accepts an "other state licensed clinician qualified to make such diagnosis," and Hawaii puts "Clinical diagnosis" inside the LCSW scope of practice (HRS § 467E-1(8)); the MQD memo\'s catch-all (other licensed practitioner with ASD expertise) agrees. Hawaii scope rule: the practice of social work includes "(8) Clinical diagnosis or psychotherapy, or both, provided by a licensed clinical social worker" (HRS § 467E-1), and Luke\'s Law covers autism treatment "prescribed or ordered" by a licensed physician, psychiatrist, psychologist, licensed clinical social worker or registered nurse practitioner (HRS § 431:10A-133).',
         status: 'verified',
-        cites: [MQ_MEMO, OPT_SCC],
+        cites: [MQ_MEMO, OPT_SCC, HRS_467E1, HRS_133],
       },
       diagnosticTools: {
         value: 'Optum’s ABA criteria require the diagnosis and severity to be confirmed "using at least one clinically validated tool" — screening tools (e.g., M-CHAT), second-level tools (CARS-2, STAT, RITA-T) or formal diagnostic tools (ADI-R, ADOS-2, DISCO). The MQD memo asks for evidence-based assessments.',
@@ -1065,7 +1068,7 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
       { title: 'ASD diagnosis and age', desc: 'Under 21, diagnosed by one of the Med-QUEST memo’s provider types (often inside Kaiser).' },
       { title: 'Transferring from ʻOhana?', desc: 'Members moving from another QUEST plan are an exception to Kaiser’s no-retro rule; transition-of-care rules apply.' },
     ],
-    sources: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, KP_MAN, KP_QI, KP_AUTH, MQ_MEMO, MQ_TELE, CFR_438_210, CFR_433_139, HRS_133, SB791],
+    sources: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, KP_MAN, KP_QI, KP_AUTH, MQ_MEMO, MQ_TELE, CFR_438_210, CFR_433_139, HRS_133, SB791, HRS_467E1],
     deliveryRules: {
       supervision: {
         value: 'No Kaiser-specific rule published; the MQD memo sets it: 1–2 hours of case supervision per 10 RBT hours, at least one direct, direct supervision at least 5% of BCaBA and RBT hours.',
@@ -1124,9 +1127,9 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       diagnosingProviders: {
-        value: 'MQD memo list: developmental-behavioral or developmental pediatrician, neurologist, pediatrician, psychiatrist, psychologist, or other licensed practitioner with ASD expertise. No Kaiser variation published.',
+        value: 'MQD memo list: developmental-behavioral or developmental pediatrician, neurologist, pediatrician, psychiatrist, psychologist, or other licensed practitioner with ASD expertise. No Kaiser variation published. LCSW: no Kaiser-specific answer; under the MQD memo an LCSW fits only the "other licensed practitioner with specialized expertise in ASD" category. Hawaii scope rule: the practice of social work includes "(8) Clinical diagnosis or psychotherapy, or both, provided by a licensed clinical social worker" (HRS § 467E-1), and Luke\'s Law covers autism treatment "prescribed or ordered" by a licensed physician, psychiatrist, psychologist, licensed clinical social worker or registered nurse practitioner (HRS § 431:10A-133).',
         status: 'unverified',
-        cites: [MQ_MEMO],
+        cites: [MQ_MEMO, HRS_467E1, HRS_133],
         verifyVia: 'Kaiser Permanente QUEST office (808) 432-5330.',
         blocker: 'per-case',
       },
@@ -1266,7 +1269,7 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
       { title: 'Recent standardized functioning measure', desc: 'Aetna wants impairment on a standardized scale (Vineland-3, ABAS, VB-MAPP or ABLLS) within the past 12 months.' },
       { title: 'Treatment order', desc: 'Luke’s Law covers treatment prescribed or ordered by a physician, psychiatrist, psychologist, LCSW or registered nurse practitioner.' },
     ],
-    sources: [AET_0554, AET_0648, AET_GUIDE, AET_PRECERT, AET_BHMAN, HRS_133, SB791, HRS_465D7, HRS_465D8, CFR_2560, CFR_147_136, HRS_432E5],
+    sources: [AET_0554, AET_0648, AET_GUIDE, AET_PRECERT, AET_BHMAN, HRS_133, SB791, HRS_465D7, HRS_465D8, CFR_2560, CFR_147_136, HRS_432E5, HRS_467E1],
     deliveryRules: {
       supervision: {
         value: 'Services must be "provided directly or billed by licensed behavior analysts (in states with behavior analyst licensure laws), board-certified behavior analysts, or licensed psychologists" where ABA is in scope, unless state mandates, plan documents or contracts say otherwise; where others deliver services, "there must be supervision and direction" in line with practice standards. Aetna publishes no numeric ratio. In Hawaii, RBTs and BCaBAs may practice only under a licensed behavior analyst’s direction (HRS § 465D-7).',
@@ -1319,9 +1322,9 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
         cites: [AET_GUIDE, HRS_133],
       },
       diagnosingProviders: {
-        value: 'DSM-5 ASD "obtained by an appropriate provider (i.e. licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice)." CPB 0648 lists professionals appropriate for ASD evaluation, from developmental pediatricians and neurologists to psychologists and SLPs.',
+        value: 'DSM-5 ASD "obtained by an appropriate provider (i.e. licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice)." CPB 0648 lists professionals appropriate for ASD evaluation, from developmental pediatricians and neurologists to psychologists and SLPs. LCSW: yes — Aetna accepts an "other health care professional qualified to diagnose mental health conditions within their scope of practice," and Hawaii puts "Clinical diagnosis" inside the LCSW scope (HRS § 467E-1(8)). Hawaii scope rule: the practice of social work includes "(8) Clinical diagnosis or psychotherapy, or both, provided by a licensed clinical social worker" (HRS § 467E-1), and Luke\'s Law covers autism treatment "prescribed or ordered" by a licensed physician, psychiatrist, psychologist, licensed clinical social worker or registered nurse practitioner (HRS § 431:10A-133).',
         status: 'verified',
-        cites: [AET_GUIDE, AET_0648],
+        cites: [AET_GUIDE, AET_0648, HRS_467E1, HRS_133],
       },
       diagnosticTools: {
         value: 'CPB 0648 names ADI-R, ADOS-2, CARS-2 and the Asperger Syndrome Diagnostic Scale for the diagnosis; the ABA guide requires a standardized functioning measure (Vineland-3, ABAS, VB-MAPP or ABLLS) within 12 months showing impairment at least one standard deviation below the mean, or significant risk of harm.',
@@ -1465,7 +1468,7 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis details', desc: 'Name, credentials and licensure of the diagnoser and the date of the most recent diagnosis — EN0499 asks for all of them. Rett syndrome (F84.2) is excluded.' },
       { title: 'Treatment order', desc: 'Luke’s Law covers treatment prescribed or ordered by a physician, psychiatrist, psychologist, LCSW or registered nurse practitioner.' },
     ],
-    sources: [{ title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026): Claims filing deadline, Coordination of benefits, corrected claims, ERA, Appeals', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }, CIG_EN0499, CIG_ARG, HRS_133, SB791, HRS_465D7, HRS_465D8, CFR_2560, CFR_147_136, HRS_432E5],
+    sources: [{ title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026): Claims filing deadline, Coordination of benefits, corrected claims, ERA, Appeals', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }, CIG_EN0499, CIG_ARG, HRS_133, SB791, HRS_465D7, HRS_465D8, CFR_2560, CFR_147_136, HRS_432E5, HRS_467E1],
     deliveryRules: {
       supervision: {
         value: 'Case supervision by a BCBA, LBA or independently licensed mental health professional trained in ABA, consistent with "one to two hours per ten hours of direct treatment"; at least one to two hours a week of direct case supervision when direct treatment is 10 hours a week or less; the supervisor’s name and credentials documented.',
@@ -1519,9 +1522,9 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
         cites: [CIG_EN0499],
       },
       diagnosingProviders: {
-        value: 'A healthcare professional "licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice."',
+        value: 'A healthcare professional "licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice." LCSW: yes — Hawaii licenses LCSWs to practise independently and puts "Clinical diagnosis" inside their scope (HRS § 467E-1(8)), which is what Evernorth\'s test asks. Hawaii scope rule: the practice of social work includes "(8) Clinical diagnosis or psychotherapy, or both, provided by a licensed clinical social worker" (HRS § 467E-1), and Luke\'s Law covers autism treatment "prescribed or ordered" by a licensed physician, psychiatrist, psychologist, licensed clinical social worker or registered nurse practitioner (HRS § 431:10A-133).',
         status: 'verified',
-        cites: [CIG_EN0499],
+        cites: [CIG_EN0499, HRS_467E1, HRS_133],
       },
       diagnosticTools: {
         value: 'No diagnostic instrument named; the ABA assessment must use a reliable, valid, standardized instrument covering the DSM-5-TR ASD domains, completed in full, with standardized scores provided.',
@@ -1674,7 +1677,7 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis with a validated tool', desc: 'Optum wants the DSM-5 diagnosis and severity confirmed with at least one clinically validated tool.' },
       { title: 'Child’s age', desc: 'Luke’s Law covers children under 14, with ABA capped at $25,000 a year for ages 13 and under.' },
     ],
-    sources: [{ title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): Coordination of Benefits; Timely Filing; Payment Timelines', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial): Timely filing of corrected claims; Subrogation and COB', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, OPT_SCC, HRS_133, SB791, HRS_465D7, HRS_465D8, CFR_2560, CFR_147_136, HRS_432E5, { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' }, { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' }, { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' }],
+    sources: [{ title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): Coordination of Benefits; Timely Filing; Payment Timelines', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial): Timely filing of corrected claims; Subrogation and COB', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, OPT_SCC, HRS_133, SB791, HRS_465D7, HRS_465D8, CFR_2560, CFR_147_136, HRS_432E5, { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' }, { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' }, { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' }, HRS_467E1],
     deliveryRules: {
       supervision: {
         value: '"Consistent with CASP standards of care, direct case supervision is required 1–2 hours for every 10 hours of direct treatment per week." Technicians must be under a BCBA or licensed behavioral health clinician; in Hawaii, RBTs and BCaBAs practice only under a licensed behavior analyst’s direction (HRS § 465D-7).',
@@ -1733,9 +1736,9 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
         cites: [OPT_SCC, HRS_133],
       },
       diagnosingProviders: {
-        value: 'A "state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis."',
+        value: 'A "state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis." LCSW: yes — Optum accepts an "other state licensed clinician qualified to make such diagnosis," and Hawaii puts "Clinical diagnosis" inside the LCSW scope (HRS § 467E-1(8)). Hawaii scope rule: the practice of social work includes "(8) Clinical diagnosis or psychotherapy, or both, provided by a licensed clinical social worker" (HRS § 467E-1), and Luke\'s Law covers autism treatment "prescribed or ordered" by a licensed physician, psychiatrist, psychologist, licensed clinical social worker or registered nurse practitioner (HRS § 431:10A-133).',
         status: 'verified',
-        cites: [OPT_SCC],
+        cites: [OPT_SCC, HRS_467E1, HRS_133],
       },
       diagnosticTools: {
         value: 'At least one clinically validated tool confirming diagnosis and severity — screening (ABC, M-CHAT, CSBS-DP-IT, ASQ, AQ, CAST), second-level (CARS-2, RITA-T, STAT) or formal diagnostic (ADI-R, ADOS-2, DISCO).',

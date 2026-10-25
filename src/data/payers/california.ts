@@ -184,7 +184,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       diagnosingProviders: {
-        value: 'The gate is a recommendation, not a diagnosis, and it must come from "a licensed physician or a licensed psychologist" (State Plan, 2025) — APL 23-010 says "a licensed physician, surgeon, or psychologist," and its first eligibility criterion is that the member "Has a recommendation from a licensed physician, surgeon, or psychologist that evidence-based BHT services are Medically Necessary."',
+        value: 'The gate is a recommendation, not a diagnosis, and it must come from "a licensed physician or a licensed psychologist" (State Plan, 2025) — APL 23-010 says "a licensed physician, surgeon, or psychologist," and its first eligibility criterion is that the member "Has a recommendation from a licensed physician, surgeon, or psychologist that evidence-based BHT services are Medically Necessary." LCSW: no — the BHT recommendation must come from a licensed physician, surgeon or psychologist; an LCSW\'s evaluation alone does not open the benefit.',
         status: 'verified',
         cites: [
           { title: 'Medi-Cal State Plan — Limitations on Att. 3.1-A, item 13c BHT (TN CA-24-0031, eff. 1/1/2025)', url: 'https://www.dhcs.ca.gov/file/limitations-to-attachment-3-1-a-pdf/' },
@@ -422,7 +422,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       diagnosingProviders: {
-        value: 'A licensed physician, surgeon or psychologist — the 2026 manual says "licensed physician or licensed psychologist" in one section and "licensed physician, surgeon, or psychologist" in the BHT chapter.',
+        value: 'A licensed physician, surgeon or psychologist — the 2026 manual says "licensed physician or licensed psychologist" in one section and "licensed physician, surgeon, or psychologist" in the BHT chapter. LCSW: no — not on L.A. Care\'s physician/surgeon/psychologist list.',
         status: 'verified',
         cites: [
           { title: 'L.A. Care — 2026 Universal Provider Manual (LA4289)', url: 'https://www.lacare.org/sites/default/files/la4289_upm_202512.pdf' },
@@ -647,7 +647,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'The recommendation comes from a physician (MD/DO) or licensed clinical psychologist (PsyD/PhD) — Health Net’s referral form "must be completed by a physician or licensed psychologist." The policy does not separately specify who writes the diagnostic evaluation.',
+        value: 'The recommendation comes from a physician (MD/DO) or licensed clinical psychologist (PsyD/PhD) — Health Net’s referral form "must be completed by a physician or licensed psychologist." The policy does not separately specify who writes the diagnostic evaluation. LCSW: no — the referral form must be completed by a physician or licensed psychologist.',
         status: 'verified',
         cites: [
           { title: 'Health Net CA.CP.BH.104 — Applied Behavior Analysis (Medi-Cal), eff. 4/20/2026', url: 'https://www.healthnet.com/content/dam/centene/healthnet/pdfs/general/ca/policies/CA.CP.BH.104.pdf' },
@@ -867,7 +867,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       diagnosingProviders: {
-        value: 'A "licensed physician, surgeon or psychologist" (MC_12K3); UM_BH 08 says "physician or psychologist."',
+        value: 'A "licensed physician, surgeon or psychologist" (MC_12K3); UM_BH 08 says "physician or psychologist." LCSW: no — not on IEHP\'s physician/surgeon/psychologist list.',
         status: 'verified',
         cites: [
           { title: 'IEHP Medi-Cal Provider Policy MC_12K3 — Behavioral Health Treatment (2024 chapter 12)', url: 'https://www.providerservices.iehp.org/content/dam/provider-services/en/documents/providers/provider-manual/2024/medi-cal/redline/12%20-%20COORDINATION%20OF%20CARE_03-28-24_REDLINE_.pdf' },
@@ -1318,7 +1318,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'The recommendation or evaluation must come from "a physician, licensed psychologist, or allowable qualified healthcare care provider (QHCP) per state regulations" (request form); the Recommendation Form itself says "A physician or licensed psychologist should complete this form."',
+        value: 'The recommendation or evaluation must come from "a physician, licensed psychologist, or allowable qualified healthcare care provider (QHCP) per state regulations" (request form); the Recommendation Form itself says "A physician or licensed psychologist should complete this form." LCSW: not named — an LCSW qualifies only if Anthem treats the LCSW as an "allowable qualified healthcare care provider (QHCP) per state regulations"; the Recommendation Form expects a physician or licensed psychologist.',
         status: 'verified',
         cites: [
           { title: 'Anthem Blue Cross — Treatment Plan Request Form for Autism Spectrum Disorders, Medi-Cal (May 2026)', url: 'https://providers.anthem.com/docs/gpp/california-provider/CA_CAID_ASDTreatmentRequestForm.pdf' },
@@ -1556,7 +1556,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'Policy 482 accepts "clinical psychologists, developmental pediatrician, pediatric neurologist, psychiatrist, or other licensed clinicians permitted under applicable state law to diagnose ASD," working as a multidisciplinary team, plus "Documentation from the Member’s primary care physician noting initial developmental concerns." The referral forms are signed by an "M.D. or Licensed Clinical Psychologist."',
+        value: 'Policy 482 accepts "clinical psychologists, developmental pediatrician, pediatric neurologist, psychiatrist, or other licensed clinicians permitted under applicable state law to diagnose ASD," working as a multidisciplinary team, plus "Documentation from the Member’s primary care physician noting initial developmental concerns." The referral forms are signed by an "M.D. or Licensed Clinical Psychologist." LCSW: only if California law permits an LCSW to diagnose ASD (Policy 482\'s "other licensed clinicians" category), and the referral forms still need an M.D. or licensed clinical psychologist signature. California\'s LCSW scope statute (B&P § 4996.9) could not be fetched this run, so whether an LCSW counts as qualified to diagnose in California is not confirmed here — ask the plan before relying on an LCSW-only diagnosis.',
         status: 'verified',
         cites: [
           { title: 'Molina Clinical Policy No. 482 — Applied Behavioral Analysis for ASD (approved 6/10/2026)', url: 'https://www.molinaclinicalpolicy.com/molinaclinicalpolicy/-/media/Molina/PublicWebsite/PDF/Common/Molina-Clinical-Policy/Applied-Behavioral-Analysis-for-Autism-Spectrum-Disorder_R.ashx' },
@@ -1783,7 +1783,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'The recommendation comes from "a licensed physician, surgeon or psychologist" (SCAL criteria); the handbook says BHT must be "prescribed by a licensed doctor or psychologist." In practice the assessment runs through Kaiser: "If a developmental disability is suspected, the Medi-Cal Member may seek assessment and diagnosis via PCP or Regional Center."',
+        value: 'The recommendation comes from "a licensed physician, surgeon or psychologist" (SCAL criteria); the handbook says BHT must be "prescribed by a licensed doctor or psychologist." In practice the assessment runs through Kaiser: "If a developmental disability is suspected, the Medi-Cal Member may seek assessment and diagnosis via PCP or Regional Center." LCSW: no — the recommendation must come from a licensed physician, surgeon or psychologist.',
         status: 'verified',
         cites: [
           { title: 'KFHP-SCAL — UM Criteria for BHT Services for Medi-Cal Members under EPSDT (UM Criteria 2024)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/health-plan-documents/notice/utilization-management/bht-epsdt-um-criteria-medi-cal-scal-en.pdf' },
@@ -2018,7 +2018,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'The recommendation must come from "a licensed physician, surgeon or psychologist" stating BHT is medically necessary "regardless of diagnosis"; the functional behavior assessment must be "conducted by a Board Certified Behavior Analyst."',
+        value: 'The recommendation must come from "a licensed physician, surgeon or psychologist" stating BHT is medically necessary "regardless of diagnosis"; the functional behavior assessment must be "conducted by a Board Certified Behavior Analyst." LCSW: no — the recommendation must come from a licensed physician, surgeon or psychologist.',
         status: 'verified',
         cites: [
           { title: 'Partnership MCUP3126 — Behavioral Health Treatment (BHT) for Members Under 21 (reviewed 4/8/2026)', url: 'https://public.powerdms.com/PHC/documents/1850144' },
@@ -2276,7 +2276,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       diagnosingProviders: {
-        value: 'Kaiser diagnoses in-house or through its own evaluators: "The evaluation will be done through a Kaiser Permanente Developmental Pediatrics Department or ASD center, or with one of our qualified community providers," with "a licensed clinician, such as a physician, psychologist, or mental health therapist"; community evaluators "send your evaluation to a Kaiser Permanente clinician, who’ll refer you for other needed services." The EOC requires BHT "prescribed by a Plan Physician, or … developed by a Plan Provider who is a psychologist."',
+        value: 'Kaiser diagnoses in-house or through its own evaluators: "The evaluation will be done through a Kaiser Permanente Developmental Pediatrics Department or ASD center, or with one of our qualified community providers," with "a licensed clinician, such as a physician, psychologist, or mental health therapist"; community evaluators "send your evaluation to a Kaiser Permanente clinician, who’ll refer you for other needed services." The EOC requires BHT "prescribed by a Plan Physician, or … developed by a Plan Provider who is a psychologist." LCSW: Kaiser\'s own evaluators may include a "mental health therapist," but BHT must still be prescribed by a Plan Physician or developed by a Plan psychologist; an outside LCSW\'s diagnosis goes to a Kaiser clinician for referral.',
         status: 'verified',
         cites: [
           { title: 'TPMG My Doctor Online (NCAL) — Evaluation for ASD in Children', url: 'https://mydoctor.kaiserpermanente.org/ncal/structured-content/evaluation-for-autism-spectrum-disorder-in-children-2259863' },
@@ -2552,7 +2552,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'A "licensed, qualified health care provider" — BSC3.01’s initial-evaluation text gives examples: "an appropriate provider (e.g., pediatrician, pediatric neurologist, developmental pediatrician, psychologist)." No closed list.',
+        value: 'A "licensed, qualified health care provider" — BSC3.01’s initial-evaluation text gives examples: "an appropriate provider (e.g., pediatrician, pediatric neurologist, developmental pediatrician, psychologist)." No closed list. LCSW: not named in BSC3.01\'s examples. California\'s LCSW scope statute (B&P § 4996.9) could not be fetched this run, so whether an LCSW counts as qualified to diagnose in California is not confirmed here — ask the plan before relying on an LCSW-only diagnosis.',
         status: 'verified',
         cites: [
           { title: 'Blue Shield Medical Policy BSC3.01 — BHT for ASD or PDD (eff. 12/1/2025)', url: 'https://www.blueshieldca.com/content/dam/bsca/en/provider/docs/medical-policies/Behavioral-Health-TX-Autism-Spectrum-Disorders.pdf' },
@@ -3089,7 +3089,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'A physician or licensed psychologist: the diagnosis form "must be completed by a physician or licensed psychologist," recording the diagnosis date, whether ABA is recommended, and the signer’s license type and number.',
+        value: 'A physician or licensed psychologist: the diagnosis form "must be completed by a physician or licensed psychologist," recording the diagnosis date, whether ABA is recommended, and the signer’s license type and number. LCSW: no — the diagnosis form must be completed by a physician or licensed psychologist.',
         status: 'verified',
         cites: [
           { title: 'Health Net — Confirmation of Diagnosis: ASD form (24-993)', url: 'https://providerlibrary.healthnetcalifornia.com/content/dam/centene/healthnet/pdfs/providerlibrary/500235-ABA-ASD-Eval-Form-COMM.pdf' },
@@ -3366,7 +3366,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'A DSM-5 ASD diagnosis "obtained by an appropriate provider" — the guide names a "licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice"; CPB 0648 lists professionals appropriate to ASD evaluation (BCBA, developmental pediatrician, neurologist, OT, PT, primary care provider, psychiatrist, psychologist, SLP and audiologist). Aetna’s California-only record-review items add "If member is 0-6 years of age, there is documentation of screening for autism spectrum disorder."',
+        value: 'A DSM-5 ASD diagnosis "obtained by an appropriate provider" — the guide names a "licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice"; CPB 0648 lists professionals appropriate to ASD evaluation (BCBA, developmental pediatrician, neurologist, OT, PT, primary care provider, psychiatrist, psychologist, SLP and audiologist). Aetna’s California-only record-review items add "If member is 0-6 years of age, there is documentation of screening for autism spectrum disorder." LCSW: Aetna\'s test is scope of practice. California\'s LCSW scope statute (B&P § 4996.9) could not be fetched this run, so whether an LCSW counts as qualified to diagnose in California is not confirmed here — ask the plan before relying on an LCSW-only diagnosis.',
         status: 'verified',
         cites: [
           { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
@@ -3652,7 +3652,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'A healthcare professional "who is licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice" (EN0499); the PA form offers medical doctor, licensed psychologist or other.',
+        value: 'A healthcare professional "who is licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice" (EN0499); the PA form offers medical doctor, licensed psychologist or other. LCSW: Evernorth\'s test is independent licensure with diagnosis in scope. California\'s LCSW scope statute (B&P § 4996.9) could not be fetched this run, so whether an LCSW counts as qualified to diagnose in California is not confirmed here — ask the plan before relying on an LCSW-only diagnosis.',
         status: 'verified',
         cites: [
           { title: 'Evernorth Coverage Policy EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
@@ -3942,7 +3942,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: '"A state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis according to … DSM-5-TR" (Optum criteria). Psychologist diagnostic testing is billed under Optum’s general behavioral health network, not the autism contract.',
+        value: '"A state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis according to … DSM-5-TR" (Optum criteria). Psychologist diagnostic testing is billed under Optum’s general behavioral health network, not the autism contract. LCSW: Optum\'s test is a state-licensed clinician qualified to diagnose. California\'s LCSW scope statute (B&P § 4996.9) could not be fetched this run, so whether an LCSW counts as qualified to diagnose in California is not confirmed here — ask the plan before relying on an LCSW-only diagnosis.',
         status: 'verified',
         cites: [
           { title: 'Optum — ABA Supplemental Clinical Criteria (BH803ABASCC, interim review 4/21/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },

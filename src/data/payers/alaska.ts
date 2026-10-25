@@ -66,6 +66,7 @@ const S: Record<string, PayerSource> = {
   premClaims: { title: 'Premera Alaska Medical Reference Manual — Claims submission and payments (timely filing, COB, provider appeals)', url: 'https://www.premera.com/ak/provider/reference/medical-manuals/claim-submission-payments/' },
   premCred: { title: 'Premera Alaska Medical Reference Manual — Credentialing and contracting', url: 'https://www.premera.com/ak/provider/reference/medical-manuals/credentialing-contracting/' },
   premFEP: { title: 'Premera — Prior Authorization Review Request FEP for Applied Behavior Analysis, FEP-Alaska (055178, 06-01-2026)', url: 'https://www.premera.com/documents/055178.pdf' },
+  lcswScope: { title: 'AS 08.95.990(2) — "clinical social work" means "the diagnosis of psychiatric disorders and the use of techniques of applied psychotherapy"', url: 'https://www.akleg.gov/basis/statutes.asp?media=print&secStart=08.95.990&secEnd=08.95.990' },
 };
 
 /* ---- Shared Alaska commercial layer (same facts on every commercial guide) ---- */
@@ -234,7 +235,7 @@ export const alaskaPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       diagnosingProviders: {
-        value: 'A mental health professional as defined in AS 47.30.915 (licensed physician or psychiatrist, clinical psychologist, psychological associate, APRN or master’s-level psychiatric RN, licensed marital and family therapist, professional or associate counselor, clinical social worker, or a supervised master’s-level clinician), or "a health care professional who is qualified based on that individual’s scope of practice, training, education, and experience to assess and diagnose autism spectrum disorders in children" (7 AAC 135.020(e)(2)).',
+        value: 'A mental health professional as defined in AS 47.30.915 (licensed physician or psychiatrist, clinical psychologist, psychological associate, APRN or master’s-level psychiatric RN, licensed marital and family therapist, professional or associate counselor, clinical social worker, or a supervised master’s-level clinician), or "a health care professional who is qualified based on that individual’s scope of practice, training, education, and experience to assess and diagnose autism spectrum disorders in children" (7 AAC 135.020(e)(2)). LCSW: yes — a clinical social worker is a mental health professional under AS 47.30.915.',
         status: 'verified',
         cites: [S.aac135_010, S.as47_30_915],
       },
@@ -379,7 +380,7 @@ export const alaskaPayers: Record<string, PayerConfig> = {
       { title: 'Standardized functional measure', desc: 'Aetna wants one from the past 12 months (for example Vineland-3, ABAS, VB-MAPP or ABLLS).' },
       { title: 'Prescription and treatment plan', desc: 'AS 21.42.397 ties coverage to treatment prescribed by a physician, psychologist or APRN, in a plan following a comprehensive evaluation.' },
     ],
-    sources: [S.aetnaGuide, S.aetnaCPB, S.aetnaCPB648, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.aetnaTele, S.as21_42_397, S.as08_15, S.as08_02_130, S.as21_42_422, S.as21_36_495, S.as21_07, S.aac3_28, S.sb133, S.as21_42_205, S.aac3_26_110, S.bacbLic, S.erisa, S.fee27, S.hfin],
+    sources: [S.aetnaGuide, S.aetnaCPB, S.aetnaCPB648, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.aetnaTele, S.as21_42_397, S.as08_15, S.as08_02_130, S.as21_42_422, S.as21_36_495, S.as21_07, S.aac3_28, S.sb133, S.as21_42_205, S.aac3_26_110, S.bacbLic, S.erisa, S.fee27, S.hfin, S.lcswScope],
     deliveryRules: {
       supervision: {
         value: 'Aetna’s Network Participation Criteria (5/26) require services to be "provided directly or supervised by individuals licensed by the state or certified by the Behavior Analyst Certification Board"; supervised staff may be a BCaBA "or a paraprofessional," with "A minimum of one hour of face-to-face supervision" of an unlicensed or noncertified paraprofessional "for each 10 hours of applied behavior analysis" and the supervisor onsite with the child at least one hour a month; "All BCBAs, BCaBAs and paraprofessionals must meet state requirements." In Alaska that means a licensed behavior analyst (AS 08.15.010); an assistant needs a license and direct supervision by a licensed behavior analyst, and technicians are exempt only when acting "under the direction of a licensed behavior analyst or licensed assistant behavior analyst" (AS 08.15.070(3)).',
@@ -432,9 +433,9 @@ export const alaskaPayers: Record<string, PayerConfig> = {
         cites: [S.aetnaGuide],
       },
       diagnosingProviders: {
-        value: 'A DSM-5 ASD diagnosis "obtained by an appropriate provider (i.e. licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice)."',
+        value: 'A DSM-5 ASD diagnosis "obtained by an appropriate provider (i.e. licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice)." LCSW: yes under Aetna\'s scope-of-practice test — Alaska defines clinical social work as "the diagnosis of psychiatric disorders" (AS 08.95.990(2)).',
         status: 'verified',
-        cites: [S.aetnaGuide],
+        cites: [S.aetnaGuide, S.lcswScope],
       },
       diagnosticTools: {
         value: 'The ABA guide requires a standardized functional measure from the past 12 months, naming the Vineland-3, ABAS, VB-MAPP or ABLLS as examples. CPB 0648 discusses ASD diagnostic instruments (ADOS-2, ADI-R and others) but the ABA guide does not require a specific one.',
@@ -570,7 +571,7 @@ export const alaskaPayers: Record<string, PayerConfig> = {
       { title: 'Standardized assessment timing', desc: 'Instrument administered within 60 days before treatment starts.' },
       { title: 'Prescription and treatment plan', desc: 'AS 21.42.397 ties coverage to treatment prescribed by a physician, psychologist or APRN, in a plan following a comprehensive evaluation.' },
     ],
-    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.as21_42_397, S.as08_15, S.as08_02_130, S.as21_42_422, S.as21_36_495, S.as21_07, S.aac3_28, S.sb133, S.as21_42_205, S.aac3_26_110, S.bacbLic, S.erisa, S.fee27, S.hfin],
+    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.as21_42_397, S.as08_15, S.as08_02_130, S.as21_42_422, S.as21_36_495, S.as21_07, S.aac3_28, S.sb133, S.as21_42_205, S.aac3_26_110, S.bacbLic, S.erisa, S.fee27, S.hfin, S.lcswScope],
     deliveryRules: {
       supervision: {
         value: 'Case supervision is by a BCBA, a Licensed Behavior Analyst, or an independently licensed mental health professional with ABA training, at one to two hours per ten hours of direct treatment; at 10 hours a week or less, at least one to two hours a week. In Alaska the supervising behavior analyst must hold an Alaska license (AS 08.15.010), and technicians are exempt from licensure only when acting under a licensed behavior analyst’s or licensed assistant’s direction (AS 08.15.070(3)).',
@@ -621,9 +622,9 @@ export const alaskaPayers: Record<string, PayerConfig> = {
         cites: [S.en0499],
       },
       diagnosingProviders: {
-        value: 'A healthcare professional "licensed to practice independently and whose licensure board considers diagnostics" within scope, applying DSM-5-TR criteria.',
+        value: 'A healthcare professional "licensed to practice independently and whose licensure board considers diagnostics" within scope, applying DSM-5-TR criteria. LCSW: yes under Evernorth\'s test — Alaska defines clinical social work as "the diagnosis of psychiatric disorders" (AS 08.95.990(2)).',
         status: 'verified',
-        cites: [S.en0499],
+        cites: [S.en0499, S.lcswScope],
       },
       diagnosticTools: {
         value: 'No single instrument is mandated, but the assessment must be standardized, completed by a trained administrator, and the current edition (the policy’s example: "Vineland-3 vs. Vineland-II").',
@@ -757,7 +758,7 @@ export const alaskaPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis with a validated tool', desc: 'DSM-5 ASD and severity level, confirmed by the diagnosing clinician with a validated tool (ADI-R, ADOS-2 and others).' },
       { title: 'Prescription and treatment plan', desc: 'AS 21.42.397 ties coverage to treatment prescribed by a physician, psychologist or APRN, in a plan following a comprehensive evaluation.' },
     ],
-    sources: [S.optumSCC, S.optumSM, S.optumTele, S.optumReimb, S.optumNNM, S.optumExit, S.as21_42_397, S.as08_15, S.as08_02_130, S.as21_42_422, S.as21_36_495, S.as21_07, S.aac3_28, S.sb133, S.as21_42_205, S.aac3_26_110, S.bacbLic, S.erisa, S.fee27, S.hfin],
+    sources: [S.optumSCC, S.optumSM, S.optumTele, S.optumReimb, S.optumNNM, S.optumExit, S.as21_42_397, S.as08_15, S.as08_02_130, S.as21_42_422, S.as21_36_495, S.as21_07, S.aac3_28, S.sb133, S.as21_42_205, S.aac3_26_110, S.bacbLic, S.erisa, S.fee27, S.hfin, S.lcswScope],
     deliveryRules: {
       supervision: {
         value: 'Consistent with CASP standards, direct case supervision runs at 1–2 hours for every 10 hours of direct treatment per week. Technicians work under a BCBA or licensed behavioral health clinician and "should be registered behavior technicians (RBT) or another appropriately certified behavior technician as allowable by state mandate"; Optum does not recommend parents serving as their own child’s RBT. In Alaska the supervising behavior analyst must hold an Alaska license (AS 08.15.010).',
@@ -813,9 +814,9 @@ export const alaskaPayers: Record<string, PayerConfig> = {
         cites: [S.optumSCC],
       },
       diagnosingProviders: {
-        value: 'A "state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis."',
+        value: 'A "state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis." LCSW: yes under Optum\'s test — Alaska defines clinical social work as "the diagnosis of psychiatric disorders" (AS 08.95.990(2)).',
         status: 'verified',
-        cites: [S.optumSCC],
+        cites: [S.optumSCC, S.lcswScope],
       },
       diagnosticTools: {
         value: 'At least one clinically validated tool from a non-exhaustive list of first-level screens (M-CHAT and others), second-level screening tools, and formal diagnostic tools (ADI-R, ADOS-2 and others).',
@@ -943,7 +944,7 @@ export const alaskaPayers: Record<string, PayerConfig> = {
       { title: 'Prescription and treatment plan', desc: 'AS 21.42.397 ties coverage to treatment prescribed by a physician, psychologist or APRN, in a plan following a comprehensive evaluation.' },
       { title: 'School services', desc: 'Some plans, and FEP, exclude ABA in school settings; record any IEP services.' },
     ],
-    sources: [S.premPolicy, S.premCodesInd, S.premCodesGrp, S.premPA, S.premCodeCheck, S.premClaims, S.premCred, S.premFEP, S.as21_42_397, S.as08_15, S.as08_02_130, S.as21_42_422, S.as21_36_495, S.as21_07, S.aac3_28, S.sb133, S.as21_42_205, S.aac3_26_110, S.bacbLic, S.erisa, S.fee27, S.cfr433, { title: 'Premera Blue Cross Blue Shield of Alaska — Provider News (Alaska provider news index)', url: 'https://providernewsak.premera.com/' }],
+    sources: [S.premPolicy, S.premCodesInd, S.premCodesGrp, S.premPA, S.premCodeCheck, S.premClaims, S.premCred, S.premFEP, S.as21_42_397, S.as08_15, S.as08_02_130, S.as21_42_422, S.as21_36_495, S.as21_07, S.aac3_28, S.sb133, S.as21_42_205, S.aac3_26_110, S.bacbLic, S.erisa, S.fee27, S.cfr433, { title: 'Premera Blue Cross Blue Shield of Alaska — Provider News (Alaska provider news index)', url: 'https://providernewsak.premera.com/' }, S.lcswScope],
     deliveryRules: {
       supervision: {
         value: 'Direct treatment by technicians, BCaBAs or supervised clinicians "is provided by the ABA program manager or lead behavioral therapist," and "Some supervisory time (no specific time amount is specified) should be utilized for direct observation"; supervision may be in person or by real-time video. Premera points to the CASP guidelines for frequency and sets no ratio. In Alaska the program manager must hold an Alaska behavior-analyst license (AS 08.15.010), and an assistant needs direct supervision by a licensed behavior analyst.',
@@ -996,9 +997,9 @@ export const alaskaPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       diagnosingProviders: {
-        value: 'A healthcare professional "whose legally permitted scope of licensure includes diagnosis of psychiatric disorders or neurodevelopmental disorders."',
+        value: 'A healthcare professional "whose legally permitted scope of licensure includes diagnosis of psychiatric disorders or neurodevelopmental disorders." LCSW: yes on Premera\'s wording — Alaska defines clinical social work as "the diagnosis of psychiatric disorders" (AS 08.95.990(2)).',
         status: 'verified',
-        cites: [S.premPolicy],
+        cites: [S.premPolicy, S.lcswScope],
       },
       diagnosticTools: {
         value: 'Policy 3.01.510 names no diagnostic instrument. Prior-authorization requests on the code lists call for history and physical and documentation of medical necessity.',

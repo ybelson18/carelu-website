@@ -320,6 +320,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'What is the timely filing limit for Texas Medicaid ABA claims?', a: 'Ninety-five days from each date of service, for TMHP fee-for-service claims and for claims to a Texas Medicaid MCO alike. Appeals to TMHP are due within 120 days of the R&S Report disposition date.' },
       { q: 'Does Texas Medicaid require a taxonomy code on the claim?', a: 'Yes. TMHP requires the NPI and taxonomy code for the billing and the performing provider on paper claims, and asks for NPI, taxonomy and benefit code on every claim. A paper claim without them is denied.' },
       { q: 'Does the referring doctor have to be on Texas Medicaid ABA claims?', a: 'Yes. ABA needs a prescriber referral, and TMPPM § 6.4.2.4 requires every claim for a service that needs a physician order or referral to carry the ordering or referring provider’s NPI (CMS-1500 block 17 with qualifier DN, NPI in 17b). That prescriber must be enrolled in Texas Medicaid, at least as an ordering/referring-only provider; a missing or unenrolled NPI can lead to denial on retrospective review.' },
+      { q: 'What do the HO, HN and HM modifiers mean on a Texas Medicaid ABA claim?', a: 'They name who rendered the service: HO licensed behavior analyst, HN licensed assistant behavior analyst, HM behavior technician (TMPPM Children’s Services Handbook, ABA reimbursement and billing guidelines). 97151 requires HO; 97155, 97156 and 97158 require HO or HN; on 97153 and 97154 the modifiers are informational only. Modifier 95 marks telehealth.' },
     ],
   },
 
@@ -4524,6 +4525,17 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Aetna — Provider appeals: state exceptions to the 180-day dispute filing standard', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/provider-appeals.html' },
         ],
       },
+      {
+        h2: 'Credential modifiers on the claim',
+        body: [
+          'Aetna publishes no rate-tier modifiers for ABA. Its public ABA documents — the Applied Behavior Analysis Medical Necessity Guide (©2026), the provider manual (6/26) and the ABA precertification form GR-69017-4 (7-26) — name no HM, HN, HO or HP modifier and no credential crosswalk. What the guide does require is that “Services must be provided directly or billed by the appropriately licensed provider”: licensed behavior analysts where a state licenses them, board-certified behavior analysts, or licensed psychologists, with unlicensed staff supervised “unless state mandates, plan documents or contracts require otherwise.” Whether your Aetna agreement prices technician and analyst time by modifier is set in the contract and its fee schedule, so ask Aetna before you bill technician lines under the analyst.',
+        ],
+        cites: [
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+          { title: 'Aetna — Provider manual (8102800-01-01, 6/26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -4539,6 +4551,9 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'Tex. Ins. Code § 1355.002 (applicability)', url: 'https://texas.public.law/statutes/tex._ins._code_section_1355.002' },
       { title: 'Tex. Ins. Code § 1355.003 (exceptions)', url: 'https://texas.public.law/statutes/tex._ins._code_section_1355.003' },
       { title: 'TDLR — Behavior Analysts program (Occupations Code Ch. 506)', url: 'https://www.tdlr.texas.gov/bhv/' },
+      { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+      { title: 'Aetna — Provider manual (8102800-01-01, 6/26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+      { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -4707,6 +4722,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'My client was diagnosed after age 10 — is Aetna coverage impossible?', a: 'The Texas mandate doesn\'t apply, but that isn\'t the end: Aetna\'s national policy covers ABA for ASD on its own terms, and federal parity governs group plans. Run the benefits verification before turning any family away.' },
       { q: 'What does Aetna pay for ABA in Texas?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the Texas Medicaid fee schedule (97153 at $14.50 per 15-minute unit effective 9/1/2025), and treat rate-setting as part of contracting.' },
       { q: 'What is Aetna’s timely filing limit in Texas?', a: 'For fully insured plans, 95 days from the date of service under Tex. Ins. Code §§ 1301.102 and 843.337; Aetna’s manual adds no shorter limit. Self-funded plans follow the contract and plan document.' },
+      { q: 'Does Aetna require HM, HN, HO or HP modifiers on ABA claims?', a: 'Not in any public Aetna ABA document: the medical necessity guide, provider manual and ABA precertification form name no rate-tier modifiers. Services must be provided or billed by an appropriately licensed or certified provider; ask Aetna whether your contract prices technician lines by modifier.' },
     ],
   },
 
@@ -4820,6 +4836,16 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
         ],
       },
+      {
+        h2: 'Credential modifiers on the claim',
+        body: [
+          'Evernorth (Cigna’s behavioral health arm) uses no rate-tier modifiers in its published ABA billing rules. Its Autism Resource Guide (March 2025) instead sets, code by code, who may provide and who may bill: 97152, 97153 and 97154 may be provided by a “BCaBA, technician” but are billed by a “BCBA-D, BCBA, or licensed mental health provider,” and “Evernorth does not credential nonlicensed/noncertified staff. Services for these staff members must be billed under the supervising provider.” All ABA must be billed with 97151–97158, 0362T and 0373T only. The only modifier Evernorth’s administrative guidelines (September 2026) prescribe is for virtual care: “Modifier 95 in Field 24-D to specify telehealth” with place of service 02; other modifiers go on “if they are needed to describe the service performed.”',
+        ],
+        cites: [
+          { title: 'Cigna/Evernorth Autism Resource Guide (PCOMM-2025-225, March 2025): billing codes', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191) — telehealth claim coding', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -4836,6 +4862,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'TDLR — Behavior Analysts program (Occupations Code Ch. 506)', url: 'https://www.tdlr.texas.gov/bhv/' },
       { title: 'Molina — Cigna Transition Provider Notice (TX Medicaid sale)', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/tx/medicaid/comm/Cigna-Transition-Provider-Notice-Final.pdf' },
       { title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+      { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191) — telehealth claim coding', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -4982,6 +5009,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'Is Cigna\'s ABA network open to new providers?', a: 'Evernorth says it is "committed to expanding our network of autism providers." Apply with the provider information form (individuals) or the autism clinic screening application; allow up to 90 days, then 60–90 days of credentialing per provider.' },
       { q: 'Does Cigna credential RBTs?', a: 'No. Evernorth does not credential nonlicensed or noncertified staff; their services are billed under the supervising provider.' },
       { q: 'What is Cigna (Evernorth)’s timely filing limit in Texas?', a: 'For state-regulated plans, 95 days (Tex. Ins. Code and Evernorth’s Texas Regulatory Addendum). Evernorth’s general limit elsewhere is 90 days from the date of service.' },
+      { q: 'Does Cigna / Evernorth require HM, HN, HO or HP modifiers on ABA claims?', a: 'No modifier tiers are published. Evernorth’s autism resource guide says technician and BCaBA services (97152–97154) are billed by the supervising BCBA, BCBA-D or licensed provider, and noncredentialed staff are billed under the supervising provider. Modifier 95 (with POS 02) marks telehealth.' },
     ],
   },
 
@@ -5087,6 +5115,15 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Tex. Ins. Code ch. 1301, §§ 1301.102–1301.103 (PPO claim filing and clean-claim deadlines)', url: 'https://statutes.capitol.texas.gov/Docs/IN/htm/IN.1301.htm' },
           { title: 'Tex. Ins. Code ch. 843, §§ 843.337–843.338 (HMO claim filing and clean-claim deadlines)', url: 'https://statutes.capitol.texas.gov/Docs/IN/htm/IN.843.htm' },
           { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial): timely filing, NPI/taxonomy, claim reconsideration and appeals', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+        ],
+      },
+      {
+        h2: 'Credential modifiers on the claim',
+        body: [
+          'Optum, which administers UnitedHealthcare’s behavioral benefit, requires one provider-level modifier on every 97151–97158 line: “The appropriate modifier must be billed to reflect the appropriate credentials of the provider delivering the services.” Its commercial ABA Reimbursement Policy (2022RP501A, updated June 2026) defines HM as “less than a bachelor’s degree level - a Registered Behavior Technician (RBT),” HN as “bachelor’s level” — a BCaBA, HO as “a master’s level clinician – Board Certified Behavior Analyst (BCBA) or a licensed mental health provider,” and HP as “a doctorate level clinician - Board Certified Behavior Analyst-Doctorate (BCBA-D) or a licensed mental health provider.” 97151, 97155, 97156, 97157 and 97158 take HN, HO or HP only; 97152, 97153 and 97154 also take HM. An ABA supervisor’s billable service goes out with HO, only one provider-level modifier is allowed per line, and 0362T and 0373T are listed among codes “that do not require modifiers.” The policy adds that state requirements “may supplement, modify or supersede” it.',
+        ],
+        cites: [
+          { title: 'Optum — Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A, updated June 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
         ],
       },
     ],
@@ -5259,6 +5296,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'What is UnitedHealthcare\'s ABA fee schedule?', a: 'Rates are contracted. Optum pays participating providers "based on your contracted rate" for the codes on their fee schedule; non-contracted providers call the Behavioral Health number on the member\'s card.' },
       { q: 'How do I join the UnitedHealthcare (Optum) ABA network?', a: 'Meet Optum\'s criteria (BACB certification, Texas LBA license, six months of supervised ABA experience, liability coverage) and apply through the "Join Our Autism/ABA Network" section of Provider Express.' },
       { q: 'What is UnitedHealthcare’s timely filing limit in Texas?', a: 'For fully insured plans, 95 days from the date of service under the Texas Insurance Code; UnitedHealthcare’s guide defers to state law and the provider agreement.' },
+      { q: 'What do HM, HN, HO and HP mean on a UnitedHealthcare / Optum ABA claim?', a: 'They identify who rendered the service: HM an RBT (less than bachelor’s level), HN a BCaBA (bachelor’s level), HO a master’s-level BCBA or licensed clinician, HP a BCBA-D or doctoral-level clinician. One per line; 97151 and 97155–97158 cannot take HM; 0362T/0373T take none (Optum ABA Reimbursement Policy 2022RP501A, June 2026).' },
     ],
   },
 };

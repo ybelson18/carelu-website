@@ -1,5 +1,14 @@
 import type { PayerConfig } from './types.js';
 
+/* Missouri commercial HMOs (visitor question 2026-10: "are there any HMOs in missouri?").
+   Source: Missouri DCI "Find HMO Service Areas in Missouri" (17 companies; per-company county
+   lists read 2026-10-25, counting counties with an approval date and no withdrawal date). */
+const MO_HMO_DCI = { title: 'Missouri Department of Commerce & Insurance — Find HMO Service Areas in Missouri (17 licensed HMOs; authorized counties by company)', url: 'https://insurance.mo.gov/health-insurance/find-hmo-service-areas-missouri' };
+const MO_HMO_1350 = { title: 'RSMo § 376.1350 — definitions incl. "health carrier" (includes a health maintenance organization)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1350' };
+const MO_HMO_1224 = { title: 'RSMo § 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' };
+const MO_HMO_BODY =
+  'Yes. The Missouri Department of Commerce & Insurance (DCI) lists 17 HMOs authorized in Missouri, each with the counties it may serve: Aetna Better Health of Missouri LLC, Aetna Health Inc, Arcadian Health Plan Inc, Blue Cross and Blue Shield of Kansas City, Blue-Advantage Plus of Kansas City Inc, Cigna Healthcare of St Louis Inc, Coventry Health Care of Kansas Inc, Coventry Health Care of Missouri Inc, Cox Health Systems HMO Inc, Essence Healthcare Inc, Good Health HMO Inc, Harmony Health Plan Inc, HMO Missouri Inc, Home State Health Plan Inc, Humana Health Plan Inc, Missouri Care Incorporated and UnitedHealthcare of the Midwest Inc. Several are regional: on DCI\'s county lists, Cox Health Systems HMO is authorized in 25 southwest Missouri counties (Greene, Christian, Jasper and others), Blue Cross and Blue Shield of Kansas City in 10 western Missouri counties around Kansas City, Blue-Advantage Plus of Kansas City and Good Health HMO in 9 each, and Essence Healthcare in 5 (St. Louis City and County, St. Charles, Jefferson, Boone). DCI\'s list is a licence list: it does not say which product lines (employer, individual, Medicaid or Medicare) each HMO sells, so ask the employer or the card which entity issued the plan. For ABA, an HMO is held to the same autism mandate as other insurers: RSMo § 376.1224 applies to health benefit plans issued by a “health carrier,” and § 376.1350 defines a health carrier to include “a health maintenance organization.” The mandate “shall not apply to the Mo HealthNet program,” so a Medicaid HMO card follows MO HealthNet\'s own ABA rules instead. What differs in an HMO is the network: plan your intake around in-network status and any referral or authorization the HMO contract requires.';
+
 export const missouriPayers: Record<string, PayerConfig> = {
   'missouri-medicaid': {
     slug: 'missouri-medicaid',
@@ -258,7 +267,7 @@ export const missouriPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'A short list: a licensed physician or a licensed psychologist. The diagnostic evaluation must be performed by one of those two, must result in an ASD diagnosis, and must recommend ABA as medically necessary. Under the HCY/EPSDT pathway the diagnosis need not be ASD at all, but the evaluation requirement stands. Note that the person who may diagnose and the person who may bill ABA are different populations in Missouri: psychologists may only bill ABA once MHD has approved them for the ABA specialty.',
+          'A short list: a licensed physician or a licensed psychologist. The diagnostic evaluation must be performed by one of those two, must result in an ASD diagnosis, and must recommend ABA as medically necessary. Under the HCY/EPSDT pathway the diagnosis need not be ASD at all, but the evaluation requirement stands. Note that the person who may diagnose and the person who may bill ABA are different populations in Missouri: psychologists may only bill ABA once MHD has approved them for the ABA specialty. An LCSW is not on the list, so an LCSW\'s diagnosis alone does not open MO HealthNet ABA.',
         status: 'verified',
         cites: [{ title: 'MO HealthNet Behavioral Health Services Manual, \u00a71.16 ABA Services (May 2026)', url: 'https://mydss.mo.gov/sites/mydss/files/media/file/2026/05/Behavioral%20Health%20Services%20Manual.docx' }],
       },
@@ -482,6 +491,14 @@ export const missouriPayers: Record<string, PayerConfig> = {
           { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification (GR-69017-4, 7-26; eff. 8/1/2026; not for MD or MA)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
         ],
       },
+      {
+        h2: 'HMOs in Missouri',
+        body: [
+          MO_HMO_BODY,
+          'This carrier\'s HMO on DCI\'s list is Aetna Health Inc, authorized in 48 Missouri counties (including Jackson, Clay, St. Louis City and County, St. Charles, Greene and Jasper). For an Aetna card, ask whether the plan is issued by Aetna Health Inc (the HMO), another Aetna company, or is self-funded by the employer, and confirm network and precertification rules for that plan.',
+        ],
+        cites: [MO_HMO_DCI, MO_HMO_1224, MO_HMO_1350],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies — including MO\'s unusual reach into governmental and school self-insured plans) vs. self-funded private ERISA (exempt). Ask for the employer and check the card.' },
@@ -490,6 +507,8 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { title: 'Age vs. the cap', desc: 'The ABA dollar cap runs through age 18 and is CPI-indexed — verify the current adjusted value and year-to-date usage before projecting hours.' },
     ],
     sources: [
+      MO_HMO_DCI,
+      MO_HMO_1350,
       { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
       { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
       { title: 'RSMo § 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' },
@@ -628,6 +647,7 @@ export const missouriPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Are there any HMOs in Missouri?', a: 'Yes. Missouri\'s Department of Commerce & Insurance lists 17 licensed HMOs with the counties each may serve; this carrier\'s is Aetna Health Inc (48 counties). Missouri\'s autism mandate (RSMo § 376.1224) reaches HMO plans because § 376.1350 counts a health maintenance organization as a health carrier. See “HMOs in Missouri” above for the full list.' },
       { q: 'Does Aetna cover ABA therapy in Missouri?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Missouri\'s mandate (RSMo § 376.1224) for fully-insured plans. Self-funded private employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the Missouri autism mandate require?', a: 'Coverage of ASD diagnosis and treatment including ABA, with a $40,000-per-year ABA cap through age 18 — a CPI-indexed statutory base that can be exceeded with plan approval when medically necessary. Treatment-plan reviews are limited to once every 6 months, and ABA must be supervised by a Chapter 337-licensed behavior analyst.' },
       { q: 'What does Aetna pay for ABA in Missouri?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the MO HealthNet fee schedule, and treat rate-setting as part of contracting.' },
@@ -794,6 +814,14 @@ export const missouriPayers: Record<string, PayerConfig> = {
           { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
         ],
       },
+      {
+        h2: 'HMOs in Missouri',
+        body: [
+          MO_HMO_BODY,
+          'This carrier\'s HMO on DCI\'s list is Cigna Healthcare of St Louis Inc, authorized in 23 Missouri counties (including St. Louis City and County, St. Charles, Jefferson, Jackson, Clay and Greene). For a Cigna HMO card, the Evernorth administrative guidelines quoted on this page state for HMO/POS plans too that “Referrals are not required for behavioral health services.”',
+        ],
+        cites: [MO_HMO_DCI, MO_HMO_1224, MO_HMO_1350],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies — including MO\'s unusual reach into governmental and school self-insured plans) vs. self-funded private ERISA (exempt). Ask for the employer and check the card.' },
@@ -802,6 +830,8 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { title: 'Age vs. the cap', desc: 'The ABA dollar cap runs through age 18 and is CPI-indexed — verify the current adjusted value and year-to-date usage before projecting hours.' },
     ],
     sources: [
+      MO_HMO_DCI,
+      MO_HMO_1350,
       { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
       { title: 'Cigna autism resource guide', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
       { title: 'RSMo § 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' },
@@ -924,6 +954,7 @@ export const missouriPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Are there any HMOs in Missouri?', a: 'Yes. Missouri\'s Department of Commerce & Insurance lists 17 licensed HMOs with the counties each may serve; this carrier\'s is Cigna Healthcare of St Louis Inc (23 counties). Missouri\'s autism mandate (RSMo § 376.1224) reaches HMO plans because § 376.1350 counts a health maintenance organization as a health carrier. See “HMOs in Missouri” above for the full list.' },
       { q: 'Does Cigna cover ABA therapy in Missouri?', a: 'Yes — under the carrier\'s national EN0499 policy for ASD (which applies in Missouri without any state carve-out), layered on Missouri\'s mandate (RSMo § 376.1224) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the Missouri autism mandate require?', a: 'Coverage of ASD diagnosis and treatment including ABA, with a $40,000-per-year ABA cap through age 18 — a CPI-indexed statutory base that can be exceeded with plan approval when medically necessary. Treatment-plan reviews are limited to once every 6 months, and ABA must be supervised by a Chapter 337-licensed behavior analyst.' },
       { q: 'What does Cigna pay for ABA in Missouri?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the MO HealthNet fee schedule, and treat rate-setting as part of contracting.' },
@@ -1107,6 +1138,14 @@ export const missouriPayers: Record<string, PayerConfig> = {
           { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
         ],
       },
+      {
+        h2: 'HMOs in Missouri',
+        body: [
+          MO_HMO_BODY,
+          'This carrier\'s HMO on DCI\'s list is UnitedHealthcare of the Midwest Inc, authorized in 70 Missouri counties (including St. Louis City and County, Jackson, Clay, Greene, Boone and Cole). For a UnitedHealthcare card, ask whether the plan is issued by UnitedHealthcare of the Midwest Inc (the HMO) or is self-funded, and confirm network and authorization rules for that plan.',
+        ],
+        cites: [MO_HMO_DCI, MO_HMO_1224, MO_HMO_1350],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies — including MO\'s unusual reach into governmental and school self-insured plans) vs. self-funded private ERISA (exempt). Ask for the employer and check the card.' },
@@ -1116,6 +1155,8 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { title: 'Age vs. the cap', desc: 'The ABA dollar cap runs through age 18 and is CPI-indexed — verify the current adjusted value and year-to-date usage before projecting hours.' },
     ],
     sources: [
+      MO_HMO_DCI,
+      MO_HMO_1350,
       { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
       { title: 'Optum — ABA State Mandates supplemental criteria (BH 803ABA STM1 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
       { title: 'RSMo § 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' },
@@ -1256,6 +1297,7 @@ export const missouriPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Are there any HMOs in Missouri?', a: 'Yes. Missouri\'s Department of Commerce & Insurance lists 17 licensed HMOs with the counties each may serve; this carrier\'s is UnitedHealthcare of the Midwest Inc (70 counties). Missouri\'s autism mandate (RSMo § 376.1224) reaches HMO plans because § 376.1350 counts a health maintenance organization as a health carrier. See “HMOs in Missouri” above for the full list.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in Missouri?', a: 'Yes — under Optum\'s national ABA criteria (Missouri has no entry in Optum\'s State Mandates supplement), layered on Missouri\'s mandate (RSMo § 376.1224) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the Missouri autism mandate require?', a: 'Coverage of ASD diagnosis and treatment including ABA, with a $40,000-per-year ABA cap through age 18 — a CPI-indexed statutory base that can be exceeded with plan approval when medically necessary. Treatment-plan reviews are limited to once every 6 months, and ABA must be supervised by a Chapter 337-licensed behavior analyst.' },
       { q: 'Does Optum handle UnitedHealthcare Medicaid ABA in Missouri?', a: 'No — Missouri carves Medicaid ABA out of managed care entirely. UHC Community Plan members get ABA through MO HealthNet fee-for-service, with precertification faxed to the state, so Optum and Provider Express never enter the picture.' },
@@ -1468,6 +1510,14 @@ export const missouriPayers: Record<string, PayerConfig> = {
           { title: 'Anthem ABA Provider Resource Guide — 11-state commercial (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' },
         ],
       },
+      {
+        h2: 'HMOs in Missouri',
+        body: [
+          MO_HMO_BODY,
+          'This carrier\'s HMO on DCI\'s list is HMO Missouri Inc, authorized in 96 Missouri counties (including St. Louis City and County, Greene, Boone, Jackson and Clay). HMO Missouri, Inc. is one of the three Anthem entities named on this page. A DCI licence area can be wider than the network Anthem actually sells, and this page notes Anthem\'s Missouri service area excludes 30 Kansas City-area counties, so confirm the network for the family\'s county.',
+        ],
+        cites: [MO_HMO_DCI, MO_HMO_1224, MO_HMO_1350],
+      },
     ],
     collect: [
       { title: 'Plan funding type, first', desc: 'Fully insured Missouri plan (mandate applies), a self-insured governmental, MEWA or school-district plan (the statute reaches these too, for plans established or renewed on or after 1/1/2020), or a private self-funded ERISA plan (preempted). An Anthem Missouri card can be any of these — RIT administers self-funded plans without underwriting them.' },
@@ -1479,6 +1529,8 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { title: 'A doctorate-level diagnostic evaluation', desc: 'For an assessment-only request (97151/97152/0362T), or where the member has new coverage, Anthem\'s form requires a diagnostic evaluation by a doctorate-level clinician or allowable QHCP showing DSM-5-TR criteria and naming the standardized tools used. Ask for the full report, not the one-line diagnosis letter.' },
     ],
     sources: [
+      MO_HMO_DCI,
+      MO_HMO_1350,
       { title: 'RSMo § 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' },
       { title: 'Missouri DCI — ABA mandated coverage limits by year', url: 'https://insurance.mo.gov/autism-and-related-insurance-resources/autism-report-aba-limits' },
       { title: 'RSMo § 337.300 — behavior analyst definitions', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=337.300' },
@@ -1611,6 +1663,7 @@ export const missouriPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Are there any HMOs in Missouri?', a: 'Yes. Missouri\'s Department of Commerce & Insurance lists 17 licensed HMOs with the counties each may serve; this carrier\'s is HMO Missouri Inc (96 counties). Missouri\'s autism mandate (RSMo § 376.1224) reaches HMO plans because § 376.1350 counts a health maintenance organization as a health carrier. See “HMOs in Missouri” above for the full list.' },
       { q: 'Does Anthem BCBS Missouri cover ABA therapy?', a: 'Yes. RSMo § 376.1224 requires health benefit plans delivered, issued, continued or renewed in Missouri on or after January 1, 2020 to cover diagnosis and treatment of autism spectrum disorders including ABA, and Anthem precertifies ABA as a behavioral health service with itself as the reviewing party. Private self-funded ERISA plans are preempted from the mandate.' },
       { q: 'What is the Missouri ABA dollar cap right now?', a: 'The statute sets $40,000 per calendar year through age 18, but requires inflation indexing. The Department of Commerce and Insurance publishes the adjusted value annually; its most recent published figure is $57,311 for 2025. The carrier is only obliged to re-index at least every three years, so confirm the number the specific plan applies — and remember the cap can be exceeded with prior approval when more ABA is medically necessary.' },
       { q: 'How often can Anthem re-review a Missouri ABA treatment plan?', a: 'Outside inpatient services, no more than once every six months, unless the carrier and the treating physician or psychologist agree that more frequent review is necessary. The statute also puts the cost of obtaining any review or treatment plan on the plan.' },

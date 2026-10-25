@@ -287,7 +287,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
         cites: [S.hfs210930],
       },
       diagnosingProviders: {
-        value: 'The Comprehensive Diagnostic Evaluation is “performed by a physician or a clinical psychologist.”',
+        value: 'The Comprehensive Diagnostic Evaluation is “performed by a physician or a clinical psychologist.” An LCSW, LCPC or LMFT cannot perform the CDE for HFS’s ABS benefit (HFS names only “a physician or a clinical psychologist”), although an LCSW can be the clinical supervisor who signs a BCBA’s treatment plan (BATP).',
         status: 'verified',
         cites: [S.hfs210930],
       },
@@ -447,7 +447,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
         cites: [S.abhilPM, S.hfs210930],
       },
       diagnosingProviders: {
-        value: 'The plan publishes nothing of its own. HFS: the CDE is “performed by a physician or a clinical psychologist.”',
+        value: 'The plan publishes nothing of its own. HFS: the CDE is “performed by a physician or a clinical psychologist.” An LCSW, LCPC or LMFT cannot perform the CDE for HFS’s ABS benefit (HFS names only “a physician or a clinical psychologist”), although an LCSW can be the clinical supervisor who signs a BCBA’s treatment plan (BATP).',
         status: 'verified',
         cites: [S.abhilPM, S.hfs210930],
       },
@@ -603,7 +603,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
         blocker: 'licensed',
       },
       diagnosingProviders: {
-        value: 'Not stated by BCCHP. HFS: the CDE is performed by a physician or clinical psychologist.',
+        value: 'Not stated by BCCHP. HFS: the CDE is performed by a physician or clinical psychologist. An LCSW, LCPC or LMFT cannot perform the CDE for HFS’s ABS benefit (HFS names only “a physician or a clinical psychologist”), although an LCSW can be the clinical supervisor who signs a BCBA’s treatment plan (BATP).',
         status: 'plan-dependent',
         cites: [S.bcchpCodes, S.hfs210930],
         verifyVia: 'BCBSIL Medicaid UM, 877-860-2837.',
@@ -761,7 +761,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
         cites: [S.ccPM, S.hfs210930],
       },
       diagnosingProviders: {
-        value: 'CountyCare publishes nothing of its own. HFS: physician or clinical psychologist.',
+        value: 'CountyCare publishes nothing of its own. HFS: physician or clinical psychologist. An LCSW, LCPC or LMFT cannot perform the CDE for HFS’s ABS benefit (HFS names only “a physician or a clinical psychologist”), although an LCSW can be the clinical supervisor who signs a BCBA’s treatment plan (BATP).',
         status: 'verified',
         cites: [S.ccPM, S.hfs210930],
       },
@@ -916,7 +916,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
         cites: [S.merBH104],
       },
       diagnosingProviders: {
-        value: 'CP.BH.104: “a licensed physician, psychologist, or other licensed professional with specialized training in diagnosis and treatment of ASD, or a provider otherwise authorized under state law to diagnose autism.” HFS’s ABS standard is a physician or clinical psychologist.',
+        value: 'CP.BH.104: “a licensed physician, psychologist, or other licensed professional with specialized training in diagnosis and treatment of ASD, or a provider otherwise authorized under state law to diagnose autism.” HFS’s ABS standard is a physician or clinical psychologist, so under HFS’s rule an LCSW’s evaluation does not serve as the CDE.',
         status: 'verified',
         cites: [S.merBH104, S.hfs210930],
       },
@@ -1069,7 +1069,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
         cites: [S.molABS22, S.hfs210930],
       },
       diagnosingProviders: {
-        value: 'Molina requires ASD “as indicated by a Comprehensive Diagnostic Evaluation”; HFS: the CDE is performed by a physician or clinical psychologist.',
+        value: 'Molina requires ASD “as indicated by a Comprehensive Diagnostic Evaluation”; HFS: the CDE is performed by a physician or clinical psychologist. An LCSW, LCPC or LMFT cannot perform the CDE for HFS’s ABS benefit (HFS names only “a physician or a clinical psychologist”), although an LCSW can be the clinical supervisor who signs a BCBA’s treatment plan (BATP).',
         status: 'verified',
         cites: [S.molABS22, S.hfs210930],
       },

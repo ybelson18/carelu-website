@@ -139,6 +139,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { title: 'TennCare Kids (EPSDT) \u2014 birth through age 20', url: 'https://www.tn.gov/tenncare/tenncare-kids.html' },
       { title: 'TN ABA Program Description (shared tri-MCO, UHC copy 6/2024)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/tn/behavioral-health/TN-ABA-Program-Description.pdf' },
       { title: 'TennCare — Newsroom (index of TennCare announcements)', url: 'https://www.tn.gov/tenncare/news.html' },
+      { title: 'Tenn. Code Ann. § 63-23-105 — licensed clinical social worker scope (FindLaw)', url: 'https://codes.findlaw.com/tn/title-63-professions-of-the-healing-arts/tn-code-sect-63-23-105/' },
     ],
     intakeGates: {
       ageLimit: {
@@ -155,9 +156,9 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          '\u201cASD or other identified diagnosis necessitating ABA intervention should be\u2026 issued by a qualified health professional, practicing within their scope, with training in assessment of individuals with ASD and/or other neurodevelopmental concerns\u201d \u2014 the program names no specific license. Initial pre-certification separately requires \u201cdocumentation by a TN licensed clinician supporting medical necessity for ABA.\u201d The universal form captures the diagnosing facility/group plus the provider name and credentials. Note Tennessee is not autism-only: another qualifying DSM-5-TR diagnosis \u201cfor which ABA is proven to be an effective appropriate intervention\u201d also opens the door, and the form asks about it explicitly.',
+          '\u201cASD or other identified diagnosis necessitating ABA intervention should be\u2026 issued by a qualified health professional, practicing within their scope, with training in assessment of individuals with ASD and/or other neurodevelopmental concerns\u201d \u2014 the program names no specific license. Initial pre-certification separately requires \u201cdocumentation by a TN licensed clinician supporting medical necessity for ABA.\u201d The universal form captures the diagnosing facility/group plus the provider name and credentials. Note Tennessee is not autism-only: another qualifying DSM-5-TR diagnosis \u201cfor which ABA is proven to be an effective appropriate intervention\u201d also opens the door, and the form asks about it explicitly. LCSW: not named, and not excluded by the wording. Tennessee’s practice act says clinical social work covers “assessment, diagnosis and treatment of mental, emotional and behavioral disorders” and that clinical social workers “are qualified to use the Diagnostic and Statistical Manual of Mental Disorders” (T.C.A. § 63-23-105), so an LCSW with documented training in ASD assessment fits “a qualified health professional, practicing within their scope”; ask the MCO before relying on an LCSW-only diagnosis.',
         status: 'verified',
-        cites: [{ title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }, { title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }],
+        cites: [{ title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }, { title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }, { title: 'Tenn. Code Ann. § 63-23-105 — licensed clinical social worker scope (FindLaw)', url: 'https://codes.findlaw.com/tn/title-63-professions-of-the-healing-arts/tn-code-sect-63-23-105/' }],
       },
       diagnosticTools: {
         value:
@@ -392,6 +393,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { title: 'TN ABA Program Description (shared tri-MCO, UHC copy 6/2024)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/tn/behavioral-health/TN-ABA-Program-Description.pdf' },
       { title: 'Tenn. Comp. R. & Regs. 1180-05 — Applied Behavior Analyst Licensing Committee rules (May 2025 revision)', url: 'https://publications.tnsosfiles.com/rules/1180/1180-05.20250507.pdf' },
       { title: 'BlueCross BlueShield of Tennessee — Provider News & Updates (links the current BlueAlert monthly newsletter)', url: 'https://provider.bcbst.com/news-updates' },
+      { title: 'Tenn. Code Ann. § 63-23-105 — licensed clinical social worker scope (FindLaw)', url: 'https://codes.findlaw.com/tn/title-63-professions-of-the-healing-arts/tn-code-sect-63-23-105/' },
     ],
     intakeGates: {
       ageLimit: {
@@ -408,9 +410,9 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'Follows the TennCare rule: the diagnosis must be issued by \u201ca qualified health professional, practicing within their scope, with training in assessment of individuals with ASD and/or other neurodevelopmental concerns,\u201d with a TN-licensed clinician documenting medical necessity. BlueCare\u2019s forms ask only for diagnostic confirmation and severity level and name no additional credential of their own.',
+          'Follows the TennCare rule: the diagnosis must be issued by \u201ca qualified health professional, practicing within their scope, with training in assessment of individuals with ASD and/or other neurodevelopmental concerns,\u201d with a TN-licensed clinician documenting medical necessity. BlueCare\u2019s forms ask only for diagnostic confirmation and severity level and name no additional credential of their own. LCSW: not named, and not excluded by the wording. Tennessee’s practice act says clinical social work covers “assessment, diagnosis and treatment of mental, emotional and behavioral disorders” and that clinical social workers “are qualified to use the Diagnostic and Statistical Manual of Mental Disorders” (T.C.A. § 63-23-105), so an LCSW with documented training in ASD assessment fits “a qualified health professional, practicing within their scope”; ask the MCO before relying on an LCSW-only diagnosis.',
         status: 'verified',
-        cites: [{ title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }, { title: 'BCBST \u2014 ABA Therapy Services Assessment Request Form', url: 'https://content.bcbst.com/api/public/content/aba_therapy_assessment_request_form.pdf' }],
+        cites: [{ title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }, { title: 'BCBST \u2014 ABA Therapy Services Assessment Request Form', url: 'https://content.bcbst.com/api/public/content/aba_therapy_assessment_request_form.pdf' }, { title: 'Tenn. Code Ann. § 63-23-105 — licensed clinical social worker scope (FindLaw)', url: 'https://codes.findlaw.com/tn/title-63-professions-of-the-healing-arts/tn-code-sect-63-23-105/' }],
       },
       diagnosticTools: {
         value:
@@ -613,6 +615,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { title: 'ABA Provider Requirements & Program Description — TennCare MCOs (rev. 06/13/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' },
       { title: 'Tenn. Comp. R. & Regs. 1180-05 — Applied Behavior Analyst Licensing Committee rules (May 2025 revision)', url: 'https://publications.tnsosfiles.com/rules/1180/1180-05.20250507.pdf' },
       { title: 'UnitedHealthcare Community Plan of Tennessee — Current news, bulletins and alerts (index)', url: 'https://www.uhcprovider.com/en/health-plans-by-state/tennessee-health-plans/tn-comm-plan-home/tn-cp-news.html' },
+      { title: 'Tenn. Code Ann. § 63-23-105 — licensed clinical social worker scope (FindLaw)', url: 'https://codes.findlaw.com/tn/title-63-professions-of-the-healing-arts/tn-code-sect-63-23-105/' },
     ],
     intakeGates: {
       ageLimit: {
@@ -629,9 +632,9 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'Stricter than the shared baseline. UHC requires \u201ca comprehensive clinical evaluation by a TN licensed clinician supporting medical necessity for ABA\u201d and that \u201cthe member has been assigned a DSM-5 TR diagnosis of Autism or another identified diagnosis for which ABA is the least restrictive and most clinically appropriate treatment.\u201d The guidelines name no single license for the diagnostician, but the evaluation must be a TN-licensed clinician\u2019s and must be separate from the physician order that follows it.',
+          'Stricter than the shared baseline. UHC requires \u201ca comprehensive clinical evaluation by a TN licensed clinician supporting medical necessity for ABA\u201d and that \u201cthe member has been assigned a DSM-5 TR diagnosis of Autism or another identified diagnosis for which ABA is the least restrictive and most clinically appropriate treatment.\u201d The guidelines name no single license for the diagnostician, but the evaluation must be a TN-licensed clinician\u2019s and must be separate from the physician order that follows it. LCSW: not excluded by the wording — UHC asks for a comprehensive evaluation “by a TN licensed clinician,” and Tennessee’s practice act says clinical social work covers “assessment, diagnosis and treatment of mental, emotional and behavioral disorders” (T.C.A. § 63-23-105). Confirm an LCSW-only evaluation with UHC before relying on it.',
         status: 'verified',
-        cites: [{ title: 'UHC \u2014 Level of Care Guidelines: Applied Behavior Analysis (rev. 12/13/2024)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/tn/behavioral-health/TN-BH-Level-of-Care-Guidelines-Applied-Behavioral-Analysis.pdf' }],
+        cites: [{ title: 'UHC \u2014 Level of Care Guidelines: Applied Behavior Analysis (rev. 12/13/2024)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/tn/behavioral-health/TN-BH-Level-of-Care-Guidelines-Applied-Behavioral-Analysis.pdf' }, { title: 'Tenn. Code Ann. § 63-23-105 — licensed clinical social worker scope (FindLaw)', url: 'https://codes.findlaw.com/tn/title-63-professions-of-the-healing-arts/tn-code-sect-63-23-105/' }],
       },
       diagnosticTools: {
         value:
@@ -832,6 +835,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { title: 'TN ABA Program Description (shared tri-MCO, UHC copy 6/2024)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/tn/behavioral-health/TN-ABA-Program-Description.pdf' },
       { title: 'Tenn. Comp. R. & Regs. 1180-05 — Applied Behavior Analyst Licensing Committee rules (May 2025 revision)', url: 'https://publications.tnsosfiles.com/rules/1180/1180-05.20250507.pdf' },
       { title: 'Wellpoint — Provider News, Tennessee (index of provider news articles)', url: 'https://providernews.wellpoint.com/tn' },
+      { title: 'Tenn. Code Ann. § 63-23-105 — licensed clinical social worker scope (FindLaw)', url: 'https://codes.findlaw.com/tn/title-63-professions-of-the-healing-arts/tn-code-sect-63-23-105/' },
     ],
     intakeGates: {
       ageLimit: {
@@ -848,9 +852,9 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'Follows the TennCare rule \u2014 the diagnosis must be issued by \u201ca qualified health professional, practicing within their scope, with training in assessment of individuals with ASD and/or other neurodevelopmental concerns,\u201d and a TN-licensed clinician must document medical necessity. Wellpoint names no additional credential; its emphasis falls on the ordering provider instead (see referral).',
+          'Follows the TennCare rule \u2014 the diagnosis must be issued by \u201ca qualified health professional, practicing within their scope, with training in assessment of individuals with ASD and/or other neurodevelopmental concerns,\u201d and a TN-licensed clinician must document medical necessity. Wellpoint names no additional credential; its emphasis falls on the ordering provider instead (see referral). LCSW: not named, and not excluded by the wording. Tennessee’s practice act says clinical social work covers “assessment, diagnosis and treatment of mental, emotional and behavioral disorders” and that clinical social workers “are qualified to use the Diagnostic and Statistical Manual of Mental Disorders” (T.C.A. § 63-23-105), so an LCSW with documented training in ASD assessment fits “a qualified health professional, practicing within their scope”; ask the MCO before relying on an LCSW-only diagnosis.',
         status: 'verified',
-        cites: [{ title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }, { title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }],
+        cites: [{ title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }, { title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }, { title: 'Tenn. Code Ann. § 63-23-105 — licensed clinical social worker scope (FindLaw)', url: 'https://codes.findlaw.com/tn/title-63-professions-of-the-healing-arts/tn-code-sect-63-23-105/' }],
       },
       diagnosticTools: {
         value:
@@ -1084,6 +1088,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { title: 'TennCare Kids (EPSDT) \u2014 birth through age 20', url: 'https://www.tn.gov/tenncare/tenncare-kids.html' },
       { title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' },
       { title: 'BlueCross BlueShield of Tennessee — Provider News & Updates (links the current BlueAlert monthly newsletter)', url: 'https://provider.bcbst.com/news-updates' },
+      { title: 'Tenn. Code Ann. § 63-23-105 — licensed clinical social worker scope (FindLaw)', url: 'https://codes.findlaw.com/tn/title-63-professions-of-the-healing-arts/tn-code-sect-63-23-105/' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1100,9 +1105,9 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'Follows the TennCare rule \u2014 the diagnosis must come from \u201ca qualified health professional, practicing within their scope, with training in assessment of individuals with ASD and/or other neurodevelopmental concerns,\u201d with a TN-licensed clinician documenting medical necessity. No TennCare Select-specific diagnostician rule exists; the BCBST forms ask only for diagnostic confirmation and severity level.',
+          'Follows the TennCare rule \u2014 the diagnosis must come from \u201ca qualified health professional, practicing within their scope, with training in assessment of individuals with ASD and/or other neurodevelopmental concerns,\u201d with a TN-licensed clinician documenting medical necessity. No TennCare Select-specific diagnostician rule exists; the BCBST forms ask only for diagnostic confirmation and severity level. LCSW: not named, and not excluded by the wording. Tennessee’s practice act says clinical social work covers “assessment, diagnosis and treatment of mental, emotional and behavioral disorders” and that clinical social workers “are qualified to use the Diagnostic and Statistical Manual of Mental Disorders” (T.C.A. § 63-23-105), so an LCSW with documented training in ASD assessment fits “a qualified health professional, practicing within their scope”; ask the MCO before relying on an LCSW-only diagnosis.',
         status: 'verified',
-        cites: [{ title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }, { title: 'BCBST \u2014 ABA Therapy Services Assessment Request Form', url: 'https://content.bcbst.com/api/public/content/aba_therapy_assessment_request_form.pdf' }],
+        cites: [{ title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }, { title: 'BCBST \u2014 ABA Therapy Services Assessment Request Form', url: 'https://content.bcbst.com/api/public/content/aba_therapy_assessment_request_form.pdf' }, { title: 'Tenn. Code Ann. § 63-23-105 — licensed clinical social worker scope (FindLaw)', url: 'https://codes.findlaw.com/tn/title-63-professions-of-the-healing-arts/tn-code-sect-63-23-105/' }],
       },
       diagnosticTools: {
         value:
@@ -1309,6 +1314,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
       { title: 'Aetna — Provider and behavioral health manual (June 2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
       { title: 'Tenn. Code Ann. § 56-7-109 — prompt payment of health insurance claims (FindLaw)', url: 'https://codes.findlaw.com/tn/title-56-insurance/tn-code-sect-56-7-109/' },
+      { title: 'Tenn. Code Ann. § 63-23-105 — licensed clinical social worker scope (FindLaw)', url: 'https://codes.findlaw.com/tn/title-63-professions-of-the-healing-arts/tn-code-sect-63-23-105/' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1331,9 +1337,9 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'CPB 0648 frames the diagnosis as made by an \u201cappropriate certified/licensed health care professional\u201d and names the professional types it contemplates in an ASD workup \u2014 board certified behavior analyst, developmental pediatrician, neurologist, occupational therapist, physical therapist, primary care provider, psychiatrist, psychologist, and speech-language pathologist and audiologist. Tennessee layers a delivery-side credential on top that is not a diagnostic one: direct ABA requires a TN Licensed Behavior Analyst under T.C.A. \u00a7\u00a7 63-11-301\u2013311.',
+          'CPB 0648 frames the diagnosis as made by an \u201cappropriate certified/licensed health care professional\u201d and names the professional types it contemplates in an ASD workup \u2014 board certified behavior analyst, developmental pediatrician, neurologist, occupational therapist, physical therapist, primary care provider, psychiatrist, psychologist, and speech-language pathologist and audiologist. Tennessee layers a delivery-side credential on top that is not a diagnostic one: direct ABA requires a TN Licensed Behavior Analyst under T.C.A. \u00a7\u00a7 63-11-301\u2013311. LCSW: not named by Aetna. Its rule is scope-based, and Tennessee’s practice act says clinical social work covers “assessment, diagnosis and treatment of mental, emotional and behavioral disorders” and that clinical social workers “are qualified to use the Diagnostic and Statistical Manual of Mental Disorders” (T.C.A. § 63-23-105), so an LCSW diagnosis is not excluded on the policy’s face; confirm with Aetna at authorization.',
         status: 'verified',
-        cites: [{ title: 'Aetna CPB 0648 \u2014 Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }, { title: 'TN Dept. of Health \u2014 LBA application (T.C.A. \u00a7\u00a7 63-11-301\u2013311)', url: 'https://www.tn.gov/content/dam/tn/health/healthprofboards/behavior-analyst/LBA-Application.pdf' }],
+        cites: [{ title: 'Aetna CPB 0648 \u2014 Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }, { title: 'TN Dept. of Health \u2014 LBA application (T.C.A. \u00a7\u00a7 63-11-301\u2013311)', url: 'https://www.tn.gov/content/dam/tn/health/healthprofboards/behavior-analyst/LBA-Application.pdf' }, { title: 'Tenn. Code Ann. § 63-23-105 — licensed clinical social worker scope (FindLaw)', url: 'https://codes.findlaw.com/tn/title-63-professions-of-the-healing-arts/tn-code-sect-63-23-105/' }],
       },
       diagnosticTools: {
         value:
@@ -1580,6 +1586,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { title: 'TN Dept. of Health — LBA application (T.C.A. §§ 63-11-301–311)', url: 'https://www.tn.gov/content/dam/tn/health/healthprofboards/behavior-analyst/LBA-Application.pdf' },
       { title: 'Evernorth Behavioral Health — Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
       { title: 'Tenn. Code Ann. § 56-7-109 — prompt payment of health insurance claims (FindLaw)', url: 'https://codes.findlaw.com/tn/title-56-insurance/tn-code-sect-56-7-109/' },
+      { title: 'Tenn. Code Ann. § 63-23-105 — licensed clinical social worker scope (FindLaw)', url: 'https://codes.findlaw.com/tn/title-63-professions-of-the-healing-arts/tn-code-sect-63-23-105/' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1599,9 +1606,9 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          '\u201cThe individual has a confirmed diagnosis of autism spectrum disorder (ASD)\u2026 based on the criteria in the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition, Text Revision (DSM-5-TR) by a healthcare professional who is licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice,\u201d with the name, credentials and type of licensure of the diagnostician and the date of the most recent diagnosis all provided. The ABA assessment is separate and must be performed by a BCBA, LBA, or an independently licensed mental health clinician with documented ABA training. Note the diagnosis must be ASD (F84.0\u2013F84.9): Rett syndrome (F84.2) is excluded.',
+          '\u201cThe individual has a confirmed diagnosis of autism spectrum disorder (ASD)\u2026 based on the criteria in the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition, Text Revision (DSM-5-TR) by a healthcare professional who is licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice,\u201d with the name, credentials and type of licensure of the diagnostician and the date of the most recent diagnosis all provided. The ABA assessment is separate and must be performed by a BCBA, LBA, or an independently licensed mental health clinician with documented ABA training. Note the diagnosis must be ASD (F84.0\u2013F84.9): Rett syndrome (F84.2) is excluded. LCSW: not named by Cigna. Its rule is scope-based, and Tennessee’s practice act says clinical social work covers “assessment, diagnosis and treatment of mental, emotional and behavioral disorders” and that clinical social workers “are qualified to use the Diagnostic and Statistical Manual of Mental Disorders” (T.C.A. § 63-23-105), so an LCSW diagnosis is not excluded on the policy’s face; confirm with Cigna at authorization.',
         status: 'verified',
-        cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+        cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Tenn. Code Ann. § 63-23-105 — licensed clinical social worker scope (FindLaw)', url: 'https://codes.findlaw.com/tn/title-63-professions-of-the-healing-arts/tn-code-sect-63-23-105/' }],
       },
       diagnosticTools: {
         value:
@@ -1837,6 +1844,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' },
       { title: 'Optum Behavioral Health — National Network Manual (published July 1, 2026; effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
       { title: 'Tenn. Code Ann. § 56-7-109 — prompt payment of health insurance claims (FindLaw)', url: 'https://codes.findlaw.com/tn/title-56-insurance/tn-code-sect-56-7-109/' },
+      { title: 'Tenn. Code Ann. § 63-23-105 — licensed clinical social worker scope (FindLaw)', url: 'https://codes.findlaw.com/tn/title-63-professions-of-the-healing-arts/tn-code-sect-63-23-105/' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1856,9 +1864,9 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          '\u201cA valid diagnosis of ASD (or other applicable diagnosis as required by governing laws) must be issued by a state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis according to the diagnostic criteria based on the DSM-5-TR.\u201d The ABA provider is a separate credential: a master\u2019s- or doctoral-level BCBA, a credentialed licensed behavioral health clinician attesting to sufficient ABA expertise, or a BCaBA or non-licensed individual under the direct supervision of one of those. In Tennessee the delivering analyst must additionally hold the state LBA license.',
+          '\u201cA valid diagnosis of ASD (or other applicable diagnosis as required by governing laws) must be issued by a state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis according to the diagnostic criteria based on the DSM-5-TR.\u201d The ABA provider is a separate credential: a master\u2019s- or doctoral-level BCBA, a credentialed licensed behavioral health clinician attesting to sufficient ABA expertise, or a BCaBA or non-licensed individual under the direct supervision of one of those. In Tennessee the delivering analyst must additionally hold the state LBA license. LCSW: not named by Optum. Its rule is scope-based, and Tennessee’s practice act says clinical social work covers “assessment, diagnosis and treatment of mental, emotional and behavioral disorders” and that clinical social workers “are qualified to use the Diagnostic and Statistical Manual of Mental Disorders” (T.C.A. § 63-23-105), so an LCSW diagnosis is not excluded on the policy’s face; confirm with Optum at authorization.',
         status: 'verified',
-        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'TN Dept. of Health \u2014 LBA application (T.C.A. \u00a7\u00a7 63-11-301\u2013311)', url: 'https://www.tn.gov/content/dam/tn/health/healthprofboards/behavior-analyst/LBA-Application.pdf' }],
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'TN Dept. of Health \u2014 LBA application (T.C.A. \u00a7\u00a7 63-11-301\u2013311)', url: 'https://www.tn.gov/content/dam/tn/health/healthprofboards/behavior-analyst/LBA-Application.pdf' }, { title: 'Tenn. Code Ann. § 63-23-105 — licensed clinical social worker scope (FindLaw)', url: 'https://codes.findlaw.com/tn/title-63-professions-of-the-healing-arts/tn-code-sect-63-23-105/' }],
       },
       diagnosticTools: {
         value:
@@ -2055,11 +2063,12 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'Not published. BCBST\'s commercial manual and ABA forms ask for diagnostic confirmation but name no required diagnosing specialty or license.',
+          'Not published. BCBST\'s commercial manual and ABA forms ask for diagnostic confirmation but name no required diagnosing specialty or license. LCSW: not stated by BCBST. Tennessee’s practice act puts “assessment, diagnosis and treatment of mental, emotional and behavioral disorders” within clinical social work (T.C.A. § 63-23-105), but whether BCBST accepts an LCSW diagnosis for ABA is not published — ask BCBST at authorization.',
         status: 'unverified',
-        cites: [{ title: 'BCBST — ABA Therapy Services Assessment Request Form (3/26)', url: 'https://content.bcbst.com/api/public/content/aba_therapy_assessment_request_form.pdf' }],
-        verifyVia: 'BCBST behavioral health UM, (423) 535-5717 option 2.',
         blocker: 'per-case',
+        cites: [{ title: 'BCBST — ABA Therapy Services Assessment Request Form (3/26)', url: 'https://content.bcbst.com/api/public/content/aba_therapy_assessment_request_form.pdf' }, { title: 'Tenn. Code Ann. § 63-23-105 — licensed clinical social worker scope (FindLaw)', url: 'https://codes.findlaw.com/tn/title-63-professions-of-the-healing-arts/tn-code-sect-63-23-105/' }],
+        verifyVia:
+          'BCBST behavioral health UM, (423) 535-5717 option 2.',
       },
       diagnosticTools: {
         value:
@@ -2219,6 +2228,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { title: 'Rules of the TN Applied Behavior Analyst Licensing Committee, Ch. 1180-05 (rev. May 2025)', url: 'https://publications.tnsosfiles.com/rules/1180/1180-05.20250507.pdf' },
       { title: 'Tenn. Code Ann. § 56-7-109 — prompt payment of health insurance claims (FindLaw)', url: 'https://codes.findlaw.com/tn/title-56-insurance/tn-code-sect-56-7-109/' },
       { title: 'BlueCross BlueShield of Tennessee — Provider News & Updates (links the current BlueAlert monthly newsletter)', url: 'https://provider.bcbst.com/news-updates' },
+      { title: 'Tenn. Code Ann. § 63-23-105 — licensed clinical social worker scope (FindLaw)', url: 'https://codes.findlaw.com/tn/title-63-professions-of-the-healing-arts/tn-code-sect-63-23-105/' },
     ],
     faq: [
       { q: 'How long does BCBST allow for a corrected ABA claim?', a: 'Until the end of the second year after the year the claim was first submitted (BCBST\'s example: a claim filed February 15, 2020 could be corrected through December 31, 2022). Returned or rejected claims are filed again as new claims, not corrected bills.' },

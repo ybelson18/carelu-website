@@ -6,12 +6,14 @@ export const coloradoPayers: Record<string, PayerConfig> = {
     cardDesc: 'No autism-dx gate; FFS carve-out (RAEs don\'t run ABA); PAR on everything; no 97156.',
     assessmentPA: {
       value:
-        'Required — ALL PBT services need a Prior Authorization Request (PAR) via Acentra\'s Atrezzo portal (ColoradoPAR.com), including the 97151 assessment. Proposed change (not yet adopted): on 10/9/2026 HCPF said it is considering shortening the 97151 authorization period from six months to 60 days, effective November 1, 2026. Comments were due to HCPF by October 15, 2026. As of October 18, 2026 HCPF had posted no adoption notice, and the PBT billing manual revised 10/12/2026 still says PARs “are approved for up to a six (6)-month period.”',
+        'Required — ALL PBT services need a Prior Authorization Request (PAR) via Acentra\'s Atrezzo portal (ColoradoPAR.com), including the 97151 assessment. Proposed change (not yet adopted): on 10/9/2026 HCPF said it is considering shortening the 97151 authorization period from six months to 60 days, effective November 1, 2026. Comments were due to HCPF by October 15, 2026. As of October 25, 2026 HCPF had posted no adoption notice (its Provider News page lists only the 10/9/2026 proposal alert, and Provider News Issue 155 of 10/23/2026 is silent on it), and the PBT billing manual revised 10/12/2026 still says PARs “are approved for up to a six (6)-month period.”',
       status: 'verified',
       cites: [
         { title: 'Pediatric Behavioral Therapies Billing Manual (HCPF; revised 10/12/2026: benefit definitions, member eligibility, co-treatment, InterQual for UM)', url: 'https://hcpf.colorado.gov/pbt-manual' },
         { title: 'HCPF PM 25-005 — Pediatric Behavioral Therapy Policy Clarification', url: 'https://hcpf.colorado.gov/sites/hcpf/files/HCPF%20PM%2025-005%20Pediatric%20Behavioral%20Therapy%20Policy%20Clarification.pdf' },
         { title: 'HCPF Provider Alert — Proposed Change to Prior Authorization for CPT 97151 (10/9/2026)', url: 'https://hcpf.colorado.gov/sites/hcpf/files/Provider%20Alert_%20Proposed%20Change%20to%20Prior%20Authorization%20for%20CPT%2097151.pdf' },
+        { title: 'HCPF — Provider News (Provider News & Resources issues and provider alerts by type)', url: 'https://hcpf.colorado.gov/provider-news' },
+        { title: 'HCPF Provider News & Resources 10/23/2026, Issue 155', url: 'https://hcpf.colorado.gov/sites/g/files/lrnvjt4251/files/Provider%20News%20%26%20Resources%20-%2010-23-2026%20Issue%20155.pdf' },
       ],
     },
     treatmentPA: {
@@ -184,6 +186,7 @@ export const coloradoPayers: Record<string, PayerConfig> = {
       { title: 'Colorado General Assembly — HB26-1425 (signed act): Colorado Behavior Analyst Licensing Board; licensure required from July 1, 2028', url: 'https://leg.colorado.gov/bills/HB26-1425' },
       { title: 'HCPF — Provider News & Resources (issue archive + monthly provider bulletins)', url: 'https://hcpf.colorado.gov/provider-news' },
       { title: 'HCPF — Provider Bulletins (index of Health First Colorado monthly bulletins)', url: 'https://hcpf.colorado.gov/bulletins' },
+      { title: 'HCPF Provider News & Resources 10/23/2026, Issue 155', url: 'https://hcpf.colorado.gov/sites/g/files/lrnvjt4251/files/Provider%20News%20%26%20Resources%20-%2010-23-2026%20Issue%20155.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -344,7 +347,7 @@ export const coloradoPayers: Record<string, PayerConfig> = {
       { q: 'Does Colorado require insurance to cover autism treatment?', a: 'For commercial plans, yes: C.R.S. 10-16-104(1.4) says “All health benefit plans issued or renewed in this state must provide coverage for the assessment, diagnosis, and treatment of autism spectrum disorders for a child,” and its definition of treatment includes applied behavior analysis by autism services providers. Health First Colorado covers ABA separately, through its Pediatric Behavioral Therapies benefit.' },
       { q: 'What is Health First Colorado’s timely filing limit for ABA (PBT) claims?', a: '365 days from the date of service. After that, each re-bill or adjustment must be received within 60 days of the last action to keep the claim alive, and an approved PAR is not a timely filing waiver.' },
       { q: 'Who can write the ABA order for Health First Colorado, and does it go on the claim?', a: 'An MD/DO, PA, NP or licensed psychologist must write the order, and that practitioner must be enrolled with Health First Colorado. Since June 2026, the PBT manual makes CMS-1500 field 17 required, with the ordering practitioner’s NPI in 17b. The signed prescription or Plan of Care goes with every PAR.' },
-      { q: 'Is Colorado changing the 97151 assessment authorization?', a: 'It is proposed, not final. On October 9, 2026, HCPF said it is considering cutting the 97151 authorization period from six months to 60 days, effective November 1, 2026. Comments were due by October 15, 2026.' },
+      { q: 'Is Colorado changing the 97151 assessment authorization?', a: 'It is proposed, not final. On October 9, 2026, HCPF said it is considering cutting the 97151 authorization period from six months to 60 days, effective November 1, 2026. Comments were due by October 15, 2026. As of October 25, 2026 HCPF had posted no adoption notice and the PBT manual still approves PARs for up to six months, so treat the six-month period as current until HCPF announces otherwise.' },
     ],
   },
 
@@ -476,6 +479,17 @@ export const coloradoPayers: Record<string, PayerConfig> = {
           { title: 'Aetna Behavioral Health Provider Manual (8/22): access to care', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' },
         ],
       },
+      {
+        h2: 'Credential modifiers on the claim',
+        body: [
+          'Aetna publishes no rate-tier modifiers for ABA. Its public ABA documents — the Applied Behavior Analysis Medical Necessity Guide (©2026), the provider manual (6/26) and the ABA precertification form GR-69017-4 (7-26) — name no HM, HN, HO or HP modifier and no credential crosswalk. What the guide does require is that “Services must be provided directly or billed by the appropriately licensed provider”: licensed behavior analysts where a state licenses them, board-certified behavior analysts, or licensed psychologists, with unlicensed staff supervised “unless state mandates, plan documents or contracts require otherwise.” Whether your Aetna agreement prices technician and analyst time by modifier is set in the contract and its fee schedule, so ask Aetna before you bill technician lines under the analyst.',
+        ],
+        cites: [
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+          { title: 'Aetna — Provider manual (8102800-01-01, 6/26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -492,6 +506,8 @@ export const coloradoPayers: Record<string, PayerConfig> = {
       { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
       { title: 'Aetna — Provider and facility participation criteria (Network Participation Criteria, 8100606-01-01, 5/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' },
       { title: 'C.R.S. § 10-16-106.5 — Prompt payment of claims (CRS 2024 official printout, Title 10)', url: 'https://leg.colorado.gov/sites/default/files/images/olls/crs2024-title-10.pdf' },
+      { title: 'Aetna — Provider manual (8102800-01-01, 6/26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+      { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -621,6 +637,7 @@ export const coloradoPayers: Record<string, PayerConfig> = {
       { q: 'What is Aetna’s timely filing limit in Colorado?', a: 'Aetna’s national provider manual (6/26) does not publish a number — the filing limit is the one in your Aetna agreement.' },
       { q: 'How fast must Aetna pay a clean ABA claim in Colorado?', a: 'Colorado law (C.R.S. § 10-16-106.5) gives a fully insured plan 30 calendar days to pay, deny or settle a clean electronic claim (45 for paper), 90 days for any claim absent fraud, with 10% interest and a 20% penalty after 90 days. Self-funded employer plans are not bound by the statute.' },
       { q: 'Does Aetna require a referring provider (box 17) on ABA claims?', a: 'Aetna publishes no such requirement for ABA. A referral has to accompany a claim only when the member’s plan requires PCP referrals for specialist care. Behavioral health is a direct-access benefit in Aetna’s behavioral health manual.' },
+      { q: 'Does Aetna require HM, HN, HO or HP modifiers on ABA claims?', a: 'Not in any public Aetna ABA document: the medical necessity guide, provider manual and ABA precertification form name no rate-tier modifiers. Services must be provided or billed by an appropriately licensed or certified provider; ask Aetna whether your contract prices technician lines by modifier.' },
     ],
   },
 
@@ -757,6 +774,16 @@ export const coloradoPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191): complete-claim definition and 837 provider identifiers', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
           { title: 'Cigna / Evernorth autism resource guide (March 2025): paper-claim rules', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+        ],
+      },
+      {
+        h2: 'Credential modifiers on the claim',
+        body: [
+          'Evernorth (Cigna’s behavioral health arm) uses no rate-tier modifiers in its published ABA billing rules. Its Autism Resource Guide (March 2025) instead sets, code by code, who may provide and who may bill: 97152, 97153 and 97154 may be provided by a “BCaBA, technician” but are billed by a “BCBA-D, BCBA, or licensed mental health provider,” and “Evernorth does not credential nonlicensed/noncertified staff. Services for these staff members must be billed under the supervising provider.” All ABA must be billed with 97151–97158, 0362T and 0373T only. The only modifier Evernorth’s administrative guidelines (September 2026) prescribe is for virtual care: “Modifier 95 in Field 24-D to specify telehealth” with place of service 02; other modifiers go on “if they are needed to describe the service performed.”',
+        ],
+        cites: [
+          { title: 'Cigna/Evernorth Autism Resource Guide (PCOMM-2025-225, March 2025): billing codes', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191) — telehealth claim coding', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
         ],
       },
     ],
@@ -914,6 +941,7 @@ export const coloradoPayers: Record<string, PayerConfig> = {
       { q: 'What is Cigna’s timely filing limit in Colorado?', a: 'Evernorth Behavioral Health, which administers Cigna’s ABA benefit, considers claims submitted within 90 days of the date of service unless your provider agreement or a longer state-law limit says otherwise.' },
       { q: 'How fast must Cigna pay a clean ABA claim in Colorado?', a: 'Colorado law (C.R.S. § 10-16-106.5) gives a fully insured plan 30 calendar days to pay, deny or settle a clean electronic claim (45 for paper), 90 days for any claim absent fraud, with 10% interest and a 20% penalty after 90 days. Self-funded employer plans are not bound by the statute.' },
       { q: 'Does Cigna require a referring provider (box 17) on ABA claims?', a: 'No. Evernorth’s complete-claim definition for the CMS-1500 lists the rendering and billing providers but no referring provider. If you report a referring provider on an electronic claim, include both the name and the NPI.' },
+      { q: 'Does Cigna / Evernorth require HM, HN, HO or HP modifiers on ABA claims?', a: 'No modifier tiers are published. Evernorth’s autism resource guide says technician and BCaBA services (97152–97154) are billed by the supervising BCBA, BCBA-D or licensed provider, and noncredentialed staff are billed under the supervising provider. Modifier 95 (with POS 02) marks telehealth.' },
     ],
   },
 
@@ -1205,6 +1233,7 @@ export const coloradoPayers: Record<string, PayerConfig> = {
       { q: 'What is UnitedHealthcare’s timely filing limit in Colorado?', a: 'Optum Behavioral Health, which manages UnitedHealthcare’s ABA benefit, requires claims within 90 calendar days of the date of service unless state or federal law or the member’s plan allows longer (National Network Manual, effective September 1, 2026).' },
       { q: 'How fast must UnitedHealthcare pay a clean ABA claim in Colorado?', a: 'Colorado law (C.R.S. § 10-16-106.5) gives a fully insured plan 30 calendar days to pay, deny or settle a clean electronic claim (45 for paper), 90 days for any claim absent fraud, with 10% interest and a 20% penalty after 90 days. Self-funded employer plans are not bound by the statute.' },
       { q: 'Does UnitedHealthcare require a referring provider (box 17) on ABA claims?', a: 'No. Optum’s claim requirements do not include a referring provider. UnitedHealthcare makes the referring name and NPI mandatory only for lab, DME, imaging and home health claims. For other claims it encourages the referring NPI but does not require it.' },
+      { q: 'What do HM, HN, HO and HP mean on a UnitedHealthcare / Optum ABA claim?', a: 'They identify who rendered the service: HM an RBT (less than bachelor’s level), HN a BCaBA (bachelor’s level), HO a master’s-level BCBA or licensed clinician, HP a BCBA-D or doctoral-level clinician. One per line; 97151 and 97155–97158 cannot take HM; 0362T/0373T take none (Optum ABA Reimbursement Policy 2022RP501A, June 2026).' },
     ],
   },
 

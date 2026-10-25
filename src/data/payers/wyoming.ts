@@ -64,6 +64,7 @@ const S: Record<string, PayerSource> = {
   bcbsPolicy: { title: 'Blue Cross Blue Shield of Wyoming — Medical Policy index (links to Highmark’s Wyoming medical policy search)', url: 'https://www.bcbswy.com/providers/policy/' },
   bcbsABA: { title: 'Blue Cross Blue Shield of Wyoming Medical Policy 15.01.002 — Applied Behavioral Analysis (effective June 16, 2025; last revision April 2025; all commercial lines)', url: 'https://securecms.highmark.com/content/medpolicy/en/wyoming/all/policies/Therapy/15-01-002/15-01-002-002.html' },
   bcbsCred: { title: 'Blue Cross Blue Shield of Wyoming — Credentialing Guidelines (updated 5/2024)', url: 'https://www.bcbswy.com/providers/credentialing/credentialing-guidelines/' },
+  lcswScope: { title: 'W.S. 33-38-102(a)(v) — "Practice of clinical social work": services "consist of assessment, diagnosis, treatment" of emotional and mental disorders (Title 33 compiled PDF)', url: 'https://wyoleg.gov/statutes/compress/title33.pdf' },
 };
 
 /* ---- Shared Wyoming commercial layer (same facts on every commercial guide) ---- */
@@ -185,7 +186,7 @@ export const wyomingPayers: Record<string, PayerConfig> = {
       { title: 'Other insurance', desc: 'Commercial coverage is billed first; Medicaid pays only the remaining patient responsibility.' },
       { title: 'Wraparound status', desc: 'If the family is in Magellan’s high-fidelity wraparound, get the care coordinator’s contact for the plan of care.' },
     ],
-    sources: [S.cms1500, S.telligenPM, S.telligenABA, S.fee, S.feePage, S.spa, S.spaNotice, S.w1915b, S.cmeDeck, S.title33, S.hb110, S.psy14, S.psy4, S.psy3, S.bacbLic, S.cfr447, S.cfr440, S.cfr440130, S.cfr433, { title: 'Wyoming Medicaid — Provider Manuals and Bulletins (quarterly bulletins index, by year)', url: 'https://wyomingmedicaid.com/portal/Provider-Manuals-and-Bulletins' }],
+    sources: [S.cms1500, S.telligenPM, S.telligenABA, S.fee, S.feePage, S.spa, S.spaNotice, S.w1915b, S.cmeDeck, S.title33, S.hb110, S.psy14, S.psy4, S.psy3, S.bacbLic, S.cfr447, S.cfr440, S.cfr440130, S.cfr433, { title: 'Wyoming Medicaid — Provider Manuals and Bulletins (quarterly bulletins index, by year)', url: 'https://wyomingmedicaid.com/portal/Provider-Manuals-and-Bulletins' }, S.lcswScope],
     deliveryRules: {
       supervision: {
         value: 'Supervision "by a QHP/BCBA is required (approximately 1-2 hours per 10 hours of direct care by the technician)" (manual 12.7.3, raised from 1 hour per 10 on 10/01/2026). It is bundled into the technician codes; face-to-face direction with protocol modification is billed as 97155. BCaBAs and RBTs are covered when supervised by a BCBA-D or BCBA (state plan). Wyoming Board rules separately require BCaBA supervision of at least 2% of monthly service hours.',
@@ -232,9 +233,9 @@ export const wyomingPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       diagnosingProviders: {
-        value: 'Neither the manual nor the state plan names who may make the ASD diagnosis. Note that Wyoming’s licensure statute excludes "the diagnosis of psychological disorders" from the practice of behavior analysis (W.S. 33-27-113(a)(xiii)), so a BCBA’s assessment is not the diagnosis.',
+        value: 'Neither the manual nor the state plan names who may make the ASD diagnosis. Note that Wyoming’s licensure statute excludes "the diagnosis of psychological disorders" from the practice of behavior analysis (W.S. 33-27-113(a)(xiii)), so a BCBA’s assessment is not the diagnosis. LCSW: not settled — the manual names no diagnosers, though Wyoming says clinical social work services "consist of assessment, diagnosis, treatment" (W.S. 33-38-102(a)(v)).',
         status: 'unverified',
-        cites: [S.cms1500, S.spa, S.title33],
+        cites: [S.cms1500, S.spa, S.title33, S.lcswScope],
         verifyVia: 'Wyoming Medicaid Provider Services, (888) 996-6223, or Telligen, (833) 610-1057.',
         blocker: 'document',
       },
@@ -426,7 +427,7 @@ export const wyomingPayers: Record<string, PayerConfig> = {
         cites: [S.bcbsABA],
       },
       diagnosingProviders: {
-        value: 'A "licensed psychiatrist or psychologist or pediatrician or neurologist or family practice with special training in treatment of Autism Spectrum Disorder" (policy 15.01.002). The FBA may also be done by a BCBA with special training in ASD. For fully insured plans, Bulletin 01-2019 defines covered treatment as care prescribed or ordered for an individual "diagnosed with an autism spectrum disorder by a licensed physician or a licensed psychologist."',
+        value: 'A "licensed psychiatrist or psychologist or pediatrician or neurologist or family practice with special training in treatment of Autism Spectrum Disorder" (policy 15.01.002). The FBA may also be done by a BCBA with special training in ASD. For fully insured plans, Bulletin 01-2019 defines covered treatment as care prescribed or ordered for an individual "diagnosed with an autism spectrum disorder by a licensed physician or a licensed psychologist." LCSW: no — not on policy 15.01.002\'s list, and the bulletin names a physician or psychologist.',
         status: 'verified',
         cites: [S.bcbsABA, S.doiBull],
       },
@@ -553,7 +554,7 @@ export const wyomingPayers: Record<string, PayerConfig> = {
       { title: 'Standardized functional measure', desc: 'Aetna wants one from the past 12 months (for example Vineland-3) showing impairment at least one standard deviation below the mean.' },
       { title: 'Physician or psychologist order', desc: 'The bulletin defines covered treatment as care prescribed or ordered by a licensed physician or psychologist.' },
     ],
-    sources: [S.aetnaGuide, S.aetnaCPB, S.aetnaCPB648, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.aetnaTele, S.doiBull, S.doiMemos, S.title26, S.hb14, S.title33, S.hb110, S.psy14, S.bacbLic, S.erisa, S.cfr433, S.tricare, S.champva, S.fee, S.cobRule, S.cobDefs],
+    sources: [S.aetnaGuide, S.aetnaCPB, S.aetnaCPB648, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.aetnaTele, S.doiBull, S.doiMemos, S.title26, S.hb14, S.title33, S.hb110, S.psy14, S.bacbLic, S.erisa, S.cfr433, S.tricare, S.champva, S.fee, S.cobRule, S.cobDefs, S.lcswScope],
     deliveryRules: {
       supervision: {
         value: 'Aetna’s guide: where others deliver services, there must be supervision "in line with practice standards," and it may authorize QHP protocol modification and direction "at 1 to 2 hours per 10 hours of treatment by protocol." Aetna’s Network Participation Criteria (5/26) require "A minimum of one hour of face-to-face supervision" of a paraprofessional "for each 10 hours of applied behavior analysis," plus the supervisor "onsite with the child at least one hour a month," and "All BCBAs, BCaBAs and paraprofessionals must meet state requirements." In Wyoming that means technicians work under a licensed behavior analyst or licensed assistant (W.S. 33-27-125(a)(viii)).' + ' Aetna’s guide and Network Participation Criteria publish no cap on the number of technicians one BCBA may supervise.',
@@ -604,9 +605,9 @@ export const wyomingPayers: Record<string, PayerConfig> = {
         cites: [S.aetnaGuide],
       },
       diagnosingProviders: {
-        value: 'A DSM-5 ASD diagnosis "obtained by an appropriate provider (i.e. licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice)." Wyoming’s bulletin defines covered treatment as care for a child diagnosed "by a licensed physician or a licensed psychologist."',
+        value: 'A DSM-5 ASD diagnosis "obtained by an appropriate provider (i.e. licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice)." Wyoming’s bulletin defines covered treatment as care for a child diagnosed "by a licensed physician or a licensed psychologist." LCSW: Aetna\'s scope-of-practice test is met — Wyoming says clinical social work services "consist of assessment, diagnosis, treatment" (W.S. 33-38-102(a)(v)) — but for fully insured plans the bulletin\'s definition names a physician or psychologist.',
         status: 'verified',
-        cites: [S.aetnaGuide, S.doiBull],
+        cites: [S.aetnaGuide, S.doiBull, S.lcswScope],
       },
       diagnosticTools: {
         value: 'CPB 0648 names ADI-R, ADOS-2, CARS-2 and the Asperger Syndrome Diagnostic Scale as tools used with clinical assessment. The ABA guide requires a standardized functional measure from the past 12 months (Vineland-3, ABAS, VB-MAPP or ABLLS as examples).',
@@ -733,7 +734,7 @@ export const wyomingPayers: Record<string, PayerConfig> = {
       { title: 'Standardized assessment timing', desc: 'Instrument administered within 60 days before treatment starts.' },
       { title: 'Physician or psychologist order', desc: 'The bulletin defines covered treatment as care prescribed or ordered by a licensed physician or psychologist.' },
     ],
-    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.doiBull, S.doiMemos, S.title26, S.hb14, S.title33, S.hb110, S.psy14, S.bacbLic, S.erisa, S.cfr433, S.tricare, S.champva, S.fee, S.cobRule, S.cobDefs],
+    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.doiBull, S.doiMemos, S.title26, S.hb14, S.title33, S.hb110, S.psy14, S.bacbLic, S.erisa, S.cfr433, S.tricare, S.champva, S.fee, S.cobRule, S.cobDefs, S.lcswScope],
     deliveryRules: {
       supervision: {
         value: 'Case supervision is by a BCBA, a Licensed Behavior Analyst, or an independently licensed mental health professional with ABA training. Direct plus indirect case supervision runs at "one to two hours per ten hours of direct treatment"; at 10 hours a week or less, at least one to two hours a week of direct case supervision. The supervisor’s name and credentials must be documented.' + ' EN0499 publishes no cap on the number of technicians one supervisor may oversee.',
@@ -780,9 +781,9 @@ export const wyomingPayers: Record<string, PayerConfig> = {
         cites: [S.en0499],
       },
       diagnosingProviders: {
-        value: 'A healthcare professional licensed to practice independently "whose licensure board considers diagnostics" within scope, applying DSM-5-TR criteria. Wyoming excludes diagnosis from the practice of behavior analysis (W.S. 33-27-113(a)(xiii)).',
+        value: 'A healthcare professional licensed to practice independently "whose licensure board considers diagnostics" within scope, applying DSM-5-TR criteria. Wyoming excludes diagnosis from the practice of behavior analysis (W.S. 33-27-113(a)(xiii)). LCSW: yes under Evernorth\'s test — Wyoming says clinical social work services "consist of assessment, diagnosis, treatment" (W.S. 33-38-102(a)(v)).',
         status: 'verified',
-        cites: [S.en0499, S.title33],
+        cites: [S.en0499, S.title33, S.lcswScope],
       },
       diagnosticTools: {
         value: 'No single instrument is mandated, but it must be standardized and the current edition ("must be the Vineland-3 vs. Vineland-II"), administered within 60 days before treatment starts.',
@@ -908,7 +909,7 @@ export const wyomingPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis with a validated tool', desc: 'DSM-5-TR ASD and severity level, confirmed with a validated tool (ADI-R, ADOS-2 and others). Optum asks for the instrument.' },
       { title: 'Physician or psychologist order', desc: 'The bulletin defines covered treatment as care prescribed or ordered by a licensed physician or psychologist.' },
     ],
-    sources: [S.optumSCC, S.optumSM, S.optumReimb, S.optumTele, S.optumNNM, S.doiBull, S.doiMemos, S.title26, S.hb14, S.title33, S.hb110, S.psy14, S.bacbLic, S.erisa, S.cfr433, S.tricare, S.champva, S.fee, S.cobRule, S.cobDefs],
+    sources: [S.optumSCC, S.optumSM, S.optumReimb, S.optumTele, S.optumNNM, S.doiBull, S.doiMemos, S.title26, S.hb14, S.title33, S.hb110, S.psy14, S.bacbLic, S.erisa, S.cfr433, S.tricare, S.champva, S.fee, S.cobRule, S.cobDefs, S.lcswScope],
     deliveryRules: {
       supervision: {
         value: '"Consistent with CASP standards of care, direct case supervision is required 1 – 2 hours for every 10 hours of direct treatment per week." Technicians work under a BCBA or licensed behavioral health clinician and should be RBTs or otherwise certified "as allowable by state mandate"; Optum does not recommend parents serving as their own child’s RBT.' + ' Optum’s criteria publish no cap on the number of technicians per BCBA.',
@@ -957,9 +958,9 @@ export const wyomingPayers: Record<string, PayerConfig> = {
         cites: [S.optumSCC],
       },
       diagnosingProviders: {
-        value: '"A state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis."',
+        value: '"A state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis." LCSW: yes under Optum\'s test — Wyoming says clinical social work services "consist of assessment, diagnosis, treatment" (W.S. 33-38-102(a)(v)).',
         status: 'verified',
-        cites: [S.optumSCC],
+        cites: [S.optumSCC, S.lcswScope],
       },
       diagnosticTools: {
         value: 'At least one clinically validated tool from Optum’s non-exhaustive list, which includes formal diagnostic tools such as the ADI, ADOS/ADOS-2 and DISCO.',

@@ -257,7 +257,7 @@ export const nationalBhPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'Set per client, not nationally. Carelon\u2019s national ABA treatment-report guidelines are written for members with an autism spectrum diagnosis and require the report to name the professional who made it and their title, but they do not define which credentials qualify. A client set can: Carelon\u2019s Massachusetts criteria admit ABA for members under 21 with a confirmed ASD diagnosis \u201cmade by a licensed physician, APRN, PA or psychologist experienced in autism,\u201d or with a Down syndrome diagnosis confirmed by genetic testing. That is a Massachusetts client standard and must not be carried to another Carelon plan.',
+          'Set per client, not nationally. Carelon\u2019s national ABA treatment-report guidelines are written for members with an autism spectrum diagnosis and require the report to name the professional who made it and their title, but they do not define which credentials qualify. A client set can: Carelon\u2019s Massachusetts criteria admit ABA for members under 21 with a confirmed ASD diagnosis \u201cmade by a licensed physician, APRN, PA or psychologist experienced in autism,\u201d or with a Down syndrome diagnosis confirmed by genetic testing. That is a Massachusetts client standard and must not be carried to another Carelon plan. LCSW: Carelon’s national guidelines do not say either way, so ask the client plan whether an LCSW’s diagnosis is accepted.',
         status: 'plan-dependent',
         cites: [{ title: 'Carelon ABA Provider Treatment Report Guidelines (v1.5)', url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/global/clinical/aba-treatment-report-guidelines.pdf' }, { title: 'Carelon Massachusetts Medical Necessity Criteria (upd. 4/29/2026)', url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/global/massachusetts-medical-necessity-criteria.pdf' }, { title: 'Carelon Behavioral Health \u2014 Medical Necessity Criteria', url: 'https://www.carelonbehavioralhealth.com/providers/resources/medical-necessity-criteria' }],
         verifyVia: 'Ask which criteria set governs this client plan and where it is published \u2014 National Provider Service Line 800-397-1630.',
@@ -481,6 +481,20 @@ export const nationalBhPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'Magellan National Provider Handbook — Elements of a Clean Claim (rev. 11/23)', url: 'https://magellanprovider.com/media/11924/f_cleanclaim.pdf' }],
       },
+      {
+        h2: 'When does Magellan expect ABA to be discharged?',
+        body: [
+          'This page is not legal advice. Magellan’s 2025–2026 Care Guidelines for outpatient ABA say “The desired outcomes for discharge should be specified at the initiation of services and refined throughout the treatment process,” with a written transition and discharge plan, and that parents, community caregivers and other professionals “should be consulted ongoing and prior to the planned reduction of service hours.” Discharge criteria (one must be met): goals achieved or maximum benefit reached; “Caregivers have refused treatment recommendations”; “Behavioral issues are exacerbated by the treatment”; the recipient is unlikely to keep benefiting or maintain gains; no progress “for two or more successive authorization periods”; or care would be “primarily for the convenience of the child or caregivers.” The guidelines set no notice period for a provider who ends treatment; Magellan’s client plan, state law and the provider agreement govern that.',
+        ],
+        cites: [{ title: '2025–2026 Magellan Care Guidelines — Outpatient Applied Behavior Analysis (eff. 11/8/2025)', url: 'https://www.magellanprovider.com/media/553052/mcg_2025-2026.pdf' }],
+      },
+      {
+        h2: 'Magellan Care Guidelines change on November 14, 2026',
+        body: [
+          'Magellan’s Provider Focus newsletter says “The 2026-2027 Magellan Care Guidelines update on Nov. 14, 2026 (rescheduled from Oct. 10).” The ABA criteria quoted on this page are from the 2025–2026 edition, which applies until then. Re-check the ABA guideline on MagellanProvider.com for requests decided on or after November 14, 2026.',
+        ],
+        cites: [{ title: 'Magellan Healthcare — Provider Focus: Medical necessity criteria update on Nov. 14 (Summer 2026)', url: 'https://provider.magellanhealthcare.com/w/medical-necessity-criteria-updates-to-occur-in-fall-2026' }, { title: '2025–2026 Magellan Care Guidelines — Outpatient Applied Behavior Analysis (eff. 11/8/2025)', url: 'https://www.magellanprovider.com/media/553052/mcg_2025-2026.pdf' }],
+      },
     ],
     collect: [
       { title: 'Both sides of the card plus the employer name', desc: 'Magellan tells providers to obtain a card copy at the first visit and to call “the appropriate toll-free number” — the plan/program number on the card is what routes you to the right ABA team and fax number.' },
@@ -564,7 +578,7 @@ export const nationalBhPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'A closed and unusually specific list. The diagnosis must be confirmed by a doctoral-level clinician within the past 24 months: an MD in family practice, pediatrics, developmental pediatrics, neurodevelopmental pediatrics, pediatric neurology or psychiatry, or a PhD/PsyD psychologist. Note that this is confirmation of the diagnosis, not merely its origin \u2014 capture the confirming clinician\u2019s name, specialty and the date on the intake form.',
+          'A closed and unusually specific list. The diagnosis must be confirmed by a doctoral-level clinician within the past 24 months: an MD in family practice, pediatrics, developmental pediatrics, neurodevelopmental pediatrics, pediatric neurology or psychiatry, or a PhD/PsyD psychologist. Note that this is confirmation of the diagnosis, not merely its origin \u2014 capture the confirming clinician\u2019s name, specialty and the date on the intake form. LCSW: no. The guideline requires confirmation “by a doctoral-level clinician including a physician (family practice, pediatrics, developmental pediatrician, neurodevelopmental pediatrics, pediatric neurology, or psychiatry) or psychologist (PhD or PsyD),” which leaves out master’s-level clinicians such as LCSWs.',
         status: 'verified',
         cites: [{ title: '2025\u20132026 Magellan Care Guidelines \u2014 Outpatient Applied Behavior Analysis (eff. 11/8/2025)', url: 'https://www.magellanprovider.com/media/553052/mcg_2025-2026.pdf' }],
       },
@@ -604,6 +618,7 @@ export const nationalBhPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Can an LCSW diagnose autism for Magellan ABA?', a: 'No, under Magellan’s Care Guidelines. The diagnosis must be confirmed within 24 months by a doctoral-level clinician: a physician in family practice, pediatrics, developmental or neurodevelopmental pediatrics, pediatric neurology or psychiatry, or a PhD or PsyD psychologist. A client plan or state law may differ.' },
       { q: 'Does Magellan require graphs for ABA reassessments?', a: 'A graph is one accepted way to show progress. Magellan’s ABA orientation lists “Current frequency/graph of progress” among the required parts of the Behavior Plan, along with baseline data, mastery criteria and caregiver goals with progress information. Each request for more sessions needs a new treatment plan, plus a new Vineland or ABAS every 6 months. The diagnosis must be updated every 24 months.' },
       { q: 'Does Magellan require the referring provider in box 17 on ABA claims?', a: 'Its clean-claim standard lists the referring provider\u2019s name (field 17) and NPI (field 17b) among the required CMS-1500 elements, while noting that state guidelines may supersede them.' },
       { q: 'Are Magellan’s ABA criteria public?', a: 'Yes. The “Outpatient Applied Behavior Analysis” guideline sits inside the Magellan Care Guidelines, which carry an effective date and a last-review date — the current edition is effective November 8, 2025 (last reviewed June 17, 2025), and the 2026–2027 edition takes effect November 14, 2026 (rescheduled from October 10), with no change to the ABA criteria. The Magellan Healthcare Guidelines half is publicly downloadable; the MCG half is proprietary and supplied on request during a clinical review.' },
@@ -793,7 +808,7 @@ export const nationalBhPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'Not published. No ComPsych document reachable without a login names who may make the ASD diagnosis. Its only published credential standard is for network participation \u2014 master\u2019s minimum, three years post-graduate, current state license at the highest level in that state, $1M/$3M malpractice, and a doctorate for all psychologists \u2014 which governs who may join the network, not who may diagnose.',
+          'Not published. No ComPsych document reachable without a login names who may make the ASD diagnosis. Its only published credential standard is for network participation \u2014 master\u2019s minimum, three years post-graduate, current state license at the highest level in that state, $1M/$3M malpractice, and a doctorate for all psychologists \u2014 which governs who may join the network, not who may diagnose. LCSW: no published answer either way; ask on the call whether an LCSW’s diagnosis is accepted.',
         status: 'unverified',
         cites: [{ title: 'ComPsych Provider ResourceCenter \u2014 Credentialing', url: 'https://providers.compsych.com/providers/content/credentialing.xhtml' }],
         verifyVia: 'The ComPsych behavioral health number on the back of the member\u2019s card \u2014 ask who authorizes applied behavior analysis, which criteria set applies, and request it in writing; network questions to providerrecruitment@compsych.com. Record the call reference and the representative\u2019s name, because with nothing published that call is the only record you will have at appeal.',

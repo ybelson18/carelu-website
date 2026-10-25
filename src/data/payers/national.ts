@@ -68,7 +68,7 @@ export const nationalPayers: Record<string, PayerConfig> = {
         h2: 'Provider qualifications',
         cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }],
         body: [
-          'Practitioners delivering ABA under Aetna policy need BACB national certification or state behavior-analyst licensure; unlicensed staff work under supervision per practice standards. The diagnosis itself must come from a provider qualified to diagnose within their scope — licensed psychologist, psychiatrist, or physician. CPB 0648 also references intensive-intervention research norms (25 hours/week, 12 months/year), useful context when justifying requested intensity.',
+          'Practitioners delivering ABA under Aetna policy need BACB national certification or state behavior-analyst licensure; unlicensed staff work under supervision per practice standards. The diagnosis itself must come from “an appropriate provider (i.e. licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice).” CPB 0648 also references intensive-intervention research norms (25 hours/week, 12 months/year), useful context when justifying requested intensity.',
         ],
       },
       {
@@ -137,6 +137,38 @@ export const nationalPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'Aetna — Provider manual (8102800-01-01, 6/26): clean claims, referrals, behavioral health access', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }],
       },
+      {
+        h2: 'Who can diagnose autism for Aetna ABA, and can an LCSW?',
+        body: [
+          'Aetna’s ABA Medical Necessity Guide asks for “a DSM-V diagnosis of Autism Spectrum Disorder … obtained by an appropriate provider (i.e. licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice).” It does not name licensed clinical social workers either way. An LCSW’s diagnosis therefore meets Aetna’s test only where the state’s licensing law puts diagnosing autism within the LCSW’s scope of practice. The precertification form asks for the “Diagnosing Provider (name and credentials),” so the reviewer sees who made the diagnosis.',
+        ],
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }],
+      },
+      {
+        h2: 'Aetna authorizations, out-of-network providers and changing agencies',
+        body: [
+          'Who the precertification is for: form GR-69017-4 (7-26) identifies the requester by “Provider/Provider Group TIN or PIN number” and asks for network status, “Participating” or “Non-Participating.” A non-participating provider therefore uses the same form. It also names the supervising clinician. Aetna publishes no rule on whether an approved precertification moves to another rendering provider or another TIN when a family changes ABA agencies. Ask Aetna precertification before the switch.',
+          'Out-of-network care at the in-network cost: Aetna’s June 2026 provider manual offers transition of care, which “allows certain qualifying members the ability to request to continue receiving care from their current out-of-network provider at in-network cost level for a defined period of time,” and continuity of care when a provider leaves the network during “an active course of covered treatment.” The treating provider “must be an individual practitioner (for example, a specialist, physical therapist, or speech therapist) or home care agency.” An ABA agency is not named. The member asks Member Services or the employer for a Transition Coverage Request Form, completes it with the treating provider and faxes it to Aetna, and Aetna sends a coverage letter that gives how long the transition benefits last. The manual and the ABA documents describe no single case agreement process.',
+        ],
+        cites: [{ title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }, { title: 'Aetna — Provider manual (8102800-01-01, 6/26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }],
+      },
+      {
+        h2: 'Paying privately instead of using Aetna: self-pay rules and the Good Faith Estimate',
+        body: [
+          'Federal law covers a family that pays for ABA itself. Under 45 CFR § 149.610 a “self-pay” individual includes someone who has coverage “but who does not seek to have a claim for such item or service submitted to such plan or coverage,” as well as the uninsured. The provider must ask whether the family has coverage and wants to use it, and must tell self-pay families that a good faith estimate is available. The written estimate is due “not later than 1 business day after the date of scheduling” when the service is booked at least 3 business days ahead, within 3 business days when it is booked at least 10 business days ahead, and within 3 business days of a request. For a recurring service such as weekly ABA, one estimate may cover the whole course, but its scope “must not exceed 12 months.” The estimate lists the diagnosis and service codes, the expected charge for each service, and the name, NPI and TIN of each provider. It must also carry the disclaimers the rule lists, including the family’s right to dispute.',
+          'The dispute right is in 45 CFR § 149.620. If the bill is “at least $400 more than the total amount of expected charges listed on the good faith estimate,” the family may start patient-provider dispute resolution within 120 calendar days of receiving that bill. CMS’s medical bill rights page explains these rights and takes questions at 1-800-985-3059.',
+          'Aetna’s own rule for network providers: to provide a service the plan does not cover, Aetna’s June 2026 provider manual says you must “Notify the member that their insurance will not cover the service” in writing “at each specific occurrence” (“A general financial responsibility form is not sufficient”), and get the member’s signature on a consent that they understand the service is not covered and “Agree to be financially responsible.” You may not bill the member when a claim is denied “for administrative reasons such as lack of referral or authorization when one was required,” or for a service Aetna denied “as a result of our UM review.” A member who has used up a visit limit cannot be charged more than the contracted rate.',
+        ],
+        cites: [{ title: '45 CFR § 149.610 — Good faith estimates of expected charges for uninsured (or self-pay) individuals', url: 'https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-B/part-149/subpart-G/section-149.610' }, { title: '45 CFR § 149.620 — Patient-provider dispute resolution (uninsured or self-pay)', url: 'https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-B/part-149/subpart-G/section-149.620' }, { title: 'CMS — Medical bill rights (No Surprises Act; good faith estimates)', url: 'https://www.cms.gov/initiatives/your-patient-rights/medical-bill-rights' }, { title: 'Aetna — Provider manual (8102800-01-01, 6/26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }],
+      },
+      {
+        h2: 'Can an ABA provider end services or discharge a child on an Aetna plan?',
+        body: [
+          'This page is not legal advice. What Aetna’s documents say: the treatment plan must include “documentation of planning for transition through the continuum of interventions, services and settings, as well as titration and discharge criteria.” On ending coverage, the ABA Medical Necessity Guide says “A member not making progress will be transitioned to other appropriate services. When it becomes clear that a treatment is ineffective, or the treatment is no longer needed, this must be communicated to the family and provider.” Coverage ends when medical necessity is no longer met, or after improvement of two or more standard deviations in multiple domains (one or more in a Focused ABA plan). The precertification form also asks for discharge criteria with an aftercare plan.',
+          'Aetna sets no notice period for a provider who decides to stop treating a child, for example because of aggression the setting cannot manage. That question is decided by state law, the provider’s licensing rules and the provider contract, which these documents do not cover. When a child needs a different level of care, the same guide expects a transition to “other appropriate services.”',
+        ],
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }],
+      },
     ],
     collect: [
       { title: 'Member ID, group ID & subscriber', desc: 'Plus a card photo — enough to run verification without a callback.' },
@@ -163,6 +195,9 @@ export const nationalPayers: Record<string, PayerConfig> = {
       { title: '32 CFR § 199.8 — TRICARE double coverage', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/part-199/section-199.8' },
       { title: 'VA — CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/files/2025-12/CHAMPVA-Guidebook.pdf' },
       { title: 'Aetna — OfficeLink Updates newsletter archive (quarterly newsletters + monthly notices and reminders)', url: 'https://www.aetna.com/health-care-professionals/newsletters-news/provider-newsletters-archive.html' },
+      { title: '45 CFR § 149.610 — Good faith estimates of expected charges for uninsured (or self-pay) individuals', url: 'https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-B/part-149/subpart-G/section-149.610' },
+      { title: '45 CFR § 149.620 — Patient-provider dispute resolution (uninsured or self-pay)', url: 'https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-B/part-149/subpart-G/section-149.620' },
+      { title: 'CMS — Medical bill rights (No Surprises Act; good faith estimates)', url: 'https://www.cms.gov/initiatives/your-patient-rights/medical-bill-rights' },
     ],
     deliveryRules: {
       supervision: {
@@ -231,7 +266,7 @@ export const nationalPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'The diagnosis must come from a provider qualified to diagnose within their scope \u2014 a licensed psychologist, psychiatrist or physician. That is a scope-of-practice test rather than a closed credential list, and it is enforced at the front door: the precertification form asks for the DSM-5 diagnosis code, the diagnosing provider and their credentials, so the diagnosing clinician\'s name and credential are submission data.',
+          'Aetna’s ABA Medical Necessity Guide requires a DSM-5 autism spectrum diagnosis “obtained by an appropriate provider (i.e. licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice).” That is a scope-of-practice test, not a closed list. LCSW: the guide neither names nor excludes licensed clinical social workers, so an LCSW’s diagnosis meets it only where the state’s licensing law puts diagnosing autism within the LCSW’s scope. The test is applied at the front door: precertification form GR-69017-4 (7-26) asks for the “Diagnosing Provider (name and credentials).”',
         status: 'verified',
         cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }],
       },
@@ -281,6 +316,11 @@ export const nationalPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Is there an Aetna template for the ABA assessment or treatment request?', a: 'Yes: precertification form GR-69017-4 (7-26), which “Effective August 1, 2026 … replaces all other Applied Behavior Health Analysis (ABA) precertification information request documents and forms” (not for Maryland or Massachusetts plans). It asks for hours per authorization period for 97151, 97152 and 0362T, hours per week for treatment codes, the diagnosing provider’s name and credentials, a standardized assessment such as the Vineland, ABAS or VB-MAPP from the past 12 months, and baseline, interim and current data for all goals. Start the request on Availity or by phone and attach the form.' },
+      { q: 'Do we have to give a Good Faith Estimate to a family paying privately?', a: 'Yes, under federal law. 45 CFR § 149.610 treats a family as self-pay if it is uninsured or chooses not to submit a claim to its plan. Tell the family an estimate is available, and give it in writing within 1 business day of scheduling (3 business days if the start is at least 10 business days away, or after a request). One estimate can cover up to 12 months of recurring sessions. If the bill comes in at least $400 over the estimate, the family can dispute it within 120 days. For a service Aetna does not cover, Aetna’s manual also requires written notice and a signed consent each time.' },
+      { q: 'Does Aetna use HM, HN, HO or HP modifiers on ABA claims?', a: 'Aetna’s ABA Medical Necessity Guide, precertification form and June 2026 provider manual name no credential modifiers for ABA. The guide says services “must be provided directly or billed by licensed behavior analysts …, board-certified behavior analysts, or licensed psychologists … unless state mandates, plan documents or contracts require otherwise.” Check your contract or a state rule for any modifier requirement.' },
+      { q: 'How many RBTs can one BCBA supervise under Aetna?', a: 'Aetna sets no number. Its ABA Medical Necessity Guide authorizes supervision time, “1 to 2 hours per 10 hours of treatment by protocol,” and requires supervision of unlicensed staff “in line with practice standards,” but it does not cap technicians or cases per analyst. Any caseload limit comes from state licensure law or the BACB.' },
+      { q: 'Can an LCSW diagnose autism for Aetna ABA coverage?', a: 'Aetna does not name LCSWs. Its ABA Medical Necessity Guide accepts a diagnosis from a “licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice.” So an LCSW’s diagnosis qualifies only where the state’s licensing law puts autism diagnosis within the LCSW’s scope. The precertification form asks for the diagnosing provider’s name and credentials.' },
       { q: 'Does Aetna accept H0031 or H0032 for commercial ABA?', a: 'Aetna’s commercial ABA documents use CPT codes only: 97151–97158, 0362T and 0373T are the codes on its behavioral health precertification list and in CPB 0554. Bill commercial ABA with those CPT codes.' },
       { q: 'What is Aetna’s timely filing limit for commercial ABA claims?', a: 'Aetna’s national provider manual does not publish one. The deadline is in your participation agreement, and on a fully insured plan the state’s timely-filing law applies too. The manual treats any claim involving coordination of benefits as outside its clean-claim definition. Reconsiderations are due within 180 calendar days of the claim decision.' },
       { q: 'Does Aetna require graphs for ABA reauthorizations?', a: 'No. Aetna’s precertification form asks for baseline, interim and current data for every goal, plus data showing how severe each impairment is now. It also asks for a standardized assessment (Vineland, ABAS or VB-MAPP) from the past 12 months, a progress re-evaluation every 6 months and a repeat validated assessment every 6–12 months. A graph is fine if it shows the values and dates, but none is required.' },
@@ -430,6 +470,32 @@ export const nationalPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026) — NPI on 837 claims', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }],
       },
+      {
+        h2: 'Cigna authorizations, network exceptions and changing ABA agencies',
+        body: [
+          'Who the authorization is for: Evernorth’s ABA Prior Authorization Form (07/26) asks for the servicing clinic’s name and “Taxpayer Identification Number (TIN)” and for the supervising provider’s name and credential or license. An approved request is written per month under 97155 and can be used across 97153–97158 and 0373T.',
+          'Two agencies at once: EN0499 says “ABA services delivered by multiple ABA provider organizations/agencies/companies during the same authorization period are not considered medically necessary unless ALL the following are present and documented”: a clear plan to coordinate care so services are not duplicated, intervention strategies that are “consistent and not contradictory,” and a combined intensity across all ABA providers that reflects the child’s needs. A new agency taking over a case therefore needs its own authorization and, while the old one is still open, documented coordination with the outgoing agency.',
+          'Out-of-network providers: Evernorth’s ABA billing-code page says the assessment codes need no precertification for an independently licensed provider or BCBA, but “authorization is required for 97151, 97152, or 0362T when requesting a network exception.” Evernorth does not define a network exception there or publish criteria for granting one. Ask the Autism Care Coordinator team (877-279-7603) whether one is possible for the member.',
+        ],
+        cites: [{ title: 'Evernorth Behavioral Health — Applied Behavior Analysis Prior Authorization Form (PCOMM-2025-224, 07/26) (PDF)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/applied-behavior-analysis.pdf' }, { title: 'Cigna EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Evernorth Behavioral Health — Billing Codes for Applied Behavior Analysis (Dec 16, 2022)', url: 'https://static.evernorth.com/assets/evernorth/provider/resourceLibrary/behavioralResources/doingBusinessWithUs/cbhDBwCBillingCodesForABA.html' }, { title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
+      },
+      {
+        h2: 'Paying privately instead of using Cigna: self-pay agreements and the Good Faith Estimate',
+        body: [
+          'Federal law covers a family that pays for ABA itself. Under 45 CFR § 149.610 a “self-pay” individual includes someone who has coverage “but who does not seek to have a claim for such item or service submitted to such plan or coverage,” as well as the uninsured. The provider must ask whether the family has coverage and wants to use it, and must tell self-pay families that a good faith estimate is available. The written estimate is due “not later than 1 business day after the date of scheduling” when the service is booked at least 3 business days ahead, within 3 business days when it is booked at least 10 business days ahead, and within 3 business days of a request. For a recurring service such as weekly ABA, one estimate may cover the whole course, but its scope “must not exceed 12 months.” The estimate lists the diagnosis and service codes, the expected charge for each service, and the name, NPI and TIN of each provider. It must also carry the disclaimers the rule lists, including the family’s right to dispute.',
+          'The dispute right is in 45 CFR § 149.620. If the bill is “at least $400 more than the total amount of expected charges listed on the good faith estimate,” the family may start patient-provider dispute resolution within 120 calendar days of receiving that bill. CMS’s medical bill rights page explains these rights and takes questions at 1-800-985-3059.',
+          'Evernorth’s rule for network providers: its September 2026 Administrative Guidelines say “You cannot bill patients for covered services or for services for which payment was denied due to your failure to comply with your Provider Agreement,” including authorization and timely-filing rules. A self-pay agreement is allowed for services that are not covered, which the guidelines say include “Services for which the patient elects not to use their benefit plan.” The patient must sign it, with a full financial disclosure, “in advance of services being rendered.” Evernorth’s Self-Pay Agreement form is in the Forms Center on Provider.Evernorth.com, or you may use your own if it has the same data elements. An agreement signed at the start of treatment that only mentions a possible future self-pay arrangement does not count, and an agreement “may never be retroactive.”',
+        ],
+        cites: [{ title: '45 CFR § 149.610 — Good faith estimates of expected charges for uninsured (or self-pay) individuals', url: 'https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-B/part-149/subpart-G/section-149.610' }, { title: '45 CFR § 149.620 — Patient-provider dispute resolution (uninsured or self-pay)', url: 'https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-B/part-149/subpart-G/section-149.620' }, { title: 'CMS — Medical bill rights (No Surprises Act; good faith estimates)', url: 'https://www.cms.gov/initiatives/your-patient-rights/medical-bill-rights' }, { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026) (PDF)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }],
+      },
+      {
+        h2: 'Can an ABA provider end services or discharge a child on a Cigna plan?',
+        body: [
+          'This page is not legal advice. What EN0499 says: “Transition and discharge planning is not a single event that occurs at the end of the treatment period. Abrupt termination of services may be detrimental to a individual’s progress.” “Discharge can be initiated by the provider or the individual for a multitude of reasons and should occur in compliance with any state laws or regulations pertinent to discharge.” Every treatment plan needs a “transition plan that includes a plan for fading services from all settings” and discharge criteria for “discontinuation and/or transfer to alternative or less intrusive levels of care.”',
+          'For severe behavior such as aggression, EN0499 sets extra criteria rather than an exclusion. When treatment is part of a Severe Behavior Program or includes severe behavior, the request needs a complete treatment and behavior history (for example emergency services, bodily injury or property destruction), dated baseline data within 60 days, “specific safety measures and protocols,” and documented consultation with medical or mental health professionals. Codes 0362T and 0373T cover severe destructive behavior that needs two or more technicians face to face. EN0499 sets no notice period for a provider-initiated discharge; state law and the provider contract decide that.',
+        ],
+        cites: [{ title: 'Cigna EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
+      },
     ],
     collect: [
       { title: 'Member ID + plan details', desc: 'Card photo, subscriber info, and whether the plan actually includes the ABA benefit.' },
@@ -452,6 +518,9 @@ export const nationalPayers: Record<string, PayerConfig> = {
       { title: 'VA — CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/files/2025-12/CHAMPVA-Guidebook.pdf' },
       { title: 'Cigna Healthcare — Provider Newsroom, U.S. Commercial (replaced Network News in 2024)', url: 'https://providernewsroom.com/category/cigna-healthcare/' },
       { title: 'Evernorth Behavioral Health — Provider Newsroom, Behavioral Health (Cigna/Evernorth provider news)', url: 'https://providernewsroom.com/category/evernorth/' },
+      { title: '45 CFR § 149.610 — Good faith estimates of expected charges for uninsured (or self-pay) individuals', url: 'https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-B/part-149/subpart-G/section-149.610' },
+      { title: '45 CFR § 149.620 — Patient-provider dispute resolution (uninsured or self-pay)', url: 'https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-B/part-149/subpart-G/section-149.620' },
+      { title: 'CMS — Medical bill rights (No Surprises Act; good faith estimates)', url: 'https://www.cms.gov/initiatives/your-patient-rights/medical-bill-rights' },
     ],
     deliveryRules: {
       supervision: {
@@ -512,7 +581,7 @@ export const nationalPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'EN0499 (eff. 5/15/2026) requires a DSM-5-TR autism spectrum diagnosis (F84.0\u2013F84.9, except F84.2 Rett syndrome) made \u201cby a healthcare professional who is licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice.\u201d The request must give \u201cThe name, credentials, and type of licensure\u201d of the person who made the diagnosis and \u201cThe date on which the diagnosis was most recently made.\u201d A school (IDEA) eligibility finding \u201cmay not meet criteria as a formal diagnosis of ASD\u201d unless it also meets that standard. A diagnosis called \u201cprovisional,\u201d \u201crule out\u201d or \u201cat risk of\u201d does not count as confirmed. Evernorth\u2019s ABA Prior Authorization Form asks for the evaluator\u2019s credential: medical doctor, licensed psychologist or other.',
+          'EN0499 (eff. 5/15/2026) requires a DSM-5-TR autism spectrum diagnosis (F84.0\u2013F84.9, except F84.2 Rett syndrome) made \u201cby a healthcare professional who is licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice.\u201d The request must give \u201cThe name, credentials, and type of licensure\u201d of the person who made the diagnosis and \u201cThe date on which the diagnosis was most recently made.\u201d A school (IDEA) eligibility finding \u201cmay not meet criteria as a formal diagnosis of ASD\u201d unless it also meets that standard. A diagnosis called \u201cprovisional,\u201d \u201crule out\u201d or \u201cat risk of\u201d does not count as confirmed. Evernorth\u2019s ABA Prior Authorization Form asks for the evaluator\u2019s credential: medical doctor, licensed psychologist or other. LCSW: EN0499 does not name licensed clinical social workers either way. A diagnosis by an LCSW meets its test only where the LCSW may practise independently and the state licensing board treats autism diagnosis as within the LCSW’s scope.',
         status: 'verified',
         cites: [{ title: 'Cigna EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Evernorth Behavioral Health \u2014 Applied Behavior Analysis Prior Authorization Form (PCOMM-2025-224, 07/26) (PDF)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/applied-behavior-analysis.pdf' }],
       },
@@ -560,6 +629,11 @@ export const nationalPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Is there a Cigna template for the ABA assessment or treatment plan?', a: 'Cigna uses Evernorth’s ABA Prior Authorization Form (07/26) for treatment requests; the assessment codes 97151, 97152 and 0362T need no prior authorization for an independently licensed provider or BCBA. EN0499 sets the content: a current-edition standardized, validated instrument (for example the Vineland-3) given within 60 days of the start of treatment, “Standardized scores and score tables, and/or scoring grids/figures … when applicable,” measurable goals with dated baselines, caregiver goals, a transition plan and discharge criteria. The form warns that the AFLS, Essential for Living and PEAK do not on their own show medical necessity.' },
+      { q: 'Can a family pay privately for ABA while covered by Cigna?', a: 'Yes, if they choose not to use the plan. Evernorth lists “Services for which the patient elects not to use their benefit plan” among services a self-pay agreement can cover; it must be signed in advance and can never be retroactive. Under 45 CFR § 149.610 that family is also “self-pay” for federal purposes, so they are entitled to a written Good Faith Estimate.' },
+      { q: 'Does Cigna give out-of-network ABA providers a single case agreement?', a: 'Evernorth’s term is a network exception. Its ABA billing page says authorization is required for 97151, 97152 or 0362T “when requesting a network exception.” Evernorth publishes no criteria for approving one; call the Autism Care Coordinator team at 877-279-7603.' },
+      { q: 'Will a Cigna ABA authorization transfer when a family changes agencies?', a: 'Cigna publishes no transfer rule. The PA form ties the request to the servicing clinic’s TIN and the supervising provider, and EN0499 treats two ABA agencies in the same authorization period as not medically necessary unless care is coordinated, consistent and the combined hours fit the child’s needs. Plan for the new agency to request its own authorization.' },
+      { q: 'Can an LCSW diagnose autism for Cigna ABA coverage?', a: 'Possibly, depending on the state. EN0499 requires the diagnosis to be made “by a healthcare professional who is licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice.” It does not name LCSWs. The PA form asks whether the evaluator is a medical doctor, licensed psychologist or other, and for the diagnosing professional’s name, credentials and licence type.' },
       { q: 'Where do I find Cigna’s ABA fee schedule?', a: 'In your contract. Evernorth says your fee schedule and the list of reimbursable autism services are in Exhibit A of your Provider Agreement. It publishes no ABA rate table, and fee-schedule questions go to Provider Services at 800.926.2273.' },
       { q: 'How long do I have to appeal a Cigna ABA claim?', a: 'Evernorth’s September 2026 guidelines give 180 calendar days from the initial payment or denial decision for a written payment appeal, and 180 days from the denial for a clinical appeal unless the plan or state law says otherwise. A second-level appeal is due within 60 days of the first decision, and most appeals are resolved within 60 days.' },
       { q: 'Does Cigna require graphs for ABA reassessments?', a: 'No graph is required as such. EN0499 and Evernorth’s ABA Prior Authorization Form require quantitative baseline, interim and current goal data with dates, for every goal and every setting. Interim data covers at least the last 6 months and may be shown as data points or averages, and current data must be no more than 60 days old. A standardized assessment from the last 12 months is also required. A dated graph or a dated table both meet the requirement; a narrative summary does not.' },
@@ -692,6 +766,49 @@ export const nationalPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'Optum National Network Manual (BH02330, effective Sept. 1, 2026) — claim submission requirements', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide — Chapter 10, claims and NPI', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }],
       },
+      {
+        h2: 'Reconsideration packet and out-of-network payment for UnitedHealthcare ABA claims',
+        body: [
+          'What to send: Optum’s National Network Manual (effective Sept. 1, 2026) runs a 2-step process for Commercial and Medicare Advantage plans, reconsideration and then appeal, with “a total of 12 months for submission for both steps” unless state law or your agreement says otherwise. Its “Required Documentation”: “Include member-specific treatment plans, clinical records, payment appendices or other items that support why you believe our decision was incorrect. We make our review decision based on the materials available at the time of the review.” For a timely-filing denial, include “confirmation we received and accepted your claim within your timely filing requirement.” By mail, complete a reconsideration request form “to outline the reason you disagree with our decision” and send it with the documents to Optum Behavioral Health Solutions, P.O. Box 30757, Salt Lake City, UT 84123; online, use Provider Express > Appeals > Submit Claim Appeal and give “The factual or legal basis for appeal” plus any records that help. The manual addresses this process to network providers.',
+          'UnitedHealthcare’s 2026 Administrative Guide says the same for its claims: file within “12 months from the date of the original claim EOB or PRA (or as required by law or your Agreement)” and “Please be detailed in why you feel the payment is not the adjudication outcome you expected.” At reconsideration, include “any necessary additional supporting materials not included in the original claim submissions.” At appeal, attach only new materials: “Please do not include any materials that you sent to us as part of the reconsideration request.” Reconsideration “does not apply in some states, based on applicable state law.”',
+          'How an out-of-network claim is priced: UnitedHealthcare says that when the No Surprises Act or a state surprise-billing law does not apply, “United will look to the member’s benefit plan to determine if it is covered and how it should be paid.” The allowed amount may come from “one or more” methods: a percentage of CMS (Medicare) rates, FAIR Health’s database (by percentile), Viant, a rate negotiated with the out-of-network provider “after the service was provided,” or third-party network discounts. “Which option is used depends on various factors, including but not limited to the terms of the healthcare benefit plan, the type of provider, and the type of service.” So an out-of-network provider asking for a higher allowed amount should cite the method in the member’s plan document and what that method produces for the code; UnitedHealthcare publishes no ABA out-of-network rate.',
+        ],
+        cites: [{ title: 'Optum — Behavioral Health Services National Provider Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026) (PDF)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial, Exchange, MA) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, { title: 'UnitedHealthcare — Information on payment of out-of-network benefits', url: 'https://www.uhc.com/legal/information-on-payment-of-out-of-network-benefits' }],
+      },
+      {
+        h2: 'Optum authorizations, single case agreements and changing ABA agencies',
+        body: [
+          'Who an authorization belongs to: the National Network Manual says “Authorizations for non-routine outpatient services are specific to the requesting clinician. The clinician will receive a copy of the authorization approval,” and lists ABA among those services. Inside a group, Optum’s ABA CPT FAQ adds: “Any ABA Supervisor who is credentialed under the group or facility contract can see a member, billing with the applicable CPT code(s).” Optum publishes no rule moving an authorization to a different agency. A family that changes agencies needs the new agency to request its own authorization.',
+          'Single case agreements: asked whether a provider can get “an accommodation/Single Case Agreement (SCA) during the process of credentialing,” Optum’s CPT FAQ answers “Not automatically. In exception cases, based on clinical need, new business implementations, or other gaps in the network, a SCA may be approved after review with the clinical team.” Once an SCA provider becomes contracted, “send a list of your current members to your Network Manager who will coordinate with the clinical team to update your authorizations.” UnitedHealthcare’s Administrative Guide gives the general route for network benefits from a nonparticipating provider on commercial plans: request prior approval at UHCprovider.com > Sign In > Referrals, after checking for a network provider and the W500 Emergent Wrap network; “If approved, we apply the network benefits to the services done by the out-of-network care provider.”',
+          'When a network provider leaves Optum: unless the termination is for quality, fraud, licence or federal-program reasons, “clinicians are obligated to continue to provide treatment for all members under their care” for up to 90 calendar days, or until the member moves to another Optum clinician, the episode ends or the benefit ends. Optum notifies affected members “at least 30 calendar days prior to the effective date of the termination, whenever feasible,” and helps them choose a new provider. State law wins where it sets a different period.',
+        ],
+        cites: [{ title: 'Optum — Behavioral Health Services National Provider Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026) (PDF)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }, { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial, Exchange, MA) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }],
+      },
+      {
+        h2: 'Which ABA credential may bill which code for UnitedHealthcare (HM, HN, HO, HP)',
+        body: [
+          'Optum’s commercial ABA reimbursement policy 2022RP501A (updated June 2026) applies to network and non-network providers on Commercial and Individual Exchange plans. Modifiers: HM for an RBT (“less than a bachelor’s degree level”), HN for a BCaBA (bachelor’s level), HO for a master’s-level BCBA or licensed mental health provider, HP for a BCBA-D or doctoral licensed provider. The allowed modifiers by code are: 97151 HN, HO or HP; 97152, 97153 and 97154 HN, HM, HO or HP; 97155, 97156, 97157 and 97158 HN, HO or HP. 0362T and 0373T “do not require modifiers.” So an RBT (HM) may not bill 97151 or 97155–97158, while a BCaBA (HN) may bill every code. A supervisor’s work “should be billed with the applicable CPT code(s) and the HO modifier.” Bill “only one provider-level modifier per ABA service line.” On HM the policy adds: “State regulatory requirements may supplement, modify or supersede this policy.”',
+          'Optum’s CPT FAQ says a BCaBA “can serve as a BCBA extender for services outlined on your fee schedule and billed with modifiers,” including supervising technicians. Technicians working 1:1 “are required to be a Registered Behavior Technician (RBT), a Board-Certified Autism Technician (BCAT), and certified Applied Behavior Analysis Technician (ABAT), or hold an alternative certification (if alternative certification is approved by Network management).”',
+        ],
+        cites: [{ title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' }],
+      },
+      {
+        h2: 'Paying privately instead of using UnitedHealthcare: self-pay rules and the Good Faith Estimate',
+        body: [
+          'Federal law covers a family that pays for ABA itself. Under 45 CFR § 149.610 a “self-pay” individual includes someone who has coverage “but who does not seek to have a claim for such item or service submitted to such plan or coverage,” as well as the uninsured. The provider must ask whether the family has coverage and wants to use it, and must tell self-pay families that a good faith estimate is available. The written estimate is due “not later than 1 business day after the date of scheduling” when the service is booked at least 3 business days ahead, within 3 business days when it is booked at least 10 business days ahead, and within 3 business days of a request. For a recurring service such as weekly ABA, one estimate may cover the whole course, but its scope “must not exceed 12 months.” The estimate lists the diagnosis and service codes, the expected charge for each service, and the name, NPI and TIN of each provider. It must also carry the disclaimers the rule lists, including the family’s right to dispute.',
+          'The dispute right is in 45 CFR § 149.620. If the bill is “at least $400 more than the total amount of expected charges listed on the good faith estimate,” the family may start patient-provider dispute resolution within 120 calendar days of receiving that bill. CMS’s medical bill rights page explains these rights and takes questions at 1-800-985-3059.',
+          'Optum’s rule for network providers: when Optum does not authorize requested services, the National Network Manual lets you bill the member only “If a written statement is signed by the member after the adverse benefit determination and in advance of receiving such services.” A financial-responsibility waiver signed at the start of treatment does not count. The statement must say that you told the member Optum cannot authorize the services, give Optum’s reason, and say that the member has been denied coverage and will be financially responsible.',
+        ],
+        cites: [{ title: '45 CFR § 149.610 — Good faith estimates of expected charges for uninsured (or self-pay) individuals', url: 'https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-B/part-149/subpart-G/section-149.610' }, { title: '45 CFR § 149.620 — Patient-provider dispute resolution (uninsured or self-pay)', url: 'https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-B/part-149/subpart-G/section-149.620' }, { title: 'CMS — Medical bill rights (No Surprises Act; good faith estimates)', url: 'https://www.cms.gov/initiatives/your-patient-rights/medical-bill-rights' }, { title: 'Optum — Behavioral Health Services National Provider Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026) (PDF)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }],
+      },
+      {
+        h2: 'Can an ABA provider end services or discharge a child on a UnitedHealthcare plan?',
+        body: [
+          'This page is not legal advice. Optum’s Supplemental Clinical Criteria (April 2026): “Discharge can be initiated by the provider or the patient for a multitude of reasons and should occur in compliance with any state laws or regulations pertinent to discharge.” Transition is meant to move the child “through treatment toward discharge or other more intensive services as clinically indicated,” and transition and discharge planning “are not a single event that occurs at the end of the treatment period.” The criteria list when transition or discharge may be appropriate, including when goals are met, when there is no substantive progress over successive authorization periods, when treatment is making behaviors persistently worse, and when “Caregivers and providers are unable to reconcile important issues in treatment planning and delivery that prevent delivering medically necessary care.”',
+          'Goals may target behaviors “presenting a safety risk to self, others, or property,” and 0362T and 0373T cover assessment and treatment with two or more technicians for a patient “who exhibits destructive behavior.” Optum sets no notice period for a provider-initiated discharge; state law and the participation agreement decide that.',
+        ],
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
+      },
     ],
     collect: [
       { title: 'Member ID + card photo', desc: 'Plus subscriber details for the benefits check.' },
@@ -716,6 +833,11 @@ export const nationalPayers: Record<string, PayerConfig> = {
       { title: 'Optum — Applied Behavior Analysis (ABA) Treatment Reviews Via Portal (BH00705, 11/2024) (PDF)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/national/Portal_Review_Autism_CPT%20UPDATED.pdf%20(1).pdf' },
       { title: 'UnitedHealthcare — Network News (provider news hub, monthly overview + latest articles)', url: 'https://www.uhcprovider.com/en/resource-library/news.html' },
       { title: 'Optum Behavioral Health — Top of Mind, All News (Provider Express provider news by month)', url: 'https://www.providerexpress.com/content/ope-provexpr/us/en/Top-of-Mind/top-of-mind-all-news-.html' },
+      { title: 'Optum — Behavioral Health Services National Provider Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026) (PDF)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+      { title: 'UnitedHealthcare — Information on payment of out-of-network benefits', url: 'https://www.uhc.com/legal/information-on-payment-of-out-of-network-benefits' },
+      { title: '45 CFR § 149.610 — Good faith estimates of expected charges for uninsured (or self-pay) individuals', url: 'https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-B/part-149/subpart-G/section-149.610' },
+      { title: '45 CFR § 149.620 — Patient-provider dispute resolution (uninsured or self-pay)', url: 'https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-B/part-149/subpart-G/section-149.620' },
+      { title: 'CMS — Medical bill rights (No Surprises Act; good faith estimates)', url: 'https://www.cms.gov/initiatives/your-patient-rights/medical-bill-rights' },
     ],
     deliveryRules: {
       supervision: {
@@ -784,7 +906,7 @@ export const nationalPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'A DSM-5-TR autism spectrum diagnosis from a state-licensed physician, psychologist, or other qualified clinician. The credential is submission data, not background: Optum asks for the diagnosing clinician and the confirming instrument as part of the step-one assessment authorization on Provider Express.',
+          'Optum’s Supplemental Clinical Criteria (annual review April 2026): “A valid diagnosis of ASD (or other applicable diagnosis as required by governing laws) must be issued by a state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis according to the diagnostic criteria based on the DSM-5-TR.” The diagnosing clinician must confirm and document the diagnosis and severity level with at least one clinically validated tool. LCSW: the criteria do not name licensed clinical social workers either way, so an LCSW qualifies only where state law makes the LCSW qualified to diagnose autism. The credential is submission data: Optum asks for the diagnosing clinician and the confirming instrument at the step-one assessment authorization on Provider Express.',
         status: 'verified',
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
       },
@@ -838,6 +960,13 @@ export const nationalPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Optum require a specific ABA assessment or treatment-plan template?', a: 'No template is published. Optum’s portal review guide (BH00705) lists what the reviewer may ask: supervisor, agency name and Tax ID, hours requested per code (97151, 97152, 0362T, 97153–97158, 0373T), who gave the most recent diagnosis and when, school and IEP details, other services and the schedule, assessments used with scores (for example Vineland, VB-MAPP, ABLLS), severity and goals in the communication, social and behavior domains, and caregiver involvement and proficiency. Clinical updates “should include all areas from the initial plan.” Assessment and reassessment bill only as 97151 and 97152 under Optum’s reimbursement policy.' },
+      { q: 'Which UnitedHealthcare phone line and NPI do we use to check ABA eligibility?', a: 'Optum’s National Network Manual (Sept. 2026) says to use the Provider Express secure portal or call “the phone number on the member’s ID card,” and to have the member’s name, address and ID number and the subscriber’s name and date of birth ready. It does not say which NPI a caller must give. 1-877-614-0484 is Optum Provider Services, which the manual uses for network, practice-information and contract questions.' },
+      { q: 'Is there an exception to Optum’s three-code ABA telehealth limit?', a: 'None is published. Optum’s telehealth billing guide says “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157,” and gives no exception or exemption process. The provider must be an approved Optum virtual-visits provider and tell the ABA Care Advocate at authorization.' },
+      { q: 'Does Optum give single case agreements to out-of-network ABA providers?', a: 'Only by exception. Optum’s ABA CPT FAQ: an SCA is “Not automatically” available, but “In exception cases, based on clinical need, new business implementations, or other gaps in the network, a SCA may be approved after review with the clinical team.”' },
+      { q: 'What should a UnitedHealthcare ABA reconsideration include?', a: 'Optum asks for “member-specific treatment plans, clinical records, payment appendices or other items that support why you believe our decision was incorrect,” plus proof of timely filing if that was the denial reason, within 12 months for both steps. UnitedHealthcare asks you to be “detailed in why you feel the payment is not the adjudication outcome you expected.” For an out-of-network rate dispute, UnitedHealthcare prices the claim by the method in the member’s plan (for example a percentage of CMS rates or FAIR Health), so tie your request to that method.' },
+      { q: 'Is an Optum ABA authorization tied to the individual BCBA or the group?', a: 'Optum’s National Network Manual says authorizations for non-routine outpatient services such as ABA “are specific to the requesting clinician.” Within the same contracted group, its ABA CPT FAQ lets “Any ABA Supervisor who is credentialed under the group or facility contract” see the member. No transfer to a different agency is published; the new agency requests its own authorization.' },
+      { q: 'Can an LCSW diagnose autism for UnitedHealthcare ABA?', a: 'Optum’s criteria accept a diagnosis from “a state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis.” LCSWs are not named, so it depends on whether state law makes an LCSW qualified to diagnose autism. The diagnosis must also be confirmed with at least one clinically validated tool such as the ADOS-2.' },
       { q: 'How fast does Optum pay a clean UnitedHealthcare ABA claim?', a: 'Optum’s National Network Manual says complete, authorized claims are generally paid within 45 calendar days after Optum receives them, or faster where state or federal law requires. Claims that need a coordination-of-benefits determination may take longer. No weekly billing cutoff is published.' },
       { q: 'Does UnitedHealthcare/Optum require graphs for ABA reauthorization?', a: 'No graph is required. Optum wants progress on every target measured the same way as the baseline. That means rates and percentages of mastered programs and targets, change scores on outcome and skills-based measures, and updated standardized adaptive (norm-referenced) scores, plus caregiver progress. Reviews ordinarily come every 6 months. Submit the continued-care request no more than 30 days before the current authorization expires.' },
       { q: 'Does UnitedHealthcare / Optum require a referring provider on ABA claims?', a: 'No. Optum\u2019s National Network Manual lists the required claim fields for behavioral health claims without a referring provider, and UnitedHealthcare\u2019s 2026 Administrative Guide only encourages the referring NPI. It is mandatory there only on lab, DME, imaging and home health claims.' },
@@ -1037,7 +1166,7 @@ export const nationalPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       diagnosingProviders: {
-        value: 'Not published by Meritain. Which credentials may make the ASD diagnosis depends on the plan\'s adopted ABA criteria.',
+        value: 'Not published by Meritain. Which credentials may make the ASD diagnosis depends on the plan\'s adopted ABA criteria. LCSW: no Meritain answer is published; ask whether the group’s ABA criteria accept an LCSW’s diagnosis.',
         status: 'unverified',
         cites: [{ title: 'Meritain Health — What is precertification and why do I need it?', url: 'https://www.meritain.com/what-is-precertification-and-why-do-i-need-it/' }],
         verifyVia: 'Meritain Medical Management (1-800-242-1199) — ask which diagnosing credentials the group\'s ABA criteria accept.',
@@ -1276,8 +1405,99 @@ export const nationalPayers: Record<string, PayerConfig> = {
         title: 'ASR Health Benefits - Medical Cost Management (Care Review pre-certification)',
         url: 'https://www.asrhealthbenefits.com/products-and-services/self-funded-health-plans/medical-cost-management/',
       },
+      { title: '42 CFR § 433.139 — Medicaid payment of claims involving third party liability', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
     ],
+    deliveryRules: {
+      supervision: {
+        value:
+          'ASR publishes no ABA policy; its provider and medical cost-management pages (read 2026-10-25) do not mention ABA or autism. Any supervision requirement comes from the employer plan’s adopted criteria and state law.',
+        status: 'plan-dependent',
+        cites: [{ title: 'ASR Health Benefits - Providers (provider log-in: Verify Eligibility, Claims Inquiry)', url: 'https://www.asrhealthbenefits.com/providers/' }, { title: 'ASR Health Benefits - Medical Cost Management (Care Review pre-certification)', url: 'https://www.asrhealthbenefits.com/products-and-services/self-funded-health-plans/medical-cost-management/' }],
+        verifyVia: 'The employer group’s plan document, and ASR’s Claims Department at (800) 968-2449 or (616) 957-1751 (8:00 a.m.–4:30 p.m. EST). Ask: which ABA criteria the group uses and what supervision they require.',
+        blocker: 'per-case',
+      },
+      concurrentBilling: {
+        value:
+          'ASR publishes no ABA policy; its provider and medical cost-management pages (read 2026-10-25) do not mention ABA or autism. No rule on billing 97153 and 97155 for the same time is published.',
+        status: 'plan-dependent',
+        cites: [{ title: 'ASR Health Benefits - Providers (provider log-in: Verify Eligibility, Claims Inquiry)', url: 'https://www.asrhealthbenefits.com/providers/' }, { title: 'ASR Health Benefits - Medical Cost Management (Care Review pre-certification)', url: 'https://www.asrhealthbenefits.com/products-and-services/self-funded-health-plans/medical-cost-management/' }],
+        verifyVia: 'The employer group’s plan document, and ASR’s Claims Department at (800) 968-2449 or (616) 957-1751 (8:00 a.m.–4:30 p.m. EST). Ask: whether 97153 and 97155 may be billed for the same clock time on this plan.',
+        blocker: 'per-case',
+      },
+      dailyLimits: {
+        value:
+          'ASR publishes no ABA policy; its provider and medical cost-management pages (read 2026-10-25) do not mention ABA or autism. No ABA unit or hour limit is published; any limit is in the group’s plan document.',
+        status: 'plan-dependent',
+        cites: [{ title: 'ASR Health Benefits - Providers (provider log-in: Verify Eligibility, Claims Inquiry)', url: 'https://www.asrhealthbenefits.com/providers/' }, { title: 'ASR Health Benefits - Medical Cost Management (Care Review pre-certification)', url: 'https://www.asrhealthbenefits.com/products-and-services/self-funded-health-plans/medical-cost-management/' }],
+        verifyVia: 'The employer group’s plan document, and ASR’s Claims Department at (800) 968-2449 or (616) 957-1751 (8:00 a.m.–4:30 p.m. EST). Ask: any daily, weekly, visit or dollar limit on ABA for this group.',
+        blocker: 'per-case',
+      },
+      noteSignature: {
+        value:
+          'ASR publishes no ABA policy; its provider and medical cost-management pages (read 2026-10-25) do not mention ABA or autism. No session-note standard is published.',
+        status: 'plan-dependent',
+        cites: [{ title: 'ASR Health Benefits - Providers (provider log-in: Verify Eligibility, Claims Inquiry)', url: 'https://www.asrhealthbenefits.com/providers/' }, { title: 'ASR Health Benefits - Medical Cost Management (Care Review pre-certification)', url: 'https://www.asrhealthbenefits.com/products-and-services/self-funded-health-plans/medical-cost-management/' }],
+        verifyVia: 'The employer group’s plan document, and ASR’s Claims Department at (800) 968-2449 or (616) 957-1751 (8:00 a.m.–4:30 p.m. EST). Ask: what documentation the group’s reviewers require on ABA session notes.',
+        blocker: 'per-case',
+      },
+      placeOfService: {
+        value:
+          'ASR publishes no ABA policy; its provider and medical cost-management pages (read 2026-10-25) do not mention ABA or autism. No place-of-service rule for ABA is published.',
+        status: 'plan-dependent',
+        cites: [{ title: 'ASR Health Benefits - Providers (provider log-in: Verify Eligibility, Claims Inquiry)', url: 'https://www.asrhealthbenefits.com/providers/' }, { title: 'ASR Health Benefits - Medical Cost Management (Care Review pre-certification)', url: 'https://www.asrhealthbenefits.com/products-and-services/self-funded-health-plans/medical-cost-management/' }],
+        verifyVia: 'The employer group’s plan document, and ASR’s Claims Department at (800) 968-2449 or (616) 957-1751 (8:00 a.m.–4:30 p.m. EST). Ask: which places of service are payable for ABA, including home and school.',
+        blocker: 'per-case',
+      },
+      billAsProvider: {
+        value:
+          'ASR publishes no ABA policy; its provider and medical cost-management pages (read 2026-10-25) do not mention ABA or autism. No rule on whose NPI goes on technician-delivered ABA lines is published.',
+        status: 'plan-dependent',
+        cites: [{ title: 'ASR Health Benefits - Providers (provider log-in: Verify Eligibility, Claims Inquiry)', url: 'https://www.asrhealthbenefits.com/providers/' }, { title: 'ASR Health Benefits - Medical Cost Management (Care Review pre-certification)', url: 'https://www.asrhealthbenefits.com/products-and-services/self-funded-health-plans/medical-cost-management/' }],
+        verifyVia: 'The employer group’s plan document, and ASR’s Claims Department at (800) 968-2449 or (616) 957-1751 (8:00 a.m.–4:30 p.m. EST). Ask: whether technician services bill under the supervising BCBA and which modifiers are required.',
+        blocker: 'per-case',
+      },
+    },
     intakeGates: {
+      diagnosingProviders: {
+        value:
+          'ASR publishes no ABA policy; its provider and medical cost-management pages (read 2026-10-25) do not mention ABA or autism. Which credentials may make the ASD diagnosis is set by the group’s plan document. LCSW: no published answer.',
+        status: 'plan-dependent',
+        cites: [{ title: 'ASR Health Benefits - Providers (provider log-in: Verify Eligibility, Claims Inquiry)', url: 'https://www.asrhealthbenefits.com/providers/' }, { title: 'ASR Health Benefits - Medical Cost Management (Care Review pre-certification)', url: 'https://www.asrhealthbenefits.com/products-and-services/self-funded-health-plans/medical-cost-management/' }],
+        verifyVia: 'The employer group’s plan document, and ASR’s Claims Department at (800) 968-2449 or (616) 957-1751 (8:00 a.m.–4:30 p.m. EST). Ask: which diagnosing credentials the plan accepts, including whether an LCSW diagnosis counts.',
+        blocker: 'per-case',
+      },
+      diagnosticTools: {
+        value:
+          'ASR publishes no ABA policy; its provider and medical cost-management pages (read 2026-10-25) do not mention ABA or autism. No required diagnostic instrument is published.',
+        status: 'plan-dependent',
+        cites: [{ title: 'ASR Health Benefits - Providers (provider log-in: Verify Eligibility, Claims Inquiry)', url: 'https://www.asrhealthbenefits.com/providers/' }, { title: 'ASR Health Benefits - Medical Cost Management (Care Review pre-certification)', url: 'https://www.asrhealthbenefits.com/products-and-services/self-funded-health-plans/medical-cost-management/' }],
+        verifyVia: 'The employer group’s plan document, and ASR’s Claims Department at (800) 968-2449 or (616) 957-1751 (8:00 a.m.–4:30 p.m. EST). Ask: whether a specific instrument (ADOS-2 or similar) is required.',
+        blocker: 'per-case',
+      },
+      telehealth: {
+        value:
+          'ASR publishes no ABA policy; its provider and medical cost-management pages (read 2026-10-25) do not mention ABA or autism. No ABA telehealth rule is published.',
+        status: 'plan-dependent',
+        cites: [{ title: 'ASR Health Benefits - Providers (provider log-in: Verify Eligibility, Claims Inquiry)', url: 'https://www.asrhealthbenefits.com/providers/' }, { title: 'ASR Health Benefits - Medical Cost Management (Care Review pre-certification)', url: 'https://www.asrhealthbenefits.com/products-and-services/self-funded-health-plans/medical-cost-management/' }],
+        verifyVia: 'The employer group’s plan document, and ASR’s Claims Department at (800) 968-2449 or (616) 957-1751 (8:00 a.m.–4:30 p.m. EST). Ask: which ABA codes the plan pays by telehealth and which POS and modifier to use.',
+        blocker: 'per-case',
+      },
+      authTurnaround: {
+        value:
+          'ASR’s Care Review program says “Pre-certification is used to evaluate each employee’s treatment plan and the employee’s need for inpatient or outpatient care,” but ASR publishes no decision time frame. ASR administers employer-funded plans, so the plan document sets the review clock.',
+        status: 'plan-dependent',
+        cites: [{ title: 'ASR Health Benefits - Providers (provider log-in: Verify Eligibility, Claims Inquiry)', url: 'https://www.asrhealthbenefits.com/providers/' }, { title: 'ASR Health Benefits - Medical Cost Management (Care Review pre-certification)', url: 'https://www.asrhealthbenefits.com/products-and-services/self-funded-health-plans/medical-cost-management/' }],
+        verifyVia: 'The employer group’s plan document, and ASR’s Claims Department at (800) 968-2449 or (616) 957-1751 (8:00 a.m.–4:30 p.m. EST). Ask: whether ABA goes through Care Review pre-certification and how long a decision takes.',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value:
+          'ASR publishes no ABA policy; its provider and medical cost-management pages (read 2026-10-25) do not mention ABA or autism. The order of benefits is set by the plan document. If the child also has Medicaid, Medicaid pays last under federal law (42 CFR § 433.139).',
+        status: 'plan-dependent',
+        cites: [{ title: 'ASR Health Benefits - Providers (provider log-in: Verify Eligibility, Claims Inquiry)', url: 'https://www.asrhealthbenefits.com/providers/' }, { title: '42 CFR § 433.139 — Medicaid payment of claims involving third party liability', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' }],
+        verifyVia: 'The employer group’s plan document, and ASR’s Claims Department at (800) 968-2449 or (616) 957-1751 (8:00 a.m.–4:30 p.m. EST). Ask: how the plan coordinates with other coverage and whether it pays primary.',
+        blocker: 'per-case',
+      },
       ageLimit: {
         value:
           'Plan-dependent - confirm any age limit in the employer plan document.',
@@ -1460,6 +1680,7 @@ export const nationalPayers: Record<string, PayerConfig> = {
       { title: '42 CFR § 433.139 — Medicaid payment of claims involving third party liability', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
       { title: '32 CFR § 199.8 — TRICARE double coverage', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/part-199/section-199.8' },
       { title: 'Humana — Provider publications (Humana Physician News, quarterly)', url: 'https://provider.humana.com/working-with-us/publications' },
+      { title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 18 Sec. 3 — Autism Care Demonstration (Revision C-57, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TOT5/Revision/66/FileName/C18S3' },
     ],
     deliveryRules: {
       supervision: {
@@ -1524,9 +1745,9 @@ export const nationalPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       diagnosingProviders: {
-        value: 'No national Humana rule. Who may diagnose is set by the state Medicaid ABA policy or by TRICARE\'s ASD-diagnosing-provider rules.',
+        value: 'No national Humana rule. Who may diagnose is set by the state Medicaid ABA policy or by TRICARE\'s ASD-diagnosing-provider rules. LCSW: no national Humana answer; check the state Medicaid guide, and note TRICARE does not accept an LCSW as an ASD diagnosing provider.',
         status: 'unverified',
-        cites: [{ title: 'Humana — Medical Coverage Policies library, keyword search "behavior" (read 2026-10-07)', url: 'https://mcp.humana.com/tad/tad_new/Search.aspx?criteria=behavior&searchtype=freetext&policyType=medical' }],
+        cites: [{ title: 'Humana — Medical Coverage Policies library, keyword search "behavior" (read 2026-10-07)', url: 'https://mcp.humana.com/tad/tad_new/Search.aspx?criteria=behavior&searchtype=freetext&policyType=medical' }, { title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 18 Sec. 3 — Autism Care Demonstration (Revision C-57, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TOT5/Revision/66/FileName/C18S3' }],
         verifyVia: 'The line-of-business guide (state Healthy Horizons or TRICARE East).',
         blocker: 'per-case',
       },

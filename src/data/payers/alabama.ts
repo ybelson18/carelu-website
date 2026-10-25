@@ -180,7 +180,7 @@ export const alabamaPayers: Record<string, PayerConfig> = {
       { title: 'Other insurance', desc: 'Medicaid pays last. Bill any commercial plan first and keep its denial; Medicaid accepts the claim within 120 days of the other payer’s decision.' },
       { title: 'Age', desc: 'Under 21. No adult ABA benefit was found.' },
     ],
-    sources: [S.ch37, S.ch04, S.ch05, S.ch02, S.ch40, S.ch110, S.ch112, S.appA, S.manuals, S.fee, S.admin11, S.alertLoc, S.alertProg, S.lic, S.lic580, S.bacbLic, S.cfr440, S.cfr433, { title: 'Alabama Medicaid — Provider Alerts (index of current provider alerts)', url: 'https://medicaid.alabama.gov/alerts.aspx' }, { title: 'Alabama Medicaid — Provider Insider newsletter archive (quarterly issues)', url: 'https://medicaid.alabama.gov/content/2.0_Newsroom/2.3_Publications/2.3.4_Insider_Archive.aspx' }],
+    sources: [S.ch37, S.ch04, S.ch05, S.ch02, S.ch40, S.ch110, S.ch112, S.appA, S.manuals, S.fee, S.admin11, S.alertLoc, S.alertProg, S.lic, S.lic580, S.bacbLic, S.cfr440, S.cfr433, { title: 'Alabama Medicaid — Provider Alerts (index of current provider alerts)', url: 'https://medicaid.alabama.gov/alerts.aspx' }, { title: 'Alabama Medicaid — Provider Insider newsletter archive (quarterly issues)', url: 'https://medicaid.alabama.gov/content/2.0_Newsroom/2.3_Publications/2.3.4_Insider_Archive.aspx' }, { title: 'Ala. Code § 34-30-3 — Private independent practice of social work (LICSW may diagnose; no psychological testing)', url: 'https://alison.legislature.state.al.us/code-of-alabama?section=34-30-3' }],
     deliveryRules: {
       supervision: {
         value: 'A licensed BCaBA works under a BCBA; an RBT works under a BCBA or BCaBA. "BCaBAs and RBTs must be employed by a BCBA and the BCBA assumes professional responsibility for the services." The BCBA and BCaBA "must document supervision and direct observation according to the current requirements of the Behavior Analyst Certification Board." Alabama Medicaid publishes no ratio of its own; the BACB’s requirements are what it enforces.',
@@ -227,9 +227,10 @@ export const alabamaPayers: Record<string, PayerConfig> = {
         cites: [S.ch37, S.appA],
       },
       diagnosingProviders: {
-        value: 'A diagnosis "as determined by a licensed physician, psychologist, or other qualified professional within their scope of practice" (Chapter 37).',
+        value:
+          'A diagnosis "as determined by a licensed physician, psychologist, or other qualified professional within their scope of practice" (Chapter 37). LICSW: not named in Chapter 37’s wording. Alabama gives a licensed independent clinical social worker “the authority to diagnose,” but not to administer or interpret “psychological tests or intellectual, neuropsychological, personality, or projective instruments” (Ala. Code § 34-30-3) — the testing a diagnostic evaluation usually rests on. Plan on a physician or psychologist diagnosis.',
         status: 'verified',
-        cites: [S.ch37],
+        cites: [S.ch37, { title: 'Ala. Code § 34-30-3 — Private independent practice of social work (LICSW may diagnose; no psychological testing)', url: 'https://alison.legislature.state.al.us/code-of-alabama?section=34-30-3' }],
       },
       diagnosticTools: {
         value: 'None is mandated. Chapter 37 gives examples: autism-specific tools (CARS-2, CAST, SCQ, SRS-2, ABC, GARS, Aberrant Behavior Checklist, ADOS-2, ADI-R, CHAT), adaptive measures (Vineland, ABAS), and cognitive tests (Leiter-R, Mullen, Bayley, K-ABC-II, WPPSI-III, WISC-IV, TONI-4). The treatment plan should name any standardized assessment used and its results.',
@@ -354,7 +355,7 @@ export const alabamaPayers: Record<string, PayerConfig> = {
       { title: 'Standardized functional measure', desc: 'From the past 12 months (Vineland-3, ABAS, VB-MAPP or ABLLS).' },
       { title: 'Signed treatment plan', desc: 'Riley Ward plans require treatment prescribed by a licensed physician or psychologist under a signed treatment plan.' },
     ],
-    sources: [S.aetnaGuide, S.aetnaCPB, S.aetnaCPB648, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.aetnaTele, S.rileyWard, S.lic, S.lic580, S.dmhCouncil, S.bacbLic, S.promptPay, S.aiUR, S.urAgents, S.erisa, S.cfr147, S.cfr433, S.ch05, S.tricare, S.champva, S.fee],
+    sources: [S.aetnaGuide, S.aetnaCPB, S.aetnaCPB648, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.aetnaTele, S.rileyWard, S.lic, S.lic580, S.dmhCouncil, S.bacbLic, S.promptPay, S.aiUR, S.urAgents, S.erisa, S.cfr147, S.cfr433, S.ch05, S.tricare, S.champva, S.fee, { title: 'Ala. Code § 34-30-3 — Private independent practice of social work (LICSW may diagnose; no psychological testing)', url: 'https://alison.legislature.state.al.us/code-of-alabama?section=34-30-3' }],
     deliveryRules: {
       supervision: {
         value: 'Aetna’s Network Participation Criteria (5/26): ABA "must be provided directly or supervised by individuals licensed by the state or certified by the Behavior Analyst Certification Board," supervised staff may be a BCaBA "or a paraprofessional," and Aetna requires "a minimum of one hour of face-to-face supervision" of an unlicensed or noncertified paraprofessional "for each 10 hours of applied behavior analysis," with the supervisor "onsite with the child at least one hour a month." "All BCBAs, BCaBAs and paraprofessionals must meet state requirements." In Alabama that means a licensed behavior analyst or licensed assistant behavior analyst directs the technician (Ala. Code § 34-5A-2).',
@@ -405,9 +406,10 @@ export const alabamaPayers: Record<string, PayerConfig> = {
         cites: [S.aetnaGuide],
       },
       diagnosingProviders: {
-        value: 'An appropriate provider: a "licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice."',
+        value:
+          'An appropriate provider: a "licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice." LICSW: not named by Aetna. On plans under the Riley Ward Act (employers with 51 or more employees) the statute ties mandated treatment to a licensed physician or licensed psychologist: “evidence-based care prescribed or ordered for an individual diagnosed with an autism spectrum disorder by a licensed physician or a licensed psychologist” (§ 27-54A-2). Alabama gives a licensed independent clinical social worker “the authority to diagnose,” but not to administer or interpret “psychological tests or intellectual, neuropsychological, personality, or projective instruments” (§ 34-30-3). Plan on a physician or psychologist diagnosis.',
         status: 'verified',
-        cites: [S.aetnaGuide],
+        cites: [S.aetnaGuide, S.rileyWard, { title: 'Ala. Code § 34-30-3 — Private independent practice of social work (LICSW may diagnose; no psychological testing)', url: 'https://alison.legislature.state.al.us/code-of-alabama?section=34-30-3' }],
       },
       diagnosticTools: {
         value: 'CPB 0648 discusses ASD diagnostic instruments such as the ADOS-2 and ADI-R. The ABA guide requires a standardized functional measure from the past 12 months, for example Vineland-3, ABAS, VB-MAPP or ABLLS.',
@@ -536,7 +538,7 @@ export const alabamaPayers: Record<string, PayerConfig> = {
       { title: 'Standardized assessment timing', desc: 'Instrument given within 60 days before treatment starts.' },
       { title: 'Signed treatment plan', desc: 'Riley Ward plans require treatment prescribed by a licensed physician or psychologist under a signed treatment plan.' },
     ],
-    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.rileyWard, S.lic, S.lic580, S.dmhCouncil, S.bacbLic, S.promptPay, S.aiUR, S.urAgents, S.erisa, S.cfr147, S.cfr433, S.ch05, S.tricare, S.champva, S.fee],
+    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.rileyWard, S.lic, S.lic580, S.dmhCouncil, S.bacbLic, S.promptPay, S.aiUR, S.urAgents, S.erisa, S.cfr147, S.cfr433, S.ch05, S.tricare, S.champva, S.fee, { title: 'Ala. Code § 34-30-3 — Private independent practice of social work (LICSW may diagnose; no psychological testing)', url: 'https://alison.legislature.state.al.us/code-of-alabama?section=34-30-3' }],
     deliveryRules: {
       supervision: {
         value: 'Case supervision by a BCBA, Licensed Behavior Analyst, or independently licensed mental health professional with ABA training, at "one to two hours per ten hours of direct treatment." When treatment is 10 hours a week or less, at least one to two hours a week of direct case supervision.',
@@ -583,9 +585,10 @@ export const alabamaPayers: Record<string, PayerConfig> = {
         cites: [S.en0499],
       },
       diagnosingProviders: {
-        value: 'A healthcare professional "licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice," using DSM-5-TR criteria; their name, credentials and licensure type must be provided.',
+        value:
+          'A healthcare professional "licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice," using DSM-5-TR criteria; their name, credentials and licensure type must be provided. LICSW: not named by Cigna. On plans under the Riley Ward Act (employers with 51 or more employees) the statute ties mandated treatment to a licensed physician or licensed psychologist: “evidence-based care prescribed or ordered for an individual diagnosed with an autism spectrum disorder by a licensed physician or a licensed psychologist” (§ 27-54A-2). Alabama gives a licensed independent clinical social worker “the authority to diagnose,” but not to administer or interpret “psychological tests or intellectual, neuropsychological, personality, or projective instruments” (§ 34-30-3). Plan on a physician or psychologist diagnosis.',
         status: 'verified',
-        cites: [S.en0499],
+        cites: [S.en0499, S.rileyWard, { title: 'Ala. Code § 34-30-3 — Private independent practice of social work (LICSW may diagnose; no psychological testing)', url: 'https://alison.legislature.state.al.us/code-of-alabama?section=34-30-3' }],
       },
       diagnosticTools: {
         value: 'No single instrument is mandated. It must be reliable, valid and standardized, measure the ASD domains, be given by a trained administrator, and be the current edition (the policy’s example: Vineland-3, not Vineland-II).',
@@ -713,7 +716,7 @@ export const alabamaPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis with a validated tool', desc: 'DSM-5-TR ASD and severity level, confirmed with a validated tool (ADI-R, ADOS-2 and others).' },
       { title: 'Signed treatment plan', desc: 'Riley Ward plans require treatment prescribed by a licensed physician or psychologist under a signed treatment plan.' },
     ],
-    sources: [S.optumSCC, S.optumSM, S.optumTele, S.optumNNM, S.optumReimb, S.rileyWard, S.lic, S.lic580, S.dmhCouncil, S.bacbLic, S.promptPay, S.aiUR, S.urAgents, S.erisa, S.cfr147, S.cfr433, S.ch05, S.tricare, S.champva, S.fee],
+    sources: [S.optumSCC, S.optumSM, S.optumTele, S.optumNNM, S.optumReimb, S.rileyWard, S.lic, S.lic580, S.dmhCouncil, S.bacbLic, S.promptPay, S.aiUR, S.urAgents, S.erisa, S.cfr147, S.cfr433, S.ch05, S.tricare, S.champva, S.fee, { title: 'Ala. Code § 34-30-3 — Private independent practice of social work (LICSW may diagnose; no psychological testing)', url: 'https://alison.legislature.state.al.us/code-of-alabama?section=34-30-3' }],
     deliveryRules: {
       supervision: {
         value: '"Consistent with CASP standards of care, direct case supervision is required 1–2 hours for every 10 hours of direct treatment per week." Technicians work under a BCBA or licensed behavioral health clinician and "should be registered behavior technicians (RBT) or another appropriately certified behavior technician as allowable by state mandate." Optum does not recommend parents serving as their own child’s RBT.',
@@ -762,9 +765,10 @@ export const alabamaPayers: Record<string, PayerConfig> = {
         cites: [S.optumSCC],
       },
       diagnosingProviders: {
-        value: '"A state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis" under DSM-5-TR.',
+        value:
+          '"A state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis" under DSM-5-TR. LICSW: not named by Optum. On plans under the Riley Ward Act (employers with 51 or more employees) the statute ties mandated treatment to a licensed physician or licensed psychologist: “evidence-based care prescribed or ordered for an individual diagnosed with an autism spectrum disorder by a licensed physician or a licensed psychologist” (§ 27-54A-2). Alabama gives a licensed independent clinical social worker “the authority to diagnose,” but not to administer or interpret “psychological tests or intellectual, neuropsychological, personality, or projective instruments” (§ 34-30-3). Plan on a physician or psychologist diagnosis.',
         status: 'verified',
-        cites: [S.optumSCC],
+        cites: [S.optumSCC, S.rileyWard, { title: 'Ala. Code § 34-30-3 — Private independent practice of social work (LICSW may diagnose; no psychological testing)', url: 'https://alison.legislature.state.al.us/code-of-alabama?section=34-30-3' }],
       },
       diagnosticTools: {
         value: 'At least one validated tool, from screens (M-CHAT and others; CARS/CARS-2, STAT) to formal diagnostic tools (ADI-R, ADOS/ADOS-2, DISCO). Progress is measured with tools such as Vineland, SRS or VB-MAPP.',
@@ -884,7 +888,7 @@ export const alabamaPayers: Record<string, PayerConfig> = {
       { title: 'Adaptive and cognitive testing', desc: 'An adaptive measure (Vineland, ABAS, BASC or PDDBI) and a cognitive measure, timed to Lucet’s baseline-data window.' },
       { title: 'Signed treatment plan', desc: 'Riley Ward plans require treatment prescribed by a licensed physician or psychologist under a signed treatment plan.' },
     ],
-    sources: [S.bcbsalABA, S.lucetAL, S.lucetABA, S.lucetPM, S.lucetFAQ, S.rileyWard, S.lic, S.lic580, S.dmhCouncil, S.bacbLic, S.promptPay, S.aiUR, S.urAgents, S.erisa, S.cfr147, S.cfr433, S.ch05, S.tricare, S.champva, S.fee],
+    sources: [S.bcbsalABA, S.lucetAL, S.lucetABA, S.lucetPM, S.lucetFAQ, S.rileyWard, S.lic, S.lic580, S.dmhCouncil, S.bacbLic, S.promptPay, S.aiUR, S.urAgents, S.erisa, S.cfr147, S.cfr433, S.ch05, S.tricare, S.champva, S.fee, { title: 'Ala. Code § 34-30-3 — Private independent practice of social work (LICSW may diagnose; no psychological testing)', url: 'https://alison.legislature.state.al.us/code-of-alabama?section=34-30-3' }],
     deliveryRules: {
       supervision: {
         value: 'Lucet’s manual says line therapists are RBTs or BCaBAs and makes the supervising BCBA responsible for their compliance (including written notice to report any arrest within 72 hours). Policy 20.5.005 says that "in the absence of state law," line therapy is provided by an RBT, BCaBA, BCBA or BCBA-D, consistent with the BACB ethics code. Neither document sets a numeric supervision ratio. In Alabama the technician works under a licensed behavior analyst or licensed assistant behavior analyst.',
@@ -935,9 +939,10 @@ export const alabamaPayers: Record<string, PayerConfig> = {
         cites: [S.lucetABA, S.lucetPM],
       },
       diagnosingProviders: {
-        value: '"A clinician who is licensed and qualified to make such a diagnosis. Such clinicians are usually neurologists, developmental pediatricians, pediatricians, psychiatrists, licensed clinical psychologists or medical doctors experienced in the diagnosis of ASD. State law may define eligible qualified clinicians."',
+        value:
+          '"A clinician who is licensed and qualified to make such a diagnosis. Such clinicians are usually neurologists, developmental pediatricians, pediatricians, psychiatrists, licensed clinical psychologists or medical doctors experienced in the diagnosis of ASD. State law may define eligible qualified clinicians." LICSW: not named by Lucet (for BCBSAL). On plans under the Riley Ward Act (employers with 51 or more employees) the statute ties mandated treatment to a licensed physician or licensed psychologist: “evidence-based care prescribed or ordered for an individual diagnosed with an autism spectrum disorder by a licensed physician or a licensed psychologist” (§ 27-54A-2). Alabama gives a licensed independent clinical social worker “the authority to diagnose,” but not to administer or interpret “psychological tests or intellectual, neuropsychological, personality, or projective instruments” (§ 34-30-3). Plan on a physician or psychologist diagnosis.',
         status: 'verified',
-        cites: [S.lucetABA],
+        cites: [S.lucetABA, S.rileyWard, { title: 'Ala. Code § 34-30-3 — Private independent practice of social work (LICSW may diagnose; no psychological testing)', url: 'https://alison.legislature.state.al.us/code-of-alabama?section=34-30-3' }],
       },
       diagnosticTools: {
         value: 'Lucet’s manual: one of the ADOS-2, the ADI-R or a DSM-5 Checklist "is required to meet the diagnostic criteria"; screeners (CARS-2, SCQ, M-CHAT-R/F, SRS-2 and others) are not enough on their own. Baseline also needs an adaptive measure (Vineland, ABAS, BASC or PDDBI) and a cognitive measure (for example Mullen, Bayley, DAS, WPPSI or WISC).',

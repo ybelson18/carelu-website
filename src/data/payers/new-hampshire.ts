@@ -182,7 +182,9 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { title: 'Other insurance', desc: 'Commercial coverage is billed first and its PA rules must be followed; Medicaid only picks up what is left.' },
       { title: 'Age', desc: 'EPSDT covers members under 21. No adult ABA benefit was found.' },
     ],
-    sources: [S.heW500, S.mcm, S.form272A, S.saInstr, S.fee, S.mmisDocs, S.nonPrimary, S.acnhPM, S.wsPM, S.nhhfTip, S.bacbLic, S.cfr440, S.cfr433, S.rsa167, S.gbm, S.epsdtMan, S.evvList],
+    sources: [S.heW500, S.mcm, S.form272A, S.saInstr, S.fee, S.mmisDocs, S.nonPrimary, S.acnhPM, S.wsPM, S.nhhfTip, S.bacbLic, S.cfr440, S.cfr433, S.rsa167, S.gbm, S.epsdtMan, S.evvList,
+      { title: '42 CFR 438.210(d) — Medicaid managed care authorization timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' },
+    ],
     deliveryRules: {
       supervision: {
         value: 'No numeric ratio is published. The only written NH Medicaid ABA staffing rule, He-W 589.04(ah), requires a BCBA with a BACB supervisory certification when supervising, and lets a rehabilitation assistant, BCaBA or RBT deliver ABA "under the appropriate supervision of" that BCBA. It appears in the Medicaid to Schools rule; no separate supervision rule for home or clinic ABA was found.',
@@ -347,7 +349,10 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { title: 'Other insurance', desc: 'The plan is payer of last resort; bill the primary first and attach its EOB within 60 days.' },
       { title: 'Current authorizations', desc: 'New members get 60 days of continuity for ongoing treatment; capture any prior plan’s authorization.' },
     ],
-    sources: [S.acnhPM, S.acnhPA, S.mcm, S.heW500, S.cfr438, S.cfr433, S.bacbLic, S.rsa167, S.acnhLookup, S.evvList, { title: 'AmeriHealth Caritas New Hampshire — Provider newsletters and updates (provider notices archive)', url: 'https://www.amerihealthcaritasnh.com/provider/newsletters-and-updates/index.aspx' }],
+    sources: [S.acnhPM, S.acnhPA, S.mcm, S.heW500, S.cfr438, S.cfr433, S.bacbLic, S.rsa167, S.acnhLookup, S.evvList, { title: 'AmeriHealth Caritas New Hampshire — Provider newsletters and updates (provider notices archive)', url: 'https://www.amerihealthcaritasnh.com/provider/newsletters-and-updates/index.aspx' },
+      { title: 'AmeriHealth Caritas New Hampshire — Prior authorization lookup, 97151 (checked 10/11/2026)', url: 'https://priorauthlookup.amerihealthcaritas.com/api/CptCodeLookup?planname=acnh&cptCode=97151&cptDate=2026-10-11' },
+      { title: 'AmeriHealth Caritas New Hampshire — Prior authorization lookup, 97153 (checked 10/11/2026)', url: 'https://priorauthlookup.amerihealthcaritas.com/api/CptCodeLookup?planname=acnh&cptCode=97153&cptDate=2026-10-11' },
+    ],
     deliveryRules: {
       supervision: {
         value: 'The plan publishes no ABA supervision rule of its own. The state rule applies: He-W 589.04(ah) requires a BCBA with a BACB supervisory certification when supervising, and lets a BCaBA, RBT or rehabilitation assistant deliver ABA under that BCBA’s "appropriate supervision," with no numeric ratio.',
@@ -524,7 +529,10 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { title: 'Treatment plan for the OTR', desc: 'Direct treatment, supervision and parent-training hours, which map to 97153, 97155 and 97156.' },
       { title: 'Other insurance', desc: 'The plan is payer of last resort; tell it if the family won’t help identify other coverage.' },
     ],
-    sources: [S.nhhfPP07, S.nhhfTip, S.nhhfPM, S.nhhfPreAuth, S.mcm, S.heW500, S.cfr438, S.cfr433, S.rsa167, S.nhhfIQ, S.nhhf105, S.nhhfLookup, S.evvList, { title: 'NH Healthy Families — Provider newsroom (provider notices archive)', url: 'https://www.nhhealthyfamilies.com/newsroom.html' }],
+    sources: [S.nhhfPP07, S.nhhfTip, S.nhhfPM, S.nhhfPreAuth, S.mcm, S.heW500, S.cfr438, S.cfr433, S.rsa167, S.nhhfIQ, S.nhhf105, S.nhhfLookup, S.evvList, { title: 'NH Healthy Families — Provider newsroom (provider notices archive)', url: 'https://www.nhhealthyfamilies.com/newsroom.html' },
+      { title: 'NH Healthy Families — Medicaid Pre-Auth Check result for 97151 (checked 10/11/2026)', url: 'https://content.centene.com/content/healthyfamilies/en_us/providers/preauth-check/medicaid-pre-auth.preauthtool.json?ver=1.0&q=97151&qualifier=44&productCategory=MEDICAID&apiEnv=PROD' },
+      { title: 'NH Healthy Families — Medicaid Pre-Auth Check result for 97153 (checked 10/11/2026)', url: 'https://content.centene.com/content/healthyfamilies/en_us/providers/preauth-check/medicaid-pre-auth.preauthtool.json?ver=1.0&q=97153&qualifier=44&productCategory=MEDICAID&apiEnv=PROD' },
+    ],
     deliveryRules: {
       supervision: {
         value: 'NH.PP.07 treats 97155 as "Supervision of a Technician" but sets no ratio, and the plan publishes no other supervision rule. The state rule applies: a BCBA with BACB supervisory certification supervises BCaBAs, RBTs and rehabilitation assistants, with no numeric ratio (He-W 589.04(ah)).',
@@ -885,7 +893,14 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { title: 'Signed treatment plan', desc: 'RSA 417-E:2 lets the insurer require one signed by the PCP or a listed specialist, with frequency and duration.' },
       { title: 'Other coverage', desc: 'Second parent’s plan (birthday rule), Medicaid, TRICARE or CHAMPVA.' },
     ],
-    sources: [S.anthemNHPA, S.anthemRG, S.rsa417E, S.hb569, S.rsa420J, S.ins1904, S.bacbLic, S.erisa, S.fee, S.rsa415J, { title: 'Anthem Blue Cross and Blue Shield — 2026 New Hampshire Commercial Provider Manual (effective July 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_NH_00018.pdf' }, { title: 'Anthem Blue Cross and Blue Shield New Hampshire — Provider News (all NH provider news articles)', url: 'https://providernews.anthem.com/new-hampshire' }],
+    sources: [S.anthemNHPA, S.anthemRG, S.rsa417E, S.hb569, S.rsa420J, S.ins1904, S.bacbLic, S.erisa, S.fee, S.rsa415J, { title: 'Anthem Blue Cross and Blue Shield — 2026 New Hampshire Commercial Provider Manual (effective July 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_NH_00018.pdf' }, { title: 'Anthem Blue Cross and Blue Shield New Hampshire — Provider News (all NH provider news articles)', url: 'https://providernews.anthem.com/new-hampshire' },
+      { title: 'RSA 420-J:8-a — Prompt Payment Required (New Hampshire)', url: 'https://www.gencourt.state.nh.us/rsa/html/XXXVII/420-J/420-J-8-a.htm' },
+      { title: 'WellSense — Applied Behavioral Analysis Prior Authorization Form, New Hampshire (updated 11/14/2025)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_NH.pdf' },
+      { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+      { title: 'NH Medicaid — Non-Primary Payer Claim Billing Requirements (updated May 23, 2023)', url: 'https://nhmmis.nh.gov/portals/wps/wcm/connect/9d07a0a4-82af-46c4-b758-d1a911bd9753/NH+Medicaid+Non-Primary+Claim+Billing+Requirements.pdf?MOD=AJPERES&CVID=oywGTyK' },
+      { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
+      { title: '38 CFR 17.270 — CHAMPVA is the last payer', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
+    ],
     deliveryRules: {
       supervision: {
         value: 'Anthem publishes no numeric supervision ratio. It recognizes "providers practicing under the direction and supervision of the BCBA," and allows 97153 alongside 97155 only when the QHP and technician are both face-to-face with the patient and the QHP is directing the technician. The NH mandate itself requires ABA to be provided by, or "under the supervision of," a BACB certificant.',
@@ -1078,7 +1093,14 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { title: 'School services', desc: 'Services covered by the school’s special education resources under an IEP are not paid.' },
       { title: 'Other coverage', desc: 'Second parent’s plan (birthday rule), Medicaid, TRICARE or CHAMPVA.' },
     ],
-    sources: [S.hpMNG, S.hpPP, S.hpRef, S.hpMaxUnits, S.hpCoding, S.cmsMUE, S.rsa417E, S.hb569, S.rsa420J, S.ins1904, S.bacbLic, S.erisa, S.fee, S.p32Tele, S.rsa415J, S.hpNotice0226, S.hpNotice0926, S.hpSubmit, S.hpClean, S.hpReplace, S.hpCOB, S.hpFLA, S.hp1500, { title: 'Point32Health (Harvard Pilgrim) — Insights and Updates for Providers newsletter archive', url: 'https://www.point32health.org/provider/office-resources/provider-newsletter' }],
+    sources: [S.hpMNG, S.hpPP, S.hpRef, S.hpMaxUnits, S.hpCoding, S.cmsMUE, S.rsa417E, S.hb569, S.rsa420J, S.ins1904, S.bacbLic, S.erisa, S.fee, S.p32Tele, S.rsa415J, S.hpNotice0226, S.hpNotice0926, S.hpSubmit, S.hpClean, S.hpReplace, S.hpCOB, S.hpFLA, S.hp1500, { title: 'Point32Health (Harvard Pilgrim) — Insights and Updates for Providers newsletter archive', url: 'https://www.point32health.org/provider/office-resources/provider-newsletter' },
+      { title: 'RSA 420-J:8-a — Prompt Payment Required (New Hampshire)', url: 'https://www.gencourt.state.nh.us/rsa/html/XXXVII/420-J/420-J-8-a.htm' },
+      { title: 'WellSense — Applied Behavioral Analysis Prior Authorization Form, New Hampshire (updated 11/14/2025)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_NH.pdf' },
+      { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+      { title: 'NH Medicaid — Non-Primary Payer Claim Billing Requirements (updated May 23, 2023)', url: 'https://nhmmis.nh.gov/portals/wps/wcm/connect/9d07a0a4-82af-46c4-b758-d1a911bd9753/NH+Medicaid+Non-Primary+Claim+Billing+Requirements.pdf?MOD=AJPERES&CVID=oywGTyK' },
+      { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
+      { title: '38 CFR 17.270 — CHAMPVA is the last payer', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
+    ],
     deliveryRules: {
       supervision: {
         value: 'Point32Health requires InterQual’s "Applied Behavior Analysis (ABA) Program-Applied Behavior Analysis Supervision" subset for supervision requests, but the criteria inside it are licensed and not published.',
@@ -1281,7 +1303,17 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { title: 'Standardized functional measure', desc: 'Aetna wants one from the past 12 months (for example Vineland-3).' },
       { title: 'Signed treatment plan', desc: 'RSA 417-E:2 lets the insurer require one signed by the PCP or a listed specialist.' },
     ],
-    sources: [S.aetnaCPB, S.aetnaCPB648, S.aetnaGuide, S.aetnaPrecert, S.aetnaBHPM, S.rsa417E, S.hb569, S.rsa420J, S.ins1904, S.bacbLic, S.erisa, S.aetnaOM, S.rsa415J, S.fee, S.aetnaNPC],
+    sources: [S.aetnaCPB, S.aetnaCPB648, S.aetnaGuide, S.aetnaPrecert, S.aetnaBHPM, S.rsa417E, S.hb569, S.rsa420J, S.ins1904, S.bacbLic, S.erisa, S.aetnaOM, S.rsa415J, S.fee, S.aetnaNPC,
+      { title: 'RSA 420-J:8-a — Prompt Payment Required (New Hampshire)', url: 'https://www.gencourt.state.nh.us/rsa/html/XXXVII/420-J/420-J-8-a.htm' },
+      { title: 'Aetna — Disputes and appeals overview (reconsideration and appeal time frames)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' },
+      { title: 'Aetna — Provider appeals: state exceptions to the 180-day dispute filing standard', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/provider-appeals.html' },
+      { title: 'WellSense — Applied Behavioral Analysis Prior Authorization Form, New Hampshire (updated 11/14/2025)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_NH.pdf' },
+      { title: 'Aetna — Telemedicine and Direct Patient Contact Payment Policy (ABA code table: Commercial vs. Medicare columns; posted policy shows last review June 2021)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pdf/telemedicine.pdf' },
+      { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+      { title: 'NH Medicaid — Non-Primary Payer Claim Billing Requirements (updated May 23, 2023)', url: 'https://nhmmis.nh.gov/portals/wps/wcm/connect/9d07a0a4-82af-46c4-b758-d1a911bd9753/NH+Medicaid+Non-Primary+Claim+Billing+Requirements.pdf?MOD=AJPERES&CVID=oywGTyK' },
+      { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
+      { title: '38 CFR 17.270 — CHAMPVA is the last payer', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
+    ],
     deliveryRules: {
       supervision: {
         value: 'Services must be provided directly or billed by licensed behavior analysts (in states with licensure laws), board-certified behavior analysts, or licensed psychologists where ABA is within scope, unless mandates, plan documents or contracts say otherwise; where others deliver services, there must be supervision "in line with practice standards." Aetna publishes no numeric ratio. The NH mandate requires ABA to be provided by, or supervised by, a BACB certificant. Aetna\'s Network Participation Criteria (5/26) spell out the technician tier: services "must be provided directly or supervised by individuals licensed by the state or certified by the Behavior Analyst Certification Board," supervised staff may be a BCaBA "or a paraprofessional," and Aetna requires "A minimum of one hour of face-to-face supervision" of an unlicensed or noncertified paraprofessional "for each 10 hours of applied behavior analysis," plus the supervisor "onsite with the child at least one hour a month." "All BCBAs, BCaBAs and paraprofessionals must meet state requirements. If state requirements are not defined, all BCBAs, BCaBAs and paraprofessionals must meet Aetna standards."',
@@ -1478,7 +1510,14 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { title: 'Standardized assessment timing', desc: 'Instrument administered within 60 days before treatment starts.' },
       { title: 'Signed treatment plan', desc: 'RSA 417-E:2 lets the insurer require one signed by the PCP or a listed specialist.' },
     ],
-    sources: [S.en0499, S.cignaARG, S.rsa417E, S.hb569, S.rsa420J, S.ins1904, S.bacbLic, S.erisa, S.ebhAdmin, S.fee],
+    sources: [S.en0499, S.cignaARG, S.rsa417E, S.hb569, S.rsa420J, S.ins1904, S.bacbLic, S.erisa, S.ebhAdmin, S.fee,
+      { title: 'RSA 420-J:8-a — Prompt Payment Required (New Hampshire)', url: 'https://www.gencourt.state.nh.us/rsa/html/XXXVII/420-J/420-J-8-a.htm' },
+      { title: 'WellSense — Applied Behavioral Analysis Prior Authorization Form, New Hampshire (updated 11/14/2025)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_NH.pdf' },
+      { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+      { title: 'NH Medicaid — Non-Primary Payer Claim Billing Requirements (updated May 23, 2023)', url: 'https://nhmmis.nh.gov/portals/wps/wcm/connect/9d07a0a4-82af-46c4-b758-d1a911bd9753/NH+Medicaid+Non-Primary+Claim+Billing+Requirements.pdf?MOD=AJPERES&CVID=oywGTyK' },
+      { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
+      { title: '38 CFR 17.270 — CHAMPVA is the last payer', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
+    ],
     deliveryRules: {
       supervision: {
         value: 'Case supervision is by a BCBA, a Licensed Behavior Analyst, or an independently licensed mental health professional with ABA training. Direct plus indirect case supervision runs at one to two hours per ten hours of direct treatment; at 10 hours a week or less, at least one to two hours a week of direct case supervision. The supervisor’s name and credentials must be documented.',
@@ -1667,7 +1706,15 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis with a validated tool', desc: 'DSM-5-TR ASD and severity level, confirmed with a validated tool (ADI-R, ADOS-2 and others). Optum asks for the instrument.' },
       { title: 'Signed treatment plan', desc: 'RSA 417-E:2 lets the insurer require one signed by the PCP or a listed specialist.' },
     ],
-    sources: [S.optumSCC, S.optumSM, S.mcm, S.rsa417E, S.hb569, S.rsa420J, S.ins1904, S.bacbLic, S.erisa, S.optumTele, S.rsa415J, S.optumNNM, S.optumReimb, S.fee],
+    sources: [S.optumSCC, S.optumSM, S.mcm, S.rsa417E, S.hb569, S.rsa420J, S.ins1904, S.bacbLic, S.erisa, S.optumTele, S.rsa415J, S.optumNNM, S.optumReimb, S.fee,
+      { title: 'RSA 420-J:8-a — Prompt Payment Required (New Hampshire)', url: 'https://www.gencourt.state.nh.us/rsa/html/XXXVII/420-J/420-J-8-a.htm' },
+      { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial): timely filing, NPI/taxonomy, claim reconsideration and appeals', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+      { title: 'WellSense — Applied Behavioral Analysis Prior Authorization Form, New Hampshire (updated 11/14/2025)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_NH.pdf' },
+      { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+      { title: 'NH Medicaid — Non-Primary Payer Claim Billing Requirements (updated May 23, 2023)', url: 'https://nhmmis.nh.gov/portals/wps/wcm/connect/9d07a0a4-82af-46c4-b758-d1a911bd9753/NH+Medicaid+Non-Primary+Claim+Billing+Requirements.pdf?MOD=AJPERES&CVID=oywGTyK' },
+      { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
+      { title: '38 CFR 17.270 — CHAMPVA is the last payer', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
+    ],
     deliveryRules: {
       supervision: {
         value: 'Consistent with CASP standards, direct case supervision is required at 1–2 hours for every 10 hours of direct treatment per week. Technicians work under a BCBA or licensed behavioral health clinician and should be RBTs or otherwise certified. Optum does not recommend parents serving as their own child’s RBT.',

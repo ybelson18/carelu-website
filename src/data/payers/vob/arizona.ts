@@ -64,8 +64,10 @@ const AHCCCS_RATE_NOTICE_2023 = src(
 );
 const AHCCCS_FEE_SCHEDULE_FY26 = src(
   'https://azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA/FY26_Final_ABA_FeeSchedule.xlsx',
-  'AHCCCS ABA Fee Schedule, FFY26 (eff. 10/1/2025) — identical fixed dollar figures to FFY24 (eff. 11/1/2023) for all fixed codes; 97156/97157 remain "BR" (By Report); adds a TJ modifier on 97154 = $14.93. 0362T/0373T are not on this schedule. Cross-confirms the 2023 notice.'
+  'AHCCCS ABA Fee Schedule, FFY26 (eff. 10/1/2025) — identical fixed dollar figures to FFY24 (eff. 11/1/2023) for all fixed codes; 97156/97157 remain "BR" (By Report); adds a TJ modifier on 97154 = $14.93 (row added 6/30/2026, effective 10/1/2025). 0362T/0373T are not on this schedule (closed by AHCCCS 7/1/2023). Re-read 2026-10-25. Cross-confirms the 2023 notice.'
 );
+const AHCCCS_MODIFIER_LIST: SourceRef = { url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/AHCCCS_ModifiersList2024.pdf', accessDate: '2026-10-25', note: 'AHCCCS Modifier List and Descriptions (Medical Coding Resources, Sept 2024): HM "Less than bachelor degree level", HN "Bachelors degree level", HO "Masters degree level", HP "Doctoral level", TJ "Program group, child and/or adolescent", GT "Via interactive audio and video telecommunication systems". Read 2026-10-25.' };
+const AHCCCS_0362T_CLOSURE: SourceRef = { url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/MEMO-0362T_0373T-CodeClosure.pdf', accessDate: '2026-10-25', note: 'AHCCCS Medical Coding Unit memo, June 21, 2023: "Codes 0362T and 0373T will no longer be allowed for reporting starting July 1, 2023"; possible code options are 97151-97158. Read 2026-10-25.' };
 const AHCCCS_COMPANION_GUIDE = src(
   'https://www.azahcccs.gov/Resources/Downloads/EDIchanges/AZ270_271_CG.pdf',
   'AHCCCS 270/271 Standard Companion Guide, TR3 005010A1, Version 4.0 (Sept 2022). Information Source NM1*PR*2*AHCCCS...FI*866004791. MCO enrollment returns in 2110C (EB*3*IND*30*HM*<6-digit code + plan name>, REF*6P contract type, REF*M7 rate code, DTP*291 span) and the 2120C loop NM1*Y2 (Y2 = Managed Care Organization). Daily eligibility spans (D8/RD8). Real-time and batch both offered.'
@@ -124,7 +126,7 @@ const CIGNA_AUTISM_GUIDE = src(
 
 const AZ_AHCCCS_RATES: RateTable = {
   source:
-    'AHCCCS ABA fee schedule (physician fee schedule), fixed rates eff. 11/1/2023, verified unchanged through FFY26 (eff. 10/1/2025). Per-15-min by credential modifier: HM (below bachelor\'s/BT-RBT), HN (bachelor\'s/BCaBA), HO (master\'s/BCBA), HP (doctoral/BCBA-D). Rates below are the non-home (office/community) tier; POS 12 (home) pays a ~10–11.5% premium (given inline).',
+    'AHCCCS ABA fee schedule (physician fee schedule), fixed rates eff. 11/1/2023, verified unchanged through FFY26 (eff. 10/1/2025). Per-15-min by rate-tier modifier, which the AHCCCS Modifier List (2024) defines by the rendering person\'s degree level: HM "Less than bachelor degree level", HN "Bachelors degree level", HO "Masters degree level", HP "Doctoral level" (AHCCCS publishes no crosswalk to RBT/BCaBA/BCBA). A line with no tier modifier is priced at the lowest listed tier. Rates below are the non-home (office/community) tier; POS 12 (home) pays a ~10–11.5% premium (given inline).',
   effectiveDate: '2023-11-01',
   byCode: {
     '97151': { rate: 'No HM tier. Office: $30.06 (HN) · $35.78 (HO) · $44.73 (HP). Home (POS 12): $33.27 / $39.60 / $49.50.', unit: '15min', modifierTiers: { HN: '$30.06', HO: '$35.78', HP: '$44.73' } },
@@ -135,10 +137,10 @@ const AZ_AHCCCS_RATES: RateTable = {
     '97156': { rate: 'unverified — "By Report" on the AHCCCS ABA fee schedule (eff. 2019-01-01, unchanged through FY26); not in the 2023 fixed-rate notice', unit: 'unverified' },
     '97157': { rate: 'unverified — "By Report" on the AHCCCS ABA fee schedule; not in the 2023 fixed-rate notice', unit: 'unverified' },
     '97158': { rate: 'No HM tier. Office: $6.26 (HN) · $7.46 (HO) · $9.32 (HP). Home: $6.93 / $8.25 / $10.31.', unit: '15min', modifierTiers: { HN: '$6.26', HO: '$7.46', HP: '$9.32' } },
-    '0362T': { rate: 'unverified — not on the AHCCCS ABA fee schedule (FY24/FY26); check the physician fee schedule / code lookup', unit: 'unverified' },
-    '0373T': { rate: 'unverified — not on the AHCCCS ABA fee schedule (FY24/FY26); check the physician fee schedule / code lookup', unit: 'unverified' },
+    '0362T': { rate: 'Not payable — AHCCCS Medical Coding Unit closed 0362T for reporting from 7/1/2023 (memo 6/21/2023); report the service with 97151–97158', unit: 'n/a' },
+    '0373T': { rate: 'Not payable — AHCCCS Medical Coding Unit closed 0373T for reporting from 7/1/2023 (memo 6/21/2023); report the service with 97151–97158', unit: 'n/a' },
   },
-  sources: [AHCCCS_RATE_NOTICE_2023, AHCCCS_FEE_SCHEDULE_FY26],
+  sources: [AHCCCS_RATE_NOTICE_2023, AHCCCS_FEE_SCHEDULE_FY26, AHCCCS_MODIFIER_LIST, AHCCCS_0362T_CLOSURE],
 };
 
 function azBenchmarkRates(planName: string): RateTable {
@@ -154,10 +156,10 @@ function azBenchmarkRates(planName: string): RateTable {
       '97156': { rate: 'unverified — By Report at AHCCCS', unit: 'unverified' },
       '97157': { rate: 'unverified — By Report at AHCCCS', unit: 'unverified' },
       '97158': { rate: 'Benchmark: $6.26 (HN) / $7.46 (HO) / $9.32 (HP) office — see arizona-ahcccs', unit: '15min' },
-      '0362T': { rate: 'unverified — not on the AHCCCS ABA fee schedule', unit: 'unverified' },
-      '0373T': { rate: 'unverified — not on the AHCCCS ABA fee schedule', unit: 'unverified' },
+      '0362T': { rate: 'Closed by AHCCCS for reporting from 7/1/2023 (Medical Coding Unit memo) — confirm the plan does not still accept it', unit: 'n/a' },
+      '0373T': { rate: 'Closed by AHCCCS for reporting from 7/1/2023 (Medical Coding Unit memo) — confirm the plan does not still accept it', unit: 'n/a' },
     },
-    sources: [AHCCCS_RATE_NOTICE_2023, AHCCCS_FEE_SCHEDULE_FY26],
+    sources: [AHCCCS_RATE_NOTICE_2023, AHCCCS_FEE_SCHEDULE_FY26, AHCCCS_MODIFIER_LIST, AHCCCS_0362T_CLOSURE],
   };
 }
 

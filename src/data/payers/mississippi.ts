@@ -194,7 +194,7 @@ export const mississippiPayers: Record<string, PayerConfig> = {
       { title: 'Ordering provider', desc: 'Telligen’s PA form asks for an ordering provider name and NPI as well as the treating provider.' },
       { title: 'Other insurance', desc: 'Medicaid pays last; capture every other coverage and the primary’s EOBs.' },
     ],
-    sources: [S.spa1620, S.spa2302, S.asdFee, S.feePage, S.paList, S.telPA, S.vendors, S.p200, S.p223, S.p225, S.p300, S.p306, S.adminCode, S.mcPage, S.sep, S.ccoMag, S.bacbLic, S.lic13, S.lic5, S.mabRules, S.magPM, S.cfr440, S.cfr433, { title: 'Mississippi DOM — Late Breaking News (provider notices archive)', url: 'https://medicaid.ms.gov/late-breaking-news/' }],
+    sources: [S.spa1620, S.spa2302, S.asdFee, S.feePage, S.paList, S.telPA, S.vendors, S.p200, S.p223, S.p225, S.p300, S.p306, S.adminCode, S.mcPage, S.sep, S.ccoMag, S.bacbLic, S.lic13, S.lic5, S.mabRules, S.magPM, S.cfr440, S.cfr433, { title: 'Mississippi DOM — Late Breaking News (provider notices archive)', url: 'https://medicaid.ms.gov/late-breaking-news/' }, { title: 'Miss. Code Ann. § 73-53-3 — definitions incl. “clinical social work practice” (FindLaw)', url: 'https://codes.findlaw.com/ms/title-73-professions-and-vocations/ms-code-sect-73-53-3/' }],
     deliveryRules: {
       supervision: {
         value: 'The State Plan lets a Mississippi-licensed BCaBA deliver ASD services under the supervision of a Mississippi-licensed BCBA, and an RBT "under the direct supervision and direction of a BCBA or BCaBA"; licensed practitioners "assume professional responsibility" for unlicensed staff. No numeric supervision ratio is published. The Autism Board requires supervisors to follow the BACB supervision policy.',
@@ -247,11 +247,13 @@ export const mississippiPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       diagnosingProviders: {
-        value: 'No Mississippi Medicaid source read names who may make the ASD diagnosis for the FFS benefit.',
+        value:
+          'No Mississippi Medicaid source read names who may make the ASD diagnosis for the FFS benefit. LCSW: not confirmed. Mississippi’s practice act includes “assessment, diagnosis, and treatment of mental, emotional, and behavioral disorders” in clinical social work (Miss. Code § 73-53-3), but no Division of Medicaid source read says whether an LCSW diagnosis opens ASD services; the Administrative Code PDFs cited here returned 404 on 10/25/2026. For fully insured commercial plans, by contrast, § 83-9-26 limits the diagnosis to a licensed psychologist or physician.',
         status: 'unverified',
-        cites: [S.spa1620],
-        verifyVia: 'Telligen (1-855-625-7709) or the Division of Medicaid Office of Mental Health.',
         blocker: 'document',
+        cites: [S.spa1620, { title: 'Miss. Code Ann. § 73-53-3 — definitions incl. “clinical social work practice” (FindLaw)', url: 'https://codes.findlaw.com/ms/title-73-professions-and-vocations/ms-code-sect-73-53-3/' }],
+        verifyVia:
+          'Telligen (1-855-625-7709) or the Division of Medicaid Office of Mental Health.',
       },
       diagnosticTools: {
         value: 'No named diagnostic instrument appears in any Mississippi Medicaid source read.',
@@ -361,7 +363,7 @@ export const mississippiPayers: Record<string, PayerConfig> = {
       { title: 'School schedule', desc: 'CP.BH.104 expects fewer than 20 hours a week for a child in school full time.' },
       { title: 'Other insurance', desc: 'Bill the primary first; Magnolia’s secondary deadline is 365 days from the primary EOP.' },
     ],
-    sources: [S.magPAReq, S.magPAList, S.magASD, S.magBH, S.mag104, S.mag105, S.magPM, S.ccoMag, S.ccoMagA4, S.spa1620, S.asdFee, S.p225, S.p306, S.bacbLic, S.lic13, S.lic5, S.mabRules, S.cfr433, { title: 'Magnolia Health — Provider newsroom (provider news notices)', url: 'https://www.magnoliahealthplan.com/newsroom.html' }],
+    sources: [S.magPAReq, S.magPAList, S.magASD, S.magBH, S.mag104, S.mag105, S.magPM, S.ccoMag, S.ccoMagA4, S.spa1620, S.asdFee, S.p225, S.p306, S.bacbLic, S.lic13, S.lic5, S.mabRules, S.cfr433, { title: 'Magnolia Health — Provider newsroom (provider news notices)', url: 'https://www.magnoliahealthplan.com/newsroom.html' }, { title: 'Miss. Code Ann. § 73-53-3 — definitions incl. “clinical social work practice” (FindLaw)', url: 'https://codes.findlaw.com/ms/title-73-professions-and-vocations/ms-code-sect-73-53-3/' }],
     deliveryRules: {
       supervision: {
         value: 'CP.BH.104 requires treatment to be "delivered or supervised by an ABA-credentialed professional," and protocol modification (97155) "for at least two hours per week or 10% of the direct service hours provided (whichever is greater), and no more than 20%." CP.BH.105 adds at least monthly one-on-one protocol work by the ABA supervisor, not by telehealth unless state guidelines allow. The State Plan requires RBTs to work "under the direct supervision and direction of a BCBA or BCaBA."',
@@ -408,9 +410,10 @@ export const mississippiPayers: Record<string, PayerConfig> = {
         cites: [S.mag104],
       },
       diagnosingProviders: {
-        value: 'A licensed physician, psychologist, or other licensed professional with specialized training in diagnosing and treating ASD, or a provider otherwise authorized by state law to diagnose autism.',
+        value:
+          'A licensed physician, psychologist, or other licensed professional with specialized training in diagnosing and treating ASD, or a provider otherwise authorized by state law to diagnose autism. LCSW: not named. CP.BH.104’s catch-all — “a provider otherwise authorized under state law/regulation … to diagnose autism” — together with Mississippi’s definition of clinical social work (“assessment, diagnosis, and treatment of mental, emotional, and behavioral disorders,” § 73-53-3) leaves room for one, but the policy also asks for “specialized training in diagnosis and treatment of ASD.” Confirm an LCSW-only diagnosis with Magnolia UM.',
         status: 'verified',
-        cites: [S.mag104],
+        cites: [S.mag104, { title: 'Miss. Code Ann. § 73-53-3 — definitions incl. “clinical social work practice” (FindLaw)', url: 'https://codes.findlaw.com/ms/title-73-professions-and-vocations/ms-code-sect-73-53-3/' }],
       },
       diagnosticTools: {
         value: 'At least one primary clinician tool (STAT, ADI-R, CARS-2, ASRS, ADOS-2, EarliPoint, RITA-T, CSBS DP-ITC or other evidence-based tool) and one parent/caregiver tool (M-CHAT-R/F, SCQ, ASSQ, CAST, SRS-2, SWYC POSI, CSBS DP ITC). A Vineland used as the skills assessment needs an additional direct skills assessment (VB-MAPP, ABLLS-R, AFLS, PEAK, EFL and others).',
@@ -515,7 +518,7 @@ export const mississippiPayers: Record<string, PayerConfig> = {
       { title: 'Adaptive baseline', desc: 'Vineland or ABAS results.' },
       { title: 'Other insurance', desc: 'Molina pays EPSDT claims and then seeks third-party reimbursement; still record every other coverage.' },
     ],
-    sources: [S.molPA, S.molPAPage, S.molPM, S.mcp482, S.ccoMol, S.spa1620, S.asdFee, S.p225, S.p306, S.bacbLic, S.lic13, S.lic5, S.mabRules, S.cfr433, { title: 'Molina Healthcare of Mississippi — Provider announcements and Molina Matters newsletters', url: 'https://www.molinahealthcare.com/providers/ms/communications' }],
+    sources: [S.molPA, S.molPAPage, S.molPM, S.mcp482, S.ccoMol, S.spa1620, S.asdFee, S.p225, S.p306, S.bacbLic, S.lic13, S.lic5, S.mabRules, S.cfr433, { title: 'Molina Healthcare of Mississippi — Provider announcements and Molina Matters newsletters', url: 'https://www.molinahealthcare.com/providers/ms/communications' }, { title: 'Miss. Code Ann. § 73-53-3 — definitions incl. “clinical social work practice” (FindLaw)', url: 'https://codes.findlaw.com/ms/title-73-professions-and-vocations/ms-code-sect-73-53-3/' }],
     deliveryRules: {
       supervision: {
         value: 'MCP-482: the BCBA or BCBA-D who develops the plan "provides direct and consistent supervision to Board-Certified Assistant Behavior Analyst (BCaBA) or Registered Behavior Technicians (RBTs)," with no numeric ratio. The State Plan requires RBTs to work "under the direct supervision and direction of a BCBA or BCaBA."',
@@ -566,9 +569,10 @@ export const mississippiPayers: Record<string, PayerConfig> = {
         cites: [S.mcp482],
       },
       diagnosingProviders: {
-        value: 'A qualified provider or multidisciplinary team with ASD expertise, "e.g., clinical psychologists, developmental pediatrician, pediatric neurologist, psychiatrist, or other licensed clinicians permitted under applicable state law to diagnose ASD."',
+        value:
+          'A qualified provider or multidisciplinary team with ASD expertise, "e.g., clinical psychologists, developmental pediatrician, pediatric neurologist, psychiatrist, or other licensed clinicians permitted under applicable state law to diagnose ASD." LCSW: not named. MCP-482 allows “other licensed clinicians permitted under applicable state law to diagnose ASD,” and Mississippi includes “assessment, diagnosis, and treatment of mental, emotional, and behavioral disorders” in clinical social work (§ 73-53-3), so an LCSW on a team with ASD expertise is not excluded by the wording; confirm with Molina UM.',
         status: 'verified',
-        cites: [S.mcp482],
+        cites: [S.mcp482, { title: 'Miss. Code Ann. § 73-53-3 — definitions incl. “clinical social work practice” (FindLaw)', url: 'https://codes.findlaw.com/ms/title-73-professions-and-vocations/ms-code-sect-73-53-3/' }],
       },
       diagnosticTools: {
         value: 'At least one clinically validated tool (ADI-R, ADOS-2, CARS-2 or DISCO, as examples); screening instruments "do not independently establish" the diagnosis; adaptive measures (Vineland, ABAS) for baseline.',
@@ -720,7 +724,8 @@ export const mississippiPayers: Record<string, PayerConfig> = {
         cites: [S.tc1477],
       },
       diagnosingProviders: {
-        value: 'A child and adolescent psychiatrist, psychologist, child neurologist or developmental pediatrician, evaluating "independent of the ABA provider and with a relationship with the member."',
+        value:
+          'A child and adolescent psychiatrist, psychologist, child neurologist or developmental pediatrician, evaluating "independent of the ABA provider and with a relationship with the member." LCSW: no. MM-1477’s list is closed — a child and adolescent psychiatrist, a psychologist, a child neurologist or a developmental pediatrician.',
         status: 'verified',
         cites: [S.tc1477],
       },
@@ -840,7 +845,7 @@ export const mississippiPayers: Record<string, PayerConfig> = {
       { title: 'Standardized functional measure', desc: 'Within the past 12 months (Vineland-3, ABAS, VB-MAPP or ABLLS).' },
       { title: 'Physician or psychologist order', desc: 'The mandate covers treatment prescribed or ordered by a licensed physician or psychologist.' },
     ],
-    sources: [S.aetnaGuide, S.aetnaCPB, S.aetnaCPB648, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.mandate, S.midAutism, S.bacbLic, S.lic13, S.lic5, S.mabRules, S.tele351, S.sb2415, S.sb2140, S.promptPay, S.cobReg, S.erisa, S.cfr433, S.tricare, S.champva, S.asdFee],
+    sources: [S.aetnaGuide, S.aetnaCPB, S.aetnaCPB648, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.mandate, S.midAutism, S.bacbLic, S.lic13, S.lic5, S.mabRules, S.tele351, S.sb2415, S.sb2140, S.promptPay, S.cobReg, S.erisa, S.cfr433, S.tricare, S.champva, S.asdFee, { title: 'Miss. Code Ann. § 73-53-3 — definitions incl. “clinical social work practice” (FindLaw)', url: 'https://codes.findlaw.com/ms/title-73-professions-and-vocations/ms-code-sect-73-53-3/' }],
     deliveryRules: {
       supervision: {
         value: 'Aetna’s Network Participation Criteria (5/26) require "A minimum of one hour of face-to-face supervision" of an unlicensed or noncertified paraprofessional by a BCBA or licensed psychologist "for each 10 hours of applied behavior analysis," plus the supervisor "onsite with the child at least one hour a month," and "All BCBAs, BCaBAs and paraprofessionals must meet state requirements." In Mississippi that means a licensed behavior analyst and Board-registered RBTs; § 83-9-26 requires services "under the supervision or direction of a licensed behavior analyst or licensed psychologist."',
@@ -891,9 +896,10 @@ export const mississippiPayers: Record<string, PayerConfig> = {
         cites: [S.aetnaGuide],
       },
       diagnosingProviders: {
-        value: 'An appropriate provider: "licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice." For fully insured Mississippi plans, § 83-9-26 defines diagnosis as performed "by a licensed psychologist or licensed physician."',
+        value:
+          'An appropriate provider: "licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice." For fully insured Mississippi plans, § 83-9-26 defines diagnosis as performed "by a licensed psychologist or licensed physician." LCSW: not on a fully insured Mississippi plan — § 83-9-26 defines the diagnosis as assessments, evaluations or tests “as performed by a licensed psychologist or licensed physician.” On a self-funded plan Aetna’s own scope-based rule applies, and Mississippi’s practice act includes “assessment, diagnosis, and treatment of mental, emotional, and behavioral disorders” in clinical social work (§ 73-53-3); confirm an LCSW-only diagnosis with Aetna at authorization.',
         status: 'verified',
-        cites: [S.aetnaGuide, S.mandate],
+        cites: [S.aetnaGuide, S.mandate, { title: 'Miss. Code Ann. § 73-53-3 — definitions incl. “clinical social work practice” (FindLaw)', url: 'https://codes.findlaw.com/ms/title-73-professions-and-vocations/ms-code-sect-73-53-3/' }],
       },
       diagnosticTools: {
         value: 'CPB 0648 names ADI-R, ADOS-2, CARS-2 and the Asperger Syndrome Diagnostic Scale; the ABA guide requires a standardized functional measure from the past 12 months (VABS-3, ABAS, VB-MAPP or ABLLS).',
@@ -1017,7 +1023,7 @@ export const mississippiPayers: Record<string, PayerConfig> = {
       { title: 'Standardized assessment timing', desc: 'Instrument administered within 60 days before treatment starts.' },
       { title: 'Physician or psychologist order', desc: 'The mandate covers treatment prescribed or ordered by a licensed physician or psychologist.' },
     ],
-    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.mandate, S.midAutism, S.bacbLic, S.lic13, S.lic5, S.mabRules, S.tele351, S.sb2415, S.sb2140, S.promptPay, S.cobReg, S.erisa, S.cfr433, S.tricare, S.champva, S.asdFee],
+    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.mandate, S.midAutism, S.bacbLic, S.lic13, S.lic5, S.mabRules, S.tele351, S.sb2415, S.sb2140, S.promptPay, S.cobReg, S.erisa, S.cfr433, S.tricare, S.champva, S.asdFee, { title: 'Miss. Code Ann. § 73-53-3 — definitions incl. “clinical social work practice” (FindLaw)', url: 'https://codes.findlaw.com/ms/title-73-professions-and-vocations/ms-code-sect-73-53-3/' }],
     deliveryRules: {
       supervision: {
         value: 'Case supervision by a BCBA, Licensed Behavior Analyst or independently licensed clinician with ABA training, at "one to two hours per ten hours of direct treatment"; at 10 hours a week or less, at least one to two hours a week of direct case supervision (EN0499).',
@@ -1064,9 +1070,10 @@ export const mississippiPayers: Record<string, PayerConfig> = {
         cites: [S.en0499],
       },
       diagnosingProviders: {
-        value: 'A healthcare professional licensed to practice independently whose licensure board considers diagnostics within scope (EN0499). For fully insured Mississippi plans, § 83-9-26 defines diagnosis as performed by a licensed psychologist or licensed physician.',
+        value:
+          'A healthcare professional licensed to practice independently whose licensure board considers diagnostics within scope (EN0499). For fully insured Mississippi plans, § 83-9-26 defines diagnosis as performed by a licensed psychologist or licensed physician. LCSW: not on a fully insured Mississippi plan — § 83-9-26 defines the diagnosis as assessments, evaluations or tests “as performed by a licensed psychologist or licensed physician.” On a self-funded plan Cigna’s own scope-based rule applies, and Mississippi’s practice act includes “assessment, diagnosis, and treatment of mental, emotional, and behavioral disorders” in clinical social work (§ 73-53-3); confirm an LCSW-only diagnosis with Cigna at authorization.',
         status: 'verified',
-        cites: [S.en0499, S.mandate],
+        cites: [S.en0499, S.mandate, { title: 'Miss. Code Ann. § 73-53-3 — definitions incl. “clinical social work practice” (FindLaw)', url: 'https://codes.findlaw.com/ms/title-73-professions-and-vocations/ms-code-sect-73-53-3/' }],
       },
       diagnosticTools: {
         value: 'No single instrument is mandated; it must be reliable, valid, standardized, measure both DSM-5-TR domains and be the current edition (Vineland-3, not Vineland-II).',
@@ -1188,7 +1195,7 @@ export const mississippiPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis with a validated tool', desc: 'DSM-5-TR ASD with severity, confirmed with a validated tool (ADI-R, ADOS-2 and others).' },
       { title: 'Physician or psychologist order', desc: 'The mandate covers treatment prescribed or ordered by a licensed physician or psychologist.' },
     ],
-    sources: [S.optumSCC, S.optumSM, S.optumTele, S.optumNNM, S.optumReimb, S.sep, S.mandate, S.midAutism, S.bacbLic, S.lic13, S.lic5, S.mabRules, S.tele351, S.sb2415, S.sb2140, S.promptPay, S.cobReg, S.erisa, S.cfr433, S.tricare, S.champva, S.asdFee],
+    sources: [S.optumSCC, S.optumSM, S.optumTele, S.optumNNM, S.optumReimb, S.sep, S.mandate, S.midAutism, S.bacbLic, S.lic13, S.lic5, S.mabRules, S.tele351, S.sb2415, S.sb2140, S.promptPay, S.cobReg, S.erisa, S.cfr433, S.tricare, S.champva, S.asdFee, { title: 'Miss. Code Ann. § 73-53-3 — definitions incl. “clinical social work practice” (FindLaw)', url: 'https://codes.findlaw.com/ms/title-73-professions-and-vocations/ms-code-sect-73-53-3/' }],
     deliveryRules: {
       supervision: {
         value: 'Optum’s criteria require direct case supervision of 1–2 hours for every 10 hours of direct treatment, by a BCBA or licensed behavioral health clinician; technicians should be RBTs or otherwise certified "as allowable by state mandate," and parents should not serve as their own child’s RBT. In Mississippi the supervisor must be licensed by the Autism Board and RBTs registered under them.',
@@ -1237,9 +1244,10 @@ export const mississippiPayers: Record<string, PayerConfig> = {
         cites: [S.optumSCC],
       },
       diagnosingProviders: {
-        value: 'A state-licensed physician, psychologist or other state-licensed clinician qualified to diagnose under DSM-5-TR. For fully insured Mississippi plans, § 83-9-26 defines diagnosis as performed by a licensed psychologist or licensed physician.',
+        value:
+          'A state-licensed physician, psychologist or other state-licensed clinician qualified to diagnose under DSM-5-TR. For fully insured Mississippi plans, § 83-9-26 defines diagnosis as performed by a licensed psychologist or licensed physician. LCSW: not on a fully insured Mississippi plan — § 83-9-26 defines the diagnosis as assessments, evaluations or tests “as performed by a licensed psychologist or licensed physician.” On a self-funded plan Optum’s own scope-based rule applies, and Mississippi’s practice act includes “assessment, diagnosis, and treatment of mental, emotional, and behavioral disorders” in clinical social work (§ 73-53-3); confirm an LCSW-only diagnosis with Optum at authorization.',
         status: 'verified',
-        cites: [S.optumSCC, S.mandate],
+        cites: [S.optumSCC, S.mandate, { title: 'Miss. Code Ann. § 73-53-3 — definitions incl. “clinical social work practice” (FindLaw)', url: 'https://codes.findlaw.com/ms/title-73-professions-and-vocations/ms-code-sect-73-53-3/' }],
       },
       diagnosticTools: {
         value: 'At least one clinically validated tool from Optum’s non-exhaustive list (screens such as M-CHAT, CARS-2, STAT; diagnostic tools such as ADI-R, ADOS-2, DISCO); baseline measures such as VB-MAPP, ABLLS-R, Vineland or SRS.',
@@ -1406,7 +1414,8 @@ export const mississippiPayers: Record<string, PayerConfig> = {
         cites: [S.bcbsASD],
       },
       diagnosingProviders: {
-        value: 'A licensed physician (M.D./D.O.) or licensed psychologist; the network-provider requirement for the diagnosis was removed 9/10/2025.',
+        value:
+          'A licensed physician (M.D./D.O.) or licensed psychologist; the network-provider requirement for the diagnosis was removed 9/10/2025. LCSW: no. BCBSMS requires that “a licensed physician (M.D./D.O.) or licensed psychologist has diagnosed the Member with ASD,” and the referral for the ABA assessment must come from one of them too.',
         status: 'verified',
         cites: [S.bcbsASD],
       },

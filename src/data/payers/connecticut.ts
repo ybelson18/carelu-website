@@ -202,7 +202,9 @@ export const connecticutPayers: Record<string, PayerConfig> = {
       { title: 'Birth to Three (under 3)', desc: 'For a child under 3, document that Birth to Three services were explored and exhausted.' },
       { title: 'Caregiver availability', desc: 'An adult caregiver (18 or older) must be present at all times during home and community sessions.' },
     ],
-    sources: [S.dssOverview, S.bhpOverview, S.handbook, S.regs, S.pb2530, S.pb2557, S.asdIM, S.pb2606, S.asdFee, S.feeInstr, S.grid, S.loc1, S.loc2, S.loc5, S.loc7, S.paRBT, S.paRoles, S.paADE, S.paHuskyB, S.pb2338, S.teleTable, S.ch382a, S.dphBA, S.s19a906, S.cfr433, S.cfr440, { title: 'CT Medical Assistance Program — Publications (provider bulletin search + interChange provider newsletters)', url: 'https://www.ctdssmap.com/CTPortal/Information/Publications' }],
+    sources: [S.dssOverview, S.bhpOverview, S.handbook, S.regs, S.pb2530, S.pb2557, S.asdIM, S.pb2606, S.asdFee, S.feeInstr, S.grid, S.loc1, S.loc2, S.loc5, S.loc7, S.paRBT, S.paRoles, S.paADE, S.paHuskyB, S.pb2338, S.teleTable, S.ch382a, S.dphBA, S.s19a906, S.cfr433, S.cfr440, { title: 'CT Medical Assistance Program — Publications (provider bulletin search + interChange provider newsletters)', url: 'https://www.ctdssmap.com/CTPortal/Information/Publications' },
+      { title: 'BACB — U.S. Licensure of Behavior Analysts (Connecticut: 2017, CT State Department of Public Health)', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
+    ],
     deliveryRules: {
       supervision: {
         value: 'The performing provider must observe and direct each BCaBA or technician one-on-one, “at a frequency and duration equal to or greater than ten percent of the number of hours” of treatment they deliver, with regular direct observation of the technician working with the child. Carelon’s PA-2025-13 requires evidence of direct observation at least 10% of the time direct services occur, documented “in a separate observation and direction contact note that corresponds with the submitted claim.” Requests for more than 10% need documented extenuating circumstances.',
@@ -355,7 +357,9 @@ export const connecticutPayers: Record<string, PayerConfig> = {
       { title: 'IEP / IFSP', desc: 'Include it with the request if the child has one. It is required at continued-stay reviews after a year of service.' },
       { title: 'Need help finding care?', desc: 'Carelon’s ASD care coordination team helps families get a diagnosis and find providers, at any age.' },
     ],
-    sources: [S.paRoles, S.handbook, S.loc1, S.loc2, S.loc5, S.loc7, S.locIndex, S.grid, S.paRBT, S.paADE, S.paHuskyB, S.bhpOverview, S.bhpBulletins, S.teleTable, S.pb2338, S.ch382a, S.dphBA, S.s19a906, S.cfr433, S.cfr440, { title: 'CT BHP (Carelon) — Provider newsletters archive', url: 'https://providers.ctbhp.com/ct-bhp-provider-newsletters/' }],
+    sources: [S.paRoles, S.handbook, S.loc1, S.loc2, S.loc5, S.loc7, S.locIndex, S.grid, S.paRBT, S.paADE, S.paHuskyB, S.bhpOverview, S.bhpBulletins, S.teleTable, S.pb2338, S.ch382a, S.dphBA, S.s19a906, S.cfr433, S.cfr440, { title: 'CT BHP (Carelon) — Provider newsletters archive', url: 'https://providers.ctbhp.com/ct-bhp-provider-newsletters/' },
+      { title: 'DSS Regulation 14-07, Requirements for Payment of Autism Spectrum Disorder Services (RCSA §§ 17b-262-1051 to 17b-262-1065) — final wording posted with the notice of decision, 5/21/2015', url: 'https://portal.ct.gov/-/media/sots/regulations/notices_of_intent/nod2015052101finalwordingpdf.pdf?la=en' },
+    ],
     deliveryRules: {
       supervision: {
         value: 'Carelon’s guideline: observation and direction “must be done one-to-one and documented in the medical record on a weekly basis,” equal to “at least 10 percent of the number of hours that each individual is receiving ASD treatment services,” including direct observation of each technician or BCaBA with the child. Evidence goes in a separate observation-and-direction contact note matching the claim (PA-2025-13).',
@@ -443,9 +447,9 @@ export const connecticutPayers: Record<string, PayerConfig> = {
     family: 'anthem',
     cardDesc: 'Connecticut’s Blue plan: ABA is on Anthem’s CT precertification list (BH 800-934-0331) under the § 38a-514b mandate.',
     assessmentPA: {
-      value: 'Anthem’s Connecticut list puts “Applied behavior analysis (ABA)” under precertification by Anthem but names no codes, so whether the assessment alone needs approval is not stated',
+      value: 'Anthem’s Connecticut list puts “Applied behavior analysis (ABA)” under precertification by Anthem but names no codes. The 2026 Connecticut provider manual says “ABA – Applied Behavioral Analysis is not a standard benefit. If ABA is covered for a Member, prior authorization is recommended,” and that prior authorization for outpatient services “varies by product and plan.” Neither document says whether the assessment (97151/97152) alone needs approval',
       status: 'plan-dependent',
-      cites: [S.anthemCTPA],
+      cites: [S.anthemCTPA, { title: 'Anthem Blue Cross and Blue Shield — 2026 Connecticut Commercial Provider Manual (effective September 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_CT_00015.pdf' }],
       verifyVia: 'Anthem Behavioral Health, 800-934-0331: ask whether 97151 and 97152 need precertification on this member’s product.',
       blocker: 'per-case',
     },
@@ -487,6 +491,20 @@ export const connecticutPayers: Record<string, PayerConfig> = {
         cites: [S.anthemCTPA],
       },
       {
+        h2: 'Is there an Anthem assessment template for ABA in Connecticut?',
+        body: [
+          'Not one Anthem publishes for Connecticut. Anthem\'s commercial Treatment Plan Request Form for Autism Spectrum Disorders (December 2025) is the closest Anthem template, but it names its states as “Georgia • Kentucky • Maine • Missouri • Nevada • New Hampshire • New York • Ohio • Virginia • Wisconsin.” Connecticut is not on that list. For those states it spells out the initial-assessment packet: “For initial assessment requests when requesting only 97151/97152 and 0362T or if a member has new insurance coverage,” include a “Diagnostic evaluation/report completed by a doctorate level clinician or allowable qualified healthcare provider (QHCP) per state regulations,” with records showing how the patient meets DSM-5-TR criteria and “Standardized diagnostic tools (for example, Autism Diagnostic Interview, Revised (ADI-R); Autism Diagnostic Observation Schedule, Second Edition (ADOS-2); Childhood Autism Rating Scale, Second Edition (CARS-2).” For treatment it recommends baseline and updated assessments such as the Vineland, VB-MAPP or ABLLS-R.',
+          'Connecticut\'s own Anthem documents set no report format. The Connecticut provider manual (effective September 1, 2026) says “ABA – Applied Behavioral Analysis is not a standard benefit. If ABA is covered for a Member, prior authorization is recommended,” and that prior authorization for outpatient services “varies by product and plan.” The multi-state ABA Provider Resource Guide, which does list Connecticut, asks only for “standardized assessments and current clinical information” and a treatment plan reviewed or updated at least every 6 months. The Connecticut behavioral health form Anthem posts, the Outpatient Treatment Report (fax 866-834-7469), is a general mental-health report, not an ABA assessment template. Before submitting, ask Anthem Behavioral Health (800-934-0331) which form it wants for this member\'s product and whether 97151/97152 need precertification.',
+        ],
+        cites: [
+          { title: 'Anthem — Treatment Plan Request Form for Autism Spectrum Disorders (commercial, December 2025; GA, KY, ME, MO, NV, NH, NY, OH, VA, WI)', url: 'https://www.anthembluecross.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/NY_BH_00001.pdf' },
+          { title: 'Anthem Blue Cross and Blue Shield — 2026 Connecticut Commercial Provider Manual (effective September 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_CT_00015.pdf' },
+          S.anthemRG,
+          { title: 'Anthem BCBS Connecticut — Outpatient Treatment Report (behavioral health form CT_BH_00001)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/forms/CT_BH_00001.pdf' },
+          S.anthemCTPA,
+        ],
+      },
+      {
         h2: 'Billing and documentation rules from the ABA resource guide',
         body: [
           'Anthem’s commercial ABA Provider Resource Guide (June 2025) lists Connecticut among its states. Approved providers include psychiatrists, psychologists, LCSWs, LPCs and LMFTs with ABA training, BCBAs and BCBA-Ds, “providers practicing under the direction and supervision of the BCBA,” and other mental health providers “licensed or authorized by the state in which they practice.” A QHP billing 97155 “can only add code 97153 if both the technician and QHP are face-to-face with the patient at the same time and the QHP is directing the technician.” Technician services “must show the supervising BCBA or other QHP in box 31.” Record start and stop times, sign within 30 days of the service date, and update the treatment plan at least every 6 months. Anthem applies NCCI medically unlikely edits to ABA codes and lists POS 12 (home), 11 (office), 99 (community), 03 (school), and 10 and 02 (telehealth).',
@@ -526,7 +544,7 @@ export const connecticutPayers: Record<string, PayerConfig> = {
       { title: 'Supervising BCBA’s CT license', desc: 'Behavioral therapy must be provided or supervised by a licensed behavior analyst, physician or psychologist.' },
       { title: 'Other coverage', desc: 'Second parent’s plan, HUSKY, TRICARE or CHAMPVA.' },
     ],
-    sources: [S.anthemCTPA, S.anthemRG, S.s38a514b, S.s38a488b, S.s38a526a, S.s38a591d, S.s38a816, S.ch382a, S.dphBA, S.bacbLic, S.s19a906, S.erisa, S.handbook, S.cfr433, S.tricare, S.champva, S.asdFee, { title: 'Anthem Blue Cross and Blue Shield — 2026 Connecticut Commercial Provider Manual (effective September 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_CT_00015.pdf' }, { title: 'Anthem Blue Cross and Blue Shield Connecticut — Provider News', url: 'https://providernews.anthem.com/connecticut' }],
+    sources: [{ title: 'Anthem — Treatment Plan Request Form for Autism Spectrum Disorders (commercial, December 2025; GA, KY, ME, MO, NV, NH, NY, OH, VA, WI)', url: 'https://www.anthembluecross.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/NY_BH_00001.pdf' }, { title: 'Anthem BCBS Connecticut — Outpatient Treatment Report (behavioral health form CT_BH_00001)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/forms/CT_BH_00001.pdf' }, S.anthemCTPA, S.anthemRG, S.s38a514b, S.s38a488b, S.s38a526a, S.s38a591d, S.s38a816, S.ch382a, S.dphBA, S.bacbLic, S.s19a906, S.erisa, S.handbook, S.cfr433, S.tricare, S.champva, S.asdFee, { title: 'Anthem Blue Cross and Blue Shield — 2026 Connecticut Commercial Provider Manual (effective September 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_CT_00015.pdf' }, { title: 'Anthem Blue Cross and Blue Shield Connecticut — Provider News', url: 'https://providernews.anthem.com/connecticut' }],
     deliveryRules: {
       supervision: {
         value: 'Anthem recognizes “providers practicing under the direction and supervision of the BCBA” and publishes no ratio of its own. For fully insured Connecticut plans, the mandate defines supervised behavioral therapy as “at least one hour of face-to-face supervision … for each ten hours of behavioral therapy,” by a licensed behavior analyst, physician or psychologist.',
@@ -616,6 +634,7 @@ export const connecticutPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Anthem have an ABA assessment template for Connecticut?', a: 'Not a Connecticut one. Anthem\'s commercial Treatment Plan Request Form for ASD (December 2025) lists ten states, and Connecticut is not among them. For those states it asks, for 97151/97152/0362T requests, for a diagnostic report by a doctorate-level clinician or other allowable QHCP showing DSM-5-TR criteria and a standardized tool such as the ADI-R, ADOS-2 or CARS-2. Anthem\'s Connecticut manual says ABA “is not a standard benefit” and that prior authorization is recommended where ABA is covered. Call Anthem Behavioral Health at 800-934-0331 to confirm which form to use and whether the assessment needs precertification.' },
       { q: 'Does Anthem require prior authorization for ABA in Connecticut?', a: 'Yes. ABA is on Anthem’s Connecticut precertification list, reviewed by Anthem Behavioral Health at 800-934-0331. The list names no codes, so ask whether the assessment itself needs approval.' },
       { q: 'Does Connecticut cap ABA benefits?', a: 'No dollar cap. Insured plans cover behavioral therapy for children under 21, rising to under 26 on January 1, 2027, with no visit limits other than for medical necessity. Self-funded plans follow their own documents.' },
       { q: 'Can a BCBA and RBT both bill for the same time with Anthem?', a: 'Yes, 97155 with 97153, but only when both are face-to-face with the patient at the same time and the BCBA is directing the technician.' },

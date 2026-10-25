@@ -72,6 +72,8 @@ const S: Record<string, PayerSource> = {
   premPAPage: { title: 'Premera — About prior authorization (submission sites by plan type)', url: 'https://www.premera.com/wa/provider/utilization-review/about-prior-authorization/' },
   regBH18: { title: 'Regence Medical Policy BH18 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (version effective 8/1/2025, carrying a notice that a revision takes effect 11/1/2026)', url: 'https://beonbrand.getbynder.com/m/e4646f415eb7f4eb/' },
   regBH33: { title: 'Regence Medical Policy BH33 — ABA Initial Assessment for the Treatment of Autism Spectrum Disorder (eff. 8/1/2025)', url: 'https://beonbrand.getbynder.com/m/8360cc45444cab46/' },
+  lcswScope: { title: 'RCW 18.225.010(7) — "Independent clinical social work" means "the diagnosis and treatment of emotional and mental disorders"', url: 'https://app.leg.wa.gov/RCW/default.aspx?cite=18.225.010' },
+  ccPreAuth: { title: 'Coordinated Care of Washington — Medicaid Pre-Auth Check tool (97151 no authorization; 0362T, 97153, 97155, 97156 authorization required; 97152 not a covered benefit; checked 10/25/2026)', url: 'https://www.coordinatedcarehealth.com/providers/preauth-check/medicaid-pre-auth.html' },
 };
 
 /* ---- Shared Washington commercial layer (same facts on every commercial guide) ---- */
@@ -238,7 +240,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       { title: 'Other insurance', desc: 'If private coverage has an ABA benefit that is not exhausted, HCA PA is not required; bill the private plan first.' },
       { title: 'Forms', desc: 'HCA 13-400 assessment and plan (or equivalent) and HCA 12-411 Level of Support; HCA 13-835 cover sheet for faxed FFS requests.' },
     ],
-    sources: [{ title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, { title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: 'HCA — Prior authorization, claims, and billing (ProviderOne claims submission deadlines)', url: 'https://www.hca.wa.gov/billers-providers-partners/prior-authorization-claims-and-billing' }, S.wac531a, S.abaBG, S.abaFee, S.coeList, S.hcaMC, S.hcaTA, S.teleBG, S.wac0165, S.wac0200, S.wac0150, S.wac526, S.rcw18380, S.wac246805, S.bacbLic, S.cfr440, S.cfr433, { title: 'HCA — ProviderOne Billing and Resource Guide (September 2025 edition, posted February 2026): Providers required to enroll; DDE claim questions', url: 'https://www.hca.wa.gov/assets/billers-and-providers/providerone-billing-and-resource-guide.pdf' }, { title: 'HCA — Provider Alerts 2026 (index of Apple Health provider alerts)', url: 'https://www.hca.wa.gov/billers-providers-partners/provider-alerts-2026' }],
+    sources: [{ title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, { title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: 'HCA — Prior authorization, claims, and billing (ProviderOne claims submission deadlines)', url: 'https://www.hca.wa.gov/billers-providers-partners/prior-authorization-claims-and-billing' }, S.wac531a, S.abaBG, S.abaFee, S.coeList, S.hcaMC, S.hcaTA, S.teleBG, S.wac0165, S.wac0200, S.wac0150, S.wac526, S.rcw18380, S.wac246805, S.bacbLic, S.cfr440, S.cfr433, { title: 'HCA — ProviderOne Billing and Resource Guide (September 2025 edition, posted February 2026): Providers required to enroll; DDE claim questions', url: 'https://www.hca.wa.gov/assets/billers-and-providers/providerone-billing-and-resource-guide.pdf' }, { title: 'HCA — Provider Alerts 2026 (index of Apple Health provider alerts)', url: 'https://www.hca.wa.gov/billers-providers-partners/provider-alerts-2026' }, S.lcswScope],
     deliveryRules: {
       supervision: {
         value: AH_SUPERVISION,
@@ -285,9 +287,9 @@ export const washingtonPayers: Record<string, PayerConfig> = {
         cites: [S.wac531a, S.abaBG],
       },
       diagnosingProviders: {
-        value: AH_DIAGNOSERS,
+        value: AH_DIAGNOSERS + ' LCSW (LICSW): not as a diagnoser of record — even though Washington defines independent clinical social work as "the diagnosis and treatment of emotional and mental disorders" (RCW 18.225.010(7)), Apple Health requires a Center of Excellence and no social-work credential is on the COE list; only HCA\'s discretion to accept a non-COE evaluation would let an LICSW\'s evaluation count.',
         status: 'verified',
-        cites: [S.wac531a, S.abaBG],
+        cites: [S.wac531a, S.abaBG, S.lcswScope],
       },
       diagnosticTools: {
         value: AH_TOOLS,
@@ -452,7 +454,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       diagnosingProviders: {
-        value: 'A state-approved ABA Center of Excellence; the form limits providers in the authorization to "State-approved ABA Center of Excellence teams and/or CHPW-credentialed ABA providers." ' + AH_DIAGNOSERS,
+        value: 'A state-approved ABA Center of Excellence; the form limits providers in the authorization to "State-approved ABA Center of Excellence teams and/or CHPW-credentialed ABA providers." ' + AH_DIAGNOSERS + ' LCSW (LICSW): not a COE credential — no social-work licence is on the COE list, so an LICSW\'s evaluation counts only if HCA uses its discretion to accept a non-COE evaluation.',
         status: 'verified',
         cites: [S.chpwForm, S.wac531a],
       },
@@ -498,11 +500,9 @@ export const washingtonPayers: Record<string, PayerConfig> = {
     family: 'centene',
     cardDesc: 'Centene’s Apple Health plan (also Apple Health Core Connections foster care): WA.CP.BH.104 mirrors WAC 182-531A — COE evaluation, HCA 13-400 and 12-411, six-month reviews.',
     assessmentPA: {
-      value: 'Not stated for 97151 in WA.CP.BH.104; Coordinated Care’s Pre-Auth tool decides by code, and HCA notes MCOs may require PA for the COE evaluation',
-      status: 'unverified',
-      cites: [S.ccBH104, S.abaBG],
-      verifyVia: 'Coordinated Care Pre-Auth tool (coordinatedcarehealth.com) or Provider Services, 1-877-644-4613: check 97151.',
-      blocker: 'document',
+      value: 'No for 97151: Coordinated Care\'s Medicaid Pre-Auth Check returns "No authorization required for all providers" for 97151, while 0362T (the destructive-behavior supporting assessment) returns "Authorization required for all providers." 97152 returns "not a covered benefit," consistent with HCA\'s ABA fee schedule, which lists 97151 and 0362T but not 97152. The ABA treatment codes (97153, 97155, 97156) all require authorization',
+      status: 'verified',
+      cites: [S.ccPreAuth, S.abaFee],
     },
     treatmentPA: {
       value: 'Yes. ABA uses Coordinated Care’s required Applied Behavioral Analysis Prior Authorization form; medical necessity is judged under WA.CP.BH.104 (effective 3/1/2026), which requires the COE evaluation, HCA form 13-400 and HCA form 12-411',
@@ -562,7 +562,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       { title: 'HCA 13-400 and 12-411', desc: 'LBAT assessment and behavior change plan, and the Level of Support form.' },
       { title: 'Other services', desc: 'School, speech, OT and other providers, so the plan can show coordination and no duplication.' },
     ],
-    sources: [{ title: 'Coordinated Care of Washington — Apple Health Provider Manual (July 2026): §§ 19 (prompt pay), 19.4 (corrected claims), 19.10 (timely filing), 11.13 (secondary payer)', url: 'https://www.coordinatedcarehealth.com/content/dam/centene/Coordinated%20Care/provider/PDFs/508-CoordinatedCareProviderManual.pdf' }, { title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, S.ccBH104, S.hcaTA, S.hcaMC, S.wac531a, S.abaBG, S.teleBG, S.cfr438, S.cfr433, { title: 'Coordinated Care of Washington — Provider News (provider notices archive)', url: 'https://www.coordinatedcarehealth.com/providers/provider-news.html' }],
+    sources: [{ title: 'Coordinated Care of Washington — Apple Health Provider Manual (July 2026): §§ 19 (prompt pay), 19.4 (corrected claims), 19.10 (timely filing), 11.13 (secondary payer)', url: 'https://www.coordinatedcarehealth.com/content/dam/centene/Coordinated%20Care/provider/PDFs/508-CoordinatedCareProviderManual.pdf' }, { title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, S.ccBH104, S.hcaTA, S.hcaMC, S.wac531a, S.abaBG, S.teleBG, S.cfr438, S.cfr433, { title: 'Coordinated Care of Washington — Provider News (provider notices archive)', url: 'https://www.coordinatedcarehealth.com/providers/provider-news.html' }, S.ccPreAuth, S.abaFee],
     deliveryRules: {
       supervision: {
         value: 'WA.CP.BH.104: "Supervision by a Lead Behavioral Analysis Therapist of care provided by a Certified Behavioral Therapist (CBT) should occur at a minimum of five percent of the total direct care per week (e.g., one hour of supervision per twenty hours of care)," and treatment must be "delivered or supervised by an ABA-credentialed professional."',
@@ -611,7 +611,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
         cites: [S.ccBH104],
       },
       diagnosingProviders: {
-        value: 'An HCA-recognized ABA Center of Excellence (WA.CP.BH.104). ' + AH_DIAGNOSERS,
+        value: 'An HCA-recognized ABA Center of Excellence (WA.CP.BH.104). ' + AH_DIAGNOSERS + ' LCSW (LICSW): not a COE credential — no social-work licence is on the COE list, so an LICSW\'s evaluation counts only if HCA uses its discretion to accept a non-COE evaluation.',
         status: 'verified',
         cites: [S.ccBH104, S.wac531a],
       },
@@ -775,7 +775,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       diagnosingProviders: {
-        value: 'A Center of Excellence, by state rule for all Apple Health members (WAC 182-531A-0800); a COE serving Molina members must also be contracted with Molina. ' + AH_DIAGNOSERS,
+        value: 'A Center of Excellence, by state rule for all Apple Health members (WAC 182-531A-0800); a COE serving Molina members must also be contracted with Molina. ' + AH_DIAGNOSERS + ' LCSW (LICSW): not a COE credential — no social-work licence is on the COE list, so an LICSW\'s evaluation counts only if HCA uses its discretion to accept a non-COE evaluation.',
         status: 'verified',
         cites: [S.wac531a, S.abaBG],
       },
@@ -928,7 +928,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
         cites: [S.optumWA],
       },
       diagnosingProviders: {
-        value: 'A COE: a Title 18 RCW licensee experienced with ASD who is a developmental pediatrician, neurologist, pediatric neurologist, pediatric psychiatrist, psychiatrist or psychologist, or an ARNP, physician, PA or naturopath designated by HCA after COE training (Optum Washington criteria). COEs serving these members must be contracted with the MCO.',
+        value: 'A COE: a Title 18 RCW licensee experienced with ASD who is a developmental pediatrician, neurologist, pediatric neurologist, pediatric psychiatrist, psychiatrist or psychologist, or an ARNP, physician, PA or naturopath designated by HCA after COE training (Optum Washington criteria). COEs serving these members must be contracted with the MCO. LCSW (LICSW): no — not on the COE list.',
         status: 'verified',
         cites: [S.optumWA],
       },
@@ -1081,7 +1081,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       diagnosingProviders: {
-        value: 'A qualified Center of Excellence provider (Wellpoint, HCA session February 2025). ' + AH_DIAGNOSERS,
+        value: 'A qualified Center of Excellence provider (Wellpoint, HCA session February 2025). ' + AH_DIAGNOSERS + ' LCSW (LICSW): not a COE credential — no social-work licence is on the COE list, so an LICSW\'s evaluation counts only if HCA uses its discretion to accept a non-COE evaluation.',
         status: 'verified',
         cites: [S.hcaTA, S.wac531a],
       },
@@ -1236,7 +1236,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       { title: 'Standardized functional measure', desc: 'Aetna wants one from the past 12 months (for example Vineland-3, ABAS, VB-MAPP or ABLLS).' },
       { title: 'Clinician licenses', desc: 'Washington DOH license numbers for the LBA (and LABA/CBT credentials) delivering and billing services.' },
     ],
-    sources: [S.aetnaGuide, S.aetnaPrecert, S.aetnaCPB648, S.aetnaNPC, S.aetnaOM, S.aetnaTele, S.rcw44341, S.rcw46291, S.rcw21241, S.wac5642, S.hb1432, S.rcw43766, S.rcw18380, S.wac246805, S.rcw18134, S.bacbLic, S.wac431, S.rcw43830, S.rcw43735, S.rcw43535, S.wac51205, S.erisa, S.abaFee, { title: 'Aetna — Provider manual (8102800-01-01, 6/26): Referrals, Behavioral health access to care, Clean claims', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }, { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+    sources: [S.aetnaGuide, S.aetnaPrecert, S.aetnaCPB648, S.aetnaNPC, S.aetnaOM, S.aetnaTele, S.rcw44341, S.rcw46291, S.rcw21241, S.wac5642, S.hb1432, S.rcw43766, S.rcw18380, S.wac246805, S.rcw18134, S.bacbLic, S.wac431, S.rcw43830, S.rcw43735, S.rcw43535, S.wac51205, S.erisa, S.abaFee, { title: 'Aetna — Provider manual (8102800-01-01, 6/26): Referrals, Behavioral health access to care, Clean claims', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }, { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, S.lcswScope],
     deliveryRules: {
       supervision: {
         value: 'Aetna’s Network Participation Criteria: services "must be provided directly or supervised by individuals licensed by the state or certified by the Behavior Analyst Certification Board"; supervised staff may be a BCaBA or a paraprofessional, with "A minimum of one hour of face-to-face supervision" of an unlicensed or noncertified paraprofessional "for each 10 hours of applied behavior analysis," and the supervisor "onsite with the child at least one hour a month." "All BCBAs, BCaBAs and paraprofessionals must meet state requirements." In Washington that means DOH’s rule too: two face-to-face contacts a month with each CBT and direct supervision of at least 5 percent of the CBT’s monthly hours (WAC 246-805-330).',
@@ -1287,9 +1287,9 @@ export const washingtonPayers: Record<string, PayerConfig> = {
         cites: [S.aetnaGuide],
       },
       diagnosingProviders: {
-        value: 'An appropriate provider: "licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice."',
+        value: 'An appropriate provider: "licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice." LCSW (LICSW): yes under Aetna\'s scope-of-practice test — Washington defines independent clinical social work as "the diagnosis and treatment of emotional and mental disorders" (RCW 18.225.010(7)).',
         status: 'verified',
-        cites: [S.aetnaGuide],
+        cites: [S.aetnaGuide, S.lcswScope],
       },
       diagnosticTools: {
         value: 'CPB 0648 names ADI-R, ADOS-2, CARS-2 and the Asperger Syndrome Diagnostic Scale as diagnostic tools used with clinical assessment. The ABA guide requires a standardized functional measure from the past 12 months (Vineland-3, ABAS, VB-MAPP or ABLLS as examples).',
@@ -1445,7 +1445,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       { title: 'Standardized assessment timing', desc: 'Instrument administered within 60 days before treatment starts.' },
       { title: 'Clinician licenses', desc: 'Washington DOH license for the LBA billing the services.' },
     ],
-    sources: [{ title: 'Evernorth Coverage Policy EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026): Criteria for Continued Treatment with ABA', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, S.en0499, S.cignaARG, S.ebhAdmin, S.rcw44341, S.rcw46291, S.rcw21241, S.wac5642, S.hb1432, S.rcw43766, S.rcw18380, S.wac246805, S.rcw18134, S.bacbLic, S.wac431, S.rcw43830, S.rcw43535, S.wac51205, S.erisa, S.abaFee, { title: 'Cigna/Evernorth Autism Resource Guide (PCOMM-2025-225, March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }],
+    sources: [{ title: 'Evernorth Coverage Policy EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026): Criteria for Continued Treatment with ABA', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, S.en0499, S.cignaARG, S.ebhAdmin, S.rcw44341, S.rcw46291, S.rcw21241, S.wac5642, S.hb1432, S.rcw43766, S.rcw18380, S.wac246805, S.rcw18134, S.bacbLic, S.wac431, S.rcw43830, S.rcw43535, S.wac51205, S.erisa, S.abaFee, { title: 'Cigna/Evernorth Autism Resource Guide (PCOMM-2025-225, March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }, S.lcswScope],
     deliveryRules: {
       supervision: {
         value: 'Case supervision is by a BCBA, a licensed behavior analyst, or an independently licensed mental health professional with ABA training, at one to two hours of direct plus indirect supervision per ten hours of direct treatment; at 10 hours a week or less, at least one to two hours a week (EN0499). Washington’s DOH rule adds two face-to-face contacts a month with each CBT and direct supervision of at least 5 percent of the CBT’s monthly hours (WAC 246-805-330).',
@@ -1492,9 +1492,9 @@ export const washingtonPayers: Record<string, PayerConfig> = {
         cites: [S.en0499],
       },
       diagnosingProviders: {
-        value: 'A healthcare professional licensed to practice independently whose board considers diagnosis within scope, applying DSM-5-TR criteria (EN0499).',
+        value: 'A healthcare professional licensed to practice independently whose board considers diagnosis within scope, applying DSM-5-TR criteria (EN0499). LCSW (LICSW): yes under Evernorth\'s test — Washington defines independent clinical social work as "the diagnosis and treatment of emotional and mental disorders" (RCW 18.225.010(7)), and the LICSW is an independent licence.',
         status: 'verified',
-        cites: [S.en0499],
+        cites: [S.en0499, S.lcswScope],
       },
       diagnosticTools: {
         value: 'No single instrument is mandated, but it must be reliable, valid and standardized, completed in full, and the current edition (EN0499’s example: Vineland-3, not Vineland-II).',
@@ -1648,7 +1648,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis with a validated tool', desc: 'DSM-5-TR ASD and severity level, confirmed with a validated tool (ADI-R, ADOS-2 and others).' },
       { title: 'Clinician licenses', desc: 'Washington DOH license for the LBA; technician credential (CBT; Optum’s HM line names the RBT).' },
     ],
-    sources: [{ title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): Coordination of Benefits; Timely Filing; Payment Timelines', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }, S.optumSCC, S.optumSM, S.optumWA, S.optumTele, S.optumReimb, S.optumNNM, S.rcw44341, S.rcw46291, S.rcw21241, S.wac5642, S.hb1432, S.rcw43766, S.rcw18380, S.wac246805, S.rcw18134, S.bacbLic, S.wac431, S.rcw43830, S.rcw43735, S.rcw43535, S.wac51205, S.erisa, S.abaFee, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial) — services not requiring a referral', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: 'Optum — ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+    sources: [{ title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): Coordination of Benefits; Timely Filing; Payment Timelines', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }, S.optumSCC, S.optumSM, S.optumWA, S.optumTele, S.optumReimb, S.optumNNM, S.rcw44341, S.rcw46291, S.rcw21241, S.wac5642, S.hb1432, S.rcw43766, S.rcw18380, S.wac246805, S.rcw18134, S.bacbLic, S.wac431, S.rcw43830, S.rcw43735, S.rcw43535, S.wac51205, S.erisa, S.abaFee, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial) — services not requiring a referral', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: 'Optum — ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, S.lcswScope],
     deliveryRules: {
       supervision: {
         value: 'Consistent with CASP standards, direct case supervision is required at 1–2 hours for every 10 hours of direct treatment. Technicians work under a BCBA or licensed behavioral health clinician and "should be registered behavior technicians (RBT) or another appropriately certified behavior technician as allowable by state mandate" (Optum SCC). In Washington the state credential is the DOH CBT, supervised under WAC 246-805-330 (two face-to-face contacts a month; 5 percent direct supervision monthly).',
@@ -1699,9 +1699,9 @@ export const washingtonPayers: Record<string, PayerConfig> = {
         cites: [S.optumSCC],
       },
       diagnosingProviders: {
-        value: 'A state-licensed physician, psychologist, or other state-licensed clinician qualified to diagnose under DSM-5-TR.',
+        value: 'A state-licensed physician, psychologist, or other state-licensed clinician qualified to diagnose under DSM-5-TR. LCSW (LICSW): yes under Optum\'s test — Washington defines independent clinical social work as "the diagnosis and treatment of emotional and mental disorders" (RCW 18.225.010(7)).',
         status: 'verified',
-        cites: [S.optumSCC],
+        cites: [S.optumSCC, S.lcswScope],
       },
       diagnosticTools: {
         value: 'At least one clinically validated tool, from a non-exhaustive list of first-level screens (M-CHAT and others), second-level screens (CARS/CARS-2 and others) and formal diagnostic tools (ADI-R, ADOS-2 and others).',
@@ -1836,7 +1836,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       { title: 'Treatment plan', desc: 'Updated every six months; kept on file.' },
       { title: 'Other providers', desc: 'Speech, OT and school services, so sessions are not scheduled at the same time as ABA.' },
     ],
-    sources: [S.premPolicy, S.premABA, S.premCodeInd, S.premCodeGrp, S.premPAPage, S.rcw44341, S.rcw46291, S.rcw21241, S.wac5642, S.hb1432, S.rcw43766, S.rcw18380, S.wac246805, S.rcw18134, S.bacbLic, S.wac431, S.rcw43830, S.rcw43735, S.rcw43535, S.wac51205, S.erisa, S.abaFee, { title: 'Premera — BlueCard Resources (prefix list, out-of-area medical policy and pre-service review)', url: 'https://www.premera.com/wa/provider/bluecard-resources/' }, { title: 'Premera — Medical Reference Manual: BlueCard and Shared Administration chapter', url: 'https://www.premera.com/wa/provider/reference/medical-manuals/bluecard/' }, { title: 'Premera — Provider News (WA provider news site)', url: 'https://providernews.premera.com/' }],
+    sources: [S.premPolicy, S.premABA, S.premCodeInd, S.premCodeGrp, S.premPAPage, S.rcw44341, S.rcw46291, S.rcw21241, S.wac5642, S.hb1432, S.rcw43766, S.rcw18380, S.wac246805, S.rcw18134, S.bacbLic, S.wac431, S.rcw43830, S.rcw43735, S.rcw43535, S.wac51205, S.erisa, S.abaFee, { title: 'Premera — BlueCard Resources (prefix list, out-of-area medical policy and pre-service review)', url: 'https://www.premera.com/wa/provider/bluecard-resources/' }, { title: 'Premera — Medical Reference Manual: BlueCard and Shared Administration chapter', url: 'https://www.premera.com/wa/provider/reference/medical-manuals/bluecard/' }, { title: 'Premera — Provider News (WA provider news site)', url: 'https://providernews.premera.com/' }, S.lcswScope],
     deliveryRules: {
       supervision: {
         value: 'Premera’s ABA resources page: technicians "should receive weekly clinical supervision from the program manager/lead behavioral therapist as follows for each patient: Generally, 2 hours for every 10 hours of direct service provision, with a minimum of 2 hours weekly when direct service provision is 10 hours per week or less." Policy 3.01.510 adds that some supervisory time should be direct observation, and supervision may be in person or by real-time video. DOH’s CBT supervision rule (WAC 246-805-330) also applies in Washington.',
@@ -1885,9 +1885,9 @@ export const washingtonPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       diagnosingProviders: {
-        value: 'A healthcare professional "whose legally permitted scope of licensure includes diagnosis of psychiatric disorders or neurodevelopmental disorders."',
+        value: 'A healthcare professional "whose legally permitted scope of licensure includes diagnosis of psychiatric disorders or neurodevelopmental disorders." LCSW (LICSW): yes on Premera\'s wording — Washington defines independent clinical social work as "the diagnosis and treatment of emotional and mental disorders" (RCW 18.225.010(7)).',
         status: 'verified',
-        cites: [S.premPolicy],
+        cites: [S.premPolicy, S.lcswScope],
       },
       diagnosticTools: {
         value: 'Policy 3.01.510 names no required diagnostic instrument.',
@@ -2008,7 +2008,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       { title: 'Prior ABA history', desc: 'Most recent date of service with any previous ABA provider and the reason for discharge.' },
       { title: 'Plan funding type', desc: 'Fully insured Washington plan (state parity law applies) vs. self-funded ERISA.' },
     ],
-    sources: [S.regBH18, S.regBH33, S.rcw44341, S.rcw46291, S.rcw21241, S.wac5642, S.hb1432, S.rcw43766, S.rcw18380, S.wac246805, S.rcw18134, S.bacbLic, S.wac431, S.rcw43830, S.rcw43735, S.rcw43535, S.wac51205, S.erisa, S.abaFee],
+    sources: [S.regBH18, S.regBH33, S.rcw44341, S.rcw46291, S.rcw21241, S.wac5642, S.hb1432, S.rcw43766, S.rcw18380, S.wac246805, S.rcw18134, S.bacbLic, S.wac431, S.rcw43830, S.rcw43735, S.rcw43535, S.wac51205, S.erisa, S.abaFee, S.lcswScope],
     deliveryRules: {
       supervision: {
         value: 'BH18 sets no numeric ratio. BCaBAs work under a BCBA or BCBA-D; behavior technicians and RBTs "must be under the ongoing supervision of a BCBA, BCBA-D, or qualified supervisor," and "All supervision must be conducted in accordance with" the BACB’s ethics code and supervision standards; the plan must justify the hours per week of direct face-to-face supervision requested. In Washington, DOH’s CBT rule also applies: two face-to-face contacts a month and direct supervision of at least 5 percent of monthly hours (WAC 246-805-330).',
@@ -2061,9 +2061,9 @@ export const washingtonPayers: Record<string, PayerConfig> = {
         cites: [S.regBH18],
       },
       diagnosingProviders: {
-        value: 'A qualified treating health care professional "as defined by state law"; BH33 gives as examples a pediatrician, pediatric neurologist, developmental pediatrician or psychologist.',
+        value: 'A qualified treating health care professional "as defined by state law"; BH33 gives as examples a pediatrician, pediatric neurologist, developmental pediatrician or psychologist. LCSW (LICSW): not among Regence\'s examples; "as defined by state law" — Washington defines independent clinical social work as "the diagnosis and treatment of emotional and mental disorders" (RCW 18.225.010(7)) — but Regence also requires experience diagnosing autism.',
         status: 'verified',
-        cites: [S.regBH33, S.regBH18],
+        cites: [S.regBH33, S.regBH18, S.lcswScope],
       },
       diagnosticTools: {
         value: 'No diagnostic instrument is named. For the treatment plan, each targeted behavior needs "at least one standardized assessment" (examples: SRS-2, Vineland-3, ABAS-3, SSIS, BRIEF-2, PDDBI); curriculum-based tools such as VB-MAPP, PEAK, ABLLS-R and AFLS guide planning but are not standardized.',

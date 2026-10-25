@@ -48,7 +48,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { label: 'Structure', value: 'Dual path: six ACC plans, or DDD Health Plans (Mercy Care DD / UHCCP DD) for ALTCS-DD members' },
       { label: 'Diagnosis', value: 'No autism dx required — BHP recommendation based on assessment' },
       { label: 'Prior auth', value: 'Delegated to plans — Mercy Care and UHC/Optum skip PA on 97151/97152' },
-      { label: 'Rates (per 15 min)', value: '97153: $17.91 HM · $21.32 HN · $23.69 HO/HP; 97155: $25.05–$37.28 (home ~10% more)' },
+      { label: 'Rates (per 15 min)', value: '97153: $17.91 HM · $21.32 HN · $23.69 HO/HP; 97155: $25.05–$37.28 (home ~10% more). HM/HN/HO/HP = below bachelor\'s / bachelor\'s / master\'s / doctoral degree level' },
       { label: 'Licensure', value: 'Arizona-licensed behavior analyst (A.R.S. § 32-2091, Board of Psychologist Examiners)' },
       { label: 'Watch', value: 'AMPM 320-S rewrite in flight (2026) + March 2026 in-network provider terminations' },
       { label: 'Staff screening', value: 'AHCCCS FCBC hits owners/execs only — front-line staff get DPS cards via ADHS licensure (apply within 7 working days) and DDD Level One cards' },
@@ -89,10 +89,14 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       {
         h2: 'Rates: credential-tiered, and on the physician fee schedule',
         body: [
-          'AHCCCS converted the ABA codes from by-report to fixed rates effective November 1, 2023, tiered by rendering credential via modifiers: HM = below bachelor\'s (BT/RBT level), HN = bachelor\'s (BCaBA), HO = master\'s (BCBA), HP = doctoral (BCBA-D). Per 15-minute unit: 97151 assessment pays $30.06 / $35.78 / $44.73 at the HN/HO/HP tiers; 97153 direct treatment pays $17.91 / $21.32 / $23.69 (HM/HN/HO-HP); 97155 protocol modification pays $25.05 / $29.82 / $37.28. Home delivery (POS 12) pays roughly a 10% premium on every code — 97153 at home runs $19.96–$26.43. Two traps: the 2023 rate notice did not set a rate for 97156 (family training) — check the AHCCCS physician fee schedule code lookup directly — and the 9715x codes are not on the Behavioral Health Outpatient fee schedule at all; they live on the physician fee schedule. Practices that look up "behavioral health rates" find nothing and assume ABA is unpriced — it isn\'t.',
+          'AHCCCS converted the ABA codes from by-report to fixed rates effective November 1, 2023, tiered by the education level of whoever rendered the service. AHCCCS\'s own Modifier List defines the four tier modifiers as HM \u201cLess than bachelor degree level,\u201d HN \u201cBachelors degree level,\u201d HO \u201cMasters degree level\u201d and HP \u201cDoctoral level\u201d \u2014 degree levels, not BACB credentials; AHCCCS publishes no crosswalk to RBT, BCaBA or BCBA, so confirm with the health plan which modifier a bachelor\'s-level technician bills. Per 15-minute unit on the FFY26 ABA fee schedule (effective 10/1/2025, same dollars as 11/1/2023): 97151 assessment pays $30.06 / $35.78 / $44.73 at HN/HO/HP; 97152 pays $21.49 / $25.58 / $28.43 / $28.43 at HM/HN/HO/HP; 97153 direct treatment pays $17.91 / $21.32 / $23.69 / $23.69 at HM/HN/HO/HP; 97155 protocol modification pays $25.05 / $29.82 / $37.28 at HN/HO/HP; 97158 pays $6.26 / $7.46 / $9.32. 97151, 97155 and 97158 have no HM rate, and a line billed with no tier modifier is priced at the lowest tier listed. Home delivery (POS 12) pays roughly a 10% premium on every code \u2014 97153 at home runs $19.96\u2013$26.43. 97154 group treatment also carries a TJ (\u201cProgram group, child and/or adolescent\u201d) rate of $14.93, added to the schedule on 6/30/2026 with effect from 10/1/2025. 97156 (family training) and 97157 remain \u201cBR\u201d (By Report), so there is no fixed rate to quote. 0362T and 0373T are closed: AHCCCS\'s Medical Coding Unit stopped allowing them from July 1, 2023 and points providers to 97151\u201397158 instead. Two more traps: the 9715x codes are not on the Behavioral Health Outpatient fee schedule at all \u2014 they live on the physician fee schedule \u2014 so practices that look up "behavioral health rates" find nothing and assume ABA is unpriced; and these are fee-for-service rates, which the health plans are free to negotiate away from.',
         ],
         cites: [
           { title: 'AHCCCS — Final Public Notice, FFS rate changes 11/1/2023 (ABA codes)', url: 'https://www.azahcccs.gov/AHCCCS/Downloads/PublicNotices/rates/FinalPublicNotice_RateChanges_20231101_ABA.pdf' },
+          { title: 'AHCCCS — Final Applied Behavior Analysis (ABA) Fee Schedule, FFY26 (eff. 10/01/2025; last updated 6/30/2026, TJ rate added)', url: 'https://azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA/FY26_Final_ABA_FeeSchedule.xlsx' },
+          { title: 'AHCCCS — Modifier List and Descriptions (Medical Coding Resources, 2024)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/AHCCCS_ModifiersList2024.pdf' },
+          { title: 'AHCCCS Medical Coding Unit — Code Closure memo: 0362T and 0373T not allowed from July 1, 2023 (6/21/2023)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/MEMO-0362T_0373T-CodeClosure.pdf' },
+          { title: 'AHCCCS — Rate Setting for Applied Behavioral Analysis (ABA) Services FAQ (10/31/2023)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA_RateSettingFAQs.pdf' },
           { title: 'AHCCCS — FY26 Behavioral Health Outpatient MCO fee schedule (9715x absent)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSrates/Behavioral/FY26BHOP_MCO_10012025.xlsx' },
           { title: 'acuity.news — Arizona Medicaid ABA rates & AHCCCS reform 2026', url: 'https://acuity.news/regulation/arizona-medicaid-aba-reimbursement-ahcccs-reform-2026/' },
         ],
@@ -177,7 +181,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'ACC plan vs. DDD enrollment', desc: 'The routing question — an ACC card and a DDD Health Plan card mean different payers, portals, and auth pathways.' },
       { title: 'Diagnosis (any qualifying)', desc: 'ASD or another diagnosis justified by medical necessity — Arizona doesn\'t gate ABA on an autism dx.' },
       { title: 'BHP recommendation + assessment', desc: 'A qualified Behavioral Health Professional must prescribe/recommend ABA based on assessment.' },
-      { title: 'Rendering credential tier', desc: 'HM/HN/HO/HP modifiers set the rate — who delivers each code is a revenue decision.' },
+      { title: 'Rendering education tier', desc: 'HM/HN/HO/HP (below bachelor\'s / bachelor\'s / master\'s / doctoral degree level) set the rate — who delivers each code is a revenue decision.' },
       { title: 'Prior ABA provider', desc: 'Post-March-2026, many inbounds are displaced Action Behavior Centers / Centria families — capture the history and any active auths.' },
     ],
     sources: [
@@ -219,6 +223,10 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'AMPM 540 — Electronic Visit Verification (effective 08/06/26)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/500/540.pdf' },
       { title: 'AHCCCS — Electronic Visit Verification (What is EVV?, updated Oct. 22, 2025)', url: 'https://www.azahcccs.gov/AHCCCS/Initiatives/EVV/' },
       { title: 'AHCCCS — Claims Clues newsletter archive (DFSM monthly FFS provider newsletter)', url: 'https://www.azahcccs.gov/PlansProviders/RatesAndBilling/FFS/claimsclues.html' },
+      { title: 'AHCCCS — Final Applied Behavior Analysis (ABA) Fee Schedule, FFY26 (eff. 10/01/2025; last updated 6/30/2026, TJ rate added)', url: 'https://azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA/FY26_Final_ABA_FeeSchedule.xlsx' },
+      { title: 'AHCCCS — Modifier List and Descriptions (Medical Coding Resources, 2024)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/AHCCCS_ModifiersList2024.pdf' },
+      { title: 'AHCCCS Medical Coding Unit — Code Closure memo: 0362T and 0373T not allowed from July 1, 2023 (6/21/2023)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/MEMO-0362T_0373T-CodeClosure.pdf' },
+      { title: 'AHCCCS — Covered Behavioral Health Services Guide (updated 10/01/2026)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/AHCCCSCoveredBHServicesManual.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -339,10 +347,12 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       },
       billAsProvider: {
         value:
-          'The claim line has to say who actually delivered the service. AHCCCS pays credential-tiered rates through modifiers — HM below bachelor\'s (technician level), HN bachelor\'s, HO master\'s, HP doctoral — and AMPM 320-S points to the Behavioral Health Services Billing Matrix for "modifiers for Behavior Analysis Trainee billing." Whose NPI goes in the rendering field is set per Contractor: UnitedHealthcare Community Plan, for instance, requires the rendering provider\'s 10-digit NPI in box 24J, "must be an active AHCCCS registered provider (The rendering provider is the BCBA/Licensed Clinician)."',
+          'The claim line has to say who actually delivered the service. AHCCCS pays tiered rates through the modifiers its Modifier List defines by degree level \u2014 HM \u201cLess than bachelor degree level,\u201d HN \u201cBachelors degree level,\u201d HO \u201cMasters degree level,\u201d HP \u201cDoctoral level\u201d \u2014 and AMPM 320-S points to the Behavioral Health Services Billing Matrix for "modifiers for Behavior Analysis Trainee billing." The Behavior Analyst may bill for staff\'s work: AHCCCS\'s Covered Behavioral Health Services Guide (updated 10/01/2026) bars a behavioral health professional from billing under their own NPI for services provided by another person "with the exception of PT BC in accordance with AMPM Policy 320-S Behavior Analysis Services and Arizona Revised Statutes (ARS) 32-2091." Whose NPI goes in the rendering field is set per Contractor: UnitedHealthcare Community Plan, for instance, requires the rendering provider\'s 10-digit NPI in box 24J, "must be an active AHCCCS registered provider (The rendering provider is the BCBA/Licensed Clinician)."',
         status: 'verified',
         cites: [
           { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'AHCCCS — Modifier List and Descriptions (Medical Coding Resources, 2024)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/AHCCCS_ModifiersList2024.pdf' },
+          { title: 'AHCCCS — Covered Behavioral Health Services Guide (updated 10/01/2026)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/AHCCCSCoveredBHServicesManual.pdf' },
           { title: 'AHCCCS — Final Public Notice, FFS rate changes 11/1/2023 (ABA codes)', url: 'https://www.azahcccs.gov/AHCCCS/Downloads/PublicNotices/rates/FinalPublicNotice_RateChanges_20231101_ABA.pdf' },
           { title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation (BH4129)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' },
         ],
@@ -352,7 +362,8 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { q: 'How soon after an initial assessment must an AHCCCS member start ABA?', a: 'AHCCCS\u2019s behavioral health appointment standard (ACOM 417, current version eff. 10/1/2026) sets the clock for every ACC, ACC-RBHA, ALTCS E/PD and DDD plan: the initial assessment within seven calendar days of the referral or request, and the initial appointment \u201cno later than 21 days after the initial assessment\u201d for members under 18 (23 calendar days for adults), with later services no more than 45 calendar days from identification of need. For children in DCS custody and adopted children, the initial appointment is due no later than 21 calendar days after screening and evaluation. The standard binds the plan\'s network, so plans refer to agencies that can meet it. The treatment PA decision (14 calendar days in most plan manuals, 7 under the 2026 federal rule) has to fit inside the 21 days.' },
       { q: 'Does AHCCCS cover ABA therapy?', a: 'Yes — under AMPM 320-S, for members with autism spectrum disorder and/or other diagnoses as justified by medical necessity. Coverage runs through the member\'s ACC plan, or through a DDD Health Plan (Mercy Care DD or UHCCP DD) for ALTCS-DD members.' },
       { q: 'Does Arizona Medicaid require an autism diagnosis for ABA?', a: 'No — AMPM 320-S explicitly covers "other diagnoses as justified by medical necessity," and Optum\'s Arizona orientation states verbatim that an ASD diagnosis is not required for AHCCCS members. A qualified Behavioral Health Professional must still recommend the service based on assessment.' },
-      { q: 'What does AHCCCS pay for ABA?', a: 'Fixed, credential-tiered rates since 11/1/2023: 97153 pays $17.91 (HM) / $21.32 (HN) / $23.69 (HO/HP) per 15-minute unit, with home delivery about 10% higher. The codes live on the physician fee schedule, not the behavioral-health outpatient one, and 97156 wasn\'t in the 2023 rate notice — look it up directly.' },
+      { q: 'What does AHCCCS pay for ABA?', a: 'Fixed rates since 11/1/2023, tiered by the rendering person\'s degree level (HM below bachelor\'s, HN bachelor\'s, HO master\'s, HP doctoral): 97153 pays $17.91 (HM) / $21.32 (HN) / $23.69 (HO/HP) per 15-minute unit, with home delivery about 10% higher. The codes live on the physician fee schedule, not the behavioral-health outpatient one. 97156 and 97157 are still \u201cBy Report\u201d on the FFY26 ABA fee schedule, and 0362T/0373T have not been billable since July 1, 2023.' },
+      { q: 'What do the HM, HN, HO and HP rates mean on the AHCCCS ABA fee schedule?', a: 'They are the education level of the person who delivered the service. AHCCCS\u2019s Modifier List defines HM as \u201cLess than bachelor degree level,\u201d HN \u201cBachelors degree level,\u201d HO \u201cMasters degree level\u201d and HP \u201cDoctoral level.\u201d So 97153 pays $17.91 per 15 minutes when the person delivering it is below bachelor\u2019s level and $21.32 at bachelor\u2019s level ($23.69 at master\u2019s or doctoral level; $19.96 / $23.79 / $26.43 in the home, POS 12). AHCCCS defines the tiers by degree, not by RBT/BCaBA/BCBA credential, and publishes no crosswalk, so ask the health plan which tier a bachelor\u2019s-level technician bills. Other modifiers on ABA lines: TJ (\u201cProgram group, child and/or adolescent\u201d) carries its own 97154 rate of $14.93, and GT (\u201cVia interactive audio and video telecommunication systems\u201d) marks telehealth. These are fee-for-service rates; the health plans negotiate their own.' },
       { q: 'Which plans run AHCCCS ABA?', a: 'Six ACC plans — Arizona Complete Health, Banner-University Family Care, Blue Cross Blue Shield of Arizona Health Choice, Mercy Care, Molina, and UnitedHealthcare Community Plan — plus the two statewide DDD Health Plans (Mercy Care DD and UHCCP DD) for ALTCS-DD members. Prior-auth mechanics are plan-specific.' },
       { q: 'Can the ABA assessment or BCBA supervision be done by telehealth under AHCCCS?', a: 'Yes. AHCCCS\u2019s Telehealth Code Set lists 97151 through 97158 for interactive audio-video with the GT modifier, so the assessment (97151, 97152) and analyst direction of the technician (97155) can be remote. The place of service is where the member is (for example 12 home); AHCCCS does not use POS 02 or 10. Audio-only (FQ) is not listed for these codes.' },
       { q: 'Is ABA payable in school under AHCCCS?', a: 'The Behavioral Health Services Matrix lists POS 03 (school) as a valid place of service for 97151 through 97158. AMPM 320-S requires the treatment plan to name the settings but sets no school-specific restriction; ask the member\u2019s health plan how it handles school-based delivery alongside an IEP.' },
@@ -465,6 +476,19 @@ export const arizonaPayers: Record<string, PayerConfig> = {
           { title: 'AHCCCS — Electronic Visit Verification (What is EVV?, updated Oct. 22, 2025)', url: 'https://www.azahcccs.gov/AHCCCS/Initiatives/EVV/' },
         ],
       },
+      {
+        h2: 'Rate-tier modifiers on the claim (HM, HN, HO, HP)',
+        body: [
+          'Mercy Care\'s own ABA provider page and manual return 403 to automated retrieval, so we could not confirm whether Mercy Care adds modifier rules of its own; the published floor is AHCCCS\'s. AHCCCS\'s Modifier List defines the four rate-tier modifiers by the rendering person\'s degree level: HM “Less than bachelor degree level,” HN “Bachelors degree level,” HO “Masters degree level” and HP “Doctoral level.” The Behavioral Health Services Matrix (October 2026) lists HM, HN, HO and HP as valid on the ABA codes for the BCBA (BC) and ABA-organization (AB) provider types — except 97155–97158, where HM is not listed — plus TJ (“Program group, child and/or adolescent”) on 97154 and GT (“Via interactive audio and video telecommunication systems”) for telehealth. On the AHCCCS fee-for-service schedule the tiers carry different prices (97153: $17.91 HM, $21.32 HN, $23.69 HO/HP per 15 minutes), but those prices bind fee-for-service programs only: AHCCCS says plans and providers “may negotiate any contracted rate.” AHCCCS publishes no crosswalk from degree level to RBT, BCaBA or BCBA. 0362T and 0373T have not been reportable to AHCCCS since July 1, 2023. Ask Mercy Care which modifier its contract prices for a bachelor\'s-level technician, and whether its ABA page still lists 0362T/0373T.',
+        ],
+        cites: [
+          { title: 'AHCCCS — Modifier List and Descriptions (Medical Coding Resources, 2024)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/AHCCCS_ModifiersList2024.pdf' },
+          { title: 'AHCCCS Behavioral Health Services Matrix (B2Matrix, October 2026 sheet)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/B2Matrix.xlsx' },
+          { title: 'AHCCCS — Final Applied Behavior Analysis (ABA) Fee Schedule, FFY26 (eff. 10/01/2025; last updated 6/30/2026, TJ rate added)', url: 'https://azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA/FY26_Final_ABA_FeeSchedule.xlsx' },
+          { title: 'AHCCCS — Rate Setting for Applied Behavioral Analysis (ABA) Services FAQ (10/31/2023)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA_RateSettingFAQs.pdf' },
+          { title: 'AHCCCS Medical Coding Unit — Code Closure memo: 0362T and 0373T not allowed from July 1, 2023 (6/21/2023)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/MEMO-0362T_0373T-CodeClosure.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Which Mercy Care book', desc: 'ACC, Mercy Care DD (DDD/ALTCS), or DCS CHP (foster care) — same payer, different funnel and care team.' },
@@ -498,6 +522,9 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'AMPM 540 — Electronic Visit Verification (effective 08/06/26)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/500/540.pdf' },
       { title: 'AHCCCS — Electronic Visit Verification (What is EVV?, updated Oct. 22, 2025)', url: 'https://www.azahcccs.gov/AHCCCS/Initiatives/EVV/' },
       { title: 'Mercy Care — Provider newsletters and notices (dated provider notice archive)', url: 'https://www.mercycareaz.org/providers/newsletters-notices.html' },
+      { title: 'AHCCCS — Modifier List and Descriptions (Medical Coding Resources, 2024)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/AHCCCS_ModifiersList2024.pdf' },
+      { title: 'AHCCCS — Final Applied Behavior Analysis (ABA) Fee Schedule, FFY26 (eff. 10/01/2025; last updated 6/30/2026, TJ rate added)', url: 'https://azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA/FY26_Final_ABA_FeeSchedule.xlsx' },
+      { title: 'AHCCCS Medical Coding Unit — Code Closure memo: 0362T and 0373T not allowed from July 1, 2023 (6/21/2023)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/MEMO-0362T_0373T-CodeClosure.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -663,6 +690,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { q: 'What is Mercy Care\u2019s fee schedule for ABA?', a: 'There is no public plan fee schedule. AHCCCS says its fixed ABA rates (effective November 1, 2023) apply only to fee-for-service programs and have “no impact on the contracts that AHCCCS health plans negotiate with their providers”: “MCOs and providers may negotiate any contracted rate that is agreed to by both parties.” Your rate is in your contract with Mercy Care; the AHCCCS fee-for-service schedule does not bind the plan.' },
       { q: 'Can an out-of-state BCBA treat Mercy Care members in Arizona, including by telehealth?', a: 'Arizona requires a license (A.R.S. § 32-2091.02) but lets an out-of-state provider deliver telehealth after registering under A.R.S. § 36-3606. AHCCCS defines a Behavior Analyst as one licensed under A.R.S. § 32-2091, so plan on an Arizona license for Medicaid work.' },
       { q: 'What is Mercy Care’s timely filing limit for AHCCCS ABA claims?', a: 'Six months from the date of service (or from the date eligibility is posted, if later), and twelve months to reach clean-claim status. A.R.S. § 36-2904(G) sets those limits for every AHCCCS contracted health plan, Mercy Care included; the plan’s payment terms are in its contract and provider manual.' },
+      { q: 'What do the HM, HN, HO and HP modifiers mean on an Arizona Medicaid ABA claim?', a: 'They mark the education level of whoever delivered the service, as AHCCCS defines them: HM less than bachelor’s degree, HN bachelor’s, HO master’s, HP doctoral. On the AHCCCS fee-for-service schedule they price 97153 at $17.91, $21.32, $23.69 and $23.69 per 15 minutes; the plan pays its contracted rate. AHCCCS does not map them to RBT/BCaBA/BCBA, so confirm the tier for a bachelor’s-level technician with the plan.' },
     ],
   },
 
@@ -769,6 +797,21 @@ export const arizonaPayers: Record<string, PayerConfig> = {
           { title: 'AHCCCS — Electronic Visit Verification (What is EVV?, updated Oct. 22, 2025)', url: 'https://www.azahcccs.gov/AHCCCS/Initiatives/EVV/' },
         ],
       },
+      {
+        h2: 'Rate-tier modifiers on the claim (HM, HN, HO, HP)',
+        body: [
+          'UnitedHealthcare Community Plan\'s 2027 Arizona Care Provider Manual adds no ABA modifier definitions and sends providers to the Medical Coding page of the AHCCCS website; Optum\'s Arizona ABA orientation says coding depends on the “Rate per unit (BCBA vs. Paraprofessional)” and names “Invalid or missing HCPCS/CPT codes and modifiers” as a denial cause. So the definitions are AHCCCS\'s. AHCCCS\'s Modifier List defines the four rate-tier modifiers by the rendering person\'s degree level: HM “Less than bachelor degree level,” HN “Bachelors degree level,” HO “Masters degree level” and HP “Doctoral level.” The Behavioral Health Services Matrix (October 2026) lists HM, HN, HO and HP as valid on the ABA codes for the BCBA (BC) and ABA-organization (AB) provider types — except 97155–97158, where HM is not listed — plus TJ (“Program group, child and/or adolescent”) on 97154 and GT (“Via interactive audio and video telecommunication systems”) for telehealth. On the AHCCCS fee-for-service schedule the tiers carry different prices (97153: $17.91 HM, $21.32 HN, $23.69 HO/HP per 15 minutes), but those prices bind fee-for-service programs only: AHCCCS says plans and providers “may negotiate any contracted rate.” AHCCCS publishes no crosswalk from degree level to RBT, BCaBA or BCBA. 0362T and 0373T have not been reportable to AHCCCS since July 1, 2023.',
+        ],
+        cites: [
+          { title: 'UnitedHealthcare Community Plan of Arizona — 2027 Care Provider Manual (Doc# PMI 10132026)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/AZ-Provider-Manual.pdf' },
+          { title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation (BH4129)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' },
+          { title: 'AHCCCS — Modifier List and Descriptions (Medical Coding Resources, 2024)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/AHCCCS_ModifiersList2024.pdf' },
+          { title: 'AHCCCS Behavioral Health Services Matrix (B2Matrix, October 2026 sheet)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/B2Matrix.xlsx' },
+          { title: 'AHCCCS — Final Applied Behavior Analysis (ABA) Fee Schedule, FFY26 (eff. 10/01/2025; last updated 6/30/2026, TJ rate added)', url: 'https://azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA/FY26_Final_ABA_FeeSchedule.xlsx' },
+          { title: 'AHCCCS — Rate Setting for Applied Behavioral Analysis (ABA) Services FAQ (10/31/2023)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA_RateSettingFAQs.pdf' },
+          { title: 'AHCCCS Medical Coding Unit — Code Closure memo: 0362T and 0373T not allowed from July 1, 2023 (6/21/2023)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/MEMO-0362T_0373T-CodeClosure.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'ACC vs. DD membership', desc: 'Check the card — Group AZDDD ("DDD Health Plan by UHCCP") vs. AZHCCCS routes the eligibility conversation.' },
@@ -798,6 +841,10 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'AMPM 540 — Electronic Visit Verification (effective 08/06/26)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/500/540.pdf' },
       { title: 'AHCCCS — Electronic Visit Verification (What is EVV?, updated Oct. 22, 2025)', url: 'https://www.azahcccs.gov/AHCCCS/Initiatives/EVV/' },
       { title: 'UnitedHealthcare Community Plan of Arizona — Bulletins and newsletters', url: 'https://www.uhcprovider.com/en/health-plans-by-state/arizona-health-plans/az-comm-plan-home/az-cp-news.html' },
+      { title: 'AHCCCS — Modifier List and Descriptions (Medical Coding Resources, 2024)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/AHCCCS_ModifiersList2024.pdf' },
+      { title: 'AHCCCS Behavioral Health Services Matrix (B2Matrix, October 2026 sheet)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/B2Matrix.xlsx' },
+      { title: 'AHCCCS — Final Applied Behavior Analysis (ABA) Fee Schedule, FFY26 (eff. 10/01/2025; last updated 6/30/2026, TJ rate added)', url: 'https://azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA/FY26_Final_ABA_FeeSchedule.xlsx' },
+      { title: 'AHCCCS Medical Coding Unit — Code Closure memo: 0362T and 0373T not allowed from July 1, 2023 (6/21/2023)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/MEMO-0362T_0373T-CodeClosure.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -940,6 +987,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { q: 'Can UnitedHealthcare Community Plan of Arizona authorize ABA retroactively?', a: 'Plan on no. UHC does not approve retroactive authorizations for therapy services (it names PT, OT and speech); ask whether it applies that to ABA before treating without approval.' },
       { q: 'What is UnitedHealthcare Community Plan’s timely filing limit for AHCCCS ABA claims?', a: 'Six months from the date of service (or from the date eligibility is posted, if later), and twelve months to reach clean-claim status. A.R.S. § 36-2904(G) sets those outer limits for every AHCCCS plan, but UnitedHealthcare Community Plan’s Arizona manual requires network providers to submit within 90 days of the date of service (or your contract’s terms); non-participating providers get 180 days. Corrected claims are due within one year, secondary claims within 180 days of the date of service.' },
       { q: 'How fast does UnitedHealthcare Community Plan of Arizona pay a clean ABA claim?', a: 'The manual says to allow up to 30 days for payment of an initial claim and 45 days for an adjustment. AHCCCS requires 95% of clean claims within 30 days and 99% within 60, with interest on non-hospital clean claims paid after 45 days. No weekly cutoff or check-run day is published.' },
+      { q: 'What do the HM, HN, HO and HP modifiers mean on an Arizona Medicaid ABA claim?', a: 'They mark the education level of whoever delivered the service, as AHCCCS defines them: HM less than bachelor’s degree, HN bachelor’s, HO master’s, HP doctoral. On the AHCCCS fee-for-service schedule they price 97153 at $17.91, $21.32, $23.69 and $23.69 per 15 minutes; the plan pays its contracted rate. AHCCCS does not map them to RBT/BCaBA/BCBA, so confirm the tier for a bachelor’s-level technician with the plan.' },
     ],
   },
 
@@ -1056,6 +1104,20 @@ export const arizonaPayers: Record<string, PayerConfig> = {
           { title: 'AHCCCS — Electronic Visit Verification (What is EVV?, updated Oct. 22, 2025)', url: 'https://www.azahcccs.gov/AHCCCS/Initiatives/EVV/' },
         ],
       },
+      {
+        h2: 'Rate-tier modifiers on the claim (HM, HN, HO, HP)',
+        body: [
+          'Arizona Complete Health\'s billing manual (section 8) says AHCCCS reference files are used “to determine AHCCCS fee schedule-based payment rates, including payment adjustments (e.g., provider type specific payment reductions, modifier-based payment adjustments and more) unless otherwise specified in this manual, our website, a provider’s contract,” and that modifiers “are to be used only when the service meets the definition of the modifier.” Its ABA policy CP.BH.104 defines no modifiers of its own, so the definitions are AHCCCS\'s. AHCCCS\'s Modifier List defines the four rate-tier modifiers by the rendering person\'s degree level: HM “Less than bachelor degree level,” HN “Bachelors degree level,” HO “Masters degree level” and HP “Doctoral level.” The Behavioral Health Services Matrix (October 2026) lists HM, HN, HO and HP as valid on the ABA codes for the BCBA (BC) and ABA-organization (AB) provider types — except 97155–97158, where HM is not listed — plus TJ (“Program group, child and/or adolescent”) on 97154 and GT (“Via interactive audio and video telecommunication systems”) for telehealth. On the AHCCCS fee-for-service schedule the tiers carry different prices (97153: $17.91 HM, $21.32 HN, $23.69 HO/HP per 15 minutes), but those prices bind fee-for-service programs only: AHCCCS says plans and providers “may negotiate any contracted rate.” AHCCCS publishes no crosswalk from degree level to RBT, BCaBA or BCBA. 0362T and 0373T have not been reportable to AHCCCS since July 1, 2023.',
+        ],
+        cites: [
+          { title: 'Arizona Complete Health — Provider Manual Section 8, Finance/Billing', url: 'https://www.azcompletehealth.com/providers/resources/provider-manual/pm_section_8.html' },
+          { title: 'AHCCCS — Modifier List and Descriptions (Medical Coding Resources, 2024)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/AHCCCS_ModifiersList2024.pdf' },
+          { title: 'AHCCCS Behavioral Health Services Matrix (B2Matrix, October 2026 sheet)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/B2Matrix.xlsx' },
+          { title: 'AHCCCS — Final Applied Behavior Analysis (ABA) Fee Schedule, FFY26 (eff. 10/01/2025; last updated 6/30/2026, TJ rate added)', url: 'https://azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA/FY26_Final_ABA_FeeSchedule.xlsx' },
+          { title: 'AHCCCS — Rate Setting for Applied Behavioral Analysis (ABA) Services FAQ (10/31/2023)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA_RateSettingFAQs.pdf' },
+          { title: 'AHCCCS Medical Coding Unit — Code Closure memo: 0362T and 0373T not allowed from July 1, 2023 (6/21/2023)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/MEMO-0362T_0373T-CodeClosure.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Evaluation date', desc: 'CP.BH.104 wants the comprehensive diagnostic evaluation within 5 years — flag stale evals for re-evaluation early.' },
@@ -1086,6 +1148,10 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'AMPM 540 — Electronic Visit Verification (effective 08/06/26)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/500/540.pdf' },
       { title: 'AHCCCS — Electronic Visit Verification (What is EVV?, updated Oct. 22, 2025)', url: 'https://www.azahcccs.gov/AHCCCS/Initiatives/EVV/' },
       { title: 'Arizona Complete Health — Medicaid provider news (provider notices archive)', url: 'https://www.azcompletehealth.com/providers/provider-news/medicaid-news.html' },
+      { title: 'AHCCCS — Modifier List and Descriptions (Medical Coding Resources, 2024)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/AHCCCS_ModifiersList2024.pdf' },
+      { title: 'AHCCCS Behavioral Health Services Matrix (B2Matrix, October 2026 sheet)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/B2Matrix.xlsx' },
+      { title: 'AHCCCS — Final Applied Behavior Analysis (ABA) Fee Schedule, FFY26 (eff. 10/01/2025; last updated 6/30/2026, TJ rate added)', url: 'https://azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA/FY26_Final_ABA_FeeSchedule.xlsx' },
+      { title: 'AHCCCS Medical Coding Unit — Code Closure memo: 0362T and 0373T not allowed from July 1, 2023 (6/21/2023)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/MEMO-0362T_0373T-CodeClosure.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1225,6 +1291,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { q: 'Can Arizona Complete Health authorize ABA retroactively?', a: 'Only in its listed cases; for outpatient care, when the request comes after treatment started but before the course is finished and completing it is needed for continuity of care.' },
       { q: 'What is Arizona Complete Health’s timely filing limit for AHCCCS ABA claims?', a: 'Six months from the date of service (or from the date eligibility is posted, if later), and twelve months to reach clean-claim status. A.R.S. § 36-2904(G) sets those outer limits for every AHCCCS plan, but AzCH’s Medicaid manual requires the claim to be accepted as clean within 120 days of the date of service unless your contract says otherwise. Resubmissions are due within 365 days; with other primary insurance, 120 days from the date of service or from the primary EOP, whichever is later.' },
       { q: 'How fast does Arizona Complete Health pay a clean ABA claim?', a: 'AzCH’s manual says non-hospital claims are processed within 45 calendar days unless your contract says otherwise, with 95% of clean claims adjudicated within 30 days and 99% within 60; interest runs from day 46. Payments and remittances go through PaySpan. No weekly cutoff or check-run day is published.' },
+      { q: 'What do the HM, HN, HO and HP modifiers mean on an Arizona Medicaid ABA claim?', a: 'They mark the education level of whoever delivered the service, as AHCCCS defines them: HM less than bachelor’s degree, HN bachelor’s, HO master’s, HP doctoral. On the AHCCCS fee-for-service schedule they price 97153 at $17.91, $21.32, $23.69 and $23.69 per 15 minutes; the plan pays its contracted rate. AHCCCS does not map them to RBT/BCaBA/BCBA, so confirm the tier for a bachelor’s-level technician with the plan.' },
     ],
   },
 
@@ -1341,6 +1408,20 @@ export const arizonaPayers: Record<string, PayerConfig> = {
           { title: 'AHCCCS — Electronic Visit Verification (What is EVV?, updated Oct. 22, 2025)', url: 'https://www.azahcccs.gov/AHCCCS/Initiatives/EVV/' },
         ],
       },
+      {
+        h2: 'Rate-tier modifiers on the claim (HM, HN, HO, HP)',
+        body: [
+          'Banner’s 2026 provider manual defines no ABA modifiers and tells providers to “Utilize AHCCCS website for general resources, including the Medical Coding Resources, Billing Health Services Matrix, Claims Clues,” so the definitions are AHCCCS\'s. AHCCCS\'s Modifier List defines the four rate-tier modifiers by the rendering person\'s degree level: HM “Less than bachelor degree level,” HN “Bachelors degree level,” HO “Masters degree level” and HP “Doctoral level.” The Behavioral Health Services Matrix (October 2026) lists HM, HN, HO and HP as valid on the ABA codes for the BCBA (BC) and ABA-organization (AB) provider types — except 97155–97158, where HM is not listed — plus TJ (“Program group, child and/or adolescent”) on 97154 and GT (“Via interactive audio and video telecommunication systems”) for telehealth. On the AHCCCS fee-for-service schedule the tiers carry different prices (97153: $17.91 HM, $21.32 HN, $23.69 HO/HP per 15 minutes), but those prices bind fee-for-service programs only: AHCCCS says plans and providers “may negotiate any contracted rate.” AHCCCS publishes no crosswalk from degree level to RBT, BCaBA or BCBA. 0362T and 0373T have not been reportable to AHCCCS since July 1, 2023.',
+        ],
+        cites: [
+          { title: 'Banner–University Family Care — Provider Manual (eff. 07/09/2026)', url: 'https://www.bannerhealth.com/bhpprovider/-/media/files/project/bhpprovider/manuals-and-directories/manuals/prov-bufc-prov-manual_eff07092026_en.pdf' },
+          { title: 'AHCCCS — Modifier List and Descriptions (Medical Coding Resources, 2024)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/AHCCCS_ModifiersList2024.pdf' },
+          { title: 'AHCCCS Behavioral Health Services Matrix (B2Matrix, October 2026 sheet)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/B2Matrix.xlsx' },
+          { title: 'AHCCCS — Final Applied Behavior Analysis (ABA) Fee Schedule, FFY26 (eff. 10/01/2025; last updated 6/30/2026, TJ rate added)', url: 'https://azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA/FY26_Final_ABA_FeeSchedule.xlsx' },
+          { title: 'AHCCCS — Rate Setting for Applied Behavioral Analysis (ABA) Services FAQ (10/31/2023)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA_RateSettingFAQs.pdf' },
+          { title: 'AHCCCS Medical Coding Unit — Code Closure memo: 0362T and 0373T not allowed from July 1, 2023 (6/21/2023)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/MEMO-0362T_0373T-CodeClosure.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Diagnosis (any qualifying)', desc: 'AMPM 320-S baseline — ASD or another diagnosis justified by medical necessity, with a BHP recommendation.' },
@@ -1373,6 +1454,11 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'AMPM 540 — Electronic Visit Verification (effective 08/06/26)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/500/540.pdf' },
       { title: 'AHCCCS — Electronic Visit Verification (What is EVV?, updated Oct. 22, 2025)', url: 'https://www.azahcccs.gov/AHCCCS/Initiatives/EVV/' },
       { title: 'Banner Plans & Networks — Provider newsletters and notifications (B-UFC)', url: 'https://www.bannerhealth.com/bhpprovider/news/newsletters' },
+      { title: 'AHCCCS — Modifier List and Descriptions (Medical Coding Resources, 2024)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/AHCCCS_ModifiersList2024.pdf' },
+      { title: 'AHCCCS Behavioral Health Services Matrix (B2Matrix, October 2026 sheet)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/B2Matrix.xlsx' },
+      { title: 'AHCCCS — Final Applied Behavior Analysis (ABA) Fee Schedule, FFY26 (eff. 10/01/2025; last updated 6/30/2026, TJ rate added)', url: 'https://azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA/FY26_Final_ABA_FeeSchedule.xlsx' },
+      { title: 'AHCCCS — Rate Setting for Applied Behavioral Analysis (ABA) Services FAQ (10/31/2023)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA_RateSettingFAQs.pdf' },
+      { title: 'AHCCCS Medical Coding Unit — Code Closure memo: 0362T and 0373T not allowed from July 1, 2023 (6/21/2023)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/MEMO-0362T_0373T-CodeClosure.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1534,6 +1620,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { q: 'Can Banner-University Family Care authorize ABA retroactively?', a: 'Only at its discretion for good cause: send the Retrospective Review Request Form with the claim, explaining why authorization was not obtained; decision within 30 days.' },
       { q: 'What is Banner–University Family Care’s timely filing limit for AHCCCS ABA claims?', a: '120 days from the date of service for contracted providers unless your contract says otherwise (six months for non-contracted providers), per Banner’s 2026 manual. Resubmissions must arrive within one year of the date of service, and secondary claims within 60 days of the primary payer’s remittance advice. A.R.S. § 36-2904(G) is the outer limit for every AHCCCS plan: six months to file, twelve to reach clean-claim status.' },
       { q: 'How fast does Banner–University Family Care pay a clean ABA claim?', a: 'Banner’s manual commits to adjudicating clean, authorized claims within 45 days of receipt unless your contract says otherwise. AHCCCS requires 95% of clean claims within 30 days and 99% within 60, with interest on non-hospital clean claims paid after 45 days. No weekly cutoff or check-run day is published.' },
+      { q: 'What do the HM, HN, HO and HP modifiers mean on an Arizona Medicaid ABA claim?', a: 'They mark the education level of whoever delivered the service, as AHCCCS defines them: HM less than bachelor’s degree, HN bachelor’s, HO master’s, HP doctoral. On the AHCCCS fee-for-service schedule they price 97153 at $17.91, $21.32, $23.69 and $23.69 per 15 minutes; the plan pays its contracted rate. AHCCCS does not map them to RBT/BCaBA/BCBA, so confirm the tier for a bachelor’s-level technician with the plan.' },
     ],
   },
 
@@ -1646,6 +1733,21 @@ export const arizonaPayers: Record<string, PayerConfig> = {
           { title: 'AHCCCS — Electronic Visit Verification (What is EVV?, updated Oct. 22, 2025)', url: 'https://www.azahcccs.gov/AHCCCS/Initiatives/EVV/' },
         ],
       },
+      {
+        h2: 'Rate-tier modifiers on the claim (HM, HN, HO, HP)',
+        body: [
+          'Health Choice requires subcontracted providers “to submit claims or encounters in conformance with” the AHCCCS manuals and the “AHCCCS Behavioral Health Services Matrix” (Chapter 7), and its Chapter 18 notes that the Matrix’s Definitions tab “lists the available Bill Types, Categories of Service (COS), Places of Service (POS) and Modifiers.” It defines no ABA modifiers of its own. AHCCCS\'s Modifier List defines the four rate-tier modifiers by the rendering person\'s degree level: HM “Less than bachelor degree level,” HN “Bachelors degree level,” HO “Masters degree level” and HP “Doctoral level.” The Behavioral Health Services Matrix (October 2026) lists HM, HN, HO and HP as valid on the ABA codes for the BCBA (BC) and ABA-organization (AB) provider types — except 97155–97158, where HM is not listed — plus TJ (“Program group, child and/or adolescent”) on 97154 and GT (“Via interactive audio and video telecommunication systems”) for telehealth. On the AHCCCS fee-for-service schedule the tiers carry different prices (97153: $17.91 HM, $21.32 HN, $23.69 HO/HP per 15 minutes), but those prices bind fee-for-service programs only: AHCCCS says plans and providers “may negotiate any contracted rate.” AHCCCS publishes no crosswalk from degree level to RBT, BCaBA or BCBA. 0362T and 0373T have not been reportable to AHCCCS since July 1, 2023.',
+        ],
+        cites: [
+          { title: 'BCBSAZ Health Choice — Provider Manual Chapter 7, General Billing Rules', url: 'https://assets.azblue.com/m/2514517577f46956/original/Chapter_07_General_Billing_Rules_HCA.pdf' },
+          { title: 'BCBSAZ Health Choice — Provider Manual Chapter 18, Behavioral Health Services', url: 'https://assets.azblue.com/m/50282557ee9de438/original/Chapter_18_BH-Services_HCA.pdf' },
+          { title: 'AHCCCS — Modifier List and Descriptions (Medical Coding Resources, 2024)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/AHCCCS_ModifiersList2024.pdf' },
+          { title: 'AHCCCS Behavioral Health Services Matrix (B2Matrix, October 2026 sheet)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/B2Matrix.xlsx' },
+          { title: 'AHCCCS — Final Applied Behavior Analysis (ABA) Fee Schedule, FFY26 (eff. 10/01/2025; last updated 6/30/2026, TJ rate added)', url: 'https://azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA/FY26_Final_ABA_FeeSchedule.xlsx' },
+          { title: 'AHCCCS — Rate Setting for Applied Behavioral Analysis (ABA) Services FAQ (10/31/2023)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA_RateSettingFAQs.pdf' },
+          { title: 'AHCCCS Medical Coding Unit — Code Closure memo: 0362T and 0373T not allowed from July 1, 2023 (6/21/2023)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/MEMO-0362T_0373T-CodeClosure.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Diagnosis (any qualifying)', desc: 'AMPM 320-S baseline — ASD or another diagnosis justified by medical necessity.' },
@@ -1681,6 +1783,10 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'AMPM 540 — Electronic Visit Verification (effective 08/06/26)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/500/540.pdf' },
       { title: 'AHCCCS — Electronic Visit Verification (What is EVV?, updated Oct. 22, 2025)', url: 'https://www.azahcccs.gov/AHCCCS/Initiatives/EVV/' },
       { title: 'Blue Cross Blue Shield of Arizona Health Choice — Medicaid provider announcements (recent + archived notices)', url: 'https://www.azblue.com/medicaid/providers/provider-announcements' },
+      { title: 'AHCCCS — Modifier List and Descriptions (Medical Coding Resources, 2024)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/AHCCCS_ModifiersList2024.pdf' },
+      { title: 'AHCCCS Behavioral Health Services Matrix (B2Matrix, October 2026 sheet)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/B2Matrix.xlsx' },
+      { title: 'AHCCCS — Final Applied Behavior Analysis (ABA) Fee Schedule, FFY26 (eff. 10/01/2025; last updated 6/30/2026, TJ rate added)', url: 'https://azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA/FY26_Final_ABA_FeeSchedule.xlsx' },
+      { title: 'AHCCCS Medical Coding Unit — Code Closure memo: 0362T and 0373T not allowed from July 1, 2023 (6/21/2023)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/MEMO-0362T_0373T-CodeClosure.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1842,6 +1948,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { q: 'Can an out-of-state BCBA treat Health Choice members in Arizona, including by telehealth?', a: 'Arizona requires a license (A.R.S. § 32-2091.02) but lets an out-of-state provider deliver telehealth after registering under A.R.S. § 36-3606. AHCCCS defines a Behavior Analyst as one licensed under A.R.S. § 32-2091, so plan on an Arizona license for Medicaid work.' },
       { q: 'What is Health Choice Arizona’s timely filing limit for AHCCCS ABA claims?', a: 'Six months from the date of service (or from the date eligibility is posted, if later), and twelve months to reach clean-claim status. A.R.S. § 36-2904(G) sets those limits for every AHCCCS contracted health plan, and Health Choice’s own manual states the same six and twelve months. Corrected claims go back whole with resubmission code A or 7 and the original CRN.' },
       { q: 'How fast does Health Choice Arizona pay a clean ABA claim?', a: 'Health Choice follows AHCCCS ACOM 203: 95% of clean claims adjudicated within 30 days and 99% within 60 unless your contract says otherwise, with interest on non-hospital clean claims paid after 45 days. No weekly cutoff or check-run day is published.' },
+      { q: 'What do the HM, HN, HO and HP modifiers mean on an Arizona Medicaid ABA claim?', a: 'They mark the education level of whoever delivered the service, as AHCCCS defines them: HM less than bachelor’s degree, HN bachelor’s, HO master’s, HP doctoral. On the AHCCCS fee-for-service schedule they price 97153 at $17.91, $21.32, $23.69 and $23.69 per 15 minutes; the plan pays its contracted rate. AHCCCS does not map them to RBT/BCaBA/BCBA, so confirm the tier for a bachelor’s-level technician with the plan.' },
     ],
   },
 
@@ -1940,6 +2047,20 @@ export const arizonaPayers: Record<string, PayerConfig> = {
           { title: 'AHCCCS — Electronic Visit Verification (What is EVV?, updated Oct. 22, 2025)', url: 'https://www.azahcccs.gov/AHCCCS/Initiatives/EVV/' },
         ],
       },
+      {
+        h2: 'Rate-tier modifiers on the claim (HM, HN, HO, HP)',
+        body: [
+          'Molina’s 2026 Arizona Medicaid provider manual defines no ABA modifiers and points providers to the AHCCCS website “including the Medical Coding Resources, Billing Health Services Matrix, Claims Clues,” so the definitions are AHCCCS\'s. AHCCCS\'s Modifier List defines the four rate-tier modifiers by the rendering person\'s degree level: HM “Less than bachelor degree level,” HN “Bachelors degree level,” HO “Masters degree level” and HP “Doctoral level.” The Behavioral Health Services Matrix (October 2026) lists HM, HN, HO and HP as valid on the ABA codes for the BCBA (BC) and ABA-organization (AB) provider types — except 97155–97158, where HM is not listed — plus TJ (“Program group, child and/or adolescent”) on 97154 and GT (“Via interactive audio and video telecommunication systems”) for telehealth. On the AHCCCS fee-for-service schedule the tiers carry different prices (97153: $17.91 HM, $21.32 HN, $23.69 HO/HP per 15 minutes), but those prices bind fee-for-service programs only: AHCCCS says plans and providers “may negotiate any contracted rate.” AHCCCS publishes no crosswalk from degree level to RBT, BCaBA or BCBA. 0362T and 0373T have not been reportable to AHCCCS since July 1, 2023.',
+        ],
+        cites: [
+          { title: 'Molina Healthcare of Arizona — 2026 Medicaid Provider Manual', url: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/MHAZ-Medicaid-2026%20Provider-Manual-508.pdf' },
+          { title: 'AHCCCS — Modifier List and Descriptions (Medical Coding Resources, 2024)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/AHCCCS_ModifiersList2024.pdf' },
+          { title: 'AHCCCS Behavioral Health Services Matrix (B2Matrix, October 2026 sheet)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/B2Matrix.xlsx' },
+          { title: 'AHCCCS — Final Applied Behavior Analysis (ABA) Fee Schedule, FFY26 (eff. 10/01/2025; last updated 6/30/2026, TJ rate added)', url: 'https://azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA/FY26_Final_ABA_FeeSchedule.xlsx' },
+          { title: 'AHCCCS — Rate Setting for Applied Behavioral Analysis (ABA) Services FAQ (10/31/2023)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA_RateSettingFAQs.pdf' },
+          { title: 'AHCCCS Medical Coding Unit — Code Closure memo: 0362T and 0373T not allowed from July 1, 2023 (6/21/2023)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/MEMO-0362T_0373T-CodeClosure.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Diagnosis (any qualifying)', desc: 'AMPM 320-S baseline — ASD or another diagnosis justified by medical necessity.' },
@@ -1972,6 +2093,11 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'AMPM 540 — Electronic Visit Verification (effective 08/06/26)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/500/540.pdf' },
       { title: 'AHCCCS — Electronic Visit Verification (What is EVV?, updated Oct. 22, 2025)', url: 'https://www.azahcccs.gov/AHCCCS/Initiatives/EVV/' },
       { title: 'Molina Healthcare of Arizona — Provider communications (bulletins + quarterly newsletters, by year)', url: 'https://www.molinahealthcare.com/providers/az/communications' },
+      { title: 'Molina Healthcare of Arizona — 2026 Medicaid Provider Manual', url: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/MHAZ-Medicaid-2026%20Provider-Manual-508.pdf' },
+      { title: 'AHCCCS — Modifier List and Descriptions (Medical Coding Resources, 2024)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/AHCCCS_ModifiersList2024.pdf' },
+      { title: 'AHCCCS — Final Applied Behavior Analysis (ABA) Fee Schedule, FFY26 (eff. 10/01/2025; last updated 6/30/2026, TJ rate added)', url: 'https://azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA/FY26_Final_ABA_FeeSchedule.xlsx' },
+      { title: 'AHCCCS — Rate Setting for Applied Behavioral Analysis (ABA) Services FAQ (10/31/2023)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA_RateSettingFAQs.pdf' },
+      { title: 'AHCCCS Medical Coding Unit — Code Closure memo: 0362T and 0373T not allowed from July 1, 2023 (6/21/2023)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/MEMO-0362T_0373T-CodeClosure.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2133,6 +2259,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { q: 'Where does Molina operate in Arizona?', a: 'Three counties: Maricopa, Gila, and Pinal — the smallest ACC footprint, centered on Phoenix metro.' },
       { q: 'Can an out-of-state BCBA treat Molina members in Arizona, including by telehealth?', a: 'Arizona requires a license (A.R.S. § 32-2091.02) but lets an out-of-state provider deliver telehealth after registering under A.R.S. § 36-3606. AHCCCS defines a Behavior Analyst as one licensed under A.R.S. § 32-2091, so plan on an Arizona license for Medicaid work.' },
       { q: 'What is Molina Healthcare of Arizona’s timely filing limit for AHCCCS ABA claims?', a: 'Six months from the date of service (or from the date eligibility is posted, if later), and twelve months to reach clean-claim status. A.R.S. § 36-2904(G) sets those limits for every AHCCCS contracted health plan, Molina Healthcare of Arizona included; the plan’s payment terms are in its contract and provider manual.' },
+      { q: 'What do the HM, HN, HO and HP modifiers mean on an Arizona Medicaid ABA claim?', a: 'They mark the education level of whoever delivered the service, as AHCCCS defines them: HM less than bachelor’s degree, HN bachelor’s, HO master’s, HP doctoral. On the AHCCCS fee-for-service schedule they price 97153 at $17.91, $21.32, $23.69 and $23.69 per 15 minutes; the plan pays its contracted rate. AHCCCS does not map them to RBT/BCaBA/BCBA, so confirm the tier for a bachelor’s-level technician with the plan.' },
     ],
   },
 
@@ -2243,6 +2370,20 @@ export const arizonaPayers: Record<string, PayerConfig> = {
           { title: 'UnitedHealthcare Community Plan of Arizona — Care Provider Manual, 2027 edition (posted 10/13/2026; ACC, ALTCS EPD, DDD)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/AZ-Provider-Manual.pdf' },
         ],
       },
+      {
+        h2: 'Rate-tier modifiers on the claim (HM, HN, HO, HP)',
+        body: [
+          'DDD members’ ABA is billed to the DDD Health Plan (Mercy Care DD or UnitedHealthcare Community Plan DD) on AHCCCS coding: AMPM 320-S applies to DES/DDD by its own terms and points to the Behavioral Health Services Billing Matrix for modifiers. AHCCCS\'s Modifier List defines the four rate-tier modifiers by the rendering person\'s degree level: HM “Less than bachelor degree level,” HN “Bachelors degree level,” HO “Masters degree level” and HP “Doctoral level.” The Behavioral Health Services Matrix (October 2026) lists HM, HN, HO and HP as valid on the ABA codes for the BCBA (BC) and ABA-organization (AB) provider types — except 97155–97158, where HM is not listed — plus TJ (“Program group, child and/or adolescent”) on 97154 and GT (“Via interactive audio and video telecommunication systems”) for telehealth. On the AHCCCS fee-for-service schedule the tiers carry different prices (97153: $17.91 HM, $21.32 HN, $23.69 HO/HP per 15 minutes), but those prices bind fee-for-service programs only: AHCCCS says plans and providers “may negotiate any contracted rate.” AHCCCS publishes no crosswalk from degree level to RBT, BCaBA or BCBA. 0362T and 0373T have not been reportable to AHCCCS since July 1, 2023.',
+        ],
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'AHCCCS — Modifier List and Descriptions (Medical Coding Resources, 2024)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/AHCCCS_ModifiersList2024.pdf' },
+          { title: 'AHCCCS Behavioral Health Services Matrix (B2Matrix, October 2026 sheet)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/B2Matrix.xlsx' },
+          { title: 'AHCCCS — Final Applied Behavior Analysis (ABA) Fee Schedule, FFY26 (eff. 10/01/2025; last updated 6/30/2026, TJ rate added)', url: 'https://azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA/FY26_Final_ABA_FeeSchedule.xlsx' },
+          { title: 'AHCCCS — Rate Setting for Applied Behavioral Analysis (ABA) Services FAQ (10/31/2023)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA_RateSettingFAQs.pdf' },
+          { title: 'AHCCCS Medical Coding Unit — Code Closure memo: 0362T and 0373T not allowed from July 1, 2023 (6/21/2023)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/MEMO-0362T_0373T-CodeClosure.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'DDD enrollment + ALTCS status', desc: 'Enrolled DDD member, ALTCS application pending, or ACC-only — three different routes with different timelines.' },
@@ -2275,6 +2416,9 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'AMPM 540 — Electronic Visit Verification (effective 08/06/26)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/500/540.pdf' },
       { title: 'AHCCCS — Electronic Visit Verification (What is EVV?, updated Oct. 22, 2025)', url: 'https://www.azahcccs.gov/AHCCCS/Initiatives/EVV/' },
       { title: 'DES/DDD — Vendor announcements (provider policy updates, QM bulletins, claims notices)', url: 'https://des.az.gov/services/disabilities/developmental-disabilities/vendors-providers/vendor-announcements' },
+      { title: 'AHCCCS — Modifier List and Descriptions (Medical Coding Resources, 2024)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/AHCCCS_ModifiersList2024.pdf' },
+      { title: 'AHCCCS — Final Applied Behavior Analysis (ABA) Fee Schedule, FFY26 (eff. 10/01/2025; last updated 6/30/2026, TJ rate added)', url: 'https://azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA/FY26_Final_ABA_FeeSchedule.xlsx' },
+      { title: 'AHCCCS Medical Coding Unit — Code Closure memo: 0362T and 0373T not allowed from July 1, 2023 (6/21/2023)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/MEMO-0362T_0373T-CodeClosure.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2439,6 +2583,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { q: 'What is the DDD Health Plans\u2019s fee schedule for ABA?', a: 'There is no public plan fee schedule. AHCCCS says its fixed ABA rates (effective November 1, 2023) apply only to fee-for-service programs and have “no impact on the contracts that AHCCCS health plans negotiate with their providers”: “MCOs and providers may negotiate any contracted rate that is agreed to by both parties.” Your rate is in your contract with the DDD Health Plans; the AHCCCS fee-for-service schedule does not bind the plan.' },
       { q: 'Can an out-of-state BCBA treat DDD members in Arizona, including by telehealth?', a: 'Arizona requires a license (A.R.S. § 32-2091.02) but lets an out-of-state provider deliver telehealth after registering under A.R.S. § 36-3606. AHCCCS defines a Behavior Analyst as one licensed under A.R.S. § 32-2091, so plan on an Arizona license for Medicaid work.' },
       { q: 'Does DDD require EVV for ABA?', a: 'Not as ABA. AMPM 540, which names DES/DDD among the programs it binds, limits EVV to personal care and home health services (attendant care, personal care, homemaker, habilitation, respite, in-home skilled nursing). DDD habilitation delivered in the home is a different matter — check AHCCCS’s provider-type, service-code and place-of-service list.' },
+      { q: 'What do the HM, HN, HO and HP modifiers mean on an Arizona Medicaid ABA claim?', a: 'They mark the education level of whoever delivered the service, as AHCCCS defines them: HM less than bachelor’s degree, HN bachelor’s, HO master’s, HP doctoral. On the AHCCCS fee-for-service schedule they price 97153 at $17.91, $21.32, $23.69 and $23.69 per 15 minutes; the plan pays its contracted rate. AHCCCS does not map them to RBT/BCaBA/BCBA, so confirm the tier for a bachelor’s-level technician with the plan.' },
     ],
   },
 
@@ -2571,6 +2716,17 @@ export const arizonaPayers: Record<string, PayerConfig> = {
           { title: 'Aetna Behavioral Health Provider Manual (8/22): access to care', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' },
         ],
       },
+      {
+        h2: 'Credential modifiers on the claim',
+        body: [
+          'Aetna publishes no rate-tier modifiers for ABA. Its public ABA documents — the Applied Behavior Analysis Medical Necessity Guide (©2026), the provider manual (6/26) and the ABA precertification form GR-69017-4 (7-26) — name no HM, HN, HO or HP modifier and no credential crosswalk. What the guide does require is that “Services must be provided directly or billed by the appropriately licensed provider”: licensed behavior analysts where a state licenses them, board-certified behavior analysts, or licensed psychologists, with unlicensed staff supervised “unless state mandates, plan documents or contracts require otherwise.” Whether your Aetna agreement prices technician and analyst time by modifier is set in the contract and its fee schedule, so ask Aetna before you bill technician lines under the analyst.',
+        ],
+        cites: [
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+          { title: 'Aetna — Provider manual (8102800-01-01, 6/26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured group (mandate applies) vs. self-funded ERISA (exempt) vs. individual/small-group (EHB benchmark) — it decides which rulebook governs.' },
@@ -2594,6 +2750,8 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'A.R.S. § 36-3601 — telehealth definitions (“health care provider” includes Title 32, ch. 19.1 licensees)', url: 'https://www.azleg.gov/ars/36/03601.htm' },
       { title: 'Aetna — Provider and facility participation criteria (Network Participation Criteria, 8100606-01-01, 5/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' },
       { title: 'A.R.S. § 20-3102 — Timely payment of health care provider claims', url: 'https://www.azleg.gov/ars/20/03102.htm' },
+      { title: 'Aetna — Provider manual (8102800-01-01, 6/26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+      { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2722,6 +2880,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { q: 'What is Aetna’s timely filing limit in Arizona?', a: 'Aetna’s national provider manual (6/26) does not publish a number — the filing limit is the one in your Aetna agreement.' },
       { q: 'How fast must Aetna pay a clean ABA claim in Arizona?', a: 'Arizona law (A.R.S. § 20-3102) gives a fully insured plan 30 days from receipt to adjudicate a clean claim and, unless your contract says otherwise, 30 more days to pay the approved amount, with interest at the legal rate after that. Self-funded employer plans are not bound by the statute.' },
       { q: 'Does Aetna require a referring provider (box 17) on ABA claims?', a: 'Aetna publishes no such requirement for ABA. A referral has to accompany a claim only when the member’s plan requires PCP referrals for specialist care. Behavioral health is a direct-access benefit in Aetna’s behavioral health manual.' },
+      { q: 'Does Aetna require HM, HN, HO or HP modifiers on ABA claims?', a: 'Not in any public Aetna ABA document: the medical necessity guide, provider manual and ABA precertification form name no rate-tier modifiers. Services must be provided or billed by an appropriately licensed or certified provider; ask Aetna whether your contract prices technician lines by modifier.' },
     ],
   },
 
@@ -2861,6 +3020,16 @@ export const arizonaPayers: Record<string, PayerConfig> = {
           { title: 'Cigna / Evernorth autism resource guide (March 2025): paper-claim rules', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
         ],
       },
+      {
+        h2: 'Credential modifiers on the claim',
+        body: [
+          'Evernorth (Cigna’s behavioral health arm) uses no rate-tier modifiers in its published ABA billing rules. Its Autism Resource Guide (March 2025) instead sets, code by code, who may provide and who may bill: 97152, 97153 and 97154 may be provided by a “BCaBA, technician” but are billed by a “BCBA-D, BCBA, or licensed mental health provider,” and “Evernorth does not credential nonlicensed/noncertified staff. Services for these staff members must be billed under the supervising provider.” All ABA must be billed with 97151–97158, 0362T and 0373T only. The only modifier Evernorth’s administrative guidelines (September 2026) prescribe is for virtual care: “Modifier 95 in Field 24-D to specify telehealth” with place of service 02; other modifiers go on “if they are needed to describe the service performed.”',
+        ],
+        cites: [
+          { title: 'Cigna/Evernorth Autism Resource Guide (PCOMM-2025-225, March 2025): billing codes', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191) — telehealth claim coding', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured group (mandate applies) vs. self-funded ERISA (exempt) vs. individual/small-group (EHB benchmark) — it decides which rulebook governs.' },
@@ -2881,6 +3050,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'A.R.S. § 36-3606 — interstate telehealth services; registration of out-of-state providers', url: 'https://www.azleg.gov/ars/36/03606.htm' },
       { title: 'A.R.S. § 36-3601 — telehealth definitions (“health care provider” includes Title 32, ch. 19.1 licensees)', url: 'https://www.azleg.gov/ars/36/03601.htm' },
       { title: 'A.R.S. § 20-3102 — Timely payment of health care provider claims', url: 'https://www.azleg.gov/ars/20/03102.htm' },
+      { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191) — telehealth claim coding', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -3019,6 +3189,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { q: 'What is Cigna’s timely filing limit in Arizona?', a: 'Evernorth Behavioral Health, which administers Cigna’s ABA benefit, considers claims submitted within 90 days of the date of service unless your provider agreement or a longer state-law limit says otherwise.' },
       { q: 'How fast must Cigna pay a clean ABA claim in Arizona?', a: 'Arizona law (A.R.S. § 20-3102) gives a fully insured plan 30 days from receipt to adjudicate a clean claim and, unless your contract says otherwise, 30 more days to pay the approved amount, with interest at the legal rate after that. Self-funded employer plans are not bound by the statute.' },
       { q: 'Does Cigna require a referring provider (box 17) on ABA claims?', a: 'No. Evernorth’s complete-claim definition for the CMS-1500 lists the rendering and billing providers but no referring provider. If you report a referring provider on an electronic claim, include both the name and the NPI.' },
+      { q: 'Does Cigna / Evernorth require HM, HN, HO or HP modifiers on ABA claims?', a: 'No modifier tiers are published. Evernorth’s autism resource guide says technician and BCaBA services (97152–97154) are billed by the supervising BCBA, BCBA-D or licensed provider, and noncredentialed staff are billed under the supervising provider. Modifier 95 (with POS 02) marks telehealth.' },
     ],
   },
 
@@ -3319,6 +3490,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { q: 'What is UnitedHealthcare’s timely filing limit in Arizona?', a: 'Optum Behavioral Health, which manages UnitedHealthcare’s ABA benefit, requires claims within 90 calendar days of the date of service unless state or federal law or the member’s plan allows longer (National Network Manual, effective September 1, 2026).' },
       { q: 'How fast must UnitedHealthcare pay a clean ABA claim in Arizona?', a: 'Arizona law (A.R.S. § 20-3102) gives a fully insured plan 30 days from receipt to adjudicate a clean claim and, unless your contract says otherwise, 30 more days to pay the approved amount, with interest at the legal rate after that. Self-funded employer plans are not bound by the statute.' },
       { q: 'Does UnitedHealthcare require a referring provider (box 17) on ABA claims?', a: 'No. Optum’s claim requirements do not include a referring provider. UnitedHealthcare makes the referring name and NPI mandatory only for lab, DME, imaging and home health claims. For other claims it encourages the referring NPI but does not require it.' },
+      { q: 'What do HM, HN, HO and HP mean on a UnitedHealthcare / Optum ABA claim?', a: 'They identify who rendered the service: HM an RBT (less than bachelor’s level), HN a BCaBA (bachelor’s level), HO a master’s-level BCBA or licensed clinician, HP a BCBA-D or doctoral-level clinician. One per line; 97151 and 97155–97158 cannot take HM; 0362T/0373T take none (Optum ABA Reimbursement Policy 2022RP501A, June 2026).' },
     ],
   },
 };

@@ -203,7 +203,7 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
       { title: 'Plan of care', desc: 'Services and frequency, measurable goals with target dates, staff assigned, family involvement and termination criteria, reviewed at least every six months (907 KAR 15:010).' },
       { title: 'Other insurance', desc: 'Commercial coverage is billed first and its ABA authorization followed; the MCOs cost-avoid claims when other coverage is known.' },
     ],
-    sources: [S.kar15005, S.kar15010, S.kar15015, S.kar3170, S.bhFee, S.feesPage, S.lbaPage, S.pt63, S.mcoOptions, S.mcoContracts, S.mcoContract, S.mcoPaChart, S.dmsPaLetter, S.abaConcurrent, S.krs319c010, S.krs319c020, S.kar43100, S.bacbLic, S.cfr440, S.cfr438, S.cfr433, { title: 'Kentucky DMS — Provider Letters and Resources (index of DMS provider letters)', url: 'https://www.chfs.ky.gov/agencies/dms/Pages/provletters.aspx' }],
+    sources: [S.kar15005, S.kar15010, S.kar15015, S.kar3170, S.bhFee, S.feesPage, S.lbaPage, S.pt63, S.mcoOptions, S.mcoContracts, S.mcoContract, S.mcoPaChart, S.dmsPaLetter, S.abaConcurrent, S.krs319c010, S.krs319c020, S.kar43100, S.bacbLic, S.cfr440, S.cfr438, S.cfr433, { title: 'Kentucky DMS — Provider Letters and Resources (index of DMS provider letters)', url: 'https://www.chfs.ky.gov/agencies/dms/Pages/provletters.aspx' }, { title: 'KRS 335.020 — Definitions, “the practice of social work” (FindLaw)', url: 'https://codes.findlaw.com/ky/title-xxvi-occupations-and-professions/ky-rev-st-sect-335-020/' }],
     deliveryRules: {
       supervision: { value: KY_MCD_SUPERVISION, status: 'verified', cites: [S.kar15010, S.kar15005] },
       concurrentBilling: {
@@ -242,11 +242,13 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       diagnosingProviders: {
-        value: 'Not named by DMS for ABA. Kentucky law excludes diagnosis from the practice of ABA (KRS 319C.010(8)), so a physician, psychologist or other licensed clinician whose scope includes diagnosis must make it.',
+        value:
+          'Not named by DMS for ABA. Kentucky law excludes diagnosis from the practice of ABA (KRS 319C.010(8)), so a physician, psychologist or other licensed clinician whose scope includes diagnosis must make it. LCSW: not named by DMS. Kentucky’s social-work statute describes the practice as “counseling and nonmedical psychotherapy” without mentioning diagnosis (KRS 335.020), so an LCSW-only diagnosis is a question for DMS’s utilization management, not something to assume; a physician or psychologist diagnosis avoids the question.',
         status: 'unverified',
-        cites: [S.kar15010, S.krs319c010],
-        verifyVia: 'The member’s MCO utilization management line, or CareWise for FFS.',
         blocker: 'per-case',
+        cites: [S.kar15010, S.krs319c010, { title: 'KRS 335.020 — Definitions, “the practice of social work” (FindLaw)', url: 'https://codes.findlaw.com/ky/title-xxvi-occupations-and-professions/ky-rev-st-sect-335-020/' }],
+        verifyVia:
+          'The member’s MCO utilization management line, or CareWise for FFS.',
       },
       diagnosticTools: {
         value: 'No diagnostic instrument is named in any DMS source read.',
@@ -344,7 +346,7 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
       { title: 'Treatment plan + OTR form', desc: 'Units by code, weekly intensity and setting, for no more than 6 months, submitted at least 2 business days before the start date.' },
       { title: 'Other insurance', desc: 'Medicaid is the payer of last resort; bill the primary and send its EOB within 365 days of its remittance.' },
     ],
-    sources: [S.abhAba, S.abhPaBh, S.abhOtr, S.abhPM, S.mcoPaChart, S.mcoContract, S.kar15010, S.kar3170, S.abaConcurrent, S.bhFee, S.cfr438, S.cfr433, { title: 'Aetna Better Health of Kentucky — Provider Notices & Newsletters (archive 2013-2026)', url: 'https://www.aetnabetterhealth.com/kentucky/providers/newsletters.html' }],
+    sources: [S.abhAba, S.abhPaBh, S.abhOtr, S.abhPM, S.mcoPaChart, S.mcoContract, S.kar15010, S.kar3170, S.abaConcurrent, S.bhFee, S.cfr438, S.cfr433, { title: 'Aetna Better Health of Kentucky — Provider Notices & Newsletters (archive 2013-2026)', url: 'https://www.aetnabetterhealth.com/kentucky/providers/newsletters.html' }, { title: 'KRS 335.020 — Definitions, “the practice of social work” (FindLaw)', url: 'https://codes.findlaw.com/ky/title-xxvi-occupations-and-professions/ky-rev-st-sect-335-020/' }],
     deliveryRules: {
       supervision: { value: 'Aetna Better Health’s manual and ABA notices publish no supervision rule of their own, so the state rule applies. ' + KY_MCD_SUPERVISION, status: 'verified', cites: [S.abhPM, S.kar15010, S.kar15005] },
       concurrentBilling: {
@@ -387,11 +389,13 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
         blocker: 'licensed',
       },
       diagnosingProviders: {
-        value: 'Not stated by the plan. Kentucky law excludes diagnosis from the practice of ABA (KRS 319C.010(8)).',
+        value:
+          'Not stated by the plan. Kentucky law excludes diagnosis from the practice of ABA (KRS 319C.010(8)). LCSW: not named by Aetna Better Health. Kentucky’s social-work statute describes the practice as “counseling and nonmedical psychotherapy” without mentioning diagnosis (KRS 335.020), so an LCSW-only diagnosis is a question for Aetna Better Health’s utilization management, not something to assume; a physician or psychologist diagnosis avoids the question.',
         status: 'unverified',
-        cites: [S.abhAba, S.krs319c010],
-        verifyVia: 'Aetna Better Health of Kentucky behavioral health UM, 1-855-300-5528.',
         blocker: 'per-case',
+        cites: [S.abhAba, S.krs319c010, { title: 'KRS 335.020 — Definitions, “the practice of social work” (FindLaw)', url: 'https://codes.findlaw.com/ky/title-xxvi-occupations-and-professions/ky-rev-st-sect-335-020/' }],
+        verifyVia:
+          'Aetna Better Health of Kentucky behavioral health UM, 1-855-300-5528.',
       },
       diagnosticTools: {
         value: 'The plan asks for "assessment(s) confirming Autism diagnosis" but names no instrument; MCG is licensed.',
@@ -481,7 +485,7 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
       { title: 'Clinical packet for PA', desc: 'Assessment and treatment plan for all eight ABA codes, submitted before services start.' },
       { title: 'Other insurance', desc: 'Kentucky Medicaid is the payer of last resort; bill the primary first unless the code is on the commercial bypass list.' },
     ],
-    sources: [S.humPAL, S.humBhPa, S.humAba, S.humPM, S.mcoPaChart, S.dmsPaLetter, S.mcoContract, S.kar15010, S.kar3170, S.abaConcurrent, S.cfr438, S.cfr433, { title: 'Humana Healthy Horizons in Kentucky — Communications and network notices (provider notices archive)', url: 'https://provider.humana.com/medicaid/kentucky-medicaid/communications-network-notices' }],
+    sources: [S.humPAL, S.humBhPa, S.humAba, S.humPM, S.mcoPaChart, S.dmsPaLetter, S.mcoContract, S.kar15010, S.kar3170, S.abaConcurrent, S.cfr438, S.cfr433, { title: 'Humana Healthy Horizons in Kentucky — Communications and network notices (provider notices archive)', url: 'https://provider.humana.com/medicaid/kentucky-medicaid/communications-network-notices' }, { title: 'KRS 335.020 — Definitions, “the practice of social work” (FindLaw)', url: 'https://codes.findlaw.com/ky/title-xxvi-occupations-and-professions/ky-rev-st-sect-335-020/' }],
     deliveryRules: {
       supervision: { value: 'Humana publishes no ABA supervision rule of its own; the state rule applies. ' + KY_MCD_SUPERVISION, status: 'verified', cites: [S.humPM, S.kar15010, S.kar15005] },
       concurrentBilling: {
@@ -526,11 +530,13 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       diagnosingProviders: {
-        value: 'Not stated by Humana. Kentucky law excludes diagnosis from the practice of ABA (KRS 319C.010(8)).',
+        value:
+          'Not stated by Humana. Kentucky law excludes diagnosis from the practice of ABA (KRS 319C.010(8)). LCSW: not named by Humana. Kentucky’s social-work statute describes the practice as “counseling and nonmedical psychotherapy” without mentioning diagnosis (KRS 335.020), so an LCSW-only diagnosis is a question for Humana’s utilization management, not something to assume; a physician or psychologist diagnosis avoids the question.',
         status: 'unverified',
-        cites: [S.humAba, S.krs319c010],
-        verifyVia: 'Humana Healthy Horizons behavioral health UM, 800-444-9137.',
         blocker: 'per-case',
+        cites: [S.humAba, S.krs319c010, { title: 'KRS 335.020 — Definitions, “the practice of social work” (FindLaw)', url: 'https://codes.findlaw.com/ky/title-xxvi-occupations-and-professions/ky-rev-st-sect-335-020/' }],
+        verifyVia:
+          'Humana Healthy Horizons behavioral health UM, 800-444-9137.',
       },
       diagnosticTools: {
         value: 'Not stated by Humana; the manual says it uses "nationally recognized criteria" without naming the ABA criteria set.',
@@ -621,7 +627,7 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis and treatment plan', desc: 'Needed for the review once the threshold is crossed.' },
       { title: 'Other insurance', desc: 'Medicaid is always the payer of last resort; bill the primary and send its EOB.' },
     ],
-    sources: [S.molPM, S.molEnews, S.molDeck, S.mcoPaChart, S.dmsPaLetter, S.mcoContract, S.kar15010, S.kar3170, S.abaConcurrent, S.cfr438, S.cfr433, { title: 'Passport by Molina Healthcare — Provider communications (eNews, announcements, quarterly newsletters archive)', url: 'https://www.molinahealthcare.com/providers/ky/communications' }],
+    sources: [S.molPM, S.molEnews, S.molDeck, S.mcoPaChart, S.dmsPaLetter, S.mcoContract, S.kar15010, S.kar3170, S.abaConcurrent, S.cfr438, S.cfr433, { title: 'Passport by Molina Healthcare — Provider communications (eNews, announcements, quarterly newsletters archive)', url: 'https://www.molinahealthcare.com/providers/ky/communications' }, { title: 'KRS 335.020 — Definitions, “the practice of social work” (FindLaw)', url: 'https://codes.findlaw.com/ky/title-xxvi-occupations-and-professions/ky-rev-st-sect-335-020/' }],
     deliveryRules: {
       supervision: { value: 'Passport publishes no ABA supervision rule of its own; the state rule applies. ' + KY_MCD_SUPERVISION, status: 'verified', cites: [S.molPM, S.kar15010, S.kar15005] },
       concurrentBilling: {
@@ -666,11 +672,13 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       diagnosingProviders: {
-        value: 'Not stated by Passport. Kentucky law excludes diagnosis from the practice of ABA (KRS 319C.010(8)).',
+        value:
+          'Not stated by Passport. Kentucky law excludes diagnosis from the practice of ABA (KRS 319C.010(8)). LCSW: not named by Passport. Kentucky’s social-work statute describes the practice as “counseling and nonmedical psychotherapy” without mentioning diagnosis (KRS 335.020), so an LCSW-only diagnosis is a question for Passport’s utilization management, not something to assume; a physician or psychologist diagnosis avoids the question.',
         status: 'unverified',
-        cites: [S.molPM, S.krs319c010],
-        verifyVia: 'Passport Utilization Management, (800) 578-0775.',
         blocker: 'per-case',
+        cites: [S.molPM, S.krs319c010, { title: 'KRS 335.020 — Definitions, “the practice of social work” (FindLaw)', url: 'https://codes.findlaw.com/ky/title-xxvi-occupations-and-professions/ky-rev-st-sect-335-020/' }],
+        verifyVia:
+          'Passport Utilization Management, (800) 578-0775.',
       },
       diagnosticTools: {
         value: 'Not stated by Passport; MCG criteria are licensed.',
@@ -756,7 +764,7 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis and treatment plan', desc: 'Criteria are not published for Kentucky Medicaid ABA; send the full diagnostic report and plan.' },
       { title: 'Other insurance', desc: 'The plan is the payer of last resort; attach the primary’s EOB.' },
     ],
-    sources: [S.uhcKyPM, S.optKyPA, S.optKySCC, S.mcoPaChart, S.mcoContract, S.kar15010, S.kar3170, S.abaConcurrent, S.cfr438, S.cfr433, { title: 'UnitedHealthcare Community Plan of Kentucky — State news, bulletins and alerts', url: 'https://www.uhcprovider.com/en/health-plans-by-state/kentucky-health-plans/ky-comm-plan-home.html' }],
+    sources: [S.uhcKyPM, S.optKyPA, S.optKySCC, S.mcoPaChart, S.mcoContract, S.kar15010, S.kar3170, S.abaConcurrent, S.cfr438, S.cfr433, { title: 'UnitedHealthcare Community Plan of Kentucky — State news, bulletins and alerts', url: 'https://www.uhcprovider.com/en/health-plans-by-state/kentucky-health-plans/ky-comm-plan-home.html' }, { title: 'KRS 335.020 — Definitions, “the practice of social work” (FindLaw)', url: 'https://codes.findlaw.com/ky/title-xxvi-occupations-and-professions/ky-rev-st-sect-335-020/' }],
     deliveryRules: {
       supervision: { value: 'The plan and Optum publish no Kentucky Medicaid ABA supervision rule; the state rule applies. ' + KY_MCD_SUPERVISION, status: 'verified', cites: [S.uhcKyPM, S.optKySCC, S.kar15010, S.kar15005] },
       concurrentBilling: {
@@ -803,11 +811,13 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       diagnosingProviders: {
-        value: 'Not stated by the plan. Kentucky law excludes diagnosis from the practice of ABA (KRS 319C.010(8)).',
+        value:
+          'Not stated by the plan. Kentucky law excludes diagnosis from the practice of ABA (KRS 319C.010(8)). LCSW: not named by UnitedHealthcare. Kentucky’s social-work statute describes the practice as “counseling and nonmedical psychotherapy” without mentioning diagnosis (KRS 335.020), so an LCSW-only diagnosis is a question for UnitedHealthcare’s utilization management, not something to assume; a physician or psychologist diagnosis avoids the question.',
         status: 'unverified',
-        cites: [S.uhcKyPM, S.krs319c010],
-        verifyVia: 'Optum Provider Services, 1-866-633-4449.',
         blocker: 'per-case',
+        cites: [S.uhcKyPM, S.krs319c010, { title: 'KRS 335.020 — Definitions, “the practice of social work” (FindLaw)', url: 'https://codes.findlaw.com/ky/title-xxvi-occupations-and-professions/ky-rev-st-sect-335-020/' }],
+        verifyVia:
+          'Optum Provider Services, 1-866-633-4449.',
       },
       diagnosticTools: {
         value: 'Not stated for Kentucky Medicaid ABA; InterQual is licensed.',
@@ -898,7 +908,7 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis and treatment plan', desc: 'InterQual criteria are licensed; send the full diagnostic report and plan.' },
       { title: 'Other insurance', desc: 'WellCare cost-avoids claims when other coverage is known; bill the primary first.' },
     ],
-    sources: [S.wcPAL, S.wcPM, S.mcoPaChart, S.dmsPaLetter, S.mcoContract, S.kar15010, S.kar3170, S.abaConcurrent, S.cfr438, S.cfr433, { title: 'WellCare of Kentucky — Provider Bulletins (provider notices archive)', url: 'https://www.wellcareky.com/providers/news-and-education/bulletins.html' }],
+    sources: [S.wcPAL, S.wcPM, S.mcoPaChart, S.dmsPaLetter, S.mcoContract, S.kar15010, S.kar3170, S.abaConcurrent, S.cfr438, S.cfr433, { title: 'WellCare of Kentucky — Provider Bulletins (provider notices archive)', url: 'https://www.wellcareky.com/providers/news-and-education/bulletins.html' }, { title: 'KRS 335.020 — Definitions, “the practice of social work” (FindLaw)', url: 'https://codes.findlaw.com/ky/title-xxvi-occupations-and-professions/ky-rev-st-sect-335-020/' }],
     deliveryRules: {
       supervision: { value: 'WellCare publishes no ABA supervision rule of its own; the state rule applies. ' + KY_MCD_SUPERVISION, status: 'verified', cites: [S.wcPM, S.kar15010, S.kar15005] },
       concurrentBilling: {
@@ -945,11 +955,13 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       diagnosingProviders: {
-        value: 'Not stated by WellCare. Kentucky law excludes diagnosis from the practice of ABA (KRS 319C.010(8)).',
+        value:
+          'Not stated by WellCare. Kentucky law excludes diagnosis from the practice of ABA (KRS 319C.010(8)). LCSW: not named by WellCare. Kentucky’s social-work statute describes the practice as “counseling and nonmedical psychotherapy” without mentioning diagnosis (KRS 335.020), so an LCSW-only diagnosis is a question for WellCare’s utilization management, not something to assume; a physician or psychologist diagnosis avoids the question.',
         status: 'unverified',
-        cites: [S.wcPM, S.krs319c010],
-        verifyVia: 'WellCare of Kentucky behavioral health UM, 1-877-389-9457.',
         blocker: 'per-case',
+        cites: [S.wcPM, S.krs319c010, { title: 'KRS 335.020 — Definitions, “the practice of social work” (FindLaw)', url: 'https://codes.findlaw.com/ky/title-xxvi-occupations-and-professions/ky-rev-st-sect-335-020/' }],
+        verifyVia:
+          'WellCare of Kentucky behavioral health UM, 1-877-389-9457.',
       },
       diagnosticTools: {
         value: 'Not stated by WellCare; InterQual is licensed.',
@@ -1047,7 +1059,7 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
       { title: 'Standardized functional measure', desc: 'From the past 12 months (for example Vineland-3, ABAS, VB-MAPP or ABLLS).' },
       { title: 'ABA order', desc: 'The mandate covers ABA "prescribed or ordered by a licensed health or allied health professional."' },
     ],
-    sources: [S.aetnaGuide, S.aetnaCPB648, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.krs142, S.krs144, S.krs138, S.krs607, S.krs702, S.krs730, S.kar18030, S.krs319c010, S.krs319c020, S.krs319c080, S.krs319c090, S.kar43100, S.bacbLic, S.bhFee, S.erisa, S.cfr433],
+    sources: [S.aetnaGuide, S.aetnaCPB648, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.krs142, S.krs144, S.krs138, S.krs607, S.krs702, S.krs730, S.kar18030, S.krs319c010, S.krs319c020, S.krs319c080, S.krs319c090, S.kar43100, S.bacbLic, S.bhFee, S.erisa, S.cfr433, { title: 'KRS 335.020 — Definitions, “the practice of social work” (FindLaw)', url: 'https://codes.findlaw.com/ky/title-xxvi-occupations-and-professions/ky-rev-st-sect-335-020/' }],
     deliveryRules: {
       supervision: {
         value: 'Aetna’s guide requires services to be provided directly or billed by licensed behavior analysts in states with licensure laws (Kentucky is one), BCBAs, or psychologists where in scope, with supervision of others "in line with practice standards." Its participation criteria (5/26) require "A minimum of one hour of face-to-face supervision" of an unlicensed or noncertified paraprofessional "for each 10 hours of applied behavior analysis," the supervisor "onsite with the child at least one hour a month," and all BCBAs, BCaBAs and paraprofessionals to "meet state requirements." Kentucky’s board rule (201 KAR 43:050) governs supervision of licensed assistants and temporary licensees.',
@@ -1098,9 +1110,10 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
         cites: [S.aetnaGuide],
       },
       diagnosingProviders: {
-        value: '"An appropriate provider (i.e. licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice)." Kentucky excludes diagnosis from ABA practice (KRS 319C.010(8)).',
+        value:
+          '"An appropriate provider (i.e. licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice)." Kentucky excludes diagnosis from ABA practice (KRS 319C.010(8)). LCSW: not named by Aetna. Kentucky’s mandate defines the covered diagnosis by its testing — “empirically validated” tools appropriate to the child’s age — not by the diagnostician (KRS 304.17A-142), and Kentucky’s social-work statute describes the practice as “counseling and nonmedical psychotherapy” without mentioning diagnosis (KRS 335.020). Whether an LCSW diagnosis is accepted is Aetna’s call: ask at authorization, and use a physician or psychologist diagnosis if in doubt.',
         status: 'verified',
-        cites: [S.aetnaGuide, S.krs319c010],
+        cites: [S.aetnaGuide, S.krs319c010, S.krs142, { title: 'KRS 335.020 — Definitions, “the practice of social work” (FindLaw)', url: 'https://codes.findlaw.com/ky/title-xxvi-occupations-and-professions/ky-rev-st-sect-335-020/' }],
       },
       diagnosticTools: {
         value: 'CPB 0648 names ADI-R, ADOS-2, CARS-2 and the Asperger Syndrome Diagnostic Scale; the ABA guide requires a standardized functional measure (Vineland-3, ABAS, VB-MAPP or ABLLS as examples).',
@@ -1215,7 +1228,7 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
       { title: 'Standardized assessment timing', desc: 'Instrument administered within 60 days before treatment starts.' },
       { title: 'ABA order', desc: 'The mandate covers ABA "prescribed or ordered by a licensed health or allied health professional."' },
     ],
-    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.krs142, S.krs144, S.krs138, S.krs607, S.krs702, S.krs730, S.kar18030, S.krs319c010, S.krs319c020, S.krs319c080, S.krs319c090, S.kar43100, S.bacbLic, S.bhFee, S.erisa, S.cfr433],
+    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.krs142, S.krs144, S.krs138, S.krs607, S.krs702, S.krs730, S.kar18030, S.krs319c010, S.krs319c020, S.krs319c080, S.krs319c090, S.kar43100, S.bacbLic, S.bhFee, S.erisa, S.cfr433, { title: 'KRS 335.020 — Definitions, “the practice of social work” (FindLaw)', url: 'https://codes.findlaw.com/ky/title-xxvi-occupations-and-professions/ky-rev-st-sect-335-020/' }],
     deliveryRules: {
       supervision: {
         value: 'Direct and indirect case supervision at "one to two hours per ten hours of direct treatment"; at 10 hours a week or less, at least one to two hours a week of direct case supervision (EN0499). Kentucky’s board rule (201 KAR 43:050) governs supervision of licensed assistants and temporary licensees.',
@@ -1262,9 +1275,10 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
         cites: [S.en0499],
       },
       diagnosingProviders: {
-        value: 'A professional licensed to practice independently "whose licensure board considers diagnostics to be within their scope of practice," with name, credentials and licensure type provided (EN0499). Kentucky excludes diagnosis from ABA practice (KRS 319C.010(8)).',
+        value:
+          'A professional licensed to practice independently "whose licensure board considers diagnostics to be within their scope of practice," with name, credentials and licensure type provided (EN0499). Kentucky excludes diagnosis from ABA practice (KRS 319C.010(8)). LCSW: not named by Cigna. Kentucky’s mandate defines the covered diagnosis by its testing — “empirically validated” tools appropriate to the child’s age — not by the diagnostician (KRS 304.17A-142), and Kentucky’s social-work statute describes the practice as “counseling and nonmedical psychotherapy” without mentioning diagnosis (KRS 335.020). Whether an LCSW diagnosis is accepted is Cigna’s call: ask at authorization, and use a physician or psychologist diagnosis if in doubt.',
         status: 'verified',
-        cites: [S.en0499, S.krs319c010],
+        cites: [S.en0499, S.krs319c010, S.krs142, { title: 'KRS 335.020 — Definitions, “the practice of social work” (FindLaw)', url: 'https://codes.findlaw.com/ky/title-xxvi-occupations-and-professions/ky-rev-st-sect-335-020/' }],
       },
       diagnosticTools: {
         value: 'No single instrument is mandated; it must be reliable, valid and standardized and the current edition ("must be the Vineland-3 vs. Vineland-II"), with date, respondent and form type reported (EN0499).',
@@ -1378,7 +1392,7 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis with a validated tool', desc: 'DSM-5-TR ASD and severity level, confirmed with a validated tool, by a state-licensed clinician.' },
       { title: 'ABA order', desc: 'Optum’s Kentucky section and the statute cover ABA "prescribed or ordered by a licensed health or allied health professional."' },
     ],
-    sources: [S.optumSCC, S.optumSM, S.optumTele, S.optumReimb, S.optumNNM, S.krs142, S.krs144, S.krs138, S.krs607, S.krs702, S.krs730, S.kar18030, S.krs319c010, S.krs319c020, S.krs319c080, S.krs319c090, S.kar43100, S.bacbLic, S.bhFee, S.erisa, S.cfr433],
+    sources: [S.optumSCC, S.optumSM, S.optumTele, S.optumReimb, S.optumNNM, S.krs142, S.krs144, S.krs138, S.krs607, S.krs702, S.krs730, S.kar18030, S.krs319c010, S.krs319c020, S.krs319c080, S.krs319c090, S.kar43100, S.bacbLic, S.bhFee, S.erisa, S.cfr433, { title: 'KRS 335.020 — Definitions, “the practice of social work” (FindLaw)', url: 'https://codes.findlaw.com/ky/title-xxvi-occupations-and-professions/ky-rev-st-sect-335-020/' }],
     deliveryRules: {
       supervision: {
         value: '"Consistent with CASP standards of care, direct case supervision is required 1–2 hours for every 10 hours of direct treatment per week." Technicians should be RBTs or otherwise certified as allowed by state mandate, and Optum does not recommend parents serving as their own child’s RBT. Kentucky’s board rule (201 KAR 43:050) governs supervision of licensed assistants and temporary licensees.',
@@ -1427,9 +1441,10 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
         cites: [S.optumSCC],
       },
       diagnosingProviders: {
-        value: '"A state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis" under DSM-5-TR. Kentucky excludes diagnosis from ABA practice (KRS 319C.010(8)).',
+        value:
+          '"A state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis" under DSM-5-TR. Kentucky excludes diagnosis from ABA practice (KRS 319C.010(8)). LCSW: not named by Optum. Kentucky’s mandate defines the covered diagnosis by its testing — “empirically validated” tools appropriate to the child’s age — not by the diagnostician (KRS 304.17A-142), and Kentucky’s social-work statute describes the practice as “counseling and nonmedical psychotherapy” without mentioning diagnosis (KRS 335.020). Whether an LCSW diagnosis is accepted is Optum’s call: ask at authorization, and use a physician or psychologist diagnosis if in doubt.',
         status: 'verified',
-        cites: [S.optumSCC, S.krs319c010],
+        cites: [S.optumSCC, S.krs319c010, S.krs142, { title: 'KRS 335.020 — Definitions, “the practice of social work” (FindLaw)', url: 'https://codes.findlaw.com/ky/title-xxvi-occupations-and-professions/ky-rev-st-sect-335-020/' }],
       },
       diagnosticTools: {
         value: 'At least one clinically validated tool from a non-exhaustive list: first-level screens (M-CHAT and others), second-level screens (CARS/CARS-2, RITA-T, STAT), and formal diagnostic tools.',
@@ -1547,7 +1562,7 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis report', desc: 'ASD diagnosis from a licensed clinician (behavior analysts cannot diagnose in Kentucky).' },
       { title: 'ABA order + treatment plan', desc: 'The mandate covers ABA "prescribed or ordered by a licensed health or allied health professional"; Anthem expects plans reviewed at least every six months.' },
     ],
-    sources: [S.anthemPA, S.anthemRG, S.mcoContracts, S.krs142, S.krs144, S.krs138, S.krs607, S.krs702, S.krs730, S.kar18030, S.krs319c010, S.krs319c020, S.krs319c080, S.krs319c090, S.kar43100, S.bacbLic, S.bhFee, S.erisa, S.cfr433, S.anthemPM, S.anthemBC, { title: 'Anthem Kentucky — Provider News (provider news archive)', url: 'https://providernews.anthem.com/kentucky' }],
+    sources: [S.anthemPA, S.anthemRG, S.mcoContracts, S.krs142, S.krs144, S.krs138, S.krs607, S.krs702, S.krs730, S.kar18030, S.krs319c010, S.krs319c020, S.krs319c080, S.krs319c090, S.kar43100, S.bacbLic, S.bhFee, S.erisa, S.cfr433, S.anthemPM, S.anthemBC, { title: 'Anthem Kentucky — Provider News (provider news archive)', url: 'https://providernews.anthem.com/kentucky' }, { title: 'KRS 335.020 — Definitions, “the practice of social work” (FindLaw)', url: 'https://codes.findlaw.com/ky/title-xxvi-occupations-and-professions/ky-rev-st-sect-335-020/' }],
     deliveryRules: {
       supervision: {
         value: 'Anthem’s resource guide approves BCBAs and "providers practicing under the direction and supervision of the BCBA," and requires the supervising BCBA or QHP in box 31 for technician work; it sets no numeric ratio. Kentucky’s board rule (201 KAR 43:050) governs supervision of licensed assistants and temporary licensees.',
@@ -1596,11 +1611,13 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
         blocker: 'licensed',
       },
       diagnosingProviders: {
-        value: 'Not stated in the Anthem documents read. Kentucky excludes diagnosis from ABA practice (KRS 319C.010(8)). Anthem’s Kentucky provider news says that from June 1, 2024 ABA medical-necessity reviews moved from its public guideline CG-BEH-02 to "MCG B-806-T Behavioral Health Care Applied Behavioral Analysis," a licensed MCG guideline that cannot be read or republished.',
+        value:
+          'Not stated in the Anthem documents read. Kentucky excludes diagnosis from ABA practice (KRS 319C.010(8)). Anthem’s Kentucky provider news says that from June 1, 2024 ABA medical-necessity reviews moved from its public guideline CG-BEH-02 to "MCG B-806-T Behavioral Health Care Applied Behavioral Analysis," a licensed MCG guideline that cannot be read or republished. LCSW: not named by Anthem. Kentucky’s mandate defines the covered diagnosis by its testing — “empirically validated” tools appropriate to the child’s age — not by the diagnostician (KRS 304.17A-142), and Kentucky’s social-work statute describes the practice as “counseling and nonmedical psychotherapy” without mentioning diagnosis (KRS 335.020). Whether an LCSW diagnosis is accepted is Anthem’s call: ask at authorization, and use a physician or psychologist diagnosis if in doubt.',
         status: 'unverified',
-        cites: [S.anthemRG, S.krs319c010, S.anthMCG],
-        verifyVia: 'Anthem behavioral health utilization management (number on the member’s card) or Availity: ask what the MCG B-806-T review needs for this point; the guideline itself is licensed and not public.',
         blocker: 'licensed',
+        cites: [S.anthemRG, S.krs319c010, S.anthMCG, S.krs142, { title: 'KRS 335.020 — Definitions, “the practice of social work” (FindLaw)', url: 'https://codes.findlaw.com/ky/title-xxvi-occupations-and-professions/ky-rev-st-sect-335-020/' }],
+        verifyVia:
+          'Anthem behavioral health utilization management (number on the member’s card) or Availity: ask what the MCG B-806-T review needs for this point; the guideline itself is licensed and not public.',
       },
       diagnosticTools: {
         value: 'Not stated in the Anthem documents read; the guide stresses standardized assessments for evaluating progress. Anthem’s Kentucky provider news says that from June 1, 2024 ABA medical-necessity reviews moved from its public guideline CG-BEH-02 to "MCG B-806-T Behavioral Health Care Applied Behavioral Analysis," a licensed MCG guideline that cannot be read or republished.',

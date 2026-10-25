@@ -348,7 +348,13 @@ export const vermontPayers: Record<string, PayerConfig> = {
       { title: 'Prior records and school supports', desc: 'Records of prior ASD evaluations or treatment (or the attempt to get them) and the child’s current school supports, such as a 1:1 aide.' },
       { title: 'Referral', desc: 'Vermont-licensed behavior analysts practice only on a referral from a licensed health professional or school official.' },
     ],
-    sources: [S.bcvtPolicy, S.bcvtBlog, S.bcvtNehp, S.bcvtTele, S.bcvtTF, S.mandate, S.defs4011, S.tele4098a, S.ch95, S.ch56, S.bacbLic, S.pay9418, S.pa9418b, S.ext4063, S.cob4024, S.abaSupp, S.erisa, S.gmcb, { title: 'Blue Cross and Blue Shield of Vermont — Prior Approval Authorization (provider page)', url: 'https://www.bluecrossvt.org/providers/prior-approval-authorization' }, { title: 'Blue Cross VT — Provider News & Updates (provider notices and letters archive)', url: 'https://www.bluecrossvt.org/providers/provider-news-updates' }],
+    sources: [S.bcvtPolicy, S.bcvtBlog, S.bcvtNehp, S.bcvtTele, S.bcvtTF, S.mandate, S.defs4011, S.tele4098a, S.ch95, S.ch56, S.bacbLic, S.pay9418, S.pa9418b, S.ext4063, S.cob4024, S.abaSupp, S.erisa, S.gmcb, { title: 'Blue Cross and Blue Shield of Vermont — Prior Approval Authorization (provider page)', url: 'https://www.bluecrossvt.org/providers/prior-approval-authorization' }, { title: 'Blue Cross VT — Provider News & Updates (provider notices and letters archive)', url: 'https://www.bluecrossvt.org/providers/provider-news-updates' },
+      { title: 'Blue Cross VT — Mental Health and Substance Use Pre-Notification and Prior Approval (publication 4/27/2026)', url: 'https://www.bluecrossvt.org/sites/default/files/2026-04/MHSUD%20Pre-Notification%20and%20Prior%20Approval%20-%20FINAL%20-%20Publication%20Copy%204.27.26.pdf' },
+      { title: 'Vermont Office of Professional Regulation — Applied Behavior Analysis', url: 'https://sos.vermont.gov/applied-behavior-analysis/' },
+      { title: '42 CFR 433.139 — Medicaid third-party liability, payment of claims (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+      { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
+      { title: '38 CFR 17.270 — CHAMPVA is the last payer in double coverage', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
+    ],
     deliveryRules: {
       supervision: {
         value: 'ABA is "provided by, or … performed under the supervision of" a program manager or lead behavioral therapist who is a BCBA, another state-licensed or certified behavior instructor, or a provider whose legal scope includes behavior analysis. A BCaBA or licensed assistant behavior analyst "may not function as a program manager or lead behavioral therapist and may not provide ABA services without supervision." No numeric ratio is published. Vermont law requires at least five hours a month of off-site case supervision for a licensed assistant behavior analyst.',
@@ -529,7 +535,13 @@ export const vermontPayers: Record<string, PayerConfig> = {
       { title: 'Standardized functional measure', desc: 'Aetna wants one from the past 12 months (for example Vineland-3, ABAS, VB-MAPP or ABLLS).' },
       { title: 'Referral', desc: 'Vermont-licensed behavior analysts practice only on a referral from a licensed health professional or school official.' },
     ],
-    sources: [S.aetnaGuide, S.aetnaCPB648, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.aetnaTele, S.mandate, S.defs4011, S.tele4098a, S.ch95, S.ch56, S.bacbLic, S.pay9418, S.pa9418b, S.ext4063, S.cob4024, S.erisa, S.gmcb, S.fee],
+    sources: [S.aetnaGuide, S.aetnaCPB648, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.aetnaTele, S.mandate, S.defs4011, S.tele4098a, S.ch95, S.ch56, S.bacbLic, S.pay9418, S.pa9418b, S.ext4063, S.cob4024, S.erisa, S.gmcb, S.fee,
+      { title: 'Vermont Office of Professional Regulation — Applied Behavior Analysis', url: 'https://sos.vermont.gov/applied-behavior-analysis/' },
+      { title: '42 CFR 433.139 — Medicaid third-party liability, payment of claims (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+      { title: 'Vermont Medicaid Applied Behavior Analysis Supplement (08-04-2026)', url: 'https://vtmedicaid.com/assets/manuals/ABASupplement.pdf' },
+      { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
+      { title: '38 CFR 17.270 — CHAMPVA is the last payer in double coverage', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
+    ],
     deliveryRules: {
       supervision: {
         value: 'Aetna’s network participation criteria (5/26) require ABA to be provided directly or supervised by state-licensed or BACB-certified BCBAs. A paraprofessional needs at least "one hour of face-to-face supervision" by a BCBA or licensed psychologist "for each 10 hours of applied behavior analysis," and the supervisor must be "onsite with the child at least one hour a month." "All BCBAs, BCaBAs and paraprofessionals must meet state requirements." In Vermont that means a Vermont license for the behavior analyst and five hours a month of off-site case supervision for a licensed assistant (26 V.S.A. § 4929).',
@@ -720,7 +732,13 @@ export const vermontPayers: Record<string, PayerConfig> = {
       { title: 'Standardized assessment timing', desc: 'Instrument administered within 60 days before treatment starts.' },
       { title: 'Referral', desc: 'Vermont-licensed behavior analysts practice only on a referral from a licensed health professional or school official.' },
     ],
-    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.mandate, S.defs4011, S.tele4098a, S.ch95, S.ch56, S.bacbLic, S.pay9418, S.pa9418b, S.ext4063, S.cob4024, S.erisa, S.gmcb, S.fee],
+    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.mandate, S.defs4011, S.tele4098a, S.ch95, S.ch56, S.bacbLic, S.pay9418, S.pa9418b, S.ext4063, S.cob4024, S.erisa, S.gmcb, S.fee,
+      { title: 'Vermont Office of Professional Regulation — Applied Behavior Analysis', url: 'https://sos.vermont.gov/applied-behavior-analysis/' },
+      { title: '42 CFR 433.139 — Medicaid third-party liability, payment of claims (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+      { title: 'Vermont Medicaid Applied Behavior Analysis Supplement (08-04-2026)', url: 'https://vtmedicaid.com/assets/manuals/ABASupplement.pdf' },
+      { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
+      { title: '38 CFR 17.270 — CHAMPVA is the last payer in double coverage', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
+    ],
     deliveryRules: {
       supervision: {
         value: 'Case supervision by a BCBA, a Licensed Behavior Analyst, or an independently licensed mental health professional with ABA training, at one to two hours per ten hours of direct treatment, and at least one to two hours a week when direct treatment is 10 hours a week or less. Vermont law adds five hours a month of off-site case supervision for a licensed assistant behavior analyst.',
@@ -898,7 +916,13 @@ export const vermontPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis with a validated tool', desc: 'DSM-5-TR ASD and severity level, confirmed with a validated tool (ADI-R, ADOS-2 and others).' },
       { title: 'Referral', desc: 'Vermont-licensed behavior analysts practice only on a referral from a licensed health professional or school official.' },
     ],
-    sources: [S.optumSCC, S.optumSM, S.optumNNM, S.optumTele, S.optumReimb, S.mandate, S.defs4011, S.tele4098a, S.ch95, S.ch56, S.bacbLic, S.pay9418, S.pa9418b, S.ext4063, S.cob4024, S.erisa, S.gmcb, S.fee],
+    sources: [S.optumSCC, S.optumSM, S.optumNNM, S.optumTele, S.optumReimb, S.mandate, S.defs4011, S.tele4098a, S.ch95, S.ch56, S.bacbLic, S.pay9418, S.pa9418b, S.ext4063, S.cob4024, S.erisa, S.gmcb, S.fee,
+      { title: 'Vermont Office of Professional Regulation — Applied Behavior Analysis', url: 'https://sos.vermont.gov/applied-behavior-analysis/' },
+      { title: '42 CFR 433.139 — Medicaid third-party liability, payment of claims (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+      { title: 'Vermont Medicaid Applied Behavior Analysis Supplement (08-04-2026)', url: 'https://vtmedicaid.com/assets/manuals/ABASupplement.pdf' },
+      { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
+      { title: '38 CFR 17.270 — CHAMPVA is the last payer in double coverage', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
+    ],
     deliveryRules: {
       supervision: {
         value: '"Consistent with CASP standards of care, direct case supervision is required 1–2 hours for every 10 hours of direct treatment per week." Technicians work under a BCBA or licensed behavioral health clinician and "should be registered behavior technicians (RBT) or another appropriately certified behavior technician as allowable by state mandate"; Optum does not recommend parents serving as their own child’s RBT. Vermont law adds five hours a month of off-site case supervision for a licensed assistant behavior analyst.',

@@ -78,6 +78,7 @@ const S: Record<string, PayerSource> = {
   bcbsmtManuals: { title: 'BCBSMT — Provider Manuals (available only in Availity Payer Spaces)', url: 'https://www.bcbsmt.com/provider/standards-and-requirements/standards/provider-manuals' },
   bcbsmtBC: { title: 'BCBSMT — BlueCard Program (provider page)', url: 'https://www.bcbsmt.com/provider/claims-and-eligibility/claims/blue-card' },
   bcbsmtBCMan: { title: 'BlueCard Program Provider Manual (Blue Cross Blue Shield Association, BCBSMT edition, June 2026)', url: 'https://www.bcbsmt.com/docs/provider/mt/bluecard-provider-manual.pdf' },
+  lcswScope: { title: 'MCA 37-39-102(12)(a) — "Clinical social work" includes "the differential diagnosis and treatment of … emotional, mental, and behavioral disorders" (2025 MCA)', url: 'https://mca.legmt.gov/bills/mca/title_0370/chapter_0390/part_0010/section_0020/0370-0390-0010-0020.html' },
 };
 
 /* ---- Shared Montana commercial layer (same facts on every commercial guide) ---- */
@@ -245,7 +246,7 @@ export const montanaPayers: Record<string, PayerConfig> = {
         cites: [S.abaManual, S.addl, S.checklist],
       },
       diagnosingProviders: {
-        value: 'To continue past the first span, the diagnosis must be established by one of: child and adolescent psychiatrist; general psychiatrist; psychiatric mental health NP; developmental pediatrician; neurologist; neuropsychologist or psychologist; pediatrician; family physician; family or pediatric NP; physician assistant; clinical professional counselor; or clinical social worker. The form adds child and adolescent experience for general psychiatrists and psychiatric NPs.',
+        value: 'To continue past the first span, the diagnosis must be established by one of: child and adolescent psychiatrist; general psychiatrist; psychiatric mental health NP; developmental pediatrician; neurologist; neuropsychologist or psychologist; pediatrician; family physician; family or pediatric NP; physician assistant; clinical professional counselor; or clinical social worker. The form adds child and adolescent experience for general psychiatrists and psychiatric NPs. LCSW: yes — "clinical social worker" is on the manual\'s list.',
         status: 'verified',
         cites: [S.abaManual, S.addl],
       },
@@ -364,7 +365,7 @@ export const montanaPayers: Record<string, PayerConfig> = {
       { title: 'Standardized functional measure', desc: 'One from the past 12 months (Vineland-3, ABAS, VB-MAPP or ABLLS).' },
       { title: 'Physician or psychologist order', desc: 'The mandate covers ABA "prescribed, provided, or ordered by a licensed physician or licensed psychologist."' },
     ],
-    sources: [S.aetnaGuide, S.aetnaCPB, S.aetnaCPB648, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.aetnaTele, S.mca33_22_515, S.mca33_30_102, S.mca33_31_111, S.mca33_22_138, S.mca33_18_232, S.mca33_32_107, S.mca33_32_211, S.mca33_32_212, S.mca37_17_403, S.mca37_17_404, S.mca37_17_405, S.mca37_2_305, S.bacbLic, S.erisa, S.giManual, S.cfr433, S.fee2025],
+    sources: [S.aetnaGuide, S.aetnaCPB, S.aetnaCPB648, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.aetnaTele, S.mca33_22_515, S.mca33_30_102, S.mca33_31_111, S.mca33_22_138, S.mca33_18_232, S.mca33_32_107, S.mca33_32_211, S.mca33_32_212, S.mca37_17_403, S.mca37_17_404, S.mca37_17_405, S.mca37_2_305, S.bacbLic, S.erisa, S.giManual, S.cfr433, S.fee2025, S.lcswScope],
     deliveryRules: {
       supervision: {
         value: 'Aetna’s Network Participation Criteria (5/26): ABA services "must be provided directly or supervised by individuals licensed by the state or certified by the Behavior Analyst Certification Board"; supervised staff may be a BCaBA "or a paraprofessional"; "A minimum of one hour of face-to-face supervision" of an unlicensed or noncertified paraprofessional is required "for each 10 hours of applied behavior analysis," plus the supervisor "onsite with the child at least one hour a month"; and all staff "must meet state requirements." In Montana that means a licensed behavior analyst (or ABPP-certified behavioral psychologist) supervises BCaBAs and technicians (MCA 37-17-405).' + ' Aetna’s guide and Network Participation Criteria publish no cap on the number of technicians one BCBA may supervise.',
@@ -415,9 +416,9 @@ export const montanaPayers: Record<string, PayerConfig> = {
         cites: [S.aetnaGuide],
       },
       diagnosingProviders: {
-        value: 'An appropriate provider: "licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice."',
+        value: 'An appropriate provider: "licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice." LCSW: yes under Aetna\'s scope-of-practice test — Montana puts "differential diagnosis" of emotional, mental and behavioral disorders inside clinical social work (MCA 37-39-102(12)(a)).',
         status: 'verified',
-        cites: [S.aetnaGuide],
+        cites: [S.aetnaGuide, S.lcswScope],
       },
       diagnosticTools: {
         value: 'CPB 0648 names ADI-R, ADOS-2, CARS-2 and the Asperger Syndrome Diagnostic Scale as tools used with clinical assessment. The ABA guide requires a standardized functional measure from the past 12 months (Vineland-3, ABAS, VB-MAPP or ABLLS as examples).',
@@ -535,7 +536,7 @@ export const montanaPayers: Record<string, PayerConfig> = {
       { title: 'Standardized assessment timing', desc: 'Instrument administered within 60 days before treatment starts.' },
       { title: 'Physician or psychologist order', desc: 'The mandate covers ABA "prescribed, provided, or ordered by a licensed physician or licensed psychologist."' },
     ],
-    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.mca33_22_515, S.mca33_30_102, S.mca33_31_111, S.mca33_22_138, S.mca33_18_232, S.mca33_32_107, S.mca33_32_211, S.mca33_32_212, S.mca37_17_403, S.mca37_17_404, S.mca37_17_405, S.mca37_2_305, S.bacbLic, S.erisa, S.giManual, S.cfr433, S.fee2025],
+    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.mca33_22_515, S.mca33_30_102, S.mca33_31_111, S.mca33_22_138, S.mca33_18_232, S.mca33_32_107, S.mca33_32_211, S.mca33_32_212, S.mca37_17_403, S.mca37_17_404, S.mca37_17_405, S.mca37_2_305, S.bacbLic, S.erisa, S.giManual, S.cfr433, S.fee2025, S.lcswScope],
     deliveryRules: {
       supervision: {
         value: 'EN0499: case supervision by a BCBA, a Licensed Behavior Analyst, or an independently licensed mental health clinician with ABA training, at one to two hours per ten hours of direct treatment, and at least one to two hours a week when direct treatment is 10 hours a week or less. Montana law adds that BCaBAs and technicians must be supervised by a licensed behavior analyst or ABPP-certified behavioral psychologist (MCA 37-17-405).' + ' EN0499 publishes no cap on the number of technicians one supervisor may oversee.',
@@ -582,9 +583,9 @@ export const montanaPayers: Record<string, PayerConfig> = {
         cites: [S.en0499],
       },
       diagnosingProviders: {
-        value: 'A professional "licensed to practice independently and whose licensure board considers diagnostics" within scope, applying DSM-5-TR criteria; the request must give the diagnostician’s name, credentials and type of licensure.',
+        value: 'A professional "licensed to practice independently and whose licensure board considers diagnostics" within scope, applying DSM-5-TR criteria; the request must give the diagnostician’s name, credentials and type of licensure. LCSW: yes under Evernorth\'s test — Montana puts "differential diagnosis" of emotional, mental and behavioral disorders inside clinical social work (MCA 37-39-102(12)(a)).',
         status: 'verified',
-        cites: [S.en0499],
+        cites: [S.en0499, S.lcswScope],
       },
       diagnosticTools: {
         value: 'No single instrument is mandated; assessments must be standardized and the current edition (the policy’s example: Vineland-3, not Vineland-II).',
@@ -701,7 +702,7 @@ export const montanaPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis with a validated tool', desc: 'DSM-5-TR ASD and severity, confirmed with a validated tool (ADI-R, ADOS-2 and others).' },
       { title: 'Physician or psychologist order', desc: 'The mandate covers ABA "prescribed, provided, or ordered by a licensed physician or licensed psychologist."' },
     ],
-    sources: [S.optumSCC, S.optumSM, S.optumTele, S.optumReimb, S.optumNNM, S.mca33_22_515, S.mca33_30_102, S.mca33_31_111, S.mca33_22_138, S.mca33_18_232, S.mca33_32_107, S.mca33_32_211, S.mca33_32_212, S.mca37_17_403, S.mca37_17_404, S.mca37_17_405, S.mca37_2_305, S.bacbLic, S.erisa, S.giManual, S.cfr433, S.fee2025],
+    sources: [S.optumSCC, S.optumSM, S.optumTele, S.optumReimb, S.optumNNM, S.mca33_22_515, S.mca33_30_102, S.mca33_31_111, S.mca33_22_138, S.mca33_18_232, S.mca33_32_107, S.mca33_32_211, S.mca33_32_212, S.mca37_17_403, S.mca37_17_404, S.mca37_17_405, S.mca37_2_305, S.bacbLic, S.erisa, S.giManual, S.cfr433, S.fee2025, S.lcswScope],
     deliveryRules: {
       supervision: {
         value: 'Optum’s criteria require direct case supervision of 1–2 hours for every 10 hours of direct treatment, consistent with practice standards; technicians work under a BCBA or licensed behavioral health clinician and "should be registered behavior technicians (RBT) or another appropriately certified behavior technician as allowable by state mandate." Optum does not recommend parents serving as their own child’s RBT. Montana law: a licensed behavior analyst or ABPP-certified behavioral psychologist supervises (MCA 37-17-405).' + ' Optum’s criteria publish no cap on the number of technicians per BCBA.',
@@ -750,9 +751,9 @@ export const montanaPayers: Record<string, PayerConfig> = {
         cites: [S.optumSCC],
       },
       diagnosingProviders: {
-        value: 'A state-licensed physician, psychologist, or other state-licensed clinician qualified to diagnose under DSM-5-TR.',
+        value: 'A state-licensed physician, psychologist, or other state-licensed clinician qualified to diagnose under DSM-5-TR. LCSW: yes under Optum\'s test — Montana puts "differential diagnosis" of emotional, mental and behavioral disorders inside clinical social work (MCA 37-39-102(12)(a)).',
         status: 'verified',
-        cites: [S.optumSCC],
+        cites: [S.optumSCC, S.lcswScope],
       },
       diagnosticTools: {
         value: 'At least one validated tool from a non-exhaustive list: first-level screens (M-CHAT and others), second-level screens (CARS/CARS-2, RITA-T, STAT) and formal diagnostic tools (ADI-R, ADOS/ADOS-2, DISCO).',
@@ -882,7 +883,7 @@ export const montanaPayers: Record<string, PayerConfig> = {
       { title: 'School and therapy schedule', desc: 'The request form asks for the ABA schedule by location, the school and other-therapy schedule, and whether an IEP or 504 plan is in place.' },
       { title: 'Supervisor license', desc: 'The supervising BCBA must hold an active license in the state where the child is treated.' },
     ],
-    sources: [S.bcbsmtMgmt, S.bcbsmtBC, S.bcbsmtBCMan, S.bcbsmtPA, S.bcbsmtCodes, S.bcbsmtITR, S.bcbsmtCSR, S.bcbsmtTele, S.bcbsmtBH, S.bcbsmtMNC, S.bcbsmtTelePage, S.bcbsmtManuals, S.mca33_22_515, S.mca33_30_102, S.mca33_31_111, S.mca33_22_138, S.mca33_18_232, S.mca33_32_107, S.mca33_32_211, S.mca33_32_212, S.mca37_17_403, S.mca37_17_404, S.mca37_17_405, S.mca37_2_305, S.bacbLic, S.erisa, S.giManual, S.cfr433, S.fee2025, { title: 'BCBSMT — Provider News and Updates', url: 'https://www.bcbsmt.com/provider/education-and-reference/education/news-and-updates' }, { title: 'BCBSMT — Blue Review provider newsletter archive', url: 'https://www.bcbsmt.com/provider/education-and-reference/education/newsletter' }],
+    sources: [S.bcbsmtMgmt, S.bcbsmtBC, S.bcbsmtBCMan, S.bcbsmtPA, S.bcbsmtCodes, S.bcbsmtITR, S.bcbsmtCSR, S.bcbsmtTele, S.bcbsmtBH, S.bcbsmtMNC, S.bcbsmtTelePage, S.bcbsmtManuals, S.mca33_22_515, S.mca33_30_102, S.mca33_31_111, S.mca33_22_138, S.mca33_18_232, S.mca33_32_107, S.mca33_32_211, S.mca33_32_212, S.mca37_17_403, S.mca37_17_404, S.mca37_17_405, S.mca37_2_305, S.bacbLic, S.erisa, S.giManual, S.cfr433, S.fee2025, { title: 'BCBSMT — Provider News and Updates', url: 'https://www.bcbsmt.com/provider/education-and-reference/education/news-and-updates' }, { title: 'BCBSMT — Blue Review provider newsletter archive', url: 'https://www.bcbsmt.com/provider/education-and-reference/education/newsletter' }, S.lcswScope],
     deliveryRules: {
       supervision: {
         value: 'Line staff need "on-going supervisory oversight by the BCBA or ABA treatment supervisor for a minimum of 5% of hours directly worked with members," and the supervisor attests to following BACB supervision guidelines with an active license in the state of service. Montana law: a licensed behavior analyst or ABPP-certified behavioral psychologist supervises BCaBAs and technicians (MCA 37-17-405).',
@@ -935,9 +936,9 @@ export const montanaPayers: Record<string, PayerConfig> = {
         cites: [S.bcbsmtCSR, S.bcbsmtITR],
       },
       diagnosingProviders: {
-        value: 'An "appropriate diagnostician." The forms accept a PCP (family practice, internal medicine, pediatrics) or a specialized ASD-diagnosing provider (developmental-behavioral or neurodevelopmental pediatrics, child neurology, adult or child psychiatry, licensed clinical psychology, or other specified).',
+        value: 'An "appropriate diagnostician." The forms accept a PCP (family practice, internal medicine, pediatrics) or a specialized ASD-diagnosing provider (developmental-behavioral or neurodevelopmental pediatrics, child neurology, adult or child psychiatry, licensed clinical psychology, or other specified). LCSW: not on the forms\' specialist list; an LCSW could be entered only as "other specified" — Montana puts "differential diagnosis" of emotional, mental and behavioral disorders inside clinical social work (MCA 37-39-102(12)(a)) — so confirm with BCBSMT.',
         status: 'verified',
-        cites: [S.bcbsmtMgmt, S.bcbsmtCSR],
+        cites: [S.bcbsmtMgmt, S.bcbsmtCSR, S.lcswScope],
       },
       diagnosticTools: {
         value: 'No diagnostic instrument is named. For treatment, choose one recognized instrument for the whole episode "such as the VB MAPP, ABLLS, AFLS, ABAS or the Vineland."',

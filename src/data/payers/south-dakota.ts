@@ -224,7 +224,7 @@ export const southDakotaPayers: Record<string, PayerConfig> = {
         cites: [S.abaManual],
       },
       diagnosingProviders: {
-        value: 'A physician or a psychologist.',
+        value: 'A physician or a psychologist. An LCSW does not qualify.',
         status: 'verified',
         cites: [S.abaManual],
       },

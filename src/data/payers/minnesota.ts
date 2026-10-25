@@ -19,6 +19,7 @@ const S: Record<string, PayerSource> = {
   sl95: { title: 'Laws 2026, ch. 95, art. 4, secs. 23–26 — EIDBI definitions, QSP observation and direction, new documentation subdivision 19', url: 'https://www.revisor.mn.gov/laws/2026/0/Session+Law/Chapter/95/' },
   sl121: { title: 'Laws 2026, ch. 121, art. 9, sec. 20 — EIDBI billing limits (new § 256B.0949, subd. 20) and art. 3 (§ 256B.69 managed care contracts)', url: 'https://www.revisor.mn.gov/laws/2026/0/Session+Law/Chapter/121/' },
   stat69: { title: 'Minn. Stat. § 256B.69 — Prepaid health plans (subd. 5a managed care contracts, six-month timely filing standard)', url: 'https://www.revisor.mn.gov/statutes/cite/256B.69' },
+  stat245I04: { title: 'Minn. Stat. § 245I.04, subd. 2 — Mental health professional qualifications (incl. licensed independent clinical social worker)', url: 'https://www.revisor.mn.gov/statutes/cite/245I.04' },
   stat3094: { title: 'Minn. Stat. § 62A.3094 — Coverage for autism spectrum disorders (large-employer plans, children under 18)', url: 'https://www.revisor.mn.gov/statutes/cite/62A.3094' },
   stat62Q18: { title: 'Minn. Stat. § 62Q.18, subd. 1 — "Large employer" means more than 50 current employees', url: 'https://www.revisor.mn.gov/statutes/cite/62Q.18' },
   stat62Q47: { title: 'Minn. Stat. § 62Q.47 — Mental health and substance use parity (all health plans)', url: 'https://www.revisor.mn.gov/statutes/cite/62Q.47' },
@@ -41,13 +42,19 @@ const S: Record<string, PayerSource> = {
   mednec: { title: 'EIDBI Benefit Policy Manual — Medical necessity criteria', url: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_DYNAMIC_CONVERSION&RevisionSelectionMethod=LatestReleased&dDocName=dhs16_195405' },
   cmde: { title: 'EIDBI Benefit Policy Manual — Comprehensive multi-disciplinary evaluation (CMDE) (updated 11/7/25)', url: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_DYNAMIC_CONVERSION&RevisionSelectionMethod=LatestReleased&dDocName=dhs16_195210' },
   tele: { title: 'EIDBI Benefit Policy Manual — Telehealth services (updated 9/10/26)', url: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_DYNAMIC_CONVERSION&RevisionSelectionMethod=LatestReleased&dDocName=DHS-292812' },
-  clinsup: { title: 'EIDBI Benefit Policy Manual — Clinical supervision (updated 9/15/26)', url: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_DYNAMIC_CONVERSION&RevisionSelectionMethod=LatestReleased&dDocName=dhs16_195399' },
+  staffSup: { title: 'EIDBI Benefit Policy Manual — Staff supervision (new page posted 10/16/26)', url: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_DYNAMIC_CONVERSION&RevisionSelectionMethod=LatestReleased&dDocName=MNDHS-087812' },
+  clinsup: { title: 'EIDBI Benefit Policy Manual — Clinical supervision (updated 10/16/26)', url: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_DYNAMIC_CONVERSION&RevisionSelectionMethod=LatestReleased&dDocName=dhs16_195399' },
   overview: { title: 'EIDBI Benefit Policy Manual — Overview of the EIDBI benefit (updated 4/28/26: provisional licensure, advanced certification)', url: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_DYNAMIC_CONVERSION&RevisionSelectionMethod=LatestReleased&dDocName=DHS-292846' },
-  updates: { title: 'EIDBI Benefit Policy Manual — Updates to the policy manual (change log through 9/16/26)', url: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_DYNAMIC_CONVERSION&RevisionSelectionMethod=LatestReleased&dDocName=DHS-292873' },
+  updates: { title: 'EIDBI Benefit Policy Manual — Updates to the policy manual (change log through 10/23/26)', url: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_DYNAMIC_CONVERSION&RevisionSelectionMethod=LatestReleased&dDocName=DHS-292873' },
   mhcpTele: { title: 'MHCP Provider Manual — Telehealth Services (POS 02/10, modifier 93)', url: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_DYNAMIC_CONVERSION&RevisionSelectionMethod=LatestReleased&dDocName=DHS-335178' },
   billPol: { title: 'MHCP Provider Manual — Billing Policy Overview (revised July 30, 2026: timely billing, prompt payment, enhanced pre-payment review)', url: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_DYNAMIC_CONVERSION&RevisionSelectionMethod=LatestReleased&dDocName=ID_008924' },
   mcoSec: { title: 'MHCP Provider Manual — Managed Care Organizations (carve-outs, MCO and state appeal rights)', url: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_DYNAMIC_CONVERSION&RevisionSelectionMethod=LatestReleased&dDocName=id_008923' },
   spa2410: { title: 'CMS-approved Minnesota SPA MN-24-0010, Attachment 4.19-B — EIDBI rates (effective Jan. 1, 2024)', url: 'https://www.medicaid.gov/medicaid/spa/downloads/MN-24-0010.pdf' },
+  elistSA: { title: 'DHS DSD eList — EIDBI service authorization update (Oct. 16, 2026: Acentra backlog resolved as of Oct. 1; seven-day reviews)', url: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_DYNAMIC_CONVERSION&RevisionSelectionMethod=LatestReleased&dDocName=MNDHS-087705' },
+  elistMorat: { title: 'DHS DSD eList — Extension of temporary moratorium on enrolling new EIDBI provider agencies (announced Oct. 23, 2026; effective Nov. 1, 2026 through April 30, 2027)', url: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_DYNAMIC_CONVERSION&RevisionSelectionMethod=LatestReleased&dDocName=MNDHS-087875' },
+  elistCpt: { title: 'DHS DSD eList — 2027 EIDBI CPT code updates (announced Oct. 23, 2026; 0373T becomes 97159 effective Jan. 1, 2027)', url: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_DYNAMIC_CONVERSION&RevisionSelectionMethod=LatestReleased&dDocName=MNDHS-087861' },
+  provNews: { title: 'MN DHS — MHCP provider news and updates', url: 'https://mn.gov/dhs/partners-and-providers/news-initiatives-reports-workgroups/minnesota-health-care-programs/provider-news/' },
+  eidbiLic: { title: 'MN DHS — EIDBI licensing (provisional licensure; new-agency enrollment paused since Nov. 1, 2025)', url: 'https://mn.gov/dhs/partners-and-providers/licensing/eidbi/' },
   ucareBull: { title: 'DHS MHCP provider bulletin — Medica acquiring UCare clarifications (Dec. 18, 2025)', url: 'https://content.govdelivery.com/accounts/MNDHS/bulletins/400969b' },
   ucareFaq: { title: 'UCare — Plan closure FAQ (UCare Medical Assistance plans now Medica One Health Plan, Oct. 1, 2026)', url: 'https://www.ucare.org/about-us/plan-closure-faq' },
   // Federal
@@ -72,6 +79,7 @@ const S: Record<string, PayerSource> = {
   imcHome: { title: 'IMCare (Itasca Medical Care) home page — "your local County health plan"', url: 'http://imcare.org/' },
   imcProv: { title: 'IMCare — Providers & Partners (forms, provider portal)', url: 'https://www.itascacountymn.gov/357/Providers-Partners' },
   opMN: { title: 'Optum Provider Express — Welcome Minnesota Providers (Medica behavioral health; Medicaid EIDBI forms)', url: 'https://www.providerexpress.com/content/ope-provexpr/us/en/our-network/welcomeNtwk/wMN.html' },
+  opEidbi: { title: 'Optum / Medica Behavioral Health — Guide to providing EIDBI services (BH02483-26-QRG, 10/13/2026)', url: 'https://www.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/mnABA/mnEIDBIOverview.pdf' },
   opMedQRG: { title: 'Optum — Information and resources for working with Medica Behavioral Health (BH5236, 10/2023)', url: 'https://www.providerexpress.com/content/dam/ope-provexpr/us/pdfs/ourNetworkMain/medica/5236MedicaQRG.pdf' },
   pwEidbi: { title: 'PrimeWest Health Provider Manual — Early Intensive Development and Behavioral Intervention (EIDBI) (updated 09/04/2026)', url: 'https://www.primewest.org/eidbi' },
   pwBill: { title: 'PrimeWest Health Provider Manual — Billing Requirements (180-day timely filing)', url: 'https://www.primewest.org/billing-requirements' },
@@ -100,7 +108,7 @@ const S: Record<string, PayerSource> = {
 const MN_MCO_PARENT = 'Minnesota Medical Assistance (EIDBI benefit, managed care)';
 
 const EIDBI_SUPERVISION =
-  'Set by statute for every Medical Assistance member, fee-for-service or managed care. An EIDBI agency must "provide clinical supervision for a minimum of one hour for every 16 hours of direct treatment per person, unless otherwise authorized in the person’s individual treatment plan," and must provide "the required EIDBI intervention observation and direction by a QSP at least once per month" (Minn. Stat. § 256B.0949, subd. 16(a)(15)–(16), as amended by Laws 2026, ch. 95). The QSP may do that monthly observation and direction by telehealth for no more than two consecutive months; the third month must be in person. DHS’s clinical supervision page (updated 9/15/26) adds that each person gets one primary QSP (who signs the ITP), a backup QSP must be available, and a different ratio needs an exception documented in the ITP and approved through service authorization. Every intervention must be "provided by a qualified EIDBI provider and supervised by a QSP" (subd. 13(a)).';
+  'Set by statute for every Medical Assistance member, fee-for-service or managed care. An EIDBI agency must "provide clinical supervision for a minimum of one hour for every 16 hours of direct treatment per person, unless otherwise authorized in the person’s individual treatment plan," and must provide "the required EIDBI intervention observation and direction by a QSP at least once per month" (Minn. Stat. § 256B.0949, subd. 16(a)(15)–(16), as amended by Laws 2026, ch. 95). The QSP may do that monthly observation and direction by telehealth for no more than two consecutive months; the third month must be in person. DHS’s clinical supervision page (updated 10/16/26) adds that each person gets one primary QSP (who signs the ITP; a secondary QSP, if assigned, signs too), a backup QSP must be available, and a different ratio needs an exception documented in the ITP and approved through service authorization. Every intervention must be "provided by a qualified EIDBI provider and supervised by a QSP" (subd. 13(a)). DHS’s new staff supervision page (posted 10/16/26) requires each supervision activity to be logged in the supervisee’s personnel record (date and duration, supervisor’s name and credentials, supervisee’s name and credentials or provider level, a summary, and follow-up), and staff supervision is billable only when it meets the requirements of a covered service such as observation and direction.';
 
 const EIDBI_NOTES =
   'Statutory since 2026. New subdivision 19 of § 256B.0949 (Laws 2026, ch. 95, art. 4, sec. 26) requires all CMDE and EIDBI documentation to be "signed and dated by the provider completing the documentation with the provider’s full name, title, and credentials," to "be entered within 72 hours of service and contain a record and explanation of any delays in entry," and to "include a record of supervision and oversight for staff providing services requiring supervision." "Each EIDBI service occurrence must be documented in a progress note." DHS-7108 (CMDE) must be signed by the CMDE provider and the caregiver or guardian, and DHS-7109 (ITP) by the QSP and the caregiver or guardian; those signatures are the family’s consent to start or continue services.';
@@ -109,7 +117,7 @@ const EIDBI_AGE =
   'Under 21. The statute defines the covered "person" as "an individual under 21 years of age" (§ 256B.0949, subd. 2(q)), and DHS lists "Younger than age 21" among the eligibility criteria.';
 
 const EIDBI_DIAGNOSERS =
-  'Set by statute: the diagnosis of ASD or a related condition must be "completed by either (i) a licensed physician, advanced practice registered nurse, or physician assistant, or (ii) a mental health professional," be based on current DSM criteria with direct observation and caregiver information, and meet the standard diagnostic assessment rules of § 245I.10, subd. 6 (§ 256B.0949, subd. 4). DHS’s eligibility page says assessors use the DC:0-5 for children five and younger and the DSM from age six. The CMDE provider (physician, APRN, PA, mental health professional, or qualified clinical trainee with 2,000 hours of ASD experience or equivalent coursework) then confirms medical necessity.';
+  'Set by statute: the diagnosis of ASD or a related condition must be "completed by either (i) a licensed physician, advanced practice registered nurse, or physician assistant, or (ii) a mental health professional," be based on current DSM criteria with direct observation and caregiver information, and meet the standard diagnostic assessment rules of § 245I.10, subd. 6 (§ 256B.0949, subd. 4). DHS’s eligibility page says assessors use the DC:0-5 for children five and younger and the DSM from age six. The CMDE provider (physician, APRN, PA, mental health professional, or qualified clinical trainee with 2,000 hours of ASD experience or equivalent coursework) then confirms medical necessity. Can an LCSW diagnose? Only at the independent clinical level: § 256B.0949 defines a mental health professional by § 245I.04, subd. 2, which lists a psychiatric clinical nurse specialist or nurse practitioner, "a licensed independent clinical social worker," a licensed psychologist, a psychiatrist (or board-eligible physician), a licensed marriage and family therapist and a licensed professional clinical counselor. An LICSW qualifies; a social worker licensed as an LSW, LGSW or LISW is not on the list.';
 
 const EIDBI_TOOLS =
   'No instrument is mandated for EIDBI itself: DHS "strongly encourages providers to use standardized assessment tools" but "does not require specific assessment tools." The exception is a CMDE submitted for other disability or benefit decisions (waiver enrollment, SSI): there DHS requires "A direct observational assessment (e.g., ADOS-2)" and "A structured caregiver interview (e.g., ADI-R)," and says developmental history or non-autism-specific screens alone are "insufficient."';
@@ -122,6 +130,21 @@ const EIDBI_TELE =
 
 const EIDBI_COB =
   'Medical Assistance is still the payer of last resort, but EIDBI is "pay and chase." DHS: "EIDBI providers are not required to bill a member’s commercial insurance before billing Medicaid. MHCP or the MCO will seek reimbursement from third parties … This ‘pay and chase’ process applies to both fee-for-service and managed care members," though a payment received from another source must still be reported. That matches the federal rule letting states pay EPSDT claims and recover later (42 CFR 433.139(b)(3)(i)). For authorization, DHS tells providers with privately insured members to "follow the primary insurance’s authorization procedures."';
+
+const MN_MORATORIUM_BODY =
+  'Minnesota is not enrolling new EIDBI agencies. DHS "paused enrolling new EIDBI agencies, effective Nov. 1, 2025," and on Oct. 23, 2026 announced that it "received approval from the Centers for Medicare & Medicaid Services (CMS) to extend the temporary moratorium on enrolling new EIDBI provider agencies. The extension is effective beginning Nov. 1, 2026, through April 30, 2027." During the extension "New EIDBI provider agency enrollment remains restricted"; "EIDBI agencies approved for a provisional license before Dec. 31, 2026, may enroll new locations"; and "Individual EIDBI providers may continue to enroll and affiliate with currently enrolled and provisionally licensed EIDBI agencies." The moratorium "does not affect member enrollment," and DHS "may extend the moratorium in six-month increments if necessary." The provisional-license application in the Provider Hub is likewise "closed to new agencies."';
+
+const MN_CPT2027_BODY =
+  'DHS: "Effective Jan. 1, 2027, EIDBI high-intensity intervention services will transition from CPT code 0373T to the new permanent CPT code 97159." DHS will update the EIDBI billing grid, the EIDBI Benefit Policy Manual and its systems, and "will not add any other additional service codes included in the 2027 CPT code set to the EIDBI benefit at this time." Until DHS publishes the updated grid, the 0373T rules on this page are the current ones; DHS has not yet said how each carries over to 97159. DHS tells providers to "Contact each payer (e.g., commercial insurers, managed care organizations [MCOs], Medicaid) to confirm and understand their implementation processes, authorization requirements, billing guidance and timelines," because "Payers establish their own coverage, authorization and reimbursement policies."';
+
+const MN_MCO_2027 = {
+  h2: '2027 changes: 0373T becomes 97159, and no new EIDBI agencies',
+  body: [
+    'Two DHS announcements of Oct. 23, 2026 reach every Medical Assistance plan. First, MHCP "will transition the EIDBI high-intensity intervention service from CPT code 0373T to the new permanent CPT code 97159 effective Jan. 1, 2027." DHS adds that "Payers establish their own coverage, authorization and reimbursement policies" and tells providers to contact each MCO "to confirm and understand their implementation processes, authorization requirements, billing guidance and timelines," so confirm with this plan how its 0373T authorization and billing rules move to 97159.',
+    'Second, DHS extended the temporary moratorium on enrolling new EIDBI provider agencies "beginning Nov. 1, 2026, through April 30, 2027": new agency enrollment "remains restricted," agencies "approved for a provisional license before Dec. 31, 2026, may enroll new locations," and individual providers "may continue to enroll and affiliate with currently enrolled and provisionally licensed EIDBI agencies." It "does not affect member enrollment."',
+  ],
+  cites: [S.elistCpt, S.elistMorat, S.provNews],
+};
 
 /* ---------------- Shared Minnesota commercial layer ---------------- */
 const MN_MANDATE_BODY =
@@ -155,9 +178,9 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       cites: [S.grid, S.mhcpEidbi],
     },
     treatmentPA: {
-      value: 'Yes. Intervention (97153, 97154, 0373T), observation and direction (97155), family/caregiver training (97156, 97157) and travel time (H0046) require service authorization before delivery; FFS requests go to Acentra Health in the Atrezzo portal, each spanning no more than 180 days',
+      value: 'Yes. Intervention (97153, 97154, 0373T), observation and direction (97155), family/caregiver training (97156, 97157) and travel time (H0046) require service authorization before delivery; FFS requests go to Acentra Health in the Atrezzo portal, each spanning no more than 180 days. From Jan. 1, 2027 high-intensity intervention moves from 0373T to CPT 97159',
       status: 'verified',
-      cites: [S.mhcpEidbi, S.grid],
+      cites: [S.mhcpEidbi, S.grid, S.elistCpt],
     },
     dxRequired: {
       value: 'Yes: ASD or a "related condition" (severe, chronic, with ASD-like impairments in social interaction, communication and restrictive or repetitive behaviors), diagnosed under current DSM criteria by a licensed physician, APRN, PA or mental health professional (§ 256B.0949, subds. 2(d) and 4). DHS adds that a child under five may meet medical necessity without a final diagnosis',
@@ -173,7 +196,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       'How Minnesota Medical Assistance covers ABA through the EIDBI benefit: under 21, CMDE then ITP, service authorization by Acentra Health or the member’s MCO, provider levels and QSP supervision, telehealth rules, published rates, and the 2025–2026 licensure and billing changes.',
     intro: [
       'Minnesota Medical Assistance pays for applied behavior analysis through a benefit with a different name: EIDBI, Early Intensive Developmental and Behavioral Intervention (Minn. Stat. § 256B.0949). ABA is one of the approved EIDBI modalities, alongside DIR/Floortime, the Early Start Denver Model and RDI. The benefit covers people under 21 with autism spectrum disorder or a related condition who are enrolled in Medical Assistance, MinnesotaCare, TEFRA or another qualifying program, once a comprehensive multi-disciplinary evaluation (CMDE) establishes medical need.',
-      'For an agency, the program works in a fixed order. A CMDE provider evaluates the child and files the CMDE Medical Necessity Summary (DHS-7108); the agency’s qualified supervising professional (QSP) writes the Individual Treatment Plan (DHS-7109); then the plan is authorized, by Acentra Health for fee-for-service members or by the member’s managed care plan for everyone else. Most members are in one of eight health plans. Minnesota is also in the middle of a program-integrity overhaul: provisional EIDBI agency licensure (applications closed May 31, 2026), a statutory 1:16 supervision ratio, a 72-hour documentation rule enacted in 2026, and billing limits that start July 1, 2027 or on federal approval.',
+      'For an agency, the program works in a fixed order. A CMDE provider evaluates the child and files the CMDE Medical Necessity Summary (DHS-7108); the agency’s qualified supervising professional (QSP) writes the Individual Treatment Plan (DHS-7109); then the plan is authorized, by Acentra Health for fee-for-service members or by the member’s managed care plan for everyone else. Most members are in one of eight health plans. Minnesota is also in the middle of a program-integrity overhaul: provisional EIDBI agency licensure (applications closed May 31, 2026), a statutory 1:16 supervision ratio, a 72-hour documentation rule enacted in 2026, billing limits that start July 1, 2027 or on federal approval, and a moratorium on enrolling new EIDBI agencies that DHS has extended through April 30, 2027.',
     ],
     atGlance: [
       { label: 'Covers ABA?', value: 'Yes, as an EIDBI modality, for members under 21 with ASD or a related condition' },
@@ -184,6 +207,8 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       { label: 'Supervision', value: '1 hour per 16 hours of direct treatment; QSP observation and direction at least monthly' },
       { label: 'Licensure', value: 'Behavior analysts licensed by the Board of Psychology since 2024 law (license required from Jan. 1, 2025)' },
       { label: 'Other insurance', value: 'EIDBI is pay-and-chase: no need to bill the commercial plan first' },
+      { label: 'Network status', value: 'New EIDBI agency enrollment closed: moratorium extended Nov. 1, 2026 to April 30, 2027; individual providers may still enroll under enrolled agencies' },
+      { label: '2027 code change', value: 'High-intensity intervention moves from 0373T to CPT 97159 on Jan. 1, 2027' },
     ],
     sections: [
       {
@@ -229,6 +254,16 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
         cites: [S.billPol, S.mhcpEidbi, S.grid, S.mhcpTele, S.stat69, S.mcoSec],
       },
       {
+        h2: 'Is Minnesota enrolling new EIDBI agencies? (moratorium through April 30, 2027)',
+        body: [MN_MORATORIUM_BODY, 'So a new practice cannot enroll with MHCP as an EIDBI agency before the moratorium ends; a BCBA, RBT or other qualified individual can still enroll and affiliate with an enrolled, provisionally licensed agency.'],
+        cites: [S.elistMorat, S.provNews, S.eidbiLic],
+      },
+      {
+        h2: '2027: high-intensity intervention moves from 0373T to 97159',
+        body: [MN_CPT2027_BODY],
+        cites: [S.elistCpt, S.provNews],
+      },
+      {
         h2: 'Licensure and out-of-state BCBAs',
         body: [MN_LICENSURE_BODY, 'EIDBI adds its own constraints. A QSP must be a licensed mental health professional or "a licensed behavior analyst," defined as "an individual licensed under sections 148.9981 to 148.9995" (§ 256B.0949, subd. 2(e)), so a BCBA licensed only in another state cannot be the QSP. Every qualified provider must be an employee of an enrolled agency with an office in Minnesota or a border state, and DHS’s telehealth page limits telehealth to providers "licensed or registered by the state." In practice an out-of-state BCBA serving a Minnesota EIDBI member needs a Minnesota license and an employing Minnesota-enrolled agency, whether the work is in person or remote.'],
         cites: [S.lic9981, S.lic9983, S.lic9986, S.lic9987, S.bacbLic, S.stat0949, S.tele, S.spa2410],
@@ -241,12 +276,12 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       { title: 'Other insurance', desc: 'Record it, but EIDBI does not require billing the commercial plan first (pay and chase).' },
       { title: 'School schedule', desc: 'Direct intervention must not replace instruction; since Jan. 1, 2026 no 97153/97154/0373T during homeschool or virtual-school instruction.' },
     ],
-    sources: [S.stat0949, S.sl95, S.sl121, S.mhcpEidbi, S.grid, S.mcoGrid, S.services, S.elig, S.mednec, S.cmde, S.tele, S.clinsup, S.overview, S.updates, S.mhcpTele, S.billPol, S.mcoSec, S.spa2410, S.stat69, S.stat62M01, S.stat62M05, S.stat62M07, S.lic9981, S.lic9983, S.lic9986, S.lic9987, S.bacbLic, S.cfr433, S.ucareFaq, { title: 'MN DHS — MHCP Provider Connect archive (weekly provider e-newsletter)', url: 'https://mn.gov/dhs/partners-and-providers/news-initiatives-reports-workgroups/minnesota-health-care-programs/provider-news/mhcp-provider-connect.jsp' }, { title: 'MN DHS — MHCP provider news and updates', url: 'https://mn.gov/dhs/partners-and-providers/news-initiatives-reports-workgroups/minnesota-health-care-programs/provider-news/' }],
+    sources: [S.elistSA, S.staffSup, S.stat245I04, S.elistMorat, S.elistCpt, S.eidbiLic, S.stat0949, S.sl95, S.sl121, S.mhcpEidbi, S.grid, S.mcoGrid, S.services, S.elig, S.mednec, S.cmde, S.tele, S.clinsup, S.overview, S.updates, S.mhcpTele, S.billPol, S.mcoSec, S.spa2410, S.stat69, S.stat62M01, S.stat62M05, S.stat62M07, S.lic9981, S.lic9983, S.lic9986, S.lic9987, S.bacbLic, S.cfr433, S.ucareFaq, { title: 'MN DHS — MHCP Provider Connect archive (weekly provider e-newsletter)', url: 'https://mn.gov/dhs/partners-and-providers/news-initiatives-reports-workgroups/minnesota-health-care-programs/provider-news/mhcp-provider-connect.jsp' }, { title: 'MN DHS — MHCP provider news and updates', url: 'https://mn.gov/dhs/partners-and-providers/news-initiatives-reports-workgroups/minnesota-health-care-programs/provider-news/' }],
     deliveryRules: {
       supervision: {
         value: EIDBI_SUPERVISION,
         status: 'verified',
-        cites: [S.stat0949, S.sl95, S.clinsup],
+        cites: [S.stat0949, S.sl95, S.clinsup, S.staffSup],
       },
       concurrentBilling: {
         value: 'Allowed in defined cases. DHS: "Multiple providers may deliver and bill for" the CMDE, ITP development and progress monitoring, coordinated care conference, observation and direction, and family/caregiver training "at the same time," and "Multiple providers may deliver a combination of EIDBI services at the same time (e.g., one provider delivers individual intervention, and another provider delivers observation and direction) as medically necessary." So 97153 and 97155 may be billed for the same clock time by two providers. 0373T is billed once per period no matter how many staff are present. DHS also tells providers to check the Medicaid NCCI edits before billing simultaneous codes.',
@@ -288,7 +323,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       diagnosingProviders: {
         value: EIDBI_DIAGNOSERS,
         status: 'verified',
-        cites: [S.stat0949, S.elig],
+        cites: [S.stat0949, S.stat245I04, S.elig],
       },
       diagnosticTools: {
         value: EIDBI_TOOLS,
@@ -306,9 +341,9 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
         cites: [S.stat0949, S.tele, S.mhcpEidbi, S.mhcpTele],
       },
       authTurnaround: {
-        value: 'Acentra Health decides within seven calendar days of receiving a CMDE or ITP; a pended request gives the provider 10 calendar days to respond, then Acentra has three business days. DHS-3806 requests (services above grid thresholds) and DHS-7109A changes are also decided within seven calendar days. Since January 1, 2026, § 62M.05, subd. 3a (standard determinations within five business days) applies to fee-for-service under § 62M.01, subd. 3(c). Authorizations span up to 180 days and may be approved retroactively for up to 180 days. Submit at least 30 days before the start date.',
+        value: 'Acentra Health decides within seven calendar days of receiving a CMDE or ITP; a pended request gives the provider 10 calendar days to respond, then Acentra has three business days. DHS-3806 requests (services above grid thresholds) and DHS-7109A changes are also decided within seven calendar days. Since January 1, 2026, § 62M.05, subd. 3a (standard determinations within five business days) applies to fee-for-service under § 62M.01, subd. 3(c). Authorizations span up to 180 days and may be approved retroactively for up to 180 days. Submit at least 30 days before the start date. After a backlog in September 2026, DHS reported on Oct. 16, 2026 that "As of Oct. 1, 2026, Acentra Health resolved the EIDBI service authorization processing backlog" and that for requests submitted after Oct. 1 families and providers "can expect Acentra Health to complete their review and make a determination or request additional information within seven days."',
         status: 'verified',
-        cites: [S.mhcpEidbi, S.stat62M01, S.stat62M05],
+        cites: [S.mhcpEidbi, S.stat62M01, S.stat62M05, S.elistSA],
       },
       coordinationOfBenefits: {
         value: EIDBI_COB,
@@ -323,6 +358,8 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       { q: 'What does Minnesota Medicaid pay for ABA?', a: 'Under SPA MN-24-0010 (effective Jan. 1, 2024), $20.178 per 15-minute unit for individual intervention, observation and direction, and family training by a QSP or Level I provider; 80% of that for Level II and 50% for Level III; $24.192 for two-provider intervention; $50.112 per unit for the CMDE. MCOs pay contracted rates.' },
       { q: 'Does a BCBA need a Minnesota license?', a: 'Yes, since January 1, 2025, to practice ABA in Minnesota, unless exempt (licensed psychologists; supervisees working under a licensed behavior analyst; school-district employees; supervised students). The statute has no out-of-state or telehealth exception, and an EIDBI QSP must hold a Minnesota license as a behavior analyst or mental health professional.' },
       { q: 'Can EIDBI be delivered by telehealth?', a: 'Yes for the CMDE, ITP work, care conferences, family training, individual and group intervention, and observation and direction, at the same rates and with the same authorization; not for higher-intensity 0373T. QSP observation and direction can be remote only two months in a row. Bill POS 02 or 10.' },
+      { q: 'Is Minnesota enrolling new EIDBI (ABA) agencies?', a: 'No. DHS paused new EIDBI agency enrollment on Nov. 1, 2025 and, with CMS approval, extended the moratorium from Nov. 1, 2026 through April 30, 2027 (it may be extended again in six-month increments). Individual providers can still enroll and affiliate with currently enrolled, provisionally licensed agencies; agencies approved for a provisional license before Dec. 31, 2026 may add locations.' },
+      { q: 'What replaces 0373T in 2027?', a: 'CPT 97159. DHS moves EIDBI high-intensity intervention from 0373T to 97159 effective Jan. 1, 2027 and adds no other new 2027 CPT codes to the benefit for now. DHS will publish an updated billing grid; confirm each MCO’s and commercial payer’s own implementation.' },
       { q: 'Do I bill the family’s commercial insurance first?', a: 'Not for EIDBI. DHS says providers "are not required to bill a member’s commercial insurance before billing Medicaid"; MHCP or the MCO recovers from the commercial plan ("pay and chase"), for fee-for-service and managed care members alike.' },
     ],
   },
@@ -382,6 +419,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.stat0949, S.sl95, S.stat62M01, S.stat62M05, S.mhcpEidbi],
       },
+      MN_MCO_2027,
     ],
     collect: [
       { title: 'Member ID', desc: 'Confirm Blue Plus Medical Assistance or MinnesotaCare (not Blue Cross commercial) on the date of service.' },
@@ -389,12 +427,12 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis', desc: 'ASD or related condition from a physician, APRN, PA or mental health professional.' },
       { title: 'Other insurance', desc: 'Record it; DHS’s pay-and-chase rule means the commercial plan need not be billed first for EIDBI.' },
     ],
-    sources: [S.bcP55, S.bcP69, S.bcX43, S.mcoGrid, S.stat0949, S.sl95, S.mhcpEidbi, S.grid, S.stat62M01, S.stat62M05, S.cfr438, S.cfr433, S.bcP7422, S.bcMigFAQ],
+    sources: [S.staffSup, S.stat245I04, S.elistCpt, S.elistMorat, S.provNews, S.bcP55, S.bcP69, S.bcX43, S.mcoGrid, S.stat0949, S.sl95, S.mhcpEidbi, S.grid, S.stat62M01, S.stat62M05, S.cfr438, S.cfr433, S.bcP7422, S.bcMigFAQ],
     deliveryRules: {
       supervision: {
         value: 'Blue Plus publishes no EIDBI supervision rule of its own. ' + EIDBI_SUPERVISION,
         status: 'verified',
-        cites: [S.stat0949, S.sl95, S.clinsup, S.bcP55],
+        cites: [S.stat0949, S.sl95, S.clinsup, S.staffSup, S.bcP55],
       },
       concurrentBilling: {
         value: 'Blue Plus says EIDBI claims "should continue to match the guidelines outlined by DHS," but publishes no simultaneous-billing rule of its own. Under DHS policy two providers may bill 97153 and 97155 for the same time when medically necessary.',
@@ -435,7 +473,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [S.bcP69, S.cmde],
       },
-      diagnosingProviders: { value: EIDBI_DIAGNOSERS, status: 'verified', cites: [S.stat0949, S.elig] },
+      diagnosingProviders: { value: EIDBI_DIAGNOSERS, status: 'verified', cites: [S.stat0949, S.stat245I04, S.elig] },
       diagnosticTools: { value: EIDBI_TOOLS, status: 'verified', cites: [S.elig, S.cmde] },
       referral: {
         value: 'No. DHS’s October 2026 grid, for Blue Cross and Blue Shield of Minnesota: "No referral is required for the service. Services do require authorization."',
@@ -522,6 +560,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.hpPRM, S.stat69],
       },
+      MN_MCO_2027,
     ],
     collect: [
       { title: 'Member ID', desc: 'Confirm HealthPartners Minnesota Health Care Programs coverage with the guest eligibility tool.' },
@@ -529,12 +568,12 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       { title: 'Supervising QSP', desc: 'The QSP’s NPI goes on every claim line that needs supervision.' },
       { title: 'Other insurance', desc: 'Record it; HealthPartners pays EIDBI without a primary EOB.' },
     ],
-    sources: [S.hpPolicy, S.hpPage, S.hpTips, S.mcoGrid, S.stat0949, S.sl95, S.grid, S.stat62M01, S.stat62M05, S.cfr438, S.cfr433, S.hpPRM, { title: 'HealthPartners — Fast Facts newsletters (bi-monthly provider newsletter)', url: 'https://www.healthpartners.com/providers/provider-resources/fast-facts/' }],
+    sources: [S.clinsup, S.staffSup, S.elistCpt, S.elistMorat, S.provNews, S.hpPolicy, S.hpPage, S.hpTips, S.mcoGrid, S.stat0949, S.sl95, S.grid, S.stat62M01, S.stat62M05, S.cfr438, S.cfr433, S.hpPRM, { title: 'HealthPartners — Fast Facts newsletters (bi-monthly provider newsletter)', url: 'https://www.healthpartners.com/providers/provider-resources/fast-facts/' }],
     deliveryRules: {
       supervision: {
         value: 'HealthPartners excludes services "Provided without the required supervision" and requires the QSP on supervised claims; the supervision floor is the statute’s. ' + EIDBI_SUPERVISION,
         status: 'verified',
-        cites: [S.hpPolicy, S.hpTips, S.stat0949, S.sl95],
+        cites: [S.hpPolicy, S.hpTips, S.stat0949, S.sl95, S.clinsup, S.staffSup],
       },
       concurrentBilling: {
         value: 'HealthPartners tells providers to follow DHS’s billing grid and to identify each line’s rendering and supervising provider, but states no rule on billing 97153 and 97155 for the same time. DHS allows it when medically necessary.',
@@ -663,6 +702,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.hhClaims, S.hhPA, S.mhcpEidbi, S.mcoGrid],
       },
+      MN_MCO_2027,
     ],
     collect: [
       { title: 'Member ID', desc: 'Confirm Hennepin Health eligibility before requesting authorization.' },
@@ -670,7 +710,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       { title: 'QSP notes calendar', desc: 'Plan to send QSP notes every three months for every authorized member.' },
       { title: 'Other insurance', desc: 'Record it and ask how Hennepin Health applies its primary-first rule to EIDBI.' },
     ],
-    sources: [S.hhChart, S.hhPA, S.hhClaims, S.hhChronic, S.mcoGrid, S.stat0949, S.sl95, S.mhcpEidbi, S.stat62M01, S.stat62M05, S.cfr438, S.cfr433, { title: 'Hennepin Health — Provider updates', url: 'https://www.hennepinhealth.org/providers/provider-updates' }],
+    sources: [S.stat245I04, S.elistCpt, S.elistMorat, S.provNews, S.hhChart, S.hhPA, S.hhClaims, S.hhChronic, S.mcoGrid, S.stat0949, S.sl95, S.mhcpEidbi, S.stat62M01, S.stat62M05, S.cfr438, S.cfr433, { title: 'Hennepin Health — Provider updates', url: 'https://www.hennepinhealth.org/providers/provider-updates' }],
     deliveryRules: {
       supervision: {
         value: 'Hennepin Health: "one hour of clinical supervision by a Qualified Supervising Professional for every 16 hours of direct treatment unless an exception is authorized in ITP," plus QSP notes every three months (from July 1, 2026). The statute adds monthly QSP observation and direction, no more than two consecutive months by telehealth (§ 256B.0949, subd. 16(a)(15)–(16)).',
@@ -714,7 +754,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
     intakeGates: {
       ageLimit: { value: EIDBI_AGE, status: 'verified', cites: [S.stat0949, S.elig] },
       dxRecency: { value: 'Hennepin Health publishes no rule of its own. ' + EIDBI_RECENCY, status: 'verified', cites: [S.cmde, S.mednec] },
-      diagnosingProviders: { value: EIDBI_DIAGNOSERS, status: 'verified', cites: [S.stat0949, S.elig] },
+      diagnosingProviders: { value: EIDBI_DIAGNOSERS, status: 'verified', cites: [S.stat0949, S.stat245I04, S.elig] },
       diagnosticTools: { value: EIDBI_TOOLS, status: 'verified', cites: [S.elig, S.cmde] },
       referral: { value: 'No. DHS’s October 2026 grid, for Hennepin Health: "No referral requirements."', status: 'verified', cites: [S.mcoGrid] },
       telehealth: { value: 'Hennepin Health publishes no EIDBI telehealth rule of its own. ' + EIDBI_TELE, status: 'verified', cites: [S.stat0949, S.tele, S.mhcpTele] },
@@ -794,15 +834,16 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.imcAppeal],
       },
+      MN_MCO_2027,
     ],
     collect: [
       { title: 'Member ID', desc: 'Confirm IMCare enrollment (Itasca County service area) on the date of service.' },
       { title: 'CMDE and ITP', desc: 'Have both ready; ask IMCare which codes it authorizes.' },
       { title: 'Network status', desc: 'Noncontracted providers need authorization for every service.' },
     ],
-    sources: [S.mcoGrid, S.imcHome, S.imcProv, S.imcUM, S.imcAppeal, S.stat0949, S.sl95, S.mhcpEidbi, S.stat62M01, S.stat62M05, S.cfr438, S.cfr433],
+    sources: [S.staffSup, S.stat245I04, S.elistCpt, S.elistMorat, S.provNews, S.mcoGrid, S.imcHome, S.imcProv, S.imcUM, S.imcAppeal, S.stat0949, S.sl95, S.mhcpEidbi, S.stat62M01, S.stat62M05, S.cfr438, S.cfr433],
     deliveryRules: {
-      supervision: { value: 'IMCare publishes no EIDBI supervision rule of its own. ' + EIDBI_SUPERVISION, status: 'verified', cites: [S.stat0949, S.sl95, S.clinsup] },
+      supervision: { value: 'IMCare publishes no EIDBI supervision rule of its own. ' + EIDBI_SUPERVISION, status: 'verified', cites: [S.stat0949, S.sl95, S.clinsup, S.staffSup] },
       concurrentBilling: {
         value: 'Not published by IMCare.',
         status: 'unverified',
@@ -836,7 +877,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
     intakeGates: {
       ageLimit: { value: EIDBI_AGE, status: 'verified', cites: [S.stat0949, S.elig] },
       dxRecency: { value: 'IMCare publishes no rule of its own. ' + EIDBI_RECENCY, status: 'verified', cites: [S.cmde, S.mednec] },
-      diagnosingProviders: { value: EIDBI_DIAGNOSERS, status: 'verified', cites: [S.stat0949, S.elig] },
+      diagnosingProviders: { value: EIDBI_DIAGNOSERS, status: 'verified', cites: [S.stat0949, S.stat245I04, S.elig] },
       diagnosticTools: { value: EIDBI_TOOLS, status: 'verified', cites: [S.elig, S.cmde] },
       referral: { value: 'No. DHS’s October 2026 grid, for IMCare: "No referral requirements."', status: 'verified', cites: [S.mcoGrid] },
       telehealth: { value: 'IMCare publishes no EIDBI telehealth rule of its own. ' + EIDBI_TELE, status: 'verified', cites: [S.stat0949, S.tele, S.mhcpTele] },
@@ -858,16 +899,14 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
     family: 'medica',
     cardDesc: 'Medica’s Medical Assistance plans: behavioral health and EIDBI run through Optum; fax the CMDE and ITP to 855-454-8155.',
     assessmentPA: {
-      value: 'Not stated. DHS’s grid says "Select services require authorization" at Medica and asks for the ITP and CMDE by fax; Medica publishes no EIDBI code list',
-      status: 'unverified',
-      cites: [S.mcoGrid, S.opMN],
-      verifyVia: 'Medica Behavioral Health (Optum) Provider Services, 800-848-8327: ask whether 97151 UB needs authorization.',
-      blocker: 'document',
+      value: 'No for contracted providers. Optum’s Medica Behavioral Health EIDBI guide (BH02483-26, Oct. 13, 2026) lists the services that need authorization (family or caregiver training, individual and group intervention, higher-intensity intervention, observation and direction, travel time); the CMDE is faxed with the ITP but is not on that list. "Out of network providers are required to obtain authorization for all EIDBI services," including the CMDE',
+      status: 'verified',
+      cites: [S.opEidbi, S.mcoGrid],
     },
     treatmentPA: {
-      value: '"Select services require authorization. Fax ITP and CMDE requests to: 855-454-8155" (contracted); for noncontracted providers "All services require prior authorization" (DHS grid)',
+      value: 'Yes for intervention (individual, group, higher intensity), observation and direction, family or caregiver training and travel time: "Fax Individual Treatment Plans and Comprehensive Multi-Disciplinary Evaluations (CMDE) to 1-855-454-8155." "Ongoing treatment requires prior authorization," with a new ITP for each request and progress monitoring every 6 months; out-of-network providers need authorization for all EIDBI services (Optum guide BH02483-26; DHS grid)',
       status: 'verified',
-      cites: [S.mcoGrid],
+      cites: [S.opEidbi, S.mcoGrid],
     },
     dxRequired: {
       value: 'Yes: the statutory rule applies (ASD or a related condition diagnosed by a physician, APRN, PA or mental health professional, § 256B.0949, subd. 4); Medica’s Optum resources point only to the DHS CMDE and ITP forms',
@@ -887,7 +926,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
     atGlance: [
       { label: 'Covers ABA?', value: 'Yes, as EIDBI for members under 21' },
       { label: 'Administered by', value: 'Optum (Medica Behavioral Health); providerexpress.com' },
-      { label: 'Prior auth', value: 'Select services; fax ITP and CMDE to 855-454-8155' },
+      { label: 'Prior auth', value: 'Intervention, observation and direction, family training, travel time (not the CMDE, in network); fax ITP and CMDE to 855-454-8155' },
       { label: 'Provider Services', value: '800-848-8327 (also after hours for BH)' },
       { label: 'EDI payer ID', value: '87726 (Medica Behavioral Health)' },
       { label: 'Referral', value: 'None required (DHS grid)' },
@@ -901,55 +940,55 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
         cites: [S.mcoGrid, S.opMedQRG, S.opMN],
       },
       {
+        h2: 'Optum’s EIDBI guide for Medica (October 2026)',
+        body: [
+          'Optum’s “Guide to providing EIDBI services” (BH02483-26, Oct. 13, 2026) sets the order: enroll with DHS as an MHCP EIDBI provider, then submit the ABA Group Network Participation Request Form with the group NPI in the Medicaid ID field; once the group agreement is approved, licensed providers join as individually credentialed clinicians with EIDBI as the specialty, and unlicensed providers need no action because they are loaded to the group roster from DHS’s weekly EIDBI file. Verify eligibility on Provider Express or at 1-800-848-8327. Fax ITPs and CMDEs to 1-855-454-8155 and request authorization for family or caregiver training, individual and group intervention, higher-intensity intervention, observation and direction, and travel time; ongoing treatment needs a new ITP for each request, with progress monitoring every 6 months. Out-of-network providers need authorization for all EIDBI services. Claims follow DHS’s guidelines, rates and billing grid, payer ID 87726.',
+        ],
+        cites: [S.opEidbi],
+      },
+      {
         h2: 'What the state rules add',
         body: [
           'Every Medical Assistance plan must deliver EIDBI as § 256B.0949 defines it: under 21, CMDE first, an ITP supervised by a QSP, at least one hour of clinical supervision per 16 hours of direct treatment, monthly QSP observation and direction, and documentation entered within 72 hours. DHS’s manual requires MCOs to credential Level I, II, III and QSP providers from DHS enrollment data within 45 days of a clean application. Since January 1, 2026 the Minnesota Utilization Review Act’s five-business-day standard applies to Medical Assistance managed care.',
         ],
         cites: [S.stat0949, S.sl95, S.mhcpEidbi, S.stat62M01, S.stat62M05],
       },
+      MN_MCO_2027,
     ],
     collect: [
       { title: 'Member ID', desc: 'Confirm Medica Minnesota Health Care Programs (or Medica One Health Plan) on the date of service.' },
       { title: 'CMDE and ITP', desc: 'Fax both to Medica Behavioral Health, 855-454-8155.' },
       { title: 'Optum enrollment', desc: 'Network participation is through Optum Provider Services, 877-614-0484.' },
     ],
-    sources: [S.mcoGrid, S.opMN, S.opMedQRG, S.stat0949, S.sl95, S.mhcpEidbi, S.stat62M01, S.stat62M05, S.cfr438, S.cfr433, S.ucareFaq, { title: 'Medica — News for Providers (Connections monthly newsletter archive)', url: 'https://partner.medica.com/providers/news' }],
+    sources: [S.staffSup, S.stat245I04, S.opEidbi, S.grid, S.services, S.elistCpt, S.elistMorat, S.provNews, S.mcoGrid, S.opMN, S.opMedQRG, S.stat0949, S.sl95, S.mhcpEidbi, S.stat62M01, S.stat62M05, S.cfr438, S.cfr433, S.ucareFaq, { title: 'Medica — News for Providers (Connections monthly newsletter archive)', url: 'https://partner.medica.com/providers/news' }],
     deliveryRules: {
-      supervision: { value: 'Medica publishes no EIDBI supervision rule of its own. ' + EIDBI_SUPERVISION, status: 'verified', cites: [S.stat0949, S.sl95, S.clinsup] },
+      supervision: { value: 'Medica publishes no EIDBI supervision rule of its own. ' + EIDBI_SUPERVISION, status: 'verified', cites: [S.stat0949, S.sl95, S.clinsup, S.staffSup] },
       concurrentBilling: {
-        value: 'Not published by Medica or Optum for EIDBI.',
-        status: 'unverified',
-        cites: [S.opMN],
-        verifyVia: 'Medica Behavioral Health Provider Services, 800-848-8327: ask whether 97153 and 97155 by different staff may be billed for the same time.',
-        blocker: 'per-case',
+        value: 'DHS’s rule, which Medica adopts ("Medica Behavioral Health follows DHS guidelines and rates"): "Multiple providers may deliver a combination of EIDBI services at the same time (e.g., one provider delivers individual intervention, and another provider delivers observation and direction) as medically necessary," so 97153 and 97155 by two providers may be billed for the same clock time; 0373T is billed once per period however many staff are present.',
+        status: 'verified',
+        cites: [S.opEidbi, S.services, S.grid],
       },
       dailyLimits: {
-        value: 'Not published by Medica or Optum for EIDBI.',
-        status: 'unverified',
-        cites: [S.opMN],
-        verifyVia: 'Medica Behavioral Health Provider Services, 800-848-8327: ask whether DHS’s billing-grid limits apply.',
-        blocker: 'per-case',
+        value: 'DHS’s billing grid, which Medica’s Optum guide tells providers to follow for claims ("Medica Behavioral Health follows DHS guidelines and rates. Please refer to the … EIDBI billing grid"): 97151 8 hours a day and 80 units a calendar year; 97153 and 0373T 8 hours a day; 97154 4.5 hours a day; 97155 6 hours a day; 97156 and 97157 4 hours a day.',
+        status: 'verified',
+        cites: [S.opEidbi, S.grid],
       },
       noteSignature: { value: 'Medica publishes no EIDBI note rule of its own. ' + EIDBI_NOTES, status: 'verified', cites: [S.sl95, S.services] },
       placeOfService: {
-        value: 'Not published by Medica or Optum for EIDBI.',
-        status: 'unverified',
-        cites: [S.opMN],
-        verifyVia: 'Medica Behavioral Health Provider Services, 800-848-8327: confirm EIDBI POS codes.',
-        blocker: 'per-case',
+        value: 'DHS’s rules, which Medica follows: POS 12 for home and community services in the ITP, POS 11 for office-based and non-direct work, POS 02/10 for telehealth; EIDBI may not replace school instruction or IEP services.',
+        status: 'verified',
+        cites: [S.opEidbi, S.services, S.grid],
       },
       billAsProvider: {
-        value: 'Not published by Medica or Optum for EIDBI.',
-        status: 'unverified',
-        cites: [S.opMN],
-        verifyVia: 'Medica Behavioral Health Provider Services, 800-848-8327: ask whether the rendering provider and supervising QSP must both be on the claim.',
-        blocker: 'per-case',
+        value: 'DHS’s grid, which Medica follows: the claim carries the rendering provider, and "The QSP must be on all other EIDBI claims as the supervising professional" (CMDEs excepted). Use payer ID 87726. Licensed providers credential individually with Optum; unlicensed staff are "automatically loaded to your Group Roster based on the weekly EIDBI file provided by DHS."',
+        status: 'verified',
+        cites: [S.opEidbi, S.grid],
       },
     },
     intakeGates: {
       ageLimit: { value: EIDBI_AGE, status: 'verified', cites: [S.stat0949, S.elig] },
       dxRecency: { value: 'Medica publishes no rule of its own. ' + EIDBI_RECENCY, status: 'verified', cites: [S.cmde, S.mednec] },
-      diagnosingProviders: { value: EIDBI_DIAGNOSERS, status: 'verified', cites: [S.stat0949, S.elig] },
+      diagnosingProviders: { value: EIDBI_DIAGNOSERS, status: 'verified', cites: [S.stat0949, S.stat245I04, S.elig] },
       diagnosticTools: { value: EIDBI_TOOLS, status: 'verified', cites: [S.elig, S.cmde] },
       referral: { value: 'No. DHS’s October 2026 grid, for Medica: "No referral required. Some services require authorization."', status: 'verified', cites: [S.mcoGrid] },
       telehealth: { value: 'Medica publishes no EIDBI telehealth rule of its own. ' + EIDBI_TELE, status: 'verified', cites: [S.stat0949, S.tele, S.mhcpTele] },
@@ -1014,15 +1053,16 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.ucareBull, S.ucareFaq, S.mcoSec, S.mcoGrid],
       },
+      MN_MCO_2027,
     ],
     collect: [
       { title: 'Member ID card', desc: 'Former UCare members carry Medica One Health Plan cards from Oct. 1, 2026; confirm the plan in MN–ITS.' },
       { title: 'Existing authorization', desc: 'Capture any UCare EIDBI authorization; a new plan must honor prior authorizations.' },
       { title: 'CMDE and ITP', desc: 'Fax both to 855-454-8155.' },
     ],
-    sources: [S.ucareBull, S.ucareFaq, S.mcoGrid, S.mcoSec, S.stat0949, S.sl95, S.mhcpEidbi, S.stat62M01, S.stat62M05, S.cfr438, S.cfr433, { title: 'Medica — News for Providers (Connections monthly newsletter archive)', url: 'https://partner.medica.com/providers/news' }],
+    sources: [S.staffSup, S.stat245I04, S.elistCpt, S.elistMorat, S.provNews, S.ucareBull, S.ucareFaq, S.mcoGrid, S.mcoSec, S.stat0949, S.sl95, S.mhcpEidbi, S.stat62M01, S.stat62M05, S.cfr438, S.cfr433, { title: 'Medica — News for Providers (Connections monthly newsletter archive)', url: 'https://partner.medica.com/providers/news' }],
     deliveryRules: {
-      supervision: { value: 'No plan-specific EIDBI supervision rule is published. ' + EIDBI_SUPERVISION, status: 'verified', cites: [S.stat0949, S.sl95, S.clinsup] },
+      supervision: { value: 'No plan-specific EIDBI supervision rule is published. ' + EIDBI_SUPERVISION, status: 'verified', cites: [S.stat0949, S.sl95, S.clinsup, S.staffSup] },
       concurrentBilling: {
         value: 'Not published by Medica One Health Plan.',
         status: 'unverified',
@@ -1056,7 +1096,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
     intakeGates: {
       ageLimit: { value: EIDBI_AGE, status: 'verified', cites: [S.stat0949, S.elig] },
       dxRecency: { value: 'No plan-specific rule is published. ' + EIDBI_RECENCY, status: 'verified', cites: [S.cmde, S.mednec] },
-      diagnosingProviders: { value: EIDBI_DIAGNOSERS, status: 'verified', cites: [S.stat0949, S.elig] },
+      diagnosingProviders: { value: EIDBI_DIAGNOSERS, status: 'verified', cites: [S.stat0949, S.stat245I04, S.elig] },
       diagnosticTools: { value: EIDBI_TOOLS, status: 'verified', cites: [S.elig, S.cmde] },
       referral: { value: 'No. DHS’s October 2026 grid, for Medica One Health Plan: "No referral requirements."', status: 'verified', cites: [S.mcoGrid] },
       telehealth: { value: 'No plan-specific EIDBI telehealth rule is published. ' + EIDBI_TELE, status: 'verified', cites: [S.stat0949, S.tele, S.mhcpTele] },
@@ -1126,6 +1166,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.pwEidbi, S.pwBill],
       },
+      MN_MCO_2027,
     ],
     collect: [
       { title: 'Member ID', desc: 'Confirm PrimeWest Health enrollment on the date of service; no retro authorizations.' },
@@ -1133,7 +1174,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       { title: 'O&D justification', desc: 'Individual clinical rationale for 97155, around 20% of direct hours.' },
       { title: 'Medical stability', desc: 'PrimeWest requires the child not need 24-hour medical monitoring.' },
     ],
-    sources: [S.pwEidbi, S.pwBill, S.mcoGrid, S.stat0949, S.sl95, S.grid, S.cfr438, S.cfr433, { title: 'PrimeWest Health — Provider Updates', url: 'https://www.primewest.org/provider-updates' }],
+    sources: [S.elistCpt, S.elistMorat, S.provNews, S.pwEidbi, S.pwBill, S.mcoGrid, S.stat0949, S.sl95, S.grid, S.cfr438, S.cfr433, { title: 'PrimeWest Health — Provider Updates', url: 'https://www.primewest.org/provider-updates' }],
     deliveryRules: {
       supervision: {
         value: 'PrimeWest: "EIDBI treatment services must be delivered under the clinical supervision of a QSP," providers must "meet supervision requirements in MN Stat. sec. 256B.0949, subds., 15 – 16," and services "provided in the absence of required supervision" are not paid. Statute: at least one hour of clinical supervision per 16 hours of direct treatment and monthly QSP observation and direction.',
@@ -1261,15 +1302,16 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.scCh4, S.scCh33, S.scCh14],
       },
+      MN_MCO_2027,
     ],
     collect: [
       { title: 'Member ID', desc: 'Confirm South Country PMAP or MinnesotaCare enrollment.' },
       { title: 'Form #4894 + CMDE + ITP', desc: 'All three go with the authorization request.' },
       { title: 'Other insurance', desc: 'Record it; EIDBI requests do not need a primary-payer attempt first.' },
     ],
-    sources: [S.scBhPa, S.scCh6, S.scCh4, S.scCh33, S.scCh14, S.mcoGrid, S.stat0949, S.sl95, S.grid, S.mhcpEidbi, S.cfr438, S.cfr433, { title: 'South Country Health Alliance — Provider Updates & Bulletins', url: 'https://mnscha.org/providers/provider-news-updates/' }],
+    sources: [S.staffSup, S.stat245I04, S.elistCpt, S.elistMorat, S.provNews, S.scBhPa, S.scCh6, S.scCh4, S.scCh33, S.scCh14, S.mcoGrid, S.stat0949, S.sl95, S.grid, S.mhcpEidbi, S.cfr438, S.cfr433, { title: 'South Country Health Alliance — Provider Updates & Bulletins', url: 'https://mnscha.org/providers/provider-news-updates/' }],
     deliveryRules: {
-      supervision: { value: 'South Country publishes no EIDBI supervision rule of its own; it points to the MHCP manual. ' + EIDBI_SUPERVISION, status: 'verified', cites: [S.scBhPa, S.stat0949, S.sl95, S.clinsup] },
+      supervision: { value: 'South Country publishes no EIDBI supervision rule of its own; it points to the MHCP manual. ' + EIDBI_SUPERVISION, status: 'verified', cites: [S.scBhPa, S.stat0949, S.sl95, S.clinsup, S.staffSup] },
       concurrentBilling: {
         value: 'Not addressed for EIDBI in the South Country documents read.',
         status: 'unverified',
@@ -1305,7 +1347,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
         cites: [S.scBhPa, S.stat0949],
       },
       dxRecency: { value: 'South Country publishes no rule of its own. ' + EIDBI_RECENCY, status: 'verified', cites: [S.cmde, S.mednec] },
-      diagnosingProviders: { value: EIDBI_DIAGNOSERS, status: 'verified', cites: [S.stat0949, S.elig] },
+      diagnosingProviders: { value: EIDBI_DIAGNOSERS, status: 'verified', cites: [S.stat0949, S.stat245I04, S.elig] },
       diagnosticTools: { value: EIDBI_TOOLS, status: 'verified', cites: [S.elig, S.cmde] },
       referral: { value: 'No. DHS’s October 2026 grid, for South Country: "No referral required for in or out of network providers."', status: 'verified', cites: [S.mcoGrid] },
       telehealth: {

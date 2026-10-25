@@ -6,8 +6,8 @@ import type { PayerConfig, PayerSource } from './types.js';
    legis.la.gov statutes were read directly (Law.aspx?d=<id>). aetnabetterhealth.com
    returns an Akamai 403 on www for Louisiana pages and PDFs, even via jina; the same DAM
    files download from its es./ch. subdomains, which are the URLs cited below. The
-   Louisiana Behavior Analyst Board site (lababoard.org) sits behind a captcha wall and
-   could not be read. UnitedHealthcare Community Plan left Healthy Louisiana on
+   Louisiana Behavior Analyst Board site (lababoard.org) was behind a captcha wall in early
+   October; on 2026-10-25 its rules pages (rules-chapter-N) answered plain curl. UnitedHealthcare Community Plan left Healthy Louisiana on
    March 31, 2026 (IB 26-3), so it has no Medicaid guide here; Healthy Blue leaves on
    December 31, 2026 (IB 26-12). */
 
@@ -16,6 +16,8 @@ const S: Record<string, PayerSource> = {
   lablue530: { title: 'Louisiana Blue — Professional Provider Office Manual, Section 5.30 Ordering/Referring Provider Requirements (January 2026)', url: 'https://providers.lablue.com/-/media/Files/Providers/Professional%20Provider%20Office%20Manual/2026/Prof%20Prov%20Manual%20Section%20530%20Ordering%20Referring%20Provider%20Requirements%20pdf.pdf' },
   lablue56: { title: 'Louisiana Blue — Professional Provider Office Manual, Section 5.6 Autism (January 2026)', url: 'https://providers.lablue.com/-/media/Files/Providers/Professional%20Provider%20Office%20Manual/2026/Prof%20Prov%20Manual%20Section%2056%20Autism%20pdf.pdf' },
   lablueBC: { title: 'Louisiana Blue — BlueCard Program Provider Manual (January 2026)', url: 'https://providers.lablue.com/-/media/Files/Providers/BlueCard%20Manual2026%20pdf.pdf' },
+  labRules2: { title: 'Louisiana Behavior Analyst Board — Rules, Chapter 2 (LAC 46:VIII), incl. § 204 Telehealth Standards (LR 50:1824, December 2024)', url: 'https://lababoard.org/rules-chapter-2/' },
+  labRules3: { title: 'Louisiana Behavior Analyst Board — Rules, Chapter 3: Application Procedures and Board Fees (incl. temporary licensure fee)', url: 'https://lababoard.org/rules-chapter-3/' },
   msm: { title: 'LDH Medicaid Services Manual, Chapter 4: Applied Behavior Analysis (issued 08/22/25)', url: 'https://www.lamedicaid.com/provweb1/Providermanuals/manuals/ABA/ABA.pdf' },
   fee: { title: 'Louisiana Medicaid Applied Behavioral Analysis Fee Schedule (dates of service on or after July 1, 2022)', url: 'https://www.lamedicaid.com/provweb1/fee_schedules/ABA_FS_Current.pdf' },
   plans: { title: 'Healthy Louisiana — View health plans (current plan choices)', url: 'https://www.myplan.healthy.la.gov/en/compare-plans' },
@@ -128,7 +130,7 @@ const LA_MANDATE_BODY =
   'Louisiana’s autism mandate is La. R.S. 22:1050. Any "health coverage plan" issued, delivered or renewed in the state on or after January 1, 2014 must "provide coverage for the diagnosis and treatment of autism spectrum disorders in individuals less than twenty-one years of age," and the definition of a health coverage plan reaches insurance policies, HMO and PPO contracts, group plans and the Office of Group Benefits programs (state employees). Treatment includes habilitative care, defined to include applied behavior analysis, plus pharmacy, psychiatric, psychological and therapy care, but only care "prescribed, provided, or ordered" by "a physician or psychologist who shall be licensed in this state and who shall supervise provision of such care." Coverage may not be limited by visit count and may carry ordinary copays and deductibles, but it "shall be subject to a maximum benefit of thirty-six thousand dollars per year," and payments for unrelated care do not count toward that cap. An ABA provider must be BACB-certified or able to document equivalent education, training and supervised experience. Plans may review treatment against medical-necessity criteria "based in part on evidence of continued improvement," with appeal rights under R.S. 22:1121 et seq. The statute does not apply to individually underwritten guaranteed-renewable policies or limited-benefit policies, and self-funded employer plans answer to ERISA rather than state insurance law. legis.la.gov notes its text is current through the 2025 First Extraordinary Session.';
 
 const LA_LICENSURE_BODY =
-  'Louisiana licenses behavior analysts (La. R.S. 37:3701 et seq.; the BACB lists Louisiana’s law as enacted in 2013). The Louisiana Behavior Analyst Board issues three credentials: the licensed behavior analyst (LBA, master’s degree plus a nationally accredited exam and a Louisiana jurisprudence exam), the state-certified assistant behavior analyst (SCABA, bachelor’s level, practicing under an LBA), and the registered line technician (RLT, 18 or older with a high school diploma, registered with the board by the supervising LBA and renewed every year). It is a misdemeanor for anyone not licensed, certified or registered "to engage in the practice of behavior analysis," and to "employ as a line technician, a line technician who is not registered." Licensed psychologists may provide ABA within their training. Out-of-state BCBAs: BACB certification alone does not authorize practice in Louisiana. The board may make rules for temporary licensure and for reciprocity from states with standards "at least as stringent," and the Telehealth Access Act (R.S. 40:1223.4) requires each licensing board to provide by rule for "Licensing or registration of out-of-state healthcare providers who seek to furnish healthcare services via telehealth to persons at originating sites in Louisiana." We could not open the board’s own rules (its website is behind a captcha), so confirm the current telehealth or temporary-licensure route with the board before a remote BCBA treats a Louisiana child. The chapter is scheduled to terminate on July 1, 2028 unless the legislature extends it. On rates: commercial ABA rates are negotiated and unpublished; the public benchmark is the Louisiana Medicaid fee schedule (97153 $12.50 and 97155 $22.50 per 15 minutes), which Medicaid MCOs must pay at least.';
+  'Louisiana licenses behavior analysts (La. R.S. 37:3701 et seq.; the BACB lists Louisiana’s law as enacted in 2013). The Louisiana Behavior Analyst Board issues three credentials: the licensed behavior analyst (LBA, master’s degree plus a nationally accredited exam and a Louisiana jurisprudence exam), the state-certified assistant behavior analyst (SCABA, bachelor’s level, practicing under an LBA), and the registered line technician (RLT, 18 or older with a high school diploma, registered with the board by the supervising LBA and renewed every year). It is a misdemeanor for anyone not licensed, certified or registered "to engage in the practice of behavior analysis," and to "employ as a line technician, a line technician who is not registered." Licensed psychologists may provide ABA within their training. Out-of-state BCBAs: BACB certification alone does not authorize practice in Louisiana. The board may make rules for temporary licensure and for reciprocity from states with standards "at least as stringent," and the Telehealth Access Act (R.S. 40:1223.4) requires each licensing board to provide by rule for "Licensing or registration of out-of-state healthcare providers who seek to furnish healthcare services via telehealth to persons at originating sites in Louisiana." The board’s own telehealth rule settles the route: “Licensees who provide telehealth must be licensed in Louisiana and must also be licensed in the state where the client is located, if licensing is required” (§ 204(C), December 2024). There is no separate telehealth registration, so a remote BCBA needs a full Louisiana LBA license (application, jurisprudence exam, background check). The same rule requires written informed consent at the onset of telehealth and, at the start of each session, verifying and documenting the identity and location of the licensee and the client. The board’s fee schedule lists a temporary licensure fee ($125), but its posted rules do not set out who qualifies, so ask the board before relying on it. The chapter is scheduled to terminate on July 1, 2028 unless the legislature extends it. On rates: commercial ABA rates are negotiated and unpublished; the public benchmark is the Louisiana Medicaid fee schedule (97153 $12.50 and 97155 $22.50 per 15 minutes), which Medicaid MCOs must pay at least.';
 
 const LA_PROMPT_PAY =
   'Louisiana’s prompt-pay law covers contracted providers of fully insured plans: an electronic clean claim "shall be paid, denied, or pended not more than twenty-five days" after receipt (R.S. 22:1833), a paper clean claim filed within 45 days of service within 45 days (60 days if filed later or resubmitted) (R.S. 22:1832), and a late payment carries "a late payment adjustment equal to twelve percent per annum." An issuer may elect a single 30-day standard by notice to the commissioner, and it gets the same window to audit a paid claim that it gives you to file one. These sections do not apply to the Office of Group Benefits, and self-funded ERISA plans are outside them.';
@@ -223,9 +225,9 @@ export const louisianaPayers: Record<string, PayerConfig> = {
         h2: 'Staffing, licensure and out-of-state BCBAs',
         body: [
           'Medicaid ABA must be provided by, or supervised by, a behavior analyst "currently licensed by the Louisiana Behavior Analyst Board," or a licensed psychologist or medical psychologist. To enroll, an LBA needs $1,000,000/$3,000,000 professional liability coverage, a clean BCBA or BCBA-D certification and license, and a criminal background check (renewed every five years). CaBAs must be certified by the board and supervised under a written agreement; RLTs must be registered with the board and supervised by an LBA, with background checks at hire. Providers send each MCO a list of their RLTs at enrollment and every quarter.',
-          'A BCBA licensed only in another state cannot treat a Louisiana Medicaid member: the manual requires the Louisiana license, and state law makes unlicensed practice of behavior analysis a misdemeanor. Louisiana’s Telehealth Access Act tells each board to set up licensing or registration for out-of-state providers serving patients located in Louisiana; the board’s rule could not be read for this guide, so ask the board which route applies.',
+          'A BCBA licensed only in another state cannot treat a Louisiana Medicaid member: the manual requires the Louisiana license, and state law makes unlicensed practice of behavior analysis a misdemeanor. The board’s telehealth rule answers the remote case too: “Licensees who provide telehealth must be licensed in Louisiana and must also be licensed in the state where the client is located, if licensing is required” (LAC 46:VIII § 204(C)), so there is no telehealth-only registration route.',
         ],
-        cites: [S.msm, S.rs3716, S.rs12234, S.bacbLic],
+        cites: [S.msm, S.rs3716, S.rs12234, S.labRules2, S.bacbLic],
       },
       {
         h2: 'Claims: timely filing, payment, appeals and EVV',
@@ -250,7 +252,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       { title: 'PCP name and contact', desc: 'Must appear on every treatment plan; the PCP gets the plan and six-month progress notes.' },
       { title: 'Other insurance', desc: 'The primary insurer’s ABA approval or denial; Medicaid plans hold the authorization pending until they see it.' },
     ],
-    sources: [S.msm, S.fee, S.plans, S.plansContact, S.ib2612, S.ib2603, S.t2027, S.uhcLA, S.lhccForm, S.lhccUniform, S.abhCDE, S.abhPM26, S.aclaHB, S.humPM, S.hbPM, S.abhPM, S.evv, S.rs3716, S.rs12234, S.bacbLic, S.cfr438, S.cfr433, { title: 'LDH — Medicaid Informational Bulletins (index of all Healthy Louisiana informational bulletins)', url: 'https://ldh.la.gov/page/informational-bulletins' }],
+    sources: [S.msm, S.fee, S.plans, S.plansContact, S.ib2612, S.ib2603, S.t2027, S.uhcLA, S.lhccForm, S.lhccUniform, S.abhCDE, S.abhPM26, S.aclaHB, S.humPM, S.hbPM, S.abhPM, S.evv, S.rs3716, S.rs12234, S.labRules2, S.labRules3, S.bacbLic, S.cfr438, S.cfr433, { title: 'LDH — Medicaid Informational Bulletins (index of all Healthy Louisiana informational bulletins)', url: 'https://ldh.la.gov/page/informational-bulletins' }],
     deliveryRules: {
       supervision: {
         value: LA_MCD_SUPERVISION,
@@ -1112,7 +1114,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       {
         h2: 'Licensure, out-of-state BCBAs and rates',
         body: [LA_LICENSURE_BODY],
-        cites: [S.rs3702, S.rs3706, S.rs3708, S.rs3715, S.rs3716, S.rs3704, S.rs12234, S.rs3718, S.bacbLic, S.fee],
+        cites: [S.rs3702, S.rs3706, S.rs3708, S.rs3715, S.rs3716, S.rs3704, S.rs12234, S.labRules2, S.labRules3, S.rs3718, S.bacbLic, S.fee],
       },
       {
         h2: 'Claims: prompt pay in Louisiana',
@@ -1130,7 +1132,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       { title: 'Standardized functional measure', desc: 'From the past 12 months (for example Vineland-3, ABAS, VB-MAPP or ABLLS).' },
       { title: 'Louisiana prescriber', desc: 'The mandate covers treatment ordered by a Louisiana-licensed physician or psychologist.' },
     ],
-    sources: [S.aetnaGuide, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.rs1050, S.rs3702, S.rs3706, S.rs3708, S.rs3715, S.rs3716, S.rs3704, S.rs12234, S.rs3718, S.rs1821, S.rs1832, S.rs1833, S.rs1836, S.bacbLic, S.fee, S.erisa, S.cfr433, S.tricare, S.champva, S.aetnaCPB, S.aetnaTele],
+    sources: [S.aetnaGuide, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.rs1050, S.rs3702, S.rs3706, S.rs3708, S.rs3715, S.rs3716, S.rs3704, S.rs12234, S.labRules2, S.labRules3, S.rs3718, S.rs1821, S.rs1832, S.rs1833, S.rs1836, S.bacbLic, S.fee, S.erisa, S.cfr433, S.tricare, S.champva, S.aetnaCPB, S.aetnaTele],
     deliveryRules: {
       supervision: {
         value: 'Aetna’s participation criteria (5/26): ABA services "must be provided directly or supervised by individuals licensed by the state or certified by the Behavior Analyst Certification Board," with "A minimum of one hour of face-to-face supervision" of an unlicensed or noncertified paraprofessional "for each 10 hours of applied behavior analysis" and the supervisor "onsite with the child at least one hour a month." Staff "must meet state requirements," and in Louisiana that means a licensed LBA and registered line technicians (R.S. 37:3708, 37:3716).' + ' Aetna’s guide and Network Participation Criteria publish no cap on the number of technicians one BCBA may supervise.',
@@ -1280,7 +1282,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       {
         h2: 'Licensure, out-of-state BCBAs and rates',
         body: [LA_LICENSURE_BODY],
-        cites: [S.rs3702, S.rs3706, S.rs3708, S.rs3715, S.rs3716, S.rs3704, S.rs12234, S.rs3718, S.bacbLic, S.fee],
+        cites: [S.rs3702, S.rs3706, S.rs3708, S.rs3715, S.rs3716, S.rs3704, S.rs12234, S.labRules2, S.labRules3, S.rs3718, S.bacbLic, S.fee],
       },
       {
         h2: 'Claims: filing limits and prompt pay',
@@ -1298,7 +1300,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       { title: 'Louisiana prescriber', desc: 'The mandate covers treatment ordered by a Louisiana-licensed physician or psychologist.' },
       { title: 'Other coverage', desc: 'Second parent’s plan, Medicaid, TRICARE or CHAMPVA.' },
     ],
-    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.rs1050, S.rs3702, S.rs3706, S.rs3708, S.rs3715, S.rs3716, S.rs3704, S.rs12234, S.rs3718, S.rs1821, S.rs1832, S.rs1833, S.rs1836, S.bacbLic, S.fee, S.erisa, S.cfr433, S.tricare, S.champva],
+    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.rs1050, S.rs3702, S.rs3706, S.rs3708, S.rs3715, S.rs3716, S.rs3704, S.rs12234, S.labRules2, S.labRules3, S.rs3718, S.rs1821, S.rs1832, S.rs1833, S.rs1836, S.bacbLic, S.fee, S.erisa, S.cfr433, S.tricare, S.champva],
     deliveryRules: {
       supervision: {
         value: 'Case supervision by a BCBA, LBA or independently licensed clinician trained in ABA, "consistent with the general accepted standard of care of one to two hours per ten hours of direct treatment," and at least 1–2 hours a week of direct supervision when direct treatment is 10 hours a week or less; the supervisor’s name and credentials must be documented. In Louisiana, technicians must also be registered line technicians (R.S. 37:3708).' + ' EN0499 publishes no cap on the number of technicians one supervisor may oversee.',
@@ -1447,7 +1449,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       {
         h2: 'Licensure, out-of-state BCBAs and rates',
         body: [LA_LICENSURE_BODY],
-        cites: [S.rs3702, S.rs3706, S.rs3708, S.rs3715, S.rs3716, S.rs3704, S.rs12234, S.rs3718, S.bacbLic, S.fee],
+        cites: [S.rs3702, S.rs3706, S.rs3708, S.rs3715, S.rs3716, S.rs3704, S.rs12234, S.labRules2, S.labRules3, S.rs3718, S.bacbLic, S.fee],
       },
       {
         h2: 'Claims: filing limits, telehealth billing and prompt pay',
@@ -1464,7 +1466,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       { title: 'Staff credentials', desc: 'Each line needs the credential modifier (HM, HN, HO, HP); technicians must be registered line technicians in Louisiana.' },
       { title: 'Louisiana prescriber', desc: 'The mandate covers treatment ordered by a Louisiana-licensed physician or psychologist.' },
     ],
-    sources: [S.optumSCC, S.optumReimb, S.optumTele, S.optumNNM, S.rs1050, S.rs3702, S.rs3706, S.rs3708, S.rs3715, S.rs3716, S.rs3704, S.rs12234, S.rs3718, S.rs1821, S.rs1832, S.rs1833, S.rs1836, S.bacbLic, S.fee, S.erisa, S.cfr433, S.tricare, S.champva, S.ib2603],
+    sources: [S.optumSCC, S.optumReimb, S.optumTele, S.optumNNM, S.rs1050, S.rs3702, S.rs3706, S.rs3708, S.rs3715, S.rs3716, S.rs3704, S.rs12234, S.labRules2, S.labRules3, S.rs3718, S.rs1821, S.rs1832, S.rs1833, S.rs1836, S.bacbLic, S.fee, S.erisa, S.cfr433, S.tricare, S.champva, S.ib2603],
     deliveryRules: {
       supervision: {
         value: 'BCaBAs and technicians work "under the direct supervision of a BCBA or licensed behavioral health clinician"; technicians should be RBTs "or another appropriately certified behavior technician as allowable by state mandate." Optum publishes no numeric ratio in these criteria. Louisiana requires line technicians to be registered with the board by their supervising LBA.' + ' Optum’s criteria publish no cap on the number of technicians per BCBA.',
@@ -1633,7 +1635,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       {
         h2: 'Licensure, out-of-state BCBAs and prompt pay',
         body: [LA_LICENSURE_BODY, LA_PROMPT_PAY],
-        cites: [S.rs3702, S.rs3706, S.rs3708, S.rs3715, S.rs3716, S.rs3704, S.rs12234, S.rs3718, S.bacbLic, S.fee, S.rs1832, S.rs1833],
+        cites: [S.rs3702, S.rs3706, S.rs3708, S.rs3715, S.rs3716, S.rs3704, S.rs12234, S.labRules2, S.labRules3, S.rs3718, S.bacbLic, S.fee, S.rs1832, S.rs1833],
       },
       {
         h2: 'BlueCard: out-of-state Blue members and Louisiana Blue members treated elsewhere',
@@ -1654,7 +1656,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       { title: 'School plan', desc: 'If ABA is at school: the high-support periods, teacher interviews and expected hours per day.' },
       { title: 'Louisiana prescriber', desc: 'The mandate covers treatment ordered by a Louisiana-licensed physician or psychologist.' },
     ],
-    sources: [S.labPol, S.labFAQ, S.labAut, S.labBH, S.labClaims, S.rs1050, S.rs3702, S.rs3706, S.rs3708, S.rs3715, S.rs3716, S.rs3704, S.rs12234, S.rs3718, S.rs1821, S.rs1832, S.rs1833, S.rs1836, S.bacbLic, S.fee, S.erisa, S.cfr433, S.tricare, S.champva, { title: 'Louisiana Blue — Provider newsletters (Provider Network News, current issues + archive)', url: 'https://providers.lablue.com/newsletters' }],
+    sources: [S.labPol, S.labFAQ, S.labAut, S.labBH, S.labClaims, S.rs1050, S.rs3702, S.rs3706, S.rs3708, S.rs3715, S.rs3716, S.rs3704, S.rs12234, S.labRules2, S.labRules3, S.rs3718, S.rs1821, S.rs1832, S.rs1833, S.rs1836, S.bacbLic, S.fee, S.erisa, S.cfr433, S.tricare, S.champva, { title: 'Louisiana Blue — Provider newsletters (Provider Network News, current issues + archive)', url: 'https://providers.lablue.com/newsletters' }],
     deliveryRules: {
       supervision: {
         value: 'Louisiana Blue publishes no numeric ratio. SCABAs and RLTs "Cannot bill directly" and are billed through the supervising LBA, and the school rules expect RLTs to be trained and certified in ABA, preferably with 6 months’ experience. State law requires RLTs to be registered by their supervising LBA.',

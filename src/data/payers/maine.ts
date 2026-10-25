@@ -364,7 +364,9 @@ export const mainePayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis report', desc: 'ASD diagnosis by a licensed physician or psychologist, with the date and clinician.' },
       { title: 'Other coverage', desc: 'Second parent’s plan, MaineCare (pays last), TRICARE or CHAMPVA.' },
     ],
-    sources: [S.anthemMEPA, S.anthemRG, S.st2768, S.st2847T, S.st4259, S.pl597, S.st4304, S.st4316, S.st4303, S.st2436, S.ch790, S.bacbLic, S.t32, S.erisa, S.s1, { title: 'Anthem Blue Cross and Blue Shield — 2026 Maine Commercial Provider Manual (effective October 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_ME_00115.pdf' }, { title: 'Anthem Maine — Provider News (provider news archive)', url: 'https://providernews.anthem.com/maine' }],
+    sources: [S.anthemMEPA, S.anthemRG, S.st2768, S.st2847T, S.st4259, S.pl597, S.st4304, S.st4316, S.st4303, S.st2436, S.ch790, S.bacbLic, S.t32, S.erisa, S.s1, { title: 'Anthem Blue Cross and Blue Shield — 2026 Maine Commercial Provider Manual (effective October 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_ME_00115.pdf' }, { title: 'Anthem Maine — Provider News (provider news archive)', url: 'https://providernews.anthem.com/maine' },
+      { title: 'MaineCare Benefits Manual, Ch. II, Section 28 — Adaptive Behavior Services for Children (eff. April 29, 2026, filing 2026-101)', url: 'https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/c2s028-2026-101%20NEW.docx' },
+    ],
     deliveryRules: {
       supervision: {
         value: 'Anthem publishes no numeric supervision ratio. It recognizes "providers practicing under the direction and supervision of the BCBA," and allows 97153 alongside 97155 only when the QHP and technician are both face-to-face with the patient and the QHP is directing the technician. The Maine mandate requires ABA to be provided by, or supervised by, a person certified by a national board of behavior analysts.',
@@ -556,7 +558,9 @@ export const mainePayers: Record<string, PayerConfig> = {
       { title: 'Standardized functional measure', desc: 'Aetna wants one from the past 12 months (for example Vineland-3).' },
       { title: 'Other coverage', desc: 'Second parent’s plan, MaineCare (pays last), TRICARE or CHAMPVA.' },
     ],
-    sources: [S.aetnaCPB, S.aetnaCPB648, S.aetnaGuide, S.aetnaPrecert, S.aetnaOM, S.aetnaNPC, S.st2768, S.st2847T, S.st4259, S.pl597, S.st4304, S.st4316, S.st4303, S.st2436, S.ch790, S.bacbLic, S.t32, S.erisa, S.s1],
+    sources: [S.aetnaCPB, S.aetnaCPB648, S.aetnaGuide, S.aetnaPrecert, S.aetnaOM, S.aetnaNPC, S.st2768, S.st2847T, S.st4259, S.pl597, S.st4304, S.st4316, S.st4303, S.st2436, S.ch790, S.bacbLic, S.t32, S.erisa, S.s1,
+      { title: 'MaineCare Benefits Manual, Ch. II, Section 28 — Adaptive Behavior Services for Children (eff. April 29, 2026, filing 2026-101)', url: 'https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/c2s028-2026-101%20NEW.docx' },
+    ],
     deliveryRules: {
       supervision: {
         value: 'Aetna’s guide: services must be provided directly or billed by licensed behavior analysts (where states license them), BCBAs, or licensed psychologists where ABA is within scope, unless mandates, plan documents or contracts say otherwise, with supervision of others "in line with practice standards." Aetna’s Network Participation Criteria (5/26) set the technician tier: "A minimum of one hour of face-to-face supervision is required of the unlicensed or noncertified paraprofessional by a BCBA or licensed psychologist (or behavioral health professional) for each 10 hours of applied behavior analysis," and "the supervisor must be onsite with the child at least one hour a month." The Maine mandate requires ABA to be provided by, or supervised by, a national-board certificant.',
@@ -746,7 +750,9 @@ export const mainePayers: Record<string, PayerConfig> = {
       { title: 'Standardized assessment timing', desc: 'Instrument administered within 60 days before treatment starts.' },
       { title: 'Other coverage', desc: 'Second parent’s plan, MaineCare (pays last), TRICARE or CHAMPVA.' },
     ],
-    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.st2768, S.st2847T, S.st4259, S.pl597, S.st4304, S.st4316, S.st4303, S.st2436, S.ch790, S.bacbLic, S.t32, S.erisa, S.s1],
+    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.st2768, S.st2847T, S.st4259, S.pl597, S.st4304, S.st4316, S.st4303, S.st2436, S.ch790, S.bacbLic, S.t32, S.erisa, S.s1,
+      { title: 'MaineCare Benefits Manual, Ch. II, Section 28 — Adaptive Behavior Services for Children (eff. April 29, 2026, filing 2026-101)', url: 'https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/c2s028-2026-101%20NEW.docx' },
+    ],
     deliveryRules: {
       supervision: {
         value: 'Case supervision is by a BCBA, a Licensed Behavior Analyst, or an independently licensed mental health professional with ABA training. Direct plus indirect case supervision runs at one to two hours per ten hours of direct treatment; at 10 hours a week or less, at least one to two hours a week of direct case supervision.',
@@ -1095,7 +1101,9 @@ export const mainePayers: Record<string, PayerConfig> = {
       { title: 'HPHConnect access', desc: 'The InterQual questionnaire runs there; register before the first request.' },
       { title: 'Other coverage', desc: 'Second parent’s plan, MaineCare (pays last), TRICARE or CHAMPVA.' },
     ],
-    sources: [S.hpMNG, S.hpPP, S.hpRef, S.hpMaxUnits, S.hpCoding, S.cmsMUE, S.hpTele, S.hpForm, S.st2768, S.st2847T, S.st4259, S.pl597, S.st4304, S.st4316, S.st4303, S.st2436, S.ch790, S.bacbLic, S.t32, S.erisa, S.s1, { title: 'Point32Health — Insights and Updates for Providers (Harvard Pilgrim / Tufts provider news archive)', url: 'https://www.point32health.org/provider/office-resources/provider-newsletter' }],
+    sources: [S.hpMNG, S.hpPP, S.hpRef, S.hpMaxUnits, S.hpCoding, S.cmsMUE, S.hpTele, S.hpForm, S.st2768, S.st2847T, S.st4259, S.pl597, S.st4304, S.st4316, S.st4303, S.st2436, S.ch790, S.bacbLic, S.t32, S.erisa, S.s1, { title: 'Point32Health — Insights and Updates for Providers (Harvard Pilgrim / Tufts provider news archive)', url: 'https://www.point32health.org/provider/office-resources/provider-newsletter' },
+      { title: 'MaineCare Benefits Manual, Ch. II, Section 28 — Adaptive Behavior Services for Children (eff. April 29, 2026, filing 2026-101)', url: 'https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/c2s028-2026-101%20NEW.docx' },
+    ],
     deliveryRules: {
       supervision: {
         value: 'Point32Health requires InterQual’s "Applied Behavior Analysis (ABA) Program-Applied Behavior Analysis Supervision" subset for supervision requests, but the criteria inside it are licensed and not published. The Maine mandate requires ABA to be provided by, or supervised by, a national-board certificant.',
