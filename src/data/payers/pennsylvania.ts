@@ -1051,10 +1051,11 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       {
         h2: 'Rates',
         body: [
-          'Magellan pays IBHS under provider contracts and fee schedules that are not published. Its July 2026 workgroup notes recent rate increases and asks providers to bill usual-and-customary charges so claims can be swept up to new rates, and describes a 2026 access-based incentive model (at least 25 individual or ABA initial assessments a year; members with commercial insurance are not counted). Confirm your contracted rates with Magellan Network.',
+          'Magellan pays IBHS under provider contracts and fee schedules that are not published. Its October 21, 2026 rate letter says that for Bucks, Montgomery, Lehigh and Northampton Counties “sustained rate increases were implemented effective July 1, 2026, through fee schedule amendments,” including “IBHS/ABA Value-Based providers: 3% increase plus a 30% increase to assessment codes.” It adds that retrospective 2026 increases will be paid as lump sums before December 31, 2026, focused on community-based, non-24-hour levels of care; the remittance shows them under a member ID of all 5s with the county prefix (BUC, LEH, MNT, NOH). Its July 2026 workgroup notes recent rate increases and asks providers to bill usual-and-customary charges so claims can be swept up to new rates, and describes a 2026 access-based incentive model (at least 25 individual or ABA initial assessments a year; members with commercial insurance are not counted). Confirm your contracted rates with Magellan Network.',
         ],
         cites: [
           { title: 'Magellan of PA — IBHS Provider Workgroup, July 30, 2026', url: 'https://www.magellanofpa.com/documents/2026/07/073126_ibhsproviderworkgrouponjuly302026.pdf' },
+          { title: 'Magellan of PA — Provider Rate Updates (October 21, 2026)', url: 'https://www.magellanofpa.com/documents/2026/10/102126_providerratesannouncement.pdf/' },
         ],
       },
       {
@@ -1095,7 +1096,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: 'Caregiver availability for the assessment', desc: 'Magellan’s referral form asks for caregiver days/times; the assessment must cover every setting where services will be delivered.' },
       { title: 'Consent to release information', desc: 'Magellan’s referral form requires written consent before it can send clinical information to providers.' },
     ],
-    sources: [
+    sources: [{ title: 'Magellan of PA — Provider Rate Updates (October 21, 2026)', url: 'https://www.magellanofpa.com/documents/2026/10/102126_providerratesannouncement.pdf/' }, 
       { title: 'Magellan of PA — Intensive Behavioral Health Services (IBHS) provider page', url: 'https://www.magellanofpa.com/for-providers/services-programs/intensive-behavioral-health-services-ibhs/' },
       { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/25)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },
       { title: 'Magellan of PA — IBHS Authorization Request Checklist (rev. 02/12/2026)', url: 'https://www.magellanofpa.com/documents/2026/02/021626_ibhsauthrequestchecklist.pdf' },

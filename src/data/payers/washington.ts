@@ -74,6 +74,12 @@ const S: Record<string, PayerSource> = {
   regBH33: { title: 'Regence Medical Policy BH33 — ABA Initial Assessment for the Treatment of Autism Spectrum Disorder (eff. 8/1/2025)', url: 'https://beonbrand.getbynder.com/m/8360cc45444cab46/' },
   lcswScope: { title: 'RCW 18.225.010(7) — "Independent clinical social work" means "the diagnosis and treatment of emotional and mental disorders"', url: 'https://app.leg.wa.gov/RCW/default.aspx?cite=18.225.010' },
   ccPreAuth: { title: 'Coordinated Care of Washington — Medicaid Pre-Auth Check tool (97151 no authorization; 0362T, 97153, 97155, 97156 authorization required; 97152 not a covered benefit; checked 10/25/2026)', url: 'https://www.coordinatedcarehealth.com/providers/preauth-check/medicaid-pre-auth.html' },
+  molUM: { title: 'Molina Healthcare of Washington — Utilization Management Guide for ABA Providers (MHW 11/14/2023)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/WA/Prior-Auth/Guides/aba-provider-um-guide.pdf' },
+  molPAform: { title: 'Molina Healthcare of Washington — 2025 ABA Therapy Medicaid Prior Authorization Form (MHW 12/10/2024; fax 833-552-0030)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/WA/Prior-Auth/Forms/aba-prior-auth-form-medicaid.pdf' },
+  molOrder: { title: 'Molina Healthcare of Washington — ABA Order form (MHW 11/14/2023)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/WA/Prior-Auth/Forms/aba-order-form.pdf' },
+  molWeekly: { title: 'Molina Healthcare of Washington — ABA Weekly Approved Units Policy: Provider Guide & FAQs (7/14/2026; effective August 1, 2026)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/WA/Prior-Auth/Guides/aba-weekly-approved-units-policy-provider-faqs.pdf' },
+  molPSG: { title: 'Molina Healthcare Medicaid Pre-Service Review Guide (Washington, effective 01/01/2026)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/WA/Prior-Auth/Forms/pa-pre-service-guide-form-medicaid.pdf' },
+  molPM: { title: 'Molina Healthcare of Washington — Apple Health (Medicaid) and AHE Provider Manual 2026 (last updated 07/2026): Telehealth; Prior Authorization; Timely Claim Filing; COB/TPL', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/WA/Apple-Health-Medicaid-and-Apple--2026.pdf' },
 };
 
 /* ---- Shared Washington commercial layer (same facts on every commercial guide) ---- */
@@ -318,6 +324,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Apple Health use HM/HN/HO credential modifiers on ABA claims?', a: 'No credential modifiers are named in HCA\'s ABA billing guide (January 1, 2026). Its modifier section says to "Use an appropriate modifier to delineate separate services by different providers at different times on the same day," and requires group-size modifiers on 97154/97158 and 97156/97157: UN (two clients or families), UP (three), UQ (four), UR (five), US (six or more). The rendering credential shows through the servicing provider (LBA, LABA or CBT) enrolled with HCA, and the fee schedule ties codes to roles (97151 "LBAT only").' },
       { q: 'What is the weekly billing cutoff for Apple Health fee-for-service claims?', a: 'Tuesday at 5 p.m. for payment the following Monday (HCA’s ProviderOne schedule). MCO claims follow each plan’s own schedule.' },
       { q: 'Does Washington Apple Health cover ABA therapy?', a: 'Yes, under chapter 182-531A WAC, for autism spectrum disorder or another intellectual or developmental disability for which ABA is effective, with no age limit. A Center of Excellence must evaluate the client and prescribe ABA first.' },
       { q: 'What is a Center of Excellence (COE) in Washington?', a: 'An individual provider, not a facility, who completes the comprehensive diagnostic evaluation and writes the ABA prescription. Developmental pediatricians, neurologists, pediatric neurologists, pediatric psychiatrists, psychiatrists and psychologists experienced with autism qualify; ARNPs, physicians, PAs and naturopaths qualify after HCA’s COE training and designation.' },
@@ -658,18 +665,16 @@ export const washingtonPayers: Record<string, PayerConfig> = {
     family: 'molina',
     cardDesc: 'Apple Health MCO: PA "typically required" for ABA (check the lookup tool), granted at the group level; BCBAs credentialed individually, CBTs and LABAs rostered.',
     assessmentPA: {
-      value: 'Not confirmed: Molina told HCA’s February 2025 ABA session that PA "is typically required for ABA services" and to use its Prior Auth Look-up Tool; its current Washington Medicaid PA guide could not be opened',
+      value: 'Not settled for 97151 within its limit. Molina\'s 2025 ABA prior authorization form lists 97151 (assessment/treatment plan development) with "*Limitation Extension request required" — "limited to 28 units per assessment, 2x per year" — and 0362T (functional analysis, LBAT on site) "limited to a 2-hour assessment, 3x per year," so a request is needed to go past those limits; its Pre-Service Review Guide sends providers to the Prior Authorization Look-Up Tool for code-level rules',
       status: 'unverified',
-      cites: [S.hcaTA],
-      verifyVia: 'Molina Prior Auth Look-up Tool (Availity) or Molina behavioral health UM; general ABA questions to aba@molinahealthcare.com: check 97151.',
+      cites: [S.molPAform, S.molPSG],
+      verifyVia: 'Molina Prior Auth Look-up Tool (Availity) or Provider Services, (855) 322-4082: check 97151 within the 28-unit limit.',
       blocker: 'document',
     },
     treatmentPA: {
-      value: '"Prior Authorization (PA) is typically required for ABA services," and "PA is generally granted at the Group level, so anyone affiliated under the group can render the service" (Molina, HCA ABA session, February 2025). Confirm each code in Molina’s lookup tool',
-      status: 'plan-dependent',
-      cites: [S.hcaTA, S.wac531a],
-      verifyVia: 'Molina Prior Auth Look-up Tool or Provider Services, (855) 322-4082.',
-      blocker: 'document',
+      value: 'Yes. Molina\'s Medicaid Pre-Service Review Guide (effective 1/1/2026) lists "Applied Behavioral Analysis (ABA) for treatment of Autism Spectrum Disorder (ASD)" among services needing prior authorization, and its ABA PA form covers 97153, 97154, 97155, 97158, 0373T and H2020 (fax 833-552-0030). Send with it the general authorization form, the ABA level of support form (HCA 12-411), a signed prescription for ABA, the COE diagnostic evaluation and the behavior change plan. "PA is generally granted at the Group level, so anyone affiliated under the group can render the service" (Molina, HCA session, February 2025)',
+      status: 'verified',
+      cites: [S.molPSG, S.molPAform, S.molUM, S.hcaTA],
     },
     dxRequired: {
       value: 'Yes. The Apple Health rule binds every MCO: a COE-confirmed ASD or other developmental/intellectual disability for which ABA is effective (WAC 182-531A-0400), and HCA applies the COE requirement "whether the client is fee-for-service or enrolled in a managed care organization." Molina’s own ABA criteria could not be read this run',
@@ -688,7 +693,9 @@ export const washingtonPayers: Record<string, PayerConfig> = {
     ],
     atGlance: [
       { label: 'Covers ABA?', value: 'Yes, for Apple Health members, under WAC 182-531A (COE evaluation required)' },
-      { label: 'Prior auth', value: '"Typically required"; check codes in Molina’s Prior Auth Look-up Tool' },
+      { label: 'Prior auth', value: 'Required for ABA treatment (Pre-Service Review Guide, 1/1/2026); ABA PA form by fax 833-552-0030' },
+      { label: 'Weekly units', value: 'From 8/1/2026 new authorizations carry a Sunday–Saturday weekly unit limit; no carryover' },
+      { label: 'Timely filing', value: '180 calendar days from the date of service (2026 manual)' },
       { label: 'Authorization level', value: 'Generally granted to the group, so any affiliated clinician can render' },
       { label: 'Credentialing', value: 'BCBAs individually credentialed; CBTs and LABAs added to the group by roster or mini-application' },
       { label: 'Contacts', value: 'ABA questions aba@molinahealthcare.com; member ABA line 509-321-1365; Provider Services (855) 322-4082' },
@@ -705,9 +712,9 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       {
         h2: 'Claim filing and payment rules at Molina',
         body: [
-          'Federal Medicaid rules set the payment floor for every managed care plan: a state’s contract with an MCO "must provide that the organization will meet the requirements of § 447.45(d)(2) and (d)(3)" (42 CFR 447.46) — pay 90 percent of clean claims from practitioners within 30 days of receipt and 99 percent within 90 days — unless the plan and the provider agree in writing to an alternative schedule stipulated in the contract. A "clean claim" is one that "can be processed without obtaining additional information from the provider of the service or from a third party" (42 CFR 447.45(b)). Molina’s own Washington timely-filing, corrected-claim and secondary-claim limits sit in its Apple Health provider manual claims chapter, which returned a "Page Not Found" page when fetched for this guide; take them from your Molina agreement or Provider Services until it can be read.',
+          'Federal Medicaid rules set the payment floor for every managed care plan: a state’s contract with an MCO "must provide that the organization will meet the requirements of § 447.45(d)(2) and (d)(3)" (42 CFR 447.46) — pay 90 percent of clean claims from practitioners within 30 days of receipt and 99 percent within 90 days — unless the plan and the provider agree in writing to an alternative schedule stipulated in the contract. A "clean claim" is one that "can be processed without obtaining additional information from the provider of the service or from a third party" (42 CFR 447.45(b)). Molina\'s 2026 Apple Health provider manual sets the filing limit: "Claims must be submitted by the Provider to Molina within 180 calendar days or as specified in your contract after the discharge for inpatient services or the Date of Service for outpatient services," and, when Molina is secondary, "within 180 calendar days after the final determination by the primary payer"; late claims "shall not be eligible for payment."',
         ],
-        cites: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }],
+        cites: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, S.molPM],
       },
     ],
     collect: [
@@ -716,7 +723,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       { title: 'Group affiliation', desc: 'Molina authorizes at the group level: confirm the rendering clinicians are on the group’s Molina roster.' },
       { title: 'Other insurance', desc: 'Medicaid pays last; bill the commercial plan first.' },
     ],
-    sources: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, S.hcaTA, S.hcaMC, S.wac531a, S.abaBG, S.abaFee, S.teleBG, S.cfr438, S.cfr433, { title: 'Molina Healthcare of Washington — Provider communications (Medicaid notices/bulletins and quarterly newsletters by year)', url: 'https://www.molinahealthcare.com/providers/wa/communications' }],
+    sources: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, S.hcaTA, S.hcaMC, S.wac531a, S.abaBG, S.abaFee, S.teleBG, S.cfr438, S.cfr433, { title: 'Molina Healthcare of Washington — Provider communications (Medicaid notices/bulletins and quarterly newsletters by year)', url: 'https://www.molinahealthcare.com/providers/wa/communications' }, S.molUM, S.molPAform, S.molOrder, S.molWeekly, S.molPSG, S.molPM],
     deliveryRules: {
       supervision: {
         value: 'Molina’s own ABA policy could not be read. The state rule: ' + AH_SUPERVISION,
@@ -733,11 +740,9 @@ export const washingtonPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       dailyLimits: {
-        value: 'No Molina unit limit could be read; units are set per authorization.',
-        status: 'unverified',
-        cites: [S.hcaTA],
-        verifyVia: 'Molina behavioral health UM: ask whether HCA’s fee-schedule unit limits apply.',
-        blocker: 'per-case',
+        value: 'Weekly, not daily. For new initial and continuation authorizations from August 1, 2026, Molina authorizes 97153, 97154, 97155, 97158 and 0373T as a weekly approved unit limit counted Sunday to Saturday; "Approved units are assigned to a specific authorization week and cannot be accumulated, banked, or carried over," and claims over the weekly limit "could be denied or adjusted." There is no predetermined weekly cap, and Molina says WAC 182-531A sets no daily service-hour maximum. The PA form caps 97151 at "28 units per assessment, 2x per year" and 0362T at a 2-hour assessment three times a year unless a limitation extension is approved.',
+        status: 'verified',
+        cites: [S.molWeekly, S.molPAform],
       },
       noteSignature: {
         value: 'No Molina documentation rule could be read.',
@@ -754,9 +759,9 @@ export const washingtonPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       billAsProvider: {
-        value: 'The rendering clinician. Molina authorizes at the group level, but HCA requires each LBA, LABA and CBT to be enrolled with HCA, on the group roster sent to the MCO, and in the servicing provider box on claims for dates of service from July 1, 2025, with taxonomy 103K00000X in both taxonomy fields.',
+        value: 'The rendering clinician. Molina authorizes at the group level, but HCA requires each LBA, LABA and CBT to be enrolled with HCA, on the group roster sent to the MCO, and in the servicing provider box on claims for dates of service from July 1, 2025, with taxonomy 103K00000X in both taxonomy fields. Molina\'s ABA PA form asks for the "Treating Provider NPI/Provider Tax ID# (number to be submitted with claim)."',
         status: 'verified',
-        cites: [S.hcaTA, S.abaBG],
+        cites: [S.hcaTA, S.abaBG, S.molPAform],
       },
     },
     intakeGates: {
@@ -768,11 +773,9 @@ export const washingtonPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       dxRecency: {
-        value: 'Not confirmed for Molina. The state rule has no fixed expiry on the COE evaluation; the PA request is due within 60 days of the LBAT assessment.',
-        status: 'unverified',
-        cites: [S.wac531a, S.abaBG],
-        verifyVia: 'Molina behavioral health UM: ask how recent the COE evaluation must be.',
-        blocker: 'document',
+        value: 'No expiry on the COE evaluation is stated. Molina\'s ABA UM guide requires an "Assessment instrument completed within 60 days of submission" (WAC 182-531A-0600) for initiation and an updated assessment for recertification, and the PA form says "Data submitted for continuation of services should be within the last 6 months."',
+        status: 'verified',
+        cites: [S.molUM, S.molPAform, S.wac531a],
       },
       diagnosingProviders: {
         value: 'A Center of Excellence, by state rule for all Apple Health members (WAC 182-531A-0800); a COE serving Molina members must also be contracted with Molina. ' + AH_DIAGNOSERS + ' LCSW (LICSW): not a COE credential — no social-work licence is on the COE list, so an LICSW\'s evaluation counts only if HCA uses its discretion to accept a non-COE evaluation.',
@@ -785,30 +788,28 @@ export const washingtonPayers: Record<string, PayerConfig> = {
         cites: [S.wac531a, S.abaBG],
       },
       referral: {
-        value: 'By state rule, a COE prescription is required for every Apple Health member. ' + AH_REFERRAL,
+        value: 'By state rule, a COE prescription is required for every Apple Health member. ' + AH_REFERRAL + ' Molina\'s own ABA Order form (fax 833-552-0030, ATTN: ABA Department) restates the WAC: a diagnostic evaluation by a COE or qualified health professional with a referral for ABA, plus COE documentation that less intrusive interventions were tried and no equally effective alternative exists; the ordering provider signs and dates a medical-necessity recommendation. The UM guide lists the "Comprehensive diagnostic evaluation and Order for ABA completed by a Center of Excellence (COE) or Qualified Health Professional (QHP)" among the initiation requirements.',
         status: 'verified',
-        cites: [S.wac531a, S.abaBG],
+        cites: [S.wac531a, S.abaBG, S.molOrder, S.molUM],
       },
       telehealth: {
-        value: 'No Molina telehealth rule could be read. The state rule: ' + AH_TELEHEALTH,
+        value: 'Molina\'s 2026 manual allows behavioral health services by telehealth from participating providers as "a method of accessing Covered Services and not a separate benefit," not when member and provider are in the same location, coded "in accordance with applicable reimbursement policies and billing guidelines." It publishes no ABA code list of its own. The state rule: ' + AH_TELEHEALTH,
         status: 'unverified',
-        cites: [S.abaBG, S.teleBG],
-        verifyVia: 'Molina Provider Services, (855) 322-4082: confirm Molina follows HCA’s ABA telemedicine code list.',
+        cites: [S.molPM, S.teleBG, S.abaBG],
+        verifyVia: 'Molina Provider Services, (855) 322-4082: confirm Molina follows HCA\'s ABA telemedicine code list.',
         blocker: 'document',
       },
       authTurnaround: {
-        value: 'No Molina ABA timeframe could be read. Federal managed care rules apply: standard decisions "may not exceed 7 calendar days after receiving the request for service" for rating periods starting on or after January 1, 2026 (42 CFR 438.210(d)).',
+        value: 'Molina makes decisions "as promptly as the Member\'s health requires and no later than contractual and regulatory requirements," and "does not retroactively authorize services that require PA." Federal managed care rules set the outer limit: standard decisions "may not exceed 7 calendar days after receiving the request for service" for rating periods starting on or after January 1, 2026 (42 CFR 438.210(d)). Reauthorization: "submit a continued treatment plan 3 weeks prior to end of authorization." When WAC criteria are not met the reviewer makes two attempts to get more information before Medical Director review.',
         status: 'plan-dependent',
-        cites: [S.cfr438],
-        verifyVia: 'Molina behavioral health UM.',
+        cites: [S.molPM, S.molPAform, S.molUM, S.cfr438],
+        verifyVia: 'Molina behavioral health UM, (855) 322-4082.',
         blocker: 'per-case',
       },
       coordinationOfBenefits: {
-        value: 'No Molina COB rule could be read. Medicaid is payer of last resort (42 CFR 433.139); HCA’s ABA guide makes Apple Health PA unnecessary while an unexhausted private ABA benefit is paying.',
-        status: 'unverified',
-        cites: [S.cfr433, S.abaBG],
-        verifyVia: 'Molina Provider Services, (855) 322-4082.',
-        blocker: 'document',
+        value: 'Molina\'s 2026 Apple Health manual: "Medicaid is always the payer of last resort"; bill the primary payer and submit its EOB to Molina for the secondary claim, reimbursed "based on the state regulatory COB methodology," within 180 calendar days after the primary payer\'s final determination. Molina pays preventive pediatric care (EPSDT) first and then seeks reimbursement from third parties. HCA\'s ABA guide makes Apple Health PA unnecessary while an unexhausted private ABA benefit is paying.',
+        status: 'verified',
+        cites: [S.molPM, S.cfr433, S.abaBG],
       },
     },
     faq: [

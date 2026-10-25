@@ -1732,13 +1732,13 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       ],
     },
     treatmentPA: {
-      value: 'Required — follows CCP 8F §5.1/5.1.1, which is TIERED by intensity: up to 180 calendar days at 16 hrs/week or fewer, but only up to 90 calendar days above 16 hrs/week, for the initial authorization and every reauthorization alike, through Alliance UM',
-      status: 'unverified',
+      value: 'Required — follows CCP 8F §5.1/5.1.1, which is tiered by intensity: up to 180 calendar days at 16 hours a week or fewer, up to 90 calendar days above 16 hours a week, for the initial authorization and every reauthorization, requested through Alliance UM with the RB-BHT cover sheet. Alliance publishes no RB-BHT authorization period of its own: its provider manual (effective July 1, 2026) lists RB-BHT as a covered service without its own cadence, and the cover sheet points to CCP 8F section by section.',
+      status: 'verified',
       cites: [
-        { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        { title: 'Alliance Health — Tailored Plan/PIHP Provider Manual (effective July 1, 2026; file updated 10/22/2026)', url: 'https://www.alliancehealthplan.org/document-library/79431/' },
+        { title: 'Alliance Health — Research-Based Behavioral Health Treatment (RB-BHT) cover sheet (Word form, document library 97990)', url: 'https://www.alliancehealthplan.org/document-library/97990/' },
       ],
-      verifyVia: 'Alliance Health\'s RB-BHT provider guidance, reissued for the 8/1/2026 CCP 8F. The flat ‘180-day cycles’ here is the pre-rewrite cadence; §5.1 is now tiered (up to 180 calendar days at ≤16 hrs/week, up to 90 above it). Confirm Alliance UM applies the tiering before quoting a reauth date to a family.',
-      blocker: 'document',
     },
     dxRequired: {
       value: 'Yes \u2014 non-provisional ASD diagnosis via BOSA, Tele-ASD-Peds, ADOS-2 or CARS2-ST/CARS2-HF (CCP 8F 3.2.4); screening tools alone cannot start services; under-3s may start on a provisional diagnosis',
@@ -2637,11 +2637,15 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       ],
     },
     treatmentPA: {
-      value: 'Required — one "ALL codes" authorization on the base code covers every RB-BHT code/modifier',
-      status: 'verified',
+      value: 'Required. Before the October 1, 2026 merger, Partners issued one "ALL codes" authorization on the base code covering every RB-BHT code and modifier. Since the merger, the Vaya Partners Authorization Guidelines page (checked 10/25/2026) lists only the legacy Vaya Health RB-BHT guideline (v3.0, effective 8/1/2026), which sets per-code service authorization requests (97151 and 97155 pass through on notification up to set thresholds; 97152–97154, 97156 and 97157 need a full SAR). Neither document says which approach now applies to former Partners members.',
+      status: 'plan-dependent',
       cites: [
         { title: 'Partners — ALL-codes authorization provider alert', url: 'https://legacy.providers.partnersbhm.org/authorizations-for-research-based-behavioral-health-treatment-transition-to-all-codes/' },
+        { title: 'Vaya Partners — Authorization Guidelines (ProviderCENTRAL, checked 10/25/2026)', url: 'https://providers.vayapartners.org/authorization-guidelines/' },
+        { title: 'Vaya Health — Authorization Guidelines: Medicaid RB-BHT Services for ASD (v3.0, rev. 8/1/2026; legacy Vaya site)', url: 'https://legacy.providers.vayahealth.com/wp-content/uploads/2025/09/Authorization_Guidelines_Medicaid_RB_BHT_ASD.pdf' },
       ],
+      verifyVia: 'Ask Vaya Partners UM (UM@VayaPartners.org, 1-800-893-6246 ext. 1515) whether RB-BHT requests for former Partners members still go in as one ALL-codes authorization or as per-code SARs.',
+      blocker: 'per-case',
     },
     dxRequired: {
       value: 'Yes \u2014 ASD via a validated diagnostic tool; under-3s may start on a provisional diagnosis',
@@ -2779,6 +2783,8 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Vaya Partners — Provider Communication Bulletin archive', url: 'https://providers.vayapartners.org/bulletins/' },
       { title: 'N.C.G.S. § 90B-3 — Social Worker Certification and Licensure Act definitions ("clinical social work practice" includes biopsychosocial diagnosis)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_90B/GS_90B-3.html' },
       { title: 'NC Medicaid — Concurrent Billing Clarification for Research-Based Behavioral Health Treatment (bulletin, Oct. 12, 2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/10/12/concurrent-billing-clarification-research-based-behavioral-health-treatment' },
+      { title: 'Vaya Partners — Authorization Guidelines (ProviderCENTRAL, checked 10/25/2026)', url: 'https://providers.vayapartners.org/authorization-guidelines/' },
+      { title: 'Vaya Health — Authorization Guidelines: Medicaid RB-BHT Services for ASD (v3.0, rev. 8/1/2026; legacy Vaya site)', url: 'https://legacy.providers.vayahealth.com/wp-content/uploads/2025/09/Authorization_Guidelines_Medicaid_RB_BHT_ASD.pdf' },
     ],
     intakeGates: {
       ageLimit: {

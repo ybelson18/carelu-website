@@ -362,7 +362,7 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'IEP / 504 / IFSP', desc: 'Attach a copy if the child has one.' },
       { title: 'Other insurance', desc: 'Medicaid is payer of last resort; bill the primary first.' },
     ],
-    sources: [S.atcPM, S.atcPA, S.atcASD, S.atcPreAuth, S.asdManual, S.asdBulletin, S.carveIn, S.cfr438, S.cfr433, S.bacbLic, { title: 'Absolute Total Care — Provider News (provider notices archive)', url: 'https://www.absolutetotalcare.com/providers/provider-news.html' }],
+    sources: [S.atcPM, S.atcPA, S.atcASD, S.atcPreAuth, S.asdManual, S.asdBulletin, S.carveIn, S.cfr438, S.cfr433, S.bacbLic, { title: 'Absolute Total Care — Provider News (provider notices archive)', url: 'https://www.absolutetotalcare.com/providers/provider-news.html' }, { title: 'SCDHHS — Autism Spectrum Disorder (ASD) Services Provider Manual (July 1, 2026)', url: 'https://www.scdhhs.gov/sites/dhhs/files/documents/ASD%20Services%20Provider%20Manual%207.1.26.pdf' }],
     deliveryRules: {
       supervision: {
         value: 'Absolute Total Care publishes no ABA supervision ratio of its own; its ASD form only requires the supervising provider to attest to "actively participating in the treatment plan." The SCDHHS ASD manual sets the state baseline, which the plan may apply: ' + SC_SUPERVISION_STATE,
@@ -419,9 +419,9 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       diagnosingProviders: {
-        value: 'The manual says ASD services must be "recommended by a Licensed Psychologist, Developmental Pediatrician, or a Licensed Psycho-Educational Specialist (LPES)." It does not separately say who may diagnose; the SCDHHS manual limits that to MD/DO, PhD/PsyD or LPES.',
+        value: 'The manual says ASD services must be "recommended by a Licensed Psychologist, Developmental Pediatrician, or a Licensed Psycho-Educational Specialist (LPES)." It does not separately say who may diagnose; the SCDHHS manual limits that to MD/DO, PhD/PsyD or LPES. LCSW: no. The SCDHHS manual requires the ADI-R, ADOS or CARS behind the diagnosis to be "administered directly by the licensed physician (MD/DO), licensed psychologist (PhD/PsyD), or LPES completing the assessment." An LISW-CP may enroll and deliver ASD services, and may support a Developmental Evaluation Center assessment only under the direct supervision of a developmental-behavioral pediatrician or psychologist, but cannot make the qualifying diagnosis.',
         status: 'plan-dependent',
-        cites: [S.atcPM, S.asdManual],
+        cites: [{ title: 'SCDHHS — Autism Spectrum Disorder (ASD) Services Provider Manual (July 1, 2026)', url: 'https://www.scdhhs.gov/sites/dhhs/files/documents/ASD%20Services%20Provider%20Manual%207.1.26.pdf' }, S.atcPM, S.asdManual],
         verifyVia: 'Absolute Total Care behavioral health UM, 1-866-534-5976.',
         blocker: 'per-case',
       },
@@ -685,7 +685,7 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Diagnostic report', desc: 'Have the full evaluation ready; Molina publishes no SC-specific diagnosis rule, so plan to the SCDHHS standard.' },
       { title: 'Other insurance', desc: 'Medicaid is payer of last resort; bill the primary and send its EOB.' },
     ],
-    sources: [S.molPM, S.molPA, S.asdManual, S.asdBulletin, S.carveIn, S.cfr438, S.cfr433, S.bacbLic, { title: 'Molina Healthcare of SC — Provider Communications (Palmetto Partners newsletter and announcements)', url: 'https://www.molinahealthcare.com/providers/sc/communications' }],
+    sources: [S.molPM, S.molPA, S.asdManual, S.asdBulletin, S.carveIn, S.cfr438, S.cfr433, S.bacbLic, { title: 'Molina Healthcare of SC — Provider Communications (Palmetto Partners newsletter and announcements)', url: 'https://www.molinahealthcare.com/providers/sc/communications' }, { title: 'SCDHHS — Autism Spectrum Disorder (ASD) Services Provider Manual (July 1, 2026)', url: 'https://www.scdhhs.gov/sites/dhhs/files/documents/ASD%20Services%20Provider%20Manual%207.1.26.pdf' }],
     deliveryRules: {
       supervision: {
         value: 'Molina publishes no ABA supervision rule for South Carolina. The state baseline in the SCDHHS ASD manual: ' + SC_SUPERVISION_STATE,
@@ -746,9 +746,9 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       diagnosingProviders: {
-        value: 'Not stated by Molina. The SCDHHS manual limits ASD diagnosis to MD/DO, PhD/PsyD or LPES, in person.',
+        value: 'Not stated by Molina. The SCDHHS manual limits ASD diagnosis to MD/DO, PhD/PsyD or LPES, in person. LCSW: no. The SCDHHS manual requires the ADI-R, ADOS or CARS behind the diagnosis to be "administered directly by the licensed physician (MD/DO), licensed psychologist (PhD/PsyD), or LPES completing the assessment." An LISW-CP may enroll and deliver ASD services, and may support a Developmental Evaluation Center assessment only under the direct supervision of a developmental-behavioral pediatrician or psychologist, but cannot make the qualifying diagnosis.',
         status: 'plan-dependent',
-        cites: [S.molPM, S.asdManual],
+        cites: [{ title: 'SCDHHS — Autism Spectrum Disorder (ASD) Services Provider Manual (July 1, 2026)', url: 'https://www.scdhhs.gov/sites/dhhs/files/documents/ASD%20Services%20Provider%20Manual%207.1.26.pdf' }, S.molPM, S.asdManual],
         verifyVia: 'Molina SC prior authorizations, (855) 237-6178.',
         blocker: 'per-case',
       },
@@ -851,7 +851,7 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Prior ABA records', desc: 'If the child was already in treatment: progress summary with graphs, sample schedule and caregiver goals.' },
       { title: 'Other insurance', desc: 'First Choice pays last; secondary claims go in within 60 days of the primary’s EOB.' },
     ],
-    sources: [S.shPM, S.shChk, S.shReq, S.shPA, S.shClaim, S.asdManual, S.asdBulletin, S.carveIn, S.cfr438, S.cfr433, S.bacbLic, { title: 'First Choice by Select Health — Provider newsletters and updates (provider alerts index)', url: 'https://www.selecthealthofsc.com/provider/newsletter-and-updates' }],
+    sources: [S.shPM, S.shChk, S.shReq, S.shPA, S.shClaim, S.asdManual, S.asdBulletin, S.carveIn, S.cfr438, S.cfr433, S.bacbLic, { title: 'First Choice by Select Health — Provider newsletters and updates (provider alerts index)', url: 'https://www.selecthealthofsc.com/provider/newsletter-and-updates' }, { title: 'SCDHHS — Autism Spectrum Disorder (ASD) Services Provider Manual (July 1, 2026)', url: 'https://www.scdhhs.gov/sites/dhhs/files/documents/ASD%20Services%20Provider%20Manual%207.1.26.pdf' }],
     deliveryRules: {
       supervision: {
         value: 'Select Health applies the medical-necessity requirements "outlined for each service in the SCDHHS Autism Spectrum Disorder Services Manual," which sets: ' + SC_SUPERVISION_STATE,
@@ -902,9 +902,9 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
         cites: [S.shChk],
       },
       diagnosingProviders: {
-        value: 'A "qualified" LPHA whose report meets "the content requirements outlined in the ASD Services Provider Manual," which limits the diagnosis to MD/DO, PhD/PsyD or LPES, in person. Services must be recommended by a licensed psychologist, developmental pediatrician or LPES.',
+        value: 'A "qualified" LPHA whose report meets "the content requirements outlined in the ASD Services Provider Manual," which limits the diagnosis to MD/DO, PhD/PsyD or LPES, in person. Services must be recommended by a licensed psychologist, developmental pediatrician or LPES. LCSW: no. The SCDHHS manual requires the ADI-R, ADOS or CARS behind the diagnosis to be "administered directly by the licensed physician (MD/DO), licensed psychologist (PhD/PsyD), or LPES completing the assessment." An LISW-CP may enroll and deliver ASD services, and may support a Developmental Evaluation Center assessment only under the direct supervision of a developmental-behavioral pediatrician or psychologist, but cannot make the qualifying diagnosis.',
         status: 'verified',
-        cites: [S.shChk, S.shPM, S.asdManual],
+        cites: [{ title: 'SCDHHS — Autism Spectrum Disorder (ASD) Services Provider Manual (July 1, 2026)', url: 'https://www.scdhhs.gov/sites/dhhs/files/documents/ASD%20Services%20Provider%20Manual%207.1.26.pdf' }, S.shChk, S.shPM, S.asdManual],
       },
       diagnosticTools: {
         value: 'Through the SCDHHS content requirements it adopts: an in-person ADI-R, ADOS or CARS, a DSM checklist with severity levels and a cognitive or developmental measure.',
@@ -1772,7 +1772,7 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
         cites: [S.bcCAM, S.sc280],
       },
       diagnosingProviders: {
-        value: 'Diagnosis by "a psychiatrist, psychologist, neurologist, developmental pediatrician, or other licensed physician experienced in the diagnosis and treatment of autism"; testing by a licensed clinical psychologist, LPES, psychiatrist, pediatric neurologist or developmental pediatrician.',
+        value: 'Diagnosis by "a psychiatrist, psychologist, neurologist, developmental pediatrician, or other licensed physician experienced in the diagnosis and treatment of autism"; testing by a licensed clinical psychologist, LPES, psychiatrist, pediatric neurologist or developmental pediatrician. LCSW: no. CAM 387 limits the confirmed diagnosis to "a psychiatrist, psychologist, neurologist, developmental pediatrician, or other licensed physician experienced in the diagnosis and treatment of autism"; social workers are not on it.',
         status: 'verified',
         cites: [S.bcCAM],
       },

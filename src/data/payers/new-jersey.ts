@@ -556,6 +556,13 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'Horizon NJ Health — Applied Behavior Analysis in the Treatment of ASD reimbursement policy (revised 3/26/2026)', url: 'https://www.horizonnjhealth.com/for-providers/resources/policies/reimbursement-policies-guidelines/applied-behavior-analysis' }, { title: 'Horizon NJ Health — Provider Administrative Manual (approved July 14, 2026)', url: 'https://www.horizonnjhealth.com/provider-admin-manual' }, { title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 7.16.5 timely payments; App. B.4.4 ABA service description', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' }, { title: 'Horizon to Stop Using H0032 for ABA Services (eff. 7/15/2026)', url: 'https://www.horizonnjhealth.com/for-providers/news/updates-and-announcements/horizon-to-stop-using-h0032-for-aba-services' }],
       },
+      {
+        h2: 'Does Horizon NJ Health give single case agreements to out-of-network ABA providers?',
+        body: [
+          'Yes, and an out-of-network ABA provider needs both an SCA and a prior authorization. Horizon NJ Health\'s Provider Administrative Manual says: “All out of network providers will require a prior authorization for any level of care including outpatient levels of care. Out-of-network behavioral health providers may seek to obtain a prior authorization by calling our Utilization Management Department at 1-800-682-9094. Any covered behavioral health service provided by an out-of-network provider will require both an a prior-authorization and a single-case agreement.” Payment: “Claims submitted by nonparticipating Horizon NJ Health providers will be paid on the lesser of billed charges or the Horizon NJ Health nonparticipating provider fee schedule,” unless an agreement says otherwise. In a county where Horizon cannot meet network adequacy standards, it “will initiate negotiations with nonparticipating providers of that service, and will provide timely authorization.” Members may not be balance-billed.',
+        ],
+        cites: [{ title: 'Horizon NJ Health — Provider Administrative Manual (approved July 14, 2026)', url: 'https://www.horizonnjhealth.com/provider-admin-manual' }, { title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 4.1.1.I non-participating providers; Art. 4.8.7.G out-of-network referral; App. B.4.4 ABA', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' }],
+      },
     ],
     collect: [
       { title: 'ASD script + diagnosis', desc: 'The QHP\'s ASD script triggers the 32-unit/30-day assessment fast-track — collect it at first contact.' },
@@ -586,6 +593,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: '38 CFR 17.272 — CHAMPVA benefit limitations; Medicaid exception (eCFR)', url: 'https://www.ecfr.gov/current/title-38/section-17.272' },
     ],
     faq: [
+      { q: 'Does Horizon NJ Health give single case agreements to out-of-network ABA providers?', a: 'Yes. Its manual says any covered behavioral health service from an out-of-network provider “will require both an a prior-authorization and a single-case agreement.” Call Horizon NJ Health UM at 1-800-682-9094 for the authorization. Without a different agreement, nonparticipating claims pay at the lesser of billed charges or Horizon NJ Health\'s nonparticipating provider fee schedule.' },
       { q: 'Does Horizon NJ Health cover ABA therapy?', a: 'Yes — it administers the NJ FamilyCare ABA benefit under EPSDT, with its own medical policy and MCG-based review layered on the state code set. Both assessment and treatment require prior authorization via NaviNet.' },
       { q: 'How fast is Horizon\'s ABA assessment authorization?', a: 'Fast — once eligibility, an ASD diagnosis, and a QHP script are confirmed, Horizon issues a 32-unit 97151 authorization valid for 30 days without a full clinical review. Treatment requests then get MCG review within 14 days, in 6-month spans.' },
       { q: 'Is Horizon changing its ABA policy in 2026?', a: 'For NJ FamilyCare members, one change: H0032 is retired for ABA effective July 15, 2026 — use 97151–97158/0362T/0373T. Authorizations created through July 14, 2026 with H0032 are honored, and H0032 is still paid on authorized services rendered through January 14, 2027. Horizon\'s January 1, 2026 ABA medical-policy revision applies to its commercial and ASO plans, not to Horizon NJ Health Medicaid members.' },
@@ -1066,6 +1074,13 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'Fidelis Care — 2026 NJ Medicaid/NJ FamilyCare Provider Manual (effective April 15, 2026)', url: 'https://www.fideliscarenj.com/content/dam/centene/wellcare/nj/pdfs/Prov/NJ_Medicaid_Provider_Manual_R.pdf' }, { title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 7.16.5 timely payments; App. B.4.4 ABA service description', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' }, { title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }],
       },
+      {
+        h2: 'Does Fidelis Care New Jersey give single case agreements to out-of-network ABA providers?',
+        body: [
+          'Yes, case by case. Fidelis Care\'s 2026 NJ manual says care management will “Allow for continuation of existing relationships with non-participating providers when single case agreements are needed,” when participating providers “are not available within network, or it is otherwise considered … to be in the best medical interest of the Member with special needs.” For behavioral health it adds: “Administrative authorizations are permitted for out-of-network providers as needed for single case agreements.” Where Fidelis cannot meet network adequacy standards in a county, it “will initiate negotiations with nonparticipating providers of that service, and will provide timely authorization.” Balance-billing members is prohibited. The manual publishes no SCA rate, so it is negotiated.',
+        ],
+        cites: [{ title: 'Fidelis Care — 2026 NJ Medicaid/NJ FamilyCare Provider Manual (effective April 15, 2026)', url: 'https://www.fideliscarenj.com/content/dam/centene/wellcare/nj/pdfs/Prov/NJ_Medicaid_Provider_Manual_R.pdf' }, { title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 4.1.1.I non-participating providers; Art. 4.8.7.G out-of-network referral; App. B.4.4 ABA', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan identity on "WellCare" inquiries', desc: 'WellCare of NJ is now Fidelis Care — same plan, new name; verify the current card.' },
@@ -1094,6 +1109,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: '38 CFR 17.272 — CHAMPVA benefit limitations; Medicaid exception (eCFR)', url: 'https://www.ecfr.gov/current/title-38/section-17.272' },
     ],
     faq: [
+      { q: 'Does Fidelis Care New Jersey give single case agreements to out-of-network ABA providers?', a: 'Yes, when no participating provider is available or continuing an existing relationship is in the member\'s best medical interest. The 2026 manual allows “continuation of existing relationships with non-participating providers when single case agreements are needed” and permits administrative authorizations “for out-of-network providers as needed for single case agreements.” Ask Fidelis BH utilization management; the rate is negotiated.' },
       { q: 'Can I request a peer-to-peer review before Fidelis Care NJ decides an ABA authorization?', a: 'Not since October 19, 2026. Fidelis says pre-determination peer-to-peer reviews “will no longer be available for behavioral health authorization requests.” If the request is denied, follow the denial letter\'s instructions to schedule a post-determination peer-to-peer review. Review timelines are unchanged.' },
       { q: 'What POS and modifier does Fidelis Care NJ want for telehealth ABA?', a: 'Fidelis publishes no telehealth billing rule of its own. The state requires POS 10 when the child is at home and POS 02 elsewhere on Medicaid claims, and its last billing guidance needed no extra modifier. Confirm the modifier with Fidelis before billing.' },
       { q: 'Does Fidelis Care NJ accept H0031 or H0032 for ABA?', a: 'Not as published. The NJ FamilyCare contract lists the ABA billing codes as 97151–97158, 0362T and 0373T, and Fidelis publishes no other ABA codes.' },
@@ -1306,6 +1322,13 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'UnitedHealthcare Community Plan of New Jersey — Care Provider Manual (2025), Chapter 15: Billing and submission', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NJ-Care-Provider-Manual.pdf' }],
       },
+      {
+        h2: 'Does UnitedHealthcare Community Plan of New Jersey approve out-of-network ABA providers (single case agreements)?',
+        body: [
+          'Through an in-network exception, requested before care starts. UnitedHealthcare Community Plan\'s NJ Care Provider Manual says: “If a member requires the services of a non-participating provider, the member’s PCP can submit a prior authorization request for in-network coverage for services provided by out-of-network providers. UnitedHealthcare Community Plan, in accordance with member benefits and state regulations, will determine whether an in-network provider is available to treat the patient’s condition. If one is not, we will assess whether in-network benefits will be granted for such services from an out-of-network provider.” The manual does not use the term single case agreement, but the state contract requires one whenever an NJ FamilyCare MCO authorizes an out-of-network provider. For ABA, which Optum manages for this plan, ask Optum for the out-of-network authorization.',
+        ],
+        cites: [{ title: 'UnitedHealthcare Community Plan of New Jersey — Care Provider Manual (2025)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NJ-Care-Provider-Manual.pdf' }, { title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 4.1.1.I non-participating providers; Art. 4.8.7.G out-of-network referral; App. B.4.4 ABA', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' }],
+      },
     ],
     collect: [
       { title: 'ASD diagnosis — any physician/psychologist', desc: 'No comprehensive evaluation needed; a plain dx opens the benefit. Don\'t queue families for a full workup first.' },
@@ -1332,6 +1355,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: '38 CFR 17.272 — CHAMPVA benefit limitations; Medicaid exception (eCFR)', url: 'https://www.ecfr.gov/current/title-38/section-17.272' },
     ],
     faq: [
+      { q: 'Does UnitedHealthcare Community Plan of New Jersey approve out-of-network ABA providers (single case agreements)?', a: 'Only when no in-network provider is available. The member\'s PCP submits a prior authorization request for in-network coverage of the out-of-network provider, and the plan decides whether an in-network provider can treat the condition. The state contract then requires a single case agreement for any authorized out-of-network provider.' },
       { q: 'Does UnitedHealthcare Community Plan of NJ accept H0031 or H0032 for ABA?', a: 'Not as published. The NJ FamilyCare contract lists the ABA billing codes as 97151–97158, 0362T and 0373T, and neither the plan manual nor Optum’s NJ ABA orientation names an H-code for ABA.' },
       { q: 'Does UnitedHealthcare Community Plan of New Jersey require a referring provider on ABA claims?', a: 'Its manual lists a missing referring care provider ID or NPI among the common reasons claims are rejected, but does not say ABA claims always need one. If an ABA claim rejects for it, add the referring or diagnosing clinician\u2019s NPI and resubmit.' },
       { q: 'Does UnitedHealthcare Community Plan of New Jersey cover ABA?', a: 'Yes — the NJ FamilyCare ABA benefit, administered by Optum Behavioral Health under Optum\'s criteria plus a dedicated NJ Medicaid entry (revised November 2025). Requests go through Provider Express\'s NJ ABA path.' },

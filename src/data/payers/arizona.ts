@@ -1629,23 +1629,24 @@ export const arizonaPayers: Record<string, PayerConfig> = {
     family: 'bcbs',
     cardDesc: 'Now officially "Blue Cross Blue Shield of Arizona Health Choice"; grid-driven PA, no published ABA policy.',
     assessmentPA: {
-      value: 'Not published as a standing rule — read the 97151/97152 rows in the current PA Guidelines grid on healthchoiceaz.com, or call the PA line 1-800-322-8670 / fax 480-760-4732',
-      status: 'unverified',
+      value: 'Not on the PA grid for in-network providers. The current BCBSAZ Health Choice Prior Authorization Grid (effective 05/01/26, revised 03/30/2026) says "All codes listed on the grid require prior authorization" and lists no ABA code — not 97151, 97152 or 0362T (nor did the 1/12/2026 and 10/1/2025 grids). Out-of-network providers need PA for all services. The grid is the plan\'s only public PA list, so confirm with the PA line before relying on it',
+      status: 'plan-dependent',
       cites: [
+        { title: 'BCBSAZ Health Choice — Prior Authorization Grid (effective 05/01/26, revised 03/30/2026)', url: 'https://assets.azblue.com/asset/f9a260bc-3938-4816-941e-8305ec3595e6/BCBSAZ-Health-Choice-PA-Grid-eff-5-1-26.docx' },
         { title: 'Health Choice Arizona — PA guidelines (grids)', url: 'https://www.healthchoiceaz.com/providers/pa-guidelines' },
-        { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
       ],
-      verifyVia:
-        'The current PA Guidelines grid on healthchoiceaz.com — read the 97151 and 97152 rows (the grids revise several times a year), or the PA line 1-800-322-8670 / fax 480-760-4732.',
-      blocker: 'document',
+      verifyVia: 'Health Choice PA line 1-800-322-8670: ask whether 97151/97152 need authorization for an in-network ABA provider (the grid lists no ABA codes).',
+      blocker: 'per-case',
     },
     treatmentPA: {
-      value: 'Not published as a standing rule — the plan runs PA from frequently revised PA Guidelines grids rather than an ABA program document; check the 97153–97158 rows in the live grid',
-      status: 'unverified',
-      cites: [{ title: 'Health Choice Arizona — PA guidelines (grids)', url: 'https://www.healthchoiceaz.com/providers/pa-guidelines' }],
-      verifyVia:
-        'The current PA Guidelines grid on healthchoiceaz.com — read the 97153-97158 rows (the grids revise several times a year), or the PA line 1-800-322-8670 / fax 480-760-4732.',
-      blocker: 'document',
+      value: 'Not listed. The current Prior Authorization Grid (effective 05/01/26, revised 03/30/2026) lists no ABA treatment code (97153–97158, 0373T) among the codes that require PA; its Behavioral Health rows cover hospital admissions, ECT/rTMS and a few HCPCS codes only. Out-of-network providers need PA for all services. Health Choice publishes no ABA program document, so confirm the in-network treatment rule with the PA line',
+      status: 'plan-dependent',
+      cites: [
+        { title: 'BCBSAZ Health Choice — Prior Authorization Grid (effective 05/01/26, revised 03/30/2026)', url: 'https://assets.azblue.com/asset/f9a260bc-3938-4816-941e-8305ec3595e6/BCBSAZ-Health-Choice-PA-Grid-eff-5-1-26.docx' },
+        { title: 'Health Choice Arizona — PA guidelines (grids)', url: 'https://www.healthchoiceaz.com/providers/pa-guidelines' },
+      ],
+      verifyVia: 'Health Choice PA line 1-800-322-8670 / fax 480-760-4732: ask whether 97153–97158 need authorization in-network.',
+      blocker: 'per-case',
     },
     dxRequired: {
       value: 'No distinct plan policy published — AMPM 320-S baseline applies (autism dx not strictly required)',
@@ -1669,7 +1670,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { label: 'Plan name', value: 'Blue Cross Blue Shield of Arizona Health Choice (formerly "Health Choice Arizona")' },
       { label: 'Plan type', value: 'ACC — northern GSA counties + Maricopa, Gila, Pinal (BCBSAZ)' },
       { label: 'Clinical rules', value: 'No distinct published ABA policy — AMPM 320-S baseline' },
-      { label: 'PA source of truth', value: 'The current PA grid on healthchoiceaz.com — updated several times a year' },
+      { label: 'PA source of truth', value: 'The current PA grid on healthchoiceaz.com (eff. 5/1/2026) — lists no ABA codes; confirm ABA with the PA line' },
       { label: 'Assessment/treatment PA', value: 'Not published as a standing rule — check the grid rows for 97151–97158' },
       { label: 'PA contacts', value: 'Fax 480-760-4732 · phone 1-800-322-8670' },
       { label: 'Portal', value: 'providerportal.healthchoiceaz.com' },
@@ -1679,9 +1680,10 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       {
         h2: 'Grid-driven PA on a state-baseline plan',
         body: [
-          'Health Choice runs prior authorization from PA Guidelines grids rather than a published ABA program document, and the grids revise often — at least seven versions between January 2024 and May 2026. We could not verify the current grid rows for 97151 or 97153–97158, so the intake rule for this plan is procedural: pull the newest grid from healthchoiceaz.com (or ask via the PA line, 1-800-322-8670 / fax 480-760-4732) and read the 9715x rows before booking. Clinically, assume the AMPM 320-S baseline — no strict autism-diagnosis requirement, BHP-recommended services, 6-month progress reports — since no evidence suggests Health Choice layers distinct criteria on top.',
+          'Health Choice runs prior authorization from PA Guidelines grids rather than a published ABA program document, and the grids revise often — at least seven versions between January 2024 and May 2026. The current grid (effective 05/01/26, revised 03/30/2026) and the two before it list no ABA code at all \u2014 the grid says "All codes listed on the grid require prior authorization," and its Behavioral Health rows cover only hospital admissions, ECT/rTMS and a few HCPCS codes \u2014 while every out-of-network service needs PA. Because no Health Choice document states the in-network ABA rule outright, confirm it on the PA line (1-800-322-8670 / fax 480-760-4732) before booking, and re-check each new grid. Clinically, assume the AMPM 320-S baseline — no strict autism-diagnosis requirement, BHP-recommended services, 6-month progress reports — since no evidence suggests Health Choice layers distinct criteria on top.',
         ],
         cites: [
+          { title: 'BCBSAZ Health Choice — Prior Authorization Grid (effective 05/01/26, revised 03/30/2026)', url: 'https://assets.azblue.com/asset/f9a260bc-3938-4816-941e-8305ec3595e6/BCBSAZ-Health-Choice-PA-Grid-eff-5-1-26.docx' },
           { title: 'Health Choice Arizona — PA guidelines (grids)', url: 'https://www.healthchoiceaz.com/providers/pa-guidelines' },
           { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
         ],
@@ -1751,7 +1753,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
     ],
     collect: [
       { title: 'Diagnosis (any qualifying)', desc: 'AMPM 320-S baseline — ASD or another diagnosis justified by medical necessity.' },
-      { title: 'Current PA grid rows for 9715x', desc: 'The grid revises several times a year — check the live version, not a saved copy.' },
+      { title: 'PA line confirmation for 9715x', desc: 'The grid (eff. 5/1/2026) lists no ABA codes — get the in-network ABA rule from the PA line and re-check each new grid.' },
       { title: 'County', desc: 'Northern counties are a Health Choice / AzCH duopoly — confirm which of the two the family actually holds.' },
       { title: 'Portal access', desc: 'providerportal.healthchoiceaz.com for submissions; PA phone and fax as fallback.' },
     ],
@@ -1787,6 +1789,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'AHCCCS Behavioral Health Services Matrix (B2Matrix, October 2026 sheet)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/B2Matrix.xlsx' },
       { title: 'AHCCCS — Final Applied Behavior Analysis (ABA) Fee Schedule, FFY26 (eff. 10/01/2025; last updated 6/30/2026, TJ rate added)', url: 'https://azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA/FY26_Final_ABA_FeeSchedule.xlsx' },
       { title: 'AHCCCS Medical Coding Unit — Code Closure memo: 0362T and 0373T not allowed from July 1, 2023 (6/21/2023)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/MEMO-0362T_0373T-CodeClosure.pdf' },
+      { title: 'BCBSAZ Health Choice — Prior Authorization Grid (effective 05/01/26, revised 03/30/2026)', url: 'https://assets.azblue.com/asset/f9a260bc-3938-4816-941e-8305ec3595e6/BCBSAZ-Health-Choice-PA-Grid-eff-5-1-26.docx' },
     ],
     intakeGates: {
       ageLimit: {
