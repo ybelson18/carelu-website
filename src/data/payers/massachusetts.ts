@@ -906,6 +906,13 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
           { title: 'Point32Health — Medical Necessity Guideline: Applied Behavior Analysis (ABA) Therapy for Autism Spectrum Disorder for Tufts Health Together (eff. 1/1/2026)', url: 'https://www.point32health.org/documents/aba-tuftsheath-together-mng' },
         ],
       },
+      {
+        h2: 'Does Tufts Health Together use single case agreements for ABA?',
+        body: [
+          'Yes, for children moving into the plan mid-treatment. The Tufts Health Public Plans UM chapter (rev. 4/7/2026) says enrollees with ASD “who are actively receiving ABA Services, either through MassHealth, another Accountable Care Partnership Plan or a commercial carrier and have a current prior authorization for ABA services in place will be entitled to continuity of these services for a minimum of 90 days,” and that the protocol “will include the use of single-case agreements, full acceptance and implementation of existing prior authorizations for ABA services and individual transition plans.”',
+        ],
+        cites: [{ title: 'Tufts Health Public Plans Provider Manual — Utilization Management chapter (2026, rev. 4/7/2026)', url: 'https://www.point32health.org/documents/thpp-06-um-pm' }],
+      },
     ],
     collect: [
       { title: 'MCO vs. ACPP', desc: 'The Tufts Health Together MCO no longer exists (discontinued 1/1/2026) — confirm the family is on one of the two active ACPPs, not a stale MCO card.' },
@@ -915,7 +922,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'Diagnostic evaluation', desc: 'ASD assessment — or the Down syndrome pathway from 1/1/2026, which Point32 confirms includes this plan.' },
       { title: 'Accreditation status', desc: 'Point32\'s ABA accreditation requirement is a network gate (MA center-based providers by 1/1/2027, all others by 1/1/2028) — check where your organization stands before quoting start dates.' },
     ],
-    sources: [
+    sources: [ { title: 'Tufts Health Public Plans Provider Manual — Utilization Management chapter (2026, rev. 4/7/2026)', url: 'https://www.point32health.org/documents/thpp-06-um-pm' },
       { title: 'Point32Health — ABA services: authorization and accreditation updates (Feb 2026)', url: 'https://www.point32health.org/provider/aba-services-authorization-and-accreditation-updates-022026' },
       { title: 'MassHealth — All Provider Bulletin 410: Changes to MassHealth\'s ACOs on January 1, 2026', url: 'https://www.mass.gov/doc/all-provider-bulletin-410-changes-to-masshealths-accountable-care-organizations-on-january-1-2026/download' },
       { title: 'Point32Health — Reminder: Tufts Health Together MCO discontinuing as of Jan. 1', url: 'https://www.point32health.org/provider/reminder-tufts-health-together-mco-discontinuing-jan-1-112025' },
@@ -935,7 +942,6 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'Point32Health — Insights and Updates for Providers (Harvard Pilgrim / Tufts provider news archive)', url: 'https://www.point32health.org/provider/office-resources/provider-newsletter' },
       { title: 'Point32Health — Applied Behavioral Analysis Prior Authorization Form (effective Jan. 1, 2026; Tufts Health Together)', url: 'https://www.point32health.org/documents/applied-behavioral-analysis-form' },
       { title: 'Tufts Health Public Plans Provider Manual — Referrals, Prior Authorizations and Notifications chapter (2026)', url: 'https://www.point32health.org/documents/thpp-04-referrals-pa-notification-pm' },
-      { title: 'Tufts Health Public Plans Provider Manual — Utilization Management chapter (2026, rev. 4/7/2026)', url: 'https://www.point32health.org/documents/thpp-06-um-pm' },
       { title: '42 CFR 438.210(d) — Medicaid managed care authorization timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.210' },
       { title: 'WellSense — Reduction of prior authorization decision timeframes (provider communication, Oct 31 2025)', url: 'https://www.wellsense.org/hubfs/Provider/News/WellSense_Mass_Provider_Communications_PA_Updates_10_31_25.pdf' },
       { title: 'Carelon Behavioral Health — Massachusetts Addendum (114_0526 rev.)', url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/ma/massachusetts-provider-addendum.pdf' },
@@ -946,6 +952,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'Point32Health Payment Policy \u2014 Maximum Units (rev. 09/2026)', url: 'https://www.point32health.org/documents/maximum-units-pp' },
     ],
     faq: [
+      { q: 'Does Tufts Health Together use single case agreements for ABA?', a: 'Yes, for continuity: a child already in ABA with a current prior authorization keeps those services at least 90 days after joining, and Tufts Health Together uses single-case agreements and honors the existing authorization during the transition.' },
       { q: 'Is the Tufts Health Together MCO still active?', a: 'No — MassHealth discontinued the Tufts Health Together MCO product effective January 1, 2026 (All Provider Bulletin 410). Only the two ACPPs, with Cambridge Health Alliance and with UMass Memorial Health, remain active.' },
       { q: 'Does Tufts Health Together cover ABA?', a: 'Yes, through its two active ACPPs — the MassHealth EPSDT benefit with no published hour caps, reviewed by Point32Health\'s internal UM against its own medical-necessity guideline (InterQual + SmartSheets; new MNG effective 1/1/2026).' },
       { q: 'Does Tufts Health Together use the Massachusetts standard ABA form?', a: 'No — as of the October 2025 update, members use Point32Health\'s own updated ABA PA form, submitted through the MHK portal with the form uploaded or faxed to 888-977-0776 (the Together fax printed on the form). Even the initial evaluation is a PA request: pages 1-3 with the child\'s IEP and the comprehensive diagnostic evaluation. It\'s the one MassHealth plan family where the standard form doesn\'t apply.' },
@@ -1123,6 +1130,13 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
           { title: 'Carelon Behavioral Health — Massachusetts Medical Necessity Criteria (04/29/26), Applied Behavior Analysis (Medicaid)', url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/global/massachusetts-medical-necessity-criteria.pdf' },
         ],
       },
+      {
+        h2: 'Does Fallon Health use single case agreements?',
+        body: [
+          'Fallon\'s billing manual (rev. April 2026) lists denial code “DF218 Contact Contract Manager for single case agreement,” so an out-of-network claim can be routed to a single case agreement through Fallon\'s contract manager. The manual publishes no ABA-specific SCA criteria or rate.',
+        ],
+        cites: [{ title: 'Fallon Health Provider Manual — Billing procedures (rev. April 2026)', url: 'https://fallonhealth.org/-/media/Files/ProviderPDFs/PMbilling.ashx' }],
+      },
     ],
     collect: [
       { title: 'Exact plan name', desc: 'Fallon 365 Care, Fallon-Atrius, or Berkshire Fallon — and verify the plan still exists in its 2023 form.' },
@@ -1130,7 +1144,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'Submission channel', desc: 'Confirm the Carelon submission route for Fallon specifically before the first request.' },
       { title: 'Supervision capacity', desc: 'First-wave audit plan — hold the 1:10 97155:97153 ratio in scheduling.' },
     ],
-    sources: [
+    sources: [ { title: 'Fallon Health Provider Manual — Billing procedures (rev. April 2026)', url: 'https://fallonhealth.org/-/media/Files/ProviderPDFs/PMbilling.ashx' },
       { title: 'MassHealth Managed Care Options — plan/BH-vendor map (April 2023)', url: 'https://abh.memberclicks.net/assets/docs/KeepingCoverage/2023%20MassHealth%20Accountable%20and%20Managed%20Care%20Options%20031723.pdf' },
       { title: 'MassHealth ABA supervision audit & recoupment (Acuity News)', url: 'https://acuity.news/regulation/masshealth-aba-supervision-audit-recoupment-litigation-2026/' },
       { title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' },
@@ -1144,12 +1158,12 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'Carelon Behavioral Health — Massachusetts Medical Necessity Criteria (04/29/26), Applied Behavior Analysis (Medicaid)', url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/global/massachusetts-medical-necessity-criteria.pdf' },
       { title: 'Fallon Health — Provider announcements (provider notices archive)', url: 'https://fallonhealth.org/en/providers/announcements' },
       { title: '42 CFR 438.210(d) — Medicaid managed care authorization timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.210' },
-      { title: 'Fallon Health Provider Manual — Billing procedures (rev. April 2026)', url: 'https://fallonhealth.org/-/media/Files/ProviderPDFs/PMbilling.ashx' },
       { title: 'Carelon (Beacon) Behavioral Health Policy and Procedure Manual for Providers — Fallon Health (rev. Sept 2021)', url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/ma/behavioral-health-policy-and-procedure-manual-for-providers-fallon.pdf' },
       { title: '130 CMR 450.316 — MassHealth third-party liability: requirements (Cornell LII mirror)', url: 'https://www.law.cornell.edu/regulations/massachusetts/130-CMR-450-316' },
       { title: 'TRICARE — Using Other Health Insurance', url: 'https://tricare.mil/Plans/OHI' },
     ],
     faq: [
+      { q: 'Does Fallon Health use single case agreements?', a: 'Fallon\'s billing manual has a denial code, DF218, telling the provider to “Contact Contract Manager for single case agreement.” It publishes no ABA-specific SCA criteria or rate.' },
       { q: 'Does Fallon Health cover ABA?', a: 'Yes — its MassHealth ACPPs carry the state-baseline EPSDT benefit, with behavioral health (including ABA authorization) administered by Carelon on the Massachusetts Standard ABA PA Form in 6-month periods.' },
       { q: 'Does Fallon have its own ABA policy?', a: 'No distinct Fallon ABA criteria are published — it defers to Carelon UM and the state baseline. Confirm submission mechanics with Carelon directly.' },
       { q: 'What is the timely filing limit for Fallon ABA claims?', a: '120 days from the date of service on outpatient claims, per Carelon’s Massachusetts addendum for Fallon Health. Carelon processes and pays Fallon’s behavioral-health claims, and neither of its documents publishes a payment day count or check-run schedule.' },
@@ -1514,6 +1528,13 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
           { title: 'Mass General Brigham ACO Provider Manual (2026)', url: 'https://resources.massgeneralbrighamhealthplan.org/providers/MGB%20ACO%20Provider%20Manual.pdf' },
         ],
       },
+      {
+        h2: 'Will Mass General Brigham Health Plan approve an out-of-network ABA provider?',
+        body: [
+          'Only after medical-necessity review. The ACO Provider Manual (2026-04-01) says prior authorization is required for non-emergent out-of-network service requests (except early intervention and family planning), that “a pre-existing relationship with an out- of-network provider is not reason alone to justify the need for an out-of-network provider,” and that “Requests for services by an out-of-network provider are submitted electronically via a web portal Mass General Brigham Health Plan Provider Portal and are subject to medical necessity review.”',
+        ],
+        cites: [{ title: 'Mass General Brigham Health Plan — ACO Provider Manual (2026-04-01)', url: 'https://resources.massgeneralbrighamhealthplan.org/providers/MGB%20ACO%20Provider%20Manual.pdf' }],
+      },
     ],
     collect: [
       { title: 'Early Intervention status', desc: 'EI members carry the 30 hr/week cap and possible dual-presence home-visit rule — establish EI enrollment at intake.' },
@@ -1521,7 +1542,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'Supervision staffing plan', desc: '1:10 BCBA-to-paraprofessional is written into the Optum supplement — document it in the request.' },
       { title: 'Submission channel', desc: 'Confirm the Optum route (Provider Express vs. plan-specific) before the first authorization.' },
     ],
-    sources: [
+    sources: [ { title: 'Mass General Brigham Health Plan — ACO Provider Manual (2026-04-01)', url: 'https://resources.massgeneralbrighamhealthplan.org/providers/MGB%20ACO%20Provider%20Manual.pdf' },
       { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
       { title: 'Optum ABA State Mandates — BH 803ABA STM12026 (eff. Jan 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
       { title: 'MassHealth Managed Care Options — plan/BH-vendor map (April 2023)', url: 'https://abh.memberclicks.net/assets/docs/KeepingCoverage/2023%20MassHealth%20Accountable%20and%20Managed%20Care%20Options%20031723.pdf' },
@@ -1534,7 +1555,6 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'MassHealth Managed Care Entity Bulletin 115 — Telehealth for members enrolled in managed care entities (April 2024)', url: 'https://www.mass.gov/doc/managed-care-entity-bulletin-115-access-to-health-services-through-telehealth-options-for-members-enrolled-in-managed-care-entities-0/download' },
       { title: 'Mass General Brigham Health Plan — Claims information (provider page)', url: 'https://massgeneralbrighamhealthplan.org/providers/claims' },
       { title: 'Mass General Brigham Health Plan — Timely Filing Best Practices (Commercial and MGB ACO, Oct. 2024)', url: 'https://5977230.fs1.hubspotusercontent-na1.net/hubfs/5977230/Timely%20Filing%20Best%20Practices.pdf' },
-      { title: 'Mass General Brigham ACO Provider Manual (2026)', url: 'https://resources.massgeneralbrighamhealthplan.org/providers/MGB%20ACO%20Provider%20Manual.pdf' },
       { title: 'Mass General Brigham Health Plan — Admin Newsletter Archive (provider newsletter archive)', url: 'https://news.massgeneralbrighamhealthplan.org/admin-newsletter' },
       { title: '42 CFR 438.210(d) — Medicaid managed care authorization timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.210' },
       { title: 'WellSense — Reduction of prior authorization decision timeframes (provider communication, Oct 31 2025)', url: 'https://www.wellsense.org/hubfs/Provider/News/WellSense_Mass_Provider_Communications_PA_Updates_10_31_25.pdf' },
@@ -1542,6 +1562,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'TRICARE — Using Other Health Insurance', url: 'https://tricare.mil/Plans/OHI' },
     ],
     faq: [
+      { q: 'Will Mass General Brigham Health Plan approve an out-of-network ABA provider?', a: 'Only by prior authorization through the MGB Health Plan provider portal, after medical-necessity review. An existing relationship with the out-of-network provider is not, by itself, enough.' },
       { q: 'Does Mass General Brigham Health Plan cover ABA?', a: 'Yes — the MassHealth EPSDT benefit, administered through Optum Behavioral Health under Optum\'s ABA criteria plus its Massachusetts state-mandate supplement. PA is required for assessment and treatment.' },
       { q: 'Does MGB Health Plan cap ABA hours?', a: 'Only for Early Intervention members: Optum\'s supplement limits EI-member ABA to 30 hours/week (effective 10/1/2021) with 1:10 BCBA-to-paraprofessional supervision. No cap is stated for non-EI members.' },
       { q: 'How is MGB different from other MassHealth plans for ABA?', a: 'It\'s the only plan whose ABA runs through Optum — with the 1:10 supervision ratio codified in written policy and the EI hour cap no other MA plan publishes. Everything else follows the state baseline.' },

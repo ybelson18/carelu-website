@@ -693,6 +693,13 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
           S.evvList,
         ],
       },
+      {
+        h2: 'Can an out-of-network ABA provider treat a WellSense New Hampshire member?',
+        body: [
+          'Only with prior authorization. WellSense\'s New Hampshire provider manual says that, except for urgent/emergency and family planning services, “a WellSense member is not covered for services provided by an out-of-network provider unless the rendering provider has received prior authorization from us in advance of services being rendered.” For help arranging services with an out-of-network provider, call the Prior Authorization department at 877-957-1300. The manual names no ABA single-case-agreement rate.',
+        ],
+        cites: [{ title: 'WellSense — New Hampshire Provider Manual (effective December 1, 2025; 2026 posting)', url: 'https://www.wellsense.org/hubfs/Provider/Provider%20Manual/NH_Provider_Manual_2026.pdf' }],
+      },
     ],
     collect: [
       { title: 'Comprehensive diagnostic evaluation', desc: 'From a neurologist, pediatrician, psychiatrist, psychologist or other licensed physician experienced in autism. Attach it to the initial request.' },
@@ -788,6 +795,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Can an out-of-network ABA provider treat a WellSense New Hampshire member?', a: 'Only with prior authorization obtained in advance. Call WellSense\'s Prior Authorization department at 877-957-1300. No ABA single-case-agreement rate is published.' },
       { q: 'Does WellSense require prior authorization for ABA in New Hampshire?', a: 'Yes, both for the initial evaluation and for continued services, on its New Hampshire ABA form or through the HealthTrio portal.' },
       { q: 'How long is a WellSense NH ABA authorization?', a: 'Up to 3 months for an initial request and 6 months for continued services, with units requested for the whole period rather than per week.' },
       { q: 'Who can diagnose for a WellSense ABA request?', a: 'A neurologist, pediatrician, psychiatrist, psychologist, or other licensed physician experienced in autism, via a comprehensive diagnostic evaluation.' },
@@ -885,6 +893,13 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
           { title: 'Anthem Blue Cross and Blue Shield — 2026 New Hampshire Commercial Provider Manual (effective July 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_NH_00018.pdf' },
         ],
       },
+      {
+        h2: 'Can an Anthem New Hampshire member see an out-of-network ABA provider?',
+        body: [
+          'Only with an approved out-of-network referral where the plan requires referrals. Anthem\'s 2026 New Hampshire manual says referrals to providers “who do not participate in the Anthem Provider network (out-of-network Providers) require the PCP to submit an out-of-network referral request to Anthem,” and “authorization must be received before the out-of-network Provider Services can be rendered.” Requests go by fax to 800-281-1049 or phone to 800-531-4450. Whether the member has out-of-network ABA benefits depends on the plan.',
+        ],
+        cites: [{ title: 'Anthem Blue Cross and Blue Shield — 2026 New Hampshire Commercial Provider Manual (effective July 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_NH_00018.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (RSA 417-E applies) vs. self-funded ERISA (plan document governs). Ask for the employer and check the card.' },
@@ -893,7 +908,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { title: 'Signed treatment plan', desc: 'RSA 417-E:2 lets the insurer require one signed by the PCP or a listed specialist, with frequency and duration.' },
       { title: 'Other coverage', desc: 'Second parent’s plan (birthday rule), Medicaid, TRICARE or CHAMPVA.' },
     ],
-    sources: [S.anthemNHPA, S.anthemRG, S.rsa417E, S.hb569, S.rsa420J, S.ins1904, S.bacbLic, S.erisa, S.fee, S.rsa415J, { title: 'Anthem Blue Cross and Blue Shield — 2026 New Hampshire Commercial Provider Manual (effective July 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_NH_00018.pdf' }, { title: 'Anthem Blue Cross and Blue Shield New Hampshire — Provider News (all NH provider news articles)', url: 'https://providernews.anthem.com/new-hampshire' },
+    sources: [ { title: 'Anthem Blue Cross and Blue Shield — 2026 New Hampshire Commercial Provider Manual (effective July 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_NH_00018.pdf' },S.anthemNHPA, S.anthemRG, S.rsa417E, S.hb569, S.rsa420J, S.ins1904, S.bacbLic, S.erisa, S.fee, S.rsa415J, { title: 'Anthem Blue Cross and Blue Shield New Hampshire — Provider News (all NH provider news articles)', url: 'https://providernews.anthem.com/new-hampshire' },
       { title: 'RSA 420-J:8-a — Prompt Payment Required (New Hampshire)', url: 'https://www.gencourt.state.nh.us/rsa/html/XXXVII/420-J/420-J-8-a.htm' },
       { title: 'WellSense — Applied Behavioral Analysis Prior Authorization Form, New Hampshire (updated 11/14/2025)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_NH.pdf' },
       { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
@@ -994,6 +1009,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Can an Anthem New Hampshire member see an out-of-network ABA provider?', a: 'Where the plan uses PCP referrals, the PCP must get an out-of-network referral approved by Anthem (fax 800-281-1049, phone 800-531-4450) before services. Out-of-network ABA benefits depend on the member\'s plan.' },
       { q: 'Does Anthem require prior authorization for ABA in New Hampshire?', a: 'Yes. All ABA codes (97151–97158, 0362T, 0373T) are on Anthem’s New Hampshire precertification list, reviewed by Anthem Behavioral Health (800-755-0851) on MCG criteria, though requirements can vary by product.' },
       { q: 'Does New Hampshire cap ABA benefits?', a: 'Not in the current law. The 2010 statute allowed caps of $36,000 a year (ages 0–12) and $27,000 (13–21), but that paragraph no longer appears in RSA 417-E:2. Self-funded plans follow their own documents.' },
       { q: 'Can a BCBA and RBT both bill for the same time with Anthem?', a: 'Yes, 97155 with 97153, but only when both are face-to-face with the patient at the same time and the BCBA is directing the technician.' },
@@ -1310,7 +1326,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { title: 'Standardized functional measure', desc: 'Aetna wants one from the past 12 months (for example Vineland-3).' },
       { title: 'Signed treatment plan', desc: 'RSA 417-E:2 lets the insurer require one signed by the PCP or a listed specialist.' },
     ],
-    sources: [ { title: 'Aetna — Provider manual (8102800-01-01, 6/26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },S.aetnaCPB, S.aetnaCPB648, S.aetnaGuide, S.aetnaPrecert, S.aetnaBHPM, S.rsa417E, S.hb569, S.rsa420J, S.ins1904, S.bacbLic, S.erisa, S.aetnaOM, S.rsa415J, S.fee, S.aetnaNPC,
+    sources: [S.aetnaCPB, S.aetnaCPB648, S.aetnaGuide, S.aetnaPrecert, S.aetnaBHPM, S.rsa417E, S.hb569, S.rsa420J, S.ins1904, S.bacbLic, S.erisa, S.aetnaOM, S.rsa415J, S.fee, S.aetnaNPC,
       { title: 'RSA 420-J:8-a — Prompt Payment Required (New Hampshire)', url: 'https://www.gencourt.state.nh.us/rsa/html/XXXVII/420-J/420-J-8-a.htm' },
       { title: 'Aetna — Disputes and appeals overview (reconsideration and appeal time frames)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' },
       { title: 'Aetna — Provider appeals: state exceptions to the 180-day dispute filing standard', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/provider-appeals.html' },
@@ -1729,7 +1745,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis with a validated tool', desc: 'DSM-5-TR ASD and severity level, confirmed with a validated tool (ADI-R, ADOS-2 and others). Optum asks for the instrument.' },
       { title: 'Signed treatment plan', desc: 'RSA 417-E:2 lets the insurer require one signed by the PCP or a listed specialist.' },
     ],
-    sources: [ { title: 'UnitedHealthcare — Information on payment of out-of-network benefits', url: 'https://www.uhc.com/legal/information-on-payment-of-out-of-network-benefits' }, { title: 'Optum National Network Manual (BH02330, effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },S.optumSCC, S.optumSM, S.mcm, S.rsa417E, S.hb569, S.rsa420J, S.ins1904, S.bacbLic, S.erisa, S.optumTele, S.rsa415J, S.optumNNM, S.optumReimb, S.fee,
+    sources: [ { title: 'UnitedHealthcare — Information on payment of out-of-network benefits', url: 'https://www.uhc.com/legal/information-on-payment-of-out-of-network-benefits' },S.optumSCC, S.optumSM, S.mcm, S.rsa417E, S.hb569, S.rsa420J, S.ins1904, S.bacbLic, S.erisa, S.optumTele, S.rsa415J, S.optumNNM, S.optumReimb, S.fee,
       { title: 'RSA 420-J:8-a — Prompt Payment Required (New Hampshire)', url: 'https://www.gencourt.state.nh.us/rsa/html/XXXVII/420-J/420-J-8-a.htm' },
       { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial): timely filing, NPI/taxonomy, claim reconsideration and appeals', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
       { title: 'WellSense — Applied Behavioral Analysis Prior Authorization Form, New Hampshire (updated 11/14/2025)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_NH.pdf' },

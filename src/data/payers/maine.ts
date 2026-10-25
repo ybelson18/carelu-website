@@ -356,6 +356,20 @@ export const mainePayers: Record<string, PayerConfig> = {
           { title: 'Anthem Blue Cross and Blue Shield — 2026 Maine Commercial Provider Manual (effective October 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_ME_00115.pdf' },
         ],
       },
+      {
+        h2: 'Can an Anthem Maine member keep an out-of-network ABA provider?',
+        body: [
+          'Sometimes, for a limited period. Anthem\'s 2026 Maine manual (effective October 1, 2026) says completion of covered services “may be allowed at an in- network benefit and reimbursement level with an out-of-network Provider for a period of time, according to contractual, regulatory, and accreditation requirements, when necessary to complete a course of treatment and to arrange for a safe transfer to a Network/Participating Provider or Facility.” It also warns network providers that a pattern of referring members to non-participating providers can lead to penalties. No ABA single-case-agreement rate is published.',
+        ],
+        cites: [{ title: 'Anthem Blue Cross and Blue Shield — 2026 Maine Commercial Provider Manual (effective October 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_ME_00115.pdf' }],
+      },
+      {
+        h2: 'Which credential modifiers does Anthem want on ABA claims in Maine?',
+        body: [
+          'Anthem\'s commercial ABA Provider Resource Guide (June 2025), which lists this state, sets a credential-level modifier table: “HM” for “Less than bachelor’s degree level,” “HN” for “Bachelor’s degree level” and “HO” for “Master’s degree level.” It also says that technician-delivered ABA “must show the supervising BCBA or other QHP in box 31 of the CMS claim form.” The guide lists no HP (doctoral) modifier, and Anthem publishes no separate rate per modifier.',
+        ],
+        cites: [S.anthemRG],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Maine mandate applies) vs. self-funded ERISA (plan document governs).' },
@@ -364,7 +378,7 @@ export const mainePayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis report', desc: 'ASD diagnosis by a licensed physician or psychologist, with the date and clinician.' },
       { title: 'Other coverage', desc: 'Second parent’s plan, MaineCare (pays last), TRICARE or CHAMPVA.' },
     ],
-    sources: [S.anthemMEPA, S.anthemRG, S.st2768, S.st2847T, S.st4259, S.pl597, S.st4304, S.st4316, S.st4303, S.st2436, S.ch790, S.bacbLic, S.t32, S.erisa, S.s1, { title: 'Anthem Blue Cross and Blue Shield — 2026 Maine Commercial Provider Manual (effective October 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_ME_00115.pdf' }, { title: 'Anthem Maine — Provider News (provider news archive)', url: 'https://providernews.anthem.com/maine' },
+    sources: [ { title: 'Anthem Blue Cross and Blue Shield — 2026 Maine Commercial Provider Manual (effective October 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_ME_00115.pdf' },S.anthemMEPA, S.anthemRG, S.st2768, S.st2847T, S.st4259, S.pl597, S.st4304, S.st4316, S.st4303, S.st2436, S.ch790, S.bacbLic, S.t32, S.erisa, S.s1, { title: 'Anthem Maine — Provider News (provider news archive)', url: 'https://providernews.anthem.com/maine' },
       { title: 'MaineCare Benefits Manual, Ch. II, Section 28 — Adaptive Behavior Services for Children (eff. April 29, 2026, filing 2026-101)', url: 'https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/c2s028-2026-101%20NEW.docx' },
     ],
     deliveryRules: {
@@ -456,6 +470,7 @@ export const mainePayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Can an Anthem Maine member keep an out-of-network ABA provider?', a: 'Sometimes. Anthem may allow completion of covered services at the in-network level with an out-of-network provider for a period of time, to finish a course of treatment and move the child safely to a network provider. Ask Anthem before relying on it.' },
       { q: 'Does Anthem require prior authorization for ABA in Maine?', a: 'Yes. Applied behavior analysis is on Anthem’s Maine precertification list (October 2026), reviewed by Anthem Behavioral Health at 800-755-0851. Requirements can vary by product, so check the member’s card.' },
       { q: 'Does Maine cap ABA benefits?', a: 'The mandate lets fully insured plans cap ABA at $36,000 a year and covers children 10 and under; it bars limits on the number of visits. Self-funded plans follow their own documents.' },
       { q: 'Can a BCBA and RBT both bill for the same time with Anthem?', a: 'Yes, 97155 with 97153, but only when both are face-to-face with the patient at the same time and the BCBA is directing the technician.' },
@@ -565,7 +580,7 @@ export const mainePayers: Record<string, PayerConfig> = {
       { title: 'Standardized functional measure', desc: 'Aetna wants one from the past 12 months (for example Vineland-3).' },
       { title: 'Other coverage', desc: 'Second parent’s plan, MaineCare (pays last), TRICARE or CHAMPVA.' },
     ],
-    sources: [ { title: 'Aetna — Provider manual (8102800-01-01, 6/26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },S.aetnaCPB, S.aetnaCPB648, S.aetnaGuide, S.aetnaPrecert, S.aetnaOM, S.aetnaNPC, S.st2768, S.st2847T, S.st4259, S.pl597, S.st4304, S.st4316, S.st4303, S.st2436, S.ch790, S.bacbLic, S.t32, S.erisa, S.s1,
+    sources: [S.aetnaCPB, S.aetnaCPB648, S.aetnaGuide, S.aetnaPrecert, S.aetnaOM, S.aetnaNPC, S.st2768, S.st2847T, S.st4259, S.pl597, S.st4304, S.st4316, S.st4303, S.st2436, S.ch790, S.bacbLic, S.t32, S.erisa, S.s1,
       { title: 'MaineCare Benefits Manual, Ch. II, Section 28 — Adaptive Behavior Services for Children (eff. April 29, 2026, filing 2026-101)', url: 'https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/c2s028-2026-101%20NEW.docx' },
     ],
     deliveryRules: {
@@ -765,7 +780,7 @@ export const mainePayers: Record<string, PayerConfig> = {
       { title: 'Standardized assessment timing', desc: 'Instrument administered within 60 days before treatment starts.' },
       { title: 'Other coverage', desc: 'Second parent’s plan, MaineCare (pays last), TRICARE or CHAMPVA.' },
     ],
-    sources: [ { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },S.en0499, S.cignaARG, S.ebhAdmin, S.st2768, S.st2847T, S.st4259, S.pl597, S.st4304, S.st4316, S.st4303, S.st2436, S.ch790, S.bacbLic, S.t32, S.erisa, S.s1,
+    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.st2768, S.st2847T, S.st4259, S.pl597, S.st4304, S.st4316, S.st4303, S.st2436, S.ch790, S.bacbLic, S.t32, S.erisa, S.s1,
       { title: 'MaineCare Benefits Manual, Ch. II, Section 28 — Adaptive Behavior Services for Children (eff. April 29, 2026, filing 2026-101)', url: 'https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/c2s028-2026-101%20NEW.docx' },
     ],
     deliveryRules: {
@@ -952,7 +967,7 @@ export const mainePayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis with a validated tool', desc: 'DSM-5-TR ASD confirmed with a validated tool (ADI-R, ADOS-2 and others). Optum asks for the instrument.' },
       { title: 'Other coverage', desc: 'Second parent’s plan, MaineCare (pays last), TRICARE or CHAMPVA.' },
     ],
-    sources: [ { title: 'UnitedHealthcare — Information on payment of out-of-network benefits', url: 'https://www.uhc.com/legal/information-on-payment-of-out-of-network-benefits' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (commercial)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, { title: 'Optum National Network Manual (BH02330, effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },S.optumSCC, S.optumSM, S.optumTele, S.optumNNM, S.optumReimb, S.st2768, S.st2847T, S.st4259, S.pl597, S.st4304, S.st4316, S.st4303, S.st2436, S.ch790, S.bacbLic, S.t32, S.erisa, S.s1, S.s28],
+    sources: [ { title: 'UnitedHealthcare — Information on payment of out-of-network benefits', url: 'https://www.uhc.com/legal/information-on-payment-of-out-of-network-benefits' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (commercial)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },S.optumSCC, S.optumSM, S.optumTele, S.optumNNM, S.optumReimb, S.st2768, S.st2847T, S.st4259, S.pl597, S.st4304, S.st4316, S.st4303, S.st2436, S.ch790, S.bacbLic, S.t32, S.erisa, S.s1, S.s28],
     deliveryRules: {
       supervision: {
         value: '"Consistent with CASP standards of care, direct case supervision is required 1–2 hours for every 10 hours of direct treatment per week." Technicians "should be registered behavior technicians (RBT) or another appropriately certified behavior technician as allowable by state mandate," and Optum does not recommend parents serving as their own child’s RBT.',

@@ -366,6 +366,13 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
         body: [RI_OOS_BCBA],
         cites: [S.lic21, S.lic9, S.tele],
       },
+      {
+        h2: 'Can a child keep an out-of-network ABA provider after joining Neighborhood?',
+        body: [
+          'Yes, in one case set by the state contract. For at least 90 days after enrollment, for a member who had Qualified Health Plan coverage in the prior 90 days, the contract (Amendment 21, effective July 1, 2026, § 2.06.05.03) says the plan “must accept any prior authorizations authorized by the member’s QHP” and “must allow Enrollee to see an out-of-network provider on an in-network basis if (1) that provider was a part of the member’s QHP network, and (2) the member had been in the care of that provider for a period of at least six months,” with balance-billing prohibited either way. Outside that rule, Neighborhood publishes no ABA single-case-agreement process.',
+        ],
+        cites: [{ title: 'EOHHS–Neighborhood Health Plan of RI Medicaid Managed Care Contract, Amendment 21 (full contract, effective July 1, 2026)', url: 'https://eohhs.ri.gov/sites/g/files/xkgbur226/files/2026-08/NHPRI_Amend_21_executed_Fully%20Executed_20260624.pdf' }],
+      },
     ],
     collect: [
       { title: 'Member ID and product', desc: 'RIte Care (Medicaid) versus an exchange plan: the codes, age limit and rules differ.' },
@@ -458,6 +465,7 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Can a child keep an out-of-network ABA provider after joining Neighborhood?', a: 'For at least 90 days after a child moves from a marketplace (QHP) plan, yes, if the provider was in the QHP network and treated the child for at least six months. Neighborhood must also accept the QHP\'s prior authorizations. Balance-billing is prohibited.' },
       { q: 'Does Neighborhood Health Plan of Rhode Island cover ABA?', a: 'Yes. For Medicaid (RIte Care) members under 21, ABA is a subset of Home Based Therapeutic Services. Its commercial exchange plans cover ABA for members under 20.' },
       { q: 'Does Neighborhood still use Optum for behavioral health?', a: 'No. Neighborhood manages behavioral health in-house as of September 1, 2025; Optum claims for earlier dates could be followed up with Neighborhood until August 31, 2026.' },
       { q: 'Which codes does Neighborhood use for Medicaid ABA?', a: 'The HBTS HCPCS codes: T1024 (direct service), H0046 (lead therapy; HO/HP for clinical supervision), H2014, T1016, T1013 and S9446, with U1 for 15-minute units and XP when two agencies serve one child. Its commercial plans use CPT 97151–97158.' },
@@ -687,6 +695,13 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
         body: [RI_OOS_BCBA],
         cites: [S.lic21, S.lic9, S.tele],
       },
+      {
+        h2: 'Can an out-of-network ABA provider treat a Tufts Health RITogether member?',
+        body: [
+          'Only with prior authorization. Point32Health\'s RITogether behavioral health grid says “Out-of-network providers are required to request PA before initiating services.” The state contract (Amendment 21, § 2.06.05.03) adds a transition rule: for at least 90 days after enrollment, a former Qualified Health Plan member may see an out-of-network provider on an in-network basis if the provider was in the QHP network and had treated the member for at least six months, and QHP prior authorizations must be accepted.',
+        ],
+        cites: [{ title: 'Point32Health — Tufts Health RITogether Behavioral Health Prior Authorization and Notification Grid (updated 7/2026)', url: 'https://www.point32health.org/documents/rit-bh-pa-notification-grid' }, { title: 'EOHHS–Tufts Health Public Plans Medicaid Managed Care Contract, Amendment 21 (full contract, effective July 1, 2026)', url: 'https://eohhs.ri.gov/sites/g/files/xkgbur226/files/2026-08/THPP_Amend_21__Fully%20Executed_20260626.pdf' }],
+      },
     ],
     collect: [
       { title: 'Member ID', desc: 'Confirm Tufts Health RITogether (not Tufts Health Together, the Massachusetts plan).' },
@@ -780,6 +795,7 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Can an out-of-network ABA provider treat a Tufts Health RITogether member?', a: 'Only with prior authorization requested before services start. For at least 90 days after a child moves from a marketplace (QHP) plan, the plan must allow an out-of-network provider on an in-network basis if the provider was in the QHP network and treated the child for six months or more.' },
       { q: 'Does Tufts Health RITogether require prior authorization for ABA?', a: 'No. Its behavioral health grid lists HBTS and ABA as "No PA or notification required. Providers just bill for this service."' },
       { q: 'What is the timely filing limit for Tufts Health RITogether?', a: '90 calendar days from the date of service for in-state, in-network professional claims, and 60 days from a primary carrier’s EOP.' },
       { q: 'Is an autism diagnosis required for RITogether ABA?', a: 'The plan removed the autism diagnosis code requirement at EOHHS’s direction, but the diagnostic report must still state the diagnosis and the evidence for it.' },
@@ -880,7 +896,7 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
       { title: 'Standardized functional measure', desc: 'Aetna wants one from the past 12 months (for example Vineland-3).' },
       { title: 'Specialist prescription', desc: 'Rhode Island law has licensed analysts provide ABA only on a prescription from a child psychiatrist, behavioral developmental pediatrician, child neurologist or child-trained psychologist.' },
     ],
-    sources: [ { title: 'Aetna — Provider manual (8102800-01-01, 6/26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },S.aetnaGuide, S.aetnaCPB648, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.ch2011, S.m3, S.m4, S.m7, S.lic, S.lic2, S.lic21, S.pp, S.ohic14, S.ur6, S.ur7, S.cob, S.tm4, S.tm3, S.erisa, S.ohic25,
+    sources: [S.aetnaGuide, S.aetnaCPB648, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.ch2011, S.m3, S.m4, S.m7, S.lic, S.lic2, S.lic21, S.pp, S.ohic14, S.ur6, S.ur7, S.cob, S.tm4, S.tm3, S.erisa, S.ohic25,
       { title: 'R.I. Gen. Laws § 5-86-9 — Qualifications and examinations for licensing (BCBA exam, active BACB status)', url: 'https://webserver.rilegislature.gov/Statutes/TITLE5/5-86/5-86-9.htm' },
       { title: 'R.I. Gen. Laws § 5-86-26 — Supervision (assistant analysts, aides)', url: 'https://webserver.rilegislature.gov/Statutes/TITLE5/5-86/5-86-26.htm' },
       { title: 'RI EOHHS — Telemedicine Billing Guidance (July 2025, effective September 1, 2025)', url: 'https://eohhs.ri.gov/sites/g/files/xkgbur226/files/2025-07/Telemedicine%20Billing%20Guidance.pdf' },
@@ -1078,7 +1094,7 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
       { title: 'Standardized assessment timing', desc: 'Instrument administered within 60 days before treatment starts.' },
       { title: 'Specialist prescription', desc: 'Rhode Island law has licensed analysts provide ABA only on a prescription from a child psychiatrist, behavioral developmental pediatrician, child neurologist or child-trained psychologist.' },
     ],
-    sources: [ { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },S.en0499, S.cignaARG, S.ebhAdmin, S.ch2011, S.m3, S.m4, S.m7, S.lic, S.lic2, S.lic21, S.pp, S.ohic14, S.ur6, S.ur7, S.cob, S.tm4, S.erisa, S.ohic25,
+    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.ch2011, S.m3, S.m4, S.m7, S.lic, S.lic2, S.lic21, S.pp, S.ohic14, S.ur6, S.ur7, S.cob, S.tm4, S.erisa, S.ohic25,
       { title: 'R.I. Gen. Laws § 5-86-9 — Qualifications and examinations for licensing (BCBA exam, active BACB status)', url: 'https://webserver.rilegislature.gov/Statutes/TITLE5/5-86/5-86-9.htm' },
       { title: 'R.I. Gen. Laws § 5-86-26 — Supervision (assistant analysts, aides)', url: 'https://webserver.rilegislature.gov/Statutes/TITLE5/5-86/5-86-26.htm' },
       { title: 'RI EOHHS — Telemedicine Billing Guidance (July 2025, effective September 1, 2025)', url: 'https://eohhs.ri.gov/sites/g/files/xkgbur226/files/2025-07/Telemedicine%20Billing%20Guidance.pdf' },
@@ -1271,7 +1287,7 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis with a validated tool', desc: 'DSM-5-TR ASD and severity, confirmed with a validated tool (ADI-R, ADOS-2 and others).' },
       { title: 'Specialist prescription', desc: 'Rhode Island law has licensed analysts provide ABA only on a prescription from a child psychiatrist, behavioral developmental pediatrician, child neurologist or child-trained psychologist.' },
     ],
-    sources: [ { title: 'UnitedHealthcare — Information on payment of out-of-network benefits', url: 'https://www.uhc.com/legal/information-on-payment-of-out-of-network-benefits' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (commercial)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, { title: 'Optum National Network Manual (BH02330, effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },S.optumSCC, S.optumSM, S.optumTele, S.optumNNM, S.optumReimb, S.ch2011, S.m3, S.m4, S.m7, S.lic, S.lic2, S.lic21, S.pp, S.ohic14, S.ur6, S.ur7, S.cob, S.tm4, S.erisa, S.ohic25,
+    sources: [ { title: 'UnitedHealthcare — Information on payment of out-of-network benefits', url: 'https://www.uhc.com/legal/information-on-payment-of-out-of-network-benefits' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (commercial)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },S.optumSCC, S.optumSM, S.optumTele, S.optumNNM, S.optumReimb, S.ch2011, S.m3, S.m4, S.m7, S.lic, S.lic2, S.lic21, S.pp, S.ohic14, S.ur6, S.ur7, S.cob, S.tm4, S.erisa, S.ohic25,
       { title: 'R.I. Gen. Laws § 5-86-9 — Qualifications and examinations for licensing (BCBA exam, active BACB status)', url: 'https://webserver.rilegislature.gov/Statutes/TITLE5/5-86/5-86-9.htm' },
       { title: 'R.I. Gen. Laws § 5-86-26 — Supervision (assistant analysts, aides)', url: 'https://webserver.rilegislature.gov/Statutes/TITLE5/5-86/5-86-26.htm' },
       { title: 'RI EOHHS — Telemedicine Billing Guidance (July 2025, effective September 1, 2025)', url: 'https://eohhs.ri.gov/sites/g/files/xkgbur226/files/2025-07/Telemedicine%20Billing%20Guidance.pdf' },

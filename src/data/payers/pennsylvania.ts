@@ -1087,6 +1087,13 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           { title: 'PA DHS — Electronic Visit Verification (EVV) and EVV FAQ', url: 'https://www.pa.gov/agencies/dhs/resources/for-providers/evv/faq-evv' },
         ],
       },
+      {
+        h2: 'Can a Magellan HealthChoices member use an out-of-network IBHS/ABA provider?',
+        body: [
+          'Only if Magellan approves it. Magellan\'s HealthChoices supplement (rev. 11/25) lists among member responsibilities: “Use only network providers unless Magellan approves an out-of-network provider.” The supplement sets no ABA single-case-agreement process or rate; ask Magellan network management.',
+        ],
+        cites: [{ title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/25)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' }],
+      },
     ],
     collect: [
       { title: 'Medicaid ID and county', desc: 'Magellan covers only its seven counties; the TAR asks which county the member’s MA is tied to, and a county change needs a new authorization line.' },
@@ -1096,9 +1103,8 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: 'Caregiver availability for the assessment', desc: 'Magellan’s referral form asks for caregiver days/times; the assessment must cover every setting where services will be delivered.' },
       { title: 'Consent to release information', desc: 'Magellan’s referral form requires written consent before it can send clinical information to providers.' },
     ],
-    sources: [{ title: 'Magellan of PA — Provider Rate Updates (October 21, 2026)', url: 'https://www.magellanofpa.com/documents/2026/10/102126_providerratesannouncement.pdf/' }, 
+    sources: [ { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/25)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },{ title: 'Magellan of PA — Provider Rate Updates (October 21, 2026)', url: 'https://www.magellanofpa.com/documents/2026/10/102126_providerratesannouncement.pdf/' }, 
       { title: 'Magellan of PA — Intensive Behavioral Health Services (IBHS) provider page', url: 'https://www.magellanofpa.com/for-providers/services-programs/intensive-behavioral-health-services-ibhs/' },
-      { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/25)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },
       { title: 'Magellan of PA — IBHS Authorization Request Checklist (rev. 02/12/2026)', url: 'https://www.magellanofpa.com/documents/2026/02/021626_ibhsauthrequestchecklist.pdf' },
       { title: 'Magellan of PA — IBHS/ABA New Provider Training (Somerset-Bedford, Nov. 2025)', url: 'https://www.magellanofpa.com/documents/2025/11/s-b-new-provider-training-ibhsaba-11052025.pdf' },
       { title: 'Magellan of PA — IBHS Provider Workgroup, July 30, 2026', url: 'https://www.magellanofpa.com/documents/2026/07/073126_ibhsproviderworkgrouponjuly302026.pdf' },
@@ -1120,6 +1126,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
     ],
     faq: [
+      { q: 'Can a Magellan HealthChoices member use an out-of-network IBHS/ABA provider?', a: 'Only with Magellan\'s approval; its HealthChoices supplement tells members to use network providers “unless Magellan approves an out-of-network provider.” No SCA process or rate is published.' },
       { q: 'What is Magellan of Pennsylvania’s timely filing limit?', a: 'Sixty days from the date of service for most services, 60 days from the other carrier’s EOB for secondary claims, and 60 days from Magellan’s EOB for resubmissions.' },
       { q: 'How fast does Magellan pay a clean claim in Pennsylvania?', a: 'Within 45 days of receipt, with 10 percent annual interest on clean claims paid late.' },
       { q: 'Does Magellan of Pennsylvania require prior authorization for the ABA assessment?', a: 'It requires a registration, not a medical-necessity review. Submit the IBHS Registration TAR and the written order in Availity; Magellan authorizes 96 units (24 hours) over 45 calendar days for the ABA initial assessment (97151 HA). Reassessments are done within the approved BC-ABA units before the reauthorization request.' },
@@ -1393,6 +1400,13 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           { title: 'PA DHS — Electronic Visit Verification (EVV) and EVV FAQ', url: 'https://www.pa.gov/agencies/dhs/resources/for-providers/evv/faq-evv' },
         ],
       },
+      {
+        h2: 'Can a PerformCare member use an out-of-network IBHS/ABA provider?',
+        body: [
+          'Only if PerformCare approves it. PerformCare\'s HealthChoices provider manual lists among member responsibilities: “Use only network providers unless PerformCare approves an out-of-network provider.” No ABA single-case-agreement process or rate is published.',
+        ],
+        cites: [{ title: 'PerformCare HealthChoices Provider Manual (updated February 2023)', url: 'https://pa.performcare.org/content/dam/amerihealth-caritas/performcare-pa/pdf/providers/resources-information/provider-manual.pdf' }],
+      },
     ],
     collect: [
       { title: 'Medicaid ID and county', desc: 'PerformCare covers Cumberland, Dauphin, Franklin, Fulton, Lancaster, Lebanon and Perry; CANS rules differ between the CABHC and Franklin/Fulton contracts.' },
@@ -1402,10 +1416,9 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: 'Primary insurance and ABA benefit', desc: 'Get the commercial plan’s authorization too; PerformCare needs one denial/non-covered letter per CPT code per calendar year before it pays as primary.' },
       { title: 'TRICARE status', desc: 'TRICARE is not exempt — providers should credential with TRICARE when it is primary.' },
     ],
-    sources: [
+    sources: [ { title: 'PerformCare HealthChoices Provider Manual (updated February 2023)', url: 'https://pa.performcare.org/content/dam/amerihealth-caritas/performcare-pa/pdf/providers/resources-information/provider-manual.pdf' },
       { title: 'PerformCare Policy CM-CAS-042 — Initial & Re-Authorization Requirements for Individual & ABA IBHS (rev. 03/11/26)', url: 'https://pa.performcare.org/content/dam/amerihealth-caritas/performcare-pa/pdf/providers/policies/202605/CM-CAS-042%20%2004.03.26.pdf' },
       { title: 'PerformCare Policy CM-013 — Approval/Denial Process and Notifications (rev. 01/22/26)', url: 'https://pa.performcare.org/content/dam/amerihealth-caritas/performcare-pa/pdf/providers/policies/202605/CM-013%20%2001.23.26.pdf' },
-      { title: 'PerformCare HealthChoices Provider Manual (updated February 2023)', url: 'https://pa.performcare.org/content/dam/amerihealth-caritas/performcare-pa/pdf/providers/resources-information/provider-manual.pdf' },
       { title: 'PerformCare Provider Notice IBHS 22-102 — IBHS Code Authorization Bundling (Feb. 8, 2022)', url: 'https://pa.performcare.org/content/dam/amerihealth-caritas/performcare-pa/pdf/providers/resources-information/ibhs-22-102-code-auth-bundling.pdf' },
       { title: 'PerformCare Provider Notice IBHS 23-102 — ABA Providers’ Use of 97151 (reissued March 7, 2023)', url: 'https://pa.performcare.org/assets/pdf/providers/resources-information/ibhs-23-102-aba-providers-use-of-97151.pdf' },
       { title: 'PerformCare Provider Notice IBHS 21-100 — IBHS ABA Billing Guide (Feb. 4, 2021)', url: 'https://pa.performcare.org/content/dam/amerihealth-caritas/performcare-pa/pdf/providers/resources-information/policies/ibhs-21-100-aba-cpt-billing-guide.pdf' },
@@ -1429,6 +1442,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
     ],
     faq: [
+      { q: 'Can a PerformCare member use an out-of-network IBHS/ABA provider?', a: 'Only with PerformCare\'s approval. The manual tells members to use network providers “unless PerformCare approves an out-of-network provider.”' },
       { q: 'How fast does PerformCare pay ABA claims?', a: 'PerformCare pays all clean claims within 45 days and says its turnaround averages about 18 days, with most paid within 30.' },
       { q: 'Does PerformCare require prior authorization for the ABA assessment?', a: 'It requires a registration, not a medical-necessity decision. The agency submits an IBHS Assessment Registration Form in Jiva within 4 calendar days of starting the assessment, and PerformCare authorizes 45 calendar days for an ABA assessment. Registering 97151 also allows billing 97152.' },
       { q: 'Can we bill 97153 and 97155 at the same time with PerformCare?', a: 'Yes, when both code descriptors are met. PerformCare adopted the 2019 CPT supplemental guidance for adaptive behavior services, which answers "Yes, as long as the criteria in the descriptors of both codes are met" — but a single QHP may not report both concurrently.' },
@@ -1699,6 +1713,13 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           { title: 'PA DHS — Electronic Visit Verification (EVV) and EVV FAQ', url: 'https://www.pa.gov/agencies/dhs/resources/for-providers/evv/faq-evv' },
         ],
       },
+      {
+        h2: 'Does Carelon Health of Pennsylvania give single case agreements for IBHS/ABA?',
+        body: [
+          'Yes, on request. Carelon\'s Pennsylvania billing guide: “Out-of-network providers must call the Provider Services Line at 1-877-615-8503 to request Single Case Agreement.” Authorization rules in the provider manual still apply.',
+        ],
+        cites: [{ title: 'Carelon Health of Pennsylvania Billing Guide', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/79/Carelon-Billing-Guide.pdf' }],
+      },
     ],
     collect: [
       { title: 'Medicaid ID and county', desc: 'Carelon covers 11 western PA counties; a county change needs an authorization under the new eligibility line.' },
@@ -1708,7 +1729,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: 'Signed Service Delivery Schedule', desc: 'Parent/legal guardian (or member 14+) signature is part of every packet.' },
       { title: 'Family Choice/Confirmation Form', desc: 'Reviewed with the family before services start.' },
     ],
-    sources: [
+    sources: [ { title: 'Carelon Health of Pennsylvania Billing Guide', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/79/Carelon-Billing-Guide.pdf' },
       { title: 'Carelon Health of Pennsylvania Provider Manual \u2014 Provider Recruitment', url: 'https://providers.pa.carelon.com/providers/provider-manual/5-provider-recruitment/' },
       { title: 'Carelon Health of Pennsylvania Provider Manual \u2014 Provider Contracting', url: 'https://providers.pa.carelon.com/providers/provider-manual/5-provider-contracting/' },
       { title: 'Carelon Health of Pennsylvania Provider Manual \u2014 Member Right to Continuing Course of Treatment', url: 'https://providers.pa.carelon.com/providers/provider-manual/4-member-right-to-continuing-course-of-treatment/' },
@@ -1728,7 +1749,6 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: 'PA DHS — Behavioral Health Managed Care Organizations (BH-MCOs) by county', url: 'https://www.pa.gov/agencies/dhs/resources/medicaid/bhc/bhc-mcos' },
       { title: 'PA DHS — Electronic Visit Verification (EVV) and EVV FAQ', url: 'https://www.pa.gov/agencies/dhs/resources/for-providers/evv/faq-evv' },
       { title: 'Carelon Health of PA — Provider Alerts (index of provider alerts by year)', url: 'https://providers.pa.carelon.com/providers/provider-alerts/' },
-      { title: 'Carelon Health of Pennsylvania Billing Guide', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/79/Carelon-Billing-Guide.pdf' },
       { title: '55 Pa. Code Chapter 5240 — Intensive Behavioral Health Services (licensing)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter5240/chap5240toc.html' },
       { title: 'Carelon Health of PA Provider Manual — 4: Treatment Record Standards', url: 'https://providers.pa.carelon.com/providers/provider-manual/4-treatment-record-standards/' },
       { title: 'Carelon Health of PA Provider Alert 22.26.09 — Documentation and Program Integrity Reminder (Sept. 3, 2026)', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/79/PA-22.26.09-Documentation-and-Program-Integrity-Reminder.pdf' },
@@ -1738,6 +1758,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
     ],
     faq: [
+      { q: 'Does Carelon Health of Pennsylvania give single case agreements for IBHS/ABA?', a: 'Yes. Out-of-network providers call Carelon\'s Provider Services Line at 1-877-615-8503 to request a single case agreement.' },
       { q: 'Which ABA codes does Carelon Health of Pennsylvania pay?', a: 'CPT 97151–97156 and 97158 under IBHS ABA (specialty 592), with U7/U8 and group-size modifiers. 97157, 0362T and 0373T are not on its covered-services grid, and H0031 is an assessment code, not an ABA code.' },
       { q: 'Does Carelon Health of Pennsylvania require prior authorization for the ABA assessment?', a: 'No. Policy CN.48: "The assessment does not require a prior authorization process however treatment does require a prior authorization process." Providers can use up to 92 units (23 hours) for the assessment; the covered-services grid lists the assessment as 97151 with modifier AO or AP and "Auth Req? N".' },
       { q: 'How long does a Carelon IBHS authorization last?', a: 'Up to 180 days. Submit continued-stay requests through ProviderConnect at least 10 business days before the current authorization expires.' },
@@ -2055,6 +2076,13 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           { title: 'Highmark Provider Manual — Chapter 2, Unit 6: The BlueCard Program', url: 'https://providers.highmark.com/resources-and-education/highmark-provider-manual/chapter-2-product-information/unit-6-the-bluecard-program' },
         ],
       },
+      {
+        h2: 'Can an out-of-network ABA provider get approved by Highmark?',
+        body: [
+          'Through a network gap exception. Highmark\'s Obtaining Authorizations page links a “Guide to Out-of-Network Gap Exception Requests” alongside its behavioral health tip sheet for authorization requests. Highmark publishes no ABA single-case-agreement rate; whether the member has out-of-network benefits depends on the product.',
+        ],
+        cites: [{ title: 'Highmark — Obtaining Authorizations (last updated Sept 1, 2026)', url: 'https://providers.highmark.com/authorization/obtaining-authorizations' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type and group size', desc: 'Fully insured large group (51+) or CHIP means Act 62 applies. Self-funded (ASO), individual or small-group means the benefit contract and whether the ASO elected V-37 decide. Ask for the employer name and read the card.' },
@@ -2064,11 +2092,10 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: 'Other coverage (Medicaid / PH-95)', desc: 'Many PA children with autism also have Medicaid. Highmark pays first and the BH-MCO pays second, so get Highmark’s authorization even when Medicaid will pick up the balance.' },
       { title: 'Setting and school involvement', desc: 'ABA in school is covered only under V-37’s strict criteria (entirely ABA, not educational). Record where services will happen.' },
     ],
-    sources: [
+    sources: [ { title: 'Highmark — Obtaining Authorizations (last updated Sept 1, 2026)', url: 'https://providers.highmark.com/authorization/obtaining-authorizations' },
       { title: 'Highmark Medical Policy V-37-044 — Autism Spectrum Disorders (PA commercial, eff. August 4, 2025)', url: 'https://securecms.highmark.com/content/medpolicy/en/highmark/pa/commercial/policies/Visits/V-37/V-37-044.html' },
       { title: 'Highmark — List of Procedures/DME Requiring Authorization (Commercial/MA, eff. 09/01/2026)', url: 'https://providers.highmark.com/content/dam/highmark/en/providerresourcecenter/pdfs/procedurecode/commercial/Proc-Requiring-Auth-list.pdf' },
       { title: 'Highmark — Behavioral Health: Upcoming Prior Authorization Changes (published Nov 24, 2025; eff. March 1, 2026)', url: 'https://providers.highmark.com/communications-hub/news-and-updates/behavioral-health-upcoming-prior-authorization-changes.html' },
-      { title: 'Highmark — Obtaining Authorizations (last updated Sept 1, 2026)', url: 'https://providers.highmark.com/authorization/obtaining-authorizations' },
       { title: 'Highmark Medical Policy Z-27-037 — Eligible Providers (PA commercial, eff. October 13, 2025)', url: 'https://securecms.highmark.com/content/medpolicy/en/highmark/pa/commercial/policies/Miscellaneous/Z-27/Z-27-037.html' },
       { title: 'Highmark Reimbursement Policy RP-046 — Telemedicine and Telehealth Services (version eff. Sept 1, 2026)', url: 'https://providers.highmark.com/content/dam/highmark/en/providerresourcecenter/pdfs/claims/reimbursement-policies/rp-046.pdf' },
       { title: 'Highmark — Reimbursement Update: CPT 97153 for ABA Therapy in DE, PA and WV (published Aug 17, 2026; eff. Oct 16, 2026)', url: 'https://providers.highmark.com/communications-hub/news-and-updates/reimbursement-update-cpt-code-97153-for-aba-therapy-in-de-pa-wv.html' },
@@ -2231,6 +2258,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Can an out-of-network ABA provider get approved by Highmark?', a: 'Highmark handles this as an out-of-network gap exception request (its Obtaining Authorizations page links the guide). No ABA single-case-agreement rate is published.' },
       { q: 'What is Highmark’s timely filing limit for ABA in Pennsylvania?', a: 'Whatever your contract sets; if it sets none, 365 days from the last date of service (CHIP 180 days). Corrected claims are due within 455 days of the original claim’s finalization since September 1, 2026.' },
       { q: 'Does Highmark cover ABA therapy in Pennsylvania?', a: 'Yes, for a DSM-5 autism diagnosis under Medical Policy V-37. Fully insured large-group plans (51+ employees) and CHIP must cover it under Act 62 for members under 21. Self-funded, individual and small-group plans cover it per the benefit contract, and self-funded groups choose whether V-37 applies.' },
       { q: 'Does Highmark require prior authorization for ABA?', a: 'Yes. Since March 1, 2026, all ABA codes (97151–97158, 0362T, 0373T) are on Highmark’s prior authorization list, managed by Highmark Behavioral Health. That includes the assessment. Submit through Availity.' },
@@ -2378,6 +2406,13 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           { title: 'Capital Blue Cross — Provider Manual 2026', url: 'https://www.capbluecross.com/wps/portal/cap/provider/provider-hub/provider-manual/provider-manual' },
         ],
       },
+      {
+        h2: 'Can a Capital Blue Cross member use an out-of-network ABA provider?',
+        body: [
+          'Only with preauthorization on HMO and POS products. In its standing-referral rules for HMO and POS members, Capital Blue Cross\'s 2026 provider manual says “All treatments by non-Participating Providers require preauthorization.” Out-of-network benefits on PPO products depend on the plan, and Capital publishes no ABA single-case-agreement process or rate.',
+        ],
+        cites: [{ title: 'Capital Blue Cross — Provider Manual 2026', url: 'https://www.capbluecross.com/wps/portal/cap/provider/provider-hub/provider-manual/provider-manual' }],
+      },
     ],
     collect: [
       { title: 'Which Blue card', desc: 'Capital Blue Cross and Highmark Blue Shield overlap in central PA. Confirm the plan name and prefix on the card before routing the authorization.' },
@@ -2386,8 +2421,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: 'Plan of care and clinical notes', desc: 'Capital wants the plan of care and clinical notes attached to the portal request and to each concurrent review. The ABA Progress Report form is optional.' },
       { title: 'Other coverage (Medicaid / PH-95)', desc: 'Record every other plan. Capital pays before Medical Assistance, and the birthday rule sets the order between two parents’ plans.' },
     ],
-    sources: [
-      { title: 'Capital Blue Cross — Provider Manual 2026', url: 'https://www.capbluecross.com/wps/portal/cap/provider/provider-hub/provider-manual/provider-manual' },
+    sources: [ { title: 'Capital Blue Cross — Provider Manual 2026', url: 'https://www.capbluecross.com/wps/portal/cap/provider/provider-hub/provider-manual/provider-manual' },
       { title: 'Capital Blue Cross — Single Source Preauthorization List', url: 'https://www.capbluecross.com/wps/portal/cap/provider/resource/single-source-preauthorization' },
       { title: 'Capital Blue Cross MP 2.304 — Medical Treatments of Autism Spectrum Disorder (eff. 8/1/2026)', url: 'https://www.capbluecross.com/wps/wcm/connect/prod_nws.capblue.com29556/7a42c571-6d3f-4964-a172-d51c88ae154c/medical-policy-medical-treatments-autism-spectrum-disorders.pdf?MOD=AJPERES&CVID=p-W4w9T' },
       { title: 'Capital Blue Cross — Medical Policies index', url: 'https://www.capbluecross.com/wps/portal/cap/home/find/medical-policy' },
@@ -2547,6 +2581,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Can a Capital Blue Cross member use an out-of-network ABA provider?', a: 'On HMO and POS plans, only with preauthorization: “All treatments by non-Participating Providers require preauthorization.” No ABA single-case-agreement process or rate is published.' },
       { q: 'What is Capital Blue Cross’s timely filing limit for ABA claims?', a: 'CMS-1500 claims are due within 180 days of the date of service, and adjustments within 180 days of the original date of service, unless your agreement sets a shorter limit.' },
       { q: 'How long do I have to dispute a Capital Blue Cross claim?', a: '180 calendar days from the Statement of Remittance; Capital reviews a complete dispute within 60 calendar days.' },
       { q: 'Does Capital Blue Cross cover ABA therapy?', a: 'Yes. ABA is a preauthorized service for Commercial and CHIP members. Fully insured large groups, CHIP and self-funded groups that opted in must cover it under Act 62 for members under 21. Other plans follow the benefit booklet.' },
@@ -3001,6 +3036,13 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           { title: 'UPMC Health Plan Provider Manual — Chapter H, Claims Procedures (updated 10-28-24)', url: 'https://www.upmchealthplan.com/docs/providers/2025_ProviderManual_H.pdf' },
         ],
       },
+      {
+        h2: 'Can an out-of-network ABA provider get authorization from UPMC Health Plan?',
+        body: [
+          'Yes, by phone. UPMC Health Plan\'s behavioral health chapter (updated 08-20-25) says “Out-of-network providers must call 1-866-441-4185 to request prior authorization.” Whether the member has out-of-network ABA benefits depends on the product.',
+        ],
+        cites: [{ title: 'UPMC Health Plan Provider Manual — Chapter L, Behavioral Health Services (updated 08-20-25)', url: 'https://www.upmchealthplan.com/docs/providers/2025_ProviderManual_L.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan type and funding', desc: 'Employer group size and whether insured or self-funded (Act 62 applies only to insured 51+ groups), or individual/Marketplace. UPMC for You / Community HealthChoices members go to the county BH-MCO, not this guide.' },
@@ -3010,8 +3052,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: 'Telehealth need', desc: 'If any sessions will be remote, confirm video is possible — UPMC commercial denies audio-only.' },
       { title: 'Other coverage', desc: 'Both parents’ plans (UPMC applies the birthday rule) and any Medical Assistance, which is always secondary to UPMC commercial.' },
     ],
-    sources: [
-      { title: 'UPMC Health Plan Provider Manual — Chapter L, Behavioral Health Services (updated 08-20-25)', url: 'https://www.upmchealthplan.com/docs/providers/2025_ProviderManual_L.pdf' },
+    sources: [ { title: 'UPMC Health Plan Provider Manual — Chapter L, Behavioral Health Services (updated 08-20-25)', url: 'https://www.upmchealthplan.com/docs/providers/2025_ProviderManual_L.pdf' },
       { title: 'UPMC Health Plan Provider Manual — Chapter C, UPMC Health Plan Commercial', url: 'https://upmc.widen.net/s/rbn8crtscw/providermanual_c-2022_web' },
       { title: 'UPMC Health Plan Provider Manual — Chapter I, Member Administration (updated 07-03-25)', url: 'https://upmc.widen.net/s/mggshqdrrb/providermanual_i-2025_web' },
       { title: 'UPMC Health Plan Provider Manual — Chapter G, Utilization Management (updated 04-03-25)', url: 'https://upmc.widen.net/s/ll69cf5wvp/providermanual_g-2025_web' },
@@ -3164,6 +3205,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Can an out-of-network ABA provider get authorization from UPMC Health Plan?', a: 'Out-of-network providers call 1-866-441-4185 to request prior authorization. Out-of-network ABA benefits depend on the member\'s UPMC product.' },
       { q: 'What is UPMC Health Plan’s timely filing limit for commercial ABA claims?', a: '365 days from the date of service for new claims. Secondary and corrected claims are due 90 days from the EOP or 365 days from the date of service, whichever is later.' },
       { q: 'Does UPMC Health Plan cover ABA therapy?', a: 'On insured employer plans with 51 or more employees, yes — Act 62 requires coverage of ASD treatment including ABA for members under 21. UPMC publishes no ABA medical policy, so for individual, small-group and self-funded plans confirm the benefit with UPMC Health Plan BHS at 1-866-441-4185.' },
       { q: 'Who manages ABA for UPMC commercial members?', a: 'UPMC Health Plan Behavioral Health Services manages commercial behavioral health in-house. Community Care Behavioral Health handles network credentialing and after-hours authorizations. UPMC for You and Community HealthChoices members get behavioral health from their county BH-MCO instead.' },

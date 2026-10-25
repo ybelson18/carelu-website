@@ -33,20 +33,21 @@
      ohio.ts prose already quotes — the rates below are transcribed
      verbatim from that draft appendix with the draft status flagged and
      the effective-date column shown as blank, NOT presented as an
-     in-force schedule. codes.ohio.gov (in-force OAC 5160-34 text) is
-     JS/bot-gated and could not be read this pass.
+     in-force schedule. There is no in-force OAC 5160-34 text:
+     codes.ohio.gov returns "no rule number corresponds" (re-checked
+     2026-10-25) and ODM says the rule work was paused in 2025.
    - PRICING IS BY PRACTITIONER TIER, NOT MODIFIER: the ODM appendix
      differentiates payment by practitioner-tier descriptor rows
      (Independent Adaptive Services Practitioner = COBA/BCBA/BCBA-D;
      BCaBA; RBT), with NO HN/HO/HM/TG modifier column. Whether ODM
      requires tier modifiers on claims is silent in the document —
      codeGrid modifiers ship accordingly (unverified, described).
-   - PER-CODE DAILY CAPS: the in-force/draft state rule sets no per-code
+   - PER-CODE DAILY CAPS: ODM's draft ABA rule (none is in force) sets no per-code
      daily unit cap (only an assessment PA threshold of 10 hrs/180 days
-     and a 1:8 group ratio). The per-code CMS NCCI MUE ceilings are
-     enumerated verbatim in CareSource's PY-1638 (eff. 9/1/2026 — as of
-     this pass, split out of MM-0028 into this new companion
-     reimbursement policy, figures unchanged: 97151=32, 97152=16,
+     and a 1:8 group ratio). The per-code CMS NCCI MUE ceilings come from the
+     CMS Medicaid practitioner MUE table (eff. 10/1/2026), which
+     CareSource's PY-1638 (eff. 9/1/2026) adopts by reference without
+     printing the figures: 97151=32, 97152=16,
      97153=32, 97154=18, 97155=24, 97156=16, 97157=16, 97158=16,
      0362T=16, 0373T=32) and are the operative federal daily ceiling —
      applied as 'verified' on the CareSource guide and 'inferred'
@@ -96,7 +97,7 @@ const ODM_RULE_PACKAGE = src(
 );
 const OAC_5160_34_02 = src(
   'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02',
-  'OAC 5160-34-02 (in-force ABA rule: all-PA framework, DSM-5-TR ASD, 6-month reviews) — cited throughout ohio.ts prose. codes.ohio.gov is JS/bot-gated to automated fetch (returned "no rule number corresponds" this pass, unchanged from prior passes); in-force text not independently re-read here, so the current effective date is taken from ohio.ts prose, not reconfirmed against the live code page this pass. The cause of the missing/broken chapter is now explained, not just flagged — see ODM_ABA_OFFICE_HOURS below.'
+  'OAC 5160-34-02 — NOT an in-force rule. codes.ohio.gov returns "No Ohio Administrative Code rule number corresponds" (re-checked 2026-10-25); the 5160-34 chapter exists only as ODM\'s unfiled draft package ERF188422B, and ODM\'s 7/30/2026 presentation says the rule work was paused in 2025. Kept only so the dead URL stays watched; do not treat as a source of current policy.'
 );
 const ODM_ABA_OFFICE_HOURS: SourceRef = {
   url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/BH/provider/Presentations/7.30_ABA_Presentation.pdf',
@@ -120,7 +121,7 @@ const CARESOURCE_PY1638: SourceRef = {
   accessDate: '2026-09-01',
   staleRisk: false,
   note:
-    'CareSource OH MCD reimbursement policy PY-1638, eff. 9/1/2026 — NEW companion policy to MM-0028, same effective date (fetched and read in full this cycle). Carries the CMS MUE daily-unit maxima verbatim for all 10 codes, unchanged from the prior MM-0028 (97151=32, 97152=16, 97153=32, 97154=18, 97155=24, 97156=16, 97157=16, 97158=16, 0362T=16, 0373T=32) and the docs-before-claims rule ("claims will not be accepted without accompanying treatment documentation"), both split out of MM-0028 into this policy. NEW narrower rule (not previously published anywhere in this corpus): CareSource will no longer reimburse H0036 for ABA when a designated ABA CPT code is usable — this narrows the old blanket "H0036 accepted from certified CBHCs in lieu of ABA CPT codes" language.',
+    'CareSource OH MCD reimbursement policy PY-1638, eff. 9/1/2026 — NEW companion policy to MM-0028, same effective date (fetched and read in full this cycle). States "CareSource complies with the Centers for Medicare and Medicaid Services (CMS) medically unlikely edit (MUE) table" (it prints no per-code figures; re-read 2026-10-25), and carries the docs-before-claims rule ("claims will not be accepted without accompanying treatment documentation"), both split out of MM-0028 into this policy. NEW narrower rule (not previously published anywhere in this corpus): CareSource will no longer reimburse H0036 for ABA when a designated ABA CPT code is usable — this narrows the old blanket "H0036 accepted from certified CBHCs in lieu of ABA CPT codes" language.',
 };
 const CARESOURCE_PA_LIST = src(
   'https://www.caresource.com/documents/ohio-medicaid-prior-authorization-list/',
@@ -257,10 +258,10 @@ const AMERIHEALTH_NAVINET = src(
   "NaviNet provider-portal sign-in (navinet.navimedix.com) — live sign-in flow redirecting to NaviNet's identity provider, confirming the portal AmeriHealth Caritas Ohio's BH PA page names (\"Jiva via NaviNet\") is still in service."
 );
 
-/* CMS NCCI MUE daily-unit ceilings, enumerated verbatim in CareSource
-   PY-1638 (eff. 9/1/2026; formerly published in MM-0028, split out
-   effective 9/1/2026 — figures unchanged). This is the operative federal
-   per-code daily cap; the ODM state rule sets none of its own. */
+/* CMS NCCI MUE daily-unit ceilings from the CMS Medicaid practitioner MUE
+   table (eff. 10/1/2026, re-read 2026-10-25). CareSource PY-1638 (eff.
+   9/1/2026) adopts the CMS table by reference without printing figures.
+   Ohio has no in-force ABA rule setting caps of its own. */
 const MUE: Record<string, number> = {
   '97151': 32, '97152': 16, '97153': 32, '97154': 18, '97155': 24,
   '97156': 16, '97157': 16, '97158': 16, '0362T': 16, '0373T': 32,
@@ -313,19 +314,19 @@ function ohioMcoUnverifiedRates(planName: string): RateTable {
 function ohioMedicaidEntry(code: string): CodeGridEntry {
   const isAssessment = code === '97151' || code === '97152' || code === '0362T';
   return {
-    covered: 'Yes — covered for Medicaid individuals under 21 following a comprehensive diagnostic evaluation (OAC 5160-34; OhioRISE Mixed Services Protocol lists all 10 codes as MCO/FFS-paid)',
+    covered: 'Yes — ABA is a covered Medicaid service; ODM\'s OhioRISE Mixed Services Protocol lists all 10 codes as MCO/FFS-paid. No in-force ABA rule sets eligibility (the OAC 5160-34 package is an unfiled draft).',
     paRequired: isAssessment
-      ? 'Required — current OAC 5160-34-02 all-PA rule. The pending (not-yet-filed) 5160-34-03 rewrite would exempt assessment/reassessment up to 10 hrs per 180 days.'
-      : 'Required — at treatment initiation and again for continuation beyond the initial 180-day authorization (current rule; draft 5160-34-03 retains treatment PA).',
-    unitCap: `${MUE[code]} units/day (CMS NCCI MUE ceiling, enumerated in CareSource PY-1638, eff. 9/1/2026 — formerly in MM-0028, split out effective 9/1/2026 with figures unchanged)`,
+      ? 'Unverified for FFS — no in-force ODM ABA rule states it (OAC 5160-34-02 does not exist; the unfiled draft 5160-34-03 would exempt assessment/reassessment up to 10 hrs per 180 days). MCO members: per the plan\'s PA list.'
+      : 'Unverified for FFS — no in-force ODM ABA rule states it (the unfiled draft 5160-34-03 would require treatment PA). MCO members: per the plan\'s PA list.',
+    unitCap: `${MUE[code]} units/day (CMS Medicaid NCCI practitioner MUE table, eff. 10/1/2026)`,
     capPeriod: 'day',
     posAllowed: ['unverified'],
     telehealth: 'unverified',
     modifiers: ['Priced by practitioner tier (Independent COBA/BCBA/BCBA-D · BCaBA · RBT), not by a billing modifier in the ODM fee appendix — confirm any claim-level tier modifier with ODM/the MCO'],
-    notes: `The in-force/draft ODM ABA rule sets NO per-code daily unit cap of its own — only an assessment PA threshold (10 hrs/180 days) and a 1:8 group-session ratio (97154/97158). The daily cap shown is the CMS NCCI MUE ceiling. POS settings and telehealth mechanics are not enumerated in the draft rule package and could not be read from the JS-gated in-force OAC text this pass — shipped unverified. A rewrite of OAC 5160-34 is under active revision (ODM office-hours presentation, 7/30/2026) but not yet filed with JCARR — treat draft 5160-34-01/-03 detail as pending, not current. Verify via: ODM telehealth rule (OAC 5160-1-18) and the member's MCO policy.`,
+    notes: `No ODM ABA rule is in force; the unfiled draft sets NO per-code daily unit cap of its own — only an assessment PA threshold (10 hrs/180 days) and a 1:8 group-session ratio (97154/97158). The daily cap shown is the CMS NCCI MUE ceiling. POS settings and telehealth mechanics are not enumerated in the draft rule package and have no in-force OAC text to read (codes.ohio.gov has no 5160-34 rule) — shipped unverified. A rewrite of OAC 5160-34 is under active revision (ODM office-hours presentation, 7/30/2026) but not yet filed with JCARR — treat draft 5160-34-01/-03 detail as pending, not current. Verify via: ODM telehealth rule (OAC 5160-1-18) and the member's MCO policy.`,
     fieldStatus: {
       covered: 'verified',
-      paRequired: 'verified',
+      paRequired: 'unverified',
       unitCap: 'inferred',
       posAllowed: 'unverified',
       telehealth: 'unverified',
@@ -341,7 +342,7 @@ function careSourceEntry(code: string): CodeGridEntry {
     covered: 'Yes — under MM-0028 eff. 9/1/2026 (citing MCG B-806-T); diagnosis restricted to child/adolescent psychiatrist, psychologist, child neurologist, or developmental pediatrician (ADOS/ADI-R/CARS-2)',
     paRequired:
       'Required — medical-necessity review at baseline and every 6 months (MM-0028). Distinctive rule, now sited in the companion reimbursement policy PY-1638 (eff. 9/1/2026, same day the prior MM-0028 was archived): treatment documentation must reach CareSource BEFORE claims — "claims will not be accepted without accompanying treatment documentation." UM (800) 488-0134.',
-    unitCap: `${MUE[code]} units/day (CMS MUE maximum, enumerated in PY-1638, eff. 9/1/2026 — formerly published in MM-0028, figures unchanged)`,
+    unitCap: `${MUE[code]} units/day (CMS Medicaid MUE maximum, eff. 10/1/2026; PY-1638: "CareSource complies with the ... (MUE) table")`,
     capPeriod: 'day',
     posAllowed: ['unverified — neither MM-0028 nor PY-1638 enumerates POS numbers'],
     telehealth:
@@ -350,7 +351,7 @@ function careSourceEntry(code: string): CodeGridEntry {
         : 'Conditional — 1:1 ABA via telehealth only when medically necessary under a documented service-delivery plan (MM-0028); no telehealth modifier/POS number stated.',
     modifiers: ['unverified — neither MM-0028 nor PY-1638 publishes a licensure-tier/telehealth modifier table'],
     notes:
-      'Assessments generally 6-10 hrs per 6 months without justification (MM-0028); discontinuation trigger is no meaningful progress across two successive 6-month periods (MM-0028); RBT supervision >=5% of monthly ABA hours (MM-0028). PY-1638 (eff. 9/1/2026) narrows the old H0036 rule: CareSource will no longer reimburse H0036 for ABA when a designated ABA CPT code is usable — the prior blanket acceptance of H0036 (CPST) billing from certified CBHCs in lieu of ABA CPT codes no longer holds. The 9/1/2026 MM-0028 also requires continuation requests filed after a temporary break in services (e.g., summer, vacation) to be submitted as continuations, not new initial requests, and adds explicit anti-boilerplate requirements for symptom documentation in progress notes. Verify POS/telehealth modifier mechanics via the CareSource provider portal.',
+      'Assessments generally 6-10 hrs per 6 months without justification (MM-0028); discontinuation trigger is no meaningful progress across two successive 6-month periods (MM-0028); RBT supervision >=5% of monthly ABA hours (PY-1638). PY-1638 (eff. 9/1/2026) narrows the old H0036 rule: CareSource will no longer reimburse H0036 for ABA when a designated ABA CPT code is usable — the prior blanket acceptance of H0036 (CPST) billing from certified CBHCs in lieu of ABA CPT codes no longer holds. The 9/1/2026 MM-0028 also requires continuation requests filed after a temporary break in services (e.g., summer, vacation) to be submitted as continuations, not new initial requests, and adds explicit anti-boilerplate requirements for symptom documentation in progress notes. Verify POS/telehealth modifier mechanics via the CareSource provider portal.',
     fieldStatus: {
       covered: 'verified',
       paRequired: 'verified',
@@ -392,10 +393,10 @@ function buckeyeEntry(code: string): CodeGridEntry {
   };
 }
 
-/* Molina OH — tracks the state rule; no distinct ABA policy; Availity-only PA since 1/2026. */
+/* Molina OH — no distinct ABA policy and no in-force state ABA rule; Availity-only PA since 1/2026. */
 function molinaEntry(code: string): CodeGridEntry {
   return {
-    covered: 'Yes — administered on the OAC 5160-34 state framework; no distinct Molina ABA clinical policy published',
+    covered: 'Yes — no distinct Molina ABA clinical policy published, and no in-force state ABA rule (OAC 5160-34 is an unfiled ODM draft)',
     paRequired: 'Required per Molina\'s PA list — submitted via Availity Essentials ONLY since 1/1/2026 (fax discontinued in Ohio). BH auth line (855) 322-4081 (confirm current number in the portal).',
     unitCap: `${MUE[code]} units/day (CMS MUE ceiling — Molina publishes no distinct per-code table; state/CMS default)`,
     capPeriod: 'day',
@@ -419,7 +420,7 @@ function molinaEntry(code: string): CodeGridEntry {
 /* Anthem OH Medicaid — adopts CG-BEH-02; per-code text not re-extractable this pass. */
 function anthemEntry(code: string): CodeGridEntry {
   return {
-    covered: 'Yes — CG-BEH-02 (Adaptive Behavioral Treatment) adopted on the OAC 5160-34 baseline; EPSDT framing for under-21 members',
+    covered: 'Yes — CG-BEH-02 (Adaptive Behavioral Treatment) adopted; no in-force state ABA rule (OAC 5160-34 is an unfiled ODM draft); EPSDT framing for under-21 members',
     paRequired: 'Required — UM via Availity Essentials / Interactive Care Reviewer (per the 10/2025 provider manual). The assessment-vs-treatment PA split is not published — run codes through the PA lookup tool per case.',
     unitCap: `${MUE[code]} units/day (CMS MUE ceiling; no Anthem Ohio Medicaid weekly or per-code cap could be sourced — verify in the PA lookup tool)`,
     capPeriod: 'day',
@@ -467,7 +468,7 @@ function uhcCommunityEntry(code: string): CodeGridEntry {
 /* AmeriHealth Caritas Ohio — state-rule-driven; thin paper trail. */
 function amerihealthEntry(code: string): CodeGridEntry {
   return {
-    covered: 'Yes — "Behavioral Analysis Therapy for Autism Spectrum Disorder" (AmeriHealth Caritas OH BH PA page); administered on the OAC 5160-34 state framework, no distinct plan ABA policy published',
+    covered: 'Yes — "Behavioral Analysis Therapy for Autism Spectrum Disorder" (AmeriHealth Caritas OH BH PA page); no distinct plan ABA policy published and no in-force state ABA rule (OAC 5160-34 is an unfiled ODM draft)',
     paRequired: 'Required before ABA begins; 6-month authorization periods. Jiva UM via NaviNet; UM (833) 735-7700, fax (833) 329-6411. Initial decisions commonly reported at 10-14 business days.',
     unitCap: `${MUE[code]} units/day (CMS MUE ceiling — no distinct plan table; state/CMS default)`,
     capPeriod: 'day',
@@ -475,7 +476,7 @@ function amerihealthEntry(code: string): CodeGridEntry {
     telehealth: 'unverified',
     modifiers: ['unverified'],
     notes:
-      'Approved intensities generally 10-40 hrs/wk per clinical necessity (state framework). The plan\'s BH PA page is NOT bot-blocked this pass (contrary to the original compile) but publishes no code-level table. OhioRISE rule applies: ABA bills to AmeriHealth Caritas, never to OhioRISE. Verify code-level detail via the plan portal / provider manual.',
+      'Approved intensities generally 10-40 hrs/wk per clinical necessity. The plan\'s BH PA page is NOT bot-blocked this pass (contrary to the original compile) but publishes no code-level table. OhioRISE rule applies: ABA bills to AmeriHealth Caritas, never to OhioRISE. Verify code-level detail via the plan portal / provider manual.',
     fieldStatus: {
       covered: 'verified',
       paRequired: 'verified',
@@ -491,7 +492,7 @@ function amerihealthEntry(code: string): CodeGridEntry {
 /* Humana Healthy Horizons Ohio — all codes on the PA list. */
 function humanaEntry(code: string): CodeGridEntry {
   return {
-    covered: 'Yes — administered on the OAC 5160-34 state framework; no distinct Humana ABA clinical policy',
+    covered: 'Yes — no distinct Humana ABA clinical policy, and no in-force state ABA rule (OAC 5160-34 is an unfiled ODM draft)',
     paRequired: 'Required — every ABA code is on Humana\'s PA and notification list (eff. 1/1/2026), assessments included; services rendered without PA face retrospective medical-necessity review and financial penalties. Submit via Availity Essentials; OH provider line (877) 856-5707; in-house Humana behavioral UM.',
     unitCap: `${MUE[code]} units/day (CMS MUE ceiling — the PAL is a PA list only, no per-code cap; state/CMS default)`,
     capPeriod: 'day',
@@ -499,7 +500,7 @@ function humanaEntry(code: string): CodeGridEntry {
     telehealth: 'unverified',
     modifiers: ['unverified'],
     notes:
-      'The PA list names 97151-97158, 0362T, 0373T explicitly under "Applied behavioral analysis (ABA) therapy" — so the assessment itself needs authorization before the first appointment (unlike Buckeye\'s in-network assessment waiver). Clinical criteria follow the state framework (DSM-5-TR, 6-month reviews). OhioRISE rule applies. Verify code-level POS/telehealth via Humana provider services.',
+      'The PA list names 97151-97158, 0362T, 0373T explicitly under "Applied behavioral analysis (ABA) therapy" — so the assessment itself needs authorization before the first appointment (unlike Buckeye\'s in-network assessment waiver). Humana publishes no ABA clinical policy and Ohio has no in-force ABA rule; confirm diagnosis and review criteria with Humana. OhioRISE rule applies. Verify code-level POS/telehealth via Humana provider services.',
     fieldStatus: {
       covered: 'verified',
       paRequired: 'verified',
@@ -934,7 +935,7 @@ const ohioMedicaidContact: VobContact = {
   benefitsByPhone: true,
   requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
-    'For members under 21, is PA still required on assessment codes 97151/97152/0362T, or has the 5160-34-03 rewrite\'s assessment-PA exemption (up to 10 hrs/180 days) taken effect yet?',
+    'For fee-for-service members, is PA required on assessment codes 97151/97152/0362T and on treatment codes? (No ABA rule is in force; ODM\'s draft 5160-34-03 would exempt assessment up to 10 hrs/180 days if ever filed.)',
     'What place-of-service settings (home, school, clinic, telehealth) are currently approved for ABA billing?',
     'Is telehealth allowed for any ABA code, and if so which codes and under what modifier?',
     'Do ABA claims need a practitioner-tier billing modifier (Independent COBA/BCBA/BCBA-D vs. BCaBA vs. RBT), or is tier reflected some other way on the claim?',

@@ -536,6 +536,13 @@ export const connecticutPayers: Record<string, PayerConfig> = {
           { title: 'Anthem Blue Cross and Blue Shield — 2026 Connecticut Commercial Provider Manual (effective September 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_CT_00015.pdf' },
         ],
       },
+      {
+        h2: 'Which credential modifiers does Anthem want on ABA claims in Connecticut?',
+        body: [
+          'Anthem\'s commercial ABA Provider Resource Guide (June 2025), which lists this state, sets a credential-level modifier table: “HM” for “Less than bachelor’s degree level,” “HN” for “Bachelor’s degree level” and “HO” for “Master’s degree level.” It also says that technician-delivered ABA “must show the supervising BCBA or other QHP in box 31 of the CMS claim form.” The guide lists no HP (doctoral) modifier, and Anthem publishes no separate rate per modifier.',
+        ],
+        cites: [S.anthemRG],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (§ 38a-514b applies) or self-funded ERISA (plan document governs). Ask for the employer and check the card.' },
@@ -726,7 +733,7 @@ export const connecticutPayers: Record<string, PayerConfig> = {
       { title: 'Standardized functional measure', desc: 'Aetna wants one from the past 12 months (for example Vineland-3, ABAS, VB-MAPP or ABLLS).' },
       { title: 'Order from a licensed clinician', desc: 'The mandate covers ABA ordered by a licensed physician, psychologist or LCSW.' },
     ],
-    sources: [ { title: 'Aetna — Provider manual (8102800-01-01, 6/26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },S.aetnaGuide, S.aetnaPrecert, S.aetnaNPC, S.aetnaCPB648, S.aetnaOM, S.aetnaTele, S.s38a514b, S.s38a488b, S.s38a526a, S.s38a591d, S.s38a816, S.ch382a, S.dphBA, S.bacbLic, S.s19a906, S.erisa, S.handbook, S.cfr433, S.tricare, S.champva, S.asdFee, S.aetnaCPB],
+    sources: [S.aetnaGuide, S.aetnaPrecert, S.aetnaNPC, S.aetnaCPB648, S.aetnaOM, S.aetnaTele, S.s38a514b, S.s38a488b, S.s38a526a, S.s38a591d, S.s38a816, S.ch382a, S.dphBA, S.bacbLic, S.s19a906, S.erisa, S.handbook, S.cfr433, S.tricare, S.champva, S.asdFee, S.aetnaCPB],
     deliveryRules: {
       supervision: {
         value: 'Aetna’s participation criteria (5/26): ABA must be “provided directly or supervised by individuals licensed by the state or certified by the Behavior Analyst Certification Board”; “A minimum of one hour of face-to-face supervision” of an unlicensed or noncertified paraprofessional “for each 10 hours of applied behavior analysis,” plus the supervisor “onsite with the child at least one hour a month.” “All BCBAs, BCaBAs and paraprofessionals must meet state requirements.” For insured Connecticut plans, the statute sets the same 1-in-10 face-to-face standard and requires the supervisor to be a licensed behavior analyst, physician or psychologist.' + ' Aetna’s guide and Network Participation Criteria publish no cap on the number of technicians one BCBA may supervise.',
@@ -907,7 +914,7 @@ export const connecticutPayers: Record<string, PayerConfig> = {
       { title: 'Order from a licensed clinician', desc: 'The mandate covers ABA ordered by a licensed physician, psychologist or LCSW.' },
       { title: 'Supervisor’s CT license', desc: 'Insured plans cover behavioral therapy provided or supervised by a licensed behavior analyst, physician or psychologist.' },
     ],
-    sources: [ { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },S.en0499, S.cignaARG, S.ebhAdmin, S.s38a514b, S.s38a488b, S.s38a526a, S.s38a591d, S.s38a816, S.ch382a, S.dphBA, S.bacbLic, S.s19a906, S.erisa, S.handbook, S.cfr433, S.tricare, S.champva, S.asdFee],
+    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.s38a514b, S.s38a488b, S.s38a526a, S.s38a591d, S.s38a816, S.ch382a, S.dphBA, S.bacbLic, S.s19a906, S.erisa, S.handbook, S.cfr433, S.tricare, S.champva, S.asdFee],
     deliveryRules: {
       supervision: {
         value: 'Case supervision by a BCBA, a Licensed Behavior Analyst, or an independently licensed mental health professional with ABA training. Direct plus indirect case supervision “consistent with the general accepted standard of care of one to two hours per ten hours of direct treatment,” and at 10 hours a week or less, at least one to two hours a week of direct case supervision. Insured Connecticut plans also require a licensed supervisor with at least 1 hour face-to-face per 10 hours.' + ' EN0499 publishes no cap on the number of technicians one supervisor may oversee.',
@@ -1084,7 +1091,7 @@ export const connecticutPayers: Record<string, PayerConfig> = {
       { title: 'Order from a licensed clinician', desc: 'The mandate covers ABA ordered by a licensed physician, psychologist or LCSW.' },
       { title: 'Credential of each rendering staff member', desc: 'Every claim line needs the right HM/HN/HO/HP modifier.' },
     ],
-    sources: [ { title: 'UnitedHealthcare — Information on payment of out-of-network benefits', url: 'https://www.uhc.com/legal/information-on-payment-of-out-of-network-benefits' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (commercial)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, { title: 'Optum National Network Manual (BH02330, effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },S.optumSCC, S.optumSM, S.optumTele, S.optumReimb, S.optumNNM, S.s38a514b, S.s38a488b, S.s38a526a, S.s38a591d, S.s38a816, S.ch382a, S.dphBA, S.bacbLic, S.s19a906, S.erisa, S.handbook, S.cfr433, S.tricare, S.champva, S.asdFee],
+    sources: [ { title: 'UnitedHealthcare — Information on payment of out-of-network benefits', url: 'https://www.uhc.com/legal/information-on-payment-of-out-of-network-benefits' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (commercial)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },S.optumSCC, S.optumSM, S.optumTele, S.optumReimb, S.optumNNM, S.s38a514b, S.s38a488b, S.s38a526a, S.s38a591d, S.s38a816, S.ch382a, S.dphBA, S.bacbLic, S.s19a906, S.erisa, S.handbook, S.cfr433, S.tricare, S.champva, S.asdFee],
     deliveryRules: {
       supervision: {
         value: '“Consistent with CASP standards of care, direct case supervision is required 1–2 hours for every 10 hours of direct treatment per week.” Technicians work under a BCBA or licensed behavioral health clinician and “should be registered behavior technicians (RBT) or another appropriately certified behavior technician.” For Connecticut, Optum’s state-mandate entry applies at least one hour of face-to-face supervision per ten hours by a licensed behavior analyst, physician or psychologist.' + ' Optum’s criteria publish no cap on the number of technicians per BCBA.',
