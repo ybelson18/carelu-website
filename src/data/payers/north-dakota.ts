@@ -125,6 +125,12 @@ const AETNA_APPEALS_BODY_G5 =
 const AETNA_TOC_BODY_G5 =
   'Out-of-network providers and changing plans. Aetna offers transition of care, which lets a new member keep seeing a current out-of-network provider “at in-network cost level for a defined period of time,” and continuity of care, for a member in active treatment whose provider leaves Aetna’s network. Both require “an active course of covered treatment,” are time-limited, start with the member asking Member Services or the employer for a Transition Coverage Request Form, and do not apply to Traditional Choice plans. The manual limits them to an individual practitioner (for example a specialist or speech therapist) or a home care agency, so ask Aetna whether an ABA group qualifies. It describes no separate single case agreement process.';
 
+/* BCBSND appeals and non-participating providers (Provider Manual 8-26, read 2026-10-25). */
+const BCBSND_APPEAL_BODY_G5 =
+  'Appeals. BCBSND’s provider manual says a provider appealing “must specifically state the nature of the appeal and include all supporting information and rationale for overturning the determination,” and may send written comments, records or other documents; a medical director not involved in the original decision reviews it. Pre-service appeals (for example a denied ABA authorization) may be filed verbally or in writing by the provider, member or authorized representative “within 180 calendar days from the notice of Adverse Benefit Determination,” only one is allowed, and BCBSND answers in writing within 30 calendar days (72 hours verbally for an emergency). Post-service (claim) appeals are due within 180 calendar days, allow two levels, and go to the provider’s local Blue plan; “Any appeals received after 180 days will be returned to the provider without review.” A retrospective review, when no advance approval was obtained, is also due within 180 days of the service.';
+const BCBSND_OON_BODY_G5 =
+  'Out-of-network providers. A non-participating provider has no BCBSND contract: BCBSND pays an allowed amount, the member gets a lower level of benefit, “The non-participating provider may balance bill the member for all amounts not paid by BCBSND,” and the member is responsible for notifying BCBSND and for managed-benefit requirements. The manual describes no single case agreement process; ask BCBSND Provider Service, 800-368-2312, case by case.';
+
 export const northDakotaPayers: Record<string, PayerConfig> = {
   'north-dakota-medicaid': {
     slug: 'north-dakota-medicaid',
@@ -414,6 +420,11 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.bcTele, S.c4364],
       },
+      {
+        h2: 'Appeals and out-of-network providers',
+        body: [BCBSND_APPEAL_BODY_G5, BCBSND_OON_BODY_G5],
+        cites: [S.bcPM],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Insured (Bulletin 2018-1 and ch. 26.1-36.12 apply) vs. self-funded ERISA (the plan document governs).' },
@@ -422,7 +433,7 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis and order', desc: 'ASD diagnosis and an order from a licensed physician or psychologist (Bulletin 2018-1’s definition of treatment).' },
       { title: 'Other coverage', desc: 'Second parent’s plan (birthday rule), ND Medicaid (pays last), TRICARE.' },
     ],
-    sources: [S.bcPA, S.bcMigPA, S.bcBH18, S.bcPM, S.bcTele, S.bcMEPM, S.bull2018, S.doiNews, S.c2636, S.pa3612, S.cob, S.c4364, S.ndac112, S.c4357, S.bacbLic, S.erisa, S.tpl, S.tricare, S.champva, S.profFee, { title: 'BCBSND — HealthCare News for providers (incl. Quarterly Provider Insights)', url: 'https://www.bcbsnd.com/providers/news-resources/healthcare-news' }],
+    sources: [ S.bcPM,S.bcPA, S.bcMigPA, S.bcBH18, S.bcPM, S.bcTele, S.bcMEPM, S.bull2018, S.doiNews, S.c2636, S.pa3612, S.cob, S.c4364, S.ndac112, S.c4357, S.bacbLic, S.erisa, S.tpl, S.tricare, S.champva, S.profFee, { title: 'BCBSND — HealthCare News for providers (incl. Quarterly Provider Insights)', url: 'https://www.bcbsnd.com/providers/news-resources/healthcare-news' }],
     deliveryRules: {
       supervision: {
         value: 'No numeric ratio is published. For migrated members, policy BH18 says BCBAs/BCBA-Ds "may oversee all aspects of assessment, treatment planning, and supervision of support staff," BCaBAs and behavior technicians/RBTs work under a BCBA, BCBA-D or qualified supervisor, and "All supervision must be conducted in accordance with" BACB standards; the treatment plan must justify "the hours per week of direct face-to-face supervision." The non-migrated policy was not readable. North Dakota law requires ABA to be practiced by a licensed behavior analyst, with technicians exempt only when working "under the extended authority and direction of" a licensed behavior analyst or licensed assistant behavior analyst.',

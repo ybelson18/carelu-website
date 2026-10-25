@@ -30,6 +30,11 @@ const AETNA_APPEALS_BODY_G5 =
 const AETNA_TOC_BODY_G5 =
   'Out-of-network providers and changing plans. Aetna offers transition of care, which lets a new member keep seeing a current out-of-network provider “at in-network cost level for a defined period of time,” and continuity of care, for a member in active treatment whose provider leaves Aetna’s network. Both require “an active course of covered treatment,” are time-limited, start with the member asking Member Services or the employer for a Transition Coverage Request Form, and do not apply to Traditional Choice plans. The manual limits them to an individual practitioner (for example a specialist or speech therapist) or a home care agency, so ask Aetna whether an ABA group qualifies. It describes no separate single case agreement process.';
 
+/* MO HealthNet participant fair hearing (BHS manual § 1.5, read 2026-10-25). */
+const MO_BHS_G5 = { title: 'MO HealthNet Behavioral Health Services Manual (May 2026), § 1.5 Participant Appeal Rights and § 1.16 ABA Services', url: 'https://mydss.mo.gov/sites/mydss/files/media/file/2026/05/Behavioral%20Health%20Services%20Manual.docx' };
+const MO_APPEAL_BODY_G5 =
+  'Appealing a denied ABA precertification. The ABA section (§ 1.16) of the Behavioral Health Services Manual sets no appeal process of its own; the manual’s participant appeal rights sit in its precertification section (§ 1.5): when a precertification request is denied, “the participant will receive a letter that outlines the reason for the denial and the procedure for appeal,” and may request a State Fair Hearing through the Participant Services Unit at (800) 392-2161, StateFairHearings@dss.mo.gov, or MO HealthNet Division Participant Services Unit, P.O. Box 6500, Jefferson City, MO 65102. “The participant must contact the PSU within 90 days of the date of the denial letter if they wish to request a hearing. After 90 days, requests to appeal are denied.” Because MCO members get ABA fee-for-service, this is the route for every MO HealthNet child, whichever health plan card they carry; confirm with the Behavioral Health Services help desk, (866) 771-3350, that it is the route for an ABA denial.';
+
 export const missouriPayers: Record<string, PayerConfig> = {
   'missouri-medicaid': {
     slug: 'missouri-medicaid',
@@ -201,6 +206,11 @@ export const missouriPayers: Record<string, PayerConfig> = {
           { title: 'MO HealthNet Behavioral Health Services Manual, §1.12–1.16 ABA codes and services (May 2026)', url: 'https://mydss.mo.gov/sites/mydss/files/media/file/2026/05/Behavioral%20Health%20Services%20Manual.docx' },
         ],
       },
+      {
+        h2: 'Appeals: denied ABA precertification',
+        body: [MO_APPEAL_BODY_G5],
+        cites: [MO_BHS_G5],
+      },
     ],
     collect: [
       { title: 'MO HealthNet eligibility — not the plan card', desc: 'Whichever MCO card the family shows, ABA is state FFS. Verify MO HealthNet eligibility; skip the MCO analysis entirely.' },
@@ -209,7 +219,7 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { title: 'School services / IEP status', desc: 'IEP-based school ABA is precert-exempt — and a coordination fact for the intervention plan.' },
       { title: 'Rendering-tier plan', desc: 'HO vs. HN vs. HM decides the rate on every hour — staffing mix is a first-order revenue variable.' },
     ],
-    sources: [
+    sources: [ MO_BHS_G5,
       { title: 'MHD Applied Behavioral Analysis fee schedule (xlsx, file dated 8/27/2026)', url: 'https://apps.dss.mo.gov/fmsfeeschedules/dlfiles/Applied%20Behavioral%20Analysis.xlsx' },
       { title: 'MO HealthNet Behavioral Health Services Manual, §1.16 ABA Services (May 2026)', url: 'https://mydss.mo.gov/sites/mydss/files/media/file/2026/05/Behavioral%20Health%20Services%20Manual.docx' },
       { title: 'MHD Applied Behavioral Analysis fee schedule (official download portal)', url: 'https://apps.dss.mo.gov/fmsfeeschedules/DLFiles.aspx' },
