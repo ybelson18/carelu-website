@@ -251,7 +251,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'A developmental pediatrician, neurologist, psychiatrist, licensed psychologist, or an interdisciplinary diagnostic team (a physician, PA or NP in consultation with qualified child specialists with autism expertise). The diagnosis must be documented with DSM criteria and a symptom severity level.',
+          'A developmental pediatrician, neurologist, psychiatrist, licensed psychologist, or an interdisciplinary diagnostic team (a physician, PA or NP in consultation with qualified child specialists with autism expertise). The diagnosis must be documented with DSM criteria and a symptom severity level.' + ' LCSW: no. A licensed clinical social worker is not on the TMPPM list of providers who may make the ASD diagnosis (developmental pediatrician, neurologist, psychiatrist, licensed psychologist); an LCSW’s standardized-tool results may only feed an interdisciplinary diagnostic team.',
         status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
@@ -320,6 +320,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'What is the timely filing limit for Texas Medicaid ABA claims?', a: 'Ninety-five days from each date of service, for TMHP fee-for-service claims and for claims to a Texas Medicaid MCO alike. Appeals to TMHP are due within 120 days of the R&S Report disposition date.' },
       { q: 'Does Texas Medicaid require a taxonomy code on the claim?', a: 'Yes. TMHP requires the NPI and taxonomy code for the billing and the performing provider on paper claims, and asks for NPI, taxonomy and benefit code on every claim. A paper claim without them is denied.' },
       { q: 'Does the referring doctor have to be on Texas Medicaid ABA claims?', a: 'Yes. ABA needs a prescriber referral, and TMPPM § 6.4.2.4 requires every claim for a service that needs a physician order or referral to carry the ordering or referring provider’s NPI (CMS-1500 block 17 with qualifier DN, NPI in 17b). That prescriber must be enrolled in Texas Medicaid, at least as an ordering/referring-only provider; a missing or unenrolled NPI can lead to denial on retrospective review.' },
+      { q: 'What do the HO, HN and HM modifiers mean on a Texas Medicaid ABA claim?', a: 'They name who rendered the service: HO licensed behavior analyst, HN licensed assistant behavior analyst, HM behavior technician (TMPPM Children’s Services Handbook, ABA reimbursement and billing guidelines). 97151 requires HO; 97155, 97156 and 97158 require HO or HN; on 97153 and 97154 the modifiers are informational only. Modifier 95 marks telehealth.' },
+      { q: 'Is a Texas Medicaid ABA authorization tied to the individual provider or to the group?', a: 'To the group. Under TMPPM § 2.3.9 (Change of Provider), when a child moves to a new performing provider within the same group, the new provider uses the same evaluation and plan of care and “The authorization period will not change.” When the child moves to a provider outside the current group, the new provider must start a new authorization request with all initial-evaluation documentation plus a change-of-therapy-provider letter signed by the responsible adult (end date with the old provider, and both providers’ names).' },
     ],
   },
 
@@ -511,7 +513,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: a developmental pediatrician, neurologist, psychiatrist, licensed psychologist, or an interdisciplinary diagnostic team (a physician, PA or NP in consultation with qualified child specialists with autism expertise).',
+          'Follows the Texas Medicaid (TMPPM) rule: a developmental pediatrician, neurologist, psychiatrist, licensed psychologist, or an interdisciplinary diagnostic team (a physician, PA or NP in consultation with qualified child specialists with autism expertise).' + ' LCSW: no. A licensed clinical social worker is not on the TMPPM list of providers who may make the ASD diagnosis (developmental pediatrician, neurologist, psychiatrist, licensed psychologist); an LCSW’s standardized-tool results may only feed an interdisciplinary diagnostic team.',
         status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
@@ -574,6 +576,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'Is Superior\'s ABA network open to new providers?', a: 'It does not publish an open or closed status. Enroll in Texas Medicaid first, then apply to the plan; Medicaid enrollment does not guarantee an MCO contract. Ask provider relations.' },
       { q: 'What is the timely filing limit for Superior (Texas Medicaid)?', a: 'Ninety-five days from the date of service. HHSC’s Uniform Managed Care Claims Manual sets it for every Texas Medicaid MCO, and Superior’s own manual states the same deadline. Claim appeals get 120 days from the disposition date.' },
       { q: 'How fast does Superior have to pay a clean claim?', a: 'HHSC requires every Texas Medicaid MCO to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days.' },
+      { q: 'Is a Texas Medicaid ABA authorization tied to the individual provider or to the group?', a: 'The plan follows the Texas Medicaid rule. To the group. Under TMPPM § 2.3.9 (Change of Provider), when a child moves to a new performing provider within the same group, the new provider uses the same evaluation and plan of care and “The authorization period will not change.” When the child moves to a provider outside the current group, the new provider must start a new authorization request with all initial-evaluation documentation plus a change-of-therapy-provider letter signed by the responsible adult (end date with the old provider, and both providers’ names).' },
     ],
   },
 
@@ -754,7 +757,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: a developmental pediatrician, neurologist, psychiatrist, licensed psychologist, or an interdisciplinary diagnostic team (a physician, PA or NP in consultation with qualified child specialists with autism expertise).',
+          'Follows the Texas Medicaid (TMPPM) rule: a developmental pediatrician, neurologist, psychiatrist, licensed psychologist, or an interdisciplinary diagnostic team (a physician, PA or NP in consultation with qualified child specialists with autism expertise).' + ' LCSW: no. A licensed clinical social worker is not on the TMPPM list of providers who may make the ASD diagnosis (developmental pediatrician, neurologist, psychiatrist, licensed psychologist); an LCSW’s standardized-tool results may only feed an interdisciplinary diagnostic team.',
         status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
@@ -817,6 +820,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'Is Texas Children\'s Health Plan\'s ABA network open to new providers?', a: 'It does not publish an open or closed status. Enroll in Texas Medicaid first, then apply to the plan; Medicaid enrollment does not guarantee an MCO contract. Ask provider relations.' },
       { q: 'What is the timely filing limit for Texas Children’s Health Plan (Texas Medicaid)?', a: 'Ninety-five days from the date of service. HHSC’s Uniform Managed Care Claims Manual sets it for every Texas Medicaid MCO. Claim appeals get 120 days from the disposition date.' },
       { q: 'How fast does Texas Children’s Health Plan have to pay a clean claim?', a: 'HHSC requires every Texas Medicaid MCO to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days.' },
+      { q: 'Is a Texas Medicaid ABA authorization tied to the individual provider or to the group?', a: 'The plan follows the Texas Medicaid rule. To the group. Under TMPPM § 2.3.9 (Change of Provider), when a child moves to a new performing provider within the same group, the new provider uses the same evaluation and plan of care and “The authorization period will not change.” When the child moves to a provider outside the current group, the new provider must start a new authorization request with all initial-evaluation documentation plus a change-of-therapy-provider letter signed by the responsible adult (end date with the old provider, and both providers’ names).' },
     ],
   },
 
@@ -922,6 +926,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
       { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
       { title: 'Wellpoint — Provider News, Texas (index of provider news articles)', url: 'https://providernews.wellpoint.com/tx' },
+      { title: 'Texas Medicaid Fee Schedule — Autism services (TMHP static fee schedule PRCR615C, dated 9/14/2026)', url: 'https://public.tmhp.com/FeeSchedules/StaticFeeSchedule/FeeSchedules.aspx?fn=%5c%5ctmhp.net%5cFeeSchedule%5cPROD%5cStatic%5cTexas_Medicaid_Fee_Schedule_PRCR615C.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -1001,7 +1006,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: a developmental pediatrician, neurologist, psychiatrist, licensed psychologist, or an interdisciplinary diagnostic team (a physician, PA or NP in consultation with qualified child specialists with autism expertise).',
+          'Follows the Texas Medicaid (TMPPM) rule: a developmental pediatrician, neurologist, psychiatrist, licensed psychologist, or an interdisciplinary diagnostic team (a physician, PA or NP in consultation with qualified child specialists with autism expertise).' + ' LCSW: no. A licensed clinical social worker is not on the TMPPM list of providers who may make the ASD diagnosis (developmental pediatrician, neurologist, psychiatrist, licensed psychologist); an LCSW’s standardized-tool results may only feed an interdisciplinary diagnostic team.',
         status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
@@ -1065,6 +1070,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'Is Wellpoint\'s ABA network open to new providers?', a: 'It does not publish an open or closed status. Enroll in Texas Medicaid first, then apply to the plan; Medicaid enrollment does not guarantee an MCO contract. Ask provider relations.' },
       { q: 'What is the timely filing limit for Wellpoint (Texas Medicaid)?', a: 'Ninety-five days from the date of service. HHSC’s Uniform Managed Care Claims Manual sets it for every Texas Medicaid MCO, and Wellpoint’s own manual states the same deadline. Claim appeals get 120 days from the disposition date.' },
       { q: 'How fast does Wellpoint have to pay a clean claim?', a: 'HHSC requires every Texas Medicaid MCO to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days.' },
+      { q: 'Is a Texas Medicaid ABA authorization tied to the individual provider or to the group?', a: 'The plan follows the Texas Medicaid rule. To the group. Under TMPPM § 2.3.9 (Change of Provider), when a child moves to a new performing provider within the same group, the new provider uses the same evaluation and plan of care and “The authorization period will not change.” When the child moves to a provider outside the current group, the new provider must start a new authorization request with all initial-evaluation documentation plus a change-of-therapy-provider letter signed by the responsible adult (end date with the old provider, and both providers’ names).' },
+      { q: 'What does Wellpoint (formerly Amerigroup Texas) pay for ABA?', a: 'Its contracted rates are not published. The public benchmark is the Texas Medicaid fee schedule (dated 9/14/2026): per 15 minutes, 97151 $27.56, 97153 $14.50, 97154 $1.63, 97155 $20.08 (HN) or $25.10 (HO), 97156 $18.40 (HN) or $23.01 (HO), 97158 $2.25 (HN) or $2.81 (HO). Ask the plan for its ABA fee schedule before contracting.' },
     ],
   },
 
@@ -1173,6 +1180,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
       { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
       { title: 'UnitedHealthcare Community Plan of Texas — Alerts, Bulletins and News (index)', url: 'https://www.uhcprovider.com/en/health-plans-by-state/texas-health-plans/tx-comm-plan-home/tx-cp-news.html' },
+      { title: 'Texas Medicaid Fee Schedule — Autism services (TMHP static fee schedule PRCR615C, dated 9/14/2026)', url: 'https://public.tmhp.com/FeeSchedules/StaticFeeSchedule/FeeSchedules.aspx?fn=%5c%5ctmhp.net%5cFeeSchedule%5cPROD%5cStatic%5cTexas_Medicaid_Fee_Schedule_PRCR615C.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -1253,7 +1261,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: a developmental pediatrician, neurologist, psychiatrist, licensed psychologist, or an interdisciplinary diagnostic team (a physician, PA or NP in consultation with qualified child specialists with autism expertise). Optum administers the authorization but adds no Texas overlay — its ABA State Mandates supplemental criteria contain no Texas entry.',
+          'Follows the Texas Medicaid (TMPPM) rule: a developmental pediatrician, neurologist, psychiatrist, licensed psychologist, or an interdisciplinary diagnostic team (a physician, PA or NP in consultation with qualified child specialists with autism expertise). Optum administers the authorization but adds no Texas overlay — its ABA State Mandates supplemental criteria contain no Texas entry.' + ' LCSW: no. A licensed clinical social worker is not on the TMPPM list of providers who may make the ASD diagnosis (developmental pediatrician, neurologist, psychiatrist, licensed psychologist); an LCSW’s standardized-tool results may only feed an interdisciplinary diagnostic team.',
         status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
@@ -1317,6 +1325,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'Is UnitedHealthcare Community Plan\'s ABA network open to new providers?', a: 'It does not publish an open or closed status. Enroll in Texas Medicaid first, then apply to the plan; Medicaid enrollment does not guarantee an MCO contract. Ask provider relations.' },
       { q: 'What is the timely filing limit for UnitedHealthcare Community Plan (Texas Medicaid)?', a: 'Ninety-five days from the date of service. HHSC’s Uniform Managed Care Claims Manual sets it for every Texas Medicaid MCO, and UnitedHealthcare Community Plan’s own manual states the same deadline. Claim appeals get 120 days from the disposition date.' },
       { q: 'How fast does UnitedHealthcare Community Plan have to pay a clean claim?', a: 'HHSC requires every Texas Medicaid MCO to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days.' },
+      { q: 'Is a Texas Medicaid ABA authorization tied to the individual provider or to the group?', a: 'The plan follows the Texas Medicaid rule. To the group. Under TMPPM § 2.3.9 (Change of Provider), when a child moves to a new performing provider within the same group, the new provider uses the same evaluation and plan of care and “The authorization period will not change.” When the child moves to a provider outside the current group, the new provider must start a new authorization request with all initial-evaluation documentation plus a change-of-therapy-provider letter signed by the responsible adult (end date with the old provider, and both providers’ names).' },
+      { q: 'What does UnitedHealthcare Community Plan of Texas pay for ABA?', a: 'Its contracted rates are not published. The public benchmark is the Texas Medicaid fee schedule (dated 9/14/2026): per 15 minutes, 97151 $27.56, 97153 $14.50, 97154 $1.63, 97155 $20.08 (HN) or $25.10 (HO), 97156 $18.40 (HN) or $23.01 (HO), 97158 $2.25 (HN) or $2.81 (HO). Ask the plan for its ABA fee schedule before contracting.' },
     ],
   },
 
@@ -1430,6 +1440,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
       { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
       { title: 'Aetna Better Health of Texas — Provider Notices & Newsletters (index)', url: 'https://www.aetnabetterhealth.com/texas/providers/notices-newsletters.html' },
+      { title: 'Texas Medicaid Fee Schedule — Autism services (TMHP static fee schedule PRCR615C, dated 9/14/2026)', url: 'https://public.tmhp.com/FeeSchedules/StaticFeeSchedule/FeeSchedules.aspx?fn=%5c%5ctmhp.net%5cFeeSchedule%5cPROD%5cStatic%5cTexas_Medicaid_Fee_Schedule_PRCR615C.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -1508,7 +1519,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: a developmental pediatrician, neurologist, psychiatrist, licensed psychologist, or an interdisciplinary diagnostic team (a physician, PA or NP in consultation with qualified child specialists with autism expertise). Aetna Better Health of Texas’s 2025–2026 provider manual (published August 2026) has no ABA section and adds no rule of its own, so the state rule applies unchanged.',
+          'Follows the Texas Medicaid (TMPPM) rule: a developmental pediatrician, neurologist, psychiatrist, licensed psychologist, or an interdisciplinary diagnostic team (a physician, PA or NP in consultation with qualified child specialists with autism expertise). Aetna Better Health of Texas’s 2025–2026 provider manual (published August 2026) has no ABA section and adds no rule of its own, so the state rule applies unchanged.' + ' LCSW: no. A licensed clinical social worker is not on the TMPPM list of providers who may make the ASD diagnosis (developmental pediatrician, neurologist, psychiatrist, licensed psychologist); an LCSW’s standardized-tool results may only feed an interdisciplinary diagnostic team.',
         status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
@@ -1575,39 +1586,39 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'Is Aetna Better Health\'s ABA network open to new providers?', a: 'It does not publish an open or closed status. Enroll in Texas Medicaid first, then apply to the plan; Medicaid enrollment does not guarantee an MCO contract. Ask provider relations.' },
       { q: 'What is the timely filing limit for Aetna Better Health of Texas (Texas Medicaid)?', a: 'Ninety-five days from the date of service. HHSC’s Uniform Managed Care Claims Manual sets it for every Texas Medicaid MCO. Claim appeals get 120 days from the disposition date.' },
       { q: 'How fast does Aetna Better Health of Texas have to pay a clean claim?', a: 'HHSC requires every Texas Medicaid MCO to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days. The plan’s manual pays 18 percent annual interest on clean claims left un-adjudicated past 30 days. No weekly cutoff or check-run day is published.' },
+      { q: 'Is a Texas Medicaid ABA authorization tied to the individual provider or to the group?', a: 'The plan follows the Texas Medicaid rule. To the group. Under TMPPM § 2.3.9 (Change of Provider), when a child moves to a new performing provider within the same group, the new provider uses the same evaluation and plan of care and “The authorization period will not change.” When the child moves to a provider outside the current group, the new provider must start a new authorization request with all initial-evaluation documentation plus a change-of-therapy-provider letter signed by the responsible adult (end date with the old provider, and both providers’ names).' },
+      { q: 'What does Aetna Better Health of Texas pay for ABA?', a: 'Its contracted rates are not published. The public benchmark is the Texas Medicaid fee schedule (dated 9/14/2026): per 15 minutes, 97151 $27.56, 97153 $14.50, 97154 $1.63, 97155 $20.08 (HN) or $25.10 (HO), 97156 $18.40 (HN) or $23.01 (HO), 97158 $2.25 (HN) or $2.81 (HO). Ask the plan for its ABA fee schedule before contracting.' },
     ],
   },
 
   'molina-healthcare-texas': {
     slug: 'molina-healthcare-texas',
     family: 'molina',
-    cardDesc: 'TMPPM baseline; verify codes in Molina\'s PA Code Matrix — its PA guide PDFs sit behind bot walls.',
+    cardDesc: 'TMPPM baseline; Molina\'s Oct 2026 PA Code Matrix requires PA on 97151 and 97153–97158 (not 97152).',
     assessmentPA: {
-      value: 'Required — per the statewide TMPPM benefit; verify code-level handling in Molina\'s BH/Medical PA Code Matrix',
-      status: 'unverified',
+      value: 'Required for 97151. Molina\'s Medicaid BH and Medical PA Code Matrix (October 1, 2026) lists 97151 under Applied Behavior Analysis with "Texas Medicaid Provider Procedures Manual" as the criteria, matching the TMPPM rule that the evaluation is prior-authorized; 97152 is not on the matrix',
+      status: 'verified',
       cites: [
+        { title: 'Molina Healthcare of Texas — Medicaid Behavioral Health and Medical Prior Authorization (PA) Code Matrix, October 1, 2026 (Q4)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/Prior-Auth/10-2026-MHTX-Q4-Medicaid-BH-Medical-PA-Code-Matrix-508.pdf' },
         { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
       ],
-      verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide — both bot-protected on molinahealthcare.com. The TMPPM rule this value restates is itself verified; what is unverified is that Molina applies it unchanged. Human retrieval via carelu.com/sources.',
-      blocker: 'document',
     },
     treatmentPA: {
-      value: 'Required — state cadence applies; out-of-network requests need authorization regardless of service',
-      status: 'unverified',
+      value: 'Required — the October 1, 2026 PA Code Matrix lists 97153, 97154, 97155, 97156, 97157, 97158 and 0373T under Applied Behavior Analysis, reviewed against the Texas Medicaid Provider Procedures Manual (0373T against third-party proprietary criteria); the TMPPM authorization cadence applies, and out-of-network requests need authorization regardless of service',
+      status: 'verified',
       cites: [
+        { title: 'Molina Healthcare of Texas — Medicaid Behavioral Health and Medical Prior Authorization (PA) Code Matrix, October 1, 2026 (Q4)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/Prior-Auth/10-2026-MHTX-Q4-Medicaid-BH-Medical-PA-Code-Matrix-508.pdf' },
         { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
       ],
-      verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide — both bot-protected on molinahealthcare.com. The TMPPM rule this value restates is itself verified; what is unverified is that Molina applies it unchanged. Human retrieval via carelu.com/sources.',
-      blocker: 'document',
     },
     dxRequired: {
-      value: 'Yes — ASD per the statewide TMPPM criteria',
-      status: 'unverified',
+      value: 'Yes — ASD per the statewide TMPPM criteria. Molina\'s 2026 Medicaid/CHIP provider manual adds no ABA criteria of its own, and its PA Code Matrix names the TMPPM as the criteria for the ABA codes',
+      status: 'verified',
       cites: [
         { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+        { title: 'Molina Healthcare of Texas — Medicaid/CHIP Provider Manual (MHTPROVMN0426)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/MHTX-MEDICAID-CHIP-Provider-Manual-EN-508.pdf' },
+        { title: 'Molina Healthcare of Texas — Medicaid Behavioral Health and Medical Prior Authorization (PA) Code Matrix, October 1, 2026 (Q4)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/Prior-Auth/10-2026-MHTX-Q4-Medicaid-BH-Medical-PA-Code-Matrix-508.pdf' },
       ],
-      verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide — both bot-protected on molinahealthcare.com. The TMPPM rule this value restates is itself verified; what is unverified is that Molina applies it unchanged. Human retrieval via carelu.com/sources.',
-      blocker: 'document',
     },
     payer: 'Molina Healthcare of Texas',
     state: 'TX', kind: 'medicaid-mco', parent: 'Texas Medicaid (THSteps-CCP)',
@@ -1635,17 +1646,18 @@ export const texasPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
-          { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
+          { title: 'Molina Healthcare of Texas — Prior Authorization for Providers (links the quarterly Medicaid BH/Medical PA Code Matrix)', url: 'https://www.molinahealthcare.com/providers/tx/prior-auth' },
         ],
       },
       {
         h2: 'What to pull manually',
         body: [
-          'Molina directs providers to its Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool for code-level PA handling, and its current-year "MHT Prior Authorization Guide" PDF is the document of record — but those files sit behind bot protection, so we could not verify their ABA specifics for this guide. Before your first Molina submission: download the current PA guide from molinahealthcare.com manually, run the ABA codes (97151–97158, 99366) through the look-up tool, and confirm the submission channel (Molina plans typically use Availity or the Molina Provider Portal, but confirm for Texas ABA specifically). Note also which program the child is on: a family that says "Molina" after the Cigna transition may be a STAR+PLUS adult — not an ABA case profile.',
+          'Molina publishes its code-level PA list as a quarterly Medicaid Behavioral Health and Medical PA Code Matrix. The October 1, 2026 edition lists 97151, 97153, 97154, 97155, 97156, 97157, 97158 and 0373T under Applied Behavior Analysis, each reviewed against the Texas Medicaid Provider Procedures Manual (0373T against third-party proprietary criteria); 97152 is not on it. Before your first Molina submission, re-check the current quarter\'s matrix (it is reissued each quarter) and confirm the submission channel (Molina plans typically use Availity or the Molina Provider Portal, but confirm for Texas ABA specifically). Note also which program the child is on: a family that says "Molina" after the Cigna transition may be a STAR+PLUS adult — not an ABA case profile.',
         ],
         cites: [
           { title: 'Molina TX — Medicaid/CHIP Prior Authorization Guide (2025; ABA for ASD requires PA)', url: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/tx/medicaid/forms/MHT-Prior-Authorization-Guide-2025_R.ashx' },
-          { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
+          { title: 'Molina Healthcare of Texas — Prior Authorization for Providers (links the quarterly Medicaid BH/Medical PA Code Matrix)', url: 'https://www.molinahealthcare.com/providers/tx/prior-auth' },
+          { title: 'Molina Healthcare of Texas — Medicaid Behavioral Health and Medical Prior Authorization (PA) Code Matrix, October 1, 2026 (Q4)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/Prior-Auth/10-2026-MHTX-Q4-Medicaid-BH-Medical-PA-Code-Matrix-508.pdf' },
         ],
       },
       {
@@ -1678,154 +1690,156 @@ export const texasPayers: Record<string, PayerConfig> = {
     ],
     sources: [
       { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
-      { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
+      { title: 'Molina Healthcare of Texas — Prior Authorization for Providers (links the quarterly Medicaid BH/Medical PA Code Matrix)', url: 'https://www.molinahealthcare.com/providers/tx/prior-auth' },
       { title: 'Molina TX — Medicaid/CHIP Prior Authorization Guide (2025; ABA for ASD requires PA)', url: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/tx/medicaid/forms/MHT-Prior-Authorization-Guide-2025_R.ashx' },
       { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
       { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
       { title: 'Molina Healthcare of Texas — Announcements and Notifications for Texas Providers (HHSC notices, Medicaid announcements, quarterly newsletters)', url: 'https://www.molinahealthcare.com/providers/tx/communications' },
+      { title: 'Molina Healthcare of Texas — Medicaid Behavioral Health and Medical Prior Authorization (PA) Code Matrix, October 1, 2026 (Q4)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/Prior-Auth/10-2026-MHTX-Q4-Medicaid-BH-Medical-PA-Code-Matrix-508.pdf' },
+      { title: 'Molina Healthcare of Texas — Medicaid/CHIP Provider Manual (MHTPROVMN0426)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/MHTX-MEDICAID-CHIP-Provider-Manual-EN-508.pdf' },
+      { title: 'Texas Medicaid Fee Schedule — Autism services (TMHP static fee schedule PRCR615C, dated 9/14/2026)', url: 'https://public.tmhp.com/FeeSchedules/StaticFeeSchedule/FeeSchedules.aspx?fn=%5c%5ctmhp.net%5cFeeSchedule%5cPROD%5cStatic%5cTexas_Medicaid_Fee_Schedule_PRCR615C.pdf' },
     ],
     deliveryRules: {
       supervision: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: the manual sets no numeric ratio of its own, requiring LBAs to directly supervise LaBAs and behavior technicians in accordance with Texas licensure and deferring to the certifying body\'s minimums — for RBT-credentialed staff the BACB floor of supervision on at least 5% of service hours each month with two face-to-face contacts. Only direct supervision, where the LBA observes the LaBA or BT with the child, is reimbursable (under 97155); indirect supervision is unpaid. No distinct Molina Texas ABA criteria surfaced, but its own PA documents could not be read, so plan-level deviation could not be ruled out.',
-        status: 'unverified',
+          'Follows the Texas Medicaid (TMPPM) rule: the manual sets no numeric ratio of its own, requiring LBAs to directly supervise LaBAs and behavior technicians in accordance with Texas licensure and deferring to the certifying body\'s minimums — for RBT-credentialed staff the BACB floor of supervision on at least 5% of service hours each month with two face-to-face contacts. Only direct supervision, where the LBA observes the LaBA or BT with the child, is reimbursable (under 97155); indirect supervision is unpaid. Molina\'s 2026 Medicaid/CHIP provider manual adds no ABA rule of its own (its telehealth chapter is generic), and its October 1, 2026 PA Code Matrix names the Texas Medicaid Provider Procedures Manual as the criteria for the ABA codes.',
+        status: 'verified',
         cites: [
+          { title: 'Molina Healthcare of Texas — Medicaid/CHIP Provider Manual (MHTPROVMN0426)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/MHTX-MEDICAID-CHIP-Provider-Manual-EN-508.pdf' },
+          { title: 'Molina Healthcare of Texas — Medicaid Behavioral Health and Medical Prior Authorization (PA) Code Matrix, October 1, 2026 (Q4)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/Prior-Auth/10-2026-MHTX-Q4-Medicaid-BH-Medical-PA-Code-Matrix-508.pdf' },
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
-          { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
+          { title: 'Molina Healthcare of Texas — Prior Authorization for Providers (links the quarterly Medicaid BH/Medical PA Code Matrix)', url: 'https://www.molinahealthcare.com/providers/tx/prior-auth' },
         ],
-        verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
-        blocker: 'document',
       },
       concurrentBilling: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: concurrent billing is prohibited — Texas Medicaid will not reimburse multiple ABA providers during one session with the child when more than one provider is present. The single exception is when the family and the child receive separate services and the child is not present in the family session. Total authorized hours may be requested under either 97153 or 97155 and billed as the code matching the service actually delivered — not both for the same clock time with the child present. No distinct Molina Texas ABA criteria surfaced, but its own PA documents could not be read, so plan-level deviation could not be ruled out.',
-        status: 'unverified',
+          'Follows the Texas Medicaid (TMPPM) rule: concurrent billing is prohibited — Texas Medicaid will not reimburse multiple ABA providers during one session with the child when more than one provider is present. The single exception is when the family and the child receive separate services and the child is not present in the family session. Total authorized hours may be requested under either 97153 or 97155 and billed as the code matching the service actually delivered — not both for the same clock time with the child present. Molina\'s 2026 Medicaid/CHIP provider manual adds no ABA rule of its own (its telehealth chapter is generic), and its October 1, 2026 PA Code Matrix names the Texas Medicaid Provider Procedures Manual as the criteria for the ABA codes.',
+        status: 'verified',
         cites: [
+          { title: 'Molina Healthcare of Texas — Medicaid/CHIP Provider Manual (MHTPROVMN0426)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/MHTX-MEDICAID-CHIP-Provider-Manual-EN-508.pdf' },
+          { title: 'Molina Healthcare of Texas — Medicaid Behavioral Health and Medical Prior Authorization (PA) Code Matrix, October 1, 2026 (Q4)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/Prior-Auth/10-2026-MHTX-Q4-Medicaid-BH-Medical-PA-Code-Matrix-508.pdf' },
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
-          { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
+          { title: 'Molina Healthcare of Texas — Prior Authorization for Providers (links the quarterly Medicaid BH/Medical PA Code Matrix)', url: 'https://www.molinahealthcare.com/providers/tx/prior-auth' },
         ],
-        verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
-        blocker: 'document',
       },
       dailyLimits: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: direct treatment is capped at 8 hours (32 units) per day combined across 97153, 97154, 97155 and 97158; 97151 is capped at 6 hours (24 units) per evaluation and per re-evaluation; group treatment runs 2 to 8 children. TMPPM: “If services billed exceed the limitations outlined in this section, the claim will be denied, and may be appealed,” so the cap is a claim edit as well as an authorization limit. Authorization periods are two consecutive 90-day terms then recertifications of up to 180 days. Molina’s 2025 Texas PA guide lists ABA for autism among the services needing PA and sets no unit rule of its own; its provider manual and code matrix could not be read, so plan-level claim edits are unchecked.',
-        status: 'unverified',
+          'Follows the Texas Medicaid (TMPPM) rule: direct treatment is capped at 8 hours (32 units) per day combined across 97153, 97154, 97155 and 97158; 97151 is capped at 6 hours (24 units) per evaluation and per re-evaluation; group treatment runs 2 to 8 children. TMPPM: “If services billed exceed the limitations outlined in this section, the claim will be denied, and may be appealed,” so the cap is a claim edit as well as an authorization limit. Authorization periods are two consecutive 90-day terms then recertifications of up to 180 days. Molina’s 2025 Texas PA guide lists ABA for autism among the services needing PA and sets no unit rule of its own; its provider manual and code matrix could not be read, so plan-level claim edits are unchecked. Molina\'s 2026 Medicaid/CHIP provider manual adds no ABA rule of its own (its telehealth chapter is generic), and its October 1, 2026 PA Code Matrix names the Texas Medicaid Provider Procedures Manual as the criteria for the ABA codes.',
+        status: 'verified',
         cites: [
+          { title: 'Molina Healthcare of Texas — Medicaid/CHIP Provider Manual (MHTPROVMN0426)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/MHTX-MEDICAID-CHIP-Provider-Manual-EN-508.pdf' },
+          { title: 'Molina Healthcare of Texas — Medicaid Behavioral Health and Medical Prior Authorization (PA) Code Matrix, October 1, 2026 (Q4)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/Prior-Auth/10-2026-MHTX-Q4-Medicaid-BH-Medical-PA-Code-Matrix-508.pdf' },
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
           { title: 'Molina TX — Medicaid/CHIP Prior Authorization Guide (2025; ABA for ASD requires PA)', url: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/tx/medicaid/forms/MHT-Prior-Authorization-Guide-2025_R.ashx' },
         ],
-        verifyVia:
-          'Molina Healthcare of Texas provider manual and its Behavioral Health PA code matrix (molinahealthcare.com serves a bot wall) — or Molina provider services, for any unit edit beyond the TMPPM cap.',
-        blocker: 'document',
       },
       noteSignature: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: rendering ABA providers must sign each entry with full signature and credentials, with additional supervisory signatures per state licensure. Treatment notes carry the child\'s name, date of service, start and stop times, goals addressed, progress and a summary of interventions; 97155/97158 notes add protocol-modification decision points. The 97151 evaluation and the 90-day progress summary each need a dated signature from the LBA and from the parent or caregiver. No distinct Molina Texas ABA criteria surfaced, but its own PA documents could not be read, so plan-level deviation could not be ruled out.',
-        status: 'unverified',
+          'Follows the Texas Medicaid (TMPPM) rule: rendering ABA providers must sign each entry with full signature and credentials, with additional supervisory signatures per state licensure. Treatment notes carry the child\'s name, date of service, start and stop times, goals addressed, progress and a summary of interventions; 97155/97158 notes add protocol-modification decision points. The 97151 evaluation and the 90-day progress summary each need a dated signature from the LBA and from the parent or caregiver. Molina\'s 2026 Medicaid/CHIP provider manual adds no ABA rule of its own (its telehealth chapter is generic), and its October 1, 2026 PA Code Matrix names the Texas Medicaid Provider Procedures Manual as the criteria for the ABA codes.',
+        status: 'verified',
         cites: [
+          { title: 'Molina Healthcare of Texas — Medicaid/CHIP Provider Manual (MHTPROVMN0426)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/MHTX-MEDICAID-CHIP-Provider-Manual-EN-508.pdf' },
+          { title: 'Molina Healthcare of Texas — Medicaid Behavioral Health and Medical Prior Authorization (PA) Code Matrix, October 1, 2026 (Q4)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/Prior-Auth/10-2026-MHTX-Q4-Medicaid-BH-Medical-PA-Code-Matrix-508.pdf' },
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
-          { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
+          { title: 'Molina Healthcare of Texas — Prior Authorization for Providers (links the quarterly Medicaid BH/Medical PA Code Matrix)', url: 'https://www.molinahealthcare.com/providers/tx/prior-auth' },
         ],
-        verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
-        blocker: 'document',
       },
       placeOfService: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: home, clinic, office and community settings are payable. In schools, services delivered by a behavior technician as a shadow, an aide, or as general support are excluded; school personnel participating to coordinate care are not counted as duplicate providers, and interdisciplinary team meetings bill under 99366 against an ABA PA. BT and LaBA direct treatment must be in person in every setting. No distinct Molina Texas ABA criteria surfaced, but its own PA documents could not be read, so plan-level deviation could not be ruled out.',
-        status: 'unverified',
+          'Follows the Texas Medicaid (TMPPM) rule: home, clinic, office and community settings are payable. In schools, services delivered by a behavior technician as a shadow, an aide, or as general support are excluded; school personnel participating to coordinate care are not counted as duplicate providers, and interdisciplinary team meetings bill under 99366 against an ABA PA. BT and LaBA direct treatment must be in person in every setting. Molina\'s 2026 Medicaid/CHIP provider manual adds no ABA rule of its own (its telehealth chapter is generic), and its October 1, 2026 PA Code Matrix names the Texas Medicaid Provider Procedures Manual as the criteria for the ABA codes.',
+        status: 'verified',
         cites: [
+          { title: 'Molina Healthcare of Texas — Medicaid/CHIP Provider Manual (MHTPROVMN0426)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/MHTX-MEDICAID-CHIP-Provider-Manual-EN-508.pdf' },
+          { title: 'Molina Healthcare of Texas — Medicaid Behavioral Health and Medical Prior Authorization (PA) Code Matrix, October 1, 2026 (Q4)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/Prior-Auth/10-2026-MHTX-Q4-Medicaid-BH-Medical-PA-Code-Matrix-508.pdf' },
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
-          { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
+          { title: 'Molina Healthcare of Texas — Prior Authorization for Providers (links the quarterly Medicaid BH/Medical PA Code Matrix)', url: 'https://www.molinahealthcare.com/providers/tx/prior-auth' },
         ],
-        verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
-        blocker: 'document',
       },
       billAsProvider: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: only the LBA enrolls in Texas Medicaid and bills. LaBAs and behavior technicians may not enroll — their services go out under the supervising LBA\'s NPI with the credential modifier identifying who rendered (HO = LBA, HN = LaBA, HM = behavior technician; 97151 takes HO only, 97155/97156/97158 take HO or HN). The LBA must directly employ or contract with every LaBA and BT on the team. One Molina-specific rule is confirmed from its PA guidance: out-of-network requests require authorization regardless of the service, which matters while credentialing is in flight.',
-        status: 'unverified',
+          'Follows the Texas Medicaid (TMPPM) rule: only the LBA enrolls in Texas Medicaid and bills. LaBAs and behavior technicians may not enroll — their services go out under the supervising LBA\'s NPI with the credential modifier identifying who rendered (HO = LBA, HN = LaBA, HM = behavior technician; 97151 takes HO only, 97155/97156/97158 take HO or HN). The LBA must directly employ or contract with every LaBA and BT on the team. One Molina-specific rule is confirmed from its PA guidance: out-of-network requests require authorization regardless of the service, which matters while credentialing is in flight. Molina\'s 2026 Medicaid/CHIP provider manual adds no ABA rule of its own (its telehealth chapter is generic), and its October 1, 2026 PA Code Matrix names the Texas Medicaid Provider Procedures Manual as the criteria for the ABA codes.',
+        status: 'verified',
         cites: [
+          { title: 'Molina Healthcare of Texas — Medicaid/CHIP Provider Manual (MHTPROVMN0426)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/MHTX-MEDICAID-CHIP-Provider-Manual-EN-508.pdf' },
+          { title: 'Molina Healthcare of Texas — Medicaid Behavioral Health and Medical Prior Authorization (PA) Code Matrix, October 1, 2026 (Q4)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/Prior-Auth/10-2026-MHTX-Q4-Medicaid-BH-Medical-PA-Code-Matrix-508.pdf' },
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
-          { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
+          { title: 'Molina Healthcare of Texas — Prior Authorization for Providers (links the quarterly Medicaid BH/Medical PA Code Matrix)', url: 'https://www.molinahealthcare.com/providers/tx/prior-auth' },
         ],
-        verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
-        blocker: 'document',
       },
     },
     intakeGates: {
       ageLimit: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: birth through 20 years of age on the date of service, with eligibility ending the day of the 21st birthday. CHIP members are excluded from the ABA benefit. No distinct Molina Texas ABA criteria surfaced, but its own PA documents could not be read, so plan-level deviation could not be ruled out.',
-        status: 'unverified',
+          'Follows the Texas Medicaid (TMPPM) rule: birth through 20 years of age on the date of service, with eligibility ending the day of the 21st birthday. CHIP members are excluded from the ABA benefit. Molina\'s 2026 Medicaid/CHIP provider manual adds no ABA rule of its own (its telehealth chapter is generic), and its October 1, 2026 PA Code Matrix names the Texas Medicaid Provider Procedures Manual as the criteria for the ABA codes.',
+        status: 'verified',
         cites: [
+          { title: 'Molina Healthcare of Texas — Medicaid/CHIP Provider Manual (MHTPROVMN0426)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/MHTX-MEDICAID-CHIP-Provider-Manual-EN-508.pdf' },
+          { title: 'Molina Healthcare of Texas — Medicaid Behavioral Health and Medical Prior Authorization (PA) Code Matrix, October 1, 2026 (Q4)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/Prior-Auth/10-2026-MHTX-Q4-Medicaid-BH-Medical-PA-Code-Matrix-508.pdf' },
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
-          { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
+          { title: 'Molina Healthcare of Texas — Prior Authorization for Providers (links the quarterly Medicaid BH/Medical PA Code Matrix)', url: 'https://www.molinahealthcare.com/providers/tx/prior-auth' },
         ],
-        verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
-        blocker: 'document',
       },
       dxRecency: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: the ASD diagnosis must be made or reconfirmed within 3 years of initiation or recertification; past 3 years a comprehensive re-evaluation of ASD symptom severity levels per DSM criteria is required first. No distinct Molina Texas ABA criteria surfaced, but its own PA documents could not be read, so plan-level deviation could not be ruled out.',
-        status: 'unverified',
+          'Follows the Texas Medicaid (TMPPM) rule: the ASD diagnosis must be made or reconfirmed within 3 years of initiation or recertification; past 3 years a comprehensive re-evaluation of ASD symptom severity levels per DSM criteria is required first. Molina\'s 2026 Medicaid/CHIP provider manual adds no ABA rule of its own (its telehealth chapter is generic), and its October 1, 2026 PA Code Matrix names the Texas Medicaid Provider Procedures Manual as the criteria for the ABA codes.',
+        status: 'verified',
         cites: [
+          { title: 'Molina Healthcare of Texas — Medicaid/CHIP Provider Manual (MHTPROVMN0426)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/MHTX-MEDICAID-CHIP-Provider-Manual-EN-508.pdf' },
+          { title: 'Molina Healthcare of Texas — Medicaid Behavioral Health and Medical Prior Authorization (PA) Code Matrix, October 1, 2026 (Q4)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/Prior-Auth/10-2026-MHTX-Q4-Medicaid-BH-Medical-PA-Code-Matrix-508.pdf' },
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
-          { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
+          { title: 'Molina Healthcare of Texas — Prior Authorization for Providers (links the quarterly Medicaid BH/Medical PA Code Matrix)', url: 'https://www.molinahealthcare.com/providers/tx/prior-auth' },
         ],
-        verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
-        blocker: 'document',
       },
       diagnosingProviders: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: a developmental pediatrician, neurologist, psychiatrist, licensed psychologist, or an interdisciplinary diagnostic team (a physician, PA or NP in consultation with qualified child specialists with autism expertise). No distinct Molina Texas ABA criteria surfaced, but its own PA documents could not be read, so plan-level deviation could not be ruled out.',
-        status: 'unverified',
+          'Follows the Texas Medicaid (TMPPM) rule: a developmental pediatrician, neurologist, psychiatrist, licensed psychologist, or an interdisciplinary diagnostic team (a physician, PA or NP in consultation with qualified child specialists with autism expertise). Molina\'s 2026 Medicaid/CHIP provider manual adds no ABA rule of its own (its telehealth chapter is generic), and its October 1, 2026 PA Code Matrix names the Texas Medicaid Provider Procedures Manual as the criteria for the ABA codes.' + ' LCSW: no. A licensed clinical social worker is not on the TMPPM list of providers who may make the ASD diagnosis (developmental pediatrician, neurologist, psychiatrist, licensed psychologist); an LCSW’s standardized-tool results may only feed an interdisciplinary diagnostic team.',
+        status: 'verified',
         cites: [
+          { title: 'Molina Healthcare of Texas — Medicaid/CHIP Provider Manual (MHTPROVMN0426)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/MHTX-MEDICAID-CHIP-Provider-Manual-EN-508.pdf' },
+          { title: 'Molina Healthcare of Texas — Medicaid Behavioral Health and Medical Prior Authorization (PA) Code Matrix, October 1, 2026 (Q4)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/Prior-Auth/10-2026-MHTX-Q4-Medicaid-BH-Medical-PA-Code-Matrix-508.pdf' },
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
-          { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
+          { title: 'Molina Healthcare of Texas — Prior Authorization for Providers (links the quarterly Medicaid BH/Medical PA Code Matrix)', url: 'https://www.molinahealthcare.com/providers/tx/prior-auth' },
         ],
-        verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
-        blocker: 'document',
       },
       diagnosticTools: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: a reliable, valid, standardized diagnostic assessment tool or combination of tools — the manual names the ADOS, ADI-R and CARS as examples. Screening instruments alone (STAT, M-CHAT-R) do not substitute. No distinct Molina Texas ABA criteria surfaced, but its own PA documents could not be read, so plan-level deviation could not be ruled out.',
-        status: 'unverified',
+          'Follows the Texas Medicaid (TMPPM) rule: a reliable, valid, standardized diagnostic assessment tool or combination of tools — the manual names the ADOS, ADI-R and CARS as examples. Screening instruments alone (STAT, M-CHAT-R) do not substitute. Molina\'s 2026 Medicaid/CHIP provider manual adds no ABA rule of its own (its telehealth chapter is generic), and its October 1, 2026 PA Code Matrix names the Texas Medicaid Provider Procedures Manual as the criteria for the ABA codes.',
+        status: 'verified',
         cites: [
+          { title: 'Molina Healthcare of Texas — Medicaid/CHIP Provider Manual (MHTPROVMN0426)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/MHTX-MEDICAID-CHIP-Provider-Manual-EN-508.pdf' },
+          { title: 'Molina Healthcare of Texas — Medicaid Behavioral Health and Medical Prior Authorization (PA) Code Matrix, October 1, 2026 (Q4)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/Prior-Auth/10-2026-MHTX-Q4-Medicaid-BH-Medical-PA-Code-Matrix-508.pdf' },
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
-          { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
+          { title: 'Molina Healthcare of Texas — Prior Authorization for Providers (links the quarterly Medicaid BH/Medical PA Code Matrix)', url: 'https://www.molinahealthcare.com/providers/tx/prior-auth' },
         ],
-        verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
-        blocker: 'document',
       },
       referral: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: a signed, dated prescriber referral for the evaluation, signed within 60 calendar days before or on the anticipated evaluation date; and for treatment a signed, dated referral from a physician or allowed practitioner (MD/DO, PA, NP, or CNS with delegated authority) stating frequency and duration, signed on or before the service start date and no more than 3 months old. Since 4/1/2025 the prescriber signature is no longer required on the CCP PA form for the 90-day extension. No distinct Molina Texas ABA criteria surfaced, but its own PA documents could not be read, so plan-level deviation could not be ruled out.',
-        status: 'unverified',
+          'Follows the Texas Medicaid (TMPPM) rule: a signed, dated prescriber referral for the evaluation, signed within 60 calendar days before or on the anticipated evaluation date; and for treatment a signed, dated referral from a physician or allowed practitioner (MD/DO, PA, NP, or CNS with delegated authority) stating frequency and duration, signed on or before the service start date and no more than 3 months old. Since 4/1/2025 the prescriber signature is no longer required on the CCP PA form for the 90-day extension. Molina\'s 2026 Medicaid/CHIP provider manual adds no ABA rule of its own (its telehealth chapter is generic), and its October 1, 2026 PA Code Matrix names the Texas Medicaid Provider Procedures Manual as the criteria for the ABA codes.',
+        status: 'verified',
         cites: [
+          { title: 'Molina Healthcare of Texas — Medicaid/CHIP Provider Manual (MHTPROVMN0426)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/MHTX-MEDICAID-CHIP-Provider-Manual-EN-508.pdf' },
+          { title: 'Molina Healthcare of Texas — Medicaid Behavioral Health and Medical Prior Authorization (PA) Code Matrix, October 1, 2026 (Q4)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/Prior-Auth/10-2026-MHTX-Q4-Medicaid-BH-Medical-PA-Code-Matrix-508.pdf' },
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
-          { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
+          { title: 'Molina Healthcare of Texas — Prior Authorization for Providers (links the quarterly Medicaid BH/Medical PA Code Matrix)', url: 'https://www.molinahealthcare.com/providers/tx/prior-auth' },
         ],
-        verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
-        blocker: 'document',
       },
       telehealth: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: synchronous audio-visual only, modifier 95, on 97151, 97155, 97156, 97158 and 99366. One-on-one direct treatment delivered to the child by a behavior technician or LaBA must be in person — telehealth is prohibited for BT/LaBA-delivered direct service. No distinct Molina Texas ABA criteria surfaced, but its own PA documents could not be read, so plan-level deviation could not be ruled out.',
-        status: 'unverified',
+          'Follows the Texas Medicaid (TMPPM) rule: synchronous audio-visual only, modifier 95, on 97151, 97155, 97156, 97158 and 99366. One-on-one direct treatment delivered to the child by a behavior technician or LaBA must be in person — telehealth is prohibited for BT/LaBA-delivered direct service. Molina\'s 2026 Medicaid/CHIP provider manual adds no ABA rule of its own (its telehealth chapter is generic), and its October 1, 2026 PA Code Matrix names the Texas Medicaid Provider Procedures Manual as the criteria for the ABA codes.',
+        status: 'verified',
         cites: [
+          { title: 'Molina Healthcare of Texas — Medicaid/CHIP Provider Manual (MHTPROVMN0426)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/MHTX-MEDICAID-CHIP-Provider-Manual-EN-508.pdf' },
+          { title: 'Molina Healthcare of Texas — Medicaid Behavioral Health and Medical Prior Authorization (PA) Code Matrix, October 1, 2026 (Q4)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/Prior-Auth/10-2026-MHTX-Q4-Medicaid-BH-Medical-PA-Code-Matrix-508.pdf' },
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
-          { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
+          { title: 'Molina Healthcare of Texas — Prior Authorization for Providers (links the quarterly Medicaid BH/Medical PA Code Matrix)', url: 'https://www.molinahealthcare.com/providers/tx/prior-auth' },
         ],
-        verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
-        blocker: 'document',
       },
       authTurnaround: {
         value:
           'Molina\'s 2026 manual: "For a standard authorization request, Molina makes the determination and provides notification within three (3) calendar days for CHIP and three (3) business days for Medicaid"; non-urgent pre-service decisions for STAR run "Within 3 business days after receipt of request." Expedited: "as promptly as the member\'s health requires and no later than seventy-two (72) hours after we receive the initial request," and "Supporting documentation is required to justify the expedited request" — the PA guide adds that requests outside the urgent definition "will be handled as routine or non-urgent." A request to extend an ongoing course of ambulatory treatment counts as concurrent review, decided "Within 24 clock hours of receipt of request" when urgent. ABA is on Molina\'s PA list; the manual sets no ABA reauthorization lead time and no incomplete-request timeline of its own, so the state process applies (1 TAC § 353.425).',
         status: 'verified',
         cites: [
-          { title: 'Molina Healthcare of Texas — Provider Manual, STAR/STAR+PLUS/CHIP 2026 (last updated 04/2026) (PDF)', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/tx/medicaid/manual/MHTX-Medicaid-CHIP-Provider-Manual-508.ashx' },
+          { title: 'Molina Healthcare of Texas — Provider Manual, STAR/STAR+PLUS/CHIP 2026 (last updated 04/2026) (PDF)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/MHTX-MEDICAID-CHIP-Provider-Manual-EN-508.pdf' },
           { title: 'Molina TX — Medicaid/CHIP Prior Authorization Guide (2025; ABA for ASD requires PA)', url: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/tx/medicaid/forms/MHT-Prior-Authorization-Guide-2025_R.ashx' },
           { title: 'Tex. Gov\'t Code § 540.0303 — MCO PA determinations for nonhospitalized recipients (eff. 4/1/2025)', url: 'https://texas.public.law/statutes/tex._gov\'t_code_section_540.0303' },
           { title: '1 Tex. Admin. Code § 353.425 — MCO processing of incomplete PA requests', url: 'https://www.law.cornell.edu/regulations/texas/1-Tex-Admin-Code-SS-353-425' },
@@ -1836,7 +1850,7 @@ export const texasPayers: Record<string, PayerConfig> = {
           '"Medicaid is the payer of last resort. Private and governmental carriers must be billed prior to billing Molina." After the other coverage pays or denies, submit to Molina with the primary\'s remittance advice — "A copy of the remittance advice from the primary payer must accompany the claim or the claim will be denied" — "within 95 calendar days after final determination by the primary payer." If the primary paid more than Molina\'s contracted allowable, the claim is paid in full at zero. The manual does not say whether Molina\'s own ABA PA is still needed when Molina pays second — request it.',
         status: 'verified',
         cites: [
-          { title: 'Molina Healthcare of Texas — Provider Manual, STAR/STAR+PLUS/CHIP 2026 (last updated 04/2026) (PDF)', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/tx/medicaid/manual/MHTX-Medicaid-CHIP-Provider-Manual-508.ashx' },
+          { title: 'Molina Healthcare of Texas — Provider Manual, STAR/STAR+PLUS/CHIP 2026 (last updated 04/2026) (PDF)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/MHTX-MEDICAID-CHIP-Provider-Manual-EN-508.pdf' },
           { title: 'TMPPM Vol. 1, Section 8: Third Party Liability (TPL)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/1_08_Third_Party_Liability/1_08_Third_Party_Liability.htm' },
         ],
       },
@@ -1849,6 +1863,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'Is Molina\'s ABA network open to new providers?', a: 'It does not publish an open or closed status. Enroll in Texas Medicaid first, then apply to the plan; Medicaid enrollment does not guarantee an MCO contract. Ask provider relations.' },
       { q: 'What is the timely filing limit for Molina Healthcare of Texas (Texas Medicaid)?', a: 'Ninety-five days from the date of service. HHSC’s Uniform Managed Care Claims Manual sets it for every Texas Medicaid MCO. Claim appeals get 120 days from the disposition date.' },
       { q: 'How fast does Molina Healthcare of Texas have to pay a clean claim?', a: 'HHSC requires every Texas Medicaid MCO to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days.' },
+      { q: 'Is a Texas Medicaid ABA authorization tied to the individual provider or to the group?', a: 'The plan follows the Texas Medicaid rule. To the group. Under TMPPM § 2.3.9 (Change of Provider), when a child moves to a new performing provider within the same group, the new provider uses the same evaluation and plan of care and “The authorization period will not change.” When the child moves to a provider outside the current group, the new provider must start a new authorization request with all initial-evaluation documentation plus a change-of-therapy-provider letter signed by the responsible adult (end date with the old provider, and both providers’ names).' },
+      { q: 'What does Molina Healthcare of Texas pay for ABA?', a: 'Its contracted rates are not published. The public benchmark is the Texas Medicaid fee schedule (dated 9/14/2026): per 15 minutes, 97151 $27.56, 97153 $14.50, 97154 $1.63, 97155 $20.08 (HN) or $25.10 (HO), 97156 $18.40 (HN) or $23.01 (HO), 97158 $2.25 (HN) or $2.81 (HO). Ask the plan for its ABA fee schedule before contracting.' },
     ],
   },
 
@@ -2030,7 +2046,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: a developmental pediatrician, neurologist, psychiatrist, licensed psychologist, or an interdisciplinary diagnostic team (a physician, PA or NP in consultation with qualified child specialists with autism expertise).',
+          'Follows the Texas Medicaid (TMPPM) rule: a developmental pediatrician, neurologist, psychiatrist, licensed psychologist, or an interdisciplinary diagnostic team (a physician, PA or NP in consultation with qualified child specialists with autism expertise).' + ' LCSW: no. A licensed clinical social worker is not on the TMPPM list of providers who may make the ASD diagnosis (developmental pediatrician, neurologist, psychiatrist, licensed psychologist); an LCSW’s standardized-tool results may only feed an interdisciplinary diagnostic team.',
         status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
@@ -2093,6 +2109,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'Is Community First\'s ABA network open to new providers?', a: 'It does not publish an open or closed status. Enroll in Texas Medicaid first, then apply to the plan; Medicaid enrollment does not guarantee an MCO contract. Ask provider relations.' },
       { q: 'What is the timely filing limit for Community First (Texas Medicaid)?', a: 'Ninety-five days from the date of service. HHSC’s Uniform Managed Care Claims Manual sets it for every Texas Medicaid MCO, and Community First’s own manual states the same deadline. Claim appeals get 120 days from the disposition date.' },
       { q: 'How fast does Community First have to pay a clean claim?', a: 'HHSC requires every Texas Medicaid MCO to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days.' },
+      { q: 'Is a Texas Medicaid ABA authorization tied to the individual provider or to the group?', a: 'The plan follows the Texas Medicaid rule. To the group. Under TMPPM § 2.3.9 (Change of Provider), when a child moves to a new performing provider within the same group, the new provider uses the same evaluation and plan of care and “The authorization period will not change.” When the child moves to a provider outside the current group, the new provider must start a new authorization request with all initial-evaluation documentation plus a change-of-therapy-provider letter signed by the responsible adult (end date with the old provider, and both providers’ names).' },
     ],
   },
 
@@ -2199,6 +2216,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
       { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
       { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
+      { title: 'Texas Medicaid Fee Schedule — Autism services (TMHP static fee schedule PRCR615C, dated 9/14/2026)', url: 'https://public.tmhp.com/FeeSchedules/StaticFeeSchedule/FeeSchedules.aspx?fn=%5c%5ctmhp.net%5cFeeSchedule%5cPROD%5cStatic%5cTexas_Medicaid_Fee_Schedule_PRCR615C.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -2278,7 +2296,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: a developmental pediatrician, neurologist, psychiatrist, licensed psychologist, or an interdisciplinary diagnostic team (a physician, PA or NP in consultation with qualified child specialists with autism expertise).',
+          'Follows the Texas Medicaid (TMPPM) rule: a developmental pediatrician, neurologist, psychiatrist, licensed psychologist, or an interdisciplinary diagnostic team (a physician, PA or NP in consultation with qualified child specialists with autism expertise).' + ' LCSW: no. A licensed clinical social worker is not on the TMPPM list of providers who may make the ASD diagnosis (developmental pediatrician, neurologist, psychiatrist, licensed psychologist); an LCSW’s standardized-tool results may only feed an interdisciplinary diagnostic team.',
         status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
@@ -2341,6 +2359,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'Is Driscoll\'s ABA network open to new providers?', a: 'It does not publish an open or closed status. Enroll in Texas Medicaid first, then apply to the plan; Medicaid enrollment does not guarantee an MCO contract. Ask provider relations.' },
       { q: 'What is the timely filing limit for Driscoll (Texas Medicaid)?', a: 'Ninety-five days from the date of service. HHSC’s Uniform Managed Care Claims Manual sets it for every Texas Medicaid MCO, and Driscoll’s own manual states the same deadline. Claim appeals get 120 days from the disposition date.' },
       { q: 'How fast does Driscoll have to pay a clean claim?', a: 'HHSC requires every Texas Medicaid MCO to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days.' },
+      { q: 'Is a Texas Medicaid ABA authorization tied to the individual provider or to the group?', a: 'The plan follows the Texas Medicaid rule. To the group. Under TMPPM § 2.3.9 (Change of Provider), when a child moves to a new performing provider within the same group, the new provider uses the same evaluation and plan of care and “The authorization period will not change.” When the child moves to a provider outside the current group, the new provider must start a new authorization request with all initial-evaluation documentation plus a change-of-therapy-provider letter signed by the responsible adult (end date with the old provider, and both providers’ names).' },
+      { q: 'What does Driscoll Health Plan pay for ABA?', a: 'Its contracted rates are not published. The public benchmark is the Texas Medicaid fee schedule (dated 9/14/2026): per 15 minutes, 97151 $27.56, 97153 $14.50, 97154 $1.63, 97155 $20.08 (HN) or $25.10 (HO), 97156 $18.40 (HN) or $23.01 (HO), 97158 $2.25 (HN) or $2.81 (HO). Ask the plan for its ABA fee schedule before contracting.' },
     ],
   },
 
@@ -2540,7 +2560,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule, restated in Community Health Choice\'s own ABA Medical Review Guideline (adopted 6/2026), which names the TMPPM Children\'s Services Handbook §2 as its governing authority and carries the same diagnoser list.',
+          'Follows the Texas Medicaid (TMPPM) rule, restated in Community Health Choice\'s own ABA Medical Review Guideline (adopted 6/2026), which names the TMPPM Children\'s Services Handbook §2 as its governing authority and carries the same diagnoser list.' + ' LCSW: no. A licensed clinical social worker is not on the TMPPM list of providers who may make the ASD diagnosis (developmental pediatrician, neurologist, psychiatrist, licensed psychologist); an LCSW’s standardized-tool results may only feed an interdisciplinary diagnostic team.',
         status: 'verified',
         cites: [
           { title: 'Community Health Choice — Medical Review Guideline: Applied Behavioral Analysis (ABA) Services (adopted 6/2026, PDF)', url: 'https://provider.communityhealthchoice.org/wp-content/uploads/sites/2/2026/07/mrg-aba-services-guideline.pdf' },
@@ -2603,6 +2623,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'Is Community Health Choice\'s ABA network open to new providers?', a: 'It does not publish an open or closed status. Enroll in Texas Medicaid first, then apply to the plan; Medicaid enrollment does not guarantee an MCO contract. Ask provider relations.' },
       { q: 'What is the timely filing limit for Community Health Choice (Texas Medicaid)?', a: 'Ninety-five days from the date of service. HHSC’s Uniform Managed Care Claims Manual sets it for every Texas Medicaid MCO, and Community Health Choice’s own manual states the same deadline. Claim appeals get 120 days from the disposition date.' },
       { q: 'How fast does Community Health Choice have to pay a clean claim?', a: 'HHSC requires every Texas Medicaid MCO to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days.' },
+      { q: 'Is a Texas Medicaid ABA authorization tied to the individual provider or to the group?', a: 'The plan follows the Texas Medicaid rule. To the group. Under TMPPM § 2.3.9 (Change of Provider), when a child moves to a new performing provider within the same group, the new provider uses the same evaluation and plan of care and “The authorization period will not change.” When the child moves to a provider outside the current group, the new provider must start a new authorization request with all initial-evaluation documentation plus a change-of-therapy-provider letter signed by the responsible adult (end date with the old provider, and both providers’ names).' },
     ],
   },
 
@@ -2713,6 +2734,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
       { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
       { title: 'Blue Cross and Blue Shield of Texas (Medicaid) — 2026 News and Updates (index)', url: 'https://www.bcbstx.com/provider/medicaid/education-and-reference/news/2026' },
+      { title: 'Texas Medicaid Fee Schedule — Autism services (TMHP static fee schedule PRCR615C, dated 9/14/2026)', url: 'https://public.tmhp.com/FeeSchedules/StaticFeeSchedule/FeeSchedules.aspx?fn=%5c%5ctmhp.net%5cFeeSchedule%5cPROD%5cStatic%5cTexas_Medicaid_Fee_Schedule_PRCR615C.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -2792,7 +2814,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: a developmental pediatrician, neurologist, psychiatrist, licensed psychologist, or an interdisciplinary diagnostic team (a physician, PA or NP in consultation with qualified child specialists with autism expertise).',
+          'Follows the Texas Medicaid (TMPPM) rule: a developmental pediatrician, neurologist, psychiatrist, licensed psychologist, or an interdisciplinary diagnostic team (a physician, PA or NP in consultation with qualified child specialists with autism expertise).' + ' LCSW: no. A licensed clinical social worker is not on the TMPPM list of providers who may make the ASD diagnosis (developmental pediatrician, neurologist, psychiatrist, licensed psychologist); an LCSW’s standardized-tool results may only feed an interdisciplinary diagnostic team.',
         status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
@@ -2856,6 +2878,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'Is BCBSTX\'s ABA network open to new providers?', a: 'It does not publish an open or closed status. Enroll in Texas Medicaid first, then apply to the plan; Medicaid enrollment does not guarantee an MCO contract. Ask provider relations.' },
       { q: 'What is the timely filing limit for BCBSTX (Texas Medicaid)?', a: 'Ninety-five days from the date of service. HHSC’s Uniform Managed Care Claims Manual sets it for every Texas Medicaid MCO, and BCBSTX’s own manual states the same deadline. Claim appeals get 120 days from the disposition date.' },
       { q: 'How fast does BCBSTX have to pay a clean claim?', a: 'HHSC requires every Texas Medicaid MCO to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days.' },
+      { q: 'Is a Texas Medicaid ABA authorization tied to the individual provider or to the group?', a: 'The plan follows the Texas Medicaid rule. To the group. Under TMPPM § 2.3.9 (Change of Provider), when a child moves to a new performing provider within the same group, the new provider uses the same evaluation and plan of care and “The authorization period will not change.” When the child moves to a provider outside the current group, the new provider must start a new authorization request with all initial-evaluation documentation plus a change-of-therapy-provider letter signed by the responsible adult (end date with the old provider, and both providers’ names).' },
+      { q: 'What does Blue Cross Blue Shield of Texas (Medicaid) pay for ABA?', a: 'Its contracted rates are not published. The public benchmark is the Texas Medicaid fee schedule (dated 9/14/2026): per 15 minutes, 97151 $27.56, 97153 $14.50, 97154 $1.63, 97155 $20.08 (HN) or $25.10 (HO), 97156 $18.40 (HN) or $23.01 (HO), 97158 $2.25 (HN) or $2.81 (HO). Ask the plan for its ABA fee schedule before contracting.' },
     ],
   },
 
@@ -3042,7 +3066,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: a developmental pediatrician, neurologist, psychiatrist, licensed psychologist, or an interdisciplinary diagnostic team (a physician, PA or NP in consultation with qualified child specialists with autism expertise).',
+          'Follows the Texas Medicaid (TMPPM) rule: a developmental pediatrician, neurologist, psychiatrist, licensed psychologist, or an interdisciplinary diagnostic team (a physician, PA or NP in consultation with qualified child specialists with autism expertise).' + ' LCSW: no. A licensed clinical social worker is not on the TMPPM list of providers who may make the ASD diagnosis (developmental pediatrician, neurologist, psychiatrist, licensed psychologist); an LCSW’s standardized-tool results may only feed an interdisciplinary diagnostic team.',
         status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
@@ -3106,6 +3130,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'Is Cook Children\'s Health Plan\'s ABA network open to new providers?', a: 'It does not publish an open or closed status. Enroll in Texas Medicaid first, then apply to the plan; Medicaid enrollment does not guarantee an MCO contract. Ask provider relations.' },
       { q: 'What is the timely filing limit for Cook Children’s Health Plan (Texas Medicaid)?', a: 'Ninety-five days from the date of service. HHSC’s Uniform Managed Care Claims Manual sets it for every Texas Medicaid MCO. Claim appeals get 120 days from the disposition date.' },
       { q: 'How fast does Cook Children’s Health Plan have to pay a clean claim?', a: 'HHSC requires every Texas Medicaid MCO to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days.' },
+      { q: 'Is a Texas Medicaid ABA authorization tied to the individual provider or to the group?', a: 'The plan follows the Texas Medicaid rule. To the group. Under TMPPM § 2.3.9 (Change of Provider), when a child moves to a new performing provider within the same group, the new provider uses the same evaluation and plan of care and “The authorization period will not change.” When the child moves to a provider outside the current group, the new provider must start a new authorization request with all initial-evaluation documentation plus a change-of-therapy-provider letter signed by the responsible adult (end date with the old provider, and both providers’ names).' },
     ],
   },
 
@@ -3212,6 +3237,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
       { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
       { title: 'Parkland Community Health Plan — Provider Network News (index)', url: 'https://providers.parklandhealthplan.com/provider-network-news' },
+      { title: 'Texas Medicaid Fee Schedule — Autism services (TMHP static fee schedule PRCR615C, dated 9/14/2026)', url: 'https://public.tmhp.com/FeeSchedules/StaticFeeSchedule/FeeSchedules.aspx?fn=%5c%5ctmhp.net%5cFeeSchedule%5cPROD%5cStatic%5cTexas_Medicaid_Fee_Schedule_PRCR615C.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -3291,7 +3317,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule; PCHP\'s own member-facing benefit page names a developmental pediatrician, neurologist, psychiatrist or licensed psychologist.',
+          'Follows the Texas Medicaid (TMPPM) rule; PCHP\'s own member-facing benefit page names a developmental pediatrician, neurologist, psychiatrist or licensed psychologist.' + ' LCSW: no. A licensed clinical social worker is not on the TMPPM list of providers who may make the ASD diagnosis (developmental pediatrician, neurologist, psychiatrist, licensed psychologist); an LCSW’s standardized-tool results may only feed an interdisciplinary diagnostic team.',
         status: 'verified',
         cites: [
           { title: 'Parkland Community Health Plan — ABA benefit overview (member-facing)', url: 'https://parklandhealthplan.com/living-well/blog/articles/aba' },
@@ -3354,6 +3380,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'Is Parkland\'s ABA network open to new providers?', a: 'It does not publish an open or closed status. Enroll in Texas Medicaid first, then apply to the plan; Medicaid enrollment does not guarantee an MCO contract. Ask provider relations.' },
       { q: 'What is the timely filing limit for Parkland Community Health Plan (Texas Medicaid)?', a: 'Ninety-five days from the date of service. HHSC’s Uniform Managed Care Claims Manual sets it for every Texas Medicaid MCO, and Parkland Community Health Plan’s own manual states the same deadline. Claim appeals get 120 days from the disposition date.' },
       { q: 'How fast does Parkland Community Health Plan have to pay a clean claim?', a: 'HHSC requires every Texas Medicaid MCO to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days.' },
+      { q: 'Is a Texas Medicaid ABA authorization tied to the individual provider or to the group?', a: 'The plan follows the Texas Medicaid rule. To the group. Under TMPPM § 2.3.9 (Change of Provider), when a child moves to a new performing provider within the same group, the new provider uses the same evaluation and plan of care and “The authorization period will not change.” When the child moves to a provider outside the current group, the new provider must start a new authorization request with all initial-evaluation documentation plus a change-of-therapy-provider letter signed by the responsible adult (end date with the old provider, and both providers’ names).' },
+      { q: 'What does Parkland Community Health Plan pay for ABA?', a: 'Its contracted rates are not published. The public benchmark is the Texas Medicaid fee schedule (dated 9/14/2026): per 15 minutes, 97151 $27.56, 97153 $14.50, 97154 $1.63, 97155 $20.08 (HN) or $25.10 (HO), 97156 $18.40 (HN) or $23.01 (HO), 97158 $2.25 (HN) or $2.81 (HO). Ask the plan for its ABA fee schedule before contracting.' },
     ],
   },
 
@@ -3463,6 +3491,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
       { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
       { title: 'El Paso Health — Provider Services, What\'s New list', url: 'https://www.elpasohealth.com/providers.html' },
+      { title: 'Texas Medicaid Fee Schedule — Autism services (TMHP static fee schedule PRCR615C, dated 9/14/2026)', url: 'https://public.tmhp.com/FeeSchedules/StaticFeeSchedule/FeeSchedules.aspx?fn=%5c%5ctmhp.net%5cFeeSchedule%5cPROD%5cStatic%5cTexas_Medicaid_Fee_Schedule_PRCR615C.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -3543,7 +3572,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: a developmental pediatrician, neurologist, psychiatrist, licensed psychologist, or an interdisciplinary diagnostic team (a physician, PA or NP in consultation with qualified child specialists with autism expertise).',
+          'Follows the Texas Medicaid (TMPPM) rule: a developmental pediatrician, neurologist, psychiatrist, licensed psychologist, or an interdisciplinary diagnostic team (a physician, PA or NP in consultation with qualified child specialists with autism expertise).' + ' LCSW: no. A licensed clinical social worker is not on the TMPPM list of providers who may make the ASD diagnosis (developmental pediatrician, neurologist, psychiatrist, licensed psychologist); an LCSW’s standardized-tool results may only feed an interdisciplinary diagnostic team.',
         status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
@@ -3607,6 +3636,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'Is El Paso Health\'s ABA network open to new providers?', a: 'It does not publish an open or closed status. Enroll in Texas Medicaid first, then apply to the plan; Medicaid enrollment does not guarantee an MCO contract. Ask provider relations.' },
       { q: 'What is the timely filing limit for El Paso Health (Texas Medicaid)?', a: 'Ninety-five days from the date of service. HHSC’s Uniform Managed Care Claims Manual sets it for every Texas Medicaid MCO, and El Paso Health’s own manual states the same deadline. Claim appeals get 120 days from the disposition date.' },
       { q: 'How fast does El Paso Health have to pay a clean claim?', a: 'HHSC requires every Texas Medicaid MCO to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days.' },
+      { q: 'Is a Texas Medicaid ABA authorization tied to the individual provider or to the group?', a: 'The plan follows the Texas Medicaid rule. To the group. Under TMPPM § 2.3.9 (Change of Provider), when a child moves to a new performing provider within the same group, the new provider uses the same evaluation and plan of care and “The authorization period will not change.” When the child moves to a provider outside the current group, the new provider must start a new authorization request with all initial-evaluation documentation plus a change-of-therapy-provider letter signed by the responsible adult (end date with the old provider, and both providers’ names).' },
+      { q: 'What does El Paso Health pay for ABA?', a: 'Its contracted rates are not published. The public benchmark is the Texas Medicaid fee schedule (dated 9/14/2026): per 15 minutes, 97151 $27.56, 97153 $14.50, 97154 $1.63, 97155 $20.08 (HN) or $25.10 (HO), 97156 $18.40 (HN) or $23.01 (HO), 97158 $2.25 (HN) or $2.81 (HO). Ask the plan for its ABA fee schedule before contracting.' },
     ],
   },
 
@@ -3804,7 +3835,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: a developmental pediatrician, neurologist, psychiatrist, licensed psychologist, or an interdisciplinary diagnostic team (a physician, PA or NP in consultation with qualified child specialists with autism expertise). FirstCare\'s own Medical Coverage Policy #206 defers Medicaid decisions to the TMPPM explicitly, and its Medicaid PA code list, not that commercial policy, is the operative gate.',
+          'Follows the Texas Medicaid (TMPPM) rule: a developmental pediatrician, neurologist, psychiatrist, licensed psychologist, or an interdisciplinary diagnostic team (a physician, PA or NP in consultation with qualified child specialists with autism expertise). FirstCare\'s own Medical Coverage Policy #206 defers Medicaid decisions to the TMPPM explicitly, and its Medicaid PA code list, not that commercial policy, is the operative gate.' + ' LCSW: no. A licensed clinical social worker is not on the TMPPM list of providers who may make the ASD diagnosis (developmental pediatrician, neurologist, psychiatrist, licensed psychologist); an LCSW’s standardized-tool results may only feed an interdisciplinary diagnostic team.',
         status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
@@ -3871,6 +3902,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'Is FirstCare\'s ABA network open to new providers?', a: 'It does not publish an open or closed status. Enroll in Texas Medicaid first, then apply to the plan; Medicaid enrollment does not guarantee an MCO contract. Ask provider relations.' },
       { q: 'What is the timely filing limit for FirstCare (Texas Medicaid)?', a: 'Ninety-five days from the date of service. HHSC’s Uniform Managed Care Claims Manual sets it for every Texas Medicaid MCO, and FirstCare’s own manual states the same deadline. Claim appeals get 120 days from the disposition date.' },
       { q: 'How fast does FirstCare have to pay a clean claim?', a: 'HHSC requires every Texas Medicaid MCO to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days.' },
+      { q: 'Is a Texas Medicaid ABA authorization tied to the individual provider or to the group?', a: 'The plan follows the Texas Medicaid rule. To the group. Under TMPPM § 2.3.9 (Change of Provider), when a child moves to a new performing provider within the same group, the new provider uses the same evaluation and plan of care and “The authorization period will not change.” When the child moves to a provider outside the current group, the new provider must start a new authorization request with all initial-evaluation documentation plus a change-of-therapy-provider letter signed by the responsible adult (end date with the old provider, and both providers’ names).' },
     ],
   },
 
@@ -4089,7 +4121,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: a developmental pediatrician, neurologist, psychiatrist, licensed psychologist, or an interdisciplinary diagnostic team (a physician, PA or NP in consultation with qualified child specialists with autism expertise). Medical Coverage Policy 206 states it directly: for Medicaid plans, confirm coverage as outlined in the TMPPM, and use Policy 206\'s own criteria only where the TMPPM is silent. The plan exited Texas Medicaid on 8/31/2026.',
+          'Follows the Texas Medicaid (TMPPM) rule: a developmental pediatrician, neurologist, psychiatrist, licensed psychologist, or an interdisciplinary diagnostic team (a physician, PA or NP in consultation with qualified child specialists with autism expertise). Medical Coverage Policy 206 states it directly: for Medicaid plans, confirm coverage as outlined in the TMPPM, and use Policy 206\'s own criteria only where the TMPPM is silent. The plan exited Texas Medicaid on 8/31/2026.' + ' LCSW: no. A licensed clinical social worker is not on the TMPPM list of providers who may make the ASD diagnosis (developmental pediatrician, neurologist, psychiatrist, licensed psychologist); an LCSW’s standardized-tool results may only feed an interdisciplinary diagnostic team.',
         status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
@@ -4156,6 +4188,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'Is Baylor Scott & White\'s ABA network open to new providers?', a: 'It does not publish an open or closed status. Enroll in Texas Medicaid first, then apply to the plan; Medicaid enrollment does not guarantee an MCO contract. Ask provider relations.' },
       { q: 'What is the timely filing limit for RightCare (Texas Medicaid)?', a: 'Ninety-five days from the date of service. HHSC’s Uniform Managed Care Claims Manual sets it for every Texas Medicaid MCO, and RightCare’s own manual states the same deadline. Claim appeals get 120 days from the disposition date.' },
       { q: 'How fast does RightCare have to pay a clean claim?', a: 'HHSC requires every Texas Medicaid MCO to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days.' },
+      { q: 'Is a Texas Medicaid ABA authorization tied to the individual provider or to the group?', a: 'The plan follows the Texas Medicaid rule. To the group. Under TMPPM § 2.3.9 (Change of Provider), when a child moves to a new performing provider within the same group, the new provider uses the same evaluation and plan of care and “The authorization period will not change.” When the child moves to a provider outside the current group, the new provider must start a new authorization request with all initial-evaluation documentation plus a change-of-therapy-provider letter signed by the responsible adult (end date with the old provider, and both providers’ names).' },
     ],
   },
 
@@ -4363,7 +4396,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'The plan states it on its own member-facing behavioral-health page: ABA requires prior ASD diagnostic testing by a developmental pediatrician, a neurologist, a psychiatrist, a licensed psychologist, or an autism diagnosis team — the same set the TMPPM names.',
+          'The plan states it on its own member-facing behavioral-health page: ABA requires prior ASD diagnostic testing by a developmental pediatrician, a neurologist, a psychiatrist, a licensed psychologist, or an autism diagnosis team — the same set the TMPPM names.' + ' LCSW: no. A licensed clinical social worker is not on the TMPPM list of providers who may make the ASD diagnosis (developmental pediatrician, neurologist, psychiatrist, licensed psychologist); an LCSW’s standardized-tool results may only feed an interdisciplinary diagnostic team.',
         status: 'verified',
         cites: [
           { title: 'Dell Children\'s Health Plan — Behavioral Health (member page)', url: 'https://dellchildrenshealthplan.com/manage-your-health/behavioral-health/' },
@@ -4427,6 +4460,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'Is Dell Children\'s Health Plan\'s ABA network open to new providers?', a: 'It does not publish an open or closed status. Enroll in Texas Medicaid first, then apply to the plan; Medicaid enrollment does not guarantee an MCO contract. Ask provider relations.' },
       { q: 'What is the timely filing limit for Dell Children’s Health Plan (Texas Medicaid)?', a: 'Ninety-five days from the date of service. HHSC’s Uniform Managed Care Claims Manual sets it for every Texas Medicaid MCO. Claim appeals get 120 days from the disposition date.' },
       { q: 'How fast does Dell Children’s Health Plan have to pay a clean claim?', a: 'HHSC requires every Texas Medicaid MCO to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days.' },
+      { q: 'Is a Texas Medicaid ABA authorization tied to the individual provider or to the group?', a: 'The plan follows the Texas Medicaid rule. To the group. Under TMPPM § 2.3.9 (Change of Provider), when a child moves to a new performing provider within the same group, the new provider uses the same evaluation and plan of care and “The authorization period will not change.” When the child moves to a provider outside the current group, the new provider must start a new authorization request with all initial-evaluation documentation plus a change-of-therapy-provider letter signed by the responsible adult (end date with the old provider, and both providers’ names).' },
     ],
   },
 
@@ -4524,6 +4558,27 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Aetna — Provider appeals: state exceptions to the 180-day dispute filing standard', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/provider-appeals.html' },
         ],
       },
+      {
+        h2: 'Credential modifiers on the claim',
+        body: [
+          'Aetna publishes no rate-tier modifiers for ABA. Its public ABA documents — the Applied Behavior Analysis Medical Necessity Guide (©2026), the provider manual (6/26) and the ABA precertification form GR-69017-4 (7-26) — name no HM, HN, HO or HP modifier and no credential crosswalk. What the guide does require is that “Services must be provided directly or billed by the appropriately licensed provider”: licensed behavior analysts where a state licenses them, board-certified behavior analysts, or licensed psychologists, with unlicensed staff supervised “unless state mandates, plan documents or contracts require otherwise.” Whether your Aetna agreement prices technician and analyst time by modifier is set in the contract and its fee schedule, so ask Aetna before you bill technician lines under the analyst.',
+        ],
+        cites: [
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+          { title: 'Aetna — Provider manual (8102800-01-01, 6/26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+        ],
+      },
+      {
+        h2: 'Reconsideration and appeal: what to send',
+        body: [
+          'Aetna runs two levels. A reconsideration (“a formal review of a previous claim decision,” covering reimbursement and coding decisions) is filed within 180 calendar days of the initial claim decision, on Availity or by mail. Send “Medical records, office notes and other supporting documents” and either a completed dispute and appeal form or an explanation giving the reason for review, member ID, patient name, TIN, claim ID, dates of service and billed amounts, and the “Procedure codes and modifiers being disputed”; most answers come within 30 business days. If that fails, appeal within 60 calendar days of the reconsideration decision with a clear explanation, supporting documents, the denial letter or EOB and the original claim; a valid appeal needs the dispute and appeal form (not required on Availity), the denied codes or payments identified, and the records. Aetna decides within 60 calendar days. The 180-day standard can differ for fully insured plans in states on Aetna’s exception list.',
+        ],
+        cites: [
+          { title: 'Aetna — Disputes and appeals overview (reconsideration and appeal time frames and contents)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' },
+          { title: 'Aetna — Provider appeals: state exceptions to the 180-day dispute filing standard', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/provider-appeals.html' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -4539,6 +4594,11 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'Tex. Ins. Code § 1355.002 (applicability)', url: 'https://texas.public.law/statutes/tex._ins._code_section_1355.002' },
       { title: 'Tex. Ins. Code § 1355.003 (exceptions)', url: 'https://texas.public.law/statutes/tex._ins._code_section_1355.003' },
       { title: 'TDLR — Behavior Analysts program (Occupations Code Ch. 506)', url: 'https://www.tdlr.texas.gov/bhv/' },
+      { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+      { title: 'Aetna — Provider manual (8102800-01-01, 6/26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+      { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+      { title: 'Aetna — Disputes and appeals overview (reconsideration and appeal time frames and contents)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' },
+      { title: 'Aetna — Provider appeals: state exceptions to the 180-day dispute filing standard', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/provider-appeals.html' },
     ],
     deliveryRules: {
       supervision: {
@@ -4636,10 +4696,11 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'CPB 0648 requires the evaluation to be performed by the appropriate certified or licensed health care professional and names board certified behavior analyst, developmental pediatrician, neurologist, occupational therapist, physical therapist, primary care provider, psychiatrist, psychologist, and speech-language pathologist/audiologist. It does not say whether one provider may diagnose alone or whether a multidisciplinary assessment is required.',
+          'CPB 0648 requires the evaluation to be performed by the appropriate certified or licensed health care professional and names board certified behavior analyst, developmental pediatrician, neurologist, occupational therapist, physical therapist, primary care provider, psychiatrist, psychologist, and speech-language pathologist/audiologist. It does not say whether one provider may diagnose alone or whether a multidisciplinary assessment is required.' + ' LCSW: not named. Aetna accepts a diagnosis from a “licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice,” so an LCSW qualifies only where state law puts that diagnosis within LCSW scope.',
         status: 'verified',
         cites: [
           { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
         ],
       },
       diagnosticTools: {
@@ -4707,6 +4768,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'My client was diagnosed after age 10 — is Aetna coverage impossible?', a: 'The Texas mandate doesn\'t apply, but that isn\'t the end: Aetna\'s national policy covers ABA for ASD on its own terms, and federal parity governs group plans. Run the benefits verification before turning any family away.' },
       { q: 'What does Aetna pay for ABA in Texas?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the Texas Medicaid fee schedule (97153 at $14.50 per 15-minute unit effective 9/1/2025), and treat rate-setting as part of contracting.' },
       { q: 'What is Aetna’s timely filing limit in Texas?', a: 'For fully insured plans, 95 days from the date of service under Tex. Ins. Code §§ 1301.102 and 843.337; Aetna’s manual adds no shorter limit. Self-funded plans follow the contract and plan document.' },
+      { q: 'Does Aetna require HM, HN, HO or HP modifiers on ABA claims?', a: 'Not in any public Aetna ABA document: the medical necessity guide, provider manual and ABA precertification form name no rate-tier modifiers. Services must be provided or billed by an appropriately licensed or certified provider; ask Aetna whether your contract prices technician lines by modifier.' },
     ],
   },
 
@@ -4820,6 +4882,25 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
         ],
       },
+      {
+        h2: 'Credential modifiers on the claim',
+        body: [
+          'Evernorth (Cigna’s behavioral health arm) uses no rate-tier modifiers in its published ABA billing rules. Its Autism Resource Guide (March 2025) instead sets, code by code, who may provide and who may bill: 97152, 97153 and 97154 may be provided by a “BCaBA, technician” but are billed by a “BCBA-D, BCBA, or licensed mental health provider,” and “Evernorth does not credential nonlicensed/noncertified staff. Services for these staff members must be billed under the supervising provider.” All ABA must be billed with 97151–97158, 0362T and 0373T only. The only modifier Evernorth’s administrative guidelines (September 2026) prescribe is for virtual care: “Modifier 95 in Field 24-D to specify telehealth” with place of service 02; other modifiers go on “if they are needed to describe the service performed.”',
+        ],
+        cites: [
+          { title: 'Cigna/Evernorth Autism Resource Guide (PCOMM-2025-225, March 2025): billing codes', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191) — telehealth claim coding', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
+      },
+      {
+        h2: 'Reconsideration and appeal: what to send',
+        body: [
+          'Evernorth (Cigna behavioral health) asks you to call Provider Services first with the patient’s name, date of service and the treating provider’s name and TIN. If the claim stands, file a written appeal within 180 calendar days of the initial payment or denial (or of the last payment adjustment). Fee-schedule and reimbursement disputes can go through the reconsideration feature on Provider.Evernorth.com. For a medical-necessity denial include the clinical record; for a timely-filing denial include the EDI transmission report or proof the delay came from coordination of benefits; for a late-payment dispute include proof of when you submitted. Appeals must be filed by a person, not by automation software. Most are resolved within 60 calendar days, with notice within 75 days unless state law says otherwise, and arbitration is the final step.',
+        ],
+        cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191): Provider payment appeals', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -4836,6 +4917,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'TDLR — Behavior Analysts program (Occupations Code Ch. 506)', url: 'https://www.tdlr.texas.gov/bhv/' },
       { title: 'Molina — Cigna Transition Provider Notice (TX Medicaid sale)', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/tx/medicaid/comm/Cigna-Transition-Provider-Notice-Final.pdf' },
       { title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+      { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191) — telehealth claim coding', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -4910,7 +4992,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'A confirmed ASD diagnosis (ICD-10-CM F84.0-F84.9, excluding F84.2 Rett syndrome) made against DSM-5-TR criteria by a health care professional who is licensed to practise independently and whose licensure board considers diagnostics within their scope of practice. The name, credentials and type of licensure of the diagnosing clinician, and the date the diagnosis was most recently made, must both be provided.',
+          'A confirmed ASD diagnosis (ICD-10-CM F84.0-F84.9, excluding F84.2 Rett syndrome) made against DSM-5-TR criteria by a health care professional who is licensed to practise independently and whose licensure board considers diagnostics within their scope of practice. The name, credentials and type of licensure of the diagnosing clinician, and the date the diagnosis was most recently made, must both be provided.' + ' LCSW: not named. EN0499 accepts a professional “licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice,” so an independently licensed LCSW qualifies only if the state social-work board treats diagnosis as within scope.',
         status: 'verified',
         cites: [
           { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
@@ -4982,6 +5064,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'Is Cigna\'s ABA network open to new providers?', a: 'Evernorth says it is "committed to expanding our network of autism providers." Apply with the provider information form (individuals) or the autism clinic screening application; allow up to 90 days, then 60–90 days of credentialing per provider.' },
       { q: 'Does Cigna credential RBTs?', a: 'No. Evernorth does not credential nonlicensed or noncertified staff; their services are billed under the supervising provider.' },
       { q: 'What is Cigna (Evernorth)’s timely filing limit in Texas?', a: 'For state-regulated plans, 95 days (Tex. Ins. Code and Evernorth’s Texas Regulatory Addendum). Evernorth’s general limit elsewhere is 90 days from the date of service.' },
+      { q: 'Does Cigna / Evernorth require HM, HN, HO or HP modifiers on ABA claims?', a: 'No modifier tiers are published. Evernorth’s autism resource guide says technician and BCaBA services (97152–97154) are billed by the supervising BCBA, BCBA-D or licensed provider, and noncredentialed staff are billed under the supervising provider. Modifier 95 (with POS 02) marks telehealth.' },
     ],
   },
 
@@ -5089,6 +5172,24 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial): timely filing, NPI/taxonomy, claim reconsideration and appeals', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
         ],
       },
+      {
+        h2: 'Credential modifiers on the claim',
+        body: [
+          'Optum, which administers UnitedHealthcare’s behavioral benefit, requires one provider-level modifier on every 97151–97158 line: “The appropriate modifier must be billed to reflect the appropriate credentials of the provider delivering the services.” Its commercial ABA Reimbursement Policy (2022RP501A, updated June 2026) defines HM as “less than a bachelor’s degree level - a Registered Behavior Technician (RBT),” HN as “bachelor’s level” — a BCaBA, HO as “a master’s level clinician – Board Certified Behavior Analyst (BCBA) or a licensed mental health provider,” and HP as “a doctorate level clinician - Board Certified Behavior Analyst-Doctorate (BCBA-D) or a licensed mental health provider.” 97151, 97155, 97156, 97157 and 97158 take HN, HO or HP only; 97152, 97153 and 97154 also take HM. An ABA supervisor’s billable service goes out with HO, only one provider-level modifier is allowed per line, and 0362T and 0373T are listed among codes “that do not require modifiers.” The policy adds that state requirements “may supplement, modify or supersede” it.',
+        ],
+        cites: [
+          { title: 'Optum — Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A, updated June 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+        ],
+      },
+      {
+        h2: 'Reconsideration and appeal: what to send',
+        body: [
+          'Optum, which handles UnitedHealthcare’s behavioral claims, uses a two-step process for commercial claims: reconsideration first, then appeal, within a combined 12 months unless state law or your participation agreement sets a different deadline. Include “member-specific treatment plans, clinical records, payment appendices or other items that support why you believe our decision was incorrect,” plus proof that the claim was received and accepted within your timely filing limit. File online in the Provider Express secure portal (Appeals > Appeals Summary & Submission, giving the factual or legal basis) or by mail with Optum’s reconsideration request form. Optum decides on the materials it has at the time of review; an overturned claim is reported on the remittance advice and an upheld one by letter.',
+        ],
+        cites: [
+          { title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): Provider Reconsideration and Appeal Process', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -5108,6 +5209,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
       { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
       { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' },
+      { title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): Provider Reconsideration and Appeal Process', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -5185,7 +5287,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'A valid ASD diagnosis (or other applicable diagnosis required by governing law) issued by a state licensed physician, psychologist, or other state licensed clinician qualified to make that diagnosis under DSM-5-TR criteria. The DSM-5 diagnosis and severity level must be confirmed and documented by the diagnosing clinician.',
+          'A valid ASD diagnosis (or other applicable diagnosis required by governing law) issued by a state licensed physician, psychologist, or other state licensed clinician qualified to make that diagnosis under DSM-5-TR criteria. The DSM-5 diagnosis and severity level must be confirmed and documented by the diagnosing clinician.' + ' LCSW: not named. Optum accepts a diagnosis from a “state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis,” so an LCSW qualifies only where state licensure allows it.',
         status: 'verified',
         cites: [
           { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
@@ -5259,6 +5361,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'What is UnitedHealthcare\'s ABA fee schedule?', a: 'Rates are contracted. Optum pays participating providers "based on your contracted rate" for the codes on their fee schedule; non-contracted providers call the Behavioral Health number on the member\'s card.' },
       { q: 'How do I join the UnitedHealthcare (Optum) ABA network?', a: 'Meet Optum\'s criteria (BACB certification, Texas LBA license, six months of supervised ABA experience, liability coverage) and apply through the "Join Our Autism/ABA Network" section of Provider Express.' },
       { q: 'What is UnitedHealthcare’s timely filing limit in Texas?', a: 'For fully insured plans, 95 days from the date of service under the Texas Insurance Code; UnitedHealthcare’s guide defers to state law and the provider agreement.' },
+      { q: 'What do HM, HN, HO and HP mean on a UnitedHealthcare / Optum ABA claim?', a: 'They identify who rendered the service: HM an RBT (less than bachelor’s level), HN a BCaBA (bachelor’s level), HO a master’s-level BCBA or licensed clinician, HP a BCBA-D or doctoral-level clinician. One per line; 97151 and 97155–97158 cannot take HM; 0362T/0373T take none (Optum ABA Reimbursement Policy 2022RP501A, June 2026).' },
     ],
   },
 };

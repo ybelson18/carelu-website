@@ -40,10 +40,13 @@ const S: Record<string, PayerSource> = {
   atcPreauth: { title: 'Arkansas Total Care — Pre-Auth Check tool (Medicaid/PASSE; queried 2026-10-18 through the tool’s JSON endpoint)', url: 'https://www.arkansastotalcare.com/providers/resources/pre-auth.html' },
   empPA: { title: 'Empower Healthcare Solutions — Prior Authorization List page (BH/IDD PA form, fax 800-886-6839)', url: 'https://getempowerhealth.com/for-providers/utilization-management/prior-authorization-list/' },
   empPAList: { title: 'Empower Healthcare Solutions — Full PA code list (PA-List-4.24.26): 97151, 97153, 97155, 97156 “AUTISM-EPSDT”, PA required', url: 'https://getempowerhealth.com/wp-content/uploads/2026/04/PA-List-4.24.26-2.xlsx' },
+  empH2019: { title: 'Empower Healthcare Solutions — Provider Alert: Behavioral Assistance (H2019) reimbursement update (October 23, 2026; effective January 1, 2027)', url: 'https://getempowerhealth.com/providers/behavioral-assistance-h2019-reimbursement-update/' },
+  empAlerts: { title: 'Empower Healthcare Solutions — Provider Alerts (archive)', url: 'https://getempowerhealth.com/provider-alerts/' },
   empHB: { title: 'Empower Healthcare Solutions — Provider Handbook (Version 9.08.2026)', url: 'https://getempowerhealth.com/wp-content/uploads/2026/09/Empowerproviderhandbook9926.pdf' },
   sccPM: { title: 'Summit Community Care — Provider Manual (AR-SMT-CD-PM-010787-26, July 1, 2026)', url: 'https://provider.summitcommunitycare.com/docs/gpp/ARAR_CAID_ProviderManual.pdf' },
   sccPA: { title: 'Summit Community Care — List of items and services that require prior authorization (updated 2/11/2026)', url: 'https://www.summitcommunitycare.com/arkansas-passe/ar_medicaid_priorauthservices.pdf' },
   act196: { title: 'Act 196 of 2011 (HB 1315) — created Ark. Code § 23-99-418, autism spectrum disorder coverage (enrolled text)', url: 'https://www.arkleg.state.ar.us/Home/FTPDocument?path=%2FACTS%2F2011%2FPublic%2FACT196.pdf' },
+  act656: { title: 'Act 656 of 2021 (HB 1545) — amends Ark. Code § 23-99-418(a) definitions (DSM-based autism definition; speech-language pathologists); approved 4/12/21', url: 'https://www.arkleg.state.ar.us/Home/FTPDocument?path=%2FACTS%2F2021R%2FPublic%2FACT656.pdf' },
   act432: { title: 'Act 432 of 2025 (HB 1245) — Arkansas Behavior Analyst Registration Act, Ark. Code § 17-97-601 et seq. (enrolled text, approved 4/3/25)', url: 'https://www.arkleg.state.ar.us/Home/FTPDocument?path=%2FACTS%2F2025R%2FPublic%2FACT432.pdf' },
   act1106: { title: 'Act 1106 of 2015 (SB 318) — Prior Authorization Transparency Act (enrolled text; now Ark. Code § 23-99-1101 et seq.)', url: 'https://www.arkleg.state.ar.us/Home/FTPDocument?path=%2FACTS%2F2015%2FPublic%2FACT1106.pdf' },
   act575: { title: 'Act 575 of 2023 (HB 1271) — amends the Prior Authorization Transparency Act; prior-authorization exemptions (“gold card”)', url: 'https://www.arkleg.state.ar.us/Home/FTPDocument?path=%2FACTS%2F2023R%2FPublic%2FACT575.pdf' },
@@ -57,7 +60,7 @@ const S: Record<string, PayerSource> = {
   champva: { title: '38 CFR 17.270 — CHAMPVA general provisions (CHAMPVA is the last payer)', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
   aetnaGuide: { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
   aetnaPrecert: { title: 'Aetna — Participating provider behavioral health precertification list (effective August 1, 2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
-  aetnaCPB648: { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+  aetnaCPB648: { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/20/2026)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
   aetnaNPC: { title: 'Aetna — Provider and facility participation criteria (8100606-01-01, 5/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' },
   aetnaOM: { title: 'Aetna Health Care Professional Toolkit / office manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
   aetnaCPB: { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026; experimental for non-ASD indications; code table)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
@@ -84,7 +87,7 @@ const AR_MEDICAID_DX =
 
 /* ---------------- Shared Arkansas commercial layer ---------------- */
 const AR_MANDATE_BODY =
-  'Arkansas’s autism mandate is Ark. Code § 23-99-418, created by Act 196 of 2011 (HB 1315) for health benefit plans delivered, issued or renewed on or after October 1, 2011. As enacted, it reaches group and blanket plans, HMOs and hospital and medical service corporations, and the state and public school employee plans, but not individual major medical plans. Mandated “treatment” is care “prescribed, provided, or ordered for a specfic individual diagnosed with an autism spectrum disorder by a licensed physician or a licensed psychologist who determines the care to be medically necessary and evidence-based,” including “Applied behavior analysis when provided by or supervised by a Board Certified Behavior Analyst,” plus pharmacy, psychiatric, psychological and speech, occupational and physical therapy care. The enacted text says ABA services “shall: (1) Have an annual limitation of fifty thousand dollars ($50,000); and (2) Be limited to children under eighteen (18) years of age.” Coverage may not carry visit limits or less favorable dollar limits, deductibles or coinsurance than physical illness, “shall not be denied on the basis that the treatment is habilitative in nature,” and an insurer may not review the medical necessity of ongoing autism treatment “to a greater extent than it does for other illnesses.” It does not displace IEP or IFSP obligations, and from 2014 exchange plans are excused from benefits beyond the essential health benefits. Those age and dollar terms have since moved in practice: Arkansas Blue Cross’s current ABA policy applies the $50,000 cap only to “Grandfathered” plans and quotes the Arkansas Insurance Department that it “will not allow age limits for any service for the treatment of autism.” We could not open the current codified text of § 23-99-418, so confirm the plan’s own terms. Self-funded ERISA plans sit outside the statute.';
+  'Arkansas’s autism mandate is Ark. Code § 23-99-418, created by Act 196 of 2011 (HB 1315) for health benefit plans delivered, issued or renewed on or after October 1, 2011. As enacted, it reaches group and blanket plans, HMOs and hospital and medical service corporations, and the state and public school employee plans, but not individual major medical plans. Mandated “treatment” is care “prescribed, provided, or ordered for a specific individual diagnosed with an autism spectrum disorder by a licensed physician or a licensed psychologist who determines the care to be medically necessary and evidence-based,” including “Applied behavior analysis when provided by or supervised by a board-certified behavior analyst,” plus pharmacy, psychiatric, psychological and speech, occupational and physical therapy care. The enacted text says ABA services “shall: (1) Have an annual limitation of fifty thousand dollars ($50,000); and (2) Be limited to children under eighteen (18) years of age.” Coverage may not carry visit limits or less favorable dollar limits, deductibles or coinsurance than physical illness, “shall not be denied on the basis that the treatment is habilitative in nature,” and an insurer may not review the medical necessity of ongoing autism treatment “to a greater extent than it does for other illnesses.” It does not displace IEP or IFSP obligations, and from 2014 exchange plans are excused from benefits beyond the essential health benefits. The only later Act we found on arkleg.state.ar.us that amends § 23-99-418 is Act 656 of 2021 (HB 1545), which rewrote only the definitions in subsection (a): autism spectrum disorder now means “a condition diagnosed according to the diagnostic criteria under the most recent edition of the American Psychiatric Association’s Diagnostic and Statistical Manual of Mental Disorders,” and “speech therapists” became speech-language pathologists. It left the ABA age and dollar terms in subsection (c) untouched. Those terms have still moved in practice: Arkansas Blue Cross’s current ABA policy applies the $50,000 cap only to “Grandfathered” plans and quotes the Arkansas Insurance Department that it “will not allow age limits for any service for the treatment of autism.” We could not open the current codified text of § 23-99-418 (Lexis-hosted), so confirm the plan’s own terms. Self-funded ERISA plans sit outside the statute.';
 
 const AR_LICENSURE_BODY =
   'Arkansas regulates behavior analysts by registration, not licensure, and only since 2025. Act 432 of 2025 (the Arkansas Behavior Analyst Registration Act, Ark. Code § 17-97-601 et seq.) has the Arkansas Psychology Board register a “registered behavior analyst” on proof of BCBA or BCBA-D certification and a criminal background check, for two years at a time. The Act protects the title: unless registered, a person may not hold themselves out as a registered behavior analyst. It does not make practice itself unlawful without registration. It also offers temporary registration to a behavior analyst licensed elsewhere, or BACB-certified, who practices in Arkansas “on a short-term basis,” and reciprocity for analysts licensed in comparable states. The BACB’s licensure table lists Arkansas (2025, AR Psychology Board). Payers credential on BACB certification: the mandate itself keys ABA to a Board Certified Behavior Analyst. Commercial ABA rates are negotiated and unpublished; the public benchmark is the Arkansas Medicaid fee schedule (97151 $20.00, 97153 $15.00, 97155 $22.50, 97156 $20.00 per 15-minute unit).';
@@ -108,6 +111,38 @@ const AR_MANDATE_ATGLANCE_COMMON = [
   { label: 'Exempt from mandate', value: 'Self-funded ERISA plans; individual major medical plans (as enacted); exchange benefits beyond EHB' },
   { label: 'Licensure', value: 'Registration, not licensure: Act 432 of 2025 (Ark. Code § 17-97-601 et seq.), Arkansas Psychology Board; title protection only' },
 ];
+
+/* Optum commercial: appeals packet, auth binding, switching, out-of-network (National Network Manual, read 2026-10-25). */
+const OPTUM_NNM_G5 = { title: 'Optum Behavioral Health — National Network Manual (BH02330, July 2026 edition): Provider Reconsideration and Appeal Process; Services that require prior authorization; Continuity of Care', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' };
+const OPTUM_APPEALS_BODY_G5 =
+  'Reconsiderations and appeals. Optum’s National Network Manual sets a two-step process for commercial claim and clinical prior-authorization disputes: request reconsideration first, then appeal, with “a total of 12 months for submission for both steps” unless state law or your Participation Agreement sets a different deadline. On what to send, it says: “Include member-specific treatment plans, clinical records, payment appendices or other items that support why you believe our decision was incorrect,” and decisions are made “based on the materials available at the time of the review.” Add proof that Optum received the claim within your timely-filing limit. Submit through the Provider Express secure portal, or mail the reconsideration request form and documents to Optum Behavioral Health Solutions, P.O. Box 30757, Salt Lake City, UT 84123. For non-urgent clinical appeals the manual gives a 180-day window.';
+const OPTUM_AUTH_BODY_G5 =
+  'Who holds the authorization, and switching providers. “Authorizations for non-routine outpatient services are specific to the requesting clinician,” and ABA is requested through the Provider Express portal, so an approval does not move with the child to a new agency: the new provider requests its own. When a clinician or group leaves the Optum network, it must keep treating members who choose to continue for up to 90 calendar days (or as the Participation Agreement or state law provides), or until the member moves to another Optum clinician, and Optum “will assist these members in selecting a new clinician, group or agency.” Out-of-network: the manual describes no single case agreement process for ABA; its portal is open to “out-of-network individual clinicians” and members can “Submit out-of-network claims,” but whether this plan pays out-of-network ABA, and how much, is in the member’s plan, so ask Optum on the behavioral health number on the card.';
+
+/* Evernorth (Cigna) commercial: appeals packet and out-of-network by plan type (Administrative Guidelines Sept 2026, read 2026-10-25). */
+const EBH_ADMIN_G5 = { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026): plan types; Appeals; Appeal types and filing instructions', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' };
+const EBH_APPEALS_BODY_G5 =
+  'Reconsiderations and appeals. Evernorth’s administrative guidelines say “All appeals are to be initiated in writing within 180 calendar days of the date of the initial payment or denial decision” (or of the last payment adjustment). Fee-schedule and reimbursement disputes “may be quickly resolved through submitting an adjustment request via the reconsideration feature on Provider.Evernorth.com.” For a medical-necessity denial, send the complete clinical record; for an untimely-filing denial, send the EDI transmission report or “evidence that a claim was submitted due to coordination of benefits with another carrier.” “Most appeals are resolved within 60 calendar days of receipt,” with notice within 75 days unless state law requires otherwise. Each appeal must be submitted by a person: Evernorth will not accept appeals sent by automation software.';
+const EBH_OON_BODY_G5 =
+  'Out-of-network care depends on the plan type printed on the card. The guidelines list “no out-of-network coverage, except in emergencies” for Open Access Plus In-Network and Network Open Access plans, no out-of-network coverage except emergent or urgent care for SureFit, and in-network-only HMO and HMO Open Access plans, while Open Access Plus covers out-of-network providers “at a reduced benefit level” and POS plans cover both. The guidelines mention a single-case agreement only for inpatient specialing, not ABA, so whether Evernorth will sign a single case agreement with an out-of-network ABA provider is a case-by-case question for Evernorth care management.';
+
+/* Aetna commercial: dispute packet, transition/continuity of care (office manual 6/26, read 2026-10-25). */
+const AETNA_OM_G5 = { title: 'Aetna Health Care Professional Toolkit / office manual (8102800-01-01, 6/26): Claim dispute requirements; Transition and continuity of care', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' };
+const AETNA_APPEALS_BODY_G5 =
+  'Reconsiderations, disputes and appeals. Aetna’s office manual says claim disputes must be in writing (with the Provider and Practitioner Complaint and Appeals Form if sent by fax or mail), within contractual timeframes, and must include the billed TIN and NPI, the servicing provider’s name, your patient account number, member ID, patient name and date of birth, dates of service, claim ID, total billed charges, expected reimbursement, a reference number and the “Physician/Facility rationale for dispute.” “If these requirements are not met, the original claim decision will be deemed final.” The Practitioner and Provider Complaint and Appeal Request “is a mandatory form that must accompany any written appeal.” The fastest route is the Dispute Claim button on a finalized claim in Availity.';
+const AETNA_TOC_BODY_G5 =
+  'Out-of-network providers and changing plans. Aetna offers transition of care, which lets a new member keep seeing a current out-of-network provider “at in-network cost level for a defined period of time,” and continuity of care, for a member in active treatment whose provider leaves Aetna’s network. Both require “an active course of covered treatment,” are time-limited, start with the member asking Member Services or the employer for a Transition Coverage Request Form, and do not apply to Traditional Choice plans. The manual limits them to an individual practitioner (for example a specialist or speech therapist) or a home care agency, so ask Aetna whether an ABA group qualifies. It describes no separate single case agreement process.';
+
+/* Federal Medicaid managed-care floor for out-of-network care (42 CFR 438.206(b)(4)-(5); eCFR read 2026-10-25). */
+const CFR438206_G5 = { title: '42 CFR 438.206 — Availability of services (out-of-network coverage when the network cannot provide a covered service) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' };
+const MCO_OON_BODY_G5 =
+  'Out-of-network ABA and single case agreements. Federal Medicaid managed-care rules set the floor: “If the provider network is unable to provide necessary services, covered under the contract, to a particular enrollee,” the plan “must adequately and timely cover these services out of network for the enrollee, for as long as” its network cannot provide them, must require out-of-network providers “to coordinate with” the plan for payment, and must keep the enrollee’s cost no greater than in network (42 CFR 438.206(b)(4)-(5)). That is the basis for asking for a single case agreement when no in-network ABA provider can serve the child within the plan’s access standards. The terms and rate of any such agreement are set case by case, so document the network gap (who you called, wait times) and ask the plan’s utilization management or provider contracting team.';
+
+/* Federal Medicaid managed-care appeal floor (42 CFR 438.402, 438.408; eCFR read 2026-10-25). */
+const CFR438402_G5 = { title: '42 CFR 438.402 — Grievance and appeal system: general requirements (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-F/section-438.402' };
+const CFR438408_G5 = { title: '42 CFR 438.408 — Resolution and notification of grievances and appeals (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-F/section-438.408' };
+const MCO_APPEAL_BODY_G5 =
+  'Appealing a denied or reduced ABA authorization. Federal Medicaid managed-care rules set the floor every plan must meet. After an adverse benefit determination the family “has 60 calendar days from the date on the adverse benefit determination notice” to appeal to the plan, and the plan may have only one level of appeal. A provider may file the appeal on the child’s behalf “with the written consent of the enrollee” where state law permits. The plan must resolve a standard appeal within 30 calendar days and an expedited one within 72 hours (both extendable under the rule), and after an upheld appeal the family has 90 to 120 days to request a State fair hearing. A plan that misses these notice and timing rules is treated as having exhausted its appeal process, so the family can go straight to a fair hearing. Claim-payment disputes by the provider are a separate process set in the plan’s provider manual and contract.';
 
 export const arkansasPayers: Record<string, PayerConfig> = {
   'arkansas-medicaid': {
@@ -245,7 +280,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
         cites: [S.abaII],
       },
       diagnosingProviders: {
-        value: 'Qualified professionals under Ark. Code Ann. § 20-77-124. Acentra lists them as a licensed psychologist (PhD, PsyD, LP, LPE, LPE-I), a licensed physician (MD, DO) or a speech-language pathologist, and also requires an MD or DO to confirm the diagnosis, either in well-child or PCP notes “documenting Autism diagnosis and how it was diagnosed” or in a letter agreeing with the evaluation.',
+        value: 'Qualified professionals under Ark. Code Ann. § 20-77-124. Acentra lists them as a licensed psychologist (PhD, PsyD, LP, LPE, LPE-I), a licensed physician (MD, DO) or a speech-language pathologist, and also requires an MD or DO to confirm the diagnosis, either in well-child or PCP notes “documenting Autism diagnosis and how it was diagnosed” or in a letter agreeing with the evaluation. An LCSW is not on the list.',
         status: 'verified',
         cites: [S.acentraPPT, S.abaII],
       },
@@ -339,6 +374,11 @@ export const arkansasPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.atcDoc, S.atcPM],
       },
+      {
+        h2: 'Out-of-network care and single case agreements',
+        body: [MCO_OON_BODY_G5],
+        cites: [CFR438206_G5],
+      },
     ],
     collect: [
       { title: 'PCP prescription', desc: 'Signed and dated by the member’s PCP or a provider in the PCP’s group, covering the initial evaluation too; no more than 12 months.' },
@@ -346,7 +386,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
       { title: 'School schedule', desc: 'Full-time school usually means under 20 hours a week of ABA in the plan’s criteria.' },
       { title: 'Other insurance', desc: 'Bill the primary first; Arkansas Total Care must receive the secondary claim within 365 days of the primary EOP.' },
     ],
-    sources: [S.atcPolicy, S.atcDoc, S.atcPM, S.atcPolicies, S.passeII, S.passeList, S.abaII, S.acentra, S.secI, S.atcPreauth, { title: 'Arkansas Total Care — Provider news (provider notices archive)', url: 'https://www.arkansastotalcare.com/providers/providernews.html' }],
+    sources: [ CFR438206_G5,S.atcPolicy, S.atcDoc, S.atcPM, S.atcPolicies, S.passeII, S.passeList, S.abaII, S.acentra, S.secI, S.atcPreauth, { title: 'Arkansas Total Care — Provider news (provider notices archive)', url: 'https://www.arkansastotalcare.com/providers/providernews.html' }],
     deliveryRules: {
       supervision: {
         value: 'Arkansas Total Care’s criteria require 97155 (protocol modification) for “at least two hours per week or 5% of the direct service hours provided, whichever is greater” (one to two hours a week is acceptable below 10 hours of treatment), and treatment “delivered or supervised by an ABA-credentialed professional.” The state floor in the ABA manual also applies to PASSE members: a Medicaid-enrolled BCBA observes at least 5% of each technician’s hours and one hour every 30 days, and supervises no more than 12 BCaBAs and RBTs.',
@@ -487,6 +527,11 @@ export const arkansasPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.csPY, S.csPM, S.csAdd],
       },
+      {
+        h2: 'Out-of-network care and single case agreements',
+        body: [MCO_OON_BODY_G5],
+        cites: [CFR438206_G5],
+      },
     ],
     collect: [
       { title: 'State ABA packet', desc: 'Diagnosis, DMS-641 ER referral, DMS-641 TP prescription, BCBA comprehensive assessment and an ITP signed by the BCBA and parent.' },
@@ -494,7 +539,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
       { title: 'Other insurance', desc: 'Medicaid pays last; CareSource needs the primary payer’s determination and pays no more than the Medicaid rate.' },
       { title: 'Autism Waiver status', desc: 'Members in the Autism Waiver are excluded from ABA therapy.' },
     ],
-    sources: [S.csMM, S.csPY, S.csPM, S.csAdd, S.passeII, S.passeList, S.abaII, S.acentra, S.secI, { title: 'CareSource PASSE — Provider updates & announcements (dated provider notices)', url: 'https://www.caresource.com/ar/providers/tools-resources/updates-announcements/caresource-passe/' }],
+    sources: [ CFR438206_G5,S.csMM, S.csPY, S.csPM, S.csAdd, S.passeII, S.passeList, S.abaII, S.acentra, S.secI, { title: 'CareSource PASSE — Provider updates & announcements (dated provider notices)', url: 'https://www.caresource.com/ar/providers/tools-resources/updates-announcements/caresource-passe/' }],
     deliveryRules: {
       supervision: {
         value: 'CareSource says supervision requirements “are published by the State of Arkansas and the BACB” and adds that “RBT supervisors must hold BCBA or BCaBA certification.” The state floor: a Medicaid-enrolled BCBA observes at least 5% of each technician’s treatment hours and one hour every 30 days, stays on call, approves notes before billing, and supervises no more than 12 BCaBAs and RBTs.',
@@ -541,7 +586,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
         cites: [S.csMM, S.abaII],
       },
       diagnosingProviders: {
-        value: 'A “Qualified Professional,” which the policy defines as “A licensed physician, licensed psychologist, or licensed speech-language pathologist,” consistent with Ark. Code Ann. § 20-77-124.',
+        value: 'A “Qualified Professional,” which the policy defines as “A licensed physician, licensed psychologist, or licensed speech-language pathologist,” consistent with Ark. Code Ann. § 20-77-124. An LCSW is not on the list.',
         status: 'verified',
         cites: [S.csMM],
       },
@@ -630,13 +675,25 @@ export const arkansasPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.empHB],
       },
+      {
+        h2: 'Behavioral Assistance (H2019) is a separate service, not ABA',
+        body: [
+          'Empower’s October 23, 2026 provider alert changes Behavioral Assistance (H2019), a home- and community-based behavioral health service, not ABA: after the DHS HCBS rate study, Empower will pay H2019 at “$20.08 per unit beginning January 1, 2027,” for “all Behavioral Assistance regardless of degree status or place of service,” and from that date H2019 claims “should be filed with only U4-UC modifiers” (H2019-U4-UC). ABA itself is billed on the CPT codes of the Arkansas Medicaid ABA fee schedule (97151, 97153, 97155 and 97156), which does not list H2019, so the alert does not change ABA rates.',
+        ],
+        cites: [S.empH2019, S.abaFee],
+      },
+      {
+        h2: 'Out-of-network care and single case agreements',
+        body: [MCO_OON_BODY_G5],
+        cites: [CFR438206_G5],
+      },
     ],
     collect: [
       { title: 'State ABA packet', desc: 'DMS-641 ER referral, DMS-641 TP prescription, diagnosis documentation and the BCBA’s comprehensive evaluation.' },
       { title: 'Empower member ID', desc: 'Confirm PASSE attribution on the date of service; retrospective review is available for newly attributed members.' },
       { title: 'Other insurance', desc: 'Empower is the payer of last resort; bill the primary first.' },
     ],
-    sources: [S.empPA, S.empPAList, S.empHB, S.passeII, S.passeList, S.abaII, S.abaFee, S.acentra, S.secI, { title: 'Empower Healthcare Solutions — Provider newsletter archive', url: 'https://getempowerhealth.com/provider-newsletter/' }],
+    sources: [ CFR438206_G5,S.empPA, S.empPAList, S.empHB, S.empH2019, S.empAlerts, S.passeII, S.passeList, S.abaII, S.abaFee, S.acentra, S.secI, { title: 'Empower Healthcare Solutions — Provider newsletter archive', url: 'https://getempowerhealth.com/provider-newsletter/' }],
     deliveryRules: {
       supervision: {
         value: 'Empower publishes no ABA supervision rule of its own, so the state rule applies. ' + AR_MEDICAID_SUPERVISION,
@@ -777,13 +834,23 @@ export const arkansasPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.sccPM, S.abaII, S.secI],
       },
+      {
+        h2: 'Out-of-network care and single case agreements',
+        body: [MCO_OON_BODY_G5],
+        cites: [CFR438206_G5],
+      },
+      {
+        h2: 'Member appeals and State fair hearings (federal floor)',
+        body: [MCO_APPEAL_BODY_G5],
+        cites: [CFR438402_G5, CFR438408_G5],
+      },
     ],
     collect: [
       { title: 'State ABA packet', desc: 'DMS-641 ER referral, DMS-641 TP prescription, diagnosis documentation and the BCBA’s comprehensive evaluation.' },
       { title: 'Summit member ID', desc: 'Confirm PASSE attribution on the date of service.' },
       { title: 'Other insurance', desc: 'Bill the primary first; the Summit secondary claim is due within 180 days of the primary payment.' },
     ],
-    sources: [S.sccPA, S.sccPM, S.passeII, S.passeList, S.abaII, S.abaFee, S.acentra, S.acentraPPT, S.secI, { title: 'Summit Community Care — Provider News (Arkansas; monthly provider newsletters + articles)', url: 'https://providernews.summitcommunitycare.com/' }],
+    sources: [ CFR438402_G5, CFR438408_G5, CFR438206_G5,S.sccPA, S.sccPM, S.passeII, S.passeList, S.abaII, S.abaFee, S.acentra, S.acentraPPT, S.secI, { title: 'Summit Community Care — Provider News (Arkansas; monthly provider newsletters + articles)', url: 'https://providernews.summitcommunitycare.com/' }],
     deliveryRules: {
       supervision: {
         value: 'Summit publishes no ABA supervision rule of its own, so the state rule applies. ' + AR_MEDICAID_SUPERVISION,
@@ -930,7 +997,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
       {
         h2: 'The Arkansas mandate: what it guarantees',
         body: [AR_MANDATE_BODY],
-        cites: [S.act196, S.abcbs],
+        cites: [S.act196, S.act656, S.abcbs],
       },
       {
         h2: 'Credentialing, licensure and rates',
@@ -955,7 +1022,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
       { title: 'Adaptive behavior assessment', desc: 'Within six months of the treatment start date.' },
       { title: 'Prescription', desc: 'Signed ABA prescription from a licensed physician or licensed psychologist.' },
     ],
-    sources: [S.abcbs, S.act196, S.act575, S.act1106, S.act432, S.bacbLic, S.abaFee, S.erisa, S.secI, S.cfr433, S.tricare, S.champva, { title: 'Arkansas Blue Cross and Blue Shield — Providers\' News (provider newsletter archive)', url: 'https://www.arkansasbluecross.com/providers/resource-center/providers-news' }],
+    sources: [S.abcbs, S.act196, S.act656, S.act575, S.act1106, S.act432, S.bacbLic, S.abaFee, S.erisa, S.secI, S.cfr433, S.tricare, S.champva, { title: 'Arkansas Blue Cross and Blue Shield — Providers\' News (provider newsletter archive)', url: 'https://www.arkansasbluecross.com/providers/resource-center/providers-news' }],
     deliveryRules: {
       supervision: {
         value: 'ABA must be “provided or supervised by a therapist certified by the nationally accredited Behavior Analyst Certification Board.” Absent a state law, line therapy is delivered by an RBT, BCaBA, or master’s- or doctoral-level BCBA, consistent with the Lucet provider manual and the BACB ethics code. No numeric supervision ratio is published in the policy.',
@@ -1099,7 +1166,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
       {
         h2: 'The Arkansas mandate: what it guarantees',
         body: [AR_MANDATE_BODY],
-        cites: [S.act196, S.abcbs],
+        cites: [S.act196, S.act656, S.abcbs],
       },
       {
         h2: 'Credentialing, licensure and rates',
@@ -1120,6 +1187,11 @@ export const arkansasPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.aetnaCPB, S.aetnaTele, S.aetnaOM, S.aetnaGuide, S.aetnaNPC],
       },
+      {
+        h2: 'Disputes, appeals and transition of care (Aetna)',
+        body: [AETNA_APPEALS_BODY_G5, AETNA_TOC_BODY_G5],
+        cites: [AETNA_OM_G5],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Arkansas mandate and PA law apply) vs. self-funded ERISA (plan document governs).' },
@@ -1128,7 +1200,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
       { title: 'Standardized functional measure', desc: 'Aetna wants one from the past 12 months (for example Vineland-3, ABAS, VB-MAPP).' },
       { title: 'Prescription', desc: 'Arkansas’s mandate defines treatment as care prescribed or ordered by a licensed physician or psychologist.' },
     ],
-    sources: [S.aetnaGuide, S.aetnaPrecert, S.aetnaCPB648, S.aetnaNPC, S.aetnaOM, S.act196, S.act1106, S.act575, S.act432, S.bacbLic, S.abcbs, S.abaFee, S.erisa, S.secI, S.cfr433, S.tricare, S.champva, S.aetnaCPB, S.aetnaTele],
+    sources: [ AETNA_OM_G5,S.aetnaGuide, S.aetnaPrecert, S.aetnaCPB648, S.aetnaNPC, S.aetnaOM, S.act196, S.act1106, S.act575, S.act432, S.bacbLic, S.abcbs, S.abaFee, S.erisa, S.secI, S.cfr433, S.tricare, S.champva, S.aetnaCPB, S.aetnaTele, S.act656],
     deliveryRules: {
       supervision: {
         value: 'Services “must be provided directly or supervised by individuals licensed by the state or certified by the Behavior Analyst Certification Board”; supervised staff may be a BCaBA or a paraprofessional, with “A minimum of one hour of face-to-face supervision” per 10 hours of ABA by the supervised provider and the supervisor “onsite with the child at least one hour a month.” Arkansas’s mandate requires ABA “provided by or supervised by a Board Certified Behavior Analyst.”' + ' Aetna’s guide and Network Participation Criteria publish no cap on the number of technicians one BCBA may supervise.',
@@ -1271,7 +1343,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
       {
         h2: 'The Arkansas mandate: what it guarantees',
         body: [AR_MANDATE_BODY],
-        cites: [S.act196, S.abcbs],
+        cites: [S.act196, S.act656, S.abcbs],
       },
       {
         h2: 'Credentialing, licensure and rates',
@@ -1292,6 +1364,11 @@ export const arkansasPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.cignaARG, S.ebhAdmin, S.en0499],
       },
+      {
+        h2: 'Appeals and out-of-network care (Evernorth)',
+        body: [EBH_APPEALS_BODY_G5, EBH_OON_BODY_G5],
+        cites: [EBH_ADMIN_G5],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Arkansas mandate, PA law and Evernorth’s Arkansas addendum apply) vs. self-funded ERISA.' },
@@ -1299,7 +1376,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis report', desc: 'Diagnosing clinician’s name, credentials and licensure, and the date of the most recent diagnosis.' },
       { title: 'Standardized assessment timing', desc: 'Instrument administered within 60 days before treatment starts.' },
     ],
-    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.act196, S.act1106, S.act575, S.act432, S.bacbLic, S.abcbs, S.abaFee, S.erisa, S.secI, S.cfr433, S.tricare, S.champva],
+    sources: [ EBH_ADMIN_G5,S.en0499, S.cignaARG, S.ebhAdmin, S.act196, S.act1106, S.act575, S.act432, S.bacbLic, S.abcbs, S.abaFee, S.erisa, S.secI, S.cfr433, S.tricare, S.champva, S.act656],
     deliveryRules: {
       supervision: {
         value: 'Case supervision by a BCBA, a Licensed Behavior Analyst, or an independently licensed clinician with ABA training, at one to two hours per ten hours of direct treatment; at 10 hours a week or less, at least one to two hours a week.' + ' EN0499 publishes no cap on the number of technicians one supervisor may oversee.',
@@ -1437,7 +1514,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
       {
         h2: 'The Arkansas mandate: what it guarantees',
         body: [AR_MANDATE_BODY],
-        cites: [S.act196, S.abcbs],
+        cites: [S.act196, S.act656, S.abcbs],
       },
       {
         h2: 'Credentialing, licensure and rates',
@@ -1454,9 +1531,14 @@ export const arkansasPayers: Record<string, PayerConfig> = {
       {
         h2: 'Claim filing, telehealth billing and reauthorization',
         body: [
-          'Billing details from Optum’s own documents. Codes: the commercial ABA reimbursement policy (2022RP501A) covers ABA billed "with CPT codes 97151-97158" plus 0362T and 0373T, each line with its credential modifier; it lists no HCPCS H-code. Telehealth: claims "must include either POS 02 or POS 10" (10 when the member is at home), and "Optum will not reimburse for services billed with only telehealth modifiers"; modifiers 93, 95, FQ, GT and GQ are optional, and commercial ABA telehealth covers only 97155, 97156 and 97157. Filing: claims are due "no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan," and "Any corrections or additions to a claim should be made within 90 days of initial claim receipt." Payment: clean claims with any required authorization are generally paid within 45 calendar days of receipt or as state and federal law requires, which may exclude claims needing a coordination-of-benefits determination. Reauthorization (Supplemental Clinical Criteria): each continued-service review needs progress for every target "including the same modes of measurement that were utilized for baseline," with "rate and percentage of mastered programs, rates of mastered targets, change scores for any outcome measures, updated standardized adaptive measures"; inadequate progress over a 6-month period requires an analysis and modified interventions. Graphs are not named. Supervision: "direct case supervision is required 1–2 hours for every 10 hours of direct treatment per week," with no published cap on technicians per BCBA.',
+          'Billing details from Optum’s own documents. Codes: the commercial ABA reimbursement policy (2022RP501A) covers ABA billed "with CPT codes 97151-97158" (each line with its credential modifier) plus 0362T and 0373T, which it lists as codes "that do not require modifiers"; it lists no HCPCS H-code. Telehealth: claims "must include either POS 02 or POS 10" (10 when the member is at home), and "Optum will not reimburse for services billed with only telehealth modifiers"; modifiers 93, 95, FQ, GT and GQ are optional, and commercial ABA telehealth covers only 97155, 97156 and 97157. Filing: claims are due "no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan," and "Any corrections or additions to a claim should be made within 90 days of initial claim receipt." Payment: clean claims with any required authorization are generally paid within 45 calendar days of receipt or as state and federal law requires, which may exclude claims needing a coordination-of-benefits determination. Reauthorization (Supplemental Clinical Criteria): each continued-service review needs progress for every target "including the same modes of measurement that were utilized for baseline," with "rate and percentage of mastered programs, rates of mastered targets, change scores for any outcome measures, updated standardized adaptive measures"; inadequate progress over a 6-month period requires an analysis and modified interventions. Graphs are not named. Supervision: "direct case supervision is required 1–2 hours for every 10 hours of direct treatment per week," with no published cap on technicians per BCBA.',
         ],
         cites: [S.optumReimb, S.optumTele, S.optumNNM, S.optumSCC],
+      },
+      {
+        h2: 'Appeals, authorizations and changing providers (Optum)',
+        body: [OPTUM_APPEALS_BODY_G5, OPTUM_AUTH_BODY_G5],
+        cites: [OPTUM_NNM_G5],
       },
     ],
     collect: [
@@ -1464,7 +1546,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
       { title: 'Member ID + card photo', desc: 'Enough to run a live benefits verification on Provider Express.' },
       { title: 'Diagnosis with a validated tool', desc: 'DSM-5-TR ASD and severity level, confirmed with a validated tool (ADI-R, ADOS-2 and others).' },
     ],
-    sources: [S.optumSCC, S.optumSM, S.optumTele, S.optumReimb, S.optumNNM, S.act196, S.act1106, S.act575, S.act432, S.bacbLic, S.abcbs, S.abaFee, S.erisa, S.secI, S.cfr433, S.tricare, S.champva],
+    sources: [ OPTUM_NNM_G5,S.optumSCC, S.optumSM, S.optumTele, S.optumReimb, S.optumNNM, S.act196, S.act1106, S.act575, S.act432, S.bacbLic, S.abcbs, S.abaFee, S.erisa, S.secI, S.cfr433, S.tricare, S.champva, S.act656],
     deliveryRules: {
       supervision: {
         value: 'Consistent with CASP standards, “direct case supervision is required 1–2 hours for every 10 hours of direct treatment per week.” Technicians should be RBTs or otherwise appropriately certified; Optum does not recommend parents serving as their own child’s RBT.' + ' Optum’s criteria publish no cap on the number of technicians per BCBA.',
@@ -1548,7 +1630,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
-      { q: 'Does UnitedHealthcare accept H0031 or H2019 for ABA?', a: 'No. Optum’s commercial ABA policy uses CPT 97151–97158, 0362T and 0373T with credential modifiers.' },
+      { q: 'Does UnitedHealthcare accept H0031 or H2019 for ABA?', a: 'No. Optum’s commercial ABA policy uses CPT 97151–97158 with credential modifiers, plus 0362T and 0373T without modifiers.' },
       { q: 'Does Optum require graphs for an ABA reauthorization?', a: 'The criteria ask for progress measured the same way as baseline, mastery rates, change scores and updated standardized adaptive measures; graphs are not named.' },
       { q: 'What is UnitedHealthcare’s timely filing limit for ABA claims?', a: 'Optum: 90 calendar days from the date of service unless state law or the plan allows longer, with corrections within 90 days of the first claim’s receipt.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in Arkansas?', a: 'Yes, under Optum’s national ABA criteria for ASD, with Arkansas’s § 23-99-418 mandate for fully insured group plans.' },

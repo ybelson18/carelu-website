@@ -6,6 +6,38 @@ import type { PayerConfig } from './types.js';
    which renumbered the provider rule (77.26 -> 77.31) and the prior-authorization rule
    (79.8 -> 79.9); H.F. 330 (2025 Iowa Acts ch. 162) removed the autism mandate's age
    limits and dollar caps for plans issued or renewed on or after 1/1/2026. */
+/* Optum commercial: appeals packet, auth binding, switching, out-of-network (National Network Manual, read 2026-10-25). */
+const OPTUM_NNM_G5 = { title: 'Optum Behavioral Health — National Network Manual (BH02330, July 2026 edition): Provider Reconsideration and Appeal Process; Services that require prior authorization; Continuity of Care', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' };
+const OPTUM_APPEALS_BODY_G5 =
+  'Reconsiderations and appeals. Optum’s National Network Manual sets a two-step process for commercial claim and clinical prior-authorization disputes: request reconsideration first, then appeal, with “a total of 12 months for submission for both steps” unless state law or your Participation Agreement sets a different deadline. On what to send, it says: “Include member-specific treatment plans, clinical records, payment appendices or other items that support why you believe our decision was incorrect,” and decisions are made “based on the materials available at the time of the review.” Add proof that Optum received the claim within your timely-filing limit. Submit through the Provider Express secure portal, or mail the reconsideration request form and documents to Optum Behavioral Health Solutions, P.O. Box 30757, Salt Lake City, UT 84123. For non-urgent clinical appeals the manual gives a 180-day window.';
+const OPTUM_AUTH_BODY_G5 =
+  'Who holds the authorization, and switching providers. “Authorizations for non-routine outpatient services are specific to the requesting clinician,” and ABA is requested through the Provider Express portal, so an approval does not move with the child to a new agency: the new provider requests its own. When a clinician or group leaves the Optum network, it must keep treating members who choose to continue for up to 90 calendar days (or as the Participation Agreement or state law provides), or until the member moves to another Optum clinician, and Optum “will assist these members in selecting a new clinician, group or agency.” Out-of-network: the manual describes no single case agreement process for ABA; its portal is open to “out-of-network individual clinicians” and members can “Submit out-of-network claims,” but whether this plan pays out-of-network ABA, and how much, is in the member’s plan, so ask Optum on the behavioral health number on the card.';
+
+/* Evernorth (Cigna) commercial: appeals packet and out-of-network by plan type (Administrative Guidelines Sept 2026, read 2026-10-25). */
+const EBH_ADMIN_G5 = { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026): plan types; Appeals; Appeal types and filing instructions', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' };
+const EBH_APPEALS_BODY_G5 =
+  'Reconsiderations and appeals. Evernorth’s administrative guidelines say “All appeals are to be initiated in writing within 180 calendar days of the date of the initial payment or denial decision” (or of the last payment adjustment). Fee-schedule and reimbursement disputes “may be quickly resolved through submitting an adjustment request via the reconsideration feature on Provider.Evernorth.com.” For a medical-necessity denial, send the complete clinical record; for an untimely-filing denial, send the EDI transmission report or “evidence that a claim was submitted due to coordination of benefits with another carrier.” “Most appeals are resolved within 60 calendar days of receipt,” with notice within 75 days unless state law requires otherwise. Each appeal must be submitted by a person: Evernorth will not accept appeals sent by automation software.';
+const EBH_OON_BODY_G5 =
+  'Out-of-network care depends on the plan type printed on the card. The guidelines list “no out-of-network coverage, except in emergencies” for Open Access Plus In-Network and Network Open Access plans, no out-of-network coverage except emergent or urgent care for SureFit, and in-network-only HMO and HMO Open Access plans, while Open Access Plus covers out-of-network providers “at a reduced benefit level” and POS plans cover both. The guidelines mention a single-case agreement only for inpatient specialing, not ABA, so whether Evernorth will sign a single case agreement with an out-of-network ABA provider is a case-by-case question for Evernorth care management.';
+
+/* Aetna commercial: dispute packet, transition/continuity of care (office manual 6/26, read 2026-10-25). */
+const AETNA_OM_G5 = { title: 'Aetna Health Care Professional Toolkit / office manual (8102800-01-01, 6/26): Claim dispute requirements; Transition and continuity of care', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' };
+const AETNA_APPEALS_BODY_G5 =
+  'Reconsiderations, disputes and appeals. Aetna’s office manual says claim disputes must be in writing (with the Provider and Practitioner Complaint and Appeals Form if sent by fax or mail), within contractual timeframes, and must include the billed TIN and NPI, the servicing provider’s name, your patient account number, member ID, patient name and date of birth, dates of service, claim ID, total billed charges, expected reimbursement, a reference number and the “Physician/Facility rationale for dispute.” “If these requirements are not met, the original claim decision will be deemed final.” The Practitioner and Provider Complaint and Appeal Request “is a mandatory form that must accompany any written appeal.” The fastest route is the Dispute Claim button on a finalized claim in Availity.';
+const AETNA_TOC_BODY_G5 =
+  'Out-of-network providers and changing plans. Aetna offers transition of care, which lets a new member keep seeing a current out-of-network provider “at in-network cost level for a defined period of time,” and continuity of care, for a member in active treatment whose provider leaves Aetna’s network. Both require “an active course of covered treatment,” are time-limited, start with the member asking Member Services or the employer for a Transition Coverage Request Form, and do not apply to Traditional Choice plans. The manual limits them to an individual practitioner (for example a specialist or speech therapist) or a home care agency, so ask Aetna whether an ABA group qualifies. It describes no separate single case agreement process.';
+
+/* Federal Medicaid managed-care floor for out-of-network care (42 CFR 438.206(b)(4)-(5); eCFR read 2026-10-25). */
+const CFR438206_G5 = { title: '42 CFR 438.206 — Availability of services (out-of-network coverage when the network cannot provide a covered service) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' };
+const MCO_OON_BODY_G5 =
+  'Out-of-network ABA and single case agreements. Federal Medicaid managed-care rules set the floor: “If the provider network is unable to provide necessary services, covered under the contract, to a particular enrollee,” the plan “must adequately and timely cover these services out of network for the enrollee, for as long as” its network cannot provide them, must require out-of-network providers “to coordinate with” the plan for payment, and must keep the enrollee’s cost no greater than in network (42 CFR 438.206(b)(4)-(5)). That is the basis for asking for a single case agreement when no in-network ABA provider can serve the child within the plan’s access standards. The terms and rate of any such agreement are set case by case, so document the network gap (who you called, wait times) and ask the plan’s utilization management or provider contracting team.';
+
+/* Federal Medicaid managed-care appeal floor (42 CFR 438.402, 438.408; eCFR read 2026-10-25). */
+const CFR438402_G5 = { title: '42 CFR 438.402 — Grievance and appeal system: general requirements (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-F/section-438.402' };
+const CFR438408_G5 = { title: '42 CFR 438.408 — Resolution and notification of grievances and appeals (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-F/section-438.408' };
+const MCO_APPEAL_BODY_G5 =
+  'Appealing a denied or reduced ABA authorization. Federal Medicaid managed-care rules set the floor every plan must meet. After an adverse benefit determination the family “has 60 calendar days from the date on the adverse benefit determination notice” to appeal to the plan, and the plan may have only one level of appeal. A provider may file the appeal on the child’s behalf “with the written consent of the enrollee” where state law permits. The plan must resolve a standard appeal within 30 calendar days and an expedited one within 72 hours (both extendable under the rule), and after an upheld appeal the family has 90 to 120 days to request a State fair hearing. A plan that misses these notice and timing rules is treated as having exhausted its appeal process, so the family can go straight to a fair hearing. Claim-payment disputes by the provider are a separate process set in the plan’s provider manual and contract.';
+
 export const iowaPayers: Record<string, PayerConfig> = {
   'iowa-medicaid': {
     slug: 'iowa-medicaid',
@@ -333,7 +365,7 @@ export const iowaPayers: Record<string, PayerConfig> = {
           { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
           { title: 'Iowa Total Care — Prior Authorization Check (primary payer first)', url: 'https://www.iowatotalcare.com/providers/preauth-check.html' },
           { title: 'Iowa Total Care Provider Manual (Rev. 03/2026) — Third-Party Liability / COB', url: 'https://www.iowatotalcare.com/content/dam/centene/iowa-total-care/PDF/2025_ITC_ProviderManual_FINAL_OB11849_031826_508.pdf' },
-          { title: 'Molina Healthcare of Iowa — Medicaid 2026 Provider Manual (COB and TPL)', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/ia/2026-Medicaid/News-and-Updates-Page/MHIA-Medicaid-Provider-Manual-2026.ashx' },
+          { title: 'Molina Healthcare of Iowa — Medicaid 2026 Provider Manual (COB and TPL)', url: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/ia/2026-Medicaid/News-and-Updates-Page/MHIA-Medicaid-Provider-Manual-2026.ashx' },
           { title: 'Iowa Code chapter 225D — Autism support program', url: 'https://www.legis.iowa.gov/docs/code/225D.pdf' },
         ],
       },
@@ -490,6 +522,11 @@ export const iowaPayers: Record<string, PayerConfig> = {
           { title: 'Iowa HHS — Behavioral Health Intervention Services Provider Manual, Ch. III (rev. 10/22/2021)', url: 'https://hhs.iowa.gov/media/4311/download' },
         ],
       },
+      {
+        h2: 'Out-of-network care and single case agreements',
+        body: [MCO_OON_BODY_G5],
+        cites: [CFR438206_G5],
+      },
     ],
     collect: [
       { title: 'Medicaid line vs. Hawki', desc: 'ABA is not a Hawki benefit. The line decides coverage before anything else does.' },
@@ -498,7 +535,7 @@ export const iowaPayers: Record<string, PayerConfig> = {
       { title: 'School schedule and IEP', desc: 'Full-time school means under 20 hours a week, and school-based plans have their own documentation list.' },
       { title: 'Caregiver availability', desc: 'Two to four caregiver goals and about two hours a month of caregiver training are expected.' },
     ],
-    sources: [
+    sources: [ CFR438206_G5,
       { title: 'Iowa Total Care CP.BH.104 — Applied Behavior Analysis (rev. 02/26)', url: 'https://www.iowatotalcare.com/content/dam/centene/iowa-total-care/policies/clinical-policies/CP.BH.104.pdf' },
       { title: 'Iowa Total Care CP.BH.105 — ABA Documentation Requirements (rev. 02/26)', url: 'https://www.iowatotalcare.com/content/dam/centene/iowa-total-care/policies/clinical-policies/CP.BH.105.pdf' },
       { title: 'Iowa Total Care — Clinical and payment policies', url: 'https://www.iowatotalcare.com/providers/resources/clinical-payment-policies.html' },
@@ -760,6 +797,11 @@ export const iowaPayers: Record<string, PayerConfig> = {
           { title: 'Wellpoint Iowa Medicaid Provider Manual (IAWP-CD-PM-096716-25, Sept. 1, 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/IA_WLP_CAID_ProviderManual.pdf?v=202608101953' },
         ],
       },
+      {
+        h2: 'Out-of-network care and single case agreements',
+        body: [MCO_OON_BODY_G5],
+        cites: [CFR438206_G5],
+      },
     ],
     collect: [
       { title: 'Medicaid line vs. Hawki', desc: 'Wellpoint\'s manual lists ABA as not covered for Hawki members.' },
@@ -767,7 +809,7 @@ export const iowaPayers: Record<string, PayerConfig> = {
       { title: 'Availity access for ICR', desc: 'The electronic route for authorizations. Set it up before the first request.' },
       { title: 'Supervising licensed behavior analyst', desc: 'Iowa\'s rule that RBT claims bill under the supervising LBA applies inside managed care too.' },
     ],
-    sources: [
+    sources: [ CFR438206_G5,
       { title: 'Wellpoint Iowa IA Health Link and Hawki Provider Manual (Sept. 1, 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/IA_WLP_CAID_ProviderManual.pdf?v=202608101953' },
       { title: 'Wellpoint Iowa — Prior authorization requirements', url: 'https://www.provider.wellpoint.com/iowa-provider/resources/prior-authorization-requirements' },
       { title: 'Wellpoint Iowa — Behavioral health', url: 'https://www.provider.wellpoint.com/iowa-provider/patient-care/behavioral-health' },
@@ -904,17 +946,17 @@ export const iowaPayers: Record<string, PayerConfig> = {
       value: 'Not confirmed — Molina publishes its PA codes on a PA Codification List (updated quarterly) that could not be retrieved',
       status: 'unverified',
       cites: [
-        { title: 'Molina Healthcare of Iowa — Authorizations (Medicaid)', url: 'https://www.molinahealthcare.com/providers/ia/medicaid/claims/priorauth.aspx' },
+        { title: 'Molina Healthcare of Iowa — Prior Authorizations in Iowa (Availity-only medical PA from 2/1/2026)', url: 'https://www.molinahealthcare.com/providers/ia/prior-auth' },
       ],
       verifyVia: 'Molina PA Codification List on the Molina Iowa Frequently Used Forms page, or the PA Lookup Tool (molinahealthcare.com/providers/ia/medicaid/palookup); Provider Services (844) 236-1464.',
       blocker: 'document',
     },
     treatmentPA: {
-      value: 'Not confirmed at code level — the Molina Iowa manual lists BHIS "including applied behavior analysis" as covered and routes PA through Availity Essentials or UM fax (877) 319-6828; the PA Codification List that names the ABA codes could not be retrieved',
+      value: 'Not confirmed at code level — the Molina Iowa manual lists BHIS "including applied behavior analysis" as covered and routes PA through Availity Essentials (Molina\'s Iowa prior-authorization page: from 2/1/26 medical PA requests must go through Availity, as Molina no longer accepts fax submissions); the PA Codification List that names the ABA codes could not be retrieved',
       status: 'unverified',
       cites: [
-        { title: 'Molina Healthcare of Iowa — Medicaid 2026 Provider Manual', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/ia/2026-Medicaid/News-and-Updates-Page/MHIA-Medicaid-Provider-Manual-2026.ashx' },
-        { title: 'Molina Healthcare of Iowa — Authorizations (Medicaid)', url: 'https://www.molinahealthcare.com/providers/ia/medicaid/claims/priorauth.aspx' },
+        { title: 'Molina Healthcare of Iowa — Medicaid 2026 Provider Manual', url: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/ia/2026-Medicaid/News-and-Updates-Page/MHIA-Medicaid-Provider-Manual-2026.ashx' },
+        { title: 'Molina Healthcare of Iowa — Prior Authorizations in Iowa (Availity-only medical PA from 2/1/2026)', url: 'https://www.molinahealthcare.com/providers/ia/prior-auth' },
       ],
       verifyVia: 'Molina PA Codification List / PA Lookup Tool for 97153, 97155, 97156; Provider Services (844) 236-1464.',
       blocker: 'document',
@@ -932,7 +974,7 @@ export const iowaPayers: Record<string, PayerConfig> = {
     h1: 'Molina Healthcare of Iowa ABA coverage (IA Health Link MCO).',
     metaTitle: 'Molina Healthcare of Iowa (IA Health Link) ABA Coverage & Prior Auth | Carelu',
     metaDescription:
-      'How Molina Healthcare of Iowa administers Iowa Medicaid ABA: Molina Clinical Policy 482 (diagnosis, 18-month start age, the 25-hour high-intensity review, telehealth limits), Availity and fax submission, the 7-day decision clock in the 2026 manual, and the Hawki exclusion.',
+      'How Molina Healthcare of Iowa administers Iowa Medicaid ABA: Molina Clinical Policy 482 (diagnosis, 18-month start age, the 25-hour high-intensity review, telehealth limits), Availity-only PA submission (no fax since 2/1/2026), the 7-day decision clock in the 2026 manual, and the Hawki exclusion.',
     intro: [
       'Molina Healthcare of Iowa is the newest of the three IA Health Link plans. Its 2026 provider manual lists behavioral health intervention services "including applied behavior analysis" as covered for Medicaid and Iowa Health and Wellness Plan members and not covered for Hawki. For clinical criteria, the Iowa provider site sends providers to Molina\'s national Clinical Policy library, where Molina Clinical Policy 482 (Applied Behavioral Analysis for Autism Spectrum Disorder, approved June 10, 2026) sets the initiation, continuation and telehealth rules. That policy is national and says coverage "may be mandated by applicable legal requirements of a State," so where Iowa Medicaid\'s own ABA rules differ, the state wins.',
     ],
@@ -942,7 +984,7 @@ export const iowaPayers: Record<string, PayerConfig> = {
       { label: 'Clinical policy', value: 'Molina Clinical Policy 482 (approved 6/10/2026)' },
       { label: 'Start age', value: 'MCP 482: "ASD initiation age is 18 months or older"' },
       { label: 'High intensity', value: 'Over 25 direct hours/week needs extra documentation and 6-month reassessment' },
-      { label: 'Prior auth route', value: 'Availity Essentials encouraged; UM fax (877) 319-6828; PA code list updated quarterly' },
+      { label: 'Prior auth route', value: 'Availity Provider Portal only for medical PA since 2/1/2026 (Molina no longer accepts fax); PA code list updated quarterly' },
       { label: 'Decision time', value: 'Standard: 7 calendar days; expedited: 72 hours (2026 manual)' },
     ],
     sections: [
@@ -954,18 +996,18 @@ export const iowaPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'Molina Clinical Policy 482 — Applied Behavioral Analysis for Autism Spectrum Disorder (approved 6/10/2026)', url: 'https://www.molinaclinicalpolicy.com/molinaclinicalpolicy/-/media/Molina/PublicWebsite/PDF/Common/Molina-Clinical-Policy/Applied-Behavioral-Analysis-for-Autism-Spectrum-Disorder_R.ashx' },
-          { title: 'Molina Healthcare of Iowa — Molina Clinical Policy (link to policy library)', url: 'https://www.molinahealthcare.com/providers/ia/medicaid/resources/Molina-Clinical-Policy.aspx' },
+          { title: 'Molina Healthcare — Provider policies page (links the Molina Clinical Policy library)', url: 'https://www.molinahealthcare.com/providers/resources/policies' },
         ],
       },
       {
         h2: 'Authorization mechanics',
         body: [
-          'Molina encourages Availity Essentials for authorizations and accepts the uniform state form by fax at the Molina Iowa UM line, (877) 319-6828. The older quick reference guide still hosted by Iowa HHS (June 2023) lists a different medical PA fax, (319) 774-1295; use the 2026 manual and the prior-authorization page instead. The list of codes that need PA is the PA Codification List, which Molina says is "customarily updated quarterly" with 30 days\' notice of new requirements; the July 2026 update, for example, changed drug codes only. The 2026 manual commits to decisions within seven calendar days of a complete standard request and 72 hours for an expedited one.',
+          'Submit ABA authorizations through the Availity Provider Portal. Molina\'s Iowa prior-authorization page states: “Starting 2/1/26, providers must submit medical benefit PA requests through Availity Provider Portal as Molina no longer accepts fax submissions.” The 2026 manual\'s UM fax line, (877) 319-6828, and the older Iowa HHS quick reference guide\'s medical PA fax, (319) 774-1295, are therefore no longer submission routes for medical PA. The list of codes that need PA is the PA Codification List, which Molina says is "customarily updated quarterly" with 30 days\' notice of new requirements; the July 2026 update, for example, changed drug codes only. The 2026 manual commits to decisions within seven calendar days of a complete standard request and 72 hours for an expedited one.',
         ],
         cites: [
-          { title: 'Molina Healthcare of Iowa — Authorizations (Medicaid)', url: 'https://www.molinahealthcare.com/providers/ia/medicaid/claims/priorauth.aspx' },
-          { title: 'Molina Healthcare of Iowa — Medicaid 2026 Provider Manual', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/ia/2026-Medicaid/News-and-Updates-Page/MHIA-Medicaid-Provider-Manual-2026.ashx' },
-          { title: 'Molina Healthcare of Iowa — PA Code Update, July 1, 2026', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/ia/2026-Medicaid/News-and-Updates-Page/MHIA-Provider-Notice_PA-Code-Updated-List_July-2026.ashx' },
+          { title: 'Molina Healthcare of Iowa — Prior Authorizations in Iowa (Availity-only medical PA from 2/1/2026)', url: 'https://www.molinahealthcare.com/providers/ia/prior-auth' },
+          { title: 'Molina Healthcare of Iowa — Medicaid 2026 Provider Manual', url: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/ia/2026-Medicaid/News-and-Updates-Page/MHIA-Medicaid-Provider-Manual-2026.ashx' },
+          { title: 'Molina Healthcare of Iowa — PA Code Update, July 1, 2026', url: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/ia/2026-Medicaid/News-and-Updates-Page/MHIA-Provider-Notice_PA-Code-Updated-List_July-2026.ashx' },
           { title: 'Iowa HHS — Provider Quick Reference Guide, Molina Healthcare of Iowa (June 2023)', url: 'https://hhs.iowa.gov/media/7599/download' },
         ],
       },
@@ -998,6 +1040,16 @@ export const iowaPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }],
       },
+      {
+        h2: 'Out-of-network care and single case agreements',
+        body: [MCO_OON_BODY_G5],
+        cites: [CFR438206_G5],
+      },
+      {
+        h2: 'Member appeals and State fair hearings (federal floor)',
+        body: [MCO_APPEAL_BODY_G5],
+        cites: [CFR438402_G5, CFR438408_G5],
+      },
     ],
     collect: [
       { title: 'PCP developmental-concern documentation', desc: 'MCP 482 wants the PCP\'s record of early concerns, screenings and referrals in the packet.' },
@@ -1005,11 +1057,11 @@ export const iowaPayers: Record<string, PayerConfig> = {
       { title: 'Current-quarter PA code list', desc: 'Molina updates the PA Codification List quarterly. Check the ABA codes before each submission.' },
       { title: 'Medicaid line vs. Hawki', desc: 'ABA is not a Hawki benefit.' },
     ],
-    sources: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, 
+    sources: [ CFR438402_G5, CFR438408_G5, CFR438206_G5,{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, 
       { title: 'Molina Clinical Policy 482 — Applied Behavioral Analysis for ASD (approved 6/10/2026)', url: 'https://www.molinaclinicalpolicy.com/molinaclinicalpolicy/-/media/Molina/PublicWebsite/PDF/Common/Molina-Clinical-Policy/Applied-Behavioral-Analysis-for-Autism-Spectrum-Disorder_R.ashx' },
-      { title: 'Molina Healthcare of Iowa — Medicaid 2026 Provider Manual', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/ia/2026-Medicaid/News-and-Updates-Page/MHIA-Medicaid-Provider-Manual-2026.ashx' },
-      { title: 'Molina Healthcare of Iowa — Authorizations (Medicaid)', url: 'https://www.molinahealthcare.com/providers/ia/medicaid/claims/priorauth.aspx' },
-      { title: 'Molina Healthcare of Iowa — Molina Clinical Policy', url: 'https://www.molinahealthcare.com/providers/ia/medicaid/resources/Molina-Clinical-Policy.aspx' },
+      { title: 'Molina Healthcare of Iowa — Medicaid 2026 Provider Manual', url: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/ia/2026-Medicaid/News-and-Updates-Page/MHIA-Medicaid-Provider-Manual-2026.ashx' },
+      { title: 'Molina Healthcare of Iowa — Prior Authorizations in Iowa (Availity-only medical PA from 2/1/2026)', url: 'https://www.molinahealthcare.com/providers/ia/prior-auth' },
+      { title: 'Molina Healthcare — Provider policies page (links the Molina Clinical Policy library)', url: 'https://www.molinahealthcare.com/providers/resources/policies' },
       { title: 'Iowa HHS — Provider Quick Reference Guide, Molina Healthcare of Iowa (June 2023)', url: 'https://hhs.iowa.gov/media/7599/download' },
       { title: 'Iowa Admin. Code r. 441—77.31 — Behavioral health services providers', url: 'https://www.legis.iowa.gov/docs/iac/chapter/441.77.pdf' },
     ],
@@ -1119,7 +1171,7 @@ export const iowaPayers: Record<string, PayerConfig> = {
           'The 2026 manual: for an expedited request "Molina will make a determination as promptly as the Member\'s health requires and no later than 72 hours after we receive the initial request"; "For a standard authorization request, Molina makes the determination and provides notification no later than seven (7) calendar days from the receipt of complete request." (The 2025 manual said 14 days; the 2026 edition reflects the federal rule for rating periods from January 1, 2026.) Molina gives 30 days\' notice before adding a service to the PA list. No ABA reauthorization lead time is published; MCP 482 requires reassessment at least every six months.',
         status: 'verified',
         cites: [
-          { title: 'Molina Healthcare of Iowa — Medicaid 2026 Provider Manual', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/ia/2026-Medicaid/News-and-Updates-Page/MHIA-Medicaid-Provider-Manual-2026.ashx' },
+          { title: 'Molina Healthcare of Iowa — Medicaid 2026 Provider Manual', url: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/ia/2026-Medicaid/News-and-Updates-Page/MHIA-Medicaid-Provider-Manual-2026.ashx' },
           { title: '42 CFR 438.210(d) — Managed care authorization timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' },
         ],
       },
@@ -1128,7 +1180,7 @@ export const iowaPayers: Record<string, PayerConfig> = {
           '"Medicaid is always the payer of last resort." If another plan is liable, "Providers must bill the primary payer and submit a primary Explanation of Benefits (EOB) to Molina for secondary claim processing," and "Primary carrier payment information is required with the claim submission." Molina pays first and recovers later only for prenatal care, preventive pediatric care and EPSDT. The manual does not say whether Molina\'s ABA authorization is still needed when another plan is primary.',
         status: 'verified',
         cites: [
-          { title: 'Molina Healthcare of Iowa — Medicaid 2026 Provider Manual (COB and TPL)', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/ia/2026-Medicaid/News-and-Updates-Page/MHIA-Medicaid-Provider-Manual-2026.ashx' },
+          { title: 'Molina Healthcare of Iowa — Medicaid 2026 Provider Manual (COB and TPL)', url: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/ia/2026-Medicaid/News-and-Updates-Page/MHIA-Medicaid-Provider-Manual-2026.ashx' },
           { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
         ],
       },
@@ -1137,7 +1189,7 @@ export const iowaPayers: Record<string, PayerConfig> = {
       { q: 'How fast must Molina Iowa pay a clean ABA claim?', a: 'Its state contract must hold it to the federal Medicaid standard: 90% of clean practitioner claims paid within 30 days of receipt and 99% within 90 days (42 CFR 447.46, 447.45), unless the provider contract sets an alternative schedule. Its own filing limit comes from the provider manual or your agreement.' },
       { q: 'Does Molina Healthcare of Iowa cover ABA therapy?', a: 'Yes for IA Health Link Medicaid and Iowa Health and Wellness Plan members; its 2026 manual lists behavioral health intervention services including applied behavior analysis as covered. Not for Hawki members.' },
       { q: 'What criteria does Molina use for ABA in Iowa?', a: 'Molina Clinical Policy 482 (approved June 10, 2026): start age 18 months or older, a DSM-5 diagnosis by a multidisciplinary team with at least one validated tool, PCP documentation, BCBA-developed plan, reassessment every six months, and extra review above 25 direct hours a week. Iowa Medicaid rules take precedence where they differ.' },
-      { q: 'How do I submit a prior authorization to Molina Healthcare of Iowa?', a: 'Through Availity Essentials (encouraged) or by fax to the Molina Iowa UM line (877) 319-6828. Standard decisions come within seven calendar days of a complete request.' },
+      { q: 'How do I submit a prior authorization to Molina Healthcare of Iowa?', a: 'Through the Availity Provider Portal only: since February 1, 2026 Molina Iowa no longer accepts faxed medical PA requests. Standard decisions come within seven calendar days of a complete request.' },
       { q: 'Does Molina Iowa require ABA goals to be organized by DSM-5 criteria?', a: 'No DSM-5 grouping is asked for. Clinical Policy 482 requires measurable goals targeting functional deficits, tracked with tools like the VB-MAPP and directly related to the ASD diagnosis; DSM-5/DSM-5-TR governs the diagnosis.' },
       { q: 'Does Molina Iowa set required parent training hours?', a: 'No hours figure. Clinical Policy 482 requires documented, structured caregiver participation at the start and ongoing caregiver training for continued care; the units are set on the authorization.' },
     ],
@@ -1262,7 +1314,7 @@ export const iowaPayers: Record<string, PayerConfig> = {
         h2: 'BlueCard: Wellmark members treated out of state, and other Blues\' members treated in Iowa',
         body: [
           'Wellmark says BlueCard "typically applies when a provider contracted with Wellmark is servicing a member of another BCBS Plan." Claims go through the treating provider\'s local plan. A Wellmark provider "submits the claim to Wellmark," and Wellmark "recognizes the BlueCard member and transmits the claim to the member\'s BCBS Plan," which "adjudicates the claim according to member\'s benefit Plan." Wellmark then reimburses the provider. Its filing tips: "File the claim to the provider\'s local BCBS Plan," and "Verify BlueCard member benefits, check applicable medical policies and initiate an out-of-area member authorization." Network status follows the ID card. A PPO-lettered suitcase means the provider "will be reimbursed for covered services in accordance with the provider\'s PPO contract with the local BCBS Plan." A blank suitcase marks HMO or POS coverage, where "Out-of-network benefits may be available." No suitcase means no BlueCard coverage.',
-          'When a Wellmark member is treated outside Iowa and South Dakota, the provider checks eligibility "through your local BCBS Plan\'s website," using the first three characters of the Wellmark ID, or calls 800-676-2583. For pre-service review, "Providers outside Iowa and South Dakota should log in to their home plan website and navigate to the out-of-state pre-service review information page." Non-Wellmark providers can instead "call the number on the member\'s ID card." Wellmark warns that for services on its Authorization Table, "If the prior approval is not approved or not completed prior to the service being provided, the claim will be denied." Whether ABA codes are on that table for a given member is the open question this guide records under prior authorization.',
+          'When a Wellmark member is treated outside Iowa and South Dakota, the provider checks eligibility "through your local BCBS Plan\'s website," using the first three characters of the Wellmark ID, or calls 800-676-2583. For pre-service review, "Providers outside Iowa and South Dakota seeing Wellmark members should log in to their local plan website and navigate to the out-of-state pre-service review information page." Non-Wellmark providers can instead "call the number on the member\'s ID card." Wellmark warns that for services on its Authorization Table, "If the prior approval is not approved or not completed prior to the service being provided, the claim will be denied." Whether ABA codes are on that table for a given member is the open question this guide records under prior authorization.',
         ],
         cites: [
           { title: 'Wellmark — BlueCard Program for Blue Cross Blue Shield members (provider page)', url: 'https://www.wellmark.com/provider/resources/bluecard-program' },
@@ -1558,6 +1610,11 @@ export const iowaPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'Aetna — Applied behavior analysis medical necessity guide (©2026): Termination of coverage', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
       },
+      {
+        h2: 'Disputes, appeals and transition of care (Aetna)',
+        body: [AETNA_APPEALS_BODY_G5, AETNA_TOC_BODY_G5],
+        cites: [AETNA_OM_G5],
+      },
     ],
     collect: [
       { title: 'Plan funding and group size', desc: 'Large group or public employer: the Iowa mandate applies. Individual, small group or self-funded: the plan document decides.' },
@@ -1565,7 +1622,7 @@ export const iowaPayers: Record<string, PayerConfig> = {
       { title: 'Adaptive measure within 12 months', desc: 'Aetna wants a standardized functioning score (VABS-3, ABAS, VB-MAPP or ABLLS) from the past 12 months.' },
       { title: 'Diagnosis report', desc: 'DSM-5 ASD diagnosis, diagnosing provider and credentials, and the evaluation date.' },
     ],
-    sources: [
+    sources: [ AETNA_OM_G5,
       { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
       { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
       { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
@@ -1576,7 +1633,7 @@ export const iowaPayers: Record<string, PayerConfig> = {
       { title: 'Iowa Code chapter 154D — Behavioral science', url: 'https://www.legis.iowa.gov/docs/code/154D.pdf' },
       { title: 'Iowa Code § 514F.8 — Prior authorizations', url: 'https://www.legis.iowa.gov/docs/code/514F.8.pdf' },
       { title: 'Aetna — Telemedicine and Direct Patient Contact Payment Policy (ABA code table: Commercial vs. Medicare columns; posted policy shows last review June 2021)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pdf/telemedicine.pdf' },
-      { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+      { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/20/2026)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
       { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
       { title: 'Iowa Code § 507B.4A (2026) — Prompt payment of claims', url: 'https://www.legis.iowa.gov/docs/code/507B.4A.pdf' },
       { title: 'Iowa Admin. Code 191—15.32 — Prompt payment of certain health claims', url: 'https://www.legis.iowa.gov/docs/iac/chapter/191.15.pdf' },
@@ -1612,9 +1669,9 @@ export const iowaPayers: Record<string, PayerConfig> = {
       },
       placeOfService: {
         value:
-          'Aetna publishes no ABA place-of-service list. On school settings it says two things. CPB 0648: "Many Aetna plans exclude coverage of educational services. For example, speech therapy or ABA services during class would be excluded under these plans. Please check benefit plan exclusions." And precertification form GR-69017-4 asks "Are any ABA hours being requested during class?" and, if so, how many and for which codes. The IEP/IDEA carve-out in Aetna\'s ABA medical necessity guide sits in its Maryland exhibit, not in the national criteria. Where ABA is payable in a school, the community or a group home is a benefit-document question. Iowa\'s mandate likewise does not affect IEP or IFSP obligations (§ 514C.31).',
+          'Aetna publishes no ABA place-of-service list. On school settings it says two things. CPB 0648: "Many Aetna plans exclude coverage of educational services. For example, speech therapy or applied behavior analysis (ABA) services during class would be excluded under these plans. Please check benefit plan exclusions." And precertification form GR-69017-4 asks "Are any ABA hours being requested during class?" and, if so, how many and for which codes. The IEP/IDEA carve-out in Aetna\'s ABA medical necessity guide sits in its Maryland exhibit, not in the national criteria. Where ABA is payable in a school, the community or a group home is a benefit-document question. Iowa\'s mandate likewise does not affect IEP or IFSP obligations (§ 514C.31).',
         status: 'plan-dependent',
-        cites: [{ title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }, { title: 'Iowa Code § 514C.31', url: 'https://www.legis.iowa.gov/docs/code/514C.31.pdf' }],
+        cites: [{ title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/20/2026)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }, { title: 'Iowa Code § 514C.31', url: 'https://www.legis.iowa.gov/docs/code/514C.31.pdf' }],
         verifyVia: 'The member\'s benefit document (educational-services exclusion), and Aetna provider services for whether school-setting ABA is payable on that plan.',
         blocker: 'per-case',
       },
@@ -1844,6 +1901,11 @@ export const iowaPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'Evernorth Coverage Policy EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026): Criteria for Continued Treatment with ABA', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
       },
+      {
+        h2: 'Appeals and out-of-network care (Evernorth)',
+        body: [EBH_APPEALS_BODY_G5, EBH_OON_BODY_G5],
+        cites: [EBH_ADMIN_G5],
+      },
     ],
     collect: [
       { title: 'Plan funding and group size', desc: 'Large group or public employer: the Iowa mandate applies. Individual, small group or self-funded: the plan document decides.' },
@@ -1851,7 +1913,7 @@ export const iowaPayers: Record<string, PayerConfig> = {
       { title: 'Assessment timing', desc: 'The standardized assessment and baseline data must fall within 60 days before treatment starts.' },
       { title: 'Supervising BCBA or LBA', desc: 'Technician services bill under the supervising provider, and supervision must run one to two hours per ten hours of direct treatment.' },
     ],
-    sources: [
+    sources: [ EBH_ADMIN_G5,
       { title: 'Evernorth/Cigna Coverage Policy EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
       { title: 'Evernorth Behavioral Health — Autism resource guide (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
       { title: 'Evernorth Behavioral Health Administrative Guidelines (March 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
@@ -2094,7 +2156,7 @@ export const iowaPayers: Record<string, PayerConfig> = {
         body: [
           'UnitedHealthcare’s ABA benefit is managed by Optum Behavioral Health, whose National Network Manual (effective September 1, 2026) requires everything needed to process a claim to reach Optum “no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan,” with corrections within 90 days of first receipt. Clean, authorized claims are “generally” paid within 45 calendar days of receipt or as state or federal law requires. Disputes run in two steps — reconsideration, then appeal — with 12 months in total for both unless state law or your participation agreement sets a different deadline.',
           'Optum’s National Network Manual (effective September 1, 2026) also sets the payment clock: claims with all required information and any required authorization "will be paid within 45 calendar days after Optum receives the claim, or as required by state and federal laws," which may exclude claims needing a coordination-of-benefits determination, and when Optum is secondary it pays up to the Optum contracted rate. UnitedHealthcare’s 2026 administrative guide adds that a corrected claim (frequency code 7, with the original claim number) must arrive within the same timely-filing limit as the original. No weekly payment cycle or submission cutoff is published.',
-          'Which codes: Optum’s commercial ABA reimbursement policy (2022RP501A, updated June 2026) lists the reimbursable codes for the commercial ABA program as 97151–97158, 0362T and 0373T, each in 15-minute units with a credential modifier (HM, HN, HO or HP); no HCPCS H-code (H0031, H0032, H2014, H2019) is on that list.',
+          'Which codes: Optum’s commercial ABA reimbursement policy (2022RP501A, updated June 2026) lists the reimbursable codes for the commercial ABA program as 97151–97158, 0362T and 0373T, each in 15-minute units; 97151–97158 carry a credential modifier (HM, HN, HO or HP), while 0362T and 0373T are listed as codes “that do not require modifiers.” No HCPCS H-code (H0031, H0032, H2014, H2019) is on that list.',
         ],
         cites: [{ title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026): reimbursable codes', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial): Timely filing of corrected claims; Subrogation and COB', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, 
           { title: 'Optum Behavioral Health National Network Manual (published July 1, 2026; effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
@@ -2117,6 +2179,11 @@ export const iowaPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026): Continued Service Criteria', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
       },
+      {
+        h2: 'Appeals, authorizations and changing providers (Optum)',
+        body: [OPTUM_APPEALS_BODY_G5, OPTUM_AUTH_BODY_G5],
+        cites: [OPTUM_NNM_G5],
+      },
     ],
     collect: [
       { title: 'Plan funding and group size', desc: 'Large group or public employer: the Iowa mandate applies. Individual, small group or self-funded: the plan document decides.' },
@@ -2124,7 +2191,7 @@ export const iowaPayers: Record<string, PayerConfig> = {
       { title: 'Technician credential', desc: 'Each claim line needs the rendering credential modifier (HM for RBT). Know who delivers each session.' },
       { title: 'Virtual-visits attestation', desc: 'Remote supervision and caregiver training need an Optum virtual-visits attestation first.' },
     ],
-    sources: [
+    sources: [ OPTUM_NNM_G5,
       { title: 'Optum Supplemental Clinical Criteria — Applied Behavior Analysis (interim review 04/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
       { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
       { title: 'Optum — Autism/ABA Frequently Asked Questions (BH3632, 10/2021)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaFAQ.pdf' },
@@ -2261,7 +2328,7 @@ export const iowaPayers: Record<string, PayerConfig> = {
     },
     faq: [
       { q: 'Does UnitedHealthcare require graphs for ABA reassessments?', a: 'Optum’s criteria require updated progress data in the same measures used at baseline (mastery rates, change scores, updated standardized adaptive measures) at every continued review; they do not require graphs as such.' },
-      { q: 'Does UnitedHealthcare accept H0031 or H0032 for ABA?', a: 'Optum’s commercial ABA reimbursement policy lists only CPT 97151–97158, 0362T and 0373T as reimbursable ABA codes, each with a credential modifier; no H-code (H0031, H0032, H2014, H2019) is on the list.' },
+      { q: 'Does UnitedHealthcare accept H0031 or H0032 for ABA?', a: 'Optum’s commercial ABA reimbursement policy lists only CPT 97151–97158, 0362T and 0373T as reimbursable ABA codes, with a credential modifier on 97151–97158 (0362T and 0373T “do not require modifiers”); no H-code (H0031, H0032, H2014, H2019) is on the list.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in Iowa?', a: 'Yes, for autism under Optum\'s ABA criteria, with prior authorization. Large-group and public-employee plans must cover ABA under Iowa\'s mandate; individual, small-group and self-funded plans follow their plan documents.' },
       { q: 'Can ABA be delivered by telehealth with UnitedHealthcare?', a: 'Only supervision (97155) and caregiver training (97156), billed with POS 02, and only after the provider completes Optum\'s virtual-visits attestation.' },
       { q: 'How many hours a day of 97153 will Optum pay?', a: 'Up to 32 units (8 hours) a day under the commercial ABA reimbursement policy; claims above that may be denied or recovered.' },

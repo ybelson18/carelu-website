@@ -7,6 +7,32 @@ import type { PayerConfig } from './types.js';
    The Medicaid guide's payer string names BOTH "Oklahoma Medicaid" and "Oklahoma Health Care
    Authority" on purpose: pVerify eligibility responses use the second, which normalizes to a
    name that shares nothing with the first, so the name hook needs both. */
+/* Optum commercial: appeals packet, auth binding, switching, out-of-network (National Network Manual, read 2026-10-25). */
+const OPTUM_NNM_G5 = { title: 'Optum Behavioral Health — National Network Manual (BH02330, July 2026 edition): Provider Reconsideration and Appeal Process; Services that require prior authorization; Continuity of Care', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' };
+const OPTUM_APPEALS_BODY_G5 =
+  'Reconsiderations and appeals. Optum’s National Network Manual sets a two-step process for commercial claim and clinical prior-authorization disputes: request reconsideration first, then appeal, with “a total of 12 months for submission for both steps” unless state law or your Participation Agreement sets a different deadline. On what to send, it says: “Include member-specific treatment plans, clinical records, payment appendices or other items that support why you believe our decision was incorrect,” and decisions are made “based on the materials available at the time of the review.” Add proof that Optum received the claim within your timely-filing limit. Submit through the Provider Express secure portal, or mail the reconsideration request form and documents to Optum Behavioral Health Solutions, P.O. Box 30757, Salt Lake City, UT 84123. For non-urgent clinical appeals the manual gives a 180-day window.';
+const OPTUM_AUTH_BODY_G5 =
+  'Who holds the authorization, and switching providers. “Authorizations for non-routine outpatient services are specific to the requesting clinician,” and ABA is requested through the Provider Express portal, so an approval does not move with the child to a new agency: the new provider requests its own. When a clinician or group leaves the Optum network, it must keep treating members who choose to continue for up to 90 calendar days (or as the Participation Agreement or state law provides), or until the member moves to another Optum clinician, and Optum “will assist these members in selecting a new clinician, group or agency.” Out-of-network: the manual describes no single case agreement process for ABA; its portal is open to “out-of-network individual clinicians” and members can “Submit out-of-network claims,” but whether this plan pays out-of-network ABA, and how much, is in the member’s plan, so ask Optum on the behavioral health number on the card.';
+
+/* Evernorth (Cigna) commercial: appeals packet and out-of-network by plan type (Administrative Guidelines Sept 2026, read 2026-10-25). */
+const EBH_ADMIN_G5 = { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026): plan types; Appeals; Appeal types and filing instructions', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' };
+const EBH_APPEALS_BODY_G5 =
+  'Reconsiderations and appeals. Evernorth’s administrative guidelines say “All appeals are to be initiated in writing within 180 calendar days of the date of the initial payment or denial decision” (or of the last payment adjustment). Fee-schedule and reimbursement disputes “may be quickly resolved through submitting an adjustment request via the reconsideration feature on Provider.Evernorth.com.” For a medical-necessity denial, send the complete clinical record; for an untimely-filing denial, send the EDI transmission report or “evidence that a claim was submitted due to coordination of benefits with another carrier.” “Most appeals are resolved within 60 calendar days of receipt,” with notice within 75 days unless state law requires otherwise. Each appeal must be submitted by a person: Evernorth will not accept appeals sent by automation software.';
+const EBH_OON_BODY_G5 =
+  'Out-of-network care depends on the plan type printed on the card. The guidelines list “no out-of-network coverage, except in emergencies” for Open Access Plus In-Network and Network Open Access plans, no out-of-network coverage except emergent or urgent care for SureFit, and in-network-only HMO and HMO Open Access plans, while Open Access Plus covers out-of-network providers “at a reduced benefit level” and POS plans cover both. The guidelines mention a single-case agreement only for inpatient specialing, not ABA, so whether Evernorth will sign a single case agreement with an out-of-network ABA provider is a case-by-case question for Evernorth care management.';
+
+/* Aetna commercial: dispute packet, transition/continuity of care (office manual 6/26, read 2026-10-25). */
+const AETNA_OM_G5 = { title: 'Aetna Health Care Professional Toolkit / office manual (8102800-01-01, 6/26): Claim dispute requirements; Transition and continuity of care', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' };
+const AETNA_APPEALS_BODY_G5 =
+  'Reconsiderations, disputes and appeals. Aetna’s office manual says claim disputes must be in writing (with the Provider and Practitioner Complaint and Appeals Form if sent by fax or mail), within contractual timeframes, and must include the billed TIN and NPI, the servicing provider’s name, your patient account number, member ID, patient name and date of birth, dates of service, claim ID, total billed charges, expected reimbursement, a reference number and the “Physician/Facility rationale for dispute.” “If these requirements are not met, the original claim decision will be deemed final.” The Practitioner and Provider Complaint and Appeal Request “is a mandatory form that must accompany any written appeal.” The fastest route is the Dispute Claim button on a finalized claim in Availity.';
+const AETNA_TOC_BODY_G5 =
+  'Out-of-network providers and changing plans. Aetna offers transition of care, which lets a new member keep seeing a current out-of-network provider “at in-network cost level for a defined period of time,” and continuity of care, for a member in active treatment whose provider leaves Aetna’s network. Both require “an active course of covered treatment,” are time-limited, start with the member asking Member Services or the employer for a Transition Coverage Request Form, and do not apply to Traditional Choice plans. The manual limits them to an individual practitioner (for example a specialist or speech therapist) or a home care agency, so ask Aetna whether an ABA group qualifies. It describes no separate single case agreement process.';
+
+/* Federal Medicaid managed-care floor for out-of-network care (42 CFR 438.206(b)(4)-(5); eCFR read 2026-10-25). */
+const CFR438206_G5 = { title: '42 CFR 438.206 — Availability of services (out-of-network coverage when the network cannot provide a covered service) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' };
+const MCO_OON_BODY_G5 =
+  'Out-of-network ABA and single case agreements. Federal Medicaid managed-care rules set the floor: “If the provider network is unable to provide necessary services, covered under the contract, to a particular enrollee,” the plan “must adequately and timely cover these services out of network for the enrollee, for as long as” its network cannot provide them, must require out-of-network providers “to coordinate with” the plan for payment, and must keep the enrollee’s cost no greater than in network (42 CFR 438.206(b)(4)-(5)). That is the basis for asking for a single case agreement when no in-network ABA provider can serve the child within the plan’s access standards. The terms and rate of any such agreement are set case by case, so document the network gap (who you called, wait times) and ask the plan’s utilization management or provider contracting team.';
+
 export const oklahomaPayers: Record<string, PayerConfig> = {
   'oklahoma-medicaid': {
     slug: 'oklahoma-medicaid',
@@ -65,12 +91,15 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
         body: [
           'OHCA\'s ABA provider page states plainly that "the CPT codes 97151, 97153, 97155 and 97156 will be utilized for reimbursement once the provider has a contract with OHCA." There is no 97152 technician-assessment line, no 97154 or 97158 group code, and no 0362T or 0373T. The July 1, 2026 SoonerCare fee schedule prices exactly those four: 97153 at $17.35 per 15-minute unit and 97151, 97155 and 97156 at $23.55 per unit, as maximum allowable fees. OHCA pays the lower of billed charges or that maximum, for direct service time only; pre- and post-session work, treatment planning, note writing and chart updates are not separately reimbursed (other than inside the FBA code).',
           'Contracting is its own gate. Every provider type must be "fully contracted with SoonerCare," "All staff providing ABA services must be contracted with the OHCA," and contracted providers must reside in Oklahoma or within 50 miles of the border. Enrollment runs through the OHCA provider portal under the Applied Behavior Analyst provider type (BCBA or BCaBA specialty), with the national certification and the state license or certificate uploaded, and a separate contract is required even for a provider already contracted for other SoonerCare services. Payment then goes up the chain: the rule says "Payment is not made to under supervision ABA practitioners/paraprofessionals, including but not limited to, BCaBAs and RBTs," and OHCA\'s provider page adds that payment for a supervised practitioner "may only be made to his or her supervisor, or the employing agency or corporate entity." The RBT "works under the license number of a BCBA."',
+          'OHCA had a contracting and enrollment backlog in 2026. Provider Letter 2026-19 (October 23, 2026) says “provider contracting is back to normal processing times.” For claims hurt by the delay, Provider Letter 2026-18 (October 9, 2026) sets the route: if you already have proof of timely filing, submit the claims as normal with that proof attached; if you could not bill, or claims were denied (or a SoonerSelect plan paid the non-participating rate) because your OHCA contract or an affiliated provider was not in place on time, complete OHCA\'s claims resubmission exception form, wait 15 business days, then resubmit (SoonerCare) or follow the plan\'s guidance (SoonerSelect). Forms are due “no later than January 31, 2027,” and approval is not guaranteed; questions go to the OHCA call center, 800-522-0114, option 1.',
         ],
         cites: [
           { title: 'OHCA — Applied Behavioral Analysis Application and Coding Information for Providers', url: 'https://oklahoma.gov/ohca/providers/applied-behavioral-analysis-application.html' },
           { title: 'OHCA — SoonerCare Title XIX fee schedule, effective 07/01/2026 (V3)', url: 'https://oklahoma.gov/content/dam/ok/en/okhca/docs/providers/claim-tools/fee-schedules/2026/Prov_fee_sch_TXIX_07012026_V3.txt' },
           { title: 'OAC 317:30-5-311 — Eligible providers and requirements [Revised 09-01-25]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/medical-providers-fee-for-service/individual-providers-and-specialties/applied-behavior-analysis-services/eligible-provider-and-requirements.html' },
           { title: 'OAC 317:30-5-316 — ABA reimbursement methodology [Revised 09-01-25]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/medical-providers-fee-for-service/individual-providers-and-specialties/applied-behavior-analysis-services/reimbursement-methodology.html' },
+          { title: 'OHCA Provider Letter 2026-18 — OHCA Contracting Delays: Claims Resubmission Exception Form Available (October 9, 2026)', url: 'https://oklahoma.gov/content/dam/ok/en/okhca/docs/providers/provider-letters/2026/2026-18%20-%20OHCA%20Contracting%20Delays.pdf' },
+          { title: 'OHCA Provider Letter 2026-19 — Provider Contracting Returned to Normal Processing Times (October 23, 2026)', url: 'https://oklahoma.gov/content/dam/ok/en/okhca/docs/providers/provider-letters/2026/OHCA%202026-19%20Provider%20Contracting%20Returned%20to%20Normal%20Processing%20Times.pdf' },
         ],
       },
       {
@@ -180,6 +209,8 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       { title: 'Other insurance', desc: 'SoonerCare is payer of last resort: bill the commercial plan first and follow its PA rules too.' },
     ],
     sources: [
+      { title: 'OHCA Provider Letter 2026-18 — OHCA Contracting Delays: Claims Resubmission Exception Form Available (October 9, 2026)', url: 'https://oklahoma.gov/content/dam/ok/en/okhca/docs/providers/provider-letters/2026/2026-18%20-%20OHCA%20Contracting%20Delays.pdf' },
+      { title: 'OHCA Provider Letter 2026-19 — Provider Contracting Returned to Normal Processing Times (October 23, 2026)', url: 'https://oklahoma.gov/content/dam/ok/en/okhca/docs/providers/provider-letters/2026/OHCA%202026-19%20Provider%20Contracting%20Returned%20to%20Normal%20Processing%20Times.pdf' },
       { title: 'OAC 317:30-5-310 — ABA purpose ("ABA services require prior authorization") [Issued 09-12-22]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/medical-providers-fee-for-service/individual-providers-and-specialties/applied-behavior-analysis-services/purpose-aba.html' },
       { title: 'OAC 317:30-5-311 — Eligible providers and requirements [Revised 09-01-25]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/medical-providers-fee-for-service/individual-providers-and-specialties/applied-behavior-analysis-services/eligible-provider-and-requirements.html' },
       { title: 'OAC 317:30-5-312 — Treatment plan components and documentation requirements [Revised 09-01-25]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/medical-providers-fee-for-service/individual-providers-and-specialties/applied-behavior-analysis-services/treatment-plan-components-and-documentation-requirements.html' },
@@ -229,7 +260,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'A definitive ASD diagnosis from one of: pediatric neurologist or neurologist; developmental pediatrician; licensed psychologist; psychiatrist or neuropsychiatrist; other licensed physician experienced in the diagnosis and treatment of ASD; or an interdisciplinary team of a licensed psychologist, physician, physician assistant or APRN. The provider must be in Oklahoma or within 50 miles of the border (OAC 317:30-3-89 through 92); out-of-state evaluations are accepted only if they meet the documentation standard and come from one of these disciplines.',
+        value: 'A definitive ASD diagnosis from one of: pediatric neurologist or neurologist; developmental pediatrician; licensed psychologist; psychiatrist or neuropsychiatrist; other licensed physician experienced in the diagnosis and treatment of ASD; or an interdisciplinary team of a licensed psychologist, physician, physician assistant or APRN. The provider must be in Oklahoma or within 50 miles of the border (OAC 317:30-3-89 through 92); out-of-state evaluations are accepted only if they meet the documentation standard and come from one of these disciplines. An LCSW is not on the list.',
         status: 'verified',
         cites: [
           { title: 'OAC 317:30-5-313 — Medical necessity criteria, covered services, frequency and duration [Revised 09-01-25]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/medical-providers-fee-for-service/individual-providers-and-specialties/applied-behavior-analysis-services/medical-necessity-criteria-and-covered-services-for-members-under-twenty-one-years-of-age-and-frequency-and-duration.html' },
@@ -456,6 +487,11 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
           { title: '56 O.S. § 4002.7 — SoonerSelect claims processing and adjudication — OSCN', url: 'https://www.oscn.net/applications/oscn/DeliverDocument.asp?CiteID=489238' },
         ],
       },
+      {
+        h2: 'Out-of-network care and single case agreements',
+        body: [MCO_OON_BODY_G5],
+        cites: [CFR438206_G5],
+      },
     ],
     collect: [
       { title: 'Plan assignment', desc: 'Confirm Aetna Better Health of Oklahoma on the member ID card or through the OHCA Provider Helpline (800-522-0114, option 1). ABD and waiver children stay in fee-for-service.' },
@@ -464,7 +500,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       { title: 'Current authorization end date', desc: 'The OHCA seven-day extension window applies to plan members too.' },
       { title: 'Parent training capacity', desc: 'Under two hours a month of documented parent involvement reduces or denies hours under the state rule.' },
     ],
-    sources: [
+    sources: [ CFR438206_G5,
       { title: 'Aetna Better Health of Oklahoma — Behavioral Health Prior Authorization Request (OK-23-08-01, ABA section 6) — read via Wayback', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/oklahoma/pdf/OK_2023_BHForm.pdf' },
       { title: 'Aetna Better Health of Oklahoma — 2025 Auth and Appeals Metrics (CMS rule timeframes from 1/1/2026) — read via Wayback', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/oklahoma/pdf/2025_ABHOK_CMS_Web_Metrics_Provider.pdf' },
       { title: 'OHCA — Learn about SoonerSelect (last modified 6/9/2026)', url: 'https://oklahoma.gov/ohca/soonerselect/about.html' },
@@ -498,7 +534,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'Follows the SoonerCare rule — the plan’s August 2026 provider manual, read in full on 10/7/2026, sets no ABA rule of its own on this point: A definitive ASD diagnosis from one of: pediatric neurologist or neurologist; developmental pediatrician; licensed psychologist; psychiatrist or neuropsychiatrist; other licensed physician experienced in the diagnosis and treatment of ASD; or an interdisciplinary team of a licensed psychologist, physician, physician assistant or APRN. The provider must be in Oklahoma or within 50 miles of the border (OAC 317:30-3-89 through 92); out-of-state evaluations are accepted only if they meet the documentation standard and come from one of these disciplines.',
+        value: 'Follows the SoonerCare rule — the plan’s August 2026 provider manual, read in full on 10/7/2026, sets no ABA rule of its own on this point: A definitive ASD diagnosis from one of: pediatric neurologist or neurologist; developmental pediatrician; licensed psychologist; psychiatrist or neuropsychiatrist; other licensed physician experienced in the diagnosis and treatment of ASD; or an interdisciplinary team of a licensed psychologist, physician, physician assistant or APRN. The provider must be in Oklahoma or within 50 miles of the border (OAC 317:30-3-89 through 92); out-of-state evaluations are accepted only if they meet the documentation standard and come from one of these disciplines. An LCSW is not on the list.',
         status: 'verified',
         cites: [
           { title: 'Aetna Better Health of Oklahoma Provider Manual (published 8/20/2026; direct requests return 403, read in full via r.jina.ai)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/oklahoma/pdf/abhok_provider_manual.pdf' },
@@ -740,6 +776,11 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
           { title: '56 O.S. § 4002.7 — SoonerSelect claims processing and adjudication — OSCN', url: 'https://www.oscn.net/applications/oscn/DeliverDocument.asp?CiteID=489238' },
         ],
       },
+      {
+        h2: 'Out-of-network care and single case agreements',
+        body: [MCO_OON_BODY_G5],
+        cites: [CFR438206_G5],
+      },
     ],
     collect: [
       { title: 'Children’s Specialty Program or general SoonerSelect', desc: 'Foster, former foster, adoption-assistance and juvenile-justice children are on the Children’s Specialty Program (833-752-1665). Same plan, different member line.' },
@@ -749,7 +790,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       { title: 'Parent training capacity', desc: 'Under two hours a month of documented parent involvement reduces or denies hours under the state rule.' },
       { title: 'Supervision staffing', desc: 'Plan for BCBA case supervision at 10% of direct hours, not 5%.' },
     ],
-    sources: [
+    sources: [ CFR438206_G5,
       { title: 'Oklahoma Complete Health — 2026 Provider Manual (Caid_SSP.CSP-Provider-Manual-OK-Eng_260604)', url: 'https://www.oklahomacompletehealth.com/content/dam/centene/oklahoma-complete-health/pdfs/Provider%20Manual/English/2026/SSP/Provider%20Manual_2026.5_Approved_R.pdf' },
       { title: 'Oklahoma Complete Health clinical policy OK.CP.BH.500 — Applied Behavioral Analysis (last revised 08/26)', url: 'https://www.oklahomacompletehealth.com/content/dam/centene/oklahoma-complete-health/policies/clinical-policies/OK.CP.BH.500.pdf' },
       { title: 'Centene clinical policy CP.BH.105 — ABA Documentation Requirements (revised 11/25), posted by Oklahoma Complete Health', url: 'https://www.oklahomacompletehealth.com/content/dam/centene/oklahoma-complete-health/policies/clinical-policies/CP.BH.105.pdf' },
@@ -789,7 +830,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'OK.CP.BH.500 (revised 08/26) lists a pediatric neurologist or neurologist, developmental pediatrician, licensed psychologist, psychiatrist or neuropsychiatrist, other licensed physician experienced in diagnosing and treating ASD, or an interdisciplinary team of a licensed psychologist, physician, physician assistant or APRN, located in Oklahoma or within 50 miles of the border. Out-of-state evaluations must meet the same documentation rules and come from one of these providers.',
+        value: 'OK.CP.BH.500 (revised 08/26) lists a pediatric neurologist or neurologist, developmental pediatrician, licensed psychologist, psychiatrist or neuropsychiatrist, other licensed physician experienced in diagnosing and treating ASD, or an interdisciplinary team of a licensed psychologist, physician, physician assistant or APRN, located in Oklahoma or within 50 miles of the border. Out-of-state evaluations must meet the same documentation rules and come from one of these providers. An LCSW is not on the list.',
         status: 'verified',
         cites: [
           { title: 'Oklahoma Complete Health clinical policy OK.CP.BH.500 — Applied Behavioral Analysis (last revised 08/26)', url: 'https://www.oklahomacompletehealth.com/content/dam/centene/oklahoma-complete-health/policies/clinical-policies/OK.CP.BH.500.pdf' },
@@ -1021,6 +1062,11 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
           { title: 'OAC 317:55-5-25 — SoonerSelect claims processing and methodology; post payment audits [Revised 09-01-24]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/managed-care/requirements-for-contracted-entities-and-dental-benefits-managers/finance/claims-processing-and-methodology-post-payment-audits.html' },
         ],
       },
+      {
+        h2: 'Out-of-network care and single case agreements',
+        body: [MCO_OON_BODY_G5],
+        cites: [CFR438206_G5],
+      },
     ],
     collect: [
       { title: 'Plan assignment', desc: 'Confirm Humana Healthy Horizons on the member ID card or through the OHCA Provider Helpline (800-522-0114, option 1). ABD and waiver children stay in fee-for-service.' },
@@ -1030,7 +1076,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       { title: 'Parent training capacity', desc: 'Under two hours a month of documented parent involvement reduces or denies hours under the state rule.' },
       { title: 'Assessment hours', desc: 'Plan the initial assessment within 24 units (6 hours) unless the case meets Humana’s complexity exception.' },
     ],
-    sources: [
+    sources: [ CFR438206_G5,
       { title: 'Humana Healthy Horizons in Oklahoma — provider manual effective 12/23/2026 (NPC996103OK0526; same ABA/UM/TPL text as the May 2026 edition)', url: 'https://assets.humana.com/is/content/humana/OK_Provider%20Manual_effective_12232026pdf' },
       { title: 'Humana Healthy Horizons in Oklahoma — Prior Authorization and Notification List (eff. 7/1/2026, rev. 9/28/2026)', url: 'https://assets.humana.com/is/content/humana/OK%20MCD%20PAL%20Apdf-1' },
       { title: 'Humana Medicaid coverage policy HUM-OK-2663-000 — Applied Behavior Analysis (effective 9/16/2026)', url: 'https://assets.humana.com/is/content/humana/MCD%20Applied%20Behavior%20Analysis%20HUM-OK-2663-000%20ed%209.16.26pdf' },
@@ -1068,7 +1114,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'Follows the SoonerCare rule: A definitive ASD diagnosis from one of: pediatric neurologist or neurologist; developmental pediatrician; licensed psychologist; psychiatrist or neuropsychiatrist; other licensed physician experienced in the diagnosis and treatment of ASD; or an interdisciplinary team of a licensed psychologist, physician, physician assistant or APRN. The provider must be in Oklahoma or within 50 miles of the border (OAC 317:30-3-89 through 92); out-of-state evaluations are accepted only if they meet the documentation standard and come from one of these disciplines. Humana Healthy Horizons in Oklahoma was checked for its own rule on this point and publishes nothing different, so the OHCA rule applies.',
+        value: 'Follows the SoonerCare rule: A definitive ASD diagnosis from one of: pediatric neurologist or neurologist; developmental pediatrician; licensed psychologist; psychiatrist or neuropsychiatrist; other licensed physician experienced in the diagnosis and treatment of ASD; or an interdisciplinary team of a licensed psychologist, physician, physician assistant or APRN. The provider must be in Oklahoma or within 50 miles of the border (OAC 317:30-3-89 through 92); out-of-state evaluations are accepted only if they meet the documentation standard and come from one of these disciplines. Humana Healthy Horizons in Oklahoma was checked for its own rule on this point and publishes nothing different, so the OHCA rule applies. An LCSW is not on the list.',
         status: 'verified',
         cites: [
           { title: 'OAC 317:30-5-313 — Medical necessity criteria, covered services, frequency and duration [Revised 09-01-25]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/medical-providers-fee-for-service/individual-providers-and-specialties/applied-behavior-analysis-services/medical-necessity-criteria-and-covered-services-for-members-under-twenty-one-years-of-age-and-frequency-and-duration.html' },
@@ -1298,6 +1344,11 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'Aetna — Applied behavior analysis medical necessity guide (©2026): Termination of coverage', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
       },
+      {
+        h2: 'Disputes, appeals and transition of care (Aetna)',
+        body: [AETNA_APPEALS_BODY_G5, AETNA_TOC_BODY_G5],
+        cites: [AETNA_OM_G5],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Nick’s Law applies: no age limit, no hour or dollar cap) vs. self-funded ERISA (the plan document governs). Ask for the employer and check the card.' },
@@ -1306,7 +1357,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       { title: 'Standardized functioning score from the last 12 months', desc: 'Vineland-3, ABAS, VB-MAPP or ABLLS showing impairment at least one standard deviation below the mean.' },
       { title: 'Physician or doctoral psychologist order', desc: 'For insured plans the mandate covers treatment prescribed or ordered by a licensed physician or licensed doctoral-level psychologist.' },
     ],
-    sources: [
+    sources: [ AETNA_OM_G5,
       { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
       { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
       { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026, 7244850-01-01)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
@@ -1578,6 +1629,11 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'Evernorth Coverage Policy EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026): Criteria for Continued Treatment with ABA', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
       },
+      {
+        h2: 'Appeals and out-of-network care (Evernorth)',
+        body: [EBH_APPEALS_BODY_G5, EBH_OON_BODY_G5],
+        cites: [EBH_ADMIN_G5],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Nick’s Law applies) vs. self-funded ERISA (plan document governs).' },
@@ -1586,7 +1642,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       { title: 'Target start date', desc: 'File the treatment PA up to 30 days before, or within two weeks after, the start.' },
       { title: 'Other therapies schedule', desc: 'EN0499 will not pay ABA delivered at the same time as speech, OT or any other modality.' },
     ],
-    sources: [
+    sources: [ EBH_ADMIN_G5,
       { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
       { title: 'Evernorth autism resource guide for behavioral health providers (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
       { title: '36 O.S. § 6060.21 — Health coverage for individuals with autism (Nick’s Law; as amended by SB 1240, eff. 11/1/2022) — OSCN', url: 'https://www.oscn.net/applications/oscn/DeliverDocument.asp?CiteID=478381' },
@@ -1839,7 +1895,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
         body: [
           'UnitedHealthcare commercial ABA runs through Optum Behavioral Health, whose National Provider Network Manual (effective 9/1/2026) says "All information necessary to process claims must be received by Optum no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan." Corrections are due within 90 days of the first claim’s receipt, and the member cannot be billed for a late claim. Clean claims are "Generally" paid within 45 calendar days. To dispute a decision, request reconsideration and then appeal; the two steps together must be filed within 12 months unless state law or your agreement sets a different deadline.',
           'Optum’s National Network Manual (effective September 1, 2026) also sets the payment clock: claims with all required information and any required authorization "will be paid within 45 calendar days after Optum receives the claim, or as required by state and federal laws," which may exclude claims needing a coordination-of-benefits determination, and when Optum is secondary it pays up to the Optum contracted rate. UnitedHealthcare’s 2026 administrative guide adds that a corrected claim (frequency code 7, with the original claim number) must arrive within the same timely-filing limit as the original. No weekly payment cycle or submission cutoff is published.',
-          'Which codes: Optum’s commercial ABA reimbursement policy (2022RP501A, updated June 2026) lists the reimbursable codes for the commercial ABA program as 97151–97158, 0362T and 0373T, each in 15-minute units with a credential modifier (HM, HN, HO or HP); no HCPCS H-code (H0031, H0032, H2014, H2019) is on that list.',
+          'Which codes: Optum’s commercial ABA reimbursement policy (2022RP501A, updated June 2026) lists the reimbursable codes for the commercial ABA program as 97151–97158, 0362T and 0373T, each in 15-minute units; 97151–97158 carry a credential modifier (HM, HN, HO or HP), while 0362T and 0373T are listed as codes “that do not require modifiers.” No HCPCS H-code (H0031, H0032, H2014, H2019) is on that list.',
         ],
         cites: [{ title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026): reimbursable codes', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial): Timely filing of corrected claims; Subrogation and COB', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, 
           { title: 'Optum Behavioral Health — National Provider Network Manual (published 7/1/2026, effective 9/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
@@ -1852,6 +1908,11 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026): Continued Service Criteria', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
       },
+      {
+        h2: 'Appeals, authorizations and changing providers (Optum)',
+        body: [OPTUM_APPEALS_BODY_G5, OPTUM_AUTH_BODY_G5],
+        cites: [OPTUM_NNM_G5],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Nick’s Law applies) vs. self-funded ERISA (plan document governs).' },
@@ -1860,7 +1921,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       { title: 'Family availability', desc: 'Optum reviews utilization under 80% of authorized hours over two weeks. Set hours the family can actually keep.' },
       { title: 'School and IEP status', desc: 'Optum will not pay a 1:1 classroom aide or IDEA-covered services, but covers school coordination, teacher training and observation.' },
     ],
-    sources: [{ title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial): Timely filing of corrected claims; Subrogation and COB', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, 
+    sources: [ OPTUM_NNM_G5,{ title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial): Timely filing of corrected claims; Subrogation and COB', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, 
       { title: 'Optum ABA Supplemental Clinical Criteria BH803ABASCC (interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
       { title: 'Optum FAQ — Autism/ABA using CPT codes (BH00083-24)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
       { title: 'Optum Provider Express — Applied Behavior Analysis providers page (state list has no Oklahoma page)', url: 'https://public.providerexpress.com/content/ope-provexpr/us/en/clinical-resources/autismABA2.html' },
@@ -2012,7 +2073,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
     },
     faq: [
       { q: 'Does UnitedHealthcare require graphs for ABA reassessments?', a: 'Optum’s criteria require updated progress data in the same measures used at baseline (mastery rates, change scores, updated standardized adaptive measures) at every continued review; they do not require graphs as such.' },
-      { q: 'Does UnitedHealthcare accept H0031 or H0032 for ABA?', a: 'Optum’s commercial ABA reimbursement policy lists only CPT 97151–97158, 0362T and 0373T as reimbursable ABA codes, each with a credential modifier; no H-code (H0031, H0032, H2014, H2019) is on the list.' },
+      { q: 'Does UnitedHealthcare accept H0031 or H0032 for ABA?', a: 'Optum’s commercial ABA reimbursement policy lists only CPT 97151–97158, 0362T and 0373T as reimbursable ABA codes, with a credential modifier on 97151–97158 (0362T and 0373T “do not require modifiers”); no H-code (H0031, H0032, H2014, H2019) is on the list.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in Oklahoma?', a: 'Yes, for ASD under Optum’s ABA Supplemental Clinical Criteria, with prior authorization for assessment and treatment. Insured Oklahoma plans also carry Nick’s Law; self-funded plans follow their plan document.' },
       { q: 'Can I bill 97153 and 97155 at the same time with UnitedHealthcare?', a: 'Yes. Optum’s CPT FAQ allows concurrent billing of technician (97153) and supervisor (97155) time when supervision is provided.' },
       { q: 'How often does Optum review ABA treatment?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale.' },

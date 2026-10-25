@@ -1,5 +1,40 @@
 import type { PayerConfig } from './types.js';
 
+/* Missouri commercial HMOs (visitor question 2026-10: "are there any HMOs in missouri?").
+   Source: Missouri DCI "Find HMO Service Areas in Missouri" (17 companies; per-company county
+   lists read 2026-10-25, counting counties with an approval date and no withdrawal date). */
+const MO_HMO_DCI = { title: 'Missouri Department of Commerce & Insurance — Find HMO Service Areas in Missouri (17 licensed HMOs; authorized counties by company)', url: 'https://insurance.mo.gov/health-insurance/find-hmo-service-areas-missouri' };
+const MO_HMO_1350 = { title: 'RSMo § 376.1350 — definitions incl. "health carrier" (includes a health maintenance organization)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1350' };
+const MO_HMO_1224 = { title: 'RSMo § 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' };
+const MO_HMO_BODY =
+  'Yes. The Missouri Department of Commerce & Insurance (DCI) lists 17 HMOs authorized in Missouri, each with the counties it may serve: Aetna Better Health of Missouri LLC, Aetna Health Inc, Arcadian Health Plan Inc, Blue Cross and Blue Shield of Kansas City, Blue-Advantage Plus of Kansas City Inc, Cigna Healthcare of St Louis Inc, Coventry Health Care of Kansas Inc, Coventry Health Care of Missouri Inc, Cox Health Systems HMO Inc, Essence Healthcare Inc, Good Health HMO Inc, Harmony Health Plan Inc, HMO Missouri Inc, Home State Health Plan Inc, Humana Health Plan Inc, Missouri Care Incorporated and UnitedHealthcare of the Midwest Inc. Several are regional: on DCI\'s county lists, Cox Health Systems HMO is authorized in 25 southwest Missouri counties (Greene, Christian, Jasper and others), Blue Cross and Blue Shield of Kansas City in 10 western Missouri counties around Kansas City, Blue-Advantage Plus of Kansas City and Good Health HMO in 9 each, and Essence Healthcare in 5 (St. Louis City and County, St. Charles, Jefferson, Boone). DCI\'s list is a licence list: it does not say which product lines (employer, individual, Medicaid or Medicare) each HMO sells, so ask the employer or the card which entity issued the plan. For ABA, an HMO is held to the same autism mandate as other insurers: RSMo § 376.1224 applies to health benefit plans issued by a “health carrier,” and § 376.1350 defines a health carrier to include “a health maintenance organization.” The mandate “shall not apply to the Mo HealthNet program,” so a Medicaid HMO card follows MO HealthNet\'s own ABA rules instead. What differs in an HMO is the network: plan your intake around in-network status and any referral or authorization the HMO contract requires.';
+
+/* Optum commercial: appeals packet, auth binding, switching, out-of-network (National Network Manual, read 2026-10-25). */
+const OPTUM_NNM_G5 = { title: 'Optum Behavioral Health — National Network Manual (BH02330, July 2026 edition): Provider Reconsideration and Appeal Process; Services that require prior authorization; Continuity of Care', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' };
+const OPTUM_APPEALS_BODY_G5 =
+  'Reconsiderations and appeals. Optum’s National Network Manual sets a two-step process for commercial claim and clinical prior-authorization disputes: request reconsideration first, then appeal, with “a total of 12 months for submission for both steps” unless state law or your Participation Agreement sets a different deadline. On what to send, it says: “Include member-specific treatment plans, clinical records, payment appendices or other items that support why you believe our decision was incorrect,” and decisions are made “based on the materials available at the time of the review.” Add proof that Optum received the claim within your timely-filing limit. Submit through the Provider Express secure portal, or mail the reconsideration request form and documents to Optum Behavioral Health Solutions, P.O. Box 30757, Salt Lake City, UT 84123. For non-urgent clinical appeals the manual gives a 180-day window.';
+const OPTUM_AUTH_BODY_G5 =
+  'Who holds the authorization, and switching providers. “Authorizations for non-routine outpatient services are specific to the requesting clinician,” and ABA is requested through the Provider Express portal, so an approval does not move with the child to a new agency: the new provider requests its own. When a clinician or group leaves the Optum network, it must keep treating members who choose to continue for up to 90 calendar days (or as the Participation Agreement or state law provides), or until the member moves to another Optum clinician, and Optum “will assist these members in selecting a new clinician, group or agency.” Out-of-network: the manual describes no single case agreement process for ABA; its portal is open to “out-of-network individual clinicians” and members can “Submit out-of-network claims,” but whether this plan pays out-of-network ABA, and how much, is in the member’s plan, so ask Optum on the behavioral health number on the card.';
+
+/* Evernorth (Cigna) commercial: appeals packet and out-of-network by plan type (Administrative Guidelines Sept 2026, read 2026-10-25). */
+const EBH_ADMIN_G5 = { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026): plan types; Appeals; Appeal types and filing instructions', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' };
+const EBH_APPEALS_BODY_G5 =
+  'Reconsiderations and appeals. Evernorth’s administrative guidelines say “All appeals are to be initiated in writing within 180 calendar days of the date of the initial payment or denial decision” (or of the last payment adjustment). Fee-schedule and reimbursement disputes “may be quickly resolved through submitting an adjustment request via the reconsideration feature on Provider.Evernorth.com.” For a medical-necessity denial, send the complete clinical record; for an untimely-filing denial, send the EDI transmission report or “evidence that a claim was submitted due to coordination of benefits with another carrier.” “Most appeals are resolved within 60 calendar days of receipt,” with notice within 75 days unless state law requires otherwise. Each appeal must be submitted by a person: Evernorth will not accept appeals sent by automation software.';
+const EBH_OON_BODY_G5 =
+  'Out-of-network care depends on the plan type printed on the card. The guidelines list “no out-of-network coverage, except in emergencies” for Open Access Plus In-Network and Network Open Access plans, no out-of-network coverage except emergent or urgent care for SureFit, and in-network-only HMO and HMO Open Access plans, while Open Access Plus covers out-of-network providers “at a reduced benefit level” and POS plans cover both. The guidelines mention a single-case agreement only for inpatient specialing, not ABA, so whether Evernorth will sign a single case agreement with an out-of-network ABA provider is a case-by-case question for Evernorth care management.';
+
+/* Aetna commercial: dispute packet, transition/continuity of care (office manual 6/26, read 2026-10-25). */
+const AETNA_OM_G5 = { title: 'Aetna Health Care Professional Toolkit / office manual (8102800-01-01, 6/26): Claim dispute requirements; Transition and continuity of care', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' };
+const AETNA_APPEALS_BODY_G5 =
+  'Reconsiderations, disputes and appeals. Aetna’s office manual says claim disputes must be in writing (with the Provider and Practitioner Complaint and Appeals Form if sent by fax or mail), within contractual timeframes, and must include the billed TIN and NPI, the servicing provider’s name, your patient account number, member ID, patient name and date of birth, dates of service, claim ID, total billed charges, expected reimbursement, a reference number and the “Physician/Facility rationale for dispute.” “If these requirements are not met, the original claim decision will be deemed final.” The Practitioner and Provider Complaint and Appeal Request “is a mandatory form that must accompany any written appeal.” The fastest route is the Dispute Claim button on a finalized claim in Availity.';
+const AETNA_TOC_BODY_G5 =
+  'Out-of-network providers and changing plans. Aetna offers transition of care, which lets a new member keep seeing a current out-of-network provider “at in-network cost level for a defined period of time,” and continuity of care, for a member in active treatment whose provider leaves Aetna’s network. Both require “an active course of covered treatment,” are time-limited, start with the member asking Member Services or the employer for a Transition Coverage Request Form, and do not apply to Traditional Choice plans. The manual limits them to an individual practitioner (for example a specialist or speech therapist) or a home care agency, so ask Aetna whether an ABA group qualifies. It describes no separate single case agreement process.';
+
+/* MO HealthNet participant fair hearing (BHS manual § 1.5, read 2026-10-25). */
+const MO_BHS_G5 = { title: 'MO HealthNet Behavioral Health Services Manual (May 2026), § 1.5 Participant Appeal Rights and § 1.16 ABA Services', url: 'https://mydss.mo.gov/sites/mydss/files/media/file/2026/05/Behavioral%20Health%20Services%20Manual.docx' };
+const MO_APPEAL_BODY_G5 =
+  'Appealing a denied ABA precertification. The ABA section (§ 1.16) of the Behavioral Health Services Manual sets no appeal process of its own; the manual’s participant appeal rights sit in its precertification section (§ 1.5): when a precertification request is denied, “the participant will receive a letter that outlines the reason for the denial and the procedure for appeal,” and may request a State Fair Hearing through the Participant Services Unit at (800) 392-2161, StateFairHearings@dss.mo.gov, or MO HealthNet Division Participant Services Unit, P.O. Box 6500, Jefferson City, MO 65102. “The participant must contact the PSU within 90 days of the date of the denial letter if they wish to request a hearing. After 90 days, requests to appeal are denied.” Because MCO members get ABA fee-for-service, this is the route for every MO HealthNet child, whichever health plan card they carry; confirm with the Behavioral Health Services help desk, (866) 771-3350, that it is the route for an ABA denial.';
+
 export const missouriPayers: Record<string, PayerConfig> = {
   'missouri-medicaid': {
     slug: 'missouri-medicaid',
@@ -56,7 +91,7 @@ export const missouriPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'MO HealthNet Behavioral Health Services Manual, §1.16 ABA Services (May 2026)', url: 'https://mydss.mo.gov/sites/mydss/files/media/file/2026/05/Behavioral%20Health%20Services%20Manual.docx' },
           { title: 'MO HealthNet Managed Care Policy Statements (rev. 7/2023 — current, no newer edition found)', url: 'https://dss.mo.gov/business-processes/managed-care/vendor-docs-2022/mo-healthnet-managed-care-policy-statements-09-23.pdf' },
-          { title: 'Healthy Blue MO HealthNet Managed Care Provider Manual', url: 'https://provider.healthybluemo.com/docs/gpp/MO_CAID_HealthNetManagedCareProviderManual.pdf' },
+          { title: 'Healthy Blue MO HealthNet Managed Care Provider Manual (November 1, 2026 edition)', url: 'https://provider.healthybluemo.com/docs/gpp/MO_CAID_HealthNetManagedCareProviderManual.pdf' },
           { title: 'Show Me Healthy Kids Provider Reference Manual (benefit grid)', url: 'https://www.homestatehealth.com/content/dam/centene/home-state-health/pdfs/HSH-SMHK-Provider-Manual_508%20Compliant%20063022.pdf' },
         ],
       },
@@ -171,6 +206,11 @@ export const missouriPayers: Record<string, PayerConfig> = {
           { title: 'MO HealthNet Behavioral Health Services Manual, §1.12–1.16 ABA codes and services (May 2026)', url: 'https://mydss.mo.gov/sites/mydss/files/media/file/2026/05/Behavioral%20Health%20Services%20Manual.docx' },
         ],
       },
+      {
+        h2: 'Appeals: denied ABA precertification',
+        body: [MO_APPEAL_BODY_G5],
+        cites: [MO_BHS_G5],
+      },
     ],
     collect: [
       { title: 'MO HealthNet eligibility — not the plan card', desc: 'Whichever MCO card the family shows, ABA is state FFS. Verify MO HealthNet eligibility; skip the MCO analysis entirely.' },
@@ -179,13 +219,13 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { title: 'School services / IEP status', desc: 'IEP-based school ABA is precert-exempt — and a coordination fact for the intervention plan.' },
       { title: 'Rendering-tier plan', desc: 'HO vs. HN vs. HM decides the rate on every hour — staffing mix is a first-order revenue variable.' },
     ],
-    sources: [
+    sources: [ MO_BHS_G5,
       { title: 'MHD Applied Behavioral Analysis fee schedule (xlsx, file dated 8/27/2026)', url: 'https://apps.dss.mo.gov/fmsfeeschedules/dlfiles/Applied%20Behavioral%20Analysis.xlsx' },
       { title: 'MO HealthNet Behavioral Health Services Manual, §1.16 ABA Services (May 2026)', url: 'https://mydss.mo.gov/sites/mydss/files/media/file/2026/05/Behavioral%20Health%20Services%20Manual.docx' },
       { title: 'MHD Applied Behavioral Analysis fee schedule (official download portal)', url: 'https://apps.dss.mo.gov/fmsfeeschedules/DLFiles.aspx' },
       { title: 'MO HealthNet Behavioral Health Services page (precert form 2575-045, bulletins)', url: 'https://mydss.mo.gov/mhd/behavioral-health-services' },
       { title: 'MHD ABA provider training — Applied Behavior Analysis Services (April 2022)', url: 'https://dss.mo.gov/mhd/providers/education/files/rodgers-applied-behavior-analysis.pdf' },
-      { title: 'Healthy Blue MO HealthNet Managed Care Provider Manual', url: 'https://provider.healthybluemo.com/docs/gpp/MO_CAID_HealthNetManagedCareProviderManual.pdf' },
+      { title: 'Healthy Blue MO HealthNet Managed Care Provider Manual (November 1, 2026 edition)', url: 'https://provider.healthybluemo.com/docs/gpp/MO_CAID_HealthNetManagedCareProviderManual.pdf' },
       { title: 'Show Me Healthy Kids Provider Reference Manual', url: 'https://www.homestatehealth.com/content/dam/centene/home-state-health/pdfs/HSH-SMHK-Provider-Manual_508%20Compliant%20063022.pdf' },
       { title: '13 CSR 70-98.030 — Applied Behavior Analysis Services', url: 'https://www.law.cornell.edu/regulations/missouri/13-CSR-70-98-030' },
       { title: 'MO HealthNet Provider Bulletin Vol. 47 No. 19 — Grace Period for RBT Credential', url: 'https://mydss.mo.gov/sites/mydss/files/media/pdf/2024/09/ABA-Grace-Period-RBT-Bulletin.pdf' },
@@ -258,7 +298,7 @@ export const missouriPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'A short list: a licensed physician or a licensed psychologist. The diagnostic evaluation must be performed by one of those two, must result in an ASD diagnosis, and must recommend ABA as medically necessary. Under the HCY/EPSDT pathway the diagnosis need not be ASD at all, but the evaluation requirement stands. Note that the person who may diagnose and the person who may bill ABA are different populations in Missouri: psychologists may only bill ABA once MHD has approved them for the ABA specialty.',
+          'A short list: a licensed physician or a licensed psychologist. The diagnostic evaluation must be performed by one of those two, must result in an ASD diagnosis, and must recommend ABA as medically necessary. Under the HCY/EPSDT pathway the diagnosis need not be ASD at all, but the evaluation requirement stands. Note that the person who may diagnose and the person who may bill ABA are different populations in Missouri: psychologists may only bill ABA once MHD has approved them for the ABA specialty. An LCSW is not on the list, so an LCSW\'s diagnosis alone does not open MO HealthNet ABA.',
         status: 'verified',
         cites: [{ title: 'MO HealthNet Behavioral Health Services Manual, \u00a71.16 ABA Services (May 2026)', url: 'https://mydss.mo.gov/sites/mydss/files/media/file/2026/05/Behavioral%20Health%20Services%20Manual.docx' }],
       },
@@ -342,7 +382,7 @@ export const missouriPayers: Record<string, PayerConfig> = {
       ],
     },
     dxRequired: {
-      value: 'Yes — ASD only. CPB 0554 (last review 11/26/2025) considers ABA "experimental, investigational, or unproven for all other non-ASD indications." On the code range Aetna’s documents differ: CPB 0648 lists "F84.0 - F84.9" as ICD-10 codes covered if selection criteria are met, while the ABA Medical Necessity Guide its behavioral-health reviewers apply requires "a DSM-V diagnosis of Autism Spectrum Disorder (ICD-10: F84.0; F84.3 - F84.9)," which leaves out F84.1 and F84.2. Bill F84.0 where it fits.',
+      value: 'Yes — ASD only. CPB 0554 (last review 10/14/2026) considers ABA experimental, investigational, or unproven for "Down Syndrome in the absence of an autism spectrum disorder (ASD) co-morbidity" and "All other non-ASD indications." On the code range Aetna’s documents now agree: CPB 0648 (last review 10/20/2026) lists F84.0, F84.3, F84.5, F84.8 and F84.9 as "ICD-10 codes covered if selection criteria are met," and the ABA Medical Necessity Guide its behavioral-health reviewers apply requires "a DSM-V diagnosis of Autism Spectrum Disorder (ICD-10: F84.0; F84.3 - F84.9)." Both leave out F84.1 and F84.2. Bill F84.0 where it fits.',
       status: 'verified',
       cites: [
         { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
@@ -482,6 +522,19 @@ export const missouriPayers: Record<string, PayerConfig> = {
           { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification (GR-69017-4, 7-26; eff. 8/1/2026; not for MD or MA)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
         ],
       },
+      {
+        h2: 'HMOs in Missouri',
+        body: [
+          MO_HMO_BODY,
+          'This carrier\'s HMO on DCI\'s list is Aetna Health Inc, authorized in 48 Missouri counties (including Jackson, Clay, St. Louis City and County, St. Charles, Greene and Jasper). For an Aetna card, ask whether the plan is issued by Aetna Health Inc (the HMO), another Aetna company, or is self-funded by the employer, and confirm network and precertification rules for that plan.',
+        ],
+        cites: [MO_HMO_DCI, MO_HMO_1224, MO_HMO_1350],
+      },
+      {
+        h2: 'Disputes, appeals and transition of care (Aetna)',
+        body: [AETNA_APPEALS_BODY_G5, AETNA_TOC_BODY_G5],
+        cites: [AETNA_OM_G5],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies — including MO\'s unusual reach into governmental and school self-insured plans) vs. self-funded private ERISA (exempt). Ask for the employer and check the card.' },
@@ -489,7 +542,9 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis report', desc: 'DSM-5 ASD diagnosis, diagnosing provider and credentials, evaluation date.' },
       { title: 'Age vs. the cap', desc: 'The ABA dollar cap runs through age 18 and is CPI-indexed — verify the current adjusted value and year-to-date usage before projecting hours.' },
     ],
-    sources: [
+    sources: [ AETNA_OM_G5,
+      MO_HMO_DCI,
+      MO_HMO_1350,
       { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
       { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
       { title: 'RSMo § 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' },
@@ -541,9 +596,9 @@ export const missouriPayers: Record<string, PayerConfig> = {
       },
       placeOfService: {
         value:
-          'Aetna publishes no ABA place-of-service list. On school settings it says two things. CPB 0648: "Many Aetna plans exclude coverage of educational services. For example, speech therapy or ABA services during class would be excluded under these plans. Please check benefit plan exclusions." And precertification form GR-69017-4 asks "Are any ABA hours being requested during class?" and, if so, how many and for which codes. The IEP/IDEA carve-out in Aetna\'s ABA medical necessity guide sits in its Maryland exhibit, not in the national criteria. Where ABA is payable in a school, the community or a group home is a benefit-document question.',
+          'Aetna publishes no ABA place-of-service list. On school settings it says two things. CPB 0648: "Many Aetna plans exclude coverage of educational services. For example, speech therapy or applied behavior analysis (ABA) services during class would be excluded under these plans. Please check benefit plan exclusions." And precertification form GR-69017-4 asks "Are any ABA hours being requested during class?" and, if so, how many and for which codes. The IEP/IDEA carve-out in Aetna\'s ABA medical necessity guide sits in its Maryland exhibit, not in the national criteria. Where ABA is payable in a school, the community or a group home is a benefit-document question.',
         status: 'plan-dependent',
-        cites: [{ title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }],
+        cites: [{ title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/20/2026)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }],
         verifyVia: 'The member\'s benefit document (educational-services exclusion), and Aetna provider services for whether school-setting ABA is payable on that plan.',
         blocker: 'per-case',
       },
@@ -628,6 +683,7 @@ export const missouriPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Are there any HMOs in Missouri?', a: 'Yes. Missouri\'s Department of Commerce & Insurance lists 17 licensed HMOs with the counties each may serve; this carrier\'s is Aetna Health Inc (48 counties). Missouri\'s autism mandate (RSMo § 376.1224) reaches HMO plans because § 376.1350 counts a health maintenance organization as a health carrier. See “HMOs in Missouri” above for the full list.' },
       { q: 'Does Aetna cover ABA therapy in Missouri?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Missouri\'s mandate (RSMo § 376.1224) for fully-insured plans. Self-funded private employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the Missouri autism mandate require?', a: 'Coverage of ASD diagnosis and treatment including ABA, with a $40,000-per-year ABA cap through age 18 — a CPI-indexed statutory base that can be exceeded with plan approval when medically necessary. Treatment-plan reviews are limited to once every 6 months, and ABA must be supervised by a Chapter 337-licensed behavior analyst.' },
       { q: 'What does Aetna pay for ABA in Missouri?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the MO HealthNet fee schedule, and treat rate-setting as part of contracting.' },
@@ -794,6 +850,19 @@ export const missouriPayers: Record<string, PayerConfig> = {
           { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
         ],
       },
+      {
+        h2: 'HMOs in Missouri',
+        body: [
+          MO_HMO_BODY,
+          'This carrier\'s HMO on DCI\'s list is Cigna Healthcare of St Louis Inc, authorized in 23 Missouri counties (including St. Louis City and County, St. Charles, Jefferson, Jackson, Clay and Greene). For a Cigna HMO card, the Evernorth administrative guidelines quoted on this page state for HMO/POS plans too that “Referrals are not required for behavioral health services.”',
+        ],
+        cites: [MO_HMO_DCI, MO_HMO_1224, MO_HMO_1350],
+      },
+      {
+        h2: 'Appeals and out-of-network care (Evernorth)',
+        body: [EBH_APPEALS_BODY_G5, EBH_OON_BODY_G5],
+        cites: [EBH_ADMIN_G5],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies — including MO\'s unusual reach into governmental and school self-insured plans) vs. self-funded private ERISA (exempt). Ask for the employer and check the card.' },
@@ -801,7 +870,9 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis report', desc: 'DSM-5 ASD diagnosis, diagnosing provider and credentials, evaluation date.' },
       { title: 'Age vs. the cap', desc: 'The ABA dollar cap runs through age 18 and is CPI-indexed — verify the current adjusted value and year-to-date usage before projecting hours.' },
     ],
-    sources: [
+    sources: [ EBH_ADMIN_G5,
+      MO_HMO_DCI,
+      MO_HMO_1350,
       { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
       { title: 'Cigna autism resource guide', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
       { title: 'RSMo § 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' },
@@ -924,6 +995,7 @@ export const missouriPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Are there any HMOs in Missouri?', a: 'Yes. Missouri\'s Department of Commerce & Insurance lists 17 licensed HMOs with the counties each may serve; this carrier\'s is Cigna Healthcare of St Louis Inc (23 counties). Missouri\'s autism mandate (RSMo § 376.1224) reaches HMO plans because § 376.1350 counts a health maintenance organization as a health carrier. See “HMOs in Missouri” above for the full list.' },
       { q: 'Does Cigna cover ABA therapy in Missouri?', a: 'Yes — under the carrier\'s national EN0499 policy for ASD (which applies in Missouri without any state carve-out), layered on Missouri\'s mandate (RSMo § 376.1224) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the Missouri autism mandate require?', a: 'Coverage of ASD diagnosis and treatment including ABA, with a $40,000-per-year ABA cap through age 18 — a CPI-indexed statutory base that can be exceeded with plan approval when medically necessary. Treatment-plan reviews are limited to once every 6 months, and ABA must be supervised by a Chapter 337-licensed behavior analyst.' },
       { q: 'What does Cigna pay for ABA in Missouri?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the MO HealthNet fee schedule, and treat rate-setting as part of contracting.' },
@@ -1107,6 +1179,19 @@ export const missouriPayers: Record<string, PayerConfig> = {
           { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
         ],
       },
+      {
+        h2: 'HMOs in Missouri',
+        body: [
+          MO_HMO_BODY,
+          'This carrier\'s HMO on DCI\'s list is UnitedHealthcare of the Midwest Inc, authorized in 70 Missouri counties (including St. Louis City and County, Jackson, Clay, Greene, Boone and Cole). For a UnitedHealthcare card, ask whether the plan is issued by UnitedHealthcare of the Midwest Inc (the HMO) or is self-funded, and confirm network and authorization rules for that plan.',
+        ],
+        cites: [MO_HMO_DCI, MO_HMO_1224, MO_HMO_1350],
+      },
+      {
+        h2: 'Appeals, authorizations and changing providers (Optum)',
+        body: [OPTUM_APPEALS_BODY_G5, OPTUM_AUTH_BODY_G5],
+        cites: [OPTUM_NNM_G5],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies — including MO\'s unusual reach into governmental and school self-insured plans) vs. self-funded private ERISA (exempt). Ask for the employer and check the card.' },
@@ -1115,7 +1200,9 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis report', desc: 'DSM-5 ASD diagnosis, diagnosing provider and credentials, evaluation date.' },
       { title: 'Age vs. the cap', desc: 'The ABA dollar cap runs through age 18 and is CPI-indexed — verify the current adjusted value and year-to-date usage before projecting hours.' },
     ],
-    sources: [
+    sources: [ OPTUM_NNM_G5,
+      MO_HMO_DCI,
+      MO_HMO_1350,
       { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
       { title: 'Optum — ABA State Mandates supplemental criteria (BH 803ABA STM1 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
       { title: 'RSMo § 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' },
@@ -1256,6 +1343,7 @@ export const missouriPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Are there any HMOs in Missouri?', a: 'Yes. Missouri\'s Department of Commerce & Insurance lists 17 licensed HMOs with the counties each may serve; this carrier\'s is UnitedHealthcare of the Midwest Inc (70 counties). Missouri\'s autism mandate (RSMo § 376.1224) reaches HMO plans because § 376.1350 counts a health maintenance organization as a health carrier. See “HMOs in Missouri” above for the full list.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in Missouri?', a: 'Yes — under Optum\'s national ABA criteria (Missouri has no entry in Optum\'s State Mandates supplement), layered on Missouri\'s mandate (RSMo § 376.1224) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the Missouri autism mandate require?', a: 'Coverage of ASD diagnosis and treatment including ABA, with a $40,000-per-year ABA cap through age 18 — a CPI-indexed statutory base that can be exceeded with plan approval when medically necessary. Treatment-plan reviews are limited to once every 6 months, and ABA must be supervised by a Chapter 337-licensed behavior analyst.' },
       { q: 'Does Optum handle UnitedHealthcare Medicaid ABA in Missouri?', a: 'No — Missouri carves Medicaid ABA out of managed care entirely. UHC Community Plan members get ABA through MO HealthNet fee-for-service, with precertification faxed to the state, so Optum and Provider Express never enter the picture.' },
@@ -1468,6 +1556,14 @@ export const missouriPayers: Record<string, PayerConfig> = {
           { title: 'Anthem ABA Provider Resource Guide — 11-state commercial (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' },
         ],
       },
+      {
+        h2: 'HMOs in Missouri',
+        body: [
+          MO_HMO_BODY,
+          'This carrier\'s HMO on DCI\'s list is HMO Missouri Inc, authorized in 96 Missouri counties (including St. Louis City and County, Greene, Boone, Jackson and Clay). HMO Missouri, Inc. is one of the three Anthem entities named on this page. A DCI licence area can be wider than the network Anthem actually sells, and this page notes Anthem\'s Missouri service area excludes 30 Kansas City-area counties, so confirm the network for the family\'s county.',
+        ],
+        cites: [MO_HMO_DCI, MO_HMO_1224, MO_HMO_1350],
+      },
     ],
     collect: [
       { title: 'Plan funding type, first', desc: 'Fully insured Missouri plan (mandate applies), a self-insured governmental, MEWA or school-district plan (the statute reaches these too, for plans established or renewed on or after 1/1/2020), or a private self-funded ERISA plan (preempted). An Anthem Missouri card can be any of these — RIT administers self-funded plans without underwriting them.' },
@@ -1479,6 +1575,8 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { title: 'A doctorate-level diagnostic evaluation', desc: 'For an assessment-only request (97151/97152/0362T), or where the member has new coverage, Anthem\'s form requires a diagnostic evaluation by a doctorate-level clinician or allowable QHCP showing DSM-5-TR criteria and naming the standardized tools used. Ask for the full report, not the one-line diagnosis letter.' },
     ],
     sources: [
+      MO_HMO_DCI,
+      MO_HMO_1350,
       { title: 'RSMo § 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' },
       { title: 'Missouri DCI — ABA mandated coverage limits by year', url: 'https://insurance.mo.gov/autism-and-related-insurance-resources/autism-report-aba-limits' },
       { title: 'RSMo § 337.300 — behavior analyst definitions', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=337.300' },
@@ -1611,6 +1709,7 @@ export const missouriPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Are there any HMOs in Missouri?', a: 'Yes. Missouri\'s Department of Commerce & Insurance lists 17 licensed HMOs with the counties each may serve; this carrier\'s is HMO Missouri Inc (96 counties). Missouri\'s autism mandate (RSMo § 376.1224) reaches HMO plans because § 376.1350 counts a health maintenance organization as a health carrier. See “HMOs in Missouri” above for the full list.' },
       { q: 'Does Anthem BCBS Missouri cover ABA therapy?', a: 'Yes. RSMo § 376.1224 requires health benefit plans delivered, issued, continued or renewed in Missouri on or after January 1, 2020 to cover diagnosis and treatment of autism spectrum disorders including ABA, and Anthem precertifies ABA as a behavioral health service with itself as the reviewing party. Private self-funded ERISA plans are preempted from the mandate.' },
       { q: 'What is the Missouri ABA dollar cap right now?', a: 'The statute sets $40,000 per calendar year through age 18, but requires inflation indexing. The Department of Commerce and Insurance publishes the adjusted value annually; its most recent published figure is $57,311 for 2025. The carrier is only obliged to re-index at least every three years, so confirm the number the specific plan applies — and remember the cap can be exceeded with prior approval when more ABA is medically necessary.' },
       { q: 'How often can Anthem re-review a Missouri ABA treatment plan?', a: 'Outside inpatient services, no more than once every six months, unless the carrier and the treating physician or psychologist agree that more frequent review is necessary. The statute also puts the cost of obtaining any review or treatment plan on the plan.' },

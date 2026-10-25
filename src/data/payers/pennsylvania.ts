@@ -181,6 +181,17 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: 'PA DHS — Electronic Visit Verification (EVV) and EVV FAQ', url: 'https://www.pa.gov/agencies/dhs/resources/for-providers/evv/faq-evv' },
       { title: 'PA DHS — MA Electronic Bulletins listserv archive (index of New Bulletin Notifications)', url: 'http://listserv.dhs.pa.gov/Scripts/WA.exe?A0=MA-ELECTRONIC-BULLETINS' },
       { title: 'PA DHS — Medicaid/Medical Assistance Provider Quick Tips (index of PROMISe Quick Tips)', url: 'https://www.pa.gov/agencies/dhs/resources/for-providers/providers-quick-tips' },
+      { title: 'OMHSAS — HealthChoices Behavioral Health Eligibles map (July 2026)', url: 'https://www.pa.gov/content/dam/copapwp-pagov/en/dhs/documents/healthchoices/hc-providers/documents/healthchoices-behavioral-health-eligibles-map.pdf' },
+      { title: 'Act 62 of 2008 (HB 1150, PN 4115) — Insurance Company Law § 635.2 enacted text', url: 'https://www.palegis.us/legislation/bills/text/HTM/2007/0/HB1150/PN4115' },
+      { title: 'PA DHS — Medicaid Fee Schedules (online fee schedule behind CPT licence acceptance)', url: 'https://www.pa.gov/agencies/dhs/resources/for-providers/ma-for-providers/ma-fee-schedule' },
+      { title: '55 Pa. Code § 1101.68 — Invoicing for services (MA time frames)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter1101/s1101.68.html' },
+      { title: '42 CFR 440.230(e) — Medicaid fee-for-service prior authorization timeframes (from 1/1/2026)', url: 'https://www.ecfr.gov/current/title-42/section-440.230' },
+      { title: '42 CFR 438.210(d) — Medicaid managed care authorization timeframes', url: 'https://www.ecfr.gov/current/title-42/section-438.210' },
+      { title: 'DHS HealthChoices BH Program Standards and Requirements, Appendix AA — Prior Authorization Requirements (Jan. 1, 2026)', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/79/Appendix-AA-Prior-Authorization-Requirements.pdf' },
+      { title: '42 CFR 433.139 — Payment of claims (third-party liability)', url: 'https://www.ecfr.gov/current/title-42/section-433.139' },
+      { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
+      { title: '38 CFR 17.270 — CHAMPVA is the last payer', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
+      { title: 'OMHSAS — Interim Telehealth Guidance (March 30, 2023)', url: 'https://www.pa.gov/content/dam/copapwp-pagov/en/dhs/documents/services/mental-health-in-pa/documents/OMHSAS_Interim-Telehealth-Guidance-3.30.2023.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -200,7 +211,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'The diagnosis travels in the written order, which may be written by "a licensed physician, licensed psychologist, certified registered nurse practitioner or other licensed professional whose scope of practice includes the diagnosis and treatment of behavioral health disorders and the prescribing of behavioral health services, including IBHS." The rule does not require the diagnosis to come from a specialist such as a developmental pediatrician.',
+        value: 'The diagnosis travels in the written order, which may be written by "a licensed physician, licensed psychologist, certified registered nurse practitioner or other licensed professional whose scope of practice includes the diagnosis and treatment of behavioral health disorders and the prescribing of behavioral health services, including IBHS." The rule does not require the diagnosis to come from a specialist such as a developmental pediatrician. LCSW: not named. The written order may come from one only if the LCSW\'s scope includes diagnosing behavioral health disorders and prescribing behavioral health services, which the rule does not settle; confirm with the BH-MCO.',
         status: 'verified',
         cites: [
           { title: '55 Pa. Code Chapter 1155 — Intensive Behavioral Health Services (payment)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter1155/chap1155toc.html' },
@@ -455,6 +466,13 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: 'PA DHS — Electronic Visit Verification (EVV) and EVV FAQ', url: 'https://www.pa.gov/agencies/dhs/resources/for-providers/evv/faq-evv' },
       { title: 'Community Care — Provider Alerts (index of HealthChoices provider alerts by year)', url: 'https://providers.ccbh.com/provider-resources/provider-alerts' },
       { title: 'Community Care — Provider Newsletter archive', url: 'https://providers.ccbh.com/provider-resources/provider-newsletter' },
+      { title: 'Community Care — UPMC Health Plan autism behavioral health care management', url: 'https://providers.ccbh.com/provider-resources/act-62-resources/behavioral-health-care-management' },
+      { title: 'OMHSAS IBHS Frequently Asked Questions (updated February 2022)', url: 'https://www.pa.gov/content/dam/copapwp-pagov/en/dhs/documents/healthchoices/hc-providers/documents/intensive-behavioral-health-services-(ibhs)/ibhs-faq-updated-02-22-22.pdf' },
+      { title: 'Community Care — Performance Standards: Clinical Telemedicine Services (2018)', url: 'https://providers.ccbh.com/uploads/files/Performance-Standards/201808-perf-standards-clinical-telemedicine-services.pdf' },
+      { title: '42 CFR 438.210(d) — Medicaid managed care authorization timeframes', url: 'https://www.ecfr.gov/current/title-42/section-438.210' },
+      { title: 'Act 146 of 2022 — Insurance Company Law Art. XXI amendments incl. § 2155 prior authorization review (Justia)', url: 'https://law.justia.com/codes/pennsylvania/2022/act-146/' },
+      { title: '55 Pa. Code § 1101.64 — Third-party medical resources (TPR)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter1101/s1101.64.html' },
+      { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
     ],
     faq: [
       { q: 'How often does Community Care pay claims?', a: 'Weekly. Community Care generates weekly reimbursement with an 835 remittance; no submission cut-off day is published.' },
@@ -577,7 +595,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'The written order must come from a licensed physician, licensed psychologist, CRNP or another licensed professional whose scope covers diagnosing and treating behavioral health disorders and prescribing BH services (55 Pa. Code § 1155.33). Community Care lists acceptable routes: a PCP/CRNP wellness check, an outpatient intake or therapy session, a psychological or psychiatric evaluation, psychological testing, a discharge from inpatient/RTF/PHP, or a mental health assessment by a “licensed and PROMISe enrolled prescriber from an IBHS agency”.',
+        value: 'The written order must come from a licensed physician, licensed psychologist, CRNP or another licensed professional whose scope covers diagnosing and treating behavioral health disorders and prescribing BH services (55 Pa. Code § 1155.33). Community Care lists acceptable routes: a PCP/CRNP wellness check, an outpatient intake or therapy session, a psychological or psychiatric evaluation, psychological testing, a discharge from inpatient/RTF/PHP, or a mental health assessment by a “licensed and PROMISe enrolled prescriber from an IBHS agency”. LCSW: not named. The written order may come from one only if the LCSW\'s scope includes diagnosing behavioral health disorders and prescribing behavioral health services, which the rule does not settle; confirm with Community Care.',
         status: 'verified',
         cites: [
           { title: '55 Pa. Code Chapter 1155 — Intensive Behavioral Health Services (payment)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter1155/chap1155toc.html' },
@@ -768,6 +786,9 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: '55 Pa. Code Chapter 5240 — Intensive Behavioral Health Services (licensing)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter5240/chap5240toc.html' },
       { title: 'PA DHS — Electronic Visit Verification (EVV) and EVV FAQ', url: 'https://www.pa.gov/agencies/dhs/resources/for-providers/evv/faq-evv' },
       { title: 'CBH — Provider Bulletins and Notices (index of all CBH provider bulletins)', url: 'https://cbhphilly.org/cbh-providers/provider-bulletins/' },
+      { title: '42 CFR 438.210(d) — Medicaid managed care authorization timeframes', url: 'https://www.ecfr.gov/current/title-42/section-438.210' },
+      { title: '55 Pa. Code § 1101.64 — Third-party medical resources (TPR)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter1101/s1101.64.html' },
+      { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
     ],
     faq: [
       { q: 'Does CBH require a referring provider and taxonomy on ABA claims?', a: 'Yes. CBH’s claim table marks box 17/17b (referring provider name and NPI) and box 33b (billing taxonomy code) as required.' },
@@ -889,7 +910,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'The written order may come from “a licensed physician, licensed psychologist, certified registered nurse practitioner or other licensed professional whose scope of practice includes the diagnosis and treatment of behavioral health disorders, and the prescribing of behavioral health services, including IBHS”. Ordering practitioners must be Medicaid-enrolled. The July 2025 ABA MNC adds that the comprehensive assessment must be by “a clinician with neurodevelopmental disorder diagnoses within their scope of practice”. Most ABA written orders are expected to come from CBH’s ABA-designated providers, but a non-designated provider may write one for Initial Assessment and Initial Treatment.',
+        value: 'The written order may come from “a licensed physician, licensed psychologist, certified registered nurse practitioner or other licensed professional whose scope of practice includes the diagnosis and treatment of behavioral health disorders, and the prescribing of behavioral health services, including IBHS”. Ordering practitioners must be Medicaid-enrolled. The July 2025 ABA MNC adds that the comprehensive assessment must be by “a clinician with neurodevelopmental disorder diagnoses within their scope of practice”. Most ABA written orders are expected to come from CBH’s ABA-designated providers, but a non-designated provider may write one for Initial Assessment and Initial Treatment. LCSW: not named. The written order may come from one only if the LCSW\'s scope includes diagnosing behavioral health disorders and prescribing behavioral health services, which the rule does not settle; confirm with CBH.',
         status: 'verified',
         cites: [
           { title: 'CBH Provider Manual (updated August 28, 2026)', url: 'https://cbhphilly.org/wp-content/uploads/2022/10/CBH_Provider-Manual_2026-08-28.pdf' },
@@ -1030,10 +1051,11 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       {
         h2: 'Rates',
         body: [
-          'Magellan pays IBHS under provider contracts and fee schedules that are not published. Its July 2026 workgroup notes recent rate increases and asks providers to bill usual-and-customary charges so claims can be swept up to new rates, and describes a 2026 access-based incentive model (at least 25 individual or ABA initial assessments a year; members with commercial insurance are not counted). Confirm your contracted rates with Magellan Network.',
+          'Magellan pays IBHS under provider contracts and fee schedules that are not published. Its October 21, 2026 rate letter says that for Bucks, Montgomery, Lehigh and Northampton Counties “sustained rate increases were implemented effective July 1, 2026, through fee schedule amendments,” including “IBHS/ABA Value-Based providers: 3% increase plus a 30% increase to assessment codes.” It adds that retrospective 2026 increases will be paid as lump sums before December 31, 2026, focused on community-based, non-24-hour levels of care; the remittance shows them under a member ID of all 5s with the county prefix (BUC, LEH, MNT, NOH). Its July 2026 workgroup notes recent rate increases and asks providers to bill usual-and-customary charges so claims can be swept up to new rates, and describes a 2026 access-based incentive model (at least 25 individual or ABA initial assessments a year; members with commercial insurance are not counted). Confirm your contracted rates with Magellan Network.',
         ],
         cites: [
           { title: 'Magellan of PA — IBHS Provider Workgroup, July 30, 2026', url: 'https://www.magellanofpa.com/documents/2026/07/073126_ibhsproviderworkgrouponjuly302026.pdf' },
+          { title: 'Magellan of PA — Provider Rate Updates (October 21, 2026)', url: 'https://www.magellanofpa.com/documents/2026/10/102126_providerratesannouncement.pdf/' },
         ],
       },
       {
@@ -1065,6 +1087,13 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           { title: 'PA DHS — Electronic Visit Verification (EVV) and EVV FAQ', url: 'https://www.pa.gov/agencies/dhs/resources/for-providers/evv/faq-evv' },
         ],
       },
+      {
+        h2: 'Can a Magellan HealthChoices member use an out-of-network IBHS/ABA provider?',
+        body: [
+          'Only if Magellan approves it. Magellan\'s HealthChoices supplement (rev. 11/25) lists among member responsibilities: “Use only network providers unless Magellan approves an out-of-network provider.” The supplement sets no ABA single-case-agreement process or rate; ask Magellan network management.',
+        ],
+        cites: [{ title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/25)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' }],
+      },
     ],
     collect: [
       { title: 'Medicaid ID and county', desc: 'Magellan covers only its seven counties; the TAR asks which county the member’s MA is tied to, and a county change needs a new authorization line.' },
@@ -1074,9 +1103,8 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: 'Caregiver availability for the assessment', desc: 'Magellan’s referral form asks for caregiver days/times; the assessment must cover every setting where services will be delivered.' },
       { title: 'Consent to release information', desc: 'Magellan’s referral form requires written consent before it can send clinical information to providers.' },
     ],
-    sources: [
+    sources: [ { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/25)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },{ title: 'Magellan of PA — Provider Rate Updates (October 21, 2026)', url: 'https://www.magellanofpa.com/documents/2026/10/102126_providerratesannouncement.pdf/' }, 
       { title: 'Magellan of PA — Intensive Behavioral Health Services (IBHS) provider page', url: 'https://www.magellanofpa.com/for-providers/services-programs/intensive-behavioral-health-services-ibhs/' },
-      { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/25)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },
       { title: 'Magellan of PA — IBHS Authorization Request Checklist (rev. 02/12/2026)', url: 'https://www.magellanofpa.com/documents/2026/02/021626_ibhsauthrequestchecklist.pdf' },
       { title: 'Magellan of PA — IBHS/ABA New Provider Training (Somerset-Bedford, Nov. 2025)', url: 'https://www.magellanofpa.com/documents/2025/11/s-b-new-provider-training-ibhsaba-11052025.pdf' },
       { title: 'Magellan of PA — IBHS Provider Workgroup, July 30, 2026', url: 'https://www.magellanofpa.com/documents/2026/07/073126_ibhsproviderworkgrouponjuly302026.pdf' },
@@ -1089,8 +1117,16 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: 'PA DHS — Behavioral Health Managed Care Organizations (BH-MCOs) by county', url: 'https://www.pa.gov/agencies/dhs/resources/medicaid/bhc/bhc-mcos' },
       { title: 'PA DHS — Electronic Visit Verification (EVV) and EVV FAQ', url: 'https://www.pa.gov/agencies/dhs/resources/for-providers/evv/faq-evv' },
       { title: 'Magellan of PA — Providers page (Provider Announcements and Compliance Alerts archive)', url: 'https://www.magellanofpa.com/for-providers/' },
+      { title: 'Magellan of PA — IBHS TAR Registration Cover Sheet (rev. 11/01/2025)', url: 'https://www.magellanofpa.com/documents/2021/07/p-forms-ibhs-tar-registration-cover-sheet.pdf' },
+      { title: 'Magellan of PA — IBHS TAR Facesheet for Individual & ABA IBHS (rev. 11/01/2025)', url: 'https://www.magellanofpa.com/documents/2025/09/ibhs-tar-facesheet-for-individual-aba-ibhs.pdf' },
+      { title: '55 Pa. Code § 1101.64 — Third-party medical resources (TPR)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter1101/s1101.64.html' },
+      { title: 'OMHSAS IBHS Frequently Asked Questions (updated February 2022)', url: 'https://www.pa.gov/content/dam/copapwp-pagov/en/dhs/documents/healthchoices/hc-providers/documents/intensive-behavioral-health-services-(ibhs)/ibhs-faq-updated-02-22-22.pdf' },
+      { title: 'OMHSAS-22-02 — Revised Guidelines for Delivery of BH Services Through Telehealth (eff. 7/1/2022)', url: 'https://www.pa.gov/content/dam/copapwp-pagov/en/dhs/documents/docs/documents/omhsas/Bulletin%20OMHSAS-22-02%20-%20Revised%20Guidelines%20for%20Delivery%20of%20BH%20Services%20Through%20Telehealth%207.1.22.pdf' },
+      { title: '42 CFR 438.210(d) — Medicaid managed care authorization timeframes', url: 'https://www.ecfr.gov/current/title-42/section-438.210' },
+      { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
     ],
     faq: [
+      { q: 'Can a Magellan HealthChoices member use an out-of-network IBHS/ABA provider?', a: 'Only with Magellan\'s approval; its HealthChoices supplement tells members to use network providers “unless Magellan approves an out-of-network provider.” No SCA process or rate is published.' },
       { q: 'What is Magellan of Pennsylvania’s timely filing limit?', a: 'Sixty days from the date of service for most services, 60 days from the other carrier’s EOB for secondary claims, and 60 days from Magellan’s EOB for resubmissions.' },
       { q: 'How fast does Magellan pay a clean claim in Pennsylvania?', a: 'Within 45 days of receipt, with 10 percent annual interest on clean claims paid late.' },
       { q: 'Does Magellan of Pennsylvania require prior authorization for the ABA assessment?', a: 'It requires a registration, not a medical-necessity review. Submit the IBHS Registration TAR and the written order in Availity; Magellan authorizes 96 units (24 hours) over 45 calendar days for the ABA initial assessment (97151 HA). Reassessments are done within the approved BC-ABA units before the reauthorization request.' },
@@ -1205,7 +1241,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'The written order (which carries the diagnosis) can come from a licensed physician, licensed psychologist, certified registered nurse practitioner, or other licensed practitioner whose scope includes diagnosing and treating behavioral health disorders and prescribing IBHS; Magellan requires the writer to be ORP-enrolled. A psychiatric/psychological evaluation or best-practice evaluation containing all written-order elements can substitute.',
+        value: 'The written order (which carries the diagnosis) can come from a licensed physician, licensed psychologist, certified registered nurse practitioner, or other licensed practitioner whose scope includes diagnosing and treating behavioral health disorders and prescribing IBHS; Magellan requires the writer to be ORP-enrolled. A psychiatric/psychological evaluation or best-practice evaluation containing all written-order elements can substitute. LCSW: not named. The written order may come from one only if the LCSW\'s scope includes diagnosing behavioral health disorders and prescribing behavioral health services, which the rule does not settle; confirm with Magellan.',
         status: 'verified',
         cites: [
           { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/25)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },
@@ -1364,6 +1400,13 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           { title: 'PA DHS — Electronic Visit Verification (EVV) and EVV FAQ', url: 'https://www.pa.gov/agencies/dhs/resources/for-providers/evv/faq-evv' },
         ],
       },
+      {
+        h2: 'Can a PerformCare member use an out-of-network IBHS/ABA provider?',
+        body: [
+          'Only if PerformCare approves it. PerformCare\'s HealthChoices provider manual lists among member responsibilities: “Use only network providers unless PerformCare approves an out-of-network provider.” No ABA single-case-agreement process or rate is published.',
+        ],
+        cites: [{ title: 'PerformCare HealthChoices Provider Manual (updated February 2023)', url: 'https://pa.performcare.org/content/dam/amerihealth-caritas/performcare-pa/pdf/providers/resources-information/provider-manual.pdf' }],
+      },
     ],
     collect: [
       { title: 'Medicaid ID and county', desc: 'PerformCare covers Cumberland, Dauphin, Franklin, Fulton, Lancaster, Lebanon and Perry; CANS rules differ between the CABHC and Franklin/Fulton contracts.' },
@@ -1373,10 +1416,9 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: 'Primary insurance and ABA benefit', desc: 'Get the commercial plan’s authorization too; PerformCare needs one denial/non-covered letter per CPT code per calendar year before it pays as primary.' },
       { title: 'TRICARE status', desc: 'TRICARE is not exempt — providers should credential with TRICARE when it is primary.' },
     ],
-    sources: [
+    sources: [ { title: 'PerformCare HealthChoices Provider Manual (updated February 2023)', url: 'https://pa.performcare.org/content/dam/amerihealth-caritas/performcare-pa/pdf/providers/resources-information/provider-manual.pdf' },
       { title: 'PerformCare Policy CM-CAS-042 — Initial & Re-Authorization Requirements for Individual & ABA IBHS (rev. 03/11/26)', url: 'https://pa.performcare.org/content/dam/amerihealth-caritas/performcare-pa/pdf/providers/policies/202605/CM-CAS-042%20%2004.03.26.pdf' },
       { title: 'PerformCare Policy CM-013 — Approval/Denial Process and Notifications (rev. 01/22/26)', url: 'https://pa.performcare.org/content/dam/amerihealth-caritas/performcare-pa/pdf/providers/policies/202605/CM-013%20%2001.23.26.pdf' },
-      { title: 'PerformCare HealthChoices Provider Manual (updated February 2023)', url: 'https://pa.performcare.org/content/dam/amerihealth-caritas/performcare-pa/pdf/providers/resources-information/provider-manual.pdf' },
       { title: 'PerformCare Provider Notice IBHS 22-102 — IBHS Code Authorization Bundling (Feb. 8, 2022)', url: 'https://pa.performcare.org/content/dam/amerihealth-caritas/performcare-pa/pdf/providers/resources-information/ibhs-22-102-code-auth-bundling.pdf' },
       { title: 'PerformCare Provider Notice IBHS 23-102 — ABA Providers’ Use of 97151 (reissued March 7, 2023)', url: 'https://pa.performcare.org/assets/pdf/providers/resources-information/ibhs-23-102-aba-providers-use-of-97151.pdf' },
       { title: 'PerformCare Provider Notice IBHS 21-100 — IBHS ABA Billing Guide (Feb. 4, 2021)', url: 'https://pa.performcare.org/content/dam/amerihealth-caritas/performcare-pa/pdf/providers/resources-information/policies/ibhs-21-100-aba-cpt-billing-guide.pdf' },
@@ -1390,8 +1432,17 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: 'PA DHS — Behavioral Health Managed Care Organizations (BH-MCOs) by county', url: 'https://www.pa.gov/agencies/dhs/resources/medicaid/bhc/bhc-mcos' },
       { title: 'PA DHS — Electronic Visit Verification (EVV) and EVV FAQ', url: 'https://www.pa.gov/agencies/dhs/resources/for-providers/evv/faq-evv' },
       { title: 'PerformCare — Provider Notices (index of AD/IBHS provider notices by year)', url: 'https://pa.performcare.org/providers/resources-information/notices' },
+      { title: 'PerformCare Provider Notice IBHS 22-108 — IBHS Assessment Authorization Update', url: 'https://pa.performcare.org/content/dam/amerihealth-caritas/performcare-pa/pdf/providers/resources-information/ibhs-22-108-ibhs-assessment-auth-update.pdf' },
+      { title: 'PerformCare Provider Notice IBHS 25-100 — IBHS Updates (April 11, 2025)', url: 'https://pa.performcare.org/content/dam/amerihealth-caritas/performcare-pa/pdf/providers/resources-information/policies/ibhs/2025/ibhs-25-100-ibhs-updates.pdf' },
+      { title: 'PerformCare Provider Notice IBHS 21-105 — BCBA Billing (July 21, 2021)', url: 'https://pa.performcare.org/content/dam/amerihealth-caritas/performcare-pa/pdf/providers/resources-information/policies/ibhs-21-105-bcba-billing.pdf' },
+      { title: 'OMHSAS IBHS Frequently Asked Questions (updated February 2022)', url: 'https://www.pa.gov/content/dam/copapwp-pagov/en/dhs/documents/healthchoices/hc-providers/documents/intensive-behavioral-health-services-(ibhs)/ibhs-faq-updated-02-22-22.pdf' },
+      { title: '55 Pa. Code Chapter 1155 — Intensive Behavioral Health Services (payment)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter1155/chap1155toc.html' },
+      { title: 'OMHSAS-22-02 — Revised Guidelines for Delivery of BH Services Through Telehealth (eff. 7/1/2022)', url: 'https://www.pa.gov/content/dam/copapwp-pagov/en/dhs/documents/docs/documents/omhsas/Bulletin%20OMHSAS-22-02%20-%20Revised%20Guidelines%20for%20Delivery%20of%20BH%20Services%20Through%20Telehealth%207.1.22.pdf' },
+      { title: '42 CFR 438.210(d) — Medicaid managed care authorization timeframes', url: 'https://www.ecfr.gov/current/title-42/section-438.210' },
+      { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
     ],
     faq: [
+      { q: 'Can a PerformCare member use an out-of-network IBHS/ABA provider?', a: 'Only with PerformCare\'s approval. The manual tells members to use network providers “unless PerformCare approves an out-of-network provider.”' },
       { q: 'How fast does PerformCare pay ABA claims?', a: 'PerformCare pays all clean claims within 45 days and says its turnaround averages about 18 days, with most paid within 30.' },
       { q: 'Does PerformCare require prior authorization for the ABA assessment?', a: 'It requires a registration, not a medical-necessity decision. The agency submits an IBHS Assessment Registration Form in Jiva within 4 calendar days of starting the assessment, and PerformCare authorizes 45 calendar days for an ABA assessment. Registering 97151 also allows billing 97152.' },
       { q: 'Can we bill 97153 and 97155 at the same time with PerformCare?', a: 'Yes, when both code descriptors are met. PerformCare adopted the 2019 CPT supplemental guidance for adaptive behavior services, which answers "Yes, as long as the criteria in the descriptors of both codes are met" — but a single QHP may not report both concurrently.' },
@@ -1503,7 +1554,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'The written order must come from an ORP-enrolled prescriber based on face-to-face interaction (state rule: licensed physician, licensed psychologist, CRNP or other licensed practitioner whose scope includes diagnosing BH disorders and prescribing BH services). PerformCare’s manual adds that IBHS prescribers must be enrolled as individual MA providers, and clinic-based prescribers must include the clinic or medical director MA number.',
+        value: 'The written order must come from an ORP-enrolled prescriber based on face-to-face interaction (state rule: licensed physician, licensed psychologist, CRNP or other licensed practitioner whose scope includes diagnosing BH disorders and prescribing BH services). PerformCare’s manual adds that IBHS prescribers must be enrolled as individual MA providers, and clinic-based prescribers must include the clinic or medical director MA number. LCSW: not named. The written order may come from one only if the LCSW\'s scope includes diagnosing behavioral health disorders and prescribing behavioral health services, which the rule does not settle; confirm with PerformCare.',
         status: 'verified',
         cites: [
           { title: 'PerformCare Policy CM-CAS-042 — Initial & Re-Authorization Requirements for Individual & ABA IBHS (rev. 03/11/26)', url: 'https://pa.performcare.org/content/dam/amerihealth-caritas/performcare-pa/pdf/providers/policies/202605/CM-CAS-042%20%2004.03.26.pdf' },
@@ -1662,6 +1713,13 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           { title: 'PA DHS — Electronic Visit Verification (EVV) and EVV FAQ', url: 'https://www.pa.gov/agencies/dhs/resources/for-providers/evv/faq-evv' },
         ],
       },
+      {
+        h2: 'Does Carelon Health of Pennsylvania give single case agreements for IBHS/ABA?',
+        body: [
+          'Yes, on request. Carelon\'s Pennsylvania billing guide: “Out-of-network providers must call the Provider Services Line at 1-877-615-8503 to request Single Case Agreement.” Authorization rules in the provider manual still apply.',
+        ],
+        cites: [{ title: 'Carelon Health of Pennsylvania Billing Guide', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/79/Carelon-Billing-Guide.pdf' }],
+      },
     ],
     collect: [
       { title: 'Medicaid ID and county', desc: 'Carelon covers 11 western PA counties; a county change needs an authorization under the new eligibility line.' },
@@ -1671,7 +1729,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: 'Signed Service Delivery Schedule', desc: 'Parent/legal guardian (or member 14+) signature is part of every packet.' },
       { title: 'Family Choice/Confirmation Form', desc: 'Reviewed with the family before services start.' },
     ],
-    sources: [
+    sources: [ { title: 'Carelon Health of Pennsylvania Billing Guide', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/79/Carelon-Billing-Guide.pdf' },
       { title: 'Carelon Health of Pennsylvania Provider Manual \u2014 Provider Recruitment', url: 'https://providers.pa.carelon.com/providers/provider-manual/5-provider-recruitment/' },
       { title: 'Carelon Health of Pennsylvania Provider Manual \u2014 Provider Contracting', url: 'https://providers.pa.carelon.com/providers/provider-manual/5-provider-contracting/' },
       { title: 'Carelon Health of Pennsylvania Provider Manual \u2014 Member Right to Continuing Course of Treatment', url: 'https://providers.pa.carelon.com/providers/provider-manual/4-member-right-to-continuing-course-of-treatment/' },
@@ -1691,8 +1749,16 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: 'PA DHS — Behavioral Health Managed Care Organizations (BH-MCOs) by county', url: 'https://www.pa.gov/agencies/dhs/resources/medicaid/bhc/bhc-mcos' },
       { title: 'PA DHS — Electronic Visit Verification (EVV) and EVV FAQ', url: 'https://www.pa.gov/agencies/dhs/resources/for-providers/evv/faq-evv' },
       { title: 'Carelon Health of PA — Provider Alerts (index of provider alerts by year)', url: 'https://providers.pa.carelon.com/providers/provider-alerts/' },
+      { title: '55 Pa. Code Chapter 5240 — Intensive Behavioral Health Services (licensing)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter5240/chap5240toc.html' },
+      { title: 'Carelon Health of PA Provider Manual — 4: Treatment Record Standards', url: 'https://providers.pa.carelon.com/providers/provider-manual/4-treatment-record-standards/' },
+      { title: 'Carelon Health of PA Provider Alert 22.26.09 — Documentation and Program Integrity Reminder (Sept. 3, 2026)', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/79/PA-22.26.09-Documentation-and-Program-Integrity-Reminder.pdf' },
+      { title: 'Carelon Health of PA Provider Manual — 4: National Provider Identifier (NPI)', url: 'https://providers.pa.carelon.com/providers/provider-manual/4-national-provider-identifier-npi/' },
+      { title: '55 Pa. Code Chapter 1155 — Intensive Behavioral Health Services (payment)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter1155/chap1155toc.html' },
+      { title: '42 CFR 438.210(d) — Medicaid managed care authorization timeframes', url: 'https://www.ecfr.gov/current/title-42/section-438.210' },
+      { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
     ],
     faq: [
+      { q: 'Does Carelon Health of Pennsylvania give single case agreements for IBHS/ABA?', a: 'Yes. Out-of-network providers call Carelon\'s Provider Services Line at 1-877-615-8503 to request a single case agreement.' },
       { q: 'Which ABA codes does Carelon Health of Pennsylvania pay?', a: 'CPT 97151–97156 and 97158 under IBHS ABA (specialty 592), with U7/U8 and group-size modifiers. 97157, 0362T and 0373T are not on its covered-services grid, and H0031 is an assessment code, not an ABA code.' },
       { q: 'Does Carelon Health of Pennsylvania require prior authorization for the ABA assessment?', a: 'No. Policy CN.48: "The assessment does not require a prior authorization process however treatment does require a prior authorization process." Providers can use up to 92 units (23 hours) for the assessment; the covered-services grid lists the assessment as 97151 with modifier AO or AP and "Auth Req? N".' },
       { q: 'How long does a Carelon IBHS authorization last?', a: 'Up to 180 days. Submit continued-stay requests through ProviderConnect at least 10 business days before the current authorization expires.' },
@@ -2010,6 +2076,13 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           { title: 'Highmark Provider Manual — Chapter 2, Unit 6: The BlueCard Program', url: 'https://providers.highmark.com/resources-and-education/highmark-provider-manual/chapter-2-product-information/unit-6-the-bluecard-program' },
         ],
       },
+      {
+        h2: 'Can an out-of-network ABA provider get approved by Highmark?',
+        body: [
+          'Through a network gap exception. Highmark\'s Obtaining Authorizations page links a “Guide to Out-of-Network Gap Exception Requests” alongside its behavioral health tip sheet for authorization requests. Highmark publishes no ABA single-case-agreement rate; whether the member has out-of-network benefits depends on the product.',
+        ],
+        cites: [{ title: 'Highmark — Obtaining Authorizations (last updated Sept 1, 2026)', url: 'https://providers.highmark.com/authorization/obtaining-authorizations' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type and group size', desc: 'Fully insured large group (51+) or CHIP means Act 62 applies. Self-funded (ASO), individual or small-group means the benefit contract and whether the ASO elected V-37 decide. Ask for the employer name and read the card.' },
@@ -2019,11 +2092,10 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: 'Other coverage (Medicaid / PH-95)', desc: 'Many PA children with autism also have Medicaid. Highmark pays first and the BH-MCO pays second, so get Highmark’s authorization even when Medicaid will pick up the balance.' },
       { title: 'Setting and school involvement', desc: 'ABA in school is covered only under V-37’s strict criteria (entirely ABA, not educational). Record where services will happen.' },
     ],
-    sources: [
+    sources: [ { title: 'Highmark — Obtaining Authorizations (last updated Sept 1, 2026)', url: 'https://providers.highmark.com/authorization/obtaining-authorizations' },
       { title: 'Highmark Medical Policy V-37-044 — Autism Spectrum Disorders (PA commercial, eff. August 4, 2025)', url: 'https://securecms.highmark.com/content/medpolicy/en/highmark/pa/commercial/policies/Visits/V-37/V-37-044.html' },
       { title: 'Highmark — List of Procedures/DME Requiring Authorization (Commercial/MA, eff. 09/01/2026)', url: 'https://providers.highmark.com/content/dam/highmark/en/providerresourcecenter/pdfs/procedurecode/commercial/Proc-Requiring-Auth-list.pdf' },
       { title: 'Highmark — Behavioral Health: Upcoming Prior Authorization Changes (published Nov 24, 2025; eff. March 1, 2026)', url: 'https://providers.highmark.com/communications-hub/news-and-updates/behavioral-health-upcoming-prior-authorization-changes.html' },
-      { title: 'Highmark — Obtaining Authorizations (last updated Sept 1, 2026)', url: 'https://providers.highmark.com/authorization/obtaining-authorizations' },
       { title: 'Highmark Medical Policy Z-27-037 — Eligible Providers (PA commercial, eff. October 13, 2025)', url: 'https://securecms.highmark.com/content/medpolicy/en/highmark/pa/commercial/policies/Miscellaneous/Z-27/Z-27-037.html' },
       { title: 'Highmark Reimbursement Policy RP-046 — Telemedicine and Telehealth Services (version eff. Sept 1, 2026)', url: 'https://providers.highmark.com/content/dam/highmark/en/providerresourcecenter/pdfs/claims/reimbursement-policies/rp-046.pdf' },
       { title: 'Highmark — Reimbursement Update: CPT 97153 for ABA Therapy in DE, PA and WV (published Aug 17, 2026; eff. Oct 16, 2026)', url: 'https://providers.highmark.com/communications-hub/news-and-updates/reimbursement-update-cpt-code-97153-for-aba-therapy-in-de-pa-wv.html' },
@@ -2038,6 +2110,17 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: 'Highmark Provider Manual — Chapter 2, Unit 6: The BlueCard Program', url: 'https://providers.highmark.com/resources-and-education/highmark-provider-manual/chapter-2-product-information/unit-6-the-bluecard-program' },
       { title: 'Highmark Provider Manual — Chapter 6, Unit 1: General Claim Submission Guidelines', url: 'https://providers.highmark.com/resources-and-education/highmark-provider-manual/chapter-6-billing-and-payment/unit-1-general-claim-submission-guidelines' },
       { title: 'Highmark — Communications Hub: News and Updates (provider news index)', url: 'https://providers.highmark.com/communications-hub/news-and-updates' },
+      { title: 'PA DHS — Behavioral Health Managed Care Organizations (BH-MCOs) by county', url: 'https://www.pa.gov/agencies/dhs/resources/medicaid/bhc/bhc-mcos' },
+      { title: '55 Pa. Code § 1101.64 — Third-party medical resources (TPR)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter1101/s1101.64.html' },
+      { title: 'PA State Board of Medicine — Behavior Specialist Licensure Requirements Snapshot', url: 'https://www.pa.gov/agencies/dos/department-and-offices/bpoa/boards-commissions/medicine/behavior-specialist-licensure-snapshot' },
+      { title: '31 Pa. Code § 154.18 — Prompt payment', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/031/chapter154/s154.18.html' },
+      { title: '29 CFR 2560.503-1 — ERISA claims procedure', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+      { title: 'PA DHS — Pennsylvania Autism Insurance Act (Act 62)', url: 'https://www.pa.gov/agencies/dhs/resources/intellectual-disabilities-autism/autism-services/pa-autism-insurance-act-62' },
+      { title: 'PA DHS — Medicaid for Children with Special Needs (PH95)', url: 'https://www.pa.gov/agencies/dhs/resources/medicaid/medicaid-children-special-needs-ph95' },
+      { title: '55 Pa. Code Chapter 1155 — Intensive Behavioral Health Services (payment)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter1155/chap1155toc.html' },
+      { title: '42 CFR 433.139 — Payment of claims (third-party liability)', url: 'https://www.ecfr.gov/current/title-42/section-433.139' },
+      { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
+      { title: '38 CFR 17.270 — CHAMPVA is the last payer', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2061,7 +2144,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       diagnosingProviders: {
-        value: 'V-37 requires a confirmed DSM-5 ASD diagnosis but does not say who must make it. On Act 62 plans, the “diagnostic assessment” is one performed by a licensed physician, licensed physician assistant, licensed psychologist or certified registered nurse practitioner. The treatment plan must come from a state-licensed MD/DO or an independently licensed psychologist.',
+        value: 'V-37 requires a confirmed DSM-5 ASD diagnosis but does not say who must make it. On Act 62 plans, the “diagnostic assessment” is one performed by a licensed physician, licensed physician assistant, licensed psychologist or certified registered nurse practitioner. The treatment plan must come from a state-licensed MD/DO or an independently licensed psychologist. LCSW: not on the Act 62 list (physician, physician assistant, psychologist, CRNP), so on an Act 62 plan an LCSW\'s diagnostic assessment does not qualify.',
         status: 'plan-dependent',
         cites: [
           { title: 'Highmark Medical Policy V-37-044 — Autism Spectrum Disorders (PA commercial, eff. August 4, 2025)', url: 'https://securecms.highmark.com/content/medpolicy/en/highmark/pa/commercial/policies/Visits/V-37/V-37-044.html' },
@@ -2175,6 +2258,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Can an out-of-network ABA provider get approved by Highmark?', a: 'Highmark handles this as an out-of-network gap exception request (its Obtaining Authorizations page links the guide). No ABA single-case-agreement rate is published.' },
       { q: 'What is Highmark’s timely filing limit for ABA in Pennsylvania?', a: 'Whatever your contract sets; if it sets none, 365 days from the last date of service (CHIP 180 days). Corrected claims are due within 455 days of the original claim’s finalization since September 1, 2026.' },
       { q: 'Does Highmark cover ABA therapy in Pennsylvania?', a: 'Yes, for a DSM-5 autism diagnosis under Medical Policy V-37. Fully insured large-group plans (51+ employees) and CHIP must cover it under Act 62 for members under 21. Self-funded, individual and small-group plans cover it per the benefit contract, and self-funded groups choose whether V-37 applies.' },
       { q: 'Does Highmark require prior authorization for ABA?', a: 'Yes. Since March 1, 2026, all ABA codes (97151–97158, 0362T, 0373T) are on Highmark’s prior authorization list, managed by Highmark Behavioral Health. That includes the assessment. Submit through Availity.' },
@@ -2322,6 +2406,13 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           { title: 'Capital Blue Cross — Provider Manual 2026', url: 'https://www.capbluecross.com/wps/portal/cap/provider/provider-hub/provider-manual/provider-manual' },
         ],
       },
+      {
+        h2: 'Can a Capital Blue Cross member use an out-of-network ABA provider?',
+        body: [
+          'Only with preauthorization on HMO and POS products. In its standing-referral rules for HMO and POS members, Capital Blue Cross\'s 2026 provider manual says “All treatments by non-Participating Providers require preauthorization.” Out-of-network benefits on PPO products depend on the plan, and Capital publishes no ABA single-case-agreement process or rate.',
+        ],
+        cites: [{ title: 'Capital Blue Cross — Provider Manual 2026', url: 'https://www.capbluecross.com/wps/portal/cap/provider/provider-hub/provider-manual/provider-manual' }],
+      },
     ],
     collect: [
       { title: 'Which Blue card', desc: 'Capital Blue Cross and Highmark Blue Shield overlap in central PA. Confirm the plan name and prefix on the card before routing the authorization.' },
@@ -2330,8 +2421,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: 'Plan of care and clinical notes', desc: 'Capital wants the plan of care and clinical notes attached to the portal request and to each concurrent review. The ABA Progress Report form is optional.' },
       { title: 'Other coverage (Medicaid / PH-95)', desc: 'Record every other plan. Capital pays before Medical Assistance, and the birthday rule sets the order between two parents’ plans.' },
     ],
-    sources: [
-      { title: 'Capital Blue Cross — Provider Manual 2026', url: 'https://www.capbluecross.com/wps/portal/cap/provider/provider-hub/provider-manual/provider-manual' },
+    sources: [ { title: 'Capital Blue Cross — Provider Manual 2026', url: 'https://www.capbluecross.com/wps/portal/cap/provider/provider-hub/provider-manual/provider-manual' },
       { title: 'Capital Blue Cross — Single Source Preauthorization List', url: 'https://www.capbluecross.com/wps/portal/cap/provider/resource/single-source-preauthorization' },
       { title: 'Capital Blue Cross MP 2.304 — Medical Treatments of Autism Spectrum Disorder (eff. 8/1/2026)', url: 'https://www.capbluecross.com/wps/wcm/connect/prod_nws.capblue.com29556/7a42c571-6d3f-4964-a172-d51c88ae154c/medical-policy-medical-treatments-autism-spectrum-disorders.pdf?MOD=AJPERES&CVID=p-W4w9T' },
       { title: 'Capital Blue Cross — Medical Policies index', url: 'https://www.capbluecross.com/wps/portal/cap/home/find/medical-policy' },
@@ -2344,6 +2434,15 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: 'BACB — U.S. Licensure of Behavior Analysts (PA absent; checked September 2026)', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
       { title: '49 Pa. Code Ch. 18 Subch. N (§§ 18.521–18.527) — Behavior Specialists', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/049/chapter18/chap18toc.html' },
       { title: 'Capital Blue Cross — Provider News and announcements (index of monthly AB bulletins)', url: 'https://www.capbluecross.com/wps/portal/cap/provider/news-updates/news-announcements' },
+      { title: 'PA State Board of Medicine — Behavior Specialist Licensure Requirements Snapshot', url: 'https://www.pa.gov/agencies/dos/department-and-offices/bpoa/boards-commissions/medicine/behavior-specialist-licensure-snapshot' },
+      { title: '31 Pa. Code § 154.18 — Prompt payment', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/031/chapter154/s154.18.html' },
+      { title: '29 CFR 2560.503-1 — ERISA claims procedure', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+      { title: '55 Pa. Code § 1101.64 — Third-party medical resources (TPR)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter1101/s1101.64.html' },
+      { title: 'PA DHS — Pennsylvania Autism Insurance Act (Act 62)', url: 'https://www.pa.gov/agencies/dhs/resources/intellectual-disabilities-autism/autism-services/pa-autism-insurance-act-62' },
+      { title: 'PA DHS — Medicaid for Children with Special Needs (PH95)', url: 'https://www.pa.gov/agencies/dhs/resources/medicaid/medicaid-children-special-needs-ph95' },
+      { title: '42 CFR 433.139 — Payment of claims (third-party liability)', url: 'https://www.ecfr.gov/current/title-42/section-433.139' },
+      { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
+      { title: '38 CFR 17.270 — CHAMPVA is the last payer', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2366,7 +2465,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       diagnosingProviders: {
-        value: 'MP 2.304 describes a comprehensive diagnostic evaluation that may include “clinical assessment by a qualified professional (e.g., developmental pediatrician, child psychologist, pediatric neurologist)”. These are examples, not a closed list. On Act 62 plans, the diagnostic assessment is performed by a licensed physician, licensed physician assistant, licensed psychologist or certified registered nurse practitioner.',
+        value: 'MP 2.304 describes a comprehensive diagnostic evaluation that may include “clinical assessment by a qualified professional (e.g., developmental pediatrician, child psychologist, pediatric neurologist)”. These are examples, not a closed list. On Act 62 plans, the diagnostic assessment is performed by a licensed physician, licensed physician assistant, licensed psychologist or certified registered nurse practitioner. LCSW: no published rule. The plan names no diagnosing-provider list, so ask it whether an LCSW\'s diagnosis is accepted.',
         status: 'plan-dependent',
         cites: [
           { title: 'Capital Blue Cross MP 2.304 — Medical Treatments of Autism Spectrum Disorder (eff. 8/1/2026)', url: 'https://www.capbluecross.com/wps/wcm/connect/prod_nws.capblue.com29556/7a42c571-6d3f-4964-a172-d51c88ae154c/medical-policy-medical-treatments-autism-spectrum-disorders.pdf?MOD=AJPERES&CVID=p-W4w9T' },
@@ -2482,6 +2581,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Can a Capital Blue Cross member use an out-of-network ABA provider?', a: 'On HMO and POS plans, only with preauthorization: “All treatments by non-Participating Providers require preauthorization.” No ABA single-case-agreement process or rate is published.' },
       { q: 'What is Capital Blue Cross’s timely filing limit for ABA claims?', a: 'CMS-1500 claims are due within 180 days of the date of service, and adjustments within 180 days of the original date of service, unless your agreement sets a shorter limit.' },
       { q: 'How long do I have to dispute a Capital Blue Cross claim?', a: '180 calendar days from the Statement of Remittance; Capital reviews a complete dispute within 60 calendar days.' },
       { q: 'Does Capital Blue Cross cover ABA therapy?', a: 'Yes. ABA is a preauthorized service for Commercial and CHIP members. Fully insured large groups, CHIP and self-funded groups that opted in must cover it under Act 62 for members under 21. Other plans follow the benefit booklet.' },
@@ -2499,10 +2599,10 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
     family: 'bcbs',
     cardDesc: 'Southeastern PA Blue plan: ABA policy 14.00.03b, in-house Autism Case Management since April 2026 (Magellan out), precert on all ABA codes.',
     assessmentPA: {
-      value: 'Required — 97151, 97152 and 0362T sit on IBX’s commercial precertification list (effective 7/1/2026, "Precertification Performed by: IBX"), and the 2026 ABA Prior Authorization Form carries its own "Assessment request" box. Fax the form to 215-238-2500.',
+      value: 'Required — 97151, 97152 and 0362T sit on IBX’s commercial precertification list (effective 10/1/2026, "Precertification Performed by" IBX, for Commercial and Medicare Advantage), and the 2026 ABA Prior Authorization Form carries its own "Assessment request" box. Fax the form to 215-238-2500.',
       status: 'verified',
       cites: [
-        { title: 'IBX — Billing Codes (CPT/HCPCS) Associated with Services That Require Precertification (Commercial, effective 07/01/2026)', url: 'https://medpolicy.ibx.com/ibc/Commercial/Pages/Services-Requiring-Precertification.aspx' },
+        { title: 'IBX — Billing Codes (CPT/HCPCS) Associated with Services That Require Precertification (Commercial and Medicare Advantage, effective 10/01/2026)', url: 'https://medpolicy.ibx.com/ibc/Commercial/Pages/Services-Requiring-Precertification.aspx' },
         { title: 'IBX — Applied Behavior Analysis Prior Authorization Form (General, 2026)', url: 'https://www.ibx.com/pdfs/resources/for-providers/forms/2026-applied-behavior-analysis-prior-authorization-form-general.pdf' },
       ],
     },
@@ -2510,7 +2610,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       value: 'Required — every ABA code (97151–97158, 0362T, 0373T) is on the commercial precertification list, and the Behavioral Health provider manual (April 2026) lists ABA among services where "Preapproval/Precertification is required". Requests go to the IBX Autism Case Management team on the ABA Prior Authorization Form (fax 215-238-2500), ideally "at least two weeks prior to the start of services". A BCBA Care Manager reviews against InterQual ABA criteria, IBX policy 14.00.03b and the member’s benefit plan; the treatment plan is "reviewed and approved every 6 months". The list applies to all fully insured groups, individual members and "most self-funded groups" — self-funded employers may customize.',
       status: 'verified',
       cites: [
-        { title: 'IBX — Billing Codes (CPT/HCPCS) Associated with Services That Require Precertification (Commercial, effective 07/01/2026)', url: 'https://medpolicy.ibx.com/ibc/Commercial/Pages/Services-Requiring-Precertification.aspx' },
+        { title: 'IBX — Billing Codes (CPT/HCPCS) Associated with Services That Require Precertification (Commercial and Medicare Advantage, effective 10/01/2026)', url: 'https://medpolicy.ibx.com/ibc/Commercial/Pages/Services-Requiring-Precertification.aspx' },
         { title: 'IBX Provider Manual — Section 8: Behavioral Health (April 2026)', url: 'https://provcomm.ibx.com/pnc-ibc/Manuals/Provider/IBX_Provider_08_Behavioral-Health.pdf' },
         { title: 'IBX Medical Policy 14.00.03b — Applied Behavior Analysis (ABA) for the Treatment of Autism Spectrum Disorder (ASD)', url: 'https://medpolicy.ibx.com/ibc/Commercial/Pages/Policy/d805c027-d99b-4e5b-8127-41e3ced25613.aspx' },
       ],
@@ -2577,7 +2677,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           'The 2026 ABA Prior Authorization Form asks for the request type (assessment, initial, continued stay, added units, continuation of care), the date and type of the most recent diagnostic evaluation and the evaluator’s credentials, standardized assessment scores (current, previous and baseline), hours by place of service with school hours broken out separately, and the supervising provider (BCBA, BCBA-D, LBS or licensed psychologist). IBX asks for submission at least two weeks before services start; decisions are communicated by telephone and letter, and a request that does not meet criteria goes either back to the provider for discussion or to peer review by a board-certified physician.',
         ],
         cites: [
-          { title: 'IBX — Billing Codes (CPT/HCPCS) Associated with Services That Require Precertification (Commercial, effective 07/01/2026)', url: 'https://medpolicy.ibx.com/ibc/Commercial/Pages/Services-Requiring-Precertification.aspx' },
+          { title: 'IBX — Billing Codes (CPT/HCPCS) Associated with Services That Require Precertification (Commercial and Medicare Advantage, effective 10/01/2026)', url: 'https://medpolicy.ibx.com/ibc/Commercial/Pages/Services-Requiring-Precertification.aspx' },
           { title: 'IBX — Applied Behavior Analysis Prior Authorization Form (General, 2026)', url: 'https://www.ibx.com/pdfs/resources/for-providers/forms/2026-applied-behavior-analysis-prior-authorization-form-general.pdf' },
           { title: 'IBX Provider Manual — Section 8: Behavioral Health (April 2026)', url: 'https://provcomm.ibx.com/pnc-ibc/Manuals/Provider/IBX_Provider_08_Behavioral-Health.pdf' },
         ],
@@ -2642,7 +2742,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
     ],
     sources: [
       { title: 'IBX Medical Policy 14.00.03b — Applied Behavior Analysis (ABA) for the Treatment of Autism Spectrum Disorder (ASD)', url: 'https://medpolicy.ibx.com/ibc/Commercial/Pages/Policy/d805c027-d99b-4e5b-8127-41e3ced25613.aspx' },
-      { title: 'IBX — Billing Codes (CPT/HCPCS) Associated with Services That Require Precertification (Commercial, effective 07/01/2026)', url: 'https://medpolicy.ibx.com/ibc/Commercial/Pages/Services-Requiring-Precertification.aspx' },
+      { title: 'IBX — Billing Codes (CPT/HCPCS) Associated with Services That Require Precertification (Commercial and Medicare Advantage, effective 10/01/2026)', url: 'https://medpolicy.ibx.com/ibc/Commercial/Pages/Services-Requiring-Precertification.aspx' },
       { title: 'IBX — Applied Behavior Analysis Prior Authorization Form (General, 2026)', url: 'https://www.ibx.com/pdfs/resources/for-providers/forms/2026-applied-behavior-analysis-prior-authorization-form-general.pdf' },
       { title: 'IBX Provider Manual — Section 8: Behavioral Health (April 2026)', url: 'https://provcomm.ibx.com/pnc-ibc/Manuals/Provider/IBX_Provider_08_Behavioral-Health.pdf' },
       { title: 'IBX Claim Payment Policy 00.10.41q — Telemedicine Services (effective 1/1/2026)', url: 'https://medpolicy.ibx.com/ibc/Commercial/Pages/Policy/dbc419ce-5ff7-4009-8913-a65cb35c75ed.aspx' },
@@ -2658,6 +2758,18 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: 'IBX Provider Manual — Chapter 9: Billing (November 2025)', url: 'https://provcomm.ibx.com/pnc-ibc/Manuals/Provider/IBX_Provider_09_Billing.pdf' },
       { title: 'IBX Provider Manual — Chapter 15: Appeals (July 2025)', url: 'https://provcomm.ibx.com/pnc-ibc/Manuals/Provider/IBX_Provider_15_Appeals.pdf' },
       { title: 'IBX — Provider News Center (provider news index)', url: 'https://provcomm.ibx.com/pnc-ibc/Pages/Home.aspx' },
+      { title: 'IBX Provider News — Reminder: ABA services transitioned to IBX on April 1, 2026 (26-0101)', url: 'https://provcomm.ibx.com/pnc-ibc/news/Pages/Reminder-ABA-services-transitioned-to-IBX-on-April-1-2026.aspx' },
+      { title: 'IBX Provider News Center — Behavioral Health', url: 'https://provcomm.ibx.com/pnc-ibc/Pages/Behavioral-Health.aspx' },
+      { title: 'PA Insurance Department Notice 2023-16 — Autism Spectrum Disorders Coverage and Parity (53 Pa.B. 6983)', url: 'https://www.pacodeandbulletin.gov/secure/pabulletin/data/vol53/53-44/1534.html' },
+      { title: 'BACB — U.S. Licensure of Behavior Analysts (PA absent; checked September 2026)', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
+      { title: '31 Pa. Code § 154.18 — Prompt payment', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/031/chapter154/s154.18.html' },
+      { title: '29 CFR 2560.503-1 — ERISA claims procedure', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+      { title: '55 Pa. Code § 1101.64 — Third-party medical resources (TPR)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter1101/s1101.64.html' },
+      { title: 'PA DHS — Pennsylvania Autism Insurance Act (Act 62)', url: 'https://www.pa.gov/agencies/dhs/resources/intellectual-disabilities-autism/autism-services/pa-autism-insurance-act-62' },
+      { title: 'PA DHS — Medicaid for Children with Special Needs (PH95)', url: 'https://www.pa.gov/agencies/dhs/resources/medicaid/medicaid-children-special-needs-ph95' },
+      { title: '42 CFR 433.139 — Payment of claims (third-party liability)', url: 'https://www.ecfr.gov/current/title-42/section-433.139' },
+      { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
+      { title: '38 CFR 17.270 — CHAMPVA is the last payer', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2680,7 +2792,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'The 2026 PA form asks whether "a complete diagnostic evaluation" was done "by a Qualified Health Practitioner (QHP)" (e.g. MD, DO, PhD, PsyD, PMHNP), with these specialty boxes: Family Practice, Pediatrics, Developmental Pediatrics, Pediatric Neurology, Psychiatry, Psychologist and Psychiatric Mental Health Nurse Practitioner. For Act 62 plans the statute defines the diagnostic assessment as one performed by a licensed physician, physician assistant, psychologist or certified registered nurse practitioner.',
+        value: 'The 2026 PA form asks whether "a complete diagnostic evaluation" was done "by a Qualified Health Practitioner (QHP)" (e.g. MD, DO, PhD, PsyD, PMHNP), with these specialty boxes: Family Practice, Pediatrics, Developmental Pediatrics, Pediatric Neurology, Psychiatry, Psychologist and Psychiatric Mental Health Nurse Practitioner. For Act 62 plans the statute defines the diagnostic assessment as one performed by a licensed physician, physician assistant, psychologist or certified registered nurse practitioner. LCSW: not among IBX\'s QHP examples or specialty boxes, and not on the Act 62 list (physician, physician assistant, psychologist, CRNP).',
         status: 'verified',
         cites: [
           { title: 'IBX — Applied Behavior Analysis Prior Authorization Form (General, 2026)', url: 'https://www.ibx.com/pdfs/resources/for-providers/forms/2026-applied-behavior-analysis-prior-authorization-form-general.pdf' },
@@ -2924,6 +3036,13 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           { title: 'UPMC Health Plan Provider Manual — Chapter H, Claims Procedures (updated 10-28-24)', url: 'https://www.upmchealthplan.com/docs/providers/2025_ProviderManual_H.pdf' },
         ],
       },
+      {
+        h2: 'Can an out-of-network ABA provider get authorization from UPMC Health Plan?',
+        body: [
+          'Yes, by phone. UPMC Health Plan\'s behavioral health chapter (updated 08-20-25) says “Out-of-network providers must call 1-866-441-4185 to request prior authorization.” Whether the member has out-of-network ABA benefits depends on the product.',
+        ],
+        cites: [{ title: 'UPMC Health Plan Provider Manual — Chapter L, Behavioral Health Services (updated 08-20-25)', url: 'https://www.upmchealthplan.com/docs/providers/2025_ProviderManual_L.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan type and funding', desc: 'Employer group size and whether insured or self-funded (Act 62 applies only to insured 51+ groups), or individual/Marketplace. UPMC for You / Community HealthChoices members go to the county BH-MCO, not this guide.' },
@@ -2933,8 +3052,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: 'Telehealth need', desc: 'If any sessions will be remote, confirm video is possible — UPMC commercial denies audio-only.' },
       { title: 'Other coverage', desc: 'Both parents’ plans (UPMC applies the birthday rule) and any Medical Assistance, which is always secondary to UPMC commercial.' },
     ],
-    sources: [
-      { title: 'UPMC Health Plan Provider Manual — Chapter L, Behavioral Health Services (updated 08-20-25)', url: 'https://www.upmchealthplan.com/docs/providers/2025_ProviderManual_L.pdf' },
+    sources: [ { title: 'UPMC Health Plan Provider Manual — Chapter L, Behavioral Health Services (updated 08-20-25)', url: 'https://www.upmchealthplan.com/docs/providers/2025_ProviderManual_L.pdf' },
       { title: 'UPMC Health Plan Provider Manual — Chapter C, UPMC Health Plan Commercial', url: 'https://upmc.widen.net/s/rbn8crtscw/providermanual_c-2022_web' },
       { title: 'UPMC Health Plan Provider Manual — Chapter I, Member Administration (updated 07-03-25)', url: 'https://upmc.widen.net/s/mggshqdrrb/providermanual_i-2025_web' },
       { title: 'UPMC Health Plan Provider Manual — Chapter G, Utilization Management (updated 04-03-25)', url: 'https://upmc.widen.net/s/ll69cf5wvp/providermanual_g-2025_web' },
@@ -2948,6 +3066,15 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: 'UPMC Health Plan Provider Manual — Chapter H, Claims Procedures (updated 10-28-24)', url: 'https://www.upmchealthplan.com/docs/providers/2025_ProviderManual_H.pdf' },
       { title: 'UPMC Health Plan — Provider Partner Update archive (monthly newsletter)', url: 'https://www.upmchealthplan.com/providers/medical/announcements-updates/physician-updates' },
       { title: 'UPMC Health Plan — Provider Announcements (index by year)', url: 'https://www.upmchealthplan.com/providers/medical/announcements-updates/announcements' },
+      { title: 'UPMC Health Plan — Autism Treatment Plan (Act 62 notice; archived copy, captured Dec. 2025)', url: 'https://web.archive.org/web/20251228221544/https://www.upmchealthplan.com/docs/providers/Autism_Treatment_Plan.pdf' },
+      { title: 'UPMC Health Plan — Medical Prior Authorization and Physician Forms', url: 'https://www.upmchealthplan.com/providers/medical/resources/forms/medical-pa' },
+      { title: 'PA Insurance Department Notice 2023-16 — Autism Spectrum Disorders Coverage and Parity (53 Pa.B. 6983)', url: 'https://www.pacodeandbulletin.gov/secure/pabulletin/data/vol53/53-44/1534.html' },
+      { title: 'BACB — U.S. Licensure of Behavior Analysts (PA absent; checked September 2026)', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
+      { title: '31 Pa. Code § 154.18 — Prompt payment', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/031/chapter154/s154.18.html' },
+      { title: '29 CFR 2560.503-1 — ERISA claims procedure', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+      { title: '55 Pa. Code § 1101.64 — Third-party medical resources (TPR)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter1101/s1101.64.html' },
+      { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
+      { title: '38 CFR 17.270 — CHAMPVA is the last payer', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2969,7 +3096,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       diagnosingProviders: {
-        value: 'UPMC publishes no ABA-specific list. On Act 62 plans the "diagnostic assessment" is one performed by a licensed physician, licensed physician assistant, licensed psychologist or certified registered nurse practitioner.',
+        value: 'UPMC publishes no ABA-specific list. On Act 62 plans the "diagnostic assessment" is one performed by a licensed physician, licensed physician assistant, licensed psychologist or certified registered nurse practitioner. LCSW: not on the Act 62 list (physician, physician assistant, psychologist, CRNP), so on an Act 62 plan an LCSW\'s diagnostic assessment does not qualify.',
         status: 'plan-dependent',
         cites: [
           { title: 'Act 62 of 2008 (HB 1150, PN 4115) — Insurance Company Law § 635.2 enacted text', url: 'https://www.palegis.us/legislation/bills/text/HTM/2007/0/HB1150/PN4115' },
@@ -3078,6 +3205,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Can an out-of-network ABA provider get authorization from UPMC Health Plan?', a: 'Out-of-network providers call 1-866-441-4185 to request prior authorization. Out-of-network ABA benefits depend on the member\'s UPMC product.' },
       { q: 'What is UPMC Health Plan’s timely filing limit for commercial ABA claims?', a: '365 days from the date of service for new claims. Secondary and corrected claims are due 90 days from the EOP or 365 days from the date of service, whichever is later.' },
       { q: 'Does UPMC Health Plan cover ABA therapy?', a: 'On insured employer plans with 51 or more employees, yes — Act 62 requires coverage of ASD treatment including ABA for members under 21. UPMC publishes no ABA medical policy, so for individual, small-group and self-funded plans confirm the benefit with UPMC Health Plan BHS at 1-866-441-4185.' },
       { q: 'Who manages ABA for UPMC commercial members?', a: 'UPMC Health Plan Behavioral Health Services manages commercial behavioral health in-house. Community Care Behavioral Health handles network credentialing and after-hours authorizations. UPMC for You and Community HealthChoices members get behavioral health from their county BH-MCO instead.' },
@@ -3219,6 +3347,18 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: 'PA Insurance Department Notice 2026-06 — Autism coverage CPI-U adjustment and parity reminder (56 Pa.B. 1396)', url: 'https://www.pacodeandbulletin.gov/secure/pabulletin/data/vol56/56-10/352.html' },
       { title: 'Act 146 of 2022 — Insurance Company Law Art. XXI amendments incl. § 2155 prior authorization review (Justia)', url: 'https://law.justia.com/codes/pennsylvania/2022/act-146/' },
       { title: 'Geisinger Health Plan — Search GHP Updates (provider news index)', url: 'https://www.geisinger.org/health-plan/providers/updates/search-updates' },
+      { title: 'Geisinger Health Plan — "What’s New" Medical Policy Updates, June 2023 (MP232 ABA criteria)', url: 'https://www.geisinger.org/-/media/OneGeisinger/Files/Policy-PDFs/Whats-New-Updates/Whats-New-June-2023-MP.pdf' },
+      { title: 'PA State Board of Medicine — Behavior Specialist Licensure Requirements Snapshot', url: 'https://www.pa.gov/agencies/dos/department-and-offices/bpoa/boards-commissions/medicine/behavior-specialist-licensure-snapshot' },
+      { title: 'BACB — U.S. Licensure of Behavior Analysts (PA absent; checked September 2026)', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
+      { title: '31 Pa. Code § 154.18 — Prompt payment', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/031/chapter154/s154.18.html' },
+      { title: 'Geisinger Health Plan — Clinical Policies for Providers', url: 'https://www.geisinger.org/health-plan/providers/ghp-clinical-policies' },
+      { title: '29 CFR 2560.503-1 — ERISA claims procedure', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+      { title: '55 Pa. Code § 1101.64 — Third-party medical resources (TPR)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter1101/s1101.64.html' },
+      { title: 'PA DHS — Pennsylvania Autism Insurance Act (Act 62)', url: 'https://www.pa.gov/agencies/dhs/resources/intellectual-disabilities-autism/autism-services/pa-autism-insurance-act-62' },
+      { title: 'PA DHS — Medicaid for Children with Special Needs (PH95)', url: 'https://www.pa.gov/agencies/dhs/resources/medicaid/medicaid-children-special-needs-ph95' },
+      { title: '42 CFR 433.139 — Payment of claims (third-party liability)', url: 'https://www.ecfr.gov/current/title-42/section-433.139' },
+      { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
+      { title: '38 CFR 17.270 — CHAMPVA is the last payer', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
     ],
     intakeGates: {
       ageLimit: {
@@ -3244,7 +3384,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       diagnosingProviders: {
-        value: 'GHP names no diagnosing-provider list for commercial ABA. The OMHSAS-17-01 guideline MP232 adopts expects the evaluation from a board-certified or board-eligible child and adolescent psychiatrist, developmental pediatrician, pediatric neurologist or licensed child psychologist (or a licensed physician or psychologist when none is available). Act 62 defines the diagnostic assessment as one by a licensed physician, physician assistant, psychologist or CRNP.',
+        value: 'GHP names no diagnosing-provider list for commercial ABA. The OMHSAS-17-01 guideline MP232 adopts expects the evaluation from a board-certified or board-eligible child and adolescent psychiatrist, developmental pediatrician, pediatric neurologist or licensed child psychologist (or a licensed physician or psychologist when none is available). Act 62 defines the diagnostic assessment as one by a licensed physician, physician assistant, psychologist or CRNP. LCSW: no published rule. The plan names no diagnosing-provider list, so ask it whether an LCSW\'s diagnosis is accepted.',
         status: 'plan-dependent',
         cites: [
           { title: 'OMHSAS-17-01 — Reissue of Medical Necessity Guidelines for ABA Using BSC-ASD and TSS Services (Jan. 13, 2017)', url: 'https://www.pa.gov/content/dam/copapwp-pagov/en/dhs/documents/services/mental-health-in-pa/documents/autism/OMHSAS-17-01.pdf' },
@@ -3432,7 +3572,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
-          { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+          { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/20/2026)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
           { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
           { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' }
         ]
@@ -3553,10 +3693,17 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
-          { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+          { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/20/2026)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
           { title: 'Aetna Health Care Professional Toolkit / provider manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
           { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
         ],
+      },
+      {
+        h2: 'Out of network with Aetna: transition of care, not a single case agreement',
+        body: [
+          'Aetna\'s provider manual (6/26) uses transition of care (TOC) and continuity of care rather than the term single case agreement. TOC “allows certain qualifying members the ability to request to continue receiving care from their current out-of-network provider at in-network cost level for a defined period of time,” typically at plan enrollment or renewal; continuity of care does the same when a provider leaves the network mid-treatment. The member must be in “an active course of covered treatment,” and the treating provider must be an individual practitioner (the manual\'s examples are a specialist, physical therapist or speech therapist) or home care agency that is not contracted in the member\'s plan. Steps: the member gets a Transition Coverage Request Form from Member Services or the employer, completes it with the non-participating provider\'s help, faxes it to Aetna, and Aetna sends a decision letter stating how long the transition benefits last. The process does not apply to Traditional Choice plans. Aetna publishes no ABA rate for this; ask Aetna behavioral health whether the ABA agency qualifies before the first session.',
+        ],
+        cites: [{ title: 'Aetna — Provider manual (8102800-01-01, 6/26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }],
       },
     ],
     collect: [
@@ -3588,7 +3735,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
     sources: [
       { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
       { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
-      { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+      { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/20/2026)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
       { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
       { title: 'Aetna — Behavioral Health Provider Manual (8/22)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' },
       { title: 'Act 62 of 2008 (HB 1150, PN 4115) — Insurance Company Law § 635.2 enacted text', url: 'https://www.palegis.us/legislation/bills/text/HTM/2007/0/HB1150/PN4115' },
@@ -3603,7 +3750,16 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: 'PA DHS — Pennsylvania Autism Insurance Act (Act 62)', url: 'https://www.pa.gov/agencies/dhs/resources/intellectual-disabilities-autism/autism-services/pa-autism-insurance-act-62' },
       { title: 'PA DHS — Medicaid for Children with Special Needs (PH95)', url: 'https://www.pa.gov/agencies/dhs/resources/medicaid/medicaid-children-special-needs-ph95' },
       { title: 'PA DHS — Behavioral Health Managed Care Organizations (BH-MCOs) by county', url: 'https://www.pa.gov/agencies/dhs/resources/medicaid/bhc/bhc-mcos' },
-      { title: 'Aetna Health Care Professional Toolkit / provider manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }
+      { title: 'Aetna Health Care Professional Toolkit / provider manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+      { title: '55 Pa. Code Chapter 1155 — Intensive Behavioral Health Services (payment)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter1155/chap1155toc.html' },
+      { title: '31 Pa. Code § 154.18 — Prompt payment', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/031/chapter154/s154.18.html' },
+      { title: 'Aetna — Disputes and appeals overview (reconsideration and appeal time frames)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' },
+      { title: 'Aetna — Provider appeals: state exceptions to the 180-day dispute filing standard', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/provider-appeals.html' },
+      { title: 'Aetna — Telemedicine and Direct Patient Contact Payment Policy (ABA code table: Commercial vs. Medicare columns; posted policy shows last review June 2021)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pdf/telemedicine.pdf' },
+      { title: '29 CFR 2560.503-1 — ERISA claims procedure', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+      { title: '42 CFR 433.139 — Payment of claims (third-party liability)', url: 'https://www.ecfr.gov/current/title-42/section-433.139' },
+      { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
+      { title: '38 CFR 17.270 — CHAMPVA is the last payer', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
     ],
     intakeGates: {
       ageLimit: {
@@ -3625,11 +3781,11 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         ]
       },
       diagnosingProviders: {
-        value: 'Aetna requires a DSM-5 ASD diagnosis (ICD-10 F84.0, F84.3–F84.9) from an appropriate provider: a licensed psychologist or psychiatrist, a physician, or another health care professional qualified to diagnose mental health conditions within their scope of practice. CPB 0648 lists the professionals appropriate to an autism evaluation: board certified behavior analyst, developmental pediatrician, neurologist, occupational therapist, physical therapist, primary care provider, psychiatrist, psychologist, and speech-language pathologist and audiologist. On Act 62 plans, the statutory diagnostic assessment is performed by a licensed physician, licensed physician assistant, licensed psychologist or certified registered nurse practitioner.',
+        value: 'Aetna requires a DSM-5 ASD diagnosis (ICD-10 F84.0, F84.3–F84.9) from an appropriate provider: a licensed psychologist or psychiatrist, a physician, or another health care professional qualified to diagnose mental health conditions within their scope of practice. CPB 0648 lists the professionals appropriate to an autism evaluation: board certified behavior analyst, developmental pediatrician, neurologist, occupational therapist, physical therapist, primary care provider, psychiatrist, psychologist, and speech-language pathologist and audiologist. On Act 62 plans, the statutory diagnostic assessment is performed by a licensed physician, licensed physician assistant, licensed psychologist or certified registered nurse practitioner. LCSW: not named. The test turns on licensure and diagnostic scope, so an LCSW\'s diagnosis is accepted only if the plan agrees it is within the LCSW\'s licensed scope; confirm with the plan before relying on one.',
         status: 'verified',
         cites: [
           { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
-          { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+          { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/20/2026)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
           { title: 'Act 62 of 2008 (HB 1150, PN 4115) — Insurance Company Law § 635.2 enacted text', url: 'https://www.palegis.us/legislation/bills/text/HTM/2007/0/HB1150/PN4115' }
         ]
       },
@@ -3637,7 +3793,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         value: 'CPB 0648 names the diagnostic tools used with clinical assessment to establish autism: ADI-R, ADOS-2, CARS-2 and the Asperger Syndrome Diagnostic Scale. The ABA medical necessity guide then requires a standardized scale of functioning from the past 12 months, for example Vineland-3, ABAS, VB-MAPP or ABLLS.',
         status: 'verified',
         cites: [
-          { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+          { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/20/2026)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
           { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }
         ]
       },
@@ -3723,7 +3879,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
-          { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+          { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/20/2026)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
           { title: 'Act 62 of 2008 (HB 1150, PN 4115) — Insurance Company Law § 635.2 enacted text', url: 'https://www.palegis.us/legislation/bills/text/HTM/2007/0/HB1150/PN4115' }
         ]
       },
@@ -3736,6 +3892,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       }
     },
     faq: [
+      { q: 'Can an out-of-network ABA provider keep treating an Aetna member?', a: 'Possibly, through Aetna\'s transition-of-care or continuity-of-care process. The member must be in an active course of covered treatment; the member requests a Transition Coverage Request Form, completes it with the provider and faxes it to Aetna, which issues a time-limited decision. Aetna\'s manual names individual practitioners and home care agencies as eligible, so confirm with Aetna behavioral health that an ABA agency qualifies.' },
       { q: 'Does Aetna accept H0031 or other H-codes for ABA?', a: 'Aetna’s precertification list and CPB 0648 identify ABA by CPT 97151–97158, 0362T and 0373T. No H-codes are listed for ABA.' },
       { q: 'Does Aetna require graphs with an ABA reauthorization?', a: 'The ABA medical necessity guide does not say graphs. It requires a standardized functioning scale from the past 12 months, baseline measures with quantifiable progress criteria, and documentation of improvement or of how treatment changed. Progress is evaluated every six months.' },
       {
@@ -3921,6 +4078,13 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           { title: 'Cigna / Evernorth autism resource guide (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
         ],
       },
+      {
+        h2: 'Out of network with Cigna (Evernorth) for ABA',
+        body: [
+          'Evernorth\'s Behavioral Health Administrative Guidelines (September 2026) describe out-of-network use by plan type. On Open Access Plus, “Services from out-of-network providers are covered at a reduced benefit level,” and patients “whose plans include out-of-network benefits can use these benefits for services covered under their plan; however, in doing so, these patients will generally incur higher out-of-pocket costs.” An out-of-network provider who wants to contract is pointed to “the Join the Network page on the Evernorth Provider website.” On appeals, Evernorth says an appeal “must be submitted within 180 calendar days from the claim denial unless determined otherwise by plan or state regulation,” and that “out-of-network providers requesting a standard appeal must submit a valid Appointments of Representative form signed by the patient” in some circumstances. Evernorth publishes no single-case-agreement process or out-of-network ABA rate; benefits depend on the member\'s plan.',
+        ],
+        cites: [{ title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }],
+      },
     ],
     collect: [
       {
@@ -3964,7 +4128,12 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: 'PA DHS — Medicaid for Children with Special Needs (PH95)', url: 'https://www.pa.gov/agencies/dhs/resources/medicaid/medicaid-children-special-needs-ph95' },
       { title: 'PA DHS — Behavioral Health Managed Care Organizations (BH-MCOs) by county', url: 'https://www.pa.gov/agencies/dhs/resources/medicaid/bhc/bhc-mcos' },
       { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
-      { title: '31 Pa. Code § 154.18 — Prompt payment', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/031/chapter154/s154.18.html' }
+      { title: '31 Pa. Code § 154.18 — Prompt payment', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/031/chapter154/s154.18.html' },
+      { title: '55 Pa. Code Chapter 1155 — Intensive Behavioral Health Services (payment)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter1155/chap1155toc.html' },
+      { title: '29 CFR 2560.503-1 — ERISA claims procedure', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+      { title: '42 CFR 433.139 — Payment of claims (third-party liability)', url: 'https://www.ecfr.gov/current/title-42/section-433.139' },
+      { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
+      { title: '38 CFR 17.270 — CHAMPVA is the last payer', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
     ],
     intakeGates: {
       ageLimit: {
@@ -3986,7 +4155,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         ]
       },
       diagnosingProviders: {
-        value: 'Under DSM-5-TR criteria, by a healthcare professional licensed to practice independently whose licensure board considers diagnostics within their scope of practice. The name, credentials and licensure type of the diagnosing clinician must be provided. On Act 62 plans, the statutory diagnostic assessment is performed by a licensed physician, licensed physician assistant, licensed psychologist or certified registered nurse practitioner.',
+        value: 'Under DSM-5-TR criteria, by a healthcare professional licensed to practice independently whose licensure board considers diagnostics within their scope of practice. The name, credentials and licensure type of the diagnosing clinician must be provided. On Act 62 plans, the statutory diagnostic assessment is performed by a licensed physician, licensed physician assistant, licensed psychologist or certified registered nurse practitioner. LCSW: not named. The test turns on licensure and diagnostic scope, so an LCSW\'s diagnosis is accepted only if the plan agrees it is within the LCSW\'s licensed scope; confirm with the plan before relying on one.',
         status: 'verified',
         cites: [
           { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
@@ -4094,6 +4263,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       }
     },
     faq: [
+      { q: 'Does Cigna pay out-of-network ABA providers?', a: 'Only if the member\'s plan has out-of-network benefits; on Open Access Plus, out-of-network services “are covered at a reduced benefit level.” Evernorth publishes no single case agreement process or rate. Appeals are due within 180 calendar days of the denial, and an out-of-network provider may need an Appointment of Representative form signed by the patient.' },
       {
         q: 'Does Cigna cover ABA therapy in Pennsylvania?',
         a: 'Yes, for autism spectrum disorder under Evernorth policy EN0499. On fully insured policies for groups of 51 or more employees, Pennsylvania’s Act 62 adds a legal floor for members under 21. Self-funded, individual and small-group plans follow their own plan terms.'
@@ -4285,6 +4455,13 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
         ],
       },
+      {
+        h2: 'Out of network with UnitedHealthcare (Optum) for ABA',
+        body: [
+          'UnitedHealthcare says that when the member chooses an out-of-network provider, the No Surprises Act and state surprise-billing laws generally do not apply, and “United will look to the member’s benefit plan to determine if it is covered and how it should be paid.” Reimbursement may use a percentage of CMS rates, FAIR Health, Viant, a “Negotiated Rate” agreed “after the service was provided,” or other methods, and “Which option is used depends on various factors, including but not limited to the terms of the healthcare benefit plan.” On commercial HMO plans, “If the needed health care provider is not available in-network, not available within the needed time frame or too far away, the PCP needs to request an out-of-network prior authorization”; if approved, “the member is not responsible for costs over their applicable in-network cost-sharing.” For disputes, Optum\'s Provider Express portal “is available to network clinicians and group practices, as well as out-of-network individual clinicians,” and Optum asks for “member-specific treatment plans, clinical records, payment appendices or other items that support why you believe our decision was incorrect.”',
+        ],
+        cites: [{ title: 'UnitedHealthcare — Information on payment of out-of-network benefits', url: 'https://www.uhc.com/legal/information-on-payment-of-out-of-network-benefits' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (commercial)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, { title: 'Optum National Network Manual (BH02330, effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }],
+      },
     ],
     collect: [
       {
@@ -4312,7 +4489,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         desc: 'Medical Assistance/PH-95, a second parent’s plan, TRICARE or CHAMPVA. UnitedHealthcare goes first ahead of MA.'
       }
     ],
-    sources: [
+    sources: [ { title: 'UnitedHealthcare — Information on payment of out-of-network benefits', url: 'https://www.uhc.com/legal/information-on-payment-of-out-of-network-benefits' },
       { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
       { title: 'Optum — ABA State Mandates supplemental criteria (BH 803ABA, eff. July 2026; Pennsylvania Commercial entry)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
       { title: 'Optum Provider Express — Applied Behavior Analysis Information (portal authorizations)', url: 'https://public.providerexpress.com/content/ope-provexpr/us/en/clinical-resources/autismABA2.html' },
@@ -4338,6 +4515,11 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
       { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
       { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' },
+      { title: '55 Pa. Code Chapter 1155 — Intensive Behavioral Health Services (payment)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter1155/chap1155toc.html' },
+      { title: '29 CFR 2560.503-1 — ERISA claims procedure', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+      { title: '42 CFR 433.139 — Payment of claims (third-party liability)', url: 'https://www.ecfr.gov/current/title-42/section-433.139' },
+      { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
+      { title: '38 CFR 17.270 — CHAMPVA is the last payer', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
     ],
     intakeGates: {
       ageLimit: {
@@ -4361,7 +4543,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         ]
       },
       diagnosingProviders: {
-        value: 'A state-licensed physician, psychologist, or other state-licensed clinician qualified to diagnose under DSM-5-TR. On Act 62 plans, the statutory diagnostic assessment is performed by a licensed physician, licensed physician assistant, licensed psychologist or certified registered nurse practitioner.',
+        value: 'A state-licensed physician, psychologist, or other state-licensed clinician qualified to diagnose under DSM-5-TR. On Act 62 plans, the statutory diagnostic assessment is performed by a licensed physician, licensed physician assistant, licensed psychologist or certified registered nurse practitioner. LCSW: not named. The test turns on licensure and diagnostic scope, so an LCSW\'s diagnosis is accepted only if the plan agrees it is within the LCSW\'s licensed scope; confirm with the plan before relying on one.',
         status: 'verified',
         cites: [
           { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
@@ -4472,6 +4654,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       }
     },
     faq: [
+      { q: 'Does UnitedHealthcare pay out-of-network ABA providers?', a: 'Only under the member\'s out-of-network benefits, priced by a method the plan sets (a percentage of CMS rates, FAIR Health, Viant or a negotiated rate). On commercial HMO plans an out-of-network provider can be approved when no network provider is available in time or nearby; the PCP requests an out-of-network prior authorization, and the member then pays only in-network cost-sharing.' },
       {
         q: 'Does UnitedHealthcare cover ABA therapy in Pennsylvania?',
         a: 'Yes, for autism spectrum disorder under Optum’s ABA criteria, with Optum’s Pennsylvania Commercial entry applied alongside them. On fully insured policies for groups of 51 or more employees, Act 62 adds a legal floor for members under 21.'

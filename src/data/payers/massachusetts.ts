@@ -39,7 +39,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'The standard form names them, and the list is broader than "send them to a developmental pediatrician." For autism it requires "A comprehensive assessment completed by a licensed physician (i.e. PCP, etc.), advanced practice registered nurse, physician\'s assistant, or psychologist experienced in the diagnosis and treatment of ASD with developmental or child/adolescent experience which aligns with DSM criteria across ASD core deficits." For the 1/1/2026 pathway it requires instead "A diagnosis of Down Syndrome (Trisomy 21) confirmed by genetic testing." Note the two signatures are different people: the diagnostician writes the assessment, while the form itself "should" be completed by the BCBA rendering and/or supervising the services — an analyst the performance specification requires to be a LABA licensed under 262 CMR 10.00.',
+          'The standard form names them, and the list is broader than "send them to a developmental pediatrician." For autism it requires "A comprehensive assessment completed by a licensed physician (i.e. PCP, etc.), advanced practice registered nurse, physician\'s assistant, or psychologist experienced in the diagnosis and treatment of ASD with developmental or child/adolescent experience which aligns with DSM criteria across ASD core deficits." For the 1/1/2026 pathway it requires instead "A diagnosis of Down Syndrome (Trisomy 21) confirmed by genetic testing." Note the two signatures are different people: the diagnostician writes the assessment, while the form itself "should" be completed by the BCBA rendering and/or supervising the services — an analyst the performance specification requires to be a LABA licensed under 262 CMR 10.00. LCSW: no. A licensed clinical social worker is not on this list, so an LCSW\'s diagnosis alone does not meet it.',
         status: 'verified',
         cites: [{ title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }, { title: 'Carelon/MBHP Performance Specifications — Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
       },
@@ -277,6 +277,16 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: '42 CFR 447.45(d) — Medicaid timely claims processing (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' },
       { title: 'MassHealth — Provider bulletins (index of MassHealth provider bulletins by year)', url: 'https://www.mass.gov/masshealth-provider-bulletins' },
       { title: 'MassHealth — 2026 provider bulletins (list of all 2026 MassHealth provider bulletins)', url: 'https://www.mass.gov/lists/2026-masshealth-provider-bulletins' },
+      { title: '42 CFR 438.210(d) — Medicaid managed care authorization timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.210' },
+      { title: '42 CFR 440.230(e) — State Medicaid agency prior authorization timeframes, from 1/1/2026 (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-440.230' },
+      { title: 'WellSense — Reduction of prior authorization decision timeframes (provider communication, Oct 31 2025)', url: 'https://www.wellsense.org/hubfs/Provider/News/WellSense_Mass_Provider_Communications_PA_Updates_10_31_25.pdf' },
+      { title: 'Carelon Behavioral Health — Massachusetts Addendum (114_0526 rev.)', url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/ma/massachusetts-provider-addendum.pdf' },
+      { title: '130 CMR 450.303 — MassHealth prior authorization (Cornell LII mirror)', url: 'https://www.law.cornell.edu/regulations/massachusetts/130-CMR-450-303' },
+      { title: '42 CFR 433.139 — Medicaid payment of claims involving third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-433.139' },
+      { title: '130 CMR 450.316 — MassHealth third-party liability: requirements (Cornell LII mirror)', url: 'https://www.law.cornell.edu/regulations/massachusetts/130-CMR-450-316' },
+      { title: '130 CMR 450.317 — MassHealth third-party liability: payment limitations (Cornell LII mirror)', url: 'https://www.law.cornell.edu/regulations/massachusetts/130-CMR-450-317' },
+      { title: 'MassHealth — Coordination of Benefits for MassHealth Providers (upd. 4/12/2024)', url: 'https://www.mass.gov/info-details/coordination-of-benefits-for-masshealth-providers' },
+      { title: 'TRICARE — Using Other Health Insurance', url: 'https://tricare.mil/Plans/OHI' },
     ],
     faq: [
       { q: 'Does MassHealth cover ABA therapy?', a: 'Yes — for members under 21 (under 19 on Family Assistance) through EPSDT, with no annual or lifetime dollar or unit caps. Prior authorization is required for all ABA services, submitted to the behavioral-health administrator behind the member\'s plan.' },
@@ -330,7 +340,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'The standard form names them, and the list is broader than "send them to a developmental pediatrician." For autism it requires "A comprehensive assessment completed by a licensed physician (i.e. PCP, etc.), advanced practice registered nurse, physician\'s assistant, or psychologist experienced in the diagnosis and treatment of ASD with developmental or child/adolescent experience which aligns with DSM criteria across ASD core deficits." For the 1/1/2026 pathway it requires instead "A diagnosis of Down Syndrome (Trisomy 21) confirmed by genetic testing." Note the two signatures are different people: the diagnostician writes the assessment, while the form itself "should" be completed by the BCBA rendering and/or supervising the services — an analyst the performance specification requires to be a LABA licensed under 262 CMR 10.00.',
+          'The standard form names them, and the list is broader than "send them to a developmental pediatrician." For autism it requires "A comprehensive assessment completed by a licensed physician (i.e. PCP, etc.), advanced practice registered nurse, physician\'s assistant, or psychologist experienced in the diagnosis and treatment of ASD with developmental or child/adolescent experience which aligns with DSM criteria across ASD core deficits." For the 1/1/2026 pathway it requires instead "A diagnosis of Down Syndrome (Trisomy 21) confirmed by genetic testing." Note the two signatures are different people: the diagnostician writes the assessment, while the form itself "should" be completed by the BCBA rendering and/or supervising the services — an analyst the performance specification requires to be a LABA licensed under 262 CMR 10.00. LCSW: no. A licensed clinical social worker is not on this list, so an LCSW\'s diagnosis alone does not meet it.',
         status: 'verified',
         cites: [{ title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }, { title: 'Carelon/MBHP Performance Specifications — Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
       },
@@ -481,6 +491,13 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'AIRC — MassHealth ABA Coverage factsheet', url: 'https://massairc.org/factsheets/masshealth-aba-coverage/' },
       { title: 'MassHealth All Provider Bulletin 379 — Access to Health Services through Telehealth Options (October 2023)', url: 'https://www.mass.gov/doc/all-provider-bulletin-379-access-to-health-services-through-telehealth-options-0/download' },
       { title: 'MassHealth Managed Care Entity Bulletin 115 — Telehealth for members enrolled in managed care entities (April 2024)', url: 'https://www.mass.gov/doc/managed-care-entity-bulletin-115-access-to-health-services-through-telehealth-options-for-members-enrolled-in-managed-care-entities-0/download' },
+      { title: '42 CFR 438.210(d) — Medicaid managed care authorization timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.210' },
+      { title: 'CMS — Massachusetts FY2019 Focused Program Integrity Review (PCCM/PIHP model; MBHP)', url: 'https://www.cms.gov/files/document/massachusetts-fy19-focused-pi-review-final-report.pdf' },
+      { title: '130 CMR 450.316 — MassHealth third-party liability: requirements (Cornell LII mirror)', url: 'https://www.law.cornell.edu/regulations/massachusetts/130-CMR-450-316' },
+      { title: '130 CMR 450.317 — MassHealth third-party liability: payment limitations (Cornell LII mirror)', url: 'https://www.law.cornell.edu/regulations/massachusetts/130-CMR-450-317' },
+      { title: '42 CFR 433.139 — Medicaid payment of claims involving third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-433.139' },
+      { title: 'MassHealth — Coordination of Benefits for MassHealth Providers (upd. 4/12/2024)', url: 'https://www.mass.gov/info-details/coordination-of-benefits-for-masshealth-providers' },
+      { title: 'TRICARE — Using Other Health Insurance', url: 'https://tricare.mil/Plans/OHI' },
     ],
     faq: [
       { q: 'Who does MBHP cover for ABA?', a: 'MassHealth members on the PCC Plan and the Primary Care ACOs, plus Health New England\'s BeHealthy Partnership — everyone whose plan doesn\'t bring its own BH administrator. It applies the state-baseline criteria and the Massachusetts Standard ABA PA Form.' },
@@ -528,7 +545,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'The standard form names them, and the list is broader than "send them to a developmental pediatrician." For autism it requires "A comprehensive assessment completed by a licensed physician (i.e. PCP, etc.), advanced practice registered nurse, physician\'s assistant, or psychologist experienced in the diagnosis and treatment of ASD with developmental or child/adolescent experience which aligns with DSM criteria across ASD core deficits." For the 1/1/2026 pathway it requires instead "A diagnosis of Down Syndrome (Trisomy 21) confirmed by genetic testing." Note the two signatures are different people: the diagnostician writes the assessment, while the form itself "should" be completed by the BCBA rendering and/or supervising the services — an analyst the performance specification requires to be a LABA licensed under 262 CMR 10.00. WellSense hosts this form, so these are the plan\'s own stated requirements, not an inherited reading.',
+          'The standard form names them, and the list is broader than "send them to a developmental pediatrician." For autism it requires "A comprehensive assessment completed by a licensed physician (i.e. PCP, etc.), advanced practice registered nurse, physician\'s assistant, or psychologist experienced in the diagnosis and treatment of ASD with developmental or child/adolescent experience which aligns with DSM criteria across ASD core deficits." For the 1/1/2026 pathway it requires instead "A diagnosis of Down Syndrome (Trisomy 21) confirmed by genetic testing." Note the two signatures are different people: the diagnostician writes the assessment, while the form itself "should" be completed by the BCBA rendering and/or supervising the services — an analyst the performance specification requires to be a LABA licensed under 262 CMR 10.00. WellSense hosts this form, so these are the plan\'s own stated requirements, not an inherited reading. LCSW: no. A licensed clinical social worker is not on this list, so an LCSW\'s diagnosis alone does not meet it.',
         status: 'verified',
         cites: [{ title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }],
       },
@@ -675,6 +692,10 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'MassHealth Managed Care Entity Bulletin 115 — Telehealth for members enrolled in managed care entities (April 2024)', url: 'https://www.mass.gov/doc/managed-care-entity-bulletin-115-access-to-health-services-through-telehealth-options-for-members-enrolled-in-managed-care-entities-0/download' },
       { title: 'WellSense — Behavioral Health (BH) Insourcing Reference Guide (March 2026)', url: 'https://www.wellsense.org/hubfs/Provider/Behavioral_Health/Behavioral_Health_Insourcing_Reference_Guide.pdf' },
       { title: 'WellSense Health Plan (MA) — Provider news (provider communications archive)', url: 'https://www.wellsense.org/providers/ma/provider-news' },
+      { title: 'WellSense — Reduction of prior authorization decision timeframes (provider communication, Oct 31 2025)', url: 'https://www.wellsense.org/hubfs/Provider/News/WellSense_Mass_Provider_Communications_PA_Updates_10_31_25.pdf' },
+      { title: '42 CFR 438.210(d) — Medicaid managed care authorization timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.210' },
+      { title: '130 CMR 450.316 — MassHealth third-party liability: requirements (Cornell LII mirror)', url: 'https://www.law.cornell.edu/regulations/massachusetts/130-CMR-450-316' },
+      { title: 'TRICARE — Using Other Health Insurance', url: 'https://tricare.mil/Plans/OHI' },
     ],
     faq: [
       { q: 'Does WellSense cover ABA therapy?', a: 'Yes — across the WellSense Essential MCO and its eight MassHealth ACPPs, on the state-baseline benefit: EPSDT under 21, no caps, PA on all services via the Massachusetts Standard ABA PA Form. Behavioral health, including ABA, has been administered in-house by WellSense since January 1, 2026 (previously Carelon).' },
@@ -731,7 +752,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'Point32Health\'s own ABA PA form names them, and its list is narrower than the Massachusetts standard form\'s. The initial-evaluation request must carry a "Comprehensive diagnostic evaluation completed by a neurologist, pediatrician, psychiatrist, psychologist, or other licensed physician experienced in autism or Down syndrome treatment," and the form asks the diagnostician\'s licensure from a fixed list: neurologist/pediatric neurologist, developmental pediatrician, psychiatrist, psychologist, or "other licensed physician experienced in the diagnosis and treatment of autism or Down syndrome." Nurse practitioners and physician assistants, which the MassHealth standard form accepts, are not on it — so an APRN- or PA-made diagnosis is a question to raise with Point32 before submitting. The form itself is the BCBA\'s: "The Board-Certified Behavioral Analyst (BCBA) rendering and/or supervising the autism services should complete this form. Point32Health Plans will not approve the request if completed by a non-BCBA provider."',
+          'Point32Health\'s own ABA PA form names them, and its list is narrower than the Massachusetts standard form\'s. The initial-evaluation request must carry a "Comprehensive diagnostic evaluation completed by a neurologist, pediatrician, psychiatrist, psychologist, or other licensed physician experienced in autism or Down syndrome treatment," and the form asks the diagnostician\'s licensure from a fixed list: neurologist/pediatric neurologist, developmental pediatrician, psychiatrist, psychologist, or "other licensed physician experienced in the diagnosis and treatment of autism or Down syndrome." Nurse practitioners and physician assistants, which the MassHealth standard form accepts, are not on it — so an APRN- or PA-made diagnosis is a question to raise with Point32 before submitting. The form itself is the BCBA\'s: "The Board-Certified Behavioral Analyst (BCBA) rendering and/or supervising the autism services should complete this form. Point32Health Plans will not approve the request if completed by a non-BCBA provider." LCSW: no. A licensed clinical social worker is not on this list, so an LCSW\'s diagnosis alone does not meet it.',
         status: 'verified',
         cites: [{ title: 'Point32Health — Applied Behavioral Analysis Prior Authorization Form (effective Jan. 1, 2026; Tufts Health Together)', url: 'https://www.point32health.org/documents/applied-behavioral-analysis-form' }],
       },
@@ -885,6 +906,13 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
           { title: 'Point32Health — Medical Necessity Guideline: Applied Behavior Analysis (ABA) Therapy for Autism Spectrum Disorder for Tufts Health Together (eff. 1/1/2026)', url: 'https://www.point32health.org/documents/aba-tuftsheath-together-mng' },
         ],
       },
+      {
+        h2: 'Does Tufts Health Together use single case agreements for ABA?',
+        body: [
+          'Yes, for children moving into the plan mid-treatment. The Tufts Health Public Plans UM chapter (rev. 4/7/2026) says enrollees with ASD “who are actively receiving ABA Services, either through MassHealth, another Accountable Care Partnership Plan or a commercial carrier and have a current prior authorization for ABA services in place will be entitled to continuity of these services for a minimum of 90 days,” and that the protocol “will include the use of single-case agreements, full acceptance and implementation of existing prior authorizations for ABA services and individual transition plans.”',
+        ],
+        cites: [{ title: 'Tufts Health Public Plans Provider Manual — Utilization Management chapter (2026, rev. 4/7/2026)', url: 'https://www.point32health.org/documents/thpp-06-um-pm' }],
+      },
     ],
     collect: [
       { title: 'MCO vs. ACPP', desc: 'The Tufts Health Together MCO no longer exists (discontinued 1/1/2026) — confirm the family is on one of the two active ACPPs, not a stale MCO card.' },
@@ -894,7 +922,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'Diagnostic evaluation', desc: 'ASD assessment — or the Down syndrome pathway from 1/1/2026, which Point32 confirms includes this plan.' },
       { title: 'Accreditation status', desc: 'Point32\'s ABA accreditation requirement is a network gate (MA center-based providers by 1/1/2027, all others by 1/1/2028) — check where your organization stands before quoting start dates.' },
     ],
-    sources: [
+    sources: [ { title: 'Tufts Health Public Plans Provider Manual — Utilization Management chapter (2026, rev. 4/7/2026)', url: 'https://www.point32health.org/documents/thpp-06-um-pm' },
       { title: 'Point32Health — ABA services: authorization and accreditation updates (Feb 2026)', url: 'https://www.point32health.org/provider/aba-services-authorization-and-accreditation-updates-022026' },
       { title: 'MassHealth — All Provider Bulletin 410: Changes to MassHealth\'s ACOs on January 1, 2026', url: 'https://www.mass.gov/doc/all-provider-bulletin-410-changes-to-masshealths-accountable-care-organizations-on-january-1-2026/download' },
       { title: 'Point32Health — Reminder: Tufts Health Together MCO discontinuing as of Jan. 1', url: 'https://www.point32health.org/provider/reminder-tufts-health-together-mco-discontinuing-jan-1-112025' },
@@ -912,8 +940,19 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'MassHealth All Provider Bulletin 409 — Update to Certain Exceptions to Referral Requirements (October 2025)', url: 'https://www.mass.gov/doc/all-provider-bulletin-409-update-to-certain-exceptions-to-referral-requirements-for-services-through-the-primary-care-clinician-plan-and-primary-care-accountable-care-organizations-0/download' },
       { title: '130 CMR 450.118(J) — PCC Plan referral requirement and exceptions (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/massachusetts/130-CMR-450-118' },
       { title: 'Point32Health — Insights and Updates for Providers (Harvard Pilgrim / Tufts provider news archive)', url: 'https://www.point32health.org/provider/office-resources/provider-newsletter' },
+      { title: 'Point32Health — Applied Behavioral Analysis Prior Authorization Form (effective Jan. 1, 2026; Tufts Health Together)', url: 'https://www.point32health.org/documents/applied-behavioral-analysis-form' },
+      { title: 'Tufts Health Public Plans Provider Manual — Referrals, Prior Authorizations and Notifications chapter (2026)', url: 'https://www.point32health.org/documents/thpp-04-referrals-pa-notification-pm' },
+      { title: '42 CFR 438.210(d) — Medicaid managed care authorization timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.210' },
+      { title: 'WellSense — Reduction of prior authorization decision timeframes (provider communication, Oct 31 2025)', url: 'https://www.wellsense.org/hubfs/Provider/News/WellSense_Mass_Provider_Communications_PA_Updates_10_31_25.pdf' },
+      { title: 'Carelon Behavioral Health — Massachusetts Addendum (114_0526 rev.)', url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/ma/massachusetts-provider-addendum.pdf' },
+      { title: '130 CMR 450.316 — MassHealth third-party liability: requirements (Cornell LII mirror)', url: 'https://www.law.cornell.edu/regulations/massachusetts/130-CMR-450-316' },
+      { title: 'TRICARE — Using Other Health Insurance', url: 'https://tricare.mil/Plans/OHI' },
+      { title: 'Point32Health Payment Policy \u2014 Applied Behavioral Analysis (ABA) Services (rev. 05/2026)', url: 'https://www.point32health.org/documents/applied-behavioral-analysis-aba-services-pp' },
+      { title: 'Point32Health Payment Policy \u2014 General Coding and Claims Editing (rev. 10/2026)', url: 'https://www.point32health.org/documents/general-coding-and-claims-editing-pp' },
+      { title: 'Point32Health Payment Policy \u2014 Maximum Units (rev. 09/2026)', url: 'https://www.point32health.org/documents/maximum-units-pp' },
     ],
     faq: [
+      { q: 'Does Tufts Health Together use single case agreements for ABA?', a: 'Yes, for continuity: a child already in ABA with a current prior authorization keeps those services at least 90 days after joining, and Tufts Health Together uses single-case agreements and honors the existing authorization during the transition.' },
       { q: 'Is the Tufts Health Together MCO still active?', a: 'No — MassHealth discontinued the Tufts Health Together MCO product effective January 1, 2026 (All Provider Bulletin 410). Only the two ACPPs, with Cambridge Health Alliance and with UMass Memorial Health, remain active.' },
       { q: 'Does Tufts Health Together cover ABA?', a: 'Yes, through its two active ACPPs — the MassHealth EPSDT benefit with no published hour caps, reviewed by Point32Health\'s internal UM against its own medical-necessity guideline (InterQual + SmartSheets; new MNG effective 1/1/2026).' },
       { q: 'Does Tufts Health Together use the Massachusetts standard ABA form?', a: 'No — as of the October 2025 update, members use Point32Health\'s own updated ABA PA form, submitted through the MHK portal with the form uploaded or faxed to 888-977-0776 (the Together fax printed on the form). Even the initial evaluation is a PA request: pages 1-3 with the child\'s IEP and the comprehensive diagnostic evaluation. It\'s the one MassHealth plan family where the standard form doesn\'t apply.' },
@@ -963,7 +1002,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'The standard form names them, and the list is broader than "send them to a developmental pediatrician." For autism it requires "A comprehensive assessment completed by a licensed physician (i.e. PCP, etc.), advanced practice registered nurse, physician\'s assistant, or psychologist experienced in the diagnosis and treatment of ASD with developmental or child/adolescent experience which aligns with DSM criteria across ASD core deficits." For the 1/1/2026 pathway it requires instead "A diagnosis of Down Syndrome (Trisomy 21) confirmed by genetic testing." Note the two signatures are different people: the diagnostician writes the assessment, while the form itself "should" be completed by the BCBA rendering and/or supervising the services — an analyst the performance specification requires to be a LABA licensed under 262 CMR 10.00. Fallon takes the Massachusetts Standard ABA PA Form through Carelon, so these are the operative requirements; no Fallon-specific diagnostic criteria are published.',
+          'The standard form names them, and the list is broader than "send them to a developmental pediatrician." For autism it requires "A comprehensive assessment completed by a licensed physician (i.e. PCP, etc.), advanced practice registered nurse, physician\'s assistant, or psychologist experienced in the diagnosis and treatment of ASD with developmental or child/adolescent experience which aligns with DSM criteria across ASD core deficits." For the 1/1/2026 pathway it requires instead "A diagnosis of Down Syndrome (Trisomy 21) confirmed by genetic testing." Note the two signatures are different people: the diagnostician writes the assessment, while the form itself "should" be completed by the BCBA rendering and/or supervising the services — an analyst the performance specification requires to be a LABA licensed under 262 CMR 10.00. Fallon takes the Massachusetts Standard ABA PA Form through Carelon, so these are the operative requirements; no Fallon-specific diagnostic criteria are published. LCSW: no. A licensed clinical social worker is not on this list, so an LCSW\'s diagnosis alone does not meet it.',
         status: 'verified',
         cites: [{ title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }],
       },
@@ -1091,6 +1130,13 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
           { title: 'Carelon Behavioral Health — Massachusetts Medical Necessity Criteria (04/29/26), Applied Behavior Analysis (Medicaid)', url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/global/massachusetts-medical-necessity-criteria.pdf' },
         ],
       },
+      {
+        h2: 'Does Fallon Health use single case agreements?',
+        body: [
+          'Fallon\'s billing manual (rev. April 2026) lists denial code “DF218 Contact Contract Manager for single case agreement,” so an out-of-network claim can be routed to a single case agreement through Fallon\'s contract manager. The manual publishes no ABA-specific SCA criteria or rate.',
+        ],
+        cites: [{ title: 'Fallon Health Provider Manual — Billing procedures (rev. April 2026)', url: 'https://fallonhealth.org/-/media/Files/ProviderPDFs/PMbilling.ashx' }],
+      },
     ],
     collect: [
       { title: 'Exact plan name', desc: 'Fallon 365 Care, Fallon-Atrius, or Berkshire Fallon — and verify the plan still exists in its 2023 form.' },
@@ -1098,7 +1144,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'Submission channel', desc: 'Confirm the Carelon submission route for Fallon specifically before the first request.' },
       { title: 'Supervision capacity', desc: 'First-wave audit plan — hold the 1:10 97155:97153 ratio in scheduling.' },
     ],
-    sources: [
+    sources: [ { title: 'Fallon Health Provider Manual — Billing procedures (rev. April 2026)', url: 'https://fallonhealth.org/-/media/Files/ProviderPDFs/PMbilling.ashx' },
       { title: 'MassHealth Managed Care Options — plan/BH-vendor map (April 2023)', url: 'https://abh.memberclicks.net/assets/docs/KeepingCoverage/2023%20MassHealth%20Accountable%20and%20Managed%20Care%20Options%20031723.pdf' },
       { title: 'MassHealth ABA supervision audit & recoupment (Acuity News)', url: 'https://acuity.news/regulation/masshealth-aba-supervision-audit-recoupment-litigation-2026/' },
       { title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' },
@@ -1111,8 +1157,13 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'Carelon Behavioral Health — National Provider Handbook (2026)', url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/global/carelon-behavioral-health-provider-handbook.pdf' },
       { title: 'Carelon Behavioral Health — Massachusetts Medical Necessity Criteria (04/29/26), Applied Behavior Analysis (Medicaid)', url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/global/massachusetts-medical-necessity-criteria.pdf' },
       { title: 'Fallon Health — Provider announcements (provider notices archive)', url: 'https://fallonhealth.org/en/providers/announcements' },
+      { title: '42 CFR 438.210(d) — Medicaid managed care authorization timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.210' },
+      { title: 'Carelon (Beacon) Behavioral Health Policy and Procedure Manual for Providers — Fallon Health (rev. Sept 2021)', url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/ma/behavioral-health-policy-and-procedure-manual-for-providers-fallon.pdf' },
+      { title: '130 CMR 450.316 — MassHealth third-party liability: requirements (Cornell LII mirror)', url: 'https://www.law.cornell.edu/regulations/massachusetts/130-CMR-450-316' },
+      { title: 'TRICARE — Using Other Health Insurance', url: 'https://tricare.mil/Plans/OHI' },
     ],
     faq: [
+      { q: 'Does Fallon Health use single case agreements?', a: 'Fallon\'s billing manual has a denial code, DF218, telling the provider to “Contact Contract Manager for single case agreement.” It publishes no ABA-specific SCA criteria or rate.' },
       { q: 'Does Fallon Health cover ABA?', a: 'Yes — its MassHealth ACPPs carry the state-baseline EPSDT benefit, with behavioral health (including ABA authorization) administered by Carelon on the Massachusetts Standard ABA PA Form in 6-month periods.' },
       { q: 'Does Fallon have its own ABA policy?', a: 'No distinct Fallon ABA criteria are published — it defers to Carelon UM and the state baseline. Confirm submission mechanics with Carelon directly.' },
       { q: 'What is the timely filing limit for Fallon ABA claims?', a: '120 days from the date of service on outpatient claims, per Carelon’s Massachusetts addendum for Fallon Health. Carelon processes and pays Fallon’s behavioral-health claims, and neither of its documents publishes a payment day count or check-run schedule.' },
@@ -1158,7 +1209,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'The standard form names them, and the list is broader than "send them to a developmental pediatrician." For autism it requires "A comprehensive assessment completed by a licensed physician (i.e. PCP, etc.), advanced practice registered nurse, physician\'s assistant, or psychologist experienced in the diagnosis and treatment of ASD with developmental or child/adolescent experience which aligns with DSM criteria across ASD core deficits." For the 1/1/2026 pathway it requires instead "A diagnosis of Down Syndrome (Trisomy 21) confirmed by genetic testing." Note the two signatures are different people: the diagnostician writes the assessment, while the form itself "should" be completed by the BCBA rendering and/or supervising the services — an analyst the performance specification requires to be a LABA licensed under 262 CMR 10.00. BeHealthy Partnership members route to MBHP, so the Massachusetts standard form is the operative paperwork; no HNE-specific diagnostic criteria exist.',
+          'The standard form names them, and the list is broader than "send them to a developmental pediatrician." For autism it requires "A comprehensive assessment completed by a licensed physician (i.e. PCP, etc.), advanced practice registered nurse, physician\'s assistant, or psychologist experienced in the diagnosis and treatment of ASD with developmental or child/adolescent experience which aligns with DSM criteria across ASD core deficits." For the 1/1/2026 pathway it requires instead "A diagnosis of Down Syndrome (Trisomy 21) confirmed by genetic testing." Note the two signatures are different people: the diagnostician writes the assessment, while the form itself "should" be completed by the BCBA rendering and/or supervising the services — an analyst the performance specification requires to be a LABA licensed under 262 CMR 10.00. BeHealthy Partnership members route to MBHP, so the Massachusetts standard form is the operative paperwork; no HNE-specific diagnostic criteria exist. LCSW: no. A licensed clinical social worker is not on this list, so an LCSW\'s diagnosis alone does not meet it.',
         status: 'verified',
         cites: [{ title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }, { title: 'Carelon/MBHP Performance Specifications — Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
         verifyVia:
@@ -1301,6 +1352,10 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'MassHealth Managed Care Entity Bulletin 115 — Telehealth for members enrolled in managed care entities (April 2024)', url: 'https://www.mass.gov/doc/managed-care-entity-bulletin-115-access-to-health-services-through-telehealth-options-for-members-enrolled-in-managed-care-entities-0/download' },
       { title: 'Health New England — Be Healthy Partnership Addendum to the Provider Manual (Medicaid)', url: 'https://healthnewengland.org/Portals/_default/Shared%20Documents/providers/HNE_Be_Healthy_ProviderManual-Medicaid_addendum.pdf' },
       { title: 'Health New England — HNE Talk provider news (provider updates archive)', url: 'http://hnetalk.com/provider/' },
+      { title: 'Health New England Provider Manual (full; COB chapter rev. 11/1/2023)', url: 'https://healthnewengland.org/provider-manual' },
+      { title: '42 CFR 438.210(d) — Medicaid managed care authorization timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.210' },
+      { title: '130 CMR 450.316 — MassHealth third-party liability: requirements (Cornell LII mirror)', url: 'https://www.law.cornell.edu/regulations/massachusetts/130-CMR-450-316' },
+      { title: 'TRICARE — Using Other Health Insurance', url: 'https://tricare.mil/Plans/OHI' },
     ],
     faq: [
       { q: 'Does HNE\'s BeHealthy Partnership cover ABA?', a: 'Yes — the state-baseline MassHealth EPSDT benefit, with behavioral health administered by MBHP (Carelon): standard PA form, 6-month authorizations, no published caps.' },
@@ -1346,7 +1401,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'The standard form names them, and the list is broader than "send them to a developmental pediatrician." For autism it requires "A comprehensive assessment completed by a licensed physician (i.e. PCP, etc.), advanced practice registered nurse, physician\'s assistant, or psychologist experienced in the diagnosis and treatment of ASD with developmental or child/adolescent experience which aligns with DSM criteria across ASD core deficits." For the 1/1/2026 pathway it requires instead "A diagnosis of Down Syndrome (Trisomy 21) confirmed by genetic testing." Note the two signatures are different people: the diagnostician writes the assessment, while the form itself "should" be completed by the BCBA rendering and/or supervising the services — an analyst the performance specification requires to be a LABA licensed under 262 CMR 10.00. Optum\'s own criteria are broader in wording — a diagnosis "issued by a state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis according to the diagnostic criteria based on the DSM-5-TR" — but that is its commercial Supplemental Clinical Criteria, and Optum\'s Massachusetts state-mandate entries are scoped to the EI hour cap and the 1/1/2026 Down syndrome expansion, neither of which is a diagnostician list for this MassHealth product.',
+          'The standard form names them, and the list is broader than "send them to a developmental pediatrician." For autism it requires "A comprehensive assessment completed by a licensed physician (i.e. PCP, etc.), advanced practice registered nurse, physician\'s assistant, or psychologist experienced in the diagnosis and treatment of ASD with developmental or child/adolescent experience which aligns with DSM criteria across ASD core deficits." For the 1/1/2026 pathway it requires instead "A diagnosis of Down Syndrome (Trisomy 21) confirmed by genetic testing." Note the two signatures are different people: the diagnostician writes the assessment, while the form itself "should" be completed by the BCBA rendering and/or supervising the services — an analyst the performance specification requires to be a LABA licensed under 262 CMR 10.00. Optum\'s own criteria are broader in wording — a diagnosis "issued by a state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis according to the diagnostic criteria based on the DSM-5-TR" — but that is its commercial Supplemental Clinical Criteria, and Optum\'s Massachusetts state-mandate entries are scoped to the EI hour cap and the 1/1/2026 Down syndrome expansion, neither of which is a diagnostician list for this MassHealth product. LCSW: no. A licensed clinical social worker is not on this list, so an LCSW\'s diagnosis alone does not meet it.',
         status: 'unverified',
         cites: [{ title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }, { title: 'Optum ABA State Mandates — BH 803ABA STM12026 (eff. Jan 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
         verifyVia:
@@ -1473,6 +1528,13 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
           { title: 'Mass General Brigham ACO Provider Manual (2026)', url: 'https://resources.massgeneralbrighamhealthplan.org/providers/MGB%20ACO%20Provider%20Manual.pdf' },
         ],
       },
+      {
+        h2: 'Will Mass General Brigham Health Plan approve an out-of-network ABA provider?',
+        body: [
+          'Only after medical-necessity review. The ACO Provider Manual (2026-04-01) says prior authorization is required for non-emergent out-of-network service requests (except early intervention and family planning), that “a pre-existing relationship with an out- of-network provider is not reason alone to justify the need for an out-of-network provider,” and that “Requests for services by an out-of-network provider are submitted electronically via a web portal Mass General Brigham Health Plan Provider Portal and are subject to medical necessity review.”',
+        ],
+        cites: [{ title: 'Mass General Brigham Health Plan — ACO Provider Manual (2026-04-01)', url: 'https://resources.massgeneralbrighamhealthplan.org/providers/MGB%20ACO%20Provider%20Manual.pdf' }],
+      },
     ],
     collect: [
       { title: 'Early Intervention status', desc: 'EI members carry the 30 hr/week cap and possible dual-presence home-visit rule — establish EI enrollment at intake.' },
@@ -1480,7 +1542,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'Supervision staffing plan', desc: '1:10 BCBA-to-paraprofessional is written into the Optum supplement — document it in the request.' },
       { title: 'Submission channel', desc: 'Confirm the Optum route (Provider Express vs. plan-specific) before the first authorization.' },
     ],
-    sources: [
+    sources: [ { title: 'Mass General Brigham Health Plan — ACO Provider Manual (2026-04-01)', url: 'https://resources.massgeneralbrighamhealthplan.org/providers/MGB%20ACO%20Provider%20Manual.pdf' },
       { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
       { title: 'Optum ABA State Mandates — BH 803ABA STM12026 (eff. Jan 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
       { title: 'MassHealth Managed Care Options — plan/BH-vendor map (April 2023)', url: 'https://abh.memberclicks.net/assets/docs/KeepingCoverage/2023%20MassHealth%20Accountable%20and%20Managed%20Care%20Options%20031723.pdf' },
@@ -1493,10 +1555,14 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'MassHealth Managed Care Entity Bulletin 115 — Telehealth for members enrolled in managed care entities (April 2024)', url: 'https://www.mass.gov/doc/managed-care-entity-bulletin-115-access-to-health-services-through-telehealth-options-for-members-enrolled-in-managed-care-entities-0/download' },
       { title: 'Mass General Brigham Health Plan — Claims information (provider page)', url: 'https://massgeneralbrighamhealthplan.org/providers/claims' },
       { title: 'Mass General Brigham Health Plan — Timely Filing Best Practices (Commercial and MGB ACO, Oct. 2024)', url: 'https://5977230.fs1.hubspotusercontent-na1.net/hubfs/5977230/Timely%20Filing%20Best%20Practices.pdf' },
-      { title: 'Mass General Brigham ACO Provider Manual (2026)', url: 'https://resources.massgeneralbrighamhealthplan.org/providers/MGB%20ACO%20Provider%20Manual.pdf' },
       { title: 'Mass General Brigham Health Plan — Admin Newsletter Archive (provider newsletter archive)', url: 'https://news.massgeneralbrighamhealthplan.org/admin-newsletter' },
+      { title: '42 CFR 438.210(d) — Medicaid managed care authorization timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.210' },
+      { title: 'WellSense — Reduction of prior authorization decision timeframes (provider communication, Oct 31 2025)', url: 'https://www.wellsense.org/hubfs/Provider/News/WellSense_Mass_Provider_Communications_PA_Updates_10_31_25.pdf' },
+      { title: '130 CMR 450.316 — MassHealth third-party liability: requirements (Cornell LII mirror)', url: 'https://www.law.cornell.edu/regulations/massachusetts/130-CMR-450-316' },
+      { title: 'TRICARE — Using Other Health Insurance', url: 'https://tricare.mil/Plans/OHI' },
     ],
     faq: [
+      { q: 'Will Mass General Brigham Health Plan approve an out-of-network ABA provider?', a: 'Only by prior authorization through the MGB Health Plan provider portal, after medical-necessity review. An existing relationship with the out-of-network provider is not, by itself, enough.' },
       { q: 'Does Mass General Brigham Health Plan cover ABA?', a: 'Yes — the MassHealth EPSDT benefit, administered through Optum Behavioral Health under Optum\'s ABA criteria plus its Massachusetts state-mandate supplement. PA is required for assessment and treatment.' },
       { q: 'Does MGB Health Plan cap ABA hours?', a: 'Only for Early Intervention members: Optum\'s supplement limits EI-member ABA to 30 hours/week (effective 10/1/2021) with 1:10 BCBA-to-paraprofessional supervision. No cap is stated for non-EI members.' },
       { q: 'How is MGB different from other MassHealth plans for ABA?', a: 'It\'s the only plan whose ABA runs through Optum — with the 1:10 supervision ratio codified in written policy and the EI hour cap no other MA plan publishes. Everything else follows the state baseline.' },
@@ -1546,7 +1612,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'A scope-of-practice test rather than a specialty list. Aetna requires "a DSM-V diagnosis of Autism Spectrum Disorder (ICD-10: F84.0; F84.3 - F84.9) obtained by an appropriate provider," and defines that as a "licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice." Note the code range: F84.2 (Rett syndrome) sits outside the listed set, and ABA for diagnoses other than ASD is treated as experimental.',
+          'A scope-of-practice test rather than a specialty list. Aetna requires "a DSM-V diagnosis of Autism Spectrum Disorder (ICD-10: F84.0; F84.3 - F84.9) obtained by an appropriate provider," and defines that as a "licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice." Note the code range: F84.2 (Rett syndrome) sits outside the listed set, and ABA for diagnoses other than ASD is treated as experimental. LCSW: not named. The test turns on licensure and diagnostic scope, so an LCSW\'s diagnosis is accepted only if the plan agrees it is within the LCSW\'s licensed scope; confirm with the plan before relying on one.',
         status: 'verified',
         cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
       },
@@ -1623,7 +1689,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         value:
           'Aetna publishes no ABA place-of-service list. On school settings it says two things. CPB 0648: "Many Aetna plans exclude coverage of educational services. For example, speech therapy or ABA services during class would be excluded under these plans. Please check benefit plan exclusions." And precertification form GR-69017-4 asks "Are any ABA hours being requested during class?" and, if so, how many and for which codes. The IEP/IDEA carve-out in Aetna\'s ABA medical necessity guide sits in its Maryland exhibit, not in the national criteria. Where ABA is payable in a school, the community or a group home is a benefit-document question. In Massachusetts ARICA governs fully insured plans, so read the state mandate first on a fully insured member and the plan document first on a self-funded one.',
         status: 'plan-dependent',
-        cites: [{ title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }],
+        cites: [{ title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/20/2026)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }],
         verifyVia: 'The member\'s benefit document (educational-services exclusion), and Aetna provider services for whether school-setting ABA is payable on that plan.',
         blocker: 'per-case',
       },
@@ -1733,6 +1799,13 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
           { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification (GR-69017-4, 7-26; eff. 8/1/2026; not for MD or MA)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
         ],
       },
+      {
+        h2: 'Out of network with Aetna: transition of care, not a single case agreement',
+        body: [
+          'Aetna\'s provider manual (6/26) uses transition of care (TOC) and continuity of care rather than the term single case agreement. TOC “allows certain qualifying members the ability to request to continue receiving care from their current out-of-network provider at in-network cost level for a defined period of time,” typically at plan enrollment or renewal; continuity of care does the same when a provider leaves the network mid-treatment. The member must be in “an active course of covered treatment,” and the treating provider must be an individual practitioner (the manual\'s examples are a specialist, physical therapist or speech therapist) or home care agency that is not contracted in the member\'s plan. Steps: the member gets a Transition Coverage Request Form from Member Services or the employer, completes it with the non-participating provider\'s help, faxes it to Aetna, and Aetna sends a decision letter stating how long the transition benefits last. The process does not apply to Traditional Choice plans. Aetna publishes no ABA rate for this; ask Aetna behavioral health whether the ABA agency qualifies before the first session.',
+        ],
+        cites: [{ title: 'Aetna — Provider manual (8102800-01-01, 6/26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (ARICA applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -1756,8 +1829,19 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'M.G.L. c. 175, § 110(G) — Accident and sickness claims', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter175/Section110' },
       { title: 'M.G.L. c. 176G, § 6 — HMO provider contracts (45-day payment)', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter176G/Section6' },
       { title: 'Aetna Provider Manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+      { title: 'M.G.L. c. 175, § 47AA — Coverage for diagnosis and treatment of autism spectrum disorder', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter175/Section47AA' },
+      { title: 'M.G.L. c. 176G, § 4V — HMO coverage for autism spectrum disorder', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter176G/Section4V' },
+      { title: 'M.G.L. c. 176O § 12 — utilization review determinations (malegislature.gov)', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter176O/Section12' },
+      { title: '29 CFR 2560.503-1(f)(2) — ERISA group health plan claims procedure (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+      { title: '211 CMR 38.05 — Coordination of benefits: order of benefit determination (Cornell LII mirror)', url: 'https://www.law.cornell.edu/regulations/massachusetts/211-CMR-38-05' },
+      { title: 'TRICARE — Using Other Health Insurance', url: 'https://tricare.mil/Plans/OHI' },
+      { title: '38 CFR 17.276(d) — CHAMPVA is the last payer to other health insurance (eCFR)', url: 'https://www.ecfr.gov/current/title-38/section-17.276' },
+      { title: '130 CMR 450.316 — MassHealth third-party liability: requirements (Cornell LII mirror)', url: 'https://www.law.cornell.edu/regulations/massachusetts/130-CMR-450-316' },
+      { title: '130 CMR 450.317 — MassHealth third-party liability: payment limitations (Cornell LII mirror)', url: 'https://www.law.cornell.edu/regulations/massachusetts/130-CMR-450-317' },
+      { title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' },
     ],
     faq: [
+      { q: 'Can an out-of-network ABA provider keep treating an Aetna member?', a: 'Possibly, through Aetna\'s transition-of-care or continuity-of-care process. The member must be in an active course of covered treatment; the member requests a Transition Coverage Request Form, completes it with the provider and faxes it to Aetna, which issues a time-limited decision. Aetna\'s manual names individual practitioners and home care agencies as eligible, so confirm with Aetna behavioral health that an ABA agency qualifies.' },
       { q: 'Does Aetna cover ABA therapy in Massachusetts?', a: 'Yes — under the carrier\'s national policy for ASD, layered on ARICA for fully-insured plans, which bars age limits and benefit caps. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the Massachusetts autism mandate require?', a: 'ARICA (Ch. 207, Acts of 2010) is one of the strongest mandates nationally: fully-insured plans must cover ASD diagnosis and treatment at any age with no dollar, visit, or unit caps, including ABA supervised by a board certified behavior analyst. From 1/1/2026, Chapter 388 adds sole-diagnosis Down syndrome.' },
       { q: 'Does Aetna use a Massachusetts-specific ABA form?', a: 'Yes — Aetna hosts and uses the Massachusetts Standard ABA PA form (LABA-completed, 6-month max authorization periods), the same multi-payer form used across the state.' },
@@ -1814,7 +1898,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'An independent-practice test, with two explicit disqualifiers. The diagnosis must be made "based on the criteria in the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition, Text Revision (DSM-5-TR) by a healthcare professional who is licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice." What does not count: "educational identification or meeting educational eligibility for services related to autism through the [Individuals] with Disabilities Education Act may not meet criteria as a formal diagnosis of ASD," and a diagnosis termed "provisional," "proposed," "potential," "at risk of" or "rule out" is not confirmed. F84.2 (Rett syndrome) is excluded from the covered code range.',
+          'An independent-practice test, with two explicit disqualifiers. The diagnosis must be made "based on the criteria in the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition, Text Revision (DSM-5-TR) by a healthcare professional who is licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice." What does not count: "educational identification or meeting educational eligibility for services related to autism through the [Individuals] with Disabilities Education Act may not meet criteria as a formal diagnosis of ASD," and a diagnosis termed "provisional," "proposed," "potential," "at risk of" or "rule out" is not confirmed. F84.2 (Rett syndrome) is excluded from the covered code range. LCSW: not named. The test turns on licensure and diagnostic scope, so an LCSW\'s diagnosis is accepted only if the plan agrees it is within the LCSW\'s licensed scope; confirm with the plan before relying on one.',
         status: 'verified',
         cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
       },
@@ -2002,6 +2086,13 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
           { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
         ],
       },
+      {
+        h2: 'Out of network with Cigna (Evernorth) for ABA',
+        body: [
+          'Evernorth\'s Behavioral Health Administrative Guidelines (September 2026) describe out-of-network use by plan type. On Open Access Plus, “Services from out-of-network providers are covered at a reduced benefit level,” and patients “whose plans include out-of-network benefits can use these benefits for services covered under their plan; however, in doing so, these patients will generally incur higher out-of-pocket costs.” An out-of-network provider who wants to contract is pointed to “the Join the Network page on the Evernorth Provider website.” On appeals, Evernorth says an appeal “must be submitted within 180 calendar days from the claim denial unless determined otherwise by plan or state regulation,” and that “out-of-network providers requesting a standard appeal must submit a valid Appointments of Representative form signed by the patient” in some circumstances. Evernorth publishes no single-case-agreement process or out-of-network ABA rate; benefits depend on the member\'s plan.',
+        ],
+        cites: [{ title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (ARICA applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -2019,8 +2110,18 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'M.G.L. c. 175, § 110(G) — Accident and sickness claims', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter175/Section110' },
       { title: 'M.G.L. c. 176G, § 6 — HMO provider contracts (45-day payment)', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter176G/Section6' },
       { title: 'Evernorth Behavioral Health Administrative Guidelines (rev. Sept. 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+      { title: 'M.G.L. c. 175, § 47AA — Coverage for diagnosis and treatment of autism spectrum disorder', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter175/Section47AA' },
+      { title: 'M.G.L. c. 176G, § 4V — HMO coverage for autism spectrum disorder', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter176G/Section4V' },
+      { title: 'M.G.L. c. 176O § 12 — utilization review determinations (malegislature.gov)', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter176O/Section12' },
+      { title: '29 CFR 2560.503-1(f)(2) — ERISA group health plan claims procedure (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+      { title: '211 CMR 38.05 — Coordination of benefits: order of benefit determination (Cornell LII mirror)', url: 'https://www.law.cornell.edu/regulations/massachusetts/211-CMR-38-05' },
+      { title: 'TRICARE — Using Other Health Insurance', url: 'https://tricare.mil/Plans/OHI' },
+      { title: '38 CFR 17.276(d) — CHAMPVA is the last payer to other health insurance (eCFR)', url: 'https://www.ecfr.gov/current/title-38/section-17.276' },
+      { title: '130 CMR 450.316 — MassHealth third-party liability: requirements (Cornell LII mirror)', url: 'https://www.law.cornell.edu/regulations/massachusetts/130-CMR-450-316' },
+      { title: '130 CMR 450.317 — MassHealth third-party liability: payment limitations (Cornell LII mirror)', url: 'https://www.law.cornell.edu/regulations/massachusetts/130-CMR-450-317' },
     ],
     faq: [
+      { q: 'Does Cigna pay out-of-network ABA providers?', a: 'Only if the member\'s plan has out-of-network benefits; on Open Access Plus, out-of-network services “are covered at a reduced benefit level.” Evernorth publishes no single case agreement process or rate. Appeals are due within 180 calendar days of the denial, and an out-of-network provider may need an Appointment of Representative form signed by the patient.' },
       { q: 'Does Cigna cover ABA therapy in Massachusetts?', a: 'Yes — under national policy EN0499 for ASD (no PA on assessment codes), layered on ARICA for fully-insured plans, which bars age limits and benefit caps. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the Massachusetts autism mandate require?', a: 'ARICA (Ch. 207, Acts of 2010) is one of the strongest mandates nationally: fully-insured plans must cover ASD diagnosis and treatment at any age with no dollar, visit, or unit caps, including ABA supervised by a board certified behavior analyst. From 1/1/2026, Chapter 388 adds sole-diagnosis Down syndrome.' },
       { q: 'Does EN0499 apply differently in Massachusetts?', a: 'No — unlike Virginia, EN0499 carries no Massachusetts carve-out, so the standard policy (including the no-PA assessment path) applies, with ARICA controlling for fully-insured plans where they diverge.' },
@@ -2078,7 +2179,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'A licensure test with a diagnostic-competence qualifier: "A valid diagnosis of ASD (or other applicable diagnosis as required by governing laws) must be issued by a state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis according to the diagnostic criteria based on the DSM-5-TR." The diagnosing clinician must also confirm and document the severity level. Once the diagnosis is confirmed, the ABA provider identified for the member must be a master\'s- or doctoral-level BCBA, a licensed behavioral health clinician who has attested to sufficient expertise and been credentialed for ABA, or a BCaBA or non-licensed individual working under direct supervision.',
+          'A licensure test with a diagnostic-competence qualifier: "A valid diagnosis of ASD (or other applicable diagnosis as required by governing laws) must be issued by a state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis according to the diagnostic criteria based on the DSM-5-TR." The diagnosing clinician must also confirm and document the severity level. Once the diagnosis is confirmed, the ABA provider identified for the member must be a master\'s- or doctoral-level BCBA, a licensed behavioral health clinician who has attested to sufficient expertise and been credentialed for ABA, or a BCaBA or non-licensed individual working under direct supervision. LCSW: not named. The test turns on licensure and diagnostic scope, so an LCSW\'s diagnosis is accepted only if the plan agrees it is within the LCSW\'s licensed scope; confirm with the plan before relying on one.',
         status: 'verified',
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
       },
@@ -2267,6 +2368,13 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
           { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
         ],
       },
+      {
+        h2: 'Out of network with UnitedHealthcare (Optum) for ABA',
+        body: [
+          'UnitedHealthcare says that when the member chooses an out-of-network provider, the No Surprises Act and state surprise-billing laws generally do not apply, and “United will look to the member’s benefit plan to determine if it is covered and how it should be paid.” Reimbursement may use a percentage of CMS rates, FAIR Health, Viant, a “Negotiated Rate” agreed “after the service was provided,” or other methods, and “Which option is used depends on various factors, including but not limited to the terms of the healthcare benefit plan.” On commercial HMO plans, “If the needed health care provider is not available in-network, not available within the needed time frame or too far away, the PCP needs to request an out-of-network prior authorization”; if approved, “the member is not responsible for costs over their applicable in-network cost-sharing.” For disputes, Optum\'s Provider Express portal “is available to network clinicians and group practices, as well as out-of-network individual clinicians,” and Optum asks for “member-specific treatment plans, clinical records, payment appendices or other items that support why you believe our decision was incorrect.”',
+        ],
+        cites: [{ title: 'UnitedHealthcare — Information on payment of out-of-network benefits', url: 'https://www.uhc.com/legal/information-on-payment-of-out-of-network-benefits' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (commercial)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, { title: 'Optum National Network Manual (BH02330, effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (ARICA applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -2275,7 +2383,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis report', desc: 'DSM-5-TR ASD with a validated tool (ADI-R, ADOS-2) — or, from 1/1/2026, trisomy-21 genetic confirmation for the Down syndrome pathway.' },
       { title: 'Supervision staffing plan', desc: 'Optum\'s MA entries codify 1:10 BCBA-to-paraprofessional supervision — document it in the request.' },
     ],
-    sources: [
+    sources: [ { title: 'UnitedHealthcare — Information on payment of out-of-network benefits', url: 'https://www.uhc.com/legal/information-on-payment-of-out-of-network-benefits' },
       { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
       { title: 'Optum ABA State Mandates — BH 803ABA STM12026 (eff. Jan 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
       { title: 'DisabilityInfo/AIRC — ARICA fact sheet', url: 'https://disabilityinfo.org/fact-sheet-library/laws-legislation/act-relative-to-insurance-coverage-for-autism-arica/' },
@@ -2290,8 +2398,20 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'M.G.L. c. 175, § 110(G) — Accident and sickness claims', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter175/Section110' },
       { title: 'M.G.L. c. 176G, § 6 — HMO provider contracts (45-day payment)', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter176G/Section6' },
       { title: 'Optum Behavioral Health National Network Manual (published July 1, 2026; effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+      { title: 'UnitedHealthcare — 2026 Care Provider Administrative Guide, Ch. 6 Referrals (commercial services not requiring a referral)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+      { title: 'M.G.L. c. 175, § 47AA — Coverage for diagnosis and treatment of autism spectrum disorder', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter175/Section47AA' },
+      { title: 'M.G.L. c. 176G, § 4V — HMO coverage for autism spectrum disorder', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter176G/Section4V' },
+      { title: 'M.G.L. c. 176O § 12 — utilization review determinations (malegislature.gov)', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter176O/Section12' },
+      { title: '29 CFR 2560.503-1(f)(2) — ERISA group health plan claims procedure (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+      { title: 'Optum ABA FAQ (Provider Express)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaFAQ.pdf' },
+      { title: '211 CMR 38.05 — Coordination of benefits: order of benefit determination (Cornell LII mirror)', url: 'https://www.law.cornell.edu/regulations/massachusetts/211-CMR-38-05' },
+      { title: 'TRICARE — Using Other Health Insurance', url: 'https://tricare.mil/Plans/OHI' },
+      { title: '38 CFR 17.276(d) — CHAMPVA is the last payer to other health insurance (eCFR)', url: 'https://www.ecfr.gov/current/title-38/section-17.276' },
+      { title: '130 CMR 450.316 — MassHealth third-party liability: requirements (Cornell LII mirror)', url: 'https://www.law.cornell.edu/regulations/massachusetts/130-CMR-450-316' },
+      { title: '130 CMR 450.317 — MassHealth third-party liability: payment limitations (Cornell LII mirror)', url: 'https://www.law.cornell.edu/regulations/massachusetts/130-CMR-450-317' },
     ],
     faq: [
+      { q: 'Does UnitedHealthcare pay out-of-network ABA providers?', a: 'Only under the member\'s out-of-network benefits, priced by a method the plan sets (a percentage of CMS rates, FAIR Health, Viant or a negotiated rate). On commercial HMO plans an out-of-network provider can be approved when no network provider is available in time or nearby; the PCP requests an out-of-network prior authorization, and the member then pays only in-network cost-sharing.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in Massachusetts?', a: 'Yes — under Optum\'s national two-step authorization for ASD, layered on ARICA for fully-insured plans, which bars age limits and benefit caps. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the Massachusetts autism mandate require?', a: 'ARICA (Ch. 207, Acts of 2010) is one of the strongest mandates nationally: fully-insured plans must cover ASD diagnosis and treatment at any age with no dollar, visit, or unit caps, including ABA supervised by a board certified behavior analyst. From 1/1/2026, Chapter 388 adds sole-diagnosis Down syndrome — which Optum\'s state-mandate supplement implements by name.' },
       { q: 'Does UnitedHealthcare run MassHealth plans?', a: 'Not directly — but Optum administers ABA for the Mass General Brigham Health Plan MassHealth ACPP (see its guide), and UHC\'s One Care and Senior Care Options products serve adults only.' },
@@ -2344,7 +2464,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'Medical Policy 091 covers ABA when the ASD or Down syndrome is "diagnosed by a psychiatrist, psychologist, neurologist, developmental pediatrician, or other licensed physician experienced in the diagnosis and treatment of autism/Down Syndrome." The request form asks for the diagnosis "signed by a licensed physician or licensed psychologist." A nurse practitioner or LABA diagnosis is not on either list.',
+          'Medical Policy 091 covers ABA when the ASD or Down syndrome is "diagnosed by a psychiatrist, psychologist, neurologist, developmental pediatrician, or other licensed physician experienced in the diagnosis and treatment of autism/Down Syndrome." The request form asks for the diagnosis "signed by a licensed physician or licensed psychologist." A nurse practitioner or LABA diagnosis is not on either list. LCSW: no. A licensed clinical social worker is not on this list, so an LCSW\'s diagnosis alone does not meet it.',
         status: 'verified',
         cites: [{ title: 'BCBSMA Medical Policy 091 — Applied Behavior Analysis (ABA) (last annual review 10/1/2025)', url: 'https://www.bluecrossma.org/medical-policies/sites/g/files/csphws2091/files/acquiadam-assets/091%20Applied%20Behavioral%20Analysis%20%28ABA%29.pdf' }, { title: 'BCBSMA — Applied Behavior Analysis Service Request Form for Initial Assessment and Treatment (144, MPC-100915-1R rev. 8/23)', url: 'https://www.bluecrossma.org/medical-policies/sites/g/files/csphws2091/files/acquiadam-assets/144%20Applied%20Behavior%20Analysis%20Service%20Request%20Form%20prn.pdf' }],
       },
@@ -2563,6 +2683,11 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'M.G.L. c. 176G, § 6 — HMO provider contracts (45-day payment)', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter176G/Section6' },
       { title: 'M.G.L. c. 112, § 165 — Licensing of applied behavior analysts and assistant applied behavior analysts', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXVI/Chapter112/Section165' },
       { title: 'Blue Cross Blue Shield of Massachusetts — Provider Central News (current + archived provider news)', url: 'https://provider.bluecrossma.com/ProviderHome/portal/news' },
+      { title: 'M.G.L. c. 176A, § 8DD — Coverage for diagnosis and treatment of autism spectrum disorder', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter176A/Section8DD' },
+      { title: 'M.G.L. c. 176G, § 4V — HMO coverage for autism spectrum disorder', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter176G/Section4V' },
+      { title: 'BCBSMA Provider Central — Pre-service review for BlueCard members', url: 'https://provider.bluecrossma.com/ProviderHome/portal/home/etools/etools/pre-service-review-for-bluecard-members' },
+      { title: 'M.G.L. c. 112, § 163 — Definitions (licensed applied behavior analyst)', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXVI/Chapter112/Section163' },
+      { title: 'BCBSMA Provider Central — Claim Submission', url: 'https://provider.bluecrossma.com/ProviderHome/portal/home/office-resources/billing-and-reimbursement/Claim%20Submission' },
     ],
     faq: [
       { q: 'Does Blue Cross Blue Shield of Massachusetts cover ABA therapy?', a: 'Yes. Medical Policy 091 covers medically necessary ABA for autism spectrum disorder and/or Down syndrome on HMO, POS, PPO and Indemnity plans, with prior authorization. Fully insured plans are also bound by ARICA, which bars visit limits and age caps. Self-funded employer plans follow their own plan document.' },

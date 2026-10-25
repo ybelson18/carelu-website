@@ -47,7 +47,7 @@ const S: Record<string, PayerSource> = {
   // CCOs
   psABA: { title: 'PacificSource Clinical Guideline — Applied Behavioral Analysis (ABA), Commercial and Medicaid (Oregon Medicaid section; Ops approval 3/2026, next review 1/1/2027)', url: 'https://pacificsource.com/media/24381' },
   psNews: { title: 'PacificSource — ABA treatment services and neuropsychological and psychological testing will require prior authorization (Sept. 29, 2023; eff. 1/1/2024)', url: 'https://pacificsource.com/article/aba-treatment-services-and-neuropsychological-and-psychological-testing-will-require-prior' },
-  trilAuth: { title: 'Trillium Community Health Plan — Medicaid (OHP) Service Authorization Handbook: Authorization or Denial of Covered Services', url: 'https://www.trilliumohp.com/content/dam/centene/trillium/ProviderResources/ProviderManuals/TrilliumMedPrvdrOhpAuth.pdf' },
+  trilAuth: { title: 'Trillium Community Health Plan — Medicaid (OHP) Service Authorization Handbook: Authorization or Denial of Covered Services (MCA_ZZ352, revised 09/2026)', url: 'https://www.trilliumohp.com/content/dam/centene/trillium/ProviderResources/ProviderManuals/TrilliumMedPrvdrOhpAuth.pdf' },
   trilTip: { title: 'Trillium Community Health Plan — Applied Behavioral Analysis Outpatient Treatment Request Checklist', url: 'https://www.trilliumohp.com/content/dam/centene/trillium/ProviderResources/ProviderForms/OR-ABA-Request-Tip-sheet.pdf' },
   trilPM: { title: 'Trillium Community Health Plan — Provider Manual 2026', url: 'https://www.trilliumohp.com/content/dam/centene/trillium/ProviderResources/ProviderManuals/ProviderManual%202026_FINAL_R.pdf' },
   trilRes: { title: 'Trillium Community Health Plan — Provider forms and resources', url: 'https://www.trilliumohp.com/providers/resources/forms-resources.html' },
@@ -92,6 +92,10 @@ const S: Record<string, PayerSource> = {
   optumNNM: { title: 'Optum Behavioral Health National Provider Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
   regBH18: { title: 'Regence Medical Policy BH18 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (version read: effective 8/1/2025, last review June 2025; it notes a revision effective 11/1/2026)', url: 'https://beonbrand.getbynder.com/m/e4646f415eb7f4eb/' },
   regBH33: { title: 'Regence Medical Policy BH33 — ABA Initial Assessment for the Treatment of Autism Spectrum Disorder', url: 'https://beonbrand.getbynder.com/m/8360cc45444cab46/' },
+  lcswScope: { title: 'ORS 675.510(2)(a) — Regulated social workers: "Clinical social work" includes the "assessment, diagnosis or treatment of mental, emotional or behavioral disorders"', url: 'https://www.oregonlegislature.gov/bills_laws/ors/ors675.html' },
+  coABA2026: { title: 'CareOregon (Health Share, Jackson Care Connect, Columbia Pacific CCO) — Important update to ABA authorization requests (provider update, Oct 22, 2026)', url: 'https://jacksoncareconnect.org/providers/provider-updates/2026/10/22/important-update-to-aba-authorization-requests' },
+  trilPAtool: { title: 'Trillium Community Health Plan — Medicaid Pre-Auth Check tool (97151, 97152, 97157 no PA; 0362T, 97153–97156, 97158, 0373T PA required; checked 10/25/2026)', url: 'https://www.trilliumohp.com/providers/preauth-check/medicaid-pre-auth.html' },
+  uhaGrid: { title: 'Umpqua Health Alliance — Mental Health/Substance Use Disorder Prior Authorization Grid (December 2025)', url: 'https://www.umpquahealth.com/wp-content/uploads/2025/05/mh-sud-preauth-grid-2025-12-01-en.pdf' },
 };
 
 /* ---- Shared Oregon state facts ---- */
@@ -234,7 +238,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       { title: 'Physical exam + hearing test', desc: 'Well-child exam within 1 year (ages 1–6) or 2 years (6–18); hearing test within 1 year (2–5) or 2 years (6–18). Needed before ABA starts.' },
       { title: 'Other insurance', desc: 'Commercial coverage pays first; OHP is the payer of last resort.' },
     ],
-    sources: [{ title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, { title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.oar0760, S.oar0770, S.oar0650, S.oar0620, S.oar0850, S.fee, S.feePage, S.gn, S.herc, S.epsdt, S.acentra, S.policyBHS, S.plans, S.lane, S.oar3835, S.oar3565, S.oar1300, S.oar1280, S.ors676, S.oar824lic, S.oar824sup, S.oar824def, S.hlo, S.bacbLic, S.cfr440, S.cfr438, S.cfr433, { title: 'OAR 410-120-1260 — Provider Enrollment (OHA; DMAP 34-2024, eff. 01/18/2024)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-120-1260' }, { title: 'OHA — Provider Matters (index of OHP provider ebulletin issues)', url: 'https://www.oregon.gov/oha/OHP/Providers/Pages/Provider-Matters.aspx' }, { title: 'OHA — Oregon Health Plan provider announcements (table of dated announcements, past two years)', url: 'https://www.oregon.gov/oha/OHP/Providers/Pages/Announcements.aspx' }],
+    sources: [{ title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, { title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.oar0760, S.oar0770, S.oar0650, S.oar0620, S.oar0850, S.fee, S.feePage, S.gn, S.herc, S.epsdt, S.acentra, S.policyBHS, S.plans, S.lane, S.oar3835, S.oar3565, S.oar1300, S.oar1280, S.ors676, S.oar824lic, S.oar824sup, S.oar824def, S.hlo, S.bacbLic, S.cfr440, S.cfr438, S.cfr433, { title: 'OAR 410-120-1260 — Provider Enrollment (OHA; DMAP 34-2024, eff. 01/18/2024)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-120-1260' }, { title: 'OHA — Provider Matters (index of OHP provider ebulletin issues)', url: 'https://www.oregon.gov/oha/OHP/Providers/Pages/Provider-Matters.aspx' }, { title: 'OHA — Oregon Health Plan provider announcements (table of dated announcements, past two years)', url: 'https://www.oregon.gov/oha/OHP/Providers/Pages/Announcements.aspx' }, S.lcswScope, { title: 'OAR 410-141-3545 — CCO Behavioral Health Provider, Treatment and Facility Certification and Licensure (history: DMAP 43-2026 temporary suspension, eff. 10/14/2026)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3545' }, { title: 'OHA — Temporary Administrative Order DMAP 43-2026 (filed 10/14/2026): suspends temporary 410-141-3545 from DMAP 26-2026', url: 'https://www.oregon.gov/oha/HSD/OHP/Policies/141-3545-10142026.pdf' }],
     deliveryRules: {
       supervision: {
         value: STATE_SUPERVISION,
@@ -283,9 +287,9 @@ export const oregonPayers: Record<string, PayerConfig> = {
         cites: [S.oar0770],
       },
       diagnosingProviders: {
-        value: 'A licensed physician, psychologist, or nurse practitioner or physician associate specializing in developmental medicine, experienced in diagnosing and treating autism (OAR 410-172-0770(1), referring to 0760(1)). For stereotyped movement disorder with self-injury, a licensed practitioner trained or experienced in that condition.',
+        value: 'A licensed physician, psychologist, or nurse practitioner or physician associate specializing in developmental medicine, experienced in diagnosing and treating autism (OAR 410-172-0770(1), referring to 0760(1)). For stereotyped movement disorder with self-injury, a licensed practitioner trained or experienced in that condition. LCSW: no — OAR 410-172-0760(1) names physicians, psychologists and developmental-medicine NPs/PAs only, even though Oregon puts "diagnosis" inside clinical social work (ORS 675.510(2)(a)).',
         status: 'verified',
-        cites: [S.oar0770, S.oar0760],
+        cites: [S.oar0770, S.oar0760, S.lcswScope],
       },
       diagnosticTools: {
         value: '"Documentation of and results from a standardized, validated tool, such as the Autism Diagnostic Observation Schedule (ADOS)," plus developmental status on validated assessments "such as the Vineland" (OAR 410-172-0770(1)(b), (g)). Ongoing six-month assessments must use "standardized, validated and reliable assessment tools" (OAR 410-172-0760(5)).',
@@ -314,6 +318,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Can an out-of-state ABA agency serve Oregon CCO members?', a: 'Not on the strength of the summer 2026 temporary rule. Temporary order DMAP 26-2026 (June 29, 2026) let CCOs use outpatient behavioral health provider organizations located outside Oregon if licensed in their own state and no more than 75 miles from the border; OHA suspended that language with temporary order DMAP 43-2026, effective October 14, 2026, because it "was determined to not have the intended effect," reverting OAR 410-141-3545 to the permanent text. Outpatient behavioral health provider organizations serving CCO members must again be certified by OHA under OAR 309-008-0250 (some provider types are exempt under 309-008-0250(4)) and meet the CCO contract. OHA\'s October 23, 2026 Provider Matters described the change as allowing out-of-state contracting; the filed order suspends that allowance.' },
       { q: 'Does Oregon Health Plan cover ABA therapy?', a: 'Yes, for autism spectrum disorder (Prioritized List Line 192, Guideline Note 75) and for stereotyped movement disorder with self-injurious behavior (Guideline Note 126). Most members get it through their CCO; open-card members go through OHA.' },
       { q: 'Does OHP require prior authorization for the ABA assessment?', a: 'Not for open-card members: OHA’s fee schedule exempts 97151 and 97152 from prior authorization (retrospective review). 97153–97157 need PA. CCOs set their own rules, so check the member’s CCO.' },
       { q: 'What does OHP pay for ABA?', a: 'The open-card schedule (published 7/1/2026) pays per 15 minutes: 97151 $20.85, 97152 $19.81, 97153 $14.70, 97154 $13.72, 97155 and 97156 $32.07, 97157 $8.68. CCOs pay contracted rates.' },
@@ -330,9 +335,9 @@ export const oregonPayers: Record<string, PayerConfig> = {
     family: 'health-share',
     cardDesc: 'Portland-metro CCO; CareOregon runs its behavioral health UM: PA for the ABA assessment and treatment, ADOS/CARS-2, Medical Director review at 13+ or over 25 hours.',
     assessmentPA: {
-      value: 'Yes. CareOregon’s BH UM handbook requires an ABA assessment authorization with clinical documentation showing the diagnosis and tool; for Health Share members it may be submitted with "TBD Behavioral Health Provider" as the rendering provider',
+      value: 'Yes. CareOregon’s BH UM handbook requires an ABA assessment authorization with clinical documentation showing the diagnosis and tool; for Health Share members it may be submitted with "TBD Behavioral Health Provider" as the rendering provider CareOregon\'s October 22, 2026 provider update: since August 7, 2026 the Connect Behavioral Health Template has a separate "ABA Assessment" service type — "ABA Assessment CPT codes are 97151 and 97152" — used "for a formal assessment conducted to initiate ABA treatment for a new or returning patient"; "Approved assessment requests are valid for 365 days while treatment authorizations are typically approved for no more than six months." Fax is allowed only on an exception form from Provider Customer Service (800-224-4840, option 3).',
       status: 'verified',
-      cites: [S.coUM],
+      cites: [S.coUM, S.coABA2026],
     },
     treatmentPA: {
       value: 'Yes, via CareOregon Connect or fax, with a comprehensive treatment plan; units are requested for a six-month authorization by CPT code',
@@ -393,7 +398,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       { title: 'School and other services', desc: 'IEP / Early Intervention, speech and OT hours, and any prior ABA providers.' },
       { title: 'Other insurance', desc: 'Bill commercial coverage first; Medicaid is the payer of last resort.' },
     ],
-    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.coUM, S.coBHPM, S.hsBH, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, S.gn],
+    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.coUM, S.coBHPM, S.hsBH, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, S.gn, S.coABA2026],
     deliveryRules: {
       supervision: {
         value: 'CareOregon’s handbook and manual publish no ABA supervision ratio of their own, so the state rule applies. ' + STATE_SUPERVISION,
@@ -444,7 +449,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
         cites: [S.coUM, S.oar0770],
       },
       diagnosingProviders: {
-        value: 'An MD, DO, PhD or PsyD.',
+        value: 'An MD, DO, PhD or PsyD. LCSW: no — an LCSW is not an MD, DO, PhD or PsyD.',
         status: 'verified',
         cites: [S.coUM],
       },
@@ -487,11 +492,9 @@ export const oregonPayers: Record<string, PayerConfig> = {
     family: 'centene',
     cardDesc: 'Centene CCO for Lane and the Portland tri-county area: code-level PA tool, an ABA request checklist, 7-day decisions and 180-day dispute window.',
     assessmentPA: {
-      value: 'Not stated in a document we could read: Trillium points to its real-time Pre-Authorization Check Tool for code-level rules. Its ABA checklist expects assessment units to be requested and asks for rationale above "the market standard of 8-10 hours for assessment/reassessment"',
-      status: 'unverified',
-      cites: [S.trilAuth, S.trilTip],
-      verifyVia: 'Trillium Pre-Authorization Check Tool (trilliumohp.com → Providers) for 97151 and 97152, or Trillium Provider Services, 877-600-5472.',
-      blocker: 'document',
+      value: 'No for 97151 and 97152: Trillium\'s Medicaid Pre-Auth Check returns "No Pre-authorization required for all providers" for both; 0362T (supporting assessment for destructive behavior) returns "Pre-authorization is required for all providers." The tool works in real time and cannot be checked for a future date. Trillium\'s ABA checklist still asks for rationale above "the market standard of 8-10 hours for assessment/reassessment" when assessment units are requested with treatment',
+      status: 'verified',
+      cites: [S.trilPAtool, S.trilAuth, S.trilTip],
     },
     treatmentPA: {
       value: 'Yes: ABA treatment goes through Trillium’s prior-authorization process with its Applied Behavioral Analysis Outpatient Treatment Request Checklist (initial and ongoing requests)',
@@ -552,7 +555,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       { title: 'Caregiver sign-off', desc: 'Parent signature showing participation in and understanding of the plan.' },
       { title: 'Other insurance', desc: 'Bill commercial coverage first; OHP is the payer of last resort.' },
     ],
-    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, { title: 'Trillium Community Health Plan — Provider Manual 2026 (Requests for Redetermination)', url: 'https://www.trilliumohp.com/content/dam/centene/trillium/ProviderResources/ProviderManuals/ProviderManual%202026_FINAL_R.pdf' }, S.trilAuth, S.trilTip, S.trilPM, S.trilRes, S.plans, S.lane, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, { title: 'Trillium Community Health Plan — Provider News & Updates (Provider Digest archive)', url: 'https://www.trilliumohp.com/providers/provider-news.html' }],
+    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, { title: 'Trillium Community Health Plan — Provider Manual 2026 (Requests for Redetermination)', url: 'https://www.trilliumohp.com/content/dam/centene/trillium/ProviderResources/ProviderManuals/ProviderManual%202026_FINAL_R.pdf' }, S.trilAuth, S.trilTip, S.trilPM, S.trilRes, S.plans, S.lane, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, { title: 'Trillium Community Health Plan — Provider News & Updates (Provider Digest archive)', url: 'https://www.trilliumohp.com/providers/provider-news.html' }, S.trilPAtool],
     deliveryRules: {
       supervision: {
         value: 'Trillium’s ABA checklist and handbook publish no supervision ratio, so the state rule applies. ' + STATE_SUPERVISION,
@@ -601,7 +604,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
         cites: [S.trilTip],
       },
       diagnosingProviders: {
-        value: 'Trillium asks for a recommendation "from a qualified provider" without naming types, so the OHP rule applies: a physician, psychologist, or developmental-medicine NP or PA experienced in autism (OAR 410-172-0770(1), 0760(1)).',
+        value: 'Trillium asks for a recommendation "from a qualified provider" without naming types, so the OHP rule applies: a physician, psychologist, or developmental-medicine NP or PA experienced in autism (OAR 410-172-0770(1), 0760(1)). LCSW: no — not on the OHP list (OAR 410-172-0760(1)).',
         status: 'verified',
         cites: [S.trilTip, S.oar0770, S.oar0760],
       },
@@ -750,7 +753,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
         cites: [S.psABA, S.oar0770],
       },
       diagnosingProviders: {
-        value: 'For Medicaid, the OAR 410-172-0760 practitioners: a physician, psychologist, or nurse practitioner or physician associate specializing in developmental medicine, experienced in autism.',
+        value: 'For Medicaid, the OAR 410-172-0760 practitioners: a physician, psychologist, or nurse practitioner or physician associate specializing in developmental medicine, experienced in autism. LCSW: no — not on the OAR 410-172-0760 list.',
         status: 'verified',
         cites: [S.psABA, S.oar0760],
       },
@@ -793,9 +796,9 @@ export const oregonPayers: Record<string, PayerConfig> = {
     family: 'careoregon',
     cardDesc: 'Jackson County CCO (CareOregon): ABA assessments approved without clinical documentation; treatment PA with a full plan; 7-day decisions.',
     assessmentPA: {
-      value: 'An authorization is submitted, but CareOregon approves ABA assessment requests for JCC members "without the requirement of clinical documentation" (submit via Connect)',
+      value: 'An authorization is submitted, but CareOregon approves ABA assessment requests for JCC members "without the requirement of clinical documentation" (submit via Connect) CareOregon\'s October 22, 2026 provider update: since August 7, 2026 the Connect Behavioral Health Template has a separate "ABA Assessment" service type — "ABA Assessment CPT codes are 97151 and 97152" — used "for a formal assessment conducted to initiate ABA treatment for a new or returning patient"; "Approved assessment requests are valid for 365 days while treatment authorizations are typically approved for no more than six months." Fax is allowed only on an exception form from Provider Customer Service (800-224-4840, option 3).',
       status: 'verified',
-      cites: [S.coUM],
+      cites: [S.coUM, S.coABA2026],
     },
     treatmentPA: {
       value: 'Yes, via CareOregon Connect or fax, with a comprehensive treatment plan and units for a six-month authorization; JCC also posts an ABA treatment authorization form',
@@ -849,7 +852,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       { title: 'Age and hours', desc: 'Age 13+ or more than 25 hours a week triggers Medical Director review.' },
       { title: 'Other insurance', desc: 'Bill commercial coverage first; OHP is the payer of last resort.' },
     ],
-    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.coUM, S.jccForms, S.abaForm, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, { title: 'Jackson Care Connect — Provider updates (provider notices archive)', url: 'https://jacksoncareconnect.org/providers/provider-updates' }],
+    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.coUM, S.jccForms, S.abaForm, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, { title: 'Jackson Care Connect — Provider updates (provider notices archive)', url: 'https://jacksoncareconnect.org/providers/provider-updates' }, S.coABA2026],
     deliveryRules: {
       supervision: {
         value: 'CareOregon publishes no ABA supervision ratio, so the state rule applies. ' + STATE_SUPERVISION,
@@ -898,7 +901,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
         cites: [S.coUM, S.abaForm],
       },
       diagnosingProviders: {
-        value: 'An MD, DO, PhD or PsyD.',
+        value: 'An MD, DO, PhD or PsyD. LCSW: no — an LCSW is not an MD, DO, PhD or PsyD.',
         status: 'verified',
         cites: [S.coUM],
       },
@@ -941,9 +944,9 @@ export const oregonPayers: Record<string, PayerConfig> = {
     family: 'careoregon',
     cardDesc: 'Clatsop/Columbia/Tillamook CCO (CareOregon): ABA assessments approved without clinical documentation; treatment PA; 7-day decisions.',
     assessmentPA: {
-      value: 'An authorization is submitted, but CareOregon approves ABA assessment requests for CPCCO members "without the requirement of clinical documentation" (submit via Connect)',
+      value: 'An authorization is submitted, but CareOregon approves ABA assessment requests for CPCCO members "without the requirement of clinical documentation" (submit via Connect) CareOregon\'s October 22, 2026 provider update: since August 7, 2026 the Connect Behavioral Health Template has a separate "ABA Assessment" service type — "ABA Assessment CPT codes are 97151 and 97152" — used "for a formal assessment conducted to initiate ABA treatment for a new or returning patient"; "Approved assessment requests are valid for 365 days while treatment authorizations are typically approved for no more than six months." Fax is allowed only on an exception form from Provider Customer Service (800-224-4840, option 3).',
       status: 'verified',
-      cites: [S.coUM],
+      cites: [S.coUM, S.coABA2026],
     },
     treatmentPA: {
       value: 'Yes, via CareOregon Connect or fax, with a comprehensive treatment plan and units for a six-month authorization; CPCCO also posts an ABA treatment authorization form',
@@ -997,7 +1000,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       { title: 'Age and hours', desc: 'Age 13+ or more than 25 hours a week triggers Medical Director review.' },
       { title: 'Other insurance', desc: 'Bill commercial coverage first; OHP is the payer of last resort.' },
     ],
-    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.coUM, S.cpForms, S.abaForm, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, { title: 'Columbia Pacific CCO — Provider updates (provider notices archive)', url: 'https://colpachealth.org/providers/provider-updates' }],
+    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.coUM, S.cpForms, S.abaForm, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, { title: 'Columbia Pacific CCO — Provider updates (provider notices archive)', url: 'https://colpachealth.org/providers/provider-updates' }, S.coABA2026],
     deliveryRules: {
       supervision: {
         value: 'CareOregon publishes no ABA supervision ratio, so the state rule applies. ' + STATE_SUPERVISION,
@@ -1046,7 +1049,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
         cites: [S.coUM],
       },
       diagnosingProviders: {
-        value: 'An MD, DO, PhD or PsyD.',
+        value: 'An MD, DO, PhD or PsyD. LCSW: no — an LCSW is not an MD, DO, PhD or PsyD.',
         status: 'verified',
         cites: [S.coUM],
       },
@@ -1194,7 +1197,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
         cites: [S.ihnUM, S.oar0770],
       },
       diagnosingProviders: {
-        value: 'IHN publishes nothing different, so the OHP rule applies: a physician, psychologist, or developmental-medicine NP or PA experienced in autism (OAR 410-172-0770(1), 0760(1)).',
+        value: 'IHN publishes nothing different, so the OHP rule applies: a physician, psychologist, or developmental-medicine NP or PA experienced in autism (OAR 410-172-0770(1), 0760(1)). LCSW: no — not on the OHP list (OAR 410-172-0760(1)).',
         status: 'verified',
         cites: [S.ihnUM, S.oar0770, S.oar0760],
       },
@@ -1238,11 +1241,9 @@ export const oregonPayers: Record<string, PayerConfig> = {
     family: 'umpqua-health',
     cardDesc: 'Douglas County CCO: ABA on its behavioral health PA list with six-month authorizations; InterQual plus the Prioritized List; 90-day retro window.',
     assessmentPA: {
-      value: 'Not settled by the FAQ: it lists Applied Behavior Analysis among behavioral health services requiring PA, and code-level rules sit in the online Prior Authorization Grid',
-      status: 'unverified',
-      cites: [S.uhaFAQ],
-      verifyVia: 'Umpqua Health Alliance Prior Authorization Grid (umpquahealth.com/prior_authorizations) for 97151 and 97152, or 541-672-1685 / PriorAuthorizations@umpquahealth.com.',
-      blocker: 'document',
+      value: 'Split by code. Umpqua\'s MH/SUD Prior Authorization Grid (December 2025) marks 97151 (behavior identification assessment by the QHP) "PA Not Required: For any provider," but 97152 (technician-administered supporting assessment) "PA Required: For all providers," as are 97153–97158. Requests go to PriorAuthorizations@umpquahealth.com, fax 541-677-5881',
+      status: 'verified',
+      cites: [S.uhaGrid, S.uhaFAQ],
     },
     treatmentPA: {
       value: 'Yes: ABA is listed as an in-network behavioral health service requiring PA, authorized for six months at a time',
@@ -1295,7 +1296,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       { title: 'Rate expectation', desc: 'Requests without a stated rate are reviewed at the OHA (DMAP) rate; ask for an SFA/SCA if you need more.' },
       { title: 'Other insurance', desc: 'If commercial is primary and its auth rules are met, Umpqua does not require its own PA.' },
     ],
-    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.uhaFAQ, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, S.gn, { title: 'Umpqua Health Alliance — Provider Newsletter (UHA Connection archive)', url: 'https://www.umpquahealth.com/providers/provider-resources/provider-newsletter/' }],
+    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.uhaFAQ, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, S.gn, { title: 'Umpqua Health Alliance — Provider Newsletter (UHA Connection archive)', url: 'https://www.umpquahealth.com/providers/provider-resources/provider-newsletter/' }, S.uhaGrid],
     deliveryRules: {
       supervision: {
         value: 'Umpqua publishes no ABA supervision rule, so the state rule applies. ' + STATE_SUPERVISION,
@@ -1346,7 +1347,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
         cites: [S.uhaFAQ, S.oar0770],
       },
       diagnosingProviders: {
-        value: 'Umpqua publishes nothing different, so the OHP rule applies: a physician, psychologist, or developmental-medicine NP or PA experienced in autism (OAR 410-172-0770(1), 0760(1)).',
+        value: 'Umpqua publishes nothing different, so the OHP rule applies: a physician, psychologist, or developmental-medicine NP or PA experienced in autism (OAR 410-172-0770(1), 0760(1)). LCSW: no — not on the OHP list (OAR 410-172-0760(1)).',
         status: 'verified',
         cites: [S.uhaFAQ, S.oar0770, S.oar0760],
       },
@@ -1496,7 +1497,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
         cites: [S.eoPM, S.oar0770],
       },
       diagnosingProviders: {
-        value: 'An MD, FNP or psychiatrist "with experience in the diagnosis of ASD in children" (GOBHI). OHP’s rule lists a physician, psychologist, or developmental-medicine NP or PA (OAR 410-172-0770(1)).',
+        value: 'An MD, FNP or psychiatrist "with experience in the diagnosis of ASD in children" (GOBHI). OHP’s rule lists a physician, psychologist, or developmental-medicine NP or PA (OAR 410-172-0770(1)). LCSW: no — neither GOBHI\'s list nor the OHP rule names one.',
         status: 'verified',
         cites: [S.eoPM, S.oar0770],
       },
@@ -1642,7 +1643,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
         cites: [S.ycABA, S.oar0770],
       },
       diagnosingProviders: {
-        value: 'YCCO asks for an evaluation "by qualified professional" and cites OAR 410-172-0770, so the OHP rule applies: a physician, psychologist, or developmental-medicine NP or PA experienced in autism.',
+        value: 'YCCO asks for an evaluation "by qualified professional" and cites OAR 410-172-0770, so the OHP rule applies: a physician, psychologist, or developmental-medicine NP or PA experienced in autism. LCSW: no — not on the OHP list (OAR 410-172-0760(1)).',
         status: 'verified',
         cites: [S.ycABA, S.oar0770, S.oar0760],
       },
@@ -1783,7 +1784,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
         cites: [S.chaGrid, S.oar0770],
       },
       diagnosingProviders: {
-        value: 'CHA publishes nothing different, so the OHP rule applies: a physician, psychologist, or developmental-medicine NP or PA experienced in autism (OAR 410-172-0770(1), 0760(1)).',
+        value: 'CHA publishes nothing different, so the OHP rule applies: a physician, psychologist, or developmental-medicine NP or PA experienced in autism (OAR 410-172-0770(1), 0760(1)). LCSW: no — not on the OHP list (OAR 410-172-0760(1)).',
         status: 'verified',
         cites: [S.chaGrid, S.oar0770, S.oar0760],
       },
@@ -1928,7 +1929,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
         cites: [S.ahPM, S.oar0770],
       },
       diagnosingProviders: {
-        value: 'Advanced Health publishes nothing different, so the OHP rule applies: a physician, psychologist, or developmental-medicine NP or PA experienced in autism (OAR 410-172-0770(1), 0760(1)).',
+        value: 'Advanced Health publishes nothing different, so the OHP rule applies: a physician, psychologist, or developmental-medicine NP or PA experienced in autism (OAR 410-172-0770(1), 0760(1)). LCSW: no — not on the OHP list (OAR 410-172-0760(1)).',
         status: 'verified',
         cites: [S.ahPM, S.oar0770, S.oar0760],
       },
@@ -2079,7 +2080,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
         cites: [S.oar0770],
       },
       diagnosingProviders: {
-        value: 'AllCare publishes nothing different, so the OHP rule applies: a physician, psychologist, or developmental-medicine NP or PA experienced in autism (OAR 410-172-0770(1), 0760(1)).',
+        value: 'AllCare publishes nothing different, so the OHP rule applies: a physician, psychologist, or developmental-medicine NP or PA experienced in autism (OAR 410-172-0770(1), 0760(1)). LCSW: no — not on the OHP list (OAR 410-172-0760(1)).',
         status: 'verified',
         cites: [S.oar0770, S.oar0760],
       },
@@ -2220,6 +2221,16 @@ export const oregonPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'Aetna — Applied behavior analysis medical necessity guide (©2026): Termination of coverage', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
       },
+      {
+        h2: 'Network participation, out-of-network referrals and disputes (Aetna)',
+        body: [
+          'Joining the network: Aetna\'s participation criteria for ABA providers require services "provided directly or supervised by individuals licensed by the state or certified by the Behavior Analyst Certification Board as board-certified behavior analysts (BCBAs)"; a BCaBA or paraprofessional works under supervision, BCBAs must meet Aetna credentialing standards, and "All BCBAs, BCaBAs and paraprofessionals must meet state requirements." The criteria do not say the ABA network is open or closed in a given state.',
+          'Out-of-network care and single case agreements: Aetna does not use the term "single case agreement" in these documents. Its behavioral health manual describes a "nonparticipating referral" — "a written or verbal request that we review" — that may be approved when a preferred clinician "isn\'t available in network (and the member\'s plan provides coverage for out-of-network services)," when the member is continuing or returning to treatment with a nonparticipating clinician "in certain circumstances," or when the PCP identifies a nonparticipating expert. Plans without referral requirements let members self-refer to participating or nonparticipating providers, paying their cost share; Aetna Open Access plans let members self-refer to any participating provider.',
+          'Disputes: payment disputes on a finalized claim go through the Availity provider portal ("Dispute Claim" from Claim Status, then the Appeals dashboard, up to five 32 MB attachments) or the Disputes and Appeals page on Aetna.com. The behavioral health manual describes "One level of appeal" for payment decisions; pre-service and concurrent medical-necessity denials go through the member appeal process, and a provider appeal counts as "on behalf of the member" only with the member\'s written authorization. State rules may change the process.',
+          'Authorizations and changing agencies: none of these Aetna documents says whether an ABA precertification is issued to the rendering NPI, the group or the TIN, or whether it moves with the child to a new agency; ask the precertification line on the member\'s card before the first session with the new agency.',
+        ],
+        cites: [{ title: 'Aetna — Provider and facility participation criteria (Applied behavior analyst (ABA) services provider additional criteria; May 2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' }, { title: 'Aetna — Behavioral Health Provider Manual (1158252-01-01, 8/22): nonparticipating referrals; dispute and appeal process', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' }, { title: 'Aetna Health Care Professional Toolkit / provider manual (8102800-01-01, 6/26): Referral policies; Claim disputes and appeals', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Oregon law applies) vs. self-funded ERISA (plan document governs).' },
@@ -2228,7 +2239,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       { title: 'Standardized functional measure', desc: 'Aetna wants one from the past 12 months (e.g., Vineland-3, ABAS, VB-MAPP, ABLLS).' },
       { title: 'Oregon license numbers', desc: 'Behavior analyst license and interventionist registrations for the treating team.' },
     ],
-    sources: [S.aetnaGuide, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.aetnaTele, S.aetnaCPB648, S.ors743A, S.ors743B, S.ors676, S.oar824lic, S.oar824sup, S.hlo, S.bacbLic, S.oar836, S.oar1280, S.erisa, S.cfr433, S.tricare, S.champva, S.fee, { title: 'Aetna — Provider manual (8102800-01-01, 6/26): Referrals, Behavioral health access to care, Clean claims', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }, { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+    sources: [S.aetnaGuide, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.aetnaTele, S.aetnaCPB648, S.ors743A, S.ors743B, S.ors676, S.oar824lic, S.oar824sup, S.hlo, S.bacbLic, S.oar836, S.oar1280, S.erisa, S.cfr433, S.tricare, S.champva, S.fee, { title: 'Aetna — Provider manual (8102800-01-01, 6/26): Referrals, Behavioral health access to care, Clean claims', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }, { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, S.lcswScope, { title: 'Aetna — Behavioral Health Provider Manual (1158252-01-01, 8/22): nonparticipating referrals; dispute and appeal process', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' }],
     deliveryRules: {
       supervision: {
         value: 'Aetna’s Network Participation Criteria (5/26): ABA "must be provided directly or supervised by individuals licensed by the state or certified by the Behavior Analyst Certification Board," supervised staff may be a BCaBA "or a paraprofessional," and Aetna requires "A minimum of one hour of face-to-face supervision" of an unlicensed or noncertified paraprofessional "for each 10 hours of applied behavior analysis," with the supervisor "onsite with the child at least one hour a month." "All BCBAs, BCaBAs and paraprofessionals must meet state requirements," which in Oregon include licensure or interventionist registration and the 5 percent supervision floor in OAR 824-040-0010.',
@@ -2279,9 +2290,9 @@ export const oregonPayers: Record<string, PayerConfig> = {
         cites: [S.aetnaGuide],
       },
       diagnosingProviders: {
-        value: 'An appropriate provider: a licensed psychologist or psychiatrist, physician, or other professional qualified to diagnose within scope. For fully insured Oregon plans the mandate covers diagnosis by a licensed neurologist, pediatric neurologist, developmental pediatrician, psychiatrist or psychologist experienced in ASD, and lets the insurer require re-diagnosis by one of them.',
+        value: 'An appropriate provider: a licensed psychologist or psychiatrist, physician, or other professional qualified to diagnose within scope. For fully insured Oregon plans the mandate covers diagnosis by a licensed neurologist, pediatric neurologist, developmental pediatrician, psychiatrist or psychologist experienced in ASD, and lets the insurer require re-diagnosis by one of them. LCSW: Aetna\'s own scope-of-practice test lets an LCSW diagnose (Oregon puts "diagnosis" inside clinical social work (ORS 675.510(2)(a))). For fully insured Oregon plans the mandate\'s list (neurologist, pediatric neurologist, developmental pediatrician, psychiatrist, psychologist) has no LCSW, and the insurer may require re-diagnosis by one of them.',
         status: 'verified',
-        cites: [S.aetnaGuide, S.ors743A],
+        cites: [S.aetnaGuide, S.ors743A, S.lcswScope],
       },
       diagnosticTools: {
         value: 'CPB 0648 names ADI-R, ADOS-2, CARS-2 and the Asperger Syndrome Diagnostic Scale; the ABA guide requires a standardized functional measure from the past 12 months (Vineland-3, ABAS, VB-MAPP or ABLLS as examples).',
@@ -2316,6 +2327,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Will Aetna approve an out-of-network ABA provider?', a: 'Possibly, through a "nonparticipating referral" that Aetna reviews — for example when the needed clinician "isn\'t available in network (and the member\'s plan provides coverage for out-of-network services)" or the child is continuing treatment with a nonparticipating clinician. Aetna\'s manuals do not describe a single case agreement program by name.' },
       { q: 'Does Aetna require graphs for ABA reassessments?', a: 'Aetna’s guide requires a progress evaluation every six months but does not prescribe graphs; send measurable progress against each goal and the standardized scores its termination criteria use.' },
       { q: 'What is Aetna’s timely filing limit for ABA claims, and when does it pay?', a: 'Aetna publishes no numeric filing limit; it comes from your Aetna agreement or state law. COB, corrected and voided claims go through Availity; no weekly payment cutoff is published.' },
       { q: 'Does Aetna cover ABA therapy in Oregon?', a: 'Yes, for ASD under its national ABA guide, with Oregon’s ABA mandate and ORS 743A.168 parity layered on for state-regulated plans. Self-funded employer plans follow their own documents.' },
@@ -2418,6 +2430,16 @@ export const oregonPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'Evernorth Coverage Policy EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026): Criteria for Continued Treatment with ABA', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
       },
+      {
+        h2: 'Network, out-of-network benefits, billing credentials and payment appeals (Evernorth)',
+        body: [
+          'Who may deliver and who may bill (Evernorth\'s ABA code table): 97151, 97155, 97156, 97157, 97158, 0362T and 0373T are provided and billed by a BCBA-D, BCBA or licensed mental health provider; 97152, 97153 and 97154 may be provided by a BCaBA or technician but are billed by the BCBA-D, BCBA or licensed mental health provider. "All ABA services must be billed with CPT codes 97151–97158, 0362T, and 0373T ONLY." Evernorth\'s guide names no HM/HN/HO credential modifiers.',
+          'Joining the network: Evernorth says it "is committed to expanding our network of autism providers." Individuals file the Evernorth Behavioral Provider Information Form; autism clinics and large groups file the Screening Application for Autism Clinics; "It may take up to 90 days for an application to be processed," and after the clinic contract each certified or licensed provider must be credentialed, "an additional 60 to 90 days." "Providers must be fully credentialed to render in-network services." A departing provider or roster change goes to Provider Services (800.926.2273) or the Clinic Location Changes form.',
+          'Out-of-network: it depends on the product. HMO, HMO Open Access, Cigna Connect and OAP In-Network plans cover in-network care only (emergencies aside); POS and Open Access Plus plans cover out-of-network services at a reduced benefit level. Evernorth\'s guidelines publish no single case agreement process; a family without out-of-network benefits needs an in-network provider, and Evernorth\'s care managers email in-network providers near the family to find an opening.',
+          'Payment disputes: call Provider Services first; then appeal "in writing within 180 calendar days of the date of the initial payment or denial decision" (or of the last adjustment). Fee-schedule and reimbursement disputes can go through the reconsideration feature on Provider.Evernorth.com. Medical necessity appeals should include the clinical record; untimely-filing appeals need proof of timely submission or of a COB delay. "Most appeals are resolved within 60 calendar days," with notice within 75 days unless state law differs. Some out-of-network providers must attach a patient-signed Appointment of Representative form.',
+        ],
+        cites: [{ title: 'Cigna / Evernorth autism resource guide for behavioral health providers (PCOMM-2025-225, March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026): plan types, Joining the network, Provider payment appeals', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Oregon law and the Evernorth Oregon addendum apply) vs. self-funded ERISA.' },
@@ -2426,7 +2448,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       { title: 'Other therapies schedule', desc: 'Cigna will not pay ABA delivered at the same time as speech or OT.' },
       { title: 'Oregon license numbers', desc: 'Behavior analyst license and interventionist registrations for the team.' },
     ],
-    sources: [{ title: 'Evernorth Coverage Policy EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026): Criteria for Continued Treatment with ABA', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, S.en0499, S.ebhAdmin, S.ors743A, S.ors743B, S.ors676, S.oar824lic, S.oar824sup, S.hlo, S.bacbLic, S.oar836, S.oar1280, S.erisa, S.cfr433, S.tricare, S.champva, S.fee, { title: 'Cigna/Evernorth Autism Resource Guide (PCOMM-2025-225, March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }],
+    sources: [{ title: 'Evernorth Coverage Policy EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026): Criteria for Continued Treatment with ABA', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, S.en0499, S.ebhAdmin, S.ors743A, S.ors743B, S.ors676, S.oar824lic, S.oar824sup, S.hlo, S.bacbLic, S.oar836, S.oar1280, S.erisa, S.cfr433, S.tricare, S.champva, S.fee, { title: 'Cigna/Evernorth Autism Resource Guide (PCOMM-2025-225, March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }, S.lcswScope],
     deliveryRules: {
       supervision: {
         value: 'Case supervision by a BCBA, LBA or independently licensed clinician with ABA training, with direct and indirect supervision "consistent with the general accepted standard of care of one to two hours per ten hours of direct treatment," and at least one to two hours a week of direct case supervision when direct treatment is 10 hours a week or less. Direct case supervision means the BCBA is face to face with the patient and the RBT or BCaBA during treatment. In Oregon the interventionist must also be registered and supervised for at least 5 percent of service hours (OAR 824-040-0010).',
@@ -2477,9 +2499,9 @@ export const oregonPayers: Record<string, PayerConfig> = {
         cites: [S.en0499],
       },
       diagnosingProviders: {
-        value: 'A healthcare professional licensed to practice independently whose licensure board considers diagnosis within scope. For fully insured Oregon plans the mandate covers diagnosis by a licensed neurologist, pediatric neurologist, developmental pediatrician, psychiatrist or psychologist experienced in ASD.',
+        value: 'A healthcare professional licensed to practice independently whose licensure board considers diagnosis within scope. For fully insured Oregon plans the mandate covers diagnosis by a licensed neurologist, pediatric neurologist, developmental pediatrician, psychiatrist or psychologist experienced in ASD. LCSW: Evernorth\'s test (independent licence, diagnosis in scope) is met — Oregon puts "diagnosis" inside clinical social work (ORS 675.510(2)(a)). For fully insured Oregon plans the mandate\'s list (neurologist, pediatric neurologist, developmental pediatrician, psychiatrist, psychologist) has no LCSW, and the insurer may require re-diagnosis by one of them.',
         status: 'verified',
-        cites: [S.en0499, S.ors743A],
+        cites: [S.en0499, S.ors743A, S.lcswScope],
       },
       diagnosticTools: {
         value: 'A reliable, valid, standardized instrument measuring the DSM-5-TR ASD domains, completed in its entirety, in its current version ("must be the Vineland-3 vs. Vineland-II"), with date, respondent and form type.',
@@ -2514,6 +2536,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Cigna pay an out-of-network ABA provider?', a: 'Only on plans with out-of-network benefits. Evernorth\'s September 2026 guidelines say HMO, Connect and OAP In-Network plans cover in-network care only, while POS and Open Access Plus plans cover out-of-network services at a reduced benefit level. Evernorth publishes no single case agreement process for ABA; its care managers help families find an in-network provider.' },
       { q: 'Does Cigna require graphs for ABA reassessments?', a: 'Not graphs as such. EN0499 requires dated quantitative baseline, interim and current data (current data no more than 60 days old), an updated plan and a standardized assessment no more than a year old; graphs are a common way to show the data, but the policy does not require them.' },
       { q: 'Does Cigna accept H0031 or H0032 for ABA?', a: 'CPT 97151–97158, 0362T and 0373T only; HCPCS H-codes such as H0031/H0032 are not billable for ABA (Evernorth autism resource guide).' },
       { q: 'What is Cigna’s timely filing limit for ABA claims, and when does it pay?', a: 'Ninety days from the date of service under Evernorth’s administrative guidelines (or your agreement or a longer state-law limit); secondary claims get 90 days from the primary payer’s EOB/EOP date. Corrected claims use frequency code 7 or 8; no weekly payment cutoff is published.' },
@@ -2587,9 +2610,9 @@ export const oregonPayers: Record<string, PayerConfig> = {
         h2: 'Claims, coding and rates',
         body: [
           OR_CLAIMS_BODY,
-          'Optum’s commercial ABA Reimbursement Policy (updated June 2026) requires a credential modifier on every line: HM for an RBT, HN for a BCaBA, HO for a master’s-level BCBA or licensed clinician, HP for a BCBA-D or doctoral-level licensee; indirect work has no separate code and is bundled. It lists maximum units per day (97151 32, 97152 16, 97153 32, 97154 18, 97155 24, 97156–97158 16, 0362T 16, 0373T 32). Optum’s network manual defines the "Fee Maximum" as "The maximum amount a participating provider may be paid for a specific health care service," and says "Reimbursement to clinicians is based upon licensure rather than degree." For a public benchmark, Oregon’s OHP fee-for-service schedule pays 97153 at $14.70 per 15 minutes.',
+          'Optum’s commercial ABA Reimbursement Policy (updated June 2026) requires a credential modifier on every 97151–97158 line (0362T and 0373T are listed as "Additional Autism/Applied Behavior Analysis Codes that do not require modifiers"): HM for an RBT, HN for a BCaBA, HO for a master’s-level BCBA or licensed clinician, HP for a BCBA-D or doctoral-level licensee; indirect work has no separate code and is bundled. It lists maximum units per day (97151 32, 97152 16, 97153 32, 97154 18, 97155 24, 97156–97158 16, 0362T 16, 0373T 32). Optum’s network manual defines the "Fee Maximum" as "The maximum amount a participating provider may be paid for a specific health care service," and says "Reimbursement to clinicians is based upon licensure rather than degree." For a public benchmark, Oregon’s OHP fee-for-service schedule pays 97153 at $14.70 per 15 minutes.',
           'UnitedHealthcare’s ABA claims run through Optum Behavioral Health, whose National Network Manual (effective September 1, 2026) sets the deadlines. "All information necessary to process claims must be received by Optum no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan," and "Any corrections or additions to a claim should be made within 90 days of initial claim receipt." The member may not be billed for a late claim. Payment: claims with all required information and any required authorization "will be paid within 45 calendar days after Optum receives the claim, or as required by state and federal laws," which may exclude claims needing a coordination-of-benefits determination; when Optum is secondary it pays up to the Optum contracted rate. UnitedHealthcare’s 2026 administrative guide adds that a corrected claim (frequency code 7, with the original claim number) must arrive within the same timely-filing limit as the original. No weekly payment cycle or submission cutoff is published.',
-          'Which codes: Optum’s commercial ABA reimbursement policy (2022RP501A, updated June 2026) lists the reimbursable codes for the commercial ABA program as 97151–97158, 0362T and 0373T, each in 15-minute units with a credential modifier (HM, HN, HO or HP); no HCPCS H-code (H0031, H0032, H2014, H2019) is on that list.',
+          'Which codes: Optum’s commercial ABA reimbursement policy (2022RP501A, updated June 2026) lists the reimbursable codes for the commercial ABA program as 97151–97158, 0362T and 0373T, each in 15-minute units; 97151–97158 carry a credential modifier (HM, HN, HO or HP), while 0362T and 0373T are listed as "Additional Autism/Applied Behavior Analysis Codes that do not require modifiers"; no HCPCS H-code (H0031, H0032, H2014, H2019) is on that list.',
         ],
         cites: [{ title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026): reimbursable codes', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): Coordination of Benefits; Timely Filing; Payment Timelines', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial): Timely filing of corrected claims; Subrogation and COB', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, S.ors743B, S.ors743A, S.erisa, S.optumReimb, S.optumNNM, S.fee],
       },
@@ -2622,6 +2645,17 @@ export const oregonPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026): Continued Service Criteria', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
       },
+      {
+        h2: 'Network, single case agreements, authorizations and disputes (Optum)',
+        body: [
+          'Single case agreements: Optum\'s ABA FAQ says an SCA during credentialing is granted "Not automatically. In exception cases, based on clinical need, new business implementations, or other gaps in the network, a SCA may be approved after review with the clinical team." Once an SCA provider becomes contracted, it sends its current member list to its Network Manager to have the authorizations updated. Out-of-network providers bill on the standard Form 1500.',
+          'Joining the network: Optum lists its ABA contracting criteria (a BCBA with state licensure where the state licenses behavior analysts, six months of supervised ABA experience, $1 million/$1 million professional liability for an individual; $1 million/$3 million plus general or supplemental liability for a group). Credentialing "can take from 45 to 120 days after submission of all materials," and every new ABA agency needs an Optum site audit that "can take up to 90 days to schedule." None of these Optum documents says the ABA network is closed to new providers.',
+          'Whose authorization it is: when an agency is credentialed, "their affiliated clinicians are not credentialed but are considered participating under the agency\'s Participation Agreement," but "Any claims submission for a rendering clinician who has not been added to the network is subject to denial." Approvals are issued in code clusters (assessment 97151/97152; direct care 97153/97154; multi-staff 0362T/0373T; QHP services 97155–97158) and units "can shift" within a cluster. Optum publishes no rule on moving an authorization from one agency to another; "All services require prior approval," so a new agency calls the ABA team for its own approval.',
+          'Credential modifiers (commercial ABA program): HM = RBT (less than a bachelor\'s), HN = BCaBA (bachelor\'s), HO = master\'s-level BCBA or licensed mental health provider, HP = BCBA-D or doctoral-level licensee; one provider-level modifier per line. 0362T and 0373T are listed as codes "that do not require modifiers."',
+          'Disputes: network providers follow a 2-step process — Step 1 reconsideration, Step 2 appeal — with "a total of 12 months for submission for both steps" unless state law or the Participation Agreement sets another deadline. Send "member-specific treatment plans, clinical records, payment appendices or other items that support why you believe our decision was incorrect," plus proof the claim was filed on time; mail to Optum Behavioral Health Solutions, P.O. Box 30757, Salt Lake City, UT 84123, or use Provider Express. Non-urgent clinical appeals have a 180-day window.',
+        ],
+        cites: [{ title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' }, { title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): network status of group clinicians; Provider Reconsideration and Appeal Process', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }, { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Oregon law applies) vs. self-funded ERISA (plan document governs).' },
@@ -2629,7 +2663,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       { title: 'Baseline measurement', desc: 'VB-MAPP, ABLLS-R, AFLS, Vineland or similar to justify intensity.' },
       { title: 'Credential per staff member', desc: 'Each claim line needs the right modifier (HM RBT, HN BCaBA, HO BCBA, HP BCBA-D) plus Oregon licensure/registration.' },
     ],
-    sources: [{ title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): Coordination of Benefits; Timely Filing; Payment Timelines', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }, S.optumSCC, S.optumSM, S.optumReimb, S.optumTele, S.optumNNM, S.ors743A, S.ors743B, S.ors676, S.oar824lic, S.oar824sup, S.hlo, S.bacbLic, S.oar836, S.oar1280, S.erisa, S.cfr433, S.tricare, S.champva, S.fee, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial) — services not requiring a referral', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: 'Optum — ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+    sources: [{ title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): Coordination of Benefits; Timely Filing; Payment Timelines', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }, S.optumSCC, S.optumSM, S.optumReimb, S.optumTele, S.optumNNM, S.ors743A, S.ors743B, S.ors676, S.oar824lic, S.oar824sup, S.hlo, S.bacbLic, S.oar836, S.oar1280, S.erisa, S.cfr433, S.tricare, S.champva, S.fee, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial) — services not requiring a referral', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: 'Optum — ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, S.lcswScope, { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' }],
     deliveryRules: {
       supervision: {
         value: 'Consistent with CASP standards, direct case supervision is required 1–2 hours for every 10 hours of direct treatment per week. Technicians work under a BCBA or licensed behavioral health clinician and should be RBTs or otherwise certified "as allowable by state mandate"; Optum does not recommend parents serving as their own child’s RBT. In Oregon, interventionists must also be registered and supervised for at least 5 percent of service hours (OAR 824-040-0010).',
@@ -2678,9 +2712,9 @@ export const oregonPayers: Record<string, PayerConfig> = {
         cites: [S.optumSCC],
       },
       diagnosingProviders: {
-        value: 'A state-licensed physician, psychologist or other state-licensed clinician qualified to diagnose under DSM-5-TR. For fully insured Oregon plans the mandate covers diagnosis by a licensed neurologist, pediatric neurologist, developmental pediatrician, psychiatrist or psychologist experienced in ASD.',
+        value: 'A state-licensed physician, psychologist or other state-licensed clinician qualified to diagnose under DSM-5-TR. For fully insured Oregon plans the mandate covers diagnosis by a licensed neurologist, pediatric neurologist, developmental pediatrician, psychiatrist or psychologist experienced in ASD. LCSW: Optum\'s test (state-licensed clinician qualified to diagnose) is met — Oregon puts "diagnosis" inside clinical social work (ORS 675.510(2)(a)). For fully insured Oregon plans the mandate\'s list (neurologist, pediatric neurologist, developmental pediatrician, psychiatrist, psychologist) has no LCSW, and the insurer may require re-diagnosis by one of them.',
         status: 'verified',
-        cites: [S.optumSCC, S.ors743A],
+        cites: [S.optumSCC, S.ors743A, S.lcswScope],
       },
       diagnosticTools: {
         value: 'At least one clinically validated tool from a non-exhaustive list: first-level screens (ABC, M-CHAT and others), second-level tools (CARS/CARS-2, RITA-T, STAT), and formal diagnostic tools (ADI-R, ADOS/ADOS-2, DISCO).',
@@ -2715,6 +2749,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare / Optum give single case agreements for ABA?', a: 'Not automatically. Optum\'s ABA FAQ says an SCA may be approved "In exception cases, based on clinical need, new business implementations, or other gaps in the network" after review with the clinical team. Credentialing takes 45 to 120 days, and new agencies also need a site audit.' },
       { q: 'Does UnitedHealthcare require graphs for ABA reassessments?', a: 'Optum’s criteria require updated progress data in the same measures used at baseline (mastery rates, change scores, updated standardized adaptive measures) at every continued review; they do not require graphs as such.' },
       { q: 'Does UnitedHealthcare accept H0031 or H0032 for ABA?', a: 'Optum’s commercial ABA reimbursement policy lists only CPT 97151–97158, 0362T and 0373T as reimbursable ABA codes, each with a credential modifier; no H-code (H0031, H0032, H2014, H2019) is on the list.' },
       { q: 'What is UnitedHealthcare’s timely filing limit for ABA claims, and when does it pay?', a: 'Optum requires everything needed to process the claim within 90 calendar days of the date of service and corrections within 90 days of first receipt; clean, authorized claims are paid within 45 calendar days or as state law requires. No weekly payment cutoff is published.' },
@@ -2802,7 +2837,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       { title: 'Prior ABA provider', desc: 'Last date of service and reason for discharge, if switching agencies.' },
       { title: 'Oregon license numbers', desc: 'Behavior analyst license and interventionist registrations for the team.' },
     ],
-    sources: [S.regBH18, S.regBH33, S.ors743A, S.ors743B, S.ors676, S.oar824lic, S.oar824sup, S.hlo, S.bacbLic, S.oar836, S.oar1280, S.erisa, S.cfr433, S.tricare, S.champva, S.fee, { title: 'Regence — The Connection provider newsletter (issue archive)', url: 'https://www.regence.com/provider/library/newsletters' }],
+    sources: [S.regBH18, S.regBH33, S.ors743A, S.ors743B, S.ors676, S.oar824lic, S.oar824sup, S.hlo, S.bacbLic, S.oar836, S.oar1280, S.erisa, S.cfr433, S.tricare, S.champva, S.fee, { title: 'Regence — The Connection provider newsletter (issue archive)', url: 'https://www.regence.com/provider/library/newsletters' }, S.lcswScope],
     deliveryRules: {
       supervision: {
         value: 'BCBAs and BCBA-Ds are independently qualified; BCaBAs "must work under the supervision of a BCBA or BCBA-D"; behavior technicians and RBTs "must be under the ongoing supervision of a BCBA, BCBA-D, or qualified supervisor," all per the BACB code. The ITP must justify the hours per week of direct face-to-face supervision. In Oregon, interventionists must also be registered and supervised for at least 5 percent of service hours (OAR 824-040-0010).',
@@ -2857,9 +2892,9 @@ export const oregonPayers: Record<string, PayerConfig> = {
         cites: [S.regBH18],
       },
       diagnosingProviders: {
-        value: 'A qualified treating health care professional "(e.g. pediatrician, pediatric neurologist, developmental pediatrician, psychologist), as defined by state law." For fully insured Oregon plans the mandate lists a licensed neurologist, pediatric neurologist, developmental pediatrician, psychiatrist or psychologist experienced in ASD, and lets the insurer require re-diagnosis by one of them.',
+        value: 'A qualified treating health care professional "(e.g. pediatrician, pediatric neurologist, developmental pediatrician, psychologist), as defined by state law." For fully insured Oregon plans the mandate lists a licensed neurologist, pediatric neurologist, developmental pediatrician, psychiatrist or psychologist experienced in ASD, and lets the insurer require re-diagnosis by one of them. LCSW: not among Regence\'s examples; "as defined by state law" — Oregon puts "diagnosis" inside clinical social work (ORS 675.510(2)(a)) — but Regence also requires a professional experienced in diagnosing autism. For fully insured Oregon plans the mandate\'s list (neurologist, pediatric neurologist, developmental pediatrician, psychiatrist, psychologist) has no LCSW, and the insurer may require re-diagnosis by one of them.',
         status: 'verified',
-        cites: [S.regBH33, S.ors743A],
+        cites: [S.regBH33, S.ors743A, S.lcswScope],
       },
       diagnosticTools: {
         value: 'No named diagnostic instrument. BH18 requires current functioning measured with objective measurements and at least one standardized assessment (examples: SRS-2, Vineland-3, ABAS-3, SSIS, BRIEF-2, PDDBI); curriculum-based tools such as VB-MAPP, ABLLS-R and AFLS guide planning.',

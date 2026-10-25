@@ -405,6 +405,15 @@ export const michiganPayers: Record<string, PayerConfig> = {
           { title: 'MDHHS Bureau of Specialty Behavioral Health Services — Telemedicine Database (entries effective June 1, 2026; revision log through 6/15/26)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/Bureau_of_Specialty_Behavioral_Health_Services-Telemedicine_Database.pdf' },
         ],
       },
+      {
+        h2: 'Out-of-network ABA when the network has no provider',
+        body: [
+          'The federal managed care rule covers this PIHP. When the network “is unable to provide necessary services, covered under the contract, to a particular enrollee,” the PIHP “must adequately and timely cover these services out of network for the enrollee, for as long as” the network cannot provide them. It must require the out-of-network provider “to coordinate with the MCO, PIHP, or PAHP for payment,” and the family’s cost must be no greater than in network (42 CFR 438.206(b)(4)–(5)). DWIHN’s own out-of-network or single-case-agreement procedure and rate were not reviewed for this guide. Ask its utilization management or provider network team for an out-of-network authorization and the rate before the first session.',
+        ],
+        cites: [
+          { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
+        ],
+      },
     ],
     collect: [
       { title: 'Wayne County residence + Medicaid ID', desc: 'DWIHN serves Wayne County; Access checks insurance status on the first call.' },
@@ -425,6 +434,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
       { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
       { title: 'DWIHN — Provider Newsletter (Provider Network News + Provider Announcements 2025-2026)', url: 'https://dwihn.org/provider-resources/provider-newsletter' },
+      { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
     ],
     deliveryRules: {
       supervision: {
@@ -679,6 +689,15 @@ export const michiganPayers: Record<string, PayerConfig> = {
           { title: 'MDHHS Bureau of Specialty Behavioral Health Services — Telemedicine Database (entries effective June 1, 2026; revision log through 6/15/26)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/Bureau_of_Specialty_Behavioral_Health_Services-Telemedicine_Database.pdf' },
         ],
       },
+      {
+        h2: 'Out-of-network ABA when the network has no provider',
+        body: [
+          'The federal managed care rule covers this PIHP. When the network “is unable to provide necessary services, covered under the contract, to a particular enrollee,” the PIHP “must adequately and timely cover these services out of network for the enrollee, for as long as” the network cannot provide them. It must require the out-of-network provider “to coordinate with the MCO, PIHP, or PAHP for payment,” and the family’s cost must be no greater than in network (42 CFR 438.206(b)(4)–(5)). Oakland Community Health Network’s own out-of-network or single-case-agreement procedure and rate were not reviewed for this guide. Ask its utilization management or provider network team for an out-of-network authorization and the rate before the first session.',
+        ],
+        cites: [
+          { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
+        ],
+      },
     ],
     collect: [
       { title: 'Oakland County residence + Medicaid ID', desc: 'OCHN Access verifies eligibility at screening.' },
@@ -698,6 +717,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
       { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
       { title: 'OCHN — News & Information archive', url: 'https://oaklandchn.org/category/news-and-information/' },
+      { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
     ],
     deliveryRules: {
       supervision: {
@@ -952,6 +972,15 @@ export const michiganPayers: Record<string, PayerConfig> = {
           { title: 'MCCMH MCO Policy 7-010 — Finance: Claims Process (dated 03/27/2019; posted in MCCMH’s policy manual)', url: 'https://www.mccmh.net/wp-content/uploads/PolicyManual/7%20Financial%20Procedures/7-010%20Claims%20Process%20Policy.pdf' },
         ],
       },
+      {
+        h2: 'Out-of-network ABA when the network has no provider',
+        body: [
+          'The federal managed care rule covers this PIHP. When the network “is unable to provide necessary services, covered under the contract, to a particular enrollee,” the PIHP “must adequately and timely cover these services out of network for the enrollee, for as long as” the network cannot provide them. It must require the out-of-network provider “to coordinate with the MCO, PIHP, or PAHP for payment,” and the family’s cost must be no greater than in network (42 CFR 438.206(b)(4)–(5)). Macomb County Community Mental Health’s own out-of-network or single-case-agreement procedure and rate were not reviewed for this guide. Ask its utilization management or provider network team for an out-of-network authorization and the rate before the first session.',
+        ],
+        cites: [
+          { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
+        ],
+      },
     ],
     collect: [
       { title: 'Medical exam within the past year', desc: 'Must show further ASD testing is needed and that hearing and vision were checked; MCCMH will not schedule the evaluation without it.' },
@@ -970,6 +999,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { title: '42 CFR 438.210 — Coverage and authorization of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' },
       { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
       { title: 'MCCMH — CMO Updates (Chief Medical Officer clinical updates and memorandums index)', url: 'https://www.mccmh.net/cmo-updates/' },
+      { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
     ],
     deliveryRules: {
       supervision: {
@@ -1213,6 +1243,15 @@ export const michiganPayers: Record<string, PayerConfig> = {
           { title: '42 CFR 438.210 — Coverage and authorization of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' },
         ],
       },
+      {
+        h2: 'Out-of-network ABA when the network has no provider',
+        body: [
+          'The federal managed care rule covers this PIHP. When the network “is unable to provide necessary services, covered under the contract, to a particular enrollee,” the PIHP “must adequately and timely cover these services out of network for the enrollee, for as long as” the network cannot provide them. It must require the out-of-network provider “to coordinate with the MCO, PIHP, or PAHP for payment,” and the family’s cost must be no greater than in network (42 CFR 438.206(b)(4)–(5)). Mid-State Health Network’s own out-of-network or single-case-agreement procedure and rate were not reviewed for this guide. Ask its utilization management or provider network team for an out-of-network authorization and the rate before the first session.',
+        ],
+        cites: [
+          { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
+        ],
+      },
     ],
     collect: [
       { title: 'County of residence', desc: 'Decides which of MSHN’s 12 CMHSPs handles the referral.' },
@@ -1236,6 +1275,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
       { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
       { title: 'MSHN — News (monthly MSHN newsletters and notices)', url: 'https://midstatehealthnetwork.org/stakeholders-resources/about-us/news' },
+      { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
     ],
     deliveryRules: {
       supervision: {
@@ -1478,6 +1518,15 @@ export const michiganPayers: Record<string, PayerConfig> = {
           { title: 'MDHHS Bureau of Specialty Behavioral Health Services — Telemedicine Database (entries effective June 1, 2026; revision log through 6/15/26)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/Bureau_of_Specialty_Behavioral_Health_Services-Telemedicine_Database.pdf' },
         ],
       },
+      {
+        h2: 'Out-of-network ABA when the network has no provider',
+        body: [
+          'The federal managed care rule covers this PIHP. When the network “is unable to provide necessary services, covered under the contract, to a particular enrollee,” the PIHP “must adequately and timely cover these services out of network for the enrollee, for as long as” the network cannot provide them. It must require the out-of-network provider “to coordinate with the MCO, PIHP, or PAHP for payment,” and the family’s cost must be no greater than in network (42 CFR 438.206(b)(4)–(5)). Southwest Michigan Behavioral Health’s own out-of-network or single-case-agreement procedure and rate were not reviewed for this guide. Ask its utilization management or provider network team for an out-of-network authorization and the rate before the first session.',
+        ],
+        cites: [
+          { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
+        ],
+      },
     ],
     collect: [
       { title: 'County of residence', desc: 'Picks which of SWMBH’s eight CMHSPs runs the screening and evaluation.' },
@@ -1496,6 +1545,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
       { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
       { title: 'SWMBH — Newsletters (Provider Newsletters archive)', url: 'https://www.swmbh.org/news-events/newsletters-from-southwest-michigan-behavioral-health/' },
+      { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
     ],
     deliveryRules: {
       supervision: {
@@ -2617,7 +2667,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
-          { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+          { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/20/2026)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
           { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
           { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
         ],
@@ -2648,13 +2698,29 @@ export const michiganPayers: Record<string, PayerConfig> = {
         h2: 'How fast must Aetna pay a clean ABA claim in Michigan?',
         body: [
           'Michigan’s prompt-pay statute, MCL 500.2006(8), governs insured health plans (it excludes administrative-services-only arrangements): "A clean claim must be paid within 45 days after receipt of the claim by the health plan," with 12% simple annual interest after that; the plan must flag defects within 30 days, and the provider gets 45 days to fix them. A provider "must bill a health plan within 1 year after the date of service" for the claim to be a clean claim.',
-          'Aetna disputes run in two steps: a reconsideration "within 180 calendar days of the initial claim decision," then an appeal "within 60 calendar days of the reconsideration decision," with a written decision within 60 business days. Aetna’s manual sets no fixed timely-filing number: a clean claim is one "received in a timely manner," and the deadline comes from the participation agreement or state law.',
+          'Aetna disputes run in two steps: a reconsideration "within 180 calendar days of the initial claim decision," then an appeal "within 60 calendar days of the reconsideration decision," with a written decision within 60 calendar days of receiving the appeal. Aetna’s manual sets no fixed timely-filing number: a clean claim is one "received in a timely manner," and the deadline comes from the participation agreement or state law.',
         ],
         cites: [
           { title: 'MCL 500.2006 — timely payment of claims (Michigan Insurance Code)', url: 'https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-500-2006' },
           { title: 'Aetna — Provider manual (8102800-01-01, 6/26): Clean claims; Disagree with a claim decision?', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
           { title: 'Aetna — Disputes and appeals overview (reconsideration and appeal time frames)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' },
           { title: 'Aetna — Provider appeals: state exceptions to the 180-day dispute filing standard', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/provider-appeals.html' },
+        ],
+      },
+      {
+        h2: 'Out-of-network ABA, reconsiderations, the precertification form and billing credentials (Aetna)',
+        body: [
+          'Single case agreements and out-of-network care. Aetna publishes no single-case-agreement policy for ABA. Its provider manual (6/26) describes two routes instead. An out-of-network referral is “a written or oral request that we review”; reasons it may be approved include a preferred professional who “isn’t available in network (and the member’s plan provides coverage for out-of-network services)” and a member “continuing, or returning to, treatment with a nonparticipating health care professional.” Transition of care lets a qualifying member keep “their current out-of-network provider at in-network cost level for a defined period of time,” and the treating provider “must be an individual practitioner” or a home care agency. ABA itself still needs precertification either way. Neither the manual nor the ABA medical necessity guide publishes an out-of-network ABA rate. What a non-participating Michigan provider is paid comes from the member’s plan, so ask Aetna on the member’s benefits line before you start.',
+          'Reconsideration and appeal packet. File a reconsideration “within 180 calendar days of the initial claim decision” and an appeal “within 60 calendar days of the reconsideration decision.” Some cases skip reconsideration and go straight to appeal: denials for no precertification, adverse utilization review decisions and retroactive authorizations. For a reconsideration, send “medical records, office notes and other supporting documents” plus a completed dispute and appeal form or an explanation with the member ID, patient name, TIN, claim ID, dates of service and billed amounts, and the procedure codes and modifiers you are disputing. A valid appeal needs the completed dispute and appeal form, “an explanation identifying the denied codes or payments being disputed,” and the medical records. The manual adds that a written dispute must carry the TIN and NPI billed, the servicing provider, the expected reimbursement and your rationale, or “the original claim decision will be deemed final.” Aetna answers appeals within 60 calendar days. For Michigan, Aetna’s state table sends a mailed reconsideration to Aetna Provider Resolution Team, PO Box 981106, El Paso, TX 79998-1106; written commercial appeals go to Aetna Provider Resolution Team, PO Box 14020, Lexington, KY 40512 (fax 1-859-455-8650). Availity is the fastest route for both.',
+          'Whose authorization is it? The ABA precertification form identifies the requester as the “Provider/Provider Group” by “TIN or PIN number,” with its network status (Participating or Non-Participating) and the service location. It also names who “is supervising/directing the ABA services.” None of Aetna’s ABA documents (the form, the manual or the medical necessity guide) says an approval follows the child to another agency. A practice taking over a case should request its own precertification.',
+          'What the 97151 request must contain. Form GR-69017-4 (7-26) replaced every other Aetna ABA precertification document from August 1, 2026 (“Don’t use this form for Maryland and Massachusetts”). It asks for the DSM-5 diagnosis code and the “Diagnosing Provider (name and credentials)”; hours per authorization period for 97151, 97152 and 0362T; hours per week for each treatment code; and any hours during class. It also asks for the results of a standardized assessment (Vineland, ABAS or VB-MAPP) from the past 12 months, a treatment plan with baseline, interim and current data for every goal, FBA or skills-assessment results, caregiver goals, and titration and discharge criteria. Start the request on Availity or by phone, then attach the form; the form cannot open a request.',
+          'Who may bill which code. Aetna’s ABA medical necessity guide requires that services “be provided directly or billed by licensed behavior analysts (in states with behavior analyst licensure laws), board-certified behavior analysts, or licensed psychologists” where ABA is within their scope, “unless state mandates, plan documents or contracts require otherwise.” Unlicensed or uncertified staff must work under supervision “in line with practice standards.” The guide, the precertification form and the manual set no per-code credential table and define no HM/HN/HO/HP credential modifiers, so modifier use comes from your Aetna agreement.',
+        ],
+        cites: [
+          { title: 'Aetna Provider Manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna — Disputes and appeals overview (reconsideration and appeal time frames)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' },
+          { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
         ],
       },
     ],
@@ -2667,7 +2733,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
     ],
     sources: [
       { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
-      { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+      { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/20/2026)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
       { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
       { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
       { title: 'MCL 500.3406s — autism coverage (Insurance Code), Michigan Legislature', url: 'https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-500-3406s' },
@@ -2682,6 +2748,8 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
       { title: '38 CFR 17.270 — CHAMPVA is the last payer', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
       { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+      { title: 'Aetna Provider Manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+      { title: 'Aetna — Disputes and appeals overview (reconsideration and appeal time frames)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' },
     ],
     deliveryRules: {
       supervision: {
@@ -2779,7 +2847,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
           'CPB 0648 names the diagnostic instruments: ADI-R, ADOS-2, CARS-2 and the Asperger Syndrome Diagnostic Scale. The ABA guide then requires a standardized measure of functioning within the past 12 months (examples: Vineland-3, ABAS, VB-MAPP, ABLLS) showing impairment at least one standard deviation below the mean or a significant risk of harm.',
         status: 'verified',
         cites: [
-          { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+          { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/20/2026)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
           { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
         ],
       },
@@ -2836,6 +2904,9 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { q: 'What is Aetna’s clean-claim payment turnaround in Michigan?', a: 'Within 45 days of receipt for a clean claim on an insured plan (MCL 500.2006(8)), with 12% interest after that. Self-funded plans are not covered.' },
       { q: 'How long do I have to appeal an Aetna claim decision in Michigan?', a: '180 calendar days from the initial claim decision to request a reconsideration, then 60 calendar days from the reconsideration decision to appeal.' },
       { q: 'What documents does Aetna need for an ABA authorization in Michigan?', a: 'Aetna\'s precertification form GR-69017-4 (7-26), which replaced its other ABA forms from August 1, 2026 (Maryland and Massachusetts excepted), lists them. It asks for the current DSM diagnosis code and the diagnosing provider\'s name and credentials, plus hours by code (assessment codes per authorization period, treatment codes per week) and any hours during class. Supporting documents: "Results of a standardized assessment (i.e. Vineland, ABAS, VB-MAPP) completed within the past 12 months," with the IQ if available. Add a time-limited treatment plan with baselines and measurable targets, FBA or skills-assessment results, data showing severity justifies the hours, measurable caregiver goals, titration and discharge criteria, and coordination with other providers. Start the request on Availity or by phone and attach the form and records.' },
+      { q: 'Does Aetna give single case agreements for ABA in Michigan?', a: 'Aetna publishes no single-case-agreement policy. Its provider manual offers an out-of-network referral request (approved, for example, when no in-network professional is available and the plan has out-of-network benefits) and transition of care for a member already in treatment with an out-of-network individual practitioner. ABA still needs precertification.' },
+      { q: 'What should an Aetna ABA reconsideration in Michigan include?', a: 'Medical records and supporting documents, plus a dispute and appeal form or a letter with the member ID, patient name, TIN, claim ID, dates of service, billed amounts, and the codes and modifiers in dispute. File within 180 days of the claim decision; an appeal follows within 60 days of the reconsideration decision.' },
+      { q: 'Is an Aetna ABA authorization in Michigan tied to the BCBA or to the group?', a: 'The precertification form identifies the provider or group by TIN or PIN, with the supervising clinician named separately. Aetna publishes no rule that moves an authorization to another agency, so a new agency requests its own precertification.' },
     ],
   },
 
@@ -2933,6 +3004,22 @@ export const michiganPayers: Record<string, PayerConfig> = {
           { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
         ],
       },
+      {
+        h2: 'Network exceptions, appeals, the PA form and billing credentials (Cigna / Evernorth)',
+        body: [
+          'Network exceptions, the Cigna term for a single case agreement. Evernorth “requires prior authorization for the applied behavior analysis (ABA) level of care, including network exception requests.” Assessment codes normally need no authorization, but “authorization is required for 97151, 97152, or 0362T when requesting a network exception.” The request goes on the ABA prior authorization form (07/26) to ABA@Evernorth.com (preferred) or fax 860.687.9230. Product type matters: Evernorth’s guidelines say “HMO plans offer in-network coverage only” while “POS plans offer in- and out-of-network coverage,” and Cigna Connect covers out-of-network providers only for emergencies and “special circumstances.” On the HMO, SureFit and Cigna Connect products the guidelines describe, “Referrals are not required for behavioral health services.” Michigan adds a network wrinkle: under the Priority Health alliance (effective January 1, 2021), Lower Peninsula providers “must be contracted through Priority Health to be considered in network for patients with a Priority Health ID card,” and “must be contracted through Evernorth to be considered in network for patients with Cigna Healthcare coverage.” Evernorth publishes no out-of-network ABA rate; the member’s plan sets it.',
+          'Appeals packet. Evernorth wants every appeal “in writing within 180 calendar days of the date of the initial payment or denial decision,” or within 180 days of the last payment adjustment. Each appeal must be submitted by a person, not by automation software. Rate and fee-schedule disputes “may be quickly resolved through submitting an adjustment request via the reconsideration feature on Provider.Evernorth.com.” Contract-rate appeals can be faxed to 877.804.1679 or mailed to Cigna Healthcare, PO Box 188062, Chattanooga, TN 37422, unless your agreement says otherwise. For medical-necessity denials, send the clinical information; Evernorth “strongly encourage[s] the submission of clinical information prior to the peer-to-peer review or appeal process.” An out-of-network provider may also need “a valid Appointments of Representative form signed by the patient” for a standard appeal to count, so confirm on the number on the ID card.',
+          'Whose authorization is it? The prior authorization form identifies the “Servicing clinic” by name, Taxpayer Identification Number (TIN) and servicing address, then the supervising provider and their credential, and asks whether the same provider will supervise the whole treatment. An approval “will be written on a per month basis with CPT code 97155” and can be interchanged with 97153–97158 and 0373T. EN0499 adds that ABA from “multiple ABA provider organizations/agencies/companies during the same authorization period” is not medically necessary unless the agencies document a coordination plan, consistent strategies and a combined intensity that fits. So a switching family’s new agency needs its own authorization.',
+          'What the assessment must contain. Standard 97151, 97152 and 0362T need no prior authorization when a BCBA or independently licensed provider bills with an ASD diagnosis. The report still has to meet EN0499 when treatment is requested. It must use a standardized instrument in its current edition (“must be the Vineland-3 vs. Vineland-II”), completed in full, with the date, the respondent and the form type. It must include “Standardized scores and score tables, and/or scoring grids/figures.” Administration must fall “within 60 days prior to the start of treatment,” with dated quantitative baseline data from the same window. It must also name the diagnosing clinician, their credentials and the date of the diagnosis.',
+          'Who may bill which code. Evernorth’s ABA billing-code table: 97151, 0362T, 97155, 97156, 97157, 97158 and 0373T are both provided and billed by a “BCBA-D, BCBA, or licensed mental health provider.” 97152, 97153 and 97154 may be provided by a “BCaBA, Technician” but are billed by the BCBA-D, BCBA or licensed provider. Evernorth’s code table, PA form and administrative guidelines define no HM/HN/HO/HP credential modifiers.',
+        ],
+        cites: [
+          { title: 'Evernorth — Applied Behavior Analysis Prior Authorization Form (07/26)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/applied-behavior-analysis.pdf' },
+          { title: 'Evernorth — Billing Codes for Applied Behavior Analysis', url: 'https://static.evernorth.com/assets/evernorth/provider/resourceLibrary/behavioralResources/doingBusinessWithUs/cbhDBwCBillingCodesForABA.html' },
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+          { title: 'Evernorth Coverage Policy EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Michigan mandate) vs. self-funded ERISA (exempt); Cigna’s Coverage Confirmation Grid returns benefits within one business day.' },
@@ -2954,6 +3041,9 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
       { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
       { title: '38 CFR 17.270 — CHAMPVA is the last payer', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
+      { title: 'Evernorth — Applied Behavior Analysis Prior Authorization Form (07/26)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/applied-behavior-analysis.pdf' },
+      { title: 'Evernorth — Billing Codes for Applied Behavior Analysis', url: 'https://static.evernorth.com/assets/evernorth/provider/resourceLibrary/behavioralResources/doingBusinessWithUs/cbhDBwCBillingCodesForABA.html' },
+      { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -3107,6 +3197,8 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { q: 'What is Cigna’s clean-claim payment turnaround in Michigan?', a: 'Within 45 days of receipt for a clean claim on an insured plan (MCL 500.2006(8)), with 12% interest after that. Self-funded plans are not covered.' },
       { q: 'What is Cigna’s timely filing limit in Michigan?', a: 'One year from the date of service for state-regulated plans under Evernorth’s Michigan Regulatory Addendum; 90 days is Evernorth’s general limit.' },
       { q: 'What documents does Cigna (Evernorth) need for ABA in Michigan?', a: 'EN0499 (effective 5/15/2026) requires a confirmed DSM-5-TR ASD diagnosis from an independently licensed clinician whose scope includes diagnosis. The record must give "the name, credentials, and type of licensure" of the diagnosing clinician and "the date on which the diagnosis was most recently made." A provisional or rule-out diagnosis, or an IDEA educational identification, does not count. For treatment, the BCBA\'s assessment must use a current-edition standardized instrument, completed in full and administered "within 60 days prior to the start of treatment," with score tables. The treatment plan\'s goals must match the deficits it found.' },
+      { q: 'Does Cigna give single case agreements for ABA in Michigan?', a: 'Cigna/Evernorth calls it a network exception. It needs prior authorization on the Evernorth ABA PA form, including for the 97151, 97152 and 0362T assessment codes that otherwise need none. HMO plans cover in-network providers only.' },
+      { q: 'Is a Cigna ABA authorization in Michigan tied to the BCBA or to the clinic?', a: 'The PA form names the servicing clinic by TIN and the supervising provider by credential. Approvals are written per month on 97155. A new agency requests its own authorization, and two agencies in the same period must document coordination.' },
     ],
   },
 
@@ -3210,6 +3302,25 @@ export const michiganPayers: Record<string, PayerConfig> = {
           { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial): timely filing, NPI/taxonomy, claim reconsideration and appeals', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
         ],
       },
+      {
+        h2: 'Single case agreements, out-of-network payment, reconsiderations and credential modifiers (UnitedHealthcare / Optum)',
+        body: [
+          'Single case agreements and out-of-network care. Optum’s ABA FAQ answers whether a provider can get a single case agreement while credentialing: “Not automatically. In exception cases, based on clinical need, new business implementations, or other gaps in the network, a SCA may be approved after review with the clinical team.” Once the provider is contracted, send Optum network management your member list “who will coordinate with the clinical team to update your authorizations.” UnitedHealthcare’s administrative guide gives the general gap rule: when no network provider is available, a network provider may request an exception, and “If approved, we apply the network benefits to the services done by the out-of-network care provider.” Some cards carry a W500 Emergent Wrap for “network gap exception services.”',
+          'Out-of-network payment. Where the No Surprises Act or a state surprise-billing law does not apply, “United will look to the member’s benefit plan.” The amount may come from a percentage of CMS rates, a FAIR Health percentile, Viant, a rate “negotiate[d] with an out-of-network provider after the service was provided,” or a third-party network discount. “Which option is used depends on … the terms of the healthcare benefit plan.” No public document gives a UnitedHealthcare out-of-network ABA rate, so the plan document (SPD or certificate) is the answer.',
+          'Reconsideration and appeal packet. Optum’s network manual runs a two-step process for commercial and Medicare Advantage plans (“This process does not apply to Medicaid plans”): reconsideration, then appeal, with “a total of 12 months for submission for both steps” unless state law or your agreement says otherwise. Include “member-specific treatment plans, clinical records, payment appendices or other items that support why you believe our decision was incorrect,” plus proof of timely filing: “confirmation we received and accepted your claim within your timely filing requirement.” Optum decides “based on the materials available at the time of the review.” Mail the reconsideration form and documents to Optum Behavioral Health Solutions, P.O. Box 30757, Salt Lake City, UT 84123, or use Provider Express > Appeals > Submit Claim Appeal, stating “the factual or legal basis for appeal.” UnitedHealthcare’s guide adds: “Please be detailed in why you feel the payment is not the adjudication outcome you expected.” At the appeal step, attach only new material: “Please do not include any materials that you sent to us as part of the reconsideration request.”',
+          'Whose authorization is it? Optum’s manual lists ABA among non-routine outpatient services and says “Authorizations for non-routine outpatient services are specific to the requesting clinician. The clinician will receive a copy of the authorization approval.” Inside a contracted group, “Any ABA Supervisor who is credentialed under the group or facility contract can see a member, billing with the applicable CPT code(s).” Optum publishes no rule that moves an authorization to a different agency or TIN, so a new agency requests its own.',
+          'What the request must contain. Optum publishes no mandatory assessment-report template. Its ABA Request for Services Checklist (BH00853) lists what the portal asks for: the supervisor, “Agency name and Tax ID,” service address, the diagnosing clinician and date of diagnosis, the service location (with IEP and school details for school-based hours), other services, current symptoms, “Assessments used and applicable scores (if completed i.e., Vineland, VB-MAPP, ABLLS),” the severity of deficits, the goals per domain, and “Progress made in this area including number of goals mastered.”',
+          'Credential modifiers and who may bill each code. Optum’s commercial ABA reimbursement policy (2022RP501A) applies to network and non-network providers. HM = RBT (“less than a bachelor’s degree level”; “State regulatory requirements may supplement, modify or supersede this policy”), HN = BCaBA (bachelor’s level), HO = BCBA or licensed mental health provider (master’s level), HP = BCBA-D or licensed mental health provider (doctorate). Allowed modifiers by code: 97151 HN, HO or HP; 97152, 97153 and 97154 HN, HM, HO or HP; 97155, 97156, 97157 and 97158 HN, HO or HP. 0362T and 0373T take no modifier. Bill “only one provider-level modifier per ABA service line.”',
+        ],
+        cites: [
+          { title: 'Optum — FAQ: Autism/ABA Using CPT Codes', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
+          { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial, Exchange, MA)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+          { title: 'UnitedHealthcare — Information on payment of out-of-network benefits', url: 'https://www.uhc.com/legal/information-on-payment-of-out-of-network-benefits' },
+          { title: 'Optum Behavioral Health — National Provider Network Manual (BH02330, eff. Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+          { title: 'Optum — Applied Behavior Analysis Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+          { title: 'Optum — ABA Request for Services Checklist (BH00853-25-QRG)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/BH00853-25-QRG_ABAQRG.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Michigan mandate) vs. self-funded ERISA (exempt).' },
@@ -3237,6 +3348,9 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
       { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
       { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' },
+      { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial, Exchange, MA)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+      { title: 'UnitedHealthcare — Information on payment of out-of-network benefits', url: 'https://www.uhc.com/legal/information-on-payment-of-out-of-network-benefits' },
+      { title: 'Optum — ABA Request for Services Checklist (BH00853-25-QRG)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/BH00853-25-QRG_ABAQRG.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -3391,6 +3505,10 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { q: 'What is UnitedHealthcare’s clean-claim payment turnaround in Michigan?', a: 'Within 45 days of receipt for a clean claim on an insured plan (MCL 500.2006(8)), with 12% interest after that. Self-funded plans are not covered.' },
       { q: 'Does UnitedHealthcare require a taxonomy code on the claim in Michigan?', a: 'Yes. The 2026 administrative guide requires a valid billing NPI, rendering NPI and relevant taxonomy code on all claims and encounters.' },
       { q: 'What documents does UnitedHealthcare (Optum) need for ABA in Michigan?', a: 'Optum\'s ABA Supplemental Clinical Criteria require a valid DSM-5-TR ASD diagnosis from a state-licensed physician, psychologist or other qualified licensed clinician. The diagnosing clinician confirms the diagnosis and severity level "using at least one clinically validated tool," such as the ADOS-2, ADI-R or CARS-2. The ABA provider then completes its own behavioral assessment with baseline measurement on at least one validated tool (for example the VB-MAPP, ABLLS-R, AFLS or Vineland) and builds the treatment plan from it. "Prior authorization is required for ABA (unless otherwise specified or mandated by contract or law)." The criteria set no expiry on the diagnosis.' },
+      { q: 'Does UnitedHealthcare give single case agreements for ABA in Michigan?', a: 'Not automatically. Optum approves an SCA only “in exception cases, based on clinical need, new business implementations, or other gaps in the network,” after clinical review. UnitedHealthcare can also apply network benefits to an out-of-network provider when no network provider is available.' },
+      { q: 'What supporting documents go with a UnitedHealthcare (Optum) ABA reconsideration in Michigan?', a: 'Member-specific treatment plans, clinical records, payment appendices or anything else showing why the decision was wrong, plus proof the claim was filed on time. Both steps must be filed within 12 months in total. At the appeal step, send only new material.' },
+      { q: 'Is a UnitedHealthcare ABA authorization in Michigan tied to the BCBA or the group?', a: 'Optum says non-routine outpatient authorizations, ABA included, are “specific to the requesting clinician,” but any ABA supervisor credentialed under the same group contract can see the member. A different agency requests its own authorization.' },
+      { q: 'What do HM, HN, HO and HP mean on a UnitedHealthcare ABA claim in Michigan?', a: 'HM = RBT, HN = BCaBA, HO = BCBA or master’s-level licensed provider, HP = BCBA-D or doctoral-level licensed provider. 97151 and 97155–97158 cannot carry HM; 0362T and 0373T take no modifier.' },
     ],
   },
 };

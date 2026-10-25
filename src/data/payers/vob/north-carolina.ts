@@ -409,7 +409,7 @@ const FANOUT_NC_AVRS_2021: SourceRef = {
   note: 'NCTracks announcement (2021). "NCTracks accepts beneficiary enrollment and eligibility inquiries through the Automated Voice Response System (AVRS) which can be reached at 800-723-4337." Step 4: "The system will ask for the NPI" (type not specified).',
 };
 const FANOUT_VAYA_POM: SourceRef = {
-  url: 'https://providers.vayahealth.com/wp-content/uploads/2025/07/Provider_Operations_Manual_3.0_DRAFT.pdf',
+  url: 'https://legacy.providers.vayahealth.com/wp-content/uploads/2025/07/Provider_Operations_Manual_3.0_DRAFT.pdf',
   accessDate: '2026-10-14',
   note: 'Vaya Provider Operations Manual 3.0 (posted as DRAFT, Jul 2025; Vaya site says updated POM effective Oct 1 2025). Contact table: \'Member Eligibility and Enrollment  Phone: 1-800-893-6246, ext. 2355  Email: EandE@vayahealth.com\'.',
 };
@@ -997,15 +997,15 @@ const TRILLIUM_BENEFIT_PLAN = srcAt(
   'Trillium — 2026-2027 Medicaid Child BH Services Benefit Plan, re-read at "Revised: 08-31-2026" — RB-BHT page: TAR required including telephonic and telehealth; initial and reauth up to 180 days at 16 service hrs/week or less, up to 90 days above 16; per-code GT/KX telehealth rules matching CCP 8F Attachment A (97151 GT with Tx Plan justification, 97155 GT up to 50% per 180 days, 97156/97157 GT plus KX on caregiver barrier; no telehealth line for 97152-97154); school-based settings listed.'
 );
 const VAYA_AUTH_GUIDELINES = src(
-  'https://providers.vayahealth.com/wp-content/uploads/2025/09/Authorization_Guidelines_Medicaid_RB_BHT_ASD.pdf',
+  'https://legacy.providers.vayahealth.com/wp-content/uploads/2025/09/Authorization_Guidelines_Medicaid_RB_BHT_ASD.pdf',
   'Vaya Health — Authorization Guidelines: Medicaid RB-BHT for ASD, v2.0, effective 9/5/2025 — code-by-code SAR documentation requirements and passthrough thresholds (97151: notification SAR up to 32 units/6 months, then medical-necessity review; 97155: notification SAR up to 1 hour per 10 hours of 97153/97154, then review). Reported bot-blocked in the original corpus compile; retried this pass and retrieved cleanly as plain text (not a scanned image) via direct download + pdftotext — NOT currently blocked.'
 );
 const VAYA_RBBHT_GUIDANCE = src(
-  'https://providers.vayahealth.com/wp-content/uploads/2025/05/RB_BHT_Guidance_20250522.pdf',
+  'https://legacy.providers.vayahealth.com/wp-content/uploads/2025/05/RB_BHT_Guidance_20250522.pdf',
   'Vaya Health — RB-BHT (ABA) Guidance, v1.0, rev. 5/1/2025 — confirms the 97155 passthrough as "up to 10% of approved 97153 hours" (consistent with the 1-hr-per-10-hr ratio in the Authorization Guidelines) and restates the May 2019 NC Medicaid Bulletin that 97155 does not cover routine technician-supervision/fidelity checks. Retrieved and extracted cleanly.'
 );
 const VAYA_RATE_SCHEDULE_2024 = src(
-  'https://providers.vayahealth.com/wp-content/uploads/2024/07/Standard_Rate_Schedule_Tailored-Plan-Medicaid-Direct_Non-Clinician_20240801.pdf',
+  'https://legacy.providers.vayahealth.com/wp-content/uploads/2024/07/Standard_Rate_Schedule_Tailored-Plan-Medicaid-Direct_Non-Clinician_20240801.pdf',
   'Vaya Health — Standard Rate Schedule: Tailored Plan/Medicaid Direct (Non-Clinician), dated 8/1/2024, rates effective 7/1/2024 — 97151-97157 listed; six of seven match Alliance/Trillium’s current 10/1/2025 statewide figures exactly, but 97156 is listed at $30.00 vs. the $23.70 both other Tailored Plans currently post. Retrieved and full-text extracted directly. This is the only Vaya rate document located this pass despite a search for a current FY26-27-cycle schedule (the Rate & Checkwrite Schedules page lists only generic "Clinician-Based"/"Non-Clinician-Based" schedule links, not a current one located and confirmed to postdate the Oct-2025/Jan-2026 rate cut-and-restoration cycle) — flagged staleRisk, not silently used as current.',
   true
 );
@@ -1014,7 +1014,7 @@ const VAYA_OFFICEALLY_ENROLLMENT = src(
   'Office Ally — Vaya Health (payer ID 13010) pre-enrollment instructions, Office Ally’s own clearinghouse document. Retrieved and full-text extracted directly. Vaya does not appear under this or any name on pVerify’s or Availity’s national lists (see those source notes) — Office Ally is a separate, third clearinghouse, confirmed directly rather than inferred.'
 );
 const PARTNERS_ALL_CODES_ALERT = src(
-  'https://providers.partnersbhm.org/authorizations-for-research-based-behavioral-health-treatment-transition-to-all-codes/',
+  'https://legacy.providers.partnersbhm.org/authorizations-for-research-based-behavioral-health-treatment-transition-to-all-codes/',
   "Partners — RB-BHT authorizations transition to ALL codes (provider alert); already cited in the base corpus prose."
 );
 const PARTNERS_CCH_FAQ = src(
@@ -1825,11 +1825,11 @@ const NCTRACKS_CONTACT_INFO = src(
   'Same NCTracks 270/271 Companion Guide PDF as NCTRACKS_270_271_CG, re-read this pass (via direct download + text extraction, since WebFetch returned only binary/unreadable content) for its §5 Contact Information section: "5.1 Electronic Data Interchange (EDI) Technical Assistance — Phone: 1-800-688-6696, option #1 ... Website: http://www.nctracks.nc.gov/provider/index.html." A separate AAA03 reject-code table instructs "call NCTracks Call Center at 1-800-688-6696, option 3" when reject reason code 42 (system down or data error) is returned. No hours of operation were stated for the Call Center in this document.'
 );
 const VAYA_CONTACT_PAGE = src(
-  'https://providers.vayahealth.com/contact/',
+  'https://legacy.providers.vayahealth.com/contact/',
   'Vaya Health — Contact Us page (provider section), fetched directly this pass — states verbatim the "Provider Support Service Line" is "1-866-990-9712," hours "7 a.m. to 6 p.m., Monday – Saturday, including holidays," and lists Authorizations (Utilization Management) at "1-800-893-6246, ext. 1515 (behavioral health), ext. 1526 (physical health)."'
 );
 const PARTNERS_PROVIDER_NETWORK_CONTACTS = src(
-  'https://providers.partnersbhm.org/provider-network-contacts/',
+  'https://legacy.providers.partnersbhm.org/provider-network-contacts/',
   'Partners Health Management — Provider Network Contacts page. WebFetch returned empty content for this domain (consistent with this file\'s existing partnersbhm.org bot-block notes); fetched successfully instead via direct curl with a browser user-agent and read from the extracted text. States verbatim "Provider Services Line ... Call: 1-877-398-4145" and names the "ProviderCONNECT Portal" (login help and general questions both routed to the same 1-877-398-4145 line, per-topic email addresses given but no distinct phone numbers). No hours of operation were stated on this page.'
 );
 const AETNA_CONTACT_PAGE = src(
@@ -2026,7 +2026,7 @@ const vayaContact: VobContact = {
 
 const partnersContact: VobContact = {
   providerServicesPhone: '1-877-398-4145',
-  portal: { name: 'Partners ProviderCONNECT Portal', url: 'https://providers.partnersbhm.org/category/providerconnect/' },
+  portal: { name: 'Partners ProviderCONNECT Portal', url: 'https://legacy.providers.partnersbhm.org/category/providerconnect/' },
   scriptedQuestions: [
     'What is Partners\' payer ID for 270/271 eligibility checks — confirmed NOT 68069 (Carolina Complete Health\'s physical-health ID) — what do you actually use?',
     'What are the per-code unit caps for 97151-97157 under the single ALL-codes authorization?',

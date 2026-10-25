@@ -229,7 +229,7 @@ export const utahPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'Utah names no specialty list. The manual states that clinicians authorized under the scope of their licensure and trained in the use and interpretation of the selected assessment tool may render the ASD diagnosis, and the initial PA requires a copy of a written ASD diagnosis by a clinician authorized under the scope of their licensure to render a diagnosis. Note that the diagnostic evaluation itself is carved out of the ACOs to fee-for-service, so it does not route through the member\'s health plan.',
+          'Utah names no specialty list. The manual states that clinicians authorized under the scope of their licensure and trained in the use and interpretation of the selected assessment tool may render the ASD diagnosis, and the initial PA requires a copy of a written ASD diagnosis by a clinician authorized under the scope of their licensure to render a diagnosis. Note that the diagnostic evaluation itself is carved out of the ACOs to fee-for-service, so it does not route through the member\'s health plan.' + ' LCSW: Utah names no list. An LCSW may render the diagnosis only if Utah licensure puts ASD diagnosis within the LCSW’s scope and the LCSW is trained in the assessment tool used (“Clinicians authorized under the scope of their licensure and trained in the use and interpretation of the selected assessment tool may render the ASD diagnosis”).',
         status: 'verified',
         cites: [
           { title: 'Utah Medicaid Provider Manual — ASD Services (July 2023 edition, archived)', url: 'https://web.archive.org/web/20240821082018/https://medicaid.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder7-23.pdf' },
@@ -534,7 +534,7 @@ export const utahPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'For SelectHealth Community Care (Medicaid) members this is not a Select Health question: ABA is carved out of every Utah Medicaid ACO to state fee-for-service, so the Utah Medicaid rule governs — the diagnosis may be rendered by any clinician authorized under the scope of their licensure and trained in the use and interpretation of the selected assessment tool. For commercial members the Utah mandate\'s definition is narrower and stricter: a board-certified neurologist, psychiatrist or pediatrician with ASD experience, or an experienced licensed psychologist.',
+          'For SelectHealth Community Care (Medicaid) members this is not a Select Health question: ABA is carved out of every Utah Medicaid ACO to state fee-for-service, so the Utah Medicaid rule governs — the diagnosis may be rendered by any clinician authorized under the scope of their licensure and trained in the use and interpretation of the selected assessment tool. For commercial members the Utah mandate\'s definition is narrower and stricter: a board-certified neurologist, psychiatrist or pediatrician with ASD experience, or an experienced licensed psychologist.' + ' LCSW: Utah names no list. An LCSW may render the diagnosis only if Utah licensure puts ASD diagnosis within the LCSW’s scope and the LCSW is trained in the assessment tool used (“Clinicians authorized under the scope of their licensure and trained in the use and interpretation of the selected assessment tool may render the ASD diagnosis”).',
         status: 'verified',
         cites: [
           { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
@@ -608,6 +608,7 @@ export const utahPayers: Record<string, PayerConfig> = {
       { q: 'Does Select Health require RBT certification for ABA technicians?', a: 'Depends on the product. Community Care (Medicaid) ABA follows Utah Medicaid, which requires technicians to be fully certified (RBT, QABA or BICC) before serving any member. For commercial members, Policy #630 requires ABA to be delivered or supervised by a licensed behavior analyst, BCBA or licensed psychologist and, where unlicensed or non-certified staff are allowed, supervision in line with practice standards (at least 5% of direct hours, monthly); it names no RBT requirement.' },
       { q: 'What does Select Health pay for ABA?', a: 'No published fee schedule exists for either product. Community Care members\' ABA is paid at Utah Medicaid\'s own PRISM rates (not a Select Health rate); commercial rates are negotiated in your participating-provider agreement.' },
       { q: 'What is Select Health’s timely filing limit?', a: 'Twelve months from the date of service (Select Health provider reference manual).' },
+      { q: 'Does Select Health require HM, HN, HO or HP modifiers on commercial ABA claims?', a: 'Not in its published documents: Select Health’s behavioral health medical policies (March 2026), its commercial provider reference manual (April 2026) and its ABA pre-authorization form (June 2026) name no rate-tier modifiers. Policy #630 requires services to be provided directly or supervised by a licensed behavior analyst, BCBA or licensed psychologist. For SelectHealth Community Care (Medicaid) members, ABA is billed to Utah Medicaid fee-for-service, which uses HP, HO and HN on supervision codes. Ask Select Health how your contract prices technician lines.' },
     ],
   },
 
@@ -728,6 +729,27 @@ export const utahPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'Aetna — Applied behavior analysis medical necessity guide (©2026): Termination of coverage', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
       },
+      {
+        h2: 'Credential modifiers on the claim',
+        body: [
+          'Aetna publishes no rate-tier modifiers for ABA. Its public ABA documents — the Applied Behavior Analysis Medical Necessity Guide (©2026), the provider manual (6/26) and the ABA precertification form GR-69017-4 (7-26) — name no HM, HN, HO or HP modifier and no credential crosswalk. What the guide does require is that “Services must be provided directly or billed by the appropriately licensed provider”: licensed behavior analysts where a state licenses them, board-certified behavior analysts, or licensed psychologists, with unlicensed staff supervised “unless state mandates, plan documents or contracts require otherwise.” Whether your Aetna agreement prices technician and analyst time by modifier is set in the contract and its fee schedule, so ask Aetna before you bill technician lines under the analyst.',
+        ],
+        cites: [
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+          { title: 'Aetna — Provider manual (8102800-01-01, 6/26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+        ],
+      },
+      {
+        h2: 'Reconsideration and appeal: what to send',
+        body: [
+          'Aetna runs two levels. A reconsideration (“a formal review of a previous claim decision,” covering reimbursement and coding decisions) is filed within 180 calendar days of the initial claim decision, on Availity or by mail. Send “Medical records, office notes and other supporting documents” and either a completed dispute and appeal form or an explanation giving the reason for review, member ID, patient name, TIN, claim ID, dates of service and billed amounts, and the “Procedure codes and modifiers being disputed”; most answers come within 30 business days. If that fails, appeal within 60 calendar days of the reconsideration decision with a clear explanation, supporting documents, the denial letter or EOB and the original claim; a valid appeal needs the dispute and appeal form (not required on Availity), the denied codes or payments identified, and the records. Aetna decides within 60 calendar days. The 180-day standard can differ for fully insured plans in states on Aetna’s exception list.',
+        ],
+        cites: [
+          { title: 'Aetna — Disputes and appeals overview (reconsideration and appeal time frames and contents)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' },
+          { title: 'Aetna — Provider appeals: state exceptions to the 180-day dispute filing standard', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/provider-appeals.html' },
+        ],
+      },
     ],
     collect: [
       { title: 'Market segment + funding type', desc: 'Individual or large group fully-insured (mandate applies) vs. small group or self-funded ERISA (exempt) — in Utah this decides everything. Ask for the employer and check the card.' },
@@ -741,6 +763,11 @@ export const utahPayers: Record<string, PayerConfig> = {
       { title: 'Utah Code § 31A-22-642 (current, eff. 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.pdf' },
       { title: 'Behavior Analyst Licensing Act — Utah Code 58-61 Part 7', url: 'https://le.utah.gov/xcode/Title58/Chapter61/C58-61-P7_2015051220150701.pdf' },
       { title: 'Utah Code § 31A-22-642 (prior version, effective 5/4/2022)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2022050420220504.pdf' },
+      { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+      { title: 'Aetna — Provider manual (8102800-01-01, 6/26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+      { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+      { title: 'Aetna — Disputes and appeals overview (reconsideration and appeal time frames and contents)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' },
+      { title: 'Aetna — Provider appeals: state exceptions to the 180-day dispute filing standard', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/provider-appeals.html' },
     ],
     deliveryRules: {
       supervision: {
@@ -833,11 +860,12 @@ export const utahPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'CPB 0648 requires the evaluation to be performed by the appropriate certified or licensed health care professional, naming board certified behavior analyst, developmental pediatrician, neurologist, occupational therapist, physical therapist, primary care provider, psychiatrist, psychologist, and speech-language pathologist/audiologist. The Utah mandate\'s own diagnosis definition is strict and applies to plans it reaches: a board-certified neurologist, psychiatrist or pediatrician with ASD experience, or an experienced licensed psychologist.',
+          'CPB 0648 requires the evaluation to be performed by the appropriate certified or licensed health care professional, naming board certified behavior analyst, developmental pediatrician, neurologist, occupational therapist, physical therapist, primary care provider, psychiatrist, psychologist, and speech-language pathologist/audiologist. The Utah mandate\'s own diagnosis definition is strict and applies to plans it reaches: a board-certified neurologist, psychiatrist or pediatrician with ASD experience, or an experienced licensed psychologist.' + ' LCSW: not named. Aetna accepts a diagnosis from a “licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice,” so an LCSW qualifies only where state law puts that diagnosis within LCSW scope.',
         status: 'verified',
         cites: [
           { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
           { title: 'Utah Code § 31A-22-642 (current, eff. 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.pdf' },
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
         ],
       },
       diagnosticTools: {
@@ -899,6 +927,7 @@ export const utahPayers: Record<string, PayerConfig> = {
       { q: 'What is Aetna’s clean-claim payment turnaround in Utah?', a: 'Within 30 days of receiving the claim, extendable once by 15 days with notice (Utah Code § 31A-26-301.6).' },
       { q: 'How long do I have to appeal an Aetna claim decision in Utah?', a: '180 calendar days from the initial claim decision to request a reconsideration, then 60 calendar days from the reconsideration decision to appeal. Fully insured Utah members: 12 months for an initial claim-payment dispute.' },
       { q: 'Does Aetna require a referring provider (box 17) on ABA claims?', a: 'Aetna publishes no such requirement for ABA. A referral has to accompany a claim only when the member’s plan requires PCP referrals for specialist care. Behavioral health is a direct-access benefit in Aetna’s behavioral health manual.' },
+      { q: 'Does Aetna require HM, HN, HO or HP modifiers on ABA claims?', a: 'Not in any public Aetna ABA document: the medical necessity guide, provider manual and ABA precertification form name no rate-tier modifiers. Services must be provided or billed by an appropriately licensed or certified provider; ask Aetna whether your contract prices technician lines by modifier.' },
     ],
   },
 
@@ -1037,6 +1066,25 @@ export const utahPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'Evernorth Coverage Policy EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026): Criteria for Continued Treatment with ABA', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
       },
+      {
+        h2: 'Credential modifiers on the claim',
+        body: [
+          'Evernorth (Cigna’s behavioral health arm) uses no rate-tier modifiers in its published ABA billing rules. Its Autism Resource Guide (March 2025) instead sets, code by code, who may provide and who may bill: 97152, 97153 and 97154 may be provided by a “BCaBA, technician” but are billed by a “BCBA-D, BCBA, or licensed mental health provider,” and “Evernorth does not credential nonlicensed/noncertified staff. Services for these staff members must be billed under the supervising provider.” All ABA must be billed with 97151–97158, 0362T and 0373T only. The only modifier Evernorth’s administrative guidelines (September 2026) prescribe is for virtual care: “Modifier 95 in Field 24-D to specify telehealth” with place of service 02; other modifiers go on “if they are needed to describe the service performed.”',
+        ],
+        cites: [
+          { title: 'Cigna/Evernorth Autism Resource Guide (PCOMM-2025-225, March 2025): billing codes', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191) — telehealth claim coding', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
+      },
+      {
+        h2: 'Reconsideration and appeal: what to send',
+        body: [
+          'Evernorth (Cigna behavioral health) asks you to call Provider Services first with the patient’s name, date of service and the treating provider’s name and TIN. If the claim stands, file a written appeal within 180 calendar days of the initial payment or denial (or of the last payment adjustment). Fee-schedule and reimbursement disputes can go through the reconsideration feature on Provider.Evernorth.com. For a medical-necessity denial include the clinical record; for a timely-filing denial include the EDI transmission report or proof the delay came from coordination of benefits; for a late-payment dispute include proof of when you submitted. Appeals must be filed by a person, not by automation software. Most are resolved within 60 calendar days, with notice within 75 days unless state law says otherwise, and arbitration is the final step.',
+        ],
+        cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191): Provider payment appeals', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Market segment + funding type', desc: 'Individual or large group fully-insured (mandate applies) vs. small group or self-funded ERISA (exempt) — in Utah this decides everything. Ask for the employer and check the card.' },
@@ -1050,6 +1098,7 @@ export const utahPayers: Record<string, PayerConfig> = {
       { title: 'Utah Code § 31A-22-642 (current, eff. 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.pdf' },
       { title: 'Behavior Analyst Licensing Act — Utah Code 58-61 Part 7', url: 'https://le.utah.gov/xcode/Title58/Chapter61/C58-61-P7_2015051220150701.pdf' },
       { title: 'Utah Code § 31A-22-642 (prior version, effective 5/4/2022)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2022050420220504.pdf' },
+      { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191) — telehealth claim coding', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -1126,7 +1175,7 @@ export const utahPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'A confirmed ASD diagnosis (ICD-10-CM F84.0-F84.9, excluding F84.2 Rett syndrome) made against DSM-5-TR criteria by a health care professional licensed to practise independently and whose licensure board considers diagnostics within their scope of practice, with the name, credentials and type of licensure of the diagnosing clinician provided. The Utah mandate\'s own diagnosis definition is strict and applies to plans it reaches: a board-certified neurologist, psychiatrist or pediatrician with ASD experience, or an experienced licensed psychologist.',
+          'A confirmed ASD diagnosis (ICD-10-CM F84.0-F84.9, excluding F84.2 Rett syndrome) made against DSM-5-TR criteria by a health care professional licensed to practise independently and whose licensure board considers diagnostics within their scope of practice, with the name, credentials and type of licensure of the diagnosing clinician provided. The Utah mandate\'s own diagnosis definition is strict and applies to plans it reaches: a board-certified neurologist, psychiatrist or pediatrician with ASD experience, or an experienced licensed psychologist.' + ' LCSW: not named. EN0499 accepts a professional “licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice,” so an independently licensed LCSW qualifies only if the state social-work board treats diagnosis as within scope.',
         status: 'verified',
         cites: [
           { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
@@ -1199,6 +1248,7 @@ export const utahPayers: Record<string, PayerConfig> = {
       { q: 'What is Cigna’s clean-claim payment turnaround in Utah?', a: 'Within 30 days of receiving the claim, extendable once by 15 days with notice (Utah Code § 31A-26-301.6).' },
       { q: 'What is Cigna’s timely filing limit in Utah?', a: 'Ninety days from the date of service under Evernorth’s administrative guidelines, unless your provider agreement or a longer state-law limit says otherwise.' },
       { q: 'Does Cigna require a referring provider (box 17) on ABA claims?', a: 'No. Evernorth’s complete-claim definition for the CMS-1500 lists the rendering and billing providers but no referring provider. If you report a referring provider on an electronic claim, include both the name and the NPI.' },
+      { q: 'Does Cigna / Evernorth require HM, HN, HO or HP modifiers on ABA claims?', a: 'No modifier tiers are published. Evernorth’s autism resource guide says technician and BCaBA services (97152–97154) are billed by the supervising BCBA, BCBA-D or licensed provider, and noncredentialed staff are billed under the supervising provider. Modifier 95 (with POS 02) marks telehealth.' },
     ],
   },
 
@@ -1303,7 +1353,7 @@ export const utahPayers: Record<string, PayerConfig> = {
           'Utah Code § 31A-26-301.6 requires an insurer, including an HMO, to pay a claim or deny it with a written explanation "within 30 days of the day on which the insurer receives a written claim," extendable by 15 days for matters beyond its control with written notice.',
           'UnitedHealthcare’s 2026 administrative guide publishes no single timely-filing number ("Timely filing limits vary based on state requirements and contracts"; check your agreement). It requires "a valid billing NPI, rendering NPI and relevant taxonomy code(s) on all claims," and encourages, but does not require, the referring provider’s NPI. Most claims are adjudicated within 15 days, up to 45. Claim reconsiderations and appeals are due within 12 months of the original EOB or PRA.',
           'UnitedHealthcare’s ABA claims run through Optum Behavioral Health, whose National Network Manual (effective September 1, 2026) sets the deadlines. "All information necessary to process claims must be received by Optum no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan," and "Any corrections or additions to a claim should be made within 90 days of initial claim receipt." The member may not be billed for a late claim. Payment: claims with all required information and any required authorization "will be paid within 45 calendar days after Optum receives the claim, or as required by state and federal laws," which may exclude claims needing a coordination-of-benefits determination; when Optum is secondary it pays up to the Optum contracted rate. UnitedHealthcare’s 2026 administrative guide adds that a corrected claim (frequency code 7, with the original claim number) must arrive within the same timely-filing limit as the original. No weekly payment cycle or submission cutoff is published.',
-          'Which codes: Optum’s commercial ABA reimbursement policy (2022RP501A, updated June 2026) lists the reimbursable codes for the commercial ABA program as 97151–97158, 0362T and 0373T, each in 15-minute units with a credential modifier (HM, HN, HO or HP); no HCPCS H-code (H0031, H0032, H2014, H2019) is on that list.',
+          'Which codes: Optum’s commercial ABA reimbursement policy (2022RP501A, updated June 2026) lists the reimbursable codes for the commercial ABA program as 97151–97158, each in 15-minute units with a credential modifier (HM, HN, HO or HP), plus 0362T and 0373T, which it lists among the ABA codes “that do not require modifiers”; no HCPCS H-code (H0031, H0032, H2014, H2019) is on that list.',
         ],
         cites: [{ title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026): reimbursable codes', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): Coordination of Benefits; Timely Filing; Payment Timelines', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }, 
           { title: 'Utah Code § 31A-26-301.6 — Health care claims practices (eff. 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter26/31A-26-S301.6.html' },
@@ -1328,6 +1378,15 @@ export const utahPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026): Continued Service Criteria', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
       },
+      {
+        h2: 'Reconsideration and appeal: what to send',
+        body: [
+          'Optum, which handles UnitedHealthcare’s behavioral claims, uses a two-step process for commercial claims: reconsideration first, then appeal, within a combined 12 months unless state law or your participation agreement sets a different deadline. Include “member-specific treatment plans, clinical records, payment appendices or other items that support why you believe our decision was incorrect,” plus proof that the claim was received and accepted within your timely filing limit. File online in the Provider Express secure portal (Appeals > Appeals Summary & Submission, giving the factual or legal basis) or by mail with Optum’s reconsideration request form. Optum decides on the materials it has at the time of review; an overturned claim is reported on the remittance advice and an upheld one by letter.',
+        ],
+        cites: [
+          { title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): Provider Reconsideration and Appeal Process', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Market segment + funding type', desc: 'Individual or large group fully-insured (mandate applies) vs. small group or self-funded ERISA (exempt) — in Utah this decides everything. Ask for the employer and check the card.' },
@@ -1347,6 +1406,7 @@ export const utahPayers: Record<string, PayerConfig> = {
       { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
       { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
       { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' },
+      { title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): Provider Reconsideration and Appeal Process', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -1425,7 +1485,7 @@ export const utahPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'A valid ASD diagnosis (or other applicable diagnosis required by governing law) issued by a state licensed physician, psychologist, or other state licensed clinician qualified to make that diagnosis under DSM-5-TR criteria, with the DSM-5 diagnosis and severity level confirmed and documented by the diagnosing clinician. The Utah mandate\'s own diagnosis definition is strict and applies to plans it reaches: a board-certified neurologist, psychiatrist or pediatrician with ASD experience, or an experienced licensed psychologist.',
+          'A valid ASD diagnosis (or other applicable diagnosis required by governing law) issued by a state licensed physician, psychologist, or other state licensed clinician qualified to make that diagnosis under DSM-5-TR criteria, with the DSM-5 diagnosis and severity level confirmed and documented by the diagnosing clinician. The Utah mandate\'s own diagnosis definition is strict and applies to plans it reaches: a board-certified neurologist, psychiatrist or pediatrician with ASD experience, or an experienced licensed psychologist.' + ' LCSW: not named. Optum accepts a diagnosis from a “state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis,” so an LCSW qualifies only where state licensure allows it.',
         status: 'verified',
         cites: [
           { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
@@ -1500,6 +1560,7 @@ export const utahPayers: Record<string, PayerConfig> = {
       { q: 'What is UnitedHealthcare’s clean-claim payment turnaround in Utah?', a: 'Within 30 days of receiving the claim, extendable once by 15 days with notice (Utah Code § 31A-26-301.6).' },
       { q: 'Does UnitedHealthcare require a taxonomy code on the claim in Utah?', a: 'Yes. The 2026 administrative guide requires a valid billing NPI, rendering NPI and relevant taxonomy code on all claims and encounters.' },
       { q: 'Does UnitedHealthcare require a referring provider (box 17) on ABA claims?', a: 'No. Optum’s claim requirements do not include a referring provider. UnitedHealthcare makes the referring name and NPI mandatory only for lab, DME, imaging and home health claims. For other claims it encourages the referring NPI but does not require it.' },
+      { q: 'What do HM, HN, HO and HP mean on a UnitedHealthcare / Optum ABA claim?', a: 'They identify who rendered the service: HM an RBT (less than bachelor’s level), HN a BCaBA (bachelor’s level), HO a master’s-level BCBA or licensed clinician, HP a BCBA-D or doctoral-level clinician. One per line; 97151 and 97155–97158 cannot take HM; 0362T/0373T take none (Optum ABA Reimbursement Policy 2022RP501A, June 2026).' },
     ],
   },
 };

@@ -184,7 +184,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       diagnosingProviders: {
-        value: 'The gate is a recommendation, not a diagnosis, and it must come from "a licensed physician or a licensed psychologist" (State Plan, 2025) — APL 23-010 says "a licensed physician, surgeon, or psychologist," and its first eligibility criterion is that the member "Has a recommendation from a licensed physician, surgeon, or psychologist that evidence-based BHT services are Medically Necessary."',
+        value: 'The gate is a recommendation, not a diagnosis, and it must come from "a licensed physician or a licensed psychologist" (State Plan, 2025) — APL 23-010 says "a licensed physician, surgeon, or psychologist," and its first eligibility criterion is that the member "Has a recommendation from a licensed physician, surgeon, or psychologist that evidence-based BHT services are Medically Necessary." LCSW: no — the BHT recommendation must come from a licensed physician, surgeon or psychologist; an LCSW\'s evaluation alone does not open the benefit.',
         status: 'verified',
         cites: [
           { title: 'Medi-Cal State Plan — Limitations on Att. 3.1-A, item 13c BHT (TN CA-24-0031, eff. 1/1/2025)', url: 'https://www.dhcs.ca.gov/file/limitations-to-attachment-3-1-a-pdf/' },
@@ -238,7 +238,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
           { title: 'DHCS APL 22-027 — Cost Avoidance and Post-Payment Recovery for Other Health Coverage', url: 'https://www.dhcs.ca.gov/file/apl22-027-pdf/' },
           { title: 'Welfare & Institutions Code § 4659 — Regional Center use of generic resources', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=WIC&sectionNum=4659' },
           { title: '42 CFR 433.139 — Payment of claims (third-party liability)', url: 'https://www.ecfr.gov/current/title-42/section-433.139' },
-          { title: '10 U.S.C. 1079 — TRICARE pays after other coverage except Medicaid', url: 'https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title10-section1079&num=0&edition=prelim' },
+          { title: '10 U.S.C. 1079 — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
         ],
       },
     },
@@ -393,7 +393,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
     sources: [
       { title: 'AB 3275 (Ch. 763, Stats. 2024) — claim reimbursement within 30 calendar days from 1/1/2026 (H&S § 1371, Ins. Code § 10123.13, W&I § 14093.08)', url: 'https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240AB3275' },
       { title: 'L.A. Care — 2026 Universal Provider Manual (LA4289)', url: 'https://www.lacare.org/sites/default/files/la4289_upm_202512.pdf' },
-      { title: 'L.A. Care — 2026 Universal Provider Manual Errata v3 (9/23/2026)', url: 'https://www.lacare.org/sites/default/files/la8085_upm_errata_list_v3_20260923.pdf' },
+      { title: 'L.A. Care — 2026 Universal Provider Manual Errata (v3, issue dates 1/2, 4/30 and 10/14/2026; 10/14 rows effective 12/21/2026)', url: 'https://www.lacare.org/sites/default/files/la8158_upm_errata_v3_202610.pdf' },
       { title: 'L.A. Care — BHT/ABA Authorization Request Form LA5480 (05/26)', url: 'https://www.lacare.org/sites/default/files/la5480_bht_authorization_form_202605.pdf' },
       { title: 'L.A. Care — Behavioral Health Treatment Reporting Template (PL6030, 09/25)', url: 'https://www.lacare.org/sites/default/files/la6030_lac_bht_reporting_template_202509.pdf' },
       { title: 'L.A. Care — BHT Coverage for Members Under 21 (PCP flyer PL1757, 11/23)', url: 'https://www.lacare.org/sites/default/files/pl1757_bht_pcp_flyer_202311_0.pdf' },
@@ -422,11 +422,11 @@ export const californiaPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       diagnosingProviders: {
-        value: 'A licensed physician, surgeon or psychologist — the 2026 manual says "licensed physician or licensed psychologist" in one section and "licensed physician, surgeon, or psychologist" in the BHT chapter.',
+        value: 'A licensed physician, surgeon or psychologist — the 2026 manual says "licensed physician or licensed psychologist" in one section and "licensed physician, surgeon, or psychologist" in the BHT chapter. LCSW: no — not on L.A. Care\'s physician/surgeon/psychologist list.',
         status: 'verified',
         cites: [
           { title: 'L.A. Care — 2026 Universal Provider Manual (LA4289)', url: 'https://www.lacare.org/sites/default/files/la4289_upm_202512.pdf' },
-          { title: 'L.A. Care — 2026 Universal Provider Manual Errata v3 (9/23/2026)', url: 'https://www.lacare.org/sites/default/files/la8085_upm_errata_list_v3_20260923.pdf' },
+          { title: 'L.A. Care — 2026 Universal Provider Manual Errata (v3, issue dates 1/2, 4/30 and 10/14/2026; 10/14 rows effective 12/21/2026)', url: 'https://www.lacare.org/sites/default/files/la8158_upm_errata_v3_202610.pdf' },
         ],
       },
       diagnosticTools: {
@@ -608,6 +608,14 @@ export const californiaPayers: Record<string, PayerConfig> = {
           { title: 'AB 3275 (Ch. 763, Stats. 2024) — claim reimbursement within 30 calendar days from 1/1/2026 (H&S § 1371, Ins. Code § 10123.13, W&I § 14093.08)', url: 'https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240AB3275' },
         ],
       },
+      {
+        h2: 'Out-of-network ABA and continuity of care (Medi-Cal)',
+        body: [
+          'New Medi-Cal members "may continue with their existing out-of-network providers for up to 12 months" if they saw the provider at least once in the 12 months before enrolling. If the provider is out of network, Health Net "makes a good faith effort to enter into a contract, letter of agreement, single-case agreement, or other form of relationship." The provider must accept "the higher of contracted rates or Medi-Cal FFS rates," have no quality-of-care concerns, be a California State Plan-approved provider, follow Health Net\'s UM policies and supply the current treatment plan; otherwise the member is offered an in-network provider.',
+          'Timing: Health Net starts processing a non-clinical COC request within five business days; authorizations follow within 30 calendar days (15 for more immediate cases, three for urgent). The member is told about the move to an in-network provider 30 days before the COC period ends.',
+        ],
+        cites: [{ title: 'Health Net California provider manual (Medi-Cal) — Continuity of Care Assistance', url: 'https://providerlibrary.healthnetcalifornia.com/medi-cal/provider-manual/utilization-management/continuity-of-care-assistance-medi-cal.html' }],
+      },
     ],
     collect: [
       { title: 'Recommendation under a year old', desc: 'From an MD/DO or licensed clinical psychologist — must be less than one year old when there is no autism diagnosis.' },
@@ -630,6 +638,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'CHHS Open Data — Medi-Cal Managed Care Enrollment Report (August 2026)', url: 'https://data.chhs.ca.gov/dataset/medi-cal-managed-care-enrollment-report' },
       { title: 'DHCS APL 23-010 (Revised 11/22/2023) — BHT Coverage for Members Under 21', url: 'https://www.dhcs.ca.gov/file/apl23-010-pdf/' },
       { title: 'Health Net — Medi-Cal provider updates and notices (index)', url: 'https://providerlibrary.healthnetcalifornia.com/medi-cal/news.html' },
+      { title: 'Health Net California provider manual (Medi-Cal) — Continuity of Care Assistance', url: 'https://providerlibrary.healthnetcalifornia.com/medi-cal/provider-manual/utilization-management/continuity-of-care-assistance-medi-cal.html' },
     ],
     intakeGates: {
       ageLimit: {
@@ -647,7 +656,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'The recommendation comes from a physician (MD/DO) or licensed clinical psychologist (PsyD/PhD) — Health Net’s referral form "must be completed by a physician or licensed psychologist." The policy does not separately specify who writes the diagnostic evaluation.',
+        value: 'The recommendation comes from a physician (MD/DO) or licensed clinical psychologist (PsyD/PhD) — Health Net’s referral form "must be completed by a physician or licensed psychologist." The policy does not separately specify who writes the diagnostic evaluation. LCSW: no — the referral form must be completed by a physician or licensed psychologist.',
         status: 'verified',
         cites: [
           { title: 'Health Net CA.CP.BH.104 — Applied Behavior Analysis (Medi-Cal), eff. 4/20/2026', url: 'https://www.healthnet.com/content/dam/centene/healthnet/pdfs/general/ca/policies/CA.CP.BH.104.pdf' },
@@ -747,6 +756,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Will Health Net Medi-Cal sign a single case agreement with an out-of-network ABA provider?', a: 'For a new member\'s existing provider, yes in principle: Health Net\'s continuity-of-care policy says it makes "a good faith effort to enter into a contract, letter of agreement, single-case agreement, or other form of relationship" for up to 12 months, if the provider accepts the higher of contracted or Medi-Cal FFS rates, follows Health Net\'s UM rules and is a State Plan-approved provider.' },
       { q: 'Does Health Net Medi-Cal (and CalViva) cover ABA?', a: 'Yes — Behavioral Health Treatment for members under 21 on a physician or licensed clinical psychologist recommendation, regardless of diagnosis, reviewed by Health Net’s Behavioral Health Autism Center under policy CA.CP.BH.104.' },
       { q: 'Is there an hour cap on Health Net Medi-Cal ABA?', a: 'Not a hard cap. CA.CP.BH.104 expects no more than 6 hours a day and 30 hours a week unless clinical documentation justifies more, and hours cannot be reduced for school time.' },
       { q: 'How do I change hours on a Health Net ABA authorization?', a: 'Submit a new complete PA request with a letter explaining the clinical reason — addendums are no longer accepted, and the existing authorization is ended.' },
@@ -867,7 +877,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       diagnosingProviders: {
-        value: 'A "licensed physician, surgeon or psychologist" (MC_12K3); UM_BH 08 says "physician or psychologist."',
+        value: 'A "licensed physician, surgeon or psychologist" (MC_12K3); UM_BH 08 says "physician or psychologist." LCSW: no — not on IEHP\'s physician/surgeon/psychologist list.',
         status: 'verified',
         cites: [
           { title: 'IEHP Medi-Cal Provider Policy MC_12K3 — Behavioral Health Treatment (2024 chapter 12)', url: 'https://www.providerservices.iehp.org/content/dam/provider-services/en/documents/providers/provider-manual/2024/medi-cal/redline/12%20-%20COORDINATION%20OF%20CARE_03-28-24_REDLINE_.pdf' },
@@ -1318,7 +1328,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'The recommendation or evaluation must come from "a physician, licensed psychologist, or allowable qualified healthcare care provider (QHCP) per state regulations" (request form); the Recommendation Form itself says "A physician or licensed psychologist should complete this form."',
+        value: 'The recommendation or evaluation must come from "a physician, licensed psychologist, or allowable qualified healthcare care provider (QHCP) per state regulations" (request form); the Recommendation Form itself says "A physician or licensed psychologist should complete this form." LCSW: not named — an LCSW qualifies only if Anthem treats the LCSW as an "allowable qualified healthcare care provider (QHCP) per state regulations"; the Recommendation Form expects a physician or licensed psychologist.',
         status: 'verified',
         cites: [
           { title: 'Anthem Blue Cross — Treatment Plan Request Form for Autism Spectrum Disorders, Medi-Cal (May 2026)', url: 'https://providers.anthem.com/docs/gpp/california-provider/CA_CAID_ASDTreatmentRequestForm.pdf' },
@@ -1556,7 +1566,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'Policy 482 accepts "clinical psychologists, developmental pediatrician, pediatric neurologist, psychiatrist, or other licensed clinicians permitted under applicable state law to diagnose ASD," working as a multidisciplinary team, plus "Documentation from the Member’s primary care physician noting initial developmental concerns." The referral forms are signed by an "M.D. or Licensed Clinical Psychologist."',
+        value: 'Policy 482 accepts "clinical psychologists, developmental pediatrician, pediatric neurologist, psychiatrist, or other licensed clinicians permitted under applicable state law to diagnose ASD," working as a multidisciplinary team, plus "Documentation from the Member’s primary care physician noting initial developmental concerns." The referral forms are signed by an "M.D. or Licensed Clinical Psychologist." LCSW: only if California law permits an LCSW to diagnose ASD (Policy 482\'s "other licensed clinicians" category), and the referral forms still need an M.D. or licensed clinical psychologist signature. California\'s LCSW scope statute (B&P § 4996.9) could not be fetched this run, so whether an LCSW counts as qualified to diagnose in California is not confirmed here — ask the plan before relying on an LCSW-only diagnosis.',
         status: 'verified',
         cites: [
           { title: 'Molina Clinical Policy No. 482 — Applied Behavioral Analysis for ASD (approved 6/10/2026)', url: 'https://www.molinaclinicalpolicy.com/molinaclinicalpolicy/-/media/Molina/PublicWebsite/PDF/Common/Molina-Clinical-Policy/Applied-Behavioral-Analysis-for-Autism-Spectrum-Disorder_R.ashx' },
@@ -1783,7 +1793,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'The recommendation comes from "a licensed physician, surgeon or psychologist" (SCAL criteria); the handbook says BHT must be "prescribed by a licensed doctor or psychologist." In practice the assessment runs through Kaiser: "If a developmental disability is suspected, the Medi-Cal Member may seek assessment and diagnosis via PCP or Regional Center."',
+        value: 'The recommendation comes from "a licensed physician, surgeon or psychologist" (SCAL criteria); the handbook says BHT must be "prescribed by a licensed doctor or psychologist." In practice the assessment runs through Kaiser: "If a developmental disability is suspected, the Medi-Cal Member may seek assessment and diagnosis via PCP or Regional Center." LCSW: no — the recommendation must come from a licensed physician, surgeon or psychologist.',
         status: 'verified',
         cites: [
           { title: 'KFHP-SCAL — UM Criteria for BHT Services for Medi-Cal Members under EPSDT (UM Criteria 2024)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/health-plan-documents/notice/utilization-management/bht-epsdt-um-criteria-medi-cal-scal-en.pdf' },
@@ -2018,7 +2028,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'The recommendation must come from "a licensed physician, surgeon or psychologist" stating BHT is medically necessary "regardless of diagnosis"; the functional behavior assessment must be "conducted by a Board Certified Behavior Analyst."',
+        value: 'The recommendation must come from "a licensed physician, surgeon or psychologist" stating BHT is medically necessary "regardless of diagnosis"; the functional behavior assessment must be "conducted by a Board Certified Behavior Analyst." LCSW: no — the recommendation must come from a licensed physician, surgeon or psychologist.',
         status: 'verified',
         cites: [
           { title: 'Partnership MCUP3126 — Behavioral Health Treatment (BHT) for Members Under 21 (reviewed 4/8/2026)', url: 'https://public.powerdms.com/PHC/documents/1850144' },
@@ -2276,7 +2286,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       diagnosingProviders: {
-        value: 'Kaiser diagnoses in-house or through its own evaluators: "The evaluation will be done through a Kaiser Permanente Developmental Pediatrics Department or ASD center, or with one of our qualified community providers," with "a licensed clinician, such as a physician, psychologist, or mental health therapist"; community evaluators "send your evaluation to a Kaiser Permanente clinician, who’ll refer you for other needed services." The EOC requires BHT "prescribed by a Plan Physician, or … developed by a Plan Provider who is a psychologist."',
+        value: 'Kaiser diagnoses in-house or through its own evaluators: "The evaluation will be done through a Kaiser Permanente Developmental Pediatrics Department or ASD center, or with one of our qualified community providers," with "a licensed clinician, such as a physician, psychologist, or mental health therapist"; community evaluators "send your evaluation to a Kaiser Permanente clinician, who’ll refer you for other needed services." The EOC requires BHT "prescribed by a Plan Physician, or … developed by a Plan Provider who is a psychologist." LCSW: Kaiser\'s own evaluators may include a "mental health therapist," but BHT must still be prescribed by a Plan Physician or developed by a Plan psychologist; an outside LCSW\'s diagnosis goes to a Kaiser clinician for referral.',
         status: 'verified',
         cites: [
           { title: 'TPMG My Doctor Online (NCAL) — Evaluation for ASD in Children', url: 'https://mydoctor.kaiserpermanente.org/ncal/structured-content/evaluation-for-autism-spectrum-disorder-in-children-2259863' },
@@ -2552,7 +2562,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'A "licensed, qualified health care provider" — BSC3.01’s initial-evaluation text gives examples: "an appropriate provider (e.g., pediatrician, pediatric neurologist, developmental pediatrician, psychologist)." No closed list.',
+        value: 'A "licensed, qualified health care provider" — BSC3.01’s initial-evaluation text gives examples: "an appropriate provider (e.g., pediatrician, pediatric neurologist, developmental pediatrician, psychologist)." No closed list. LCSW: not named in BSC3.01\'s examples. California\'s LCSW scope statute (B&P § 4996.9) could not be fetched this run, so whether an LCSW counts as qualified to diagnose in California is not confirmed here — ask the plan before relying on an LCSW-only diagnosis.',
         status: 'verified',
         cites: [
           { title: 'Blue Shield Medical Policy BSC3.01 — BHT for ASD or PDD (eff. 12/1/2025)', url: 'https://www.blueshieldca.com/content/dam/bsca/en/provider/docs/medical-policies/Behavioral-Health-TX-Autism-Spectrum-Disorders.pdf' },
@@ -2724,11 +2734,12 @@ export const californiaPayers: Record<string, PayerConfig> = {
         h2: 'Anthem’s ABA rules in California',
         body: [
           'Anthem’s California PPO precertification list (updated September 22, 2026, effective October 1, 2026) lists every ABA code — 97151–97158, 0362T, 0373T, H0031, H0032, H0046, H2012, H2014 and H2019 — with Anthem as the responsible party and "Contact Behavioral Health at the number on the member’s ID card." Its criteria column reads "American Academy of Child and Adolescent Psychiatry (AACAP)," with the comment "California Self-insured (ASO) benefit plans use MCG B-806-T Applied Behavioral Analysis." That is Anthem’s answer to SB 855’s requirement that fully insured plans use nonprofit-association criteria. Anthem’s national adaptive-behavior guideline (CG-BEH-02) is not on its California guideline index and is not cited for California. The list applies to "local fully-insured Anthem members and select members who are covered under self-insured (ASO) benefit plans" — not to HMO, BlueCard (out-of-state Blue cards follow the home plan), Medicare, Medicaid or FEP. Carelon is not the ABA reviewer on this list: the list names Carelon Medical Benefits Management only for cardiology, genetic testing, sleep, imaging, radiation oncology, musculoskeletal and similar programs, while every ABA row names Anthem.',
-          'Anthem’s behavioral health group guide adds: "Always obtain authorization prior to rendering ABA services"; "ABA services are authorized by CPT® code, and claims will be processed by CPT code"; units must be whole numbers; and "Include the individual NPI of the rendering provider." Submit through Interactive Care Reviewer on Availity or "fill out the Adaptive Behavioral Treatment Request and fax the completed form to 866-582-2287." Some Anthem plans carve mental health out to another company — the ID card says so.',
+          'Anthem’s behavioral health group guide adds: "Always obtain authorization prior to rendering ABA services"; "ABA services are authorized by CPT® code, and claims will be processed by CPT code"; units must be whole numbers; and "Include the individual NPI of the rendering provider." Submit through Interactive Care Reviewer on Availity or "fill out the Adaptive Behavioral Treatment Request and fax the completed form to 866-582-2287." The current form is the Treatment Plan Request Form for Autism Spectrum Disorders (California commercial, April 2026): it asks who diagnosed the child, wants a diagnostic report by "a doctorate-level clinician or allowable qualified healthcare provider per state regulations" with DSM-5-TR criteria and a standardized tool (ADI-R, ADOS-2 or CARS-2 given as examples) for initial assessment requests, a treatment plan "dated within 30 days of the start date," and the BCBA\'s information and signature. Some Anthem plans carve mental health out to another company — the ID card says so.',
         ],
         cites: [
           { title: 'Anthem Blue Cross — Local PPO Precertification/Prior Authorization List, California Commercial (updated 9/22/2026, eff. 10/1/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_PPO_PA_List.pdf' },
           { title: 'Anthem Blue Cross — Behavioral Health Guide: Commercial BH and ABA Group Agreement (CABC-CM-082371-25)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_BHG_Groups.pdf' },
+          { title: 'Anthem Blue Cross — Treatment Plan Request Form for Autism Spectrum Disorders, California Commercial (CA-BC-CM-008578-26-S2508, April 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/CA_TPRF_00001.pdf' },
         ],
       },
       {
@@ -2771,11 +2782,20 @@ export const californiaPayers: Record<string, PayerConfig> = {
           { title: '28 CCR § 1300.71.38 — Provider dispute resolution mechanism (DMHC plans)', url: 'https://www.law.cornell.edu/regulations/california/28-CCR-1300.71.38' },
         ],
       },
+      {
+        h2: 'Out-of-network ABA, network status and disputes',
+        body: [
+          'Out-of-network override (Anthem\'s single-case route): behavioral health professionals "not contracted with the Anthem network" request an "Out of Network Override or Benefit Exception," or an extension of a previously approved out-of-network request, on Anthem\'s Out of Network Override Request Form (January 2026) — through Availity or fax 877-521-4788. "Reviewing the request can take up to 15 business days," and "Prior Auth/Pre-Approval is required for all ONR requests." The form asks for the provider\'s tax ID, license, NPI, diagnosis, billing codes, telehealth and session frequency. Geographic and provider-access requests go to Member Services on the card instead.',
+          'Network status: Anthem\'s California commercial behavioral health page says it is "currently accepting requests to join our network from ... providers who render ABA services"; requests go through digital provider enrollment on Availity with CAQH ProView.',
+          'Disputes: after customer service, an Availity secure message and a supervisor, "submit a provider dispute" on the Provider Dispute Resolution Request form, which "is used to initiate the formal dispute process for a claim that has already been adjudicated or when a provider disagrees with a billing determination."',
+        ],
+        cites: [{ title: 'Anthem Blue Cross — Out of Network Override Request Form, California Commercial (CA-BC-CM-002123-25-S820, January 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/CA-BC-Out-of-Network-Request-Form.pdf' }, { title: 'Anthem Blue Cross — Behavioral Health Guide: Commercial BH and ABA Group Agreement (CABC-CM-082371-25)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_BHG_Groups.pdf' }],
+      },
     ],
     collect: [
       { title: 'Entity and funding', desc: 'Blue Cross of California (DMHC) vs. Anthem Blue Cross Life and Health (CDI) vs. self-funded ASO — it decides the criteria (AACAP vs. MCG) and whether the mandate applies.' },
       { title: 'HMO or out-of-state Blue?', desc: 'The PPO list excludes HMO and BlueCard — HMO members go through their authorization path, BlueCard members follow the home plan.' },
-      { title: 'Autism diagnosis', desc: 'Anthem bills ABA on an autism diagnosis.' },
+      { title: 'Autism diagnostic report', desc: 'For the initial assessment request: the diagnostic evaluation by a doctorate-level clinician (or another provider state rules allow), showing DSM-5-TR criteria and a standardized tool such as the ADI-R, ADOS-2 or CARS-2 (Anthem\'s Treatment Plan Request Form, April 2026).' },
       { title: 'Physician or psychologist prescription', desc: 'The mandate requires BHT prescribed by a physician or developed by a psychologist.' },
       { title: 'Rendering NPIs', desc: 'Claims need the individual NPI of the rendering provider.' },
     ],
@@ -2791,6 +2811,9 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'DMHC — licensed health plan list', url: 'https://wpso.dmhc.ca.gov/hpsearch/viewall.aspx' },
       { title: 'BACB — U.S. Licensure of Behavior Analysts', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
       { title: 'Anthem Blue Cross California — Provider News (commercial + Medi-Cal)', url: 'https://providernews.anthem.com/california' },
+      { title: 'Anthem Blue Cross — Treatment Plan Request Form for Autism Spectrum Disorders, California Commercial (CA-BC-CM-008578-26-S2508, April 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/CA_TPRF_00001.pdf' },
+      { title: 'Anthem Blue Cross — Applied Behavior Analysis Provider Resource Guide, California Commercial (CABC-CM-084582-25, June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/aba-provider-resource-guide-abc-ca.pdf' },
+      { title: 'Anthem Blue Cross — Out of Network Override Request Form, California Commercial (CA-BC-CM-002123-25-S820, January 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/CA-BC-Out-of-Network-Request-Form.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2804,32 +2827,30 @@ export const californiaPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       dxRecency: {
-        value: 'Anthem publishes no California recency rule of its own. For fully insured contracts issued, amended or renewed on or after January 1, 2026, the plan "shall not require an enrollee previously diagnosed … to receive a rediagnosis to maintain coverage" and may not delay existing treatment waiting for one (H&S § 1374.73(c) / Ins. § 10144.51(c)); utilization review is still allowed. Self-funded plans run on licensed MCG criteria.',
+        value: 'No recency window for the diagnosis. Anthem\'s California commercial Treatment Plan Request Form (April 2026) asks for the diagnostic evaluation with an initial assessment request "or if a member has new insurance coverage," and says the "Treatment plan should be dated within 30 days of the start date." It sets no maximum age for the diagnostic report. For fully insured contracts issued, amended or renewed on or after January 1, 2026, the plan "shall not require an enrollee previously diagnosed … to receive a rediagnosis to maintain coverage" and may not delay existing treatment waiting for one (H&S § 1374.73(c) / Ins. § 10144.51(c)). Self-funded plans run on licensed MCG criteria.',
         status: 'plan-dependent',
         cites: [
+          { title: 'Anthem Blue Cross — Treatment Plan Request Form for Autism Spectrum Disorders, California Commercial (CA-BC-CM-008578-26-S2508, April 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/CA_TPRF_00001.pdf' },
           { title: 'Health & Safety Code § 1374.73 (as amended by SB 402, eff. 1/1/2026)', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=HSC&sectionNum=1374.73' },
           { title: 'Insurance Code § 10144.51 (as amended by SB 402, eff. 1/1/2026)', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=INS&sectionNum=10144.51' },
         ],
-        verifyVia: 'Anthem UM (800-274-7767) at the ICR request; for self-funded plans the answer sits in MCG B-806-T.',
+        verifyVia: 'Anthem UM (800-274-7767) at the ICR request if a self-funded plan asks for a newer evaluation; for self-funded plans the answer sits in MCG B-806-T.',
         blocker: 'per-case',
       },
       diagnosingProviders: {
-        value: 'Anthem California names no diagnosing-provider list. The statutory floor for fully insured plans: BHT must be "prescribed by a physician and surgeon" or "developed by a psychologist" (§ 1374.73(d)(1)(A)).',
-        status: 'unverified',
+        value: 'Doctorate-level clinician, or another provider the state allows. Anthem\'s California commercial Treatment Plan Request Form for Autism Spectrum Disorders (April 2026) says an initial assessment request (97151/97152/0362T only), or a request for a member with new coverage, should include a "Diagnostic evaluation/report completed by a doctorate-level clinician or allowable qualified healthcare provider per state regulations confirming the member\'s diagnosis," and the form asks "Diagnosed by whom." LCSW: not named. A licensed clinical social worker is not a doctorate-level clinician, so an LCSW diagnosis is acceptable only if Anthem treats the LCSW as an "allowable qualified healthcare provider per state regulations" — confirm with Anthem UM before relying on one. The statute separately requires BHT "prescribed by a physician and surgeon" or "developed by a psychologist" (H&S § 1374.73(d)(1)(A)). Self-funded (ASO) plans review on licensed MCG B-806-T.',
+        status: 'verified',
         cites: [
+          { title: 'Anthem Blue Cross — Treatment Plan Request Form for Autism Spectrum Disorders, California Commercial (CA-BC-CM-008578-26-S2508, April 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/CA_TPRF_00001.pdf' },
           { title: 'Health & Safety Code § 1374.73 (as amended by SB 402, eff. 1/1/2026)', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=HSC&sectionNum=1374.73' },
         ],
-        verifyVia: 'Anthem UM 800-274-7767 — how the AACAP-based review treats the diagnosing clinician; self-funded plans apply licensed MCG B-806-T.',
-        blocker: 'per-case',
       },
       diagnosticTools: {
-        value: 'No Anthem California requirement for a specific instrument (ADOS-2 etc.) was found in any published document.',
-        status: 'unverified',
+        value: 'Anthem\'s California commercial Treatment Plan Request Form for Autism Spectrum Disorders (April 2026): the diagnostic report should include "Records showing how the patient meets criteria for Autism Spectrum Disorder (ASD) as per DSM-5-TR criteria" and "Standardized diagnostic tools (for example, Autism Diagnostic Interview, Revised (ADI-R); Autism Diagnostic Observation Schedule, Second Edition (ADOS-2); Childhood Autism Rating Scale, Second Edition (CARS-2))." The tools are examples, not one mandated instrument. For treatment requests it recommends "Baseline and updated assessments (for example, Vineland, VB Mapp, ABLLS-R)." Self-funded plans: licensed MCG B-806-T.',
+        status: 'verified',
         cites: [
-          { title: 'Anthem Blue Cross — Behavioral Health Guide: Commercial BH and ABA Group Agreement (CABC-CM-082371-25)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_BHG_Groups.pdf' },
+          { title: 'Anthem Blue Cross — Treatment Plan Request Form for Autism Spectrum Disorders, California Commercial (CA-BC-CM-008578-26-S2508, April 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/CA_TPRF_00001.pdf' },
         ],
-        verifyVia: 'Fully insured: the current California commercial "Adaptive Behavioral Treatment Request" form (Anthem’s BH guide says to "Use the current form"; not found on a public URL in October 2026) or Anthem UM 800-274-7767. Self-funded plans: MCG B-806-T (licensed, not publishable).',
-        blocker: 'document',
       },
       referral: {
         value:
@@ -2880,9 +2901,10 @@ export const californiaPayers: Record<string, PayerConfig> = {
     },
     deliveryRules: {
       supervision: {
-        value: 'Anthem California publishes no supervision ratio. Its H-code descriptors encode the QAS tiers — H0031 assessment/plan by a "Qualified Autism Service Provider (licensed clinician or Board Certified Behavioral Analyst (BCBA))," H0032 "supervision of a Qualified Autism Service Professional or Paraprofessional by a Qualified Autism Service Provider," H0046 direct treatment by a QAS professional, H2019 by a QAS paraprofessional. The statute requires only supervision meeting "professionally recognized standards of practice." Anthem’s California ABA Provider Resource Guide adds one operational rule — a QHP billing 97155 "can only add code 97153 if both the technician and QHP are face-to-face with the patient at the same time and the QHP is directing the technician" — but still sets no ratio or hours-per-week floor.',
+        value: 'Anthem\'s California commercial Treatment Plan Request Form (April 2026) describes 97153 as treatment "administered by technician under direction of physician/QHCP, receiving 2 hours of supervision for every 10 hours of direct treatment" — a 20% supervision expectation, stated on the request form rather than in a policy. Its H-code descriptors encode the QAS tiers — H0031 assessment/plan by a "Qualified Autism Service Provider (licensed clinician or Board Certified Behavioral Analyst (BCBA))," H0032 "supervision of a Qualified Autism Service Professional or Paraprofessional by a Qualified Autism Service Provider," H0046 direct treatment by a QAS professional, H2019 by a QAS paraprofessional. The statute requires only supervision meeting "professionally recognized standards of practice." Anthem’s California ABA Provider Resource Guide adds one operational rule — a QHP billing 97155 "can only add code 97153 if both the technician and QHP are face-to-face with the patient at the same time and the QHP is directing the technician" — and the form\'s signature line confirms "that any paraprofessional under my supervision has the appropriate education and training." No technician-to-BCBA caseload ratio is published.',
         status: 'plan-dependent',
         cites: [
+          { title: 'Anthem Blue Cross — Treatment Plan Request Form for Autism Spectrum Disorders, California Commercial (CA-BC-CM-008578-26-S2508, April 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/CA_TPRF_00001.pdf' },
           { title: 'Anthem Blue Cross — Applied Behavior Analysis Provider Resource Guide, California Commercial (CABC-CM-084582-25, June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/aba-provider-resource-guide-abc-ca.pdf' },
           { title: 'Anthem Blue Cross — Local PPO Precertification/Prior Authorization List, California Commercial (updated 9/22/2026, eff. 10/1/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_PPO_PA_List.pdf' },
           { title: 'Business & Professions Code § 4999.202 — Qualified autism service paraprofessional (SB 402, eff. 1/1/2026)', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=BPC&sectionNum=4999.202' },
@@ -2934,10 +2956,11 @@ export const californiaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Anthem Blue Cross of California approve out-of-network ABA providers?', a: 'Through its Out of Network Override Request Form (January 2026): non-contracted behavioral health providers request an override or benefit exception, or an extension of an earlier one, via Availity or fax 877-521-4788. Review can take up to 15 business days, and pre-approval is required before services.' },
       { q: 'Does Anthem Blue Cross cover ABA therapy in California?', a: 'Yes — for autism, with precertification on every ABA code. Fully insured plans are reviewed on AACAP criteria to comply with SB 855; self-funded employer plans use MCG guideline B-806-T.' },
       { q: 'How do I request ABA authorization from Anthem Blue Cross?', a: 'Through Interactive Care Reviewer on Availity, or by faxing the Adaptive Behavioral Treatment Request to 866-582-2287. UM questions: 800-274-7767.' },
       { q: 'What does the California autism mandate require?', a: 'Fully insured plans must cover behavioral health treatment, including ABA, for autism with no age or dollar caps, a treatment plan reviewed at least every six months, and — from 2026 — no forced rediagnosis to keep coverage. Self-funded ERISA and Medi-Cal plans are exempt.' },
-      { q: 'What are Anthem Blue Cross of California’s ABA prior auth and diagnostic requirements?', a: 'Every ABA code needs precertification — 97151, 97152, 0362T for the assessment and 97153–97158, 0373T plus the QAS H-codes for treatment — and Anthem itself, not Carelon, is the responsible reviewer on the October 2026 list, using AACAP criteria for fully insured plans and MCG B-806-T for self-funded ones. Claims bill on an autism diagnosis and the mandate needs a physician prescription or psychologist-developed plan. Anthem California publishes no diagnosing-credential list, no required instrument and no recency window for commercial members; for fully insured contracts renewed from 2026 it may not demand a rediagnosis to keep coverage. The commercial Adaptive Behavioral Treatment Request form (fax 866-582-2287, or ICR on Availity) carries the document checklist.' },
+      { q: 'What are Anthem Blue Cross of California’s ABA prior auth and diagnostic requirements?', a: 'Every ABA code needs precertification — 97151, 97152, 0362T for the assessment and 97153–97158, 0373T plus the QAS H-codes for treatment — and Anthem itself, not Carelon, is the responsible reviewer on the October 2026 list, using AACAP criteria for fully insured plans and MCG B-806-T for self-funded ones. Claims bill on an autism diagnosis and the mandate needs a physician prescription or psychologist-developed plan. Anthem\'s April 2026 California commercial Treatment Plan Request Form for Autism Spectrum Disorders sets the diagnostic packet: for the initial assessment request (or new coverage), a diagnostic evaluation "completed by a doctorate-level clinician or allowable qualified healthcare provider per state regulations," showing DSM-5-TR criteria and standardized tools such as the ADI-R, ADOS-2 or CARS-2; the form asks who made the diagnosis. It sets no recency window, and for fully insured contracts renewed from 2026 Anthem may not demand a rediagnosis to keep coverage. The treatment plan should be dated within 30 days of the start date. Submit on ICR in Availity or fax 866-582-2287.' },
       { q: 'Whose NPI goes on an Anthem Blue Cross California ABA claim when a technician delivers the session?', a: 'The rendering NPI should be the provider named on the authorization, and Anthem’s California ABA Provider Resource Guide says technician-delivered ABA "must show the supervising BCBA or other QHP in box 31," with HM/HN/HO modifiers for the technician’s education level.' },
       { q: 'What is Anthem Blue Cross of California’s timely filing limit for ABA claims?', a: 'Anthem’s behavioral health group guide says to submit original claims within 90 days of the service. For the DMHC-licensed plan, state regulation bars deadlines shorter than 90 days for contracted providers (180 for non-contracted) and, since January 1, 2026, payment of a complete claim within 30 calendar days of receipt (H&S § 1371 as amended by AB 3275).' },
     ],
@@ -3045,6 +3068,14 @@ export const californiaPayers: Record<string, PayerConfig> = {
           { title: '28 CCR § 1300.71.38 — Provider dispute resolution mechanism (DMHC plans)', url: 'https://www.law.cornell.edu/regulations/california/28-CCR-1300.71.38' },
         ],
       },
+      {
+        h2: 'Out-of-network ABA and continuity of care',
+        body: [
+          'Continuity of care: Health Net lets new and existing members "continue with their existing out-of-network providers for up to 12 months" when criteria are met, and covers "Behavioral health conditions — all acute, serious or chronic mental health conditions, including treatment for children diagnosed with autism spectrum disorder (ASD). These services include applied behavioral analysis (ABA) — for up to 12 months." The provider must accept Health Net\'s rates and payment methods "unless a letter of agreement or letter of understanding is executed," and its utilization management; requests are decided within five business days (pendable 45 days for more information; three calendar days if urgent). A member may also ask to finish care with a provider who has left the network.',
+          'HMO referrals out of network: a participating physician group "must refer members to participating providers except in emergencies or as otherwise required by law"; an out-of-network referral needs prior authorization, and "once Health Net authorizes a referral, the authorization cannot be withdrawn and payment is required for services rendered." Out-of-network providers "cannot refer the member to another out-of-network provider without authorization."',
+        ],
+        cites: [{ title: 'Health Net California provider manual (EPO/HMO/HSP/PPO) — Continuity of Care Assistance', url: 'https://providerlibrary.healthnetcalifornia.com/hmo/provider-manual/utilization-management/continuity-of-care-assistance-epo-hmo-hsp-ppo.html' }, { title: 'Health Net California provider manual (HMO) — Out-of-Network Referrals (updated 07/01/2024)', url: 'https://providerlibrary.healthnetcalifornia.com/hmo/provider-manual/referrals/out-of-network-referrals.html' }],
+      },
     ],
     collect: [
       { title: 'Group or individual plan', desc: 'Employer-group Health Net plans are ending (~2/28/2027) — get the end date and the replacement carrier; Ambetter (Covered California) continues.' },
@@ -3068,6 +3099,8 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'Insurance Code § 10144.51 (as amended by SB 402, eff. 1/1/2026)', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=INS&sectionNum=10144.51' },
       { title: 'BACB — U.S. Licensure of Behavior Analysts', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
       { title: 'Health Net — Commercial (HMO/PPO) provider updates and notices (index)', url: 'https://providerlibrary.healthnetcalifornia.com/hmo/news.html' },
+      { title: 'Health Net California provider manual (EPO/HMO/HSP/PPO) — Continuity of Care Assistance', url: 'https://providerlibrary.healthnetcalifornia.com/hmo/provider-manual/utilization-management/continuity-of-care-assistance-epo-hmo-hsp-ppo.html' },
+      { title: 'Health Net California provider manual (HMO) — Out-of-Network Referrals (updated 07/01/2024)', url: 'https://providerlibrary.healthnetcalifornia.com/hmo/provider-manual/referrals/out-of-network-referrals.html' },
     ],
     intakeGates: {
       ageLimit: {
@@ -3087,7 +3120,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'A physician or licensed psychologist: the diagnosis form "must be completed by a physician or licensed psychologist," recording the diagnosis date, whether ABA is recommended, and the signer’s license type and number.',
+        value: 'A physician or licensed psychologist: the diagnosis form "must be completed by a physician or licensed psychologist," recording the diagnosis date, whether ABA is recommended, and the signer’s license type and number. LCSW: no — the diagnosis form must be completed by a physician or licensed psychologist.',
         status: 'verified',
         cites: [
           { title: 'Health Net — Confirmation of Diagnosis: ASD form (24-993)', url: 'https://providerlibrary.healthnetcalifornia.com/content/dam/centene/healthnet/pdfs/providerlibrary/500235-ABA-ASD-Eval-Form-COMM.pdf' },
@@ -3194,6 +3227,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Can a family keep an out-of-network ABA provider when they join Health Net?', a: 'Often, for up to 12 months: Health Net\'s continuity-of-care rules list ABA for children with autism among covered behavioral health conditions, if the provider accepts Health Net\'s rates (or signs a letter of agreement) and its utilization management. Health Net decides within five business days.' },
       { q: 'Does Health Net cover ABA therapy in California?', a: 'Yes — for ASD under California’s mandate, with prior authorization through the Health Net Behavioral Health Autism Center (ABA@healthnet.com, fax 855-427-4798).' },
       { q: 'Is Health Net leaving California?', a: 'Its commercial employer-group business is: many group plans are expected to end February 28, 2027, and Health Net says its prior authorizations "may not transfer" to the new carrier. Medi-Cal, Ambetter (Covered California) and Medicare continue.' },
       { q: 'Can I add hours to an existing Health Net ABA authorization?', a: 'Not by addendum. Health Net requires a new, complete PA request covering all codes, with a letter explaining the clinical reason; the existing authorization is ended.' },
@@ -3321,6 +3355,16 @@ export const californiaPayers: Record<string, PayerConfig> = {
           { title: 'Aetna Behavioral Health Provider Manual (8/22): access to care', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' },
         ],
       },
+      {
+        h2: 'Network participation, out-of-network referrals and disputes (Aetna)',
+        body: [
+          'Joining the network: Aetna\'s participation criteria for ABA providers require services "provided directly or supervised by individuals licensed by the state or certified by the Behavior Analyst Certification Board as board-certified behavior analysts (BCBAs)"; a BCaBA or paraprofessional works under supervision, BCBAs must meet Aetna credentialing standards, and "All BCBAs, BCaBAs and paraprofessionals must meet state requirements." The criteria do not say the ABA network is open or closed in a given state.',
+          'Out-of-network care and single case agreements: Aetna does not use the term "single case agreement" in these documents. Its behavioral health manual describes a "nonparticipating referral" — "a written or verbal request that we review" — that may be approved when a preferred clinician "isn\'t available in network (and the member\'s plan provides coverage for out-of-network services)," when the member is continuing or returning to treatment with a nonparticipating clinician "in certain circumstances," or when the PCP identifies a nonparticipating expert. Plans without referral requirements let members self-refer to participating or nonparticipating providers, paying their cost share; Aetna Open Access plans let members self-refer to any participating provider.',
+          'Disputes: payment disputes on a finalized claim go through the Availity provider portal ("Dispute Claim" from Claim Status, then the Appeals dashboard, up to five 32 MB attachments) or the Disputes and Appeals page on Aetna.com. The behavioral health manual describes "One level of appeal" for payment decisions; pre-service and concurrent medical-necessity denials go through the member appeal process, and a provider appeal counts as "on behalf of the member" only with the member\'s written authorization. State rules may change the process.',
+          'Authorizations and changing agencies: none of these Aetna documents says whether an ABA precertification is issued to the rendering NPI, the group or the TIN, or whether it moves with the child to a new agency; ask the precertification line on the member\'s card before the first session with the new agency.',
+        ],
+        cites: [{ title: 'Aetna — Provider and facility participation criteria (Applied behavior analyst (ABA) services provider additional criteria; May 2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' }, { title: 'Aetna — Behavioral Health Provider Manual (1158252-01-01, 8/22): nonparticipating referrals; dispute and appeal process', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' }, { title: 'Aetna Health Care Professional Toolkit / provider manual (8102800-01-01, 6/26): Referral policies; Claim disputes and appeals', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies; California PA carve-out may apply) vs. self-funded ERISA (national precert rule, mandate does not bind).' },
@@ -3342,6 +3386,8 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'Health & Safety Code § 1374.73 (as amended by SB 402, eff. 1/1/2026)', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=HSC&sectionNum=1374.73' },
       { title: 'Insurance Code § 10144.51 (as amended by SB 402, eff. 1/1/2026)', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=INS&sectionNum=10144.51' },
       { title: 'BACB — U.S. Licensure of Behavior Analysts', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
+      { title: 'Aetna — Provider and facility participation criteria (Applied behavior analyst (ABA) services provider additional criteria; May 2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' },
+      { title: 'Aetna — Behavioral Health Provider Manual (1158252-01-01, 8/22): nonparticipating referrals; dispute and appeal process', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -3364,7 +3410,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'A DSM-5 ASD diagnosis "obtained by an appropriate provider" — the guide names a "licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice"; CPB 0648 lists professionals appropriate to ASD evaluation (BCBA, developmental pediatrician, neurologist, OT, PT, primary care provider, psychiatrist, psychologist, SLP and audiologist). Aetna’s California-only record-review items add "If member is 0-6 years of age, there is documentation of screening for autism spectrum disorder."',
+        value: 'A DSM-5 ASD diagnosis "obtained by an appropriate provider" — the guide names a "licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice"; CPB 0648 lists professionals appropriate to ASD evaluation (BCBA, developmental pediatrician, neurologist, OT, PT, primary care provider, psychiatrist, psychologist, SLP and audiologist). Aetna’s California-only record-review items add "If member is 0-6 years of age, there is documentation of screening for autism spectrum disorder." LCSW: Aetna\'s test is scope of practice. California\'s LCSW scope statute (B&P § 4996.9) could not be fetched this run, so whether an LCSW counts as qualified to diagnose in California is not confirmed here — ask the plan before relying on an LCSW-only diagnosis.',
         status: 'verified',
         cites: [
           { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
@@ -3484,6 +3530,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Will Aetna approve an out-of-network ABA provider?', a: 'Possibly, through a "nonparticipating referral" that Aetna reviews — for example when the needed clinician "isn\'t available in network (and the member\'s plan provides coverage for out-of-network services)" or the child is continuing treatment with a nonparticipating clinician. Aetna\'s manuals do not describe a single case agreement program by name.' },
       { q: 'Does Aetna cover ABA therapy in California?', a: 'Yes — for autism under Aetna’s national policy, with California’s mandate (H&S § 1374.73 / Ins. § 10144.51) on fully insured plans. Self-funded employer plans are exempt from the mandate, so verify funding type first.' },
       { q: 'Does Aetna require prior authorization for ABA in California?', a: 'Nationally yes, but Aetna’s California supplement says outpatient behavioral health on fully insured plans has not required prior authorization since March 1, 2024, without mentioning ABA. Call Aetna precertification (1-888-632-3862) for each member and keep the reference number.' },
       { q: 'Does Aetna have a Medi-Cal plan in California?', a: 'No. Aetna Better Health of California stopped operating on January 1, 2024; Medi-Cal ABA runs through the county Medi-Cal plan.' },
@@ -3610,6 +3657,16 @@ export const californiaPayers: Record<string, PayerConfig> = {
           { title: 'Cigna / Evernorth autism resource guide (March 2025): paper-claim rules', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
         ],
       },
+      {
+        h2: 'Network, out-of-network benefits, billing credentials and payment appeals (Evernorth)',
+        body: [
+          'Who may deliver and who may bill (Evernorth\'s ABA code table): 97151, 97155, 97156, 97157, 97158, 0362T and 0373T are provided and billed by a BCBA-D, BCBA or licensed mental health provider; 97152, 97153 and 97154 may be provided by a BCaBA or technician but are billed by the BCBA-D, BCBA or licensed mental health provider. "All ABA services must be billed with CPT codes 97151–97158, 0362T, and 0373T ONLY." Evernorth\'s guide names no HM/HN/HO credential modifiers.',
+          'Joining the network: Evernorth says it "is committed to expanding our network of autism providers." Individuals file the Evernorth Behavioral Provider Information Form; autism clinics and large groups file the Screening Application for Autism Clinics; "It may take up to 90 days for an application to be processed," and after the clinic contract each certified or licensed provider must be credentialed, "an additional 60 to 90 days." "Providers must be fully credentialed to render in-network services." A departing provider or roster change goes to Provider Services (800.926.2273) or the Clinic Location Changes form.',
+          'Out-of-network: it depends on the product. HMO, HMO Open Access, Cigna Connect and OAP In-Network plans cover in-network care only (emergencies aside); POS and Open Access Plus plans cover out-of-network services at a reduced benefit level. Evernorth\'s guidelines publish no single case agreement process; a family without out-of-network benefits needs an in-network provider, and Evernorth\'s care managers email in-network providers near the family to find an opening.',
+          'Payment disputes: call Provider Services first; then appeal "in writing within 180 calendar days of the date of the initial payment or denial decision" (or of the last adjustment). Fee-schedule and reimbursement disputes can go through the reconsideration feature on Provider.Evernorth.com. Medical necessity appeals should include the clinical record; untimely-filing appeals need proof of timely submission or of a COB delay. "Most appeals are resolved within 60 calendar days," with notice within 75 days unless state law differs. Some out-of-network providers must attach a patient-signed Appointment of Representative form.',
+        ],
+        cites: [{ title: 'Cigna / Evernorth autism resource guide for behavioral health providers (PCOMM-2025-225, March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026): plan types, Joining the network, Provider payment appeals', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs.' },
@@ -3628,6 +3685,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'Health & Safety Code § 1374.73 (as amended by SB 402, eff. 1/1/2026)', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=HSC&sectionNum=1374.73' },
       { title: 'Insurance Code § 10144.51 (as amended by SB 402, eff. 1/1/2026)', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=INS&sectionNum=10144.51' },
       { title: 'BACB — U.S. Licensure of Behavior Analysts', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
+      { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026): plan types, Joining the network, Provider payment appeals', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -3650,7 +3708,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'A healthcare professional "who is licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice" (EN0499); the PA form offers medical doctor, licensed psychologist or other.',
+        value: 'A healthcare professional "who is licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice" (EN0499); the PA form offers medical doctor, licensed psychologist or other. LCSW: Evernorth\'s test is independent licensure with diagnosis in scope. California\'s LCSW scope statute (B&P § 4996.9) could not be fetched this run, so whether an LCSW counts as qualified to diagnose in California is not confirmed here — ask the plan before relying on an LCSW-only diagnosis.',
         status: 'verified',
         cites: [
           { title: 'Evernorth Coverage Policy EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
@@ -3758,6 +3816,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Cigna pay an out-of-network ABA provider?', a: 'Only on plans with out-of-network benefits. Evernorth\'s September 2026 guidelines say HMO, Connect and OAP In-Network plans cover in-network care only, while POS and Open Access Plus plans cover out-of-network services at a reduced benefit level. Evernorth publishes no single case agreement process for ABA; its care managers help families find an in-network provider.' },
       { q: 'Does Cigna cover ABA therapy in California?', a: 'Yes — for autism under Evernorth policy EN0499, with California’s mandate on fully insured plans. Self-funded employer plans are exempt from the mandate, so verify funding type first.' },
       { q: 'Does Cigna require prior authorization for the ABA assessment?', a: 'Not for standard in-network requests (97151, 97152, 0362T) when the provider is a BCBA or independently licensed and the plan covers ABA. Treatment requires prior authorization via ABA@Evernorth.com or fax 860.687.9230.' },
       { q: 'Does Cigna have California-specific ABA rules?', a: 'No. EN0499 carves out only Virginia fully insured plans; Evernorth’s California criteria list covers mental health levels of care, not ABA. California’s mandate and SB 855 still apply to fully insured plans.' },
@@ -3894,6 +3953,17 @@ export const californiaPayers: Record<string, PayerConfig> = {
           { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial), Chapter 10: complete claim and NPI requirements', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
         ],
       },
+      {
+        h2: 'Network, single case agreements, authorizations and disputes (Optum)',
+        body: [
+          'Single case agreements: Optum\'s ABA FAQ says an SCA during credentialing is granted "Not automatically. In exception cases, based on clinical need, new business implementations, or other gaps in the network, a SCA may be approved after review with the clinical team." Once an SCA provider becomes contracted, it sends its current member list to its Network Manager to have the authorizations updated. Out-of-network providers bill on the standard Form 1500.',
+          'Joining the network: Optum lists its ABA contracting criteria (a BCBA with state licensure where the state licenses behavior analysts, six months of supervised ABA experience, $1 million/$1 million professional liability for an individual; $1 million/$3 million plus general or supplemental liability for a group). Credentialing "can take from 45 to 120 days after submission of all materials," and every new ABA agency needs an Optum site audit that "can take up to 90 days to schedule." None of these Optum documents says the ABA network is closed to new providers.',
+          'Whose authorization it is: when an agency is credentialed, "their affiliated clinicians are not credentialed but are considered participating under the agency\'s Participation Agreement," but "Any claims submission for a rendering clinician who has not been added to the network is subject to denial." Approvals are issued in code clusters (assessment 97151/97152; direct care 97153/97154; multi-staff 0362T/0373T; QHP services 97155–97158) and units "can shift" within a cluster. Optum publishes no rule on moving an authorization from one agency to another; "All services require prior approval," so a new agency calls the ABA team for its own approval.',
+          'Credential modifiers (commercial ABA program): HM = RBT (less than a bachelor\'s), HN = BCaBA (bachelor\'s), HO = master\'s-level BCBA or licensed mental health provider, HP = BCBA-D or doctoral-level licensee; one provider-level modifier per line. 0362T and 0373T are listed as codes "that do not require modifiers."',
+          'Disputes: network providers follow a 2-step process — Step 1 reconsideration, Step 2 appeal — with "a total of 12 months for submission for both steps" unless state law or the Participation Agreement sets another deadline. Send "member-specific treatment plans, clinical records, payment appendices or other items that support why you believe our decision was incorrect," plus proof the claim was filed on time; mail to Optum Behavioral Health Solutions, P.O. Box 30757, Salt Lake City, UT 84123, or use Provider Express. Non-urgent clinical appeals have a 180-day window.',
+        ],
+        cites: [{ title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' }, { title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): network status of group clinicians; Provider Reconsideration and Appeal Process', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }, { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured California plan (mandate + Optum’s California criteria) vs. self-funded ERISA (national Optum criteria).' },
@@ -3917,6 +3987,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'BACB — U.S. Licensure of Behavior Analysts', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
       { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
       { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
+      { title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): network status of group clinicians; Provider Reconsideration and Appeal Process', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -3940,7 +4011,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: '"A state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis according to … DSM-5-TR" (Optum criteria). Psychologist diagnostic testing is billed under Optum’s general behavioral health network, not the autism contract.',
+        value: '"A state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis according to … DSM-5-TR" (Optum criteria). Psychologist diagnostic testing is billed under Optum’s general behavioral health network, not the autism contract. LCSW: Optum\'s test is a state-licensed clinician qualified to diagnose. California\'s LCSW scope statute (B&P § 4996.9) could not be fetched this run, so whether an LCSW counts as qualified to diagnose in California is not confirmed here — ask the plan before relying on an LCSW-only diagnosis.',
         status: 'verified',
         cites: [
           { title: 'Optum — ABA Supplemental Clinical Criteria (BH803ABASCC, interim review 4/21/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
@@ -4053,6 +4124,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare / Optum give single case agreements for ABA?', a: 'Not automatically. Optum\'s ABA FAQ says an SCA may be approved "In exception cases, based on clinical need, new business implementations, or other gaps in the network" after review with the clinical team. Credentialing takes 45 to 120 days, and new agencies also need a site audit.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in California?', a: 'Yes — through Optum Behavioral Health, for autism, with prior authorization on every ABA service. Fully insured California plans also fall under the state mandate and Optum’s California-specific criteria.' },
       { q: 'Can UHC deny ABA because the child has an IEP?', a: 'Not on that basis alone for California commercial members: Optum’s California State Mandates entry and H&S § 1374.72(h) bar limiting coverage because special education, an IEP or Medicaid could provide the service.' },
       { q: 'Does UnitedHealthcare have a Medi-Cal plan in California?', a: 'No — no UnitedHealthcare Medi-Cal plan operates in any county in 2026. Medi-Cal ABA runs through the county Medi-Cal plan.' },

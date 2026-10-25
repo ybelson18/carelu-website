@@ -205,7 +205,15 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
       { title: 'Other insurance', desc: 'EOHHS requires proof of commercial coverage; commercial pays ABA first, Medicaid after.' },
       { title: 'IEP / school services', desc: 'HBTS reinforces but does not replace IEP or IFSP services; collect the current IEP.' },
     ],
-    sources: [S.eohhsManuals, S.hbts, S.hbtsAdd, S.childSvc, S.abaFact, S.mmc, S.nhpK, S.uhcK, S.thpK, S.ohic25, S.fy27, S.spaEpsdt, S.feeSched, S.paPage, S.claimsPage, S.tele, S.evv, S.evvSub, S.evvAdd, S.lic, S.lic9, S.lic21, S.tm4, S.cfr440, S.cfr433, { title: 'RI EOHHS — Provider Updates (index of monthly Medicaid Provider Update issues)', url: 'https://eohhs.ri.gov/providers-partners/provider-updates' }],
+    sources: [S.eohhsManuals, S.hbts, S.hbtsAdd, S.childSvc, S.abaFact, S.mmc, S.nhpK, S.uhcK, S.thpK, S.ohic25, S.fy27, S.spaEpsdt, S.feeSched, S.paPage, S.claimsPage, S.tele, S.evv, S.evvSub, S.evvAdd, S.lic, S.lic9, S.lic21, S.tm4, S.cfr440, S.cfr433, { title: 'RI EOHHS — Provider Updates (index of monthly Medicaid Provider Update issues)', url: 'https://eohhs.ri.gov/providers-partners/provider-updates' },
+      { title: 'Neighborhood Health Plan of RI — Autism and Developmental Services Payment Policy (posted 7/10/2026)', url: 'https://www.nhpri.org/blobnhpri08e0944faa/wp-content/uploads/2026/07/Autism-and-Developmental-Services-Payment-Policy-7.10.26.pdf' },
+      { title: 'Point32Health MNG — Applied Behavior Analysis (ABA) Including Early Intervention for Tufts Health RITogether (effective January 1, 2026)', url: 'https://wwwassets.point32health.org/documents/aba-early-intervention-ri-together-mng' },
+      { title: 'R.I. Gen. Laws § 27-81-3 — Telemedicine Coverage Act: definitions (originating site may include the home; Medicaid MCOs are "health insurers")', url: 'https://webserver.rilegislature.gov/Statutes/TITLE27/27-81/27-81-3.htm' },
+      { title: 'Neighborhood Health Plan of RI — Clinical Medical Policy BH-001, Behavioral Health: Home and Community Based Services (last reviewed 08/20/2025)', url: 'https://www.nhpri.org/blobnhpri08e0944faa/wp-content/uploads/2025/08/2025.09.01-CMP-BH-001-Behavioral_Health_Home_and_Community_Based_Services.pdf' },
+      { title: 'R.I. Gen. Laws § 5-86-2 — Definitions (practice of ABA; services provided only when prescribed by listed specialists), as amended effective June 30, 2025', url: 'https://webserver.rilegislature.gov/Statutes/TITLE5/5-86/5-86-2.htm' },
+      { title: '42 CFR 438.210(d) — Medicaid managed care authorization timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' },
+      { title: 'R.I. Gen. Laws § 27-20.11-3 — Scope of coverage (benefits continue until age 15; in-state services)', url: 'https://webserver.rilegislature.gov/Statutes/TITLE27/27-20.11/27-20.11-3.htm' },
+    ],
     deliveryRules: {
       supervision: {
         value: 'Clinical supervision is "a required component of HBTS for both Specialized Treatment and Treatment Support," provided only by Rhode Island licensed clinicians (LICSW, LCSW, MFT, mental health counselor, psychologist, or BCBA). The 2016 standards changed supervision "from 2 hours per week to 8 hours total per month." The managed care contracts add that the supervisor must "Observe worker in the home with the child implementing the Treatment Plan on a monthly basis" and provide group supervision when two or more workers treat a child. ABA "can be overseen by a Board Certified Behavior Analyst (BCBA) or a licensed trained professional (e.g., Psychologist)"; the lead therapist reports to the behavior analyst or clinical supervisor.',
@@ -254,7 +262,7 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
         cites: [S.hbts, S.abaFact, S.nhpPP],
       },
       diagnosingProviders: {
-        value: 'A "qualified licensed health care professional" (diagnosis) and a "licensed mental health professional" (the evaluation within 3 years). The state names no narrower list for Medicaid; separately, the licensing law has a licensed analyst provide ABA only when prescribed by a child psychiatrist, behavioral developmental pediatrician, child neurologist or child-trained licensed psychologist.',
+        value: 'A "qualified licensed health care professional" (diagnosis) and a "licensed mental health professional" (the evaluation within 3 years). The state names no narrower list for Medicaid; separately, the licensing law has a licensed analyst provide ABA only when prescribed by a child psychiatrist, behavioral developmental pediatrician, child neurologist or child-trained licensed psychologist. LCSW: the Medicaid test (“qualified licensed health care professional”) does not exclude one, but an LCSW is not on the licensing law\'s list of who may prescribe ABA delivered by a licensed analyst.',
         status: 'verified',
         cites: [S.hbts, S.lic2],
       },
@@ -358,6 +366,13 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
         body: [RI_OOS_BCBA],
         cites: [S.lic21, S.lic9, S.tele],
       },
+      {
+        h2: 'Can a child keep an out-of-network ABA provider after joining Neighborhood?',
+        body: [
+          'Yes, in one case set by the state contract. For at least 90 days after enrollment, for a member who had Qualified Health Plan coverage in the prior 90 days, the contract (Amendment 21, effective July 1, 2026, § 2.06.05.03) says the plan “must accept any prior authorizations authorized by the member’s QHP” and “must allow Enrollee to see an out-of-network provider on an in-network basis if (1) that provider was a part of the member’s QHP network, and (2) the member had been in the care of that provider for a period of at least six months,” with balance-billing prohibited either way. Outside that rule, Neighborhood publishes no ABA single-case-agreement process.',
+        ],
+        cites: [{ title: 'EOHHS–Neighborhood Health Plan of RI Medicaid Managed Care Contract, Amendment 21 (full contract, effective July 1, 2026)', url: 'https://eohhs.ri.gov/sites/g/files/xkgbur226/files/2026-08/NHPRI_Amend_21_executed_Fully%20Executed_20260624.pdf' }],
+      },
     ],
     collect: [
       { title: 'Member ID and product', desc: 'RIte Care (Medicaid) versus an exchange plan: the codes, age limit and rules differ.' },
@@ -366,7 +381,9 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
       { title: 'Practitioner order', desc: 'Neighborhood requires services to be ordered by a practitioner.' },
       { title: 'Current IEP', desc: 'Providers must obtain and keep a current copy of the IEP; services may not duplicate it.' },
     ],
-    sources: [S.nhpCMP, S.nhpPP, S.nhpPM, S.nhpBH, S.nhpSup, S.nhpAuth, S.nhpK, S.hbts, S.tele, S.lic21, S.lic9, S.cfr438, S.cfr433, { title: 'Neighborhood Health Plan of RI — Provider Newsletter archive (Neighborhood News)', url: 'https://www.nhpri.org/providers/communication/provider-newsletter/' }],
+    sources: [S.nhpCMP, S.nhpPP, S.nhpPM, S.nhpBH, S.nhpSup, S.nhpAuth, S.nhpK, S.hbts, S.tele, S.lic21, S.lic9, S.cfr438, S.cfr433, { title: 'Neighborhood Health Plan of RI — Provider Newsletter archive (Neighborhood News)', url: 'https://www.nhpri.org/providers/communication/provider-newsletter/' },
+      { title: 'R.I. Gen. Laws § 5-86-2 — Definitions (practice of ABA; services provided only when prescribed by listed specialists), as amended effective June 30, 2025', url: 'https://webserver.rilegislature.gov/Statutes/TITLE5/5-86/5-86-2.htm' },
+    ],
     deliveryRules: {
       supervision: {
         value: 'The ABA treatment plan "is developed by a Licensed, Applied Behavior Analyst"; sessions are "typically provided by behavioral technicians or paraprofessionals" and "The technician is supervised by the Licensed, Applied Behavior Analyst." Neighborhood publishes no numeric ratio. Its contract with EOHHS requires monthly in-home observation of each worker by the clinical supervisor, and ABA "overseen by a Board-Certified Behavior Analyst (BCBA) or a licensed trained professional."',
@@ -415,7 +432,7 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
         cites: [S.nhpPP, S.nhpCMP],
       },
       diagnosingProviders: {
-        value: 'A "qualified licensed health care professional" for the diagnosis, and a licensed mental health professional for the three-year evaluation (CMP BH-001, HBTS criteria). The ABA initial evaluation must come from a Licensed Applied Behavior Analyst.',
+        value: 'A "qualified licensed health care professional" for the diagnosis, and a licensed mental health professional for the three-year evaluation (CMP BH-001, HBTS criteria). The ABA initial evaluation must come from a Licensed Applied Behavior Analyst. LCSW: not named. The test turns on licensure and diagnostic scope, so an LCSW\'s diagnosis is accepted only if the plan agrees it is within the LCSW\'s licensed scope; confirm with the plan before relying on one.',
         status: 'verified',
         cites: [S.nhpCMP],
       },
@@ -448,6 +465,7 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Can a child keep an out-of-network ABA provider after joining Neighborhood?', a: 'For at least 90 days after a child moves from a marketplace (QHP) plan, yes, if the provider was in the QHP network and treated the child for at least six months. Neighborhood must also accept the QHP\'s prior authorizations. Balance-billing is prohibited.' },
       { q: 'Does Neighborhood Health Plan of Rhode Island cover ABA?', a: 'Yes. For Medicaid (RIte Care) members under 21, ABA is a subset of Home Based Therapeutic Services. Its commercial exchange plans cover ABA for members under 20.' },
       { q: 'Does Neighborhood still use Optum for behavioral health?', a: 'No. Neighborhood manages behavioral health in-house as of September 1, 2025; Optum claims for earlier dates could be followed up with Neighborhood until August 31, 2026.' },
       { q: 'Which codes does Neighborhood use for Medicaid ABA?', a: 'The HBTS HCPCS codes: T1024 (direct service), H0046 (lead therapy; HO/HP for clinical supervision), H2014, T1016, T1013 and S9446, with U1 for 15-minute units and XP when two agencies serve one child. Its commercial plans use CPT 97151–97158.' },
@@ -524,7 +542,9 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
       { title: 'Physician’s prescription', desc: 'The state requires HBTS to be prescribed by a physician.' },
       { title: 'Other insurance', desc: 'The plan pays last; attach the primary payer’s EOB.' },
     ],
-    sources: [S.uhcPM, S.uhcK, S.optRI, S.optRItele, S.hbts, S.abaFact, S.tele, S.lic21, S.lic9, S.cfr438, S.cfr433, { title: 'UHC Community Plan of RI — Bulletins and Newsletters (state news index)', url: 'https://www.uhcprovider.com/en/health-plans-by-state/rhode-island-health-plans/ri-comm-plan-home/ri-cp-news.html' }],
+    sources: [S.uhcPM, S.uhcK, S.optRI, S.optRItele, S.hbts, S.abaFact, S.tele, S.lic21, S.lic9, S.cfr438, S.cfr433, { title: 'UHC Community Plan of RI — Bulletins and Newsletters (state news index)', url: 'https://www.uhcprovider.com/en/health-plans-by-state/rhode-island-health-plans/ri-comm-plan-home/ri-cp-news.html' },
+      { title: 'R.I. Gen. Laws § 5-86-2 — Definitions (practice of ABA; services provided only when prescribed by listed specialists), as amended effective June 30, 2025', url: 'https://webserver.rilegislature.gov/Statutes/TITLE5/5-86/5-86-2.htm' },
+    ],
     deliveryRules: {
       supervision: {
         value: 'UnitedHealthcare Community Plan publishes no ABA supervision ratio of its own; the state standard applies. The EOHHS managed care contract requires HBTS direct services to be delivered "under the supervision of a licensed healthcare professional"; the clinical supervisor must be a Rhode Island licensed health care provider with a master’s or doctoral degree, must "Observe worker in the home with the child implementing the Treatment Plan on a monthly basis," and ABA "can be overseen by a Board-Certified Behavior Analyst (BCBA) or a licensed trained professional (e.g., Psychologist)." The 2016 EOHHS certification standards changed clinical supervision "from 2 hours per week to 8 hours total per month." Direct-care workers must be at least 19, with a high school diploma and experience or coursework.',
@@ -575,7 +595,7 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
         cites: [S.uhcPM, S.hbts],
       },
       diagnosingProviders: {
-        value: 'The plan names no list; the state rule is a "qualified licensed health care professional," with an evaluation by a licensed mental health professional within three years.',
+        value: 'The plan names no list; the state rule is a "qualified licensed health care professional," with an evaluation by a licensed mental health professional within three years. LCSW: not named. The test turns on licensure and diagnostic scope, so an LCSW\'s diagnosis is accepted only if the plan agrees it is within the LCSW\'s licensed scope; confirm with the plan before relying on one.',
         status: 'verified',
         cites: [S.uhcPM, S.hbts],
       },
@@ -675,6 +695,13 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
         body: [RI_OOS_BCBA],
         cites: [S.lic21, S.lic9, S.tele],
       },
+      {
+        h2: 'Can an out-of-network ABA provider treat a Tufts Health RITogether member?',
+        body: [
+          'Only with prior authorization. Point32Health\'s RITogether behavioral health grid says “Out-of-network providers are required to request PA before initiating services.” The state contract (Amendment 21, § 2.06.05.03) adds a transition rule: for at least 90 days after enrollment, a former Qualified Health Plan member may see an out-of-network provider on an in-network basis if the provider was in the QHP network and had treated the member for at least six months, and QHP prior authorizations must be accepted.',
+        ],
+        cites: [{ title: 'Point32Health — Tufts Health RITogether Behavioral Health Prior Authorization and Notification Grid (updated 7/2026)', url: 'https://www.point32health.org/documents/rit-bh-pa-notification-grid' }, { title: 'EOHHS–Tufts Health Public Plans Medicaid Managed Care Contract, Amendment 21 (full contract, effective July 1, 2026)', url: 'https://eohhs.ri.gov/sites/g/files/xkgbur226/files/2026-08/THPP_Amend_21__Fully%20Executed_20260626.pdf' }],
+      },
     ],
     collect: [
       { title: 'Member ID', desc: 'Confirm Tufts Health RITogether (not Tufts Health Together, the Massachusetts plan).' },
@@ -682,7 +709,9 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
       { title: 'Rendering clinician’s RI license', desc: 'The claim needs the rendering clinician’s name, NPI and Rhode Island license number.' },
       { title: 'Other insurance', desc: 'Bill the primary first; file with Tufts within 60 days of the primary EOP.' },
     ],
-    sources: [S.thpABA, S.thpGrid, S.thpClaims, S.thpUM, S.thpBH, S.thpK, S.hbts, S.tele, S.lic21, S.lic9, S.lic2, S.cfr438, S.cfr433, { title: 'Point32Health — Provider newsletter archive (PDF versions by month)', url: 'https://www.point32health.org/provider/office-resources/provider-newsletter/newsletter-archives-pdf-versions' }],
+    sources: [S.thpABA, S.thpGrid, S.thpClaims, S.thpUM, S.thpBH, S.thpK, S.hbts, S.tele, S.lic21, S.lic9, S.lic2, S.cfr438, S.cfr433, { title: 'Point32Health — Provider newsletter archive (PDF versions by month)', url: 'https://www.point32health.org/provider/office-resources/provider-newsletter/newsletter-archives-pdf-versions' },
+      { title: 'Point32Health Payment Policy \u2014 Applied Behavioral Analysis (ABA) Services (rev. 05/2026)', url: 'https://www.point32health.org/documents/applied-behavioral-analysis-aba-services-pp' },
+    ],
     deliveryRules: {
       supervision: {
         value: 'The individual ABA treatment plan "is developed by a Licensed, Applied Behavior Analyst," sessions are "typically provided by behavioral technicians or paraprofessionals," and "The technician is supervised by the Licensed, Applied Behavior Analyst." No numeric ratio is published. The EOHHS contract adds monthly in-home observation by the clinical supervisor.',
@@ -733,7 +762,7 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
         cites: [S.thpABA, S.hbts],
       },
       diagnosingProviders: {
-        value: 'The guideline names no diagnostician list; the diagnostic evaluation must include history, physical examination, formal test scores and medical screening. The state rule is a "qualified licensed health care professional."',
+        value: 'The guideline names no diagnostician list; the diagnostic evaluation must include history, physical examination, formal test scores and medical screening. The state rule is a "qualified licensed health care professional." LCSW: not named. The test turns on licensure and diagnostic scope, so an LCSW\'s diagnosis is accepted only if the plan agrees it is within the LCSW\'s licensed scope; confirm with the plan before relying on one.',
         status: 'verified',
         cites: [S.thpABA, S.hbts],
       },
@@ -766,6 +795,7 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Can an out-of-network ABA provider treat a Tufts Health RITogether member?', a: 'Only with prior authorization requested before services start. For at least 90 days after a child moves from a marketplace (QHP) plan, the plan must allow an out-of-network provider on an in-network basis if the provider was in the QHP network and treated the child for six months or more.' },
       { q: 'Does Tufts Health RITogether require prior authorization for ABA?', a: 'No. Its behavioral health grid lists HBTS and ABA as "No PA or notification required. Providers just bill for this service."' },
       { q: 'What is the timely filing limit for Tufts Health RITogether?', a: '90 calendar days from the date of service for in-state, in-network professional claims, and 60 days from a primary carrier’s EOP.' },
       { q: 'Is an autism diagnosis required for RITogether ABA?', a: 'The plan removed the autism diagnosis code requirement at EOHHS’s direction, but the diagnostic report must still state the diagnosis and the evidence for it.' },
@@ -851,6 +881,13 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.aetnaGuide],
       },
+      {
+        h2: 'Out of network with Aetna: transition of care, not a single case agreement',
+        body: [
+          'Aetna\'s provider manual (6/26) uses transition of care (TOC) and continuity of care rather than the term single case agreement. TOC “allows certain qualifying members the ability to request to continue receiving care from their current out-of-network provider at in-network cost level for a defined period of time,” typically at plan enrollment or renewal; continuity of care does the same when a provider leaves the network mid-treatment. The member must be in “an active course of covered treatment,” and the treating provider must be an individual practitioner (the manual\'s examples are a specialist, physical therapist or speech therapist) or home care agency that is not contracted in the member\'s plan. Steps: the member gets a Transition Coverage Request Form from Member Services or the employer, completes it with the non-participating provider\'s help, faxes it to Aetna, and Aetna sends a decision letter stating how long the transition benefits last. The process does not apply to Traditional Choice plans. Aetna publishes no ABA rate for this; ask Aetna behavioral health whether the ABA agency qualifies before the first session.',
+        ],
+        cites: [{ title: 'Aetna — Provider manual (8102800-01-01, 6/26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding and size', desc: 'Fully insured large group (ch. 27-20.11 applies) vs. small group, individual or self-funded ERISA (plan document governs).' },
@@ -859,7 +896,15 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
       { title: 'Standardized functional measure', desc: 'Aetna wants one from the past 12 months (for example Vineland-3).' },
       { title: 'Specialist prescription', desc: 'Rhode Island law has licensed analysts provide ABA only on a prescription from a child psychiatrist, behavioral developmental pediatrician, child neurologist or child-trained psychologist.' },
     ],
-    sources: [S.aetnaGuide, S.aetnaCPB648, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.ch2011, S.m3, S.m4, S.m7, S.lic, S.lic2, S.lic21, S.pp, S.ohic14, S.ur6, S.ur7, S.cob, S.tm4, S.tm3, S.erisa, S.ohic25],
+    sources: [S.aetnaGuide, S.aetnaCPB648, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.ch2011, S.m3, S.m4, S.m7, S.lic, S.lic2, S.lic21, S.pp, S.ohic14, S.ur6, S.ur7, S.cob, S.tm4, S.tm3, S.erisa, S.ohic25,
+      { title: 'R.I. Gen. Laws § 5-86-9 — Qualifications and examinations for licensing (BCBA exam, active BACB status)', url: 'https://webserver.rilegislature.gov/Statutes/TITLE5/5-86/5-86-9.htm' },
+      { title: 'R.I. Gen. Laws § 5-86-26 — Supervision (assistant analysts, aides)', url: 'https://webserver.rilegislature.gov/Statutes/TITLE5/5-86/5-86-26.htm' },
+      { title: 'RI EOHHS — Telemedicine Billing Guidance (July 2025, effective September 1, 2025)', url: 'https://eohhs.ri.gov/sites/g/files/xkgbur226/files/2025-07/Telemedicine%20Billing%20Guidance.pdf' },
+      { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+      { title: 'Neighborhood Health Plan of RI — Provider Manual (effective 1/1/2026)', url: 'https://www.nhpri.org/wp-content/uploads/2023/08/Provider-Manual.pdf' },
+      { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
+      { title: '38 CFR 17.270 — CHAMPVA is the last payer', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
+    ],
     deliveryRules: {
       supervision: {
         value: 'Aetna’s participation criteria (5/26): ABA "must be provided directly or supervised by individuals licensed by the state or certified by the Behavior Analyst Certification Board," supervised staff may be a BCaBA "or a paraprofessional," and Aetna requires "A minimum of one hour of face-to-face supervision" of an unlicensed or noncertified paraprofessional "for each 10 hours of applied behavior analysis," plus the supervisor "onsite with the child at least one hour a month." "All BCBAs, BCaBAs and paraprofessionals must meet state requirements." In Rhode Island that means an LBA (or psychologist) providing or supervising ABA under § 27-20.11-7 and § 5-86-26.',
@@ -910,7 +955,7 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
         cites: [S.aetnaGuide],
       },
       diagnosingProviders: {
-        value: 'An appropriate provider: "licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice." CPB 0648 lists professionals appropriate to an ASD evaluation, from developmental pediatricians to psychologists.',
+        value: 'An appropriate provider: "licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice." CPB 0648 lists professionals appropriate to an ASD evaluation, from developmental pediatricians to psychologists. LCSW: not named. The test turns on licensure and diagnostic scope, so an LCSW\'s diagnosis is accepted only if the plan agrees it is within the LCSW\'s licensed scope; confirm with the plan before relying on one.',
         status: 'verified',
         cites: [S.aetnaGuide, S.aetnaCPB648],
       },
@@ -947,6 +992,7 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Can an out-of-network ABA provider keep treating an Aetna member?', a: 'Possibly, through Aetna\'s transition-of-care or continuity-of-care process. The member must be in an active course of covered treatment; the member requests a Transition Coverage Request Form, completes it with the provider and faxes it to Aetna, which issues a time-limited decision. Aetna\'s manual names individual practitioners and home care agencies as eligible, so confirm with Aetna behavioral health that an ABA agency qualifies.' },
       { q: 'Does Aetna require graphs for ABA reauthorizations?', a: 'No. Aetna’s ABA medical necessity guide asks for objective baseline measures, quantifiable progress criteria, standardized re-measurement and a six-monthly progress evaluation, with treatment changes documented where there is no improvement, but it does not require graphs or set a data-recency window.' },
       { q: 'What are Aetna’s claim filing deadlines for Rhode Island ABA claims?', a: 'Aetna’s provider toolkit publishes no filing limit; the participation agreement sets it for initial, corrected and secondary claims, and a claim involving coordination of benefits is not a "clean claim." No check-run schedule is published.' },
       { q: 'Does Aetna cover ABA therapy in Rhode Island?', a: 'Yes, for ASD under its national medical necessity guide, with Rhode Island’s ch. 27-20.11 mandate layered on for fully insured large-group plans. Self-funded, small-group and individual plans follow their own documents.' },
@@ -1033,6 +1079,13 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.en0499],
       },
+      {
+        h2: 'Out of network with Cigna (Evernorth) for ABA',
+        body: [
+          'Evernorth\'s Behavioral Health Administrative Guidelines (September 2026) describe out-of-network use by plan type. On Open Access Plus, “Services from out-of-network providers are covered at a reduced benefit level,” and patients “whose plans include out-of-network benefits can use these benefits for services covered under their plan; however, in doing so, these patients will generally incur higher out-of-pocket costs.” An out-of-network provider who wants to contract is pointed to “the Join the Network page on the Evernorth Provider website.” On appeals, Evernorth says an appeal “must be submitted within 180 calendar days from the claim denial unless determined otherwise by plan or state regulation,” and that “out-of-network providers requesting a standard appeal must submit a valid Appointments of Representative form signed by the patient” in some circumstances. Evernorth publishes no single-case-agreement process or out-of-network ABA rate; benefits depend on the member\'s plan.',
+        ],
+        cites: [{ title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding and size', desc: 'Fully insured large group (ch. 27-20.11 applies) vs. small group, individual or self-funded ERISA.' },
@@ -1041,7 +1094,15 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
       { title: 'Standardized assessment timing', desc: 'Instrument administered within 60 days before treatment starts.' },
       { title: 'Specialist prescription', desc: 'Rhode Island law has licensed analysts provide ABA only on a prescription from a child psychiatrist, behavioral developmental pediatrician, child neurologist or child-trained psychologist.' },
     ],
-    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.ch2011, S.m3, S.m4, S.m7, S.lic, S.lic2, S.lic21, S.pp, S.ohic14, S.ur6, S.ur7, S.cob, S.tm4, S.erisa, S.ohic25],
+    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.ch2011, S.m3, S.m4, S.m7, S.lic, S.lic2, S.lic21, S.pp, S.ohic14, S.ur6, S.ur7, S.cob, S.tm4, S.erisa, S.ohic25,
+      { title: 'R.I. Gen. Laws § 5-86-9 — Qualifications and examinations for licensing (BCBA exam, active BACB status)', url: 'https://webserver.rilegislature.gov/Statutes/TITLE5/5-86/5-86-9.htm' },
+      { title: 'R.I. Gen. Laws § 5-86-26 — Supervision (assistant analysts, aides)', url: 'https://webserver.rilegislature.gov/Statutes/TITLE5/5-86/5-86-26.htm' },
+      { title: 'RI EOHHS — Telemedicine Billing Guidance (July 2025, effective September 1, 2025)', url: 'https://eohhs.ri.gov/sites/g/files/xkgbur226/files/2025-07/Telemedicine%20Billing%20Guidance.pdf' },
+      { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+      { title: 'Neighborhood Health Plan of RI — Provider Manual (effective 1/1/2026)', url: 'https://www.nhpri.org/wp-content/uploads/2023/08/Provider-Manual.pdf' },
+      { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
+      { title: '38 CFR 17.270 — CHAMPVA is the last payer', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
+    ],
     deliveryRules: {
       supervision: {
         value: 'Case supervision is by a BCBA, a Licensed Behavior Analyst, or an independently licensed mental health professional with ABA training, at "one to two hours per ten hours of direct treatment"; at 10 hours a week or less, at least one to two hours a week. In Rhode Island the supervisor must also hold a Rhode Island license (§ 27-20.11-7).',
@@ -1088,7 +1149,7 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
         cites: [S.en0499],
       },
       diagnosingProviders: {
-        value: 'A healthcare professional "licensed to practice independently and whose licensure board considers diagnostics" within scope, applying DSM-5-TR criteria.',
+        value: 'A healthcare professional "licensed to practice independently and whose licensure board considers diagnostics" within scope, applying DSM-5-TR criteria. LCSW: not named. The test turns on licensure and diagnostic scope, so an LCSW\'s diagnosis is accepted only if the plan agrees it is within the LCSW\'s licensed scope; confirm with the plan before relying on one.',
         status: 'verified',
         cites: [S.en0499],
       },
@@ -1123,6 +1184,7 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Cigna pay out-of-network ABA providers?', a: 'Only if the member\'s plan has out-of-network benefits; on Open Access Plus, out-of-network services “are covered at a reduced benefit level.” Evernorth publishes no single case agreement process or rate. Appeals are due within 180 calendar days of the denial, and an out-of-network provider may need an Appointment of Representative form signed by the patient.' },
       { q: 'Does Cigna require graphs for ABA reassessments?', a: 'No. Evernorth’s EN0499 requires dated data collected within 60 days before both the requested start date and the request’s receipt, sustained progress, and a standardized assessment from the past year, but it does not require graphs.' },
       { q: 'What are Cigna (Evernorth)’s claim filing deadlines for Rhode Island ABA claims?', a: '90 days from the date of service unless your provider agreement or a longer state limit applies; secondary claims get 90 days from the primary payer’s EOB/EOP date, and a claim returned for more information gets a new 90 days. No check-run schedule is published.' },
       { q: 'Does Cigna cover ABA therapy in Rhode Island?', a: 'Yes, under national policy EN0499 for ASD, with Rhode Island’s ch. 27-20.11 mandate layered on for fully insured large-group plans until age 15.' },
@@ -1211,6 +1273,13 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.optumSCC],
       },
+      {
+        h2: 'Out of network with UnitedHealthcare (Optum) for ABA',
+        body: [
+          'UnitedHealthcare says that when the member chooses an out-of-network provider, the No Surprises Act and state surprise-billing laws generally do not apply, and “United will look to the member’s benefit plan to determine if it is covered and how it should be paid.” Reimbursement may use a percentage of CMS rates, FAIR Health, Viant, a “Negotiated Rate” agreed “after the service was provided,” or other methods, and “Which option is used depends on various factors, including but not limited to the terms of the healthcare benefit plan.” On commercial HMO plans, “If the needed health care provider is not available in-network, not available within the needed time frame or too far away, the PCP needs to request an out-of-network prior authorization”; if approved, “the member is not responsible for costs over their applicable in-network cost-sharing.” For disputes, Optum\'s Provider Express portal “is available to network clinicians and group practices, as well as out-of-network individual clinicians,” and Optum asks for “member-specific treatment plans, clinical records, payment appendices or other items that support why you believe our decision was incorrect.”',
+        ],
+        cites: [{ title: 'UnitedHealthcare — Information on payment of out-of-network benefits', url: 'https://www.uhc.com/legal/information-on-payment-of-out-of-network-benefits' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (commercial)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, { title: 'Optum National Network Manual (BH02330, effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding and size', desc: 'Fully insured large group (ch. 27-20.11 applies) vs. small group, individual or self-funded ERISA.' },
@@ -1218,7 +1287,16 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis with a validated tool', desc: 'DSM-5-TR ASD and severity, confirmed with a validated tool (ADI-R, ADOS-2 and others).' },
       { title: 'Specialist prescription', desc: 'Rhode Island law has licensed analysts provide ABA only on a prescription from a child psychiatrist, behavioral developmental pediatrician, child neurologist or child-trained psychologist.' },
     ],
-    sources: [S.optumSCC, S.optumSM, S.optumTele, S.optumNNM, S.optumReimb, S.ch2011, S.m3, S.m4, S.m7, S.lic, S.lic2, S.lic21, S.pp, S.ohic14, S.ur6, S.ur7, S.cob, S.tm4, S.erisa, S.ohic25],
+    sources: [ { title: 'UnitedHealthcare — Information on payment of out-of-network benefits', url: 'https://www.uhc.com/legal/information-on-payment-of-out-of-network-benefits' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (commercial)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },S.optumSCC, S.optumSM, S.optumTele, S.optumNNM, S.optumReimb, S.ch2011, S.m3, S.m4, S.m7, S.lic, S.lic2, S.lic21, S.pp, S.ohic14, S.ur6, S.ur7, S.cob, S.tm4, S.erisa, S.ohic25,
+      { title: 'R.I. Gen. Laws § 5-86-9 — Qualifications and examinations for licensing (BCBA exam, active BACB status)', url: 'https://webserver.rilegislature.gov/Statutes/TITLE5/5-86/5-86-9.htm' },
+      { title: 'R.I. Gen. Laws § 5-86-26 — Supervision (assistant analysts, aides)', url: 'https://webserver.rilegislature.gov/Statutes/TITLE5/5-86/5-86-26.htm' },
+      { title: 'RI EOHHS — Telemedicine Billing Guidance (July 2025, effective September 1, 2025)', url: 'https://eohhs.ri.gov/sites/g/files/xkgbur226/files/2025-07/Telemedicine%20Billing%20Guidance.pdf' },
+      { title: 'R.I. Gen. Laws § 27-81-3 — Telemedicine Coverage Act: definitions (originating site may include the home; Medicaid MCOs are "health insurers")', url: 'https://webserver.rilegislature.gov/Statutes/TITLE27/27-81/27-81-3.htm' },
+      { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+      { title: 'Neighborhood Health Plan of RI — Provider Manual (effective 1/1/2026)', url: 'https://www.nhpri.org/wp-content/uploads/2023/08/Provider-Manual.pdf' },
+      { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
+      { title: '38 CFR 17.270 — CHAMPVA is the last payer', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
+    ],
     deliveryRules: {
       supervision: {
         value: 'Direct case supervision is required at 1–2 hours for every 10 hours of direct treatment. Technicians work under a BCBA or licensed behavioral health clinician and "should be registered behavior technicians (RBT) or another appropriately certified behavior technician as allowable by state mandate"; Optum does not recommend parents serving as their own child’s RBT. In Rhode Island the supervising analyst must hold a Rhode Island license (§ 27-20.11-7).',
@@ -1267,7 +1345,7 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
         cites: [S.optumSCC],
       },
       diagnosingProviders: {
-        value: 'A "state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis" under DSM-5-TR.',
+        value: 'A "state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis" under DSM-5-TR. LCSW: not named. The test turns on licensure and diagnostic scope, so an LCSW\'s diagnosis is accepted only if the plan agrees it is within the LCSW\'s licensed scope; confirm with the plan before relying on one.',
         status: 'verified',
         cites: [S.optumSCC],
       },
@@ -1302,6 +1380,7 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare pay out-of-network ABA providers?', a: 'Only under the member\'s out-of-network benefits, priced by a method the plan sets (a percentage of CMS rates, FAIR Health, Viant or a negotiated rate). On commercial HMO plans an out-of-network provider can be approved when no network provider is available in time or nearby; the PCP requests an out-of-network prior authorization, and the member then pays only in-network cost-sharing.' },
       { q: 'Does UnitedHealthcare (Optum) require graphs for ABA continued-service reviews?', a: 'No. Optum’s criteria ask for progress on every target using the baseline measurement method, mastery rates and change scores, updated standardized adaptive measures, and an explanation of low hour use, but they do not require graphs.' },
       { q: 'What are UnitedHealthcare (Optum)’s claim filing deadlines for Rhode Island ABA claims?', a: '90 calendar days from the date of service (or longer where state law or the plan allows), corrections within 90 days of the original claim’s receipt, and payment of complete claims within 45 days or the state’s shorter clock. No check-run schedule is published.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in Rhode Island?', a: 'Yes, under Optum’s national ABA criteria for ASD, with Rhode Island’s ch. 27-20.11 mandate layered on for fully insured large-group plans until age 15.' },
@@ -1399,7 +1478,16 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
       { title: 'Licensed provider', desc: 'Rendering or supervising LBA (or psychologist) licensed in the state where services are delivered.' },
       { title: 'Specialist prescription', desc: 'Rhode Island law has licensed analysts provide ABA only on a prescription from a child psychiatrist, behavioral developmental pediatrician, child neurologist or child-trained psychologist.' },
     ],
-    sources: [S.bcbsriASD, S.bcbsriBH, S.bcbsriTF, S.bcbsriTele, S.bcbsriGrid, S.bcbsriPA, S.ch2011, S.m3, S.m4, S.m7, S.lic, S.lic2, S.lic21, S.pp, S.ohic14, S.ur6, S.ur7, S.cob, S.tm4, S.erisa, { title: 'Blue Cross & Blue Shield of Rhode Island — Provider FAQ (BlueCard)', url: 'https://www.bcbsri.com/providers/faq' }, { title: 'BCBSRI — Provider Update (provider news index)', url: 'https://www.bcbsri.com/providers/update' }],
+    sources: [S.bcbsriASD, S.bcbsriBH, S.bcbsriTF, S.bcbsriTele, S.bcbsriGrid, S.bcbsriPA, S.ch2011, S.m3, S.m4, S.m7, S.lic, S.lic2, S.lic21, S.pp, S.ohic14, S.ur6, S.ur7, S.cob, S.tm4, S.erisa, { title: 'Blue Cross & Blue Shield of Rhode Island — Provider FAQ (BlueCard)', url: 'https://www.bcbsri.com/providers/faq' }, { title: 'BCBSRI — Provider Update (provider news index)', url: 'https://www.bcbsri.com/providers/update' },
+      { title: 'R.I. Gen. Laws § 5-86-9 — Qualifications and examinations for licensing (BCBA exam, active BACB status)', url: 'https://webserver.rilegislature.gov/Statutes/TITLE5/5-86/5-86-9.htm' },
+      { title: 'R.I. Gen. Laws § 5-86-26 — Supervision (assistant analysts, aides)', url: 'https://webserver.rilegislature.gov/Statutes/TITLE5/5-86/5-86-26.htm' },
+      { title: 'RI EOHHS — Telemedicine Billing Guidance (July 2025, effective September 1, 2025)', url: 'https://eohhs.ri.gov/sites/g/files/xkgbur226/files/2025-07/Telemedicine%20Billing%20Guidance.pdf' },
+      { title: 'R.I. Gen. Laws § 27-81-3 — Telemedicine Coverage Act: definitions (originating site may include the home; Medicaid MCOs are "health insurers")', url: 'https://webserver.rilegislature.gov/Statutes/TITLE27/27-81/27-81-3.htm' },
+      { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+      { title: 'Neighborhood Health Plan of RI — Provider Manual (effective 1/1/2026)', url: 'https://www.nhpri.org/wp-content/uploads/2023/08/Provider-Manual.pdf' },
+      { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
+      { title: '38 CFR 17.270 — CHAMPVA is the last payer', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
+    ],
     deliveryRules: {
       supervision: {
         value: 'ABA must be "provided and/or supervised by an individual licensed by the state in which the service is rendered," and an assistant analyst works "under the supervision of a Licensed Applied Behavior Analyst." BCBSRI publishes no numeric ratio. Rhode Island’s licensing law requires an LBA to give aides "close supervision" and to meet assistant analysts in person for initial direction and periodic on-site supervision (§ 5-86-26).',
@@ -1450,7 +1538,7 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       diagnosingProviders: {
-        value: 'Not stated by BCBSRI. The statute lets an insurer require a treatment plan signed by a child psychiatrist, behavioral developmental pediatrician, child neurologist or licensed psychologist trained in child psychology.',
+        value: 'Not stated by BCBSRI. The statute lets an insurer require a treatment plan signed by a child psychiatrist, behavioral developmental pediatrician, child neurologist or licensed psychologist trained in child psychology. LCSW: no published rule. The plan names no diagnosing-provider list, so ask it whether an LCSW\'s diagnosis is accepted.',
         status: 'unverified',
         cites: [S.bcbsriASD, S.m4],
         verifyVia: 'BCBSRI Behavioral Health UM, 1-800-274-2958.',

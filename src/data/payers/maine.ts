@@ -229,7 +229,7 @@ export const mainePayers: Record<string, PayerConfig> = {
         cites: [S.s28],
       },
       diagnosingProviders: {
-        value: 'A "duly licensed physician or psychologist with experience in diagnosing neurodevelopmental disorders" for ASD or Rett syndrome. The alternative path (another neurodevelopmental condition) needs a licensed physician or psychologist to document the condition and find ABA medically necessary; the under-6 at-risk path needs a licensed physician.',
+        value: 'A "duly licensed physician or psychologist with experience in diagnosing neurodevelopmental disorders" for ASD or Rett syndrome. The alternative path (another neurodevelopmental condition) needs a licensed physician or psychologist to document the condition and find ABA medically necessary; the under-6 at-risk path needs a licensed physician. LCSW: no. A licensed clinical social worker is not on this list, so an LCSW\'s diagnosis alone does not meet it.',
         status: 'verified',
         cites: [S.s28],
       },
@@ -356,6 +356,20 @@ export const mainePayers: Record<string, PayerConfig> = {
           { title: 'Anthem Blue Cross and Blue Shield — 2026 Maine Commercial Provider Manual (effective October 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_ME_00115.pdf' },
         ],
       },
+      {
+        h2: 'Can an Anthem Maine member keep an out-of-network ABA provider?',
+        body: [
+          'Sometimes, for a limited period. Anthem\'s 2026 Maine manual (effective October 1, 2026) says completion of covered services “may be allowed at an in- network benefit and reimbursement level with an out-of-network Provider for a period of time, according to contractual, regulatory, and accreditation requirements, when necessary to complete a course of treatment and to arrange for a safe transfer to a Network/Participating Provider or Facility.” It also warns network providers that a pattern of referring members to non-participating providers can lead to penalties. No ABA single-case-agreement rate is published.',
+        ],
+        cites: [{ title: 'Anthem Blue Cross and Blue Shield — 2026 Maine Commercial Provider Manual (effective October 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_ME_00115.pdf' }],
+      },
+      {
+        h2: 'Which credential modifiers does Anthem want on ABA claims in Maine?',
+        body: [
+          'Anthem\'s commercial ABA Provider Resource Guide (June 2025), which lists this state, sets a credential-level modifier table: “HM” for “Less than bachelor’s degree level,” “HN” for “Bachelor’s degree level” and “HO” for “Master’s degree level.” It also says that technician-delivered ABA “must show the supervising BCBA or other QHP in box 31 of the CMS claim form.” The guide lists no HP (doctoral) modifier, and Anthem publishes no separate rate per modifier.',
+        ],
+        cites: [S.anthemRG],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Maine mandate applies) vs. self-funded ERISA (plan document governs).' },
@@ -364,7 +378,9 @@ export const mainePayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis report', desc: 'ASD diagnosis by a licensed physician or psychologist, with the date and clinician.' },
       { title: 'Other coverage', desc: 'Second parent’s plan, MaineCare (pays last), TRICARE or CHAMPVA.' },
     ],
-    sources: [S.anthemMEPA, S.anthemRG, S.st2768, S.st2847T, S.st4259, S.pl597, S.st4304, S.st4316, S.st4303, S.st2436, S.ch790, S.bacbLic, S.t32, S.erisa, S.s1, { title: 'Anthem Blue Cross and Blue Shield — 2026 Maine Commercial Provider Manual (effective October 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_ME_00115.pdf' }, { title: 'Anthem Maine — Provider News (provider news archive)', url: 'https://providernews.anthem.com/maine' }],
+    sources: [ { title: 'Anthem Blue Cross and Blue Shield — 2026 Maine Commercial Provider Manual (effective October 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_ME_00115.pdf' },S.anthemMEPA, S.anthemRG, S.st2768, S.st2847T, S.st4259, S.pl597, S.st4304, S.st4316, S.st4303, S.st2436, S.ch790, S.bacbLic, S.t32, S.erisa, S.s1, { title: 'Anthem Maine — Provider News (provider news archive)', url: 'https://providernews.anthem.com/maine' },
+      { title: 'MaineCare Benefits Manual, Ch. II, Section 28 — Adaptive Behavior Services for Children (eff. April 29, 2026, filing 2026-101)', url: 'https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/c2s028-2026-101%20NEW.docx' },
+    ],
     deliveryRules: {
       supervision: {
         value: 'Anthem publishes no numeric supervision ratio. It recognizes "providers practicing under the direction and supervision of the BCBA," and allows 97153 alongside 97155 only when the QHP and technician are both face-to-face with the patient and the QHP is directing the technician. The Maine mandate requires ABA to be provided by, or supervised by, a person certified by a national board of behavior analysts.',
@@ -413,7 +429,7 @@ export const mainePayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       diagnosingProviders: {
-        value: 'Anthem’s Maine documents do not say. For a fully insured plan, the mandate covers diagnostic "assessments, evaluations or tests by a licensed physician or licensed psychologist."',
+        value: 'Anthem’s Maine documents do not say. For a fully insured plan, the mandate covers diagnostic "assessments, evaluations or tests by a licensed physician or licensed psychologist." LCSW: no published rule. The plan names no diagnosing-provider list, so ask it whether an LCSW\'s diagnosis is accepted.',
         status: 'plan-dependent',
         cites: [S.anthemMEPA, S.st2847T],
         verifyVia: 'Anthem Behavioral Health, 800-755-0851.',
@@ -454,6 +470,7 @@ export const mainePayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Can an Anthem Maine member keep an out-of-network ABA provider?', a: 'Sometimes. Anthem may allow completion of covered services at the in-network level with an out-of-network provider for a period of time, to finish a course of treatment and move the child safely to a network provider. Ask Anthem before relying on it.' },
       { q: 'Does Anthem require prior authorization for ABA in Maine?', a: 'Yes. Applied behavior analysis is on Anthem’s Maine precertification list (October 2026), reviewed by Anthem Behavioral Health at 800-755-0851. Requirements can vary by product, so check the member’s card.' },
       { q: 'Does Maine cap ABA benefits?', a: 'The mandate lets fully insured plans cap ABA at $36,000 a year and covers children 10 and under; it bars limits on the number of visits. Self-funded plans follow their own documents.' },
       { q: 'Can a BCBA and RBT both bill for the same time with Anthem?', a: 'Yes, 97155 with 97153, but only when both are face-to-face with the patient at the same time and the BCBA is directing the technician.' },
@@ -548,6 +565,13 @@ export const mainePayers: Record<string, PayerConfig> = {
         ],
         cites: [S.aetnaGuide],
       },
+      {
+        h2: 'Out of network with Aetna: transition of care, not a single case agreement',
+        body: [
+          'Aetna\'s provider manual (6/26) uses transition of care (TOC) and continuity of care rather than the term single case agreement. TOC “allows certain qualifying members the ability to request to continue receiving care from their current out-of-network provider at in-network cost level for a defined period of time,” typically at plan enrollment or renewal; continuity of care does the same when a provider leaves the network mid-treatment. The member must be in “an active course of covered treatment,” and the treating provider must be an individual practitioner (the manual\'s examples are a specialist, physical therapist or speech therapist) or home care agency that is not contracted in the member\'s plan. Steps: the member gets a Transition Coverage Request Form from Member Services or the employer, completes it with the non-participating provider\'s help, faxes it to Aetna, and Aetna sends a decision letter stating how long the transition benefits last. The process does not apply to Traditional Choice plans. Aetna publishes no ABA rate for this; ask Aetna behavioral health whether the ABA agency qualifies before the first session.',
+        ],
+        cites: [{ title: 'Aetna — Provider manual (8102800-01-01, 6/26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Maine mandate applies) vs. self-funded ERISA (plan document governs). Ask for the employer and check the card.' },
@@ -556,7 +580,9 @@ export const mainePayers: Record<string, PayerConfig> = {
       { title: 'Standardized functional measure', desc: 'Aetna wants one from the past 12 months (for example Vineland-3).' },
       { title: 'Other coverage', desc: 'Second parent’s plan, MaineCare (pays last), TRICARE or CHAMPVA.' },
     ],
-    sources: [S.aetnaCPB, S.aetnaCPB648, S.aetnaGuide, S.aetnaPrecert, S.aetnaOM, S.aetnaNPC, S.st2768, S.st2847T, S.st4259, S.pl597, S.st4304, S.st4316, S.st4303, S.st2436, S.ch790, S.bacbLic, S.t32, S.erisa, S.s1],
+    sources: [S.aetnaCPB, S.aetnaCPB648, S.aetnaGuide, S.aetnaPrecert, S.aetnaOM, S.aetnaNPC, S.st2768, S.st2847T, S.st4259, S.pl597, S.st4304, S.st4316, S.st4303, S.st2436, S.ch790, S.bacbLic, S.t32, S.erisa, S.s1,
+      { title: 'MaineCare Benefits Manual, Ch. II, Section 28 — Adaptive Behavior Services for Children (eff. April 29, 2026, filing 2026-101)', url: 'https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/c2s028-2026-101%20NEW.docx' },
+    ],
     deliveryRules: {
       supervision: {
         value: 'Aetna’s guide: services must be provided directly or billed by licensed behavior analysts (where states license them), BCBAs, or licensed psychologists where ABA is within scope, unless mandates, plan documents or contracts say otherwise, with supervision of others "in line with practice standards." Aetna’s Network Participation Criteria (5/26) set the technician tier: "A minimum of one hour of face-to-face supervision is required of the unlicensed or noncertified paraprofessional by a BCBA or licensed psychologist (or behavioral health professional) for each 10 hours of applied behavior analysis," and "the supervisor must be onsite with the child at least one hour a month." The Maine mandate requires ABA to be provided by, or supervised by, a national-board certificant.',
@@ -607,7 +633,7 @@ export const mainePayers: Record<string, PayerConfig> = {
         cites: [S.aetnaGuide],
       },
       diagnosingProviders: {
-        value: 'A DSM-5 ASD diagnosis "obtained by an appropriate provider (i.e. licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice)." For a fully insured Maine plan, the mandate covers diagnostic testing by a licensed physician or licensed psychologist.',
+        value: 'A DSM-5 ASD diagnosis "obtained by an appropriate provider (i.e. licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice)." For a fully insured Maine plan, the mandate covers diagnostic testing by a licensed physician or licensed psychologist. LCSW: not named. The test turns on licensure and diagnostic scope, so an LCSW\'s diagnosis is accepted only if the plan agrees it is within the LCSW\'s licensed scope; confirm with the plan before relying on one.',
         status: 'verified',
         cites: [S.aetnaGuide, S.st2847T],
       },
@@ -644,6 +670,7 @@ export const mainePayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Can an out-of-network ABA provider keep treating an Aetna member?', a: 'Possibly, through Aetna\'s transition-of-care or continuity-of-care process. The member must be in an active course of covered treatment; the member requests a Transition Coverage Request Form, completes it with the provider and faxes it to Aetna, which issues a time-limited decision. Aetna\'s manual names individual practitioners and home care agencies as eligible, so confirm with Aetna behavioral health that an ABA agency qualifies.' },
       { q: 'Does Aetna require graphs for ABA reauthorizations?', a: 'No. Aetna’s ABA medical necessity guide asks for objective baseline measures, quantifiable progress criteria, standardized re-measurement and a six-monthly progress evaluation, with treatment changes documented where there is no improvement, but it does not require graphs or set a data-recency window.' },
       { q: 'What are Aetna’s claim filing deadlines for Maine ABA claims?', a: 'Aetna’s provider toolkit publishes no filing limit; the participation agreement sets it for initial, corrected and secondary claims, and a claim involving coordination of benefits is not a "clean claim." No check-run schedule is published.' },
       { q: 'Does Aetna cover ABA therapy in Maine?', a: 'Yes, under its national policy for ASD, with Maine’s autism mandate layered on for fully insured plans (children 10 and under, ABA cap of $36,000 a year allowed). Self-funded employer plans follow their own documents.' },
@@ -738,6 +765,13 @@ export const mainePayers: Record<string, PayerConfig> = {
         ],
         cites: [S.en0499],
       },
+      {
+        h2: 'Out of network with Cigna (Evernorth) for ABA',
+        body: [
+          'Evernorth\'s Behavioral Health Administrative Guidelines (September 2026) describe out-of-network use by plan type. On Open Access Plus, “Services from out-of-network providers are covered at a reduced benefit level,” and patients “whose plans include out-of-network benefits can use these benefits for services covered under their plan; however, in doing so, these patients will generally incur higher out-of-pocket costs.” An out-of-network provider who wants to contract is pointed to “the Join the Network page on the Evernorth Provider website.” On appeals, Evernorth says an appeal “must be submitted within 180 calendar days from the claim denial unless determined otherwise by plan or state regulation,” and that “out-of-network providers requesting a standard appeal must submit a valid Appointments of Representative form signed by the patient” in some circumstances. Evernorth publishes no single-case-agreement process or out-of-network ABA rate; benefits depend on the member\'s plan.',
+        ],
+        cites: [{ title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Maine mandate applies) vs. self-funded ERISA (plan document governs).' },
@@ -746,7 +780,9 @@ export const mainePayers: Record<string, PayerConfig> = {
       { title: 'Standardized assessment timing', desc: 'Instrument administered within 60 days before treatment starts.' },
       { title: 'Other coverage', desc: 'Second parent’s plan, MaineCare (pays last), TRICARE or CHAMPVA.' },
     ],
-    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.st2768, S.st2847T, S.st4259, S.pl597, S.st4304, S.st4316, S.st4303, S.st2436, S.ch790, S.bacbLic, S.t32, S.erisa, S.s1],
+    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.st2768, S.st2847T, S.st4259, S.pl597, S.st4304, S.st4316, S.st4303, S.st2436, S.ch790, S.bacbLic, S.t32, S.erisa, S.s1,
+      { title: 'MaineCare Benefits Manual, Ch. II, Section 28 — Adaptive Behavior Services for Children (eff. April 29, 2026, filing 2026-101)', url: 'https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/c2s028-2026-101%20NEW.docx' },
+    ],
     deliveryRules: {
       supervision: {
         value: 'Case supervision is by a BCBA, a Licensed Behavior Analyst, or an independently licensed mental health professional with ABA training. Direct plus indirect case supervision runs at one to two hours per ten hours of direct treatment; at 10 hours a week or less, at least one to two hours a week of direct case supervision.',
@@ -793,7 +829,7 @@ export const mainePayers: Record<string, PayerConfig> = {
         cites: [S.en0499],
       },
       diagnosingProviders: {
-        value: 'A healthcare professional "licensed to practice independently and whose licensure board considers diagnostics" within scope, applying DSM-5-TR criteria.',
+        value: 'A healthcare professional "licensed to practice independently and whose licensure board considers diagnostics" within scope, applying DSM-5-TR criteria. LCSW: not named. The test turns on licensure and diagnostic scope, so an LCSW\'s diagnosis is accepted only if the plan agrees it is within the LCSW\'s licensed scope; confirm with the plan before relying on one.',
         status: 'verified',
         cites: [S.en0499],
       },
@@ -828,6 +864,7 @@ export const mainePayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Cigna pay out-of-network ABA providers?', a: 'Only if the member\'s plan has out-of-network benefits; on Open Access Plus, out-of-network services “are covered at a reduced benefit level.” Evernorth publishes no single case agreement process or rate. Appeals are due within 180 calendar days of the denial, and an out-of-network provider may need an Appointment of Representative form signed by the patient.' },
       { q: 'Does Cigna require graphs for ABA reassessments?', a: 'No. Evernorth’s EN0499 requires dated data collected within 60 days before both the requested start date and the request’s receipt, sustained progress, and a standardized assessment from the past year, but it does not require graphs.' },
       { q: 'What are Cigna (Evernorth)’s claim filing deadlines for Maine ABA claims?', a: '90 days from the date of service unless your provider agreement or a longer state limit applies; secondary claims get 90 days from the primary payer’s EOB/EOP date, and a claim returned for more information gets a new 90 days. No check-run schedule is published.' },
       { q: 'Does Cigna cover ABA therapy in Maine?', a: 'Yes, under national policy EN0499 for ASD, with Maine’s autism mandate layered on for fully insured plans (children 10 and under). Self-funded employer plans follow their own documents.' },
@@ -916,6 +953,13 @@ export const mainePayers: Record<string, PayerConfig> = {
         ],
         cites: [S.optumSCC],
       },
+      {
+        h2: 'Out of network with UnitedHealthcare (Optum) for ABA',
+        body: [
+          'UnitedHealthcare says that when the member chooses an out-of-network provider, the No Surprises Act and state surprise-billing laws generally do not apply, and “United will look to the member’s benefit plan to determine if it is covered and how it should be paid.” Reimbursement may use a percentage of CMS rates, FAIR Health, Viant, a “Negotiated Rate” agreed “after the service was provided,” or other methods, and “Which option is used depends on various factors, including but not limited to the terms of the healthcare benefit plan.” On commercial HMO plans, “If the needed health care provider is not available in-network, not available within the needed time frame or too far away, the PCP needs to request an out-of-network prior authorization”; if approved, “the member is not responsible for costs over their applicable in-network cost-sharing.” For disputes, Optum\'s Provider Express portal “is available to network clinicians and group practices, as well as out-of-network individual clinicians,” and Optum asks for “member-specific treatment plans, clinical records, payment appendices or other items that support why you believe our decision was incorrect.”',
+        ],
+        cites: [{ title: 'UnitedHealthcare — Information on payment of out-of-network benefits', url: 'https://www.uhc.com/legal/information-on-payment-of-out-of-network-benefits' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (commercial)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, { title: 'Optum National Network Manual (BH02330, effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Maine mandate applies) vs. self-funded ERISA (plan document governs).' },
@@ -923,7 +967,7 @@ export const mainePayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis with a validated tool', desc: 'DSM-5-TR ASD confirmed with a validated tool (ADI-R, ADOS-2 and others). Optum asks for the instrument.' },
       { title: 'Other coverage', desc: 'Second parent’s plan, MaineCare (pays last), TRICARE or CHAMPVA.' },
     ],
-    sources: [S.optumSCC, S.optumSM, S.optumTele, S.optumNNM, S.optumReimb, S.st2768, S.st2847T, S.st4259, S.pl597, S.st4304, S.st4316, S.st4303, S.st2436, S.ch790, S.bacbLic, S.t32, S.erisa, S.s1, S.s28],
+    sources: [ { title: 'UnitedHealthcare — Information on payment of out-of-network benefits', url: 'https://www.uhc.com/legal/information-on-payment-of-out-of-network-benefits' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (commercial)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },S.optumSCC, S.optumSM, S.optumTele, S.optumNNM, S.optumReimb, S.st2768, S.st2847T, S.st4259, S.pl597, S.st4304, S.st4316, S.st4303, S.st2436, S.ch790, S.bacbLic, S.t32, S.erisa, S.s1, S.s28],
     deliveryRules: {
       supervision: {
         value: '"Consistent with CASP standards of care, direct case supervision is required 1–2 hours for every 10 hours of direct treatment per week." Technicians "should be registered behavior technicians (RBT) or another appropriately certified behavior technician as allowable by state mandate," and Optum does not recommend parents serving as their own child’s RBT.',
@@ -972,7 +1016,7 @@ export const mainePayers: Record<string, PayerConfig> = {
         cites: [S.optumSCC],
       },
       diagnosingProviders: {
-        value: 'The diagnosis "must be issued by a state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis" under DSM-5-TR.',
+        value: 'The diagnosis "must be issued by a state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis" under DSM-5-TR. LCSW: not named. The test turns on licensure and diagnostic scope, so an LCSW\'s diagnosis is accepted only if the plan agrees it is within the LCSW\'s licensed scope; confirm with the plan before relying on one.',
         status: 'verified',
         cites: [S.optumSCC],
       },
@@ -1007,6 +1051,7 @@ export const mainePayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare pay out-of-network ABA providers?', a: 'Only under the member\'s out-of-network benefits, priced by a method the plan sets (a percentage of CMS rates, FAIR Health, Viant or a negotiated rate). On commercial HMO plans an out-of-network provider can be approved when no network provider is available in time or nearby; the PCP requests an out-of-network prior authorization, and the member then pays only in-network cost-sharing.' },
       { q: 'Does UnitedHealthcare (Optum) require graphs for ABA continued-service reviews?', a: 'No. Optum’s criteria ask for progress on every target using the baseline measurement method, mastery rates and change scores, updated standardized adaptive measures, and an explanation of low hour use, but they do not require graphs.' },
       { q: 'What are UnitedHealthcare (Optum)’s claim filing deadlines for Maine ABA claims?', a: '90 calendar days from the date of service (or longer where state law or the plan allows), corrections within 90 days of the original claim’s receipt, and payment of complete claims within 45 days or the state’s shorter clock. No check-run schedule is published.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in Maine?', a: 'Yes, under Optum’s national ABA criteria for ASD, with Maine’s autism mandate layered on for fully insured plans (children 10 and under). Self-funded employer plans follow their own documents.' },
@@ -1095,7 +1140,9 @@ export const mainePayers: Record<string, PayerConfig> = {
       { title: 'HPHConnect access', desc: 'The InterQual questionnaire runs there; register before the first request.' },
       { title: 'Other coverage', desc: 'Second parent’s plan, MaineCare (pays last), TRICARE or CHAMPVA.' },
     ],
-    sources: [S.hpMNG, S.hpPP, S.hpRef, S.hpMaxUnits, S.hpCoding, S.cmsMUE, S.hpTele, S.hpForm, S.st2768, S.st2847T, S.st4259, S.pl597, S.st4304, S.st4316, S.st4303, S.st2436, S.ch790, S.bacbLic, S.t32, S.erisa, S.s1, { title: 'Point32Health — Insights and Updates for Providers (Harvard Pilgrim / Tufts provider news archive)', url: 'https://www.point32health.org/provider/office-resources/provider-newsletter' }],
+    sources: [S.hpMNG, S.hpPP, S.hpRef, S.hpMaxUnits, S.hpCoding, S.cmsMUE, S.hpTele, S.hpForm, S.st2768, S.st2847T, S.st4259, S.pl597, S.st4304, S.st4316, S.st4303, S.st2436, S.ch790, S.bacbLic, S.t32, S.erisa, S.s1, { title: 'Point32Health — Insights and Updates for Providers (Harvard Pilgrim / Tufts provider news archive)', url: 'https://www.point32health.org/provider/office-resources/provider-newsletter' },
+      { title: 'MaineCare Benefits Manual, Ch. II, Section 28 — Adaptive Behavior Services for Children (eff. April 29, 2026, filing 2026-101)', url: 'https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/c2s028-2026-101%20NEW.docx' },
+    ],
     deliveryRules: {
       supervision: {
         value: 'Point32Health requires InterQual’s "Applied Behavior Analysis (ABA) Program-Applied Behavior Analysis Supervision" subset for supervision requests, but the criteria inside it are licensed and not published. The Maine mandate requires ABA to be provided by, or supervised by, a national-board certificant.',
@@ -1152,7 +1199,7 @@ export const mainePayers: Record<string, PayerConfig> = {
         blocker: 'licensed',
       },
       diagnosingProviders: {
-        value: 'The MNG requires "a definitive diagnosis" of ASD but does not name who may make it. For a fully insured Maine plan, the mandate covers diagnostic testing by a licensed physician or licensed psychologist.',
+        value: 'The MNG requires "a definitive diagnosis" of ASD but does not name who may make it. For a fully insured Maine plan, the mandate covers diagnostic testing by a licensed physician or licensed psychologist. LCSW: no published rule. The plan names no diagnosing-provider list, so ask it whether an LCSW\'s diagnosis is accepted.',
         status: 'plan-dependent',
         cites: [S.hpMNG, S.st2847T],
         verifyVia: 'HPHConnect InterQual criteria view, or Provider Service Center, 800-708-4414.',

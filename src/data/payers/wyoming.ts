@@ -45,7 +45,7 @@ const S: Record<string, PayerSource> = {
   cobRule: { title: 'Wyoming Insurance Department Rules ch. 10 (Coordination of Benefits), § 10-3 — Order of Benefit Determination (amended eff. 9/13/2023; LII copy)', url: 'https://www.law.cornell.edu/regulations/wyoming/044-10-Wyo-Code-R-SS-10-3' },
   cobDefs: { title: 'Wyoming Insurance Department Rules ch. 10, § 10-2 — Definitions and Procedures (what counts as a “plan”; LII copy)', url: 'https://www.law.cornell.edu/regulations/wyoming/044-10-Wyo-Code-R-SS-10-2' },
   aetnaCPB: { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026; experimental for non-ASD indications)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
-  aetnaCPB648: { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+  aetnaCPB648: { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/20/2026)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
   aetnaGuide: { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
   aetnaPrecert: { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
   aetnaNPC: { title: 'Aetna — Provider and facility participation criteria (Network Participation Criteria, 8100606-01-01, 5/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' },
@@ -64,6 +64,7 @@ const S: Record<string, PayerSource> = {
   bcbsPolicy: { title: 'Blue Cross Blue Shield of Wyoming — Medical Policy index (links to Highmark’s Wyoming medical policy search)', url: 'https://www.bcbswy.com/providers/policy/' },
   bcbsABA: { title: 'Blue Cross Blue Shield of Wyoming Medical Policy 15.01.002 — Applied Behavioral Analysis (effective June 16, 2025; last revision April 2025; all commercial lines)', url: 'https://securecms.highmark.com/content/medpolicy/en/wyoming/all/policies/Therapy/15-01-002/15-01-002-002.html' },
   bcbsCred: { title: 'Blue Cross Blue Shield of Wyoming — Credentialing Guidelines (updated 5/2024)', url: 'https://www.bcbswy.com/providers/credentialing/credentialing-guidelines/' },
+  lcswScope: { title: 'W.S. 33-38-102(a)(v) — "Practice of clinical social work": services "consist of assessment, diagnosis, treatment" of emotional and mental disorders (Title 33 compiled PDF)', url: 'https://wyoleg.gov/statutes/compress/title33.pdf' },
 };
 
 /* ---- Shared Wyoming commercial layer (same facts on every commercial guide) ---- */
@@ -185,7 +186,7 @@ export const wyomingPayers: Record<string, PayerConfig> = {
       { title: 'Other insurance', desc: 'Commercial coverage is billed first; Medicaid pays only the remaining patient responsibility.' },
       { title: 'Wraparound status', desc: 'If the family is in Magellan’s high-fidelity wraparound, get the care coordinator’s contact for the plan of care.' },
     ],
-    sources: [S.cms1500, S.telligenPM, S.telligenABA, S.fee, S.feePage, S.spa, S.spaNotice, S.w1915b, S.cmeDeck, S.title33, S.hb110, S.psy14, S.psy4, S.psy3, S.bacbLic, S.cfr447, S.cfr440, S.cfr440130, S.cfr433, { title: 'Wyoming Medicaid — Provider Manuals and Bulletins (quarterly bulletins index, by year)', url: 'https://wyomingmedicaid.com/portal/Provider-Manuals-and-Bulletins' }],
+    sources: [S.cms1500, S.telligenPM, S.telligenABA, S.fee, S.feePage, S.spa, S.spaNotice, S.w1915b, S.cmeDeck, S.title33, S.hb110, S.psy14, S.psy4, S.psy3, S.bacbLic, S.cfr447, S.cfr440, S.cfr440130, S.cfr433, { title: 'Wyoming Medicaid — Provider Manuals and Bulletins (quarterly bulletins index, by year)', url: 'https://wyomingmedicaid.com/portal/Provider-Manuals-and-Bulletins' }, S.lcswScope],
     deliveryRules: {
       supervision: {
         value: 'Supervision "by a QHP/BCBA is required (approximately 1-2 hours per 10 hours of direct care by the technician)" (manual 12.7.3, raised from 1 hour per 10 on 10/01/2026). It is bundled into the technician codes; face-to-face direction with protocol modification is billed as 97155. BCaBAs and RBTs are covered when supervised by a BCBA-D or BCBA (state plan). Wyoming Board rules separately require BCaBA supervision of at least 2% of monthly service hours.',
@@ -232,9 +233,9 @@ export const wyomingPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       diagnosingProviders: {
-        value: 'Neither the manual nor the state plan names who may make the ASD diagnosis. Note that Wyoming’s licensure statute excludes "the diagnosis of psychological disorders" from the practice of behavior analysis (W.S. 33-27-113(a)(xiii)), so a BCBA’s assessment is not the diagnosis.',
+        value: 'Neither the manual nor the state plan names who may make the ASD diagnosis. Note that Wyoming’s licensure statute excludes "the diagnosis of psychological disorders" from the practice of behavior analysis (W.S. 33-27-113(a)(xiii)), so a BCBA’s assessment is not the diagnosis. LCSW: not settled — the manual names no diagnosers, though Wyoming says clinical social work services "consist of assessment, diagnosis, treatment" (W.S. 33-38-102(a)(v)).',
         status: 'unverified',
-        cites: [S.cms1500, S.spa, S.title33],
+        cites: [S.cms1500, S.spa, S.title33, S.lcswScope],
         verifyVia: 'Wyoming Medicaid Provider Services, (888) 996-6223, or Telligen, (833) 610-1057.',
         blocker: 'document',
       },
@@ -426,7 +427,7 @@ export const wyomingPayers: Record<string, PayerConfig> = {
         cites: [S.bcbsABA],
       },
       diagnosingProviders: {
-        value: 'A "licensed psychiatrist or psychologist or pediatrician or neurologist or family practice with special training in treatment of Autism Spectrum Disorder" (policy 15.01.002). The FBA may also be done by a BCBA with special training in ASD. For fully insured plans, Bulletin 01-2019 defines covered treatment as care prescribed or ordered for an individual "diagnosed with an autism spectrum disorder by a licensed physician or a licensed psychologist."',
+        value: 'A "licensed psychiatrist or psychologist or pediatrician or neurologist or family practice with special training in treatment of Autism Spectrum Disorder" (policy 15.01.002). The FBA may also be done by a BCBA with special training in ASD. For fully insured plans, Bulletin 01-2019 defines covered treatment as care prescribed or ordered for an individual "diagnosed with an autism spectrum disorder by a licensed physician or a licensed psychologist." LCSW: no — not on policy 15.01.002\'s list, and the bulletin names a physician or psychologist.',
         status: 'verified',
         cites: [S.bcbsABA, S.doiBull],
       },
@@ -545,6 +546,16 @@ export const wyomingPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.aetnaOM, S.fee],
       },
+      {
+        h2: 'Network participation, out-of-network referrals and disputes (Aetna)',
+        body: [
+          'Joining the network: Aetna\'s participation criteria for ABA providers require services "provided directly or supervised by individuals licensed by the state or certified by the Behavior Analyst Certification Board as board-certified behavior analysts (BCBAs)"; a BCaBA or paraprofessional works under supervision, BCBAs must meet Aetna credentialing standards, and "All BCBAs, BCaBAs and paraprofessionals must meet state requirements." The criteria do not say the ABA network is open or closed in a given state.',
+          'Out-of-network care and single case agreements: Aetna does not use the term "single case agreement" in these documents. Its behavioral health manual describes a "nonparticipating referral" — "a written or verbal request that we review" — that may be approved when a preferred clinician "isn\'t available in network (and the member\'s plan provides coverage for out-of-network services)," when the member is continuing or returning to treatment with a nonparticipating clinician "in certain circumstances," or when the PCP identifies a nonparticipating expert. Plans without referral requirements let members self-refer to participating or nonparticipating providers, paying their cost share; Aetna Open Access plans let members self-refer to any participating provider.',
+          'Disputes: payment disputes on a finalized claim go through the Availity provider portal ("Dispute Claim" from Claim Status, then the Appeals dashboard, up to five 32 MB attachments) or the Disputes and Appeals page on Aetna.com. The behavioral health manual describes "One level of appeal" for payment decisions; pre-service and concurrent medical-necessity denials go through the member appeal process, and a provider appeal counts as "on behalf of the member" only with the member\'s written authorization. State rules may change the process.',
+          'Authorizations and changing agencies: none of these Aetna documents says whether an ABA precertification is issued to the rendering NPI, the group or the TIN, or whether it moves with the child to a new agency; ask the precertification line on the member\'s card before the first session with the new agency.',
+        ],
+        cites: [{ title: 'Aetna — Provider and facility participation criteria (Applied behavior analyst (ABA) services provider additional criteria; May 2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' }, { title: 'Aetna — Behavioral Health Provider Manual (1158252-01-01, 8/22): nonparticipating referrals; dispute and appeal process', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' }, { title: 'Aetna Health Care Professional Toolkit / provider manual (8102800-01-01, 6/26): Referral policies; Claim disputes and appeals', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Bulletin 01-2019 and W.S. 26-55 apply) vs. self-funded ERISA (plan document governs).' },
@@ -553,7 +564,7 @@ export const wyomingPayers: Record<string, PayerConfig> = {
       { title: 'Standardized functional measure', desc: 'Aetna wants one from the past 12 months (for example Vineland-3) showing impairment at least one standard deviation below the mean.' },
       { title: 'Physician or psychologist order', desc: 'The bulletin defines covered treatment as care prescribed or ordered by a licensed physician or psychologist.' },
     ],
-    sources: [S.aetnaGuide, S.aetnaCPB, S.aetnaCPB648, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.aetnaTele, S.doiBull, S.doiMemos, S.title26, S.hb14, S.title33, S.hb110, S.psy14, S.bacbLic, S.erisa, S.cfr433, S.tricare, S.champva, S.fee, S.cobRule, S.cobDefs],
+    sources: [S.aetnaGuide, S.aetnaCPB, S.aetnaCPB648, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.aetnaTele, S.doiBull, S.doiMemos, S.title26, S.hb14, S.title33, S.hb110, S.psy14, S.bacbLic, S.erisa, S.cfr433, S.tricare, S.champva, S.fee, S.cobRule, S.cobDefs, S.lcswScope, { title: 'Aetna — Behavioral Health Provider Manual (1158252-01-01, 8/22): nonparticipating referrals; dispute and appeal process', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' }],
     deliveryRules: {
       supervision: {
         value: 'Aetna’s guide: where others deliver services, there must be supervision "in line with practice standards," and it may authorize QHP protocol modification and direction "at 1 to 2 hours per 10 hours of treatment by protocol." Aetna’s Network Participation Criteria (5/26) require "A minimum of one hour of face-to-face supervision" of a paraprofessional "for each 10 hours of applied behavior analysis," plus the supervisor "onsite with the child at least one hour a month," and "All BCBAs, BCaBAs and paraprofessionals must meet state requirements." In Wyoming that means technicians work under a licensed behavior analyst or licensed assistant (W.S. 33-27-125(a)(viii)).' + ' Aetna’s guide and Network Participation Criteria publish no cap on the number of technicians one BCBA may supervise.',
@@ -604,9 +615,9 @@ export const wyomingPayers: Record<string, PayerConfig> = {
         cites: [S.aetnaGuide],
       },
       diagnosingProviders: {
-        value: 'A DSM-5 ASD diagnosis "obtained by an appropriate provider (i.e. licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice)." Wyoming’s bulletin defines covered treatment as care for a child diagnosed "by a licensed physician or a licensed psychologist."',
+        value: 'A DSM-5 ASD diagnosis "obtained by an appropriate provider (i.e. licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice)." Wyoming’s bulletin defines covered treatment as care for a child diagnosed "by a licensed physician or a licensed psychologist." LCSW: Aetna\'s scope-of-practice test is met — Wyoming says clinical social work services "consist of assessment, diagnosis, treatment" (W.S. 33-38-102(a)(v)) — but for fully insured plans the bulletin\'s definition names a physician or psychologist.',
         status: 'verified',
-        cites: [S.aetnaGuide, S.doiBull],
+        cites: [S.aetnaGuide, S.doiBull, S.lcswScope],
       },
       diagnosticTools: {
         value: 'CPB 0648 names ADI-R, ADOS-2, CARS-2 and the Asperger Syndrome Diagnostic Scale as tools used with clinical assessment. The ABA guide requires a standardized functional measure from the past 12 months (Vineland-3, ABAS, VB-MAPP or ABLLS as examples).',
@@ -641,6 +652,7 @@ export const wyomingPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Will Aetna approve an out-of-network ABA provider?', a: 'Possibly, through a "nonparticipating referral" that Aetna reviews — for example when the needed clinician "isn\'t available in network (and the member\'s plan provides coverage for out-of-network services)" or the child is continuing treatment with a nonparticipating clinician. Aetna\'s manuals do not describe a single case agreement program by name.' },
       { q: 'Does Aetna accept H0031, H0032 or H2019 for ABA?', a: 'No. Aetna’s ABA policy lists only CPT 97151–97158, 0362T and 0373T.' },
       { q: 'Does Aetna require graphs for an ABA reauthorization?', a: 'Its ABA guide asks for repeated measurement with standardized measures and a progress evaluation every six months; it does not mention graphs.' },
       { q: 'What is Aetna’s timely filing limit for ABA claims?', a: 'Aetna’s provider toolkit (6/26) does not print one; the filing limit is in your Aetna agreement.' },
@@ -725,6 +737,16 @@ export const wyomingPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.ebhAdmin, S.cignaARG, S.fee],
       },
+      {
+        h2: 'Network, out-of-network benefits, billing credentials and payment appeals (Evernorth)',
+        body: [
+          'Who may deliver and who may bill (Evernorth\'s ABA code table): 97151, 97155, 97156, 97157, 97158, 0362T and 0373T are provided and billed by a BCBA-D, BCBA or licensed mental health provider; 97152, 97153 and 97154 may be provided by a BCaBA or technician but are billed by the BCBA-D, BCBA or licensed mental health provider. "All ABA services must be billed with CPT codes 97151–97158, 0362T, and 0373T ONLY." Evernorth\'s guide names no HM/HN/HO credential modifiers.',
+          'Joining the network: Evernorth says it "is committed to expanding our network of autism providers." Individuals file the Evernorth Behavioral Provider Information Form; autism clinics and large groups file the Screening Application for Autism Clinics; "It may take up to 90 days for an application to be processed," and after the clinic contract each certified or licensed provider must be credentialed, "an additional 60 to 90 days." "Providers must be fully credentialed to render in-network services." A departing provider or roster change goes to Provider Services (800.926.2273) or the Clinic Location Changes form.',
+          'Out-of-network: it depends on the product. HMO, HMO Open Access, Cigna Connect and OAP In-Network plans cover in-network care only (emergencies aside); POS and Open Access Plus plans cover out-of-network services at a reduced benefit level. Evernorth\'s guidelines publish no single case agreement process; a family without out-of-network benefits needs an in-network provider, and Evernorth\'s care managers email in-network providers near the family to find an opening.',
+          'Payment disputes: call Provider Services first; then appeal "in writing within 180 calendar days of the date of the initial payment or denial decision" (or of the last adjustment). Fee-schedule and reimbursement disputes can go through the reconsideration feature on Provider.Evernorth.com. Medical necessity appeals should include the clinical record; untimely-filing appeals need proof of timely submission or of a COB delay. "Most appeals are resolved within 60 calendar days," with notice within 75 days unless state law differs. Some out-of-network providers must attach a patient-signed Appointment of Representative form.',
+        ],
+        cites: [{ title: 'Cigna / Evernorth autism resource guide for behavioral health providers (PCOMM-2025-225, March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026): plan types, Joining the network, Provider payment appeals', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Bulletin 01-2019, W.S. 26-55 and Evernorth’s Wyoming addendum apply) vs. self-funded ERISA (plan document governs).' },
@@ -733,7 +755,7 @@ export const wyomingPayers: Record<string, PayerConfig> = {
       { title: 'Standardized assessment timing', desc: 'Instrument administered within 60 days before treatment starts.' },
       { title: 'Physician or psychologist order', desc: 'The bulletin defines covered treatment as care prescribed or ordered by a licensed physician or psychologist.' },
     ],
-    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.doiBull, S.doiMemos, S.title26, S.hb14, S.title33, S.hb110, S.psy14, S.bacbLic, S.erisa, S.cfr433, S.tricare, S.champva, S.fee, S.cobRule, S.cobDefs],
+    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.doiBull, S.doiMemos, S.title26, S.hb14, S.title33, S.hb110, S.psy14, S.bacbLic, S.erisa, S.cfr433, S.tricare, S.champva, S.fee, S.cobRule, S.cobDefs, S.lcswScope],
     deliveryRules: {
       supervision: {
         value: 'Case supervision is by a BCBA, a Licensed Behavior Analyst, or an independently licensed mental health professional with ABA training. Direct plus indirect case supervision runs at "one to two hours per ten hours of direct treatment"; at 10 hours a week or less, at least one to two hours a week of direct case supervision. The supervisor’s name and credentials must be documented.' + ' EN0499 publishes no cap on the number of technicians one supervisor may oversee.',
@@ -780,9 +802,9 @@ export const wyomingPayers: Record<string, PayerConfig> = {
         cites: [S.en0499],
       },
       diagnosingProviders: {
-        value: 'A healthcare professional licensed to practice independently "whose licensure board considers diagnostics" within scope, applying DSM-5-TR criteria. Wyoming excludes diagnosis from the practice of behavior analysis (W.S. 33-27-113(a)(xiii)).',
+        value: 'A healthcare professional licensed to practice independently "whose licensure board considers diagnostics" within scope, applying DSM-5-TR criteria. Wyoming excludes diagnosis from the practice of behavior analysis (W.S. 33-27-113(a)(xiii)). LCSW: yes under Evernorth\'s test — Wyoming says clinical social work services "consist of assessment, diagnosis, treatment" (W.S. 33-38-102(a)(v)).',
         status: 'verified',
-        cites: [S.en0499, S.title33],
+        cites: [S.en0499, S.title33, S.lcswScope],
       },
       diagnosticTools: {
         value: 'No single instrument is mandated, but it must be standardized and the current edition ("must be the Vineland-3 vs. Vineland-II"), administered within 60 days before treatment starts.',
@@ -815,6 +837,7 @@ export const wyomingPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Cigna pay an out-of-network ABA provider?', a: 'Only on plans with out-of-network benefits. Evernorth\'s September 2026 guidelines say HMO, Connect and OAP In-Network plans cover in-network care only, while POS and Open Access Plus plans cover out-of-network services at a reduced benefit level. Evernorth publishes no single case agreement process for ABA; its care managers help families find an in-network provider.' },
       { q: 'Does Cigna accept H-codes for ABA?', a: 'No. Evernorth says all ABA services must be billed with CPT 97151–97158, 0362T and 0373T only.' },
       { q: 'Does Cigna require graphs for ABA reassessments?', a: 'EN0499 asks for dated quantitative baseline, interim and current data (current data within 60 days) and a standardized assessment within a year; it does not name graphs.' },
       { q: 'What is Cigna’s timely filing limit for ABA claims?', a: '90 days from the date of service unless your agreement or state law allows longer; for secondary claims, 90 days from the primary payer’s EOB.' },
@@ -889,7 +912,7 @@ export const wyomingPayers: Record<string, PayerConfig> = {
         h2: 'Claims operations in Wyoming',
         body: [
           WY_CLAIMS_BODY,
-          'Optum’s commercial ABA reimbursement policy (updated June 2026) adds the coding rules: every line carries a credential modifier (HM for an RBT, HN for a BCaBA, HO for a master’s-level BCBA, HP for a BCBA-D), "There is no CPT code for reporting indirect services separately," and Optum "allows 32 units per day for CPT code 97153."',
+          'Optum’s commercial ABA reimbursement policy (updated June 2026) adds the coding rules: every 97151–97158 line carries a credential modifier (0362T and 0373T are listed as "Additional Autism/Applied Behavior Analysis Codes that do not require modifiers") (HM for an RBT, HN for a BCaBA, HO for a master’s-level BCBA, HP for a BCBA-D), "There is no CPT code for reporting indirect services separately," and Optum "allows 32 units per day for CPT code 97153."',
           'Billing details from Optum’s own documents. Codes: the commercial ABA reimbursement policy (2022RP501A) covers ABA billed "with CPT codes 97151-97158" plus 0362T and 0373T, each line with its credential modifier; it lists no HCPCS H-code. Telehealth: claims "must include either POS 02 or POS 10" (10 when the member is at home), and "Optum will not reimburse for services billed with only telehealth modifiers"; modifiers 93, 95, FQ, GT and GQ are optional, and commercial ABA telehealth covers only 97155, 97156 and 97157. Filing: claims are due "no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan," and "Any corrections or additions to a claim should be made within 90 days of initial claim receipt." Payment: clean claims with any required authorization are generally paid within 45 calendar days of receipt or as state and federal law requires, which may exclude claims needing a coordination-of-benefits determination. Reauthorization (Supplemental Clinical Criteria): each continued-service review needs progress for every target "including the same modes of measurement that were utilized for baseline," with "rate and percentage of mastered programs, rates of mastered targets, change scores for any outcome measures, updated standardized adaptive measures"; inadequate progress over a 6-month period requires an analysis and modified interventions. Graphs are not named. Supervision: "direct case supervision is required 1–2 hours for every 10 hours of direct treatment per week," with no published cap on technicians per BCBA.',
         ],
         cites: [S.title26, S.hb14, S.doiBull, S.optumReimb, S.optumTele, S.optumNNM, S.optumSCC],
@@ -897,9 +920,20 @@ export const wyomingPayers: Record<string, PayerConfig> = {
       {
         h2: 'What is UnitedHealthcare’s fee schedule for ABA?',
         body: [
-          'UnitedHealthcare publishes no ABA rate table; Optum pays from the contract. Optum’s National Network Manual (effective Sept. 1, 2026) defines the "Fee Maximum" as "The maximum amount a participating provider may be paid for a specific health care service provided to a member," adding that "Reimbursement to clinicians is based upon licensure rather than degree." The ABA reimbursement policy makes the credential level part of every claim line through the HM/HN/HO/HP modifiers. Ask Optum network management for your rate sheet. For a public benchmark, Wyoming Medicaid pays 97153 at $12.30 per 15 minutes from July 1, 2026; commercial contracts are negotiated separately.',
+          'UnitedHealthcare publishes no ABA rate table; Optum pays from the contract. Optum’s National Network Manual (effective Sept. 1, 2026) defines the "Fee Maximum" as "The maximum amount a participating provider may be paid for a specific health care service provided to a member," adding that "Reimbursement to clinicians is based upon licensure rather than degree." The ABA reimbursement policy makes the credential level part of every 97151–97158 claim line through the HM/HN/HO/HP modifiers (0362T and 0373T are listed as codes "that do not require modifiers"). Ask Optum network management for your rate sheet. For a public benchmark, Wyoming Medicaid pays 97153 at $12.30 per 15 minutes from July 1, 2026; commercial contracts are negotiated separately.',
         ],
         cites: [S.optumNNM, S.optumReimb, S.fee],
+      },
+      {
+        h2: 'Network, single case agreements, authorizations and disputes (Optum)',
+        body: [
+          'Single case agreements: Optum\'s ABA FAQ says an SCA during credentialing is granted "Not automatically. In exception cases, based on clinical need, new business implementations, or other gaps in the network, a SCA may be approved after review with the clinical team." Once an SCA provider becomes contracted, it sends its current member list to its Network Manager to have the authorizations updated. Out-of-network providers bill on the standard Form 1500.',
+          'Joining the network: Optum lists its ABA contracting criteria (a BCBA with state licensure where the state licenses behavior analysts, six months of supervised ABA experience, $1 million/$1 million professional liability for an individual; $1 million/$3 million plus general or supplemental liability for a group). Credentialing "can take from 45 to 120 days after submission of all materials," and every new ABA agency needs an Optum site audit that "can take up to 90 days to schedule." None of these Optum documents says the ABA network is closed to new providers.',
+          'Whose authorization it is: when an agency is credentialed, "their affiliated clinicians are not credentialed but are considered participating under the agency\'s Participation Agreement," but "Any claims submission for a rendering clinician who has not been added to the network is subject to denial." Approvals are issued in code clusters (assessment 97151/97152; direct care 97153/97154; multi-staff 0362T/0373T; QHP services 97155–97158) and units "can shift" within a cluster. Optum publishes no rule on moving an authorization from one agency to another; "All services require prior approval," so a new agency calls the ABA team for its own approval.',
+          'Credential modifiers (commercial ABA program): HM = RBT (less than a bachelor\'s), HN = BCaBA (bachelor\'s), HO = master\'s-level BCBA or licensed mental health provider, HP = BCBA-D or doctoral-level licensee; one provider-level modifier per line. 0362T and 0373T are listed as codes "that do not require modifiers."',
+          'Disputes: network providers follow a 2-step process — Step 1 reconsideration, Step 2 appeal — with "a total of 12 months for submission for both steps" unless state law or the Participation Agreement sets another deadline. Send "member-specific treatment plans, clinical records, payment appendices or other items that support why you believe our decision was incorrect," plus proof the claim was filed on time; mail to Optum Behavioral Health Solutions, P.O. Box 30757, Salt Lake City, UT 84123, or use Provider Express. Non-urgent clinical appeals have a 180-day window.',
+        ],
+        cites: [{ title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' }, { title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): network status of group clinicians; Provider Reconsideration and Appeal Process', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }, { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
       },
     ],
     collect: [
@@ -908,7 +942,7 @@ export const wyomingPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis with a validated tool', desc: 'DSM-5-TR ASD and severity level, confirmed with a validated tool (ADI-R, ADOS-2 and others). Optum asks for the instrument.' },
       { title: 'Physician or psychologist order', desc: 'The bulletin defines covered treatment as care prescribed or ordered by a licensed physician or psychologist.' },
     ],
-    sources: [S.optumSCC, S.optumSM, S.optumReimb, S.optumTele, S.optumNNM, S.doiBull, S.doiMemos, S.title26, S.hb14, S.title33, S.hb110, S.psy14, S.bacbLic, S.erisa, S.cfr433, S.tricare, S.champva, S.fee, S.cobRule, S.cobDefs],
+    sources: [S.optumSCC, S.optumSM, S.optumReimb, S.optumTele, S.optumNNM, S.doiBull, S.doiMemos, S.title26, S.hb14, S.title33, S.hb110, S.psy14, S.bacbLic, S.erisa, S.cfr433, S.tricare, S.champva, S.fee, S.cobRule, S.cobDefs, S.lcswScope, { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' }],
     deliveryRules: {
       supervision: {
         value: '"Consistent with CASP standards of care, direct case supervision is required 1 – 2 hours for every 10 hours of direct treatment per week." Technicians work under a BCBA or licensed behavioral health clinician and should be RBTs or otherwise certified "as allowable by state mandate"; Optum does not recommend parents serving as their own child’s RBT.' + ' Optum’s criteria publish no cap on the number of technicians per BCBA.',
@@ -957,9 +991,9 @@ export const wyomingPayers: Record<string, PayerConfig> = {
         cites: [S.optumSCC],
       },
       diagnosingProviders: {
-        value: '"A state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis."',
+        value: '"A state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis." LCSW: yes under Optum\'s test — Wyoming says clinical social work services "consist of assessment, diagnosis, treatment" (W.S. 33-38-102(a)(v)).',
         status: 'verified',
-        cites: [S.optumSCC],
+        cites: [S.optumSCC, S.lcswScope],
       },
       diagnosticTools: {
         value: 'At least one clinically validated tool from Optum’s non-exhaustive list, which includes formal diagnostic tools such as the ADI, ADOS/ADOS-2 and DISCO.',
@@ -994,6 +1028,7 @@ export const wyomingPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare / Optum give single case agreements for ABA?', a: 'Not automatically. Optum\'s ABA FAQ says an SCA may be approved "In exception cases, based on clinical need, new business implementations, or other gaps in the network" after review with the clinical team. Credentialing takes 45 to 120 days, and new agencies also need a site audit.' },
       { q: 'Does UnitedHealthcare accept H0031 or H2019 for ABA?', a: 'No. Optum’s commercial ABA policy uses CPT 97151–97158, 0362T and 0373T with credential modifiers.' },
       { q: 'Does Optum require graphs for an ABA reauthorization?', a: 'The criteria ask for progress measured the same way as baseline, mastery rates, change scores and updated standardized adaptive measures; graphs are not named.' },
       { q: 'What is UnitedHealthcare’s timely filing limit for ABA claims?', a: 'Optum: 90 calendar days from the date of service unless state law or the plan allows longer, with corrections within 90 days of the first claim’s receipt.' },

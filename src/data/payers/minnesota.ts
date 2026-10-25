@@ -19,6 +19,7 @@ const S: Record<string, PayerSource> = {
   sl95: { title: 'Laws 2026, ch. 95, art. 4, secs. 23–26 — EIDBI definitions, QSP observation and direction, new documentation subdivision 19', url: 'https://www.revisor.mn.gov/laws/2026/0/Session+Law/Chapter/95/' },
   sl121: { title: 'Laws 2026, ch. 121, art. 9, sec. 20 — EIDBI billing limits (new § 256B.0949, subd. 20) and art. 3 (§ 256B.69 managed care contracts)', url: 'https://www.revisor.mn.gov/laws/2026/0/Session+Law/Chapter/121/' },
   stat69: { title: 'Minn. Stat. § 256B.69 — Prepaid health plans (subd. 5a managed care contracts, six-month timely filing standard)', url: 'https://www.revisor.mn.gov/statutes/cite/256B.69' },
+  stat245I04: { title: 'Minn. Stat. § 245I.04, subd. 2 — Mental health professional qualifications (incl. licensed independent clinical social worker)', url: 'https://www.revisor.mn.gov/statutes/cite/245I.04' },
   stat3094: { title: 'Minn. Stat. § 62A.3094 — Coverage for autism spectrum disorders (large-employer plans, children under 18)', url: 'https://www.revisor.mn.gov/statutes/cite/62A.3094' },
   stat62Q18: { title: 'Minn. Stat. § 62Q.18, subd. 1 — "Large employer" means more than 50 current employees', url: 'https://www.revisor.mn.gov/statutes/cite/62Q.18' },
   stat62Q47: { title: 'Minn. Stat. § 62Q.47 — Mental health and substance use parity (all health plans)', url: 'https://www.revisor.mn.gov/statutes/cite/62Q.47' },
@@ -41,13 +42,19 @@ const S: Record<string, PayerSource> = {
   mednec: { title: 'EIDBI Benefit Policy Manual — Medical necessity criteria', url: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_DYNAMIC_CONVERSION&RevisionSelectionMethod=LatestReleased&dDocName=dhs16_195405' },
   cmde: { title: 'EIDBI Benefit Policy Manual — Comprehensive multi-disciplinary evaluation (CMDE) (updated 11/7/25)', url: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_DYNAMIC_CONVERSION&RevisionSelectionMethod=LatestReleased&dDocName=dhs16_195210' },
   tele: { title: 'EIDBI Benefit Policy Manual — Telehealth services (updated 9/10/26)', url: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_DYNAMIC_CONVERSION&RevisionSelectionMethod=LatestReleased&dDocName=DHS-292812' },
-  clinsup: { title: 'EIDBI Benefit Policy Manual — Clinical supervision (updated 9/15/26)', url: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_DYNAMIC_CONVERSION&RevisionSelectionMethod=LatestReleased&dDocName=dhs16_195399' },
+  staffSup: { title: 'EIDBI Benefit Policy Manual — Staff supervision (new page posted 10/16/26)', url: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_DYNAMIC_CONVERSION&RevisionSelectionMethod=LatestReleased&dDocName=MNDHS-087812' },
+  clinsup: { title: 'EIDBI Benefit Policy Manual — Clinical supervision (updated 10/16/26)', url: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_DYNAMIC_CONVERSION&RevisionSelectionMethod=LatestReleased&dDocName=dhs16_195399' },
   overview: { title: 'EIDBI Benefit Policy Manual — Overview of the EIDBI benefit (updated 4/28/26: provisional licensure, advanced certification)', url: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_DYNAMIC_CONVERSION&RevisionSelectionMethod=LatestReleased&dDocName=DHS-292846' },
-  updates: { title: 'EIDBI Benefit Policy Manual — Updates to the policy manual (change log through 9/16/26)', url: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_DYNAMIC_CONVERSION&RevisionSelectionMethod=LatestReleased&dDocName=DHS-292873' },
+  updates: { title: 'EIDBI Benefit Policy Manual — Updates to the policy manual (change log through 10/23/26)', url: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_DYNAMIC_CONVERSION&RevisionSelectionMethod=LatestReleased&dDocName=DHS-292873' },
   mhcpTele: { title: 'MHCP Provider Manual — Telehealth Services (POS 02/10, modifier 93)', url: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_DYNAMIC_CONVERSION&RevisionSelectionMethod=LatestReleased&dDocName=DHS-335178' },
   billPol: { title: 'MHCP Provider Manual — Billing Policy Overview (revised July 30, 2026: timely billing, prompt payment, enhanced pre-payment review)', url: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_DYNAMIC_CONVERSION&RevisionSelectionMethod=LatestReleased&dDocName=ID_008924' },
   mcoSec: { title: 'MHCP Provider Manual — Managed Care Organizations (carve-outs, MCO and state appeal rights)', url: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_DYNAMIC_CONVERSION&RevisionSelectionMethod=LatestReleased&dDocName=id_008923' },
   spa2410: { title: 'CMS-approved Minnesota SPA MN-24-0010, Attachment 4.19-B — EIDBI rates (effective Jan. 1, 2024)', url: 'https://www.medicaid.gov/medicaid/spa/downloads/MN-24-0010.pdf' },
+  elistSA: { title: 'DHS DSD eList — EIDBI service authorization update (Oct. 16, 2026: Acentra backlog resolved as of Oct. 1; seven-day reviews)', url: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_DYNAMIC_CONVERSION&RevisionSelectionMethod=LatestReleased&dDocName=MNDHS-087705' },
+  elistMorat: { title: 'DHS DSD eList — Extension of temporary moratorium on enrolling new EIDBI provider agencies (announced Oct. 23, 2026; effective Nov. 1, 2026 through April 30, 2027)', url: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_DYNAMIC_CONVERSION&RevisionSelectionMethod=LatestReleased&dDocName=MNDHS-087875' },
+  elistCpt: { title: 'DHS DSD eList — 2027 EIDBI CPT code updates (announced Oct. 23, 2026; 0373T becomes 97159 effective Jan. 1, 2027)', url: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_DYNAMIC_CONVERSION&RevisionSelectionMethod=LatestReleased&dDocName=MNDHS-087861' },
+  provNews: { title: 'MN DHS — MHCP provider news and updates', url: 'https://mn.gov/dhs/partners-and-providers/news-initiatives-reports-workgroups/minnesota-health-care-programs/provider-news/' },
+  eidbiLic: { title: 'MN DHS — EIDBI licensing (provisional licensure; new-agency enrollment paused since Nov. 1, 2025)', url: 'https://mn.gov/dhs/partners-and-providers/licensing/eidbi/' },
   ucareBull: { title: 'DHS MHCP provider bulletin — Medica acquiring UCare clarifications (Dec. 18, 2025)', url: 'https://content.govdelivery.com/accounts/MNDHS/bulletins/400969b' },
   ucareFaq: { title: 'UCare — Plan closure FAQ (UCare Medical Assistance plans now Medica One Health Plan, Oct. 1, 2026)', url: 'https://www.ucare.org/about-us/plan-closure-faq' },
   // Federal
@@ -72,18 +79,19 @@ const S: Record<string, PayerSource> = {
   imcHome: { title: 'IMCare (Itasca Medical Care) home page — "your local County health plan"', url: 'http://imcare.org/' },
   imcProv: { title: 'IMCare — Providers & Partners (forms, provider portal)', url: 'https://www.itascacountymn.gov/357/Providers-Partners' },
   opMN: { title: 'Optum Provider Express — Welcome Minnesota Providers (Medica behavioral health; Medicaid EIDBI forms)', url: 'https://www.providerexpress.com/content/ope-provexpr/us/en/our-network/welcomeNtwk/wMN.html' },
+  opEidbi: { title: 'Optum / Medica Behavioral Health — Guide to providing EIDBI services (BH02483-26-QRG, 10/13/2026)', url: 'https://www.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/mnABA/mnEIDBIOverview.pdf' },
   opMedQRG: { title: 'Optum — Information and resources for working with Medica Behavioral Health (BH5236, 10/2023)', url: 'https://www.providerexpress.com/content/dam/ope-provexpr/us/pdfs/ourNetworkMain/medica/5236MedicaQRG.pdf' },
-  pwEidbi: { title: 'PrimeWest Health Provider Manual — Early Intensive Development and Behavioral Intervention (EIDBI) (updated 09/04/2026)', url: 'https://www.primewest.org/eidbi' },
+  pwEidbi: { title: 'PrimeWest Health Provider Manual — Early Intensive Development and Behavioral Intervention (EIDBI) (updated 10/22/2026)', url: 'https://www.primewest.org/eidbi' },
   pwBill: { title: 'PrimeWest Health Provider Manual — Billing Requirements (180-day timely filing)', url: 'https://www.primewest.org/billing-requirements' },
   scBhPa: { title: 'South Country Health Alliance — Behavioral Health Prior Authorization and Notification List (form 7212, updated 3/5/2025)', url: 'https://mnscha.org/wp-content/uploads/7212.pdf' },
   scCh6: { title: 'South Country Provider Manual Ch. 6 — Service Authorizations & Notification Standards (Feb. 2026)', url: 'https://mnscha.org/wp-content/uploads/Ch6_02272026.pdf' },
-  scCh4: { title: 'South Country Provider Manual Ch. 4 — Provider Billing (July 2026)', url: 'https://mnscha.org/wp-content/uploads/Ch4_07292026.pdf' },
+  scCh4: { title: 'South Country Provider Manual Ch. 4 — Provider Billing (posted Oct. 21, 2026; EFT enrollment paused)', url: 'https://www.mnscha.org/wp-content/uploads/Ch4_10212026.pdf' },
   scCh14: { title: 'South Country Provider Manual Ch. 14 — Member Grievances and Appeals, Minnesota Health Care Programs (May 2026)', url: 'https://mnscha.org/wp-content/uploads/Ch14_05042026.pdf' },
   scCh33: { title: 'South Country Provider Manual Ch. 33 — Telehealth (Feb. 2026)', url: 'https://mnscha.org/wp-content/uploads/Ch33_02272026.pdf' },
   // National commercial policies (fetched this run)
   aetnaGuide: { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026; state exhibit: Maryland only)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
   aetnaPrecert: { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
-  aetnaCPB648: { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+  aetnaCPB648: { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/20/2026)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
   aetnaNPC: { title: 'Aetna — Provider and facility participation criteria (8100606-01-01, 5/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' },
   aetnaOM: { title: 'Aetna Health Care Professional Toolkit / provider manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
   en0499: { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
@@ -100,7 +108,7 @@ const S: Record<string, PayerSource> = {
 const MN_MCO_PARENT = 'Minnesota Medical Assistance (EIDBI benefit, managed care)';
 
 const EIDBI_SUPERVISION =
-  'Set by statute for every Medical Assistance member, fee-for-service or managed care. An EIDBI agency must "provide clinical supervision for a minimum of one hour for every 16 hours of direct treatment per person, unless otherwise authorized in the person’s individual treatment plan," and must provide "the required EIDBI intervention observation and direction by a QSP at least once per month" (Minn. Stat. § 256B.0949, subd. 16(a)(15)–(16), as amended by Laws 2026, ch. 95). The QSP may do that monthly observation and direction by telehealth for no more than two consecutive months; the third month must be in person. DHS’s clinical supervision page (updated 9/15/26) adds that each person gets one primary QSP (who signs the ITP), a backup QSP must be available, and a different ratio needs an exception documented in the ITP and approved through service authorization. Every intervention must be "provided by a qualified EIDBI provider and supervised by a QSP" (subd. 13(a)).';
+  'Set by statute for every Medical Assistance member, fee-for-service or managed care. An EIDBI agency must "provide clinical supervision for a minimum of one hour for every 16 hours of direct treatment per person, unless otherwise authorized in the person’s individual treatment plan," and must provide "the required EIDBI intervention observation and direction by a QSP at least once per month" (Minn. Stat. § 256B.0949, subd. 16(a)(15)–(16), as amended by Laws 2026, ch. 95). The QSP may do that monthly observation and direction by telehealth for no more than two consecutive months; the third month must be in person. DHS’s clinical supervision page (updated 10/16/26) adds that each person gets one primary QSP (who signs the ITP; a secondary QSP, if assigned, signs too), a backup QSP must be available, and a different ratio needs an exception documented in the ITP and approved through service authorization. Every intervention must be "provided by a qualified EIDBI provider and supervised by a QSP" (subd. 13(a)). DHS’s new staff supervision page (posted 10/16/26) requires each supervision activity to be logged in the supervisee’s personnel record (date and duration, supervisor’s name and credentials, supervisee’s name and credentials or provider level, a summary, and follow-up), and staff supervision is billable only when it meets the requirements of a covered service such as observation and direction.';
 
 const EIDBI_NOTES =
   'Statutory since 2026. New subdivision 19 of § 256B.0949 (Laws 2026, ch. 95, art. 4, sec. 26) requires all CMDE and EIDBI documentation to be "signed and dated by the provider completing the documentation with the provider’s full name, title, and credentials," to "be entered within 72 hours of service and contain a record and explanation of any delays in entry," and to "include a record of supervision and oversight for staff providing services requiring supervision." "Each EIDBI service occurrence must be documented in a progress note." DHS-7108 (CMDE) must be signed by the CMDE provider and the caregiver or guardian, and DHS-7109 (ITP) by the QSP and the caregiver or guardian; those signatures are the family’s consent to start or continue services.';
@@ -109,7 +117,7 @@ const EIDBI_AGE =
   'Under 21. The statute defines the covered "person" as "an individual under 21 years of age" (§ 256B.0949, subd. 2(q)), and DHS lists "Younger than age 21" among the eligibility criteria.';
 
 const EIDBI_DIAGNOSERS =
-  'Set by statute: the diagnosis of ASD or a related condition must be "completed by either (i) a licensed physician, advanced practice registered nurse, or physician assistant, or (ii) a mental health professional," be based on current DSM criteria with direct observation and caregiver information, and meet the standard diagnostic assessment rules of § 245I.10, subd. 6 (§ 256B.0949, subd. 4). DHS’s eligibility page says assessors use the DC:0-5 for children five and younger and the DSM from age six. The CMDE provider (physician, APRN, PA, mental health professional, or qualified clinical trainee with 2,000 hours of ASD experience or equivalent coursework) then confirms medical necessity.';
+  'Set by statute: the diagnosis of ASD or a related condition must be "completed by either (i) a licensed physician, advanced practice registered nurse, or physician assistant, or (ii) a mental health professional," be based on current DSM criteria with direct observation and caregiver information, and meet the standard diagnostic assessment rules of § 245I.10, subd. 6 (§ 256B.0949, subd. 4). DHS’s eligibility page says assessors use the DC:0-5 for children five and younger and the DSM from age six. The CMDE provider (physician, APRN, PA, mental health professional, or qualified clinical trainee with 2,000 hours of ASD experience or equivalent coursework) then confirms medical necessity. Can an LCSW diagnose? Only at the independent clinical level: § 256B.0949 defines a mental health professional by § 245I.04, subd. 2, which lists a psychiatric clinical nurse specialist or nurse practitioner, "a licensed independent clinical social worker," a licensed psychologist, a psychiatrist (or board-eligible physician), a licensed marriage and family therapist and a licensed professional clinical counselor. An LICSW qualifies; a social worker licensed as an LSW, LGSW or LISW is not on the list.';
 
 const EIDBI_TOOLS =
   'No instrument is mandated for EIDBI itself: DHS "strongly encourages providers to use standardized assessment tools" but "does not require specific assessment tools." The exception is a CMDE submitted for other disability or benefit decisions (waiver enrollment, SSI): there DHS requires "A direct observational assessment (e.g., ADOS-2)" and "A structured caregiver interview (e.g., ADI-R)," and says developmental history or non-autism-specific screens alone are "insufficient."';
@@ -122,6 +130,21 @@ const EIDBI_TELE =
 
 const EIDBI_COB =
   'Medical Assistance is still the payer of last resort, but EIDBI is "pay and chase." DHS: "EIDBI providers are not required to bill a member’s commercial insurance before billing Medicaid. MHCP or the MCO will seek reimbursement from third parties … This ‘pay and chase’ process applies to both fee-for-service and managed care members," though a payment received from another source must still be reported. That matches the federal rule letting states pay EPSDT claims and recover later (42 CFR 433.139(b)(3)(i)). For authorization, DHS tells providers with privately insured members to "follow the primary insurance’s authorization procedures."';
+
+const MN_MORATORIUM_BODY =
+  'Minnesota is not enrolling new EIDBI agencies. DHS "paused enrolling new EIDBI agencies, effective Nov. 1, 2025," and on Oct. 23, 2026 announced that it "received approval from the Centers for Medicare & Medicaid Services (CMS) to extend the temporary moratorium on enrolling new EIDBI provider agencies. The extension is effective beginning Nov. 1, 2026, through April 30, 2027." During the extension "New EIDBI provider agency enrollment remains restricted"; "EIDBI agencies approved for a provisional license before Dec. 31, 2026, may enroll new locations"; and "Individual EIDBI providers may continue to enroll and affiliate with currently enrolled and provisionally licensed EIDBI agencies." The moratorium "does not affect member enrollment," and DHS "may extend the moratorium in six-month increments if necessary." The provisional-license application in the Provider Hub is likewise "closed to new agencies."';
+
+const MN_CPT2027_BODY =
+  'DHS: "Effective Jan. 1, 2027, EIDBI high-intensity intervention services will transition from CPT code 0373T to the new permanent CPT code 97159." DHS will update the EIDBI billing grid, the EIDBI Benefit Policy Manual and its systems, and "will not add any other additional service codes included in the 2027 CPT code set to the EIDBI benefit at this time." Until DHS publishes the updated grid, the 0373T rules on this page are the current ones; DHS has not yet said how each carries over to 97159. DHS tells providers to "Contact each payer (e.g., commercial insurers, managed care organizations [MCOs], Medicaid) to confirm and understand their implementation processes, authorization requirements, billing guidance and timelines," because "Payers establish their own coverage, authorization and reimbursement policies."';
+
+const MN_MCO_2027 = {
+  h2: '2027 changes: 0373T becomes 97159, and no new EIDBI agencies',
+  body: [
+    'Two DHS announcements of Oct. 23, 2026 reach every Medical Assistance plan. First, MHCP "will transition the EIDBI high-intensity intervention service from CPT code 0373T to the new permanent CPT code 97159 effective Jan. 1, 2027." DHS adds that "Payers establish their own coverage, authorization and reimbursement policies" and tells providers to contact each MCO "to confirm and understand their implementation processes, authorization requirements, billing guidance and timelines," so confirm with this plan how its 0373T authorization and billing rules move to 97159.',
+    'Second, DHS extended the temporary moratorium on enrolling new EIDBI provider agencies "beginning Nov. 1, 2026, through April 30, 2027": new agency enrollment "remains restricted," agencies "approved for a provisional license before Dec. 31, 2026, may enroll new locations," and individual providers "may continue to enroll and affiliate with currently enrolled and provisionally licensed EIDBI agencies." It "does not affect member enrollment."',
+  ],
+  cites: [S.elistCpt, S.elistMorat, S.provNews],
+};
 
 /* ---------------- Shared Minnesota commercial layer ---------------- */
 const MN_MANDATE_BODY =
@@ -155,9 +178,9 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       cites: [S.grid, S.mhcpEidbi],
     },
     treatmentPA: {
-      value: 'Yes. Intervention (97153, 97154, 0373T), observation and direction (97155), family/caregiver training (97156, 97157) and travel time (H0046) require service authorization before delivery; FFS requests go to Acentra Health in the Atrezzo portal, each spanning no more than 180 days',
+      value: 'Yes. Intervention (97153, 97154, 0373T), observation and direction (97155), family/caregiver training (97156, 97157) and travel time (H0046) require service authorization before delivery; FFS requests go to Acentra Health in the Atrezzo portal, each spanning no more than 180 days. From Jan. 1, 2027 high-intensity intervention moves from 0373T to CPT 97159',
       status: 'verified',
-      cites: [S.mhcpEidbi, S.grid],
+      cites: [S.mhcpEidbi, S.grid, S.elistCpt],
     },
     dxRequired: {
       value: 'Yes: ASD or a "related condition" (severe, chronic, with ASD-like impairments in social interaction, communication and restrictive or repetitive behaviors), diagnosed under current DSM criteria by a licensed physician, APRN, PA or mental health professional (§ 256B.0949, subds. 2(d) and 4). DHS adds that a child under five may meet medical necessity without a final diagnosis',
@@ -173,7 +196,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       'How Minnesota Medical Assistance covers ABA through the EIDBI benefit: under 21, CMDE then ITP, service authorization by Acentra Health or the member’s MCO, provider levels and QSP supervision, telehealth rules, published rates, and the 2025–2026 licensure and billing changes.',
     intro: [
       'Minnesota Medical Assistance pays for applied behavior analysis through a benefit with a different name: EIDBI, Early Intensive Developmental and Behavioral Intervention (Minn. Stat. § 256B.0949). ABA is one of the approved EIDBI modalities, alongside DIR/Floortime, the Early Start Denver Model and RDI. The benefit covers people under 21 with autism spectrum disorder or a related condition who are enrolled in Medical Assistance, MinnesotaCare, TEFRA or another qualifying program, once a comprehensive multi-disciplinary evaluation (CMDE) establishes medical need.',
-      'For an agency, the program works in a fixed order. A CMDE provider evaluates the child and files the CMDE Medical Necessity Summary (DHS-7108); the agency’s qualified supervising professional (QSP) writes the Individual Treatment Plan (DHS-7109); then the plan is authorized, by Acentra Health for fee-for-service members or by the member’s managed care plan for everyone else. Most members are in one of eight health plans. Minnesota is also in the middle of a program-integrity overhaul: provisional EIDBI agency licensure (applications closed May 31, 2026), a statutory 1:16 supervision ratio, a 72-hour documentation rule enacted in 2026, and billing limits that start July 1, 2027 or on federal approval.',
+      'For an agency, the program works in a fixed order. A CMDE provider evaluates the child and files the CMDE Medical Necessity Summary (DHS-7108); the agency’s qualified supervising professional (QSP) writes the Individual Treatment Plan (DHS-7109); then the plan is authorized, by Acentra Health for fee-for-service members or by the member’s managed care plan for everyone else. Most members are in one of eight health plans. Minnesota is also in the middle of a program-integrity overhaul: provisional EIDBI agency licensure (applications closed May 31, 2026), a statutory 1:16 supervision ratio, a 72-hour documentation rule enacted in 2026, billing limits that start July 1, 2027 or on federal approval, and a moratorium on enrolling new EIDBI agencies that DHS has extended through April 30, 2027.',
     ],
     atGlance: [
       { label: 'Covers ABA?', value: 'Yes, as an EIDBI modality, for members under 21 with ASD or a related condition' },
@@ -184,6 +207,8 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       { label: 'Supervision', value: '1 hour per 16 hours of direct treatment; QSP observation and direction at least monthly' },
       { label: 'Licensure', value: 'Behavior analysts licensed by the Board of Psychology since 2024 law (license required from Jan. 1, 2025)' },
       { label: 'Other insurance', value: 'EIDBI is pay-and-chase: no need to bill the commercial plan first' },
+      { label: 'Network status', value: 'New EIDBI agency enrollment closed: moratorium extended Nov. 1, 2026 to April 30, 2027; individual providers may still enroll under enrolled agencies' },
+      { label: '2027 code change', value: 'High-intensity intervention moves from 0373T to CPT 97159 on Jan. 1, 2027' },
     ],
     sections: [
       {
@@ -229,9 +254,29 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
         cites: [S.billPol, S.mhcpEidbi, S.grid, S.mhcpTele, S.stat69, S.mcoSec],
       },
       {
+        h2: 'Is Minnesota enrolling new EIDBI agencies? (moratorium through April 30, 2027)',
+        body: [MN_MORATORIUM_BODY, 'So a new practice cannot enroll with MHCP as an EIDBI agency before the moratorium ends; a BCBA, RBT or other qualified individual can still enroll and affiliate with an enrolled, provisionally licensed agency.'],
+        cites: [S.elistMorat, S.provNews, S.eidbiLic],
+      },
+      {
+        h2: '2027: high-intensity intervention moves from 0373T to 97159',
+        body: [MN_CPT2027_BODY],
+        cites: [S.elistCpt, S.provNews],
+      },
+      {
         h2: 'Licensure and out-of-state BCBAs',
         body: [MN_LICENSURE_BODY, 'EIDBI adds its own constraints. A QSP must be a licensed mental health professional or "a licensed behavior analyst," defined as "an individual licensed under sections 148.9981 to 148.9995" (§ 256B.0949, subd. 2(e)), so a BCBA licensed only in another state cannot be the QSP. Every qualified provider must be an employee of an enrolled agency with an office in Minnesota or a border state, and DHS’s telehealth page limits telehealth to providers "licensed or registered by the state." In practice an out-of-state BCBA serving a Minnesota EIDBI member needs a Minnesota license and an employing Minnesota-enrolled agency, whether the work is in person or remote.'],
         cites: [S.lic9981, S.lic9983, S.lic9986, S.lic9987, S.bacbLic, S.stat0949, S.tele, S.spa2410],
+      },
+      {
+        h2: 'Who may bill each EIDBI code, and the modifier',
+        body: [
+          'Minnesota does not use HM/HN/HO/HP. Every EIDBI line carries one modifier, “UB = EIDBI modifier.” The provider’s level comes from the enrollment specialty instead: DE Level 1, DF Level 2, DG Level 3, QP Qualified Supervising Professional, QS Qualified Supervisor, QD CMDE provider. The QSP “must be on all other EIDBI claims as the supervising professional”; CMDE claims are the exception. Level sets the rate: Level II bills at 80% of the established rate and Level III at 50%.',
+          'Who may bill which code (DHS EIDBI billing grid, August 2026). 97151 CMDE: the CMDE provider, or a CMDE clinical trainee billed at the supervisor’s rate, with one CMDE a calendar year allowed without a service agreement. H0032 ITP development and monitoring: QSP or Level I at 100%, Level II at 80%. T1024 coordinated care conference: CMDE provider, trainee, QSP, Level I or Level II, all at 100%. 97153 and 97154 intervention: QSP and Level I 100%, Level II 80%, Level III 50%. 0373T higher-intensity intervention (two or more providers): every level at 100%, billed once per period “under the direction of a Level I provider or Qualified Supervising Professional (QSP) who is on site (either in person or via telehealth).” 97155 observation and direction: QSP and Level I 100%, Level II 80%; no Level III. The authorized amount “should be approximately 20% of the total authorized intervention time (CPT 97153, 97154, and 0373T)” unless the ITP justifies otherwise. 97156 and 97157 family training: QSP and Level I 100%, Level II 80%; no Level III. H0046 travel time: any level, per minute. 97152 and 97158 are not on the grid. DHS moves 0373T to 97159 from January 1, 2027.',
+        ],
+        cites: [
+          { title: 'DHS — EIDBI billing grid (August 2026)', url: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_FILE&RevisionSelectionMethod=LatestReleased&Rendition=Primary&allowInterrupt=1&noSaveAs=1&dDocName=DHS16_195657' },
+        ],
       },
     ],
     collect: [
@@ -241,12 +286,12 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       { title: 'Other insurance', desc: 'Record it, but EIDBI does not require billing the commercial plan first (pay and chase).' },
       { title: 'School schedule', desc: 'Direct intervention must not replace instruction; since Jan. 1, 2026 no 97153/97154/0373T during homeschool or virtual-school instruction.' },
     ],
-    sources: [S.stat0949, S.sl95, S.sl121, S.mhcpEidbi, S.grid, S.mcoGrid, S.services, S.elig, S.mednec, S.cmde, S.tele, S.clinsup, S.overview, S.updates, S.mhcpTele, S.billPol, S.mcoSec, S.spa2410, S.stat69, S.stat62M01, S.stat62M05, S.stat62M07, S.lic9981, S.lic9983, S.lic9986, S.lic9987, S.bacbLic, S.cfr433, S.ucareFaq, { title: 'MN DHS — MHCP Provider Connect archive (weekly provider e-newsletter)', url: 'https://mn.gov/dhs/partners-and-providers/news-initiatives-reports-workgroups/minnesota-health-care-programs/provider-news/mhcp-provider-connect.jsp' }, { title: 'MN DHS — MHCP provider news and updates', url: 'https://mn.gov/dhs/partners-and-providers/news-initiatives-reports-workgroups/minnesota-health-care-programs/provider-news/' }],
+    sources: [S.elistSA, S.staffSup, S.stat245I04, S.elistMorat, S.elistCpt, S.eidbiLic, S.stat0949, S.sl95, S.sl121, S.mhcpEidbi, S.grid, S.mcoGrid, S.services, S.elig, S.mednec, S.cmde, S.tele, S.clinsup, S.overview, S.updates, S.mhcpTele, S.billPol, S.mcoSec, S.spa2410, S.stat69, S.stat62M01, S.stat62M05, S.stat62M07, S.lic9981, S.lic9983, S.lic9986, S.lic9987, S.bacbLic, S.cfr433, S.ucareFaq, { title: 'MN DHS — MHCP Provider Connect archive (weekly provider e-newsletter)', url: 'https://mn.gov/dhs/partners-and-providers/news-initiatives-reports-workgroups/minnesota-health-care-programs/provider-news/mhcp-provider-connect.jsp' }, { title: 'MN DHS — MHCP provider news and updates', url: 'https://mn.gov/dhs/partners-and-providers/news-initiatives-reports-workgroups/minnesota-health-care-programs/provider-news/' }, { title: 'DHS — EIDBI billing grid (August 2026)', url: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_FILE&RevisionSelectionMethod=LatestReleased&Rendition=Primary&allowInterrupt=1&noSaveAs=1&dDocName=DHS16_195657' } ],
     deliveryRules: {
       supervision: {
         value: EIDBI_SUPERVISION,
         status: 'verified',
-        cites: [S.stat0949, S.sl95, S.clinsup],
+        cites: [S.stat0949, S.sl95, S.clinsup, S.staffSup],
       },
       concurrentBilling: {
         value: 'Allowed in defined cases. DHS: "Multiple providers may deliver and bill for" the CMDE, ITP development and progress monitoring, coordinated care conference, observation and direction, and family/caregiver training "at the same time," and "Multiple providers may deliver a combination of EIDBI services at the same time (e.g., one provider delivers individual intervention, and another provider delivers observation and direction) as medically necessary." So 97153 and 97155 may be billed for the same clock time by two providers. 0373T is billed once per period no matter how many staff are present. DHS also tells providers to check the Medicaid NCCI edits before billing simultaneous codes.',
@@ -288,7 +333,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       diagnosingProviders: {
         value: EIDBI_DIAGNOSERS,
         status: 'verified',
-        cites: [S.stat0949, S.elig],
+        cites: [S.stat0949, S.stat245I04, S.elig],
       },
       diagnosticTools: {
         value: EIDBI_TOOLS,
@@ -306,9 +351,9 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
         cites: [S.stat0949, S.tele, S.mhcpEidbi, S.mhcpTele],
       },
       authTurnaround: {
-        value: 'Acentra Health decides within seven calendar days of receiving a CMDE or ITP; a pended request gives the provider 10 calendar days to respond, then Acentra has three business days. DHS-3806 requests (services above grid thresholds) and DHS-7109A changes are also decided within seven calendar days. Since January 1, 2026, § 62M.05, subd. 3a (standard determinations within five business days) applies to fee-for-service under § 62M.01, subd. 3(c). Authorizations span up to 180 days and may be approved retroactively for up to 180 days. Submit at least 30 days before the start date.',
+        value: 'Acentra Health decides within seven calendar days of receiving a CMDE or ITP; a pended request gives the provider 10 calendar days to respond, then Acentra has three business days. DHS-3806 requests (services above grid thresholds) and DHS-7109A changes are also decided within seven calendar days. Since January 1, 2026, § 62M.05, subd. 3a (standard determinations within five business days) applies to fee-for-service under § 62M.01, subd. 3(c). Authorizations span up to 180 days and may be approved retroactively for up to 180 days. Submit at least 30 days before the start date. After a backlog in September 2026, DHS reported on Oct. 16, 2026 that "As of Oct. 1, 2026, Acentra Health resolved the EIDBI service authorization processing backlog" and that for requests submitted after Oct. 1 families and providers "can expect Acentra Health to complete their review and make a determination or request additional information within seven days."',
         status: 'verified',
-        cites: [S.mhcpEidbi, S.stat62M01, S.stat62M05],
+        cites: [S.mhcpEidbi, S.stat62M01, S.stat62M05, S.elistSA],
       },
       coordinationOfBenefits: {
         value: EIDBI_COB,
@@ -323,7 +368,10 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       { q: 'What does Minnesota Medicaid pay for ABA?', a: 'Under SPA MN-24-0010 (effective Jan. 1, 2024), $20.178 per 15-minute unit for individual intervention, observation and direction, and family training by a QSP or Level I provider; 80% of that for Level II and 50% for Level III; $24.192 for two-provider intervention; $50.112 per unit for the CMDE. MCOs pay contracted rates.' },
       { q: 'Does a BCBA need a Minnesota license?', a: 'Yes, since January 1, 2025, to practice ABA in Minnesota, unless exempt (licensed psychologists; supervisees working under a licensed behavior analyst; school-district employees; supervised students). The statute has no out-of-state or telehealth exception, and an EIDBI QSP must hold a Minnesota license as a behavior analyst or mental health professional.' },
       { q: 'Can EIDBI be delivered by telehealth?', a: 'Yes for the CMDE, ITP work, care conferences, family training, individual and group intervention, and observation and direction, at the same rates and with the same authorization; not for higher-intensity 0373T. QSP observation and direction can be remote only two months in a row. Bill POS 02 or 10.' },
+      { q: 'Is Minnesota enrolling new EIDBI (ABA) agencies?', a: 'No. DHS paused new EIDBI agency enrollment on Nov. 1, 2025 and, with CMS approval, extended the moratorium from Nov. 1, 2026 through April 30, 2027 (it may be extended again in six-month increments). Individual providers can still enroll and affiliate with currently enrolled, provisionally licensed agencies; agencies approved for a provisional license before Dec. 31, 2026 may add locations.' },
+      { q: 'What replaces 0373T in 2027?', a: 'CPT 97159. DHS moves EIDBI high-intensity intervention from 0373T to 97159 effective Jan. 1, 2027 and adds no other new 2027 CPT codes to the benefit for now. DHS will publish an updated billing grid; confirm each MCO’s and commercial payer’s own implementation.' },
       { q: 'Do I bill the family’s commercial insurance first?', a: 'Not for EIDBI. DHS says providers "are not required to bill a member’s commercial insurance before billing Medicaid"; MHCP or the MCO recovers from the commercial plan ("pay and chase"), for fee-for-service and managed care members alike.' },
+      { q: 'Which EIDBI provider level can bill 97155 in Minnesota?', a: 'A QSP or Level I provider at 100% of the rate, or a Level II provider at 80%. Level III cannot bill 97155. Every EIDBI line carries the UB modifier; the provider level comes from the enrollment specialty (DE, DF, DG, QP), not a modifier.' },
     ],
   },
 
@@ -382,6 +430,16 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.stat0949, S.sl95, S.stat62M01, S.stat62M05, S.mhcpEidbi],
       },
+      MN_MCO_2027,
+      {
+        h2: 'Out-of-network ABA when the network has no provider',
+        body: [
+          'The federal managed care rule covers this MCO. When the network “is unable to provide necessary services, covered under the contract, to a particular enrollee,” the MCO “must adequately and timely cover these services out of network for the enrollee, for as long as” the network cannot provide them. It must require the out-of-network provider “to coordinate with the MCO, PIHP, or PAHP for payment,” and the family’s cost must be no greater than in network (42 CFR 438.206(b)(4)–(5)). Blue Plus’s own out-of-network or single-case-agreement procedure and rate were not reviewed for this guide. Ask its utilization management or provider network team for an out-of-network authorization and the rate before the first session.',
+        ],
+        cites: [
+          { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
+        ],
+      },
     ],
     collect: [
       { title: 'Member ID', desc: 'Confirm Blue Plus Medical Assistance or MinnesotaCare (not Blue Cross commercial) on the date of service.' },
@@ -389,12 +447,12 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis', desc: 'ASD or related condition from a physician, APRN, PA or mental health professional.' },
       { title: 'Other insurance', desc: 'Record it; DHS’s pay-and-chase rule means the commercial plan need not be billed first for EIDBI.' },
     ],
-    sources: [S.bcP55, S.bcP69, S.bcX43, S.mcoGrid, S.stat0949, S.sl95, S.mhcpEidbi, S.grid, S.stat62M01, S.stat62M05, S.cfr438, S.cfr433, S.bcP7422, S.bcMigFAQ],
+    sources: [S.staffSup, S.stat245I04, S.elistCpt, S.elistMorat, S.provNews, S.bcP55, S.bcP69, S.bcX43, S.mcoGrid, S.stat0949, S.sl95, S.mhcpEidbi, S.grid, S.stat62M01, S.stat62M05, S.cfr438, S.cfr433, S.bcP7422, S.bcMigFAQ, { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' } ],
     deliveryRules: {
       supervision: {
         value: 'Blue Plus publishes no EIDBI supervision rule of its own. ' + EIDBI_SUPERVISION,
         status: 'verified',
-        cites: [S.stat0949, S.sl95, S.clinsup, S.bcP55],
+        cites: [S.stat0949, S.sl95, S.clinsup, S.staffSup, S.bcP55],
       },
       concurrentBilling: {
         value: 'Blue Plus says EIDBI claims "should continue to match the guidelines outlined by DHS," but publishes no simultaneous-billing rule of its own. Under DHS policy two providers may bill 97153 and 97155 for the same time when medically necessary.',
@@ -435,7 +493,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [S.bcP69, S.cmde],
       },
-      diagnosingProviders: { value: EIDBI_DIAGNOSERS, status: 'verified', cites: [S.stat0949, S.elig] },
+      diagnosingProviders: { value: EIDBI_DIAGNOSERS, status: 'verified', cites: [S.stat0949, S.stat245I04, S.elig] },
       diagnosticTools: { value: EIDBI_TOOLS, status: 'verified', cites: [S.elig, S.cmde] },
       referral: {
         value: 'No. DHS’s October 2026 grid, for Blue Cross and Blue Shield of Minnesota: "No referral is required for the service. Services do require authorization."',
@@ -522,6 +580,16 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.hpPRM, S.stat69],
       },
+      MN_MCO_2027,
+      {
+        h2: 'Out-of-network ABA when the network has no provider',
+        body: [
+          'The federal managed care rule covers this MCO. When the network “is unable to provide necessary services, covered under the contract, to a particular enrollee,” the MCO “must adequately and timely cover these services out of network for the enrollee, for as long as” the network cannot provide them. It must require the out-of-network provider “to coordinate with the MCO, PIHP, or PAHP for payment,” and the family’s cost must be no greater than in network (42 CFR 438.206(b)(4)–(5)). HealthPartners’s own out-of-network or single-case-agreement procedure and rate were not reviewed for this guide. Ask its utilization management or provider network team for an out-of-network authorization and the rate before the first session.',
+        ],
+        cites: [
+          { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
+        ],
+      },
     ],
     collect: [
       { title: 'Member ID', desc: 'Confirm HealthPartners Minnesota Health Care Programs coverage with the guest eligibility tool.' },
@@ -529,12 +597,12 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       { title: 'Supervising QSP', desc: 'The QSP’s NPI goes on every claim line that needs supervision.' },
       { title: 'Other insurance', desc: 'Record it; HealthPartners pays EIDBI without a primary EOB.' },
     ],
-    sources: [S.hpPolicy, S.hpPage, S.hpTips, S.mcoGrid, S.stat0949, S.sl95, S.grid, S.stat62M01, S.stat62M05, S.cfr438, S.cfr433, S.hpPRM, { title: 'HealthPartners — Fast Facts newsletters (bi-monthly provider newsletter)', url: 'https://www.healthpartners.com/providers/provider-resources/fast-facts/' }],
+    sources: [S.clinsup, S.staffSup, S.elistCpt, S.elistMorat, S.provNews, S.hpPolicy, S.hpPage, S.hpTips, S.mcoGrid, S.stat0949, S.sl95, S.grid, S.stat62M01, S.stat62M05, S.cfr438, S.cfr433, S.hpPRM, { title: 'HealthPartners — Fast Facts newsletters (bi-monthly provider newsletter)', url: 'https://www.healthpartners.com/providers/provider-resources/fast-facts/' }, { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' } ],
     deliveryRules: {
       supervision: {
         value: 'HealthPartners excludes services "Provided without the required supervision" and requires the QSP on supervised claims; the supervision floor is the statute’s. ' + EIDBI_SUPERVISION,
         status: 'verified',
-        cites: [S.hpPolicy, S.hpTips, S.stat0949, S.sl95],
+        cites: [S.hpPolicy, S.hpTips, S.stat0949, S.sl95, S.clinsup, S.staffSup],
       },
       concurrentBilling: {
         value: 'HealthPartners tells providers to follow DHS’s billing grid and to identify each line’s rendering and supervising provider, but states no rule on billing 97153 and 97155 for the same time. DHS allows it when medically necessary.',
@@ -663,6 +731,16 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.hhClaims, S.hhPA, S.mhcpEidbi, S.mcoGrid],
       },
+      MN_MCO_2027,
+      {
+        h2: 'Out-of-network ABA when the network has no provider',
+        body: [
+          'The federal managed care rule covers this MCO. When the network “is unable to provide necessary services, covered under the contract, to a particular enrollee,” the MCO “must adequately and timely cover these services out of network for the enrollee, for as long as” the network cannot provide them. It must require the out-of-network provider “to coordinate with the MCO, PIHP, or PAHP for payment,” and the family’s cost must be no greater than in network (42 CFR 438.206(b)(4)–(5)). Hennepin Health’s own out-of-network or single-case-agreement procedure and rate were not reviewed for this guide. Ask its utilization management or provider network team for an out-of-network authorization and the rate before the first session.',
+        ],
+        cites: [
+          { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
+        ],
+      },
     ],
     collect: [
       { title: 'Member ID', desc: 'Confirm Hennepin Health eligibility before requesting authorization.' },
@@ -670,7 +748,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       { title: 'QSP notes calendar', desc: 'Plan to send QSP notes every three months for every authorized member.' },
       { title: 'Other insurance', desc: 'Record it and ask how Hennepin Health applies its primary-first rule to EIDBI.' },
     ],
-    sources: [S.hhChart, S.hhPA, S.hhClaims, S.hhChronic, S.mcoGrid, S.stat0949, S.sl95, S.mhcpEidbi, S.stat62M01, S.stat62M05, S.cfr438, S.cfr433, { title: 'Hennepin Health — Provider updates', url: 'https://www.hennepinhealth.org/providers/provider-updates' }],
+    sources: [S.stat245I04, S.elistCpt, S.elistMorat, S.provNews, S.hhChart, S.hhPA, S.hhClaims, S.hhChronic, S.mcoGrid, S.stat0949, S.sl95, S.mhcpEidbi, S.stat62M01, S.stat62M05, S.cfr438, S.cfr433, { title: 'Hennepin Health — Provider updates', url: 'https://www.hennepinhealth.org/providers/provider-updates' }, { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' } ],
     deliveryRules: {
       supervision: {
         value: 'Hennepin Health: "one hour of clinical supervision by a Qualified Supervising Professional for every 16 hours of direct treatment unless an exception is authorized in ITP," plus QSP notes every three months (from July 1, 2026). The statute adds monthly QSP observation and direction, no more than two consecutive months by telehealth (§ 256B.0949, subd. 16(a)(15)–(16)).',
@@ -714,7 +792,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
     intakeGates: {
       ageLimit: { value: EIDBI_AGE, status: 'verified', cites: [S.stat0949, S.elig] },
       dxRecency: { value: 'Hennepin Health publishes no rule of its own. ' + EIDBI_RECENCY, status: 'verified', cites: [S.cmde, S.mednec] },
-      diagnosingProviders: { value: EIDBI_DIAGNOSERS, status: 'verified', cites: [S.stat0949, S.elig] },
+      diagnosingProviders: { value: EIDBI_DIAGNOSERS, status: 'verified', cites: [S.stat0949, S.stat245I04, S.elig] },
       diagnosticTools: { value: EIDBI_TOOLS, status: 'verified', cites: [S.elig, S.cmde] },
       referral: { value: 'No. DHS’s October 2026 grid, for Hennepin Health: "No referral requirements."', status: 'verified', cites: [S.mcoGrid] },
       telehealth: { value: 'Hennepin Health publishes no EIDBI telehealth rule of its own. ' + EIDBI_TELE, status: 'verified', cites: [S.stat0949, S.tele, S.mhcpTele] },
@@ -794,15 +872,25 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.imcAppeal],
       },
+      MN_MCO_2027,
+      {
+        h2: 'Out-of-network ABA when the network has no provider',
+        body: [
+          'The federal managed care rule covers this MCO. When the network “is unable to provide necessary services, covered under the contract, to a particular enrollee,” the MCO “must adequately and timely cover these services out of network for the enrollee, for as long as” the network cannot provide them. It must require the out-of-network provider “to coordinate with the MCO, PIHP, or PAHP for payment,” and the family’s cost must be no greater than in network (42 CFR 438.206(b)(4)–(5)). IMCare’s own out-of-network or single-case-agreement procedure and rate were not reviewed for this guide. Ask its utilization management or provider network team for an out-of-network authorization and the rate before the first session.',
+        ],
+        cites: [
+          { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
+        ],
+      },
     ],
     collect: [
       { title: 'Member ID', desc: 'Confirm IMCare enrollment (Itasca County service area) on the date of service.' },
       { title: 'CMDE and ITP', desc: 'Have both ready; ask IMCare which codes it authorizes.' },
       { title: 'Network status', desc: 'Noncontracted providers need authorization for every service.' },
     ],
-    sources: [S.mcoGrid, S.imcHome, S.imcProv, S.imcUM, S.imcAppeal, S.stat0949, S.sl95, S.mhcpEidbi, S.stat62M01, S.stat62M05, S.cfr438, S.cfr433],
+    sources: [S.staffSup, S.stat245I04, S.elistCpt, S.elistMorat, S.provNews, S.mcoGrid, S.imcHome, S.imcProv, S.imcUM, S.imcAppeal, S.stat0949, S.sl95, S.mhcpEidbi, S.stat62M01, S.stat62M05, S.cfr438, S.cfr433, { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' } ],
     deliveryRules: {
-      supervision: { value: 'IMCare publishes no EIDBI supervision rule of its own. ' + EIDBI_SUPERVISION, status: 'verified', cites: [S.stat0949, S.sl95, S.clinsup] },
+      supervision: { value: 'IMCare publishes no EIDBI supervision rule of its own. ' + EIDBI_SUPERVISION, status: 'verified', cites: [S.stat0949, S.sl95, S.clinsup, S.staffSup] },
       concurrentBilling: {
         value: 'Not published by IMCare.',
         status: 'unverified',
@@ -836,7 +924,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
     intakeGates: {
       ageLimit: { value: EIDBI_AGE, status: 'verified', cites: [S.stat0949, S.elig] },
       dxRecency: { value: 'IMCare publishes no rule of its own. ' + EIDBI_RECENCY, status: 'verified', cites: [S.cmde, S.mednec] },
-      diagnosingProviders: { value: EIDBI_DIAGNOSERS, status: 'verified', cites: [S.stat0949, S.elig] },
+      diagnosingProviders: { value: EIDBI_DIAGNOSERS, status: 'verified', cites: [S.stat0949, S.stat245I04, S.elig] },
       diagnosticTools: { value: EIDBI_TOOLS, status: 'verified', cites: [S.elig, S.cmde] },
       referral: { value: 'No. DHS’s October 2026 grid, for IMCare: "No referral requirements."', status: 'verified', cites: [S.mcoGrid] },
       telehealth: { value: 'IMCare publishes no EIDBI telehealth rule of its own. ' + EIDBI_TELE, status: 'verified', cites: [S.stat0949, S.tele, S.mhcpTele] },
@@ -858,16 +946,14 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
     family: 'medica',
     cardDesc: 'Medica’s Medical Assistance plans: behavioral health and EIDBI run through Optum; fax the CMDE and ITP to 855-454-8155.',
     assessmentPA: {
-      value: 'Not stated. DHS’s grid says "Select services require authorization" at Medica and asks for the ITP and CMDE by fax; Medica publishes no EIDBI code list',
-      status: 'unverified',
-      cites: [S.mcoGrid, S.opMN],
-      verifyVia: 'Medica Behavioral Health (Optum) Provider Services, 800-848-8327: ask whether 97151 UB needs authorization.',
-      blocker: 'document',
+      value: 'No for contracted providers. Optum’s Medica Behavioral Health EIDBI guide (BH02483-26, Oct. 13, 2026) lists the services that need authorization (family or caregiver training, individual and group intervention, higher-intensity intervention, observation and direction, travel time); the CMDE is faxed with the ITP but is not on that list. "Out of network providers are required to obtain authorization for all EIDBI services," including the CMDE',
+      status: 'verified',
+      cites: [S.opEidbi, S.mcoGrid],
     },
     treatmentPA: {
-      value: '"Select services require authorization. Fax ITP and CMDE requests to: 855-454-8155" (contracted); for noncontracted providers "All services require prior authorization" (DHS grid)',
+      value: 'Yes for intervention (individual, group, higher intensity), observation and direction, family or caregiver training and travel time: "Fax Individual Treatment Plans and Comprehensive Multi-Disciplinary Evaluations (CMDE) to 1-855-454-8155." "Ongoing treatment requires prior authorization," with a new ITP for each request and progress monitoring every 6 months; out-of-network providers need authorization for all EIDBI services (Optum guide BH02483-26; DHS grid)',
       status: 'verified',
-      cites: [S.mcoGrid],
+      cites: [S.opEidbi, S.mcoGrid],
     },
     dxRequired: {
       value: 'Yes: the statutory rule applies (ASD or a related condition diagnosed by a physician, APRN, PA or mental health professional, § 256B.0949, subd. 4); Medica’s Optum resources point only to the DHS CMDE and ITP forms',
@@ -887,7 +973,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
     atGlance: [
       { label: 'Covers ABA?', value: 'Yes, as EIDBI for members under 21' },
       { label: 'Administered by', value: 'Optum (Medica Behavioral Health); providerexpress.com' },
-      { label: 'Prior auth', value: 'Select services; fax ITP and CMDE to 855-454-8155' },
+      { label: 'Prior auth', value: 'Intervention, observation and direction, family training, travel time (not the CMDE, in network); fax ITP and CMDE to 855-454-8155' },
       { label: 'Provider Services', value: '800-848-8327 (also after hours for BH)' },
       { label: 'EDI payer ID', value: '87726 (Medica Behavioral Health)' },
       { label: 'Referral', value: 'None required (DHS grid)' },
@@ -901,11 +987,40 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
         cites: [S.mcoGrid, S.opMedQRG, S.opMN],
       },
       {
+        h2: 'Optum’s EIDBI guide for Medica (October 2026)',
+        body: [
+          'Optum’s “Guide to providing EIDBI services” (BH02483-26, Oct. 13, 2026) sets the order: enroll with DHS as an MHCP EIDBI provider, then submit the ABA Group Network Participation Request Form with the group NPI in the Medicaid ID field; once the group agreement is approved, licensed providers join as individually credentialed clinicians with EIDBI as the specialty, and unlicensed providers need no action because they are loaded to the group roster from DHS’s weekly EIDBI file. Verify eligibility on Provider Express or at 1-800-848-8327. Fax ITPs and CMDEs to 1-855-454-8155 and request authorization for family or caregiver training, individual and group intervention, higher-intensity intervention, observation and direction, and travel time; ongoing treatment needs a new ITP for each request, with progress monitoring every 6 months. Out-of-network providers need authorization for all EIDBI services. Claims follow DHS’s guidelines, rates and billing grid, payer ID 87726.',
+        ],
+        cites: [S.opEidbi],
+      },
+      {
         h2: 'What the state rules add',
         body: [
           'Every Medical Assistance plan must deliver EIDBI as § 256B.0949 defines it: under 21, CMDE first, an ITP supervised by a QSP, at least one hour of clinical supervision per 16 hours of direct treatment, monthly QSP observation and direction, and documentation entered within 72 hours. DHS’s manual requires MCOs to credential Level I, II, III and QSP providers from DHS enrollment data within 45 days of a clean application. Since January 1, 2026 the Minnesota Utilization Review Act’s five-business-day standard applies to Medical Assistance managed care.',
         ],
         cites: [S.stat0949, S.sl95, S.mhcpEidbi, S.stat62M01, S.stat62M05],
+      },
+      MN_MCO_2027,
+      {
+        h2: 'Out-of-network ABA when the network has no provider',
+        body: [
+          'The federal managed care rule covers this MCO. When the network “is unable to provide necessary services, covered under the contract, to a particular enrollee,” the MCO “must adequately and timely cover these services out of network for the enrollee, for as long as” the network cannot provide them. It must require the out-of-network provider “to coordinate with the MCO, PIHP, or PAHP for payment,” and the family’s cost must be no greater than in network (42 CFR 438.206(b)(4)–(5)). Medica’s own out-of-network or single-case-agreement procedure and rate were not reviewed for this guide. Ask its utilization management or provider network team for an out-of-network authorization and the rate before the first session.',
+        ],
+        cites: [
+          { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
+        ],
+      },
+      {
+        h2: 'Who may bill each EIDBI code, and the modifier',
+        body: [
+          'Medica’s EIDBI guide says Medica Behavioral Health follows DHS guidelines and rates and points claims to the DHS EIDBI billing grid, so the DHS credential and modifier table applies to Medica members.',
+          'Minnesota does not use HM/HN/HO/HP. Every EIDBI line carries one modifier, “UB = EIDBI modifier.” The provider’s level comes from the enrollment specialty instead: DE Level 1, DF Level 2, DG Level 3, QP Qualified Supervising Professional, QS Qualified Supervisor, QD CMDE provider. The QSP “must be on all other EIDBI claims as the supervising professional”; CMDE claims are the exception. Level sets the rate: Level II bills at 80% of the established rate and Level III at 50%.',
+          'Who may bill which code (DHS EIDBI billing grid, August 2026). 97151 CMDE: the CMDE provider, or a CMDE clinical trainee billed at the supervisor’s rate, with one CMDE a calendar year allowed without a service agreement. H0032 ITP development and monitoring: QSP or Level I at 100%, Level II at 80%. T1024 coordinated care conference: CMDE provider, trainee, QSP, Level I or Level II, all at 100%. 97153 and 97154 intervention: QSP and Level I 100%, Level II 80%, Level III 50%. 0373T higher-intensity intervention (two or more providers): every level at 100%, billed once per period “under the direction of a Level I provider or Qualified Supervising Professional (QSP) who is on site (either in person or via telehealth).” 97155 observation and direction: QSP and Level I 100%, Level II 80%; no Level III. The authorized amount “should be approximately 20% of the total authorized intervention time (CPT 97153, 97154, and 0373T)” unless the ITP justifies otherwise. 97156 and 97157 family training: QSP and Level I 100%, Level II 80%; no Level III. H0046 travel time: any level, per minute. 97152 and 97158 are not on the grid. DHS moves 0373T to 97159 from January 1, 2027.',
+        ],
+        cites: [
+          { title: 'DHS — EIDBI billing grid (August 2026)', url: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_FILE&RevisionSelectionMethod=LatestReleased&Rendition=Primary&allowInterrupt=1&noSaveAs=1&dDocName=DHS16_195657' },
+          { title: 'Optum / Medica Behavioral Health — Guide to providing EIDBI services (BH02483-26-QRG, 10/13/2026)', url: 'https://www.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/mnABA/mnEIDBIOverview.pdf' },
+        ],
       },
     ],
     collect: [
@@ -913,43 +1028,35 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       { title: 'CMDE and ITP', desc: 'Fax both to Medica Behavioral Health, 855-454-8155.' },
       { title: 'Optum enrollment', desc: 'Network participation is through Optum Provider Services, 877-614-0484.' },
     ],
-    sources: [S.mcoGrid, S.opMN, S.opMedQRG, S.stat0949, S.sl95, S.mhcpEidbi, S.stat62M01, S.stat62M05, S.cfr438, S.cfr433, S.ucareFaq, { title: 'Medica — News for Providers (Connections monthly newsletter archive)', url: 'https://partner.medica.com/providers/news' }],
+    sources: [S.staffSup, S.stat245I04, S.opEidbi, S.grid, S.services, S.elistCpt, S.elistMorat, S.provNews, S.mcoGrid, S.opMN, S.opMedQRG, S.stat0949, S.sl95, S.mhcpEidbi, S.stat62M01, S.stat62M05, S.cfr438, S.cfr433, S.ucareFaq, { title: 'Medica — News for Providers (Connections monthly newsletter archive)', url: 'https://partner.medica.com/providers/news' }, { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },  { title: 'DHS — EIDBI billing grid (August 2026)', url: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_FILE&RevisionSelectionMethod=LatestReleased&Rendition=Primary&allowInterrupt=1&noSaveAs=1&dDocName=DHS16_195657' }, { title: 'Optum / Medica Behavioral Health — Guide to providing EIDBI services (BH02483-26-QRG, 10/13/2026)', url: 'https://www.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/mnABA/mnEIDBIOverview.pdf' } ],
     deliveryRules: {
-      supervision: { value: 'Medica publishes no EIDBI supervision rule of its own. ' + EIDBI_SUPERVISION, status: 'verified', cites: [S.stat0949, S.sl95, S.clinsup] },
+      supervision: { value: 'Medica publishes no EIDBI supervision rule of its own. ' + EIDBI_SUPERVISION, status: 'verified', cites: [S.stat0949, S.sl95, S.clinsup, S.staffSup] },
       concurrentBilling: {
-        value: 'Not published by Medica or Optum for EIDBI.',
-        status: 'unverified',
-        cites: [S.opMN],
-        verifyVia: 'Medica Behavioral Health Provider Services, 800-848-8327: ask whether 97153 and 97155 by different staff may be billed for the same time.',
-        blocker: 'per-case',
+        value: 'DHS’s rule, which Medica adopts ("Medica Behavioral Health follows DHS guidelines and rates"): "Multiple providers may deliver a combination of EIDBI services at the same time (e.g., one provider delivers individual intervention, and another provider delivers observation and direction) as medically necessary," so 97153 and 97155 by two providers may be billed for the same clock time; 0373T is billed once per period however many staff are present.',
+        status: 'verified',
+        cites: [S.opEidbi, S.services, S.grid],
       },
       dailyLimits: {
-        value: 'Not published by Medica or Optum for EIDBI.',
-        status: 'unverified',
-        cites: [S.opMN],
-        verifyVia: 'Medica Behavioral Health Provider Services, 800-848-8327: ask whether DHS’s billing-grid limits apply.',
-        blocker: 'per-case',
+        value: 'DHS’s billing grid, which Medica’s Optum guide tells providers to follow for claims ("Medica Behavioral Health follows DHS guidelines and rates. Please refer to the … EIDBI billing grid"): 97151 8 hours a day and 80 units a calendar year; 97153 and 0373T 8 hours a day; 97154 4.5 hours a day; 97155 6 hours a day; 97156 and 97157 4 hours a day.',
+        status: 'verified',
+        cites: [S.opEidbi, S.grid],
       },
       noteSignature: { value: 'Medica publishes no EIDBI note rule of its own. ' + EIDBI_NOTES, status: 'verified', cites: [S.sl95, S.services] },
       placeOfService: {
-        value: 'Not published by Medica or Optum for EIDBI.',
-        status: 'unverified',
-        cites: [S.opMN],
-        verifyVia: 'Medica Behavioral Health Provider Services, 800-848-8327: confirm EIDBI POS codes.',
-        blocker: 'per-case',
+        value: 'DHS’s rules, which Medica follows: POS 12 for home and community services in the ITP, POS 11 for office-based and non-direct work, POS 02/10 for telehealth; EIDBI may not replace school instruction or IEP services.',
+        status: 'verified',
+        cites: [S.opEidbi, S.services, S.grid],
       },
       billAsProvider: {
-        value: 'Not published by Medica or Optum for EIDBI.',
-        status: 'unverified',
-        cites: [S.opMN],
-        verifyVia: 'Medica Behavioral Health Provider Services, 800-848-8327: ask whether the rendering provider and supervising QSP must both be on the claim.',
-        blocker: 'per-case',
+        value: 'DHS’s grid, which Medica follows: the claim carries the rendering provider, and "The QSP must be on all other EIDBI claims as the supervising professional" (CMDEs excepted). Use payer ID 87726. Licensed providers credential individually with Optum; unlicensed staff are "automatically loaded to your Group Roster based on the weekly EIDBI file provided by DHS."',
+        status: 'verified',
+        cites: [S.opEidbi, S.grid],
       },
     },
     intakeGates: {
       ageLimit: { value: EIDBI_AGE, status: 'verified', cites: [S.stat0949, S.elig] },
       dxRecency: { value: 'Medica publishes no rule of its own. ' + EIDBI_RECENCY, status: 'verified', cites: [S.cmde, S.mednec] },
-      diagnosingProviders: { value: EIDBI_DIAGNOSERS, status: 'verified', cites: [S.stat0949, S.elig] },
+      diagnosingProviders: { value: EIDBI_DIAGNOSERS, status: 'verified', cites: [S.stat0949, S.stat245I04, S.elig] },
       diagnosticTools: { value: EIDBI_TOOLS, status: 'verified', cites: [S.elig, S.cmde] },
       referral: { value: 'No. DHS’s October 2026 grid, for Medica: "No referral required. Some services require authorization."', status: 'verified', cites: [S.mcoGrid] },
       telehealth: { value: 'Medica publishes no EIDBI telehealth rule of its own. ' + EIDBI_TELE, status: 'verified', cites: [S.stat0949, S.tele, S.mhcpTele] },
@@ -963,6 +1070,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
     faq: [
       { q: 'Who handles EIDBI for Medica Medical Assistance members?', a: 'Optum, as Medica Behavioral Health. Fax the CMDE and ITP to 855-454-8155; Provider Services is 800-848-8327.' },
       { q: 'Is Medica One Health Plan the same as Medica?', a: 'Both are Medica. Medica One Health Plan is the former UCare Medical Assistance business, which moved to Medica on October 1, 2026; DHS’s grid lists it separately with the same Optum contacts.' },
+      { q: 'Which EIDBI provider level can bill 97155 in Minnesota?', a: 'A QSP or Level I provider at 100% of the rate, or a Level II provider at 80%. Level III cannot bill 97155. Every EIDBI line carries the UB modifier; the provider level comes from the enrollment specialty (DE, DF, DG, QP), not a modifier.' },
     ],
   },
 
@@ -1014,15 +1122,25 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.ucareBull, S.ucareFaq, S.mcoSec, S.mcoGrid],
       },
+      MN_MCO_2027,
+      {
+        h2: 'Out-of-network ABA when the network has no provider',
+        body: [
+          'The federal managed care rule covers this MCO. When the network “is unable to provide necessary services, covered under the contract, to a particular enrollee,” the MCO “must adequately and timely cover these services out of network for the enrollee, for as long as” the network cannot provide them. It must require the out-of-network provider “to coordinate with the MCO, PIHP, or PAHP for payment,” and the family’s cost must be no greater than in network (42 CFR 438.206(b)(4)–(5)). Medica One Health Plan’s own out-of-network or single-case-agreement procedure and rate were not reviewed for this guide. Ask its utilization management or provider network team for an out-of-network authorization and the rate before the first session.',
+        ],
+        cites: [
+          { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
+        ],
+      },
     ],
     collect: [
       { title: 'Member ID card', desc: 'Former UCare members carry Medica One Health Plan cards from Oct. 1, 2026; confirm the plan in MN–ITS.' },
       { title: 'Existing authorization', desc: 'Capture any UCare EIDBI authorization; a new plan must honor prior authorizations.' },
       { title: 'CMDE and ITP', desc: 'Fax both to 855-454-8155.' },
     ],
-    sources: [S.ucareBull, S.ucareFaq, S.mcoGrid, S.mcoSec, S.stat0949, S.sl95, S.mhcpEidbi, S.stat62M01, S.stat62M05, S.cfr438, S.cfr433, { title: 'Medica — News for Providers (Connections monthly newsletter archive)', url: 'https://partner.medica.com/providers/news' }],
+    sources: [S.staffSup, S.stat245I04, S.elistCpt, S.elistMorat, S.provNews, S.ucareBull, S.ucareFaq, S.mcoGrid, S.mcoSec, S.stat0949, S.sl95, S.mhcpEidbi, S.stat62M01, S.stat62M05, S.cfr438, S.cfr433, { title: 'Medica — News for Providers (Connections monthly newsletter archive)', url: 'https://partner.medica.com/providers/news' }, { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' } ],
     deliveryRules: {
-      supervision: { value: 'No plan-specific EIDBI supervision rule is published. ' + EIDBI_SUPERVISION, status: 'verified', cites: [S.stat0949, S.sl95, S.clinsup] },
+      supervision: { value: 'No plan-specific EIDBI supervision rule is published. ' + EIDBI_SUPERVISION, status: 'verified', cites: [S.stat0949, S.sl95, S.clinsup, S.staffSup] },
       concurrentBilling: {
         value: 'Not published by Medica One Health Plan.',
         status: 'unverified',
@@ -1056,7 +1174,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
     intakeGates: {
       ageLimit: { value: EIDBI_AGE, status: 'verified', cites: [S.stat0949, S.elig] },
       dxRecency: { value: 'No plan-specific rule is published. ' + EIDBI_RECENCY, status: 'verified', cites: [S.cmde, S.mednec] },
-      diagnosingProviders: { value: EIDBI_DIAGNOSERS, status: 'verified', cites: [S.stat0949, S.elig] },
+      diagnosingProviders: { value: EIDBI_DIAGNOSERS, status: 'verified', cites: [S.stat0949, S.stat245I04, S.elig] },
       diagnosticTools: { value: EIDBI_TOOLS, status: 'verified', cites: [S.elig, S.cmde] },
       referral: { value: 'No. DHS’s October 2026 grid, for Medica One Health Plan: "No referral requirements."', status: 'verified', cites: [S.mcoGrid] },
       telehealth: { value: 'No plan-specific EIDBI telehealth rule is published. ' + EIDBI_TELE, status: 'verified', cites: [S.stat0949, S.tele, S.mhcpTele] },
@@ -1120,11 +1238,28 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
         cites: [S.pwEidbi, S.mcoGrid],
       },
       {
+        h2: 'Switching EIDBI agencies at PrimeWest',
+        body: [
+          'PrimeWest’s manual (updated 10/22/2026): "Families have the right to transfer or change EIDBI provider agencies for any reason." The new agency gets a signed release, reviews the previous CMDE and ITP, and "If the CMDE and ITP are still valid, the new agency may use them for authorization"; it completes new ones when they are no longer valid, cannot be obtained, or a new evaluation is medically necessary (and may request units above the threshold if the CMDE/ITP units are used up). At the time of the request the previous agency must have either "Ended their service agreement or prior authorization before the requested EIDBI dates of service through the new agency" or "Provided a discharge summary that includes a discharge date and the previous agency’s signature"; otherwise "PrimeWest Health will reject the request." The previous agency should hand over the CMDE(s), ITP(s) "with an updated transition plan and discharge summary," and ask PrimeWest to end its service authorization on the discharge date, so the two authorizations do not overlap.',
+        ],
+        cites: [S.pwEidbi],
+      },
+      {
         h2: 'Billing PrimeWest for EIDBI',
         body: [
           'PrimeWest’s claim rules: the professional claim; only services already provided and approved on the authorization; never mix authorized and unauthorized services on one claim; "Do not exceed 9 hours a day for any individual or group intervention units"; include the pay-to provider, the rendering provider’s UMPI or NPI and "The supervising provider for any services that require the supervision of a QSP"; Level III claims always need the rendering provider’s UMPI; POS 12 for community, POS 11 for office and non-direct work. Its non-covered list includes "Two or more services provided by the same person at the same time" and "Simultaneous services by multiple providers at the same time," a stricter line than DHS’s. Telehealth bills "with place of service 02," modifier 93 for audio-only. "EIDBI providers are not required to bill a member’s commercial insurance before billing Medical Assistance." Claims are due "no later than 180 days from the date of service."',
         ],
         cites: [S.pwEidbi, S.pwBill],
+      },
+      MN_MCO_2027,
+      {
+        h2: 'Out-of-network ABA when the network has no provider',
+        body: [
+          'The federal managed care rule covers this MCO. When the network “is unable to provide necessary services, covered under the contract, to a particular enrollee,” the MCO “must adequately and timely cover these services out of network for the enrollee, for as long as” the network cannot provide them. It must require the out-of-network provider “to coordinate with the MCO, PIHP, or PAHP for payment,” and the family’s cost must be no greater than in network (42 CFR 438.206(b)(4)–(5)). PrimeWest Health’s own out-of-network or single-case-agreement procedure and rate were not reviewed for this guide. Ask its utilization management or provider network team for an out-of-network authorization and the rate before the first session.',
+        ],
+        cites: [
+          { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
+        ],
       },
     ],
     collect: [
@@ -1133,7 +1268,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       { title: 'O&D justification', desc: 'Individual clinical rationale for 97155, around 20% of direct hours.' },
       { title: 'Medical stability', desc: 'PrimeWest requires the child not need 24-hour medical monitoring.' },
     ],
-    sources: [S.pwEidbi, S.pwBill, S.mcoGrid, S.stat0949, S.sl95, S.grid, S.cfr438, S.cfr433, { title: 'PrimeWest Health — Provider Updates', url: 'https://www.primewest.org/provider-updates' }],
+    sources: [S.elistCpt, S.elistMorat, S.provNews, S.pwEidbi, S.pwBill, S.mcoGrid, S.stat0949, S.sl95, S.grid, S.cfr438, S.cfr433, { title: 'PrimeWest Health — Provider Updates', url: 'https://www.primewest.org/provider-updates' }, { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' } ],
     deliveryRules: {
       supervision: {
         value: 'PrimeWest: "EIDBI treatment services must be delivered under the clinical supervision of a QSP," providers must "meet supervision requirements in MN Stat. sec. 256B.0949, subds., 15 – 16," and services "provided in the absence of required supervision" are not paid. Statute: at least one hour of clinical supervision per 16 hours of direct treatment and monthly QSP observation and direction.',
@@ -1257,9 +1392,19 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       {
         h2: 'Claims, telehealth and appeals',
         body: [
-          'Since January 1, 2024, claims "must be received by South Country no later than 180 days from the date of service"; corrected claims within 180 days of the remittance advice; Medicare and TPL claims within six months of the primary’s payment or denial, or 180 days from service if later. Claims use the NPI or UMPI. Telehealth claims "require Place of Service 02 or 10," with modifier 93 for audio-only. Members must file appeals "within 60 days of the date of the" notice of action.',
+          'Since January 1, 2024, claims "must be received by South Country no later than 180 days from the date of service"; corrected claims within 180 days of the remittance advice; Medicare and TPL claims within six months of the primary’s payment or denial, or 180 days from service if later. Claims use the NPI or UMPI and must be submitted electronically. New electronic funds transfer (EFT) enrollment “is temporarily paused while South Country transitions to a new enrollment process” (October 2026 chapter). Telehealth claims "require Place of Service 02 or 10," with modifier 93 for audio-only. Members must file appeals "within 60 days of the date of the" notice of action.',
         ],
         cites: [S.scCh4, S.scCh33, S.scCh14],
+      },
+      MN_MCO_2027,
+      {
+        h2: 'Out-of-network ABA when the network has no provider',
+        body: [
+          'The federal managed care rule covers this MCO. When the network “is unable to provide necessary services, covered under the contract, to a particular enrollee,” the MCO “must adequately and timely cover these services out of network for the enrollee, for as long as” the network cannot provide them. It must require the out-of-network provider “to coordinate with the MCO, PIHP, or PAHP for payment,” and the family’s cost must be no greater than in network (42 CFR 438.206(b)(4)–(5)). South Country Health Alliance’s own out-of-network or single-case-agreement procedure and rate were not reviewed for this guide. Ask its utilization management or provider network team for an out-of-network authorization and the rate before the first session.',
+        ],
+        cites: [
+          { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
+        ],
       },
     ],
     collect: [
@@ -1267,9 +1412,9 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       { title: 'Form #4894 + CMDE + ITP', desc: 'All three go with the authorization request.' },
       { title: 'Other insurance', desc: 'Record it; EIDBI requests do not need a primary-payer attempt first.' },
     ],
-    sources: [S.scBhPa, S.scCh6, S.scCh4, S.scCh33, S.scCh14, S.mcoGrid, S.stat0949, S.sl95, S.grid, S.mhcpEidbi, S.cfr438, S.cfr433, { title: 'South Country Health Alliance — Provider Updates & Bulletins', url: 'https://mnscha.org/providers/provider-news-updates/' }],
+    sources: [S.staffSup, S.stat245I04, S.elistCpt, S.elistMorat, S.provNews, S.scBhPa, S.scCh6, S.scCh4, S.scCh33, S.scCh14, S.mcoGrid, S.stat0949, S.sl95, S.grid, S.mhcpEidbi, S.cfr438, S.cfr433, { title: 'South Country Health Alliance — Provider Updates & Bulletins', url: 'https://mnscha.org/providers/provider-news-updates/' }, { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' } ],
     deliveryRules: {
-      supervision: { value: 'South Country publishes no EIDBI supervision rule of its own; it points to the MHCP manual. ' + EIDBI_SUPERVISION, status: 'verified', cites: [S.scBhPa, S.stat0949, S.sl95, S.clinsup] },
+      supervision: { value: 'South Country publishes no EIDBI supervision rule of its own; it points to the MHCP manual. ' + EIDBI_SUPERVISION, status: 'verified', cites: [S.scBhPa, S.stat0949, S.sl95, S.clinsup, S.staffSup] },
       concurrentBilling: {
         value: 'Not addressed for EIDBI in the South Country documents read.',
         status: 'unverified',
@@ -1305,7 +1450,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
         cites: [S.scBhPa, S.stat0949],
       },
       dxRecency: { value: 'South Country publishes no rule of its own. ' + EIDBI_RECENCY, status: 'verified', cites: [S.cmde, S.mednec] },
-      diagnosingProviders: { value: EIDBI_DIAGNOSERS, status: 'verified', cites: [S.stat0949, S.elig] },
+      diagnosingProviders: { value: EIDBI_DIAGNOSERS, status: 'verified', cites: [S.stat0949, S.stat245I04, S.elig] },
       diagnosticTools: { value: EIDBI_TOOLS, status: 'verified', cites: [S.elig, S.cmde] },
       referral: { value: 'No. DHS’s October 2026 grid, for South Country: "No referral required for in or out of network providers."', status: 'verified', cites: [S.mcoGrid] },
       telehealth: {
@@ -1403,6 +1548,22 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.aetnaGuide],
       },
+      {
+        h2: 'Out-of-network ABA, reconsiderations, the precertification form and billing credentials (Aetna)',
+        body: [
+          'Single case agreements and out-of-network care. Aetna publishes no single-case-agreement policy for ABA. Its provider manual (6/26) describes two routes instead. An out-of-network referral is “a written or oral request that we review”; reasons it may be approved include a preferred professional who “isn’t available in network (and the member’s plan provides coverage for out-of-network services)” and a member “continuing, or returning to, treatment with a nonparticipating health care professional.” Transition of care lets a qualifying member keep “their current out-of-network provider at in-network cost level for a defined period of time,” and the treating provider “must be an individual practitioner” or a home care agency. ABA itself still needs precertification either way. Neither the manual nor the ABA medical necessity guide publishes an out-of-network ABA rate. What a non-participating Minnesota provider is paid comes from the member’s plan, so ask Aetna on the member’s benefits line before you start.',
+          'Reconsideration and appeal packet. File a reconsideration “within 180 calendar days of the initial claim decision” and an appeal “within 60 calendar days of the reconsideration decision.” Some cases skip reconsideration and go straight to appeal: denials for no precertification, adverse utilization review decisions and retroactive authorizations. For a reconsideration, send “medical records, office notes and other supporting documents” plus a completed dispute and appeal form or an explanation with the member ID, patient name, TIN, claim ID, dates of service and billed amounts, and the procedure codes and modifiers you are disputing. A valid appeal needs the completed dispute and appeal form, “an explanation identifying the denied codes or payments being disputed,” and the medical records. The manual adds that a written dispute must carry the TIN and NPI billed, the servicing provider, the expected reimbursement and your rationale, or “the original claim decision will be deemed final.” Aetna answers appeals within 60 calendar days. Aetna’s state mailing table does not list Minnesota, so mail a Minnesota reconsideration to the address on the denial letter or EOB (or file on Availity).',
+          'Whose authorization is it? The ABA precertification form identifies the requester as the “Provider/Provider Group” by “TIN or PIN number,” with its network status (Participating or Non-Participating) and the service location. It also names who “is supervising/directing the ABA services.” None of Aetna’s ABA documents (the form, the manual or the medical necessity guide) says an approval follows the child to another agency. A practice taking over a case should request its own precertification.',
+          'What the 97151 request must contain. Form GR-69017-4 (7-26) replaced every other Aetna ABA precertification document from August 1, 2026 (“Don’t use this form for Maryland and Massachusetts”). It asks for the DSM-5 diagnosis code and the “Diagnosing Provider (name and credentials)”; hours per authorization period for 97151, 97152 and 0362T; hours per week for each treatment code; and any hours during class. It also asks for the results of a standardized assessment (Vineland, ABAS or VB-MAPP) from the past 12 months, a treatment plan with baseline, interim and current data for every goal, FBA or skills-assessment results, caregiver goals, and titration and discharge criteria. Start the request on Availity or by phone, then attach the form; the form cannot open a request.',
+          'Who may bill which code. Aetna’s ABA medical necessity guide requires that services “be provided directly or billed by licensed behavior analysts (in states with behavior analyst licensure laws), board-certified behavior analysts, or licensed psychologists” where ABA is within their scope, “unless state mandates, plan documents or contracts require otherwise.” Unlicensed or uncertified staff must work under supervision “in line with practice standards.” The guide, the precertification form and the manual set no per-code credential table and define no HM/HN/HO/HP credential modifiers, so modifier use comes from your Aetna agreement.',
+        ],
+        cites: [
+          { title: 'Aetna Provider Manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna — Disputes and appeals overview (reconsideration and appeal time frames)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' },
+          { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding and group size', desc: 'Fully insured large-employer (§ 62A.3094 applies), small group/individual, or self-funded ERISA (plan document governs).' },
@@ -1411,7 +1572,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       { title: 'Standardized functional measure', desc: 'Aetna wants one from the past 12 months (for example Vineland-3).' },
       { title: 'Treatment plan from the physician or mental health professional', desc: '§ 62A.3094 ties covered treatment to it; updates at most every six months.' },
     ],
-    sources: [S.aetnaGuide, S.aetnaPrecert, S.aetnaCPB648, S.aetnaNPC, S.aetnaOM, S.stat3094, S.stat62Q18, S.stat62Q47, S.stat62Q75, S.stat62M05, S.stat62M07, S.stat62A673, S.lic9981, S.lic9983, S.lic9986, S.lic9987, S.bacbLic, S.erisa, S.cfr433, S.mhcpEidbi, S.tricare, S.champva, S.spa2410],
+    sources: [S.aetnaGuide, S.aetnaPrecert, S.aetnaCPB648, S.aetnaNPC, S.aetnaOM, S.stat3094, S.stat62Q18, S.stat62Q47, S.stat62Q75, S.stat62M05, S.stat62M07, S.stat62A673, S.lic9981, S.lic9983, S.lic9986, S.lic9987, S.bacbLic, S.erisa, S.cfr433, S.mhcpEidbi, S.tricare, S.champva, S.spa2410, { title: 'Aetna — Disputes and appeals overview (reconsideration and appeal time frames)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' } ],
     deliveryRules: {
       supervision: {
         value: 'Aetna’s Network Participation Criteria (5/26): services "must be provided directly or supervised by individuals licensed by the state or certified by the Behavior Analyst Certification Board"; "A minimum of one hour of face-to-face supervision" of an unlicensed or noncertified paraprofessional "for each 10 hours of applied behavior analysis," plus the supervisor "onsite with the child at least one hour a month"; and "All BCBAs, BCaBAs and paraprofessionals must meet state requirements." In Minnesota that means the supervisor must be a licensed behavior analyst or licensed psychologist (Minn. Stat. § 148.9986), and unlicensed staff work under a licensed behavior analyst’s direction (§ 148.9987(a)(6)).',
@@ -1505,6 +1666,9 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       { q: 'Does Minnesota’s autism mandate cover adults or small employers?', a: 'No. § 62A.3094 applies to health plans issued to large employers and to children under 18. Parity law (§ 62Q.47) still applies to all health plans that cover mental health.' },
       { q: 'Does a BCBA need a Minnesota license to bill Aetna?', a: 'Minnesota has required a behavior analyst license to practice ABA since January 1, 2025, and Aetna expects billing by licensed behavior analysts in licensure states. Get the Minnesota license (or bill through a licensed psychologist where in scope).' },
       { q: 'What does Aetna pay for ABA in Minnesota?', a: 'Aetna publishes no ABA rates; payment follows your participation agreement. The public benchmark is Minnesota Medical Assistance’s EIDBI rate of $20.178 per 15-minute intervention unit (QSP or Level I).' },
+      { q: 'Does Aetna give single case agreements for ABA in Minnesota?', a: 'Aetna publishes no single-case-agreement policy. Its provider manual offers an out-of-network referral request (approved, for example, when no in-network professional is available and the plan has out-of-network benefits) and transition of care for a member already in treatment with an out-of-network individual practitioner. ABA still needs precertification.' },
+      { q: 'What should an Aetna ABA reconsideration in Minnesota include?', a: 'Medical records and supporting documents, plus a dispute and appeal form or a letter with the member ID, patient name, TIN, claim ID, dates of service, billed amounts, and the codes and modifiers in dispute. File within 180 days of the claim decision; an appeal follows within 60 days of the reconsideration decision.' },
+      { q: 'Is an Aetna ABA authorization in Minnesota tied to the BCBA or to the group?', a: 'The precertification form identifies the provider or group by TIN or PIN, with the supervising clinician named separately. Aetna publishes no rule that moves an authorization to another agency, so a new agency requests its own precertification.' },
     ],
   },
 
@@ -1581,6 +1745,22 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.en0499],
       },
+      {
+        h2: 'Network exceptions, appeals, the PA form and billing credentials (Cigna / Evernorth)',
+        body: [
+          'Network exceptions, the Cigna term for a single case agreement. Evernorth “requires prior authorization for the applied behavior analysis (ABA) level of care, including network exception requests.” Assessment codes normally need no authorization, but “authorization is required for 97151, 97152, or 0362T when requesting a network exception.” The request goes on the ABA prior authorization form (07/26) to ABA@Evernorth.com (preferred) or fax 860.687.9230. Product type matters: Evernorth’s guidelines say “HMO plans offer in-network coverage only” while “POS plans offer in- and out-of-network coverage,” and Cigna Connect covers out-of-network providers only for emergencies and “special circumstances.” On the HMO, SureFit and Cigna Connect products the guidelines describe, “Referrals are not required for behavioral health services.” Minnesota adds a network wrinkle: under Evernorth’s HealthPartners alliance (effective January 1, 2007), “Providers in Minnesota, North Dakota, and Western Wisconsin must be contracted through HealthPartners® to be considered in network for patients with Cigna Healthcare coverage,” with “some exceptions” where the provider agreement supersedes. Check that first: a Minnesota provider who is not contracted through HealthPartners is out of network for most Cigna members. Evernorth publishes no out-of-network ABA rate; the member’s plan sets it.',
+          'Appeals packet. Evernorth wants every appeal “in writing within 180 calendar days of the date of the initial payment or denial decision,” or within 180 days of the last payment adjustment. Each appeal must be submitted by a person, not by automation software. Rate and fee-schedule disputes “may be quickly resolved through submitting an adjustment request via the reconsideration feature on Provider.Evernorth.com.” Contract-rate appeals can be faxed to 877.804.1679 or mailed to Cigna Healthcare, PO Box 188062, Chattanooga, TN 37422, unless your agreement says otherwise. For medical-necessity denials, send the clinical information; Evernorth “strongly encourage[s] the submission of clinical information prior to the peer-to-peer review or appeal process.” An out-of-network provider may also need “a valid Appointments of Representative form signed by the patient” for a standard appeal to count, so confirm on the number on the ID card.',
+          'Whose authorization is it? The prior authorization form identifies the “Servicing clinic” by name, Taxpayer Identification Number (TIN) and servicing address, then the supervising provider and their credential, and asks whether the same provider will supervise the whole treatment. An approval “will be written on a per month basis with CPT code 97155” and can be interchanged with 97153–97158 and 0373T. EN0499 adds that ABA from “multiple ABA provider organizations/agencies/companies during the same authorization period” is not medically necessary unless the agencies document a coordination plan, consistent strategies and a combined intensity that fits. So a switching family’s new agency needs its own authorization.',
+          'What the assessment must contain. Standard 97151, 97152 and 0362T need no prior authorization when a BCBA or independently licensed provider bills with an ASD diagnosis. The report still has to meet EN0499 when treatment is requested. It must use a standardized instrument in its current edition (“must be the Vineland-3 vs. Vineland-II”), completed in full, with the date, the respondent and the form type. It must include “Standardized scores and score tables, and/or scoring grids/figures.” Administration must fall “within 60 days prior to the start of treatment,” with dated quantitative baseline data from the same window. It must also name the diagnosing clinician, their credentials and the date of the diagnosis.',
+          'Who may bill which code. Evernorth’s ABA billing-code table: 97151, 0362T, 97155, 97156, 97157, 97158 and 0373T are both provided and billed by a “BCBA-D, BCBA, or licensed mental health provider.” 97152, 97153 and 97154 may be provided by a “BCaBA, Technician” but are billed by the BCBA-D, BCBA or licensed provider. Evernorth’s code table, PA form and administrative guidelines define no HM/HN/HO/HP credential modifiers.',
+        ],
+        cites: [
+          { title: 'Evernorth — Applied Behavior Analysis Prior Authorization Form (07/26)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/applied-behavior-analysis.pdf' },
+          { title: 'Evernorth — Billing Codes for Applied Behavior Analysis', url: 'https://static.evernorth.com/assets/evernorth/provider/resourceLibrary/behavioralResources/doingBusinessWithUs/cbhDBwCBillingCodesForABA.html' },
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+          { title: 'Evernorth Coverage Policy EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding and group size', desc: 'Fully insured large-employer (§ 62A.3094 applies), small group/individual, or self-funded ERISA.' },
@@ -1589,7 +1769,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       { title: 'Standardized assessment timing', desc: 'Instrument administered within 60 days before treatment starts.' },
       { title: 'Treatment plan from the physician or mental health professional', desc: '§ 62A.3094 ties covered treatment to it; updates at most every six months.' },
     ],
-    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.stat3094, S.stat62Q18, S.stat62Q47, S.stat62Q75, S.stat62M05, S.stat62M07, S.stat62A673, S.lic9981, S.lic9983, S.lic9986, S.lic9987, S.bacbLic, S.erisa, S.cfr433, S.mhcpEidbi, S.tricare, S.champva, S.spa2410],
+    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.stat3094, S.stat62Q18, S.stat62Q47, S.stat62Q75, S.stat62M05, S.stat62M07, S.stat62A673, S.lic9981, S.lic9983, S.lic9986, S.lic9987, S.bacbLic, S.erisa, S.cfr433, S.mhcpEidbi, S.tricare, S.champva, S.spa2410, { title: 'Evernorth — Applied Behavior Analysis Prior Authorization Form (07/26)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/applied-behavior-analysis.pdf' }, { title: 'Evernorth — Billing Codes for Applied Behavior Analysis', url: 'https://static.evernorth.com/assets/evernorth/provider/resourceLibrary/behavioralResources/doingBusinessWithUs/cbhDBwCBillingCodesForABA.html' } ],
     deliveryRules: {
       supervision: {
         value: 'Case supervision by a BCBA, a Licensed Behavior Analyst, or an independently licensed mental health professional with ABA training; direct plus indirect case supervision of one to two hours per ten hours of direct treatment (at least one to two hours a week at 10 hours or less); supervisor’s name and credentials documented (EN0499). In Minnesota the supervisor must also hold a Minnesota behavior analyst license or be a licensed psychologist (§ 148.9986).',
@@ -1676,6 +1856,8 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       { q: 'Does Cigna cover ABA therapy in Minnesota?', a: 'Yes, under EN0499 for ASD. Minnesota’s mandate adds a floor for fully insured large-employer plans and children under 18.' },
       { q: 'Does the Cigna ABA assessment need prior authorization in Minnesota?', a: 'No, for 97151, 97152 and 0362T with an autism diagnosis when the provider is independently licensed or a BCBA.' },
       { q: 'What is Cigna’s timely filing limit in Minnesota?', a: 'Evernorth’s default is 90 days from service unless the provider agreement or a longer state limit applies; Minnesota’s statute sets six months unless a contract provides otherwise. Check your agreement.' },
+      { q: 'Does Cigna give single case agreements for ABA in Minnesota?', a: 'Cigna/Evernorth calls it a network exception. It needs prior authorization on the Evernorth ABA PA form, including for the 97151, 97152 and 0362T assessment codes that otherwise need none. HMO plans cover in-network providers only.' },
+      { q: 'Is a Cigna ABA authorization in Minnesota tied to the BCBA or to the clinic?', a: 'The PA form names the servicing clinic by TIN and the supervising provider by credential. Approvals are written per month on 97155. A new agency requests its own authorization, and two agencies in the same period must document coordination.' },
     ],
   },
 
@@ -1758,6 +1940,25 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.optumSCC],
       },
+      {
+        h2: 'Single case agreements, out-of-network payment, reconsiderations and credential modifiers (UnitedHealthcare / Optum)',
+        body: [
+          'Single case agreements and out-of-network care. Optum’s ABA FAQ answers whether a provider can get a single case agreement while credentialing: “Not automatically. In exception cases, based on clinical need, new business implementations, or other gaps in the network, a SCA may be approved after review with the clinical team.” Once the provider is contracted, send Optum network management your member list “who will coordinate with the clinical team to update your authorizations.” UnitedHealthcare’s administrative guide gives the general gap rule: when no network provider is available, a network provider may request an exception, and “If approved, we apply the network benefits to the services done by the out-of-network care provider.” Some cards carry a W500 Emergent Wrap for “network gap exception services.”',
+          'Out-of-network payment. Where the No Surprises Act or a state surprise-billing law does not apply, “United will look to the member’s benefit plan.” The amount may come from a percentage of CMS rates, a FAIR Health percentile, Viant, a rate “negotiate[d] with an out-of-network provider after the service was provided,” or a third-party network discount. “Which option is used depends on … the terms of the healthcare benefit plan.” No public document gives a UnitedHealthcare out-of-network ABA rate, so the plan document (SPD or certificate) is the answer.',
+          'Reconsideration and appeal packet. Optum’s network manual runs a two-step process for commercial and Medicare Advantage plans (“This process does not apply to Medicaid plans”): reconsideration, then appeal, with “a total of 12 months for submission for both steps” unless state law or your agreement says otherwise. Include “member-specific treatment plans, clinical records, payment appendices or other items that support why you believe our decision was incorrect,” plus proof of timely filing: “confirmation we received and accepted your claim within your timely filing requirement.” Optum decides “based on the materials available at the time of the review.” Mail the reconsideration form and documents to Optum Behavioral Health Solutions, P.O. Box 30757, Salt Lake City, UT 84123, or use Provider Express > Appeals > Submit Claim Appeal, stating “the factual or legal basis for appeal.” UnitedHealthcare’s guide adds: “Please be detailed in why you feel the payment is not the adjudication outcome you expected.” At the appeal step, attach only new material: “Please do not include any materials that you sent to us as part of the reconsideration request.”',
+          'Whose authorization is it? Optum’s manual lists ABA among non-routine outpatient services and says “Authorizations for non-routine outpatient services are specific to the requesting clinician. The clinician will receive a copy of the authorization approval.” Inside a contracted group, “Any ABA Supervisor who is credentialed under the group or facility contract can see a member, billing with the applicable CPT code(s).” Optum publishes no rule that moves an authorization to a different agency or TIN, so a new agency requests its own.',
+          'What the request must contain. Optum publishes no mandatory assessment-report template. Its ABA Request for Services Checklist (BH00853) lists what the portal asks for: the supervisor, “Agency name and Tax ID,” service address, the diagnosing clinician and date of diagnosis, the service location (with IEP and school details for school-based hours), other services, current symptoms, “Assessments used and applicable scores (if completed i.e., Vineland, VB-MAPP, ABLLS),” the severity of deficits, the goals per domain, and “Progress made in this area including number of goals mastered.”',
+          'Credential modifiers and who may bill each code. Optum’s commercial ABA reimbursement policy (2022RP501A) applies to network and non-network providers. HM = RBT (“less than a bachelor’s degree level”; “State regulatory requirements may supplement, modify or supersede this policy”), HN = BCaBA (bachelor’s level), HO = BCBA or licensed mental health provider (master’s level), HP = BCBA-D or licensed mental health provider (doctorate). Allowed modifiers by code: 97151 HN, HO or HP; 97152, 97153 and 97154 HN, HM, HO or HP; 97155, 97156, 97157 and 97158 HN, HO or HP. 0362T and 0373T take no modifier. Bill “only one provider-level modifier per ABA service line.”',
+        ],
+        cites: [
+          { title: 'Optum — FAQ: Autism/ABA Using CPT Codes', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
+          { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial, Exchange, MA)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+          { title: 'UnitedHealthcare — Information on payment of out-of-network benefits', url: 'https://www.uhc.com/legal/information-on-payment-of-out-of-network-benefits' },
+          { title: 'Optum Behavioral Health — National Provider Network Manual (BH02330, eff. Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+          { title: 'Optum — Applied Behavior Analysis Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+          { title: 'Optum — ABA Request for Services Checklist (BH00853-25-QRG)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/BH00853-25-QRG_ABAQRG.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding and group size', desc: 'Fully insured large-employer (§ 62A.3094 applies), small group/individual, or self-funded ERISA.' },
@@ -1765,7 +1966,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis with a validated tool', desc: 'DSM-5-TR ASD with severity, confirmed with a validated tool (ADI-R, ADOS-2 and others).' },
       { title: 'Treatment plan from the physician or mental health professional', desc: '§ 62A.3094 ties covered treatment to it; updates at most every six months.' },
     ],
-    sources: [S.optumSCC, S.optumSM, S.optumTele, S.optumReimb, S.optumNNM, S.mcoGrid, S.stat3094, S.stat62Q18, S.stat62Q47, S.stat62Q75, S.stat62M05, S.stat62M07, S.stat62A673, S.lic9981, S.lic9983, S.lic9986, S.lic9987, S.bacbLic, S.erisa, S.cfr433, S.mhcpEidbi, S.tricare, S.champva, S.spa2410],
+    sources: [S.optumSCC, S.optumSM, S.optumTele, S.optumReimb, S.optumNNM, S.mcoGrid, S.stat3094, S.stat62Q18, S.stat62Q47, S.stat62Q75, S.stat62M05, S.stat62M07, S.stat62A673, S.lic9981, S.lic9983, S.lic9986, S.lic9987, S.bacbLic, S.erisa, S.cfr433, S.mhcpEidbi, S.tricare, S.champva, S.spa2410, { title: 'Optum — FAQ: Autism/ABA Using CPT Codes', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial, Exchange, MA)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, { title: 'UnitedHealthcare — Information on payment of out-of-network benefits', url: 'https://www.uhc.com/legal/information-on-payment-of-out-of-network-benefits' }, { title: 'Optum — ABA Request for Services Checklist (BH00853-25-QRG)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/BH00853-25-QRG_ABAQRG.pdf' } ],
     deliveryRules: {
       supervision: {
         value: 'Direct case supervision "1 – 2 hours for every 10 hours of direct treatment per week," consistent with CASP; technicians work under a BCBA or licensed clinician and should be RBTs or otherwise certified; Optum does not recommend parents as their own child’s RBT. In Minnesota the supervisor must hold the Minnesota license (§ 148.9986).',
@@ -1858,6 +2059,10 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       { q: 'Does UnitedHealthcare cover ABA therapy in Minnesota?', a: 'Yes, under Optum’s national ABA criteria for ASD, with Minnesota’s mandate layered on for fully insured large-employer plans and children under 18.' },
       { q: 'Does Optum have Minnesota-specific ABA criteria?', a: 'No. Optum’s ABA State Mandates supplement does not list Minnesota.' },
       { q: 'Is UnitedHealthcare a Minnesota Medicaid plan?', a: 'Not for EIDBI: DHS’s October 2026 grid lists Blue Plus, HealthPartners, Hennepin Health, IMCare, Medica, PrimeWest Health, South Country Health Alliance and Medica One Health Plan.' },
+      { q: 'Does UnitedHealthcare give single case agreements for ABA in Minnesota?', a: 'Not automatically. Optum approves an SCA only “in exception cases, based on clinical need, new business implementations, or other gaps in the network,” after clinical review. UnitedHealthcare can also apply network benefits to an out-of-network provider when no network provider is available.' },
+      { q: 'What supporting documents go with a UnitedHealthcare (Optum) ABA reconsideration in Minnesota?', a: 'Member-specific treatment plans, clinical records, payment appendices or anything else showing why the decision was wrong, plus proof the claim was filed on time. Both steps must be filed within 12 months in total. At the appeal step, send only new material.' },
+      { q: 'Is a UnitedHealthcare ABA authorization in Minnesota tied to the BCBA or the group?', a: 'Optum says non-routine outpatient authorizations, ABA included, are “specific to the requesting clinician,” but any ABA supervisor credentialed under the same group contract can see the member. A different agency requests its own authorization.' },
+      { q: 'What do HM, HN, HO and HP mean on a UnitedHealthcare ABA claim in Minnesota?', a: 'HM = RBT, HN = BCaBA, HO = BCBA or master’s-level licensed provider, HP = BCBA-D or doctoral-level licensed provider. 97151 and 97155–97158 cannot carry HM; 0362T and 0373T take no modifier.' },
     ],
   },
 

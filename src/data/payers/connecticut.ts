@@ -52,7 +52,7 @@ const S: Record<string, PayerSource> = {
   aetnaGuide: { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026; only state exhibit: Maryland)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
   aetnaPrecert: { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
   aetnaNPC: { title: 'Aetna — Provider and facility participation criteria (8100606-01-01, 5/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' },
-  aetnaCPB648: { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+  aetnaCPB648: { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/20/2026)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
   aetnaOM: { title: 'Aetna provider manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
   aetnaCPB: { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026; experimental for non-ASD indications; code table)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
   aetnaTele: { title: 'Aetna — Telemedicine and Direct Patient Contact Payment Policy (ABA code table, Commercial vs. Medicare columns; last review June 2021)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pdf/telemedicine.pdf' },
@@ -202,7 +202,9 @@ export const connecticutPayers: Record<string, PayerConfig> = {
       { title: 'Birth to Three (under 3)', desc: 'For a child under 3, document that Birth to Three services were explored and exhausted.' },
       { title: 'Caregiver availability', desc: 'An adult caregiver (18 or older) must be present at all times during home and community sessions.' },
     ],
-    sources: [S.dssOverview, S.bhpOverview, S.handbook, S.regs, S.pb2530, S.pb2557, S.asdIM, S.pb2606, S.asdFee, S.feeInstr, S.grid, S.loc1, S.loc2, S.loc5, S.loc7, S.paRBT, S.paRoles, S.paADE, S.paHuskyB, S.pb2338, S.teleTable, S.ch382a, S.dphBA, S.s19a906, S.cfr433, S.cfr440, { title: 'CT Medical Assistance Program — Publications (provider bulletin search + interChange provider newsletters)', url: 'https://www.ctdssmap.com/CTPortal/Information/Publications' }],
+    sources: [S.dssOverview, S.bhpOverview, S.handbook, S.regs, S.pb2530, S.pb2557, S.asdIM, S.pb2606, S.asdFee, S.feeInstr, S.grid, S.loc1, S.loc2, S.loc5, S.loc7, S.paRBT, S.paRoles, S.paADE, S.paHuskyB, S.pb2338, S.teleTable, S.ch382a, S.dphBA, S.s19a906, S.cfr433, S.cfr440, { title: 'CT Medical Assistance Program — Publications (provider bulletin search + interChange provider newsletters)', url: 'https://www.ctdssmap.com/CTPortal/Information/Publications' },
+      { title: 'BACB — U.S. Licensure of Behavior Analysts (Connecticut: 2017, CT State Department of Public Health)', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
+    ],
     deliveryRules: {
       supervision: {
         value: 'The performing provider must observe and direct each BCaBA or technician one-on-one, “at a frequency and duration equal to or greater than ten percent of the number of hours” of treatment they deliver, with regular direct observation of the technician working with the child. Carelon’s PA-2025-13 requires evidence of direct observation at least 10% of the time direct services occur, documented “in a separate observation and direction contact note that corresponds with the submitted claim.” Requests for more than 10% need documented extenuating circumstances.',
@@ -355,7 +357,9 @@ export const connecticutPayers: Record<string, PayerConfig> = {
       { title: 'IEP / IFSP', desc: 'Include it with the request if the child has one. It is required at continued-stay reviews after a year of service.' },
       { title: 'Need help finding care?', desc: 'Carelon’s ASD care coordination team helps families get a diagnosis and find providers, at any age.' },
     ],
-    sources: [S.paRoles, S.handbook, S.loc1, S.loc2, S.loc5, S.loc7, S.locIndex, S.grid, S.paRBT, S.paADE, S.paHuskyB, S.bhpOverview, S.bhpBulletins, S.teleTable, S.pb2338, S.ch382a, S.dphBA, S.s19a906, S.cfr433, S.cfr440, { title: 'CT BHP (Carelon) — Provider newsletters archive', url: 'https://providers.ctbhp.com/ct-bhp-provider-newsletters/' }],
+    sources: [S.paRoles, S.handbook, S.loc1, S.loc2, S.loc5, S.loc7, S.locIndex, S.grid, S.paRBT, S.paADE, S.paHuskyB, S.bhpOverview, S.bhpBulletins, S.teleTable, S.pb2338, S.ch382a, S.dphBA, S.s19a906, S.cfr433, S.cfr440, { title: 'CT BHP (Carelon) — Provider newsletters archive', url: 'https://providers.ctbhp.com/ct-bhp-provider-newsletters/' },
+      { title: 'DSS Regulation 14-07, Requirements for Payment of Autism Spectrum Disorder Services (RCSA §§ 17b-262-1051 to 17b-262-1065) — final wording posted with the notice of decision, 5/21/2015', url: 'https://portal.ct.gov/-/media/sots/regulations/notices_of_intent/nod2015052101finalwordingpdf.pdf?la=en' },
+    ],
     deliveryRules: {
       supervision: {
         value: 'Carelon’s guideline: observation and direction “must be done one-to-one and documented in the medical record on a weekly basis,” equal to “at least 10 percent of the number of hours that each individual is receiving ASD treatment services,” including direct observation of each technician or BCaBA with the child. Evidence goes in a separate observation-and-direction contact note matching the claim (PA-2025-13).',
@@ -443,9 +447,9 @@ export const connecticutPayers: Record<string, PayerConfig> = {
     family: 'anthem',
     cardDesc: 'Connecticut’s Blue plan: ABA is on Anthem’s CT precertification list (BH 800-934-0331) under the § 38a-514b mandate.',
     assessmentPA: {
-      value: 'Anthem’s Connecticut list puts “Applied behavior analysis (ABA)” under precertification by Anthem but names no codes, so whether the assessment alone needs approval is not stated',
+      value: 'Anthem’s Connecticut list puts “Applied behavior analysis (ABA)” under precertification by Anthem but names no codes. The 2026 Connecticut provider manual says “ABA – Applied Behavioral Analysis is not a standard benefit. If ABA is covered for a Member, prior authorization is recommended,” and that prior authorization for outpatient services “varies by product and plan.” Neither document says whether the assessment (97151/97152) alone needs approval',
       status: 'plan-dependent',
-      cites: [S.anthemCTPA],
+      cites: [S.anthemCTPA, { title: 'Anthem Blue Cross and Blue Shield — 2026 Connecticut Commercial Provider Manual (effective September 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_CT_00015.pdf' }],
       verifyVia: 'Anthem Behavioral Health, 800-934-0331: ask whether 97151 and 97152 need precertification on this member’s product.',
       blocker: 'per-case',
     },
@@ -487,6 +491,20 @@ export const connecticutPayers: Record<string, PayerConfig> = {
         cites: [S.anthemCTPA],
       },
       {
+        h2: 'Is there an Anthem assessment template for ABA in Connecticut?',
+        body: [
+          'Not one Anthem publishes for Connecticut. Anthem\'s commercial Treatment Plan Request Form for Autism Spectrum Disorders (December 2025) is the closest Anthem template, but it names its states as “Georgia • Kentucky • Maine • Missouri • Nevada • New Hampshire • New York • Ohio • Virginia • Wisconsin.” Connecticut is not on that list. For those states it spells out the initial-assessment packet: “For initial assessment requests when requesting only 97151/97152 and 0362T or if a member has new insurance coverage,” include a “Diagnostic evaluation/report completed by a doctorate level clinician or allowable qualified healthcare provider (QHCP) per state regulations,” with records showing how the patient meets DSM-5-TR criteria and “Standardized diagnostic tools (for example, Autism Diagnostic Interview, Revised (ADI-R); Autism Diagnostic Observation Schedule, Second Edition (ADOS-2); Childhood Autism Rating Scale, Second Edition (CARS-2).” For treatment it recommends baseline and updated assessments such as the Vineland, VB-MAPP or ABLLS-R.',
+          'Connecticut\'s own Anthem documents set no report format. The Connecticut provider manual (effective September 1, 2026) says “ABA – Applied Behavioral Analysis is not a standard benefit. If ABA is covered for a Member, prior authorization is recommended,” and that prior authorization for outpatient services “varies by product and plan.” The multi-state ABA Provider Resource Guide, which does list Connecticut, asks only for “standardized assessments and current clinical information” and a treatment plan reviewed or updated at least every 6 months. The Connecticut behavioral health form Anthem posts, the Outpatient Treatment Report (fax 866-834-7469), is a general mental-health report, not an ABA assessment template. Before submitting, ask Anthem Behavioral Health (800-934-0331) which form it wants for this member\'s product and whether 97151/97152 need precertification.',
+        ],
+        cites: [
+          { title: 'Anthem — Treatment Plan Request Form for Autism Spectrum Disorders (commercial, December 2025; GA, KY, ME, MO, NV, NH, NY, OH, VA, WI)', url: 'https://www.anthembluecross.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/NY_BH_00001.pdf' },
+          { title: 'Anthem Blue Cross and Blue Shield — 2026 Connecticut Commercial Provider Manual (effective September 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_CT_00015.pdf' },
+          S.anthemRG,
+          { title: 'Anthem BCBS Connecticut — Outpatient Treatment Report (behavioral health form CT_BH_00001)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/forms/CT_BH_00001.pdf' },
+          S.anthemCTPA,
+        ],
+      },
+      {
         h2: 'Billing and documentation rules from the ABA resource guide',
         body: [
           'Anthem’s commercial ABA Provider Resource Guide (June 2025) lists Connecticut among its states. Approved providers include psychiatrists, psychologists, LCSWs, LPCs and LMFTs with ABA training, BCBAs and BCBA-Ds, “providers practicing under the direction and supervision of the BCBA,” and other mental health providers “licensed or authorized by the state in which they practice.” A QHP billing 97155 “can only add code 97153 if both the technician and QHP are face-to-face with the patient at the same time and the QHP is directing the technician.” Technician services “must show the supervising BCBA or other QHP in box 31.” Record start and stop times, sign within 30 days of the service date, and update the treatment plan at least every 6 months. Anthem applies NCCI medically unlikely edits to ABA codes and lists POS 12 (home), 11 (office), 99 (community), 03 (school), and 10 and 02 (telehealth).',
@@ -518,6 +536,13 @@ export const connecticutPayers: Record<string, PayerConfig> = {
           { title: 'Anthem Blue Cross and Blue Shield — 2026 Connecticut Commercial Provider Manual (effective September 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_CT_00015.pdf' },
         ],
       },
+      {
+        h2: 'Which credential modifiers does Anthem want on ABA claims in Connecticut?',
+        body: [
+          'Anthem\'s commercial ABA Provider Resource Guide (June 2025), which lists this state, sets a credential-level modifier table: “HM” for “Less than bachelor’s degree level,” “HN” for “Bachelor’s degree level” and “HO” for “Master’s degree level.” It also says that technician-delivered ABA “must show the supervising BCBA or other QHP in box 31 of the CMS claim form.” The guide lists no HP (doctoral) modifier, and Anthem publishes no separate rate per modifier.',
+        ],
+        cites: [S.anthemRG],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (§ 38a-514b applies) or self-funded ERISA (plan document governs). Ask for the employer and check the card.' },
@@ -526,7 +551,7 @@ export const connecticutPayers: Record<string, PayerConfig> = {
       { title: 'Supervising BCBA’s CT license', desc: 'Behavioral therapy must be provided or supervised by a licensed behavior analyst, physician or psychologist.' },
       { title: 'Other coverage', desc: 'Second parent’s plan, HUSKY, TRICARE or CHAMPVA.' },
     ],
-    sources: [S.anthemCTPA, S.anthemRG, S.s38a514b, S.s38a488b, S.s38a526a, S.s38a591d, S.s38a816, S.ch382a, S.dphBA, S.bacbLic, S.s19a906, S.erisa, S.handbook, S.cfr433, S.tricare, S.champva, S.asdFee, { title: 'Anthem Blue Cross and Blue Shield — 2026 Connecticut Commercial Provider Manual (effective September 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_CT_00015.pdf' }, { title: 'Anthem Blue Cross and Blue Shield Connecticut — Provider News', url: 'https://providernews.anthem.com/connecticut' }],
+    sources: [{ title: 'Anthem — Treatment Plan Request Form for Autism Spectrum Disorders (commercial, December 2025; GA, KY, ME, MO, NV, NH, NY, OH, VA, WI)', url: 'https://www.anthembluecross.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/NY_BH_00001.pdf' }, { title: 'Anthem BCBS Connecticut — Outpatient Treatment Report (behavioral health form CT_BH_00001)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/forms/CT_BH_00001.pdf' }, S.anthemCTPA, S.anthemRG, S.s38a514b, S.s38a488b, S.s38a526a, S.s38a591d, S.s38a816, S.ch382a, S.dphBA, S.bacbLic, S.s19a906, S.erisa, S.handbook, S.cfr433, S.tricare, S.champva, S.asdFee, { title: 'Anthem Blue Cross and Blue Shield — 2026 Connecticut Commercial Provider Manual (effective September 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_CT_00015.pdf' }, { title: 'Anthem Blue Cross and Blue Shield Connecticut — Provider News', url: 'https://providernews.anthem.com/connecticut' }],
     deliveryRules: {
       supervision: {
         value: 'Anthem recognizes “providers practicing under the direction and supervision of the BCBA” and publishes no ratio of its own. For fully insured Connecticut plans, the mandate defines supervised behavioral therapy as “at least one hour of face-to-face supervision … for each ten hours of behavioral therapy,” by a licensed behavior analyst, physician or psychologist.',
@@ -616,6 +641,7 @@ export const connecticutPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Anthem have an ABA assessment template for Connecticut?', a: 'Not a Connecticut one. Anthem\'s commercial Treatment Plan Request Form for ASD (December 2025) lists ten states, and Connecticut is not among them. For those states it asks, for 97151/97152/0362T requests, for a diagnostic report by a doctorate-level clinician or other allowable QHCP showing DSM-5-TR criteria and a standardized tool such as the ADI-R, ADOS-2 or CARS-2. Anthem\'s Connecticut manual says ABA “is not a standard benefit” and that prior authorization is recommended where ABA is covered. Call Anthem Behavioral Health at 800-934-0331 to confirm which form to use and whether the assessment needs precertification.' },
       { q: 'Does Anthem require prior authorization for ABA in Connecticut?', a: 'Yes. ABA is on Anthem’s Connecticut precertification list, reviewed by Anthem Behavioral Health at 800-934-0331. The list names no codes, so ask whether the assessment itself needs approval.' },
       { q: 'Does Connecticut cap ABA benefits?', a: 'No dollar cap. Insured plans cover behavioral therapy for children under 21, rising to under 26 on January 1, 2027, with no visit limits other than for medical necessity. Self-funded plans follow their own documents.' },
       { q: 'Can a BCBA and RBT both bill for the same time with Anthem?', a: 'Yes, 97155 with 97153, but only when both are face-to-face with the patient at the same time and the BCBA is directing the technician.' },
@@ -691,6 +717,13 @@ export const connecticutPayers: Record<string, PayerConfig> = {
           'Billing details from Aetna’s own documents. Codes: Aetna’s ABA policy (CPB 0554) lists only CPT 97151–97158, 0362T and 0373T and no HCPCS code, so H0031, H0032 or H2019 are not ABA codes at Aetna. Telehealth: its Telemedicine and Direct Patient Contact Payment Policy names modifiers GT, 95 and FR but no place-of-service code, and none of Aetna’s documents says the precertification must flag telehealth; ask which POS (02 or 10) it wants when you precertify. Filing: the Health Care Professional Toolkit (6/26) prints no timely-filing deadline, so your agreement sets it, and its definition of a clean claim excludes any claim that involves coordination of benefits. Reauthorization: the ABA medical necessity guide calls for "Repeated measurement with standardized measures to assess progress" and says "A member’s progress is to be evaluated every six months"; it does not mention graphs. Supervision: the Network Participation Criteria set one hour of face-to-face supervision per 10 hours of paraprofessional ABA and publish no cap on technicians per BCBA.',
         ],
         cites: [S.aetnaCPB, S.aetnaTele, S.aetnaOM, S.aetnaGuide, S.aetnaNPC],
+      },
+      {
+        h2: 'Out of network with Aetna: transition of care, not a single case agreement',
+        body: [
+          'Aetna\'s provider manual (6/26) uses transition of care (TOC) and continuity of care rather than the term single case agreement. TOC “allows certain qualifying members the ability to request to continue receiving care from their current out-of-network provider at in-network cost level for a defined period of time,” typically at plan enrollment or renewal; continuity of care does the same when a provider leaves the network mid-treatment. The member must be in “an active course of covered treatment,” and the treating provider must be an individual practitioner (the manual\'s examples are a specialist, physical therapist or speech therapist) or home care agency that is not contracted in the member\'s plan. Steps: the member gets a Transition Coverage Request Form from Member Services or the employer, completes it with the non-participating provider\'s help, faxes it to Aetna, and Aetna sends a decision letter stating how long the transition benefits last. The process does not apply to Traditional Choice plans. Aetna publishes no ABA rate for this; ask Aetna behavioral health whether the ABA agency qualifies before the first session.',
+        ],
+        cites: [{ title: 'Aetna — Provider manual (8102800-01-01, 6/26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }],
       },
     ],
     collect: [
@@ -788,6 +821,7 @@ export const connecticutPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Can an out-of-network ABA provider keep treating an Aetna member?', a: 'Possibly, through Aetna\'s transition-of-care or continuity-of-care process. The member must be in an active course of covered treatment; the member requests a Transition Coverage Request Form, completes it with the provider and faxes it to Aetna, which issues a time-limited decision. Aetna\'s manual names individual practitioners and home care agencies as eligible, so confirm with Aetna behavioral health that an ABA agency qualifies.' },
       { q: 'Does Aetna accept H0031, H0032 or H2019 for ABA?', a: 'No. Aetna’s ABA policy lists only CPT 97151–97158, 0362T and 0373T.' },
       { q: 'Does Aetna require graphs for an ABA reauthorization?', a: 'Its ABA guide asks for repeated measurement with standardized measures and a progress evaluation every six months; it does not mention graphs.' },
       { q: 'What is Aetna’s timely filing limit for ABA claims?', a: 'Aetna’s provider toolkit (6/26) does not print one; the filing limit is in your Aetna agreement.' },
@@ -865,6 +899,13 @@ export const connecticutPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.cignaARG, S.ebhAdmin, S.en0499],
       },
+      {
+        h2: 'Out of network with Cigna (Evernorth) for ABA',
+        body: [
+          'Evernorth\'s Behavioral Health Administrative Guidelines (September 2026) describe out-of-network use by plan type. On Open Access Plus, “Services from out-of-network providers are covered at a reduced benefit level,” and patients “whose plans include out-of-network benefits can use these benefits for services covered under their plan; however, in doing so, these patients will generally incur higher out-of-pocket costs.” An out-of-network provider who wants to contract is pointed to “the Join the Network page on the Evernorth Provider website.” On appeals, Evernorth says an appeal “must be submitted within 180 calendar days from the claim denial unless determined otherwise by plan or state regulation,” and that “out-of-network providers requesting a standard appeal must submit a valid Appointments of Representative form signed by the patient” in some circumstances. Evernorth publishes no single-case-agreement process or out-of-network ABA rate; benefits depend on the member\'s plan.',
+        ],
+        cites: [{ title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (§ 38a-514b and Evernorth’s CT addendum apply) or self-funded ERISA (plan document governs).' },
@@ -920,9 +961,9 @@ export const connecticutPayers: Record<string, PayerConfig> = {
         cites: [S.en0499, S.s38a514b],
       },
       diagnosingProviders: {
-        value: 'A professional “licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice,” applying DSM-5-TR. The ABA assessment itself is done by a BCBA, LBA, or a licensed mental health clinician with ABA training.',
+        value: 'A professional “licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice,” applying DSM-5-TR. The ABA assessment itself is done by a BCBA, LBA, or a licensed mental health clinician with ABA training. LCSW: not named. The test turns on licensure and diagnostic scope, so an LCSW\'s diagnosis is accepted only if the plan agrees it is within the LCSW\'s licensed scope; confirm with the plan before relying on one. On a fully insured Connecticut plan, § 38a-514b defines the diagnosis as assessment “performed by a licensed physician, licensed psychologist or licensed clinical social worker,” so an LCSW diagnosis qualifies there.',
         status: 'verified',
-        cites: [S.en0499],
+        cites: [S.en0499, S.s38a514b],
       },
       diagnosticTools: {
         value: 'No single instrument is mandated. It must be reliable, valid and standardized, cover the DSM-5-TR ASD domains, and be the current edition (“must be the Vineland-3 vs. Vineland-II”), with the date, respondent and form type reported.',
@@ -955,6 +996,7 @@ export const connecticutPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Cigna pay out-of-network ABA providers?', a: 'Only if the member\'s plan has out-of-network benefits; on Open Access Plus, out-of-network services “are covered at a reduced benefit level.” Evernorth publishes no single case agreement process or rate. Appeals are due within 180 calendar days of the denial, and an out-of-network provider may need an Appointment of Representative form signed by the patient.' },
       { q: 'Does Cigna accept H-codes for ABA?', a: 'No. Evernorth says all ABA services must be billed with CPT 97151–97158, 0362T and 0373T only.' },
       { q: 'Does Cigna require graphs for ABA reassessments?', a: 'EN0499 asks for dated quantitative baseline, interim and current data (current data within 60 days) and a standardized assessment within a year; it does not name graphs.' },
       { q: 'What is Cigna’s timely filing limit for ABA claims?', a: '90 days from the date of service unless your agreement or state law allows longer; for secondary claims, 90 days from the primary payer’s EOB.' },
@@ -1034,6 +1076,13 @@ export const connecticutPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.optumReimb, S.optumTele, S.optumNNM, S.optumSCC],
       },
+      {
+        h2: 'Out of network with UnitedHealthcare (Optum) for ABA',
+        body: [
+          'UnitedHealthcare says that when the member chooses an out-of-network provider, the No Surprises Act and state surprise-billing laws generally do not apply, and “United will look to the member’s benefit plan to determine if it is covered and how it should be paid.” Reimbursement may use a percentage of CMS rates, FAIR Health, Viant, a “Negotiated Rate” agreed “after the service was provided,” or other methods, and “Which option is used depends on various factors, including but not limited to the terms of the healthcare benefit plan.” On commercial HMO plans, “If the needed health care provider is not available in-network, not available within the needed time frame or too far away, the PCP needs to request an out-of-network prior authorization”; if approved, “the member is not responsible for costs over their applicable in-network cost-sharing.” For disputes, Optum\'s Provider Express portal “is available to network clinicians and group practices, as well as out-of-network individual clinicians,” and Optum asks for “member-specific treatment plans, clinical records, payment appendices or other items that support why you believe our decision was incorrect.”',
+        ],
+        cites: [{ title: 'UnitedHealthcare — Information on payment of out-of-network benefits', url: 'https://www.uhc.com/legal/information-on-payment-of-out-of-network-benefits' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (commercial)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, { title: 'Optum National Network Manual (BH02330, effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (§ 38a-514b applies) or self-funded ERISA (plan document governs).' },
@@ -1042,7 +1091,7 @@ export const connecticutPayers: Record<string, PayerConfig> = {
       { title: 'Order from a licensed clinician', desc: 'The mandate covers ABA ordered by a licensed physician, psychologist or LCSW.' },
       { title: 'Credential of each rendering staff member', desc: 'Every claim line needs the right HM/HN/HO/HP modifier.' },
     ],
-    sources: [S.optumSCC, S.optumSM, S.optumTele, S.optumReimb, S.optumNNM, S.s38a514b, S.s38a488b, S.s38a526a, S.s38a591d, S.s38a816, S.ch382a, S.dphBA, S.bacbLic, S.s19a906, S.erisa, S.handbook, S.cfr433, S.tricare, S.champva, S.asdFee],
+    sources: [ { title: 'UnitedHealthcare — Information on payment of out-of-network benefits', url: 'https://www.uhc.com/legal/information-on-payment-of-out-of-network-benefits' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (commercial)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },S.optumSCC, S.optumSM, S.optumTele, S.optumReimb, S.optumNNM, S.s38a514b, S.s38a488b, S.s38a526a, S.s38a591d, S.s38a816, S.ch382a, S.dphBA, S.bacbLic, S.s19a906, S.erisa, S.handbook, S.cfr433, S.tricare, S.champva, S.asdFee],
     deliveryRules: {
       supervision: {
         value: '“Consistent with CASP standards of care, direct case supervision is required 1–2 hours for every 10 hours of direct treatment per week.” Technicians work under a BCBA or licensed behavioral health clinician and “should be registered behavior technicians (RBT) or another appropriately certified behavior technician.” For Connecticut, Optum’s state-mandate entry applies at least one hour of face-to-face supervision per ten hours by a licensed behavior analyst, physician or psychologist.' + ' Optum’s criteria publish no cap on the number of technicians per BCBA.',
@@ -1091,9 +1140,9 @@ export const connecticutPayers: Record<string, PayerConfig> = {
         cites: [S.optumSCC, S.s38a514b],
       },
       diagnosingProviders: {
-        value: '“a state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis” under DSM-5-TR.',
+        value: '“a state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis” under DSM-5-TR. LCSW: not named. The test turns on licensure and diagnostic scope, so an LCSW\'s diagnosis is accepted only if the plan agrees it is within the LCSW\'s licensed scope; confirm with the plan before relying on one. On a fully insured Connecticut plan, § 38a-514b defines the diagnosis as assessment “performed by a licensed physician, licensed psychologist or licensed clinical social worker,” so an LCSW diagnosis qualifies there.',
         status: 'verified',
-        cites: [S.optumSCC],
+        cites: [S.optumSCC, S.s38a514b],
       },
       diagnosticTools: {
         value: 'At least one clinically validated tool, from a list that is not exhaustive: first-level screens (M-CHAT and others), second-level screens (CARS/CARS-2, RITA-T, STAT), and formal tools (ADI-R, ADOS/ADOS-2, DISCO).',
@@ -1126,6 +1175,7 @@ export const connecticutPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare pay out-of-network ABA providers?', a: 'Only under the member\'s out-of-network benefits, priced by a method the plan sets (a percentage of CMS rates, FAIR Health, Viant or a negotiated rate). On commercial HMO plans an out-of-network provider can be approved when no network provider is available in time or nearby; the PCP requests an out-of-network prior authorization, and the member then pays only in-network cost-sharing.' },
       { q: 'Does UnitedHealthcare accept H0031 or H2019 for ABA?', a: 'No. Optum’s commercial ABA policy uses CPT 97151–97158, 0362T and 0373T with credential modifiers.' },
       { q: 'Does Optum require graphs for an ABA reauthorization?', a: 'The criteria ask for progress measured the same way as baseline, mastery rates, change scores and updated standardized adaptive measures; graphs are not named.' },
       { q: 'What is UnitedHealthcare’s timely filing limit for ABA claims?', a: 'Optum: 90 calendar days from the date of service unless state law or the plan allows longer, with corrections within 90 days of the first claim’s receipt.' },

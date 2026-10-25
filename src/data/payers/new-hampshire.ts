@@ -182,7 +182,9 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { title: 'Other insurance', desc: 'Commercial coverage is billed first and its PA rules must be followed; Medicaid only picks up what is left.' },
       { title: 'Age', desc: 'EPSDT covers members under 21. No adult ABA benefit was found.' },
     ],
-    sources: [S.heW500, S.mcm, S.form272A, S.saInstr, S.fee, S.mmisDocs, S.nonPrimary, S.acnhPM, S.wsPM, S.nhhfTip, S.bacbLic, S.cfr440, S.cfr433, S.rsa167, S.gbm, S.epsdtMan, S.evvList],
+    sources: [S.heW500, S.mcm, S.form272A, S.saInstr, S.fee, S.mmisDocs, S.nonPrimary, S.acnhPM, S.wsPM, S.nhhfTip, S.bacbLic, S.cfr440, S.cfr433, S.rsa167, S.gbm, S.epsdtMan, S.evvList,
+      { title: '42 CFR 438.210(d) — Medicaid managed care authorization timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' },
+    ],
     deliveryRules: {
       supervision: {
         value: 'No numeric ratio is published. The only written NH Medicaid ABA staffing rule, He-W 589.04(ah), requires a BCBA with a BACB supervisory certification when supervising, and lets a rehabilitation assistant, BCaBA or RBT deliver ABA "under the appropriate supervision of" that BCBA. It appears in the Medicaid to Schools rule; no separate supervision rule for home or clinic ABA was found.',
@@ -229,7 +231,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
         cites: [S.form272A],
       },
       diagnosingProviders: {
-        value: 'No NH Medicaid document names who may make the ASD diagnosis; the General Billing Manual and the EPSDT provider manual (August 2026) are silent too. He-W 589.04(aj) names who must recommend ABA: a licensed clinician experienced in diagnosing and treating ASD who is a physician, psychologist, or a nurse practitioner or physician’s associate specializing in developmental medicine.',
+        value: 'No NH Medicaid document names who may make the ASD diagnosis; the General Billing Manual and the EPSDT provider manual (August 2026) are silent too. He-W 589.04(aj) names who must recommend ABA: a licensed clinician experienced in diagnosing and treating ASD who is a physician, psychologist, or a nurse practitioner or physician’s associate specializing in developmental medicine. LCSW: not among the professionals He-W 589.04(aj) lets recommend ABA (physician, psychologist, or developmental-medicine NP or physician\'s associate).',
         status: 'unverified',
         cites: [S.heW500, S.gbm, S.epsdtMan],
         verifyVia: 'DHHS Medicaid Medical Services (ServiceAuthorizationFFS@dhhs.nh.gov) for FFS members, or the member’s health plan for MCO members.',
@@ -347,7 +349,10 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { title: 'Other insurance', desc: 'The plan is payer of last resort; bill the primary first and attach its EOB within 60 days.' },
       { title: 'Current authorizations', desc: 'New members get 60 days of continuity for ongoing treatment; capture any prior plan’s authorization.' },
     ],
-    sources: [S.acnhPM, S.acnhPA, S.mcm, S.heW500, S.cfr438, S.cfr433, S.bacbLic, S.rsa167, S.acnhLookup, S.evvList, { title: 'AmeriHealth Caritas New Hampshire — Provider newsletters and updates (provider notices archive)', url: 'https://www.amerihealthcaritasnh.com/provider/newsletters-and-updates/index.aspx' }],
+    sources: [S.acnhPM, S.acnhPA, S.mcm, S.heW500, S.cfr438, S.cfr433, S.bacbLic, S.rsa167, S.acnhLookup, S.evvList, { title: 'AmeriHealth Caritas New Hampshire — Provider newsletters and updates (provider notices archive)', url: 'https://www.amerihealthcaritasnh.com/provider/newsletters-and-updates/index.aspx' },
+      { title: 'AmeriHealth Caritas New Hampshire — Prior authorization lookup, 97151 (checked 10/11/2026)', url: 'https://priorauthlookup.amerihealthcaritas.com/api/CptCodeLookup?planname=acnh&cptCode=97151&cptDate=2026-10-11' },
+      { title: 'AmeriHealth Caritas New Hampshire — Prior authorization lookup, 97153 (checked 10/11/2026)', url: 'https://priorauthlookup.amerihealthcaritas.com/api/CptCodeLookup?planname=acnh&cptCode=97153&cptDate=2026-10-11' },
+    ],
     deliveryRules: {
       supervision: {
         value: 'The plan publishes no ABA supervision rule of its own. The state rule applies: He-W 589.04(ah) requires a BCBA with a BACB supervisory certification when supervising, and lets a BCaBA, RBT or rehabilitation assistant deliver ABA under that BCBA’s "appropriate supervision," with no numeric ratio.',
@@ -404,7 +409,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       diagnosingProviders: {
-        value: 'Not stated by the plan. The state rule names who must recommend ABA (physician, psychologist, or developmental-medicine NP or PA; He-W 589.04(aj)), not who may diagnose.',
+        value: 'Not stated by the plan. The state rule names who must recommend ABA (physician, psychologist, or developmental-medicine NP or PA; He-W 589.04(aj)), not who may diagnose. LCSW: not among the professionals He-W 589.04(aj) lets recommend ABA (physician, psychologist, or developmental-medicine NP or physician\'s associate).',
         status: 'unverified',
         cites: [S.acnhPM, S.heW500],
         verifyVia: 'AmeriHealth Caritas NH UM, 1-833-472-2264.',
@@ -524,7 +529,10 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { title: 'Treatment plan for the OTR', desc: 'Direct treatment, supervision and parent-training hours, which map to 97153, 97155 and 97156.' },
       { title: 'Other insurance', desc: 'The plan is payer of last resort; tell it if the family won’t help identify other coverage.' },
     ],
-    sources: [S.nhhfPP07, S.nhhfTip, S.nhhfPM, S.nhhfPreAuth, S.mcm, S.heW500, S.cfr438, S.cfr433, S.rsa167, S.nhhfIQ, S.nhhf105, S.nhhfLookup, S.evvList, { title: 'NH Healthy Families — Provider newsroom (provider notices archive)', url: 'https://www.nhhealthyfamilies.com/newsroom.html' }],
+    sources: [S.nhhfPP07, S.nhhfTip, S.nhhfPM, S.nhhfPreAuth, S.mcm, S.heW500, S.cfr438, S.cfr433, S.rsa167, S.nhhfIQ, S.nhhf105, S.nhhfLookup, S.evvList, { title: 'NH Healthy Families — Provider newsroom (provider notices archive)', url: 'https://www.nhhealthyfamilies.com/newsroom.html' },
+      { title: 'NH Healthy Families — Medicaid Pre-Auth Check result for 97151 (checked 10/11/2026)', url: 'https://content.centene.com/content/healthyfamilies/en_us/providers/preauth-check/medicaid-pre-auth.preauthtool.json?ver=1.0&q=97151&qualifier=44&productCategory=MEDICAID&apiEnv=PROD' },
+      { title: 'NH Healthy Families — Medicaid Pre-Auth Check result for 97153 (checked 10/11/2026)', url: 'https://content.centene.com/content/healthyfamilies/en_us/providers/preauth-check/medicaid-pre-auth.preauthtool.json?ver=1.0&q=97153&qualifier=44&productCategory=MEDICAID&apiEnv=PROD' },
+    ],
     deliveryRules: {
       supervision: {
         value: 'NH.PP.07 treats 97155 as "Supervision of a Technician" but sets no ratio, and the plan publishes no other supervision rule. The state rule applies: a BCBA with BACB supervisory certification supervises BCaBAs, RBTs and rehabilitation assistants, with no numeric ratio (He-W 589.04(ah)).',
@@ -575,7 +583,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       diagnosingProviders: {
-        value: 'Not stated by the plan. The state rule names who must recommend ABA (physician, psychologist, or developmental-medicine NP or PA; He-W 589.04(aj)), not who may diagnose.',
+        value: 'Not stated by the plan. The state rule names who must recommend ABA (physician, psychologist, or developmental-medicine NP or PA; He-W 589.04(aj)), not who may diagnose. LCSW: not among the professionals He-W 589.04(aj) lets recommend ABA (physician, psychologist, or developmental-medicine NP or physician\'s associate).',
         status: 'unverified',
         cites: [S.nhhfPP07, S.heW500],
         verifyVia: 'NH Healthy Families Utilization Management, 1-866-769-3085.',
@@ -685,6 +693,13 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
           S.evvList,
         ],
       },
+      {
+        h2: 'Can an out-of-network ABA provider treat a WellSense New Hampshire member?',
+        body: [
+          'Only with prior authorization. WellSense\'s New Hampshire provider manual says that, except for urgent/emergency and family planning services, “a WellSense member is not covered for services provided by an out-of-network provider unless the rendering provider has received prior authorization from us in advance of services being rendered.” For help arranging services with an out-of-network provider, call the Prior Authorization department at 877-957-1300. The manual names no ABA single-case-agreement rate.',
+        ],
+        cites: [{ title: 'WellSense — New Hampshire Provider Manual (effective December 1, 2025; 2026 posting)', url: 'https://www.wellsense.org/hubfs/Provider/Provider%20Manual/NH_Provider_Manual_2026.pdf' }],
+      },
     ],
     collect: [
       { title: 'Comprehensive diagnostic evaluation', desc: 'From a neurologist, pediatrician, psychiatrist, psychologist or other licensed physician experienced in autism. Attach it to the initial request.' },
@@ -747,7 +762,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       diagnosingProviders: {
-        value: 'A neurologist, pediatrician, psychiatrist, psychologist, or other licensed physician experienced in autism must complete the comprehensive diagnostic evaluation.',
+        value: 'A neurologist, pediatrician, psychiatrist, psychologist, or other licensed physician experienced in autism must complete the comprehensive diagnostic evaluation. LCSW: no. A licensed clinical social worker is not on this list, so an LCSW\'s diagnosis alone does not meet it.',
         status: 'verified',
         cites: [S.wsForm],
       },
@@ -780,6 +795,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Can an out-of-network ABA provider treat a WellSense New Hampshire member?', a: 'Only with prior authorization obtained in advance. Call WellSense\'s Prior Authorization department at 877-957-1300. No ABA single-case-agreement rate is published.' },
       { q: 'Does WellSense require prior authorization for ABA in New Hampshire?', a: 'Yes, both for the initial evaluation and for continued services, on its New Hampshire ABA form or through the HealthTrio portal.' },
       { q: 'How long is a WellSense NH ABA authorization?', a: 'Up to 3 months for an initial request and 6 months for continued services, with units requested for the whole period rather than per week.' },
       { q: 'Who can diagnose for a WellSense ABA request?', a: 'A neurologist, pediatrician, psychiatrist, psychologist, or other licensed physician experienced in autism, via a comprehensive diagnostic evaluation.' },
@@ -877,6 +893,13 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
           { title: 'Anthem Blue Cross and Blue Shield — 2026 New Hampshire Commercial Provider Manual (effective July 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_NH_00018.pdf' },
         ],
       },
+      {
+        h2: 'Can an Anthem New Hampshire member see an out-of-network ABA provider?',
+        body: [
+          'Only with an approved out-of-network referral where the plan requires referrals. Anthem\'s 2026 New Hampshire manual says referrals to providers “who do not participate in the Anthem Provider network (out-of-network Providers) require the PCP to submit an out-of-network referral request to Anthem,” and “authorization must be received before the out-of-network Provider Services can be rendered.” Requests go by fax to 800-281-1049 or phone to 800-531-4450. Whether the member has out-of-network ABA benefits depends on the plan.',
+        ],
+        cites: [{ title: 'Anthem Blue Cross and Blue Shield — 2026 New Hampshire Commercial Provider Manual (effective July 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_NH_00018.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (RSA 417-E applies) vs. self-funded ERISA (plan document governs). Ask for the employer and check the card.' },
@@ -885,7 +908,14 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { title: 'Signed treatment plan', desc: 'RSA 417-E:2 lets the insurer require one signed by the PCP or a listed specialist, with frequency and duration.' },
       { title: 'Other coverage', desc: 'Second parent’s plan (birthday rule), Medicaid, TRICARE or CHAMPVA.' },
     ],
-    sources: [S.anthemNHPA, S.anthemRG, S.rsa417E, S.hb569, S.rsa420J, S.ins1904, S.bacbLic, S.erisa, S.fee, S.rsa415J, { title: 'Anthem Blue Cross and Blue Shield — 2026 New Hampshire Commercial Provider Manual (effective July 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_NH_00018.pdf' }, { title: 'Anthem Blue Cross and Blue Shield New Hampshire — Provider News (all NH provider news articles)', url: 'https://providernews.anthem.com/new-hampshire' }],
+    sources: [ { title: 'Anthem Blue Cross and Blue Shield — 2026 New Hampshire Commercial Provider Manual (effective July 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_NH_00018.pdf' },S.anthemNHPA, S.anthemRG, S.rsa417E, S.hb569, S.rsa420J, S.ins1904, S.bacbLic, S.erisa, S.fee, S.rsa415J, { title: 'Anthem Blue Cross and Blue Shield New Hampshire — Provider News (all NH provider news articles)', url: 'https://providernews.anthem.com/new-hampshire' },
+      { title: 'RSA 420-J:8-a — Prompt Payment Required (New Hampshire)', url: 'https://www.gencourt.state.nh.us/rsa/html/XXXVII/420-J/420-J-8-a.htm' },
+      { title: 'WellSense — Applied Behavioral Analysis Prior Authorization Form, New Hampshire (updated 11/14/2025)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_NH.pdf' },
+      { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+      { title: 'NH Medicaid — Non-Primary Payer Claim Billing Requirements (updated May 23, 2023)', url: 'https://nhmmis.nh.gov/portals/wps/wcm/connect/9d07a0a4-82af-46c4-b758-d1a911bd9753/NH+Medicaid+Non-Primary+Claim+Billing+Requirements.pdf?MOD=AJPERES&CVID=oywGTyK' },
+      { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
+      { title: '38 CFR 17.270 — CHAMPVA is the last payer', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
+    ],
     deliveryRules: {
       supervision: {
         value: 'Anthem publishes no numeric supervision ratio. It recognizes "providers practicing under the direction and supervision of the BCBA," and allows 97153 alongside 97155 only when the QHP and technician are both face-to-face with the patient and the QHP is directing the technician. The NH mandate itself requires ABA to be provided by, or "under the supervision of," a BACB certificant.',
@@ -934,7 +964,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
         blocker: 'licensed',
       },
       diagnosingProviders: {
-        value: 'Not published in Anthem’s NH documents; set by the licensed MCG guideline and the plan.',
+        value: 'Not published in Anthem’s NH documents; set by the licensed MCG guideline and the plan. LCSW: no published rule. The plan names no diagnosing-provider list, so ask it whether an LCSW\'s diagnosis is accepted.',
         status: 'unverified',
         cites: [S.anthemNHPA, S.anthemRG],
         verifyVia: 'Anthem Behavioral Health, 800-755-0851.',
@@ -979,6 +1009,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Can an Anthem New Hampshire member see an out-of-network ABA provider?', a: 'Where the plan uses PCP referrals, the PCP must get an out-of-network referral approved by Anthem (fax 800-281-1049, phone 800-531-4450) before services. Out-of-network ABA benefits depend on the member\'s plan.' },
       { q: 'Does Anthem require prior authorization for ABA in New Hampshire?', a: 'Yes. All ABA codes (97151–97158, 0362T, 0373T) are on Anthem’s New Hampshire precertification list, reviewed by Anthem Behavioral Health (800-755-0851) on MCG criteria, though requirements can vary by product.' },
       { q: 'Does New Hampshire cap ABA benefits?', a: 'Not in the current law. The 2010 statute allowed caps of $36,000 a year (ages 0–12) and $27,000 (13–21), but that paragraph no longer appears in RSA 417-E:2. Self-funded plans follow their own documents.' },
       { q: 'Can a BCBA and RBT both bill for the same time with Anthem?', a: 'Yes, 97155 with 97153, but only when both are face-to-face with the patient at the same time and the BCBA is directing the technician.' },
@@ -1078,7 +1109,14 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { title: 'School services', desc: 'Services covered by the school’s special education resources under an IEP are not paid.' },
       { title: 'Other coverage', desc: 'Second parent’s plan (birthday rule), Medicaid, TRICARE or CHAMPVA.' },
     ],
-    sources: [S.hpMNG, S.hpPP, S.hpRef, S.hpMaxUnits, S.hpCoding, S.cmsMUE, S.rsa417E, S.hb569, S.rsa420J, S.ins1904, S.bacbLic, S.erisa, S.fee, S.p32Tele, S.rsa415J, S.hpNotice0226, S.hpNotice0926, S.hpSubmit, S.hpClean, S.hpReplace, S.hpCOB, S.hpFLA, S.hp1500, { title: 'Point32Health (Harvard Pilgrim) — Insights and Updates for Providers newsletter archive', url: 'https://www.point32health.org/provider/office-resources/provider-newsletter' }],
+    sources: [S.hpMNG, S.hpPP, S.hpRef, S.hpMaxUnits, S.hpCoding, S.cmsMUE, S.rsa417E, S.hb569, S.rsa420J, S.ins1904, S.bacbLic, S.erisa, S.fee, S.p32Tele, S.rsa415J, S.hpNotice0226, S.hpNotice0926, S.hpSubmit, S.hpClean, S.hpReplace, S.hpCOB, S.hpFLA, S.hp1500, { title: 'Point32Health (Harvard Pilgrim) — Insights and Updates for Providers newsletter archive', url: 'https://www.point32health.org/provider/office-resources/provider-newsletter' },
+      { title: 'RSA 420-J:8-a — Prompt Payment Required (New Hampshire)', url: 'https://www.gencourt.state.nh.us/rsa/html/XXXVII/420-J/420-J-8-a.htm' },
+      { title: 'WellSense — Applied Behavioral Analysis Prior Authorization Form, New Hampshire (updated 11/14/2025)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_NH.pdf' },
+      { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+      { title: 'NH Medicaid — Non-Primary Payer Claim Billing Requirements (updated May 23, 2023)', url: 'https://nhmmis.nh.gov/portals/wps/wcm/connect/9d07a0a4-82af-46c4-b758-d1a911bd9753/NH+Medicaid+Non-Primary+Claim+Billing+Requirements.pdf?MOD=AJPERES&CVID=oywGTyK' },
+      { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
+      { title: '38 CFR 17.270 — CHAMPVA is the last payer', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
+    ],
     deliveryRules: {
       supervision: {
         value: 'Point32Health requires InterQual’s "Applied Behavior Analysis (ABA) Program-Applied Behavior Analysis Supervision" subset for supervision requests, but the criteria inside it are licensed and not published.',
@@ -1133,7 +1171,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
         blocker: 'licensed',
       },
       diagnosingProviders: {
-        value: 'Not published; the MNG requires "a definitive diagnosis" of ASD but does not name who may make it.',
+        value: 'Not published; the MNG requires "a definitive diagnosis" of ASD but does not name who may make it. LCSW: no published rule. The plan names no diagnosing-provider list, so ask it whether an LCSW\'s diagnosis is accepted.',
         status: 'unverified',
         cites: [S.hpMNG],
         verifyVia: 'HPHConnect InterQual criteria view, or Provider Service Center, 800-708-4414.',
@@ -1273,6 +1311,13 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
         ],
         cites: [S.aetnaPrecert, S.aetnaCPB648, S.aetnaOM, S.aetnaGuide],
       },
+      {
+        h2: 'Out of network with Aetna: transition of care, not a single case agreement',
+        body: [
+          'Aetna\'s provider manual (6/26) uses transition of care (TOC) and continuity of care rather than the term single case agreement. TOC “allows certain qualifying members the ability to request to continue receiving care from their current out-of-network provider at in-network cost level for a defined period of time,” typically at plan enrollment or renewal; continuity of care does the same when a provider leaves the network mid-treatment. The member must be in “an active course of covered treatment,” and the treating provider must be an individual practitioner (the manual\'s examples are a specialist, physical therapist or speech therapist) or home care agency that is not contracted in the member\'s plan. Steps: the member gets a Transition Coverage Request Form from Member Services or the employer, completes it with the non-participating provider\'s help, faxes it to Aetna, and Aetna sends a decision letter stating how long the transition benefits last. The process does not apply to Traditional Choice plans. Aetna publishes no ABA rate for this; ask Aetna behavioral health whether the ABA agency qualifies before the first session.',
+        ],
+        cites: [{ title: 'Aetna — Provider manual (8102800-01-01, 6/26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (RSA 417-E applies) vs. self-funded ERISA (plan document governs). Ask for the employer and check the card.' },
@@ -1281,7 +1326,17 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { title: 'Standardized functional measure', desc: 'Aetna wants one from the past 12 months (for example Vineland-3).' },
       { title: 'Signed treatment plan', desc: 'RSA 417-E:2 lets the insurer require one signed by the PCP or a listed specialist.' },
     ],
-    sources: [S.aetnaCPB, S.aetnaCPB648, S.aetnaGuide, S.aetnaPrecert, S.aetnaBHPM, S.rsa417E, S.hb569, S.rsa420J, S.ins1904, S.bacbLic, S.erisa, S.aetnaOM, S.rsa415J, S.fee, S.aetnaNPC],
+    sources: [S.aetnaCPB, S.aetnaCPB648, S.aetnaGuide, S.aetnaPrecert, S.aetnaBHPM, S.rsa417E, S.hb569, S.rsa420J, S.ins1904, S.bacbLic, S.erisa, S.aetnaOM, S.rsa415J, S.fee, S.aetnaNPC,
+      { title: 'RSA 420-J:8-a — Prompt Payment Required (New Hampshire)', url: 'https://www.gencourt.state.nh.us/rsa/html/XXXVII/420-J/420-J-8-a.htm' },
+      { title: 'Aetna — Disputes and appeals overview (reconsideration and appeal time frames)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' },
+      { title: 'Aetna — Provider appeals: state exceptions to the 180-day dispute filing standard', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/provider-appeals.html' },
+      { title: 'WellSense — Applied Behavioral Analysis Prior Authorization Form, New Hampshire (updated 11/14/2025)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_NH.pdf' },
+      { title: 'Aetna — Telemedicine and Direct Patient Contact Payment Policy (ABA code table: Commercial vs. Medicare columns; posted policy shows last review June 2021)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pdf/telemedicine.pdf' },
+      { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+      { title: 'NH Medicaid — Non-Primary Payer Claim Billing Requirements (updated May 23, 2023)', url: 'https://nhmmis.nh.gov/portals/wps/wcm/connect/9d07a0a4-82af-46c4-b758-d1a911bd9753/NH+Medicaid+Non-Primary+Claim+Billing+Requirements.pdf?MOD=AJPERES&CVID=oywGTyK' },
+      { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
+      { title: '38 CFR 17.270 — CHAMPVA is the last payer', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
+    ],
     deliveryRules: {
       supervision: {
         value: 'Services must be provided directly or billed by licensed behavior analysts (in states with licensure laws), board-certified behavior analysts, or licensed psychologists where ABA is within scope, unless mandates, plan documents or contracts say otherwise; where others deliver services, there must be supervision "in line with practice standards." Aetna publishes no numeric ratio. The NH mandate requires ABA to be provided by, or supervised by, a BACB certificant. Aetna\'s Network Participation Criteria (5/26) spell out the technician tier: services "must be provided directly or supervised by individuals licensed by the state or certified by the Behavior Analyst Certification Board," supervised staff may be a BCaBA "or a paraprofessional," and Aetna requires "A minimum of one hour of face-to-face supervision" of an unlicensed or noncertified paraprofessional "for each 10 hours of applied behavior analysis," plus the supervisor "onsite with the child at least one hour a month." "All BCBAs, BCaBAs and paraprofessionals must meet state requirements. If state requirements are not defined, all BCBAs, BCaBAs and paraprofessionals must meet Aetna standards."',
@@ -1332,7 +1387,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
         cites: [S.aetnaGuide],
       },
       diagnosingProviders: {
-        value: 'A DSM-5 ASD diagnosis by an appropriate provider: a licensed psychologist or psychiatrist, a physician, or another professional qualified to diagnose within scope. CPB 0648 lists the professionals appropriate to an ASD evaluation, from developmental pediatricians and neurologists to psychologists and speech-language pathologists.',
+        value: 'A DSM-5 ASD diagnosis by an appropriate provider: a licensed psychologist or psychiatrist, a physician, or another professional qualified to diagnose within scope. CPB 0648 lists the professionals appropriate to an ASD evaluation, from developmental pediatricians and neurologists to psychologists and speech-language pathologists. LCSW: not named. The test turns on licensure and diagnostic scope, so an LCSW\'s diagnosis is accepted only if the plan agrees it is within the LCSW\'s licensed scope; confirm with the plan before relying on one.',
         status: 'verified',
         cites: [S.aetnaGuide, S.aetnaCPB648],
       },
@@ -1373,6 +1428,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Can an out-of-network ABA provider keep treating an Aetna member?', a: 'Possibly, through Aetna\'s transition-of-care or continuity-of-care process. The member must be in an active course of covered treatment; the member requests a Transition Coverage Request Form, completes it with the provider and faxes it to Aetna, which issues a time-limited decision. Aetna\'s manual names individual practitioners and home care agencies as eligible, so confirm with Aetna behavioral health that an ABA agency qualifies.' },
       { q: 'Does Aetna accept H0031 or other H-codes for ABA?', a: 'Aetna’s precertification list and CPB 0648 identify ABA by CPT 97151–97158, 0362T and 0373T. No H-codes are listed for ABA.' },
       { q: 'Does Aetna require graphs with an ABA reauthorization?', a: 'The ABA medical necessity guide does not say graphs. It requires a standardized functioning scale from the past 12 months, baseline measures with quantifiable progress criteria, and documentation of improvement or of how treatment changed. Progress is evaluated every six months.' },
       { q: 'Does Aetna cover ABA therapy in New Hampshire?', a: 'Yes, under its national policy for ASD, with New Hampshire’s RSA 417-E mandate layered on for fully insured plans. Self-funded employer plans follow their own documents.' },
@@ -1470,6 +1526,13 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
           { title: 'Cigna / Evernorth autism resource guide (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
         ],
       },
+      {
+        h2: 'Out of network with Cigna (Evernorth) for ABA',
+        body: [
+          'Evernorth\'s Behavioral Health Administrative Guidelines (September 2026) describe out-of-network use by plan type. On Open Access Plus, “Services from out-of-network providers are covered at a reduced benefit level,” and patients “whose plans include out-of-network benefits can use these benefits for services covered under their plan; however, in doing so, these patients will generally incur higher out-of-pocket costs.” An out-of-network provider who wants to contract is pointed to “the Join the Network page on the Evernorth Provider website.” On appeals, Evernorth says an appeal “must be submitted within 180 calendar days from the claim denial unless determined otherwise by plan or state regulation,” and that “out-of-network providers requesting a standard appeal must submit a valid Appointments of Representative form signed by the patient” in some circumstances. Evernorth publishes no single-case-agreement process or out-of-network ABA rate; benefits depend on the member\'s plan.',
+        ],
+        cites: [{ title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (RSA 417-E applies) vs. self-funded ERISA (plan document governs).' },
@@ -1478,7 +1541,14 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { title: 'Standardized assessment timing', desc: 'Instrument administered within 60 days before treatment starts.' },
       { title: 'Signed treatment plan', desc: 'RSA 417-E:2 lets the insurer require one signed by the PCP or a listed specialist.' },
     ],
-    sources: [S.en0499, S.cignaARG, S.rsa417E, S.hb569, S.rsa420J, S.ins1904, S.bacbLic, S.erisa, S.ebhAdmin, S.fee],
+    sources: [S.en0499, S.cignaARG, S.rsa417E, S.hb569, S.rsa420J, S.ins1904, S.bacbLic, S.erisa, S.ebhAdmin, S.fee,
+      { title: 'RSA 420-J:8-a — Prompt Payment Required (New Hampshire)', url: 'https://www.gencourt.state.nh.us/rsa/html/XXXVII/420-J/420-J-8-a.htm' },
+      { title: 'WellSense — Applied Behavioral Analysis Prior Authorization Form, New Hampshire (updated 11/14/2025)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_NH.pdf' },
+      { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+      { title: 'NH Medicaid — Non-Primary Payer Claim Billing Requirements (updated May 23, 2023)', url: 'https://nhmmis.nh.gov/portals/wps/wcm/connect/9d07a0a4-82af-46c4-b758-d1a911bd9753/NH+Medicaid+Non-Primary+Claim+Billing+Requirements.pdf?MOD=AJPERES&CVID=oywGTyK' },
+      { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
+      { title: '38 CFR 17.270 — CHAMPVA is the last payer', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
+    ],
     deliveryRules: {
       supervision: {
         value: 'Case supervision is by a BCBA, a Licensed Behavior Analyst, or an independently licensed mental health professional with ABA training. Direct plus indirect case supervision runs at one to two hours per ten hours of direct treatment; at 10 hours a week or less, at least one to two hours a week of direct case supervision. The supervisor’s name and credentials must be documented.',
@@ -1525,7 +1595,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
         cites: [S.en0499],
       },
       diagnosingProviders: {
-        value: 'A healthcare professional licensed to practice independently whose board considers diagnosis within scope, applying DSM-5-TR criteria. The ABA assessment itself is by a BCBA, a Licensed Behavior Analyst, or an independently licensed mental health clinician with ABA training.',
+        value: 'A healthcare professional licensed to practice independently whose board considers diagnosis within scope, applying DSM-5-TR criteria. The ABA assessment itself is by a BCBA, a Licensed Behavior Analyst, or an independently licensed mental health clinician with ABA training. LCSW: not named. The test turns on licensure and diagnostic scope, so an LCSW\'s diagnosis is accepted only if the plan agrees it is within the LCSW\'s licensed scope; confirm with the plan before relying on one.',
         status: 'verified',
         cites: [S.en0499],
       },
@@ -1564,6 +1634,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Cigna pay out-of-network ABA providers?', a: 'Only if the member\'s plan has out-of-network benefits; on Open Access Plus, out-of-network services “are covered at a reduced benefit level.” Evernorth publishes no single case agreement process or rate. Appeals are due within 180 calendar days of the denial, and an out-of-network provider may need an Appointment of Representative form signed by the patient.' },
       { q: 'Does Cigna cover ABA therapy in New Hampshire?', a: 'Yes, under national policy EN0499 for ASD, with New Hampshire’s RSA 417-E mandate layered on for fully insured plans. Self-funded employer plans follow their own documents.' },
       { q: 'Does the Cigna ABA assessment need prior authorization in New Hampshire?', a: 'No, for 97151, 97152 and 0362T with an autism diagnosis when the provider is independently licensed or a BCBA. PA starts at treatment.' },
       { q: 'Does a BCBA need a New Hampshire license to bill Cigna?', a: 'New Hampshire issues no behavior-analyst license, and Cigna accepts a BCBA as the billing credential for ABA.' },
@@ -1660,6 +1731,13 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
         ],
         cites: [S.optumNNM, S.optumReimb, S.optumSCC],
       },
+      {
+        h2: 'Out of network with UnitedHealthcare (Optum) for ABA',
+        body: [
+          'UnitedHealthcare says that when the member chooses an out-of-network provider, the No Surprises Act and state surprise-billing laws generally do not apply, and “United will look to the member’s benefit plan to determine if it is covered and how it should be paid.” Reimbursement may use a percentage of CMS rates, FAIR Health, Viant, a “Negotiated Rate” agreed “after the service was provided,” or other methods, and “Which option is used depends on various factors, including but not limited to the terms of the healthcare benefit plan.” On commercial HMO plans, “If the needed health care provider is not available in-network, not available within the needed time frame or too far away, the PCP needs to request an out-of-network prior authorization”; if approved, “the member is not responsible for costs over their applicable in-network cost-sharing.” For disputes, Optum\'s Provider Express portal “is available to network clinicians and group practices, as well as out-of-network individual clinicians,” and Optum asks for “member-specific treatment plans, clinical records, payment appendices or other items that support why you believe our decision was incorrect.”',
+        ],
+        cites: [{ title: 'UnitedHealthcare — Information on payment of out-of-network benefits', url: 'https://www.uhc.com/legal/information-on-payment-of-out-of-network-benefits' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (commercial)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, { title: 'Optum National Network Manual (BH02330, effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (RSA 417-E applies) vs. self-funded ERISA (plan document governs).' },
@@ -1667,7 +1745,15 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis with a validated tool', desc: 'DSM-5-TR ASD and severity level, confirmed with a validated tool (ADI-R, ADOS-2 and others). Optum asks for the instrument.' },
       { title: 'Signed treatment plan', desc: 'RSA 417-E:2 lets the insurer require one signed by the PCP or a listed specialist.' },
     ],
-    sources: [S.optumSCC, S.optumSM, S.mcm, S.rsa417E, S.hb569, S.rsa420J, S.ins1904, S.bacbLic, S.erisa, S.optumTele, S.rsa415J, S.optumNNM, S.optumReimb, S.fee],
+    sources: [ { title: 'UnitedHealthcare — Information on payment of out-of-network benefits', url: 'https://www.uhc.com/legal/information-on-payment-of-out-of-network-benefits' },S.optumSCC, S.optumSM, S.mcm, S.rsa417E, S.hb569, S.rsa420J, S.ins1904, S.bacbLic, S.erisa, S.optumTele, S.rsa415J, S.optumNNM, S.optumReimb, S.fee,
+      { title: 'RSA 420-J:8-a — Prompt Payment Required (New Hampshire)', url: 'https://www.gencourt.state.nh.us/rsa/html/XXXVII/420-J/420-J-8-a.htm' },
+      { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial): timely filing, NPI/taxonomy, claim reconsideration and appeals', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+      { title: 'WellSense — Applied Behavioral Analysis Prior Authorization Form, New Hampshire (updated 11/14/2025)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_NH.pdf' },
+      { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+      { title: 'NH Medicaid — Non-Primary Payer Claim Billing Requirements (updated May 23, 2023)', url: 'https://nhmmis.nh.gov/portals/wps/wcm/connect/9d07a0a4-82af-46c4-b758-d1a911bd9753/NH+Medicaid+Non-Primary+Claim+Billing+Requirements.pdf?MOD=AJPERES&CVID=oywGTyK' },
+      { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage except Medicaid', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
+      { title: '38 CFR 17.270 — CHAMPVA is the last payer', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
+    ],
     deliveryRules: {
       supervision: {
         value: 'Consistent with CASP standards, direct case supervision is required at 1–2 hours for every 10 hours of direct treatment per week. Technicians work under a BCBA or licensed behavioral health clinician and should be RBTs or otherwise certified. Optum does not recommend parents serving as their own child’s RBT.',
@@ -1716,7 +1802,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
         cites: [S.optumSCC],
       },
       diagnosingProviders: {
-        value: 'A state-licensed physician, psychologist, or other state-licensed clinician qualified to diagnose under DSM-5-TR.',
+        value: 'A state-licensed physician, psychologist, or other state-licensed clinician qualified to diagnose under DSM-5-TR. LCSW: not named. The test turns on licensure and diagnostic scope, so an LCSW\'s diagnosis is accepted only if the plan agrees it is within the LCSW\'s licensed scope; confirm with the plan before relying on one.',
         status: 'verified',
         cites: [S.optumSCC],
       },
@@ -1755,6 +1841,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare pay out-of-network ABA providers?', a: 'Only under the member\'s out-of-network benefits, priced by a method the plan sets (a percentage of CMS rates, FAIR Health, Viant or a negotiated rate). On commercial HMO plans an out-of-network provider can be approved when no network provider is available in time or nearby; the PCP requests an out-of-network prior authorization, and the member then pays only in-network cost-sharing.' },
       { q: 'What is UnitedHealthcare’s timely filing limit for ABA in New Hampshire?', a: 'Optum, which administers UnitedHealthcare’s behavioral health claims, needs all claim information within 90 calendar days of the date of service unless state law, federal law or the benefit plan allows longer; corrections are due within 90 days of initial claim receipt.' },
       { q: 'Does UnitedHealthcare accept H0031 or other H-codes for ABA?', a: 'Optum’s commercial ABA reimbursement policy lists only CPT 97151–97158 (with an HM, HN, HO or HP credential modifier), 0362T and 0373T. No H-codes are listed.' },
       { q: 'How many units of 97153 can I bill per day with UnitedHealthcare?', a: 'Thirty-two units (8 hours). Optum’s commercial ABA reimbursement policy caps each code per day, and units over the maximum may be denied or recovered.' },

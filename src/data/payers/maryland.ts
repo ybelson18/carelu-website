@@ -205,6 +205,17 @@ export const marylandPayers: Record<string, PayerConfig> = {
           { title: 'Carelon Maryland — ABA FAQs (May 2026)', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/75/ABA-FAQ-May-2026-.pdf' },
         ],
       },
+      {
+        h2: 'Switching ABA agencies, and whether private insurance helps the gap',
+        body: [
+          'Switching to a new agency does not need a discharge or a gap. Carelon\'s May 2026 ABA FAQ: "Participants can obtain authorization from an initial assessment while still receiving services from their current provider. The Continuity of Care Form will be required along with a parent/guardian note, in order for the initial assessment to be authorized." If the old agency has already stopped but its authorization still shows as active, the new agency "will need to secure a parent/guardian\'s note," which "will serve as a documented request to amend the authorization and allow Provider B to initiate services." Ask every family at intake whether another ABA agency holds an active authorization.',
+          'Would adding private insurance close a gap? Not by itself. "Medicaid is always the payer of last resort" (PBHS manual §16.07), so once the children have commercial coverage the new agency must bill that plan first, within its timely filing limit, and meet its own prior authorization and network rules before Medicaid pays anything. Carelon then pays as secondary without preauthorization, up to the Medicaid allowed amount, and the family cannot be billed the difference. Medicaid\'s pre-authorization criteria still have to be met even as secondary (the CDE, a referral dated within six months of the initial assessment, and the Clinical Confirmation Form where it applies). The quickest route to restarting ABA is usually the Continuity of Care Form with Medicaid, not a new policy, whose own authorization can take as long as Medicaid\'s.',
+        ],
+        cites: [
+          { title: 'Carelon Maryland — Applied Behavior Analysis (ABA) FAQ (May 2026)', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/75/ABA-FAQ-May-2026-.pdf' },
+          { title: 'Carelon Maryland PBHS Provider Manual (version 5, August 2026), §16.07 Coordination of Benefits', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/75/carelon-maryland-pbhs-provider-manual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Medicaid eligibility — not the MCO', desc: 'Verify Medical Assistance eligibility and route everything to Carelon; the HealthChoice MCO on the card is irrelevant for ABA.' },
@@ -305,7 +316,7 @@ export const marylandPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'A closed list of seven. The ASD diagnosis must be made by a qualified health care professional (QHCP) \u201cwith training and experience to diagnose ASD\u201d: a developmental pediatrician, a pediatrician, a pediatric neurologist, a child psychiatrist, a clinical psychologist, a neuropsychologist, or a nurse practitioner. The ABA assessment that follows is a separate role and a separate credential \u2014 only a licensed psychologist, BCBA-D or BCBA may complete it and write the treatment plan.',
+          'A closed list of seven. The ASD diagnosis must be made by a qualified health care professional (QHCP) \u201cwith training and experience to diagnose ASD\u201d: a developmental pediatrician, a pediatrician, a pediatric neurologist, a child psychiatrist, a clinical psychologist, a neuropsychologist, or a nurse practitioner. The ABA assessment that follows is a separate role and a separate credential \u2014 only a licensed psychologist, BCBA-D or BCBA may complete it and write the treatment plan. LCSW: no. The QHCP list is closed and names no social worker of any licence level, whatever Maryland\'s social-work scope allows; an LCSW-C\'s evaluation does not open the ABA benefit without a diagnosis from one of the seven.',
         status: 'verified',
         cites: [{ title: 'MDH ABA Provider Manual (eff. Feb 1, 2026)', url: 'https://health.maryland.gov/mmcp/epsdt/ABA/Documents/ABA%20Provider%20Manual%202_1_26%20(2).pdf' }],
       },
@@ -335,9 +346,9 @@ export const marylandPayers: Record<string, PayerConfig> = {
       },
       coordinationOfBenefits: {
         value:
-          '“Medicaid is always the payer of last resort.” Verify other coverage in EVS at intake. When commercial insurance is primary: “Submit the claim to the commercial carrier first and within the commercial carrier’s timely filing requirements,” then submit to Carelon “within 12 months of the first date of service or 120 days of the commercial carrier’s EOB, whichever is later,” with the primary payment or EOB attached — claims without it deny (“Primary insurance information or EOB required”). Maryland’s big simplifier: “Preauthorization is not required when Carelon is paying as secondary.” Carelon pays the difference between the commercial payment and the Medicaid allowed amount, and the family may not be billed for the gap between charges and what the two payers paid.',
+          '“Medicaid is always the payer of last resort.” Verify other coverage in EVS at intake. When commercial insurance is primary: “Submit the claim to the commercial carrier first and within the commercial carrier’s timely filing requirements,” then submit to Carelon “within 12 months of the first date of service or 120 days of the commercial carrier’s EOB, whichever is later,” with the primary payment or EOB attached — claims without it deny (“Primary insurance information or EOB required”). Maryland’s big simplifier: “Preauthorization is not required when Carelon is paying as secondary.” Carelon pays the difference between the commercial payment and the Medicaid allowed amount, and the family may not be billed for the gap between charges and what the two payers paid. No authorization, but not no rules: Carelon\'s May 2026 ABA FAQ says that when Medicaid is secondary "an authorization may not be required, but pre-authorization criteria must be met" (the CDE, a referral or prescription dated within six months of the initial assessment, and the Clinical Confirmation Form where it applies), because "All Medicaid standards must be met for Medicaid to cover services, regardless of its position as secondary payor." If the commercial plan does not cover a code (the FAQ\'s example is 97157), get its denial on file, and Medicaid then needs its own authorization to pay that code as primary.',
         status: 'verified',
-        cites: [{ title: 'Carelon Maryland PBHS Provider Manual (version 5, August 2026), §16.07 Coordination of Benefits', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/75/carelon-maryland-pbhs-provider-manual.pdf' }],
+        cites: [{ title: 'Carelon Maryland PBHS Provider Manual (version 5, August 2026), §16.07 Coordination of Benefits', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/75/carelon-maryland-pbhs-provider-manual.pdf' }, { title: 'Carelon Maryland — Applied Behavior Analysis (ABA) FAQ (May 2026)', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/75/ABA-FAQ-May-2026-.pdf' }],
       },
     },
     faq: [
@@ -363,6 +374,7 @@ export const marylandPayers: Record<string, PayerConfig> = {
       { q: 'Does Carelon allow retro authorizations for Maryland Medicaid ABA?', a: 'Only a short backdate. Carelon’s May 2026 FAQ: “Carelon allows backdating of ABA authorizations up to 20 calendar days.” COMAR 10.09.28.04 covers ABA only when “Preauthorized by the Program or its designee.” No authorization is needed when Maryland Medicaid is the secondary payer.' },
       { q: 'Does Maryland Medicaid accept H0031 or H0032 for ABA?', a: 'No. The Maryland ABA fee schedule lists only CPT 97151–97158, 0362T and 0373T (97156 also with U2), billed in 15-minute units.' },
       { q: 'Does Maryland Medicaid require graphs for ABA reauthorization?', a: 'Yes. Since April 1, 2026, Carelon requires graphs for every skill-acquisition, behavior-reduction and parent/caregiver goal in the treatment plan and reassessment, showing the data collection method and mastery criteria for each goal.' },
+      { q: 'A Maryland Medicaid family is switching ABA clinics. Would getting the kids private insurance help with the gap in services?', a: 'Usually not. The new clinic does not need the child discharged first: Carelon authorizes the new agency\'s initial assessment with a Continuity of Care Form and a parent/guardian note, even while the old agency is still serving the child. Private insurance would become the primary payer (Medicaid is always the payer of last resort), so the new clinic would have to get that plan\'s authorization and bill it first; Carelon then pays as secondary without preauthorization, as long as Medicaid\'s criteria (CDE, referral within six months, CCF where needed) are met.' },
     ],
   },
 
@@ -520,6 +532,18 @@ export const marylandPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'CareFirst Provider Manual, Chapter 2: Product Descriptions — BlueCard Program (January 2025 edition)', url: 'https://provider.carefirst.com/carefirst-resources/provider/pdf/provider-manual-chapter-2-product-descriptions.pdf' }],
       },
+      {
+        h2: 'Is a CareFirst ABA authorization tied to an individual NPI or the group tax ID?',
+        body: [
+          'CareFirst publishes no ABA-specific rule on whether an authorization belongs to the clinician or the group. What its own documents show is that authorizations and claims are keyed to NPIs, not to the tax ID. The Utilization Management Outpatient Authorization Request (form SUM7690-1E, April 2026; the portal request in CareFirst Direct asks for the same) identifies a requesting provider by name and NPI and a rendering provider by name and NPI, with a box to tick when they are the same, and has no tax ID field. On the claim, "Your billing and rendering National Provider Identifier (NPI) are required on all claim submissions" (Provider Manual Chapter 5), with the federal tax ID in box 25.',
+          'For ABA the rendering NPI is the supervising BCBA, not the technician: CareFirst does not contract with assistant behavior analysts or registered behavior technicians, and their services are submitted under the supervising licensed BCBA\'s name and provider number (PP CO 020.01). In practice, then, list the supervising BCBA (or the group, as requesting provider) on the authorization, and bill the claim with the same rendering NPI the authorization names. CareFirst does not say whether an approved authorization carries over when a different BCBA in the same group takes over the case. Before the change, ask CareFirst at 1-866-773-2884 (1-866-PRE-AUTH), or through CareFirst Direct, to update the rendering provider on the authorization.',
+        ],
+        cites: [
+          { title: 'CareFirst — Utilization Management Outpatient Authorization Request for Services (SUM7690-1E, 4/26)', url: 'https://provider.carefirst.com/carefirst-resources/provider/pdf/authorization-form-outpatient-services.pdf' },
+          { title: 'CareFirst Provider Manual, Chapter 5: Claims, Billing and Payments (billing and rendering NPI required on every claim)', url: 'https://provider.carefirst.com/carefirst-resources/provider/pdf/provider-manual-chapter-5-claims-billing-and-payments.pdf' },
+          { title: 'CareFirst Payment Policy PP CO 020.01 — Limited Licensed Providers, Professional (last review 5/6/2025)', url: 'https://provider.carefirst.com/providers/medical/payment-policy.page' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type and product', desc: 'Fully insured Maryland contract (mandate and hour floors apply), self-funded employer plan (exempt), FEP or a NASCO national account (may differ from CareFirst\'s local policies), or CareFirst Community Health Plan Maryland (Medicaid, so ABA goes to Carelon).' },
@@ -553,6 +577,8 @@ export const marylandPayers: Record<string, PayerConfig> = {
       { title: 'CMS — Medicare NCCI Procedure-to-Procedure (PTP) Edits, practitioner file 2026 Q4 (v32.3)', url: 'https://www.cms.gov/medicare/coding-billing/national-correct-coding-initiative-ncci-edits/medicare-ncci-procedure-procedure-ptp-edits' },
       { title: 'CMS — Maryland EVV compliance determination letter (Feb 27, 2024)', url: 'https://www.medicaid.gov/medicaid/home-community-based-services/downloads/md-evv-aprvl-ltr-02272024.pdf' },
       { title: 'CareFirst — Provider Medical News (provider news archive)', url: 'https://provider.carefirst.com/providers/news/medical.page' },
+      { title: 'CareFirst — Utilization Management Outpatient Authorization Request for Services (SUM7690-1E, 4/26)', url: 'https://provider.carefirst.com/carefirst-resources/provider/pdf/authorization-form-outpatient-services.pdf' },
+      { title: 'Md. Code, Health Occupations § 19-101 — definitions (LCSW-C practice includes "evaluation, diagnosis, and treatment")', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gho&section=19-101&enactments=false' },
     ],
     deliveryRules: {
       supervision: {
@@ -615,9 +641,9 @@ export const marylandPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'A "qualified healthcare provider." Medical Policy 3.01.015 requires a "confirmed diagnosis of autism spectrum disorder (ASD) from a qualified healthcare provider" and does not list which credentials qualify. On a fully insured Maryland contract, COMAR 31.10.39.03 lets the carrier require a comprehensive evaluation by the child\'s primary care provider or a specialty physician.',
+          'A "qualified healthcare provider." Medical Policy 3.01.015 requires a "confirmed diagnosis of autism spectrum disorder (ASD) from a qualified healthcare provider" and does not list which credentials qualify. On a fully insured Maryland contract, COMAR 31.10.39.03 lets the carrier require a comprehensive evaluation by the child\'s primary care provider or a specialty physician. LCSW: not named. 3.01.015 asks only for a "qualified healthcare provider", and Maryland lets a licensed certified social worker–clinical (LCSW-C) do the "evaluation, diagnosis, and treatment" of biopsychosocial conditions and behavioral health disorders (Health Occ. § 19-101(n)(5)); an LMSW or LCSW-A may formulate a diagnosis only under an LCSW-C\'s supervision. Ask CareFirst at authorization whether it accepts an LCSW-C diagnosis.',
         status: 'verified',
-        cites: [{ title: 'CareFirst Medical Policy 3.01.015 — Autism Spectrum Disorder (ASD) (eff. 3/1/2026), Medical Policy Reference Manual', url: 'https://provider.carefirst.com/providers/medical/medical-policy.page' }, { title: 'COMAR 31.10.39.03 — Utilization Review Criteria for Treatment of Autism and Autism Spectrum Disorders', url: 'https://regs.maryland.gov/us/md/exec/comar/31.10.39.03' }],
+        cites: [{ title: 'Md. Code, Health Occupations § 19-101 — definitions (LCSW-C practice includes "evaluation, diagnosis, and treatment")', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gho&section=19-101&enactments=false' }, { title: 'CareFirst Medical Policy 3.01.015 — Autism Spectrum Disorder (ASD) (eff. 3/1/2026), Medical Policy Reference Manual', url: 'https://provider.carefirst.com/providers/medical/medical-policy.page' }, { title: 'COMAR 31.10.39.03 — Utilization Review Criteria for Treatment of Autism and Autism Spectrum Disorders', url: 'https://regs.maryland.gov/us/md/exec/comar/31.10.39.03' }],
       },
       diagnosticTools: {
         value:
@@ -675,6 +701,7 @@ export const marylandPayers: Record<string, PayerConfig> = {
       { q: 'What is CareFirst’s timely filing limit in Maryland?', a: '365 days from the date of service (Provider Manual Chapter 5). Maryland law (Insurance § 15-1005) sets a 180-day minimum for fully insured plans, so CareFirst’s window is longer. The same statute requires payment, or a written notice of what is wrong, within 30 days of receipt, with interest on clean claims still unpaid after 30 days.' },
       { q: 'Who do ABA services get billed under for CareFirst, the supervising BCBA or the rendering technician?', a: 'The supervising licensed BCBA. Payment Policy PP CO 020.01: technician and assistant-behavior-analyst services are “submitted under that supervising physician’s or licensed board-certified behavior analyst’s name and provider number,” with no extra modifier for the provider type, and are allowed at the supervising BCBA’s fee schedule. CareFirst does not contract with RBTs or BCaBAs directly.' },
       { q: 'Can an out-of-state BCBA treat CareFirst members in Maryland, including by telehealth?', a: 'Maryland requires a Maryland license to practice behavior analysis (Health Occupations § 17-6A-10). CareFirst credentials only practitioners “licensed in the state where the member receives the service” and within its Maryland, D.C. and Northern Virginia service area.' },
+      { q: 'Are CareFirst BCBS ABA authorizations tied to an individual NPI or the group tax ID?', a: 'To NPIs. CareFirst\'s outpatient authorization request names a requesting provider NPI and a rendering provider NPI and has no tax ID field, and every claim must carry the billing and rendering NPI. For ABA the rendering NPI is the supervising licensed BCBA, because technician and BCaBA services bill under that BCBA\'s name and provider number (PP CO 020.01). CareFirst publishes no rule on moving an authorization to another BCBA in the same group, so call 1-866-773-2884 to update the rendering provider before a change in supervisor.' },
     ],
   },
 
@@ -705,7 +732,7 @@ export const marylandPayers: Record<string, PayerConfig> = {
         { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
         { title: 'Aetna — Applied behavior analysis medical necessity guide (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
       ],
-      verifyVia: 'Two Aetna documents disagree on the code range and a human must settle which governs an ABA review: CPB 0554 and CPB 0648 both list "ICD-10 codes covered if selection criteria are met: F84.0 - F84.9", while the Applied behavior analysis medical necessity guide — the guideline Aetna’s behavioral-health reviewers apply — states "a DSM-V diagnosis of Autism Spectrum Disorder (ICD-10: F84.0; F84.3 - F84.9)" in both its quality-of-care elements and its medical-necessity criteria, which leaves out F84.2 (Rett syndrome). The ASD-only half of the claim is not in doubt; the range is.',
+      verifyVia: 'Two Aetna documents disagree on the code range and a human must settle which governs an ABA review: CPB 0554 (last review 10/14/2026) lists "ICD-10 codes covered if selection criteria are met: F84.0 - F84.9"; CPB 0648 (last review 10/20/2026) now lists F84.0, F84.3, F84.5, F84.8 and F84.9 (no F84.2 Rett, F84.1 or F84.4); and the Applied behavior analysis medical necessity guide — the guideline Aetna’s behavioral-health reviewers apply — states "a DSM-V diagnosis of Autism Spectrum Disorder (ICD-10: F84.0; F84.3 - F84.9)" in both its quality-of-care elements and its medical-necessity criteria, which leaves out F84.2 (Rett syndrome). The ASD-only half of the claim is not in doubt; the range is.',
       blocker: 'document',
     },
     payer: 'Aetna in Maryland',
@@ -831,6 +858,16 @@ export const marylandPayers: Record<string, PayerConfig> = {
           { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification (GR-69017-4, 7-26; eff. 8/1/2026; not for MD or MA)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
         ],
       },
+      {
+        h2: 'Reconsiderations and appeals with Aetna (what to include)',
+        body: [
+          'Aetna has two levels. A reconsideration, "a formal review of a previous claim decision" covering reimbursement, coding and reprocessing, must be filed "within 180 calendar days of the initial claim decision." An appeal, a written request to overturn a decision (including a reconsideration), is due "within 60 calendar days of the reconsideration decision," or within 180 days for commercial plans when the issue did not qualify for reconsideration. Some issues go straight to appeal, among them adverse utilization review decisions, outpatient denials for no precertification and retroactive authorizations. Aetna does not charge for either.',
+          'What to send with a reconsideration: "Medical records, office notes and other supporting documents," and either the completed dispute and appeal form or an explanation that includes the reason for review, member ID, patient name, Tax identification number (TIN), claim ID, dates of service and billed amounts, and the procedure codes and modifiers in dispute. File through Availity or mail it to the Aetna Provider Resolution Team, PO Box 981106, El Paso, TX 79998-1106 for this state. Most responses arrive as an EOB or letter within 30 business days. Status: 1-888-632-3862 for non-Medicare plans.',
+        ],
+        cites: [
+          { title: 'Aetna — Disputes and appeals overview (provider reconsiderations and appeals; checked 10/25/2026)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate + hour floors apply) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -858,6 +895,7 @@ export const marylandPayers: Record<string, PayerConfig> = {
       { title: 'Aetna — Disputes and appeals overview', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' },
       { title: 'Aetna — Provider appeals: state exceptions to filing standard', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/provider-appeals.html' },
       { title: 'Md. Insurance Article § 15-1005 — claims payment, filing and appeal minimums, interest', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gin&section=15-1005&enactments=false' },
+      { title: 'Md. Code, Health Occupations § 19-101 — definitions (LCSW-C practice includes "evaluation, diagnosis, and treatment")', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gho&section=19-101&enactments=false' },
     ],
     deliveryRules: {
       supervision: {
@@ -924,9 +962,9 @@ export const marylandPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'The diagnosis must come from a provider qualified to diagnose within their scope \u2014 a licensed psychologist, psychiatrist or physician. Aetna\'s national precertification form (GR-69017-4) asks for the DSM-5 diagnosis code, the diagnosing provider and their credentials, but that form says not to use it for Maryland, so confirm what Aetna wants on a Maryland request through Availity or the precertification line.',
+          'The diagnosis must come from a provider qualified to diagnose within their scope \u2014 a licensed psychologist, psychiatrist or physician. Aetna\'s national precertification form (GR-69017-4) asks for the DSM-5 diagnosis code, the diagnosing provider and their credentials, but that form says not to use it for Maryland, so confirm what Aetna wants on a Maryland request through Availity or the precertification line. LCSW: not named. The guide\'s catch-all ("other health care professional qualified to diagnose mental health conditions within their scope of practice") can reach an LCSW-C: Maryland lets a licensed certified social worker–clinical (LCSW-C) do the "evaluation, diagnosis, and treatment" of biopsychosocial conditions and behavioral health disorders (Health Occ. § 19-101(n)(5)); an LMSW or LCSW-A may formulate a diagnosis only under an LCSW-C\'s supervision. CPB 0648\'s evaluator list does not include social workers, so confirm at precertification.',
         status: 'verified',
-        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Aetna CPB 0648 \u2014 Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }],
+        cites: [{ title: 'Md. Code, Health Occupations § 19-101 — definitions (LCSW-C practice includes "evaluation, diagnosis, and treatment")', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gho&section=19-101&enactments=false' }, { title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Aetna CPB 0648 \u2014 Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }],
       },
       diagnosticTools: {
         value:
@@ -1146,6 +1184,18 @@ export const marylandPayers: Record<string, PayerConfig> = {
           { title: 'Evernorth Behavioral Health Administrative Guidelines (rev. Sept. 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
         ],
       },
+      {
+        h2: 'Appeals, reconsiderations and out-of-network (network exception) requests',
+        body: [
+          'Payment disputes and reconsiderations: Evernorth asks you to call Provider Services (800.926.2273) first, with the patient\'s name, date of service and the treating provider\'s name and TIN. Fee-schedule and reimbursement disputes "may be quickly resolved through submitting an adjustment request via the reconsideration feature on Provider.Evernorth.com." A formal appeal must be "initiated in writing within 180 calendar days of the date of the initial payment or denial decision" (or of the last payment adjustment), submitted by a person, not by automation software. Appeals go to Evernorth Appeals, PO Box 188064, Chattanooga, TN 37422 (fax 877.815.4827). Most are resolved within 60 calendar days, with notice within 75 days unless state law differs; after the internal process, the Provider Agreement\'s negotiation-then-arbitration steps apply.',
+          'What to include: for a medical-necessity denial, the clinical record behind the request (for ABA, the assessment, treatment plan, progress data and session notes); for an untimely-filing denial (claims are due within 90 days of service), the EDI transmission report or proof that coordination of benefits delayed the claim; for a late-payment dispute, the date you submitted the claim and your correspondence. A clinical coverage denial can be reviewed by a board-certified psychiatrist or doctoral-level psychologist not previously involved, on an expedited basis when urgent, with the appeal due within 180 calendar days of the denial.',
+          'Out-of-network providers: some out-of-network providers filing a standard appeal "must submit a valid Appointments of Representative form signed by the patient" for the appeal to be valid; call the number on the ID card to check. To treat a Cigna member without a contract, use the ABA prior authorization form, which covers "network exception requests," including for an ABA assessment (assessment codes otherwise need no prior authorization). Some Cigna products are in-network only, covering out-of-network care only for emergencies or special circumstances, so check the member\'s plan before treating out of network.',
+        ],
+        cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026): provider payment appeals, coverage denials', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+          { title: 'Evernorth — Applied Behavior Analysis Prior Authorization Form (PCOMM-2025-224; file dated 7/1/2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/applied-behavior-analysis.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate + hour floors apply) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -1166,6 +1216,8 @@ export const marylandPayers: Record<string, PayerConfig> = {
       { title: 'Cigna — 837P Companion Guide (version 1.18, February 2022)', url: 'https://www.cigna.com/static/www-cigna-com/docs/5010-837P-companion-guide.pdf' },
       { title: 'Md. Insurance Article § 15-1005 — claims payment, filing and appeal minimums, interest', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gin&section=15-1005&enactments=false' },
       { title: 'COMAR 31.10.39.03 — Utilization Review Criteria for Treatment of Autism and Autism Spectrum Disorders', url: 'https://regs.maryland.gov/us/md/exec/comar/31.10.39.03' },
+      { title: 'Md. Code, Health Occupations § 19-101 — definitions (LCSW-C practice includes "evaluation, diagnosis, and treatment")', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gho&section=19-101&enactments=false' },
+      { title: 'Evernorth — Applied Behavior Analysis Prior Authorization Form (PCOMM-2025-224; file dated 7/1/2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/applied-behavior-analysis.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -1188,9 +1240,9 @@ export const marylandPayers: Record<string, PayerConfig> = {
       },
       billAsProvider: {
         value:
-          'Evernorth does not credential non-licensed staff, so RBT-delivered services bill under the supervising provider. The treatment plan must name a credentialed supervisor. Evernorth\u2019s Administrative Guidelines (September 2026) say where that provider goes on the claim: \u201cWe allow providers to bill for professional services, which are rendered by supervisees, as permitted by state licensing regulations. If you engage in supervisor (or supervisee) billing, the fully credentialed provider should be listed on the claim as the rendering provider.\u201d A complete CMS-1500 carries the \u201cRendering provider\u2019s name, NPI, and license type\u201d and the \u201cBilling provider\u2019s name, address, and NPI.\u201d',
+          'Evernorth does not credential non-licensed staff, so RBT-delivered services bill under the supervising provider. The treatment plan must name a credentialed supervisor. Evernorth\u2019s Administrative Guidelines (September 2026) say where that provider goes on the claim: \u201cWe allow providers to bill for professional services, which are rendered by supervisees, as permitted by state licensing regulations. If you engage in supervisor (or supervisee) billing, the fully credentialed provider should be listed on the claim as the rendering provider.\u201d A complete CMS-1500 carries the \u201cRendering provider\u2019s name, NPI, and license type\u201d and the \u201cBilling provider\u2019s name, address, and NPI.\u201d Is the authorization tied to an NPI or the group TIN? Evernorth\'s ABA prior authorization form identifies the request by the servicing clinic\'s name, Taxpayer Identification Number (TIN) and address, plus the supervising provider\'s name and credential; it has no NPI field, and asks "Will the same provider be supervising the patient’s entire treatment?" (if not, name the additional supervisor). An approval is "written on a per month basis with CPT code 97155 and can be interchanged with ongoing treatment codes 97153–97158 and 0373T." Evernorth publishes no rule on moving an approval to a different clinic TIN; a change of supervisor within the clinic is something the form expects you to declare.',
         status: 'verified',
-        cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }],
+        cites: [{ title: 'Evernorth — Applied Behavior Analysis Prior Authorization Form (PCOMM-2025-224; file dated 7/1/2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/applied-behavior-analysis.pdf' }, { title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }],
       },
       dailyLimits: {
         value: 'No per-day or per-week unit cap is published. Evernorth’s autism resource guide says “All of the ABA CPT codes are in 15-minute increments” and “All ABA services must be billed with CPT codes 97151–97158, 0362T, and 0373T ONLY,” and adds that “Only one provider can bill for a unit of time,” except 97153, 97154 and 97155 during direct supervision. Neither the guide, EN0499 nor Evernorth’s Behavioral Health Administrative Guidelines (September 2026) sets a unit maximum or names an MUE table for ABA. The authorization, sized to the treatment plan under EN0499, is what bounds the day; ask Evernorth at authorization if a schedule needs more than eight hours of 97153 in a day.',
@@ -1227,9 +1279,9 @@ export const marylandPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'EN0499 as quoted in this guide sets the credential bar for who performs the ABA assessment and supervises the case \u2014 an independently licensed provider or a BCBA \u2014 rather than naming who may make the ASD diagnosis. The diagnosis itself must be a DSM-5-TR autism spectrum diagnosis, with Rett syndrome (F84.2) excluded.',
+          'EN0499 as quoted in this guide sets the credential bar for who performs the ABA assessment and supervises the case \u2014 an independently licensed provider or a BCBA \u2014 rather than naming who may make the ASD diagnosis. The diagnosis itself must be a DSM-5-TR autism spectrum diagnosis, with Rett syndrome (F84.2) excluded. LCSW: EN0499\'s test is independent licensure plus a board that puts diagnosis in scope. Maryland lets a licensed certified social worker–clinical (LCSW-C) do the "evaluation, diagnosis, and treatment" of biopsychosocial conditions and behavioral health disorders (Health Occ. § 19-101(n)(5)); an LMSW or LCSW-A may formulate a diagnosis only under an LCSW-C\'s supervision. So an LCSW-C meets the wording; an LMSW or LCSW-A does not practise independently.',
         status: 'unverified',
-        cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
+        cites: [{ title: 'Md. Code, Health Occupations § 19-101 — definitions (LCSW-C practice includes "evaluation, diagnosis, and treatment")', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gho&section=19-101&enactments=false' }, { title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
         verifyVia: 'Evernorth Behavioral Health provider services (the behavioral health number on the member\'s card) \u2014 ask which diagnosing credentials EN0499 accepts before you rely on a diagnosis from a non-doctoral clinician.',
         blocker: 'per-case',
       },
@@ -1286,6 +1338,7 @@ export const marylandPayers: Record<string, PayerConfig> = {
       { q: 'Does Cigna accept H0031 or H0032 for ABA?', a: 'No. Evernorth’s autism resource guide requires all ABA services to be billed with CPT 97151–97158, 0362T and 0373T only, in 15-minute units.' },
       { q: 'Does Cigna require graphs for ABA reassessments?', a: 'No graph is required. EN0499 requires dated quantitative baseline, interim and current data for every behavior and skill (current data no older than 60 days at the request and the start date), a standardized assessment within the past year, and caregiver-goal data. Data may be reported as data points or averages.' },
       { q: 'How fast must Cigna pay a clean claim in Maryland?', a: 'Within 30 days of receipt on a fully insured Maryland plan: Insurance § 15-1005 requires payment, or a notice of denial, dispute or missing information, within 30 days, with any undisputed portion paid in that window. Self-funded plans are covered only as far as ERISA allows.' },
+      { q: 'Is a Cigna/Evernorth ABA authorization tied to an individual NPI or the group tax ID?', a: 'To the servicing clinic. The Evernorth ABA prior authorization form asks for the clinic\'s name, TIN and address and the supervising provider\'s name and credential, with no NPI field, and asks whether the same provider will supervise the whole treatment. Approvals are written monthly on 97155, interchangeable with 97153–97158 and 0373T. A move to a different clinic TIN is not addressed, so expect a new request.' },
     ],
   },
 
@@ -1445,6 +1498,16 @@ export const marylandPayers: Record<string, PayerConfig> = {
           { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
         ],
       },
+      {
+        h2: 'Reconsiderations and appeals with Optum (what to include)',
+        body: [
+          'For commercial and Medicare Advantage plans Optum uses a two-step process for a disputed prior authorization or claim decision: request reconsideration first, then file an appeal if you still disagree. The two steps together have "a total of 12 months for submission," unless state law or your Participation Agreement sets a different deadline.',
+          'What to send: "member-specific treatment plans, clinical records, payment appendices or other items that support why you believe our decision was incorrect," plus proof of timely filing ("confirmation we received and accepted your claim within your timely filing requirement"). Optum decides on the materials it has at the time of review, so send the full packet the first time. Submit through the Provider Express secure portal (Appeals > Appeals Summary & Submission > Submit Claim Appeal), stating the factual or legal basis for the appeal, or mail the reconsideration request form with the documents to Optum Behavioral Health Solutions, P.O. Box 30757, Salt Lake City, UT 84123. The secure portal is also open to out-of-network individual clinicians. Services delivered without a required authorization can go in for retrospective review within 180 calendar days of the date of service.',
+        ],
+        cites: [
+          { title: 'Optum National Network Manual (BH02330-1-26-MAN, effective Sept. 1, 2026): Provider Reconsideration and Appeals Process', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (COMAR floors + Optum\'s MD criteria apply) vs. self-funded ERISA (exempt) — it decides which rulebook governs.' },
@@ -1471,6 +1534,7 @@ export const marylandPayers: Record<string, PayerConfig> = {
       { title: 'Md. Code, Health Occupations § 17-6A-10 — license required to practice behavior analysis', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gho&section=17-6A-10&enactments=false' },
       { title: 'UnitedHealthcare 2026 Administrative Guide — Chapter 10, NPI', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
       { title: 'Md. Insurance Article § 15-1005 — claims payment, filing and appeal minimums, interest', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gin&section=15-1005&enactments=false' },
+      { title: 'Md. Code, Health Occupations § 19-101 — definitions (LCSW-C practice includes "evaluation, diagnosis, and treatment")', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gho&section=19-101&enactments=false' },
     ],
     deliveryRules: {
       supervision: {
@@ -1537,9 +1601,9 @@ export const marylandPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'A DSM-5-TR autism spectrum diagnosis from a state-licensed physician, psychologist, or other qualified clinician. Optum asks for the diagnosing clinician and the instrument at the assessment-authorization step, so both are intake fields.',
+          'A DSM-5-TR autism spectrum diagnosis from a state-licensed physician, psychologist, or other qualified clinician. Optum asks for the diagnosing clinician and the instrument at the assessment-authorization step, so both are intake fields. LCSW: covered by "other qualified clinician" where state scope allows. Maryland lets a licensed certified social worker–clinical (LCSW-C) do the "evaluation, diagnosis, and treatment" of biopsychosocial conditions and behavioral health disorders (Health Occ. § 19-101(n)(5)); an LMSW or LCSW-A may formulate a diagnosis only under an LCSW-C\'s supervision. Optum asks for the diagnosing clinician at the assessment authorization.',
         status: 'verified',
-        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+        cites: [{ title: 'Md. Code, Health Occupations § 19-101 — definitions (LCSW-C practice includes "evaluation, diagnosis, and treatment")', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gho&section=19-101&enactments=false' }, { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
       },
       diagnosticTools: {
         value:

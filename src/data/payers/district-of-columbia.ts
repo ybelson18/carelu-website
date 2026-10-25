@@ -60,7 +60,7 @@ const S: Record<string, PayerSource> = {
   aetnaGuide: { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026; Exhibit A covers Maryland only)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
   aetnaPrecert: { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
   aetnaCPB: { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
-  aetnaCPB648: { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+  aetnaCPB648: { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/20/2026)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
   aetnaNPC: { title: 'Aetna — Provider and facility participation criteria (8100606-01-01, 5/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' },
   aetnaOM: { title: 'Aetna Health Care Professional Toolkit / provider manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
   en0499: { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
@@ -244,7 +244,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       diagnosingProviders: {
-        value: 'Physician (including psychiatrist), physician assistant under a physician, psychologist, psychology associate under a psychologist, licensed professional counselor, LICSW, or APRN (SPA 23-0009, the "diagnosing providers").',
+        value: 'Physician (including psychiatrist), physician assistant under a physician, psychologist, psychology associate under a psychologist, licensed professional counselor, LICSW, or APRN (SPA 23-0009, the "diagnosing providers"). LCSW: yes, if licensed in DC as an LICSW (licensed independent clinical social worker), which SPA 23-0009 names among the diagnosing providers. A lower-level social work licence is not on the list.',
         status: 'verified',
         cites: [S.spa],
       },
@@ -254,7 +254,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
         cites: [S.spa],
       },
       referral: {
-        value: 'Yes. ASD services "must be recommended by a physician or other licensed practitioner of the healing arts within his or her scope of practice," and after screening "a referral may be made" by a qualified screener (physician, PA, psychologist, psychology associate, LPC, LICSW or APRN) for the diagnostic evaluation.',
+        value: 'Yes. ASD services "must be recommended by a physician or other licensed practitioner of the healing arts within his or her scope of practice," and after screening "a referral may be made" by a qualified screener (physician, PA, psychologist, psychology associate, LPC, LICSW or APRN) for the diagnostic evaluation. Assessment vs treatment: the recommendation requirement covers the whole benefit, which SPA 23-0009 lists as screening, diagnostic evaluation, treatment planning and ASD treatment services, so it applies to the assessment and treatment-planning codes as well as 97153. The SPA sets no form, validity period or required contents for the recommendation; treatment services must also be identified in a treatment plan. Ask DHCF or the member\'s plan what they accept as the written recommendation.',
         status: 'verified',
         cites: [S.spa],
       },
@@ -346,7 +346,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
       { title: 'Prior plan’s authorization', desc: 'Wellpoint or MedStar authorizations are honored for a transition period; capture the approval letter.' },
       { title: 'Other insurance', desc: 'The plan pays last; bill the primary first.' },
     ],
-    sources: [S.acdcLookup, S.acdcPA, S.acdcPM, S.mcps, S.t2619, S.spa, S.mcoContract, S.teleGuide, S.cfr438, S.cfr433, { title: 'AmeriHealth Caritas District of Columbia — Newsletters and Updates (provider newsletter and updates archive)', url: 'https://www.amerihealthcaritasdc.com/provider/newsletters-and-updates' }],
+    sources: [S.acdcLookup, S.acdcPA, S.acdcPM, S.mcps, S.t2619, S.spa, S.mcoContract, S.teleGuide, S.cfr438, S.cfr433, { title: 'AmeriHealth Caritas District of Columbia — Newsletters and Updates (provider newsletter and updates archive)', url: 'https://www.amerihealthcaritasdc.com/provider/newsletters-and-updates' }, { title: '42 CFR 438.206(b)(4)-(5) — Medicaid managed care availability of services: out-of-network coverage when the network cannot provide a service', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' }],
     deliveryRules: {
       supervision: {
         value: 'The plan publishes no ABA supervision rule of its own. The state rule applies: an RBT works under a BCBA, BCBA-D or BCaBA, and a BCaBA under a BCBA or BCBA-D (SPA 23-0009), with no numeric ratio.',
@@ -403,7 +403,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       diagnosingProviders: {
-        value: 'The plan publishes nothing different, so the state list applies: physician, PA, psychologist, psychology associate, LPC, LICSW or APRN (SPA 23-0009).',
+        value: 'The plan publishes nothing different, so the state list applies: physician, PA, psychologist, psychology associate, LPC, LICSW or APRN (SPA 23-0009). LCSW: yes, if licensed in DC as an LICSW (licensed independent clinical social worker), which SPA 23-0009 names among the diagnosing providers. A lower-level social work licence is not on the list.',
         status: 'verified',
         cites: [S.acdcPM, S.spa],
       },
@@ -441,6 +441,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
       { q: 'Which ABA codes need PA with AmeriHealth Caritas DC?', a: '97151, 97152, 97153, 97155, 0362T and 0373T. The tool says 97154, 97156, 97157 and 97158 do not, for a participating provider in an outpatient setting with the code on its contract.' },
       { q: 'I treated a Wellpoint DC child. What now?', a: 'Wellpoint members moved to AmeriHealth Caritas DC on August 1, 2026. Wellpoint authorizations are honored through October 31, 2026; request a new authorization from AmeriHealth before then and join its network (dcprovidernetwork@amerihealthcaritasdc.com, 877-759-6186).' },
       { q: 'Will AmeriHealth Caritas DC approve an authorization after services start?', a: 'Not routinely. From November 1, 2026 the plan says it will no longer routinely approve retrospective requests for non-emergent services, so get the authorization first.' },
+      { q: 'Will AmeriHealth Caritas DC pay an out-of-network ABA provider (a single case agreement)?', a: 'Only when its own network cannot provide the service. Federal managed-care rules say that if the plan\'s network "is unable to provide necessary services, covered under the contract, to a particular enrollee," the plan "must adequately and timely cover these services out of network for the enrollee, for as long as" that lasts, and the out-of-network provider must "coordinate with the MCO ... for payment," with the family\'s cost no greater than in network (42 CFR 438.206(b)(4)-(5)). AmeriHealth Caritas DC publishes no ABA single-case-agreement process of its own in the documents we read, so ask its provider relations or utilization management team for an out-of-network authorization, and document why no in-network ABA provider can serve the child (waitlists, distance, language, specialty). The provider must still be enrolled in the state Medicaid program.' },
     ],
   },
 
@@ -506,7 +507,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
       { title: 'Treatment plan and codes', desc: 'Codes on the request must match what is billed; DC’s rule is a six-month plan with measurable goals and hours.' },
       { title: 'Other insurance', desc: 'Bill the primary first; MedStar needs the primary remittance within 180 days.' },
     ],
-    sources: [S.mfcQAG, S.mfcPM, S.mfcUM, S.mcps, S.t2619, S.spa, S.teleGuide, S.cfr438, S.cfr433, { title: 'MedStar Family Choice DC — Provider News (provider newsletters and provider alerts)', url: 'https://www.medstarfamilychoicedc.com/Providers/Provider-Resources/Provider-News' }],
+    sources: [S.mfcQAG, S.mfcPM, S.mfcUM, S.mcps, S.t2619, S.spa, S.teleGuide, S.cfr438, S.cfr433, { title: 'MedStar Family Choice DC — Provider News (provider newsletters and provider alerts)', url: 'https://www.medstarfamilychoicedc.com/Providers/Provider-Resources/Provider-News' }, { title: '42 CFR 438.206(b)(4)-(5) — Medicaid managed care availability of services: out-of-network coverage when the network cannot provide a service', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' }],
     deliveryRules: {
       supervision: {
         value: 'The plan publishes no ABA supervision rule of its own. The state rule applies: an RBT works under a BCBA, BCBA-D or BCaBA, and a BCaBA under a BCBA or BCBA-D (SPA 23-0009), with no numeric ratio.',
@@ -563,7 +564,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       diagnosingProviders: {
-        value: 'The plan publishes nothing different, so the state list applies: physician, PA, psychologist, psychology associate, LPC, LICSW or APRN (SPA 23-0009).',
+        value: 'The plan publishes nothing different, so the state list applies: physician, PA, psychologist, psychology associate, LPC, LICSW or APRN (SPA 23-0009). LCSW: yes, if licensed in DC as an LICSW (licensed independent clinical social worker), which SPA 23-0009 names among the diagnosing providers. A lower-level social work licence is not on the list.',
         status: 'verified',
         cites: [S.mfcPM, S.spa],
       },
@@ -599,6 +600,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
       { q: 'Does MedStar Family Choice DC require prior authorization for ABA?', a: 'Yes. Its Quick Authorization Guide lists ABA Services as prior authorization required. It does not split out the 97151 assessment, so confirm that code with UM at 855-798-4244.' },
       { q: 'How long does MedStar Family Choice DC take to decide?', a: 'Its manual says standard decisions take no more than 14 calendar days. Federal rules now cap standard Medicaid managed care decisions at 7 days for rating periods starting in 2026.' },
       { q: 'What is the timely filing limit?', a: '365 days from the date of service. Secondary claims with the primary insurer’s remittance are due within 180 days of that remittance.' },
+      { q: 'Will MedStar Family Choice pay an out-of-network ABA provider (a single case agreement)?', a: 'Only when its own network cannot provide the service. Federal managed-care rules say that if the plan\'s network "is unable to provide necessary services, covered under the contract, to a particular enrollee," the plan "must adequately and timely cover these services out of network for the enrollee, for as long as" that lasts, and the out-of-network provider must "coordinate with the MCO ... for payment," with the family\'s cost no greater than in network (42 CFR 438.206(b)(4)-(5)). MedStar Family Choice publishes no ABA single-case-agreement process of its own in the documents we read, so ask its provider relations or utilization management team for an out-of-network authorization, and document why no in-network ABA provider can serve the child (waitlists, distance, language, specialty). The provider must still be enrolled in the state Medicaid program.' },
     ],
   },
 
@@ -675,7 +677,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
       { title: 'School schedule', desc: 'Treatment schedules must not disrupt school attendance.' },
       { title: 'Other insurance', desc: 'Bill the primary first and attach its EOB.' },
     ],
-    sources: [S.hscsnPM, S.hscsnNews, S.hscsnCodes, S.hscsnEval, S.hscsnAmend, S.mcps, S.spa, S.cfr438, S.cfr433],
+    sources: [S.hscsnPM, S.hscsnNews, S.hscsnCodes, S.hscsnEval, S.hscsnAmend, S.mcps, S.spa, S.cfr438, S.cfr433, { title: '42 CFR 438.206(b)(4)-(5) — Medicaid managed care availability of services: out-of-network coverage when the network cannot provide a service', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' }],
     deliveryRules: {
       supervision: {
         value: 'BCaBAs and RBTs deliver direct care under a BCBA (UM_21, as summarized in the January 2026 manual); "Supervision will not be authorized separately" (2022 billing letter). No numeric ratio is published.',
@@ -728,9 +730,9 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       diagnosingProviders: {
-        value: 'Not stated by HSCSN. The ABA evaluation request form (used once the 12 units are exhausted) must be completed by an ordering MD or NP.',
+        value: 'Not stated by HSCSN. The ABA evaluation request form (used once the 12 units are exhausted) must be completed by an ordering MD or NP. LCSW: HSCSN says nothing; DHCF\'s SPA 23-0009 list, which HSCSN administers for its members, includes the LICSW, but confirm with HSCSN UM.',
         status: 'unverified',
-        cites: [S.hscsnEval, S.hscsnPM],
+        cites: [{ title: 'DC State Plan Amendment 23-0009 — Autism Spectrum Disorder services under EPSDT (approved Aug. 25, 2023; effective Oct. 1, 2023)', url: 'https://www.medicaid.gov/medicaid/spa/downloads/DC-23-0009.pdf' }, S.hscsnEval, S.hscsnPM],
         verifyVia: 'HSCSN UM: ask who may make the diagnosis it relies on.',
         blocker: 'per-case',
       },
@@ -769,6 +771,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
       { q: 'Can a BCaBA deliver ABA to HSCSN members?', a: 'Yes. Since August 17, 2024 BCaBAs can provide direct care in a role like an RBT, supervised by a BCBA.' },
       { q: 'Can ABA be delivered by telehealth for HSCSN?', a: 'HSCSN’s billing letter covers telehealth for 97153 and 97155, billed with the GT modifier.' },
       { q: 'Is there an age limit on HSCSN ABA?', a: 'HSCSN says there is no benefit or age limit on ABA, and it enrolls members up to age 26. Confirm coverage for a member over 21, since the state’s ASD benefit is written for under 21.' },
+      { q: 'Will HSCSN pay an out-of-network ABA provider (a single case agreement)?', a: 'Only when its own network cannot provide the service. Federal managed-care rules say that if the plan\'s network "is unable to provide necessary services, covered under the contract, to a particular enrollee," the plan "must adequately and timely cover these services out of network for the enrollee, for as long as" that lasts, and the out-of-network provider must "coordinate with the MCO ... for payment," with the family\'s cost no greater than in network (42 CFR 438.206(b)(4)-(5)). HSCSN publishes no ABA single-case-agreement process of its own in the documents we read, so ask its provider relations or utilization management team for an out-of-network authorization, and document why no in-network ABA provider can serve the child (waitlists, distance, language, specialty). The provider must still be enrolled in the state Medicaid program.' },
     ],
   },
 
@@ -852,6 +855,16 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.aetnaGuide],
       },
+      {
+        h2: 'Reconsiderations and appeals with Aetna (what to include)',
+        body: [
+          'Aetna has two levels. A reconsideration, "a formal review of a previous claim decision" covering reimbursement, coding and reprocessing, must be filed "within 180 calendar days of the initial claim decision." An appeal, a written request to overturn a decision (including a reconsideration), is due "within 60 calendar days of the reconsideration decision," or within 180 days for commercial plans when the issue did not qualify for reconsideration. Some issues go straight to appeal, among them adverse utilization review decisions, outpatient denials for no precertification and retroactive authorizations. Aetna does not charge for either.',
+          'What to send with a reconsideration: "Medical records, office notes and other supporting documents," and either the completed dispute and appeal form or an explanation that includes the reason for review, member ID, patient name, Tax identification number (TIN), claim ID, dates of service and billed amounts, and the procedure codes and modifiers in dispute. File through Availity or mail it to the Aetna Provider Resolution Team, PO Box 981106, El Paso, TX 79998-1106 for this state. Most responses arrive as an EOB or letter within 30 business days. Status: 1-888-632-3862 for non-Medicare plans.',
+        ],
+        cites: [
+          { title: 'Aetna — Disputes and appeals overview (provider reconsiderations and appeals; checked 10/25/2026)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured DC plan (§ 31-3272 applies), federal employee plan, or self-funded ERISA (plan document governs).' },
@@ -860,7 +873,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
       { title: 'Standardized functional measure', desc: 'From the past 12 months (for example Vineland-3, ABAS, VB-MAPP or ABLLS).' },
       { title: 'School and EI services', desc: 'DC law does not make insurers pay for habilitative services delivered through early intervention or school.' },
     ],
-    sources: [S.aetnaGuide, S.aetnaCPB, S.aetnaCPB648, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.dc3271, S.dc3272, S.hbx, S.dc3132, S.dc3133, S.dc3862, S.dc3875_03, S.dc3875_07, S.dc1202_11, S.dc1207_71, S.bacbLic, S.erisa, S.mcps],
+    sources: [S.aetnaGuide, S.aetnaCPB, S.aetnaCPB648, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.dc3271, S.dc3272, S.hbx, S.dc3132, S.dc3133, S.dc3862, S.dc3875_03, S.dc3875_07, S.dc1202_11, S.dc1207_71, S.bacbLic, S.erisa, S.mcps, { title: 'D.C. Code § 3-1201.02 — definitions ("practice of social work" includes psychosocial evaluation and assessment, counseling, psychotherapy)', url: 'https://code.dccouncil.gov/us/dc/council/code/sections/3-1201.02' }, { title: 'DC State Plan Amendment 23-0009 — Autism Spectrum Disorder services under EPSDT (approved Aug. 25, 2023; effective Oct. 1, 2023)', url: 'https://www.medicaid.gov/medicaid/spa/downloads/DC-23-0009.pdf' }, { title: 'Aetna — Disputes and appeals overview (provider reconsiderations and appeals; checked 10/25/2026)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' }],
     deliveryRules: {
       supervision: {
         value: 'Aetna’s participation criteria (5/26): ABA services "must be provided directly or supervised by individuals licensed by the state or certified by the Behavior Analyst Certification Board"; supervised staff may be a BCaBA or a paraprofessional; at least "one hour of face-to-face supervision" per "10 hours of applied behavior analysis" by a paraprofessional, plus the supervisor "onsite with the child at least one hour a month." "All BCBAs, BCaBAs and paraprofessionals must meet state requirements."',
@@ -911,9 +924,9 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
         cites: [S.aetnaGuide],
       },
       diagnosingProviders: {
-        value: 'An appropriate provider: "licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice."',
+        value: 'An appropriate provider: "licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice." LCSW: not named. DC defines social work practice to include "psychosocial evaluation and assessment" and psychotherapy, "depending on an individual\'s level of social work licensure" (D.C. Code § 3-1201.02(18)), and DC Medicaid accepts an LICSW\'s ASD diagnosis (SPA 23-0009), so an LICSW is the social-work licence most likely to be accepted; confirm with the carrier before relying on it.',
         status: 'verified',
-        cites: [S.aetnaGuide],
+        cites: [{ title: 'DC State Plan Amendment 23-0009 — Autism Spectrum Disorder services under EPSDT (approved Aug. 25, 2023; effective Oct. 1, 2023)', url: 'https://www.medicaid.gov/medicaid/spa/downloads/DC-23-0009.pdf' }, { title: 'D.C. Code § 3-1201.02 — definitions ("practice of social work" includes psychosocial evaluation and assessment, counseling, psychotherapy)', url: 'https://code.dccouncil.gov/us/dc/council/code/sections/3-1201.02' }, S.aetnaGuide],
       },
       diagnosticTools: {
         value: 'CPB 0648 names ADI-R, ADOS-2, CARS-2 and the Asperger Syndrome Diagnostic Scale; the ABA guide requires a standardized functional measure (VABS-3, ABAS, VB-MAPP or ABLLS as examples).',
@@ -1036,6 +1049,18 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.en0499],
       },
+      {
+        h2: 'Appeals, reconsiderations and out-of-network (network exception) requests',
+        body: [
+          'Payment disputes and reconsiderations: Evernorth asks you to call Provider Services (800.926.2273) first, with the patient\'s name, date of service and the treating provider\'s name and TIN. Fee-schedule and reimbursement disputes "may be quickly resolved through submitting an adjustment request via the reconsideration feature on Provider.Evernorth.com." A formal appeal must be "initiated in writing within 180 calendar days of the date of the initial payment or denial decision" (or of the last payment adjustment), submitted by a person, not by automation software. Appeals go to Evernorth Appeals, PO Box 188064, Chattanooga, TN 37422 (fax 877.815.4827). Most are resolved within 60 calendar days, with notice within 75 days unless state law differs; after the internal process, the Provider Agreement\'s negotiation-then-arbitration steps apply.',
+          'What to include: for a medical-necessity denial, the clinical record behind the request (for ABA, the assessment, treatment plan, progress data and session notes); for an untimely-filing denial (claims are due within 90 days of service), the EDI transmission report or proof that coordination of benefits delayed the claim; for a late-payment dispute, the date you submitted the claim and your correspondence. A clinical coverage denial can be reviewed by a board-certified psychiatrist or doctoral-level psychologist not previously involved, on an expedited basis when urgent, with the appeal due within 180 calendar days of the denial.',
+          'Out-of-network providers: some out-of-network providers filing a standard appeal "must submit a valid Appointments of Representative form signed by the patient" for the appeal to be valid; call the number on the ID card to check. To treat a Cigna member without a contract, use the ABA prior authorization form, which covers "network exception requests," including for an ABA assessment (assessment codes otherwise need no prior authorization). Some Cigna products are in-network only, covering out-of-network care only for emergencies or special circumstances, so check the member\'s plan before treating out of network.',
+        ],
+        cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026): provider payment appeals, coverage denials', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+          { title: 'Evernorth — Applied Behavior Analysis Prior Authorization Form (PCOMM-2025-224; file dated 7/1/2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/applied-behavior-analysis.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured DC plan (§ 31-3272 applies), federal employee plan, or self-funded ERISA.' },
@@ -1044,7 +1069,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
       { title: 'Standardized assessment timing', desc: 'Instrument administered within 60 days before treatment starts.' },
       { title: 'School and EI services', desc: 'DC law does not make insurers pay for habilitative services delivered through early intervention or school.' },
     ],
-    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.dc3271, S.dc3272, S.hbx, S.dc3132, S.dc3133, S.dc3862, S.dc3875_03, S.dc3875_07, S.dc1202_11, S.dc1207_71, S.bacbLic, S.erisa, S.mcps],
+    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.dc3271, S.dc3272, S.hbx, S.dc3132, S.dc3133, S.dc3862, S.dc3875_03, S.dc3875_07, S.dc1202_11, S.dc1207_71, S.bacbLic, S.erisa, S.mcps, { title: 'D.C. Code § 3-1201.02 — definitions ("practice of social work" includes psychosocial evaluation and assessment, counseling, psychotherapy)', url: 'https://code.dccouncil.gov/us/dc/council/code/sections/3-1201.02' }, { title: 'DC State Plan Amendment 23-0009 — Autism Spectrum Disorder services under EPSDT (approved Aug. 25, 2023; effective Oct. 1, 2023)', url: 'https://www.medicaid.gov/medicaid/spa/downloads/DC-23-0009.pdf' }, { title: 'Evernorth — Applied Behavior Analysis Prior Authorization Form (PCOMM-2025-224; file dated 7/1/2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/applied-behavior-analysis.pdf' }],
     deliveryRules: {
       supervision: {
         value: 'Direct and indirect case supervision at "one to two hours per ten hours of direct treatment"; when direct treatment is 10 hours a week or less, at least one to two hours a week of direct case supervision (EN0499).',
@@ -1072,9 +1097,9 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
         cites: [S.en0499, S.dc3272],
       },
       billAsProvider: {
-        value: '"Evernorth does not credential nonlicensed/noncertified staff. Services for these staff members must be billed under the supervising provider." On paper claims list "only a BCBA or other licensed provider in box 33"; electronic payer ID 62308.',
+        value: '"Evernorth does not credential nonlicensed/noncertified staff. Services for these staff members must be billed under the supervising provider." On paper claims list "only a BCBA or other licensed provider in box 33"; electronic payer ID 62308. Is the authorization tied to an NPI or the group TIN? Evernorth\'s ABA prior authorization form identifies the request by the servicing clinic\'s name, Taxpayer Identification Number (TIN) and address, plus the supervising provider\'s name and credential; it has no NPI field, and asks "Will the same provider be supervising the patient’s entire treatment?" (if not, name the additional supervisor). An approval is "written on a per month basis with CPT code 97155 and can be interchanged with ongoing treatment codes 97153–97158 and 0373T." Evernorth publishes no rule on moving an approval to a different clinic TIN; a change of supervisor within the clinic is something the form expects you to declare.',
         status: 'verified',
-        cites: [S.cignaARG],
+        cites: [{ title: 'Evernorth — Applied Behavior Analysis Prior Authorization Form (PCOMM-2025-224; file dated 7/1/2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/applied-behavior-analysis.pdf' }, S.cignaARG],
       },
     },
     intakeGates: {
@@ -1091,9 +1116,9 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
         cites: [S.en0499],
       },
       diagnosingProviders: {
-        value: 'A healthcare professional "licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice," applying DSM-5-TR.',
+        value: 'A healthcare professional "licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice," applying DSM-5-TR. LCSW: not named. DC defines social work practice to include "psychosocial evaluation and assessment" and psychotherapy, "depending on an individual\'s level of social work licensure" (D.C. Code § 3-1201.02(18)), and DC Medicaid accepts an LICSW\'s ASD diagnosis (SPA 23-0009), so an LICSW is the social-work licence most likely to be accepted; confirm with the carrier before relying on it.',
         status: 'verified',
-        cites: [S.en0499],
+        cites: [{ title: 'DC State Plan Amendment 23-0009 — Autism Spectrum Disorder services under EPSDT (approved Aug. 25, 2023; effective Oct. 1, 2023)', url: 'https://www.medicaid.gov/medicaid/spa/downloads/DC-23-0009.pdf' }, { title: 'D.C. Code § 3-1201.02 — definitions ("practice of social work" includes psychosocial evaluation and assessment, counseling, psychotherapy)', url: 'https://code.dccouncil.gov/us/dc/council/code/sections/3-1201.02' }, S.en0499],
       },
       diagnosticTools: {
         value: 'No single instrument is mandated; the assessment must use "a reliable, valid, and standardized assessment instrument," with dates and scores reported.',
@@ -1133,6 +1158,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
       { q: 'Does the Cigna ABA assessment need prior authorization in DC?', a: 'No, for 97151, 97152 and 0362T with an autism diagnosis when the provider is independently licensed or a BCBA. PA starts at treatment.' },
       { q: 'What is Cigna’s timely filing limit for DC claims?', a: 'Evernorth’s default is 90 days, but it defers to a longer state limit, and D.C. Code § 31-3132 requires at least 180 days for District-regulated plans. Self-funded plans may hold you to 90.' },
       { q: 'What does Cigna pay for ABA in DC?', a: 'Cigna publishes no ABA rates. Your fee schedule is Exhibit A of your Evernorth Provider Agreement; call Provider Services at 800.926.2273.' },
+      { q: 'Is a Cigna/Evernorth ABA authorization tied to an individual NPI or the group tax ID?', a: 'To the servicing clinic. The Evernorth ABA prior authorization form asks for the clinic\'s name, TIN and address and the supervising provider\'s name and credential, with no NPI field, and asks whether the same provider will supervise the whole treatment. Approvals are written monthly on 97155, interchangeable with 97153–97158 and 0373T. A move to a different clinic TIN is not addressed, so expect a new request.' },
     ],
   },
 
@@ -1216,6 +1242,16 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.optumSCC],
       },
+      {
+        h2: 'Reconsiderations and appeals with Optum (what to include)',
+        body: [
+          'For commercial and Medicare Advantage plans Optum uses a two-step process for a disputed prior authorization or claim decision: request reconsideration first, then file an appeal if you still disagree. The two steps together have "a total of 12 months for submission," unless state law or your Participation Agreement sets a different deadline.',
+          'What to send: "member-specific treatment plans, clinical records, payment appendices or other items that support why you believe our decision was incorrect," plus proof of timely filing ("confirmation we received and accepted your claim within your timely filing requirement"). Optum decides on the materials it has at the time of review, so send the full packet the first time. Submit through the Provider Express secure portal (Appeals > Appeals Summary & Submission > Submit Claim Appeal), stating the factual or legal basis for the appeal, or mail the reconsideration request form with the documents to Optum Behavioral Health Solutions, P.O. Box 30757, Salt Lake City, UT 84123. The secure portal is also open to out-of-network individual clinicians. Services delivered without a required authorization can go in for retrospective review within 180 calendar days of the date of service.',
+        ],
+        cites: [
+          { title: 'Optum National Network Manual (BH02330-1-26-MAN, effective Sept. 1, 2026): Provider Reconsideration and Appeals Process', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured DC plan (§ 31-3272 applies), federal employee plan, or self-funded ERISA.' },
@@ -1223,7 +1259,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis with a validated tool', desc: 'DSM-5-TR ASD and severity level, confirmed with a validated tool (ADI-R, ADOS-2 and others).' },
       { title: 'Staff credentials', desc: 'Each line carries HM (RBT), HN (BCaBA), HO (BCBA) or HP (BCBA-D).' },
     ],
-    sources: [S.optumSCC, S.optumSM, S.optumTele, S.optumReimb, S.optumNNM, S.dc3271, S.dc3272, S.hbx, S.dc3132, S.dc3133, S.dc3862, S.dc3875_03, S.dc3875_07, S.dc1202_11, S.dc1207_71, S.bacbLic, S.erisa, S.mcps],
+    sources: [S.optumSCC, S.optumSM, S.optumTele, S.optumReimb, S.optumNNM, S.dc3271, S.dc3272, S.hbx, S.dc3132, S.dc3133, S.dc3862, S.dc3875_03, S.dc3875_07, S.dc1202_11, S.dc1207_71, S.bacbLic, S.erisa, S.mcps, { title: 'D.C. Code § 3-1201.02 — definitions ("practice of social work" includes psychosocial evaluation and assessment, counseling, psychotherapy)', url: 'https://code.dccouncil.gov/us/dc/council/code/sections/3-1201.02' }, { title: 'DC State Plan Amendment 23-0009 — Autism Spectrum Disorder services under EPSDT (approved Aug. 25, 2023; effective Oct. 1, 2023)', url: 'https://www.medicaid.gov/medicaid/spa/downloads/DC-23-0009.pdf' }],
     deliveryRules: {
       supervision: {
         value: '"Consistent with CASP standards of care, direct case supervision is required 1–2 hours for every 10 hours of direct treatment per week." Optum does not recommend parents serving as their own child’s RBT.',
@@ -1274,9 +1310,9 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
         cites: [S.optumSCC],
       },
       diagnosingProviders: {
-        value: 'A "state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis" under DSM-5-TR.',
+        value: 'A "state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis" under DSM-5-TR. LCSW: not named. DC defines social work practice to include "psychosocial evaluation and assessment" and psychotherapy, "depending on an individual\'s level of social work licensure" (D.C. Code § 3-1201.02(18)), and DC Medicaid accepts an LICSW\'s ASD diagnosis (SPA 23-0009), so an LICSW is the social-work licence most likely to be accepted; confirm with the carrier before relying on it.',
         status: 'verified',
-        cites: [S.optumSCC],
+        cites: [{ title: 'DC State Plan Amendment 23-0009 — Autism Spectrum Disorder services under EPSDT (approved Aug. 25, 2023; effective Oct. 1, 2023)', url: 'https://www.medicaid.gov/medicaid/spa/downloads/DC-23-0009.pdf' }, { title: 'D.C. Code § 3-1201.02 — definitions ("practice of social work" includes psychosocial evaluation and assessment, counseling, psychotherapy)', url: 'https://code.dccouncil.gov/us/dc/council/code/sections/3-1201.02' }, S.optumSCC],
       },
       diagnosticTools: {
         value: 'At least one clinically validated tool from a non-exhaustive list: screens (M-CHAT and others), second-level screens (CARS/CARS-2, RITA-T, STAT), and formal tools (ADI-R, ADOS/ADOS-2, DISCO).',
@@ -1399,6 +1435,18 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.cfBlueCard],
       },
+      {
+        h2: 'Is a CareFirst ABA authorization tied to an individual NPI or the group tax ID?',
+        body: [
+          'CareFirst publishes no ABA-specific rule on whether an authorization belongs to the clinician or the group. What its own documents show is that authorizations and claims are keyed to NPIs, not to the tax ID. The Utilization Management Outpatient Authorization Request (form SUM7690-1E, April 2026; the portal request in CareFirst Direct asks for the same) identifies a requesting provider by name and NPI and a rendering provider by name and NPI, with a box to tick when they are the same, and has no tax ID field. On the claim, "Your billing and rendering National Provider Identifier (NPI) are required on all claim submissions" (Provider Manual Chapter 5), with the federal tax ID in box 25.',
+          'Who goes on it for ABA: CareFirst\'s rule for assistant behavior analysts and registered behavior technicians is Payment Policy PP CO 020.01 (Limited Licensed Providers; listed in Provider Manual Chapter 3), whose text sits in the SAI360 policy portal we could not open, so confirm with CareFirst which NPI (the supervising BCBA\'s or the group\'s) it wants as rendering provider on the authorization, and bill with the rendering NPI the authorization names. CareFirst does not say whether an approved authorization carries over when a different BCBA in the same group takes over the case. Before the change, ask CareFirst at 1-866-773-2884 (1-866-PRE-AUTH), or through CareFirst Direct, to update the rendering provider on the authorization.',
+        ],
+        cites: [
+          { title: 'CareFirst — Utilization Management Outpatient Authorization Request for Services (SUM7690-1E, 4/26)', url: 'https://provider.carefirst.com/carefirst-resources/provider/pdf/authorization-form-outpatient-services.pdf' },
+          { title: 'CareFirst Provider Manual, Chapter 5: Claims, Billing and Payments (billing and rendering NPI required on every claim)', url: 'https://provider.carefirst.com/carefirst-resources/provider/pdf/provider-manual-chapter-5-claims-billing-and-payments.pdf' },
+          { title: 'CareFirst Payment Policy PP CO 020.01 — Limited Licensed Providers, Professional (last review 5/6/2025)', url: 'https://provider.carefirst.com/providers/medical/payment-policy.page' },
+        ],
+      },
     ],
     collect: [
       { title: 'Product and funding type', desc: 'BlueChoice HMO, PPO, FEP, or a self-funded group; the PA route and the mandate both depend on it.' },
@@ -1407,7 +1455,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
       { title: 'Rendering clinician’s license', desc: 'CareFirst requires licensure where the member receives care; confirm how it credentials DC BCBAs.' },
       { title: 'Other coverage', desc: 'Second parent’s plan, DC Medicaid, TRICARE or CHAMPVA.' },
     ],
-    sources: [S.cfPre, S.cfCh2, S.cfCh3, S.cfCh5, S.cfCh7, S.cfMPU0126, S.cfMPU1224, S.cfMedPol, S.dc3271, S.dc3272, S.hbx, S.dc3132, S.dc3133, S.dc3862, S.dc3875_03, S.dc3875_07, S.dc1202_11, S.dc1207_71, S.bacbLic, S.erisa, { title: 'CareFirst BlueCross BlueShield — BlueLink provider newsletter (2026 issues; year selector to 2008)', url: 'https://provider.carefirst.com/providers/news/bluelink-newsletter-2026.page' }],
+    sources: [S.cfPre, S.cfCh2, S.cfCh3, S.cfCh5, S.cfCh7, S.cfMPU0126, S.cfMPU1224, S.cfMedPol, S.dc3271, S.dc3272, S.hbx, S.dc3132, S.dc3133, S.dc3862, S.dc3875_03, S.dc3875_07, S.dc1202_11, S.dc1207_71, S.bacbLic, S.erisa, { title: 'CareFirst BlueCross BlueShield — BlueLink provider newsletter (2026 issues; year selector to 2008)', url: 'https://provider.carefirst.com/providers/news/bluelink-newsletter-2026.page' }, { title: 'CareFirst — Utilization Management Outpatient Authorization Request for Services (SUM7690-1E, 4/26)', url: 'https://provider.carefirst.com/carefirst-resources/provider/pdf/authorization-form-outpatient-services.pdf' }, { title: 'CareFirst Payment Policy PP CO 020.01 — Limited Licensed Providers, Professional (last review 5/6/2025)', url: 'https://provider.carefirst.com/providers/medical/payment-policy.page' }, { title: 'D.C. Code § 3-1201.02 — definitions ("practice of social work" includes psychosocial evaluation and assessment, counseling, psychotherapy)', url: 'https://code.dccouncil.gov/us/dc/council/code/sections/3-1201.02' }, { title: 'DC State Plan Amendment 23-0009 — Autism Spectrum Disorder services under EPSDT (approved Aug. 25, 2023; effective Oct. 1, 2023)', url: 'https://www.medicaid.gov/medicaid/spa/downloads/DC-23-0009.pdf' }],
     deliveryRules: {
       supervision: {
         value: 'CareFirst’s supervision terms for technicians sit in Payment Policy PP CO 020.01 (Limited Licensed Providers, covering assistant behavior analysts and RBTs), whose text we could not open.',
@@ -1468,9 +1516,9 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
         blocker: 'licensed',
       },
       diagnosingProviders: {
-        value: 'Not stated in the documents we could read; set in policy 3.01.015 and MCG.',
+        value: 'Not stated in the documents we could read; set in policy 3.01.015 and MCG. LCSW: not named. DC defines social work practice to include "psychosocial evaluation and assessment" and psychotherapy, "depending on an individual\'s level of social work licensure" (D.C. Code § 3-1201.02(18)), and DC Medicaid accepts an LICSW\'s ASD diagnosis (SPA 23-0009), so an LICSW is the social-work licence most likely to be accepted; confirm with the carrier before relying on it.',
         status: 'unverified',
-        cites: [S.cfMPU0126, S.cfCh7],
+        cites: [{ title: 'DC State Plan Amendment 23-0009 — Autism Spectrum Disorder services under EPSDT (approved Aug. 25, 2023; effective Oct. 1, 2023)', url: 'https://www.medicaid.gov/medicaid/spa/downloads/DC-23-0009.pdf' }, { title: 'D.C. Code § 3-1201.02 — definitions ("practice of social work" includes psychosocial evaluation and assessment, counseling, psychotherapy)', url: 'https://code.dccouncil.gov/us/dc/council/code/sections/3-1201.02' }, S.cfMPU0126, S.cfCh7],
         verifyVia: 'CareFirst Medical Policy 3.01.015 or 1-866-773-2884.',
         blocker: 'document',
       },
@@ -1517,6 +1565,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
       { q: 'Does the DC mandate apply to a federal employee’s CareFirst plan?', a: 'No. D.C. Code § 31-3271 excludes federal employee health plans. FEP plans still list ABA as needing prior authorization, so follow the FEP rules.' },
       { q: 'Can a DC-based BCBA join CareFirst’s network?', a: 'CareFirst requires practitioners to be licensed where the member receives care, and its credentialing list names licensed BCBAs in Maryland and Virginia only. The District began licensing behavior analysts in 2024, so ask CareFirst credentialing how it handles DC BCBAs.' },
       { q: 'What is CareFirst’s timely filing limit?', a: '365 days from the date of service, per CareFirst’s provider manual.' },
+      { q: 'Are CareFirst BCBS ABA authorizations tied to an individual NPI or the group tax ID?', a: 'To NPIs. CareFirst\'s outpatient authorization request names a requesting provider NPI and a rendering provider NPI and has no tax ID field, and every claim must carry the billing and rendering NPI. CareFirst\'s technician and BCaBA rules (PP CO 020.01) sit in a portal we could not open, so confirm which NPI it wants as rendering provider. It publishes no rule on moving an authorization to another BCBA in the same group, so call 1-866-773-2884 to update the rendering provider before a change in supervisor.' },
     ],
   },
 };

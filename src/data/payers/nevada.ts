@@ -17,7 +17,7 @@ const S: Record<string, PayerSource> = {
   feePage: { title: 'Nevada Medicaid — Fee Schedules (rates by provider type)', url: 'https://www.nevadamedicaid.nv.gov/Resources/Rates/FeeSchedules/' },
   fa11e: { title: 'Nevada Medicaid Form FA-11E — Applied Behavior Analysis (ABA) Authorization Request (updated 10/14/2026)', url: 'https://www.medicaid.nv.gov/Downloads/provider/FA-11E.pdf' },
   fa11f: { title: 'Nevada Medicaid Form FA-11F — ASD Diagnosis Certification for Requesting Initial ABA Services (updated 06/10/2025)', url: 'https://www.medicaid.nv.gov/Downloads/provider/FA-11F.pdf' },
-  billMan: { title: 'Nevada Medicaid and Nevada Check Up Billing Manual (updated July 10, 2026)', url: 'https://www.medicaid.nv.gov/Downloads/provider/nv_billing_general.pdf' },
+  billMan: { title: 'Nevada Medicaid and Nevada Check Up Billing Manual (updated October 22, 2026)', url: 'https://www.medicaid.nv.gov/Downloads/provider/nv_billing_general.pdf' },
   teleBill: { title: 'Nevada Medicaid — Telehealth Billing Instructions (updated 08/03/2026)', url: 'https://www.medicaid.nv.gov/Downloads/provider/NV_Billing_Telehealth.pdf' },
   msm3400: { title: 'Nevada Medicaid Services Manual Chapter 3400 — Telehealth Services (effective November 29, 2023)', url: 'https://www.nevadamedicaid.nv.gov/uploadedFiles/dhcfpnvgov/content/Resources/AdminSupport/Manuals/MSM/C3400/MSM_3400_23_11_29_ADA.pdf' },
   msm3600: { title: 'Nevada Medicaid Services Manual Chapter 3600 — Managed Care Organization (effective January 1, 2026)', url: 'https://www.nevadamedicaid.nv.gov/siteassets/content/resources/adminsupport/manuals/msm/c3600/MSM_3600_26_01-01.pdf' },
@@ -54,7 +54,7 @@ const S: Record<string, PayerSource> = {
   sshpPM: { title: 'SilverSummit Healthplan — 2026 Provider Manual (updated 01-01-2026)', url: 'https://www.silversummithealthplan.com/content/dam/centene/Nevada/Notifications/2026-documents/4%20SSHP%20NV%20Provider%20manual%202025-11-19.pdf' },
   sshpRev: { title: 'SilverSummit Healthplan — Notice of revision to Clinical Policy CP.BH.104, Applied Behavior Analysis (June 5, 2026; DOS from 05/30/2026)', url: 'https://www.silversummithealthplan.com/content/dam/centene/Nevada/Notifications/2026-documents/ABA%20revisions.pdf' },
   aetnaCPB: { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
-  aetnaCPB648: { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+  aetnaCPB648: { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/20/2026; qualified-provider list moved to an Appendix)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
   aetnaGuide: { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
   aetnaPrecert: { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
   aetnaNPC: { title: 'Aetna — Provider and facility participation criteria (8100606-01-01, 5/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' },
@@ -257,7 +257,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
         cites: [S.msm3700, S.fa11f, S.fa11e],
       },
       diagnosingProviders: {
-        value: 'FA-11F must be signed by the practitioner ordering ABA, who “must be a Physician, Physician’s Assistant, Advanced Practice Registered Nurse (APRN) or Psychologist acting within their scope of practice,” and records the diagnosis date and tool. MSM 3704.1 likewise requires written orders from a physician, PA, psychologist or APRN/NP. Nevada’s ABA licensure statute excludes diagnosis from the practice of ABA (NRS 641D.080).',
+        value: 'FA-11F must be signed by the practitioner ordering ABA, who “must be a Physician, Physician’s Assistant, Advanced Practice Registered Nurse (APRN) or Psychologist acting within their scope of practice,” and records the diagnosis date and tool. MSM 3704.1 likewise requires written orders from a physician, PA, psychologist or APRN/NP. Nevada’s ABA licensure statute excludes diagnosis from the practice of ABA (NRS 641D.080).' + ' LCSW: no. FA-11F limits the certifying practitioner to a physician, physician assistant, APRN or psychologist.',
         status: 'verified',
         cites: [S.fa11f, S.msm3700, S.nrs641D],
       },
@@ -300,6 +300,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
       { q: 'Whose NPI goes on a Nevada Medicaid ABA claim?', a: 'The person who delivered the service, not the supervisor. RBT and BCaBA lines also carry modifier UD, and the ordering practitioner’s enrolled NPI must be on the claim.' },
       { q: 'How long do I have to file a Nevada Medicaid ABA claim?', a: '180 days from the date of service (or eligibility decision) for in-state claims without other insurance; 365 days with other insurance or for out-of-state providers. Claim appeals are due within 30 days of the remittance advice.' },
       { q: 'Can a BCBA licensed in another state treat a Nevada Medicaid member by telehealth?', a: 'Only with a Nevada license. NRS 629.515 requires a Nevada license for telehealth to a patient in Nevada, and MSM 3700 recognizes only BCBAs licensed by the Nevada Board of Applied Behavior Analysis. Licensure by endorsement (NRS 641D.340) is the fast path for analysts already licensed elsewhere.' },
+      { q: 'Does Nevada Medicaid use HM, HN, HO or HP modifiers on ABA claims?', a: 'Nevada Medicaid does not use the HM/HN/HO/HP rate-tier modifiers for ABA. It prices by the rendering provider’s enrolled specialty under Provider Type 85 (310 BCBA, 311 psychologist, 312 BCaBA, 314 RBT), and the PT 85 Billing Guide (updated 10/13/2026) adds one modifier rule: “Claims and prior authorization requests for services provided by a Licensed and Board Certified Assistant Behavior Analyst (BCaBA) and a Registered Behavior Technician (RBT) must include modifier UD.” The 07/2026 reimbursement schedule accordingly lists the BCaBA and RBT lines with UD (97153 pays $30.10 to a BCBA or psychologist, $18.06 to a BCaBA with UD and $13.01 to an RBT with UD) and the BCBA and psychologist lines with no modifier. Telehealth is coded under the Nevada Medicaid Telehealth Billing Instructions, not with a credential modifier.' },
     ],
   },
 
@@ -363,6 +364,18 @@ export const nevadaPayers: Record<string, PayerConfig> = {
         body: [NV_OOS_BODY],
         cites: [S.nrs641D, S.nrs629, S.msm3700],
       },
+      {
+        h2: 'Credential modifiers on the claim (UD, not HM/HN/HO/HP)',
+        body: [
+          'Anthem’s Nevada Medicaid provider manual (July 2025 edition) defines no ABA credential modifiers, so the state coding applies. Nevada Medicaid does not use the HM/HN/HO/HP rate-tier modifiers for ABA. It prices by the rendering provider’s enrolled specialty under Provider Type 85 (310 BCBA, 311 psychologist, 312 BCaBA, 314 RBT), and the PT 85 Billing Guide (updated 10/13/2026) adds one modifier rule: “Claims and prior authorization requests for services provided by a Licensed and Board Certified Assistant Behavior Analyst (BCaBA) and a Registered Behavior Technician (RBT) must include modifier UD.” The 07/2026 reimbursement schedule accordingly lists the BCaBA and RBT lines with UD (97153 pays $30.10 to a BCBA or psychologist, $18.06 to a BCaBA with UD and $13.01 to an RBT with UD) and the BCBA and psychologist lines with no modifier. MSM 3600 requires plan services to be provided “with the same timeliness, amount, duration, and scope as those provided to FFS” recipients, but plans pay their own contracted rates; confirm with the plan whether it prices BCaBA and RBT lines differently.',
+        ],
+        cites: [
+          { title: 'Anthem Blue Cross and Blue Shield Healthcare Solutions (Nevada Medicaid) — Provider Manual (July 2025 edition)', url: 'https://providers.anthem.com/docs/gpp/NV_CAID_ProviderManual.pdf' },
+          { title: 'Nevada Medicaid — Provider Type 85 Billing Guide, Applied Behavior Analysis (updated 10/13/2026)', url: 'https://www.medicaid.nv.gov/Downloads/provider/NV_BillingGuidelines_PT85.pdf' },
+          { title: 'Nevada Medicaid — Provider Type 85 ABA Reimbursement Schedule (rate data as of 07/2026)', url: 'https://www.nevadamedicaid.nv.gov/siteassets/content/resources/rates/pt-85-fee-schedule-072026.xlsx' },
+          { title: 'Nevada Medicaid Services Manual Chapter 3600 — Managed Care Organization (effective January 1, 2026)', url: 'https://www.nevadamedicaid.nv.gov/siteassets/content/resources/adminsupport/manuals/msm/c3600/MSM_3600_26_01-01.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Member ID', desc: 'Confirm Anthem (not FFS or another plan) on the date of service; eligibility is month to month.' },
@@ -370,7 +383,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
       { title: 'Ordering practitioner NPI', desc: 'Physician, PA, APRN or psychologist; the state requires the ordering NPI on ABA claims.' },
       { title: 'Other insurance', desc: 'Anthem pays last; bill the primary first. The 180-day clock then runs from the primary’s payment notice.' },
     ],
-    sources: [S.anMcdPM, S.anMcdNews, S.anMcdPrecert, S.plans, S.msm3700, S.msm3600, S.pt85, S.fa11f, S.msm3400, S.nrs422, S.cfr438, S.cfr433, S.nrs641D, S.nrs629, { title: 'Anthem Nevada — Provider News (Commercial, Medicare Advantage and Medicaid articles)', url: 'https://providernews.anthem.com/nevada' }],
+    sources: [S.anMcdPM, S.anMcdNews, S.anMcdPrecert, S.plans, S.msm3700, S.msm3600, S.pt85, S.fa11f, S.msm3400, S.nrs422, S.cfr438, S.cfr433, S.nrs641D, S.nrs629, { title: 'Anthem Nevada — Provider News (Commercial, Medicare Advantage and Medicaid articles)', url: 'https://providernews.anthem.com/nevada' }, { title: 'Nevada Medicaid — Provider Type 85 ABA Reimbursement Schedule (rate data as of 07/2026)', url: 'https://www.nevadamedicaid.nv.gov/siteassets/content/resources/rates/pt-85-fee-schedule-072026.xlsx' }],
     deliveryRules: {
       supervision: {
         value: 'Anthem publishes no ABA supervision rule of its own. ' + ST_SUPERVISION,
@@ -419,7 +432,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
         cites: [S.msm3700, S.anMcdPM],
       },
       diagnosingProviders: {
-        value: 'Anthem publishes nothing of its own. The state’s FA-11F must be signed by a physician, physician assistant, APRN or psychologist acting within scope.',
+        value: 'Anthem publishes nothing of its own. The state’s FA-11F must be signed by a physician, physician assistant, APRN or psychologist acting within scope.' + ' LCSW: no. FA-11F limits the certifying practitioner to a physician, physician assistant, APRN or psychologist.',
         status: 'verified',
         cites: [S.fa11f, S.msm3700],
       },
@@ -455,6 +468,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
       { q: 'Does Anthem Nevada Medicaid cover ABA for adults?', a: 'Yes. Anthem’s manual covers ABA for Medicaid members of any age who meet medical necessity, following Nevada’s 2024 removal of age limits.' },
       { q: 'How do I request ABA authorization from Anthem Nevada Medicaid?', a: 'Through Availity Essentials (Authorizations and Referrals); behavioral health requests may route to Interactive Care Reviewer. Use the state FA-11E/FA-11F content, and confirm assessment-code rules in the lookup or with Provider Services at 844-396-2330.' },
       { q: 'What is Anthem Nevada Medicaid’s timely filing limit?', a: '180 days from the date of service for network providers, 365 for out-of-state providers; clean claims are adjudicated within 30 calendar days.' },
+      { q: 'Which modifiers mark the rendering credential on a Nevada Medicaid ABA claim?', a: 'Modifier UD on every BCaBA or RBT line (claims and prior authorization requests), per the Nevada Medicaid PT 85 Billing Guide; BCBA and psychologist lines carry no credential modifier, and Nevada does not use HM/HN/HO/HP. The plan follows the state coding.' },
     ],
   },
 
@@ -519,6 +533,17 @@ export const nevadaPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }],
       },
+      {
+        h2: 'Credential modifiers on the claim (UD, not HM/HN/HO/HP)',
+        body: [
+          'CareSource’s Nevada ABA reimbursement policy (NV MCD-PY-1695, effective 01/01/2026) says only that “Appropriate modifiers indicating qualifications of staff delivering services must be used, if applicable,” without naming them, so the state coding applies. Nevada Medicaid does not use the HM/HN/HO/HP rate-tier modifiers for ABA. It prices by the rendering provider’s enrolled specialty under Provider Type 85 (310 BCBA, 311 psychologist, 312 BCaBA, 314 RBT), and the PT 85 Billing Guide (updated 10/13/2026) adds one modifier rule: “Claims and prior authorization requests for services provided by a Licensed and Board Certified Assistant Behavior Analyst (BCaBA) and a Registered Behavior Technician (RBT) must include modifier UD.” The 07/2026 reimbursement schedule accordingly lists the BCaBA and RBT lines with UD (97153 pays $30.10 to a BCBA or psychologist, $18.06 to a BCaBA with UD and $13.01 to an RBT with UD) and the BCBA and psychologist lines with no modifier. MSM 3600 requires plan services to be provided “with the same timeliness, amount, duration, and scope as those provided to FFS” recipients, but plans pay their own contracted rates; confirm with the plan whether it prices BCaBA and RBT lines differently.',
+        ],
+        cites: [
+          { title: 'Nevada Medicaid — Provider Type 85 Billing Guide, Applied Behavior Analysis (updated 10/13/2026)', url: 'https://www.medicaid.nv.gov/Downloads/provider/NV_BillingGuidelines_PT85.pdf' },
+          { title: 'Nevada Medicaid — Provider Type 85 ABA Reimbursement Schedule (rate data as of 07/2026)', url: 'https://www.nevadamedicaid.nv.gov/siteassets/content/resources/rates/pt-85-fee-schedule-072026.xlsx' },
+          { title: 'Nevada Medicaid Services Manual Chapter 3600 — Managed Care Organization (effective January 1, 2026)', url: 'https://www.nevadamedicaid.nv.gov/siteassets/content/resources/adminsupport/manuals/msm/c3600/MSM_3600_26_01-01.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Member ID', desc: 'Confirm CareSource on the date of service.' },
@@ -528,7 +553,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
       { title: 'School schedule and IEP', desc: 'The initial plan asks for school placement, weekly school hours and any IEP.' },
       { title: 'Other insurance', desc: 'Medicaid is the payer of last resort; the primary’s determination is required.' },
     ],
-    sources: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, S.csMM, S.csPY, S.plans, S.msm3700, S.msm3600, S.pt85, S.msm3400, S.cfr438, S.cfr433, S.nrs641D, S.nrs629, { title: 'CareSource Nevada — Updates & Announcements (Medicaid)', url: 'https://www.caresource.com/nv/providers/tools-resources/updates-announcements/medicaid/' }],
+    sources: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, S.csMM, S.csPY, S.plans, S.msm3700, S.msm3600, S.pt85, S.msm3400, S.cfr438, S.cfr433, S.nrs641D, S.nrs629, { title: 'CareSource Nevada — Updates & Announcements (Medicaid)', url: 'https://www.caresource.com/nv/providers/tools-resources/updates-announcements/medicaid/' }, { title: 'Nevada Medicaid — Provider Type 85 ABA Reimbursement Schedule (rate data as of 07/2026)', url: 'https://www.nevadamedicaid.nv.gov/siteassets/content/resources/rates/pt-85-fee-schedule-072026.xlsx' }, { title: 'Nevada Medicaid Form FA-11F — ASD Diagnosis Certification for Requesting Initial ABA Services (updated 06/10/2025)', url: 'https://www.medicaid.nv.gov/Downloads/provider/FA-11F.pdf' }],
     deliveryRules: {
       supervision: {
         value: 'RBT services “must be supervised by a qualified RBT supervisor (ie, BCBA, BCBA-D, licensed psychologist …) and obtain ongoing supervision for a minimum of 5% of the hours spent providing ABA services per month”; BCaBAs must be supervised by a BCBA, BCBA-D or qualified psychologist. Supervision units are capped at 20% of direct therapy hours unless documentation supports more, and the licensed psychologist, BCBA-D or BCBA “is responsible for all aspects of clinical direction, supervision, and case management.”',
@@ -577,9 +602,9 @@ export const nevadaPayers: Record<string, PayerConfig> = {
         cites: [S.csMM],
       },
       diagnosingProviders: {
-        value: 'The diagnosis must be “rendered according to the written orders of” a physician, physician’s assistant, Nevada Board of Psychological Examiners licensee, or APRN/NP; the initial behavior assessment is by “a fully credentialed BCBA with state licensure.”',
+        value: 'The diagnosis must be “rendered according to the written orders of” a physician, physician’s assistant, Nevada Board of Psychological Examiners licensee, or APRN/NP; the initial behavior assessment is by “a fully credentialed BCBA with state licensure.”' + ' LCSW: no — CareSource’s list (physician, physician’s assistant, Nevada Board of Psychological Examiners licensee, APRN/NP) and the state FA-11F both leave out clinical social workers.',
         status: 'verified',
-        cites: [S.csMM],
+        cites: [S.csMM, S.fa11f],
       },
       diagnosticTools: {
         value: 'ADOS-2, CARS-2, GARS-2 (as printed in the policy; the state form now lists GARS-3) or the FASD diagnostic category; if DSM criteria alone are used, document the specific criteria met.',
@@ -614,6 +639,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
       { q: 'Does CareSource Nevada need prior authorization for the ABA assessment?', a: 'No. Initial assessments and reassessments need no medical necessity review, limited to one every 180 days. Treatment is reviewed before it starts and every 6 months.' },
       { q: 'Is an old autism evaluation accepted by CareSource Nevada?', a: 'Yes, but if it is more than 24 months old, add a provider letter describing DSM symptoms present in the past year.' },
       { q: 'Why was my CareSource Nevada ABA claim rejected?', a: 'One common cause: CareSource will not accept ABA claims until it has the signed treatment documentation (parent or guardian signature). Each claim line must also be a single date of service.' },
+      { q: 'Which modifiers mark the rendering credential on a Nevada Medicaid ABA claim?', a: 'Modifier UD on every BCaBA or RBT line (claims and prior authorization requests), per the Nevada Medicaid PT 85 Billing Guide; BCBA and psychologist lines carry no credential modifier, and Nevada does not use HM/HN/HO/HP. The plan follows the state coding.' },
     ],
   },
 
@@ -677,6 +703,17 @@ export const nevadaPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }],
       },
+      {
+        h2: 'Credential modifiers on the claim (UD, not HM/HN/HO/HP)',
+        body: [
+          'Health Plan of Nevada publishes no ABA billing modifiers of its own (its ABA page offers only the request form), so the state coding applies. Nevada Medicaid does not use the HM/HN/HO/HP rate-tier modifiers for ABA. It prices by the rendering provider’s enrolled specialty under Provider Type 85 (310 BCBA, 311 psychologist, 312 BCaBA, 314 RBT), and the PT 85 Billing Guide (updated 10/13/2026) adds one modifier rule: “Claims and prior authorization requests for services provided by a Licensed and Board Certified Assistant Behavior Analyst (BCaBA) and a Registered Behavior Technician (RBT) must include modifier UD.” The 07/2026 reimbursement schedule accordingly lists the BCaBA and RBT lines with UD (97153 pays $30.10 to a BCBA or psychologist, $18.06 to a BCaBA with UD and $13.01 to an RBT with UD) and the BCBA and psychologist lines with no modifier. MSM 3600 requires plan services to be provided “with the same timeliness, amount, duration, and scope as those provided to FFS” recipients, but plans pay their own contracted rates; confirm with the plan whether it prices BCaBA and RBT lines differently.',
+        ],
+        cites: [
+          { title: 'Nevada Medicaid — Provider Type 85 Billing Guide, Applied Behavior Analysis (updated 10/13/2026)', url: 'https://www.medicaid.nv.gov/Downloads/provider/NV_BillingGuidelines_PT85.pdf' },
+          { title: 'Nevada Medicaid — Provider Type 85 ABA Reimbursement Schedule (rate data as of 07/2026)', url: 'https://www.nevadamedicaid.nv.gov/siteassets/content/resources/rates/pt-85-fee-schedule-072026.xlsx' },
+          { title: 'Nevada Medicaid Services Manual Chapter 3600 — Managed Care Organization (effective January 1, 2026)', url: 'https://www.nevadamedicaid.nv.gov/siteassets/content/resources/adminsupport/manuals/msm/c3600/MSM_3600_26_01-01.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Member ID', desc: 'Confirm Health Plan of Nevada Medicaid (not HPN commercial) on the date of service.' },
@@ -684,7 +721,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
       { title: 'Treatment plan and assessment', desc: 'HPN reviews on InterQual; send the full assessment and plan with the request.' },
       { title: 'Other insurance', desc: 'Medicaid is the payer of last resort; bill the primary first.' },
     ],
-    sources: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, S.hpnNews, S.hpnPA, S.hpnForm, S.plans, S.msm3700, S.msm3600, S.pt85, S.fa11f, S.msm3400, S.nrs422, S.cfr438, S.cfr433, S.nrs641D, S.nrs629, { title: 'HPN Medicaid — Medicaid Provider News (ProviderTALK and email communications)', url: 'https://www.myhpnmedicaid.com/provider/provider-news' }],
+    sources: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, S.hpnNews, S.hpnPA, S.hpnForm, S.plans, S.msm3700, S.msm3600, S.pt85, S.fa11f, S.msm3400, S.nrs422, S.cfr438, S.cfr433, S.nrs641D, S.nrs629, { title: 'HPN Medicaid — Medicaid Provider News (ProviderTALK and email communications)', url: 'https://www.myhpnmedicaid.com/provider/provider-news' }, { title: 'Nevada Medicaid — Provider Type 85 ABA Reimbursement Schedule (rate data as of 07/2026)', url: 'https://www.nevadamedicaid.nv.gov/siteassets/content/resources/rates/pt-85-fee-schedule-072026.xlsx' }],
     deliveryRules: {
       supervision: {
         value: 'HPN publishes no ABA supervision rule. ' + ST_SUPERVISION,
@@ -723,9 +760,9 @@ export const nevadaPayers: Record<string, PayerConfig> = {
     },
     intakeGates: {
       ageLimit: {
-        value: 'The state benefit has no age limit (MSM 3704.1), but HPN’s posted ABA form still has the practitioner certify the member “is between 0 and 21 years of age.” Confirm HPN applies the any-age rule before an adult intake.',
+        value: 'The state benefit has no age limit (MSM 3704.1), and MSM 3600 (effective January 1, 2026) requires MCO services to be provided “with the same timeliness, amount, duration, and scope as those provided to FFS Medicaid” recipients. But the ABA form HPN still posts (re-checked October 25, 2026: the same 2015 scan) has the practitioner certify the member “is between 0 and 21 years of age,” while the state’s FA-11F (updated 06/10/2025) says “Medicaid Eligible (any age).” Confirm HPN applies the any-age rule before an adult intake.',
         status: 'plan-dependent',
-        cites: [S.msm3700, S.hpnForm, S.fa11f],
+        cites: [S.msm3700, S.msm3600, S.hpnForm, S.fa11f],
         verifyVia: 'HPN Provider Services, 702-242-7088 (option 2, then 5): ask whether the 0–21 certification on its ABA form is still applied.',
         blocker: 'per-case',
       },
@@ -737,9 +774,9 @@ export const nevadaPayers: Record<string, PayerConfig> = {
         blocker: 'licensed',
       },
       diagnosingProviders: {
-        value: 'HPN’s form has the ordering practitioner certify the diagnosis and lists “a Physician, Physician’s Assistant, Advanced Practice Registered Nurse (APRN), Psychologist, Ph.D. or a Board Certified BCBA.” The current state FA-11F drops the BCBA and limits it to physician, PA, APRN or psychologist.',
+        value: 'HPN’s form (the same 2015 scan, still posted October 25, 2026) has the ordering practitioner certify the diagnosis and lists “a Physician, Physician’s Assistant, Advanced Practice Registered Nurse (APRN), Psychologist, Ph.D. or a Board Certified BCBA.” The current state FA-11F (updated 06/10/2025) drops the BCBA: “Practitioner must be a Physician, Physician’s Assistant, Advanced Practice Registered Nurse (APRN) or Psychologist acting within their scope of practice.” The safe course is a physician, PA, APRN or psychologist signature, which satisfies both forms.' + ' LCSW: no — neither HPN’s form nor the state FA-11F lists a clinical social worker.',
         status: 'plan-dependent',
-        cites: [S.hpnForm, S.fa11f],
+        cites: [S.hpnForm, S.fa11f, S.msm3600],
         verifyVia: 'HPN Behavioral Health, 702-240-8733: confirm which practitioners may sign the diagnosis certification.',
         blocker: 'per-case',
       },
@@ -776,6 +813,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
       { q: 'Does Health Plan of Nevada Medicaid require prior authorization for ABA?', a: 'Yes. Since November 17, 2025, prior authorization is required for all ABA therapy services, regardless of billed charges, reviewed by HPN’s Behavioral Health team on InterQual.' },
       { q: 'Is Health Plan of Nevada the same as UnitedHealthcare?', a: 'HPN is a UnitedHealthcare company, but its ABA reviews are done by HPN’s own Behavioral Health team on InterQual, not the Optum criteria UnitedHealthcare uses elsewhere.' },
       { q: 'Can an adult get ABA through Health Plan of Nevada Medicaid?', a: 'Nevada Medicaid covers ABA at any age, but HPN’s posted ABA form still certifies ages 0–21. Confirm with HPN Provider Services before starting an adult.' },
+      { q: 'Which modifiers mark the rendering credential on a Nevada Medicaid ABA claim?', a: 'Modifier UD on every BCaBA or RBT line (claims and prior authorization requests), per the Nevada Medicaid PT 85 Billing Guide; BCBA and psychologist lines carry no credential modifier, and Nevada does not use HM/HN/HO/HP. The plan follows the state coding.' },
     ],
   },
 
@@ -834,6 +872,17 @@ export const nevadaPayers: Record<string, PayerConfig> = {
         body: [NV_OOS_BODY],
         cites: [S.nrs641D, S.nrs629, S.msm3700],
       },
+      {
+        h2: 'Credential modifiers on the claim (UD, not HM/HN/HO/HP)',
+        body: [
+          'Molina’s 2026 Nevada Medicaid provider manual does not address ABA billing modifiers, so the state coding applies. Nevada Medicaid does not use the HM/HN/HO/HP rate-tier modifiers for ABA. It prices by the rendering provider’s enrolled specialty under Provider Type 85 (310 BCBA, 311 psychologist, 312 BCaBA, 314 RBT), and the PT 85 Billing Guide (updated 10/13/2026) adds one modifier rule: “Claims and prior authorization requests for services provided by a Licensed and Board Certified Assistant Behavior Analyst (BCaBA) and a Registered Behavior Technician (RBT) must include modifier UD.” The 07/2026 reimbursement schedule accordingly lists the BCaBA and RBT lines with UD (97153 pays $30.10 to a BCBA or psychologist, $18.06 to a BCaBA with UD and $13.01 to an RBT with UD) and the BCBA and psychologist lines with no modifier. MSM 3600 requires plan services to be provided “with the same timeliness, amount, duration, and scope as those provided to FFS” recipients, but plans pay their own contracted rates; confirm with the plan whether it prices BCaBA and RBT lines differently.',
+        ],
+        cites: [
+          { title: 'Nevada Medicaid — Provider Type 85 Billing Guide, Applied Behavior Analysis (updated 10/13/2026)', url: 'https://www.medicaid.nv.gov/Downloads/provider/NV_BillingGuidelines_PT85.pdf' },
+          { title: 'Nevada Medicaid — Provider Type 85 ABA Reimbursement Schedule (rate data as of 07/2026)', url: 'https://www.nevadamedicaid.nv.gov/siteassets/content/resources/rates/pt-85-fee-schedule-072026.xlsx' },
+          { title: 'Nevada Medicaid Services Manual Chapter 3600 — Managed Care Organization (effective January 1, 2026)', url: 'https://www.nevadamedicaid.nv.gov/siteassets/content/resources/adminsupport/manuals/msm/c3600/MSM_3600_26_01-01.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Member ID', desc: 'Confirm Molina (Medicaid, not Molina Marketplace) on the date of service.' },
@@ -841,7 +890,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
       { title: 'PA lookup result', desc: 'Screenshot the lookup tool result for each ABA code before scheduling.' },
       { title: 'Other insurance', desc: 'Medicaid pays last; bill the primary first.' },
     ],
-    sources: [S.molPM, S.molPA, S.plans, S.msm3700, S.msm3600, S.pt85, S.fa11f, S.msm3400, S.nrs422, S.teleBill, S.cfr438, S.cfr433, S.nrs641D, S.nrs629, { title: 'Molina Healthcare of Nevada — Provider announcements and quarterly newsletters', url: 'https://www.molinahealthcare.com/providers/nv/communications' }],
+    sources: [S.molPM, S.molPA, S.plans, S.msm3700, S.msm3600, S.pt85, S.fa11f, S.msm3400, S.nrs422, S.teleBill, S.cfr438, S.cfr433, S.nrs641D, S.nrs629, { title: 'Molina Healthcare of Nevada — Provider announcements and quarterly newsletters', url: 'https://www.molinahealthcare.com/providers/nv/communications' }, { title: 'Nevada Medicaid — Provider Type 85 ABA Reimbursement Schedule (rate data as of 07/2026)', url: 'https://www.nevadamedicaid.nv.gov/siteassets/content/resources/rates/pt-85-fee-schedule-072026.xlsx' }],
     deliveryRules: {
       supervision: {
         value: 'Molina publishes no ABA supervision rule. ' + ST_SUPERVISION,
@@ -890,7 +939,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
         cites: [S.msm3700, S.molPM],
       },
       diagnosingProviders: {
-        value: 'Molina publishes nothing of its own. The state’s FA-11F must be signed by a physician, physician assistant, APRN or psychologist acting within scope.',
+        value: 'Molina publishes nothing of its own. The state’s FA-11F must be signed by a physician, physician assistant, APRN or psychologist acting within scope.' + ' LCSW: no. FA-11F limits the certifying practitioner to a physician, physician assistant, APRN or psychologist.',
         status: 'verified',
         cites: [S.fa11f, S.msm3700],
       },
@@ -925,6 +974,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
     faq: [
       { q: 'Does Molina Nevada Medicaid require prior authorization for ABA?', a: 'Molina does not publish an ABA rule; check each code in its prior authorization lookup tool and submit through Availity (no fax since February 1, 2026). The state requires PA for ABA treatment but not assessments.' },
       { q: 'What is Molina Nevada’s timely filing limit?', a: '180 days for in-state providers and 365 days for out-of-state providers; clean claims are processed within 30 days.' },
+      { q: 'Which modifiers mark the rendering credential on a Nevada Medicaid ABA claim?', a: 'Modifier UD on every BCaBA or RBT line (claims and prior authorization requests), per the Nevada Medicaid PT 85 Billing Guide; BCBA and psychologist lines carry no credential modifier, and Nevada does not use HM/HN/HO/HP. The plan follows the state coding.' },
     ],
   },
 
@@ -991,6 +1041,17 @@ export const nevadaPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }],
       },
+      {
+        h2: 'Credential modifiers on the claim (UD, not HM/HN/HO/HP)',
+        body: [
+          'SilverSummit’s 2026 provider manual and its ABA request checklist (June 29, 2026) name no ABA credential modifiers, so the state coding applies. Nevada Medicaid does not use the HM/HN/HO/HP rate-tier modifiers for ABA. It prices by the rendering provider’s enrolled specialty under Provider Type 85 (310 BCBA, 311 psychologist, 312 BCaBA, 314 RBT), and the PT 85 Billing Guide (updated 10/13/2026) adds one modifier rule: “Claims and prior authorization requests for services provided by a Licensed and Board Certified Assistant Behavior Analyst (BCaBA) and a Registered Behavior Technician (RBT) must include modifier UD.” The 07/2026 reimbursement schedule accordingly lists the BCaBA and RBT lines with UD (97153 pays $30.10 to a BCBA or psychologist, $18.06 to a BCaBA with UD and $13.01 to an RBT with UD) and the BCBA and psychologist lines with no modifier. MSM 3600 requires plan services to be provided “with the same timeliness, amount, duration, and scope as those provided to FFS” recipients, but plans pay their own contracted rates; confirm with the plan whether it prices BCaBA and RBT lines differently.',
+        ],
+        cites: [
+          { title: 'Nevada Medicaid — Provider Type 85 Billing Guide, Applied Behavior Analysis (updated 10/13/2026)', url: 'https://www.medicaid.nv.gov/Downloads/provider/NV_BillingGuidelines_PT85.pdf' },
+          { title: 'Nevada Medicaid — Provider Type 85 ABA Reimbursement Schedule (rate data as of 07/2026)', url: 'https://www.nevadamedicaid.nv.gov/siteassets/content/resources/rates/pt-85-fee-schedule-072026.xlsx' },
+          { title: 'Nevada Medicaid Services Manual Chapter 3600 — Managed Care Organization (effective January 1, 2026)', url: 'https://www.nevadamedicaid.nv.gov/siteassets/content/resources/adminsupport/manuals/msm/c3600/MSM_3600_26_01-01.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Member ID', desc: 'Confirm SilverSummit Medicaid (not Ambetter) on the date of service.' },
@@ -999,7 +1060,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
       { title: 'School schedule and IEP', desc: 'Coordination with school and IEP status for school-aged members.' },
       { title: 'Other insurance', desc: 'Medicaid pays last; bill the primary first.' },
     ],
-    sources: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, S.sshpChk, S.sshpPM, S.sshpRev, S.plans, S.msm3700, S.msm3600, S.pt85, S.fa11e, S.fa11f, S.msm3400, S.nrs422, S.cfr438, S.cfr433, S.nrs641D, S.nrs629, { title: 'SilverSummit Healthplan — 2026 Provider Notifications', url: 'https://www.silversummithealthplan.com/providers/ProviderNotifications/2026-notifications.html' }],
+    sources: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, S.sshpChk, S.sshpPM, S.sshpRev, S.plans, S.msm3700, S.msm3600, S.pt85, S.fa11e, S.fa11f, S.msm3400, S.nrs422, S.cfr438, S.cfr433, S.nrs641D, S.nrs629, { title: 'SilverSummit Healthplan — 2026 Provider Notifications', url: 'https://www.silversummithealthplan.com/providers/ProviderNotifications/2026-notifications.html' }, { title: 'Nevada Medicaid — Provider Type 85 ABA Reimbursement Schedule (rate data as of 07/2026)', url: 'https://www.nevadamedicaid.nv.gov/siteassets/content/resources/rates/pt-85-fee-schedule-072026.xlsx' }],
     deliveryRules: {
       supervision: {
         value: 'SilverSummit’s checklist asks for the training and treatment plan but sets no supervision ratio of its own; it reviews against MSM 3700. ' + ST_SUPERVISION,
@@ -1048,7 +1109,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
         cites: [S.sshpChk],
       },
       diagnosingProviders: {
-        value: 'FA-11F “must be completed and signed by a qualified diagnosing practitioner acting within their scope of practice”; the state form limits that to a physician, physician assistant, APRN or psychologist.',
+        value: 'FA-11F “must be completed and signed by a qualified diagnosing practitioner acting within their scope of practice”; the state form limits that to a physician, physician assistant, APRN or psychologist.' + ' LCSW: no. FA-11F limits the certifying practitioner to a physician, physician assistant, APRN or psychologist.',
         status: 'verified',
         cites: [S.sshpChk, S.fa11f],
       },
@@ -1085,6 +1146,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
       { q: 'What forms does SilverSummit need for an ABA request?', a: 'The state forms: FA-11E for every request and FA-11F with the first, plus a full treatment plan, since SilverSummit says FA-11E alone does not replace it.' },
       { q: 'Does SilverSummit authorize ABA retroactively?', a: 'Not for routine sessions. Behavioral health retro authorizations are granted only in rare cases such as eligibility issues, requested within 180 days of service with a cover letter.' },
       { q: 'How long does SilverSummit take to decide an ABA request?', a: 'The manual lists 2 business days for non-urgent pre-service decisions but tells behavioral health practitioners to allow up to 14 business days; federal rules cap standard Medicaid decisions at 7 calendar days for 2026 contracts.' },
+      { q: 'Which modifiers mark the rendering credential on a Nevada Medicaid ABA claim?', a: 'Modifier UD on every BCaBA or RBT line (claims and prior authorization requests), per the Nevada Medicaid PT 85 Billing Guide; BCBA and psychologist lines carry no credential modifier, and Nevada does not use HM/HN/HO/HP. The plan follows the state coding.' },
     ],
   },
 
@@ -1196,6 +1258,27 @@ export const nevadaPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'Aetna — Applied behavior analysis medical necessity guide (©2026): Termination of coverage', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
       },
+      {
+        h2: 'Credential modifiers on the claim',
+        body: [
+          'Aetna publishes no rate-tier modifiers for ABA. Its public ABA documents — the Applied Behavior Analysis Medical Necessity Guide (©2026), the provider manual (6/26) and the ABA precertification form GR-69017-4 (7-26) — name no HM, HN, HO or HP modifier and no credential crosswalk. What the guide does require is that “Services must be provided directly or billed by the appropriately licensed provider”: licensed behavior analysts where a state licenses them, board-certified behavior analysts, or licensed psychologists, with unlicensed staff supervised “unless state mandates, plan documents or contracts require otherwise.” Whether your Aetna agreement prices technician and analyst time by modifier is set in the contract and its fee schedule, so ask Aetna before you bill technician lines under the analyst.',
+        ],
+        cites: [
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+          { title: 'Aetna — Provider manual (8102800-01-01, 6/26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+        ],
+      },
+      {
+        h2: 'Reconsideration and appeal: what to send',
+        body: [
+          'Aetna runs two levels. A reconsideration (“a formal review of a previous claim decision,” covering reimbursement and coding decisions) is filed within 180 calendar days of the initial claim decision, on Availity or by mail. Send “Medical records, office notes and other supporting documents” and either a completed dispute and appeal form or an explanation giving the reason for review, member ID, patient name, TIN, claim ID, dates of service and billed amounts, and the “Procedure codes and modifiers being disputed”; most answers come within 30 business days. If that fails, appeal within 60 calendar days of the reconsideration decision with a clear explanation, supporting documents, the denial letter or EOB and the original claim; a valid appeal needs the dispute and appeal form (not required on Availity), the denied codes or payments identified, and the records. Aetna decides within 60 calendar days. The 180-day standard can differ for fully insured plans in states on Aetna’s exception list.',
+        ],
+        cites: [
+          { title: 'Aetna — Disputes and appeals overview (reconsideration and appeal time frames and contents)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' },
+          { title: 'Aetna — Provider appeals: state exceptions to the 180-day dispute filing standard', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/provider-appeals.html' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured Nevada plan (mandate applies) vs. self-funded ERISA (plan document governs); individual plans may not carry the optional coverage.' },
@@ -1204,7 +1287,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis report', desc: 'DSM-5 ASD, diagnosing provider and credentials, evaluation date.' },
       { title: 'Standardized functional measure', desc: 'From the past 12 months (Vineland-3, ABAS, VB-MAPP or ABLLS).' },
     ],
-    sources: [{ title: 'NRS 689B.255 — Group health insurance: approval or denial of claims, payment and interest', url: 'https://www.leg.state.nv.us/NRS/NRS-689B.html' }, { title: 'NRS 689A.410 — Individual health insurance: approval or denial of claims, payment and interest', url: 'https://www.leg.state.nv.us/NRS/NRS-689A.html' }, { title: 'NRS chapter 695C — Health maintenance organizations (NRS 695C.185 shown as repealed by ch. 366, Statutes of Nevada 2025)', url: 'https://www.leg.state.nv.us/NRS/NRS-695C.html' }, S.aetnaGuide, S.aetnaCPB, S.aetnaCPB648, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.aetnaTele, S.nrs689B, S.nrs695C, S.nrs689C, S.nrs689A, S.nrs687B, S.nrs641D, S.nrs629, S.bacbLic, S.erisa, S.cfr433, S.billMan, S.tricare, S.fee85],
+    sources: [{ title: 'NRS 689B.255 — Group health insurance: approval or denial of claims, payment and interest', url: 'https://www.leg.state.nv.us/NRS/NRS-689B.html' }, { title: 'NRS 689A.410 — Individual health insurance: approval or denial of claims, payment and interest', url: 'https://www.leg.state.nv.us/NRS/NRS-689A.html' }, { title: 'NRS chapter 695C — Health maintenance organizations (NRS 695C.185 shown as repealed by ch. 366, Statutes of Nevada 2025)', url: 'https://www.leg.state.nv.us/NRS/NRS-695C.html' }, S.aetnaGuide, S.aetnaCPB, S.aetnaCPB648, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.aetnaTele, S.nrs689B, S.nrs695C, S.nrs689C, S.nrs689A, S.nrs687B, S.nrs641D, S.nrs629, S.bacbLic, S.erisa, S.cfr433, S.billMan, S.tricare, S.fee85, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }, { title: 'Aetna — Disputes and appeals overview (reconsideration and appeal time frames and contents)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' }, { title: 'Aetna — Provider appeals: state exceptions to the 180-day dispute filing standard', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/provider-appeals.html' }],
     deliveryRules: {
       supervision: {
         value: 'Aetna’s guide requires services “provided directly or billed by licensed behavior analysts (in states with behavior analyst licensure laws), board-certified behavior analysts, or licensed psychologists,” with supervision of unlicensed staff “in line with practice standards.” Its participation criteria (5/26) require “A minimum of one hour of face-to-face supervision” of an unlicensed or noncertified paraprofessional “for each 10 hours of applied behavior analysis,” plus the supervisor “onsite with the child at least one hour a month,” and say all BCBAs, BCaBAs and paraprofessionals “must meet state requirements.” In Nevada that means NRS 641D.610: BCaBAs and RBTs practice only under a licensed behavior analyst (or qualified psychologist; RBTs also under a qualified licensed BCaBA).',
@@ -1257,7 +1340,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
         cites: [S.aetnaGuide, S.nrs689B],
       },
       diagnosingProviders: {
-        value: 'An “appropriate provider (i.e. licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice).” Nevada’s ABA licensure law excludes diagnosis from the practice of ABA (NRS 641D.080).',
+        value: 'An “appropriate provider (i.e. licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice).” Nevada’s ABA licensure law excludes diagnosis from the practice of ABA (NRS 641D.080).' + ' LCSW: not named. Aetna accepts a diagnosis from a “licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice,” so an LCSW qualifies only where state law puts that diagnosis within LCSW scope.',
         status: 'verified',
         cites: [S.aetnaGuide, S.nrs641D],
       },
@@ -1303,6 +1386,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
       { q: 'Does Aetna require RBT certification for technicians in Nevada?', a: 'Aetna’s network criteria allow supervised paraprofessionals, but Nevada law requires anyone practicing as a technician to be a BACB-certified RBT registered with the Nevada Board of Applied Behavior Analysis, and Aetna requires staff to meet state requirements.' },
       { q: 'Does Aetna require a referring provider (box 17) on ABA claims?', a: 'Aetna publishes no such requirement for ABA. A referral has to accompany a claim only when the member’s plan requires PCP referrals for specialist care. Behavioral health is a direct-access benefit in Aetna’s behavioral health manual.' },
       { q: 'Which form does Aetna want with an ABA prior-authorization request?', a: 'Since August 1, 2026, use form GR-69017-4, “ABA Treatment Request: Required Information for Precertification.” Start the request on Availity or by phone first, then attach the completed form plus a standardized assessment from the past 12 months and the treatment plan.' },
+      { q: 'Does Aetna require HM, HN, HO or HP modifiers on ABA claims?', a: 'Not in any public Aetna ABA document: the medical necessity guide, provider manual and ABA precertification form name no rate-tier modifiers. Services must be provided or billed by an appropriately licensed or certified provider; ask Aetna whether your contract prices technician lines by modifier.' },
     ],
   },
 
@@ -1401,6 +1485,25 @@ export const nevadaPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'Evernorth Coverage Policy EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026): Criteria for Continued Treatment with ABA', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
       },
+      {
+        h2: 'Credential modifiers on the claim',
+        body: [
+          'Evernorth (Cigna’s behavioral health arm) uses no rate-tier modifiers in its published ABA billing rules. Its Autism Resource Guide (March 2025) instead sets, code by code, who may provide and who may bill: 97152, 97153 and 97154 may be provided by a “BCaBA, technician” but are billed by a “BCBA-D, BCBA, or licensed mental health provider,” and “Evernorth does not credential nonlicensed/noncertified staff. Services for these staff members must be billed under the supervising provider.” All ABA must be billed with 97151–97158, 0362T and 0373T only. The only modifier Evernorth’s administrative guidelines (September 2026) prescribe is for virtual care: “Modifier 95 in Field 24-D to specify telehealth” with place of service 02; other modifiers go on “if they are needed to describe the service performed.”',
+        ],
+        cites: [
+          { title: 'Cigna/Evernorth Autism Resource Guide (PCOMM-2025-225, March 2025): billing codes', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191) — telehealth claim coding', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
+      },
+      {
+        h2: 'Reconsideration and appeal: what to send',
+        body: [
+          'Evernorth (Cigna behavioral health) asks you to call Provider Services first with the patient’s name, date of service and the treating provider’s name and TIN. If the claim stands, file a written appeal within 180 calendar days of the initial payment or denial (or of the last payment adjustment). Fee-schedule and reimbursement disputes can go through the reconsideration feature on Provider.Evernorth.com. For a medical-necessity denial include the clinical record; for a timely-filing denial include the EDI transmission report or proof the delay came from coordination of benefits; for a late-payment dispute include proof of when you submitted. Appeals must be filed by a person, not by automation software. Most are resolved within 60 calendar days, with notice within 75 days unless state law says otherwise, and arbitration is the final step.',
+        ],
+        cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191): Provider payment appeals', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured Nevada plan (mandate applies) vs. self-funded ERISA (plan document governs).' },
@@ -1460,7 +1563,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
         cites: [S.en0499],
       },
       diagnosingProviders: {
-        value: 'A professional “licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice,” applying DSM-5-TR. The assessment is by a BCBA, Licensed Behavior Analyst or independently licensed clinician with ABA training.',
+        value: 'A professional “licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice,” applying DSM-5-TR. The assessment is by a BCBA, Licensed Behavior Analyst or independently licensed clinician with ABA training.' + ' LCSW: not named. EN0499 accepts a professional “licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice,” so an independently licensed LCSW qualifies only if the state social-work board treats diagnosis as within scope.',
         status: 'verified',
         cites: [S.en0499],
       },
@@ -1504,6 +1607,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
       { q: 'What does Cigna pay for ABA in Nevada?', a: 'Rates are in Exhibit A of your Evernorth Provider Agreement. Evernorth’s Nevada addendum requires 45 days’ written notice before it changes your fee schedule (not for self-funded plans).' },
       { q: 'Does a BCBA need a Nevada license to bill Cigna?', a: 'Yes. Nevada requires behavior analysts to be licensed by the Board of Applied Behavior Analysis, including for telehealth to a child in Nevada, and Evernorth requires providers to meet state licensure requirements.' },
       { q: 'Does Cigna require a referring provider (box 17) on ABA claims?', a: 'No. Evernorth’s complete-claim definition for the CMS-1500 lists the rendering and billing providers but no referring provider. If you report a referring provider on an electronic claim, include both the name and the NPI.' },
+      { q: 'Does Cigna / Evernorth require HM, HN, HO or HP modifiers on ABA claims?', a: 'No modifier tiers are published. Evernorth’s autism resource guide says technician and BCaBA services (97152–97154) are billed by the supervising BCBA, BCBA-D or licensed provider, and noncredentialed staff are billed under the supervising provider. Modifier 95 (with POS 02) marks telehealth.' },
     ],
   },
 
@@ -1594,7 +1698,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
         body: [
           'Nevada sets the payment clock for state-regulated plans. A group or blanket insurer "shall approve or deny a claim ... within 21 days after the insurer receives the claim, if the claim is submitted electronically, or 30 days after the insurer receives the claim, if the claim is not submitted electronically," must pay an approved claim within the same period, and owes interest at 10 percent a year after that (NRS 689B.255; the individual-market rule, NRS 689A.410, is the same). A request for more information must come within 20 working days, and the clock restarts on receipt of it. The HMO section that used to carry the same rule (NRS 695C.185) is shown as repealed in 2025, so for an HMO product check the contract. Self-funded employer plans follow ERISA instead.',
           'UnitedHealthcare’s ABA claims run through Optum Behavioral Health, whose National Network Manual (effective September 1, 2026) sets the deadlines. "All information necessary to process claims must be received by Optum no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan," and "Any corrections or additions to a claim should be made within 90 days of initial claim receipt." The member may not be billed for a late claim. Payment: claims with all required information and any required authorization "will be paid within 45 calendar days after Optum receives the claim, or as required by state and federal laws," which may exclude claims needing a coordination-of-benefits determination; when Optum is secondary it pays up to the Optum contracted rate. UnitedHealthcare’s 2026 administrative guide adds that a corrected claim (frequency code 7, with the original claim number) must arrive within the same timely-filing limit as the original. No weekly payment cycle or submission cutoff is published.',
-          'Which codes: Optum’s commercial ABA reimbursement policy (2022RP501A, updated June 2026) lists the reimbursable codes for the commercial ABA program as 97151–97158, 0362T and 0373T, each in 15-minute units with a credential modifier (HM, HN, HO or HP); no HCPCS H-code (H0031, H0032, H2014, H2019) is on that list.',
+          'Which codes: Optum’s commercial ABA reimbursement policy (2022RP501A, updated June 2026) lists the reimbursable codes for the commercial ABA program as 97151–97158, each in 15-minute units with a credential modifier (HM, HN, HO or HP), plus 0362T and 0373T, which it lists among the ABA codes “that do not require modifiers”; no HCPCS H-code (H0031, H0032, H2014, H2019) is on that list.',
         ],
         cites: [{ title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026): reimbursable codes', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: 'NRS 689B.255 — Group health insurance: approval or denial of claims, payment and interest', url: 'https://www.leg.state.nv.us/NRS/NRS-689B.html' }, { title: 'NRS 689A.410 — Individual health insurance: approval or denial of claims, payment and interest', url: 'https://www.leg.state.nv.us/NRS/NRS-689A.html' }, { title: 'NRS chapter 695C — Health maintenance organizations (NRS 695C.185 shown as repealed by ch. 366, Statutes of Nevada 2025)', url: 'https://www.leg.state.nv.us/NRS/NRS-695C.html' }, { title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): Coordination of Benefits; Timely Filing; Payment Timelines', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial): Timely filing of corrected claims; Subrogation and COB', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }],
       },
@@ -1604,6 +1708,15 @@ export const nevadaPayers: Record<string, PayerConfig> = {
           'Optum’s ABA Supplemental Clinical Criteria (interim review April 2026) say that "With each clinical review for continued ABA treatment, the provider must submit updated documentation" showing progress "for each targeted symptom and behavior, including progress toward defined goals, including the same modes of measurement that were utilized for baseline measurement." Progress "should include rate and percentage of mastered programs, rates of mastered targets, change scores for any outcome measures, updated standardized adaptive measures, and change scores for skills-based assessments," with movement from baseline shown on validated, norm-referenced assessments and, where applicable, the caregiver’s own progress. Inadequate progress over six months calls for an analysis of the reasons and modified interventions, and the review looks at use below 80 percent of authorized hours over two weeks. The criteria do not require graphs as such.',
         ],
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026): Continued Service Criteria', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+      },
+      {
+        h2: 'Reconsideration and appeal: what to send',
+        body: [
+          'Optum, which handles UnitedHealthcare’s behavioral claims, uses a two-step process for commercial claims: reconsideration first, then appeal, within a combined 12 months unless state law or your participation agreement sets a different deadline. Include “member-specific treatment plans, clinical records, payment appendices or other items that support why you believe our decision was incorrect,” plus proof that the claim was received and accepted within your timely filing limit. File online in the Provider Express secure portal (Appeals > Appeals Summary & Submission, giving the factual or legal basis) or by mail with Optum’s reconsideration request form. Optum decides on the materials it has at the time of review; an overturned claim is reported on the remittance advice and an upheld one by letter.',
+        ],
+        cites: [
+          { title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): Provider Reconsideration and Appeal Process', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+        ],
       },
     ],
     collect: [
@@ -1672,7 +1785,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
         blocker: 'licensed',
       },
       diagnosingProviders: {
-        value: 'Optum: a “state licensed clinician qualified to make such diagnosis” under DSM-5-TR. Nevada’s ABA licensure law excludes diagnosis from ABA practice (NRS 641D.080).',
+        value: 'Optum: a “state licensed clinician qualified to make such diagnosis” under DSM-5-TR. Nevada’s ABA licensure law excludes diagnosis from ABA practice (NRS 641D.080).' + ' LCSW: not named. Optum accepts a diagnosis from a “state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis,” so an LCSW qualifies only where state licensure allows it.',
         status: 'verified',
         cites: [S.optumSCC, S.nrs641D],
       },
@@ -1717,6 +1830,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
       { q: 'Does Optum have Nevada-specific ABA criteria?', a: 'No. Optum’s ABA State Mandates supplement does not list Nevada, so the national criteria apply, with Nevada’s mandate layered on for state-regulated plans.' },
       { q: 'Can ABA be delivered by telehealth with UnitedHealthcare in Nevada?', a: 'Optum’s commercial guide allows only 97155, 97156 and 97157 by telehealth. Nevada-insured plans must cover telehealth on the same basis as in person under NRS 689B.0369, so ask Optum how it applies the list to your plan.' },
       { q: 'Does UnitedHealthcare require a referring provider (box 17) on ABA claims?', a: 'No. Optum’s claim requirements do not include a referring provider. UnitedHealthcare makes the referring name and NPI mandatory only for lab, DME, imaging and home health claims. For other claims it encourages the referring NPI but does not require it.' },
+      { q: 'What do HM, HN, HO and HP mean on a UnitedHealthcare / Optum ABA claim?', a: 'They identify who rendered the service: HM an RBT (less than bachelor’s level), HN a BCaBA (bachelor’s level), HO a master’s-level BCBA or licensed clinician, HP a BCBA-D or doctoral-level clinician. One per line; 97151 and 97155–97158 cannot take HM; 0362T/0373T take none (Optum ABA Reimbursement Policy 2022RP501A, June 2026).' },
     ],
   },
 
@@ -1876,7 +1990,7 @@ export const nevadaPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       diagnosingProviders: {
-        value: 'Not published in Anthem’s Nevada documents. Nevada’s mandate requires the insurer to accept as dispositive a diagnosis made under the state’s statewide standard (NRS 689B.0335(1)).',
+        value: 'Not published in Anthem’s Nevada documents. Nevada’s mandate requires the insurer to accept as dispositive a diagnosis made under the state’s statewide standard (NRS 689B.0335(1)).' + ' LCSW: not addressed in Anthem’s published documents.',
         status: 'unverified',
         cites: [S.anthemRG, S.nrs689B],
         verifyVia: 'Anthem Behavioral Health, 800-424-4014.',

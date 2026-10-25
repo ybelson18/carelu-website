@@ -72,6 +72,14 @@ const S: Record<string, PayerSource> = {
   premPAPage: { title: 'Premera — About prior authorization (submission sites by plan type)', url: 'https://www.premera.com/wa/provider/utilization-review/about-prior-authorization/' },
   regBH18: { title: 'Regence Medical Policy BH18 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (version effective 8/1/2025, carrying a notice that a revision takes effect 11/1/2026)', url: 'https://beonbrand.getbynder.com/m/e4646f415eb7f4eb/' },
   regBH33: { title: 'Regence Medical Policy BH33 — ABA Initial Assessment for the Treatment of Autism Spectrum Disorder (eff. 8/1/2025)', url: 'https://beonbrand.getbynder.com/m/8360cc45444cab46/' },
+  lcswScope: { title: 'RCW 18.225.010(7) — "Independent clinical social work" means "the diagnosis and treatment of emotional and mental disorders"', url: 'https://app.leg.wa.gov/RCW/default.aspx?cite=18.225.010' },
+  ccPreAuth: { title: 'Coordinated Care of Washington — Medicaid Pre-Auth Check tool (97151 no authorization; 0362T, 97153, 97155, 97156 authorization required; 97152 not a covered benefit; checked 10/25/2026)', url: 'https://www.coordinatedcarehealth.com/providers/preauth-check/medicaid-pre-auth.html' },
+  molUM: { title: 'Molina Healthcare of Washington — Utilization Management Guide for ABA Providers (MHW 11/14/2023)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/WA/Prior-Auth/Guides/aba-provider-um-guide.pdf' },
+  molPAform: { title: 'Molina Healthcare of Washington — 2025 ABA Therapy Medicaid Prior Authorization Form (MHW 12/10/2024; fax 833-552-0030)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/WA/Prior-Auth/Forms/aba-prior-auth-form-medicaid.pdf' },
+  molOrder: { title: 'Molina Healthcare of Washington — ABA Order form (MHW 11/14/2023)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/WA/Prior-Auth/Forms/aba-order-form.pdf' },
+  molWeekly: { title: 'Molina Healthcare of Washington — ABA Weekly Approved Units Policy: Provider Guide & FAQs (7/14/2026; effective August 1, 2026)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/WA/Prior-Auth/Guides/aba-weekly-approved-units-policy-provider-faqs.pdf' },
+  molPSG: { title: 'Molina Healthcare Medicaid Pre-Service Review Guide (Washington, effective 01/01/2026)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/WA/Prior-Auth/Forms/pa-pre-service-guide-form-medicaid.pdf' },
+  molPM: { title: 'Molina Healthcare of Washington — Apple Health (Medicaid) and AHE Provider Manual 2026 (last updated 07/2026): Telehealth; Prior Authorization; Timely Claim Filing; COB/TPL', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/WA/Apple-Health-Medicaid-and-Apple--2026.pdf' },
 };
 
 /* ---- Shared Washington commercial layer (same facts on every commercial guide) ---- */
@@ -238,7 +246,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       { title: 'Other insurance', desc: 'If private coverage has an ABA benefit that is not exhausted, HCA PA is not required; bill the private plan first.' },
       { title: 'Forms', desc: 'HCA 13-400 assessment and plan (or equivalent) and HCA 12-411 Level of Support; HCA 13-835 cover sheet for faxed FFS requests.' },
     ],
-    sources: [{ title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, { title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: 'HCA — Prior authorization, claims, and billing (ProviderOne claims submission deadlines)', url: 'https://www.hca.wa.gov/billers-providers-partners/prior-authorization-claims-and-billing' }, S.wac531a, S.abaBG, S.abaFee, S.coeList, S.hcaMC, S.hcaTA, S.teleBG, S.wac0165, S.wac0200, S.wac0150, S.wac526, S.rcw18380, S.wac246805, S.bacbLic, S.cfr440, S.cfr433, { title: 'HCA — ProviderOne Billing and Resource Guide (September 2025 edition, posted February 2026): Providers required to enroll; DDE claim questions', url: 'https://www.hca.wa.gov/assets/billers-and-providers/providerone-billing-and-resource-guide.pdf' }, { title: 'HCA — Provider Alerts 2026 (index of Apple Health provider alerts)', url: 'https://www.hca.wa.gov/billers-providers-partners/provider-alerts-2026' }],
+    sources: [{ title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, { title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: 'HCA — Prior authorization, claims, and billing (ProviderOne claims submission deadlines)', url: 'https://www.hca.wa.gov/billers-providers-partners/prior-authorization-claims-and-billing' }, S.wac531a, S.abaBG, S.abaFee, S.coeList, S.hcaMC, S.hcaTA, S.teleBG, S.wac0165, S.wac0200, S.wac0150, S.wac526, S.rcw18380, S.wac246805, S.bacbLic, S.cfr440, S.cfr433, { title: 'HCA — ProviderOne Billing and Resource Guide (September 2025 edition, posted February 2026): Providers required to enroll; DDE claim questions', url: 'https://www.hca.wa.gov/assets/billers-and-providers/providerone-billing-and-resource-guide.pdf' }, { title: 'HCA — Provider Alerts 2026 (index of Apple Health provider alerts)', url: 'https://www.hca.wa.gov/billers-providers-partners/provider-alerts-2026' }, S.lcswScope],
     deliveryRules: {
       supervision: {
         value: AH_SUPERVISION,
@@ -285,9 +293,9 @@ export const washingtonPayers: Record<string, PayerConfig> = {
         cites: [S.wac531a, S.abaBG],
       },
       diagnosingProviders: {
-        value: AH_DIAGNOSERS,
+        value: AH_DIAGNOSERS + ' LCSW (LICSW): not as a diagnoser of record — even though Washington defines independent clinical social work as "the diagnosis and treatment of emotional and mental disorders" (RCW 18.225.010(7)), Apple Health requires a Center of Excellence and no social-work credential is on the COE list; only HCA\'s discretion to accept a non-COE evaluation would let an LICSW\'s evaluation count.',
         status: 'verified',
-        cites: [S.wac531a, S.abaBG],
+        cites: [S.wac531a, S.abaBG, S.lcswScope],
       },
       diagnosticTools: {
         value: AH_TOOLS,
@@ -316,6 +324,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Apple Health use HM/HN/HO credential modifiers on ABA claims?', a: 'No credential modifiers are named in HCA\'s ABA billing guide (January 1, 2026). Its modifier section says to "Use an appropriate modifier to delineate separate services by different providers at different times on the same day," and requires group-size modifiers on 97154/97158 and 97156/97157: UN (two clients or families), UP (three), UQ (four), UR (five), US (six or more). The rendering credential shows through the servicing provider (LBA, LABA or CBT) enrolled with HCA, and the fee schedule ties codes to roles (97151 "LBAT only").' },
       { q: 'What is the weekly billing cutoff for Apple Health fee-for-service claims?', a: 'Tuesday at 5 p.m. for payment the following Monday (HCA’s ProviderOne schedule). MCO claims follow each plan’s own schedule.' },
       { q: 'Does Washington Apple Health cover ABA therapy?', a: 'Yes, under chapter 182-531A WAC, for autism spectrum disorder or another intellectual or developmental disability for which ABA is effective, with no age limit. A Center of Excellence must evaluate the client and prescribe ABA first.' },
       { q: 'What is a Center of Excellence (COE) in Washington?', a: 'An individual provider, not a facility, who completes the comprehensive diagnostic evaluation and writes the ABA prescription. Developmental pediatricians, neurologists, pediatric neurologists, pediatric psychiatrists, psychiatrists and psychologists experienced with autism qualify; ARNPs, physicians, PAs and naturopaths qualify after HCA’s COE training and designation.' },
@@ -452,7 +461,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       diagnosingProviders: {
-        value: 'A state-approved ABA Center of Excellence; the form limits providers in the authorization to "State-approved ABA Center of Excellence teams and/or CHPW-credentialed ABA providers." ' + AH_DIAGNOSERS,
+        value: 'A state-approved ABA Center of Excellence; the form limits providers in the authorization to "State-approved ABA Center of Excellence teams and/or CHPW-credentialed ABA providers." ' + AH_DIAGNOSERS + ' LCSW (LICSW): not a COE credential — no social-work licence is on the COE list, so an LICSW\'s evaluation counts only if HCA uses its discretion to accept a non-COE evaluation.',
         status: 'verified',
         cites: [S.chpwForm, S.wac531a],
       },
@@ -498,11 +507,9 @@ export const washingtonPayers: Record<string, PayerConfig> = {
     family: 'centene',
     cardDesc: 'Centene’s Apple Health plan (also Apple Health Core Connections foster care): WA.CP.BH.104 mirrors WAC 182-531A — COE evaluation, HCA 13-400 and 12-411, six-month reviews.',
     assessmentPA: {
-      value: 'Not stated for 97151 in WA.CP.BH.104; Coordinated Care’s Pre-Auth tool decides by code, and HCA notes MCOs may require PA for the COE evaluation',
-      status: 'unverified',
-      cites: [S.ccBH104, S.abaBG],
-      verifyVia: 'Coordinated Care Pre-Auth tool (coordinatedcarehealth.com) or Provider Services, 1-877-644-4613: check 97151.',
-      blocker: 'document',
+      value: 'No for 97151: Coordinated Care\'s Medicaid Pre-Auth Check returns "No authorization required for all providers" for 97151, while 0362T (the destructive-behavior supporting assessment) returns "Authorization required for all providers." 97152 returns "not a covered benefit," consistent with HCA\'s ABA fee schedule, which lists 97151 and 0362T but not 97152. The ABA treatment codes (97153, 97155, 97156) all require authorization',
+      status: 'verified',
+      cites: [S.ccPreAuth, S.abaFee],
     },
     treatmentPA: {
       value: 'Yes. ABA uses Coordinated Care’s required Applied Behavioral Analysis Prior Authorization form; medical necessity is judged under WA.CP.BH.104 (effective 3/1/2026), which requires the COE evaluation, HCA form 13-400 and HCA form 12-411',
@@ -562,7 +569,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       { title: 'HCA 13-400 and 12-411', desc: 'LBAT assessment and behavior change plan, and the Level of Support form.' },
       { title: 'Other services', desc: 'School, speech, OT and other providers, so the plan can show coordination and no duplication.' },
     ],
-    sources: [{ title: 'Coordinated Care of Washington — Apple Health Provider Manual (July 2026): §§ 19 (prompt pay), 19.4 (corrected claims), 19.10 (timely filing), 11.13 (secondary payer)', url: 'https://www.coordinatedcarehealth.com/content/dam/centene/Coordinated%20Care/provider/PDFs/508-CoordinatedCareProviderManual.pdf' }, { title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, S.ccBH104, S.hcaTA, S.hcaMC, S.wac531a, S.abaBG, S.teleBG, S.cfr438, S.cfr433, { title: 'Coordinated Care of Washington — Provider News (provider notices archive)', url: 'https://www.coordinatedcarehealth.com/providers/provider-news.html' }],
+    sources: [{ title: 'Coordinated Care of Washington — Apple Health Provider Manual (July 2026): §§ 19 (prompt pay), 19.4 (corrected claims), 19.10 (timely filing), 11.13 (secondary payer)', url: 'https://www.coordinatedcarehealth.com/content/dam/centene/Coordinated%20Care/provider/PDFs/508-CoordinatedCareProviderManual.pdf' }, { title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, S.ccBH104, S.hcaTA, S.hcaMC, S.wac531a, S.abaBG, S.teleBG, S.cfr438, S.cfr433, { title: 'Coordinated Care of Washington — Provider News (provider notices archive)', url: 'https://www.coordinatedcarehealth.com/providers/provider-news.html' }, S.ccPreAuth, S.abaFee],
     deliveryRules: {
       supervision: {
         value: 'WA.CP.BH.104: "Supervision by a Lead Behavioral Analysis Therapist of care provided by a Certified Behavioral Therapist (CBT) should occur at a minimum of five percent of the total direct care per week (e.g., one hour of supervision per twenty hours of care)," and treatment must be "delivered or supervised by an ABA-credentialed professional."',
@@ -611,7 +618,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
         cites: [S.ccBH104],
       },
       diagnosingProviders: {
-        value: 'An HCA-recognized ABA Center of Excellence (WA.CP.BH.104). ' + AH_DIAGNOSERS,
+        value: 'An HCA-recognized ABA Center of Excellence (WA.CP.BH.104). ' + AH_DIAGNOSERS + ' LCSW (LICSW): not a COE credential — no social-work licence is on the COE list, so an LICSW\'s evaluation counts only if HCA uses its discretion to accept a non-COE evaluation.',
         status: 'verified',
         cites: [S.ccBH104, S.wac531a],
       },
@@ -658,18 +665,16 @@ export const washingtonPayers: Record<string, PayerConfig> = {
     family: 'molina',
     cardDesc: 'Apple Health MCO: PA "typically required" for ABA (check the lookup tool), granted at the group level; BCBAs credentialed individually, CBTs and LABAs rostered.',
     assessmentPA: {
-      value: 'Not confirmed: Molina told HCA’s February 2025 ABA session that PA "is typically required for ABA services" and to use its Prior Auth Look-up Tool; its current Washington Medicaid PA guide could not be opened',
+      value: 'Not settled for 97151 within its limit. Molina\'s 2025 ABA prior authorization form lists 97151 (assessment/treatment plan development) with "*Limitation Extension request required" — "limited to 28 units per assessment, 2x per year" — and 0362T (functional analysis, LBAT on site) "limited to a 2-hour assessment, 3x per year," so a request is needed to go past those limits; its Pre-Service Review Guide sends providers to the Prior Authorization Look-Up Tool for code-level rules',
       status: 'unverified',
-      cites: [S.hcaTA],
-      verifyVia: 'Molina Prior Auth Look-up Tool (Availity) or Molina behavioral health UM; general ABA questions to aba@molinahealthcare.com: check 97151.',
+      cites: [S.molPAform, S.molPSG],
+      verifyVia: 'Molina Prior Auth Look-up Tool (Availity) or Provider Services, (855) 322-4082: check 97151 within the 28-unit limit.',
       blocker: 'document',
     },
     treatmentPA: {
-      value: '"Prior Authorization (PA) is typically required for ABA services," and "PA is generally granted at the Group level, so anyone affiliated under the group can render the service" (Molina, HCA ABA session, February 2025). Confirm each code in Molina’s lookup tool',
-      status: 'plan-dependent',
-      cites: [S.hcaTA, S.wac531a],
-      verifyVia: 'Molina Prior Auth Look-up Tool or Provider Services, (855) 322-4082.',
-      blocker: 'document',
+      value: 'Yes. Molina\'s Medicaid Pre-Service Review Guide (effective 1/1/2026) lists "Applied Behavioral Analysis (ABA) for treatment of Autism Spectrum Disorder (ASD)" among services needing prior authorization, and its ABA PA form covers 97153, 97154, 97155, 97158, 0373T and H2020 (fax 833-552-0030). Send with it the general authorization form, the ABA level of support form (HCA 12-411), a signed prescription for ABA, the COE diagnostic evaluation and the behavior change plan. "PA is generally granted at the Group level, so anyone affiliated under the group can render the service" (Molina, HCA session, February 2025)',
+      status: 'verified',
+      cites: [S.molPSG, S.molPAform, S.molUM, S.hcaTA],
     },
     dxRequired: {
       value: 'Yes. The Apple Health rule binds every MCO: a COE-confirmed ASD or other developmental/intellectual disability for which ABA is effective (WAC 182-531A-0400), and HCA applies the COE requirement "whether the client is fee-for-service or enrolled in a managed care organization." Molina’s own ABA criteria could not be read this run',
@@ -688,7 +693,9 @@ export const washingtonPayers: Record<string, PayerConfig> = {
     ],
     atGlance: [
       { label: 'Covers ABA?', value: 'Yes, for Apple Health members, under WAC 182-531A (COE evaluation required)' },
-      { label: 'Prior auth', value: '"Typically required"; check codes in Molina’s Prior Auth Look-up Tool' },
+      { label: 'Prior auth', value: 'Required for ABA treatment (Pre-Service Review Guide, 1/1/2026); ABA PA form by fax 833-552-0030' },
+      { label: 'Weekly units', value: 'From 8/1/2026 new authorizations carry a Sunday–Saturday weekly unit limit; no carryover' },
+      { label: 'Timely filing', value: '180 calendar days from the date of service (2026 manual)' },
       { label: 'Authorization level', value: 'Generally granted to the group, so any affiliated clinician can render' },
       { label: 'Credentialing', value: 'BCBAs individually credentialed; CBTs and LABAs added to the group by roster or mini-application' },
       { label: 'Contacts', value: 'ABA questions aba@molinahealthcare.com; member ABA line 509-321-1365; Provider Services (855) 322-4082' },
@@ -705,9 +712,9 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       {
         h2: 'Claim filing and payment rules at Molina',
         body: [
-          'Federal Medicaid rules set the payment floor for every managed care plan: a state’s contract with an MCO "must provide that the organization will meet the requirements of § 447.45(d)(2) and (d)(3)" (42 CFR 447.46) — pay 90 percent of clean claims from practitioners within 30 days of receipt and 99 percent within 90 days — unless the plan and the provider agree in writing to an alternative schedule stipulated in the contract. A "clean claim" is one that "can be processed without obtaining additional information from the provider of the service or from a third party" (42 CFR 447.45(b)). Molina’s own Washington timely-filing, corrected-claim and secondary-claim limits sit in its Apple Health provider manual claims chapter, which returned a "Page Not Found" page when fetched for this guide; take them from your Molina agreement or Provider Services until it can be read.',
+          'Federal Medicaid rules set the payment floor for every managed care plan: a state’s contract with an MCO "must provide that the organization will meet the requirements of § 447.45(d)(2) and (d)(3)" (42 CFR 447.46) — pay 90 percent of clean claims from practitioners within 30 days of receipt and 99 percent within 90 days — unless the plan and the provider agree in writing to an alternative schedule stipulated in the contract. A "clean claim" is one that "can be processed without obtaining additional information from the provider of the service or from a third party" (42 CFR 447.45(b)). Molina\'s 2026 Apple Health provider manual sets the filing limit: "Claims must be submitted by the Provider to Molina within 180 calendar days or as specified in your contract after the discharge for inpatient services or the Date of Service for outpatient services," and, when Molina is secondary, "within 180 calendar days after the final determination by the primary payer"; late claims "shall not be eligible for payment."',
         ],
-        cites: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }],
+        cites: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, S.molPM],
       },
     ],
     collect: [
@@ -716,7 +723,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       { title: 'Group affiliation', desc: 'Molina authorizes at the group level: confirm the rendering clinicians are on the group’s Molina roster.' },
       { title: 'Other insurance', desc: 'Medicaid pays last; bill the commercial plan first.' },
     ],
-    sources: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, S.hcaTA, S.hcaMC, S.wac531a, S.abaBG, S.abaFee, S.teleBG, S.cfr438, S.cfr433, { title: 'Molina Healthcare of Washington — Provider communications (Medicaid notices/bulletins and quarterly newsletters by year)', url: 'https://www.molinahealthcare.com/providers/wa/communications' }],
+    sources: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, S.hcaTA, S.hcaMC, S.wac531a, S.abaBG, S.abaFee, S.teleBG, S.cfr438, S.cfr433, { title: 'Molina Healthcare of Washington — Provider communications (Medicaid notices/bulletins and quarterly newsletters by year)', url: 'https://www.molinahealthcare.com/providers/wa/communications' }, S.molUM, S.molPAform, S.molOrder, S.molWeekly, S.molPSG, S.molPM],
     deliveryRules: {
       supervision: {
         value: 'Molina’s own ABA policy could not be read. The state rule: ' + AH_SUPERVISION,
@@ -733,11 +740,9 @@ export const washingtonPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       dailyLimits: {
-        value: 'No Molina unit limit could be read; units are set per authorization.',
-        status: 'unverified',
-        cites: [S.hcaTA],
-        verifyVia: 'Molina behavioral health UM: ask whether HCA’s fee-schedule unit limits apply.',
-        blocker: 'per-case',
+        value: 'Weekly, not daily. For new initial and continuation authorizations from August 1, 2026, Molina authorizes 97153, 97154, 97155, 97158 and 0373T as a weekly approved unit limit counted Sunday to Saturday; "Approved units are assigned to a specific authorization week and cannot be accumulated, banked, or carried over," and claims over the weekly limit "could be denied or adjusted." There is no predetermined weekly cap, and Molina says WAC 182-531A sets no daily service-hour maximum. The PA form caps 97151 at "28 units per assessment, 2x per year" and 0362T at a 2-hour assessment three times a year unless a limitation extension is approved.',
+        status: 'verified',
+        cites: [S.molWeekly, S.molPAform],
       },
       noteSignature: {
         value: 'No Molina documentation rule could be read.',
@@ -754,9 +759,9 @@ export const washingtonPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       billAsProvider: {
-        value: 'The rendering clinician. Molina authorizes at the group level, but HCA requires each LBA, LABA and CBT to be enrolled with HCA, on the group roster sent to the MCO, and in the servicing provider box on claims for dates of service from July 1, 2025, with taxonomy 103K00000X in both taxonomy fields.',
+        value: 'The rendering clinician. Molina authorizes at the group level, but HCA requires each LBA, LABA and CBT to be enrolled with HCA, on the group roster sent to the MCO, and in the servicing provider box on claims for dates of service from July 1, 2025, with taxonomy 103K00000X in both taxonomy fields. Molina\'s ABA PA form asks for the "Treating Provider NPI/Provider Tax ID# (number to be submitted with claim)."',
         status: 'verified',
-        cites: [S.hcaTA, S.abaBG],
+        cites: [S.hcaTA, S.abaBG, S.molPAform],
       },
     },
     intakeGates: {
@@ -768,14 +773,12 @@ export const washingtonPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       dxRecency: {
-        value: 'Not confirmed for Molina. The state rule has no fixed expiry on the COE evaluation; the PA request is due within 60 days of the LBAT assessment.',
-        status: 'unverified',
-        cites: [S.wac531a, S.abaBG],
-        verifyVia: 'Molina behavioral health UM: ask how recent the COE evaluation must be.',
-        blocker: 'document',
+        value: 'No expiry on the COE evaluation is stated. Molina\'s ABA UM guide requires an "Assessment instrument completed within 60 days of submission" (WAC 182-531A-0600) for initiation and an updated assessment for recertification, and the PA form says "Data submitted for continuation of services should be within the last 6 months."',
+        status: 'verified',
+        cites: [S.molUM, S.molPAform, S.wac531a],
       },
       diagnosingProviders: {
-        value: 'A Center of Excellence, by state rule for all Apple Health members (WAC 182-531A-0800); a COE serving Molina members must also be contracted with Molina. ' + AH_DIAGNOSERS,
+        value: 'A Center of Excellence, by state rule for all Apple Health members (WAC 182-531A-0800); a COE serving Molina members must also be contracted with Molina. ' + AH_DIAGNOSERS + ' LCSW (LICSW): not a COE credential — no social-work licence is on the COE list, so an LICSW\'s evaluation counts only if HCA uses its discretion to accept a non-COE evaluation.',
         status: 'verified',
         cites: [S.wac531a, S.abaBG],
       },
@@ -785,30 +788,28 @@ export const washingtonPayers: Record<string, PayerConfig> = {
         cites: [S.wac531a, S.abaBG],
       },
       referral: {
-        value: 'By state rule, a COE prescription is required for every Apple Health member. ' + AH_REFERRAL,
+        value: 'By state rule, a COE prescription is required for every Apple Health member. ' + AH_REFERRAL + ' Molina\'s own ABA Order form (fax 833-552-0030, ATTN: ABA Department) restates the WAC: a diagnostic evaluation by a COE or qualified health professional with a referral for ABA, plus COE documentation that less intrusive interventions were tried and no equally effective alternative exists; the ordering provider signs and dates a medical-necessity recommendation. The UM guide lists the "Comprehensive diagnostic evaluation and Order for ABA completed by a Center of Excellence (COE) or Qualified Health Professional (QHP)" among the initiation requirements.',
         status: 'verified',
-        cites: [S.wac531a, S.abaBG],
+        cites: [S.wac531a, S.abaBG, S.molOrder, S.molUM],
       },
       telehealth: {
-        value: 'No Molina telehealth rule could be read. The state rule: ' + AH_TELEHEALTH,
+        value: 'Molina\'s 2026 manual allows behavioral health services by telehealth from participating providers as "a method of accessing Covered Services and not a separate benefit," not when member and provider are in the same location, coded "in accordance with applicable reimbursement policies and billing guidelines." It publishes no ABA code list of its own. The state rule: ' + AH_TELEHEALTH,
         status: 'unverified',
-        cites: [S.abaBG, S.teleBG],
-        verifyVia: 'Molina Provider Services, (855) 322-4082: confirm Molina follows HCA’s ABA telemedicine code list.',
+        cites: [S.molPM, S.teleBG, S.abaBG],
+        verifyVia: 'Molina Provider Services, (855) 322-4082: confirm Molina follows HCA\'s ABA telemedicine code list.',
         blocker: 'document',
       },
       authTurnaround: {
-        value: 'No Molina ABA timeframe could be read. Federal managed care rules apply: standard decisions "may not exceed 7 calendar days after receiving the request for service" for rating periods starting on or after January 1, 2026 (42 CFR 438.210(d)).',
+        value: 'Molina makes decisions "as promptly as the Member\'s health requires and no later than contractual and regulatory requirements," and "does not retroactively authorize services that require PA." Federal managed care rules set the outer limit: standard decisions "may not exceed 7 calendar days after receiving the request for service" for rating periods starting on or after January 1, 2026 (42 CFR 438.210(d)). Reauthorization: "submit a continued treatment plan 3 weeks prior to end of authorization." When WAC criteria are not met the reviewer makes two attempts to get more information before Medical Director review.',
         status: 'plan-dependent',
-        cites: [S.cfr438],
-        verifyVia: 'Molina behavioral health UM.',
+        cites: [S.molPM, S.molPAform, S.molUM, S.cfr438],
+        verifyVia: 'Molina behavioral health UM, (855) 322-4082.',
         blocker: 'per-case',
       },
       coordinationOfBenefits: {
-        value: 'No Molina COB rule could be read. Medicaid is payer of last resort (42 CFR 433.139); HCA’s ABA guide makes Apple Health PA unnecessary while an unexhausted private ABA benefit is paying.',
-        status: 'unverified',
-        cites: [S.cfr433, S.abaBG],
-        verifyVia: 'Molina Provider Services, (855) 322-4082.',
-        blocker: 'document',
+        value: 'Molina\'s 2026 Apple Health manual: "Medicaid is always the payer of last resort"; bill the primary payer and submit its EOB to Molina for the secondary claim, reimbursed "based on the state regulatory COB methodology," within 180 calendar days after the primary payer\'s final determination. Molina pays preventive pediatric care (EPSDT) first and then seeks reimbursement from third parties. HCA\'s ABA guide makes Apple Health PA unnecessary while an unexhausted private ABA benefit is paying.',
+        status: 'verified',
+        cites: [S.molPM, S.cfr433, S.abaBG],
       },
     },
     faq: [
@@ -928,7 +929,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
         cites: [S.optumWA],
       },
       diagnosingProviders: {
-        value: 'A COE: a Title 18 RCW licensee experienced with ASD who is a developmental pediatrician, neurologist, pediatric neurologist, pediatric psychiatrist, psychiatrist or psychologist, or an ARNP, physician, PA or naturopath designated by HCA after COE training (Optum Washington criteria). COEs serving these members must be contracted with the MCO.',
+        value: 'A COE: a Title 18 RCW licensee experienced with ASD who is a developmental pediatrician, neurologist, pediatric neurologist, pediatric psychiatrist, psychiatrist or psychologist, or an ARNP, physician, PA or naturopath designated by HCA after COE training (Optum Washington criteria). COEs serving these members must be contracted with the MCO. LCSW (LICSW): no — not on the COE list.',
         status: 'verified',
         cites: [S.optumWA],
       },
@@ -1081,7 +1082,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       diagnosingProviders: {
-        value: 'A qualified Center of Excellence provider (Wellpoint, HCA session February 2025). ' + AH_DIAGNOSERS,
+        value: 'A qualified Center of Excellence provider (Wellpoint, HCA session February 2025). ' + AH_DIAGNOSERS + ' LCSW (LICSW): not a COE credential — no social-work licence is on the COE list, so an LICSW\'s evaluation counts only if HCA uses its discretion to accept a non-COE evaluation.',
         status: 'verified',
         cites: [S.hcaTA, S.wac531a],
       },
@@ -1228,6 +1229,16 @@ export const washingtonPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'Aetna — Applied behavior analysis medical necessity guide (©2026): Termination of coverage', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
       },
+      {
+        h2: 'Network participation, out-of-network referrals and disputes (Aetna)',
+        body: [
+          'Joining the network: Aetna\'s participation criteria for ABA providers require services "provided directly or supervised by individuals licensed by the state or certified by the Behavior Analyst Certification Board as board-certified behavior analysts (BCBAs)"; a BCaBA or paraprofessional works under supervision, BCBAs must meet Aetna credentialing standards, and "All BCBAs, BCaBAs and paraprofessionals must meet state requirements." The criteria do not say the ABA network is open or closed in a given state.',
+          'Out-of-network care and single case agreements: Aetna does not use the term "single case agreement" in these documents. Its behavioral health manual describes a "nonparticipating referral" — "a written or verbal request that we review" — that may be approved when a preferred clinician "isn\'t available in network (and the member\'s plan provides coverage for out-of-network services)," when the member is continuing or returning to treatment with a nonparticipating clinician "in certain circumstances," or when the PCP identifies a nonparticipating expert. Plans without referral requirements let members self-refer to participating or nonparticipating providers, paying their cost share; Aetna Open Access plans let members self-refer to any participating provider.',
+          'Disputes: payment disputes on a finalized claim go through the Availity provider portal ("Dispute Claim" from Claim Status, then the Appeals dashboard, up to five 32 MB attachments) or the Disputes and Appeals page on Aetna.com. The behavioral health manual describes "One level of appeal" for payment decisions; pre-service and concurrent medical-necessity denials go through the member appeal process, and a provider appeal counts as "on behalf of the member" only with the member\'s written authorization. State rules may change the process.',
+          'Authorizations and changing agencies: none of these Aetna documents says whether an ABA precertification is issued to the rendering NPI, the group or the TIN, or whether it moves with the child to a new agency; ask the precertification line on the member\'s card before the first session with the new agency.',
+        ],
+        cites: [{ title: 'Aetna — Provider and facility participation criteria (Applied behavior analyst (ABA) services provider additional criteria; May 2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' }, { title: 'Aetna — Behavioral Health Provider Manual (1158252-01-01, 8/22): nonparticipating referrals; dispute and appeal process', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' }, { title: 'Aetna Health Care Professional Toolkit / provider manual (8102800-01-01, 6/26): Referral policies; Claim disputes and appeals', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured Washington plan (state parity law applies) vs. self-funded ERISA (plan document governs).' },
@@ -1236,7 +1247,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       { title: 'Standardized functional measure', desc: 'Aetna wants one from the past 12 months (for example Vineland-3, ABAS, VB-MAPP or ABLLS).' },
       { title: 'Clinician licenses', desc: 'Washington DOH license numbers for the LBA (and LABA/CBT credentials) delivering and billing services.' },
     ],
-    sources: [S.aetnaGuide, S.aetnaPrecert, S.aetnaCPB648, S.aetnaNPC, S.aetnaOM, S.aetnaTele, S.rcw44341, S.rcw46291, S.rcw21241, S.wac5642, S.hb1432, S.rcw43766, S.rcw18380, S.wac246805, S.rcw18134, S.bacbLic, S.wac431, S.rcw43830, S.rcw43735, S.rcw43535, S.wac51205, S.erisa, S.abaFee, { title: 'Aetna — Provider manual (8102800-01-01, 6/26): Referrals, Behavioral health access to care, Clean claims', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }, { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+    sources: [S.aetnaGuide, S.aetnaPrecert, S.aetnaCPB648, S.aetnaNPC, S.aetnaOM, S.aetnaTele, S.rcw44341, S.rcw46291, S.rcw21241, S.wac5642, S.hb1432, S.rcw43766, S.rcw18380, S.wac246805, S.rcw18134, S.bacbLic, S.wac431, S.rcw43830, S.rcw43735, S.rcw43535, S.wac51205, S.erisa, S.abaFee, { title: 'Aetna — Provider manual (8102800-01-01, 6/26): Referrals, Behavioral health access to care, Clean claims', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }, { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, S.lcswScope, { title: 'Aetna — Behavioral Health Provider Manual (1158252-01-01, 8/22): nonparticipating referrals; dispute and appeal process', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' }],
     deliveryRules: {
       supervision: {
         value: 'Aetna’s Network Participation Criteria: services "must be provided directly or supervised by individuals licensed by the state or certified by the Behavior Analyst Certification Board"; supervised staff may be a BCaBA or a paraprofessional, with "A minimum of one hour of face-to-face supervision" of an unlicensed or noncertified paraprofessional "for each 10 hours of applied behavior analysis," and the supervisor "onsite with the child at least one hour a month." "All BCBAs, BCaBAs and paraprofessionals must meet state requirements." In Washington that means DOH’s rule too: two face-to-face contacts a month with each CBT and direct supervision of at least 5 percent of the CBT’s monthly hours (WAC 246-805-330).',
@@ -1287,9 +1298,9 @@ export const washingtonPayers: Record<string, PayerConfig> = {
         cites: [S.aetnaGuide],
       },
       diagnosingProviders: {
-        value: 'An appropriate provider: "licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice."',
+        value: 'An appropriate provider: "licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice." LCSW (LICSW): yes under Aetna\'s scope-of-practice test — Washington defines independent clinical social work as "the diagnosis and treatment of emotional and mental disorders" (RCW 18.225.010(7)).',
         status: 'verified',
-        cites: [S.aetnaGuide],
+        cites: [S.aetnaGuide, S.lcswScope],
       },
       diagnosticTools: {
         value: 'CPB 0648 names ADI-R, ADOS-2, CARS-2 and the Asperger Syndrome Diagnostic Scale as diagnostic tools used with clinical assessment. The ABA guide requires a standardized functional measure from the past 12 months (Vineland-3, ABAS, VB-MAPP or ABLLS as examples).',
@@ -1324,6 +1335,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Will Aetna approve an out-of-network ABA provider?', a: 'Possibly, through a "nonparticipating referral" that Aetna reviews — for example when the needed clinician "isn\'t available in network (and the member\'s plan provides coverage for out-of-network services)" or the child is continuing treatment with a nonparticipating clinician. Aetna\'s manuals do not describe a single case agreement program by name.' },
       { q: 'Does Aetna require graphs for ABA reassessments?', a: 'Aetna’s guide requires a progress evaluation every six months but does not prescribe graphs; send measurable progress against each goal and the standardized scores its termination criteria use.' },
       { q: 'What is Aetna’s timely filing limit for ABA claims, and when does it pay?', a: 'Aetna publishes no numeric filing limit; it comes from your Aetna agreement or state law. COB, corrected and voided claims go through Availity; no weekly payment cutoff is published.' },
       { q: 'Does Aetna cover ABA therapy in Washington?', a: 'Yes, under its national ABA guide for ASD. For fully insured Washington plans, the state’s mental health parity law requires coverage of medically necessary treatment for DSM conditions on par with medical care; self-funded employer plans follow their own documents.' },
@@ -1437,6 +1449,16 @@ export const washingtonPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'Evernorth Coverage Policy EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026): Criteria for Continued Treatment with ABA', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
       },
+      {
+        h2: 'Network, out-of-network benefits, billing credentials and payment appeals (Evernorth)',
+        body: [
+          'Who may deliver and who may bill (Evernorth\'s ABA code table): 97151, 97155, 97156, 97157, 97158, 0362T and 0373T are provided and billed by a BCBA-D, BCBA or licensed mental health provider; 97152, 97153 and 97154 may be provided by a BCaBA or technician but are billed by the BCBA-D, BCBA or licensed mental health provider. "All ABA services must be billed with CPT codes 97151–97158, 0362T, and 0373T ONLY." Evernorth\'s guide names no HM/HN/HO credential modifiers.',
+          'Joining the network: Evernorth says it "is committed to expanding our network of autism providers." Individuals file the Evernorth Behavioral Provider Information Form; autism clinics and large groups file the Screening Application for Autism Clinics; "It may take up to 90 days for an application to be processed," and after the clinic contract each certified or licensed provider must be credentialed, "an additional 60 to 90 days." "Providers must be fully credentialed to render in-network services." A departing provider or roster change goes to Provider Services (800.926.2273) or the Clinic Location Changes form.',
+          'Out-of-network: it depends on the product. HMO, HMO Open Access, Cigna Connect and OAP In-Network plans cover in-network care only (emergencies aside); POS and Open Access Plus plans cover out-of-network services at a reduced benefit level. Evernorth\'s guidelines publish no single case agreement process; a family without out-of-network benefits needs an in-network provider, and Evernorth\'s care managers email in-network providers near the family to find an opening.',
+          'Payment disputes: call Provider Services first; then appeal "in writing within 180 calendar days of the date of the initial payment or denial decision" (or of the last adjustment). Fee-schedule and reimbursement disputes can go through the reconsideration feature on Provider.Evernorth.com. Medical necessity appeals should include the clinical record; untimely-filing appeals need proof of timely submission or of a COB delay. "Most appeals are resolved within 60 calendar days," with notice within 75 days unless state law differs. Some out-of-network providers must attach a patient-signed Appointment of Representative form.',
+        ],
+        cites: [{ title: 'Cigna / Evernorth autism resource guide for behavioral health providers (PCOMM-2025-225, March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026): plan types, Joining the network, Provider payment appeals', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured Washington plan (state parity law applies) vs. self-funded ERISA (plan document governs).' },
@@ -1445,7 +1467,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       { title: 'Standardized assessment timing', desc: 'Instrument administered within 60 days before treatment starts.' },
       { title: 'Clinician licenses', desc: 'Washington DOH license for the LBA billing the services.' },
     ],
-    sources: [{ title: 'Evernorth Coverage Policy EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026): Criteria for Continued Treatment with ABA', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, S.en0499, S.cignaARG, S.ebhAdmin, S.rcw44341, S.rcw46291, S.rcw21241, S.wac5642, S.hb1432, S.rcw43766, S.rcw18380, S.wac246805, S.rcw18134, S.bacbLic, S.wac431, S.rcw43830, S.rcw43535, S.wac51205, S.erisa, S.abaFee, { title: 'Cigna/Evernorth Autism Resource Guide (PCOMM-2025-225, March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }],
+    sources: [{ title: 'Evernorth Coverage Policy EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026): Criteria for Continued Treatment with ABA', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, S.en0499, S.cignaARG, S.ebhAdmin, S.rcw44341, S.rcw46291, S.rcw21241, S.wac5642, S.hb1432, S.rcw43766, S.rcw18380, S.wac246805, S.rcw18134, S.bacbLic, S.wac431, S.rcw43830, S.rcw43535, S.wac51205, S.erisa, S.abaFee, { title: 'Cigna/Evernorth Autism Resource Guide (PCOMM-2025-225, March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }, S.lcswScope],
     deliveryRules: {
       supervision: {
         value: 'Case supervision is by a BCBA, a licensed behavior analyst, or an independently licensed mental health professional with ABA training, at one to two hours of direct plus indirect supervision per ten hours of direct treatment; at 10 hours a week or less, at least one to two hours a week (EN0499). Washington’s DOH rule adds two face-to-face contacts a month with each CBT and direct supervision of at least 5 percent of the CBT’s monthly hours (WAC 246-805-330).',
@@ -1492,9 +1514,9 @@ export const washingtonPayers: Record<string, PayerConfig> = {
         cites: [S.en0499],
       },
       diagnosingProviders: {
-        value: 'A healthcare professional licensed to practice independently whose board considers diagnosis within scope, applying DSM-5-TR criteria (EN0499).',
+        value: 'A healthcare professional licensed to practice independently whose board considers diagnosis within scope, applying DSM-5-TR criteria (EN0499). LCSW (LICSW): yes under Evernorth\'s test — Washington defines independent clinical social work as "the diagnosis and treatment of emotional and mental disorders" (RCW 18.225.010(7)), and the LICSW is an independent licence.',
         status: 'verified',
-        cites: [S.en0499],
+        cites: [S.en0499, S.lcswScope],
       },
       diagnosticTools: {
         value: 'No single instrument is mandated, but it must be reliable, valid and standardized, completed in full, and the current edition (EN0499’s example: Vineland-3, not Vineland-II).',
@@ -1527,6 +1549,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Cigna pay an out-of-network ABA provider?', a: 'Only on plans with out-of-network benefits. Evernorth\'s September 2026 guidelines say HMO, Connect and OAP In-Network plans cover in-network care only, while POS and Open Access Plus plans cover out-of-network services at a reduced benefit level. Evernorth publishes no single case agreement process for ABA; its care managers help families find an in-network provider.' },
       { q: 'Does Cigna require graphs for ABA reassessments?', a: 'Not graphs as such. EN0499 requires dated quantitative baseline, interim and current data (current data no more than 60 days old), an updated plan and a standardized assessment no more than a year old; graphs are a common way to show the data, but the policy does not require them.' },
       { q: 'Does Cigna accept H0031 or H0032 for ABA?', a: 'CPT 97151–97158, 0362T and 0373T only; HCPCS H-codes such as H0031/H0032 are not billable for ABA (Evernorth autism resource guide).' },
       { q: 'What is Cigna’s timely filing limit for ABA claims, and when does it pay?', a: 'Ninety days from the date of service under Evernorth’s administrative guidelines (or your agreement or a longer state-law limit); secondary claims get 90 days from the primary payer’s EOB/EOP date. Corrected claims use frequency code 7 or 8; no weekly payment cutoff is published.' },
@@ -1601,14 +1624,14 @@ export const washingtonPayers: Record<string, PayerConfig> = {
         h2: 'Claims operations in Washington: prompt pay, prior-authorization clocks, appeals',
         body: [WA_CLAIMS_BODY,
           'UnitedHealthcare’s ABA claims run through Optum Behavioral Health, whose National Network Manual (effective September 1, 2026) sets the deadlines. "All information necessary to process claims must be received by Optum no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan," and "Any corrections or additions to a claim should be made within 90 days of initial claim receipt." The member may not be billed for a late claim. Payment: claims with all required information and any required authorization "will be paid within 45 calendar days after Optum receives the claim, or as required by state and federal laws," which may exclude claims needing a coordination-of-benefits determination; when Optum is secondary it pays up to the Optum contracted rate. UnitedHealthcare’s 2026 administrative guide adds that a corrected claim (frequency code 7, with the original claim number) must arrive within the same timely-filing limit as the original. No weekly payment cycle or submission cutoff is published.',
-          'Which codes: Optum’s commercial ABA reimbursement policy (2022RP501A, updated June 2026) lists the reimbursable codes for the commercial ABA program as 97151–97158, 0362T and 0373T, each in 15-minute units with a credential modifier (HM, HN, HO or HP); no HCPCS H-code (H0031, H0032, H2014, H2019) is on that list.',
+          'Which codes: Optum’s commercial ABA reimbursement policy (2022RP501A, updated June 2026) lists the reimbursable codes for the commercial ABA program as 97151–97158, 0362T and 0373T, each in 15-minute units; 97151–97158 carry a credential modifier (HM, HN, HO or HP), while 0362T and 0373T are listed as "Additional Autism/Applied Behavior Analysis Codes that do not require modifiers"; no HCPCS H-code (H0031, H0032, H2014, H2019) is on that list.',
         ],
         cites: [{ title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026): reimbursable codes', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): Coordination of Benefits; Timely Filing; Payment Timelines', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial): Timely filing of corrected claims; Subrogation and COB', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, S.wac431, S.rcw43830, S.rcw43535],
       },
       {
         h2: 'What is UnitedHealthcare’s fee schedule for ABA?',
         body: [
-          'UnitedHealthcare publishes no ABA rate table; Optum pays from the contract. Optum’s National Network Manual (effective Sept. 1, 2026) defines the “Fee Maximum” as “The maximum amount a participating provider may be paid for a specific health care service provided to a member,” and says “Reimbursement to clinicians is based upon licensure rather than degree.” Optum’s commercial ABA Reimbursement Policy (2022RP501A) puts the credential level on every line: HM for an RBT, HN for a BCaBA, HO for a master’s-level BCBA, HP for a doctoral-level provider; the policy notes state requirements "may supplement, modify or supersede" it. ' + WA_FEE_BENCHMARK,
+          'UnitedHealthcare publishes no ABA rate table; Optum pays from the contract. Optum’s National Network Manual (effective Sept. 1, 2026) defines the “Fee Maximum” as “The maximum amount a participating provider may be paid for a specific health care service provided to a member,” and says “Reimbursement to clinicians is based upon licensure rather than degree.” Optum’s commercial ABA Reimbursement Policy (2022RP501A) puts the credential level on every 97151–97158 line (0362T and 0373T are listed as "Additional Autism/Applied Behavior Analysis Codes that do not require modifiers"): HM for an RBT, HN for a BCaBA, HO for a master’s-level BCBA, HP for a doctoral-level provider; the policy notes state requirements "may supplement, modify or supersede" it. ' + WA_FEE_BENCHMARK,
         ],
         cites: [S.optumNNM, S.optumReimb, S.abaFee],
       },
@@ -1641,6 +1664,17 @@ export const washingtonPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026): Continued Service Criteria', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
       },
+      {
+        h2: 'Network, single case agreements, authorizations and disputes (Optum)',
+        body: [
+          'Single case agreements: Optum\'s ABA FAQ says an SCA during credentialing is granted "Not automatically. In exception cases, based on clinical need, new business implementations, or other gaps in the network, a SCA may be approved after review with the clinical team." Once an SCA provider becomes contracted, it sends its current member list to its Network Manager to have the authorizations updated. Out-of-network providers bill on the standard Form 1500.',
+          'Joining the network: Optum lists its ABA contracting criteria (a BCBA with state licensure where the state licenses behavior analysts, six months of supervised ABA experience, $1 million/$1 million professional liability for an individual; $1 million/$3 million plus general or supplemental liability for a group). Credentialing "can take from 45 to 120 days after submission of all materials," and every new ABA agency needs an Optum site audit that "can take up to 90 days to schedule." None of these Optum documents says the ABA network is closed to new providers.',
+          'Whose authorization it is: when an agency is credentialed, "their affiliated clinicians are not credentialed but are considered participating under the agency\'s Participation Agreement," but "Any claims submission for a rendering clinician who has not been added to the network is subject to denial." Approvals are issued in code clusters (assessment 97151/97152; direct care 97153/97154; multi-staff 0362T/0373T; QHP services 97155–97158) and units "can shift" within a cluster. Optum publishes no rule on moving an authorization from one agency to another; "All services require prior approval," so a new agency calls the ABA team for its own approval.',
+          'Credential modifiers (commercial ABA program): HM = RBT (less than a bachelor\'s), HN = BCaBA (bachelor\'s), HO = master\'s-level BCBA or licensed mental health provider, HP = BCBA-D or doctoral-level licensee; one provider-level modifier per line. 0362T and 0373T are listed as codes "that do not require modifiers."',
+          'Disputes: network providers follow a 2-step process — Step 1 reconsideration, Step 2 appeal — with "a total of 12 months for submission for both steps" unless state law or the Participation Agreement sets another deadline. Send "member-specific treatment plans, clinical records, payment appendices or other items that support why you believe our decision was incorrect," plus proof the claim was filed on time; mail to Optum Behavioral Health Solutions, P.O. Box 30757, Salt Lake City, UT 84123, or use Provider Express. Non-urgent clinical appeals have a 180-day window.',
+        ],
+        cites: [{ title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' }, { title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): network status of group clinicians; Provider Reconsideration and Appeal Process', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }, { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
+      },
     ],
     collect: [
       { title: 'Which UnitedHealthcare product', desc: 'Commercial (this guide) vs. UnitedHealthcare Community Plan Apple Health (COE pathway and Washington Medicaid criteria).' },
@@ -1648,7 +1682,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis with a validated tool', desc: 'DSM-5-TR ASD and severity level, confirmed with a validated tool (ADI-R, ADOS-2 and others).' },
       { title: 'Clinician licenses', desc: 'Washington DOH license for the LBA; technician credential (CBT; Optum’s HM line names the RBT).' },
     ],
-    sources: [{ title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): Coordination of Benefits; Timely Filing; Payment Timelines', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }, S.optumSCC, S.optumSM, S.optumWA, S.optumTele, S.optumReimb, S.optumNNM, S.rcw44341, S.rcw46291, S.rcw21241, S.wac5642, S.hb1432, S.rcw43766, S.rcw18380, S.wac246805, S.rcw18134, S.bacbLic, S.wac431, S.rcw43830, S.rcw43735, S.rcw43535, S.wac51205, S.erisa, S.abaFee, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial) — services not requiring a referral', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: 'Optum — ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+    sources: [{ title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): Coordination of Benefits; Timely Filing; Payment Timelines', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }, S.optumSCC, S.optumSM, S.optumWA, S.optumTele, S.optumReimb, S.optumNNM, S.rcw44341, S.rcw46291, S.rcw21241, S.wac5642, S.hb1432, S.rcw43766, S.rcw18380, S.wac246805, S.rcw18134, S.bacbLic, S.wac431, S.rcw43830, S.rcw43735, S.rcw43535, S.wac51205, S.erisa, S.abaFee, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial) — services not requiring a referral', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: 'Optum — ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, S.lcswScope, { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' }],
     deliveryRules: {
       supervision: {
         value: 'Consistent with CASP standards, direct case supervision is required at 1–2 hours for every 10 hours of direct treatment. Technicians work under a BCBA or licensed behavioral health clinician and "should be registered behavior technicians (RBT) or another appropriately certified behavior technician as allowable by state mandate" (Optum SCC). In Washington the state credential is the DOH CBT, supervised under WAC 246-805-330 (two face-to-face contacts a month; 5 percent direct supervision monthly).',
@@ -1699,9 +1733,9 @@ export const washingtonPayers: Record<string, PayerConfig> = {
         cites: [S.optumSCC],
       },
       diagnosingProviders: {
-        value: 'A state-licensed physician, psychologist, or other state-licensed clinician qualified to diagnose under DSM-5-TR.',
+        value: 'A state-licensed physician, psychologist, or other state-licensed clinician qualified to diagnose under DSM-5-TR. LCSW (LICSW): yes under Optum\'s test — Washington defines independent clinical social work as "the diagnosis and treatment of emotional and mental disorders" (RCW 18.225.010(7)).',
         status: 'verified',
-        cites: [S.optumSCC],
+        cites: [S.optumSCC, S.lcswScope],
       },
       diagnosticTools: {
         value: 'At least one clinically validated tool, from a non-exhaustive list of first-level screens (M-CHAT and others), second-level screens (CARS/CARS-2 and others) and formal diagnostic tools (ADI-R, ADOS-2 and others).',
@@ -1734,6 +1768,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare / Optum give single case agreements for ABA?', a: 'Not automatically. Optum\'s ABA FAQ says an SCA may be approved "In exception cases, based on clinical need, new business implementations, or other gaps in the network" after review with the clinical team. Credentialing takes 45 to 120 days, and new agencies also need a site audit.' },
       { q: 'Does UnitedHealthcare require graphs for ABA reassessments?', a: 'Optum’s criteria require updated progress data in the same measures used at baseline (mastery rates, change scores, updated standardized adaptive measures) at every continued review; they do not require graphs as such.' },
       { q: 'Does UnitedHealthcare accept H0031 or H0032 for ABA?', a: 'Optum’s commercial ABA reimbursement policy lists only CPT 97151–97158, 0362T and 0373T as reimbursable ABA codes, each with a credential modifier; no H-code (H0031, H0032, H2014, H2019) is on the list.' },
       { q: 'What is UnitedHealthcare’s timely filing limit for ABA claims, and when does it pay?', a: 'Optum requires everything needed to process the claim within 90 calendar days of the date of service and corrections within 90 days of first receipt; clean, authorized claims are paid within 45 calendar days or as state law requires. No weekly payment cutoff is published.' },
@@ -1828,6 +1863,16 @@ export const washingtonPayers: Record<string, PayerConfig> = {
           { title: 'Premera — Medical Reference Manual: BlueCard and Shared Administration chapter', url: 'https://www.premera.com/wa/provider/reference/medical-manuals/bluecard/' },
         ],
       },
+      {
+        h2: 'Network, credentials and changing agencies (Premera resources page)',
+        body: [
+          'Joining the network: licensed agencies submit an organization/facility credentialing application and W-9 to provider.relations@premera.com; "The credentialing process may take 30-45 days," and re-credentialing is every 3 years. Premera says nothing on the page about the ABA network being closed.',
+          'One agency at a time: Premera treats "More than one provider group/clinic/agency/organization providing ABA services for a member at any one time" and "More than one program manager/lead behavioral therapist for a member at any one time" as unnecessary duplication that is not medically necessary — when a family changes agencies, the old agency\'s services have to end before the new agency\'s start. Premera\'s pages do not say whether an existing authorization transfers; ask Premera customer service (number on the card) before the first session with the new agency.',
+          'Credentials: "licensed assistant behavior analysts (LABAs) do not need to get credentialed through Premera. Their services are billed under the credentialed, supervising licensed behavior analyst\'s (LBA\'s) name." Premera\'s page names no HM/HN/HO modifiers.',
+          'Supervision and billing: technicians should get "Generally, 2 hours for every 10 hours of direct service provision, with a minimum of 2 hours weekly when direct service provision is 10 hours per week or less"; supervision is billable only for the LBA/program manager and only while the technician is delivering direct treatment, and both write separate chart notes. Treatment plans are updated every 6 months and kept on file, sent only on request. Group therapy by RBTs is covered.',
+        ],
+        cites: [{ title: 'Premera — Applied Behavior Analysis (ABA) Resources for providers (Washington)', url: 'https://www.premera.com/wa/provider/applied-behavior-analysis-resources/' }],
+      },
     ],
     collect: [
       { title: 'Plan type', desc: 'Individual plan (separate PA site, per the ID card) vs. group; fully insured vs. self-funded (Microsoft and Amazon, for example, are large employer groups).' },
@@ -1836,7 +1881,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       { title: 'Treatment plan', desc: 'Updated every six months; kept on file.' },
       { title: 'Other providers', desc: 'Speech, OT and school services, so sessions are not scheduled at the same time as ABA.' },
     ],
-    sources: [S.premPolicy, S.premABA, S.premCodeInd, S.premCodeGrp, S.premPAPage, S.rcw44341, S.rcw46291, S.rcw21241, S.wac5642, S.hb1432, S.rcw43766, S.rcw18380, S.wac246805, S.rcw18134, S.bacbLic, S.wac431, S.rcw43830, S.rcw43735, S.rcw43535, S.wac51205, S.erisa, S.abaFee, { title: 'Premera — BlueCard Resources (prefix list, out-of-area medical policy and pre-service review)', url: 'https://www.premera.com/wa/provider/bluecard-resources/' }, { title: 'Premera — Medical Reference Manual: BlueCard and Shared Administration chapter', url: 'https://www.premera.com/wa/provider/reference/medical-manuals/bluecard/' }, { title: 'Premera — Provider News (WA provider news site)', url: 'https://providernews.premera.com/' }],
+    sources: [S.premPolicy, S.premABA, S.premCodeInd, S.premCodeGrp, S.premPAPage, S.rcw44341, S.rcw46291, S.rcw21241, S.wac5642, S.hb1432, S.rcw43766, S.rcw18380, S.wac246805, S.rcw18134, S.bacbLic, S.wac431, S.rcw43830, S.rcw43735, S.rcw43535, S.wac51205, S.erisa, S.abaFee, { title: 'Premera — BlueCard Resources (prefix list, out-of-area medical policy and pre-service review)', url: 'https://www.premera.com/wa/provider/bluecard-resources/' }, { title: 'Premera — Medical Reference Manual: BlueCard and Shared Administration chapter', url: 'https://www.premera.com/wa/provider/reference/medical-manuals/bluecard/' }, { title: 'Premera — Provider News (WA provider news site)', url: 'https://providernews.premera.com/' }, S.lcswScope],
     deliveryRules: {
       supervision: {
         value: 'Premera’s ABA resources page: technicians "should receive weekly clinical supervision from the program manager/lead behavioral therapist as follows for each patient: Generally, 2 hours for every 10 hours of direct service provision, with a minimum of 2 hours weekly when direct service provision is 10 hours per week or less." Policy 3.01.510 adds that some supervisory time should be direct observation, and supervision may be in person or by real-time video. DOH’s CBT supervision rule (WAC 246-805-330) also applies in Washington.',
@@ -1885,9 +1930,9 @@ export const washingtonPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       diagnosingProviders: {
-        value: 'A healthcare professional "whose legally permitted scope of licensure includes diagnosis of psychiatric disorders or neurodevelopmental disorders."',
+        value: 'A healthcare professional "whose legally permitted scope of licensure includes diagnosis of psychiatric disorders or neurodevelopmental disorders." LCSW (LICSW): yes on Premera\'s wording — Washington defines independent clinical social work as "the diagnosis and treatment of emotional and mental disorders" (RCW 18.225.010(7)).',
         status: 'verified',
-        cites: [S.premPolicy],
+        cites: [S.premPolicy, S.lcswScope],
       },
       diagnosticTools: {
         value: 'Policy 3.01.510 names no required diagnostic instrument.',
@@ -2008,7 +2053,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       { title: 'Prior ABA history', desc: 'Most recent date of service with any previous ABA provider and the reason for discharge.' },
       { title: 'Plan funding type', desc: 'Fully insured Washington plan (state parity law applies) vs. self-funded ERISA.' },
     ],
-    sources: [S.regBH18, S.regBH33, S.rcw44341, S.rcw46291, S.rcw21241, S.wac5642, S.hb1432, S.rcw43766, S.rcw18380, S.wac246805, S.rcw18134, S.bacbLic, S.wac431, S.rcw43830, S.rcw43735, S.rcw43535, S.wac51205, S.erisa, S.abaFee],
+    sources: [S.regBH18, S.regBH33, S.rcw44341, S.rcw46291, S.rcw21241, S.wac5642, S.hb1432, S.rcw43766, S.rcw18380, S.wac246805, S.rcw18134, S.bacbLic, S.wac431, S.rcw43830, S.rcw43735, S.rcw43535, S.wac51205, S.erisa, S.abaFee, S.lcswScope],
     deliveryRules: {
       supervision: {
         value: 'BH18 sets no numeric ratio. BCaBAs work under a BCBA or BCBA-D; behavior technicians and RBTs "must be under the ongoing supervision of a BCBA, BCBA-D, or qualified supervisor," and "All supervision must be conducted in accordance with" the BACB’s ethics code and supervision standards; the plan must justify the hours per week of direct face-to-face supervision requested. In Washington, DOH’s CBT rule also applies: two face-to-face contacts a month and direct supervision of at least 5 percent of monthly hours (WAC 246-805-330).',
@@ -2061,9 +2106,9 @@ export const washingtonPayers: Record<string, PayerConfig> = {
         cites: [S.regBH18],
       },
       diagnosingProviders: {
-        value: 'A qualified treating health care professional "as defined by state law"; BH33 gives as examples a pediatrician, pediatric neurologist, developmental pediatrician or psychologist.',
+        value: 'A qualified treating health care professional "as defined by state law"; BH33 gives as examples a pediatrician, pediatric neurologist, developmental pediatrician or psychologist. LCSW (LICSW): not among Regence\'s examples; "as defined by state law" — Washington defines independent clinical social work as "the diagnosis and treatment of emotional and mental disorders" (RCW 18.225.010(7)) — but Regence also requires experience diagnosing autism.',
         status: 'verified',
-        cites: [S.regBH33, S.regBH18],
+        cites: [S.regBH33, S.regBH18, S.lcswScope],
       },
       diagnosticTools: {
         value: 'No diagnostic instrument is named. For the treatment plan, each targeted behavior needs "at least one standardized assessment" (examples: SRS-2, Vineland-3, ABAS-3, SSIS, BRIEF-2, PDDBI); curriculum-based tools such as VB-MAPP, PEAK, ABLLS-R and AFLS guide planning but are not standardized.',

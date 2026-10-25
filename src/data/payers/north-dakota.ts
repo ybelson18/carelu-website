@@ -17,7 +17,7 @@ import type { PayerConfig, PayerSource } from './types.js';
 const S: Record<string, PayerSource> = {
   abaPol: { title: 'ND Medicaid Policy and Procedures for the Autism Applied Behavior Analysis Service (revision February 2025; supersedes September 2017, June 1, 2018, July 2023)', url: 'https://www.hhs.nd.gov/sites/www/files/documents/autism-aba-service-policy-and-procedures.pdf' },
   cfsPage: { title: 'ND Health and Human Services — Children’s Waiver Services (Medicaid ABA service; Autism Spectrum Disorder Birth through Age 20 Waiver)', url: 'https://www.hhs.nd.gov/cfs/autism-services' },
-  profFee: { title: 'ND Medicaid Professional Services Fee Schedule (data updated as of August 1, 2026; Autism category lines)', url: 'https://www.hhs.nd.gov/sites/default/files/documents/rate-2026-august-professional-fee-schedule.xlsx' },
+  profFee: { title: 'ND Medicaid Professional Services Fee Schedule (data updated as of October 1, 2026; Autism category lines)', url: 'https://www.hhs.nd.gov/sites/default/files/documents/rate-2026-oct-professional-fee-schedule.xlsx' },
   aut2025: { title: 'ND Medicaid Autism Services Fee Schedule as of 7/1/2025 (archived)', url: 'https://www.hhs.nd.gov/sites/default/files/documents/website-archive/medical-services/rate-autism-2025-fee-schedule-archive.pdf' },
   lookup: { title: 'ND Medicaid Procedure Code Look-Up Tool (public Power BI report; ABA lines read 10/11/2026, data extracted 10/4/2026: Max Units, ORP NPI required, service authorization, telehealth)', url: 'https://www.hhs.nd.gov/healthcare/medicaid/provider/look-up-tool' },
   feePage: { title: 'ND HHS — Rates and Fee Schedules', url: 'https://www.hhs.nd.gov/healthcare/medicaid/provider/fee-schedules' },
@@ -78,7 +78,7 @@ const ND_COVERAGE_BODY =
   'North Dakota has no autism insurance statute: chapter 26.1-36 of the Century Code, the accident and health insurance chapter, contains no autism or ABA section (§ 26.1-36-09.15, sometimes cited as the autism mandate, is the telehealth coverage section). The rule that binds insured plans is Insurance Department Bulletin 2018-1, issued July 10, 2018 to "all health insurance carriers choosing to cover Autism Spectrum Disorder," which says "treatments for Autism Spectrum Disorder cannot be excluded from an insurance policy." It rests on federal mental health parity: if a carrier covers autism and "seeks to place QTLs or NQTLs on autism spectrum disorder benefits or treatments, it must show that a similar limitation exists regarding substantially all benefits and treatments on the medical/surgical portion of their insurance coverage," and autism benefits "may not be subject to any separate cost-sharing requirements or treatment limitations that only apply to mental health/substance use disorder benefits." On ABA specifically: "exclusion of Applied Behavior Analysis (ABA) therapy to treat children with autism spectrum disorder on the basis that ABA therapy is experimental or investigative treatment will not be allowed by the Department." Carriers may still review medical necessity and periodically review continuing treatment, "as long as the standards for such reviews are comparable to and not more stringent than reviews conducted for substantially all medical/surgical services in the same classification." The bulletin defines treatment as care "prescribed or ordered for an individual diagnosed with an autism spectrum disorder by a licensed physician or a licensed psychologist who determines the care to be medically necessary," including behavioral health treatment. It applied to grandfathered and transitional individual, small-group and large-group policies from October 1, 2018, and to non-grandfathered policies and Department-regulated self-funded multiple employer welfare arrangements from January 1, 2019. It sets no age or dollar cap of its own. Ordinary self-funded employer plans are not regulated by the Department and answer to ERISA and federal parity instead.';
 
 const ND_LICENSURE_BODY =
-  'North Dakota licenses behavior analysts. Under N.D.C.C. 43-64-02, "Effective January 1, 2020, an individual may not practice applied behavior analysis without a current license issued by the board," the State Board of Integrative Health Care. There are two licenses: licensed behavior analyst (a master’s or doctorate from an ABAI-accredited or BACB-approved program, the BCBA examination, current BACB certification, and the North Dakota professional responsibility examination "once developed and approved by the board") and licensed assistant behavior analyst (bachelor’s, the BCaBA examination, and proof of supervision by a licensed behavior analyst). Anyone who held a license or registration from the Board of Psychologist Examiners under chapter 43-32 on December 31, 2019 was grandfathered. The board’s exemptions include behavior technicians who "deliver applied behavior analysis services under the extended authority and direction of a licensed behavior analyst or a licensed assistant behavior analyst" (titles such as "registered behavior technician"), licensed psychologists practicing within competence, and people providing ABA in a public school setting. A BCBA licensed in another state can apply for license by endorsement: the board grants it when the applicant holds "a verified current valid license in good standing to practice as a behavior analyst professional in another state," passed the BACB examination, and the other state’s requirements are "substantially similar." We read chapter 43-64, chapter 43-57 and the full rule chapter 112-05-01 and found no exemption for an out-of-state behavior analyst treating a North Dakota child, in person or by telehealth, so plan on a North Dakota license before serving North Dakota members and confirm telehealth questions with the board. On rates: commercial ABA rates are negotiated and unpublished. The public benchmark is ND Medicaid’s professional fee schedule (August 1, 2026): 97153 $10.81 and 97155 $31.76 per unit.';
+  'North Dakota licenses behavior analysts. Under N.D.C.C. 43-64-02, "Effective January 1, 2020, an individual may not practice applied behavior analysis without a current license issued by the board," the State Board of Integrative Health Care. There are two licenses: licensed behavior analyst (a master’s or doctorate from an ABAI-accredited or BACB-approved program, the BCBA examination, current BACB certification, and the North Dakota professional responsibility examination "once developed and approved by the board") and licensed assistant behavior analyst (bachelor’s, the BCaBA examination, and proof of supervision by a licensed behavior analyst). Anyone who held a license or registration from the Board of Psychologist Examiners under chapter 43-32 on December 31, 2019 was grandfathered. The board’s exemptions include behavior technicians who "deliver applied behavior analysis services under the extended authority and direction of a licensed behavior analyst or a licensed assistant behavior analyst" (titles such as "registered behavior technician"), licensed psychologists practicing within competence, and people providing ABA in a public school setting. A BCBA licensed in another state can apply for license by endorsement: the board grants it when the applicant holds "a verified current valid license in good standing to practice as a behavior analyst professional in another state," passed the BACB examination, and the other state’s requirements are "substantially similar." We read chapter 43-64, chapter 43-57 and the full rule chapter 112-05-01 and found no exemption for an out-of-state behavior analyst treating a North Dakota child, in person or by telehealth, so plan on a North Dakota license before serving North Dakota members and confirm telehealth questions with the board. On rates: commercial ABA rates are negotiated and unpublished. The public benchmark is ND Medicaid’s professional fee schedule (October 1, 2026): 97153 $10.81 and 97155 $31.76 per unit.';
 
 const ND_TELEHEALTH_TAIL =
   ' For an insured North Dakota policy, N.D.C.C. 26.1-36-09.15 requires coverage "for health services delivered by means of telehealth which is the same as the coverage for health services delivered by in-person means," lets payment be negotiated "in the same manner" as in-person rates, and does not require a provider at the originating site. Its definition of "health care provider" lists licensees under named chapters, including psychologists (43-32), but not behavior analysts (43-64), so whether a behavior analyst’s telehealth falls inside the statute is not settled by its text. Self-funded employer plans are outside the statute.';
@@ -104,12 +104,39 @@ const ndCobVerify = (carrier: string): string =>
 const ND_CLAIMS_BODY =
   'North Dakota’s claim-payment statute, N.D.C.C. 26.1-36-37.1, gives an insurer 15 business days after receiving a proof of loss to "pay the claim or that portion of the claim that is not contested, deny the claim, or make an initial request for additional information," and another 15 business days after receiving the information to pay or deny; a contested claim must be explained in writing. That binds insured policies, not self-funded ERISA plans. Prior authorization for insured plans runs under chapter 26.1-36.12 (seven calendar days after complete information, 72 hours if urgent, missed deadlines deemed approved; see the turnaround field below). Timely-filing limits and the rendering-versus-supervising NPI rule are set by each carrier’s contract, not by state law.';
 
+/* Optum commercial: appeals packet, auth binding, switching, out-of-network (National Network Manual, read 2026-10-25). */
+const OPTUM_NNM_G5 = { title: 'Optum Behavioral Health — National Network Manual (BH02330, July 2026 edition): Provider Reconsideration and Appeal Process; Services that require prior authorization; Continuity of Care', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' };
+const OPTUM_APPEALS_BODY_G5 =
+  'Reconsiderations and appeals. Optum’s National Network Manual sets a two-step process for commercial claim and clinical prior-authorization disputes: request reconsideration first, then appeal, with “a total of 12 months for submission for both steps” unless state law or your Participation Agreement sets a different deadline. On what to send, it says: “Include member-specific treatment plans, clinical records, payment appendices or other items that support why you believe our decision was incorrect,” and decisions are made “based on the materials available at the time of the review.” Add proof that Optum received the claim within your timely-filing limit. Submit through the Provider Express secure portal, or mail the reconsideration request form and documents to Optum Behavioral Health Solutions, P.O. Box 30757, Salt Lake City, UT 84123. For non-urgent clinical appeals the manual gives a 180-day window.';
+const OPTUM_AUTH_BODY_G5 =
+  'Who holds the authorization, and switching providers. “Authorizations for non-routine outpatient services are specific to the requesting clinician,” and ABA is requested through the Provider Express portal, so an approval does not move with the child to a new agency: the new provider requests its own. When a clinician or group leaves the Optum network, it must keep treating members who choose to continue for up to 90 calendar days (or as the Participation Agreement or state law provides), or until the member moves to another Optum clinician, and Optum “will assist these members in selecting a new clinician, group or agency.” Out-of-network: the manual describes no single case agreement process for ABA; its portal is open to “out-of-network individual clinicians” and members can “Submit out-of-network claims,” but whether this plan pays out-of-network ABA, and how much, is in the member’s plan, so ask Optum on the behavioral health number on the card.';
+
+/* Evernorth (Cigna) commercial: appeals packet and out-of-network by plan type (Administrative Guidelines Sept 2026, read 2026-10-25). */
+const EBH_ADMIN_G5 = { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026): plan types; Appeals; Appeal types and filing instructions', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' };
+const EBH_APPEALS_BODY_G5 =
+  'Reconsiderations and appeals. Evernorth’s administrative guidelines say “All appeals are to be initiated in writing within 180 calendar days of the date of the initial payment or denial decision” (or of the last payment adjustment). Fee-schedule and reimbursement disputes “may be quickly resolved through submitting an adjustment request via the reconsideration feature on Provider.Evernorth.com.” For a medical-necessity denial, send the complete clinical record; for an untimely-filing denial, send the EDI transmission report or “evidence that a claim was submitted due to coordination of benefits with another carrier.” “Most appeals are resolved within 60 calendar days of receipt,” with notice within 75 days unless state law requires otherwise. Each appeal must be submitted by a person: Evernorth will not accept appeals sent by automation software.';
+const EBH_OON_BODY_G5 =
+  'Out-of-network care depends on the plan type printed on the card. The guidelines list “no out-of-network coverage, except in emergencies” for Open Access Plus In-Network and Network Open Access plans, no out-of-network coverage except emergent or urgent care for SureFit, and in-network-only HMO and HMO Open Access plans, while Open Access Plus covers out-of-network providers “at a reduced benefit level” and POS plans cover both. The guidelines mention a single-case agreement only for inpatient specialing, not ABA, so whether Evernorth will sign a single case agreement with an out-of-network ABA provider is a case-by-case question for Evernorth care management.';
+
+/* Aetna commercial: dispute packet, transition/continuity of care (office manual 6/26, read 2026-10-25). */
+const AETNA_OM_G5 = { title: 'Aetna Health Care Professional Toolkit / office manual (8102800-01-01, 6/26): Claim dispute requirements; Transition and continuity of care', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' };
+const AETNA_APPEALS_BODY_G5 =
+  'Reconsiderations, disputes and appeals. Aetna’s office manual says claim disputes must be in writing (with the Provider and Practitioner Complaint and Appeals Form if sent by fax or mail), within contractual timeframes, and must include the billed TIN and NPI, the servicing provider’s name, your patient account number, member ID, patient name and date of birth, dates of service, claim ID, total billed charges, expected reimbursement, a reference number and the “Physician/Facility rationale for dispute.” “If these requirements are not met, the original claim decision will be deemed final.” The Practitioner and Provider Complaint and Appeal Request “is a mandatory form that must accompany any written appeal.” The fastest route is the Dispute Claim button on a finalized claim in Availity.';
+const AETNA_TOC_BODY_G5 =
+  'Out-of-network providers and changing plans. Aetna offers transition of care, which lets a new member keep seeing a current out-of-network provider “at in-network cost level for a defined period of time,” and continuity of care, for a member in active treatment whose provider leaves Aetna’s network. Both require “an active course of covered treatment,” are time-limited, start with the member asking Member Services or the employer for a Transition Coverage Request Form, and do not apply to Traditional Choice plans. The manual limits them to an individual practitioner (for example a specialist or speech therapist) or a home care agency, so ask Aetna whether an ABA group qualifies. It describes no separate single case agreement process.';
+
+/* BCBSND appeals and non-participating providers (Provider Manual 8-26, read 2026-10-25). */
+const BCBSND_APPEAL_BODY_G5 =
+  'Appeals. BCBSND’s provider manual says a provider appealing “must specifically state the nature of the appeal and include all supporting information and rationale for overturning the determination,” and may send written comments, records or other documents; a medical director not involved in the original decision reviews it. Pre-service appeals (for example a denied ABA authorization) may be filed verbally or in writing by the provider, member or authorized representative “within 180 calendar days from the notice of Adverse Benefit Determination,” only one is allowed, and BCBSND answers in writing within 30 calendar days (72 hours verbally for an emergency). Post-service (claim) appeals are due within 180 calendar days, allow two levels, and go to the provider’s local Blue plan; “Any appeals received after 180 days will be returned to the provider without review.” A retrospective review, when no advance approval was obtained, is also due within 180 days of the service.';
+const BCBSND_OON_BODY_G5 =
+  'Out-of-network providers. A non-participating provider has no BCBSND contract: BCBSND pays an allowed amount, the member gets a lower level of benefit, “The non-participating provider may balance bill the member for all amounts not paid by BCBSND,” and the member is responsible for notifying BCBSND and for managed-benefit requirements. The manual describes no single case agreement process; ask BCBSND Provider Service, 800-368-2312, case by case.';
+
 export const northDakotaPayers: Record<string, PayerConfig> = {
   'north-dakota-medicaid': {
     slug: 'north-dakota-medicaid',
     cardDesc: 'ABA is a fee-for-service state plan benefit through age 20: a prior approval letter, then web service authorizations twice a year; rates published.',
     assessmentPA: {
-      value: 'Yes. The child first needs ND Medicaid’s annual prior approval letter, and the August 2026 fee schedule flags 97151 and 97152 "Service Authorization Required: Yes"',
+      value: 'Yes. The child first needs ND Medicaid’s annual prior approval letter, and the October 2026 fee schedule flags 97151 and 97152 "Service Authorization Required: Yes"',
       status: 'verified',
       cites: [S.abaPol, S.profFee],
     },
@@ -178,7 +205,7 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
       {
         h2: 'What does North Dakota Medicaid pay for ABA?',
         body: [
-          'ABA rates now sit in the Autism category of the professional fee schedule (data updated August 1, 2026), per unit: 97151 $31.76, 97152 $23.51, 97153 $10.81, 97154 $2.72, 97155 $31.76, 97156 $29.48 and 0373T $12.99. 97157, 97158 and 0362T are listed as not covered. Each covered ABA line is marked telehealth allowed, service authorization required, no ORP NPI required, and EVV "No." For comparison, the archived Autism Services Fee Schedule as of 7/1/2025 paid 97151 and 97155 $31.14, 97152 $23.05, 97153 $10.60, 97154 $2.67, 97156 $28.90 and 0373T $12.74, so the 2026 lines are about 2% higher. The schedule itself warns that inclusion "does not imply Medicaid coverage," so read it with the ABA policy.',
+          'ABA rates now sit in the Autism category of the professional fee schedule (data updated October 1, 2026), per unit: 97151 $31.76, 97152 $23.51, 97153 $10.81, 97154 $2.72, 97155 $31.76, 97156 $29.48 and 0373T $12.99. 97157, 97158 and 0362T are listed as not covered. Each covered ABA line is marked telehealth allowed, service authorization required, no ORP NPI required, EVV "No," and “Modifier Required: none,” so ND Medicaid uses no credential modifier (HM/HN/HO) on ABA lines: the same rate applies whoever renders the code. For comparison, the archived Autism Services Fee Schedule as of 7/1/2025 paid 97151 and 97155 $31.14, 97152 $23.05, 97153 $10.60, 97154 $2.67, 97156 $28.90 and 0373T $12.74, so the 2026 lines are about 2% higher. The schedule itself warns that inclusion "does not imply Medicaid coverage," so read it with the ABA policy.',
         ],
         cites: [S.profFee, S.aut2025, S.feePage],
       },
@@ -295,7 +322,7 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
       { q: 'Does ND Medicaid require graphs for the ABA reassessment?', a: 'Yes. The ABA policy (February 2025) requires the assessment to include "Graphs on starting point and progress of data," expects readable graphs and standardized data collection when progress is monitored, and calls for a reassessment at 180 days that updates targets, goals, improvements and hours. Data should be reviewed so treatment changes after 4–6 weeks without improvement.' },
       { q: 'Does North Dakota Medicaid cover ABA therapy?', a: 'Yes, for members under 21 with an autism spectrum disorder diagnosis. It is a fee-for-service benefit: the family sends a Health Tracks screening recommending ABA, gets a prior approval letter, and the provider requests service authorizations twice a year.' },
       { q: 'Does a North Dakota Medicaid MCO cover ABA?', a: 'No. Medicaid Expansion is run by Blue Cross Blue Shield of North Dakota, but Expansion members aged 19–20 are enrolled in traditional Medicaid and ABA stops at age 20, so all ABA goes through ND Medicaid fee-for-service.' },
-      { q: 'What does North Dakota Medicaid pay for ABA?', a: 'Per unit, on the August 1, 2026 professional fee schedule: 97151 and 97155 $31.76, 97152 $23.51, 97153 $10.81, 97154 $2.72, 97156 $29.48, 0373T $12.99. 97157, 97158 and 0362T are not covered.' },
+      { q: 'What does North Dakota Medicaid pay for ABA?', a: 'Per unit, on the October 1, 2026 professional fee schedule: 97151 and 97155 $31.76, 97152 $23.51, 97153 $10.81, 97154 $2.72, 97156 $29.48, 0373T $12.99. 97157, 97158 and 0362T are not covered.' },
       { q: 'Can a BCBA licensed in another state treat a North Dakota Medicaid member, including by telehealth?', a: 'Not without a North Dakota license. N.D.C.C. 43-64-02 requires a license from the Board of Integrative Health Care to practice ABA, and ND Medicaid enrolls only providers licensed under the law of the state where services are rendered. The board offers license by endorsement to analysts licensed in a substantially similar state. Providers more than 50 miles from the border also need an out-of-state service authorization.' },
       { q: 'What is the timely filing limit for ND Medicaid ABA claims?', a: '180 days from the date of service for an original claim; 365 days when another payer paid first or for a replacement of a timely claim. Payment denials can be reviewed if requested within 30 days.' },
       { q: 'Does EVV apply to ABA in North Dakota?', a: 'No. The fee schedule lists EVV "No" for the ABA codes; EVV covers personal care, home health, 1915(i) and waiver respite and in-home supports, including the Autism waiver’s.' },
@@ -393,6 +420,11 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.bcTele, S.c4364],
       },
+      {
+        h2: 'Appeals and out-of-network providers',
+        body: [BCBSND_APPEAL_BODY_G5, BCBSND_OON_BODY_G5],
+        cites: [S.bcPM],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Insured (Bulletin 2018-1 and ch. 26.1-36.12 apply) vs. self-funded ERISA (the plan document governs).' },
@@ -401,7 +433,7 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis and order', desc: 'ASD diagnosis and an order from a licensed physician or psychologist (Bulletin 2018-1’s definition of treatment).' },
       { title: 'Other coverage', desc: 'Second parent’s plan (birthday rule), ND Medicaid (pays last), TRICARE.' },
     ],
-    sources: [S.bcPA, S.bcMigPA, S.bcBH18, S.bcPM, S.bcTele, S.bcMEPM, S.bull2018, S.doiNews, S.c2636, S.pa3612, S.cob, S.c4364, S.ndac112, S.c4357, S.bacbLic, S.erisa, S.tpl, S.tricare, S.champva, S.profFee, { title: 'BCBSND — HealthCare News for providers (incl. Quarterly Provider Insights)', url: 'https://www.bcbsnd.com/providers/news-resources/healthcare-news' }],
+    sources: [ S.bcPM,S.bcPA, S.bcMigPA, S.bcBH18, S.bcPM, S.bcTele, S.bcMEPM, S.bull2018, S.doiNews, S.c2636, S.pa3612, S.cob, S.c4364, S.ndac112, S.c4357, S.bacbLic, S.erisa, S.tpl, S.tricare, S.champva, S.profFee, { title: 'BCBSND — HealthCare News for providers (incl. Quarterly Provider Insights)', url: 'https://www.bcbsnd.com/providers/news-resources/healthcare-news' }],
     deliveryRules: {
       supervision: {
         value: 'No numeric ratio is published. For migrated members, policy BH18 says BCBAs/BCBA-Ds "may oversee all aspects of assessment, treatment planning, and supervision of support staff," BCaBAs and behavior technicians/RBTs work under a BCBA, BCBA-D or qualified supervisor, and "All supervision must be conducted in accordance with" BACB standards; the treatment plan must justify "the hours per week of direct face-to-face supervision." The non-migrated policy was not readable. North Dakota law requires ABA to be practiced by a licensed behavior analyst, with technicians exempt only when working "under the extended authority and direction of" a licensed behavior analyst or licensed assistant behavior analyst.',
@@ -583,7 +615,7 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
       {
         h2: 'What is Aetna’s fee schedule for ABA?',
         body: [
-          'Aetna publishes no ABA rate table. Its provider manual (6/26) treats payment as a contract term: where a provider has both an intermediary contract and a direct agreement, "your direct Aetna rates will apply unless we specifically notify you otherwise," and Aetna "requires that you use your own TIN when billing for services." Get the rates from your Aetna agreement or Aetna provider services. For a public benchmark, ND Medicaid’s August 2026 professional fee schedule pays 97153 at $10.81 per unit; commercial contracts are negotiated separately.',
+          'Aetna publishes no ABA rate table. Its provider manual (6/26) treats payment as a contract term: where a provider has both an intermediary contract and a direct agreement, "your direct Aetna rates will apply unless we specifically notify you otherwise," and Aetna "requires that you use your own TIN when billing for services." Get the rates from your Aetna agreement or Aetna provider services. For a public benchmark, ND Medicaid’s October 2026 professional fee schedule pays 97153 at $10.81 per unit; commercial contracts are negotiated separately.',
         ],
         cites: [S.aetnaOM, S.profFee],
       },
@@ -594,6 +626,11 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.aetnaGuide],
       },
+      {
+        h2: 'Disputes, appeals and transition of care (Aetna)',
+        body: [AETNA_APPEALS_BODY_G5, AETNA_TOC_BODY_G5],
+        cites: [AETNA_OM_G5],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Insured in North Dakota (Bulletin 2018-1 and ch. 26.1-36.12 apply) vs. self-funded ERISA (plan document governs).' },
@@ -602,7 +639,7 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
       { title: 'Standardized functional measure', desc: 'Aetna wants one from the past 12 months (for example Vineland-3, ABAS, VB-MAPP or ABLLS).' },
       { title: 'North Dakota license numbers', desc: 'The supervising analyst’s ND license under ch. 43-64; Aetna requires staff to meet state requirements.' },
     ],
-    sources: [S.aetnaGuide, S.aetnaPrecert, S.aetnaCPB, S.aetnaCPB648, S.aetnaNPC, S.aetnaOM, S.aetnaTele, S.bull2018, S.doiNews, S.c2636, S.pa3612, S.cob, S.c4364, S.ndac112, S.c4357, S.bacbLic, S.erisa, S.tpl, S.tricare, S.champva, S.profFee],
+    sources: [ AETNA_OM_G5,S.aetnaGuide, S.aetnaPrecert, S.aetnaCPB, S.aetnaCPB648, S.aetnaNPC, S.aetnaOM, S.aetnaTele, S.bull2018, S.doiNews, S.c2636, S.pa3612, S.cob, S.c4364, S.ndac112, S.c4357, S.bacbLic, S.erisa, S.tpl, S.tricare, S.champva, S.profFee],
     deliveryRules: {
       supervision: {
         value: 'Aetna’s Network Participation Criteria require ABA services to be "provided directly or supervised by individuals licensed by the state or certified by the Behavior Analyst Certification Board," with supervised staff a BCaBA "or a paraprofessional," "A minimum of one hour of face-to-face supervision" of an unlicensed or noncertified paraprofessional "for each 10 hours of applied behavior analysis," and the supervisor "onsite with the child at least one hour a month." "All BCBAs, BCaBAs and paraprofessionals must meet state requirements." In North Dakota that means a licensed behavior analyst (or licensed assistant under one) under ch. 43-64, with technicians exempt only while working under a licensee’s "extended authority and direction."',
@@ -695,7 +732,7 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
       { q: 'Does Aetna cover ABA therapy in North Dakota?', a: 'Yes, for autism under its national ABA medical necessity guide. For insured North Dakota plans, Bulletin 2018-1 also bars excluding ABA as experimental; self-funded employer plans follow their own documents.' },
       { q: 'Does the Aetna ABA assessment need precertification?', a: 'Yes. Aetna’s behavioral health precertification list includes all ten ABA codes, 97151 and 97152 among them.' },
       { q: 'Does North Dakota have an autism insurance mandate?', a: 'Not a statute. North Dakota relies on Insurance Department Bulletin 2018-1, which applies federal parity to insured plans that cover autism and forbids excluding ABA as experimental or investigational.' },
-      { q: 'What does Aetna pay for ABA in North Dakota?', a: 'Aetna publishes no ABA rates; they are in your participation agreement. The only public benchmark is ND Medicaid’s fee schedule (97153 $10.81 per unit in August 2026).' },
+      { q: 'What does Aetna pay for ABA in North Dakota?', a: 'Aetna publishes no ABA rates; they are in your participation agreement. The only public benchmark is ND Medicaid’s fee schedule (97153 $10.81 per unit in October 2026).' },
       { q: 'How long does Aetna have to pay a clean claim in North Dakota?', a: 'For insured plans, N.D.C.C. 26.1-36-37.1 gives 15 business days to pay, deny or request more information, and 15 business days after receiving the information. Self-funded plans follow their own terms.' },
     ],
   },
@@ -770,7 +807,7 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
       {
         h2: 'What is Cigna’s fee schedule for ABA?',
         body: [
-          'Cigna publishes no ABA rate table. Evernorth’s Administrative Guidelines say the Provider Agreement’s terms "include the reimbursement rates applicable to covered services," and tell ABA providers to see "Exhibit A in your Provider Agreement" for the fee schedule and the list of reimbursable autism services; fee questions go to Evernorth Provider Services at 800.926.2273. Virtual services carry modifier 95, which Evernorth says "will not change the reimbursement." In North Dakota, where the network contract usually runs through HealthPartners, the applicable rates are in that contract. For a public benchmark, ND Medicaid’s August 2026 fee schedule pays 97153 at $10.81 per unit.',
+          'Cigna publishes no ABA rate table. Evernorth’s Administrative Guidelines say the Provider Agreement’s terms "include the reimbursement rates applicable to covered services," and tell ABA providers to see "Exhibit A in your Provider Agreement" for the fee schedule and the list of reimbursable autism services; fee questions go to Evernorth Provider Services at 800.926.2273. Virtual services carry modifier 95, which Evernorth says "will not change the reimbursement." In North Dakota, where the network contract usually runs through HealthPartners, the applicable rates are in that contract. For a public benchmark, ND Medicaid’s October 2026 fee schedule pays 97153 at $10.81 per unit.',
         ],
         cites: [S.ebhAdmin, S.profFee],
       },
@@ -781,6 +818,11 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.en0499],
       },
+      {
+        h2: 'Appeals and out-of-network care (Evernorth)',
+        body: [EBH_APPEALS_BODY_G5, EBH_OON_BODY_G5],
+        cites: [EBH_ADMIN_G5],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Insured in North Dakota (Bulletin 2018-1 applies) vs. self-funded ERISA (plan document governs).' },
@@ -789,7 +831,7 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis report', desc: 'Diagnosing clinician’s name, credentials and licensure type, plus the date of the most recent diagnosis. Provisional or rule-out diagnoses don’t count.' },
       { title: 'Standardized assessment timing', desc: 'Instrument administered within 60 days before treatment starts.' },
     ],
-    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.bull2018, S.doiNews, S.c2636, S.pa3612, S.cob, S.c4364, S.ndac112, S.c4357, S.bacbLic, S.erisa, S.tpl, S.tricare, S.champva, S.profFee],
+    sources: [ EBH_ADMIN_G5,S.en0499, S.cignaARG, S.ebhAdmin, S.bull2018, S.doiNews, S.c2636, S.pa3612, S.cob, S.c4364, S.ndac112, S.c4357, S.bacbLic, S.erisa, S.tpl, S.tricare, S.champva, S.profFee],
     deliveryRules: {
       supervision: {
         value: 'Case supervision by a BCBA, a Licensed Behavior Analyst, or an independently licensed mental health clinician with documented ABA training, at "one to two hours per ten hours of direct treatment"; when direct treatment is 10 hours a week or less, a minimum of one to two hours per week. In North Dakota the supervising analyst must also hold a ch. 43-64 license.',
@@ -948,7 +990,7 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
       {
         h2: 'What is UnitedHealthcare’s fee schedule for ABA?',
         body: [
-          'UnitedHealthcare publishes no ABA rate table; Optum pays from the contract. Optum’s National Network Manual (effective Sept. 1, 2026) defines the "Fee Maximum" as the maximum amount a participating provider may be paid for a service, adding that "Reimbursement to clinicians is based upon licensure rather than degree." Optum’s commercial ABA Reimbursement Policy (2022RP501A; history through June 2026) puts the credential level on each line: HM for an RBT, HN for a BCaBA, HO for a master’s-level BCBA or licensed clinician, HP for a doctoral-level provider, and says "There is no CPT code for reporting indirect services separately." Ask Optum network management for your rate sheet. For a public benchmark, ND Medicaid’s August 2026 fee schedule pays 97153 at $10.81 per unit.',
+          'UnitedHealthcare publishes no ABA rate table; Optum pays from the contract. Optum’s National Network Manual (effective Sept. 1, 2026) defines the "Fee Maximum" as the maximum amount a participating provider may be paid for a service, adding that "Reimbursement to clinicians is based upon licensure rather than degree." Optum’s commercial ABA Reimbursement Policy (2022RP501A; history through June 2026) puts the credential level on each line: HM for an RBT, HN for a BCaBA, HO for a master’s-level BCBA or licensed clinician, HP for a doctoral-level provider, and says "There is no CPT code for reporting indirect services separately." Ask Optum network management for your rate sheet. For a public benchmark, ND Medicaid’s October 2026 fee schedule pays 97153 at $10.81 per unit.',
         ],
         cites: [S.optumNNM, S.optumReimb, S.profFee],
       },
@@ -959,6 +1001,11 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.optumSCC],
       },
+      {
+        h2: 'Appeals, authorizations and changing providers (Optum)',
+        body: [OPTUM_APPEALS_BODY_G5, OPTUM_AUTH_BODY_G5],
+        cites: [OPTUM_NNM_G5],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Insured in North Dakota (Bulletin 2018-1 applies) vs. self-funded ERISA (plan document governs).' },
@@ -966,7 +1013,7 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis with a validated tool', desc: 'DSM-5-TR ASD confirmed with a validated tool (ADI-R, ADOS-2 and others). Optum asks for the instrument.' },
       { title: 'Credential level of each clinician', desc: 'Each claim line carries HM, HN, HO or HP; technicians should be RBTs.' },
     ],
-    sources: [S.optumSCC, S.optumSM, S.optumTele, S.optumReimb, S.optumNNM, S.elig, S.bull2018, S.doiNews, S.c2636, S.pa3612, S.cob, S.c4364, S.ndac112, S.c4357, S.bacbLic, S.erisa, S.tpl, S.tricare, S.champva, S.profFee],
+    sources: [ OPTUM_NNM_G5,S.optumSCC, S.optumSM, S.optumTele, S.optumReimb, S.optumNNM, S.elig, S.bull2018, S.doiNews, S.c2636, S.pa3612, S.cob, S.c4364, S.ndac112, S.c4357, S.bacbLic, S.erisa, S.tpl, S.tricare, S.champva, S.profFee],
     deliveryRules: {
       supervision: {
         value: 'Consistent with CASP standards, direct case supervision is required at 1–2 hours for every 10 hours of direct treatment. Technicians work under a BCBA or licensed behavioral health clinician; Optum does not recommend parents serving as their own child’s RBT. In North Dakota the supervisor must hold a ch. 43-64 license (or be a licensed psychologist practicing within competence).',

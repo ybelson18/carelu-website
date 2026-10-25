@@ -194,10 +194,11 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'Confirmation of the presence of — or risk for — ASD normally comes from an approved Autism Evaluation Provider (AEP) through a comprehensive diagnostic evaluation; a targeted evaluation is used when a fully diagnosed recipient presents with behaviors changed from the last CDE, and an ASD risk evaluation when the at-risk criteria in Subsection C are met. To avoid delaying stage two and three, a recipient may instead be referred with a presumptive ASD diagnosis from any licensed practitioner whose scope of practice allows them to render an ASD diagnosis, received within three years of the referral.',
+        value: 'Confirmation of the presence of — or risk for — ASD normally comes from an approved Autism Evaluation Provider (AEP) through a comprehensive diagnostic evaluation; a targeted evaluation is used when a fully diagnosed recipient presents with behaviors changed from the last CDE, and an ASD risk evaluation when the at-risk criteria in Subsection C are met. To avoid delaying stage two and three, a recipient may instead be referred with a presumptive ASD diagnosis from any licensed practitioner whose scope of practice allows them to render an ASD diagnosis, received within three years of the referral.' + ' LCSW: no for the state evaluation — Supplement 24-13 requires an Autism Evaluation Practitioner to be a licensed doctoral-level clinical psychologist or a physician board certified or eligible in developmental-behavioral pediatrics, pediatric neurology or child or adult psychiatry. While a CDE is pending, a recipient may start with a presumptive ASD diagnosis from “any licensed provider whose scope of practice allows them to render a diagnosis of ASD” (within 3 years), with a CDE scheduled.',
         status: 'verified',
         cites: [
           { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'MAD Supplement 24-13 — Applied Behavior Analysis (ABA) Guidance (9/17/2024)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
         ],
       },
       diagnosticTools: {
@@ -303,6 +304,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { q: 'Does New Mexico Medicaid require ABA goals to be organized by DSM-5 criteria?', a: 'No. Supplement 24-13 asks for observable, measurable goals for each critical domain — developmental skill areas such as language and communication, adaptive and self-care, social relationships, coping and tolerance — prioritized by safety risk. DSM/ICD governs eligibility, not the goal structure.' },
       { q: 'How much parent training does New Mexico Medicaid require?', a: 'Every treatment plan "must include ample units" of 97156 and 97157 and a Family Set goal. 97156 needs no PA, up to 32 units (8 hours) per week for the whole Family Set and 16 units per day; 97157 is up to 16 units (4 hours) per day.' },
       { q: 'What is the New Mexico Medicaid timely filing limit?', a: 'Ninety calendar days from the date of service for fee-for-service claims (8.302.2.11 NMAC); with a primary payer, 90 days from its EOB and no more than 210 days from service.' },
+      { q: 'Does New Mexico Medicaid use HM, HN, HO or HP modifiers for ABA?', a: 'No. The ABA fee schedule marks the rendering credential with U modifiers: U5 Qualifying Psychologist, U4 BCBA-D, U3 BCBA, U9 BCaBA, U1 behavior technician (with or without a bachelor’s degree). 97153, for example, pays $38.02 / $37.99 / $32.31 / $23.35 / $19.85 per 15 minutes down those tiers (effective 1/1/2025, LOD #53).' },
     ],
   },
 
@@ -404,6 +406,16 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
           { title: 'BCBSNM — Medicaid (Turquoise Care) section of the Provider Reference Manual (updated July 2026)', url: 'https://www.bcbsnm.com/docs/provider/nm/medicaid-prm.pdf' },
         ],
       },
+      {
+        h2: 'Credential modifiers on the claim (U5, U4, U3, U9, U1)',
+        body: [
+          'BCBSNM’s Turquoise Care provider reference manual (July 2026) and its ABA clinical service request form define no ABA modifiers of their own, so the state coding applies. New Mexico marks the rendering credential with U modifiers rather than HM/HN/HO/HP. The ABA fee schedule attached to HCA Letter of Direction #53 lists, for example, 97153 at $38.02 with U5 (Qualifying Psychologist), $37.99 with U4 (BCBA-D), $32.31 with U3 (BCBA), $23.35 with U9 (BCaBA) and $19.85 with U1 (BT, “with or without bachelor’s degree”), and 97151 at $130.94 (U5/U4) or $112.65 (U3). LOD #53 (March 21, 2025) directs the Turquoise Care MCOs that these rates “shall apply to each provider’s contracted rates with each MCO” and that they “shall not negotiate less than the Medicaid fee-for-services (FFS) rate.” Confirm the plan’s modifier set before the first claim.',
+        ],
+        cites: [
+          { title: 'BCBSNM — Turquoise Care (Medicaid) Provider Reference Manual (July 2026)', url: 'https://www.bcbsnm.com/docs/provider/nm/medicaid-prm.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Realistic start date', desc: 'The request form must land at least 2 weeks (and no more than 60 days) before treatment starts — work backwards from the family\'s target.' },
@@ -421,6 +433,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { title: '8.310.2.12(M) NMAC — Telehealth services (srca.nm.gov, amended 1/1/2025)', url: 'https://www.srca.nm.gov/parts/title08/08.310.0002.html' },
       { title: '8.321.2.13 NMAC — Applied Behavior Analysis (srca.nm.gov)', url: 'https://www.srca.nm.gov/parts/title08/08.321.0002.html' },
       { title: 'Blue Cross and Blue Shield of New Mexico — Provider News and Updates', url: 'https://www.bcbsnm.com/provider/education-reference/education/news' },
+      { title: 'BCBSNM — Turquoise Care (Medicaid) Provider Reference Manual (July 2026)', url: 'https://www.bcbsnm.com/docs/provider/nm/medicaid-prm.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -442,12 +455,13 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'Follows the New Mexico Medicaid rule: an approved Autism Evaluation Provider confirms the presence of or risk for ASD through a comprehensive diagnostic, targeted or ASD risk evaluation, or the recipient is referred on a presumptive diagnosis from any licensed practitioner whose scope of practice allows an ASD diagnosis, received within three years of referral.',
+        value: 'Follows the New Mexico Medicaid rule: an approved Autism Evaluation Provider confirms the presence of or risk for ASD through a comprehensive diagnostic, targeted or ASD risk evaluation, or the recipient is referred on a presumptive diagnosis from any licensed practitioner whose scope of practice allows an ASD diagnosis, received within three years of referral.' + ' LCSW: no for the state evaluation — Supplement 24-13 requires an Autism Evaluation Practitioner to be a licensed doctoral-level clinical psychologist or a physician board certified or eligible in developmental-behavioral pediatrics, pediatric neurology or child or adult psychiatry. While a CDE is pending, a recipient may start with a presumptive ASD diagnosis from “any licensed provider whose scope of practice allows them to render a diagnosis of ASD” (within 3 years), with a CDE scheduled.',
         status: 'verified',
         cites: [
           { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
           { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
           { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+          { title: 'MAD Supplement 24-13 — Applied Behavior Analysis (ABA) Guidance (9/17/2024)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
         ],
       },
       diagnosticTools: {
@@ -565,6 +579,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { q: 'How many parent training hours does BCBSNM expect?', a: 'Its request form asks how many hours per week the caregiver will train, with measurable parent goals. CPCP011 defaults to one hour per week (26 hours per 26-week authorization) and asks for documentation above that. For Turquoise Care, the state guidance allows 97156 without PA up to 32 units per week, so confirm which applies.' },
       { q: 'What is BCBSNM Turquoise Care’s timely filing limit?', a: 'Submit within 90 days of the date of service; anything billed beyond 180 days from service is not reimbursable.' },
       { q: 'Does BCBSNM Turquoise Care require taxonomy on the claim?', a: 'Yes, for the billing, rendering and attending NPIs, and it must match the provider’s New Mexico HCA enrollment.' },
+      { q: 'Which modifiers mark the rendering credential on a New Mexico Turquoise Care ABA claim?', a: 'U modifiers from the state ABA fee schedule (LOD #53): U5 Qualifying Psychologist, U4 BCBA-D, U3 BCBA, U9 BCaBA, U1 behavior technician. New Mexico does not use HM/HN/HO/HP, and the MCO may not pay less than the fee-schedule rate for the tier.' },
     ],
   },
 
@@ -666,6 +681,16 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
           { title: 'Presbyterian Turquoise Care Practitioner and Provider Manual (2026), Claims and Payment', url: 'https://onbaseext.phs.org/PEL/DisplayDocument?ContentID=OB_000000001114' },
         ],
       },
+      {
+        h2: 'Credential modifiers on the claim (U5, U4, U3, U9, U1)',
+        body: [
+          'Presbyterian’s Turquoise Care practitioner manual (July 2026) defines no ABA credential modifiers; its one modifier rule in this area is general, listing as fraud “Failure to include the U7 modifier when services are rendered by an individual in training pending Medicaid enrollment.” So the state coding applies. New Mexico marks the rendering credential with U modifiers rather than HM/HN/HO/HP. The ABA fee schedule attached to HCA Letter of Direction #53 lists, for example, 97153 at $38.02 with U5 (Qualifying Psychologist), $37.99 with U4 (BCBA-D), $32.31 with U3 (BCBA), $23.35 with U9 (BCaBA) and $19.85 with U1 (BT, “with or without bachelor’s degree”), and 97151 at $130.94 (U5/U4) or $112.65 (U3). LOD #53 (March 21, 2025) directs the Turquoise Care MCOs that these rates “shall apply to each provider’s contracted rates with each MCO” and that they “shall not negotiate less than the Medicaid fee-for-services (FFS) rate.” Confirm the plan’s modifier set before the first claim.',
+        ],
+        cites: [
+          { title: 'Presbyterian — Turquoise Care Practitioner & Provider Manual (2026)', url: 'https://onbaseext.phs.org/PEL/DisplayDocument?ContentID=OB_000000001114' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Line of business', desc: 'Presbyterian Medicaid (Turquoise Care, in-house BH) vs. commercial/Medicare (Magellan) — it decides where the auth goes.' },
@@ -683,6 +708,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { title: '8.310.2.12(M) NMAC — Telehealth services (srca.nm.gov, amended 1/1/2025)', url: 'https://www.srca.nm.gov/parts/title08/08.310.0002.html' },
       { title: '8.321.2.13 NMAC — Applied Behavior Analysis (srca.nm.gov)', url: 'https://www.srca.nm.gov/parts/title08/08.321.0002.html' },
       { title: 'Presbyterian Health Plan — Provider news and communications (Network Connection archive)', url: 'https://www.phs.org/providers/contact-us/news-and-communications' },
+      { title: 'Presbyterian — Turquoise Care Practitioner & Provider Manual (2026)', url: 'https://onbaseext.phs.org/PEL/DisplayDocument?ContentID=OB_000000001114' },
     ],
     intakeGates: {
       ageLimit: {
@@ -704,12 +730,13 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'Follows the New Mexico Medicaid rule: an approved Autism Evaluation Provider confirms the presence of or risk for ASD through a comprehensive diagnostic, targeted or ASD risk evaluation, or the recipient is referred on a presumptive diagnosis from any licensed practitioner whose scope of practice allows an ASD diagnosis, received within three years of referral.',
+        value: 'Follows the New Mexico Medicaid rule: an approved Autism Evaluation Provider confirms the presence of or risk for ASD through a comprehensive diagnostic, targeted or ASD risk evaluation, or the recipient is referred on a presumptive diagnosis from any licensed practitioner whose scope of practice allows an ASD diagnosis, received within three years of referral.' + ' LCSW: no for the state evaluation — Supplement 24-13 requires an Autism Evaluation Practitioner to be a licensed doctoral-level clinical psychologist or a physician board certified or eligible in developmental-behavioral pediatrics, pediatric neurology or child or adult psychiatry. While a CDE is pending, a recipient may start with a presumptive ASD diagnosis from “any licensed provider whose scope of practice allows them to render a diagnosis of ASD” (within 3 years), with a CDE scheduled.',
         status: 'verified',
         cites: [
           { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
           { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
           { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+          { title: 'MAD Supplement 24-13 — Applied Behavior Analysis (ABA) Guidance (9/17/2024)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
         ],
       },
       diagnosticTools: {
@@ -823,28 +850,26 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { q: 'Does Presbyterian require ABA goals to be organized by DSM-5 criteria for Turquoise Care?', a: 'Presbyterian publishes no format of its own; the state standard (Supplement 24-13) applies — measurable goals for each critical developmental domain, prioritized by safety risk, not DSM-5 criteria.' },
       { q: 'How much parent training does Presbyterian expect for Turquoise Care?', a: 'Presbyterian publishes no figure; the state rule applies — every plan "must include ample units" of 97156/97157, with 97156 up to 32 units per week for the Family Set. Presbyterian\'s PA guide lists 97156/97157 among its ABA codes, so confirm whether a request is needed.' },
       { q: 'What is Presbyterian Turquoise Care’s timely filing limit?', a: 'Ninety days from the date of service for in-network claims; corrections and appeals within 12 months of the date of service.' },
+      { q: 'Which modifiers mark the rendering credential on a New Mexico Turquoise Care ABA claim?', a: 'U modifiers from the state ABA fee schedule (LOD #53): U5 Qualifying Psychologist, U4 BCBA-D, U3 BCBA, U9 BCaBA, U1 behavior technician. New Mexico does not use HM/HN/HO/HP, and the MCO may not pay less than the fee-schedule rate for the tier.' },
     ],
   },
 
   'molina-healthcare-new-mexico': {
     slug: 'molina-healthcare-new-mexico',
     assessmentPA: {
-      value: 'Not published — Molina has no New Mexico ABA code-level PA list; the state baseline (97151/97152/0362T marked "Prior Auth: NO") should govern via the shared Turquoise Care Level of Care Guidelines. Run a code-level check in Availity Essentials and keep the answer in writing',
-      status: 'unverified',
+      value: 'Not required for participating providers. Molina\'s New Mexico Medicaid PA Code Matrix (effective October 1, 2026) says "Prior auth is required for all codes listed in this document" and does not list 97151, 97152 or 0362T, matching the state fee schedule\'s "Prior Auth: NO" on those codes. Non-participating providers need authorization for every service',
+      status: 'verified',
       cites: [
+        { title: 'Molina Healthcare of New Mexico — Medicaid Prior Authorization (PA) Code Matrix, effective October 1, 2026 (Q4)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/NM/New-Mexico-Prior-Authorization-PA-Code-Matrix-Q4-2026.pdf' },
         { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (MCO rate floor)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
       ],
-      verifyVia: 'Molina Healthcare of New Mexico\'s Medicaid prior-authorization code list — not published publicly and molinahealthcare.com 403s to automated retrieval. Run the ABA codes through Availity Essentials and keep the dated result, or request the PA code matrix via carelu.com/sources. The state floor (LOD #53: 97151/97152/0362T ‘Prior Auth: NO’) is the fallback.',
-      blocker: 'document',
     },
     treatmentPA: {
-      value: 'Not published at code level — the state baseline puts PA on 97153; Molina mandates electronic PA submission through Availity Essentials as its primary channel',
-      status: 'unverified',
+      value: 'Required once treatment passes 48 units a year. Molina\'s PA Code Matrix (effective October 1, 2026) lists 97153, 97154, 97155, 97156, 97157, 97158 and 0373T with the note "PA required after 48 units per calendar year for ABA therapy (cumulative of 0373T, 97153, 97154, 97155, 97156, 97157, 97158)." Non-participating providers need authorization for every service. Submit through Availity Essentials',
+      status: 'verified',
       cites: [
-        { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (MCO rate floor)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+        { title: 'Molina Healthcare of New Mexico — Medicaid Prior Authorization (PA) Code Matrix, effective October 1, 2026 (Q4)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/NM/New-Mexico-Prior-Authorization-PA-Code-Matrix-Q4-2026.pdf' },
       ],
-      verifyVia: 'Molina Healthcare of New Mexico\'s Medicaid prior-authorization code list, via Availity Essentials (its mandated PA channel) or carelu.com/sources. The state floor puts PA on 97153 only; Molina publishes no New Mexico ABA code-level list of its own.',
-      blocker: 'document',
     },
     family: 'molina',
     cardDesc: 'New to NM 7/2024; PA via Availity Essentials; no published ABA policy — verify in portal.',
@@ -869,18 +894,19 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { label: 'Plan type', value: 'Turquoise Care MCO — entered New Mexico 7/1/2024' },
       { label: 'Clinical rules', value: 'State baseline (shared Turquoise Care LOC guidelines); no distinct ABA policy published' },
       { label: 'PA submission', value: 'Electronic, via Availity Essentials — Molina\'s mandated primary channel' },
-      { label: 'ABA code-level PA list', value: 'Not published — verify 97151/97153 handling in Availity before submitting' },
+      { label: 'ABA code-level PA list', value: 'PA Code Matrix (eff. 10/1/2026): no PA on 97151/97152/0362T; PA after 48 units/calendar year across 97153–97158 + 0373T (par providers)' },
       { label: 'Rates', value: 'Must pay at least the state FFS ABA fee schedule (LOD #53)' },
     ],
     sections: [
       {
         h2: 'What\'s verified — and what to check in the portal',
         body: [
-          'Verified: Molina is a Turquoise Care MCO bound by the state\'s ABA criteria and the LOD #53 rate floor, its provider manual requires electronic PA submission, and Availity Essentials is the mandated primary channel (a contract-compliance item, not a preference). Not verified: any Molina-specific ABA clinical policy, PA form, or code-level PA list for New Mexico — we found none published. That gap cuts both ways: the state baseline (no PA on 97151, PA on 97153, the under-20-hrs quirk) should govern via the shared Level of Care Guidelines, but until Molina publishes its ABA mechanics, run a code-level PA check in Availity for each new case and get the answer in writing. As the newest plan alongside UHC, expect member churn from the Western Sky exit — verify plan identity on any card that predates July 2024.',
+          'Verified: Molina is a Turquoise Care MCO bound by the state\'s ABA criteria and the LOD #53 rate floor, its provider manual requires electronic PA submission, and Availity Essentials is the mandated primary channel (a contract-compliance item, not a preference). Molina\'s code-level PA list is now public: its New Mexico Medicaid PA Code Matrix (effective October 1, 2026) requires authorization for every code it lists, leaves 97151, 97152 and 0362T off the list, and notes on 97153\u201397158 and 0373T: "PA required after 48 units per calendar year for ABA therapy (cumulative of 0373T, 97153, 97154, 97155, 97156, 97157, 97158)." Non-participating providers need authorization for everything. Not verified: any Molina-specific ABA clinical policy or PA form for New Mexico \u2014 we found none published, so the state criteria (NMAC 8.321.2) govern the review. As the newest plan alongside UHC, expect member churn from the Western Sky exit — verify plan identity on any card that predates July 2024.',
         ],
         cites: [
           { title: 'Molina Healthcare of New Mexico Provider Manual (Medicaid 2025)', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/NM_2024/Medicaid/communications/MCAIDNM-Provider-Manual-2025-EN-508.pdf' },
-          { title: 'Molina NM Medicaid Authorizations page', url: 'https://www.molinahealthcare.com/providers/nm/medicaid/resource/priorauth.aspx' },
+          { title: 'Molina Healthcare of New Mexico — Prior Authorization for Providers (links the quarterly PA Code Matrix)', url: 'https://www.molinahealthcare.com/providers/nm/prior-auth' },
+          { title: 'Molina Healthcare of New Mexico — Medicaid Prior Authorization (PA) Code Matrix, effective October 1, 2026 (Q4)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/NM/New-Mexico-Prior-Authorization-PA-Code-Matrix-Q4-2026.pdf' },
         ],
       },
       {
@@ -926,6 +952,16 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
           { title: 'Molina Healthcare of New Mexico Turquoise Care Provider Manual (2024 edition), § 13 Claims and Compensation', url: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/NM_2024/Medicaid/Provider-Manual.pdf' },
         ],
       },
+      {
+        h2: 'Credential modifiers on the claim (U5, U4, U3, U9, U1)',
+        body: [
+          'Molina’s New Mexico Medicaid provider manual (May 2024 edition, the latest we could read) does not address ABA billing modifiers, so the state coding applies. New Mexico marks the rendering credential with U modifiers rather than HM/HN/HO/HP. The ABA fee schedule attached to HCA Letter of Direction #53 lists, for example, 97153 at $38.02 with U5 (Qualifying Psychologist), $37.99 with U4 (BCBA-D), $32.31 with U3 (BCBA), $23.35 with U9 (BCaBA) and $19.85 with U1 (BT, “with or without bachelor’s degree”), and 97151 at $130.94 (U5/U4) or $112.65 (U3). LOD #53 (March 21, 2025) directs the Turquoise Care MCOs that these rates “shall apply to each provider’s contracted rates with each MCO” and that they “shall not negotiate less than the Medicaid fee-for-services (FFS) rate.” Confirm the plan’s modifier set before the first claim.',
+        ],
+        cites: [
+          { title: 'Molina Healthcare of New Mexico — Medicaid Provider Manual (May 2024 edition)', url: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/NM_2024/Medicaid/Provider-Manual.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Availity Essentials access', desc: 'Molina mandates electronic PA submission — confirm your organization\'s Availity registration covers Molina NM before the first case.' },
@@ -935,7 +971,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
     ],
     sources: [
       { title: 'Molina Healthcare of New Mexico Provider Manual (Medicaid 2025)', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/NM_2024/Medicaid/communications/MCAIDNM-Provider-Manual-2025-EN-508.pdf' },
-      { title: 'Molina NM Medicaid Authorizations page', url: 'https://www.molinahealthcare.com/providers/nm/medicaid/resource/priorauth.aspx' },
+      { title: 'Molina Healthcare of New Mexico — Prior Authorization for Providers (links the quarterly PA Code Matrix)', url: 'https://www.molinahealthcare.com/providers/nm/prior-auth' },
       { title: 'MAD Supplement 24-13 — ABA Guidance (state criteria)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
       { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (MCO rate floor)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
       { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
@@ -943,6 +979,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { title: 'Molina Healthcare of New Mexico Turquoise Care Provider Manual (2024 edition, last updated May 2024)', url: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/NM_2024/Medicaid/Provider-Manual.pdf' },
       { title: '8.321.2.13 NMAC — Applied Behavior Analysis (srca.nm.gov)', url: 'https://www.srca.nm.gov/parts/title08/08.321.0002.html' },
       { title: 'Molina Healthcare of New Mexico — Provider communications (newsletters and bulletins)', url: 'https://www.molinahealthcare.com/providers/nm/communications' },
+      { title: 'Molina Healthcare of New Mexico — Medicaid Prior Authorization (PA) Code Matrix, effective October 1, 2026 (Q4)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/NM/New-Mexico-Prior-Authorization-PA-Code-Matrix-Q4-2026.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -964,12 +1001,13 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'Follows the New Mexico Medicaid rule: an approved Autism Evaluation Provider confirms the presence of or risk for ASD through a comprehensive diagnostic, targeted or ASD risk evaluation, or the recipient is referred on a presumptive diagnosis from any licensed practitioner whose scope of practice allows an ASD diagnosis, received within three years of referral.',
+        value: 'Follows the New Mexico Medicaid rule: an approved Autism Evaluation Provider confirms the presence of or risk for ASD through a comprehensive diagnostic, targeted or ASD risk evaluation, or the recipient is referred on a presumptive diagnosis from any licensed practitioner whose scope of practice allows an ASD diagnosis, received within three years of referral.' + ' LCSW: no for the state evaluation — Supplement 24-13 requires an Autism Evaluation Practitioner to be a licensed doctoral-level clinical psychologist or a physician board certified or eligible in developmental-behavioral pediatrics, pediatric neurology or child or adult psychiatry. While a CDE is pending, a recipient may start with a presumptive ASD diagnosis from “any licensed provider whose scope of practice allows them to render a diagnosis of ASD” (within 3 years), with a CDE scheduled.',
         status: 'verified',
         cites: [
           { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
           { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
           { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+          { title: 'MAD Supplement 24-13 — Applied Behavior Analysis (ABA) Guidance (9/17/2024)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
         ],
       },
       diagnosticTools: {
@@ -1084,6 +1122,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { q: 'Does Molina New Mexico require ABA goals to be organized by DSM-5 criteria?', a: 'No DSM-5 template. Molina follows the state standard — measurable goals for each critical developmental domain (Supplement 24-13) — and wants measurable skill gains or reductions in maladaptive behavior.' },
       { q: 'How much parent training does Molina New Mexico expect?', a: 'Molina requires caregivers able to "participate and commit meaningfully" to ABA; the hours follow the state rule — "ample units" of 97156/97157 in every plan, with 97156 up to 32 units per week without PA.' },
       { q: 'What is Molina New Mexico’s timely filing limit for ABA claims?', a: 'Ninety calendar days from the date of service, per Molina’s Turquoise Care manual (2024 edition). Confirm against the current manual.' },
+      { q: 'Which modifiers mark the rendering credential on a New Mexico Turquoise Care ABA claim?', a: 'U modifiers from the state ABA fee schedule (LOD #53): U5 Qualifying Psychologist, U4 BCBA-D, U3 BCBA, U9 BCaBA, U1 behavior technician. New Mexico does not use HM/HN/HO/HP, and the MCO may not pay less than the fee-schedule rate for the tier.' },
     ],
   },
 
@@ -1185,6 +1224,17 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
           { title: 'UnitedHealthcare Community Plan of New Mexico — 2026 Turquoise Care Care Provider Manual, Chapters 11–12', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NM-UHCCP-Provider-Manual.pdf' },
         ],
       },
+      {
+        h2: 'Credential modifiers on the claim (U5, U4, U3, U9, U1)',
+        body: [
+          'UnitedHealthcare Community Plan’s 2026 New Mexico manual and Optum’s Turquoise Care ABA quick reference guide name no ABA credential modifiers (the manual’s U1–U3 rows are doula services), so the state coding applies. New Mexico marks the rendering credential with U modifiers rather than HM/HN/HO/HP. The ABA fee schedule attached to HCA Letter of Direction #53 lists, for example, 97153 at $38.02 with U5 (Qualifying Psychologist), $37.99 with U4 (BCBA-D), $32.31 with U3 (BCBA), $23.35 with U9 (BCaBA) and $19.85 with U1 (BT, “with or without bachelor’s degree”), and 97151 at $130.94 (U5/U4) or $112.65 (U3). LOD #53 (March 21, 2025) directs the Turquoise Care MCOs that these rates “shall apply to each provider’s contracted rates with each MCO” and that they “shall not negotiate less than the Medicaid fee-for-services (FFS) rate.” Confirm the plan’s modifier set before the first claim.',
+        ],
+        cites: [
+          { title: 'UnitedHealthcare Community Plan of New Mexico — Care Provider Manual (2026)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NM-UHCCP-Provider-Manual.pdf' },
+          { title: 'Optum — New Mexico Turquoise Care ABA quick reference guide', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/NMTurquoiseCareABAQRG.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Diagnosis or at-risk documentation', desc: 'State rule: ASD dx within 3 years of referral, or the at-risk pathway — then book the assessment; no PA on 97151.' },
@@ -1224,12 +1274,13 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'Follows the New Mexico Medicaid rule: an approved Autism Evaluation Provider confirms the presence of or risk for ASD through a comprehensive diagnostic, targeted or ASD risk evaluation, or the recipient is referred on a presumptive diagnosis from any licensed practitioner whose scope of practice allows an ASD diagnosis, received within three years of referral.',
+        value: 'Follows the New Mexico Medicaid rule: an approved Autism Evaluation Provider confirms the presence of or risk for ASD through a comprehensive diagnostic, targeted or ASD risk evaluation, or the recipient is referred on a presumptive diagnosis from any licensed practitioner whose scope of practice allows an ASD diagnosis, received within three years of referral.' + ' LCSW: no for the state evaluation — Supplement 24-13 requires an Autism Evaluation Practitioner to be a licensed doctoral-level clinical psychologist or a physician board certified or eligible in developmental-behavioral pediatrics, pediatric neurology or child or adult psychiatry. While a CDE is pending, a recipient may start with a presumptive ASD diagnosis from “any licensed provider whose scope of practice allows them to render a diagnosis of ASD” (within 3 years), with a CDE scheduled.',
         status: 'verified',
         cites: [
           { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
           { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
           { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+          { title: 'MAD Supplement 24-13 — Applied Behavior Analysis (ABA) Guidance (9/17/2024)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
         ],
       },
       diagnosticTools: {
@@ -1347,6 +1398,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { q: 'Does UnitedHealthcare Community Plan require ABA goals to be organized by DSM-5 criteria in New Mexico?', a: 'It publishes no format of its own; the state standard (Supplement 24-13) applies — measurable goals for each critical developmental domain, prioritized by safety risk, not DSM-5 criteria.' },
       { q: 'How much parent training does UnitedHealthcare Community Plan expect in New Mexico?', a: 'No plan-specific figure; the state rule applies — every plan "must include ample units" of 97156/97157, with 97156 PA-free up to 32 units per week for the Family Set.' },
       { q: 'How long do I have to dispute a UnitedHealthcare Community Plan of New Mexico claim?', a: 'Ninety calendar days for a claim reconsideration, then 60 calendar days for a formal appeal; each is answered within 30 calendar days.' },
+      { q: 'Which modifiers mark the rendering credential on a New Mexico Turquoise Care ABA claim?', a: 'U modifiers from the state ABA fee schedule (LOD #53): U5 Qualifying Psychologist, U4 BCBA-D, U3 BCBA, U9 BCaBA, U1 behavior technician. New Mexico does not use HM/HN/HO/HP, and the MCO may not pay less than the fee-schedule rate for the tier.' },
     ],
   },
 
@@ -1494,6 +1546,27 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'Aetna — Applied behavior analysis medical necessity guide (©2026): Termination of coverage', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
       },
+      {
+        h2: 'Credential modifiers on the claim',
+        body: [
+          'Aetna publishes no rate-tier modifiers for ABA. Its public ABA documents — the Applied Behavior Analysis Medical Necessity Guide (©2026), the provider manual (6/26) and the ABA precertification form GR-69017-4 (7-26) — name no HM, HN, HO or HP modifier and no credential crosswalk. What the guide does require is that “Services must be provided directly or billed by the appropriately licensed provider”: licensed behavior analysts where a state licenses them, board-certified behavior analysts, or licensed psychologists, with unlicensed staff supervised “unless state mandates, plan documents or contracts require otherwise.” Whether your Aetna agreement prices technician and analyst time by modifier is set in the contract and its fee schedule, so ask Aetna before you bill technician lines under the analyst.',
+        ],
+        cites: [
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+          { title: 'Aetna — Provider manual (8102800-01-01, 6/26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+        ],
+      },
+      {
+        h2: 'Reconsideration and appeal: what to send',
+        body: [
+          'Aetna runs two levels. A reconsideration (“a formal review of a previous claim decision,” covering reimbursement and coding decisions) is filed within 180 calendar days of the initial claim decision, on Availity or by mail. Send “Medical records, office notes and other supporting documents” and either a completed dispute and appeal form or an explanation giving the reason for review, member ID, patient name, TIN, claim ID, dates of service and billed amounts, and the “Procedure codes and modifiers being disputed”; most answers come within 30 business days. If that fails, appeal within 60 calendar days of the reconsideration decision with a clear explanation, supporting documents, the denial letter or EOB and the original claim; a valid appeal needs the dispute and appeal form (not required on Availity), the denied codes or payments identified, and the records. Aetna decides within 60 calendar days. The 180-day standard can differ for fully insured plans in states on Aetna’s exception list.',
+        ],
+        cites: [
+          { title: 'Aetna — Disputes and appeals overview (reconsideration and appeal time frames and contents)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' },
+          { title: 'Aetna — Provider appeals: state exceptions to the 180-day dispute filing standard', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/provider-appeals.html' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -1513,6 +1586,9 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
       { title: 'Aetna — Behavioral Health Provider Manual', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' },
       { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+      { title: 'Aetna — Provider manual (8102800-01-01, 6/26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+      { title: 'Aetna — Disputes and appeals overview (reconsideration and appeal time frames and contents)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' },
+      { title: 'Aetna — Provider appeals: state exceptions to the 180-day dispute filing standard', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/provider-appeals.html' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1533,7 +1609,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'A DSM-5 diagnosis of Autism Spectrum Disorder (ICD-10 F84.0, F84.3–F84.9) obtained by an appropriate provider — the medical necessity guide names a licensed psychologist or psychiatrist, a physician, or another health care professional qualified to diagnose mental health conditions within their scope of practice. CPB 0648 separately lists the professionals appropriate to an ASD evaluation: board certified behavior analyst, developmental pediatrician, neurologist, occupational therapist, physical therapist, primary care provider, psychiatrist, psychologist, and speech-language pathologist and audiologist.',
+        value: 'A DSM-5 diagnosis of Autism Spectrum Disorder (ICD-10 F84.0, F84.3–F84.9) obtained by an appropriate provider — the medical necessity guide names a licensed psychologist or psychiatrist, a physician, or another health care professional qualified to diagnose mental health conditions within their scope of practice. CPB 0648 separately lists the professionals appropriate to an ASD evaluation: board certified behavior analyst, developmental pediatrician, neurologist, occupational therapist, physical therapist, primary care provider, psychiatrist, psychologist, and speech-language pathologist and audiologist.' + ' LCSW: not named. Aetna accepts a diagnosis from a “licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice,” so an LCSW qualifies only where state law puts that diagnosis within LCSW scope.',
         status: 'verified',
         cites: [
           { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
@@ -1645,6 +1721,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { q: 'What is Aetna’s clean-claim payment turnaround in New Mexico?', a: 'Thirty days for an electronic clean claim and 45 for a manual one (13.10.28.9 NMAC), for state-regulated plans.' },
       { q: 'How long do I have to appeal an Aetna claim decision in New Mexico?', a: '180 calendar days from the initial claim decision to request a reconsideration, then 60 calendar days from the reconsideration decision to appeal.' },
       { q: 'Does Aetna require a referring provider (box 17) on ABA claims?', a: 'Aetna publishes no such requirement for ABA. A referral has to accompany a claim only when the member’s plan requires PCP referrals for specialist care. Behavioral health is a direct-access benefit in Aetna’s behavioral health manual.' },
+      { q: 'Does Aetna require HM, HN, HO or HP modifiers on ABA claims?', a: 'Not in any public Aetna ABA document: the medical necessity guide, provider manual and ABA precertification form name no rate-tier modifiers. Services must be provided or billed by an appropriately licensed or certified provider; ask Aetna whether your contract prices technician lines by modifier.' },
     ],
   },
 
@@ -1794,6 +1871,25 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'Evernorth Coverage Policy EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026): Criteria for Continued Treatment with ABA', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
       },
+      {
+        h2: 'Credential modifiers on the claim',
+        body: [
+          'Evernorth (Cigna’s behavioral health arm) uses no rate-tier modifiers in its published ABA billing rules. Its Autism Resource Guide (March 2025) instead sets, code by code, who may provide and who may bill: 97152, 97153 and 97154 may be provided by a “BCaBA, technician” but are billed by a “BCBA-D, BCBA, or licensed mental health provider,” and “Evernorth does not credential nonlicensed/noncertified staff. Services for these staff members must be billed under the supervising provider.” All ABA must be billed with 97151–97158, 0362T and 0373T only. The only modifier Evernorth’s administrative guidelines (September 2026) prescribe is for virtual care: “Modifier 95 in Field 24-D to specify telehealth” with place of service 02; other modifiers go on “if they are needed to describe the service performed.”',
+        ],
+        cites: [
+          { title: 'Cigna/Evernorth Autism Resource Guide (PCOMM-2025-225, March 2025): billing codes', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191) — telehealth claim coding', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
+      },
+      {
+        h2: 'Reconsideration and appeal: what to send',
+        body: [
+          'Evernorth (Cigna behavioral health) asks you to call Provider Services first with the patient’s name, date of service and the treating provider’s name and TIN. If the claim stands, file a written appeal within 180 calendar days of the initial payment or denial (or of the last payment adjustment). Fee-schedule and reimbursement disputes can go through the reconsideration feature on Provider.Evernorth.com. For a medical-necessity denial include the clinical record; for a timely-filing denial include the EDI transmission report or proof the delay came from coordination of benefits; for a late-payment dispute include proof of when you submitted. Appeals must be filed by a person, not by automation software. Most are resolved within 60 calendar days, with notice within 75 days unless state law says otherwise, and arbitration is the final step.',
+        ],
+        cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191): Provider payment appeals', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -1809,6 +1905,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { title: 'NMSA § 59A-46-50 — HMO parallel section (Justia)', url: 'https://law.justia.com/codes/new-mexico/chapter-59a/article-46/section-59a-46-50/' },
       { title: 'Autism Speaks — New Mexico state-regulated coverage', url: 'https://www.autismspeaks.org/new-mexico-state-regulated-insurance-coverage' },
       { title: 'BACB — U.S. Licensure of Behavior Analysts', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
+      { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191) — telehealth claim coding', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1829,7 +1926,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'The ASD diagnosis (ICD-10 F84.0–F84.9 except F84.2, Rett syndrome) must be made under DSM-5-TR criteria by a healthcare professional who is licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice. The ABA assessment itself is performed by a Board Certified Behavior Analyst, a Licensed Behavior Analyst, or a mental health clinician licensed to practice independently who has documented training in ABA.',
+        value: 'The ASD diagnosis (ICD-10 F84.0–F84.9 except F84.2, Rett syndrome) must be made under DSM-5-TR criteria by a healthcare professional who is licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice. The ABA assessment itself is performed by a Board Certified Behavior Analyst, a Licensed Behavior Analyst, or a mental health clinician licensed to practice independently who has documented training in ABA.' + ' LCSW: not named. EN0499 accepts a professional “licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice,” so an independently licensed LCSW qualifies only if the state social-work board treats diagnosis as within scope.',
         status: 'verified',
         cites: [
           { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
@@ -1940,6 +2037,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { q: 'What is Cigna’s clean-claim payment turnaround in New Mexico?', a: 'Thirty days for an electronic clean claim and 45 for a manual one (13.10.28.9 NMAC), for state-regulated plans.' },
       { q: 'What is Cigna’s timely filing limit in New Mexico?', a: 'Ninety days from the date of service under Evernorth’s administrative guidelines, unless your provider agreement or a longer state-law limit says otherwise.' },
       { q: 'Does Cigna require a referring provider (box 17) on ABA claims?', a: 'No. Evernorth’s complete-claim definition for the CMS-1500 lists the rendering and billing providers but no referring provider. If you report a referring provider on an electronic claim, include both the name and the NPI.' },
+      { q: 'Does Cigna / Evernorth require HM, HN, HO or HP modifiers on ABA claims?', a: 'No modifier tiers are published. Evernorth’s autism resource guide says technician and BCaBA services (97152–97154) are billed by the supervising BCBA, BCBA-D or licensed provider, and noncredentialed staff are billed under the supervising provider. Modifier 95 (with POS 02) marks telehealth.' },
     ],
   },
 
@@ -2065,7 +2163,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
           'New Mexico’s rule 13.10.28.9 NMAC requires a health carrier to reimburse a clean claim "within 30 days of the date of receipt if the clean claim has been submitted electronically or within 45 days of the date of receipt if the clean claim has been submitted manually," with interest on overdue clean claims, and to notify the provider within the same 30/45 days if it disputes liability.',
           'UnitedHealthcare’s 2026 administrative guide publishes no single timely-filing number ("Timely filing limits vary based on state requirements and contracts"; check your agreement). It requires "a valid billing NPI, rendering NPI and relevant taxonomy code(s) on all claims," and encourages, but does not require, the referring provider’s NPI. Most claims are adjudicated within 15 days, up to 45. Claim reconsiderations and appeals are due within 12 months of the original EOB or PRA.',
           'UnitedHealthcare’s ABA claims run through Optum Behavioral Health, whose National Network Manual (effective September 1, 2026) sets the deadlines. "All information necessary to process claims must be received by Optum no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan," and "Any corrections or additions to a claim should be made within 90 days of initial claim receipt." The member may not be billed for a late claim. Payment: claims with all required information and any required authorization "will be paid within 45 calendar days after Optum receives the claim, or as required by state and federal laws," which may exclude claims needing a coordination-of-benefits determination; when Optum is secondary it pays up to the Optum contracted rate. UnitedHealthcare’s 2026 administrative guide adds that a corrected claim (frequency code 7, with the original claim number) must arrive within the same timely-filing limit as the original. No weekly payment cycle or submission cutoff is published.',
-          'Which codes: Optum’s commercial ABA reimbursement policy (2022RP501A, updated June 2026) lists the reimbursable codes for the commercial ABA program as 97151–97158, 0362T and 0373T, each in 15-minute units with a credential modifier (HM, HN, HO or HP); no HCPCS H-code (H0031, H0032, H2014, H2019) is on that list.',
+          'Which codes: Optum’s commercial ABA reimbursement policy (2022RP501A, updated June 2026) lists the reimbursable codes for the commercial ABA program as 97151–97158, each in 15-minute units with a credential modifier (HM, HN, HO or HP), plus 0362T and 0373T, which it lists among the ABA codes “that do not require modifiers”; no HCPCS H-code (H0031, H0032, H2014, H2019) is on that list.',
         ],
         cites: [{ title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026): reimbursable codes', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): Coordination of Benefits; Timely Filing; Payment Timelines', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }, 
           { title: '13.10.28.9 NMAC — Payment of claims, overdue claims and interest (srca.nm.gov)', url: 'https://www.srca.nm.gov/parts/title13/13.010.0028.html' },
@@ -2089,6 +2187,15 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
           'Optum’s ABA Supplemental Clinical Criteria (interim review April 2026) say that "With each clinical review for continued ABA treatment, the provider must submit updated documentation" showing progress "for each targeted symptom and behavior, including progress toward defined goals, including the same modes of measurement that were utilized for baseline measurement." Progress "should include rate and percentage of mastered programs, rates of mastered targets, change scores for any outcome measures, updated standardized adaptive measures, and change scores for skills-based assessments," with movement from baseline shown on validated, norm-referenced assessments and, where applicable, the caregiver’s own progress. Inadequate progress over six months calls for an analysis of the reasons and modified interventions, and the review looks at use below 80 percent of authorized hours over two weeks. The criteria do not require graphs as such.',
         ],
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026): Continued Service Criteria', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+      },
+      {
+        h2: 'Reconsideration and appeal: what to send',
+        body: [
+          'Optum, which handles UnitedHealthcare’s behavioral claims, uses a two-step process for commercial claims: reconsideration first, then appeal, within a combined 12 months unless state law or your participation agreement sets a different deadline. Include “member-specific treatment plans, clinical records, payment appendices or other items that support why you believe our decision was incorrect,” plus proof that the claim was received and accepted within your timely filing limit. File online in the Provider Express secure portal (Appeals > Appeals Summary & Submission, giving the factual or legal basis) or by mail with Optum’s reconsideration request form. Optum decides on the materials it has at the time of review; an overturned claim is reported on the remittance advice and an upheld one by letter.',
+        ],
+        cites: [
+          { title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): Provider Reconsideration and Appeal Process', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+        ],
       },
     ],
     collect: [
@@ -2129,7 +2236,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'A valid diagnosis of ASD (or other applicable diagnosis as required by governing laws) must be issued by a state licensed physician, psychologist, or other state licensed clinician qualified to make such a diagnosis according to the DSM-5-TR criteria.',
+        value: 'A valid diagnosis of ASD (or other applicable diagnosis as required by governing laws) must be issued by a state licensed physician, psychologist, or other state licensed clinician qualified to make such a diagnosis according to the DSM-5-TR criteria.' + ' LCSW: not named. Optum accepts a diagnosis from a “state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis,” so an LCSW qualifies only where state licensure allows it.',
         status: 'verified',
         cites: [
           { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
@@ -2243,6 +2350,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { q: 'What is UnitedHealthcare’s clean-claim payment turnaround in New Mexico?', a: 'Thirty days for an electronic clean claim and 45 for a manual one (13.10.28.9 NMAC), for state-regulated plans.' },
       { q: 'Does UnitedHealthcare require a taxonomy code on the claim in New Mexico?', a: 'Yes. The 2026 administrative guide requires a valid billing NPI, rendering NPI and relevant taxonomy code on all claims and encounters.' },
       { q: 'Does UnitedHealthcare require a referring provider (box 17) on ABA claims?', a: 'No. Optum’s claim requirements do not include a referring provider. UnitedHealthcare makes the referring name and NPI mandatory only for lab, DME, imaging and home health claims. For other claims it encourages the referring NPI but does not require it.' },
+      { q: 'What do HM, HN, HO and HP mean on a UnitedHealthcare / Optum ABA claim?', a: 'They identify who rendered the service: HM an RBT (less than bachelor’s level), HN a BCaBA (bachelor’s level), HO a master’s-level BCBA or licensed clinician, HP a BCBA-D or doctoral-level clinician. One per line; 97151 and 97155–97158 cannot take HM; 0362T/0373T take none (Optum ABA Reimbursement Policy 2022RP501A, June 2026).' },
     ],
   },
 };
