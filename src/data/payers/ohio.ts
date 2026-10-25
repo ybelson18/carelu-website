@@ -890,7 +890,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'ODM — draft ABA rule package ERF188422B (5160-34-01/-02/-03; “DRAFT - NOT YET FILED”, so OAC 5160-34-02 is not an in-force rule)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Stakeholders,%20Partners/LegalandContracts/Rules/ERF188422B.pdf' },
-          { title: 'Molina OH — prior authorization information (access via portal; site blocks automated retrieval)', url: 'https://www.molinahealthcare.com/members/oh/en-US/mem/medicaid/overvw/care/prior-authorizations.aspx' },
+          { title: 'Molina Healthcare of Ohio — Provider prior authorization page (PA guide, quarterly Medicaid PA code-change notices; no ABA change in 2026 Q1–Q4)', url: 'https://www.molinahealthcare.com/providers/oh/prior-auth' },
         ],
       },
       {
@@ -919,7 +919,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
       { title: 'Current PA code list', desc: 'Pull it from Availity each quarter — the public site can\'t be relied on for updates.' },
     ],
     sources: [
-      { title: 'Molina OH — prior authorization page (verify via portal)', url: 'https://www.molinahealthcare.com/members/oh/en-US/mem/medicaid/overvw/care/prior-authorizations.aspx' },
+      { title: 'Molina Healthcare of Ohio — Provider prior authorization page (PA guide, quarterly Medicaid PA code-change notices; no ABA change in 2026 Q1–Q4)', url: 'https://www.molinahealthcare.com/providers/oh/prior-auth' },
       { title: 'ODM — draft ABA rule package ERF188422B (5160-34-01/-02/-03; “DRAFT - NOT YET FILED”, so OAC 5160-34-02 is not an in-force rule)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Stakeholders,%20Partners/LegalandContracts/Rules/ERF188422B.pdf' },
       { title: 'ODM — Telehealth Billing Guidelines (FFS, DOS on or after 1/1/2026)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Providers/Billing/BillingInstructions/Telehealth_Billing_Guidelines_updates_for_2026_final.pdf' },
       { title: 'ODM — Ohio Medicaid Provider Agreement for Managed Care Organization (Rev. 12/2025): App. K §5 claims, App. L §10 prompt pay', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Providers/ProviderTypes/Managed%20Care/Provider%20Agreements/2025_12_MCO_Final.pdf' },
@@ -933,7 +933,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         cites: [
           { title: 'ODM — draft ABA rule package ERF188422B (5160-34-01/-02/-03; “DRAFT - NOT YET FILED”, so OAC 5160-34-02 is not an in-force rule)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Stakeholders,%20Partners/LegalandContracts/Rules/ERF188422B.pdf' },
-          { title: 'Molina OH — prior authorization page (verify via portal)', url: 'https://www.molinahealthcare.com/members/oh/en-US/mem/medicaid/overvw/care/prior-authorizations.aspx' },
+          { title: 'Molina Healthcare of Ohio — Provider prior authorization page (PA guide, quarterly Medicaid PA code-change notices; no ABA change in 2026 Q1–Q4)', url: 'https://www.molinahealthcare.com/providers/oh/prior-auth' },
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
         blocker: 'document',
@@ -943,7 +943,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         cites: [
           { title: 'ODM — draft ABA rule package ERF188422B (5160-34-01/-02/-03; “DRAFT - NOT YET FILED”, so OAC 5160-34-02 is not an in-force rule)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Stakeholders,%20Partners/LegalandContracts/Rules/ERF188422B.pdf' },
-          { title: 'Molina OH — prior authorization page (verify via portal)', url: 'https://www.molinahealthcare.com/members/oh/en-US/mem/medicaid/overvw/care/prior-authorizations.aspx' },
+          { title: 'Molina Healthcare of Ohio — Provider prior authorization page (PA guide, quarterly Medicaid PA code-change notices; no ABA change in 2026 Q1–Q4)', url: 'https://www.molinahealthcare.com/providers/oh/prior-auth' },
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
         blocker: 'document',
@@ -962,7 +962,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         cites: [
           { title: 'ODM — draft ABA rule package ERF188422B (5160-34-01/-02/-03; “DRAFT - NOT YET FILED”, so OAC 5160-34-02 is not an in-force rule)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Stakeholders,%20Partners/LegalandContracts/Rules/ERF188422B.pdf' },
-          { title: 'Molina OH — prior authorization page (verify via portal)', url: 'https://www.molinahealthcare.com/members/oh/en-US/mem/medicaid/overvw/care/prior-authorizations.aspx' },
+          { title: 'Molina Healthcare of Ohio — Provider prior authorization page (PA guide, quarterly Medicaid PA code-change notices; no ABA change in 2026 Q1–Q4)', url: 'https://www.molinahealthcare.com/providers/oh/prior-auth' },
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
         blocker: 'document',
@@ -972,8 +972,8 @@ export const ohioPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'ODM — draft ABA rule package ERF188422B (5160-34-01/-02/-03; “DRAFT - NOT YET FILED”, so OAC 5160-34-02 is not an in-force rule)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Stakeholders,%20Partners/LegalandContracts/Rules/ERF188422B.pdf' },
-          { title: 'Molina OH — prior authorization page (verify via portal)', url: 'https://www.molinahealthcare.com/members/oh/en-US/mem/medicaid/overvw/care/prior-authorizations.aspx' },
-          { title: 'Molina OH — prior authorization page (verify via portal)', url: 'https://www.molinahealthcare.com/members/oh/en-US/mem/medicaid/overvw/care/prior-authorizations.aspx' },
+          { title: 'Molina Healthcare of Ohio — Provider prior authorization page (PA guide, quarterly Medicaid PA code-change notices; no ABA change in 2026 Q1–Q4)', url: 'https://www.molinahealthcare.com/providers/oh/prior-auth' },
+          { title: 'Molina Healthcare of Ohio — Provider prior authorization page (PA guide, quarterly Medicaid PA code-change notices; no ABA change in 2026 Q1–Q4)', url: 'https://www.molinahealthcare.com/providers/oh/prior-auth' },
         ],
       },
       telehealth: {
@@ -981,7 +981,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         cites: [
           { title: 'ODM — draft ABA rule package ERF188422B (5160-34-01/-02/-03; “DRAFT - NOT YET FILED”, so OAC 5160-34-02 is not an in-force rule)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Stakeholders,%20Partners/LegalandContracts/Rules/ERF188422B.pdf' },
-          { title: 'Molina OH — prior authorization page (verify via portal)', url: 'https://www.molinahealthcare.com/members/oh/en-US/mem/medicaid/overvw/care/prior-authorizations.aspx' }, { title: 'ODM — Telehealth Billing Guidelines (FFS, DOS on or after 1/1/2026)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Providers/Billing/BillingInstructions/Telehealth_Billing_Guidelines_updates_for_2026_final.pdf' }],
+          { title: 'Molina Healthcare of Ohio — Provider prior authorization page (PA guide, quarterly Medicaid PA code-change notices; no ABA change in 2026 Q1–Q4)', url: 'https://www.molinahealthcare.com/providers/oh/prior-auth' }, { title: 'ODM — Telehealth Billing Guidelines (FFS, DOS on or after 1/1/2026)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Providers/Billing/BillingInstructions/Telehealth_Billing_Guidelines_updates_for_2026_final.pdf' }],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
         blocker: 'per-case',
       },
@@ -990,7 +990,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           'Molina’s 2026 Ohio Medicaid manual: “Standard requests must be made as soon as medically indicated, within a maximum of 7 calendar days after receipt of the request.” Expedited requests are decided “within 48 hours (including weekends and holidays) following receipt of the validated request.” No ABA reauthorization lead time is published. Ohio’s MCO rule sets the clock. For a standard request the MCO “must provide notice to the provider and member as expeditiously as the member’s health condition requires but no later than seven calendar days following receipt of the request for service,” extendable by up to fourteen calendar days (an MCO-requested extension needs ODM’s prior approval). An expedited decision is due “no later than forty-eight hours after receipt of the request for service” (OAC 5160-26-03.1, effective 1/1/2026). The 48 hours is stricter than the federal 72-hour managed-care cap.',
         status: 'verified',
         cites: [
-          { title: 'Molina Healthcare of Ohio — 2026 Medicaid Provider Manual (March 2026 addendum)', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/oh/medicaid/manual/MHO-Medicaid-2026-Manual-508.pdf' },
+          { title: 'Molina Healthcare of Ohio — 2026 Medicaid Provider Manual (March 2026 addendum)', url: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/oh/medicaid/manual/MHO-Medicaid-2026-Manual-508.pdf' },
           { title: 'OAC 5160-26-03.1 — MCO utilization management and authorization timeframes (eff. 1/1/2026)', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-26-03.1' },
         ],
       },
@@ -999,7 +999,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           'Molina’s manual: “Medicaid is the payer of last resort. Commercial, private and governmental carriers must be billed prior to billing Molina … with the exception of EPSDT/Healthchek Services. EPSDT services are processed as primary and then Molina follows the Third Party Liability process.” Primary carrier payment information is required on the claim. Two of Molina’s listed “extenuating circumstances” let a provider file a clinical claim dispute without prior authorization: a retroactive COB change that makes Molina primary, and a service that “is not an included benefit in the primary insurance coverage.” The manual does not say whether ABA for a child counts as an EPSDT/Healthchek service for the pay-first exception. Ohio’s MCO rule: “The MCE is the payer of last resort when a member has third party resources available.” Providers must “take reasonable measures to obtain all third party payments and file claims with all TPPs prior to billing the MCE.” That means a remittance from the other payer showing a valid non-payment reason (service not covered, applied to the deductible or copay, benefit maximum reached), a partial payment with its remittance, or no response within ninety days of submitting to the other payer. The MCO pays at most its allowed amount minus the other payments, and must allow at least ninety days from the other payer’s remittance to file. Exception: “The MCE, except SPBM, pays first for preventive pediatric services before seeking reimbursement from any liable third party.” Children in the custody of a county children’s services agency are exempt from TPL cooperation (OAC 5160-26-09.1).',
         status: 'verified',
         cites: [
-          { title: 'Molina Healthcare of Ohio — 2026 Medicaid Provider Manual (March 2026 addendum)', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/oh/medicaid/manual/MHO-Medicaid-2026-Manual-508.pdf' },
+          { title: 'Molina Healthcare of Ohio — 2026 Medicaid Provider Manual (March 2026 addendum)', url: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/oh/medicaid/manual/MHO-Medicaid-2026-Manual-508.pdf' },
           { title: 'OAC 5160-26-09.1 — MCO third party recovery and coordination of benefits', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-26-09.1' },
         ],
         verifyVia: 'Molina Provider Services (855-322-4079): whether ABA claims for a child with commercial coverage are paid first under the EPSDT/Healthchek exception, and whether a Molina authorization is needed when the commercial plan pays.',
@@ -1011,7 +1011,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         cites: [
           { title: 'ODM — draft ABA rule package ERF188422B (5160-34-01/-02/-03; “DRAFT - NOT YET FILED”, so OAC 5160-34-02 is not an in-force rule)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Stakeholders,%20Partners/LegalandContracts/Rules/ERF188422B.pdf' },
-          { title: 'Molina OH — prior authorization page (verify via portal)', url: 'https://www.molinahealthcare.com/members/oh/en-US/mem/medicaid/overvw/care/prior-authorizations.aspx' },
+          { title: 'Molina Healthcare of Ohio — Provider prior authorization page (PA guide, quarterly Medicaid PA code-change notices; no ABA change in 2026 Q1–Q4)', url: 'https://www.molinahealthcare.com/providers/oh/prior-auth' },
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
         blocker: 'per-case',
@@ -1021,13 +1021,13 @@ export const ohioPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         cites: [
           { title: 'ODM — draft ABA rule package ERF188422B (5160-34-01/-02/-03; “DRAFT - NOT YET FILED”, so OAC 5160-34-02 is not an in-force rule)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Stakeholders,%20Partners/LegalandContracts/Rules/ERF188422B.pdf' },
-          { title: 'Molina OH — prior authorization page (verify via portal)', url: 'https://www.molinahealthcare.com/members/oh/en-US/mem/medicaid/overvw/care/prior-authorizations.aspx' },
+          { title: 'Molina Healthcare of Ohio — Provider prior authorization page (PA guide, quarterly Medicaid PA code-change notices; no ABA change in 2026 Q1–Q4)', url: 'https://www.molinahealthcare.com/providers/oh/prior-auth' },
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
         blocker: 'document',
       },
       dailyLimits: {
-        value: 'Molina publishes no Ohio ABA per-day unit table we could find (its current Ohio provider manual could not be retrieved — the manual page no longer links a readable PDF). The state rule it works under: ODM’s managed care provider agreement requires every MCO to “implement claims edits (e.g., … National Correct Coding Initiative [NCCI]) at the direction of ODM” (App. K §5c), and OAC 5160-1-19(B) has claims submitted pursuant to NCCI. The CMS Medicaid NCCI practitioner MUE table active 10/1–12/31/2026 sets 97151 at 32 units, 97152 at 16, 97153 at 32, 97154 at 18, 97155 at 24, 97156 at 16, 97157 at 16, 97158 at 16, 0362T at 16 and 0373T at 32 units per date of service. Those are claim edits; the weekly ceiling is whatever the prior authorization approves.',
+        value: 'Molina publishes no Ohio ABA per-day unit table we could find (its 2026 Ohio Medicaid provider manual, read 10/25/2026 via myhealthinhand.molinahealthcare.com, has no ABA section). The state rule it works under: ODM’s managed care provider agreement requires every MCO to “implement claims edits (e.g., … National Correct Coding Initiative [NCCI]) at the direction of ODM” (App. K §5c), and OAC 5160-1-19(B) has claims submitted pursuant to NCCI. The CMS Medicaid NCCI practitioner MUE table active 10/1–12/31/2026 sets 97151 at 32 units, 97152 at 16, 97153 at 32, 97154 at 18, 97155 at 24, 97156 at 16, 97157 at 16, 97158 at 16, 0362T at 16 and 0373T at 32 units per date of service. Those are claim edits; the weekly ceiling is whatever the prior authorization approves.',
         status: 'unverified',
         cites: [
           { title: 'OAC 5160-1-19 — Submission of medicaid claims (eff. 2/1/2023), codes.ohio.gov', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-1-19' },
@@ -1042,7 +1042,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         cites: [
           { title: 'ODM — draft ABA rule package ERF188422B (5160-34-01/-02/-03; “DRAFT - NOT YET FILED”, so OAC 5160-34-02 is not an in-force rule)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Stakeholders,%20Partners/LegalandContracts/Rules/ERF188422B.pdf' },
-          { title: 'Molina OH — prior authorization page (verify via portal)', url: 'https://www.molinahealthcare.com/members/oh/en-US/mem/medicaid/overvw/care/prior-authorizations.aspx' },
+          { title: 'Molina Healthcare of Ohio — Provider prior authorization page (PA guide, quarterly Medicaid PA code-change notices; no ABA change in 2026 Q1–Q4)', url: 'https://www.molinahealthcare.com/providers/oh/prior-auth' },
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
         blocker: 'document',
@@ -1052,7 +1052,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         cites: [
           { title: 'ODM — draft ABA rule package ERF188422B (5160-34-01/-02/-03; “DRAFT - NOT YET FILED”, so OAC 5160-34-02 is not an in-force rule)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Stakeholders,%20Partners/LegalandContracts/Rules/ERF188422B.pdf' },
-          { title: 'Molina OH — prior authorization page (verify via portal)', url: 'https://www.molinahealthcare.com/members/oh/en-US/mem/medicaid/overvw/care/prior-authorizations.aspx' },
+          { title: 'Molina Healthcare of Ohio — Provider prior authorization page (PA guide, quarterly Medicaid PA code-change notices; no ABA change in 2026 Q1–Q4)', url: 'https://www.molinahealthcare.com/providers/oh/prior-auth' },
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
         blocker: 'per-case',

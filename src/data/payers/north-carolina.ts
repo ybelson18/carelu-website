@@ -534,6 +534,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Healthy Blue (NC) — Provider News (all provider news articles and newsletters)', url: 'https://providernews.healthybluenc.com/' },
       { title: 'N.C.G.S. § 90B-3 — Social Worker Certification and Licensure Act definitions ("clinical social work practice" includes biopsychosocial diagnosis)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_90B/GS_90B-3.html' },
       { title: 'NC Medicaid — Concurrent Billing Clarification for Research-Based Behavioral Health Treatment (bulletin, Oct. 12, 2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/10/12/concurrent-billing-clarification-research-based-behavioral-health-treatment' },
+      { title: '42 CFR 438.206(b)(4)-(5) — Medicaid managed care availability of services: out-of-network coverage when the network cannot provide a service', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
     ],
     intakeGates: {
       ageLimit: {
@@ -657,6 +658,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { q: 'Can an out-of-state BCBA treat Healthy Blue members in North Carolina, including by telehealth?', a: 'North Carolina requires an NC license to practice behavior analysis (G.S. 90-746), with no telehealth exception; temporary and reciprocity licenses exist (G.S. 90-740, 90-741). NC Medicaid no longer enrolls BCBAs as out-of-state providers (G.S. 108C-9(e)), and plan network providers must be enrolled with the state (42 CFR 438.602(b)(1)).' },
       { q: 'Can Healthy Blue authorize ABA retroactively?', a: 'Plan on no. CCP 8F excludes services provided without the plan’s prior authorization except for retroactive Medicaid eligibility. Healthy Blue decides retrospective review requests within 30 days; confirm the qualifying circumstances with its UM team.' },
       { q: 'What is Healthy Blue’s timely filing limit for ABA claims?', a: '365 days from the date of service, the window NC Medicaid requires of every Standard Plan since July 1, 2023, corrected claims included. Clean claims must be paid or denied within 30 days. Check your Healthy Blue contract for any agreed terms.' },
+      { q: 'Will Healthy Blue pay an out-of-network ABA provider (a single case agreement)?', a: 'Only when its own network cannot provide the service. Federal managed-care rules say that if the plan\'s network "is unable to provide necessary services, covered under the contract, to a particular enrollee," the plan "must adequately and timely cover these services out of network for the enrollee, for as long as" that lasts, and the out-of-network provider must "coordinate with the MCO ... for payment," with the family\'s cost no greater than in network (42 CFR 438.206(b)(4)-(5)). Healthy Blue publishes no ABA single-case-agreement process of its own in the documents we read, so ask its provider relations or utilization management team for an out-of-network authorization, and document why no in-network ABA provider can serve the child (waitlists, distance, language, specialty). The provider must still be enrolled in the state Medicaid program. In North Carolina the plans now run closed RB-BHT networks (S.L. 2026-41), which lets them decline new contracts but does not lift this federal coverage duty.' },
     ],
   },
 
@@ -795,6 +797,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'AmeriHealth Caritas North Carolina — Provider newsletters and updates (provider notices archive)', url: 'https://www.amerihealthcaritasnc.com/provider/newsletters-and-updates/index.aspx' },
       { title: 'N.C.G.S. § 90B-3 — Social Worker Certification and Licensure Act definitions ("clinical social work practice" includes biopsychosocial diagnosis)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_90B/GS_90B-3.html' },
       { title: 'NC Medicaid — Concurrent Billing Clarification for Research-Based Behavioral Health Treatment (bulletin, Oct. 12, 2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/10/12/concurrent-billing-clarification-research-based-behavioral-health-treatment' },
+      { title: '42 CFR 438.206(b)(4)-(5) — Medicaid managed care availability of services: out-of-network coverage when the network cannot provide a service', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
     ],
     intakeGates: {
       ageLimit: {
@@ -921,6 +924,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { q: 'Can AmeriHealth Caritas NC authorize ABA retroactively?', a: 'Only in its listed cases: retroactive eligibility, coverage information missing or wrong at the time of service, emergent out-of-state facility care, or proof you tried to submit before the service and the plan did not receive it.' },
       { q: 'What is AmeriHealth Caritas NC’s timely filing limit?', a: '365 calendar days from the date of service for original and corrected claims, and 180 days from the primary insurer’s EOB date when ACNC pays second (provider manual, Version 18).' },
       { q: 'Does AmeriHealth Caritas NC require taxonomy on the claim?', a: 'Yes. Its provider manual lists NPI and taxonomy among the required claim elements.' },
+      { q: 'Will AmeriHealth Caritas North Carolina pay an out-of-network ABA provider (a single case agreement)?', a: 'Only when its own network cannot provide the service. Federal managed-care rules say that if the plan\'s network "is unable to provide necessary services, covered under the contract, to a particular enrollee," the plan "must adequately and timely cover these services out of network for the enrollee, for as long as" that lasts, and the out-of-network provider must "coordinate with the MCO ... for payment," with the family\'s cost no greater than in network (42 CFR 438.206(b)(4)-(5)). AmeriHealth Caritas North Carolina publishes no ABA single-case-agreement process of its own in the documents we read, so ask its provider relations or utilization management team for an out-of-network authorization, and document why no in-network ABA provider can serve the child (waitlists, distance, language, specialty). The provider must still be enrolled in the state Medicaid program. In North Carolina the plans now run closed RB-BHT networks (S.L. 2026-41), which lets them decline new contracts but does not lift this federal coverage duty.' },
     ],
   },
 
@@ -1059,6 +1063,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Carolina Complete Health — Provider announcements (bulletins and newsletters archive)', url: 'https://network.carolinacompletehealth.com/cchn-bulletins-and-newsletters.html' },
       { title: 'N.C.G.S. § 90B-3 — Social Worker Certification and Licensure Act definitions ("clinical social work practice" includes biopsychosocial diagnosis)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_90B/GS_90B-3.html' },
       { title: 'NC Medicaid — Concurrent Billing Clarification for Research-Based Behavioral Health Treatment (bulletin, Oct. 12, 2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/10/12/concurrent-billing-clarification-research-based-behavioral-health-treatment' },
+      { title: '42 CFR 438.206(b)(4)-(5) — Medicaid managed care availability of services: out-of-network coverage when the network cannot provide a service', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1185,6 +1190,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { q: 'Can an out-of-state BCBA treat Carolina Complete Health members in North Carolina, including by telehealth?', a: 'North Carolina requires an NC license to practice behavior analysis (G.S. 90-746), with no telehealth exception; temporary and reciprocity licenses exist (G.S. 90-740, 90-741). NC Medicaid no longer enrolls BCBAs as out-of-state providers (G.S. 108C-9(e)), and plan network providers must be enrolled with the state (42 CFR 438.602(b)(1)).' },
       { q: 'Can Carolina Complete Health authorize ABA retroactively?', a: 'Only for extenuating circumstances (late DHHS eligibility notification is one), requested within 90 days of the date of service with the reason the authorization was not obtained; decision within 30 calendar days.' },
       { q: 'What is Carolina Complete Health’s timely filing limit for ABA claims?', a: '365 days from the date of service, the window NC Medicaid requires of every Standard Plan since July 1, 2023, corrected claims included. Clean claims must be paid or denied within 30 days. Check your Carolina Complete Health contract for any agreed terms.' },
+      { q: 'Will Carolina Complete Health pay an out-of-network ABA provider (a single case agreement)?', a: 'Only when its own network cannot provide the service. Federal managed-care rules say that if the plan\'s network "is unable to provide necessary services, covered under the contract, to a particular enrollee," the plan "must adequately and timely cover these services out of network for the enrollee, for as long as" that lasts, and the out-of-network provider must "coordinate with the MCO ... for payment," with the family\'s cost no greater than in network (42 CFR 438.206(b)(4)-(5)). Carolina Complete Health publishes no ABA single-case-agreement process of its own in the documents we read, so ask its provider relations or utilization management team for an out-of-network authorization, and document why no in-network ABA provider can serve the child (waitlists, distance, language, specialty). The provider must still be enrolled in the state Medicaid program. In North Carolina the plans now run closed RB-BHT networks (S.L. 2026-41), which lets them decline new contracts but does not lift this federal coverage duty.' },
     ],
   },
 
@@ -1323,6 +1329,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'UnitedHealthcare Community Plan of North Carolina — Bulletins and newsletters', url: 'https://www.uhcprovider.com/en/health-plans-by-state/north-carolina-health-plans/nc-comm-plan-home/nc-cp-news.html' },
       { title: 'N.C.G.S. § 90B-3 — Social Worker Certification and Licensure Act definitions ("clinical social work practice" includes biopsychosocial diagnosis)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_90B/GS_90B-3.html' },
       { title: 'NC Medicaid — Concurrent Billing Clarification for Research-Based Behavioral Health Treatment (bulletin, Oct. 12, 2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/10/12/concurrent-billing-clarification-research-based-behavioral-health-treatment' },
+      { title: '42 CFR 438.206(b)(4)-(5) — Medicaid managed care availability of services: out-of-network coverage when the network cannot provide a service', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1447,6 +1454,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { q: 'Can an out-of-state BCBA treat UnitedHealthcare Community Plan members in North Carolina, including by telehealth?', a: 'North Carolina requires an NC license to practice behavior analysis (G.S. 90-746), with no telehealth exception; temporary and reciprocity licenses exist (G.S. 90-740, 90-741). NC Medicaid no longer enrolls BCBAs as out-of-state providers (G.S. 108C-9(e)), and plan network providers must be enrolled with the state (42 CFR 438.602(b)(1)).' },
       { q: 'Can UnitedHealthcare Community Plan of NC authorize ABA retroactively?', a: 'Plan on no. CCP 8F excludes services without the plan’s prior authorization except for retroactive Medicaid eligibility; UHC decides retrospective reviews within 30 calendar days of receiving the clinical information. Confirm the qualifying circumstances with the plan.' },
       { q: 'What is UnitedHealthcare Community Plan of North Carolina’s timely filing limit for ABA claims?', a: '365 days from the date of service, the window NC Medicaid requires of every Standard Plan since July 1, 2023, corrected claims included. Clean claims must be paid or denied within 30 days. Check your UnitedHealthcare Community Plan of North Carolina contract for any agreed terms.' },
+      { q: 'Will UnitedHealthcare Community Plan pay an out-of-network ABA provider (a single case agreement)?', a: 'Only when its own network cannot provide the service. Federal managed-care rules say that if the plan\'s network "is unable to provide necessary services, covered under the contract, to a particular enrollee," the plan "must adequately and timely cover these services out of network for the enrollee, for as long as" that lasts, and the out-of-network provider must "coordinate with the MCO ... for payment," with the family\'s cost no greater than in network (42 CFR 438.206(b)(4)-(5)). UnitedHealthcare Community Plan publishes no ABA single-case-agreement process of its own in the documents we read, so ask its provider relations or utilization management team for an out-of-network authorization, and document why no in-network ABA provider can serve the child (waitlists, distance, language, specialty). The provider must still be enrolled in the state Medicaid program. In North Carolina the plans now run closed RB-BHT networks (S.L. 2026-41), which lets them decline new contracts but does not lift this federal coverage duty.' },
     ],
   },
 
@@ -1866,6 +1874,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Alliance Health — Provider updates archive', url: 'https://www.alliancehealthplan.org/provider-updates/' },
       { title: 'N.C.G.S. § 90B-3 — Social Worker Certification and Licensure Act definitions ("clinical social work practice" includes biopsychosocial diagnosis)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_90B/GS_90B-3.html' },
       { title: 'NC Medicaid — Concurrent Billing Clarification for Research-Based Behavioral Health Treatment (bulletin, Oct. 12, 2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/10/12/concurrent-billing-clarification-research-based-behavioral-health-treatment' },
+      { title: '42 CFR 438.206(b)(4)-(5) — Medicaid managed care availability of services: out-of-network coverage when the network cannot provide a service', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2003,6 +2012,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { q: 'Can an out-of-state BCBA treat Alliance Health members in North Carolina, including by telehealth?', a: 'North Carolina requires an NC license to practice behavior analysis (G.S. 90-746), with no telehealth exception; temporary and reciprocity licenses exist (G.S. 90-740, 90-741). NC Medicaid no longer enrolls BCBAs as out-of-state providers (G.S. 108C-9(e)), and plan network providers must be enrolled with the state (42 CFR 438.602(b)(1)).' },
       { q: 'Can Alliance Health authorize ABA retroactively?', a: 'Only if the member became eligible with Alliance retroactively (or for emergency treatment when the payer was unknown); Alliance decides retrospective requests within 30 calendar days.' },
       { q: 'What is Alliance Health’s timely filing limit for ABA claims?', a: '365 days from the date of service for Tailored Plan and NC Medicaid Direct claims since July 1, 2024, corrected claims included, under NC Medicaid’s rule for LME/MCOs. State-funded services are 90 days. Clean claims must be paid or denied within 30 days.' },
+      { q: 'Will Alliance Health pay an out-of-network ABA provider (a single case agreement)?', a: 'Only when its own network cannot provide the service. Federal managed-care rules say that if the plan\'s network "is unable to provide necessary services, covered under the contract, to a particular enrollee," the plan "must adequately and timely cover these services out of network for the enrollee, for as long as" that lasts, and the out-of-network provider must "coordinate with the MCO ... for payment," with the family\'s cost no greater than in network (42 CFR 438.206(b)(4)-(5)). Alliance Health publishes no ABA single-case-agreement process of its own in the documents we read, so ask its provider relations or utilization management team for an out-of-network authorization, and document why no in-network ABA provider can serve the child (waitlists, distance, language, specialty). The provider must still be enrolled in the state Medicaid program. In North Carolina the plans now run closed RB-BHT networks (S.L. 2026-41), which lets them decline new contracts but does not lift this federal coverage duty.' },
     ],
   },
 
@@ -2179,6 +2189,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Trillium Health Resources — Urgent Notifications for network providers (notice archive)', url: 'https://www.trilliumhealthresources.org/for-providers/provider-communications/urgent-notification' },
       { title: 'N.C.G.S. § 90B-3 — Social Worker Certification and Licensure Act definitions ("clinical social work practice" includes biopsychosocial diagnosis)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_90B/GS_90B-3.html' },
       { title: 'NC Medicaid — Concurrent Billing Clarification for Research-Based Behavioral Health Treatment (bulletin, Oct. 12, 2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/10/12/concurrent-billing-clarification-research-based-behavioral-health-treatment' },
+      { title: '42 CFR 438.206(b)(4)-(5) — Medicaid managed care availability of services: out-of-network coverage when the network cannot provide a service', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2323,6 +2334,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { q: 'What Vendor ID and access code do I need to set up Trillium’s iTransact platform?', a: 'Trillium emails them. Its Unified Claims System FAQ (rev. 9/30/2026) says “Vendor ID’s and any additional codes needed are emailed to the requestor during the onboarding process.” Your system administrator must first complete the iTransact training in My Learning Campus and the Provider Profile Readiness Form. Logins are per EIN, and third-party billers cannot be system administrators.' },
       { q: 'What payer ID do I use for Trillium Tailored Plan ABA claims?', a: 'From October 1, 2026: 43072 at Optum/Change Healthcare, The SSI Group and Availity, or direct entry in iTransact. NC Medicaid Direct and state-funded claims keep 56089 (Change Healthcare) or 43071 (SSI, Availity) through Provider Direct.' },
       { q: 'Does Trillium require taxonomy on the claim?', a: 'Yes. Billing, rendering and attending taxonomy codes are required and must match the provider’s NCTracks enrollment: rendering in box 24J (shaded, qualifier ZZ) and billing in 33b. A missing or invalid taxonomy denies the claim.' },
+      { q: 'Will Trillium pay an out-of-network ABA provider (a single case agreement)?', a: 'Only when its own network cannot provide the service. Federal managed-care rules say that if the plan\'s network "is unable to provide necessary services, covered under the contract, to a particular enrollee," the plan "must adequately and timely cover these services out of network for the enrollee, for as long as" that lasts, and the out-of-network provider must "coordinate with the MCO ... for payment," with the family\'s cost no greater than in network (42 CFR 438.206(b)(4)-(5)). Trillium publishes no ABA single-case-agreement process of its own in the documents we read, so ask its provider relations or utilization management team for an out-of-network authorization, and document why no in-network ABA provider can serve the child (waitlists, distance, language, specialty). The provider must still be enrolled in the state Medicaid program. In North Carolina the plans now run closed RB-BHT networks (S.L. 2026-41), which lets them decline new contracts but does not lift this federal coverage duty.' },
     ],
   },
 
@@ -2485,6 +2497,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Vaya Partners — Provider Communication Bulletin archive', url: 'https://providers.vayapartners.org/bulletins/' },
       { title: 'N.C.G.S. § 90B-3 — Social Worker Certification and Licensure Act definitions ("clinical social work practice" includes biopsychosocial diagnosis)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_90B/GS_90B-3.html' },
       { title: 'NC Medicaid — Concurrent Billing Clarification for Research-Based Behavioral Health Treatment (bulletin, Oct. 12, 2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/10/12/concurrent-billing-clarification-research-based-behavioral-health-treatment' },
+      { title: '42 CFR 438.206(b)(4)-(5) — Medicaid managed care availability of services: out-of-network coverage when the network cannot provide a service', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2621,6 +2634,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { q: 'Can an out-of-state BCBA treat Vaya Health members in North Carolina, including by telehealth?', a: 'North Carolina requires an NC license to practice behavior analysis (G.S. 90-746), with no telehealth exception; temporary and reciprocity licenses exist (G.S. 90-740, 90-741). NC Medicaid no longer enrolls BCBAs as out-of-state providers (G.S. 108C-9(e)), and plan network providers must be enrolled with the state (42 CFR 438.602(b)(1)).' },
       { q: 'Can Vaya Health authorize ABA retroactively?', a: 'Only for retroactive Medicaid eligibility: Vaya Partners takes a retrospective SAR with all documentation no later than 90 days after the eligibility determination notice. Otherwise every SAR must start on or after the date it is submitted.' },
       { q: 'What is Vaya Health’s timely filing limit for ABA claims?', a: '365 days from the date of service for Tailored Plan and NC Medicaid Direct claims since July 1, 2024, corrected claims included, under NC Medicaid’s rule for LME/MCOs. State-funded services are 90 days. Clean claims must be paid or denied within 30 days.' },
+      { q: 'Will Vaya Partners pay an out-of-network ABA provider (a single case agreement)?', a: 'Only when its own network cannot provide the service. Federal managed-care rules say that if the plan\'s network "is unable to provide necessary services, covered under the contract, to a particular enrollee," the plan "must adequately and timely cover these services out of network for the enrollee, for as long as" that lasts, and the out-of-network provider must "coordinate with the MCO ... for payment," with the family\'s cost no greater than in network (42 CFR 438.206(b)(4)-(5)). Vaya Partners publishes no ABA single-case-agreement process of its own in the documents we read, so ask its provider relations or utilization management team for an out-of-network authorization, and document why no in-network ABA provider can serve the child (waitlists, distance, language, specialty). The provider must still be enrolled in the state Medicaid program. In North Carolina the plans now run closed RB-BHT networks (S.L. 2026-41), which lets them decline new contracts but does not lift this federal coverage duty.' },
     ],
   },
 
@@ -2785,6 +2799,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'NC Medicaid — Concurrent Billing Clarification for Research-Based Behavioral Health Treatment (bulletin, Oct. 12, 2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/10/12/concurrent-billing-clarification-research-based-behavioral-health-treatment' },
       { title: 'Vaya Partners — Authorization Guidelines (ProviderCENTRAL, checked 10/25/2026)', url: 'https://providers.vayapartners.org/authorization-guidelines/' },
       { title: 'Vaya Health — Authorization Guidelines: Medicaid RB-BHT Services for ASD (v3.0, rev. 8/1/2026; legacy Vaya site)', url: 'https://legacy.providers.vayahealth.com/wp-content/uploads/2025/09/Authorization_Guidelines_Medicaid_RB_BHT_ASD.pdf' },
+      { title: '42 CFR 438.206(b)(4)-(5) — Medicaid managed care availability of services: out-of-network coverage when the network cannot provide a service', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2925,6 +2940,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { q: 'Can an out-of-state BCBA treat Partners Health Management members in North Carolina, including by telehealth?', a: 'North Carolina requires an NC license to practice behavior analysis (G.S. 90-746), with no telehealth exception; temporary and reciprocity licenses exist (G.S. 90-740, 90-741). NC Medicaid no longer enrolls BCBAs as out-of-state providers (G.S. 108C-9(e)), and plan network providers must be enrolled with the state (42 CFR 438.602(b)(1)).' },
       { q: 'Can Partners authorize ABA retroactively?', a: 'Only for retroactive Medicaid eligibility: under the Vaya Partners manual (in force since the October 1, 2026 merger), submit the SAR and all documentation no later than 90 days after the eligibility determination notice.' },
       { q: 'What is Partners Health Management’s timely filing limit for ABA claims?', a: '365 days from the date of service for Tailored Plan and NC Medicaid Direct claims since July 1, 2024, corrected claims included, under NC Medicaid’s rule for LME/MCOs. State-funded services are 90 days. Clean claims must be paid or denied within 30 days.' },
+      { q: 'Will Vaya Partners pay an out-of-network ABA provider (a single case agreement)?', a: 'Only when its own network cannot provide the service. Federal managed-care rules say that if the plan\'s network "is unable to provide necessary services, covered under the contract, to a particular enrollee," the plan "must adequately and timely cover these services out of network for the enrollee, for as long as" that lasts, and the out-of-network provider must "coordinate with the MCO ... for payment," with the family\'s cost no greater than in network (42 CFR 438.206(b)(4)-(5)). Vaya Partners publishes no ABA single-case-agreement process of its own in the documents we read, so ask its provider relations or utilization management team for an out-of-network authorization, and document why no in-network ABA provider can serve the child (waitlists, distance, language, specialty). The provider must still be enrolled in the state Medicaid program. In North Carolina the plans now run closed RB-BHT networks (S.L. 2026-41), which lets them decline new contracts but does not lift this federal coverage duty.' },
     ],
   },
 
@@ -3044,6 +3060,16 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'Aetna — Coordination of benefits billing tips (electronic COB claims)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/COB-billing-tips.pdf' },
         ],
       },
+      {
+        h2: 'Reconsiderations and appeals with Aetna (what to include)',
+        body: [
+          'Aetna has two levels. A reconsideration, "a formal review of a previous claim decision" covering reimbursement, coding and reprocessing, must be filed "within 180 calendar days of the initial claim decision." An appeal, a written request to overturn a decision (including a reconsideration), is due "within 60 calendar days of the reconsideration decision," or within 180 days for commercial plans when the issue did not qualify for reconsideration. Some issues go straight to appeal, among them adverse utilization review decisions, outpatient denials for no precertification and retroactive authorizations. Aetna does not charge for either.',
+          'What to send with a reconsideration: "Medical records, office notes and other supporting documents," and either the completed dispute and appeal form or an explanation that includes the reason for review, member ID, patient name, Tax identification number (TIN), claim ID, dates of service and billed amounts, and the procedure codes and modifiers in dispute. File through Availity or mail it to the Aetna Provider Resolution Team, PO Box 14079, Lexington, KY 40512-4079 for this state. Most responses arrive as an EOB or letter within 30 business days. Status: 1-888-632-3862 for non-Medicare plans.',
+        ],
+        cites: [
+          { title: 'Aetna — Disputes and appeals overview (provider reconsiderations and appeals; checked 10/25/2026)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -3067,6 +3093,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'N.C. Gen. Stat. § 58-3-225 — prompt claim payments under health benefit plans', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_58/GS_58-3-225.html' },
       { title: 'N.C.G.S. § 90B-3 — Social Worker Certification and Licensure Act definitions ("clinical social work practice" includes biopsychosocial diagnosis)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_90B/GS_90B-3.html' },
       { title: 'N.C.G.S. § 58-3-192 — coverage for autism spectrum disorder', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_58/GS_58-3-192.html' },
+      { title: 'Aetna — Disputes and appeals overview (provider reconsiderations and appeals; checked 10/25/2026)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' },
     ],
     intakeGates: {
       ageLimit: {

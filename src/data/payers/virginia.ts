@@ -533,6 +533,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { title: 'DMAS — procedure fee files (CPT codes), CPT Part 4 CSV (file dated 10/22/2026; ABA rows re-checked 10/25/2026)', url: 'https://www.dmas.virginia.gov/for-providers/rates-and-rate-setting/procedure-fee-files-cpt-codes/' },
       { title: 'DMAS — MHS manual Appendix A, Definitions (rev. 7/17/2025): LMHP "means the same as defined in 12VAC35-105-20"', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20A%20%28updated%207.17.25%29_Final.pdf' },
       { title: '12VAC35-105-20 — definitions ("Licensed mental health professional" includes a licensed clinical social worker)', url: 'https://law.lis.virginia.gov/admincode/title12/agency35/chapter105/section20/' },
+      { title: '42 CFR 438.206(b)(4)-(5) — Medicaid managed care availability of services: out-of-network coverage when the network cannot provide a service', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
     ],
     deliveryRules: {
       supervision: {
@@ -697,6 +698,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { q: 'Can a Aetna Better Health of Virginia member receive ABA while staying across the border in North Carolina, for example on weekends?', a: 'Only with the plan’s agreement. The Cardinal Care contract says the MCO “is not responsible for services obtained outside the Commonwealth” except emergency or crisis care, where using another state’s medical resources is general practice in the member’s locality, where medically necessary services are not available in-network in Virginia, or under a transition-of-care plan. The clinician also needs North Carolina licensure to practice there (G.S. 90-746). A temporary NC license covers only “a limited and defined period of service approved by the Board” (G.S. 90-740). Get Aetna Better Health of Virginia’s written approval before scheduling sessions in North Carolina.' },
       { q: 'Must Aetna Better Health of Virginia pay at least the DMAS fee schedule for ABA?', a: 'Yes. The Cardinal Care contract requires MCOs to pay mental health service providers, ABA included, no less than the current Medicaid fee-for-service rate.' },
       { q: 'Does Aetna Better Health of Virginia require graphs for an ABA reauthorization?', a: 'Yes — under DMAS Appendix D, which applies to the MCOs, the continued-stay request must include a graphical presentation of progress on each ISP goal and objective, with an updated ISP and a needs-assessment addendum.' },
+      { q: 'Will Aetna Better Health of Virginia pay an out-of-network ABA provider (a single case agreement)?', a: 'Only when its own network cannot provide the service. Federal managed-care rules say that if the plan\'s network "is unable to provide necessary services, covered under the contract, to a particular enrollee," the plan "must adequately and timely cover these services out of network for the enrollee, for as long as" that lasts, and the out-of-network provider must "coordinate with the MCO ... for payment," with the family\'s cost no greater than in network (42 CFR 438.206(b)(4)-(5)). Aetna Better Health of Virginia publishes no ABA single-case-agreement process of its own in the documents we read, so ask its provider relations or utilization management team for an out-of-network authorization, and document why no in-network ABA provider can serve the child (waitlists, distance, language, specialty). The provider must still be enrolled in the state Medicaid program.' },
     ],
   },
 
@@ -825,6 +827,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { title: 'DMAS — procedure fee files (CPT codes), CPT Part 4 CSV (file dated 10/22/2026; ABA rows re-checked 10/25/2026)', url: 'https://www.dmas.virginia.gov/for-providers/rates-and-rate-setting/procedure-fee-files-cpt-codes/' },
       { title: 'DMAS — MHS manual Appendix A, Definitions (rev. 7/17/2025): LMHP "means the same as defined in 12VAC35-105-20"', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20A%20%28updated%207.17.25%29_Final.pdf' },
       { title: '12VAC35-105-20 — definitions ("Licensed mental health professional" includes a licensed clinical social worker)', url: 'https://law.lis.virginia.gov/admincode/title12/agency35/chapter105/section20/' },
+      { title: '42 CFR 438.206(b)(4)-(5) — Medicaid managed care availability of services: out-of-network coverage when the network cannot provide a service', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
     ],
     deliveryRules: {
       supervision: {
@@ -992,6 +995,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { q: 'What is Anthem HealthKeepers Plus’s timely filing limit?', a: '12 months from the date of service for outpatient services such as ABA, unless the provider contract says otherwise (provider manual effective July 1, 2026).' },
       { q: 'Can 97153 overlap speech therapy on Anthem HealthKeepers Plus?', a: 'Anthem publishes no ABA-with-speech rule of its own — not in its ABA grid, not in its July 2026 provider manual. The manual reserves the right to apply code-editing software, and routes outpatient speech, OT and PT authorization to Carelon (providerportal.com, 855-574-6480), separately from the ABA authorization. Under DMAS, Appendix D\'s same-time list is ABA-only, and fee-for-service claims run the Medicaid NCCI edits by same member, provider and date: speech code 92507 bundles 97153–97157 with no modifier override. Ask Anthem provider services whether its editor applies those pairs before the same provider bills speech and ABA on one day.' },
       { q: 'Does Anthem HealthKeepers Plus require graphs for an ABA reauthorization?', a: 'Yes — under DMAS Appendix D, which applies to the MCOs, the continued-stay request must include a graphical presentation of progress on each ISP goal and objective, with an updated ISP and a needs-assessment addendum.' },
+      { q: 'Will Anthem HealthKeepers Plus pay an out-of-network ABA provider (a single case agreement)?', a: 'Only when its own network cannot provide the service. Federal managed-care rules say that if the plan\'s network "is unable to provide necessary services, covered under the contract, to a particular enrollee," the plan "must adequately and timely cover these services out of network for the enrollee, for as long as" that lasts, and the out-of-network provider must "coordinate with the MCO ... for payment," with the family\'s cost no greater than in network (42 CFR 438.206(b)(4)-(5)). Anthem HealthKeepers Plus publishes no ABA single-case-agreement process of its own in the documents we read, so ask its provider relations or utilization management team for an out-of-network authorization, and document why no in-network ABA provider can serve the child (waitlists, distance, language, specialty). The provider must still be enrolled in the state Medicaid program.' },
     ],
   },
 
@@ -1102,6 +1106,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { title: 'DMAS — procedure fee files (CPT codes), CPT Part 4 CSV (file dated 10/22/2026; ABA rows re-checked 10/25/2026)', url: 'https://www.dmas.virginia.gov/for-providers/rates-and-rate-setting/procedure-fee-files-cpt-codes/' },
       { title: 'DMAS — MHS manual Appendix A, Definitions (rev. 7/17/2025): LMHP "means the same as defined in 12VAC35-105-20"', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20A%20%28updated%207.17.25%29_Final.pdf' },
       { title: '12VAC35-105-20 — definitions ("Licensed mental health professional" includes a licensed clinical social worker)', url: 'https://law.lis.virginia.gov/admincode/title12/agency35/chapter105/section20/' },
+      { title: '42 CFR 438.206(b)(4)-(5) — Medicaid managed care availability of services: out-of-network coverage when the network cannot provide a service', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
     ],
     deliveryRules: {
       supervision: {
@@ -1268,6 +1273,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { q: 'Does Humana Healthy Horizons in Virginia cover CPT 96112?', a: 'Yes, with prior authorization. Humana’s Virginia Medicaid prior authorization and notification list (eff. 7/1/2025, rev. 9/4/2025) lists 96112 and 96113 under neuropsychological testing.' },
       { q: 'What is Humana Healthy Horizons in Virginia’s timely filing limit?', a: '365 days from the date of service; corrected claims within 180 days of the explanation of payment; claim disputes within 60 calendar days (provider resource guide).' },
       { q: 'Does Humana Healthy Horizons in Virginia require graphs for an ABA reauthorization?', a: 'Yes — under DMAS Appendix D, which applies to the MCOs, the continued-stay request must include a graphical presentation of progress on each ISP goal and objective, with an updated ISP and a needs-assessment addendum.' },
+      { q: 'Will Humana Healthy Horizons pay an out-of-network ABA provider (a single case agreement)?', a: 'Only when its own network cannot provide the service. Federal managed-care rules say that if the plan\'s network "is unable to provide necessary services, covered under the contract, to a particular enrollee," the plan "must adequately and timely cover these services out of network for the enrollee, for as long as" that lasts, and the out-of-network provider must "coordinate with the MCO ... for payment," with the family\'s cost no greater than in network (42 CFR 438.206(b)(4)-(5)). Humana Healthy Horizons publishes no ABA single-case-agreement process of its own in the documents we read, so ask its provider relations or utilization management team for an out-of-network authorization, and document why no in-network ABA provider can serve the child (waitlists, distance, language, specialty). The provider must still be enrolled in the state Medicaid program.' },
     ],
   },
 
@@ -1371,6 +1377,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { title: 'DMAS — procedure fee files (CPT codes), CPT Part 4 CSV (file dated 10/22/2026; ABA rows re-checked 10/25/2026)', url: 'https://www.dmas.virginia.gov/for-providers/rates-and-rate-setting/procedure-fee-files-cpt-codes/' },
       { title: 'DMAS — MHS manual Appendix A, Definitions (rev. 7/17/2025): LMHP "means the same as defined in 12VAC35-105-20"', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20A%20%28updated%207.17.25%29_Final.pdf' },
       { title: '12VAC35-105-20 — definitions ("Licensed mental health professional" includes a licensed clinical social worker)', url: 'https://law.lis.virginia.gov/admincode/title12/agency35/chapter105/section20/' },
+      { title: '42 CFR 438.206(b)(4)-(5) — Medicaid managed care availability of services: out-of-network coverage when the network cannot provide a service', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
     ],
     deliveryRules: {
       supervision: {
@@ -1535,6 +1542,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { q: 'Can a Sentara Community Plan member receive ABA while staying across the border in North Carolina, for example on weekends?', a: 'Only with the plan’s agreement. The Cardinal Care contract says the MCO “is not responsible for services obtained outside the Commonwealth” except emergency or crisis care, where using another state’s medical resources is general practice in the member’s locality, where medically necessary services are not available in-network in Virginia, or under a transition-of-care plan. The clinician also needs North Carolina licensure to practice there (G.S. 90-746). A temporary NC license covers only “a limited and defined period of service approved by the Board” (G.S. 90-740). Get Sentara Community Plan’s written approval before scheduling sessions in North Carolina.' },
       { q: 'What is Sentara Community Plan’s timely filing limit?', a: 'We could not read a current Sentara claims document. The Cardinal Care contract requires every MCO’s limit to fall between 3 and 12 months from the date of service, so confirm Sentara’s number in your provider agreement or with Sentara provider services.' },
       { q: 'Does Sentara Community Plan require graphs for an ABA reauthorization?', a: 'Yes — under DMAS Appendix D, which applies to the MCOs, the continued-stay request must include a graphical presentation of progress on each ISP goal and objective, with an updated ISP and a needs-assessment addendum.' },
+      { q: 'Will Sentara Community Plan pay an out-of-network ABA provider (a single case agreement)?', a: 'Only when its own network cannot provide the service. Federal managed-care rules say that if the plan\'s network "is unable to provide necessary services, covered under the contract, to a particular enrollee," the plan "must adequately and timely cover these services out of network for the enrollee, for as long as" that lasts, and the out-of-network provider must "coordinate with the MCO ... for payment," with the family\'s cost no greater than in network (42 CFR 438.206(b)(4)-(5)). Sentara Community Plan publishes no ABA single-case-agreement process of its own in the documents we read, so ask its provider relations or utilization management team for an out-of-network authorization, and document why no in-network ABA provider can serve the child (waitlists, distance, language, specialty). The provider must still be enrolled in the state Medicaid program.' },
     ],
   },
 
@@ -1635,6 +1643,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { title: 'DMAS — procedure fee files (CPT codes), CPT Part 4 CSV (file dated 10/22/2026; ABA rows re-checked 10/25/2026)', url: 'https://www.dmas.virginia.gov/for-providers/rates-and-rate-setting/procedure-fee-files-cpt-codes/' },
       { title: 'DMAS — MHS manual Appendix A, Definitions (rev. 7/17/2025): LMHP "means the same as defined in 12VAC35-105-20"', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20A%20%28updated%207.17.25%29_Final.pdf' },
       { title: '12VAC35-105-20 — definitions ("Licensed mental health professional" includes a licensed clinical social worker)', url: 'https://law.lis.virginia.gov/admincode/title12/agency35/chapter105/section20/' },
+      { title: '42 CFR 438.206(b)(4)-(5) — Medicaid managed care availability of services: out-of-network coverage when the network cannot provide a service', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
     ],
     deliveryRules: {
       supervision: {
@@ -1802,6 +1811,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { q: 'Can a UnitedHealthcare Community Plan of Virginia member receive ABA while staying across the border in North Carolina, for example on weekends?', a: 'Only with the plan’s agreement. The Cardinal Care contract says the MCO “is not responsible for services obtained outside the Commonwealth” except emergency or crisis care, where using another state’s medical resources is general practice in the member’s locality, where medically necessary services are not available in-network in Virginia, or under a transition-of-care plan. The clinician also needs North Carolina licensure to practice there (G.S. 90-746). A temporary NC license covers only “a limited and defined period of service approved by the Board” (G.S. 90-740). Get UnitedHealthcare Community Plan of Virginia’s written approval before scheduling sessions in North Carolina.' },
       { q: 'What is UnitedHealthcare Community Plan of Virginia’s timely filing limit?', a: '365 days from the date of service unless your contract says otherwise; resubmissions and reconsiderations within 365 days of service or 180 days of the last processing, whichever is later (2026 provider manual).' },
       { q: 'Does UnitedHealthcare Community Plan of Virginia require graphs for an ABA reauthorization?', a: 'Yes — under DMAS Appendix D, which applies to the MCOs, the continued-stay request must include a graphical presentation of progress on each ISP goal and objective, with an updated ISP and a needs-assessment addendum.' },
+      { q: 'Will UnitedHealthcare Community Plan pay an out-of-network ABA provider (a single case agreement)?', a: 'Only when its own network cannot provide the service. Federal managed-care rules say that if the plan\'s network "is unable to provide necessary services, covered under the contract, to a particular enrollee," the plan "must adequately and timely cover these services out of network for the enrollee, for as long as" that lasts, and the out-of-network provider must "coordinate with the MCO ... for payment," with the family\'s cost no greater than in network (42 CFR 438.206(b)(4)-(5)). UnitedHealthcare Community Plan publishes no ABA single-case-agreement process of its own in the documents we read, so ask its provider relations or utilization management team for an out-of-network authorization, and document why no in-network ABA provider can serve the child (waitlists, distance, language, specialty). The provider must still be enrolled in the state Medicaid program.' },
     ],
   },
 
@@ -1906,6 +1916,16 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
         ],
       },
+      {
+        h2: 'Reconsiderations and appeals with Aetna (what to include)',
+        body: [
+          'Aetna has two levels. A reconsideration, "a formal review of a previous claim decision" covering reimbursement, coding and reprocessing, must be filed "within 180 calendar days of the initial claim decision." An appeal, a written request to overturn a decision (including a reconsideration), is due "within 60 calendar days of the reconsideration decision," or within 180 days for commercial plans when the issue did not qualify for reconsideration. Some issues go straight to appeal, among them adverse utilization review decisions, outpatient denials for no precertification and retroactive authorizations. Aetna does not charge for either.',
+          'What to send with a reconsideration: "Medical records, office notes and other supporting documents," and either the completed dispute and appeal form or an explanation that includes the reason for review, member ID, patient name, Tax identification number (TIN), claim ID, dates of service and billed amounts, and the procedure codes and modifiers in dispute. File through Availity or mail it to the Aetna Provider Resolution Team, PO Box 981106, El Paso, TX 79998-1106 for this state. Most responses arrive as an EOB or letter within 30 business days. Status: 1-888-632-3862 for non-Medicare plans.',
+        ],
+        cites: [
+          { title: 'Aetna — Disputes and appeals overview (provider reconsiderations and appeals; checked 10/25/2026)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -1925,6 +1945,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { title: 'Aetna — Provider and behavioral health manual (June 2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
       { title: 'Va. Code § 38.2-3407.15 — ethics and fairness in carrier business practices (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3407.15/' },
       { title: 'Va. Code § 54.1-3700 — definitions ("clinical social worker" provides direct diagnostic, preventive and treatment services)', url: 'https://law.lis.virginia.gov/vacode/title54.1/chapter37/section54.1-3700/' },
+      { title: 'Aetna — Disputes and appeals overview (provider reconsiderations and appeals; checked 10/25/2026)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' },
     ],
     deliveryRules: {
       supervision: {

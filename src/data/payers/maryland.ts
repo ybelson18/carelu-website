@@ -858,6 +858,16 @@ export const marylandPayers: Record<string, PayerConfig> = {
           { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification (GR-69017-4, 7-26; eff. 8/1/2026; not for MD or MA)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
         ],
       },
+      {
+        h2: 'Reconsiderations and appeals with Aetna (what to include)',
+        body: [
+          'Aetna has two levels. A reconsideration, "a formal review of a previous claim decision" covering reimbursement, coding and reprocessing, must be filed "within 180 calendar days of the initial claim decision." An appeal, a written request to overturn a decision (including a reconsideration), is due "within 60 calendar days of the reconsideration decision," or within 180 days for commercial plans when the issue did not qualify for reconsideration. Some issues go straight to appeal, among them adverse utilization review decisions, outpatient denials for no precertification and retroactive authorizations. Aetna does not charge for either.',
+          'What to send with a reconsideration: "Medical records, office notes and other supporting documents," and either the completed dispute and appeal form or an explanation that includes the reason for review, member ID, patient name, Tax identification number (TIN), claim ID, dates of service and billed amounts, and the procedure codes and modifiers in dispute. File through Availity or mail it to the Aetna Provider Resolution Team, PO Box 981106, El Paso, TX 79998-1106 for this state. Most responses arrive as an EOB or letter within 30 business days. Status: 1-888-632-3862 for non-Medicare plans.',
+        ],
+        cites: [
+          { title: 'Aetna — Disputes and appeals overview (provider reconsiderations and appeals; checked 10/25/2026)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate + hour floors apply) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },

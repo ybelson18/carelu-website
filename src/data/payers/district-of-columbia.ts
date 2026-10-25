@@ -346,7 +346,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
       { title: 'Prior plan’s authorization', desc: 'Wellpoint or MedStar authorizations are honored for a transition period; capture the approval letter.' },
       { title: 'Other insurance', desc: 'The plan pays last; bill the primary first.' },
     ],
-    sources: [S.acdcLookup, S.acdcPA, S.acdcPM, S.mcps, S.t2619, S.spa, S.mcoContract, S.teleGuide, S.cfr438, S.cfr433, { title: 'AmeriHealth Caritas District of Columbia — Newsletters and Updates (provider newsletter and updates archive)', url: 'https://www.amerihealthcaritasdc.com/provider/newsletters-and-updates' }],
+    sources: [S.acdcLookup, S.acdcPA, S.acdcPM, S.mcps, S.t2619, S.spa, S.mcoContract, S.teleGuide, S.cfr438, S.cfr433, { title: 'AmeriHealth Caritas District of Columbia — Newsletters and Updates (provider newsletter and updates archive)', url: 'https://www.amerihealthcaritasdc.com/provider/newsletters-and-updates' }, { title: '42 CFR 438.206(b)(4)-(5) — Medicaid managed care availability of services: out-of-network coverage when the network cannot provide a service', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' }],
     deliveryRules: {
       supervision: {
         value: 'The plan publishes no ABA supervision rule of its own. The state rule applies: an RBT works under a BCBA, BCBA-D or BCaBA, and a BCaBA under a BCBA or BCBA-D (SPA 23-0009), with no numeric ratio.',
@@ -441,6 +441,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
       { q: 'Which ABA codes need PA with AmeriHealth Caritas DC?', a: '97151, 97152, 97153, 97155, 0362T and 0373T. The tool says 97154, 97156, 97157 and 97158 do not, for a participating provider in an outpatient setting with the code on its contract.' },
       { q: 'I treated a Wellpoint DC child. What now?', a: 'Wellpoint members moved to AmeriHealth Caritas DC on August 1, 2026. Wellpoint authorizations are honored through October 31, 2026; request a new authorization from AmeriHealth before then and join its network (dcprovidernetwork@amerihealthcaritasdc.com, 877-759-6186).' },
       { q: 'Will AmeriHealth Caritas DC approve an authorization after services start?', a: 'Not routinely. From November 1, 2026 the plan says it will no longer routinely approve retrospective requests for non-emergent services, so get the authorization first.' },
+      { q: 'Will AmeriHealth Caritas DC pay an out-of-network ABA provider (a single case agreement)?', a: 'Only when its own network cannot provide the service. Federal managed-care rules say that if the plan\'s network "is unable to provide necessary services, covered under the contract, to a particular enrollee," the plan "must adequately and timely cover these services out of network for the enrollee, for as long as" that lasts, and the out-of-network provider must "coordinate with the MCO ... for payment," with the family\'s cost no greater than in network (42 CFR 438.206(b)(4)-(5)). AmeriHealth Caritas DC publishes no ABA single-case-agreement process of its own in the documents we read, so ask its provider relations or utilization management team for an out-of-network authorization, and document why no in-network ABA provider can serve the child (waitlists, distance, language, specialty). The provider must still be enrolled in the state Medicaid program.' },
     ],
   },
 
@@ -506,7 +507,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
       { title: 'Treatment plan and codes', desc: 'Codes on the request must match what is billed; DC’s rule is a six-month plan with measurable goals and hours.' },
       { title: 'Other insurance', desc: 'Bill the primary first; MedStar needs the primary remittance within 180 days.' },
     ],
-    sources: [S.mfcQAG, S.mfcPM, S.mfcUM, S.mcps, S.t2619, S.spa, S.teleGuide, S.cfr438, S.cfr433, { title: 'MedStar Family Choice DC — Provider News (provider newsletters and provider alerts)', url: 'https://www.medstarfamilychoicedc.com/Providers/Provider-Resources/Provider-News' }],
+    sources: [S.mfcQAG, S.mfcPM, S.mfcUM, S.mcps, S.t2619, S.spa, S.teleGuide, S.cfr438, S.cfr433, { title: 'MedStar Family Choice DC — Provider News (provider newsletters and provider alerts)', url: 'https://www.medstarfamilychoicedc.com/Providers/Provider-Resources/Provider-News' }, { title: '42 CFR 438.206(b)(4)-(5) — Medicaid managed care availability of services: out-of-network coverage when the network cannot provide a service', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' }],
     deliveryRules: {
       supervision: {
         value: 'The plan publishes no ABA supervision rule of its own. The state rule applies: an RBT works under a BCBA, BCBA-D or BCaBA, and a BCaBA under a BCBA or BCBA-D (SPA 23-0009), with no numeric ratio.',
@@ -599,6 +600,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
       { q: 'Does MedStar Family Choice DC require prior authorization for ABA?', a: 'Yes. Its Quick Authorization Guide lists ABA Services as prior authorization required. It does not split out the 97151 assessment, so confirm that code with UM at 855-798-4244.' },
       { q: 'How long does MedStar Family Choice DC take to decide?', a: 'Its manual says standard decisions take no more than 14 calendar days. Federal rules now cap standard Medicaid managed care decisions at 7 days for rating periods starting in 2026.' },
       { q: 'What is the timely filing limit?', a: '365 days from the date of service. Secondary claims with the primary insurer’s remittance are due within 180 days of that remittance.' },
+      { q: 'Will MedStar Family Choice pay an out-of-network ABA provider (a single case agreement)?', a: 'Only when its own network cannot provide the service. Federal managed-care rules say that if the plan\'s network "is unable to provide necessary services, covered under the contract, to a particular enrollee," the plan "must adequately and timely cover these services out of network for the enrollee, for as long as" that lasts, and the out-of-network provider must "coordinate with the MCO ... for payment," with the family\'s cost no greater than in network (42 CFR 438.206(b)(4)-(5)). MedStar Family Choice publishes no ABA single-case-agreement process of its own in the documents we read, so ask its provider relations or utilization management team for an out-of-network authorization, and document why no in-network ABA provider can serve the child (waitlists, distance, language, specialty). The provider must still be enrolled in the state Medicaid program.' },
     ],
   },
 
@@ -675,7 +677,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
       { title: 'School schedule', desc: 'Treatment schedules must not disrupt school attendance.' },
       { title: 'Other insurance', desc: 'Bill the primary first and attach its EOB.' },
     ],
-    sources: [S.hscsnPM, S.hscsnNews, S.hscsnCodes, S.hscsnEval, S.hscsnAmend, S.mcps, S.spa, S.cfr438, S.cfr433],
+    sources: [S.hscsnPM, S.hscsnNews, S.hscsnCodes, S.hscsnEval, S.hscsnAmend, S.mcps, S.spa, S.cfr438, S.cfr433, { title: '42 CFR 438.206(b)(4)-(5) — Medicaid managed care availability of services: out-of-network coverage when the network cannot provide a service', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' }],
     deliveryRules: {
       supervision: {
         value: 'BCaBAs and RBTs deliver direct care under a BCBA (UM_21, as summarized in the January 2026 manual); "Supervision will not be authorized separately" (2022 billing letter). No numeric ratio is published.',
@@ -769,6 +771,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
       { q: 'Can a BCaBA deliver ABA to HSCSN members?', a: 'Yes. Since August 17, 2024 BCaBAs can provide direct care in a role like an RBT, supervised by a BCBA.' },
       { q: 'Can ABA be delivered by telehealth for HSCSN?', a: 'HSCSN’s billing letter covers telehealth for 97153 and 97155, billed with the GT modifier.' },
       { q: 'Is there an age limit on HSCSN ABA?', a: 'HSCSN says there is no benefit or age limit on ABA, and it enrolls members up to age 26. Confirm coverage for a member over 21, since the state’s ASD benefit is written for under 21.' },
+      { q: 'Will HSCSN pay an out-of-network ABA provider (a single case agreement)?', a: 'Only when its own network cannot provide the service. Federal managed-care rules say that if the plan\'s network "is unable to provide necessary services, covered under the contract, to a particular enrollee," the plan "must adequately and timely cover these services out of network for the enrollee, for as long as" that lasts, and the out-of-network provider must "coordinate with the MCO ... for payment," with the family\'s cost no greater than in network (42 CFR 438.206(b)(4)-(5)). HSCSN publishes no ABA single-case-agreement process of its own in the documents we read, so ask its provider relations or utilization management team for an out-of-network authorization, and document why no in-network ABA provider can serve the child (waitlists, distance, language, specialty). The provider must still be enrolled in the state Medicaid program.' },
     ],
   },
 
@@ -852,6 +855,16 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.aetnaGuide],
       },
+      {
+        h2: 'Reconsiderations and appeals with Aetna (what to include)',
+        body: [
+          'Aetna has two levels. A reconsideration, "a formal review of a previous claim decision" covering reimbursement, coding and reprocessing, must be filed "within 180 calendar days of the initial claim decision." An appeal, a written request to overturn a decision (including a reconsideration), is due "within 60 calendar days of the reconsideration decision," or within 180 days for commercial plans when the issue did not qualify for reconsideration. Some issues go straight to appeal, among them adverse utilization review decisions, outpatient denials for no precertification and retroactive authorizations. Aetna does not charge for either.',
+          'What to send with a reconsideration: "Medical records, office notes and other supporting documents," and either the completed dispute and appeal form or an explanation that includes the reason for review, member ID, patient name, Tax identification number (TIN), claim ID, dates of service and billed amounts, and the procedure codes and modifiers in dispute. File through Availity or mail it to the Aetna Provider Resolution Team, PO Box 981106, El Paso, TX 79998-1106 for this state. Most responses arrive as an EOB or letter within 30 business days. Status: 1-888-632-3862 for non-Medicare plans.',
+        ],
+        cites: [
+          { title: 'Aetna — Disputes and appeals overview (provider reconsiderations and appeals; checked 10/25/2026)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured DC plan (§ 31-3272 applies), federal employee plan, or self-funded ERISA (plan document governs).' },
@@ -860,7 +873,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
       { title: 'Standardized functional measure', desc: 'From the past 12 months (for example Vineland-3, ABAS, VB-MAPP or ABLLS).' },
       { title: 'School and EI services', desc: 'DC law does not make insurers pay for habilitative services delivered through early intervention or school.' },
     ],
-    sources: [S.aetnaGuide, S.aetnaCPB, S.aetnaCPB648, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.dc3271, S.dc3272, S.hbx, S.dc3132, S.dc3133, S.dc3862, S.dc3875_03, S.dc3875_07, S.dc1202_11, S.dc1207_71, S.bacbLic, S.erisa, S.mcps, { title: 'D.C. Code § 3-1201.02 — definitions ("practice of social work" includes psychosocial evaluation and assessment, counseling, psychotherapy)', url: 'https://code.dccouncil.gov/us/dc/council/code/sections/3-1201.02' }, { title: 'DC State Plan Amendment 23-0009 — Autism Spectrum Disorder services under EPSDT (approved Aug. 25, 2023; effective Oct. 1, 2023)', url: 'https://www.medicaid.gov/medicaid/spa/downloads/DC-23-0009.pdf' }],
+    sources: [S.aetnaGuide, S.aetnaCPB, S.aetnaCPB648, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.dc3271, S.dc3272, S.hbx, S.dc3132, S.dc3133, S.dc3862, S.dc3875_03, S.dc3875_07, S.dc1202_11, S.dc1207_71, S.bacbLic, S.erisa, S.mcps, { title: 'D.C. Code § 3-1201.02 — definitions ("practice of social work" includes psychosocial evaluation and assessment, counseling, psychotherapy)', url: 'https://code.dccouncil.gov/us/dc/council/code/sections/3-1201.02' }, { title: 'DC State Plan Amendment 23-0009 — Autism Spectrum Disorder services under EPSDT (approved Aug. 25, 2023; effective Oct. 1, 2023)', url: 'https://www.medicaid.gov/medicaid/spa/downloads/DC-23-0009.pdf' }, { title: 'Aetna — Disputes and appeals overview (provider reconsiderations and appeals; checked 10/25/2026)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' }],
     deliveryRules: {
       supervision: {
         value: 'Aetna’s participation criteria (5/26): ABA services "must be provided directly or supervised by individuals licensed by the state or certified by the Behavior Analyst Certification Board"; supervised staff may be a BCaBA or a paraprofessional; at least "one hour of face-to-face supervision" per "10 hours of applied behavior analysis" by a paraprofessional, plus the supervisor "onsite with the child at least one hour a month." "All BCBAs, BCaBAs and paraprofessionals must meet state requirements."',
@@ -1056,7 +1069,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
       { title: 'Standardized assessment timing', desc: 'Instrument administered within 60 days before treatment starts.' },
       { title: 'School and EI services', desc: 'DC law does not make insurers pay for habilitative services delivered through early intervention or school.' },
     ],
-    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.dc3271, S.dc3272, S.hbx, S.dc3132, S.dc3133, S.dc3862, S.dc3875_03, S.dc3875_07, S.dc1202_11, S.dc1207_71, S.bacbLic, S.erisa, S.mcps, { title: 'D.C. Code § 3-1201.02 — definitions ("practice of social work" includes psychosocial evaluation and assessment, counseling, psychotherapy)', url: 'https://code.dccouncil.gov/us/dc/council/code/sections/3-1201.02' }, { title: 'DC State Plan Amendment 23-0009 — Autism Spectrum Disorder services under EPSDT (approved Aug. 25, 2023; effective Oct. 1, 2023)', url: 'https://www.medicaid.gov/medicaid/spa/downloads/DC-23-0009.pdf' }, { title: 'Evernorth — Applied Behavior Analysis Prior Authorization Form (PCOMM-2025-224; file dated 7/1/2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/applied-behavior-analysis.pdf' }, { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026): provider payment appeals, coverage denials', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }],
+    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.dc3271, S.dc3272, S.hbx, S.dc3132, S.dc3133, S.dc3862, S.dc3875_03, S.dc3875_07, S.dc1202_11, S.dc1207_71, S.bacbLic, S.erisa, S.mcps, { title: 'D.C. Code § 3-1201.02 — definitions ("practice of social work" includes psychosocial evaluation and assessment, counseling, psychotherapy)', url: 'https://code.dccouncil.gov/us/dc/council/code/sections/3-1201.02' }, { title: 'DC State Plan Amendment 23-0009 — Autism Spectrum Disorder services under EPSDT (approved Aug. 25, 2023; effective Oct. 1, 2023)', url: 'https://www.medicaid.gov/medicaid/spa/downloads/DC-23-0009.pdf' }, { title: 'Evernorth — Applied Behavior Analysis Prior Authorization Form (PCOMM-2025-224; file dated 7/1/2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/applied-behavior-analysis.pdf' }],
     deliveryRules: {
       supervision: {
         value: 'Direct and indirect case supervision at "one to two hours per ten hours of direct treatment"; when direct treatment is 10 hours a week or less, at least one to two hours a week of direct case supervision (EN0499).',
@@ -1246,7 +1259,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis with a validated tool', desc: 'DSM-5-TR ASD and severity level, confirmed with a validated tool (ADI-R, ADOS-2 and others).' },
       { title: 'Staff credentials', desc: 'Each line carries HM (RBT), HN (BCaBA), HO (BCBA) or HP (BCBA-D).' },
     ],
-    sources: [S.optumSCC, S.optumSM, S.optumTele, S.optumReimb, S.optumNNM, S.dc3271, S.dc3272, S.hbx, S.dc3132, S.dc3133, S.dc3862, S.dc3875_03, S.dc3875_07, S.dc1202_11, S.dc1207_71, S.bacbLic, S.erisa, S.mcps, { title: 'D.C. Code § 3-1201.02 — definitions ("practice of social work" includes psychosocial evaluation and assessment, counseling, psychotherapy)', url: 'https://code.dccouncil.gov/us/dc/council/code/sections/3-1201.02' }, { title: 'DC State Plan Amendment 23-0009 — Autism Spectrum Disorder services under EPSDT (approved Aug. 25, 2023; effective Oct. 1, 2023)', url: 'https://www.medicaid.gov/medicaid/spa/downloads/DC-23-0009.pdf' }, { title: 'Optum National Network Manual (BH02330-1-26-MAN, effective Sept. 1, 2026): Provider Reconsideration and Appeals Process', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }],
+    sources: [S.optumSCC, S.optumSM, S.optumTele, S.optumReimb, S.optumNNM, S.dc3271, S.dc3272, S.hbx, S.dc3132, S.dc3133, S.dc3862, S.dc3875_03, S.dc3875_07, S.dc1202_11, S.dc1207_71, S.bacbLic, S.erisa, S.mcps, { title: 'D.C. Code § 3-1201.02 — definitions ("practice of social work" includes psychosocial evaluation and assessment, counseling, psychotherapy)', url: 'https://code.dccouncil.gov/us/dc/council/code/sections/3-1201.02' }, { title: 'DC State Plan Amendment 23-0009 — Autism Spectrum Disorder services under EPSDT (approved Aug. 25, 2023; effective Oct. 1, 2023)', url: 'https://www.medicaid.gov/medicaid/spa/downloads/DC-23-0009.pdf' }],
     deliveryRules: {
       supervision: {
         value: '"Consistent with CASP standards of care, direct case supervision is required 1–2 hours for every 10 hours of direct treatment per week." Optum does not recommend parents serving as their own child’s RBT.',
