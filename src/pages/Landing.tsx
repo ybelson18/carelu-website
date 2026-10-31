@@ -572,7 +572,7 @@ function Hero() {
               textShadow: '0 1px 2px rgba(0,0,0,0.28), 0 2px 16px rgba(0,0,0,0.4)',
               animation: 'heroIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.7s both',
             }}>
-              Carelu runs your entire intake — from first contact to admitted patient. For ABA and behavioral health organizations of every size.
+              Carelu runs your entire intake, from first contact to admitted patient. The agentic front office for enterprise ABA and behavioral health.
             </p>
 
             <div className="hero-cta-row" style={{
