@@ -857,6 +857,243 @@ export const utahPayers: Record<string, PayerConfig> = {
     ],
   },
 
+  'regence-bluecross-blueshield-utah': {
+    slug: 'regence-bluecross-blueshield-utah',
+    family: 'bcbs',
+    cardDesc: 'Regence BH33 (assessment) and BH18 (treatment, revised 11/1/2026 but the new text is not posted), PA per member contract, plus the Utah Code § 31A-22-642 mandate.',
+    assessmentPA: {
+      value: 'Depends on the member contract. Regence’s assessment policy BH33 (effective 8/1/2025) “only applies to member contracts that are subject to preauthorization for the initial assessment ... as specified by their group plan,” and tells providers to check the preauthorization website for the member contract',
+      status: 'plan-dependent',
+      cites: [
+        { title: 'Regence Medical Policy BH33 — ABA Initial Assessment for the Treatment of Autism Spectrum Disorder (effective 8/1/2025)', url: 'https://beonbrand.getbynder.com/m/8360cc45444cab46/' },
+      ],
+      verifyVia: 'Regence’s preauthorization list for the member’s contract (Availity / regence.com provider preauthorization): check 97151, 97152 and 0362T.',
+      blocker: 'per-case',
+    },
+    treatmentPA: {
+      value: 'Depends on the member contract. The treatment policy BH18 applies only to contracts “subject to preauthorization” for ABA “as specified by their group plan.” BH18 was revised effective November 1, 2026, and the revised text was not posted at Regence’s policy links on 11/1/2026, which still serve the 8/1/2025 version',
+      status: 'plan-dependent',
+      cites: [
+        { title: 'Regence Medical Policy BH18 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (link serves the 8/1/2025 version, noting a revision effective 11/1/2026)', url: 'https://beonbrand.getbynder.com/m/e4646f415eb7f4eb/' },
+      ],
+      verifyVia: 'Regence’s preauthorization list for the member contract, and the revised BH18 (effective 11/1/2026) from Regence’s medical policy library or provider relations.',
+      blocker: 'per-case',
+    },
+    dxRequired: {
+      value: 'Yes — Autism Spectrum Disorder diagnosed “by a qualified treating health care professional (e.g. pediatrician, pediatric neurologist, developmental pediatrician, psychologist), as defined by state law” (BH33); in Utah the statute defines that as a board-certified neurologist, psychiatrist or pediatrician, or a licensed psychologist, with ASD experience',
+      status: 'verified',
+      cites: [
+        { title: 'Regence Medical Policy BH33 — ABA Initial Assessment for the Treatment of Autism Spectrum Disorder (effective 8/1/2025)', url: 'https://beonbrand.getbynder.com/m/8360cc45444cab46/' },
+        { title: 'Utah Code § 31A-22-642 (current version, effective 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.html' },
+      ],
+    },
+    payer: 'Regence BlueCross BlueShield of Utah (commercial)',
+    state: 'UT', kind: 'commercial',
+    pill: 'Payer Guide · Regence BCBS of Utah',
+    h1: 'Regence BlueCross BlueShield of Utah ABA coverage: the intake guide.',
+    metaTitle: 'Regence BlueCross BlueShield of Utah ABA Coverage & Prior Auth Guide | Carelu',
+    metaDescription:
+      'How Regence BlueCross BlueShield of Utah covers ABA: medical policies BH33 (assessment) and BH18 (treatment, revised 11/1/2026), preauthorization by member contract, Utah’s 2027 preauthorization law and the Utah Code § 31A-22-642 autism mandate.',
+    intro: [
+      'Regence BlueCross BlueShield of Utah is Utah’s Blue plan. It shares its medical policies with the other Regence plans (Idaho, Oregon, Washington): BH33 governs the initial ABA assessment and BH18 governs treatment, and both name Utah’s Autism Services Amendment (UCA 31A-22-642) as the Utah benefit basis.',
+      'One caution for this run: BH18 carries the note “This policy has been revised. The revised policy will be effective November 1, 2026,” but on November 1, 2026 every Regence link we could reach still served the August 1, 2025 text. This guide therefore marks BH18-based treatment details as unconfirmed until the revised policy can be read, and leans on BH33 and Utah law for the rest.',
+    ],
+    atGlance: [
+      { label: 'Clinical policies', value: 'Regence BH33 (initial assessment, eff. 8/1/2025) and BH18 (treatment; revised 11/1/2026, new text not yet posted)' },
+      { label: 'Prior auth', value: 'Per member contract — check Regence’s preauthorization list for the group' },
+      { label: 'PA decision clock (from 1/1/2027)', value: '7 calendar days / 72 hours urgent after all information (Utah Code § 31A-22-650)' },
+      { label: 'State mandate', value: 'Utah Code § 31A-22-642' },
+      { label: 'Mandate markets', value: 'Individual + large group only — small group NOT covered' },
+      { label: 'Mandate age', value: 'No age limit (plans entered/renewed on or after 1/1/2020)' },
+      { label: 'Mandate caps', value: 'No hour limit since 2020; 600 hr/yr floor on legacy pre-2020 plans' },
+      { label: 'Fee schedule', value: 'Not published — contracted rates; Utah Medicaid’s published rates are the public benchmark' },
+    ],
+    sections: [
+      {
+        h2: 'BH33: getting the initial assessment covered',
+        body: [
+          'Regence’s BH33 (effective August 1, 2025) says an ABA initial assessment “may be considered medically necessary” when three things are documented: an ASD diagnosis by a qualified treating health care professional “(e.g. pediatrician, pediatric neurologist, developmental pediatrician, psychologist), as defined by state law”; ASD-related symptoms that impair communication, social or behavioral functioning so the member is a safety risk or cannot take part in age-appropriate home or community activities; and ABA “recommended or prescribed” by a qualified professional experienced in diagnosing and treating autism. The documentation list asks for the diagnosis, the impairment, and a “Written recommendation, clinical order, or prescription for ABA services.” BH33 applies only where the member contract requires preauthorization for the assessment, so check the contract first.',
+        ],
+        cites: [
+          { title: 'Regence Medical Policy BH33 — ABA Initial Assessment for the Treatment of Autism Spectrum Disorder (effective 8/1/2025)', url: 'https://beonbrand.getbynder.com/m/8360cc45444cab46/' },
+        ],
+      },
+      {
+        h2: 'BH18: treatment criteria, and the November 2026 revision',
+        body: [
+          'BH18 is Regence’s treatment policy. The version every Regence link served on November 1, 2026 is dated “Effective: August 1, 2025” and carries the banner “This policy has been revised. The revised policy will be effective November 1, 2026.” In that 2025 text, starting treatment needs a documented ABA assessment and an individualized treatment plan covering targeted behaviors with objective measures and at least one standardized assessment, evidence-based interventions, caregiver training, clinical justification for days and hours (including supervision hours, with CPT codes and units for the authorization period) and measurable discharge goals; continuation needs objective measurement at least every six months and standardized assessment annually, with documents due within five business days before the authorization ends (and no more than 30 days before). Treat those details as the prior policy until the November 2026 revision can be read; ask Regence provider relations for the current BH18 before relying on them.',
+        ],
+        cites: [
+          { title: 'Regence Medical Policy BH18 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (link serves the 8/1/2025 version, noting a revision effective 11/1/2026)', url: 'https://beonbrand.getbynder.com/m/e4646f415eb7f4eb/' },
+        ],
+      },
+      {
+        h2: 'The Utah mandate and Utah’s preauthorization law',
+        body: [
+          'Utah Code § 31A-22-642 requires individual and large-group plans entered into or renewed on or after January 1, 2020 to cover the diagnosis and treatment of autism spectrum disorder with no limit on covered behavioral-health hours; the 600-hour floor and the ages-2-to-under-10 window belong to legacy 2016–2019 plans, and small-group plans are not named. The provider submits a treatment plan within 14 business days of starting treatment, the insurer may review treatment no more than once every three months, and networks must include board certified behavior analysts. From the 2026 amendment, plans report autism-assessment wait times, prior-authorization practices and ABA hours and cost to the Insurance Department before July 1, 2027.',
+          'Utah’s preauthorization statute, in the version effective January 1, 2027 (Utah Code § 31A-22-650), requires a decision “no later than seven calendar days” after the insurer receives all necessary information (72 hours for urgent care), says an authorization for an outpatient covered service may not be valid for less than six months, requires 30 days’ posted notice before changing a preauthorization requirement, and bars denying payment for an authorized service except in listed cases such as missed timely filing or loss of eligibility.',
+        ],
+        cites: [
+          { title: 'Utah Code § 31A-22-642 (current version, effective 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.html' },
+          { title: 'Utah Code § 31A-22-650 — Health care preauthorization requirements (version effective 1/1/2027)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S650_2026050620270101.html' },
+        ],
+      },
+      {
+        h2: 'Rates and claims',
+        body: [
+          'Regence publishes no commercial ABA fee schedule; rates are in your Regence agreement. BH18’s code table lists 97151–97158, 0362T and 0373T and says “Providers are expected to bill using the appropriate CPT codes, including modifiers.” For a public benchmark, Utah Medicaid pays 97153 at $19.67 and 97151, 97155 and 97156 at $37.51 per 15-minute unit from July 1, 2026. Regence’s provider manuals and claims pages are client-rendered and could not be read automatically this run.',
+        ],
+        cites: [
+          { title: 'Regence Medical Policy BH18 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (link serves the 8/1/2025 version, noting a revision effective 11/1/2026)', url: 'https://beonbrand.getbynder.com/m/e4646f415eb7f4eb/' },
+          { title: 'Utah Medicaid Coverage and Reimbursement Lookup (PAC 166, rates effective 7/1/2026)', url: 'https://stplan.dhhs.utah.gov/lookup/CoverageLookup.php' },
+        ],
+      },
+    ],
+    collect: [
+      { title: 'Market segment and funding', desc: 'Individual, small group, large group or self-funded — the mandate binds only individual and large-group plans.' },
+      { title: 'Contract preauthorization rules', desc: 'Whether the member’s group requires preauthorization for the assessment and for treatment.' },
+      { title: 'Diagnosis', desc: 'From a qualifying physician (neurology, psychiatry, pediatrics) or licensed psychologist with ASD experience.' },
+      { title: 'Written recommendation or order', desc: 'BH33 asks for a written recommendation, clinical order or prescription for ABA.' },
+      { title: 'Prior ABA history', desc: 'Dates and reason for discharge from any previous ABA provider.' },
+    ],
+    sources: [
+      { title: 'Regence Medical Policy BH33 — ABA Initial Assessment for the Treatment of Autism Spectrum Disorder (effective 8/1/2025)', url: 'https://beonbrand.getbynder.com/m/8360cc45444cab46/' },
+      { title: 'Regence Medical Policy BH18 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (link serves the 8/1/2025 version, noting a revision effective 11/1/2026)', url: 'https://beonbrand.getbynder.com/m/e4646f415eb7f4eb/' },
+      { title: 'Utah Code § 31A-22-642 (current version, effective 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.html' },
+      { title: 'Utah Code § 31A-22-650 — Health care preauthorization requirements (version effective 1/1/2027)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S650_2026050620270101.html' },
+      { title: 'Utah Medicaid Coverage and Reimbursement Lookup (PAC 166)', url: 'https://stplan.dhhs.utah.gov/lookup/CoverageLookup.php' },
+    ],
+    deliveryRules: {
+      supervision: {
+        value: 'Unconfirmed for the policy in force. The 8/1/2025 BH18 text treats BCBAs and BCBA-Ds as independent providers and puts BCaBAs, behavior analysts in training and RBTs/behavior technicians under BCBA supervision per BACB standards, with supervision hours justified in the treatment plan, but BH18 was revised effective 11/1/2026 and the revision was not readable.',
+        status: 'unverified',
+        cites: [
+          { title: 'Regence Medical Policy BH18 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (link serves the 8/1/2025 version, noting a revision effective 11/1/2026)', url: 'https://beonbrand.getbynder.com/m/e4646f415eb7f4eb/' },
+        ],
+        verifyVia: 'The revised BH18 (effective 11/1/2026) from Regence’s medical policy library (regence.com, client-rendered) or Regence provider relations.',
+        blocker: 'document',
+      },
+      concurrentBilling: {
+        value: 'Not addressed in BH33 or the available BH18 text.',
+        status: 'unverified',
+        cites: [
+          { title: 'Regence Medical Policy BH33 — ABA Initial Assessment for the Treatment of Autism Spectrum Disorder (effective 8/1/2025)', url: 'https://beonbrand.getbynder.com/m/8360cc45444cab46/' },
+        ],
+        verifyVia: 'Regence reimbursement policies / provider manual (regence.com, client-rendered) or provider relations: may 97155 and 97153 be billed for the same minutes?',
+        blocker: 'document',
+      },
+      dailyLimits: {
+        value: 'No per-day ceiling is published by Regence. For individual and large-group plans entered or renewed since 1/1/2020, Utah Code § 31A-22-642 bars any limit on the number of covered behavioral-health hours; requested hours must be clinically justified in the treatment plan.',
+        status: 'verified',
+        cites: [
+          { title: 'Utah Code § 31A-22-642 (current version, effective 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.html' },
+        ],
+      },
+      noteSignature: {
+        value: 'Not found in BH33 or the available BH18 text; Regence’s documentation standards are in its provider manual, which could not be read automatically.',
+        status: 'unverified',
+        cites: [
+          { title: 'Regence Medical Policy BH33 — ABA Initial Assessment for the Treatment of Autism Spectrum Disorder (effective 8/1/2025)', url: 'https://beonbrand.getbynder.com/m/8360cc45444cab46/' },
+        ],
+        verifyVia: 'Regence provider manual (regence.com provider library; human browser retrieval).',
+        blocker: 'document',
+      },
+      placeOfService: {
+        value: 'Not stated as a POS list. BH33 and the 2025 BH18 text tie medical necessity to functioning in home and community activities, and the 2025 BH18 text excludes ABA used “for educational, vocational or custodial purposes”; whether that survives the 11/1/2026 revision is unconfirmed.',
+        status: 'unverified',
+        cites: [
+          { title: 'Regence Medical Policy BH18 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (link serves the 8/1/2025 version, noting a revision effective 11/1/2026)', url: 'https://beonbrand.getbynder.com/m/e4646f415eb7f4eb/' },
+        ],
+        verifyVia: 'The revised BH18 and Regence’s provider manual / provider relations for payable settings (home, clinic, school).',
+        blocker: 'document',
+      },
+      billAsProvider: {
+        value: 'Not published in the readable documents. The 2025 BH18 text says providers bill “using the appropriate CPT codes, including modifiers,” without saying whose NPI goes on technician lines.',
+        status: 'unverified',
+        cites: [
+          { title: 'Regence Medical Policy BH18 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (link serves the 8/1/2025 version, noting a revision effective 11/1/2026)', url: 'https://beonbrand.getbynder.com/m/e4646f415eb7f4eb/' },
+        ],
+        verifyVia: 'Regence provider manual / credentialing: whether RBT-delivered 97153 is billed under the supervising BCBA, and which modifiers apply.',
+        blocker: 'document',
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value: 'No age limit for individual and large-group plans entered or renewed on or after 1/1/2020 (Utah Code § 31A-22-642); the 2-to-under-10 window applies only to 2016–2019 plans, and small-group and self-funded plans follow the plan document. BH33 sets no age bound of its own.',
+        status: 'verified',
+        cites: [
+          { title: 'Utah Code § 31A-22-642 (current version, effective 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.html' },
+          { title: 'Regence Medical Policy BH33 — ABA Initial Assessment for the Treatment of Autism Spectrum Disorder (effective 8/1/2025)', url: 'https://beonbrand.getbynder.com/m/8360cc45444cab46/' },
+        ],
+      },
+      dxRecency: {
+        value: 'No recency window in BH33 or the Utah mandate; BH33 asks only for documentation of the ASD diagnosis from the qualified professional.',
+        status: 'verified',
+        cites: [
+          { title: 'Regence Medical Policy BH33 — ABA Initial Assessment for the Treatment of Autism Spectrum Disorder (effective 8/1/2025)', url: 'https://beonbrand.getbynder.com/m/8360cc45444cab46/' },
+          { title: 'Utah Code § 31A-22-642 (current version, effective 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.html' },
+        ],
+      },
+      diagnosingProviders: {
+        value: 'BH33: a qualified treating health care professional “(e.g. pediatrician, pediatric neurologist, developmental pediatrician, psychologist), as defined by state law.” Utah law defines the diagnosis as assessments “performed by a licensed physician who is board certified in neurology, psychiatry, or pediatrics and has experience diagnosing autism spectrum disorder, or a licensed psychologist with experience diagnosing autism spectrum disorder.”',
+        status: 'verified',
+        cites: [
+          { title: 'Regence Medical Policy BH33 — ABA Initial Assessment for the Treatment of Autism Spectrum Disorder (effective 8/1/2025)', url: 'https://beonbrand.getbynder.com/m/8360cc45444cab46/' },
+          { title: 'Utah Code § 31A-22-642 (current version, effective 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.html' },
+        ],
+      },
+      diagnosticTools: {
+        value: 'Unconfirmed for the policy in force. The 8/1/2025 BH18 text requires “at least one standardized assessment” per targeted behavior (examples: SRS-2, Vineland-3, ABAS-3, SSIS, BRIEF-2, PDDBI) and allows criterion-referenced tools (VB-MAPP, PEAK, ABLLS-R, AFLS) for treatment planning; BH18 was revised effective 11/1/2026.',
+        status: 'unverified',
+        cites: [
+          { title: 'Regence Medical Policy BH18 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (link serves the 8/1/2025 version, noting a revision effective 11/1/2026)', url: 'https://beonbrand.getbynder.com/m/e4646f415eb7f4eb/' },
+        ],
+        verifyVia: 'The revised BH18 (effective 11/1/2026) from Regence’s medical policy library or provider relations.',
+        blocker: 'document',
+      },
+      referral: {
+        value: 'Yes — BH33 requires ABA to be “recommended or prescribed by a qualified treating health care professional ... experienced in the diagnosis and treatment of autism,” documented as a “Written recommendation, clinical order, or prescription for ABA services.” Utah’s mandate covers treatment “prescribed or ordered” by the qualifying physician or psychologist. No validity period is stated.',
+        status: 'verified',
+        cites: [
+          { title: 'Regence Medical Policy BH33 — ABA Initial Assessment for the Treatment of Autism Spectrum Disorder (effective 8/1/2025)', url: 'https://beonbrand.getbynder.com/m/8360cc45444cab46/' },
+          { title: 'Utah Code § 31A-22-642 (current version, effective 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.html' },
+        ],
+      },
+      telehealth: {
+        value: 'Not addressed in BH33 or the available BH18 text; Regence’s telehealth reimbursement rules are on its client-rendered provider site.',
+        status: 'unverified',
+        cites: [
+          { title: 'Regence Medical Policy BH33 — ABA Initial Assessment for the Treatment of Autism Spectrum Disorder (effective 8/1/2025)', url: 'https://beonbrand.getbynder.com/m/8360cc45444cab46/' },
+        ],
+        verifyVia: 'Regence telehealth reimbursement policy / provider manual (regence.com; human browser retrieval) or provider relations.',
+        blocker: 'document',
+      },
+      authTurnaround: {
+        value: 'From January 1, 2027, Utah Code § 31A-22-650 requires a decision “no later than seven calendar days” after the insurer receives all necessary information (72 hours for urgent care), and an outpatient authorization may not be valid for less than six months. The version in force before 2027 was not read this run.',
+        status: 'verified',
+        cites: [
+          { title: 'Utah Code § 31A-22-650 — Health care preauthorization requirements (version effective 1/1/2027)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S650_2026050620270101.html' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value: 'Not found in readable Regence documents; Regence’s COB rules sit in its provider manual on a client-rendered site.',
+        status: 'unverified',
+        cites: [
+          { title: 'Regence Medical Policy BH33 — ABA Initial Assessment for the Treatment of Autism Spectrum Disorder (effective 8/1/2025)', url: 'https://beonbrand.getbynder.com/m/8360cc45444cab46/' },
+        ],
+        verifyVia: 'Regence provider manual (regence.com provider library; human browser retrieval) — coordination of benefits section.',
+        blocker: 'document',
+      },
+    },
+    faq: [
+      { q: 'Does Regence BlueCross BlueShield of Utah require prior authorization for ABA?', a: 'It depends on the member’s contract. Both Regence ABA policies apply only to contracts “subject to preauthorization” as specified by the group plan, so check Regence’s preauthorization list for that member before the assessment.' },
+      { q: 'Who can diagnose autism for Regence coverage in Utah?', a: 'Under Utah law, a licensed physician board certified in neurology, psychiatry or pediatrics, or a licensed psychologist, with experience diagnosing ASD. Regence’s BH33 points to the same state-law definition.' },
+      { q: 'Is Regence’s ABA policy changing?', a: 'Yes. BH18, the treatment policy, says it was revised effective November 1, 2026, but on that date Regence’s links still served the August 1, 2025 version. Ask Regence provider relations for the revised policy before relying on treatment-plan details.' },
+      { q: 'How fast must Regence decide an ABA preauthorization in Utah?', a: 'From January 1, 2027, within seven calendar days of receiving all necessary information (72 hours if urgent), and an outpatient authorization must last at least six months (Utah Code § 31A-22-650).' },
+      { q: 'What does Regence pay for ABA in Utah?', a: 'Regence publishes no commercial ABA rates; they are in your agreement. Utah Medicaid’s rates (97153 $19.67 per 15 minutes from 7/1/2026) are the public benchmark.' },
+    ],
+  },
+
   'aetna-utah': {
     slug: 'aetna-utah',
     family: 'aetna',
