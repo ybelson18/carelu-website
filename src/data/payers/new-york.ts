@@ -3331,6 +3331,16 @@ export const newYorkPayers: Record<string, PayerConfig> = {
           { title: 'eMedNY — Applied Behavior Analysis provider enrollment', url: 'https://www.emedny.org/info/providerenrollment/ABA/' },
         ],
       },
+      {
+        h2: 'What changes for CDPHP claims on January 1, 2027?',
+        body: [
+          'CDPHP plans to join Excellus Health Plan, Inc. in early 2027 and has posted the claim changes that start January 1, 2027. "Effective January 1, 2027, taxonomy codes will be required on all claims." Paper claims go to CDPHP, P.O. Box 21494, Eagan, MN 55121; requested medical records can go to fax 1-877-220-7323 or the same P.O. box. Providers sending electronic claims directly must submit a new Trading Partner Agreement by November 16, 2026; clearinghouse users should forward the change to their vendor. Members get new ID cards with new subscriber numbers effective 01/01/2027, and claims for dates of service from January 1, 2027 must use the new card.',
+          'Claims are processed only with what comes in the first submission: "If there is missing information or documentation, the claim will be denied." Payments for dates of service from January 1, 2027 come through InstaMed (for participating providers with an active InstaMed Payer Payment account) or otherwise Zelis, on a weekly cycle; the first InstaMed EFT goes out Wednesday, January 13, 2027. Without either registration, Zelis sends a paper check. When CDPHP is the secondary plan, its benefits are reduced so the combined payment does not exceed its maximum, and "prior authorization will still be required for services that require it."',
+        ],
+        cites: [
+          { title: 'CDPHP — Provider updates (claims, payment and COB changes effective January 1, 2027; last updated 10/28/2026)', url: 'https://blog.cdphp.com/provider-updates/' },
+        ],
+      },
     ],
     collect: [
       { title: 'Complete state referral packet', desc: 'Under-21 ASD/Rett dx, referral with severity and DSM-5 checklist — the clinical baseline CDPHP\'s POAM sits on top of.' },

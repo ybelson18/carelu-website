@@ -2485,6 +2485,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           'EVV does not apply to RB-BHT: NC Medicaid’s billing guidance lists the services “subject to EVV for Managed Care” as Personal Care, Home Health, Innovations Waiver, TBI and 1915(i) services (§3.52).',
           'Taxonomy: the plan must “validate the taxonomy code submitted on the claim” against the provider’s NC Medicaid enrollment record and “price claims based on the taxonomy code submitted on the claim” (billing guidance §3.22), so bill the taxonomy you are enrolled under in NCTracks. The Vaya Partners manual: “Accurate NPI numbers and taxonomy codes are required for claims to be accepted and processed,” and they must “exactly match the information in NCTracks,” or the claim is denied or recouped.',
           'Referring or ordering NPI: not required on an RB-BHT claim. NC Medicaid’s OPR guidance lists the claim types that need an ordering NPI (home infusion, private duty nursing, labs, IDTF, CAP, radiology, DME, LEA) or a referring NPI (home infusion, specialized therapy, hospice, home health, PDN, dialysis, CAP, LEA), and RB-BHT is not on either list. The physician or psychologist who signs the service order must still be enrolled in NC Medicaid (42 CFR 455.410).',
+          'Billed amount: the Vaya Partners claims system pays the lesser of billed charges and the contracted rate — "providers must submit a billed amount that is at least equal to the contracted rate to receive the full contracted amount," and claims billed below it "will be reimbursed at the lower billed amount." This is a change for legacy Partners providers, who billed through Alpha+ and were paid the contracted rate whatever they billed, so set charges at or above the posted rate. EFT email notifications stop for dates of service on or after October 1, 2026 (legacy Partners still emails for earlier dates of service), and remittance advices are retrieved in the ProviderCONNECT portal.',
         ],
         cites: [
           { title: 'NC Medicaid Managed Care Provider Playbook — Prompt Payment fact sheet (Standard Plans, NC Medicaid Direct, Tailored Plans)', url: 'https://medicaid.ncdhhs.gov/provider-playbook-prompt-payment-fact-sheet/download' },
@@ -2493,6 +2494,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'Vaya Partners — 2026 Checkwrite Schedule (rev. 9/30/2026)', url: 'https://resources.vayapartners.org/2026-checkwrite-schedule/' },
           { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026): §3.22 Taxonomy, §3.52 EVV', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
           { title: 'NC Medicaid — Federal Regulation Guidelines for Ordering, Prescribing or Referring (OPR) Providers (modified 7/1/2026)', url: 'https://medicaid.ncdhhs.gov/providers/claims-and-billing/federal-regulation-guidelines-ordering-prescribing-or-referring-opr-providers' },
+          { title: 'Vaya Partners — Provider Communication Bulletin #5 (Oct. 29, 2026): Billing Update, EFT remittance emails, RA access', url: 'https://resources.vayapartners.org/pcb-10-29-26/' },
         ],
       },
     ],
@@ -2502,6 +2504,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Unit thresholds', desc: '97151 ≤32 units/6mo and 97155 ≤1hr-per-10hrs ratio pass through on notification only — above either, a full SAR is required.' },
     ],
     sources: [
+      { title: 'Vaya Partners — Provider Communication Bulletin #5 (Oct. 29, 2026): Billing Update, EFT remittance emails, RA access', url: 'https://resources.vayapartners.org/pcb-10-29-26/' },
       { title: 'NC Medicaid — Federal Regulation Guidelines for Ordering, Prescribing or Referring (OPR) Providers (modified 7/1/2026)', url: 'https://medicaid.ncdhhs.gov/providers/claims-and-billing/federal-regulation-guidelines-ordering-prescribing-or-referring-opr-providers' },
       { title: 'Vaya Partners — 2026 Checkwrite Schedule (rev. 9/30/2026)', url: 'https://resources.vayapartners.org/2026-checkwrite-schedule/' },
       { title: 'Vaya Partners — Rate and Checkwrite Schedules (ProviderCENTRAL): 5 p.m. Tuesday cutoff', url: 'https://providers.vayapartners.org/rate-checkwrite-schedules/' },
@@ -2790,6 +2793,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           'EVV does not apply to RB-BHT: NC Medicaid’s billing guidance lists the services “subject to EVV for Managed Care” as Personal Care, Home Health, Innovations Waiver, TBI and 1915(i) services (§3.52).',
           'Taxonomy: the plan must “validate the taxonomy code submitted on the claim” against the provider’s NC Medicaid enrollment record and “price claims based on the taxonomy code submitted on the claim” (billing guidance §3.22), so bill the taxonomy you are enrolled under in NCTracks. The Vaya Partners manual: “Accurate NPI numbers and taxonomy codes are required for claims to be accepted and processed,” and they must “exactly match the information in NCTracks,” or the claim is denied or recouped.',
           'Referring or ordering NPI: not required on an RB-BHT claim. NC Medicaid’s OPR guidance lists the claim types that need an ordering NPI (home infusion, private duty nursing, labs, IDTF, CAP, radiology, DME, LEA) or a referring NPI (home infusion, specialized therapy, hospice, home health, PDN, dialysis, CAP, LEA), and RB-BHT is not on either list. The physician or psychologist who signs the service order must still be enrolled in NC Medicaid (42 CFR 455.410).',
+          'Billed amount: the Vaya Partners claims system pays the lesser of billed charges and the contracted rate — "providers must submit a billed amount that is at least equal to the contracted rate to receive the full contracted amount," and claims billed below it "will be reimbursed at the lower billed amount." This is a change for legacy Partners providers, who billed through Alpha+ and were paid the contracted rate whatever they billed, so set charges at or above the posted rate. EFT email notifications stop for dates of service on or after October 1, 2026 (legacy Partners still emails for earlier dates of service), and remittance advices are retrieved in the ProviderCONNECT portal.',
         ],
         cites: [
           { title: 'NC Medicaid Managed Care Provider Playbook — Prompt Payment fact sheet (Standard Plans, NC Medicaid Direct, Tailored Plans)', url: 'https://medicaid.ncdhhs.gov/provider-playbook-prompt-payment-fact-sheet/download' },
@@ -2798,6 +2802,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'Vaya Partners — Provider Operations Manual v1.0 (Oct. 1, 2026)', url: 'https://resources.vayapartners.org/wp-content/uploads/Vaya_Partners_Provider_Operations_Manual_1.0_20261001.pdf' },
           { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026): §3.22 Taxonomy, §3.52 EVV', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
           { title: 'NC Medicaid — Federal Regulation Guidelines for Ordering, Prescribing or Referring (OPR) Providers (modified 7/1/2026)', url: 'https://medicaid.ncdhhs.gov/providers/claims-and-billing/federal-regulation-guidelines-ordering-prescribing-or-referring-opr-providers' },
+          { title: 'Vaya Partners — Provider Communication Bulletin #5 (Oct. 29, 2026): Billing Update, EFT remittance emails, RA access', url: 'https://resources.vayapartners.org/pcb-10-29-26/' },
         ],
       },
     ],
@@ -2807,6 +2812,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'ProAuth setup', desc: 'Base code on the Prescreen, Treatment Type from the dropdown — train the intake/billing handoff on it once.' },
     ],
     sources: [
+      { title: 'Vaya Partners — Provider Communication Bulletin #5 (Oct. 29, 2026): Billing Update, EFT remittance emails, RA access', url: 'https://resources.vayapartners.org/pcb-10-29-26/' },
       { title: 'NC Medicaid — Federal Regulation Guidelines for Ordering, Prescribing or Referring (OPR) Providers (modified 7/1/2026)', url: 'https://medicaid.ncdhhs.gov/providers/claims-and-billing/federal-regulation-guidelines-ordering-prescribing-or-referring-opr-providers' },
       { title: 'Vaya Partners — Prior Authorization (ProviderCENTRAL, checked 10/11/2026)', url: 'https://providers.vayapartners.org/prior-authorization/' },
       { title: 'Vaya Partners — 2026 Checkwrite Schedule (rev. 9/30/2026)', url: 'https://resources.vayapartners.org/2026-checkwrite-schedule/' },

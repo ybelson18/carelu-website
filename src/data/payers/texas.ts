@@ -28,6 +28,27 @@ const G1_TX_MCD_OOS =
 const G1_TX_LAW =
   'Texas law for commercial plans. A person may not practice applied behavior analysis in Texas without a license from TDLR (Occ. Code § 506.251). Technicians fall outside the licensing chapter when they work under an LBA’s or LaBA’s “extended authority and direction” and are designated an “applied behavior analysis technician,” “behavior technician,” “tutor,” or “front-line therapist” (§ 506.054), so Texas sets no technician credential of its own and any RBT requirement comes from the payer. A behavior analyst licensed in another jurisdiction, or BACB-certified, may work in Texas without a Texas license only within their customary practice and “not more than 20 days in a calendar year,” and must tell the family that they are not licensed in Texas and that the services are time-limited (§ 506.057). Beyond that an out-of-state BCBA needs a Texas license, which TDLR issues by reciprocity to analysts licensed in states with similar requirements (§ 506.256).';
 
+const G1_BCBSTX_FORM = { title: 'BCBSTX — Applied Behavior Analysis Clinical Service Request Form, initial and concurrent (commercial plans, rev. 10/2025)', url: 'https://www.bcbstx.com/docs/provider/tx/education/forms/other-bcbstx-plans/aba-clinical-serv-req.pdf' };
+const G1_BCBSTX_ASSESS = { title: 'BCBSTX — ABA Initial Assessment Request (749121.1220)', url: 'https://www.bcbstx.com/docs/provider/tx/education/forms/other-bcbstx-plans/initial-assess-req.pdf' };
+const G1_BCBSTX_TELEATT = { title: 'BCBSTX — ABA Supervision via Telehealth Request & Attestation', url: 'https://www.bcbstx.com/docs/provider/tx/education/forms/other-bcbstx-plans/bh-aba-telehealth-req-attest.pdf' };
+const G1_BCBSTX_CHANGE = { title: 'BCBSTX — Applied Behavioral Analysis Change Notification (treating BCBA change/transfer)', url: 'https://www.bcbstx.com/docs/provider/tx/education/forms/other-bcbstx-plans/bh-aba-bcba-change-notification-transfer.pdf' };
+const G1_BCBSTX_BHPAGE = { title: 'BCBSTX — Behavioral Health Care Management Program (commercial, ERS and TRS ABA forms)', url: 'https://www.bcbstx.com/provider/clinical/clinical-resources/behavioral-health' };
+const G1_BCBSTX_CALL = { title: 'BCBSTX news (1/15/2026) — Call for Preservice Requests for Applied Behavior Analysis for Commercial Members (effective April 2026)', url: 'https://www.bcbstx.com/provider/education/education/news/2026/1-15-2026-call-for-preservice-requests-for-applied-behavior-analysis' };
+const G1_BCBSTX_CLAIMNEWS = { title: 'BCBSTX news (5/12/2026) — Claims Reminders for Behavioral Health Services', url: 'https://www.bcbstx.com/provider/education/education/news/2026/5-12-2026-claims-reminders-for-behavioral-health-services' };
+const G1_BCBSTX_CPCP = { title: 'BCBSTX CPCP011 — Applied Behavior Analysis (plan effective 3/20/2026)', url: 'https://www.bcbstx.com/docs/provider/tx/standards/clinical-pay-coding/2026/cpcp011-3-20-2026.pdf' };
+const G1_BCBSTX_RP033 = { title: 'BCBSTX RP033 — Telemedicine and Telehealth/Virtual Services Policy (eff. 3/27/2026)', url: 'https://www.bcbstx.com/docs/provider/tx/standards/clinical-pay-coding/2026/rp033-3-27-2026.pdf' };
+const G1_BCBSTX_ADM = { title: 'BCBSTX ADM1001.036 — Medical Policies Moving to MCG Guidelines (version effective 11/1/2026; PSY301.021 ABA → MCG B-806-T)', url: 'https://medicalpolicy.bcbstx.com/content/dam/bcbs/medicalpolicy/pdf/administrative/ADM1001.036_2026-11-01.pdf' };
+const G1_BCBSTX_PRM = { title: 'BCBSTX — Blue Choice PPO and Blue HPN Provider Manual (updated September 2026): Prior authorization; Behavioral health; Timely filing; Prompt pay; Coordination of benefits; Claim review', url: 'https://www.bcbstx.com/docs/provider/tx/standards/manuals/tx-blue-choice-ppo-blue-hpn-provider-reference-manual.pdf' };
+const G1_BCBSTX_BLUECARD = { title: 'BCBSTX — The BlueCard Program Provider Manual (June 2026)', url: 'https://www.bcbstx.com/docs/provider/tx/claims/bluecard/bluecard-program-prov-manual.pdf' };
+const G1_BCBSTX_M015 = { title: 'Tex. Ins. Code § 1355.015 — Required Coverage for Certain Enrollees (autism)', url: 'https://texas.public.law/statutes/tex._ins._code_section_1355.015' };
+const G1_BCBSTX_M002 = { title: 'Tex. Ins. Code § 1355.002 — Applicability of Subchapter (group plans; TRS plans)', url: 'https://texas.public.law/statutes/tex._ins._code_section_1355.002' };
+const G1_BCBSTX_M003 = { title: 'Tex. Ins. Code § 1355.003 — Exception (ERS and UT/A&M plans, limited policies)', url: 'https://texas.public.law/statutes/tex._ins._code_section_1355.003' };
+const G1_BCBSTX_M001 = { title: 'Tex. Ins. Code § 1355.001 — Definitions (autism spectrum disorder)', url: 'https://texas.public.law/statutes/tex._ins._code_section_1355.001' };
+const G1_BCBSTX_I1301 = { title: 'Tex. Ins. Code § 1301.135 — Preauthorization (PPO/EPO insurers: determination by the third calendar day)', url: 'https://texas.public.law/statutes/tex._ins._code_section_1301.135' };
+const G1_BCBSTX_I843 = { title: 'Tex. Ins. Code § 843.348 — Preauthorization (HMOs: determination by the third calendar day)', url: 'https://texas.public.law/statutes/tex._ins._code_section_843.348' };
+const G1_BCBSTX_ERISA = { title: '29 CFR 2560.503-1(f)(2) — ERISA group health plan claim decision timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' };
+const G1_BCBSTX_TDLR = { title: 'TDLR — How to Apply for a Behavior Analyst License', url: 'https://www.tdlr.texas.gov/bhv/bhvapply.htm' };
+
 export const texasPayers: Record<string, PayerConfig> = {
   'texas-medicaid': {
     slug: 'texas-medicaid',
@@ -2863,13 +2884,6 @@ export const texasPayers: Record<string, PayerConfig> = {
         ],
         cites: [G1_TX_TMPPM_CS, G1_TX_TMPPM_ENR, G1_TX_TMPPM_TEL, G1_TX_OCC054, G1_TX_OCC057, G1_TX_OCC256],
       },
-      {
-        h2: 'BCBSTX commercial plans: RBT requirement and line-therapist rules',
-        body: [
-          'BCBSTX commercial plans (not Medicaid): technician and supervisor rules. BCBSTX has no separate commercial guide in this directory yet, so its commercial ABA rules are recorded here. BCBSTX’s ABA Clinical Service Request Form for commercial plans (rev. 10/2025) sets these “Requirements for line staff providing 1:1 therapy: 1) 18+ years of age; 2) High school diploma or GED; 3) criminal background check prior to active employment; 4) via practice expense, completed training of ASD and behavioral related subjects/evidence based techniques (40 hours) and 5) have on-going supervisory oversight by the BCBA or ABA treatment supervisor for a minimum of 5% of hours directly worked with members.” The form does not require RBT certification, so there is no RBT grace period to track. The training time is “not billable to BCBSTX or members of BCBSTX,” and by signing, the supervisor certifies that the line therapists billed meet these qualifications and that “if staff changes at any time, new staff must meet the same qualifications.” The ABA supervisor also attests to following the BACB’s supervision guidelines and to having “an active license in the state where this member’s services are rendered,” which for a child in Texas means a Texas LBA license. Supervision by telehealth needs a separate BCBSTX request and attestation. BCBSTX posts separate ABA forms for ERS and TRS (state employee and teacher) plans, so use those plans’ own forms. For STAR and STAR Kids members, the Texas Medicaid rules above apply instead.',
-        ],
-        cites: [{ title: 'BCBSTX — Applied Behavior Analysis Clinical Service Request Form (commercial plans, rev. 10/2025): Line Therapist Requirements; Certification of Provider Qualifications', url: 'https://www.bcbstx.com/docs/provider/tx/education/forms/other-bcbstx-plans/aba-clinical-serv-req.pdf' }, { title: 'BCBSTX — ABA Supervision via Telehealth Request & Attestation', url: 'https://www.bcbstx.com/docs/provider/tx/education/forms/other-bcbstx-plans/bh-aba-telehealth-req-attest.pdf' }, { title: 'BCBSTX — Behavioral Health Care Management Program (provider page listing the commercial, ERS and TRS ABA forms)', url: 'https://www.bcbstx.com/provider/clinical/clinical-resources/behavioral-health' }],
-      },
     ],
     collect: [
       { title: 'Line of business', desc: 'Confirm the card is BCBSTX Medicaid (STAR/STAR Kids), not commercial or FEP — different guides, different rules.' },
@@ -3035,7 +3049,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'What does Blue Cross Blue Shield of Texas (Medicaid) pay for ABA?', a: 'Its contracted rates are not published. The public benchmark is the Texas Medicaid fee schedule (dated 9/14/2026): per 15 minutes, 97151 $27.56, 97153 $14.50, 97154 $1.63, 97155 $20.08 (HN) or $25.10 (HO), 97156 $18.40 (HN) or $23.01 (HO), 97158 $2.25 (HN) or $2.81 (HO). Ask the plan for its ABA fee schedule before contracting.' },
       { q: 'Does BCBSTX Medicaid require RBT certification for ABA technicians, and is there a grace period?', a: 'BCBSTX Medicaid follows the Texas Medicaid rule: every behavior technician must hold RBT, BCAT or ABAT certification (TMPPM § 2.3.6.3), with no grace or provisional period stated. Its provider manual adds no technician rule of its own.' },
       { q: 'Can an out-of-state BCBA treat BCBSTX Medicaid members by telehealth?', a: 'Only with a Texas LBA license and Texas Medicaid enrollment, which every BCBSTX Medicaid network provider needs first. The LBA needs a current Texas license; telehealth distant-site providers must be licensed, certified or otherwise entitled to practice in Texas; and a provider whose services originate outside Texas is “out-of-state” under 1 TAC § 352.17 and cannot enroll unless HHSC approves it under one of the listed criteria, often for a limited period. Providers within 50 miles of the Texas border count as in-state.' },
-      { q: 'Does BCBS Texas commercial require RBT certification, and is there a grace period?', a: 'No RBT requirement is published for BCBSTX commercial plans. BCBSTX’s ABA Clinical Service Request Form (rev. 10/2025) requires line staff to be 18 or older with a high school diploma or GED, a criminal background check before starting work, 40 hours of ASD and behavioral training (paid by the practice, not billable), and BCBA supervision of at least 5% of the hours they work with members. Because RBT certification is not required, there is no grace period. The supervisor must hold an active license in the state where the member’s services are rendered.' },
+      { q: 'Where are the rules for BCBSTX commercial (non-Medicaid) plans?', a: 'In the separate Blue Cross and Blue Shield of Texas commercial guide (/payers/blue-cross-blue-shield-texas). This guide covers BCBSTX’s STAR and STAR Kids Medicaid plans only.' },
     ],
   },
 
@@ -5612,6 +5626,187 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'What do HM, HN, HO and HP mean on a UnitedHealthcare / Optum ABA claim?', a: 'They identify who rendered the service: HM an RBT (less than bachelor’s level), HN a BCaBA (bachelor’s level), HO a master’s-level BCBA or licensed clinician, HP a BCBA-D or doctoral-level clinician. One per line; 97151 and 97155–97158 cannot take HM; 0362T/0373T take none (Optum ABA Reimbursement Policy 2022RP501A, June 2026).' },
       { q: 'Does UnitedHealthcare require RBT certification for ABA technicians in Texas, and is there a grace period?', a: 'Yes, or an equivalent: Optum requires technicians to be an RBT, BCAT or ABAT, and any other certification must be approved in writing by Optum. Optum publishes no grace or provisional period for uncertified technicians. Texas itself licenses only behavior analysts, not technicians.' },
       { q: 'Can an out-of-state BCBA treat a UnitedHealthcare member in Texas by telehealth?', a: 'Only for short stints without a Texas license: Texas exempts an analyst licensed elsewhere, or BACB-certified, for no more than 20 days a calendar year, with written notice to the family (Occ. Code § 506.057). Otherwise the BCBA needs a Texas LBA license (reciprocity is available from states with similar licensing). Optum also requires telehealth providers to be licensed in the state where the member is located.' },
+    ],
+  },
+  'blue-cross-blue-shield-texas': {
+    slug: 'blue-cross-blue-shield-texas',
+    family: 'bcbs',
+    cardDesc: 'Texas’s HCSC Blue plan: phone intake for ABA since April 2026, MCG criteria, CPCP011 billing rules, 36-month dx window, no RBT requirement for line staff.',
+    assessmentPA: {
+      value: 'BCBSTX keeps a separate ABA Initial Assessment Request for 97151 (QHP) and 97152 (technician) units ("Submit form at least two weeks before requested start date"). Whether the assessment codes need prior authorization on a given plan is set by its current commercial behavioral health PA code list, which we could not open this run; check eligibility and benefits in Availity Essentials, which BCBSTX says confirms "if prior authorization is required for a specific service and member."',
+      status: 'unverified',
+      cites: [G1_BCBSTX_ASSESS, G1_BCBSTX_CALL],
+      verifyVia: 'BCBSTX’s current commercial behavioral health prior authorization code list (Utilization Management page) or Availity eligibility and benefits for 97151/97152; the 2022 BCBSTX notice removing PA from 97151/97152 is no longer online.',
+      blocker: 'document',
+    },
+    treatmentPA: {
+      value: 'Required — "ABA services require prior authorization" (BCBSTX ABA Clinical Service Request Form). Effective April 2026 a commercial preservice ABA request starts with a call to the customer service number on the member’s ID card, followed by a clinician’s telephonic clinical review; "Forms will no longer be the primary method." Parent education is authorized per week over an authorization period of typically 26 weeks (CPCP011).',
+      status: 'verified',
+      cites: [G1_BCBSTX_FORM, G1_BCBSTX_CALL, G1_BCBSTX_CPCP],
+    },
+    dxRequired: {
+      value: 'Yes — the ABA request forms require the diagnosing practitioner, a primary diagnosis code and a "Current diagnostic required not older than 36 months." Medical necessity is reviewed under MCG Applied Behavioral Analysis (B-806-T) since BCBSTX moved its ABA policy (PSY301.021) to MCG on January 1, 2026.',
+      status: 'verified',
+      cites: [G1_BCBSTX_FORM, G1_BCBSTX_ASSESS, G1_BCBSTX_ADM],
+    },
+    payer: 'Blue Cross and Blue Shield of Texas',
+    state: 'TX',
+    kind: 'commercial',
+    pill: 'Payer Guide · BCBS of Texas',
+    h1: 'Blue Cross and Blue Shield of Texas ABA coverage: the intake guide.',
+    metaTitle: 'Blue Cross Blue Shield of Texas ABA Coverage & Prior Auth Guide | Carelu',
+    metaDescription: 'How BCBSTX commercial plans cover ABA: phone intake for authorization since April 2026, MCG criteria, the 36-month diagnosis window, CPCP011 supervision and billing rules, line-staff requirements (no RBT required), and the Texas autism mandate.',
+    intro: [
+      'Blue Cross and Blue Shield of Texas (BCBSTX) is Texas’s Blue plan, a division of Health Care Service Corporation (HCSC). This guide covers its commercial plans: Blue Choice PPO, Blue High Performance Network, HMO and self-funded (ASO) employer groups it administers. Its STAR and STAR Kids Medicaid plans have their own guide. In 2026 BCBSTX moved ABA medical necessity to licensed MCG criteria (January) and moved treatment authorization from fax forms to a phone call (April).',
+      'Two things decide most BCBSTX ABA cases at intake: how the plan is funded (a fully insured group plan carries the Texas autism mandate; a self-funded employer plan follows its plan document) and whether the diagnosis is under 36 months old.',
+    ],
+    atGlance: [
+      { label: 'Covers ABA?', value: 'Yes — for autism, with prior authorization on treatment; MCG criteria (B-806-T) and CPCP011 billing rules' },
+      { label: 'State mandate', value: 'Tex. Ins. Code § 1355.015 (HB 1919, 2007, as amended)' },
+      { label: 'Mandate age', value: 'From diagnosis, if the ASD diagnosis was in place before the 10th birthday' },
+      { label: 'Mandate caps', value: 'No cap under 10; the plan may cap ABA at $36,000/yr from age 10; normal deductibles and copays apply' },
+      { label: 'Exempt from mandate', value: 'ERS and UT/A&M system plans; self-funded ERISA plans; Consumer Choice plans; blanket, accident-only and limited policies' },
+      { label: 'Licensure', value: 'TX Licensed Behavior Analyst — TDLR (Occupations Code ch. 506); technicians unlicensed' },
+    ],
+    sections: [
+      {
+        h2: 'Authorization: what changed in 2026',
+        body: [
+          'Medical necessity. BCBSTX retired its own ABA medical policy (PSY301.021) and has reviewed ABA under MCG’s Applied Behavioral Analysis guideline (B-806-T) since January 1, 2026; the November 1, 2026 version of ADM1001.036 still lists every ABA code (97151–97158, 0362T, 0373T) under it. MCG criteria are licensed and shown to providers through Availity, not published.',
+          'Intake. "Effective April 2026, to initiate a preservice request for behavioral health applied behavior analysis, you must call our customer service number on the member’s ID card. Forms will no longer be the primary method to process these requests." A customer service representative takes the intake and a clinician follows up for telephonic clinical review. The Clinical Service Request Form still lists what the review needs: the diagnostic evaluation report, a baseline skills assessment from the last 30 days on "a recognized instrument such as the VB MAPP, ABLLS, AFLS, ABAS or the Vineland," and a comprehensive treatment plan with requested hours per week and parent training goals. It says to submit "at least two weeks before requested start date," no more than 60 days ahead; if a request arrives after the start date, "claims should be submitted through your normal process." A change of treating BCBA goes on BCBSTX’s ABA Change Notification form.',
+        ],
+        cites: [G1_BCBSTX_ADM, G1_BCBSTX_CALL, G1_BCBSTX_FORM, G1_BCBSTX_ASSESS, G1_BCBSTX_CHANGE, G1_BCBSTX_BHPAGE],
+      },
+      {
+        h2: 'CPCP011: the billing rules that decide the claim',
+        body: [
+          'BCBSTX’s ABA payment policy (CPCP011, plan effective 3/20/2026) pays only when services are provided by a qualified professional "certified by the Behavior Analyst Certification Board as a Behavior Analyst and/or licensed in their state as a Licensed Behavior Analyst or Licensed Psychologist." Only one BCBA or QHP may bill the same or similar services on a date of service, which "does not refer to the technician(s)" working at the same time. An assessment over eight hours (32 units of 97151) may not be paid; direct services are "typically requested for up to 40 hours per week"; parent education is typically one hour a week over a 26-week authorization. Billable supervision "must be face to face and involves only one technician," and indirect supervision is a practice expense. 97153 takes one credential modifier (HM, HN or HO). Each service needs a parent or caregiver signature with the code, rendering provider name, signature and credentials, place of service, date, and start and end times.',
+          'No pass-through billing. "The provider who renders treatment week to week to the member is considered the ‘rendering provider’ and should bill"; a non-qualified or non-credentialed provider "cannot provide services and bill through another person’s NPI." BCBSTX’s May 2026 claims reminder adds that out-of-network clinicians added to a group must bill under their own rendering NPI, and claims may go under another’s NPI only within a formal supervisor-trainee relationship.',
+        ],
+        cites: [G1_BCBSTX_CPCP, G1_BCBSTX_CLAIMNEWS],
+      },
+      {
+        h2: 'The Texas mandate: what § 1355.015 guarantees',
+        body: [
+          'Texas’s autism mandate (Tex. Ins. Code § 1355.015) requires a group health benefit plan to cover autism screening at 18 and 24 months and, for an enrollee "diagnosed with autism spectrum disorder from the date of diagnosis, only if the diagnosis was in place prior to the child’s 10th birthday," all "generally recognized services prescribed in relation to autism spectrum disorder by the enrollee’s primary care physician in the treatment plan recommended by that physician," expressly including applied behavior analysis. Treatment must come from a practitioner licensed, certified or registered in Texas (or federally recognized or TRICARE-certified), or someone under that practitioner’s supervision. From age 10 the plan "is not required to provide coverage … for applied behavior analysis in an amount that exceeds $36,000 per year," and ordinary deductibles, copays and coinsurance may apply.',
+          'Who it reaches. The subchapter applies to group plans from insurers, HMOs and group hospital service corporations (§ 1355.002), and § 1355.002(b) extends the autism section to the Texas public school employee programs under Insurance Code chapters 1575 and 1579. It does not apply to ERS plans or UT/A&M system plans (§ 1355.003), to Consumer Choice standard plans (§ 1355.015(e)), or to blanket, accident-only and limited-benefit policies. Self-funded employer plans BCBSTX administers follow ERISA and their own plan document.',
+        ],
+        cites: [G1_BCBSTX_M015, G1_BCBSTX_M002, G1_BCBSTX_M003, G1_BCBSTX_M001],
+      },
+      {
+        h2: 'Technician credentials (RBT, grace period) and out-of-state BCBAs',
+        body: [
+          'BCBSTX’s technician rule. BCBSTX’s ABA Clinical Service Request Form for commercial plans (rev. 10/2025) sets these “Requirements for line staff providing 1:1 therapy: 1) 18+ years of age; 2) High school diploma or GED; 3) criminal background check prior to active employment; 4) via practice expense, completed training of ASD and behavioral related subjects/evidence based techniques (40 hours) and 5) have on-going supervisory oversight by the BCBA or ABA treatment supervisor for a minimum of 5% of hours directly worked with members.” The form does not require RBT certification, so there is no RBT grace period to track. The training time is “not billable to BCBSTX or members of BCBSTX,” and by signing, the supervisor certifies that the line therapists billed meet these qualifications and that “if staff changes at any time, new staff must meet the same qualifications.” The ABA supervisor attests to following the BACB’s supervision guidelines and to having “an active license in the state where this member’s services are rendered,” which for a child in Texas means a Texas LBA license. BCBSTX posts separate ABA forms for ERS and TRS (state employee and teacher) plans, so use those plans’ own forms.',
+          G1_TX_LAW,
+        ],
+        cites: [G1_BCBSTX_FORM, G1_BCBSTX_BHPAGE, G1_TX_OCC251, G1_TX_OCC054, G1_TX_OCC057, G1_TX_OCC256, G1_BCBSTX_TDLR],
+      },
+      {
+        h2: 'Claims: timely filing, prompt pay and claim review',
+        body: [
+          'BCBSTX’s PPO and Blue HPN provider manual (September 2026): "Plan claims must be submitted within 365 days of the date of service," and when coordination of benefits applies the filing period for the secondary claim does not start until you receive the primary payer’s payment or denial. Under the Texas Prompt Pay Act a clean claim from a contracted provider must be paid within 30 days if filed electronically and 45 days on paper; a request for more information within 30 days pauses the clock. To dispute a finalized claim, use a claim reconsideration request in Availity (preferred, with uploads) or the Claim Review Form by mail. Medical-necessity denials go through BCBSTX’s appeal process, decided within 30 calendar days (one working day or 72 hours for expedited appeals).',
+        ],
+        cites: [G1_BCBSTX_PRM],
+      },
+      {
+        h2: 'BlueCard: members of other Blue plans treated in Texas',
+        body: [
+          'A child covered by another state’s Blue plan is handled through BlueCard: you file the claim with BCBSTX, your local plan, "under your current billing practices," and the member’s home plan applies its benefits. Remind families that they are responsible for pre-certification of outpatient services from their own Blue plan, so get the home plan’s ABA authorization before starting.',
+        ],
+        cites: [G1_BCBSTX_BLUECARD],
+      },
+    ],
+    collect: [
+      { title: 'Plan type and funding', desc: 'PPO, Blue HPN, HMO, ERS or TRS; fully insured group (Texas mandate) or self-funded (plan document).' },
+      { title: 'Age at diagnosis', desc: 'The mandate reaches children diagnosed before their 10th birthday; ABA may be capped at $36,000/yr from age 10 on insured plans.' },
+      { title: 'Diagnosis report under 36 months old', desc: 'From a PCP or a specialized ASD-diagnosing provider, with the primary diagnosis code.' },
+      { title: 'Skills assessment within 30 days', desc: 'VB-MAPP, ABLLS, AFLS, ABAS or Vineland, dated within the last 30 days of the request.' },
+      { title: 'Line staff roster', desc: '18+, high school diploma or GED, background check, 40 hours of training, BCBA oversight of at least 5% of hours worked.' },
+    ],
+    sources: [G1_BCBSTX_FORM, G1_BCBSTX_ASSESS, G1_BCBSTX_TELEATT, G1_BCBSTX_CHANGE, G1_BCBSTX_BHPAGE, G1_BCBSTX_CALL, G1_BCBSTX_CLAIMNEWS, G1_BCBSTX_CPCP, G1_BCBSTX_RP033, G1_BCBSTX_ADM, G1_BCBSTX_PRM, G1_BCBSTX_BLUECARD, G1_BCBSTX_M015, G1_BCBSTX_M002, G1_BCBSTX_M003, G1_BCBSTX_I1301, G1_BCBSTX_I843, G1_BCBSTX_TDLR],
+    intakeGates: {
+      ageLimit: {
+      value: 'No age limit appears in BCBSTX’s ABA forms or CPCP011; medical necessity sits in licensed MCG criteria. For fully insured group plans § 1355.015 covers a child diagnosed before the 10th birthday from the date of diagnosis, and lets the plan cap ABA at $36,000 a year from age 10. Self-funded groups follow their plan document.',
+      status: 'verified',
+      cites: [G1_BCBSTX_CPCP, G1_BCBSTX_ADM, G1_BCBSTX_M015],
+      },
+      dxRecency: {
+      value: '"Current diagnostic required not older than 36 months" (Clinical Service Request and Initial Assessment Request forms), and the baseline skills "Assessment must be within the last 30 days."',
+      status: 'verified',
+      cites: [G1_BCBSTX_FORM, G1_BCBSTX_ASSESS],
+      },
+      diagnosingProviders: {
+      value: 'The forms accept a diagnosis from a PCP (family practice, internal medicine, pediatrics) or a specialized ASD-diagnosing provider: developmental-behavioral pediatrics, neurodevelopmental pediatrics, child neurology, adult or child psychiatry, licensed clinical psychology, or "Other (specify)." A licensed clinical social worker is not named. For insured plans § 1355.015 covers services prescribed by the child’s primary care physician in that physician’s treatment plan.',
+      status: 'verified',
+      cites: [G1_BCBSTX_FORM, G1_BCBSTX_ASSESS, G1_BCBSTX_M015],
+      },
+      diagnosticTools: {
+      value: 'BCBSTX’s published forms name no required diagnostic instrument; they ask for the diagnostic evaluation report plus a baseline skills assessment on "a recognized instrument such as the VB MAPP, ABLLS, AFLS, ABAS or the Vineland." Any instrument requirement in MCG B-806-T is licensed and not public.',
+      status: 'verified',
+      cites: [G1_BCBSTX_FORM, G1_BCBSTX_ADM],
+      },
+      referral: {
+      value: 'BCBSTX’s ABA documents require no referral form; the gate is the preservice request, started since April 2026 by calling the customer service number on the member’s ID card. HMO products may have their own referral rules. For fully insured group plans the mandate covers services "prescribed … by the enrollee’s primary care physician in the treatment plan recommended by that physician," so keep the PCP’s prescription on file.',
+      status: 'verified',
+      cites: [G1_BCBSTX_CALL, G1_BCBSTX_M015],
+      },
+      telehealth: {
+      value: 'RP033 (eff. 3/27/2026): providers delivering telehealth "must possess the necessary license to treat members of the Plan’s state," must document start and end times and the method of communication, and bill a telehealth modifier (95, GT and others) with POS 02 or 10. The provider manual says members may access covered benefits by telehealth and to check eligibility and benefits for coverage. BCBSTX’s ABA supervision-by-telehealth attestation requires documentation that the member is in a rural Health Professional Shortage Area or meets BCBSTX’s telehealth-supervision standards, written member consent, and a face-to-face functional assessment every six months.',
+      status: 'verified',
+      cites: [G1_BCBSTX_RP033, G1_BCBSTX_PRM, G1_BCBSTX_TELEATT],
+      },
+      authTurnaround: {
+      value: 'Depends on funding. For a fully insured PPO/EPO or HMO plan, Texas law requires the preauthorization determination "not later than the third calendar day after the date the request is received" (Ins. Code §§ 1301.135(c), 843.348(d)). Self-funded ERISA plans follow 29 CFR 2560.503-1: pre-service decisions within 15 days, with one 15-day extension. BCBSTX’s ABA form asks for requests at least two weeks, and no more than 60 days, before the start date.',
+      status: 'verified',
+      cites: [G1_BCBSTX_I1301, G1_BCBSTX_I843, G1_BCBSTX_ERISA, G1_BCBSTX_FORM],
+      },
+      coordinationOfBenefits: {
+      value: 'BCBSTX’s provider manual: providers must cooperate in coordination of benefits; some self-funded groups "may elect not to follow our general COB rules"; when another Blue plan issued the policy, that home plan administers COB; as secondary payer BCBSTX pays its allowable amount less what the primary paid, and the member owes only the patient share on BCBSTX’s claim summary. The secondary claim’s filing period starts when you receive the primary payer’s payment or denial.',
+      status: 'verified',
+      cites: [G1_BCBSTX_PRM],
+      },
+    },
+    deliveryRules: {
+      supervision: {
+      value: 'Billable supervision "must be face to face and involves only one technician"; indirect supervision is a practice expense, not separately paid. CPCP011 cites CASP’s 10–20% of direct hours for case supervision, and direct supervision "may be authorized … at a minimum of 1 hour per week when less than 10 hours of direct services are authorized." Line staff need BCBA oversight of at least 5% of hours worked (request form).',
+      status: 'verified',
+      cites: [G1_BCBSTX_CPCP, G1_BCBSTX_FORM],
+      },
+      concurrentBilling: {
+      value: 'Only one BCBA or QHP may bill the same or similar services on a date of service, but that "does not refer to the technician(s) or direct service provider simultaneously rendering service with the BCBA," so technician and supervision time can run together. 97156 is for caregiver sessions, "rather than 97155, which is reserved for supervisory activities." Co-treatment with speech or OT must carry the appropriate modifier.',
+      status: 'verified',
+      cites: [G1_BCBSTX_CPCP],
+      },
+      dailyLimits: {
+      value: 'Daily units follow "the most current release of the CMS MUE table" and the authorization; direct services are "typically requested for up to 40 hours per week"; an assessment over eight hours (32 units of 97151) may not be paid; parent education is typically one hour a week over a 26-week authorization. Timed units follow the 8-minute rule.',
+      status: 'verified',
+      cites: [G1_BCBSTX_CPCP],
+      },
+      noteSignature: {
+      value: 'Each rendered service needs "a parent or caregiver’s signature" that also shows the service or code, the "rendering provider’s name/signature," credentials, place of service, date and begin and end times, plus a written note of the service; data points may be required right after the service and for audit. Where a supervisor bills for a supervisee, session notes "should reflect both parties were present for the entire duration of the encounter."',
+      status: 'verified',
+      cites: [G1_BCBSTX_CPCP],
+      },
+      placeOfService: {
+      value: 'POS 10, 11 and 12 are the conventional settings; any other setting "should have supporting documentation on file" with a rationale. ABA "provided for educational, vocational, respite or custodial purposes" is not reimbursable. The request form lists office/clinic, home, community/daycare and school, and asks for clinical support for any location other than office or home.',
+      status: 'verified',
+      cites: [G1_BCBSTX_CPCP, G1_BCBSTX_FORM],
+      },
+      billAsProvider: {
+      value: 'The provider who renders treatment week to week "is considered the ‘rendering provider’ and should bill"; a non-qualified provider "cannot provide services and bill through another person’s NPI," and supervisee billing through a supervisor must follow state law and a formal supervisor-supervisee relationship. 97153 takes one credential modifier (HM, HN or HO). Out-of-network clinicians added to a group bill under their own rendering NPI.',
+      status: 'verified',
+      cites: [G1_BCBSTX_CPCP, G1_BCBSTX_CLAIMNEWS],
+      },
+    },
+    faq: [
+      { q: 'Does Blue Cross Blue Shield of Texas cover ABA therapy?', a: 'Yes, for autism, with prior authorization on treatment. Fully insured group plans also carry the Texas mandate (Ins. Code § 1355.015); self-funded employer plans follow their plan document.' },
+      { q: 'How do I request ABA authorization from BCBSTX in 2026?', a: 'Since April 2026, call the customer service number on the member’s ID card to start the preservice request; a clinician follows up with a telephonic clinical review. Start at least two weeks (and no more than 60 days) before the planned start date.' },
+      { q: 'How recent must the diagnosis be for BCBSTX?', a: 'No older than 36 months, per BCBSTX’s ABA request forms, with a baseline skills assessment from the last 30 days.' },
+      { q: 'What criteria does BCBSTX use for ABA medical necessity?', a: 'MCG’s Applied Behavioral Analysis guideline (B-806-T), since BCBSTX moved its ABA medical policy to MCG on January 1, 2026. MCG is licensed and available to providers through Availity.' },
+      { q: 'Does BCBS Texas commercial require RBT certification, and is there a grace period?', a: 'No RBT requirement is published for BCBSTX commercial plans. BCBSTX’s ABA Clinical Service Request Form (rev. 10/2025) requires line staff to be 18 or older with a high school diploma or GED, a criminal background check before starting work, 40 hours of ASD and behavioral training (paid by the practice, not billable), and BCBA supervision of at least 5% of the hours they work with members. Because RBT certification is not required, there is no grace period. The supervisor must hold an active license in the state where the member’s services are rendered.' },
+      { q: 'Does the Texas autism mandate have an age limit?', a: 'It covers a child whose autism diagnosis was in place before the 10th birthday, from the date of diagnosis, and lets an insured plan cap ABA at $36,000 a year from age 10. It does not reach ERS, UT/A&M or self-funded plans.' },
+      { q: 'What is BCBSTX’s timely filing limit for ABA claims?', a: '365 days from the date of service, per BCBSTX’s PPO and Blue HPN provider manual (September 2026). Clean electronic claims must be paid within 30 days under the Texas Prompt Pay Act (45 days on paper).' },
+      { q: 'Can an out-of-state BCBA treat a BCBSTX member in Texas?', a: 'Only briefly without a Texas license: Texas exempts an analyst licensed elsewhere, or BACB-certified, for no more than 20 days a calendar year, with written notice to the family (Occ. Code § 506.057). BCBSTX’s request form also has the supervisor attest to a license in the state where the member is served, and its telehealth policy requires the license needed to treat members of the plan’s state.' },
     ],
   },
 };

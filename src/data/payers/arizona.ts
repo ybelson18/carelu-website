@@ -2634,6 +2634,246 @@ export const arizonaPayers: Record<string, PayerConfig> = {
     ],
   },
 
+  'blue-cross-blue-shield-arizona': {
+    slug: 'blue-cross-blue-shield-arizona',
+    family: 'bcbs',
+    cardDesc: 'AZ Blue’s own ABA criteria O1203 (eff. 10/1/2026); no PA on 97151/97152 on the standard list, PA on 97153–97158; Steven’s Law layer.',
+    assessmentPA: {
+      value: 'Not on the standard list. AZ Blue’s Standard Prior Authorization Requirements Code List (updated 10/01/2026) lists 0362T, 0373T and 97153–97158 but not 97151 or 97152; the State of Arizona and Teamsters group lists are the same. FEP members differ: the FEP list includes 97151 and 97152. Some self-funded groups carry custom lists, so check the member in Availity or the prior authorization lookup',
+      status: 'verified',
+      cites: [
+        { title: 'AZ Blue — Prior Authorization Requirements Code Lists (xlsx; Standard list updated 10/01/2026)', url: 'https://edge.sitecorecloud.io/bluecross-6f8ea2ea/media/project/bcbs-az/azblue/data/media/files/providers/resources/code-lists/az-blue-prior-auth-code-lists.xlsx' },
+        { title: 'AZ Blue — Prior Authorization & Medical Policies (providers)', url: 'https://www.azblue.com/provider/resources/prior-authorization-and-medical-policies' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — 97153, 97154, 97155, 97156, 97157, 97158, 0362T and 0373T are on the Standard list (updated 10/01/2026) with AZ Blue as the PA administrator. Under criteria O1203 (effective 10/1/2026) authorization periods “range from 6 months to 1 year based on clinical presentation, symptom severity, and treatment needs,” and continuation needs an updated BCBA treatment plan and progress reports',
+      status: 'verified',
+      cites: [
+        { title: 'AZ Blue — Prior Authorization Requirements Code Lists (xlsx; Standard list updated 10/01/2026)', url: 'https://edge.sitecorecloud.io/bluecross-6f8ea2ea/media/project/bcbs-az/azblue/data/media/files/providers/resources/code-lists/az-blue-prior-auth-code-lists.xlsx' },
+        { title: 'AZ Blue Evidence-Based Criteria O1203 — Applied Behavior Analysis (ABA) (effective 10/01/26; last review 07/29/26)', url: 'https://edge.sitecorecloud.io/bluecross-6f8ea2ea/media/project/bcbs-az/medical-policies/clinical/medicine/applied-behavior-analysis.pdf' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes — a confirmed DSM ASD diagnosis made by a licensed psychiatrist, psychologist, developmental pediatrician, neurologist or family practitioner with specialized ASD training, validated by a comprehensive assessment and/or an evidence-based standardized ASD assessment, with the severity level in the report (O1203). ABA “for all other indications” is not medically necessary, and if a plan does not cover autism, ABA is a benefit-plan exclusion',
+      status: 'verified',
+      cites: [
+        { title: 'AZ Blue Evidence-Based Criteria O1203 — Applied Behavior Analysis (ABA) (effective 10/01/26; last review 07/29/26)', url: 'https://edge.sitecorecloud.io/bluecross-6f8ea2ea/media/project/bcbs-az/medical-policies/clinical/medicine/applied-behavior-analysis.pdf' },
+      ],
+    },
+    payer: 'Blue Cross Blue Shield of Arizona (AZ Blue, commercial)',
+    state: 'AZ', kind: 'commercial',
+    pill: 'Payer Guide · Blue Cross Blue Shield of Arizona',
+    h1: 'Blue Cross Blue Shield of Arizona (AZ Blue) ABA coverage: the intake guide.',
+    metaTitle: 'Blue Cross Blue Shield of Arizona ABA Coverage & Prior Auth Guide (Commercial) | Carelu',
+    metaDescription:
+      'How AZ Blue covers ABA for commercial members: its own Evidence-Based Criteria O1203 (effective 10/1/2026), which codes need prior authorization, supervision and caregiver-training minimums, 14-day Arizona PA decisions, and the Steven’s Law mandate.',
+    intro: [
+      'Blue Cross Blue Shield of Arizona — branded AZ Blue — is Arizona’s Blue plan for employer groups, individuals and federal employees. This guide covers its commercial plans. It is a different line from Blue Cross Blue Shield of Arizona Health Choice, the AHCCCS (Medicaid) plan, which has its own guide; and members with the IAZ prefix (ACA Health Choice network plans) are served by the Health Choice team.',
+      'AZ Blue replaced its earlier reliance on InterQual for ABA with its own Evidence-Based Criteria, O1203 “Applied Behavior Analysis (ABA),” effective October 1, 2026. It sets diagnosis standards, a detailed treatment-plan checklist, intensity bands for comprehensive and focused ABA, a 1:10 supervision baseline and a two-hour monthly caregiver-training minimum. Prior authorization is code-driven: the standard list covers the treatment codes but not the 97151/97152 assessment.',
+    ],
+    atGlance: [
+      { label: 'Clinical criteria', value: 'AZ Blue Evidence-Based Criteria O1203 — ABA (effective 10/1/2026)' },
+      { label: 'Assessment PA', value: 'Not on the standard list (97151/97152); FEP requires it' },
+      { label: 'Treatment PA', value: 'Required — 97153–97158, 0362T, 0373T; authorizations 6–12 months' },
+      { label: 'PA decision clock', value: '14 days non-urgent / 5 days urgent after all information is received (A.R.S. § 20-3404)' },
+      { label: 'State mandate', value: 'Steven’s Law (A.R.S. § 20-826.04 for service corporations, with parallel sections for other insurers)' },
+      { label: 'Mandate caps', value: 'None in the current text — no dollar limits based solely on an autism diagnosis' },
+      { label: 'Mandate age', value: 'No age limit in the current text' },
+      { label: 'Exempt from mandate', value: 'Individual and small-employer contracts; limited benefit coverage; services outside Arizona' },
+      { label: 'Licensure', value: 'Arizona requires a behavior analyst license (A.R.S. § 32-2091.02)' },
+    ],
+    sections: [
+      {
+        h2: 'O1203: what AZ Blue requires to start ABA',
+        body: [
+          'AZ Blue’s criteria (O1203, original and current effective date 10/01/26, last review 07/29/26) open with a benefit check — “COVERAGE FOR APPLIED BEHAVIOR ANALYSIS DEPENDS ON BENEFIT PLAN TERMS” — and then require all of the following to start ABA. A confirmed DSM ASD diagnosis by a licensed psychiatrist, psychologist, developmental pediatrician, neurologist or family practitioner with specialized training in diagnosing ASD, validated by a documented comprehensive assessment and/or an evidence-based standardized ASD assessment, with the severity level stated in the diagnostic report. Clinically significant behavioral or skill deficits that interfere with home, community or age-appropriate activities, or a health or safety risk. And, for every new request, a formal treatment plan from the member’s BCBA or BCBA-D covering: proposed treatment type (comprehensive or focused), history and other therapies, baseline data, frequency, the total requested hours itemized by service code with individual and group services separated (direct treatment, supervision and caregiver training), anticipated duration, measurable goals based on a standardized assessment, data-collection methods, caregiver training with measurable goals, operationalized transition and discharge criteria, and group goals if group ABA is requested.',
+          'Intensity bands: comprehensive ABA is “generally provided at greater than 25 hours per week of direct treatment,” with up to 40 hours authorized when clinically justified; focused ABA is “generally provided at fewer than 25 hours per week,” with more allowed when justified (for example persistent high-risk behaviors). Requests above these levels must show coordination with other services and a plan for school, leisure time and rest. ABA must not duplicate other services, including support in an IEP or ISP or any obligation a public school has under IDEA. Authorization periods run 6 months to 1 year.',
+          'Continuation requires an updated BCBA treatment plan and progress reports at the end of each authorization with graphed data on behavior change, progress from baseline for each target, objective skill data, plan adjustments, revised timelines and — “If less than 80% of authorized treatment hours are delivered” — the barriers and how they were addressed. Caregivers must participate and show progress, and a barriers assessment is required when expected progress is not met. Step-down and discharge planning are written into the criteria, including discharge when a family prefers to stop or provider and family cannot align on treatment.',
+        ],
+        cites: [
+          { title: 'AZ Blue Evidence-Based Criteria O1203 — Applied Behavior Analysis (ABA) (effective 10/01/26; last review 07/29/26)', url: 'https://edge.sitecorecloud.io/bluecross-6f8ea2ea/media/project/bcbs-az/medical-policies/clinical/medicine/applied-behavior-analysis.pdf' },
+        ],
+      },
+      {
+        h2: 'Prior authorization: which codes, where, and how fast',
+        body: [
+          'AZ Blue publishes its prior authorization code lists as a spreadsheet. On the Standard list (updated 10/01/2026, “for coverage under medical benefits”), 97153, 97154, 97155, 97156, 97157, 97158, 0362T and 0373T require prior authorization administered by AZ Blue; 97151 and 97152 are not listed. The State of Arizona employee group list and the Teamsters list match on ABA. The FEP list adds 97151 and 97152, and at least one self-funded group’s custom list (Snell & Wilmer) has its own ABA rows, so check the member’s requirements in Availity Essentials or AZ Blue’s prior authorization lookup before booking. Requests go through Availity Essentials’ authorization feature or AZ Blue’s fax and online request forms.',
+          'Arizona law sets the clock for plans it governs. A.R.S. § 20-3404 requires notice of the decision “not later than fourteen days after receipt of all necessary information” for non-urgent requests and five days for urgent ones, plus a receipt acknowledging the information, and a denial must state the specific reason. A.R.S. § 20-3403 requires plans to publish all prior authorization requirements and the documentation needed for a complete request. On claims, A.R.S. § 20-3102 requires a clean claim to be adjudicated within thirty days (or the contract period) and paid within thirty days after adjudication, with interest if late.',
+        ],
+        cites: [
+          { title: 'AZ Blue — Prior Authorization Requirements Code Lists (xlsx; Standard list updated 10/01/2026)', url: 'https://edge.sitecorecloud.io/bluecross-6f8ea2ea/media/project/bcbs-az/azblue/data/media/files/providers/resources/code-lists/az-blue-prior-auth-code-lists.xlsx' },
+          { title: 'AZ Blue — Prior Authorization & Medical Policies (providers)', url: 'https://www.azblue.com/provider/resources/prior-authorization-and-medical-policies' },
+          { title: 'A.R.S. § 20-3404 — Prior authorization requirement timelines', url: 'https://www.azleg.gov/ars/20/03404.htm' },
+          { title: 'A.R.S. § 20-3403 — Prior authorization requirements; disclosures; access', url: 'https://www.azleg.gov/ars/20/03403.htm' },
+          { title: 'A.R.S. § 20-3102 — Timely payment of health care providers’ claims', url: 'https://www.azleg.gov/ars/20/03102.htm' },
+        ],
+      },
+      {
+        h2: 'Steven’s Law: what the Arizona mandate guarantees',
+        body: [
+          'A.R.S. § 20-826.04, the autism section for hospital and medical service corporations, bars excluding or denying coverage for a treatment, or imposing dollar limits, deductibles and coinsurance “based solely on the diagnosis of autism spectrum disorder” (treatment includes diagnosis, assessment and services), and bars excluding or denying “medically necessary behavioral therapy services,” which must be “provided or supervised by a licensed or certified provider.” Behavioral therapy is defined to include applied behavior analysis. The current text has no dollar cap and no age limit. It does not apply to a contract issued to an individual or a small employer, to limited benefit coverage, or to services outside Arizona, and coverage stays subject to the contract’s terms and ordinary cost sharing. Arizona also licenses behavior analysts: “A person who wishes to practice as a behavior analyst must be licensed” (A.R.S. § 32-2091.02).',
+        ],
+        cites: [
+          { title: 'A.R.S. § 20-826.04 — Subscription contracts; autism spectrum disorder; coverage', url: 'https://www.azleg.gov/ars/20/00826-04.htm' },
+          { title: 'A.R.S. § 32-2091.02 — Behavior analysts; qualifications of applicant', url: 'https://www.azleg.gov/ars/32/02091-02.htm' },
+        ],
+      },
+      {
+        h2: 'Rates and claims',
+        body: [
+          'AZ Blue publishes no commercial ABA fee schedule; rates are in your participating provider agreement. For a public benchmark, AHCCCS fee-for-service pays 97153 at $17.91–$23.69 and 97151 at $30.06–$44.73 per 15-minute unit by degree tier on its FFY27 schedule (effective 10/1/2026). Corrected claims go through Availity as frequency type 7 with the original claim number; a corrected rendering NPI uses AZ Blue’s corrected claim form with medical-record documentation of the rendering provider. AZ Blue’s Provider Operating Guide, which holds its filing limits and appeal rules, sits behind the provider login.',
+        ],
+        cites: [
+          { title: 'AZ Blue — Claims & Remits (providers)', url: 'https://www.azblue.com/provider/resources/claims-and-remits' },
+          { title: 'AHCCCS — Final Applied Behavior Analysis (ABA) Fee Schedule, FFY27 (eff. 10/01/2026)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA/FY27_ABA_WebsiteRates.xlsx' },
+        ],
+      },
+    ],
+    collect: [
+      { title: 'Plan line and prefix', desc: 'AZ Blue commercial, FEP, a self-funded group with a custom list, or IAZ (ACA Health Choice) — each has different PA rules.' },
+      { title: 'Group size and funding', desc: 'Steven’s Law does not reach individual or small-employer contracts.' },
+      { title: 'Diagnostic report', desc: 'From a qualified diagnostician, validated by a comprehensive or standardized assessment, with the severity level stated.' },
+      { title: 'IEP / ISP and other therapies', desc: 'O1203 bars ABA that duplicates school, speech, OT or other behavioral health services.' },
+      { title: 'Caregiver availability', desc: 'At least 2 hours a month of caregiver training is expected unless documented otherwise.' },
+    ],
+    sources: [
+      { title: 'AZ Blue Evidence-Based Criteria O1203 — Applied Behavior Analysis (ABA) (effective 10/01/26; last review 07/29/26)', url: 'https://edge.sitecorecloud.io/bluecross-6f8ea2ea/media/project/bcbs-az/medical-policies/clinical/medicine/applied-behavior-analysis.pdf' },
+      { title: 'AZ Blue — Prior Authorization Requirements Code Lists (xlsx; Standard list updated 10/01/2026)', url: 'https://edge.sitecorecloud.io/bluecross-6f8ea2ea/media/project/bcbs-az/azblue/data/media/files/providers/resources/code-lists/az-blue-prior-auth-code-lists.xlsx' },
+      { title: 'AZ Blue — Prior Authorization & Medical Policies (providers)', url: 'https://www.azblue.com/provider/resources/prior-authorization-and-medical-policies' },
+      { title: 'AZ Blue — Claims & Remits (providers)', url: 'https://www.azblue.com/provider/resources/claims-and-remits' },
+      { title: 'A.R.S. § 20-826.04 — Subscription contracts; autism spectrum disorder; coverage', url: 'https://www.azleg.gov/ars/20/00826-04.htm' },
+      { title: 'A.R.S. § 20-3404 — Prior authorization requirement timelines', url: 'https://www.azleg.gov/ars/20/03404.htm' },
+      { title: 'A.R.S. § 20-3403 — Prior authorization requirements; disclosures; access', url: 'https://www.azleg.gov/ars/20/03403.htm' },
+      { title: 'A.R.S. § 20-3102 — Timely payment of health care providers’ claims', url: 'https://www.azleg.gov/ars/20/03102.htm' },
+      { title: 'A.R.S. § 32-2091.02 — Behavior analysts; qualifications of applicant', url: 'https://www.azleg.gov/ars/32/02091-02.htm' },
+    ],
+    deliveryRules: {
+      supervision: {
+        value: 'O1203: “one to two hours of case supervision for every 10 hours of direct treatment delivered by unlicensed ABA staff (1:10 baseline) is the general standard of care,” adjusted to the member’s needs. BCBAs practice independently; BCaBAs practice and supervise RBTs only under a BCBA; RBTs work “under the direction and close supervision of a BCBA or BCaBA.” Caregiver training of at least 2 hours a month is required unless documentation shows it is not medically necessary or barriers are insurmountable.',
+        status: 'verified',
+        cites: [
+          { title: 'AZ Blue Evidence-Based Criteria O1203 — Applied Behavior Analysis (ABA) (effective 10/01/26; last review 07/29/26)', url: 'https://edge.sitecorecloud.io/bluecross-6f8ea2ea/media/project/bcbs-az/medical-policies/clinical/medicine/applied-behavior-analysis.pdf' },
+        ],
+      },
+      concurrentBilling: {
+        value: 'Not addressed. O1203 asks for hours itemized by service code with direct treatment, supervision and caregiver training separated, but says nothing about billing 97155 and 97153 for the same minutes.',
+        status: 'unverified',
+        cites: [
+          { title: 'AZ Blue Evidence-Based Criteria O1203 — Applied Behavior Analysis (ABA) (effective 10/01/26; last review 07/29/26)', url: 'https://edge.sitecorecloud.io/bluecross-6f8ea2ea/media/project/bcbs-az/medical-policies/clinical/medicine/applied-behavior-analysis.pdf' },
+        ],
+        verifyVia: 'AZ Blue Provider Operating Guide (login) or your provider liaison / Provider Partnerships. Checked this run: O1203 and the PA code lists.',
+        blocker: 'per-case',
+      },
+      dailyLimits: {
+        value: 'No per-day ceiling is published. O1203 sets weekly bands instead: comprehensive ABA generally above 25 hours a week of direct treatment, up to 40 when clinically justified; focused ABA generally below 25, more when justified. Steven’s Law bars dollar limits based solely on an autism diagnosis.',
+        status: 'verified',
+        cites: [
+          { title: 'AZ Blue Evidence-Based Criteria O1203 — Applied Behavior Analysis (ABA) (effective 10/01/26; last review 07/29/26)', url: 'https://edge.sitecorecloud.io/bluecross-6f8ea2ea/media/project/bcbs-az/medical-policies/clinical/medicine/applied-behavior-analysis.pdf' },
+          { title: 'A.R.S. § 20-826.04 — Subscription contracts; autism spectrum disorder; coverage', url: 'https://www.azleg.gov/ars/20/00826-04.htm' },
+        ],
+      },
+      noteSignature: {
+        value: 'Not published openly. O1203 sets treatment-plan and progress-report contents (authored by the BCBA or BCBA-D) but no session-note signature rule; AZ Blue’s documentation and billing rules are in its Provider Operating Guide, which requires a provider login.',
+        status: 'unverified',
+        cites: [
+          { title: 'AZ Blue Evidence-Based Criteria O1203 — Applied Behavior Analysis (ABA) (effective 10/01/26; last review 07/29/26)', url: 'https://edge.sitecorecloud.io/bluecross-6f8ea2ea/media/project/bcbs-az/medical-policies/clinical/medicine/applied-behavior-analysis.pdf' },
+        ],
+        verifyVia: 'AZ Blue Provider Operating Guide (azblue.com provider login) — medical record / documentation section.',
+        blocker: 'document',
+      },
+      placeOfService: {
+        value: '“ABA treatment may be delivered in a variety of settings” (O1203), but it must not duplicate services that support academic achievement in school, including IEP or ISP supports or any public-school obligation under IDEA. No list of payable POS codes is published.',
+        status: 'verified',
+        cites: [
+          { title: 'AZ Blue Evidence-Based Criteria O1203 — Applied Behavior Analysis (ABA) (effective 10/01/26; last review 07/29/26)', url: 'https://edge.sitecorecloud.io/bluecross-6f8ea2ea/media/project/bcbs-az/medical-policies/clinical/medicine/applied-behavior-analysis.pdf' },
+        ],
+      },
+      billAsProvider: {
+        value: 'Not published openly. O1203 says services may be rendered by RBTs or other trained paraprofessionals under the qualified provider’s supervision but not whose NPI goes on the claim; AZ Blue’s claims page only says a corrected rendering NPI needs medical-record documentation of the rendering provider.',
+        status: 'unverified',
+        cites: [
+          { title: 'AZ Blue — Claims & Remits (providers)', url: 'https://www.azblue.com/provider/resources/claims-and-remits' },
+        ],
+        verifyVia: 'AZ Blue Provider Operating Guide (login) or credentialing: ask whether RBT-delivered 97153 is billed under the supervising BCBA.',
+        blocker: 'document',
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value: 'None. O1203 sets no age bound (it describes autism as lifelong, with re-entry to treatment as needed), and the current text of A.R.S. § 20-826.04 has no age limit.',
+        status: 'verified',
+        cites: [
+          { title: 'AZ Blue Evidence-Based Criteria O1203 — Applied Behavior Analysis (ABA) (effective 10/01/26; last review 07/29/26)', url: 'https://edge.sitecorecloud.io/bluecross-6f8ea2ea/media/project/bcbs-az/medical-policies/clinical/medicine/applied-behavior-analysis.pdf' },
+          { title: 'A.R.S. § 20-826.04 — Subscription contracts; autism spectrum disorder; coverage', url: 'https://www.azleg.gov/ars/20/00826-04.htm' },
+        ],
+      },
+      dxRecency: {
+        value: 'No recency window. O1203 requires a confirmed, validated diagnosis with severity stated, but no maximum age for the evaluation; discharge is considered if the member “no longer meets diagnostic criteria” on standardized assessment.',
+        status: 'verified',
+        cites: [
+          { title: 'AZ Blue Evidence-Based Criteria O1203 — Applied Behavior Analysis (ABA) (effective 10/01/26; last review 07/29/26)', url: 'https://edge.sitecorecloud.io/bluecross-6f8ea2ea/media/project/bcbs-az/medical-policies/clinical/medicine/applied-behavior-analysis.pdf' },
+        ],
+      },
+      diagnosingProviders: {
+        value: '“Diagnosis of ASD is made by a licensed psychiatrist, psychologist, developmental pediatrician, neurologist, or family practitioner with specialized training in diagnosis of ASD” (O1203).',
+        status: 'verified',
+        cites: [
+          { title: 'AZ Blue Evidence-Based Criteria O1203 — Applied Behavior Analysis (ABA) (effective 10/01/26; last review 07/29/26)', url: 'https://edge.sitecorecloud.io/bluecross-6f8ea2ea/media/project/bcbs-az/medical-policies/clinical/medicine/applied-behavior-analysis.pdf' },
+        ],
+      },
+      diagnosticTools: {
+        value: 'No named instrument. The diagnosis “must be validated by a documented comprehensive assessment and/or results of an appropriate evidence-based autism spectrum disorder standardized assessment,” the report must identify the severity level, and treatment goals must rest on a standardized assessment with baseline data (functional behavioral, risk-behavior or age-normative skill assessments).',
+        status: 'verified',
+        cites: [
+          { title: 'AZ Blue Evidence-Based Criteria O1203 — Applied Behavior Analysis (ABA) (effective 10/01/26; last review 07/29/26)', url: 'https://edge.sitecorecloud.io/bluecross-6f8ea2ea/media/project/bcbs-az/medical-policies/clinical/medicine/applied-behavior-analysis.pdf' },
+        ],
+      },
+      referral: {
+        value: 'No physician order or referral is required by O1203 — the gate is the qualified diagnosis plus a formal treatment plan from the member’s BCBA or BCBA-D — and Steven’s Law adds none. Check the member’s plan for an HMO referral rule.',
+        status: 'verified',
+        cites: [
+          { title: 'AZ Blue Evidence-Based Criteria O1203 — Applied Behavior Analysis (ABA) (effective 10/01/26; last review 07/29/26)', url: 'https://edge.sitecorecloud.io/bluecross-6f8ea2ea/media/project/bcbs-az/medical-policies/clinical/medicine/applied-behavior-analysis.pdf' },
+          { title: 'A.R.S. § 20-826.04 — Subscription contracts; autism spectrum disorder; coverage', url: 'https://www.azleg.gov/ars/20/00826-04.htm' },
+        ],
+      },
+      telehealth: {
+        value: 'Not addressed in O1203 or the PA code lists; AZ Blue’s telehealth billing rules are in its login-only Provider Operating Guide.',
+        status: 'unverified',
+        cites: [
+          { title: 'AZ Blue Evidence-Based Criteria O1203 — Applied Behavior Analysis (ABA) (effective 10/01/26; last review 07/29/26)', url: 'https://edge.sitecorecloud.io/bluecross-6f8ea2ea/media/project/bcbs-az/medical-policies/clinical/medicine/applied-behavior-analysis.pdf' },
+        ],
+        verifyVia: 'AZ Blue Provider Operating Guide (login), telehealth section, or Provider Partnerships: which ABA codes are payable by telehealth and with what POS/modifier.',
+        blocker: 'document',
+      },
+      authTurnaround: {
+        value: 'For plans under Arizona law, A.R.S. § 20-3404: decision notice “not later than fourteen days after receipt of all necessary information” for non-urgent requests and five days for urgent ones, with a receipt acknowledging the information and a specific reason for any denial. O1203 authorizations run 6 months to 1 year.',
+        status: 'verified',
+        cites: [
+          { title: 'A.R.S. § 20-3404 — Prior authorization requirement timelines', url: 'https://www.azleg.gov/ars/20/03404.htm' },
+          { title: 'AZ Blue Evidence-Based Criteria O1203 — Applied Behavior Analysis (ABA) (effective 10/01/26; last review 07/29/26)', url: 'https://edge.sitecorecloud.io/bluecross-6f8ea2ea/media/project/bcbs-az/medical-policies/clinical/medicine/applied-behavior-analysis.pdf' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value: 'Not published openly — AZ Blue’s coordination-of-benefits rules sit in its login-only Provider Operating Guide. O1203 separately requires that ABA not duplicate services available through other providers or the school.',
+        status: 'unverified',
+        cites: [
+          { title: 'AZ Blue — Claims & Remits (providers)', url: 'https://www.azblue.com/provider/resources/claims-and-remits' },
+        ],
+        verifyVia: 'AZ Blue Provider Operating Guide (login), COB section, or AZ Blue provider services.',
+        blocker: 'document',
+      },
+    },
+    faq: [
+      { q: 'Does Blue Cross Blue Shield of Arizona require prior authorization for the ABA assessment?', a: 'Not on its standard commercial list: the Standard Prior Authorization Requirements Code List (updated 10/01/2026) lists 97153–97158, 0362T and 0373T but not 97151 or 97152. FEP members do need PA for 97151 and 97152, and some self-funded groups have custom lists, so check the member in Availity first.' },
+      { q: 'What does AZ Blue require to approve ABA?', a: 'Under criteria O1203 (effective 10/1/2026): a validated ASD diagnosis by a qualified diagnostician with the severity level stated, documented functional impairment or safety risk, and a formal BCBA treatment plan with itemized hours by code, measurable goals from a standardized assessment, caregiver training and discharge criteria.' },
+      { q: 'How many hours of ABA will AZ Blue authorize?', a: 'O1203 bands comprehensive ABA above 25 hours a week (up to 40 when justified) and focused ABA below 25 (more when justified). Authorizations run 6 months to 1 year.' },
+      { q: 'How fast must AZ Blue decide an ABA prior authorization?', a: 'For plans governed by Arizona law, within 14 days of receiving all necessary information (5 days if urgent), under A.R.S. § 20-3404.' },
+      { q: 'Is the AZ Blue commercial plan the same as Health Choice?', a: 'No. Blue Cross Blue Shield of Arizona Health Choice is the AHCCCS (Medicaid) plan and follows AHCCCS rules; see our Health Choice Arizona guide. IAZ-prefix ACA Health Choice network plans are also handled by the Health Choice team.' },
+      { q: 'What does AZ Blue pay for ABA?', a: 'Commercial rates are not published; they are in your provider agreement. AHCCCS’s FFS schedule (97153 $17.91–$23.69 per 15 minutes) is the public benchmark.' },
+    ],
+  },
+
   'aetna-arizona': {
     slug: 'aetna-arizona',
     family: 'aetna',

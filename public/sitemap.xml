@@ -1993,6 +1993,18 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://carelu.com/payers/blue-cross-blue-shield-texas</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://carelu.com/payers/blue-cross-blue-shield-new-mexico-commercial</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://carelu.com/payers/michigan-medicaid</loc>
     <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>

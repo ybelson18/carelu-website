@@ -610,6 +610,16 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
           { title: 'N.J.A.C. 10:49-9.10 — Withholding of provider payments (LII)', url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-10-49-9-10' },
         ],
       },
+      {
+        h2: 'Authorization requests moved to Availity Essentials (October 2026)',
+        body: [
+          'Horizon\'s October 26, 2026 notice says prior authorization management "is moving to Availity Essentials ... for your Horizon, Horizon NJ Health and Braven Health members," and that "beginning October 24, you will need to move from the current Horizon Utilization Management Tool authorization workflow to the authorization tools in Availity Essentials." The old UM Tool stays only for "appeals associated with existing authorizations." Users need the "Authorization and Referral Request" and "Authorization and Referral Inquiry" roles, and decision letters arrive through Availity\'s Digital Correspondence. The notice says the old workflow is replaced "for most authorization activities" and does not name ABA or behavioral health, so confirm the submission route for an ABA request with Horizon Behavioral Health before relying on Availity alone.',
+        ],
+        cites: [
+          { title: 'Horizon NJ Health — Transition Your Authorization Workflow to Availity Essentials (ECNA0027007E, published Oct. 26, 2026)', url: 'https://www.horizonnjhealth.com/for-providers/news/updates-and-announcements/transition-your-authorization-workflow-to-availity' },
+          { title: 'Horizon NJ Health — Authorization Management Tools on Availity Essentials', url: 'https://www.horizonnjhealth.com/for-providers/resources/authorization-management-tools-availity-essentials' },
+        ],
+      },
     ],
     collect: [
       { title: 'ASD script + diagnosis', desc: 'The QHP\'s ASD script triggers the 32-unit/30-day assessment fast-track — collect it at first contact.' },
@@ -3051,6 +3061,16 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
           { title: 'Horizon BCBSNJ — Clinical Auditing and Monitoring Unit (CAMU) Medical Necessity Audit FAQs', url: 'https://www.horizonblue.com/providers/policies-procedures/claim-submission-billing/pre-payment-correct-coding-reviews/clinical-auditing-and-monitoring-unit-camu-medical-necessity-audit-faqs' },
           { title: 'Horizon BCBSNJ — Professional Provider Manual: Claims Submissions and Reimbursement (Reimbursement Requests for Under- and Overpayments)', url: 'https://www.horizonblue.com/providers/resources/working-us-information-education-resources/manuals-user-guides/professional-provider-manual/claims-submissions-and-reimbursement' },
           { title: 'P.L.2005, c.352 — Health Claims Authorization, Processing and Payment Act (N.J.S.A. 17B:30-48 et seq.; prompt pay in 17B:26-9.1, 17B:27-44.2, 17:48E-10.1, 26:2J-8.1)', url: 'https://pub.njleg.state.nj.us/Bills/2004/PL05/352_.PDF' },
+        ],
+      },
+      {
+        h2: 'Authorization requests moved to Availity Essentials (October 2026)',
+        body: [
+          'Horizon\'s October 26, 2026 notice says prior authorization management "is moving to Availity Essentials ... for your Horizon, Horizon NJ Health and Braven Health members," and that "beginning October 24, you will need to move from the current Horizon Utilization Management Tool authorization workflow to the authorization tools in Availity Essentials." The old UM Tool stays only for "appeals associated with existing authorizations." Users need the "Authorization and Referral Request" and "Authorization and Referral Inquiry" roles, and decision letters arrive through Availity\'s Digital Correspondence. The notice says the old workflow is replaced "for most authorization activities" and does not name ABA or behavioral health, so confirm the submission route for an ABA request with Horizon Behavioral Health before relying on Availity alone.',
+        ],
+        cites: [
+          { title: 'Horizon NJ Health — Transition Your Authorization Workflow to Availity Essentials (ECNA0027007E, published Oct. 26, 2026)', url: 'https://www.horizonnjhealth.com/for-providers/news/updates-and-announcements/transition-your-authorization-workflow-to-availity' },
+          { title: 'Horizon NJ Health — Authorization Management Tools on Availity Essentials', url: 'https://www.horizonnjhealth.com/for-providers/resources/authorization-management-tools-availity-essentials' },
         ],
       },
     ],
