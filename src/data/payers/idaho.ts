@@ -41,7 +41,7 @@ const TRICARE_1079: PayerSource = { title: '10 U.S.C. 1079(i)(1) — TRICARE pay
 const CHAMPVA_270: PayerSource = { title: '38 CFR 17.270 — CHAMPVA is the last payer', url: 'https://www.ecfr.gov/current/title-38/section-17.270' };
 
 // ---- Carrier sources (all read 2026-09-24) ----
-const REG_BH18: PayerSource = { title: 'Regence Medical Policy BH18 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (the link now serves the revision effective 11/1/2026, last review June 2026; the 8/1/2025 version applies until then)', url: 'https://beonbrand.getbynder.com/m/e4646f415eb7f4eb/' };
+const REG_BH18: PayerSource = { title: 'Regence Medical Policy BH18 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (effective 8/1/2025, last review June 2025; as of 11/1/2026 the link still serves this version, with a note that a revised policy takes effect November 1, 2026 — the revised text was not yet published)', url: 'https://beonbrand.getbynder.com/m/e4646f415eb7f4eb/' };
 const REG_BH33: PayerSource = { title: 'Regence Medical Policy BH33 — ABA Initial Assessment for the Treatment of Autism Spectrum Disorder (eff. 8/1/2025)', url: 'https://beonbrand.getbynder.com/m/8360cc45444cab46/' };
 const REG_FORM: PayerSource = { title: 'Regence BlueShield of Idaho — ABA Utilization Management request form 5385ID (eff. 5/2026)', url: 'https://beonbrand.getbynder.com/m/4e9025772576d2cb/original/Applied-Behavioral-Analysis-ABA-Initial-Request-Form.pdf' };
 const BCI_PAP902: PayerSource = { title: 'Blue Cross of Idaho PAP902 — Behavioral Health Prior Authorization Requirements (revised April 2026)', url: 'https://providers.bcidaho.com/policies-and-procedures/pap/pap902.page' };

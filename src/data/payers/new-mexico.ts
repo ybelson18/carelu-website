@@ -24,6 +24,20 @@ const G1_NM_MCD_OOS =
 const G1_NM_LAW =
   'New Mexico law for commercial plans. New Mexico does not license behavior analysts or technicians (it is not on the BACB’s table of licensing states, read 11/1/2026), so there is no New Mexico license for an out-of-state BCBA to obtain, and any technician credential comes from the payer.';
 
+const G1_BCBSNM_FORM = { title: 'BCBSNM — Applied Behavior Analysis Clinical Service Request Form, initial and concurrent (rev. 10/2025, 489482.1125)', url: 'https://www.bcbsnm.com/docs/provider/nm/education/forms/aba-clinical-service-request.pdf' };
+const G1_BCBSNM_PALIST = { title: 'BCBSNM — 2026 Commercial Outpatient Behavioral Health Prior Authorization Codes (eff. 1/1/2026)', url: 'https://www.bcbsnm.com/docs/provider/nm/claims/claims-and-eligibility/preservice-reviews/nm-bh-aso-pa-code-list.pdf' };
+const G1_BCBSNM_CALL = { title: 'BCBSNM news (1/15/2026) — Call for Preservice Requests for Applied Behavior Analysis for Commercial Members (effective April 2026)', url: 'https://www.bcbsnm.com/provider/education-reference/education/news/2026/1-15-2026-call-for-preservice-requests-for-applied-behavior-analysis' };
+const G1_BCBSNM_CLAIMNEWS = { title: 'BCBSNM news (5/12/2026) — Claims Reminders for Behavioral Health Services', url: 'https://www.bcbsnm.com/provider/education-reference/education/news/2026/5-12-2026-claims-reminders-for-behavioral-health-services' };
+const G1_BCBSNM_CPCP = { title: 'BCBSNM CPCP011 — Applied Behavior Analysis (plan effective 3/20/2026)', url: 'https://www.bcbsnm.com/docs/provider/nm/standards/cpcp/2026/cpcp011-3-20-2026.pdf' };
+const G1_BCBSNM_RP033 = { title: 'BCBSNM RP033 — Telemedicine and Telehealth/Virtual Services Policy (eff. 3/27/2026)', url: 'https://www.bcbsnm.com/docs/provider/nm/standards/cpcp/2026/rp033-3-27-2026.pdf' };
+const G1_BCBSNM_ADM = { title: 'BCBSNM ADM1001.036 — Medical Policies Moving to MCG Guidelines (version effective 11/1/2026; PSY301.021 ABA → MCG B-806-T)', url: 'https://medicalpolicy.bcbsnm.com/content/dam/bcbs/medicalpolicy/pdf/administrative/ADM1001.036_2026-11-01.pdf' };
+const G1_BCBSNM_PRM = { title: 'BCBSNM — Provider Reference Manual (updated September 2026): § 8.6 Timely Filing and Payments; § 8.11 Coordination of Benefits; § 12 Behavioral Health (telehealth, forms)', url: 'https://www.bcbsnm.com/docs/provider/nm/bcbsnm-provider-reference-manual.pdf' };
+const G1_BCBSNM_BLUECARD = { title: 'BCBSNM — The BlueCard Program Provider Manual (June 2026)', url: 'https://www.bcbsnm.com/docs/provider/nm/bluecard_manual.pdf' };
+const G1_BCBSNM_M49 = { title: 'NMSA 1978 § 59A-22-49 — Coverage for autism spectrum disorder diagnosis and treatment (FindLaw, current as of 1/1/2024)', url: 'https://codes.findlaw.com/nm/chapter-59a-insurance-code/nm-st-sect-59a-22-49/' };
+const G1_BCBSNM_HMO = { title: 'NMSA § 59A-46-50 — HMO parallel section (Justia)', url: 'https://law.justia.com/codes/new-mexico/chapter-59a/article-46/section-59a-46-50/' };
+const G1_BCBSNM_PAA = { title: 'NMSA § 59A-22B-5 — Prior Authorization Act timelines (FindLaw)', url: 'https://codes.findlaw.com/nm/chapter-59a-insurance-code/nm-st-sect-59a-22b-5/' };
+const G1_BCBSNM_ERISA = { title: '29 CFR 2560.503-1(f)(2) — ERISA group health plan claim decision timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' };
+
 export const newMexicoPayers: Record<string, PayerConfig> = {
   'new-mexico-medicaid': {
     slug: 'new-mexico-medicaid',
@@ -618,6 +632,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { q: 'Which modifiers mark the rendering credential on a New Mexico Turquoise Care ABA claim?', a: 'U modifiers from the state ABA fee schedule (LOD #53): U5 Qualifying Psychologist, U4 BCBA-D, U3 BCBA, U9 BCaBA, U1 behavior technician. New Mexico does not use HM/HN/HO/HP, and the MCO may not pay less than the fee-schedule rate for the tier.' },
       { q: 'Does BCBSNM (Turquoise Care) require RBT certification, and is there a grace period?', a: 'BCBSNM (Turquoise Care) follows New Mexico Medicaid: a technician may start as a non-certified behavior technician (18+, diploma, background check, 4 hours of ASD training and 20 of the 40 RBT/BCAT training hours first) but must hold an RBT or BCAT certificate within six continuous months of approval, or stop rendering services until certified.' },
       { q: 'Can an out-of-state BCBA treat BCBSNM (Turquoise Care) members by telehealth?', a: 'New Mexico has no behavior analyst license, so Medicaid qualifies BCBAs by certification and MAD attestation. HCA does not require in-state ABA providers to hold a telemedicine license; an out-of-state diagnosing physician (AEP) needs a New Mexico Medical Board telemedicine or full license. No published rule addresses an out-of-state ABA agency enrolling, so ask the MAD ABA Manager first.' },
+      { q: 'Where are the rules for BCBSNM commercial (non-Medicaid) plans?', a: 'In the separate Blue Cross and Blue Shield of New Mexico commercial guide (/payers/blue-cross-blue-shield-new-mexico-commercial). This guide covers Turquoise Care (Medicaid) only.' },
     ],
   },
 
@@ -2417,6 +2432,175 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { q: 'Does UnitedHealthcare require a referring provider (box 17) on ABA claims?', a: 'No. Optum’s claim requirements do not include a referring provider. UnitedHealthcare makes the referring name and NPI mandatory only for lab, DME, imaging and home health claims. For other claims it encourages the referring NPI but does not require it.' },
       { q: 'What do HM, HN, HO and HP mean on a UnitedHealthcare / Optum ABA claim?', a: 'They identify who rendered the service: HM an RBT (less than bachelor’s level), HN a BCaBA (bachelor’s level), HO a master’s-level BCBA or licensed clinician, HP a BCBA-D or doctoral-level clinician. One per line; 97151 and 97155–97158 cannot take HM; 0362T/0373T take none (Optum ABA Reimbursement Policy 2022RP501A, June 2026).' },
       { q: 'Does UnitedHealthcare require RBT certification for ABA technicians in New Mexico, and is there a grace period?', a: 'Yes, or an equivalent: Optum requires technicians to be an RBT, BCAT or ABAT, and any other certification must be approved in writing by Optum. Optum publishes no grace or provisional period for uncertified technicians. New Mexico itself licenses neither behavior analysts nor technicians.' },
+    ],
+  },
+  'blue-cross-blue-shield-new-mexico-commercial': {
+    slug: 'blue-cross-blue-shield-new-mexico-commercial',
+    family: 'bcbs',
+    cardDesc: 'New Mexico’s HCSC Blue plan, commercial: phone intake for ABA since April 2026, MCG criteria, CPCP011 billing rules, no PA code on 97151/97152, no RBT requirement for line staff.',
+    assessmentPA: {
+      value: 'Not on the PA code list — BCBSNM’s 2026 commercial outpatient behavioral health PA list names 97153–97158, 0362T and 0373T, "Managed By" BCBSNM, but not 97151 or 97152. BCBSNM still lists an ABA Initial Assessment Request among its behavioral health forms, so confirm in Availity eligibility and benefits for the member’s plan.',
+      status: 'verified',
+      cites: [G1_BCBSNM_PALIST, G1_BCBSNM_PRM, G1_BCBSNM_CALL],
+    },
+    treatmentPA: {
+      value: 'Required — every ABA treatment code (97153–97158, 0362T, 0373T) is on BCBSNM’s 2026 commercial behavioral health PA list, and the request form says "ABA services require prior authorization." Since April 2026 the preservice request starts with a call to the customer service number on the member’s ID card, followed by telephonic clinical review. Authorizations typically run 26 weeks (CPCP011).',
+      status: 'verified',
+      cites: [G1_BCBSNM_PALIST, G1_BCBSNM_FORM, G1_BCBSNM_CALL, G1_BCBSNM_CPCP],
+    },
+    dxRequired: {
+      value: 'Yes — ABA is for "members who have a diagnosis within the Pervasive and specific developmental disorders category of ICD-10," and the request form says "Current diagnostic required not older than 36 months." Medical necessity is reviewed under MCG Applied Behavioral Analysis (B-806-T).',
+      status: 'verified',
+      cites: [G1_BCBSNM_PALIST, G1_BCBSNM_FORM, G1_BCBSNM_ADM],
+    },
+    payer: 'Blue Cross and Blue Shield of New Mexico (commercial)',
+    state: 'NM',
+    kind: 'commercial',
+    pill: 'Payer Guide · BCBS of New Mexico (commercial)',
+    h1: 'Blue Cross and Blue Shield of New Mexico (commercial) ABA coverage: the intake guide.',
+    metaTitle: 'Blue Cross Blue Shield of New Mexico Commercial ABA Coverage & Prior Auth Guide | Carelu',
+    metaDescription: 'How BCBSNM commercial plans cover ABA: phone intake for authorization since April 2026, no PA code on 97151/97152, MCG criteria, the 36-month diagnosis window, CPCP011 billing rules, line-staff requirements and New Mexico’s autism mandate (no age or dollar caps).',
+    intro: [
+      'Blue Cross and Blue Shield of New Mexico (BCBSNM) is New Mexico’s Blue plan, a division of Health Care Service Corporation (HCSC). This guide covers its commercial plans (PPO, Blue Preferred EPO and Plus, G1_BCBSNM_HMO, and self-funded employer groups it administers). Its Turquoise Care Medicaid plan has a separate guide: blue-cross-blue-shield-new-mexico.',
+      'For a fully insured BCBSNM plan, New Mexico’s autism mandate bars age limits and annual or lifetime dollar caps on ABA. Self-funded employer plans follow their plan document. At intake, check the funding type and that the diagnosis is under 36 months old.',
+    ],
+    atGlance: [
+      { label: 'Covers ABA?', value: 'Yes — for autism (ICD-10 pervasive developmental disorders), with prior authorization on treatment codes; MCG criteria' },
+      { label: 'State mandate', value: 'NMSA 1978 § 59A-22-49 (HMO parallel: § 59A-46-50)' },
+      { label: 'Mandate age', value: 'No age limit — coverage cannot be denied based on age' },
+      { label: 'Mandate caps', value: 'None — no annual or lifetime dollar limits; cost sharing no less favorable than for physical illness' },
+      { label: 'Exempt from mandate', value: 'Self-funded ERISA plans; supplemental and limited-benefit policies (Medicare supplement, specified disease, accident-only and similar)' },
+      { label: 'Licensure', value: 'None — New Mexico does not license behavior analysts; BACB certification governs' },
+    ],
+    sections: [
+      {
+        h2: 'Authorization: phone intake and MCG criteria',
+        body: [
+          'Medical necessity. BCBSNM reviews ABA under MCG’s Applied Behavioral Analysis guideline (B-806-T); the November 1, 2026 version of ADM1001.036 lists every ABA code (97151–97158, 0362T, 0373T) under it, replacing the old ABA medical policy PSY301.021. MCG criteria are licensed and shown to providers through Availity.',
+          'Intake. "Effective April 2026, to initiate a preservice request for behavioral health applied behavior analysis, you must call our customer service number on the member’s ID card. Forms will no longer be the primary method to process these requests." A clinician follows up for telephonic clinical review. The Clinical Service Request Form lists what the review needs: the diagnostic evaluation report, a baseline skills assessment from the last 30 days on "a recognized instrument such as the VB MAPP, ABLLS, AFLS, ABAS or the Vineland," and a comprehensive treatment plan with requested hours per week and parent training goals, submitted "at least two weeks before requested start date" and no more than 60 days ahead. The 2026 PA list puts 97153–97158, 0362T and 0373T under BCBSNM review; 97151 and 97152 are not on it.',
+        ],
+        cites: [G1_BCBSNM_ADM, G1_BCBSNM_CALL, G1_BCBSNM_FORM, G1_BCBSNM_PALIST],
+      },
+      {
+        h2: 'CPCP011: the billing rules that decide the claim',
+        body: [
+          'BCBSNM’s ABA payment policy (CPCP011, plan effective 3/20/2026) pays only when services are provided by a qualified professional "certified by the Behavior Analyst Certification Board as a Behavior Analyst and/or licensed in their state as a Licensed Behavior Analyst or Licensed Psychologist." Only one BCBA or QHP may bill the same or similar services on a date of service, which "does not refer to the technician(s)" working at the same time. An assessment over eight hours (32 units of 97151) may not be paid; direct services are "typically requested for up to 40 hours per week"; parent education is typically one hour a week over a 26-week authorization. Billable supervision "must be face to face and involves only one technician." 97153 takes one credential modifier (HM, HN or HO). Each service needs a parent or caregiver signature with the code, rendering provider name, signature and credentials, place of service, date, and start and end times.',
+          'No pass-through billing. The week-to-week treating provider "should bill"; a non-qualified provider "cannot provide services and bill through another person’s NPI," and BCBSNM’s May 2026 claims reminder says out-of-network clinicians added to a group bill under their own rendering NPI.',
+        ],
+        cites: [G1_BCBSNM_CPCP, G1_BCBSNM_CLAIMNEWS],
+      },
+      {
+        h2: 'The New Mexico mandate: what § 59A-22-49 guarantees',
+        body: [
+          'New Mexico’s autism mandate (NMSA 1978 § 59A-22-49, with an HMO parallel in § 59A-46-50) requires individual and group policies and health care plans delivered, issued or renewed in New Mexico to cover well-baby and well-child screening for autism spectrum disorder and treatment through speech, occupational and physical therapy and applied behavioral analysis, prescribed by the treating physician under a treatment plan. Coverage may not carry annual or lifetime dollar limits, may not be denied because it is habilitative or rehabilitative, and may not be denied based on age; deductibles and coinsurance may be no less favorable than for physical illness. The plan may still use coordination of benefits, networks and utilization review, and may exclude services a school must provide under IDEA. The treatment plan must state the diagnosis, the treatment types, frequency and duration, measurable outcome goals, how often it is updated, and carry the treating physician’s signature. Supplemental and limited-benefit policies are exempt, and self-funded employer plans follow ERISA.',
+        ],
+        cites: [G1_BCBSNM_M49, G1_BCBSNM_HMO],
+      },
+      {
+        h2: 'Technician credentials (RBT, grace period) and out-of-state BCBAs',
+        body: [
+          'BCBSNM’s technician rule (commercial plans). BCBSNM’s ABA Clinical Service Request Form (rev. 10/2025) sets these “Requirements for line staff providing 1:1 therapy: 1) 18+ years of age; 2) High school diploma or GED; 3) criminal background check prior to active employment; 4) via practice expense, completed training of ASD and behavioral related subjects/evidence based techniques (40 hours) and 5) have on-going supervisory oversight by the BCBA or ABA treatment supervisor for a minimum of 5% of hours directly worked with members.” It does not require RBT certification, so there is no RBT grace period. The training time is not billable to BCBSNM or its members, the signing supervisor certifies that billed line therapists (and any new staff) meet these qualifications, and the ABA supervisor attests to following BACB supervision guidelines and to having “an active license in the state where this member’s services are rendered.” New Mexico issues no behavior analyst license, so ask BCBSNM how it applies that attestation to a New Mexico member.',
+          G1_NM_LAW,
+        ],
+        cites: [G1_BCBSNM_FORM, G1_BACB_LIC],
+      },
+      {
+        h2: 'Claims: timely filing, interest and appeals',
+        body: [
+          'BCBSNM’s Provider Reference Manual (September 2026, § 8.6): "Providers must submit clean claims within 180 days of the date of service"; claim appeals are due within 90 days of the Remittance Advice/Provider Claim Summary with the Claim Review Form. Clean paper claims not paid within 45 calendar days, and electronic claims not paid within 30, bear interest under 13.10.28.9 NMAC, except for plans not subject to the New Mexico Insurance Code.',
+          'BlueCard. A child covered by another state’s Blue plan is handled through BlueCard: file with BCBSNM, and remind families they are responsible for pre-certification of outpatient services from their own Blue plan.',
+        ],
+        cites: [G1_BCBSNM_PRM, G1_BCBSNM_BLUECARD],
+      },
+    ],
+    collect: [
+      { title: 'Plan type and funding', desc: 'PPO, EPO, HMO or self-funded; fully insured (New Mexico mandate) or self-funded (plan document).' },
+      { title: 'Diagnosis report under 36 months old', desc: 'With the diagnosing practitioner and the primary diagnosis code.' },
+      { title: 'Treatment plan signed by the treating physician', desc: 'Insured plans: the mandate covers treatment prescribed by the treating physician under a signed treatment plan.' },
+      { title: 'Skills assessment within 30 days', desc: 'VB-MAPP, ABLLS, AFLS, ABAS or Vineland, dated within the last 30 days of the request.' },
+      { title: 'Line staff roster', desc: '18+, high school diploma or GED, background check, 40 hours of training, BCBA oversight of at least 5% of hours worked.' },
+    ],
+    sources: [G1_BCBSNM_FORM, G1_BCBSNM_PALIST, G1_BCBSNM_CALL, G1_BCBSNM_CLAIMNEWS, G1_BCBSNM_CPCP, G1_BCBSNM_RP033, G1_BCBSNM_ADM, G1_BCBSNM_PRM, G1_BCBSNM_BLUECARD, G1_BCBSNM_M49, G1_BCBSNM_HMO, G1_BCBSNM_PAA],
+    intakeGates: {
+      ageLimit: {
+        value: 'No age limit appears in BCBSNM’s ABA forms, PA list or CPCP011, and for fully insured plans § 59A-22-49 says coverage cannot be denied based on age. Self-funded groups follow their plan document.',
+        status: 'verified',
+        cites: [G1_BCBSNM_FORM, G1_BCBSNM_CPCP, G1_BCBSNM_M49],
+      },
+      dxRecency: {
+        value: '"Current diagnostic required not older than 36 months" (Clinical Service Request Form), and the baseline skills "Assessment must be within the last 30 days."',
+        status: 'verified',
+        cites: [G1_BCBSNM_FORM],
+      },
+      diagnosingProviders: {
+        value: 'The request form accepts a diagnosis from a PCP (family practice, internal medicine, pediatrics) or a specialized ASD-diagnosing provider: developmental-behavioral pediatrics, neurodevelopmental pediatrics, child neurology, adult or child psychiatry, licensed clinical psychology, or "Other (specify)." A licensed clinical social worker is not named.',
+        status: 'verified',
+        cites: [G1_BCBSNM_FORM],
+      },
+      diagnosticTools: {
+        value: 'BCBSNM’s published forms name no required diagnostic instrument; they ask for the diagnostic evaluation report plus a baseline skills assessment on "a recognized instrument such as the VB MAPP, ABLLS, AFLS, ABAS or the Vineland." Any instrument requirement in MCG B-806-T is licensed and not public.',
+        status: 'verified',
+        cites: [G1_BCBSNM_FORM, G1_BCBSNM_ADM],
+      },
+      referral: {
+        value: 'BCBSNM’s ABA documents require no referral form; the gate is the preservice request, started since April 2026 by calling the customer service number on the member’s ID card. For fully insured plans the mandate covers treatment "prescribed by the treating physician" under a treatment plan that the physician signs, so get that signed plan.',
+        status: 'verified',
+        cites: [G1_BCBSNM_CALL, G1_BCBSNM_M49],
+      },
+      telehealth: {
+        value: 'RP033 (eff. 3/27/2026): providers delivering telehealth "must possess the necessary license to treat members of the Plan’s state," document start and end times and the method of communication, and bill a telehealth modifier (95, GT and others) with POS 02 or 10. The provider manual says members may access covered benefits by telehealth and to check eligibility and benefits; BCBSNM lists a Supervision via Telehealth Request & Attestation among its behavioral health forms.',
+        status: 'verified',
+        cites: [G1_BCBSNM_RP033, G1_BCBSNM_PRM],
+      },
+      authTurnaround: {
+        value: 'Depends on funding. For a fully insured New Mexico plan, the Prior Authorization Act (NMSA § 59A-22B-5) gives the insurer seven days for a non-drug request and 24 hours for an expedited request, counted from receipt of the necessary documentation; a request not decided in time is "deemed granted." Self-funded ERISA plans follow 29 CFR 2560.503-1: pre-service decisions within 15 days, with one 15-day extension.',
+        status: 'verified',
+        cites: [G1_BCBSNM_PAA, G1_BCBSNM_ERISA],
+      },
+      coordinationOfBenefits: {
+        value: 'BCBSNM’s Provider Reference Manual (§ 8.11): as secondary carrier BCBSNM calculates its payment from your contract’s maximum allowable fee schedule, and the primary insurer’s payment first offsets the member’s copay, coinsurance or deductible. Order of benefits follows listed rules, starting with the plan covering the person as an employee before the plan covering them as a dependent, and the birthday rule for a child on both parents’ plans.',
+        status: 'verified',
+        cites: [G1_BCBSNM_PRM],
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value: 'Billable supervision "must be face to face and involves only one technician"; indirect supervision is a practice expense. CPCP011 cites CASP’s 10–20% of direct hours, and direct supervision "may be authorized … at a minimum of 1 hour per week when less than 10 hours of direct services are authorized." Line staff need BCBA oversight of at least 5% of hours worked (request form).',
+        status: 'verified',
+        cites: [G1_BCBSNM_CPCP, G1_BCBSNM_FORM],
+      },
+      concurrentBilling: {
+        value: 'Only one BCBA or QHP may bill the same or similar services on a date of service, but that "does not refer to the technician(s) or direct service provider simultaneously rendering service with the BCBA," so technician and supervision time can run together. 97156 is for caregiver sessions, "rather than 97155, which is reserved for supervisory activities."',
+        status: 'verified',
+        cites: [G1_BCBSNM_CPCP],
+      },
+      dailyLimits: {
+        value: 'Daily units follow "the most current release of the CMS MUE table" and the authorization; direct services are "typically requested for up to 40 hours per week"; an assessment over eight hours (32 units of 97151) may not be paid; parent education is typically one hour a week over a 26-week authorization. Insured plans may not impose annual or lifetime dollar limits on autism treatment (§ 59A-22-49).',
+        status: 'verified',
+        cites: [G1_BCBSNM_CPCP, G1_BCBSNM_M49],
+      },
+      noteSignature: {
+        value: 'Each rendered service needs "a parent or caregiver’s signature" that also shows the service or code, the "rendering provider’s name/signature," credentials, place of service, date and begin and end times, plus a written note of the service; data points may be required right after the service and for audit.',
+        status: 'verified',
+        cites: [G1_BCBSNM_CPCP],
+      },
+      placeOfService: {
+        value: 'POS 10, 11 and 12 are the conventional settings; any other setting "should have supporting documentation on file" with a rationale. ABA "provided for educational, vocational, respite or custodial purposes" is not reimbursable, and insured plans may exclude services a school must provide under IDEA (§ 59A-22-49).',
+        status: 'verified',
+        cites: [G1_BCBSNM_CPCP, G1_BCBSNM_M49],
+      },
+      billAsProvider: {
+        value: 'The provider who renders treatment week to week "is considered the ‘rendering provider’ and should bill"; a non-qualified provider "cannot provide services and bill through another person’s NPI," and supervisee billing must follow state law and a formal supervisor-supervisee relationship. 97153 takes one credential modifier (HM, HN or HO).',
+        status: 'verified',
+        cites: [G1_BCBSNM_CPCP, G1_BCBSNM_CLAIMNEWS],
+      },
+    },
+    faq: [
+      { q: 'Does Blue Cross Blue Shield of New Mexico commercial cover ABA therapy?', a: 'Yes, for autism, with prior authorization on treatment codes. Fully insured plans also carry New Mexico’s mandate (no age or dollar caps); self-funded employer plans follow their plan document. Turquoise Care (Medicaid) members are covered in the separate BCBSNM Turquoise Care guide.' },
+      { q: 'Does BCBSNM require prior authorization for the ABA assessment?', a: 'Not on its 2026 commercial behavioral health PA list, which covers 97153–97158, 0362T and 0373T but not 97151 or 97152. Confirm in Availity for the member’s plan.' },
+      { q: 'How do I request ABA authorization from BCBSNM in 2026?', a: 'Since April 2026, call the customer service number on the member’s ID card to start the preservice request; a clinician follows up with a telephonic clinical review. Start at least two weeks, and no more than 60 days, before the planned start.' },
+      { q: 'Does BCBSNM require RBT certification for ABA technicians, and is there a grace period?', a: 'No RBT requirement is published. BCBSNM’s ABA request form requires line staff to be 18 or older with a high school diploma or GED, a criminal background check before starting, 40 hours of ASD and behavioral training (not billable), and BCBA supervision of at least 5% of their hours. With no RBT requirement there is no grace period.' },
+      { q: 'What is BCBSNM’s timely filing limit for ABA claims?', a: '180 days from the date of service; claim appeals within 90 days of the remittance advice (Provider Reference Manual, September 2026).' },
     ],
   },
 };

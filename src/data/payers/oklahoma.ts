@@ -2239,7 +2239,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
           { title: 'BCBSOK — ABA Initial Assessment Request (608123.1220)', url: 'https://www.bcbsok.com/docs/provider/ok/education/forms/ok-assessmentrequest.pdf' },
           { title: 'BCBSOK news (1/15/2026) — Call for preservice requests for ABA, commercial members, effective April 2026', url: 'https://www.bcbsok.com/provider/education/education-reference/news-updates/2026/1-15-2026-call-for-preservice-requests-for-applied-behavior-analysis' },
           { title: 'BCBSOK — ABA Clinical Service Request Form, initial and concurrent (615911.1125)', url: 'https://www.bcbsok.com/docs/provider/ok/education/forms/ok-aba-clinicalservicerequestform.pdf' },
-          { title: 'BCBSOK ADM1001.036 — Medical policies moving to MCG guidelines (eff. 1/1/2026)', url: 'https://medicalpolicy.bcbsok.com/content/dam/bcbs/medicalpolicy/pdf/administrative/ADM1001.036_2026-01-01.pdf' },
+          { title: 'BCBSOK ADM1001.036 — Medical policies moving to MCG guidelines (version eff. 11/1/2026; ABA still MCG B-806-T)', url: 'https://medicalpolicy.bcbsok.com/content/dam/bcbs/medicalpolicy/pdf/administrative/ADM1001.036_2026-11-01.pdf' },
         ],
       },
       {
@@ -2329,7 +2329,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       { title: 'BCBSOK — 2026 Commercial Prior Authorization Requirements Summary (eff. 1/1/2026)', url: 'https://www.bcbsok.com/docs/provider/ok/claims/um/2026-prior-authorization-requirements-summary-of-services.pdf' },
       { title: 'BCBSOK — ABA Clinical Service Request Form, initial and concurrent (615911.1125)', url: 'https://www.bcbsok.com/docs/provider/ok/education/forms/ok-aba-clinicalservicerequestform.pdf' },
       { title: 'BCBSOK — ABA Initial Assessment Request (608123.1220)', url: 'https://www.bcbsok.com/docs/provider/ok/education/forms/ok-assessmentrequest.pdf' },
-      { title: 'BCBSOK ADM1001.036 — Medical policies moving to MCG guidelines (eff. 1/1/2026)', url: 'https://medicalpolicy.bcbsok.com/content/dam/bcbs/medicalpolicy/pdf/administrative/ADM1001.036_2026-01-01.pdf' },
+      { title: 'BCBSOK ADM1001.036 — Medical policies moving to MCG guidelines (version eff. 11/1/2026; ABA still MCG B-806-T)', url: 'https://medicalpolicy.bcbsok.com/content/dam/bcbs/medicalpolicy/pdf/administrative/ADM1001.036_2026-11-01.pdf' },
       { title: 'BCBSOK news (1/15/2026) — Call for preservice requests for ABA, commercial members, effective April 2026', url: 'https://www.bcbsok.com/provider/education/education-reference/news-updates/2026/1-15-2026-call-for-preservice-requests-for-applied-behavior-analysis' },
       { title: 'BCBSOK Commercial Provider Reference Manual (updated September 2026)', url: 'https://www.bcbsok.com/docs/provider/ok/standards/manuals/bcbsok-commercial-provider-reference-manual.pdf' },
       { title: 'BCBSOK — ABA Supervision via Telehealth Request & Attestation (609121.0719)', url: 'https://www.bcbsok.com/docs/provider/ok/education/forms/aba-supervision-telehealth.pdf' },
@@ -2354,7 +2354,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
         status: 'plan-dependent',
         cites: [
           { title: 'BCBSOK CPCP011 — Applied Behavior Analysis (plan effective 3/20/2026)', url: 'https://www.bcbsok.com/docs/provider/ok/standards/cpcp/2026/cpcp011-3-20-2026.pdf' },
-          { title: 'BCBSOK ADM1001.036 — Medical policies moving to MCG guidelines (eff. 1/1/2026)', url: 'https://medicalpolicy.bcbsok.com/content/dam/bcbs/medicalpolicy/pdf/administrative/ADM1001.036_2026-01-01.pdf' },
+          { title: 'BCBSOK ADM1001.036 — Medical policies moving to MCG guidelines (version eff. 11/1/2026; ABA still MCG B-806-T)', url: 'https://medicalpolicy.bcbsok.com/content/dam/bcbs/medicalpolicy/pdf/administrative/ADM1001.036_2026-11-01.pdf' },
           { title: '36 O.S. § 6060.21 — Health coverage for individuals with autism (Nick’s Law; as amended by SB 1240, eff. 11/1/2022) — OSCN', url: 'https://www.oscn.net/applications/oscn/DeliverDocument.asp?CiteID=478381' },
         ],
         verifyVia: 'The customer service number on the member ID card (or Availity eligibility): confirm funding type and any plan age term.',
@@ -2381,7 +2381,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'BCBSOK — ABA Clinical Service Request Form, initial and concurrent (615911.1125)', url: 'https://www.bcbsok.com/docs/provider/ok/education/forms/ok-aba-clinicalservicerequestform.pdf' },
-          { title: 'BCBSOK ADM1001.036 — Medical policies moving to MCG guidelines (eff. 1/1/2026)', url: 'https://medicalpolicy.bcbsok.com/content/dam/bcbs/medicalpolicy/pdf/administrative/ADM1001.036_2026-01-01.pdf' },
+          { title: 'BCBSOK ADM1001.036 — Medical policies moving to MCG guidelines (version eff. 11/1/2026; ABA still MCG B-806-T)', url: 'https://medicalpolicy.bcbsok.com/content/dam/bcbs/medicalpolicy/pdf/administrative/ADM1001.036_2026-11-01.pdf' },
         ],
       },
       referral: {
