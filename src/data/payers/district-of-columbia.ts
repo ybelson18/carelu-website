@@ -893,11 +893,13 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
         cites: [S.aetnaGuide],
       },
       noteSignature: {
-        value: 'Not addressed in Aetna’s ABA documents.',
-        status: 'unverified',
-        cites: [S.aetnaGuide],
-        verifyVia: 'Your Aetna participation agreement and the Aetna Behavioral Health provider manual’s documentation section.',
-        blocker: 'per-case',
+        value:
+          'Aetna\'s provider manual sets the record rule for participating practitioners: "All entries are dated," "All entries are legible to someone other than the writer," and "All entries in the record must contain the provider\'s signature/initials or electronic identifier," scored in medical-record audits "conducted no less than every two years" against an 85% goal. Neither the manual nor Aetna\'s ABA policies (CPB 0554, the ABA medical necessity guide) set a separate rule for amending a note, a supervisor co-signature, or a signing deadline.',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna — Health Care Professional Office Manual (Core components for medical records; Overpayment; post-payment audits)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+        ],
       },
       placeOfService: {
         value: 'The guide is setting-neutral for outpatient ABA and expects coordination with the school district. D.C. Code § 31-3272 does not require insurers to pay for habilitative services "actually delivered through early intervention or school services."',

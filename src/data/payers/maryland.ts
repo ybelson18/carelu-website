@@ -216,6 +216,21 @@ export const marylandPayers: Record<string, PayerConfig> = {
           { title: 'Carelon Maryland PBHS Provider Manual (version 5, August 2026), §16.07 Coordination of Benefits', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/75/carelon-maryland-pbhs-provider-manual.pdf' },
         ],
       },
+      {
+        h2: 'What happens when a practice fails a Maryland Medicaid ABA audit?',
+        body: [
+          'Documentation is the payment condition. Each ABA service record must show the location, date, start and end time, a description tied to the treatment plan, the participant\'s behaviors in measurable terms, caregiver participation, and "A legible signature, along with the printed or typed name of the individual providing care, with the appropriate title" (COMAR 10.09.28.04F). Services "Rendered but not documented in accordance to Regulation .04 of this chapter" are not covered (10.09.28.05), so a note that fails audit is an overpayment.',
+          'Recovery. "The Department may conduct provider audits as authorized by State and federal law," and "The provider shall reimburse the Department for any overpayment." For audits from July 1, 2004, a provider who does not repay is also responsible for "any audit costs incurred by the Department in seeking recovery of the overpayment"; an audit "is considered to have commenced upon the initial written notification" to the provider (10.09.36.07, applied to ABA by 10.09.28.07).',
+          'Sanctions and appeal. Where a provider "has failed to comply with applicable federal or State laws or regulations," the Department may suspend, withhold payment, recover an overpayment, remove or disqualify the provider, after "reasonable notice" stating the reasons and the right to appeal (10.09.36.08). An appeal of a proposed recovery, withhold, suspension or removal "shall be filed in writing with the Program within 30 days of the date of the notice of the proposed Program action" (10.09.36.09).',
+        ],
+        cites: [
+          { title: 'COMAR 10.09.28.04 — ABA Covered Services (documentation of each service)', url: 'https://dsd.maryland.gov/regulations/Pages/10.09.28.04.aspx' },
+          { title: 'COMAR 10.09.28.05 — ABA Limitations (services rendered but not documented are not covered)', url: 'https://dsd.maryland.gov/regulations/Pages/10.09.28.05.aspx' },
+          { title: 'COMAR 10.09.36.07 — Recovery and Reimbursement (provider audits, overpayments, audit costs)', url: 'https://dsd.maryland.gov/regulations/Pages/10.09.36.07.aspx' },
+          { title: 'COMAR 10.09.36.08 — Cause for Suspension or Removal and Imposition of Sanctions', url: 'https://dsd.maryland.gov/regulations/Pages/10.09.36.08.aspx' },
+          { title: 'COMAR 10.09.36.09 — Filing Appeal (30 days from notice)', url: 'https://dsd.maryland.gov/regulations/Pages/10.09.36.09.aspx' },
+        ],
+      },
     ],
     collect: [
       { title: 'Medicaid eligibility — not the MCO', desc: 'Verify Medical Assistance eligibility and route everything to Carelon; the HealthChoice MCO on the card is irrelevant for ABA.' },
@@ -544,6 +559,15 @@ export const marylandPayers: Record<string, PayerConfig> = {
           { title: 'CareFirst Payment Policy PP CO 020.01 — Limited Licensed Providers, Professional (last review 5/6/2025)', url: 'https://provider.carefirst.com/providers/medical/payment-policy.page' },
         ],
       },
+      {
+        h2: 'What happens when a practice fails a CareFirst audit in Maryland?',
+        body: [
+          'Maryland limits how far back a state-regulated carrier can take money back. Under Insurance § 15-1008 a carrier "may only retroactively deny reimbursement during the 6-month period after the date that the carrier paid the health care provider," or 18 months for services subject to coordination of benefits with another carrier, Medicaid or Medicare, and it must give "a written statement specifying the basis for the retroactive denial." A carrier that skips those steps "may not retroactively deny reimbursement or attempt in any manner to retroactively collect reimbursement already paid." The limits do not apply where "the information submitted to the carrier was fraudulent," where the claim was "improperly coded" and the carrier gave the provider its coding guidelines "at least 30 days prior to the date the services ... were rendered," or for duplicate claims. Self-funded employer plans are outside state insurance law; ask the administrator.',
+        ],
+        cites: [
+          { title: 'Md. Code, Insurance § 15-1008 — Retroactive denial of reimbursement (6 months; 18 months for coordination of benefits)', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gin&section=15-1008&enactments=false' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type and product', desc: 'Fully insured Maryland contract (mandate and hour floors apply), self-funded employer plan (exempt), FEP or a NASCO national account (may differ from CareFirst\'s local policies), or CareFirst Community Health Plan Maryland (Medicaid, so ABA goes to Carelon).' },
@@ -868,6 +892,17 @@ export const marylandPayers: Record<string, PayerConfig> = {
           { title: 'Aetna — Disputes and appeals overview (provider reconsiderations and appeals; checked 10/25/2026)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' },
         ],
       },
+      {
+        h2: 'What happens when a practice fails a Aetna audit in Maryland?',
+        body: [
+          'Aetna\'s post-payment audits examine paid claims "to ensure the claims were properly billed and include the necessary supporting documentation"; if errors are found "the payer may request repayment, recoupment or other penalties in accordance with applicable law." For commercial plans Aetna notifies overpayments "typically within 24 months of the original payment issue date or other time frame as required by applicable law" - in Maryland, the shorter statutory window below.',
+          'Maryland limits how far back a state-regulated carrier can take money back. Under Insurance § 15-1008 a carrier "may only retroactively deny reimbursement during the 6-month period after the date that the carrier paid the health care provider," or 18 months for services subject to coordination of benefits with another carrier, Medicaid or Medicare, and it must give "a written statement specifying the basis for the retroactive denial." A carrier that skips those steps "may not retroactively deny reimbursement or attempt in any manner to retroactively collect reimbursement already paid." The limits do not apply where "the information submitted to the carrier was fraudulent," where the claim was "improperly coded" and the carrier gave the provider its coding guidelines "at least 30 days prior to the date the services ... were rendered," or for duplicate claims. Self-funded employer plans are outside state insurance law; ask the administrator.',
+        ],
+        cites: [
+          { title: 'Aetna — Health Care Professional Office Manual (Core components for medical records; Overpayment; post-payment audits)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Md. Code, Insurance § 15-1008 — Retroactive denial of reimbursement (6 months; 18 months for coordination of benefits)', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gin&section=15-1008&enactments=false' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate + hour floors apply) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -928,11 +963,12 @@ export const marylandPayers: Record<string, PayerConfig> = {
       },
       noteSignature: {
         value:
-          'Not published. CPB 0554 and CPB 0648 set coverage criteria and precertification content; neither states what a session note must contain, who signs it, or by when.',
-        status: 'unverified',
-        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
-        verifyVia: 'Aetna provider services or Availity \u2014 ask for the documentation standard applied at audit, and keep to the precertification form\'s own data elements in the meantime.',
-        blocker: 'per-case',
+          'Aetna\'s provider manual sets the record rule for participating practitioners: "All entries are dated," "All entries are legible to someone other than the writer," and "All entries in the record must contain the provider\'s signature/initials or electronic identifier," scored in medical-record audits "conducted no less than every two years" against an 85% goal. Neither the manual nor Aetna\'s ABA policies (CPB 0554, the ABA medical necessity guide) set a separate rule for amending a note, a supervisor co-signature, or a signing deadline, so state licensing rules on record corrections apply where the state has them.',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna — Health Care Professional Office Manual (Core components for medical records; Overpayment; post-payment audits)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+        ],
       },
       placeOfService: {
         value:
@@ -1194,6 +1230,17 @@ export const marylandPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026): provider payment appeals, coverage denials', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
           { title: 'Evernorth — Applied Behavior Analysis Prior Authorization Form (PCOMM-2025-224; file dated 7/1/2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/applied-behavior-analysis.pdf' },
+        ],
+      },
+      {
+        h2: 'What happens when a practice fails a Cigna audit in Maryland?',
+        body: [
+          'Evernorth audits the recordkeeping of "select high-volume providers" by requesting three blinded records against an 80 percent goal; on overpayments, "In states where permitted," it offsets against later claims and "Until overpayment is resolved, payment on additional claims may be suspended."',
+          'Maryland limits how far back a state-regulated carrier can take money back. Under Insurance § 15-1008 a carrier "may only retroactively deny reimbursement during the 6-month period after the date that the carrier paid the health care provider," or 18 months for services subject to coordination of benefits with another carrier, Medicaid or Medicare, and it must give "a written statement specifying the basis for the retroactive denial." A carrier that skips those steps "may not retroactively deny reimbursement or attempt in any manner to retroactively collect reimbursement already paid." The limits do not apply where "the information submitted to the carrier was fraudulent," where the claim was "improperly coded" and the carrier gave the provider its coding guidelines "at least 30 days prior to the date the services ... were rendered," or for duplicate claims. Self-funded employer plans are outside state insurance law; ask the administrator.',
+        ],
+        cites: [
+          { title: 'Evernorth Behavioral Health — Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+          { title: 'Md. Code, Insurance § 15-1008 — Retroactive denial of reimbursement (6 months; 18 months for coordination of benefits)', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gin&section=15-1008&enactments=false' },
         ],
       },
     ],
@@ -1508,6 +1555,17 @@ export const marylandPayers: Record<string, PayerConfig> = {
           { title: 'Optum National Network Manual (BH02330-1-26-MAN, effective Sept. 1, 2026): Provider Reconsideration and Appeals Process', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
         ],
       },
+      {
+        h2: 'What happens when a practice fails a UnitedHealthcare audit in Maryland?',
+        body: [
+          'Optum reviews ABA records against its documentation protocol: "Documentation must be sufficient to independently validate the total billable time reported, including but not limited to recorded session start and stop times," and "All addendums, late entries and corrections should follow CMS guidelines."',
+          'Maryland limits how far back a state-regulated carrier can take money back. Under Insurance § 15-1008 a carrier "may only retroactively deny reimbursement during the 6-month period after the date that the carrier paid the health care provider," or 18 months for services subject to coordination of benefits with another carrier, Medicaid or Medicare, and it must give "a written statement specifying the basis for the retroactive denial." A carrier that skips those steps "may not retroactively deny reimbursement or attempt in any manner to retroactively collect reimbursement already paid." The limits do not apply where "the information submitted to the carrier was fraudulent," where the claim was "improperly coded" and the carrier gave the provider its coding guidelines "at least 30 days prior to the date the services ... were rendered," or for duplicate claims. Self-funded employer plans are outside state insurance law; ask the administrator.',
+        ],
+        cites: [
+          { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' },
+          { title: 'Md. Code, Insurance § 15-1008 — Retroactive denial of reimbursement (6 months; 18 months for coordination of benefits)', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gin&section=15-1008&enactments=false' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (COMAR floors + Optum\'s MD criteria apply) vs. self-funded ERISA (exempt) — it decides which rulebook governs.' },
@@ -1567,7 +1625,7 @@ export const marylandPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'Optum BH803ABA \u2014 ABA State Mandates supplemental criteria (Maryland entry)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
       },
       noteSignature: {
-        value: '“Provider signature is required on progress notes. Parent/guardian signatures are not required on progress notes” (Optum ABA CPT FAQ). Each daily session note records place of service, start and stop time, who rendered the service, the specific service, who attended and the interventions. Optum’s ABA documentation protocol (June 1, 2026) requires the “signature of the rendering provider” and “Legible identity of the rendering provider with credentials,” and “The date of signature must reflect the date the note is finalized” — a note signed after the date of service must follow late-entry rules and show the date it was signed. Same-date services must be “separate, distinct, and clearly documented in the progress notes,” or the claim may be denied.',
+        value: '“Provider signature is required on progress notes. Parent/guardian signatures are not required on progress notes” (Optum ABA CPT FAQ). Each daily session note records place of service, start and stop time, who rendered the service, the specific service, who attended and the interventions. Optum’s ABA documentation protocol (June 1, 2026) requires the “signature of the rendering provider” and “Legible identity of the rendering provider with credentials,” says “All addendums, late entries and corrections should follow CMS guidelines,” and “The date of signature must reflect the date the note is finalized” — a note signed after the date of service must follow late-entry rules and show the date it was signed. Same-date services must be “separate, distinct, and clearly documented in the progress notes,” or the claim may be denied.',
         status: 'verified',
         cites: [
           { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },

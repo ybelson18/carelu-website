@@ -14,6 +14,8 @@ const S: Record<string, PayerSource> = {
   oar0770: { title: 'OAR 410-172-0770 — Individual Eligibility for Applied Behavioral Analysis Treatment (OHA, DMAP 12-2017)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-172-0770' },
   oar0650: { title: 'OAR 410-172-0650 — Prior Authorization, Medicaid behavioral health (OHA, eff. 06/21/2022)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-172-0650' },
   oar0620: { title: 'OAR 410-172-0620 — Documentation Standards, Medicaid behavioral health (OHA, eff. 6/26/2015)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-172-0620' },
+  oar1360: { title: 'OAR 410-120-1360 — Requirements for Financial, Clinical and Other Records (OHA, DMAP 84-2023, eff. 12/01/2023)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-120-1360' },
+  hsdAnn: { title: 'OHA — Behavioral Health Services provider guidelines: Announcements (newest 10/26/2026, checked November 1, 2026)', url: 'https://www.oregon.gov/oha/hsd/ohp/pages/policy-bhs.aspx' },
   oar0850: { title: 'OAR 410-172-0850 — Telemedicine for Behavioral Health (OHA, DMAP 67-2018)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-172-0850' },
   oar3835: { title: 'OAR 410-141-3835 — CCO Service Authorization (OHA, eff. 07/01/2026)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3835' },
   oar3565: { title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, eff. 01/01/2025)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' },
@@ -67,7 +69,7 @@ const S: Record<string, PayerSource> = {
   ahBH: { title: 'Advanced Health — Behavioral Health Authorization Request form and instructions (Rev. 10/25)', url: 'https://advancedhealth.b-cdn.net/wp-content/uploads/2025/12/MH-BH-AUTH-FORM-10.14.25.pdf' },
   ahRes: { title: 'Advanced Health — Provider resources (forms and manuals)', url: 'https://advancedhealth.com/providers/resources/' },
   chaPM: { title: 'Cascade Health Alliance — Provider Manual (revised 5/2026)', url: 'https://www.cascadehealthalliance.com/media/1a2062f7ef9f4b5f81ca4b78c0d6f592/provider-manual-2026-03.pdf' },
-  chaGrid: { title: 'Cascade Health Alliance — Behavioral Health (BH) Auth Grid (revision date 6/24/2026)', url: 'https://www.cascadehealthalliance.com/media/7d5f9172bf6e4bac931e7c7dee354bf4/auth-grid-bh-62426.pdf' },
+  chaGrid: { title: 'Cascade Health Alliance — Behavioral Health (BH) Auth Grid (revision date 10/20/2026)', url: 'https://www.cascadehealthalliance.com/media/405dd75f1fb64459998e410dc36c5ea0/bh-auth-grid-final.pdf' },
   eoPM: { title: 'Eastern Oregon CCO — Provider Manual 2026 (incl. GOBHI Applied Behavior Analysis program)', url: 'https://www.eocco.com/-/media/EOCCO/PDFs/provider_manual.pdf' },
   eoPA: { title: 'EOCCO Prior Authorization List — September 2026', url: 'https://www.eocco.com/-/media/EOCCO/PDFs/priorauth.pdf' },
   eoBH: { title: 'EOCCO — Behavioral Health Authorization Form (GOBHI utilization management)', url: 'https://www.eocco.com/-/media/EOCCO/PDFs/providers/behavioral_auth.pdf' },
@@ -211,6 +213,13 @@ export const oregonPayers: Record<string, PayerConfig> = {
         cites: [S.fee, S.ihnBH, S.oar0760, S.ors676, S.oar824lic, S.oar824sup, S.hlo, S.bacbLic, S.ors743A],
       },
       {
+        h2: 'The 2027 CPT changes: nothing announced yet',
+        body: [
+          'At its September 2025 meeting the CPT Editorial Panel deleted 0362T and 0373T, revised eight existing codes (97151–97158) and added six new adaptive behavior codes, which CMS\'s CY 2027 Physician Fee Schedule proposed rule lists under placeholder numbers (97X1X–97X6X). As of November 1, 2026 OHA had not announced how OHP will adopt them. The newest behavioral health fee schedule is still the one published July 1, 2026, and its Applied Behavior Analysis tab lists 97151–97157, 99366, 99368 and T1013 (no 97158, 0362T or 0373T). The newest item on OHA\'s behavioral health announcements list is dated October 26, 2026, and none concerns ABA codes. CCO members follow their CCO\'s claim edits.',
+        ],
+        cites: [S.fee, S.feePage, S.hsdAnn, { title: 'CMS — CY 2027 Physician Fee Schedule proposed rule, 91 FR 43891 (July 16, 2026), section (47) Adaptive Behavior Services', url: 'https://www.govinfo.gov/content/pkg/FR-2026-07-16/pdf/2026-14327.pdf' }],
+      },
+      {
         h2: 'Claims operations: timely filing, payment and other insurance',
         body: [
           'Open-card claims "must be filed within 12 months of the date of service," and a denied claim filed on time may be resubmitted within 18 months (OAR 410-120-1300). CCO claims run on a shorter clock: OAR 410-141-3565 sets initial claims "within no more than 120 days of the date of service" (365 days for exceptions including retroactive eligibility, Medicare as primary and third-party liability) and requires CCOs to "pay or deny at least 90 percent of valid claims within 30 days of receipt and at least 99 percent of valid claims within 90 days of receipt." A provider enrolled with OHA bills under its OHA provider number or NPI, and using a billing provider does not relieve "the performing provider’s responsibility for the truth and accuracy of submitted information" (OAR 410-120-1280). We did not find an OHA statement applying electronic visit verification to ABA; ask OHA Provider Services (800-336-6016).',
@@ -258,9 +267,9 @@ export const oregonPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'CMS — NCCI for Medicaid (ACA § 6507: states must apply compatible NCCI methodologies to Medicaid fee-for-service claims; optional for MCOs; deactivation requests)', url: 'https://www.cms.gov/medicare/coding-billing/ncci-medicaid' }, { title: 'CMS — Medicaid NCCI MUE edit file, practitioner services, effective October 1, 2026 (dates of service 10/1–12/31/2026)', url: 'https://www.cms.gov/medicare/coding-billing/ncci-medicaid/medicaid-ncci-edit-files' }, S.fee, S.gn, S.oar0770],
       },
       noteSignature: {
-        value: 'OAR 410-172-0620(4): "The record shall be annotated each time a service is provided and be signed or initialed by the individual providing the service." Records must show the service, its extent, the dates and "the individual who provided the service." The rule sets no signing deadline.',
+        value: 'OAR 410-172-0620(4): "The record shall be annotated each time a service is provided and be signed or initialed by the individual providing the service." Records must show the service, its extent, the dates and "the individual who provided the service." The rule sets no signing deadline, but OHA\'s general records rule requires documentation to be "completed before the service is billed" (OAR 410-120-1360(2)). Amending a note: neither rule sets an addendum or late-entry procedure or requires a supervisor co-signature; electronic records must keep "an auditable means of demonstrating" the date a record was created and by whom, "the date the record was modified, what was modified in the record" and "the identity and credentials of any individual who has modified the record" (OAR 410-120-1360(2)(b)), and OHA adopts Medicare\'s electronic-signature policy.',
         status: 'verified',
-        cites: [S.oar0620],
+        cites: [S.oar0620, S.oar1360],
       },
       placeOfService: {
         value: 'Not addressed in the OHA ABA rules read: OAR 410-172-0760/0770 and Guideline Note 75 name no permitted or excluded settings.',
@@ -1683,9 +1692,9 @@ export const oregonPayers: Record<string, PayerConfig> = {
   'cascade-health-alliance': {
     slug: 'cascade-health-alliance',
     family: 'cascade-health-alliance',
-    cardDesc: 'Klamath County CCO: ABA for ASD needs PA every 6 months on 97151–97156 (BH auth grid, 6/24/2026); 7-day decisions; 120-day filing.',
+    cardDesc: 'Klamath County CCO: ABA for ASD needs PA every 6 months on 97151–97156 (BH auth grid, 10/20/2026); 7-day decisions; 120-day filing.',
     assessmentPA: {
-      value: 'Yes: CHA’s BH Auth Grid (6/24/2026) requires "PA every 6 months for codes: 97151, 97152, 97153, 97154, 97155, 97156"',
+      value: 'Yes: CHA’s BH Auth Grid (10/20/2026) requires "PA every 6 months for codes: 97151, 97152, 97153, 97154, 97155, 97156"',
       status: 'verified',
       cites: [S.chaGrid],
     },
@@ -1721,7 +1730,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       {
         h2: 'Authorization and claims at CHA',
         body: [
-          'CHA’s Behavioral Health Auth Grid (revision 6/24/2026) lists "Applied Behavioral Analysis (ABA) for Autism Spectrum Disorder (ASD)" as "YES," with "PA every 6 months for codes: 97151, 97152, 97153, 97154, 97155, 97156"; 97157 and 97158 are not named. The grid tells providers to check MMIS for eligibility first, and says authorization "does not guarantee reimbursement." CHA’s provider manual (revised 5/2026) sets prior-authorization decisions at "Standard: 7days" and "Urgent: 72 hours," lists the licensed assistant behavior analyst among credentialed practitioner types, and encourages use of the provider portal.',
+          'CHA’s Behavioral Health Auth Grid (revision 10/20/2026) lists "Applied Behavioral Analysis (ABA) for Autism Spectrum Disorder (ASD)" as "YES," with "PA every 6 months for codes: 97151, 97152, 97153, 97154, 97155, 97156"; 97157 and 97158 are not named. The grid tells providers to check MMIS for eligibility first, and says authorization "does not guarantee reimbursement." CHA’s provider manual (revised 5/2026) sets prior-authorization decisions at "Standard: 7days" and "Urgent: 72 hours," lists the licensed assistant behavior analyst among credentialed practitioner types, and encourages use of the provider portal.',
           'Claims must be received "within 120 days from the date of service per OAR 410-141-3565 (1)," or within 365 days when CHA is secondary. CHA "pays or denies at least 90 percent of valid claims within 30 days of receipt and at least 99 percent of valid claims within 90 days." "CHA is always payor of last resort": bill other coverage first, attach the primary EOP, and submit within 365 days of the primary’s processing date; CHA pays the Medicaid allowable minus the primary’s payment.',
         ],
         cites: [S.chaGrid, S.chaPM],

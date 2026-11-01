@@ -131,6 +131,23 @@ const BCBSND_APPEAL_BODY_G5 =
 const BCBSND_OON_BODY_G5 =
   'Out-of-network providers. A non-participating provider has no BCBSND contract: BCBSND pays an allowed amount, the member gets a lower level of benefit, “The non-participating provider may balance bill the member for all amounts not paid by BCBSND,” and the member is responsible for notifying BCBSND and for managed-benefit requirements. The manual describes no single case agreement process; ask BCBSND Provider Service, 800-368-2312, case by case.';
 
+/* ---------------- CPT 2027 adaptive-behavior code changes (weekly refresh 2026-11-01, G6) ---------------- */
+const CPT27_PFS: PayerSource = { title: 'CMS — CY 2027 Physician Fee Schedule proposed rule, 91 FR 43842 (July 16, 2026), section (47) Adaptive Behavior Services: 0362T/0373T deleted, 97151–97158 revised, six new codes', url: 'https://www.govinfo.gov/content/pkg/FR-2026-07-16/pdf/2026-14327.pdf' };
+const CPT27_AMA: PayerSource = { title: 'AMA — AMA releases CPT 2027 code set (Sept. 9, 2026; changes effective Jan. 1)', url: 'https://www.ama-assn.org/press-center/ama-press-releases/ama-releases-cpt-2027-code-set' };
+const CPT27_COALITION: PayerSource = { title: 'ABA Coding Coalition — Supplemental Guidance on Interpreting and Applying the 2027 CPT Codes for Adaptive Behavior Services (posted Oct. 5, 2026)', url: 'https://abacodes.org/wp-content/uploads/2026/10/2027-CPT-Supplemental-Guidance.pdf' };
+const CPT27_NATIONAL =
+  'What changes on Jan. 1, 2027. CMS records that at its September 2025 meeting the AMA CPT Editorial Panel "deleted CPT codes 0362T" and "0373T," "revised eight existing CPT codes" (97151 through 97158) and "created six new CPT codes" for adaptive behavior services; the AMA released the CPT 2027 code set on Sept. 9, 2026, with changes in effect on January 1. The ABA Coding Coalition’s 2027 guidance gives the final numbers: 97148 and add-on +97149 (behavior identification supporting assessment of harmful behavior, delivered by two technicians, additional technicians on the add-on), 97159 and add-on +97160 (adaptive behavior treatment of harmful behavior, same two-technician structure), 97173 (adaptive behavior treatment with analysis by a physician or other QHP, face-to-face with one patient) and 97180 (non-face-to-face services personally performed by the QHP, such as data review and modifying protocols). "Protocol modification" becomes "analysis" in the descriptors, and "since there is no grace period, 0362T and 0373T are invalid for dates of service on or after January 1, 2027." No state "approves" the codes themselves: they are Category I CPT codes that HIPAA requires on electronic claims, but, as the Coalition notes, HIPAA "does not, however, govern whether a payer covers a code / service, what a payer pays for a code / service, or what a payer requires to authorize" it, so each payer has to load them, price them and say how authorizations that list 0362T or 0373T carry over.';
+const CPT27_FAQ_Q = 'Has this plan adopted the 2027 ABA CPT codes (97148, 97159, 97173, 97180)?';
+const cpt27Section = (h2: string, local: string, cites: PayerSource[]) => ({
+  h2,
+  body: [CPT27_NATIONAL, local],
+  cites: [CPT27_PFS, CPT27_AMA, CPT27_COALITION, ...cites],
+});
+const CPT27_ND_UPD: PayerSource = { title: 'ND HHS — ND Medicaid Provider Updates (latest posts Oct. 2, 2026)', url: 'https://www.hhs.nd.gov/healthcare/medicaid/provider/communications/updates' };
+const CPT27_ND_NL: PayerSource = { title: 'ND HHS — ND Medicaid provider newsletter, September 2026 edition', url: 'https://www.hhs.nd.gov/healthcare/medicaid/provider/communications/newsletters/september-2026' };
+const CPT27_ND_STATE =
+  'North Dakota Medicaid had not announced how it will handle the 2027 adaptive-behavior codes as of Nov. 1, 2026: its Provider Updates page (newest posts Oct. 2, 2026) and the September 2026 provider newsletter say nothing about them.';
+
 export const northDakotaPayers: Record<string, PayerConfig> = {
   'north-dakota-medicaid': {
     slug: 'north-dakota-medicaid',
@@ -166,7 +183,7 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
       { label: 'Structure', value: 'Fee-for-service only; the Medicaid Expansion MCO (BCBSND) serves adults 21+ and carries no ABA' },
       { label: 'Front door', value: 'Annual Health Tracks screening recommending ABA → department prior approval letter' },
       { label: 'Prior auth', value: 'Web-based service authorization at the annual and 180-day update; all ABA codes SA "Yes"' },
-      { label: 'Rates (Aug. 2026, per unit)', value: '97151/97155 $31.76 · 97152 $23.51 · 97153 $10.81 · 97154 $2.72 · 97156 $29.48 · 0373T $12.99' },
+      { label: 'Rates (Oct. 2026, per unit)', value: '97151/97155 $31.76 · 97152 $23.51 · 97153 $10.81 · 97154 $2.72 · 97156 $29.48 · 0373T $12.99' },
       { label: 'Not covered', value: '97157, 97158 and 0362T' },
       { label: 'Licensure', value: 'Yes: licensed behavior analyst / assistant under N.D.C.C. ch. 43-64 (Board of Integrative Health Care)' },
       { label: 'Timely filing', value: '180 days from date of service (365 for claims with other insurance)' },
@@ -232,6 +249,7 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.asdWaiver, S.cfsPage, S.evv, S.elig],
       },
+      cpt27Section('CPT 2027: ND Medicaid has not announced the new ABA codes yet', CPT27_ND_STATE + ' Until it does, ask ND Medicaid Provider Relations how the 0362T and 0373T lines on the fee schedule and on existing service authorizations move to the new codes for dates of service from Jan. 1, 2027.', [CPT27_ND_UPD, CPT27_ND_NL]),
     ],
     collect: [
       { title: 'Prior approval letter', desc: 'The family gets it from ND Medicaid after sending a Health Tracks screening that lists the autism diagnosis and recommends ABA. It must be attached to every service authorization.' },
@@ -261,7 +279,7 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
         cites: [S.covsvc, S.lookup, S.abaPol],
       },
       noteSignature: {
-        value: 'Records must be "signed by the ND Medicaid-enrolled provider rendering the service. Claims that do not have signed records are considered non-covered," with start and stop times "required for all time-based codes" and records kept at least seven years. The ABA care plan must carry the "Signature of the BCBA, and date of signature," and skills-training documentation must include "who with, time, where occurred, event, data of goal."',
+        value: 'Records must be "signed by the ND Medicaid-enrolled provider rendering the service. Claims that do not have signed records are considered non-covered," with start and stop times "required for all time-based codes" and records kept at least seven years. The ABA care plan must carry the "Signature of the BCBA, and date of signature," and skills-training documentation must include "who with, time, where occurred, event, data of goal." Amendments: "Any change or addition to a medical record must have the current date of that entry and be signed by the person making the change or addition"; a late entry or addition must state "The reason for adding or clarifying information"; an error is corrected by drawing "a single line through the erroneous information," signing or initialling and dating it with the reason, and the same applies to electronic records. Back-dating, post-dating or writing over entries counts as falsification, which "may be cause for termination from the Medicaid program and recoupment of paid claims." The rule names only the person making the change as signer; it says nothing about a supervisor co-signing an amendment.',
         status: 'verified',
         cites: [S.provreq, S.abaPol],
       },
@@ -303,7 +321,7 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
         cites: [S.abaPol, S.cfsPage],
       },
       telehealth: {
-        value: 'Yes. The August 2026 fee schedule marks 97151, 97152, 97153, 97154, 97155, 97156 and 0373T "Telehealth Allowed: Yes." The telehealth chapter requires the same standard of care as in person on a HIPAA-compliant platform, POS 10 when the child is home and POS 02 elsewhere, modifier 93 for audio-only, and audio-only only when the Procedure Code Look-up Tool allows it for the code. Both sites document the member’s and provider’s physical locations. The clinician must be enrolled and licensed where the service is rendered.',
+        value: 'Yes. The October 2026 fee schedule (data updated Oct. 1, 2026) marks 97151, 97152, 97153, 97154, 97155, 97156 and 0373T "Telehealth Allowed: Yes." The telehealth chapter requires the same standard of care as in person on a HIPAA-compliant platform, POS 10 when the child is home and POS 02 elsewhere, modifier 93 for audio-only, and audio-only only when the Procedure Code Look-up Tool allows it for the code. Both sites document the member’s and provider’s physical locations. The clinician must be enrolled and licensed where the service is rendered.',
         status: 'verified',
         cites: [S.profFee, S.tele, S.penroll],
       },
@@ -329,6 +347,7 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
       { q: 'Whose NPI goes on a North Dakota Medicaid ABA claim?', a: 'The rendering provider’s. ND Medicaid requires every eligible provider to enroll and bill with their own NPI and bars billing under a supervisor’s NPI; RBTs and other skills trainers are enrolled provider types.' },
       { q: 'Does an ND Medicaid ABA claim need a referring or ordering provider (box 17)?', a: 'No. ND Medicaid’s Procedure Code Look-Up Tool marks every covered ABA code (97151–97156 and 0373T) "Ordering/Referring/Prescribing Provider NPI required: No." The PCP’s recommendation still matters, but it travels as the Health Tracks screening and the yearly prior approval letter attached to the service authorization, not on the claim.' },
       { q: 'Can ABA and speech therapy be billed on the same day in North Dakota Medicaid?', a: 'Not by the same agency: the ABA policy says that if one agency provides both speech services and ABA to a child, "only one service may be billed per day." The policy says nothing about two different agencies, and ND Medicaid also will not pay for ABA components that "Duplicate other State Plan services."' },
+      { q: CPT27_FAQ_Q, a: 'Not yet, as of Nov. 1, 2026. CPT 2027 deletes 0362T and 0373T, revises 97151–97158 and adds 97148/97149, 97159/97160, 97173 and 97180 from Jan. 1, 2027. ND Medicaid’s Provider Updates and September 2026 newsletter do not mention them, so ask ND Medicaid how authorizations and fee schedule lines carry over.' },
     ],
   },
 
@@ -425,6 +444,7 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
         body: [BCBSND_APPEAL_BODY_G5, BCBSND_OON_BODY_G5],
         cites: [S.bcPM],
       },
+      cpt27Section('CPT 2027: what BCBSND has and has not said', 'BCBSND had published no adaptive-behavior code guidance for 2027 as of Nov. 1, 2026: its commercial prior-authorization list announces other changes effective Jan. 1, 2027 but none for ABA codes, and its provider healthcare-news page carries no ABA code notice. ' + CPT27_ND_STATE + ' Ask BCBSND how it will price the new codes and whether authorizations that list 0362T or 0373T carry over.', [{ title: 'BCBSND — Commercial prior authorization list (incl. changes effective Jan. 1, 2027)', url: 'https://www.bcbsnd.com/providers/policies-precertification/commercial-prior-authorization-list' }, { title: 'BCBSND — Provider healthcare news', url: 'https://www.bcbsnd.com/providers/news-resources/healthcare-news' }, CPT27_ND_UPD]),
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Insured (Bulletin 2018-1 and ch. 26.1-36.12 apply) vs. self-funded ERISA (the plan document governs).' },
@@ -544,6 +564,7 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
       { q: 'Is there a North Dakota autism insurance mandate?', a: 'No statute. North Dakota relies on Insurance Department Bulletin 2018-1, which applies federal parity to insured plans and forbids excluding ABA as experimental.' },
       { q: 'Can a BCBA licensed in another state bill BCBSND for a North Dakota child?', a: 'Only with a North Dakota license: N.D.C.C. 43-64-02 requires one to practice ABA in the state, and the Board of Integrative Health Care offers license by endorsement. BCBSND’s telehealth guide covers claim routing for out-of-state clinicians employed by North Dakota groups, not licensure.' },
       { q: 'How does BlueCard work for ABA with BCBSND?', a: 'BCBSND’s provider manual (8-26): BlueCard lets participating providers "submit claims for members who are enrolled through another Blues Plan to their local BCBS Plan." Verify the out-of-state member on Availity or at BlueCard Eligibility, 800-676-BLUE (2583), using the prefix on the ID card. File the claim with that prefix and ID number to the plan you contract with (your local plan unless you contract directly with the member’s plan); the member’s own plan adjudicates it, and payment is based on your local plan’s arrangement. For authorizations the manual says only "see the member’s ID card," so use the authorization contact printed there. Contiguous-county contracts with Blue Cross of Minnesota change where some claims go, as the manual’s examples show.' },
+      { q: CPT27_FAQ_Q, a: 'Not as of Nov. 1, 2026. BCBSND’s commercial PA list lists other Jan. 1, 2027 changes but none for the ABA codes, and its provider news has no ABA code notice. CPT 2027 deletes 0362T and 0373T and adds 97148/97149, 97159/97160, 97173 and 97180, so ask BCBSND how it will price them and handle existing authorizations.' },
     ],
   },
 
@@ -631,6 +652,7 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
         body: [AETNA_APPEALS_BODY_G5, AETNA_TOC_BODY_G5],
         cites: [AETNA_OM_G5],
       },
+      cpt27Section('CPT 2027: what Aetna has and has not said', 'Aetna had published no 2027 adaptive-behavior code guidance as of Nov. 1, 2026: CPB 0648 (Autism Spectrum Disorders), last reviewed Oct. 20, 2026, still lists the current code set, including 0373T. ' + CPT27_ND_STATE + ' Ask Aetna how it will load and price the new codes and whether authorizations that list 0362T or 0373T carry over.', [{ title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/20/2026)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }]),
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Insured in North Dakota (Bulletin 2018-1 and ch. 26.1-36.12 apply) vs. self-funded ERISA (plan document governs).' },
@@ -734,6 +756,7 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
       { q: 'Does North Dakota have an autism insurance mandate?', a: 'Not a statute. North Dakota relies on Insurance Department Bulletin 2018-1, which applies federal parity to insured plans that cover autism and forbids excluding ABA as experimental or investigational.' },
       { q: 'What does Aetna pay for ABA in North Dakota?', a: 'Aetna publishes no ABA rates; they are in your participation agreement. The only public benchmark is ND Medicaid’s fee schedule (97153 $10.81 per unit in October 2026).' },
       { q: 'How long does Aetna have to pay a clean claim in North Dakota?', a: 'For insured plans, N.D.C.C. 26.1-36-37.1 gives 15 business days to pay, deny or request more information, and 15 business days after receiving the information. Self-funded plans follow their own terms.' },
+      { q: CPT27_FAQ_Q, a: 'Not as of Nov. 1, 2026. CPB 0648 (last reviewed Oct. 20, 2026) still lists the current codes, including 0373T. CPT 2027 deletes 0362T and 0373T and adds 97148/97149, 97159/97160, 97173 and 97180 from Jan. 1, 2027, so ask Aetna how it will price them and handle existing authorizations.' },
     ],
   },
 
@@ -823,6 +846,7 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
         body: [EBH_APPEALS_BODY_G5, EBH_OON_BODY_G5],
         cites: [EBH_ADMIN_G5],
       },
+      cpt27Section('CPT 2027: what Cigna has and has not said', 'Cigna had published no 2027 adaptive-behavior code guidance as of Nov. 1, 2026: Evernorth coverage policy EN0499 (Intensive Behavioral Interventions, effective May 15, 2026) still lists the current code set, including 0373T. ' + CPT27_ND_STATE + ' Ask Cigna how it will load and price the new codes and whether authorizations that list 0362T or 0373T carry over.', [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }]),
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Insured in North Dakota (Bulletin 2018-1 applies) vs. self-funded ERISA (plan document governs).' },
@@ -919,6 +943,7 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
       { q: 'How do I get in network with Cigna for ABA in North Dakota?', a: 'Evernorth’s guidelines say providers in North Dakota must be contracted through HealthPartners to be in network for Cigna members, with some exceptions where a direct Evernorth agreement supersedes it.' },
       { q: 'Does the Cigna ABA assessment need prior authorization?', a: 'No, for 97151, 97152 and 0362T with an autism diagnosis when the provider is independently licensed or a BCBA and the policy covers ABA. PA starts at treatment.' },
       { q: 'Can ABA for Cigna members be done by telehealth?', a: 'Yes. Cigna says all ABA CPT codes are covered telehealth services, billed with modifier 95. The clinician must be licensed in North Dakota.' },
+      { q: CPT27_FAQ_Q, a: 'Not as of Nov. 1, 2026. Evernorth policy EN0499 (effective May 15, 2026) still lists the current codes, including 0373T. CPT 2027 deletes 0362T and 0373T and adds 97148/97149, 97159/97160, 97173 and 97180 from Jan. 1, 2027, so ask Cigna how it will price them and handle existing authorizations.' },
     ],
   },
 
@@ -1006,6 +1031,7 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
         body: [OPTUM_APPEALS_BODY_G5, OPTUM_AUTH_BODY_G5],
         cites: [OPTUM_NNM_G5],
       },
+      cpt27Section('CPT 2027: what UnitedHealthcare has and has not said', 'UnitedHealthcare (Optum Behavioral Health) had published no 2027 adaptive-behavior code guidance as of Nov. 1, 2026: Optum’s commercial ABA reimbursement policy (updated February 2026) still lists the current code set, including 0373T, and its ABA clinical resources page lists no 2027 code document. ' + CPT27_ND_STATE + ' Ask UnitedHealthcare how it will load and price the new codes and whether authorizations that list 0362T or 0373T carry over.', [{ title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated February 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: 'Optum Provider Express — Autism/ABA clinical resources', url: 'https://public.providerexpress.com/content/ope-provexpr/us/en/clinical-resources/autismABA2.html' }]),
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Insured in North Dakota (Bulletin 2018-1 applies) vs. self-funded ERISA (plan document governs).' },
@@ -1106,6 +1132,7 @@ export const northDakotaPayers: Record<string, PayerConfig> = {
       { q: 'Can ABA be delivered by telehealth with UnitedHealthcare in North Dakota?', a: 'Optum’s commercial telehealth guide allows only 97155, 97156 and 97157 by telehealth, billed POS 02 or 10. The 97151 assessment and 97153 are not on that list.' },
       { q: 'What does UnitedHealthcare pay for ABA in North Dakota?', a: 'Optum publishes no ABA rates. You are paid up to the Fee Maximum in your agreement, and each line carries a credential modifier (HM RBT, HN BCaBA, HO BCBA, HP doctoral). ND Medicaid’s 97153 rate ($10.81 per unit) is the only public benchmark.' },
       { q: 'Does UnitedHealthcare require RBT certification for ABA technicians?', a: 'For commercial plans, Optum’s reimbursement policy defines the HM technician line as "a Registered Behavior Technician (RBT)," and notes state requirements may supplement it. North Dakota exempts technicians from licensure only while they work under a licensed behavior analyst’s direction.' },
+      { q: CPT27_FAQ_Q, a: 'Not as of Nov. 1, 2026. Optum’s commercial ABA reimbursement policy (updated February 2026) still lists the current codes, including 0373T. CPT 2027 deletes 0362T and 0373T and adds 97148/97149, 97159/97160, 97173 and 97180 from Jan. 1, 2027, so ask UnitedHealthcare how it will price them and handle existing authorizations.' },
     ],
   },
 };

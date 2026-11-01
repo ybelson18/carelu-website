@@ -134,6 +134,25 @@ const COMM_AUTH_VALUE = (carrier: string) =>
 const COMM_COB_VALUE = (carrier: string) =>
   'Illinois’s group coordination-of-benefits rule could not be retrieved this run, so the order between two parents’ plans is not stated here; ask the plan. What is certain is the order against public coverage: if the child also has Illinois Medicaid, ' + carrier + ' pays first. HFS is “by federal and State Law, the payer of last resort,” and claims must be adjudicated by all liable third parties before HFS considers them (42 CFR 433.139). TRICARE pays after this plan (10 U.S.C. 1079(i)(1)); CHAMPVA is the last payer (38 CFR 17.270).';
 
+/* ---------------- CPT 2027 adaptive-behavior code changes (weekly refresh 2026-11-01, G6) ---------------- */
+const CPT27_PFS: PayerSource = { title: 'CMS — CY 2027 Physician Fee Schedule proposed rule, 91 FR 43842 (July 16, 2026), section (47) Adaptive Behavior Services: 0362T/0373T deleted, 97151–97158 revised, six new codes', url: 'https://www.govinfo.gov/content/pkg/FR-2026-07-16/pdf/2026-14327.pdf' };
+const CPT27_AMA: PayerSource = { title: 'AMA — AMA releases CPT 2027 code set (Sept. 9, 2026; changes effective Jan. 1)', url: 'https://www.ama-assn.org/press-center/ama-press-releases/ama-releases-cpt-2027-code-set' };
+const CPT27_COALITION: PayerSource = { title: 'ABA Coding Coalition — Supplemental Guidance on Interpreting and Applying the 2027 CPT Codes for Adaptive Behavior Services (posted Oct. 5, 2026)', url: 'https://abacodes.org/wp-content/uploads/2026/10/2027-CPT-Supplemental-Guidance.pdf' };
+const CPT27_NATIONAL =
+  'What changes on Jan. 1, 2027. CMS records that at its September 2025 meeting the AMA CPT Editorial Panel "deleted CPT codes 0362T" and "0373T," "revised eight existing CPT codes" (97151 through 97158) and "created six new CPT codes" for adaptive behavior services; the AMA released the CPT 2027 code set on Sept. 9, 2026, with changes in effect on January 1. The ABA Coding Coalition’s 2027 guidance gives the final numbers: 97148 and add-on +97149 (behavior identification supporting assessment of harmful behavior, delivered by two technicians, additional technicians on the add-on), 97159 and add-on +97160 (adaptive behavior treatment of harmful behavior, same two-technician structure), 97173 (adaptive behavior treatment with analysis by a physician or other QHP, face-to-face with one patient) and 97180 (non-face-to-face services personally performed by the QHP, such as data review and modifying protocols). "Protocol modification" becomes "analysis" in the descriptors, and "since there is no grace period, 0362T and 0373T are invalid for dates of service on or after January 1, 2027." No state "approves" the codes themselves: they are Category I CPT codes that HIPAA requires on electronic claims, but, as the Coalition notes, HIPAA "does not, however, govern whether a payer covers a code / service, what a payer pays for a code / service, or what a payer requires to authorize" it, so each payer has to load them, price them and say how authorizations that list 0362T or 0373T carry over.';
+const CPT27_FAQ_Q = 'Has this plan adopted the 2027 ABA CPT codes (97148, 97159, 97173, 97180)?';
+const cpt27Section = (h2: string, local: string, cites: PayerSource[]) => ({
+  h2,
+  body: [CPT27_NATIONAL, local],
+  cites: [CPT27_PFS, CPT27_AMA, CPT27_COALITION, ...cites],
+});
+const CPT27_IL_NOT: PayerSource = { title: 'Illinois HFS — Provider notices (list through Oct. 29, 2026)', url: 'https://hfs.illinois.gov/medicalproviders/notices.html' };
+const CPT27_IL_ABS: PayerSource = { title: 'Illinois HFS provider notice — Electronic Clinical Review Platform for Prior Authorizations for Adaptive Behavioral Support (ABS) Services (March 18, 2025)', url: 'https://hfs.illinois.gov/medicalproviders/notices/notice.prn250318a.html' };
+const CPT27_IL_STATE =
+  'Illinois HFS had issued no provider notice on the 2027 adaptive-behavior codes as of Nov. 1, 2026: its notice list runs to Oct. 29, 2026, and its latest notice on Adaptive Behavioral Support (ABS) services is the March 18, 2025 notice on the electronic clinical review platform for ABS prior authorizations.';
+const cpt27IlMco = (plan: string, checked: string) =>
+  CPT27_IL_STATE + ` We found no ${plan} notice on the 2027 codes either (checked ${checked} on Nov. 1, 2026). Ask ${plan} how it will load and price the new codes and whether ABS authorizations that list 0362T or 0373T carry over to dates of service from Jan. 1, 2027.`;
+
 export const illinoisPayers: Record<string, PayerConfig> = {
   'illinois-medicaid': {
     slug: 'illinois-medicaid',
@@ -238,6 +257,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
           { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
         ],
       },
+      cpt27Section('CPT 2027: HFS has not announced the new ABA codes yet', CPT27_IL_STATE + ' Until HFS publishes a notice and fee schedule lines for the new codes, ask HFS (and, for HealthChoice Illinois members, the MCO) how ABS authorizations listing 0362T or 0373T carry over to dates of service from Jan. 1, 2027.', [CPT27_IL_NOT, CPT27_IL_ABS]),
     ],
     collect: [
       { title: 'Which Medicaid card', desc: 'Aetna Better Health, Blue Cross Community Health Plans, CountyCare, Meridian, Molina, YouthCare, or fee-for-service. The plan owns authorization; HFS handles only FFS.' },
@@ -337,6 +357,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       { q: 'How fast does Illinois Medicaid pay ABA claims?', a: 'HFS publishes no fee-for-service payment deadline; the Comptroller pays by warrant or EFT. HealthChoice Illinois plans must pay a clean claim within 30 days under 305 ILCS 5/5-30.1(g), with interest if late.' },
       { q: 'Does EVV apply to ABA in Illinois?', a: 'No. HFS’s EVV page limits EVV to personal care services under the HCBS waivers and home health care services; ABS is not listed.' },
       { q: 'Can a BCBA licensed in another state treat an Illinois Medicaid child by telehealth?', a: 'No, not without an Illinois license. The Behavior Analyst Licensing Act bars practicing ABA in Illinois unless licensed or exempt, and its exemptions include nothing for out-of-state licensees (225 ILCS 6/20); the Telehealth Act requires a professional treating a patient located in Illinois by telehealth to be “licensed or authorized to practice in Illinois” (225 ILCS 150/10). For Medicaid the clinician also needs IMPACT enrollment.' },
+      { q: CPT27_FAQ_Q, a: 'Not yet, as of Nov. 1, 2026. CPT 2027 deletes 0362T and 0373T, revises 97151–97158 and adds 97148/97149, 97159/97160, 97173 and 97180 from Jan. 1, 2027. HFS has issued no provider notice on them (notice list through Oct. 29, 2026). Ask HFS or the MCO how ABS authorizations carry over.' },
     ],
   },
 
@@ -406,6 +427,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
           { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
         ],
       },
+      cpt27Section('CPT 2027: the new ABA codes and Aetna Better Health of Illinois', cpt27IlMco('Aetna Better Health of Illinois', 'its provider newsletters page'), [CPT27_IL_NOT, { title: 'Aetna Better Health of Illinois — Provider newsletters', url: 'https://es.aetnabetterhealth.com/illinois-medicaid/providers/newsletters.html' }]),
     ],
     collect: [
       { title: 'Member ID', desc: 'Confirm Aetna Better Health of Illinois (not another HealthChoice plan or FFS) on the date of service.' },
@@ -503,6 +525,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       { q: 'What is the timely filing limit?', a: '180 days from the date of service for new and corrected claims; 90 days from the primary insurer’s EOB when another plan pays first.' },
       { q: 'Can ABA be done by telehealth for Aetna Better Health of Illinois members?', a: 'The plan publishes no ABA-specific rule, so HFS’s fee schedule governs: 97151, 97155, 97156 and 97157 with modifier GT or 93 and POS 02 or 10.' },
       { q: 'Does Aetna Better Health of Illinois give single case agreements to out-of-network ABA providers?', a: 'Yes. Its 2026 manual publishes the steps: get a prior authorization from Medical Management first; if the out-of-network provider will not accept fee-schedule rates, an SCA goes through medical-necessity review and the Advisor Review Committee, then Network Contracting negotiates with the provider.' },
+      { q: CPT27_FAQ_Q, a: 'Not yet, as of Nov. 1, 2026. HFS has issued no notice on the 2027 ABA codes and we found none from Aetna Better Health of Illinois. CPT 2027 deletes 0362T and 0373T and adds 97148/97149, 97159/97160, 97173 and 97180 from Jan. 1, 2027; ask Aetna Better Health of Illinois how ABS authorizations carry over.' },
     ],
   },
 
@@ -572,6 +595,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
           { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
         ],
       },
+      cpt27Section('CPT 2027: the new ABA codes and BCCHP', cpt27IlMco('Blue Cross Community Health Plans', 'Blue Cross and Blue Shield of Illinois provider news through Oct. 30, 2026 and the BCCHP prior authorization code list effective Oct. 1, 2026, which still lists 0373T'), [CPT27_IL_NOT, { title: 'Blue Cross and Blue Shield of Illinois — Provider news', url: 'https://www.bcbsil.com/provider/education/education-reference/news' }, { title: 'BCCHP — Prior authorization code list (effective Oct. 1, 2026)', url: 'https://www.bcbsil.com/docs/provider/il/claims/um/bcchp-pa-code-list-10-1-2026.pdf' }]),
     ],
     collect: [
       { title: 'Member ID', desc: 'Confirm BCCHP (Medicaid), not a BCBSIL commercial card: the rules differ.' },
@@ -677,6 +701,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       { q: 'Whose NPI goes on a BCCHP ABA claim?', a: 'The rendering provider in box 24J (loop 2310B). When an RBT renders, the supervising ABS clinician goes in box 17 (loop 2310D).' },
       { q: 'Is BCCHP the same as a BCBSIL commercial plan?', a: 'No. BCCHP is BCBSIL’s Medicaid plan and follows HFS’s ABS benefit and the 24-hour notification rule; commercial BCBSIL plans have their own ABA PA list and phone-based preservice process.' },
       { q: 'Does Blue Cross Community Health Plans give single case agreements to out-of-network ABA providers?', a: 'BCCHP’s manual does not describe single case agreements. A non-contracted provider must be registered in IMPACT and get benefit preauthorization from BCBSIL before treating; otherwise the services “will not be considered for reimbursement.”' },
+      { q: CPT27_FAQ_Q, a: 'Not yet, as of Nov. 1, 2026. HFS has issued no notice on the 2027 ABA codes and we found none from Blue Cross Community Health Plans. CPT 2027 deletes 0362T and 0373T and adds 97148/97149, 97159/97160, 97173 and 97180 from Jan. 1, 2027; ask Blue Cross Community Health Plans how ABS authorizations carry over.' },
     ],
   },
 
@@ -744,6 +769,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
           { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
         ],
       },
+      cpt27Section('CPT 2027: the new ABA codes and CountyCare', cpt27IlMco('CountyCare', 'its provider notices page'), [CPT27_IL_NOT, { title: 'CountyCare — Provider notices', url: 'https://countycare.com/provider-notices/' }]),
     ],
     collect: [
       { title: 'Member ID and county', desc: 'CountyCare serves Cook County only; confirm enrollment on the date of service.' },
@@ -841,6 +867,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       { q: 'What is CountyCare’s timely filing limit?', a: '180 calendar days from the date of service; disputes within 60 days of the EOP.' },
       { q: 'Who can enroll in CountyCare?', a: 'CountyCare is the HealthChoice Illinois plan for Cook County only, per HFS’s managed care map.' },
       { q: 'Does CountyCare give single case agreements to out-of-network ABA providers?', a: 'CountyCare’s manual does not describe single case agreements. Out-of-network services are covered only for emergencies, family planning, or “when the health plan provides prior authorization.”' },
+      { q: CPT27_FAQ_Q, a: 'Not yet, as of Nov. 1, 2026. HFS has issued no notice on the 2027 ABA codes and we found none from CountyCare. CPT 2027 deletes 0362T and 0373T and adds 97148/97149, 97159/97160, 97173 and 97180 from Jan. 1, 2027; ask CountyCare how ABS authorizations carry over.' },
     ],
   },
 
@@ -916,6 +943,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
           { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
         ],
       },
+      cpt27Section('CPT 2027: the new ABA codes and Meridian', cpt27IlMco('Meridian', 'its provider newsroom'), [CPT27_IL_NOT, { title: 'Meridian (Illinois) — Provider newsroom', url: 'https://www.ilmeridian.com/newsroom.html' }]),
     ],
     collect: [
       { title: 'Member ID', desc: 'Confirm Meridian (not YouthCare or another plan) on the date of service.' },
@@ -1011,6 +1039,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       { q: 'How many ABA hours will Meridian authorize?', a: 'Up to 6 hours a day and 30 a week unless documentation justifies more, and under 20 hours a week for a child in school full-time (CP.BH.104).' },
       { q: 'What is Meridian’s timely filing limit?', a: '180 days from the date of service.' },
       { q: 'Does Meridian give single case agreements to out-of-network ABA providers?', a: 'Meridian’s manual does not describe single case agreements. All non-emergency services from out-of-network providers need prior authorization, and its one-level dispute process is open to out-of-network providers.' },
+      { q: CPT27_FAQ_Q, a: 'Not yet, as of Nov. 1, 2026. HFS has issued no notice on the 2027 ABA codes and we found none from Meridian. CPT 2027 deletes 0362T and 0373T and adds 97148/97149, 97159/97160, 97173 and 97180 from Jan. 1, 2027; ask Meridian how ABS authorizations carry over.' },
     ],
   },
 
@@ -1078,6 +1107,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
           { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
         ],
       },
+      cpt27Section('CPT 2027: the new ABA codes and Molina', cpt27IlMco('Molina', 'its Illinois provider communications page'), [CPT27_IL_NOT, { title: 'Molina Healthcare of Illinois — Provider communications', url: 'https://www.molinahealthcare.com/providers/il/communications' }]),
     ],
     collect: [
       { title: 'Member ID', desc: 'Confirm Molina HealthChoice Illinois on the date of service.' },
@@ -1173,6 +1203,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       { q: 'How do I submit to Molina Illinois?', a: 'Through Availity Essentials, which Molina calls the only way to submit authorization requests, with clinical documents attached.' },
       { q: 'What does Molina Illinois pay for ABA?', a: 'Molina directs providers to the HFS ABS fee schedule (97153 $13.00, 97155 $20.39 per 15 minutes); contracted rates are in your agreement.' },
       { q: 'Does Molina give single case agreements to out-of-network ABA providers?', a: 'Molina’s Illinois manual does not describe single case agreements. All care from non-contracted providers “must be preauthorized by Molina,” and Molina itself reviews out-of-network requests and requests for members under 18.' },
+      { q: CPT27_FAQ_Q, a: 'Not yet, as of Nov. 1, 2026. HFS has issued no notice on the 2027 ABA codes and we found none from Molina. CPT 2027 deletes 0362T and 0373T and adds 97148/97149, 97159/97160, 97173 and 97180 from Jan. 1, 2027; ask Molina how ABS authorizations carry over.' },
     ],
   },
 
@@ -1248,6 +1279,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
           { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
         ],
       },
+      cpt27Section('CPT 2027: the new ABA codes and YouthCare', cpt27IlMco('YouthCare', 'its provider newsroom'), [CPT27_IL_NOT, { title: 'YouthCare — Newsroom', url: 'https://www.ilyouthcare.com/newsroom.html' }]),
     ],
     collect: [
       { title: 'DCFS status', desc: 'Youth in care or former youth in care; YouthCare enrolls only these children.' },
@@ -1340,6 +1372,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       { q: 'Does the ABA assessment need PA with YouthCare?', a: 'No PA, but notify YouthCare within 24 hours of the initial assessment. Treatment needs prior authorization.' },
       { q: 'Is YouthCare the same as Meridian?', a: 'Meridian operates YouthCare and the two share Centene’s ABA policies, but YouthCare is a separate plan with its own manual and member ID.' },
       { q: 'Does YouthCare give single case agreements to out-of-network ABA providers?', a: 'YouthCare’s manual does not describe single case agreements. It “will NOT authorize services for out-of-network or non-participating providers” except for continuity of care, or at its discretion when the service is not available in network.' },
+      { q: CPT27_FAQ_Q, a: 'Not yet, as of Nov. 1, 2026. HFS has issued no notice on the 2027 ABA codes and we found none from YouthCare. CPT 2027 deletes 0362T and 0373T and adds 97148/97149, 97159/97160, 97173 and 97180 from Jan. 1, 2027; ask YouthCare how ABS authorizations carry over.' },
     ],
   },
 
@@ -1433,6 +1466,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
           { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
         ],
       },
+      cpt27Section('CPT 2027: what Aetna has and has not said', 'Aetna had published no 2027 adaptive-behavior code guidance as of Nov. 1, 2026: CPB 0648 (Autism Spectrum Disorders), last reviewed Oct. 20, 2026, still lists the current code set, including 0373T. Ask Aetna how it will load and price the new codes and whether authorizations that list 0362T or 0373T carry over.', [{ title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/20/2026)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }]),
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Illinois mandate applies) vs. self-funded ERISA (plan document governs). Ask for the employer and check the card.' },
@@ -1537,6 +1571,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       { q: 'Does Aetna give single case agreements for ABA in Illinois?', a: 'Aetna publishes no single-case-agreement policy. Its provider manual offers an out-of-network referral request (approved, for example, when no in-network professional is available and the plan has out-of-network benefits) and transition of care for a member already in treatment with an out-of-network individual practitioner. ABA still needs precertification.' },
       { q: 'What should an Aetna ABA reconsideration in Illinois include?', a: 'Medical records and supporting documents, plus a dispute and appeal form or a letter with the member ID, patient name, TIN, claim ID, dates of service, billed amounts, and the codes and modifiers in dispute. File within 180 days of the claim decision; an appeal follows within 60 days of the reconsideration decision.' },
       { q: 'Is an Aetna ABA authorization in Illinois tied to the BCBA or to the group?', a: 'The precertification form identifies the provider or group by TIN or PIN, with the supervising clinician named separately. Aetna publishes no rule that moves an authorization to another agency, so a new agency requests its own precertification.' },
+      { q: CPT27_FAQ_Q, a: 'Not as of Nov. 1, 2026. CPB 0648 (last reviewed Oct. 20, 2026) still lists the current codes, including 0373T. CPT 2027 deletes 0362T and 0373T and adds 97148/97149, 97159/97160, 97173 and 97180 from Jan. 1, 2027, so ask Aetna how it will price them and handle existing authorizations.' },
     ],
   },
 
@@ -1629,6 +1664,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
           { title: 'Evernorth Coverage Policy EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
         ],
       },
+      cpt27Section('CPT 2027: what Cigna has and has not said', 'Cigna had published no 2027 adaptive-behavior code guidance as of Nov. 1, 2026: Evernorth coverage policy EN0499 (Intensive Behavioral Interventions, effective May 15, 2026) still lists the current code set, including 0373T. Ask Cigna how it will load and price the new codes and whether authorizations that list 0362T or 0373T carry over.', [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }]),
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Illinois mandate and Evernorth’s Illinois addendum apply) vs. self-funded ERISA (plan document governs).' },
@@ -1727,6 +1763,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       { q: 'What does Cigna pay for ABA in Illinois?', a: 'Cigna publishes no ABA rates. Evernorth puts your fee schedule in Exhibit A of your Provider Agreement; call 800.926.2273. Illinois Medicaid’s 97153 rate ($13.00 per 15 minutes) is the public benchmark.' },
       { q: 'Does Cigna give single case agreements for ABA in Illinois?', a: 'Cigna/Evernorth calls it a network exception. It needs prior authorization on the Evernorth ABA PA form, including for the 97151, 97152 and 0362T assessment codes that otherwise need none. HMO plans cover in-network providers only.' },
       { q: 'Is a Cigna ABA authorization in Illinois tied to the BCBA or to the clinic?', a: 'The PA form names the servicing clinic by TIN and the supervising provider by credential. Approvals are written per month on 97155. A new agency requests its own authorization, and two agencies in the same period must document coordination.' },
+      { q: CPT27_FAQ_Q, a: 'Not as of Nov. 1, 2026. Evernorth policy EN0499 (effective May 15, 2026) still lists the current codes, including 0373T. CPT 2027 deletes 0362T and 0373T and adds 97148/97149, 97159/97160, 97173 and 97180 from Jan. 1, 2027, so ask Cigna how it will price them and handle existing authorizations.' },
     ],
   },
 
@@ -1823,6 +1860,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
           { title: 'Optum — ABA Request for Services Checklist (BH00853-25-QRG)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/BH00853-25-QRG_ABAQRG.pdf' },
         ],
       },
+      cpt27Section('CPT 2027: what UnitedHealthcare has and has not said', 'UnitedHealthcare (Optum Behavioral Health) had published no 2027 adaptive-behavior code guidance as of Nov. 1, 2026: Optum’s commercial ABA reimbursement policy (updated February 2026) still lists the current code set, including 0373T, and its ABA clinical resources page lists no 2027 code document. Ask UnitedHealthcare how it will load and price the new codes and whether authorizations that list 0362T or 0373T carry over.', [{ title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated February 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: 'Optum Provider Express — Autism/ABA clinical resources', url: 'https://public.providerexpress.com/content/ope-provexpr/us/en/clinical-resources/autismABA2.html' }]),
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Illinois mandate applies) vs. self-funded ERISA (plan document governs).' },
@@ -1926,6 +1964,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       { q: 'What supporting documents go with a UnitedHealthcare (Optum) ABA reconsideration in Illinois?', a: 'Member-specific treatment plans, clinical records, payment appendices or anything else showing why the decision was wrong, plus proof the claim was filed on time. Both steps must be filed within 12 months in total. At the appeal step, send only new material.' },
       { q: 'Is a UnitedHealthcare ABA authorization in Illinois tied to the BCBA or the group?', a: 'Optum says non-routine outpatient authorizations, ABA included, are “specific to the requesting clinician,” but any ABA supervisor credentialed under the same group contract can see the member. A different agency requests its own authorization.' },
       { q: 'What do HM, HN, HO and HP mean on a UnitedHealthcare ABA claim in Illinois?', a: 'HM = RBT, HN = BCaBA, HO = BCBA or master’s-level licensed provider, HP = BCBA-D or doctoral-level licensed provider. 97151 and 97155–97158 cannot carry HM; 0362T and 0373T take no modifier.' },
+      { q: CPT27_FAQ_Q, a: 'Not as of Nov. 1, 2026. Optum’s commercial ABA reimbursement policy (updated February 2026) still lists the current codes, including 0373T. CPT 2027 deletes 0362T and 0373T and adds 97148/97149, 97159/97160, 97173 and 97180 from Jan. 1, 2027, so ask UnitedHealthcare how it will price them and handle existing authorizations.' },
     ],
   },
 
@@ -2001,6 +2040,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
         body: [IL_COMMERCIAL_LIC_BODY + ' CPCP011 itself accepts BACB certification “and/or” a state Licensed Behavior Analyst credential, but that does not excuse Illinois licensure for practice in Illinois.'],
         cites: [S.idfpr, S.ilga6_20, S.ilga6_150, S.ilgaTele, S.bacbLic, S.bcbsilCPCP],
       },
+      cpt27Section('CPT 2027: what Blue Cross and Blue Shield of Illinois has and has not said', 'Blue Cross and Blue Shield of Illinois had published no 2027 adaptive-behavior code guidance as of Nov. 1, 2026: its provider news through Oct. 30, 2026 has no ABA code notice, and its 2026 commercial behavioral health prior authorization code list still lists 0373T. Ask BCBSIL how it will load and price the new codes and whether authorizations that list 0362T or 0373T carry over.', [{ title: 'Blue Cross and Blue Shield of Illinois — Provider news', url: 'https://www.bcbsil.com/provider/education/education-reference/news' }, { title: 'BCBSIL — 2026 commercial behavioral health prior authorization code list', url: 'https://www.bcbsil.com/docs/provider/il/claims/um/2026-commercial-bh-pa-code-list.pdf' }]),
     ],
     collect: [
       { title: 'Plan type and funding', desc: 'PPO/Blue Options vs. HMO vs. self-funded ASO: the PA list names non-HMO products, and the mandate reaches only fully insured plans.' },
@@ -2106,6 +2146,7 @@ export const illinoisPayers: Record<string, PayerConfig> = {
       { q: 'How do I submit an ABA preservice request to BCBSIL?', a: 'Since April 2026, call the customer service number on the member’s ID card; a BCBSIL clinician follows up with a telephonic clinical review. Forms are no longer the primary method.' },
       { q: 'Does BCBSIL require a parent signature on ABA session notes?', a: 'Yes. CPCP011 asks for a parent or caregiver signature for each rendered service, with the code, the rendering provider’s name, signature and credentials, POS, date and start/end times.' },
       { q: 'Did Illinois’s 2026 behavioral health law remove BCBSIL’s ABA prior authorization?', a: 'BCBSIL still lists ABA codes for preservice review, and its commercial “no review” list under Public Act 104-0028 does not mention ABA. But the law it implements, 215 ILCS 5/370c(w), bars prior authorization of outpatient mental health treatment under fully insured policies (concurrent review after a notice of up to 2 business days is allowed), and the autism mandate cross-references that ban. The statute does not name ABA, so for a fully insured member ask BCBSIL in writing. Its Medicaid plan uses a 24-hour ABA notification rule.' },
+      { q: CPT27_FAQ_Q, a: 'Not as of Nov. 1, 2026. Its provider news has no ABA code notice and its 2026 commercial BH PA code list still lists 0373T. CPT 2027 deletes 0362T and 0373T and adds 97148/97149, 97159/97160, 97173 and 97180, so ask BCBSIL how it will price them and handle existing authorizations.' },
     ],
   },
 };

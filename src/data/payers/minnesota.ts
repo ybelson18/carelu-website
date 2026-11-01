@@ -168,6 +168,21 @@ const MN_COB_VALUE = (carrier: string) =>
 const MN_PROMPT_PAY =
   'Minnesota’s prompt-pay statute (§ 62Q.75) makes "All health plan companies and third-party administrators … pay or deny claims that are clean claims within 30 calendar days" of receipt, with interest at "1.5 percent per month," and, "Unless otherwise provided by contract," providers must submit charges "within six months from the date of service."';
 
+/* ---------------- CPT 2027 adaptive-behavior code changes (weekly refresh 2026-11-01, G6) ---------------- */
+const CPT27_PFS: PayerSource = { title: 'CMS — CY 2027 Physician Fee Schedule proposed rule, 91 FR 43842 (July 16, 2026), section (47) Adaptive Behavior Services: 0362T/0373T deleted, 97151–97158 revised, six new codes', url: 'https://www.govinfo.gov/content/pkg/FR-2026-07-16/pdf/2026-14327.pdf' };
+const CPT27_AMA: PayerSource = { title: 'AMA — AMA releases CPT 2027 code set (Sept. 9, 2026; changes effective Jan. 1)', url: 'https://www.ama-assn.org/press-center/ama-press-releases/ama-releases-cpt-2027-code-set' };
+const CPT27_COALITION: PayerSource = { title: 'ABA Coding Coalition — Supplemental Guidance on Interpreting and Applying the 2027 CPT Codes for Adaptive Behavior Services (posted Oct. 5, 2026)', url: 'https://abacodes.org/wp-content/uploads/2026/10/2027-CPT-Supplemental-Guidance.pdf' };
+const CPT27_NATIONAL =
+  'What changes on Jan. 1, 2027. CMS records that at its September 2025 meeting the AMA CPT Editorial Panel "deleted CPT codes 0362T" and "0373T," "revised eight existing CPT codes" (97151 through 97158) and "created six new CPT codes" for adaptive behavior services; the AMA released the CPT 2027 code set on Sept. 9, 2026, with changes in effect on January 1. The ABA Coding Coalition’s 2027 guidance gives the final numbers: 97148 and add-on +97149 (behavior identification supporting assessment of harmful behavior, delivered by two technicians, additional technicians on the add-on), 97159 and add-on +97160 (adaptive behavior treatment of harmful behavior, same two-technician structure), 97173 (adaptive behavior treatment with analysis by a physician or other QHP, face-to-face with one patient) and 97180 (non-face-to-face services personally performed by the QHP, such as data review and modifying protocols). "Protocol modification" becomes "analysis" in the descriptors, and "since there is no grace period, 0362T and 0373T are invalid for dates of service on or after January 1, 2027." No state "approves" the codes themselves: they are Category I CPT codes that HIPAA requires on electronic claims, but, as the Coalition notes, HIPAA "does not, however, govern whether a payer covers a code / service, what a payer pays for a code / service, or what a payer requires to authorize" it, so each payer has to load them, price them and say how authorizations that list 0362T or 0373T carry over.';
+const CPT27_FAQ_Q = 'Has this plan adopted the 2027 ABA CPT codes (97148, 97159, 97173, 97180)?';
+const cpt27Section = (h2: string, local: string, cites: PayerSource[]) => ({
+  h2,
+  body: [CPT27_NATIONAL, local],
+  cites: [CPT27_PFS, CPT27_AMA, CPT27_COALITION, ...cites],
+});
+const CPT27_MN_COMM =
+  'Minnesota DHS’s 2027 notice covers Medical Assistance only (EIDBI high-intensity intervention moves from 0373T to 97159 on Jan. 1, 2027, and DHS adds no other 2027 codes for now), and it tells providers that "Payers establish their own coverage, authorization and reimbursement policies," so a commercial plan answers for itself.';
+
 export const minnesotaPayers: Record<string, PayerConfig> = {
   'minnesota-medicaid': {
     slug: 'minnesota-medicaid',
@@ -1564,6 +1579,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
           { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
         ],
       },
+      cpt27Section('CPT 2027: what Aetna has and has not said', 'Aetna had published no 2027 adaptive-behavior code guidance as of Nov. 1, 2026: CPB 0648 (Autism Spectrum Disorders), last reviewed Oct. 20, 2026, still lists the current code set, including 0373T. ' + CPT27_MN_COMM + ' Ask Aetna how it will load and price the new codes and whether authorizations that list 0362T or 0373T carry over.', [{ title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/20/2026)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }, S.elistCpt]),
     ],
     collect: [
       { title: 'Plan funding and group size', desc: 'Fully insured large-employer (§ 62A.3094 applies), small group/individual, or self-funded ERISA (plan document governs).' },
@@ -1669,6 +1685,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       { q: 'Does Aetna give single case agreements for ABA in Minnesota?', a: 'Aetna publishes no single-case-agreement policy. Its provider manual offers an out-of-network referral request (approved, for example, when no in-network professional is available and the plan has out-of-network benefits) and transition of care for a member already in treatment with an out-of-network individual practitioner. ABA still needs precertification.' },
       { q: 'What should an Aetna ABA reconsideration in Minnesota include?', a: 'Medical records and supporting documents, plus a dispute and appeal form or a letter with the member ID, patient name, TIN, claim ID, dates of service, billed amounts, and the codes and modifiers in dispute. File within 180 days of the claim decision; an appeal follows within 60 days of the reconsideration decision.' },
       { q: 'Is an Aetna ABA authorization in Minnesota tied to the BCBA or to the group?', a: 'The precertification form identifies the provider or group by TIN or PIN, with the supervising clinician named separately. Aetna publishes no rule that moves an authorization to another agency, so a new agency requests its own precertification.' },
+      { q: CPT27_FAQ_Q, a: 'Not as of Nov. 1, 2026. CPB 0648 (last reviewed Oct. 20, 2026) still lists the current codes, including 0373T. CPT 2027 deletes 0362T and 0373T and adds 97148/97149, 97159/97160, 97173 and 97180 from Jan. 1, 2027, so ask Aetna how it will price them and handle existing authorizations.' },
     ],
   },
 
@@ -1761,6 +1778,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
           { title: 'Evernorth Coverage Policy EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
         ],
       },
+      cpt27Section('CPT 2027: what Cigna has and has not said', 'Cigna had published no 2027 adaptive-behavior code guidance as of Nov. 1, 2026: Evernorth coverage policy EN0499 (Intensive Behavioral Interventions, effective May 15, 2026) still lists the current code set, including 0373T. ' + CPT27_MN_COMM + ' Ask Cigna how it will load and price the new codes and whether authorizations that list 0362T or 0373T carry over.', [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, S.elistCpt]),
     ],
     collect: [
       { title: 'Plan funding and group size', desc: 'Fully insured large-employer (§ 62A.3094 applies), small group/individual, or self-funded ERISA.' },
@@ -1858,6 +1876,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       { q: 'What is Cigna’s timely filing limit in Minnesota?', a: 'Evernorth’s default is 90 days from service unless the provider agreement or a longer state limit applies; Minnesota’s statute sets six months unless a contract provides otherwise. Check your agreement.' },
       { q: 'Does Cigna give single case agreements for ABA in Minnesota?', a: 'Cigna/Evernorth calls it a network exception. It needs prior authorization on the Evernorth ABA PA form, including for the 97151, 97152 and 0362T assessment codes that otherwise need none. HMO plans cover in-network providers only.' },
       { q: 'Is a Cigna ABA authorization in Minnesota tied to the BCBA or to the clinic?', a: 'The PA form names the servicing clinic by TIN and the supervising provider by credential. Approvals are written per month on 97155. A new agency requests its own authorization, and two agencies in the same period must document coordination.' },
+      { q: CPT27_FAQ_Q, a: 'Not as of Nov. 1, 2026. Evernorth policy EN0499 (effective May 15, 2026) still lists the current codes, including 0373T. CPT 2027 deletes 0362T and 0373T and adds 97148/97149, 97159/97160, 97173 and 97180 from Jan. 1, 2027, so ask Cigna how it will price them and handle existing authorizations.' },
     ],
   },
 
@@ -1959,6 +1978,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
           { title: 'Optum — ABA Request for Services Checklist (BH00853-25-QRG)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/BH00853-25-QRG_ABAQRG.pdf' },
         ],
       },
+      cpt27Section('CPT 2027: what UnitedHealthcare has and has not said', 'UnitedHealthcare (Optum Behavioral Health) had published no 2027 adaptive-behavior code guidance as of Nov. 1, 2026: Optum’s commercial ABA reimbursement policy (updated February 2026) still lists the current code set, including 0373T, and its ABA clinical resources page lists no 2027 code document. ' + CPT27_MN_COMM + ' Ask UnitedHealthcare how it will load and price the new codes and whether authorizations that list 0362T or 0373T carry over.', [{ title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated February 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: 'Optum Provider Express — Autism/ABA clinical resources', url: 'https://public.providerexpress.com/content/ope-provexpr/us/en/clinical-resources/autismABA2.html' }, S.elistCpt]),
     ],
     collect: [
       { title: 'Plan funding and group size', desc: 'Fully insured large-employer (§ 62A.3094 applies), small group/individual, or self-funded ERISA.' },
@@ -2063,6 +2083,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       { q: 'What supporting documents go with a UnitedHealthcare (Optum) ABA reconsideration in Minnesota?', a: 'Member-specific treatment plans, clinical records, payment appendices or anything else showing why the decision was wrong, plus proof the claim was filed on time. Both steps must be filed within 12 months in total. At the appeal step, send only new material.' },
       { q: 'Is a UnitedHealthcare ABA authorization in Minnesota tied to the BCBA or the group?', a: 'Optum says non-routine outpatient authorizations, ABA included, are “specific to the requesting clinician,” but any ABA supervisor credentialed under the same group contract can see the member. A different agency requests its own authorization.' },
       { q: 'What do HM, HN, HO and HP mean on a UnitedHealthcare ABA claim in Minnesota?', a: 'HM = RBT, HN = BCaBA, HO = BCBA or master’s-level licensed provider, HP = BCBA-D or doctoral-level licensed provider. 97151 and 97155–97158 cannot carry HM; 0362T and 0373T take no modifier.' },
+      { q: CPT27_FAQ_Q, a: 'Not as of Nov. 1, 2026. Optum’s commercial ABA reimbursement policy (updated February 2026) still lists the current codes, including 0373T. CPT 2027 deletes 0362T and 0373T and adds 97148/97149, 97159/97160, 97173 and 97180 from Jan. 1, 2027, so ask UnitedHealthcare how it will price them and handle existing authorizations.' },
     ],
   },
 
@@ -2135,6 +2156,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.bcP7422, S.stat62Q75],
       },
+      cpt27Section('CPT 2027: what Blue Cross has and has not said', 'We found no Blue Cross and Blue Shield of Minnesota notice on the 2027 adaptive-behavior codes as of Nov. 1, 2026; its medical policy site returned an error that day, so its autism policy (X-43-014) could not be re-read for a code update. ' + CPT27_MN_COMM + ' Ask Blue Cross how it will load and price the new codes and whether authorizations that list 0373T carry over.', [S.elistCpt, S.bcX43]),
     ],
     collect: [
       { title: 'Plan funding and group size', desc: 'Fully insured large-employer (§ 62A.3094 applies), small group/individual, or self-funded ERISA.' },
@@ -2237,6 +2259,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       { q: 'Does Blue Cross and Blue Shield of Minnesota cover ABA?', a: 'Yes, under medical policy X-43 and the member’s plan, with Minnesota’s mandate for fully insured large-employer plans and children under 18. Blue Plus Medical Assistance members use EIDBI instead.' },
       { q: 'How recent must the autism diagnosis be for Blue Cross MN?', a: 'Within the past 24 months, using validated tools, with an adaptive assessment and an FBA from the past 12 months.' },
       { q: 'What supervision ratio does Blue Cross MN require?', a: 'At least 2 hours of supervision for every 10 hours of direct treatment, by a BCBA, licensed psychologist or physician (and in Minnesota the BCBA needs the state license).' },
+      { q: CPT27_FAQ_Q, a: 'We found no Blue Cross notice as of Nov. 1, 2026. CPT 2027 deletes 0362T and 0373T and adds 97148/97149, 97159/97160, 97173 and 97180; DHS’s 0373T-to-97159 notice covers Medical Assistance only. Ask Blue Cross how it will price the new codes and handle existing authorizations.' },
     ],
   },
 };

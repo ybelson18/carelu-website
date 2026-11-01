@@ -149,6 +149,19 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           { title: 'PA DHS — Electronic Visit Verification (EVV) and EVV FAQ', url: 'https://www.pa.gov/agencies/dhs/resources/for-providers/evv/faq-evv' },
         ],
       },
+      {
+        h2: 'What happens when a practice fails a Pennsylvania Medical Assistance audit?',
+        body: [
+          'Providers must keep for at least four years "medical and fiscal records that fully disclose the nature and extent of the services rendered," meeting the record standards in 55 Pa. Code § 1101.51(e) (legible, signed and dated entries, ancillary care countersigned, "Alterations of the record shall be signed and dated," and "documentation of the medical necessity of a rendered, ordered or prescribed service"). "The Department may terminate its written agreement with a provider for noncompliance with the record keeping requirements" (1101.51(e)(4)).',
+          'Recovery. "If the Department determines that a provider has billed and been paid for a service or item for which payment should not have been made," it computes the overpayment and "will use statistical sampling methods" to calculate restitution (1101.83(a)); Commonwealth Court has upheld restitution "where his documentation is so poor that the necessity of the billed services cannot be determined" (annotation to 1101.83). For prohibited acts the Department may sue for "twice the amount of excess benefits or payments plus legal interest" (1101.83(e)).',
+          'Appeal. Other adverse actions of the Department "shall be filed in writing within 30 days of the date of the notice of the action," to the Office of Hearings and Appeals, with a copy of the notice and the reasons in detail (1101.84(c)). For HealthChoices members, the BH-MCO\'s own audit and appeal process is covered in that plan\'s guide.',
+        ],
+        cites: [
+          { title: '55 Pa. Code § 1101.51 — Ongoing responsibilities of providers (record keeping standards)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter1101/s1101.51.html' },
+          { title: '55 Pa. Code § 1101.83 — Restitution and repayment', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter1101/s1101.83.html' },
+          { title: '55 Pa. Code § 1101.84 — Provider right of appeal', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter1101/s1101.84.html' },
+        ],
+      },
     ],
     collect: [
       { title: 'County of residence', desc: 'Decides the BH-MCO (CBH, Community Care, Magellan, PerformCare or Carelon) that authorizes and pays ABA — the physical-health plan card does not.' },
@@ -291,9 +304,9 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         ],
       },
       noteSignature: {
-        value: 'Each service is documented with date, time, duration and setting, the ITP goal addressed, the outcome, and the "Signature of the staff person providing the service"; every record entry must be "Signed and dated by the staff person writing in the record" (55 Pa. Code § 5240.41). Assessments are signed and dated by the clinician who completed them, and the ITP and each update must be signed by the parent/guardian (or youth/young adult), the clinician who wrote it and a clinical-director-qualified reviewer. Records are kept at least 4 years after the last service. Since January 1, 2024 OMHSAS expects consent, service verifications and treatment-plan approvals captured "in a manner that creates an auditable file."',
+        value: 'Each service is documented with date, time, duration and setting, the ITP goal addressed, the outcome, and the "Signature of the staff person providing the service"; every record entry must be "Signed and dated by the staff person writing in the record" (55 Pa. Code § 5240.41). Assessments are signed and dated by the clinician who completed them, and the ITP and each update must be signed by the parent/guardian (or youth/young adult), the clinician who wrote it and a clinical-director-qualified reviewer. Records are kept at least 4 years after the last service. Since January 1, 2024 OMHSAS expects consent, service verifications and treatment-plan approvals captured "in a manner that creates an auditable file." For corrections, the general Medical Assistance record standard applies to enrolled providers: "Entries shall be signed and dated by the responsible licensed provider. Care rendered by ancillary personnel shall be countersigned by the responsible licensed provider. Alterations of the record shall be signed and dated" (55 Pa. Code § 1101.51(e)(1)(iii)).',
         status: 'verified',
-        cites: [
+        cites: [ { title: '55 Pa. Code § 1101.51 — Ongoing responsibilities of providers (record keeping standards)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter1101/s1101.51.html' },
           { title: '55 Pa. Code Chapter 5240 — Intensive Behavioral Health Services (licensing)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter5240/chap5240toc.html' },
           { title: '55 Pa. Code Chapter 1155 — Intensive Behavioral Health Services (payment)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter1155/chap1155toc.html' },
           { title: 'OMHSAS — Interim Telehealth Guidance (March 30, 2023)', url: 'https://www.pa.gov/content/dam/copapwp-pagov/en/dhs/documents/services/mental-health-in-pa/documents/OMHSAS_Interim-Telehealth-Guidance-3.30.2023.pdf' },
@@ -548,9 +561,9 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       noteSignature: {
-        value: 'Follows the state rule. 55 Pa. Code § 5240.41 requires each service note to be signed by the staff person who provided the service. Community Care’s manual, ABA and IBHS standards set no different signer or deadline (we checked). For telehealth, OMHSAS-22-02 allows physical or electronic consent/verification signatures if an audit trail validates the signer.',
+        value: 'Follows the state rule. 55 Pa. Code § 5240.41 requires each service note to be signed by the staff person who provided the service. Community Care’s manual, ABA and IBHS standards set no different signer or deadline (we checked). For telehealth, OMHSAS-22-02 allows physical or electronic consent/verification signatures if an audit trail validates the signer. For corrections, the general Medical Assistance record standard applies to enrolled providers: "Entries shall be signed and dated by the responsible licensed provider. Care rendered by ancillary personnel shall be countersigned by the responsible licensed provider. Alterations of the record shall be signed and dated" (55 Pa. Code § 1101.51(e)(1)(iii)).',
         status: 'verified',
-        cites: [
+        cites: [ { title: '55 Pa. Code § 1101.51 — Ongoing responsibilities of providers (record keeping standards)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter1101/s1101.51.html' },
           { title: '55 Pa. Code Chapter 5240 — Intensive Behavioral Health Services (licensing)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter5240/chap5240toc.html' },
           { title: 'OMHSAS-22-02 — Revised Guidelines for Delivery of BH Services Through Telehealth (eff. 7/1/2022)', url: 'https://www.pa.gov/content/dam/copapwp-pagov/en/dhs/documents/docs/documents/omhsas/Bulletin%20OMHSAS-22-02%20-%20Revised%20Guidelines%20for%20Delivery%20of%20BH%20Services%20Through%20Telehealth%207.1.22.pdf' },
           { title: 'Community Care — Intensive Behavioral Health Services Performance Standards', url: 'https://providers.ccbh.com/uploads/files/CCBH-IBHS-Performance-Standards.pdf' },
@@ -862,9 +875,9 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         ],
       },
       noteSignature: {
-        value: '“Progress notes should be signed and dated by the qualified clinician who provided the service”. They must be in the record “within seven days of the date of service or prior to claim submission, whichever comes first”, with start/end times, who was present, the intervention and the response. A BC-ABA doing two CPT services in one visit documents each with its own start and stop times. Signatures must be original (55 Pa. Code § 1101.66a). CBH may recoup for copied, photocopied or typed-font signatures, electronic signatures without a DocuSign/EHR audit trail, and signatures dated before the session ended. The assessment must be signed by the clinician who did it. The ITP must be signed by the parent or guardian (and the youth if over 14), the clinician who wrote it and the ABA clinical director.',
+        value: '“Progress notes should be signed and dated by the qualified clinician who provided the service”. They must be in the record “within seven days of the date of service or prior to claim submission, whichever comes first”, with start/end times, who was present, the intervention and the response. A BC-ABA doing two CPT services in one visit documents each with its own start and stop times. Signatures must be original (55 Pa. Code § 1101.66a). CBH may recoup for copied, photocopied or typed-font signatures, electronic signatures without a DocuSign/EHR audit trail, and signatures dated before the session ended. The assessment must be signed by the clinician who did it. The ITP must be signed by the parent or guardian (and the youth if over 14), the clinician who wrote it and the ABA clinical director. For corrections, the general Medical Assistance record standard applies to enrolled providers: "Entries shall be signed and dated by the responsible licensed provider. Care rendered by ancillary personnel shall be countersigned by the responsible licensed provider. Alterations of the record shall be signed and dated" (55 Pa. Code § 1101.51(e)(1)(iii)).',
         status: 'verified',
-        cites: [
+        cites: [ { title: '55 Pa. Code § 1101.51 — Ongoing responsibilities of providers (record keeping standards)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter1101/s1101.51.html' },
           { title: 'CBH IBHS Billing Guide (updated May 2023)', url: 'https://cbhphilly.org/wp-content/uploads/2023/08/CBH_IBHS_Billing-Guide_2023-05.pdf' },
           { title: 'CBH Provider Notice — Original Signature Requirements (February 2, 2026)', url: 'https://cbhphilly.org/wp-content/uploads/2022/10/CBH_Provider-Notice_2026-02-02_Signature-Requirements.pdf' },
           { title: 'CBH Provider Bulletin 25-05 — Changes to IBHS-ABA Authorization Practices (January 23, 2025)', url: 'https://cbhphilly.org/wp-content/uploads/2022/10/CBH_Provider-Bulletin_25-05_2025-02-04_IBHS_ABA.pdf' },
@@ -959,9 +972,9 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         ],
       },
       coordinationOfBenefits: {
-        value: '“Medicaid is always the payor of last resort and all IBHS levels of care require coordination of benefits, regardless of child diagnosis.” The only exceptions are the CBH-created care coordinator and family peer support. A primary plan’s rejection because the provider is out-of-network “is not a final determination”: the provider may continue unpaid, get a single-case agreement, or transfer the case. Every IBHS claim needs the primary EOB or final determination. Providers get 180 days from the date of service to obtain it and 90 days from it to bill CBH. When the primary authorizes ABA, “CBH will match any authorized services at the same frequency and duration” and “will not render a separate decision of medical necessity, nor is an authorization packet necessary”. CBH reviews as primary only if the primary denies (after its appeals), doesn’t cover the service, or the annual cap is exhausted. TRICARE pays ahead of Medicaid (10 U.S.C. 1079(i)(1)).',
+        value: '“Medicaid is always the payor of last resort and all IBHS levels of care require coordination of benefits, regardless of child diagnosis.” The only exceptions are the CBH-created care coordinator and family peer support. A primary plan’s rejection because the provider is out-of-network “is not a final determination”: the provider may continue unpaid, get a single-case agreement, or transfer the case. Every IBHS claim needs the primary EOB or final determination. Providers get 180 days from the date of service to obtain it and 90 days from it to bill CBH. When the primary authorizes ABA, “CBH will match any authorized services at the same frequency and duration” and “will not render a separate decision of medical necessity, nor is an authorization packet necessary”. CBH reviews as primary only if the primary denies (after its appeals), doesn’t cover the service, or the annual cap is exhausted. TRICARE pays ahead of Medicaid (10 U.S.C. 1079(i)(1)). When CBH finds other coverage after paying, Provider Bulletin 26-21 (October 15, 2026) applies "Effective immediately": CBH "will reverse identified claims associated with third-party liability (TPL) recovery and will no longer reprocess the claims," and sends a post-payment recovery letter listing the recovered claims via Box. The provider coordinates benefits with the primary and resubmits "with the Explanation of Benefits (EOB) or final determination documentation within 90 days of the post-payment recovery letter date"; if the member has no other coverage, use the TPL discrepancy process through the appeal module in the converter application. "Any recoveries CBH is unable to complete will be pursued by the DHS."',
         status: 'verified',
-        cites: [
+        cites: [ { title: 'CBH Provider Bulletin 26-21 — Third Party Liability (TPL) Recovery Update (Oct. 15, 2026; replaces Bulletin 25-12)', url: 'https://cbhphilly.org/wp-content/uploads/2022/10/CBH_Provider-Bulletin_26-21_TPL-Update_2026-10-15.pdf' },
           { title: 'CBH Provider Notice — IBHS Payment & Third-Party Medical Resources (January 31, 2023)', url: 'https://cbhphilly.org/wp-content/uploads/2023/01/CBH_Provider-Notice_IBHS-TPR_2023-1-31.pdf' },
           { title: 'CBH Provider Manual (updated August 28, 2026)', url: 'https://cbhphilly.org/wp-content/uploads/2022/10/CBH_Provider-Manual_2026-08-28.pdf' },
           { title: '55 Pa. Code § 1101.64 — Third-party medical resources (TPR)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter1101/s1101.64.html' },
@@ -1196,9 +1209,9 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       noteSignature: {
-        value: 'State rule plus Magellan’s documentation standards. 55 Pa. Code § 5240.41 requires each service note to carry the signature of the staff person providing the service. Magellan’s supplement requires entries "signed and dated by the responsible licensed provider" (ancillary staff countersigned), clock start/end times, and a member (or agent) signature on the encounter form per MA Bulletin 99-89-05 — for telehealth, hand-written or audited electronic signatures, obtained "no later than 90 days after the service". Magellan’s 2026 audit list flags an electronic signature that precedes the session end time.',
+        value: 'State rule plus Magellan’s documentation standards. 55 Pa. Code § 5240.41 requires each service note to carry the signature of the staff person providing the service. Magellan’s supplement requires entries "signed and dated by the responsible licensed provider" (ancillary staff countersigned), clock start/end times, and a member (or agent) signature on the encounter form per MA Bulletin 99-89-05 — for telehealth, hand-written or audited electronic signatures, obtained "no later than 90 days after the service". Magellan’s 2026 audit list flags an electronic signature that precedes the session end time. For corrections, the general Medical Assistance record standard applies to enrolled providers: "Entries shall be signed and dated by the responsible licensed provider. Care rendered by ancillary personnel shall be countersigned by the responsible licensed provider. Alterations of the record shall be signed and dated" (55 Pa. Code § 1101.51(e)(1)(iii)).',
         status: 'verified',
-        cites: [
+        cites: [ { title: '55 Pa. Code § 1101.51 — Ongoing responsibilities of providers (record keeping standards)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter1101/s1101.51.html' },
           { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/25)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },
           { title: 'Magellan of PA — Audit Trends (June 2026)', url: 'https://www.magellanofpa.com/documents/2026/06/061226_audittrendsasofjune2026.pdf' },
           { title: '55 Pa. Code Chapter 5240 — Intensive Behavioral Health Services (licensing)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter5240/chap5240toc.html' },
@@ -1407,6 +1420,15 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'PerformCare HealthChoices Provider Manual (updated February 2023)', url: 'https://pa.performcare.org/content/dam/amerihealth-caritas/performcare-pa/pdf/providers/resources-information/provider-manual.pdf' }],
       },
+      {
+        h2: 'Can an IBHS/ABA claim to PerformCare carry an intellectual-disability diagnosis first?',
+        body: [
+          'No, not as the primary diagnosis, for dates of service on or after July 1, 2026. PerformCare notice IBHS 26-102 (August 17, 2026) says that after the July 2026 Behavioral Health Services Reporting Classification Chart update, "IBHS claims/encounters submitted with a primary diagnosis that qualifies as ID are expected to reject under PROMISe/BHSRCC validation" (F70, F71, F72, F73, F78, F79). An ID diagnosis may still appear "as a secondary or comorbid diagnosis when clinically applicable," but the primary diagnosis on the authorization request and the claim must be the behavioral health condition the IBHS service treats, and providers "must not change diagnosis sequencing solely to obtain payment." If the authorization documentation lists only an ID diagnosis, or lists ID first, PerformCare "may request clarification or updated documentation before completing review." Claims already sent with a primary ID diagnosis may deny and should be resubmitted as corrected claims.',
+        ],
+        cites: [
+          { title: 'PerformCare — Provider Notice IBHS 26-102: IBHS Services ID Coding Update (August 17, 2026)', url: 'https://pa.performcare.org/content/dam/amerihealth-caritas/performcare-pa/pdf/providers/resources-information/policies/ibhs/ibhs-26-102-service-id-coding-update.pdf.coredownload.inline.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Medicaid ID and county', desc: 'PerformCare covers Cumberland, Dauphin, Franklin, Fulton, Lancaster, Lebanon and Perry; CANS rules differ between the CABHC and Franklin/Fulton contracts.' },
@@ -1512,9 +1534,9 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       noteSignature: {
-        value: 'State rule plus PerformCare’s record standard: 55 Pa. Code § 5240.41 requires each service note to carry the signature of the staff person providing it; PerformCare’s manual requires every entry to be dated with the author identified by "name, title, credentials, and signature (paper) or key identifier (electronic)". ITPs are signed with the family per the IBHS regulations.',
+        value: 'State rule plus PerformCare’s record standard: 55 Pa. Code § 5240.41 requires each service note to carry the signature of the staff person providing it; PerformCare’s manual requires every entry to be dated with the author identified by "name, title, credentials, and signature (paper) or key identifier (electronic)". ITPs are signed with the family per the IBHS regulations. For corrections, the general Medical Assistance record standard applies to enrolled providers: "Entries shall be signed and dated by the responsible licensed provider. Care rendered by ancillary personnel shall be countersigned by the responsible licensed provider. Alterations of the record shall be signed and dated" (55 Pa. Code § 1101.51(e)(1)(iii)).',
         status: 'verified',
-        cites: [
+        cites: [ { title: '55 Pa. Code § 1101.51 — Ongoing responsibilities of providers (record keeping standards)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter1101/s1101.51.html' },
           { title: 'PerformCare HealthChoices Provider Manual (updated February 2023)', url: 'https://pa.performcare.org/content/dam/amerihealth-caritas/performcare-pa/pdf/providers/resources-information/provider-manual.pdf' },
           { title: '55 Pa. Code Chapter 5240 — Intensive Behavioral Health Services (licensing)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter5240/chap5240toc.html' },
         ],
@@ -1830,9 +1852,9 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       noteSignature: {
-        value: 'State rule plus Carelon’s standards: 55 Pa. Code § 5240.41 requires each service note to carry the signature of the staff person providing it. Carelon’s treatment-record standards require every entry to include the responsible clinician’s name, professional degree and identification number, dated; CN.48 requires the ITP and every update to be signed and dated by the youth or a parent/guardian and by the staff person who wrote it, and reviewed and signed by a clinical-director-qualified individual. Carelon’s September 2026 alert stresses that documentation must show who participated, when, where and for how long.',
+        value: 'State rule plus Carelon’s standards: 55 Pa. Code § 5240.41 requires each service note to carry the signature of the staff person providing it. Carelon’s treatment-record standards require every entry to include the responsible clinician’s name, professional degree and identification number, dated; CN.48 requires the ITP and every update to be signed and dated by the youth or a parent/guardian and by the staff person who wrote it, and reviewed and signed by a clinical-director-qualified individual. Carelon’s September 2026 alert stresses that documentation must show who participated, when, where and for how long. For corrections, the general Medical Assistance record standard applies to enrolled providers: "Entries shall be signed and dated by the responsible licensed provider. Care rendered by ancillary personnel shall be countersigned by the responsible licensed provider. Alterations of the record shall be signed and dated" (55 Pa. Code § 1101.51(e)(1)(iii)).',
         status: 'verified',
-        cites: [
+        cites: [ { title: '55 Pa. Code § 1101.51 — Ongoing responsibilities of providers (record keeping standards)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter1101/s1101.51.html' },
           { title: '55 Pa. Code Chapter 5240 — Intensive Behavioral Health Services (licensing)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter5240/chap5240toc.html' },
           { title: 'Carelon Health of PA Provider Manual — 4: Treatment Record Standards', url: 'https://providers.pa.carelon.com/providers/provider-manual/4-treatment-record-standards/' },
           { title: 'Carelon Health of PA Policy CN.48 — Intensive Behavioral Health Services (DHS approved 9/26/2024)', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/79/CN-48-IBHS-Beacon-Policy-and-Procedure.pdf' },
@@ -1931,10 +1953,11 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
     family: 'bcbs',
     cardDesc: 'Medical Policy V-37 (ASD/ABA) + all ABA codes on the prior-auth list since March 1, 2026, managed in-house by Highmark Behavioral Health.',
     assessmentPA: {
-      value: 'Required. The ABA assessment codes 97151, 97152 and 0362T went onto Highmark’s prior authorization list on March 1, 2026. The current list (effective 09/01/2026) names them under UM program “Highmark Behavioral Health”. Highmark says the codes “usually require authorization (based on the member’s benefit plan/eligibility)”, so check the member’s plan in Availity.',
+      value: 'Required. The ABA assessment codes 97151, 97152 and 0362T went onto Highmark’s prior authorization list on March 1, 2026. The current list (effective 11/01/2026) names them under UM program “Highmark Behavioral Health”. Highmark says the codes “usually require authorization (based on the member’s benefit plan/eligibility)”, so check the member’s plan in Availity.',
       status: 'verified',
       cites: [
-        { title: 'Highmark — List of Procedures/DME Requiring Authorization (Commercial/MA, eff. 09/01/2026)', url: 'https://providers.highmark.com/content/dam/highmark/en/providerresourcecenter/pdfs/procedurecode/commercial/Proc-Requiring-Auth-list.pdf' },
+        { title: 'Highmark — Obtaining Authorizations (last updated Oct 30, 2026)', url: 'https://providers.highmark.com/authorization/obtaining-authorizations' },
+        { title: 'Highmark — List of Procedures/DME Requiring Authorization (Commercial/MA, eff. 11/01/2026)', url: 'https://providers.highmark.com/content/dam/highmark/en/providerresourcecenter/pdfs/procedurecode/commercial/Proc-Requiring-Auth-list.pdf' },
         { title: 'Highmark — Behavioral Health: Upcoming Prior Authorization Changes (published Nov 24, 2025; eff. March 1, 2026)', url: 'https://providers.highmark.com/communications-hub/news-and-updates/behavioral-health-upcoming-prior-authorization-changes.html' },
       ],
     },
@@ -1942,8 +1965,8 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       value: 'Required. 97153, 97154, 97155, 97156, 97157, 97158 and 0373T (plus H0032 and H2019, listed under the same ABA category) are on the authorization list, managed by Highmark Behavioral Health. None is marked Gold Card Eligible. Requests go through Availity. Under Act 62, Highmark may review the treatment plan once every six months unless a different interval is agreed.',
       status: 'verified',
       cites: [
-        { title: 'Highmark — List of Procedures/DME Requiring Authorization (Commercial/MA, eff. 09/01/2026)', url: 'https://providers.highmark.com/content/dam/highmark/en/providerresourcecenter/pdfs/procedurecode/commercial/Proc-Requiring-Auth-list.pdf' },
-        { title: 'Highmark — Obtaining Authorizations (last updated Sept 1, 2026)', url: 'https://providers.highmark.com/authorization/obtaining-authorizations' },
+        { title: 'Highmark — List of Procedures/DME Requiring Authorization (Commercial/MA, eff. 11/01/2026)', url: 'https://providers.highmark.com/content/dam/highmark/en/providerresourcecenter/pdfs/procedurecode/commercial/Proc-Requiring-Auth-list.pdf' },
+        { title: 'Highmark — Obtaining Authorizations (last updated Oct 30, 2026)', url: 'https://providers.highmark.com/authorization/obtaining-authorizations' },
         { title: 'Highmark Medical Policy V-37-044 — Autism Spectrum Disorders (PA commercial, eff. August 4, 2025)', url: 'https://securecms.highmark.com/content/medpolicy/en/highmark/pa/commercial/policies/Visits/V-37/V-37-044.html' },
       ],
     },
@@ -1988,12 +2011,12 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       {
         h2: 'Prior authorization: every ABA code since March 1, 2026',
         body: [
-          'Highmark announced in November 2025 that it would add 19 behavioral health codes to its prior authorization list on March 1, 2026. These include all ten ABA codes: 97151, 97152, 97153, 97154, 97155, 97156, 97157, 97158, 0362T and 0373T. The list effective 09/01/2026 carries them, plus H0032 and H2019, under “Applied Behavioral Analysis”, with “Highmark Behavioral Health” as the UM program. No ABA code is marked Gold Card Eligible. Submit through Availity Essentials (fax is the backup). Highmark Healthy Kids (CHIP) requests must be submitted electronically through Availity. The list says requirements vary by member plan: check the card number, Availity eligibility, or BlueExchange for out-of-area members.',
+          'Highmark announced in November 2025 that it would add 19 behavioral health codes to its prior authorization list on March 1, 2026. These include all ten ABA codes: 97151, 97152, 97153, 97154, 97155, 97156, 97157, 97158, 0362T and 0373T. The list effective 11/01/2026 carries them, plus H0032 and H2019, under “Applied Behavioral Analysis”, with “Highmark Behavioral Health” as the UM program. No ABA code is marked Gold Card Eligible. Submit through Availity Essentials (fax is the backup). Highmark Healthy Kids (CHIP) requests must be submitted electronically through Availity. The list says requirements vary by member plan: check the card number, Availity eligibility, or BlueExchange for out-of-area members.',
         ],
         cites: [
           { title: 'Highmark — Behavioral Health: Upcoming Prior Authorization Changes (published Nov 24, 2025; eff. March 1, 2026)', url: 'https://providers.highmark.com/communications-hub/news-and-updates/behavioral-health-upcoming-prior-authorization-changes.html' },
-          { title: 'Highmark — List of Procedures/DME Requiring Authorization (Commercial/MA, eff. 09/01/2026)', url: 'https://providers.highmark.com/content/dam/highmark/en/providerresourcecenter/pdfs/procedurecode/commercial/Proc-Requiring-Auth-list.pdf' },
-          { title: 'Highmark — Obtaining Authorizations (last updated Sept 1, 2026)', url: 'https://providers.highmark.com/authorization/obtaining-authorizations' },
+          { title: 'Highmark — List of Procedures/DME Requiring Authorization (Commercial/MA, eff. 11/01/2026)', url: 'https://providers.highmark.com/content/dam/highmark/en/providerresourcecenter/pdfs/procedurecode/commercial/Proc-Requiring-Auth-list.pdf' },
+          { title: 'Highmark — Obtaining Authorizations (last updated Oct 30, 2026)', url: 'https://providers.highmark.com/authorization/obtaining-authorizations' },
         ],
       },
       {
@@ -2081,7 +2104,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         body: [
           'Through a network gap exception. Highmark\'s Obtaining Authorizations page links a “Guide to Out-of-Network Gap Exception Requests” alongside its behavioral health tip sheet for authorization requests. Highmark publishes no ABA single-case-agreement rate; whether the member has out-of-network benefits depends on the product.',
         ],
-        cites: [{ title: 'Highmark — Obtaining Authorizations (last updated Sept 1, 2026)', url: 'https://providers.highmark.com/authorization/obtaining-authorizations' }],
+        cites: [{ title: 'Highmark — Obtaining Authorizations (last updated Oct 30, 2026)', url: 'https://providers.highmark.com/authorization/obtaining-authorizations' }],
       },
     ],
     collect: [
@@ -2092,9 +2115,9 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: 'Other coverage (Medicaid / PH-95)', desc: 'Many PA children with autism also have Medicaid. Highmark pays first and the BH-MCO pays second, so get Highmark’s authorization even when Medicaid will pick up the balance.' },
       { title: 'Setting and school involvement', desc: 'ABA in school is covered only under V-37’s strict criteria (entirely ABA, not educational). Record where services will happen.' },
     ],
-    sources: [ { title: 'Highmark — Obtaining Authorizations (last updated Sept 1, 2026)', url: 'https://providers.highmark.com/authorization/obtaining-authorizations' },
+    sources: [ { title: 'Highmark — Obtaining Authorizations (last updated Oct 30, 2026)', url: 'https://providers.highmark.com/authorization/obtaining-authorizations' },
       { title: 'Highmark Medical Policy V-37-044 — Autism Spectrum Disorders (PA commercial, eff. August 4, 2025)', url: 'https://securecms.highmark.com/content/medpolicy/en/highmark/pa/commercial/policies/Visits/V-37/V-37-044.html' },
-      { title: 'Highmark — List of Procedures/DME Requiring Authorization (Commercial/MA, eff. 09/01/2026)', url: 'https://providers.highmark.com/content/dam/highmark/en/providerresourcecenter/pdfs/procedurecode/commercial/Proc-Requiring-Auth-list.pdf' },
+      { title: 'Highmark — List of Procedures/DME Requiring Authorization (Commercial/MA, eff. 11/01/2026)', url: 'https://providers.highmark.com/content/dam/highmark/en/providerresourcecenter/pdfs/procedurecode/commercial/Proc-Requiring-Auth-list.pdf' },
       { title: 'Highmark — Behavioral Health: Upcoming Prior Authorization Changes (published Nov 24, 2025; eff. March 1, 2026)', url: 'https://providers.highmark.com/communications-hub/news-and-updates/behavioral-health-upcoming-prior-authorization-changes.html' },
       { title: 'Highmark Medical Policy Z-27-037 — Eligible Providers (PA commercial, eff. October 13, 2025)', url: 'https://securecms.highmark.com/content/medpolicy/en/highmark/pa/commercial/policies/Miscellaneous/Z-27/Z-27-037.html' },
       { title: 'Highmark Reimbursement Policy RP-046 — Telemedicine and Telehealth Services (version eff. Sept 1, 2026)', url: 'https://providers.highmark.com/content/dam/highmark/en/providerresourcecenter/pdfs/claims/reimbursement-policies/rp-046.pdf' },
@@ -2165,7 +2188,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'Highmark Medical Policy V-37-044 — Autism Spectrum Disorders (PA commercial, eff. August 4, 2025)', url: 'https://securecms.highmark.com/content/medpolicy/en/highmark/pa/commercial/policies/Visits/V-37/V-37-044.html' },
-          { title: 'Highmark — List of Procedures/DME Requiring Authorization (Commercial/MA, eff. 09/01/2026)', url: 'https://providers.highmark.com/content/dam/highmark/en/providerresourcecenter/pdfs/procedurecode/commercial/Proc-Requiring-Auth-list.pdf' },
+          { title: 'Highmark — List of Procedures/DME Requiring Authorization (Commercial/MA, eff. 11/01/2026)', url: 'https://providers.highmark.com/content/dam/highmark/en/providerresourcecenter/pdfs/procedurecode/commercial/Proc-Requiring-Auth-list.pdf' },
           { title: 'Act 62 of 2008 (HB 1150, PN 4115) — Insurance Company Law § 635.2 enacted text', url: 'https://www.palegis.us/legislation/bills/text/HTM/2007/0/HB1150/PN4115' },
         ],
       },
@@ -2712,11 +2735,11 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         h2: 'How fast must Independence Blue Cross pay a clean ABA claim in Pennsylvania?',
         body: [
           'Pennsylvania’s prompt-pay rule, 31 Pa. Code § 154.18, requires licensed insurers and managed care plans to pay clean claims "within 45 days of the licensed insurer’s or managed care plan’s receipt of the claim," with interest on late clean claims paid within 30 days of the claim payment. It applies to claims under health insurance policies.',
-          'IBX’s Billing chapter (November 2025): “Providers must submit claims within 365 days of the date of service per timely filing requirements.” A clean claim needs the group NPI, the performing provider’s NPI (claims without it are rejected), the tax ID, the practice address and the member’s ID and date of birth. If a group NPI is associated with more than one IBX specialty, “the Provider must include the appropriate Provider taxonomy code in addition to the NPI on all claims.” Corrected claims carry the original claim number and the same NPI as the original. Billing disputes run in two levels: the first within 180 days of the Provider EOB (decided within 30 days of complete information), the second within 60 days of the first-level decision (Appeals chapter, July 2025). The chapters do not mention a referring-provider field or EVV.',
+          'IBX’s Billing chapter (October 2026): “Providers must submit claims within 365 days of the date of service per timely filing requirements.” A clean claim needs the group NPI, the performing provider’s NPI (claims without it are rejected), the tax ID, the practice address and the member’s ID and date of birth. If a group NPI is associated with more than one IBX specialty, “the Provider must include the appropriate Provider taxonomy code in addition to the NPI on all claims.” Corrected claims carry the original claim number and the same NPI as the original. Billing disputes run in two levels: the first within 180 days of the Provider EOB (decided within 30 days of complete information), the second within 60 days of the first-level decision (Appeals chapter, July 2025). The chapters do not mention a referring-provider field or EVV.',
         ],
         cites: [
           { title: '31 Pa. Code § 154.18 — Prompt payment', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/031/chapter154/s154.18.html' },
-          { title: 'IBX Provider Manual — Chapter 9: Billing (November 2025)', url: 'https://provcomm.ibx.com/pnc-ibc/Manuals/Provider/IBX_Provider_09_Billing.pdf' },
+          { title: 'IBX Provider Manual — Chapter 9: Billing (October 2026)', url: 'https://provcomm.ibx.com/pnc-ibc/Manuals/Provider/IBX_Provider_09_Billing.pdf' },
           { title: 'IBX Provider Manual — Chapter 15: Appeals (July 2025)', url: 'https://provcomm.ibx.com/pnc-ibc/Manuals/Provider/IBX_Provider_15_Appeals.pdf' },
         ],
       },
@@ -2755,7 +2778,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: 'Act 146 of 2022 — Insurance Company Law Art. XXI amendments incl. § 2155 prior authorization review (Justia)', url: 'https://law.justia.com/codes/pennsylvania/2022/act-146/' },
       { title: 'PA State Board of Medicine — Behavior Specialist Licensure Requirements Snapshot', url: 'https://www.pa.gov/agencies/dos/department-and-offices/bpoa/boards-commissions/medicine/behavior-specialist-licensure-snapshot' },
       { title: 'Independence Blue Cross — Provider Manual, Section 16: BlueCard (October 2021)', url: 'https://provcomm.ibx.com/pnc-ibc/Manuals/Provider/IBX_Provider_16_BlueCard.pdf' },
-      { title: 'IBX Provider Manual — Chapter 9: Billing (November 2025)', url: 'https://provcomm.ibx.com/pnc-ibc/Manuals/Provider/IBX_Provider_09_Billing.pdf' },
+      { title: 'IBX Provider Manual — Chapter 9: Billing (October 2026)', url: 'https://provcomm.ibx.com/pnc-ibc/Manuals/Provider/IBX_Provider_09_Billing.pdf' },
       { title: 'IBX Provider Manual — Chapter 15: Appeals (July 2025)', url: 'https://provcomm.ibx.com/pnc-ibc/Manuals/Provider/IBX_Provider_15_Appeals.pdf' },
       { title: 'IBX — Provider News Center (provider news index)', url: 'https://provcomm.ibx.com/pnc-ibc/Pages/Home.aspx' },
       { title: 'IBX Provider News — Reminder: ABA services transitioned to IBX on April 1, 2026 (26-0101)', url: 'https://provcomm.ibx.com/pnc-ibc/news/Pages/Reminder-ABA-services-transitioned-to-IBX-on-April-1-2026.aspx' },
@@ -4627,7 +4650,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         ],
       },
       noteSignature: {
-        value: '“Provider signature is required on progress notes. Parent/guardian signatures are not required on progress notes” (Optum ABA CPT FAQ). Each daily session note records place of service, start and stop time, who rendered the service, the specific service, who attended and the interventions. Optum’s ABA documentation protocol (June 1, 2026) requires the “signature of the rendering provider” and “Legible identity of the rendering provider with credentials,” and “The date of signature must reflect the date the note is finalized” — a note signed after the date of service must follow late-entry rules and show the date it was signed. Same-date services must be “separate, distinct, and clearly documented in the progress notes,” or the claim may be denied.',
+        value: '“Provider signature is required on progress notes. Parent/guardian signatures are not required on progress notes” (Optum ABA CPT FAQ). Each daily session note records place of service, start and stop time, who rendered the service, the specific service, who attended and the interventions. Optum’s ABA documentation protocol (June 1, 2026) requires the “signature of the rendering provider” and “Legible identity of the rendering provider with credentials,” says “All addendums, late entries and corrections should follow CMS guidelines,” and “The date of signature must reflect the date the note is finalized” — a note signed after the date of service must follow late-entry rules and show the date it was signed. Same-date services must be “separate, distinct, and clearly documented in the progress notes,” or the claim may be denied.',
         status: 'verified',
         cites: [
           { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },

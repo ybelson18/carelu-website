@@ -29,7 +29,7 @@ const S: Record<string, PayerSource> = {
   asdFee: { title: 'CMAP Autism Spectrum Disorder fee schedule (CSV, "Autism Spectrum Disorder 1/1/2026")', url: 'https://www.ctdssmap.com/CTPortal/Information/Get-Download-File?Filename=refw242_feesched_asd_82.csv&URI=fee_schedules/refw242_feesched_asd_82.csv' },
   feeInstr: { title: 'CMAP Fee Schedule Instructions (last updated 9/4/2026; rate types ASD and ASK)', url: 'https://www.ctdssmap.com/CTPortal/Portals/0/StaticContent/Publications/Fee_Schedule_Instructions.pdf' },
   pb2338: { title: 'CMAP Provider Bulletin 2023-38 — Revised Guidance for Services Rendered via Telehealth (eff. 5/12/2023)', url: 'https://www.ctdssmap.com/CTPortal/Information/Get-Download-File?Filename=pb23_38.pdf&URI=Bulletins/pb23_38.pdf' },
-  teleTable: { title: 'CMAP Telehealth Table (12-26-25)', url: 'https://www.ctdssmap.com/CTPortal/Portals/0/StaticContent/Publications/Telehealth_Table.xlsx' },
+  teleTable: { title: 'CMAP Telehealth Table (10-21-26)', url: 'https://www.ctdssmap.com/CTPortal/Portals/0/StaticContent/Publications/Telehealth_Table.xlsx' },
   handbook: { title: 'HUSKY Health Behavioral Health Provider Handbook, CT BHP / Carelon BH CT (revised 6/2026)', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/76/Provider-Handbook-2026-final.pdf' },
   locIndex: { title: 'CT BHP — Level of Care Guidelines (Autism Spectrum Disorder Services)', url: 'https://providers.ctbhp.com/providers/level-of-care-guidelines-2/' },
   loc1: { title: 'CT BHP Level of Care Guideline — Comprehensive Diagnostic Evaluation, ASD', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/76/1.-Comprehensive-Diagnostic-Evaluation-ASD.pdf' },
@@ -264,7 +264,7 @@ export const connecticutPayers: Record<string, PayerConfig> = {
         cites: [S.loc2, S.regs],
       },
       telehealth: {
-        value: 'Limited, and in person is the expectation. ASD services may be delivered by synchronous audio-video telehealth “only for procedure codes permitted in the CMAP Telehealth Table.” That table (12-26-25) lists 90791, H0031, H0046, H2014 and 97153 as telemedicine codes and T1016 as telemedicine or telephone. “Parent training (with or without the member present) is not permitted via telehealth and must be conducted in person.” Observation and direction may be done by synchronous video “as permitted under current telehealth policy.” Bill modifier GT or 95, with the place of service where the visit would have happened in person. Out-of-state telehealth practitioners need an active Connecticut license.',
+        value: 'Limited, and in person is the expectation. ASD services may be delivered by synchronous audio-video telehealth “only for procedure codes permitted in the CMAP Telehealth Table.” That table (10-21-26 edition) lists 90791, H0031, H0046, H2014 and 97153 as telemedicine codes and T1016 as telemedicine or telephone. “Parent training (with or without the member present) is not permitted via telehealth and must be conducted in person.” Observation and direction may be done by synchronous video “as permitted under current telehealth policy.” Bill modifier GT or 95, with the place of service where the visit would have happened in person. Out-of-state telehealth practitioners need an active Connecticut license.',
         status: 'verified',
         cites: [S.paRoles, S.teleTable, S.loc7, S.pb2338],
       },
@@ -1109,11 +1109,12 @@ export const connecticutPayers: Record<string, PayerConfig> = {
         cites: [S.optumReimb, S.optumSCC],
       },
       noteSignature: {
-        value: 'Not addressed in the ABA criteria or reimbursement policy, which set what must be documented, not who signs a session note or when.',
-        status: 'unverified',
-        cites: [S.optumSCC, S.optumReimb],
-        verifyVia: 'Optum National Network Manual (treatment record documentation section) and your participation agreement.',
-        blocker: 'per-case',
+        value: 'Optum (UnitedHealthcare\'s behavioral health administrator) publishes the rule. Its ABA CPT FAQ: “Provider signature is required on progress notes. Parent/guardian signatures are not required on progress notes.” Its ABA documentation protocol (BH02325, June 1, 2026) asks for daily progress notes showing the place of service, the specific service, who attended and the “signature of the rendering provider,” with “Legible identity of the rendering provider with credentials.” On amendments: “All addendums, late entries and corrections should follow CMS guidelines,” “The date of signature must reflect the date the note is finalized,” and a note signed after the date of service must meet late-entry requirements and “clearly indicate the date the note was signed.” A 97155 note names the technician present (with credentials) and records any protocol modification and the direction given to the technician. The protocol says state law, Medicaid requirements or the member\'s benefit plan control where they set different standards, so a self-funded plan may add its own.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
+          { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' },
+        ],
       },
       placeOfService: {
         value: 'ABA is provided at the least restrictive, most clinically appropriate level. It is not covered for “1:1 aid delivered simultaneously during classroom instruction, or services covered under” IDEA. School coordination (teacher training, meetings, observations) is covered.',

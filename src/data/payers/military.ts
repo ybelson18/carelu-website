@@ -235,6 +235,22 @@ export const militaryPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 18 Sec. 3 — Autism Care Demonstration (Revision C-57, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TOT5/Revision/66/FileName/C18S3' }],
       },
+      {
+        h2: 'Has TRICARE announced the 2027 ABA CPT code changes?',
+        body: [
+          'The AMA CPT Editorial Panel accepted six new adaptive behavior codes, revised 97151–97158 and deleted 0362T and 0373T, effective January 2027. The AMA\'s CPT 2027 HCPAC vote document lists the new codes as 97148 and 97149 (supporting assessment of harmful behavior, two technicians), 97159 and 97160 (treatment of harmful behavior, two technicians), 97173 (treatment with analysis delivered by the physician or QHP) and 97180 (non-face-to-face services by the physician or QHP). The codes are national; what each payer decides is which ones it authorizes and pays, and how.',
+          'The TRICARE Operations Manual\'s Autism Care Demonstration chapter (Chapter 18, Section 3, Revision C-57, June 24, 2026) still describes only the Category I codes 97151–97158, and no revision addressing the 2027 code changes had been posted as of November 1, 2026. Watch for a TOM revision before January 1, 2027, and confirm with the regional contractor which codes an authorization spanning January 1 should carry.',
+        ],
+        cites: [{ title: 'AMA CPT Editorial Panel — Summary of Panel Actions, September 2025 (tab 56, Adaptive Behavior Services Revisions) (PDF)', url: 'https://www.ama-assn.org/system/files/sept-2025-summary-of-panel-actions.pdf' }, { title: 'AMA RUC HCPAC — Vote Totals, CPT 2027 (adaptive behavior code family) (PDF)', url: 'https://www.ama-assn.org/system/files/hcpac-voting-2027.pdf' }, { title: 'TRICARE Operations Manual, Chapter 18, Section 3 — Autism Care Demonstration (Revision C-57, June 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TOT5/FileName/C18S3' }],
+      },
+      {
+        h2: 'What happens in a TRICARE ABA audit, and when are claims recouped?',
+        body: [
+          'The Autism Care Demonstration is audited every year. The TRICARE Operations Manual tells the regional contractor to audit, "on an annual basis," at least 30 records for each ABA provider group, combining administrative-record and medical-documentation reviews with one medical team conference session note. For the TRICARE Overseas Program and USFHP the audit "must include a minimum of 10% of records" for each group.',
+          'Findings lead first to outreach and education, then to "progressively more severe administration action, commensurate with the seriousness of the identified problems." The contractor "shall recoup all claims determined to be insufficient per supporting documentation for claims payment," and recoups claims for session notes "that describe the rendering of non-ABA services" and for a supervisor whose BACB, BICC or QABA certification or state license carries a restriction. One penalty is automatic: 97155 "must be completed at least one time per month by the authorized ABA supervisor," and a provider who misses it faces "a 10% penalty on all ABA claims for that beneficiary for the entire six-month authorization."',
+        ],
+        cites: [{ title: 'TRICARE Operations Manual, Chapter 18, Section 3 — Autism Care Demonstration (Revision C-57, June 24, 2026), para. 8.9 and 8.11.6', url: 'https://manuals.dha.mil/View-Publication/TOT5/FileName/C18S3' }],
+      },
     ],
     collect: [
       { title: 'Sponsor status and plan', desc: 'Active duty vs. retiree vs. Guard/Reserve, and Prime vs. Select vs. USFHP — it drives both eligibility and the copay. Group A or B (sponsor’s service entry before or on/after Jan. 1, 2018) changes the Select amounts.' },
@@ -633,6 +649,22 @@ export const militaryPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 18 Sec. 3 — Autism Care Demonstration (Revision C-57, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TOT5/Revision/66/FileName/C18S3' }],
       },
+      {
+        h2: 'Has TRICARE announced the 2027 ABA CPT code changes?',
+        body: [
+          'The AMA CPT Editorial Panel accepted six new adaptive behavior codes, revised 97151–97158 and deleted 0362T and 0373T, effective January 2027. The AMA\'s CPT 2027 HCPAC vote document lists the new codes as 97148 and 97149 (supporting assessment of harmful behavior, two technicians), 97159 and 97160 (treatment of harmful behavior, two technicians), 97173 (treatment with analysis delivered by the physician or QHP) and 97180 (non-face-to-face services by the physician or QHP). The codes are national; what each payer decides is which ones it authorizes and pays, and how.',
+          'The TRICARE Operations Manual\'s Autism Care Demonstration chapter (Chapter 18, Section 3, Revision C-57, June 24, 2026) still describes only the Category I codes 97151–97158, and no revision addressing the 2027 code changes had been posted as of November 1, 2026. Watch for a TOM revision before January 1, 2027, and confirm with the regional contractor which codes an authorization spanning January 1 should carry.',
+        ],
+        cites: [{ title: 'AMA CPT Editorial Panel — Summary of Panel Actions, September 2025 (tab 56, Adaptive Behavior Services Revisions) (PDF)', url: 'https://www.ama-assn.org/system/files/sept-2025-summary-of-panel-actions.pdf' }, { title: 'AMA RUC HCPAC — Vote Totals, CPT 2027 (adaptive behavior code family) (PDF)', url: 'https://www.ama-assn.org/system/files/hcpac-voting-2027.pdf' }, { title: 'TRICARE Operations Manual, Chapter 18, Section 3 — Autism Care Demonstration (Revision C-57, June 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TOT5/FileName/C18S3' }],
+      },
+      {
+        h2: 'What happens in a TRICARE ABA audit, and when are claims recouped?',
+        body: [
+          'The Autism Care Demonstration is audited every year. The TRICARE Operations Manual tells the regional contractor to audit, "on an annual basis," at least 30 records for each ABA provider group, combining administrative-record and medical-documentation reviews with one medical team conference session note. For the TRICARE Overseas Program and USFHP the audit "must include a minimum of 10% of records" for each group.',
+          'Findings lead first to outreach and education, then to "progressively more severe administration action, commensurate with the seriousness of the identified problems." The contractor "shall recoup all claims determined to be insufficient per supporting documentation for claims payment," and recoups claims for session notes "that describe the rendering of non-ABA services" and for a supervisor whose BACB, BICC or QABA certification or state license carries a restriction. One penalty is automatic: 97155 "must be completed at least one time per month by the authorized ABA supervisor," and a provider who misses it faces "a 10% penalty on all ABA claims for that beneficiary for the entire six-month authorization."',
+        ],
+        cites: [{ title: 'TRICARE Operations Manual, Chapter 18, Section 3 — Autism Care Demonstration (Revision C-57, June 24, 2026), para. 8.9 and 8.11.6', url: 'https://manuals.dha.mil/View-Publication/TOT5/FileName/C18S3' }],
+      },
     ],
     collect: [
       { title: 'ZIP code, then region', desc: 'The East/West line is drawn by ZIP and six states moved on Jan. 1, 2025. Confirm West before you route anything to TriWest or Availity.' },
@@ -935,6 +967,14 @@ export const militaryPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'CHAMPVA Operational Policy Manual, Ch. 2 Sec. 18.6, Psychological Testing (ABA) — Transmittal 152, 5/22/2025', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009345/02-18-06-PSYCHOLOGICAL-TESTING' }],
       },
+      {
+        h2: 'Has CHAMPVA announced the 2027 ABA CPT code changes?',
+        body: [
+          'The AMA CPT Editorial Panel accepted six new adaptive behavior codes, revised 97151–97158 and deleted 0362T and 0373T, effective January 2027. The AMA\'s CPT 2027 HCPAC vote document lists the new codes as 97148 and 97149 (supporting assessment of harmful behavior, two technicians), 97159 and 97160 (treatment of harmful behavior, two technicians), 97173 (treatment with analysis delivered by the physician or QHP) and 97180 (non-face-to-face services by the physician or QHP). The codes are national; what each payer decides is which ones it authorizes and pays, and how.',
+          'CHAMPVA\'s Operational Policy Manual ABA section (Chapter 2, Section 18.6, Transmittal 152, 05/22/2025) names no CPT codes and says nothing about the 2027 changes, and no CHAMPVA notice could be found as of November 1, 2026. Ask CHAMPVA which codes to bill for ABA from January 1, 2027.',
+        ],
+        cites: [{ title: 'AMA CPT Editorial Panel — Summary of Panel Actions, September 2025 (tab 56, Adaptive Behavior Services Revisions) (PDF)', url: 'https://www.ama-assn.org/system/files/sept-2025-summary-of-panel-actions.pdf' }, { title: 'AMA RUC HCPAC — Vote Totals, CPT 2027 (adaptive behavior code family) (PDF)', url: 'https://www.ama-assn.org/system/files/hcpac-voting-2027.pdf' }, { title: 'CHAMPVA Operational Policy Manual — Chapter 2, Section 18.6 (02.18.06), Transmittal 152', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009345/02-18-06-PSYCHOLOGICAL-TESTING' }],
+      },
     ],
     collect: [
       { title: 'CHAMPVA vs. TRICARE, settled', desc: 'Confirm the family is not eligible for or enrolled in TRICARE. The two are mutually exclusive, and a retiree or a spouse of a veteran killed in action is a TRICARE beneficiary.' },
@@ -1221,6 +1261,22 @@ export const militaryPayers: Record<string, PayerConfig> = {
           'No credential modifier (HM, HN, HO, HP) is set in the chapter. Instead, every claim line must carry “the NPI of the rendering provider per unique claim line,” and remote parent sessions carry modifier GT or 95. When 97153 and 97155 are billed for the same time the contractor “shall pay the higher rate and deny the other.” For a family changing agencies, a second-opinion assessment authorization may overlap an approved one, but “Two ‘ongoing’ treatment authorizations of direct services (CPT codes 97153, 97155, 97156, 97157, and 97158) are not permitted.”',
         ],
         cites: [{ title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 18 Sec. 3 — Autism Care Demonstration (Revision C-57, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TOT5/Revision/66/FileName/C18S3' }],
+      },
+      {
+        h2: 'Has TRICARE announced the 2027 ABA CPT code changes?',
+        body: [
+          'The AMA CPT Editorial Panel accepted six new adaptive behavior codes, revised 97151–97158 and deleted 0362T and 0373T, effective January 2027. The AMA\'s CPT 2027 HCPAC vote document lists the new codes as 97148 and 97149 (supporting assessment of harmful behavior, two technicians), 97159 and 97160 (treatment of harmful behavior, two technicians), 97173 (treatment with analysis delivered by the physician or QHP) and 97180 (non-face-to-face services by the physician or QHP). The codes are national; what each payer decides is which ones it authorizes and pays, and how.',
+          'The TRICARE Operations Manual\'s Autism Care Demonstration chapter (Chapter 18, Section 3, Revision C-57, June 24, 2026) still describes only the Category I codes 97151–97158, and no revision addressing the 2027 code changes had been posted as of November 1, 2026. Watch for a TOM revision before January 1, 2027, and confirm with the regional contractor which codes an authorization spanning January 1 should carry.',
+        ],
+        cites: [{ title: 'AMA CPT Editorial Panel — Summary of Panel Actions, September 2025 (tab 56, Adaptive Behavior Services Revisions) (PDF)', url: 'https://www.ama-assn.org/system/files/sept-2025-summary-of-panel-actions.pdf' }, { title: 'AMA RUC HCPAC — Vote Totals, CPT 2027 (adaptive behavior code family) (PDF)', url: 'https://www.ama-assn.org/system/files/hcpac-voting-2027.pdf' }, { title: 'TRICARE Operations Manual, Chapter 18, Section 3 — Autism Care Demonstration (Revision C-57, June 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TOT5/FileName/C18S3' }],
+      },
+      {
+        h2: 'What happens in a TRICARE ABA audit, and when are claims recouped?',
+        body: [
+          'The Autism Care Demonstration is audited every year. The TRICARE Operations Manual tells the regional contractor to audit, "on an annual basis," at least 30 records for each ABA provider group, combining administrative-record and medical-documentation reviews with one medical team conference session note. For the TRICARE Overseas Program and USFHP the audit "must include a minimum of 10% of records" for each group.',
+          'Findings lead first to outreach and education, then to "progressively more severe administration action, commensurate with the seriousness of the identified problems." The contractor "shall recoup all claims determined to be insufficient per supporting documentation for claims payment," and recoups claims for session notes "that describe the rendering of non-ABA services" and for a supervisor whose BACB, BICC or QABA certification or state license carries a restriction. One penalty is automatic: 97155 "must be completed at least one time per month by the authorized ABA supervisor," and a provider who misses it faces "a 10% penalty on all ABA claims for that beneficiary for the entire six-month authorization."',
+        ],
+        cites: [{ title: 'TRICARE Operations Manual, Chapter 18, Section 3 — Autism Care Demonstration (Revision C-57, June 24, 2026), para. 8.9 and 8.11.6', url: 'https://manuals.dha.mil/View-Publication/TOT5/FileName/C18S3' }],
       },
     ],
     collect: [
@@ -1526,6 +1582,22 @@ export const militaryPayers: Record<string, PayerConfig> = {
           'No credential modifier (HM, HN, HO, HP) is set in the chapter. Instead, every claim line must carry “the NPI of the rendering provider per unique claim line,” and remote parent sessions carry modifier GT or 95. When 97153 and 97155 are billed for the same time the contractor “shall pay the higher rate and deny the other.” For a family changing agencies, a second-opinion assessment authorization may overlap an approved one, but “Two ‘ongoing’ treatment authorizations of direct services (CPT codes 97153, 97155, 97156, 97157, and 97158) are not permitted.”',
         ],
         cites: [{ title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 18 Sec. 3 — Autism Care Demonstration (Revision C-57, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TOT5/Revision/66/FileName/C18S3' }],
+      },
+      {
+        h2: 'Has TRICARE announced the 2027 ABA CPT code changes?',
+        body: [
+          'The AMA CPT Editorial Panel accepted six new adaptive behavior codes, revised 97151–97158 and deleted 0362T and 0373T, effective January 2027. The AMA\'s CPT 2027 HCPAC vote document lists the new codes as 97148 and 97149 (supporting assessment of harmful behavior, two technicians), 97159 and 97160 (treatment of harmful behavior, two technicians), 97173 (treatment with analysis delivered by the physician or QHP) and 97180 (non-face-to-face services by the physician or QHP). The codes are national; what each payer decides is which ones it authorizes and pays, and how.',
+          'The TRICARE Operations Manual\'s Autism Care Demonstration chapter (Chapter 18, Section 3, Revision C-57, June 24, 2026) still describes only the Category I codes 97151–97158, and no revision addressing the 2027 code changes had been posted as of November 1, 2026. Watch for a TOM revision before January 1, 2027, and confirm with the regional contractor which codes an authorization spanning January 1 should carry.',
+        ],
+        cites: [{ title: 'AMA CPT Editorial Panel — Summary of Panel Actions, September 2025 (tab 56, Adaptive Behavior Services Revisions) (PDF)', url: 'https://www.ama-assn.org/system/files/sept-2025-summary-of-panel-actions.pdf' }, { title: 'AMA RUC HCPAC — Vote Totals, CPT 2027 (adaptive behavior code family) (PDF)', url: 'https://www.ama-assn.org/system/files/hcpac-voting-2027.pdf' }, { title: 'TRICARE Operations Manual, Chapter 18, Section 3 — Autism Care Demonstration (Revision C-57, June 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TOT5/FileName/C18S3' }],
+      },
+      {
+        h2: 'What happens in a TRICARE ABA audit, and when are claims recouped?',
+        body: [
+          'The Autism Care Demonstration is audited every year. The TRICARE Operations Manual tells the regional contractor to audit, "on an annual basis," at least 30 records for each ABA provider group, combining administrative-record and medical-documentation reviews with one medical team conference session note. For the TRICARE Overseas Program and USFHP the audit "must include a minimum of 10% of records" for each group.',
+          'Findings lead first to outreach and education, then to "progressively more severe administration action, commensurate with the seriousness of the identified problems." The contractor "shall recoup all claims determined to be insufficient per supporting documentation for claims payment," and recoups claims for session notes "that describe the rendering of non-ABA services" and for a supervisor whose BACB, BICC or QABA certification or state license carries a restriction. One penalty is automatic: 97155 "must be completed at least one time per month by the authorized ABA supervisor," and a provider who misses it faces "a 10% penalty on all ABA claims for that beneficiary for the entire six-month authorization."',
+        ],
+        cites: [{ title: 'TRICARE Operations Manual, Chapter 18, Section 3 — Autism Care Demonstration (Revision C-57, June 24, 2026), para. 8.9 and 8.11.6', url: 'https://manuals.dha.mil/View-Publication/TOT5/FileName/C18S3' }],
       },
     ],
     collect: [

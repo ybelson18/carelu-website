@@ -76,7 +76,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { label: 'Diagnosing credential (new 11/1/2026)', value: 'KMAP Bulletin 26140 — BSRB-licensed clinical psychologist or qualified physician, DSM criteria + validated tool (ADOS/CARS); 2-yr grace period for existing non-compliant diagnoses' },
       { label: 'Administered by', value: 'Sunflower, UHC Community Plan, Healthy Blue (all MCO, contracts 2025–2027)' },
       { label: 'Licensure', value: 'Kansas LBA/LaBA (BSRB) since 7/1/2016; every provider needs their own KMAP ID' },
-      { label: 'Rates', value: '97153 verified at $16.25/15-min unit ($65/hr) since 7/1/2024 (KMAP Bulletin 24125); every other autism code unverified beyond a stale 1/1/2019 anchor — KMAP interactive lookup is the source of truth' },
+      { label: 'Rates (per 15-min unit)', value: '97151 $43.75; 97152 $31.25; 97153 $16.25 (since 7/1/2024, was $11.75); 97155 $24.00; 97156 $37.50; 97154/97158 $8.35 — KMAP fee schedule eff. 10/1/2026' },
       { label: 'Staff screening', value: 'Five-part enrollment check: KBI + APS/CPS registries + Nurse Aide Registry + motor-vehicle screen (every CCTS/IIS applicant)' },
     ],
     sections: [
@@ -119,15 +119,18 @@ export const kansasPayers: Record<string, PayerConfig> = {
         ],
       },
       {
-        h2: 'Rates: a 2019 anchor, not a current schedule',
+        h2: 'Rates: the KMAP fee schedule, code by code',
         body: [
-          'We won\'t quote most current Kansas autism-services rates, because we couldn\'t verify them. The last public anchor for most codes is the CPT crosswalk effective 1/1/2019, which set 97151 at $17.50 per 15-minute unit — and that was then raised effective 4/1/2019 by a bulletin that did not publish the new amounts. Notably, the 7/1/2022 behavioral-health rate increase did NOT include the 9715x autism codes. One code has a newer, verified figure: effective 7/1/2024, KMAP Bulletin 24125 — the same bulletin that widened CCTS billing to 97153/97154/97158 and IIS billing to 97154 — states verbatim that "the service rate for code 97153 will be increased for applied behavioral analysis to $65/hour ($16.25 per unit, 15 minutes)." No comparably dated figure was found for 97151, 97152, 97154, 97155, 97156, or 97158. The source of truth for everything else is the KMAP interactive fee-schedule lookup (Reference Codes on the KMAP portal, which redirects to a login wall on every automated attempt); UHC/Optum explicitly commits to reimbursing at the Kansas Medicaid autism-services rates, so the KMAP lookup doubles as your MCO benchmark. Treat any other dollar figure circulating for Kansas ABA as unverified until you\'ve pulled it from that lookup yourself.',
+          'KMAP\'s Title XIX "Medicaid rate" fee schedule (current version effective 10/1/2026, downloaded from the KMAP Fee Schedules page) lists a maximum fee per unit for every CCTS/IIS code, and each row carries the date its rate took effect: 97151 assessment $43.75, 97152 $31.25, 97155 $24.00 and 97156 $37.50, all effective 4/1/2019; 97153 $16.25 effective 7/1/2024; 97154 and 97158 $8.35 each (rows dated 1/1/2019). 97157, 0362T and 0373T have no Medicaid-rate row. CPT ABA units are 15 minutes, so 97151 works out to $175 an hour and 97153 to $65 an hour, which is the figure KMAP Bulletin 24125 announced: "the service rate for code 97153 will be increased for applied behavioral analysis to $65/hour ($16.25 per unit, 15 minutes)." The 6/1/2024 version of the same schedule still listed 97153 at $11.75.',
+          'Rate history, as far as KMAP has published it. The 1/1/2019 CPT crosswalk (Bulletin 18259) set 97151 at $17.50 per 15-minute unit; Bulletin 19029 raised the autism-services rates from 4/1/2019 without printing the amounts, and the fee schedule shows them ($43.75 for 97151). The 7/1/2022 behavioral-health increase (Bulletin 22128) did not include the 9715x codes. 97153 rose from $11.75 to $16.25 on 7/1/2024 (Bulletin 24125). The only reduction KMAP\'s fee-schedule page mentions is program-wide: "Effective with the processing date of July 28, 2017, retroactive to dates of service on and after July 1, 2017, the previously implemented provider payment reduction was restored. Claims with a date of service prior to July 1, 2017, continue to receive the reduction." The KanCare MCOs pay under their own contracts; UHC/Optum commits to "the Kansas Medicaid rates for autism services," and Bulletin 24125 notes that the MCOs\' implementation of state policy "may vary from the date noted in the KMAP bulletins."',
         ],
         cites: [
+          { title: 'KMAP Title XIX Medicaid fee schedule, current version effective 10/1/2026 (Fee Schedules page: program TXIX, rate type Medicaid)', url: 'https://portal.kmap-state-ks.us/PublicPage/ProviderPricing/FeeSchedules' },
           { title: 'KMAP Bulletin 18259 — CPT crosswalk (0359T→97151 at $17.50/15 min, eff. 1/1/2019)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-18259.html' },
           { title: 'KMAP Bulletin 19029 — Rate Increase for Autism Services (eff. 4/1/2019; amounts unpublished)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-19029.html' },
           { title: 'KMAP Bulletin 22128 — BH rate increase 7/1/2022 (9715x not included)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-221280.html' },
           { title: 'KMAP General Bulletin 24125 — Autism Codes: CCTS/IIS Coverage (97153 rate to $65/hr = $16.25/15-min unit, eff. 7/1/2024)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-24125.html' },
+          { title: 'UHC/Optum — KanCare ASD getting-started guide (BH00567_10102024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/ksABA/ksHowToAuth.pdf' },
         ],
       },
       {
@@ -208,7 +211,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { title: 'KMAP General Bulletin 24125 — Autism Codes: CCTS/IIS Coverage (97153 rate to $65/hr = $16.25/15-min unit, eff. 7/1/2024)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-24125.html' },
       { title: 'UHC/Optum — KanCare ASD getting-started guide (BH00567_10102024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/ksABA/ksHowToAuth.pdf' },
       { title: 'KDHE — KanCare MCO contract awards 2025–2027', url: 'https://www.kdhe.ks.gov/CivicAlerts.aspx?AID=1104' },
-      { title: 'KMAP fee schedules — interactive lookup (source of truth for current rates)', url: 'https://portal.kmap-state-ks.us/PublicPage/ProviderPricing/FeeSchedules' },
+      { title: 'KMAP Title XIX Medicaid fee schedule, current version effective 10/1/2026 (Fee Schedules page: program TXIX, rate type Medicaid)', url: 'https://portal.kmap-state-ks.us/PublicPage/ProviderPricing/FeeSchedules' },
       { title: 'KMAP Bulletin 20147 — Autism CCTS & IIS provider qualification changes (eff. 4/3/2020)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-20147.html' },
       { title: 'KMAP Bulletin 21013 — CCTS/IIS provider enrollment clarification', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-21013.html' },
       { title: 'K.S.A. 65-7503 — behavior analyst licensure required; exemptions', url: 'https://www.ksrevisor.gov/statutes/chapters/ch65/065_075_0003.html' },
@@ -272,9 +275,10 @@ export const kansasPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'KMAP lists the ABA codes as telehealth-eligible. General Bulletin 21234 made place of service 10 (telehealth in the patient\'s home) valid from 1/1/2022, "in addition to existing POS code 02 (telehealth provided other than in a patient\'s home)," and its list of procedure codes allowed with POS 10 includes 97151, 97152, 97153, 97155 and 97156. So the CCTS assessment (97151/97152), technician IIS (97153), supervision with protocol modification (97155) and family guidance (97156) may be billed as telehealth; 97154, 97157 and 97158 are not on that list. Kansas law sets the floor: the telemedicine act "shall also apply to the Kansas medical assistance program," which may not "exclude an otherwise covered healthcare service from coverage solely because such service is provided through telemedicine" when a healthcare provider delivers it, though it may limit coverage to medically necessary services and may not require a member to use telemedicine instead of in-person care (K.S.A. 40-2,213). The bulletins set no in-person minimum for supervision. KMAP notes that MCO implementation "may vary from the date noted in the KMAP bulletins."',
+          'KMAP lists the ABA codes as telehealth-eligible. General Bulletin 21234 made place of service 10 (telehealth in the patient\'s home) valid from 1/1/2022, "in addition to existing POS code 02 (telehealth provided other than in a patient\'s home)," and its list of procedure codes allowed with POS 10 includes 97151, 97152, 97153, 97155 and 97156. So the CCTS assessment (97151/97152), technician IIS (97153), supervision with protocol modification (97155) and family guidance (97156) may be billed as telehealth; 97154, 97157 and 97158 are not on that list. Kansas law sets the floor: the telemedicine act "shall also apply to the Kansas medical assistance program," which may not "exclude an otherwise covered healthcare service from coverage solely because such service is provided through telemedicine" when a healthcare provider delivers it, though it may limit coverage to medically necessary services and may not require a member to use telemedicine instead of in-person care (K.S.A. 40-2,213). The bulletins set no in-person minimum for supervision. KMAP notes that MCO implementation "may vary from the date noted in the KMAP bulletins." The current General Benefits manual (§2720, updated 04/26 and 05/25) goes further: 97155 and 97156 are on its "Telemedicine \u2013 Video and Audio/Phone \u2013 POS 02 or 10" list, while 97151, 97152 and 97153 are "Video Only \u2013 POS Home Allowed"; 97154 and 97158 appear on neither. Telehealth is "reimbursed at the same rate as a face-to-face" service, "Documentation requirements are the same as an in-person service," and coverage "must be validated at the individual procedure code and provider type/provider specialty level." No telehealth modifier is needed: the place of service carries it (POS 02 other than the home, POS 10 the home), and "the GT modifier is no longer used to designate a telemedicine service."',
         status: 'verified',
         cites: [
+          { title: 'KMAP General Benefits Fee-for-Service Provider Manual, §2700 Documentation Requirements and §2720 Telemedicine (manual dated 10/29/2026)', url: 'https://portal.kmap-state-ks.us/Documents/Provider/Provider%20Manuals/GenBenefits_26158_26063.pdf' },
           { title: 'KMAP General Bulletin 21234 — New Place of Service Code 10 (telehealth in the home; POS 10 code list incl. 97151–97153, 97155, 97156; eff. 1/1/2022)', url: 'https://portal.kmap-state-ks.us/Documents/Provider/Bulletins/21234%20-%20General%20-%20New_POS_Code_10.pdf' },
           { title: 'K.S.A. 40-2,213 — Kansas telemedicine act coverage parity (applies to the Kansas medical assistance program)', url: 'https://www.ksrevisor.gov/statutes/chapters/ch40/040_002_0213.html' },
         ],
@@ -318,15 +322,15 @@ export const kansasPayers: Record<string, PayerConfig> = {
       },
       concurrentBilling: {
         value:
-          'Not published. The KMAP bulletins set the code split — CCTS (type 11, specialty 403) bills 97151, 97152, 97155 and 97156, and since 7/1/2024 also 97153, 97154 and 97158; IIS (specialty 404) bills 97153 and since 7/1/2024 also 97154 — but state no rule on billing two codes for the same clock time.',
+          'Not published. The KMAP Mental Health manual (§8400, updated 12/25) sets the code split \u2014 CCTS (type 11, specialty 403) bills 97151, 97152, 97153, 97154, 97155, 97156 and 97158; IIS (specialty 404) bills 97153 and 97154, "One unit is equal to 15 minutes" \u2014 but neither it nor the General Benefits or General Billing manuals states a rule on billing two ABA codes for the same clock time.',
         status: 'unverified',
         cites: [
+          { title: 'KMAP Mental Health Fee-for-Service Provider Manual, §8400 Behavioral Interventions (CCTS/IIS; manual dated 10/29/2026)', url: 'https://portal.kmap-state-ks.us/Documents/Provider/Provider%20Manuals/Mental_Health_26158_26140.pdf' },
           { title: 'KMAP Bulletin 20147 — Autism CCTS & IIS provider qualification changes (eff. 4/3/2020)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-20147.html' },
-          { title: 'UHC/Optum — KanCare ASD getting-started guide (BH00567_10102024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/ksABA/ksHowToAuth.pdf' },
         ],
         verifyVia:
-          'The KMAP Mental Health Fee-for-Service Provider Manual (portal.kmap-state-ks.us was unreachable at this review), and each MCO — Sunflower, Optum and Healthy Blue run their own claim editing.',
-        blocker: 'document',
+          'Checked 11/1/2026: KMAP Mental Health manual §8400, General Benefits manual and General Billing manual (2/18/2026) state nothing on 97153/97155 overlap. Ask the member\'s MCO (Sunflower, Optum or Healthy Blue), which run their own claim editing.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
@@ -339,24 +343,24 @@ export const kansasPayers: Record<string, PayerConfig> = {
       },
       noteSignature: {
         value:
-          'No signature rule could be sourced. The MCO documents require a dated provider signature on the authorization request form rather than on the session note, and the KMAP provider manuals that would carry charting and signature standards sit on a portal that did not respond at this review.',
-        status: 'unverified',
-        cites: [{ title: 'Sunflower KS.CP.01 — Applied Behavioral Analysis (clinical policy)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/policies/clinical-policies/KS.CP.01-Applied-Behavioral-Analysis.pdf' }],
-        verifyVia:
-          'The KMAP Mental Health Fee-for-Service Provider Manual and the KMAP HCBS Autism manual (portal.kmap-state-ks.us unreachable at this review), plus each MCO\'s provider manual.',
-        blocker: 'document',
+          'KMAP sets program-wide rules rather than an ABA-specific one. Its General Benefits manual (§2700) requires that "Records must be created at the time the service is provided," that the record "be legible and stand on its own," and warns that "Failure to properly authenticate medical records (sign and date the entry) and maintain written policies and procedures regarding electronic documentation and security compliance will result in the recoupment of Medicaid payments." Electronic signatures must identify the signer "by name and title," "Include the date and time the signature is affixed," and be unalterable once affixed; an EHR must keep an audit log of every "amendment, correction, or deletion \u2013 with date and time." "When a service is not documented or documentation is not legible, the service is not reimbursed." No rule says a supervising BCBA must co-sign a technician\'s note.',
+        status: 'verified',
+        cites: [
+          { title: 'KMAP General Benefits Fee-for-Service Provider Manual, §2700 Documentation Requirements and §2720 Telemedicine (manual dated 10/29/2026)', url: 'https://portal.kmap-state-ks.us/Documents/Provider/Provider%20Manuals/GenBenefits_26158_26063.pdf' },
+        ],
       },
       placeOfService: {
         value:
-          'No payable-setting list is published. The service definitions imply the settings — IIS "help the child acquire and maintain the skills needed to successfully function in the home and community" — but no KMAP bulletin names place-of-service codes or states whether school-based delivery is billable. Optum\'s Kansas Medicaid criteria do exclude "services provided in a PRTF/hospital setting" and any service "being provided in duplicate through any other source/setting."',
+          'No payable-setting list is published. The KMAP Mental Health manual (§8400) defines CCTS and IIS without naming places of service or school settings, and the IIS definition implies home and community delivery. For telehealth, the General Benefits manual (§2720) requires POS 02 (other than the home) or POS 10 (the home). Optum\'s Kansas Medicaid criteria exclude "services provided in a PRTF/hospital setting" and any service "being provided in duplicate through any other source/setting."',
         status: 'unverified',
         cites: [
-          { title: 'UHC/Optum — KanCare ASD getting-started guide (BH00567_10102024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/ksABA/ksHowToAuth.pdf' },
+          { title: 'KMAP Mental Health Fee-for-Service Provider Manual, §8400 Behavioral Interventions (CCTS/IIS; manual dated 10/29/2026)', url: 'https://portal.kmap-state-ks.us/Documents/Provider/Provider%20Manuals/Mental_Health_26158_26140.pdf' },
+          { title: 'KMAP General Benefits Fee-for-Service Provider Manual, §2700 Documentation Requirements and §2720 Telemedicine (manual dated 10/29/2026)', url: 'https://portal.kmap-state-ks.us/Documents/Provider/Provider%20Manuals/GenBenefits_26158_26063.pdf' },
           { title: 'Optum — ABA State Mandates supplemental criteria (BH803ABASTM72026, eff. July 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
         ],
         verifyVia:
-          'The KMAP Mental Health Fee-for-Service Provider Manual (portal unreachable at this review) and the member\'s MCO.',
-        blocker: 'document',
+          'Checked 11/1/2026: KMAP Mental Health §8400 and General Benefits §2720 name no in-person POS list for ABA or a school-setting rule. Ask the member\'s MCO which POS codes it pays for CCTS/IIS.',
+        blocker: 'per-case',
       },
       billAsProvider: {
         value:
@@ -374,7 +378,8 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { q: 'How recent does the autism diagnosis need to be?', a: 'Under KMAP Bulletin 26140 (eff. 11/1/2026) there is no recency rule: once a qualified diagnostician has made the diagnosis, the member is eligible "without the need for a re-evaluation" and there is "no time limit on how soon they begin autism treatment." Optum/UHC\'s July 2026 Kansas criteria say the same, and Healthy Blue publishes no rule of its own. The exception to check is Sunflower: its older KS.CP.01 policy (last reviewed 06/2019) still says 6 months, though Sunflower now lists Centene\'s CP.BH.104 as its Medicaid ABA policy — ask Sunflower before ordering a re-evaluation.' },
       { q: 'Who is allowed to make the ASD diagnosis for KanCare members?', a: 'As of KMAP Bulletin 26140 (eff. 11/1/2026), for members age 20 and under the diagnosis must come from a Kansas BSRB-licensed clinical psychologist or a qualified physician, documented against DSM criteria/severity using a validated tool such as ADOS or CARS. Once a qualified diagnostician has made the diagnosis, no re-evaluation is needed; existing members diagnosed by a non-compliant provider get a 2-year window to obtain an updated diagnosis.' },
       { q: 'Does an RBT enroll with KMAP (Kansas Medicaid) or with the KanCare MCOs, or bill under the supervising BCBA?', a: 'The RBT enrolls with KMAP individually — IIS provider type 11, specialty 404, as “Individual within a Group” under an already-enrolled group, once per service location — and claims go out under the RBT\'s own NPI: “when you hire new ABAs or RBTs, you must enroll them through KMAP before you can bill Medicaid under the employee\'s NPI number.” Then the MCO credentials them: for UnitedHealthcare Community Plan, Optum retrieves the KMAP application, credentials within 60 days and contracts within 30. Sunflower and Healthy Blue also require KMAP enrollment first, but neither publishes a technician-level credentialing rule (Healthy Blue\'s manual limits credentialing to independently practicing licensed/certified practitioners), so confirm with their network teams. A non-RBT technician can still enroll with the KDADS letter instead of the RBT certificate.' },
-      { q: 'What does Kansas Medicaid pay for ABA?', a: 'Mostly not reliably published. One exception: 97153 is verified at $16.25/15-minute unit ($65/hour) effective 7/1/2024 (KMAP Bulletin 24125). For every other code the last public anchor is $17.50/15-minute unit for 97151 effective 1/1/2019, raised 4/1/2019 without published amounts; the 2022 BH increase skipped the 9715x codes. Pull current figures from the KMAP interactive fee-schedule lookup — the only source of truth for the rest.' },
+      { q: 'What does Kansas Medicaid pay for ABA?', a: 'Per 15-minute unit on KMAP\'s Title XIX fee schedule (version effective 10/1/2026): 97151 $43.75, 97152 $31.25, 97153 $16.25, 97154 $8.35, 97155 $24.00, 97156 $37.50, 97158 $8.35. 97157, 0362T and 0373T have no Medicaid-rate row. The KanCare MCOs pay under their own contracts; UHC/Optum commits to the Kansas Medicaid autism-services rates.' },
+      { q: 'When did Kansas Medicaid last change ABA rates?', a: 'On 7/1/2024, when 97153 rose from $11.75 to $16.25 per unit ($65/hour, KMAP Bulletin 24125). The other autism codes carry rate effective dates of 4/1/2019 (97151, 97152, 97155, 97156) or 1/1/2019 (97154, 97158) on the 10/1/2026 fee schedule, and the 7/1/2022 behavioral-health increase did not include them. The only rate reduction KMAP\'s fee-schedule page mentions is a program-wide provider payment reduction, restored for dates of service from 7/1/2017.' },
       { q: 'Can KanCare ABA (including the 97151 assessment) be done by telehealth?', a: 'Yes. KMAP Bulletin 21234 lists 97151, 97152, 97153, 97155 and 97156 as allowed with POS 10 (telehealth in the home), alongside POS 02 for other locations, from 1/1/2022. Group codes 97154, 97157 and 97158 are not on the list. K.S.A. 40-2,213 bars KMAP from excluding a covered service only because it is delivered by telemedicine. Confirm the modality with the member\'s MCO at authorization.' },
       { q: 'Can an out-of-state BCBA treat KanCare members in Kansas, including by telehealth?', a: 'Kansas requires a Kansas license to practice ABA “in this state” (K.S.A. 65-7503). Confirm KMAP enrollment before treating KanCare members from another state.' },
       { q: 'What is the timely filing limit for KanCare ABA claims?', a: '180 days from the date of service at all three KanCare plans — Sunflower, Healthy Blue and UnitedHealthcare Community Plan (each plan’s 2026 provider manual). Corrected claims: 365 days at Sunflower (from notification of payment) and Healthy Blue (from the date of service).' },
@@ -488,11 +493,12 @@ export const kansasPayers: Record<string, PayerConfig> = {
       {
         h2: 'What does Sunflower pay for ABA?',
         body: [
-          'Sunflower publishes no ABA rate table. The sample Medicaid product attachment in its provider manual sets the formula: payment is "the lesser of (i) the billed charge for the particular Covered Service, or (ii) the appropriate amount for such Covered Service under the Company\'s fee schedule in effect on the date of service," and "Upon Provider\'s reasonable written request from time to time, the Company will provide Provider with a representative sample of the fees then in effect." The public state benchmark is KMAP Bulletin 24125: 97153 at $65 per hour ($16.25 per 15-minute unit) from 7/1/2024; the bulletin notes MCO implementation "may vary from the date noted."',
+          'Sunflower publishes no ABA rate table. The sample Medicaid product attachment in its provider manual sets the formula: payment is "the lesser of (i) the billed charge for the particular Covered Service, or (ii) the appropriate amount for such Covered Service under the Company\'s fee schedule in effect on the date of service," and "Upon Provider\'s reasonable written request from time to time, the Company will provide Provider with a representative sample of the fees then in effect." The public state benchmark is KMAP\'s Title XIX fee schedule (effective 10/1/2026), per 15-minute unit: 97151 $43.75, 97152 $31.25, 97153 $16.25 ($65 an hour since 7/1/2024, KMAP Bulletin 24125), 97154 $8.35, 97155 $24.00, 97156 $37.50 and 97158 $8.35; Bulletin 24125 notes MCO implementation "may vary from the date noted."',
         ],
         cites: [
           { title: 'Sunflower Health Plan Provider Manual (KDHE approved February 27, 2026)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/pdfs/Sunflower_ProviderManual.pdf' },
           { title: 'KMAP General Bulletin 24125 — Autism Codes: CCTS/IIS Coverage (97153 rate to $65/hr = $16.25/15-min unit, eff. 7/1/2024)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-24125.html' },
+          { title: 'KMAP Title XIX Medicaid fee schedule, current version effective 10/1/2026 (Fee Schedules page: program TXIX, rate type Medicaid)', url: 'https://portal.kmap-state-ks.us/PublicPage/ProviderPricing/FeeSchedules' },
         ],
       },
       {
@@ -572,7 +578,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { title: 'Assessment instruments on file', desc: 'One standardized (Vineland-3, ADOS, CARS, ADI-R, GARS, ASDS) + one skills-based (VB-MAPP, ABLLS, AFLS, ASRS).' },
       { title: 'Requested intensity tier', desc: 'Focused (10–25 h/wk) vs. comprehensive (25–40 h/wk); exceeding the state soft limits needs extra documentation.' },
     ],
-    sources: [ CFR438206_G5,
+    sources: [ { title: 'KMAP Title XIX Medicaid fee schedule, current version effective 10/1/2026 (Fee Schedules page: program TXIX, rate type Medicaid)', url: 'https://portal.kmap-state-ks.us/PublicPage/ProviderPricing/FeeSchedules' }, CFR438206_G5,
       { title: 'Sunflower KS.CP.01 — Applied Behavioral Analysis (clinical policy)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/policies/clinical-policies/KS.CP.01-Applied-Behavioral-Analysis.pdf' },
       { title: 'KMAP Bulletin 19029 — Rate Increase for Autism Services (state CCTS/IIS limits)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-19029.html' },
       { title: 'KMAP Bulletin 26140 — ASD diagnosis credential requirement (issued 8/12/2026; reissued 8/31/2026, eff. 11/1/2026)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-26140.html' },
@@ -746,7 +752,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { q: 'Can Sunflower ABA be delivered by telehealth?', a: 'Yes for the codes KMAP allows: 97151, 97152, 97153, 97155 and 97156 with POS 10 (home) or 02 (elsewhere), per KMAP Bulletin 21234; Sunflower\'s CP.BH.104 defers to state allowances. Keep the monthly one-on-one protocol-modification session in person unless state guidance allows it remotely (CP.BH.105), and document the platform and camera use on telehealth notes.' },
       { q: 'Does Sunflower require RBT certification for ABA technicians?', a: 'Sunflower adds no credential of its own. The KanCare rule applies: IIS technicians qualify as RBTs under a BCBA or through the state\'s KDADS-letter route, and each must be KMAP-enrolled. The rendering provider attests on the PA form that everyone on the plan has the required training, and CP.BH.104 requires treatment delivered or supervised by an ABA-credentialed professional. Whether Sunflower credentials each technician individually is not published; ask its network team.' },
       { q: 'Can a child switch ABA agencies with Sunflower?', a: 'Sunflower publishes no transfer rule. Authorizations are requested per provider, and a new agency that skips the initial assessment request must send all the assessment items with its first treatment plan. Ask Sunflower UM (1-877-644-4623) before the new agency submits whether it needs the old agency\'s discharge date.' },
-      { q: 'What does Sunflower pay for ABA?', a: 'No public ABA rate table. Sunflower\'s sample Medicaid agreement pays the lesser of billed charges or its Medicaid fee schedule and offers a sample of fees on written request. The state benchmark for 97153 is $16.25 per 15 minutes (KMAP Bulletin 24125).' },
+      { q: 'What does Sunflower pay for ABA?', a: 'No public ABA rate table. Sunflower\'s sample Medicaid agreement pays the lesser of billed charges or its Medicaid fee schedule and offers a sample of fees on written request. The state benchmark is KMAP\'s Title XIX fee schedule (effective 10/1/2026), per 15-minute unit: 97151 $43.75, 97152 $31.25, 97153 $16.25, 97154 $8.35, 97155 $24.00, 97156 $37.50, 97158 $8.35.' },
       { q: 'Is Sunflower accepting new ABA providers?', a: 'Sunflower publishes no ABA moratorium. Enroll with KMAP first and pick Sunflower; KMAP sends the file for credentialing and contracting, which Sunflower aims to finish within 30–45 days of a complete application. Ask Contracting (1-877-644-4623) about need in your area.' },
       { q: 'Can an out-of-state BCBA treat Sunflower members in Kansas, including by telehealth?', a: 'Kansas requires a Kansas license to practice ABA “in this state” (K.S.A. 65-7503). Confirm KMAP enrollment before treating KanCare members from another state.' },
       { q: 'Can Sunflower authorize ABA retroactively?', a: 'Only for extenuating circumstances (such as a member who did not have the Sunflower card, or another payer later finding the member ineligible) or retroactive eligibility; decision within 30 days, no later than 180 days from the date of service.' },
@@ -799,7 +805,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { label: 'Diagnosis recency', value: 'None — no re-evaluation or time limit once a qualified diagnostician has diagnosed (Optum July 2026 = KMAP 26140); age 20 and under' },
       { label: 'Plan ceiling', value: 'No more than 40 hrs/week; state 50 h/yr CCTS + 25 h/wk IIS limits underneath' },
       { label: 'Review cadence', value: 'Monthly CCTS progress review; formal renewal at minimum every 6 months' },
-      { label: 'Rates', value: 'Pays Kansas Medicaid autism-services rates (per KMAP Reference Codes lookup)' },
+      { label: 'Rates', value: 'Pays Kansas Medicaid autism-services rates — KMAP fee schedule (eff. 10/1/2026) per 15-min unit: 97151 $43.75, 97153 $16.25, 97155 $24.00, 97156 $37.50' },
     ],
     sections: [
       {
@@ -816,9 +822,10 @@ export const kansasPayers: Record<string, PayerConfig> = {
       {
         h2: 'Credentialing runs KMAP-first — and rates are the Medicaid schedule',
         body: [
-          'You cannot start with Optum directly: providers complete KMAP enrollment first, and Optum then retrieves the application from KMAP to begin credentialing (about 60 days). CCTS credentialing requires both BACB certification proof AND the Kansas BSRB license number. Auth resources live on Provider Express; the contracting line is 1-877-614-0484 (ask for the Kansas ABA Network Manager), and the plan publishes a dedicated KanCare network contact (Carolan Wishall, 1-913-608-3064). On payment, the onboarding guide is unambiguous: "We\'ll reimburse you for services according to the Kansas Medicaid rates for autism services" — which makes the KMAP Reference Codes interactive lookup your rate sheet for this plan too.',
+          'You cannot start with Optum directly: providers complete KMAP enrollment first, and Optum then retrieves the application from KMAP to begin credentialing (about 60 days). CCTS credentialing requires both BACB certification proof AND the Kansas BSRB license number. Auth resources live on Provider Express; the contracting line is 1-877-614-0484 (ask for the Kansas ABA Network Manager), and the plan publishes a dedicated KanCare network contact (Carolan Wishall, 1-913-608-3064). On payment, the onboarding guide is unambiguous: "We\'ll reimburse you for services according to the Kansas Medicaid rates for autism services" — which makes KMAP\'s fee schedule your rate sheet for this plan too. The Title XIX Medicaid-rate schedule effective 10/1/2026 pays per 15-minute unit 97151 $43.75, 97152 $31.25, 97153 $16.25 (since 7/1/2024), 97154 $8.35, 97155 $24.00, 97156 $37.50 and 97158 $8.35.',
         ],
         cites: [
+          { title: 'KMAP Title XIX Medicaid fee schedule, current version effective 10/1/2026 (Fee Schedules page: program TXIX, rate type Medicaid)', url: 'https://portal.kmap-state-ks.us/PublicPage/ProviderPricing/FeeSchedules' },
           { title: 'UHC/Optum — KanCare ASD getting-started guide (BH00567_10102024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/ksABA/ksHowToAuth.pdf' },
         ],
       },
@@ -876,7 +883,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { title: 'Concurrent services', desc: 'Screen against the exclusion list (speech/OT, respite, PRTF/hospital settings, duplicated services) before submitting.' },
       { title: 'KMAP + Optum credentialing status', desc: 'KMAP enrollment first, then Optum credentialing (~60 days); CCTS needs BACB proof + the BSRB license number.' },
     ],
-    sources: [ CFR438206_G5,
+    sources: [ { title: 'KMAP Title XIX Medicaid fee schedule, current version effective 10/1/2026 (Fee Schedules page: program TXIX, rate type Medicaid)', url: 'https://portal.kmap-state-ks.us/PublicPage/ProviderPricing/FeeSchedules' }, CFR438206_G5,
       { title: 'Optum — ABA State Mandates supplemental criteria (Kansas Medicaid section)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
       { title: 'UHC/Optum — KanCare ASD getting-started guide (BH00567_10102024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/ksABA/ksHowToAuth.pdf' },
       { title: 'KMAP fee schedules — interactive lookup (rate source)', url: 'https://portal.kmap-state-ks.us/PublicPage/ProviderPricing/FeeSchedules' },
@@ -1155,7 +1162,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { title: 'ASD diagnosis + physician recommendation', desc: 'The state CCTS PA baseline applies; collect the diagnostic report and practitioner recommendation up front.' },
       { title: 'Portal-verified specifics', desc: 'Hour caps and review cadence aren\'t published — confirm per case via Availity or the ABA line 877-563-9347.' },
     ],
-    sources: [ CFR438206_G5,
+    sources: [ { title: 'KMAP Title XIX Medicaid fee schedule, current version effective 10/1/2026 (Fee Schedules page: program TXIX, rate type Medicaid)', url: 'https://portal.kmap-state-ks.us/PublicPage/ProviderPricing/FeeSchedules' }, CFR438206_G5,
       { title: 'Healthy Blue Kansas — Prior Authorization Requirements', url: 'https://www.healthybluekansas.com/provider/state-federal/resources/prior-authorization-requirements' },
       { title: 'Healthy Blue KS — ASD Testing request form (KSHB-CD-066296-24)', url: 'https://www.healthybluekansas.com/content/dam/digital/healthyblue/documents/provider/ks/behavioral-health/KSHB-CD-066296-24-SRS66052%20BH%20Autism%20Testing%20Request%20Form_FINAL_v2%20FILLABLE.pdf' },
       { title: 'BCBSKS — Healthy Blue collaboration announcement (JV structure)', url: 'https://www.bcbsks.com/news-release/new-healthy-blue-collaboration-aims-offer-kansans-trusted-local-medicaid-solution-2024' },
@@ -1320,6 +1327,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { q: 'Can an out-of-state BCBA treat Healthy Blue members in Kansas, including by telehealth?', a: 'Kansas requires a Kansas license to practice ABA “in this state” (K.S.A. 65-7503). Confirm KMAP enrollment before treating KanCare members from another state.' },
       { q: 'What is Healthy Blue Kansas’s timely filing limit?', a: 'Generally 180 days from the date of service, and 365 days for corrected claims (June 2026 provider manual); your contract can set a different period.' },
       { q: 'Does Healthy Blue Kansas require a referring provider on ABA claims?', a: 'Its manual names no ABA-specific rule, but it validates any referring provider you report against Healthy Blue and KanCare files, so the clinician must be enrolled.' },
+      { q: 'What does Healthy Blue Kansas pay for ABA?', a: 'Healthy Blue publishes no ABA rate table. Its June 2026 KanCare provider manual prices claims from your contract: its systems "reference Groupers, Pricers, and Fee Schedules based on the type of claim to determine the pricing," and it tells providers to "refer to your contractual fee schedule for payment determination." Get the rates from your Healthy Blue agreement. The public benchmark is KMAP\'s Title XIX fee schedule (effective 10/1/2026), per 15-minute unit: 97151 $43.75, 97152 $31.25, 97153 $16.25, 97154 $8.35, 97155 $24.00, 97156 $37.50, 97158 $8.35.' },
       { q: 'How fast does Healthy Blue Kansas pay a clean ABA claim?', a: 'Its June 2026 manual commits to paying or denying 100 percent of clean claims within 30 calendar days of receipt, 99 percent of non-clean claims within 60 days and all claims within 90 days. It publishes no weekly check-run schedule.' },
       { q: 'Does Healthy Blue Kansas accept H0031 or H0032 for ABA?', a: 'Healthy Blue publishes no ABA code list, so KMAP’s state codes apply, and those bulletins name CPT codes only (97151–97156 and 97158 by provider type). Confirm any H-code with Healthy Blue first.' },
     ],
@@ -1432,9 +1440,10 @@ export const kansasPayers: Record<string, PayerConfig> = {
       {
         h2: 'What is Aetna’s fee schedule for ABA?',
         body: [
-          'Aetna publishes no ABA rate table. Its provider manual (6/26) treats payment as a contract term: “The rates and compensation under your agreement are subject to the Aetna coding/claim edit policies,” and where a provider has both an intermediary contract and a direct agreement, “your direct Aetna rates will apply unless we specifically notify you otherwise.” Even when a member’s benefits run out, the provider “cannot charge them more than the contracted rate.” Get the rates from your Aetna agreement or Aetna provider services. For a public benchmark, KanCare pays 97153 at $16.25 per 15 minutes since 7/1/2024 (KMAP Bulletin 24125); the other autism codes are in the KMAP fee-schedule lookup.',
+          'Aetna publishes no ABA rate table. Its provider manual (6/26) treats payment as a contract term: “The rates and compensation under your agreement are subject to the Aetna coding/claim edit policies,” and where a provider has both an intermediary contract and a direct agreement, “your direct Aetna rates will apply unless we specifically notify you otherwise.” Even when a member’s benefits run out, the provider “cannot charge them more than the contracted rate.” Get the rates from your Aetna agreement or Aetna provider services. For a public benchmark, KMAP\'s Title XIX fee schedule (version effective 10/1/2026) pays per 15-minute unit 97151 $43.75, 97152 $31.25, 97153 $16.25 (since 7/1/2024, KMAP Bulletin 24125), 97155 $24.00, 97156 $37.50, and 97154/97158 $8.35.',
         ],
         cites: [
+          { title: 'KMAP Title XIX Medicaid fee schedule, current version effective 10/1/2026 (Fee Schedules page: program TXIX, rate type Medicaid)', url: 'https://portal.kmap-state-ks.us/PublicPage/ProviderPricing/FeeSchedules' },
           { title: 'Aetna Health Care Professional Toolkit / provider manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
           { title: 'KMAP General Bulletin 24125 — Autism Codes: CCTS/IIS Coverage (97153 rate to $65/hr = $16.25/15-min unit, eff. 7/1/2024)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-24125.html' },
         ],
@@ -1771,9 +1780,10 @@ export const kansasPayers: Record<string, PayerConfig> = {
       {
         h2: 'What is Cigna’s fee schedule for ABA?',
         body: [
-          'Cigna publishes no ABA rate table. Evernorth, which runs Cigna’s behavioral health network, puts the rates in the contract: its Administrative Guidelines (September 2026) say the Provider Agreement and the guidelines set the terms, which “include the reimbursement rates applicable to covered services,” and tell ABA providers: “For your fee schedule and a listing of autism spectrum disorder–related services eligible for reimbursement, refer to Exhibit A in your Provider Agreement.” Fee-schedule and contract questions go to Provider Services at 800.926.2273. Virtual services are billed with modifier 95, which Evernorth says “will not change the reimbursement.” Non-credentialed technicians are paid only through the supervising provider’s claim. For a public benchmark, KanCare pays 97153 at $16.25 per 15 minutes since 7/1/2024 (KMAP Bulletin 24125); the other autism codes are in the KMAP fee-schedule lookup.',
+          'Cigna publishes no ABA rate table. Evernorth, which runs Cigna’s behavioral health network, puts the rates in the contract: its Administrative Guidelines (September 2026) say the Provider Agreement and the guidelines set the terms, which “include the reimbursement rates applicable to covered services,” and tell ABA providers: “For your fee schedule and a listing of autism spectrum disorder–related services eligible for reimbursement, refer to Exhibit A in your Provider Agreement.” Fee-schedule and contract questions go to Provider Services at 800.926.2273. Virtual services are billed with modifier 95, which Evernorth says “will not change the reimbursement.” Non-credentialed technicians are paid only through the supervising provider’s claim. For a public benchmark, KMAP\'s Title XIX fee schedule (version effective 10/1/2026) pays per 15-minute unit 97151 $43.75, 97152 $31.25, 97153 $16.25 (since 7/1/2024, KMAP Bulletin 24125), 97155 $24.00, 97156 $37.50, and 97154/97158 $8.35.',
         ],
         cites: [
+          { title: 'KMAP Title XIX Medicaid fee schedule, current version effective 10/1/2026 (Fee Schedules page: program TXIX, rate type Medicaid)', url: 'https://portal.kmap-state-ks.us/PublicPage/ProviderPricing/FeeSchedules' },
           { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
           { title: 'KMAP General Bulletin 24125 — Autism Codes: CCTS/IIS Coverage (97153 rate to $65/hr = $16.25/15-min unit, eff. 7/1/2024)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-24125.html' },
         ],
@@ -1804,7 +1814,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
           'Cigna’s timely filing policy, for claims submitted directly to Cigna: it will consider "Participating provider claims submitted three (3) months [90 days] after the date of service" and out-of-network claims submitted six months (180 days) after the date of service. The limit is longer where applicable law requires it or your provider agreement allows more time, and in coordination-of-benefits cases it runs from the processing date on the primary carrier’s EOB.',
         ],
         cites: [
-          { title: 'Cigna for Health Care Professionals — When to File (timely filing policy)', url: 'https://static.cigna.com/assets/chcp/resourceLibrary/clinicalReimbursementPayment/medicalClinicalReimburseWhenToFile.html' },
+          { title: 'Cigna for Health Care Professionals — When to File (timely filing policy)', url: 'https://connections.cigna.com/chcp/resourceLibrary/clinicalReimbursementPayment/medicalClinicalReimburseWhenToFile' },
         ],
       },
       {
@@ -2096,9 +2106,10 @@ export const kansasPayers: Record<string, PayerConfig> = {
       {
         h2: 'What is UnitedHealthcare’s fee schedule for ABA?',
         body: [
-          'UnitedHealthcare publishes no ABA rate table; its behavioral health network, Optum, pays from the contract. Optum’s National Network Manual (effective Sept. 1, 2026) defines the “Fee Maximum” as “The maximum amount a participating provider may be paid for a specific health care service provided to a member,” adding that “Reimbursement to clinicians is based upon licensure rather than degree.” Optum’s commercial ABA Reimbursement Policy (2022RP501A, updated 06/2026) makes the credential level part of every claim line: HM for an RBT, HN for a BCaBA, HO for a master’s-level BCBA or licensed clinician, HP for a BCBA-D or doctoral-level licensed provider. It also says indirect work has no separate code and is bundled into the direct-service codes. Ask Optum network management for your rate sheet. For a public benchmark, KanCare pays 97153 at $16.25 per 15 minutes since 7/1/2024 (KMAP Bulletin 24125); the other autism codes are in the KMAP fee-schedule lookup.',
+          'UnitedHealthcare publishes no ABA rate table; its behavioral health network, Optum, pays from the contract. Optum’s National Network Manual (effective Sept. 1, 2026) defines the “Fee Maximum” as “The maximum amount a participating provider may be paid for a specific health care service provided to a member,” adding that “Reimbursement to clinicians is based upon licensure rather than degree.” Optum’s commercial ABA Reimbursement Policy (2022RP501A, updated 06/2026) makes the credential level part of every claim line: HM for an RBT, HN for a BCaBA, HO for a master’s-level BCBA or licensed clinician, HP for a BCBA-D or doctoral-level licensed provider. It also says indirect work has no separate code and is bundled into the direct-service codes. Ask Optum network management for your rate sheet. For a public benchmark, KMAP\'s Title XIX fee schedule (version effective 10/1/2026) pays per 15-minute unit 97151 $43.75, 97152 $31.25, 97153 $16.25 (since 7/1/2024, KMAP Bulletin 24125), 97155 $24.00, 97156 $37.50, and 97154/97158 $8.35.',
         ],
         cites: [
+          { title: 'KMAP Title XIX Medicaid fee schedule, current version effective 10/1/2026 (Fee Schedules page: program TXIX, rate type Medicaid)', url: 'https://portal.kmap-state-ks.us/PublicPage/ProviderPricing/FeeSchedules' },
           { title: 'Optum National Network Manual (BH02330, effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
           { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
           { title: 'KMAP General Bulletin 24125 — Autism Codes: CCTS/IIS Coverage (97153 rate to $65/hr = $16.25/15-min unit, eff. 7/1/2024)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-24125.html' },
@@ -2335,6 +2346,281 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { q: 'Can ABA overlap with speech therapy under UnitedHealthcare?', a: 'Optum publishes no clock-time rule, but its criteria say ABA must not duplicate other medical or behavioral services, and they weigh participation in other therapies when setting hours. Document the other therapies and schedule around them.' },
       { q: 'Does UnitedHealthcare accept H0031 or H0032 for ABA?', a: 'Not on commercial plans. Optum’s commercial ABA reimbursement policy codes ABA on CPT 97151–97158, 0362T and 0373T and lists no H-codes; only 97151 and 97152 may be billed for assessment or reassessment.' },
       { q: 'Does UnitedHealthcare require graphs for ABA reauthorization?', a: 'Optum’s criteria do not require graphs. They require updated progress for each target measured the same way as baseline: mastery rates, change scores, updated standardized adaptive measures and caregiver progress, plus an explanation and changed plan if progress lagged over six months.' },
+    ],
+  },
+  'blue-cross-blue-shield-kansas': {
+    slug: 'blue-cross-blue-shield-kansas',
+    family: 'bcbs',
+    cardDesc: 'Kansas’s Blue plan (all counties but Johnson and Wyandotte): ABA authorized by Lucet under policy 20.5.005, no concurrent ABA billing, K.S.A. 40-2,194 mandate.',
+    assessmentPA: {
+      value: 'Yes. BCBSKS lists "Applied Behavior Analysis (ABA) therapy services" among the medical services requiring prior authorization (assistance 877-563-9347), and Lucet, which reviews ABA for BCBSKS, runs a separate "ABA Pre-Treatment Assessment Request": the member must have a current-DSM ASD diagnosis from a qualified clinician, and "Hours requested are not more than is required to complete the pre-treatment assessment." Lucet’s manual says the authorization "must be in the name of the BCBA who will be performing the services (e.g., 97151 …)."',
+      status: 'verified',
+      cites: [
+        { title: 'BCBSKS — Prior authorization (medical services requiring prior authorization)', url: 'https://www.bcbsks.com/providers/precertification-prior-authorization' },
+        { title: 'Lucet medical policy 20.5.005 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (applies 1/1/2026–12/31/2026)', url: 'https://lucethealth.com/wp-content/uploads/2025/12/2026-Lucet-ABA-for-Treatment-of-ASD.pdf' },
+        { title: 'Lucet Managed Behavioral Health Provider & Facility Manual (July 2026) — ABA authorization; BCBSKS plan grid', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required. Lucet reviews an Initial ABA Treatment Authorization Request built from the Initial Treatment Plan form (on ProviderPortal.LucetHealth.com) plus the diagnostic evaluation, and later Continued ABA Treatment Authorization Requests showing benefit, new or continuing goals and an updated plan. For BCBSKS PPO, EPO and FEP members submit by fax 816-237-2372, phone 877-563-9347 or on WebPass. Treatment plans are "usually reviewed for medical necessity twice annually."',
+      status: 'verified',
+      cites: [
+        { title: 'BCBSKS Professional Provider Autism Manual (revision January 2026)', url: 'https://www.bcbsks.com/documents/professional-provider-autism-manual-2026' },
+        { title: 'Lucet medical policy 20.5.005 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (applies 1/1/2026–12/31/2026)', url: 'https://lucethealth.com/wp-content/uploads/2025/12/2026-Lucet-ABA-for-Treatment-of-ASD.pdf' },
+        { title: 'Lucet Managed Behavioral Health Provider & Facility Manual (July 2026) — ABA authorization; BCBSKS plan grid', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes — an ASD diagnosis "based on criteria used in the current DSM, from a clinician who is licensed and qualified to make such a diagnosis," documented with a clinical note deep enough to show concordance with DSM core symptoms. "Results of autism screening measures are not an autism diagnosis; a complete diagnostic evaluation must be completed, including an ASD-specific standardized assessment," and it must rule out conditions with similar presentations.',
+      status: 'verified',
+      cites: [
+        { title: 'Lucet medical policy 20.5.005 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (applies 1/1/2026–12/31/2026)', url: 'https://lucethealth.com/wp-content/uploads/2025/12/2026-Lucet-ABA-for-Treatment-of-ASD.pdf' },
+      ],
+    },
+    payer: 'Blue Cross and Blue Shield of Kansas',
+    state: 'KS', kind: 'commercial',
+    pill: 'Payer Guide · Blue Cross and Blue Shield of Kansas',
+    h1: 'Blue Cross and Blue Shield of Kansas ABA coverage: the intake guide.',
+    metaTitle: 'Blue Cross Blue Shield of Kansas ABA Coverage & Prior Auth Guide | Carelu',
+    metaDescription:
+      'How BCBSKS covers ABA: Lucet reviews the assessment and treatment under policy 20.5.005, the required diagnostic and baseline tests, no concurrent ABA billing, telehealth only for parent training and supervision, documentation and amendment rules, and the K.S.A. 40-2,194 autism mandate.',
+    intro: [
+      'Blue Cross and Blue Shield of Kansas is the Blue plan for Kansas; by its own description it "serves all counties in Kansas except Johnson and Wyandotte." For ABA it works through Lucet: BCBSKS says "Lucet’s medical policy is used to review and make benefit decisions for ABA service requests," and both the pre-treatment assessment and treatment need Lucet authorization. Its 2026 Autism manual adds the operating rules that decide claims: who can enroll, how many cases a BCBA should carry, no concurrent ABA billing, and telehealth limited to parent education and supervision.',
+    ],
+    atGlance: [
+      { label: 'Covers ABA?', value: 'Yes — for ASD, when Lucet’s medical necessity criteria (policy 20.5.005) are met and the member’s contract has the benefit' },
+      { label: 'Who reviews', value: 'Lucet — fax 816-237-2372, phone 877-563-9347 or WebPass; assessment and treatment both authorized' },
+      { label: 'State mandate', value: 'K.S.A. 40-2,194 (L. 2014, ch. 62; amended 2015 and by 2023 SB 24)' },
+      { label: 'Mandate age', value: 'Under 12 — large-group policies issued or renewed from 1/1/2015, grandfathered policies from 1/1/2016' },
+      { label: 'Mandate caps', value: '1,300 ABA hours/yr for 4 years if diagnosed between birth and age 5, otherwise 520 hours/yr under 12; exceedable with prior approval when medically necessary' },
+      { label: 'Mandate scope', value: 'Large employer = 51+ employees (2023 SB 24); small employers may get a waiver for a 2.5%+ premium increase' },
+      { label: 'Licensure', value: 'Kansas LBA / LaBA under K.S.A. 65-7503 since 7/1/2016 (BSRB)' },
+      { label: 'Telehealth', value: 'Parent education and direct supervision only, POS 02 or 10 with modifier GT, if the plan covers telehealth' },
+    ],
+    sections: [
+      {
+        h2: 'Authorization: Lucet runs both steps',
+        body: [
+          'BCBSKS puts "Applied Behavior Analysis (ABA) therapy services" on its list of medical services requiring prior authorization, with 877-563-9347 for assistance. Lucet’s plan grid for BCBSKS routes ABA authorization for PPO, EPO and FEP members to Lucet by fax 816-237-2372, phone 877-563-9347 or WebPass (it shows N/A for BCBSKS Medicare). Lucet’s policy 20.5.005 (in force 1/1/2026–12/31/2026) has three request types: a Pre-Treatment Assessment Request, an Initial ABA Treatment Authorization Request and a Continued ABA Treatment Authorization Request. The authorization "must be in the name of the BCBA who will be performing the services (e.g., 97151, 97155, 97156, 97157, 97158) or overseeing the technicians performing the services (e.g., 97152, 97153, 97154)."',
+          'Timing: Lucet asks for requests "at least two weeks prior to authorization expiration," says "Reviews of authorization requests may take up to 15 days," and uses an ABA Amended Request form for provider changes, more or fewer hours, a new service location or added codes. BCBSKS’s manual says treatment plans are "usually reviewed for medical necessity twice annually – frequency dependent upon the controlling state mandate"; on fully insured Kansas plans, K.S.A. 40-2,194 lets the insurer review the treatment plan "not more than once in a period of six consecutive months" unless the insurer and the treating physician or psychologist agree otherwise.',
+        ],
+        cites: [
+          { title: 'BCBSKS — Prior authorization (medical services requiring prior authorization)', url: 'https://www.bcbsks.com/providers/precertification-prior-authorization' },
+          { title: 'Lucet Managed Behavioral Health Provider & Facility Manual (July 2026) — ABA authorization; BCBSKS plan grid', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+          { title: 'Lucet medical policy 20.5.005 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (applies 1/1/2026–12/31/2026)', url: 'https://lucethealth.com/wp-content/uploads/2025/12/2026-Lucet-ABA-for-Treatment-of-ASD.pdf' },
+          { title: 'BCBSKS Professional Provider Autism Manual (revision January 2026)', url: 'https://www.bcbsks.com/documents/professional-provider-autism-manual-2026' },
+          { title: 'K.S.A. 40-2,194 — Health insurance coverage for autism spectrum disorder (Kansas Revisor of Statutes)', url: 'https://www.ksrevisor.gov/statutes/chapters/ch40/040_002_0194.html' },
+        ],
+      },
+      {
+        h2: 'What the diagnosis and baseline testing must include',
+        body: [
+          'The diagnosis must come from "a clinician who is licensed and qualified to make such a diagnosis. Such clinicians are usually neurologists, developmental pediatricians, pediatricians, psychiatrists, licensed clinical psychologists or medical doctors experienced in the diagnosis of ASD. State law may define eligible qualified clinicians." Screening results do not count. Lucet’s manual names the diagnostic instruments: one of the ADOS-2, the ADI-R or a DSM-5 Checklist "is required to meet the diagnostic criteria."',
+          'Treatment requests also need baseline data "completed no longer than five (5) years prior to or scheduled within ninety (90) days of the pre-treatment assessment": a developmental and cognitive evaluation, an autism-specific assessment of severity, an adaptive behavior assessment "completed within 6 months of start date of treatment," and a neurological evaluation as part of a physical exam. The manual lists the accepted adaptive tests (Vineland, ABAS, BASC, PDDBI) and cognitive tests (for example Bayley, Mullen, DAS, WPPSI, WISC) and treats VB-MAPP, ABLLS, PEAK, EFL and AFLS as optional curricular measures of progress.',
+        ],
+        cites: [
+          { title: 'Lucet medical policy 20.5.005 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (applies 1/1/2026–12/31/2026)', url: 'https://lucethealth.com/wp-content/uploads/2025/12/2026-Lucet-ABA-for-Treatment-of-ASD.pdf' },
+          { title: 'Lucet Managed Behavioral Health Provider & Facility Manual (July 2026) — Essential Components of ABA Treatment; assessment instruments', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+        ],
+      },
+      {
+        h2: 'Treatment intensity, caseloads and exclusions',
+        body: [
+          'BCBSKS classifies treatment two ways. Comprehensive ABA, "primarily directed to children ages three to eight years old," runs "from 25 to 40 total hours of direct services weekly" and requires caregiver training. Focused ABA "typically range[s] from 10 to 25 total hours of direct services per week." Authorized hours depend on Lucet’s policy, the treatment plan, the member’s age, symptom severity and developmental functioning. Recommended BCBA caseloads: focused treatment 10–15 without an IIS/BCaBA (16–24 with one); comprehensive treatment 6–12 without (12–16 with).',
+          'Excluded: services that duplicate school academics, respite, shadow, paraprofessional or companion services "in any setting," custodial care, ABA in residential facilities that replaces the facility’s own program, programs in "nonconventional settings" such as camps or resorts, and a long list of non-ABA therapies. "Services provided by tutors, special education teachers and paraprofessionals are not eligible under the Autism benefit."',
+        ],
+        cites: [
+          { title: 'BCBSKS Professional Provider Autism Manual (revision January 2026)', url: 'https://www.bcbsks.com/documents/professional-provider-autism-manual-2026' },
+        ],
+      },
+      {
+        h2: 'Billing: no concurrent ABA, own NPI, 15-month filing',
+        body: [
+          'BCBSKS’s Autism manual: "BCBSKS does not allow billing of ABA services concurrently. Only one provider will be reimbursed for overlapping session times." All ABA codes are billed in 15-minute units, and "Session times on claims are recommended to reduce duplicate claim denials." Contracting providers bill "under their own billing National Provider Identifier (NPI) or specific rendering provider number," and Policy Memo No. 1 adds that "BCBSKS does not recognize incident-to billing" and that the ordering provider’s name and NPI must appear on the claim "when applicable."',
+          'Policy Memo No. 1 (January 2026): "Claims must be filed within 15 months of the service date," or they are rejected with members held harmless. Only claims denied as not medically necessary can be appealed on the provider’s own behalf: a first-level written appeal within 60 days of the retrospective review determination, a second level within 60 days of that denial, and BCBSKS decides each within 60 days. For out-of-state Blue members (BlueCard), BCBSKS is the host plan: submit claims to BCBSKS unless the ID card says otherwise, while the home plan confirms benefits and applies its own medical policy.',
+        ],
+        cites: [
+          { title: 'BCBSKS Professional Provider Autism Manual (revision January 2026)', url: 'https://www.bcbsks.com/documents/professional-provider-autism-manual-2026' },
+          { title: 'BCBSKS Policy Memo No. 1 — Policies and Procedures (January 2026)', url: 'https://www.bcbsks.com/documents/2026-cap-policy-memo-1' },
+          { title: 'BCBSKS Professional Provider Manual (revision October 2026) — BlueCard', url: 'https://www.bcbsks.com/documents/professional-provider-manual-2026' },
+        ],
+      },
+      {
+        h2: 'Session notes, signatures and amendments',
+        body: [
+          'Policy Memo No. 1 sets the record rules: each entry must show the date of service and of the entry, "List start and stop times or total time for each CPT/CDT code/service performed on all timed codes," and "be authenticated by the person making the entry." A handwritten signature needs at least the first initial, full last name, credentials and date; an electronic signature must be automatically attached with the author’s name, credentials, date and time, and "After the entry is electronically signed, the text-editing feature should not be available for amending documentation." Rubber stamps are not allowed, and cloned or carried-forward notes "will not be considered."',
+          'Corrections follow a fixed format. On paper: a single line through the error, the word "error," the reason and the correct information, signed with credentials, date and time. In an EHR, an addendum adds information to a signed entry and an amendment clarifies it; both are labelled, dated and timed, refer back to the original entry, are written "as soon after the original note as possible," and "should not be antedated." Lucet’s treatment-record guidelines add that entries must identify the rendering provider and be signed "by the individual providing the services," with each day’s service documented separately.',
+        ],
+        cites: [
+          { title: 'BCBSKS Policy Memo No. 1 — Policies and Procedures (January 2026), §XI Medical Records', url: 'https://www.bcbsks.com/documents/2026-cap-policy-memo-1' },
+          { title: 'Lucet Managed Behavioral Health Provider & Facility Manual (July 2026) — Guidelines for Treatment Record Documentation', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+        ],
+      },
+      {
+        h2: 'The Kansas mandate: K.S.A. 40-2,194',
+        body: [
+          'K.S.A. 40-2,194 requires large-group policies, service-corporation contracts, fraternal benefit societies and HMOs issued or renewed from January 1, 2015 (grandfathered policies from January 1, 2016) to cover "the diagnosis and treatment of autism spectrum disorder in any covered individual whose age is less than 12 years." ABA is limited to 1,300 hours a year for four years for a child diagnosed between birth and age five, otherwise 520 hours a year under 12, but "Upon prior approval by the health benefit plan, such maximum benefit limit may be exceeded" when medically necessary. Since 2023 SB 24 a large employer is one with "at least 51 employees."',
+          'Other terms that matter at intake: ABA is covered "when required by a licensed physician, licensed psychologist or licensed specialist clinical social worker"; reimbursement goes only to providers "licensed or exempt from licensure under the applied behavior analysis licensure act" or qualified under the HCBS autism waiver; dollar limits, deductibles and coinsurance may not be less favorable than for physical illness; a child diagnosed under one DSM edition need not be re-evaluated when a new edition is adopted; and the law does not require payment for day care, "school-based rehabilitative services" or services schools must provide. Small employers can be granted a waiver if compliance raised premiums 2.5% or more.',
+        ],
+        cites: [
+          { title: 'K.S.A. 40-2,194 — Health insurance coverage for autism spectrum disorder (Kansas Revisor of Statutes)', url: 'https://www.ksrevisor.gov/statutes/chapters/ch40/040_002_0194.html' },
+        ],
+      },
+      {
+        h2: 'Licensure and enrollment in the BCBSKS network',
+        body: [
+          'Kansas requires a license to practise ABA: under K.S.A. 65-7503, since July 1, 2016 "no person shall practice applied behavior analysis in this state" unless a licensed behavior analyst, a licensed assistant working under one, a supervised trainee or a licensed psychologist, with exemptions for IDEA and Section 504 school services, HCBS autism waiver providers, and OTs, SLPs and other BSRB licensees within scope. BCBSKS credentials LBAs and LaBAs (license checked with the BSRB, CAQH profile required) and enrolls BCBA, BCBA-D, BCaBA, RBT, Autism Specialist and IIS providers as non-credentialed types, verified through the BACB or, for Autism Specialists and IIS, a KDADS HCBS autism waiver letter. Lucet requires a national criminal background check, including the National Sex Offender Registry, for every line therapist.',
+        ],
+        cites: [
+          { title: 'K.S.A. 65-7503 — Licensure required to practice applied behavior analysis; exceptions', url: 'https://www.ksrevisor.gov/statutes/chapters/ch65/065_075_0003.html' },
+          { title: 'BCBSKS Professional Provider Autism Manual (revision January 2026)', url: 'https://www.bcbsks.com/documents/professional-provider-autism-manual-2026' },
+          { title: 'Lucet Managed Behavioral Health Provider & Facility Manual (July 2026) — Board Certified Behavior Analyst (line therapists)', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+        ],
+      },
+    ],
+    intakeGates: {
+      ageLimit: {
+        value: 'Lucet’s policy and BCBSKS’s manual set no upper age; comprehensive ABA is "primarily directed to children ages three to eight." On fully insured large-group and grandfathered Kansas policies the mandate floor is "any covered individual whose age is less than 12 years"; coverage beyond that depends on the member’s contract.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'BCBSKS Professional Provider Autism Manual (revision January 2026)', url: 'https://www.bcbsks.com/documents/professional-provider-autism-manual-2026' },
+          { title: 'K.S.A. 40-2,194 — Health insurance coverage for autism spectrum disorder (Kansas Revisor of Statutes)', url: 'https://www.ksrevisor.gov/statutes/chapters/ch40/040_002_0194.html' },
+        ],
+        verifyVia: 'Checked the BCBSKS Autism manual (January 2026) and Lucet policy 20.5.005: no age cap stated. Confirm the member’s ABA benefit age limit with BCBSKS customer service (800-432-3990) or the benefit summary.',
+        blocker: 'per-case',
+      },
+      dxRecency: {
+        value: 'No expiry on the diagnosis itself is published, and K.S.A. 40-2,194(c) bars re-evaluation just because a new DSM edition is adopted. The baseline testing is dated: it must be "completed no longer than five (5) years prior to or scheduled within ninety (90) days of the pre-treatment assessment," with the adaptive behavior assessment "completed within 6 months of start date of treatment"; Lucet’s manual asks for the adaptive and cognitive tests within 90 days of the pre-treatment assessment.',
+        status: 'verified',
+        cites: [
+          { title: 'Lucet medical policy 20.5.005 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (applies 1/1/2026–12/31/2026)', url: 'https://lucethealth.com/wp-content/uploads/2025/12/2026-Lucet-ABA-for-Treatment-of-ASD.pdf' },
+          { title: 'Lucet Managed Behavioral Health Provider & Facility Manual (July 2026) — assessment instruments', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+          { title: 'K.S.A. 40-2,194 — Health insurance coverage for autism spectrum disorder (Kansas Revisor of Statutes)', url: 'https://www.ksrevisor.gov/statutes/chapters/ch40/040_002_0194.html' },
+        ],
+      },
+      diagnosingProviders: {
+        value: '"A clinician who is licensed and qualified to make such a diagnosis. Such clinicians are usually neurologists, developmental pediatricians, pediatricians, psychiatrists, licensed clinical psychologists or medical doctors experienced in the diagnosis of ASD. State law may define eligible qualified clinicians." Kansas’s mandate ties ABA to a licensed physician, licensed psychologist or licensed specialist clinical social worker.',
+        status: 'verified',
+        cites: [
+          { title: 'Lucet medical policy 20.5.005 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (applies 1/1/2026–12/31/2026)', url: 'https://lucethealth.com/wp-content/uploads/2025/12/2026-Lucet-ABA-for-Treatment-of-ASD.pdf' },
+          { title: 'K.S.A. 40-2,194 — Health insurance coverage for autism spectrum disorder (Kansas Revisor of Statutes)', url: 'https://www.ksrevisor.gov/statutes/chapters/ch40/040_002_0194.html' },
+        ],
+      },
+      diagnosticTools: {
+        value: 'One of the ADOS-2, the ADI-R or a DSM-5 Checklist "is required to meet the diagnostic criteria." Baseline also needs a standardized adaptive test (Vineland, ABAS, BASC or PDDBI) and a standardized cognitive test (for example Bayley, Mullen, DAS, WPPSI or WISC). VB-MAPP, ABLLS, PEAK, EFL and AFLS are optional.',
+        status: 'verified',
+        cites: [
+          { title: 'Lucet Managed Behavioral Health Provider & Facility Manual (July 2026) — assessment instruments', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+          { title: 'Lucet medical policy 20.5.005 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (applies 1/1/2026–12/31/2026)', url: 'https://lucethealth.com/wp-content/uploads/2025/12/2026-Lucet-ABA-for-Treatment-of-ASD.pdf' },
+        ],
+      },
+      referral: {
+        value: 'No BCBSKS referral form. The authorization packet is the diagnostic evaluation plus Lucet’s Initial Treatment Plan form, with supporting records such as early-intervention reports and IEPs. Under K.S.A. 40-2,194 ABA is covered "when required by a licensed physician, licensed psychologist or licensed specialist clinical social worker," so on insured plans keep that recommendation in the file. Policy Memo No. 1 requires the ordering provider’s name and NPI on the claim "when applicable."',
+        status: 'verified',
+        cites: [
+          { title: 'BCBSKS Professional Provider Autism Manual (revision January 2026)', url: 'https://www.bcbsks.com/documents/professional-provider-autism-manual-2026' },
+          { title: 'K.S.A. 40-2,194 — Health insurance coverage for autism spectrum disorder (Kansas Revisor of Statutes)', url: 'https://www.ksrevisor.gov/statutes/chapters/ch40/040_002_0194.html' },
+          { title: 'BCBSKS Policy Memo No. 1 — Policies and Procedures (January 2026)', url: 'https://www.bcbsks.com/documents/2026-cap-policy-memo-1' },
+        ],
+      },
+      telehealth: {
+        value: '"Telehealth/telemedicine for parent education and direct supervision activities can be covered if allowed as an eligible telehealth/telemedicine service under the member benefit plan," and BCBSKS recommends combining it with face-to-face supervision. Bill "with place of service 02 or 10 and the GT modifier." No other ABA code (assessment or technician treatment) is named as telehealth-eligible.',
+        status: 'verified',
+        cites: [
+          { title: 'BCBSKS Professional Provider Autism Manual (revision January 2026)', url: 'https://www.bcbsks.com/documents/professional-provider-autism-manual-2026' },
+          { title: 'BCBSKS Policy Memo No. 2 — Office/Outpatient Visit (January 2026), §VI Telemedicine', url: 'https://www.bcbsks.com/documents/2026-cap-policy-memo-2' },
+        ],
+      },
+      authTurnaround: {
+        value: 'Lucet: "Reviews of authorization requests may take up to 15 days." Submit continued-treatment requests "at least two weeks prior to authorization expiration."',
+        status: 'verified',
+        cites: [
+          { title: 'Lucet Managed Behavioral Health Provider & Facility Manual (July 2026) — ABA authorization', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+        ],
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value: 'No percentage rule is published; BCBSKS sets recommended BCBA caseloads instead: focused treatment 10–15 cases without an IIS/BCaBA (16–24 with one), comprehensive treatment 6–12 without (12–16 with), depending on complexity, hours, modality and support staff. Line therapists are RBTs or BCaBAs, the supervising BCBA is responsible for their compliance, and each needs a national criminal background check. Kansas law requires an LaBA to work under an LBA.',
+        status: 'verified',
+        cites: [
+          { title: 'BCBSKS Professional Provider Autism Manual (revision January 2026)', url: 'https://www.bcbsks.com/documents/professional-provider-autism-manual-2026' },
+          { title: 'Lucet Managed Behavioral Health Provider & Facility Manual (July 2026) — Board Certified Behavior Analyst (line therapists)', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+          { title: 'K.S.A. 65-7503 — Licensure required to practice applied behavior analysis; exceptions', url: 'https://www.ksrevisor.gov/statutes/chapters/ch65/065_075_0003.html' },
+        ],
+      },
+      concurrentBilling: {
+        value: 'Not allowed. "BCBSKS does not allow billing of ABA services concurrently. Only one provider will be reimbursed for overlapping session times." Put session times on claims to avoid duplicate denials. When the BCBA does the technician’s work, that time counts toward the technician code.',
+        status: 'verified',
+        cites: [
+          { title: 'BCBSKS Professional Provider Autism Manual (revision January 2026)', url: 'https://www.bcbsks.com/documents/professional-provider-autism-manual-2026' },
+        ],
+      },
+      dailyLimits: {
+        value: 'No per-day unit cap is published. Hours are set per authorization: comprehensive treatment 25–40 direct hours a week, focused 10–25. On fully insured plans K.S.A. 40-2,194 allows annual ABA caps of 1,300 hours (four years, diagnosed by age five) or 520 hours (under 12), exceedable with prior approval.',
+        status: 'verified',
+        cites: [
+          { title: 'BCBSKS Professional Provider Autism Manual (revision January 2026)', url: 'https://www.bcbsks.com/documents/professional-provider-autism-manual-2026' },
+          { title: 'K.S.A. 40-2,194 — Health insurance coverage for autism spectrum disorder (Kansas Revisor of Statutes)', url: 'https://www.ksrevisor.gov/statutes/chapters/ch40/040_002_0194.html' },
+        ],
+      },
+      noteSignature: {
+        value: 'Each entry must "be authenticated by the person making the entry" — the rendering provider signs their own note, and no supervisor co-signature rule is published. Handwritten: first initial, full last name, credentials and date; electronic: auto-attached name, credentials, date and time, with editing locked after signing; no rubber stamps. Start/stop times are required for timed codes. Corrections: on paper, strike through, mark "error," give the reason and sign with date and time; in an EHR, a labelled addendum or amendment, dated and timed, referring to the original entry and never antedated. Lucet requires each day’s service documented separately and signed by the person who provided it.',
+        status: 'verified',
+        cites: [
+          { title: 'BCBSKS Policy Memo No. 1 — Policies and Procedures (January 2026), §XI Medical Records', url: 'https://www.bcbsks.com/documents/2026-cap-policy-memo-1' },
+          { title: 'Lucet Managed Behavioral Health Provider & Facility Manual (July 2026) — Guidelines for Treatment Record Documentation', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+        ],
+      },
+      placeOfService: {
+        value: 'No payable place-of-service list is published. Lucet requires treatment "in the setting and intensity that is appropriate," and comprehensive ABA should start "in a structured setting with 1:1 staffing" and move to the least restrictive environment. Excluded: services duplicating school academics, ABA in residential facilities replacing their own program, and programs in "nonconventional settings" (spas, camps, recreational or vocational settings). Telehealth uses POS 02 or 10. The mandate does not require payment for "school-based rehabilitative services."',
+        status: 'verified',
+        cites: [
+          { title: 'BCBSKS Professional Provider Autism Manual (revision January 2026)', url: 'https://www.bcbsks.com/documents/professional-provider-autism-manual-2026' },
+          { title: 'Lucet medical policy 20.5.005 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (applies 1/1/2026–12/31/2026)', url: 'https://lucethealth.com/wp-content/uploads/2025/12/2026-Lucet-ABA-for-Treatment-of-ASD.pdf' },
+          { title: 'K.S.A. 40-2,194 — Health insurance coverage for autism spectrum disorder (Kansas Revisor of Statutes)', url: 'https://www.ksrevisor.gov/statutes/chapters/ch40/040_002_0194.html' },
+        ],
+      },
+      billAsProvider: {
+        value: 'Contracting providers bill "under their own billing National Provider Identifier (NPI) or specific rendering provider number," and "BCBSKS does not recognize incident-to billing." The Lucet authorization is issued in the name of the BCBA who performs the service or oversees the technicians, so technician codes (97152–97154) bill against the supervising BCBA’s authorization.',
+        status: 'verified',
+        cites: [
+          { title: 'BCBSKS Professional Provider Autism Manual (revision January 2026)', url: 'https://www.bcbsks.com/documents/professional-provider-autism-manual-2026' },
+          { title: 'BCBSKS Policy Memo No. 1 — Policies and Procedures (January 2026)', url: 'https://www.bcbsks.com/documents/2026-cap-policy-memo-1' },
+          { title: 'Lucet Managed Behavioral Health Provider & Facility Manual (July 2026) — ABA authorization', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+        ],
+      },
+    },
+    collect: [
+      { title: 'Plan and funding', desc: 'BCBSKS PPO, EPO/Solutions, FEP or BlueCard (out-of-state Blue); fully insured large group (mandate applies, under 12) or self-funded (plan document).' },
+      { title: 'Diagnostic evaluation', desc: 'Current-DSM ASD diagnosis by a qualified clinician, with an ADOS-2, ADI-R or DSM-5 checklist and a rule-out of similar conditions; screening alone is not enough.' },
+      { title: 'Baseline testing', desc: 'Developmental/cognitive, autism-severity and adaptive tests within 5 years (adaptive within 6 months of treatment start), plus a neurological exam as part of a physical.' },
+      { title: 'Prescriber recommendation', desc: 'On insured Kansas plans, ABA must be required by a licensed physician, psychologist or LSCSW — keep it in the file.' },
+      { title: 'Staff records', desc: 'LBA/LaBA license or BACB certification, KDADS letter for Autism Specialist/IIS, and a national background check for each line therapist.' },
+    ],
+    sources: [
+      { title: 'BCBSKS Professional Provider Autism Manual (revision January 2026)', url: 'https://www.bcbsks.com/documents/professional-provider-autism-manual-2026' },
+      { title: 'BCBSKS — Prior authorization (medical services requiring prior authorization)', url: 'https://www.bcbsks.com/providers/precertification-prior-authorization' },
+      { title: 'BCBSKS Policy Memo No. 1 — Policies and Procedures (January 2026)', url: 'https://www.bcbsks.com/documents/2026-cap-policy-memo-1' },
+      { title: 'BCBSKS Policy Memo No. 2 — Office/Outpatient Visit (January 2026), §VI Telemedicine', url: 'https://www.bcbsks.com/documents/2026-cap-policy-memo-2' },
+      { title: 'BCBSKS Professional Provider Manual (revision October 2026)', url: 'https://www.bcbsks.com/documents/professional-provider-manual-2026' },
+      { title: 'BCBSKS — Providers (service area: all Kansas counties except Johnson and Wyandotte)', url: 'https://www.bcbsks.com/providers' },
+      { title: 'Lucet medical policy 20.5.005 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (applies 1/1/2026–12/31/2026)', url: 'https://lucethealth.com/wp-content/uploads/2025/12/2026-Lucet-ABA-for-Treatment-of-ASD.pdf' },
+      { title: 'Lucet Managed Behavioral Health Provider & Facility Manual (July 2026)', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+      { title: 'K.S.A. 40-2,194 — Health insurance coverage for autism spectrum disorder (Kansas Revisor of Statutes)', url: 'https://www.ksrevisor.gov/statutes/chapters/ch40/040_002_0194.html' },
+      { title: '2023 Kansas Session Laws ch. 3 (SB 24) — large employer redefined as 51+ employees', url: 'https://sos.ks.gov/publications/sessionlaws/2023/Chapter-03-SB-24.html' },
+      { title: 'K.S.A. 65-7503 — Licensure required to practice applied behavior analysis; exceptions', url: 'https://www.ksrevisor.gov/statutes/chapters/ch65/065_075_0003.html' },
+    ],
+    faq: [
+      { q: 'Does Blue Cross and Blue Shield of Kansas cover ABA therapy?', a: 'Yes, for autism spectrum disorder when Lucet’s medical necessity criteria (policy 20.5.005) are met and the member’s contract includes the benefit. Fully insured large-group and grandfathered Kansas policies must cover ASD treatment for children under 12 under K.S.A. 40-2,194.' },
+      { q: 'Does BCBSKS require prior authorization for the ABA assessment (97151)?', a: 'Yes. ABA therapy services are on BCBSKS’s prior-authorization list, and Lucet reviews a Pre-Treatment Assessment Request before the assessment, issued in the name of the BCBA who will perform it. Call 877-563-9347, fax 816-237-2372 or use WebPass.' },
+      { q: 'Who handles ABA authorizations for BCBSKS?', a: 'Lucet. BCBSKS’s Autism manual says Lucet’s medical policy is used for ABA benefit decisions; Lucet takes requests by fax 816-237-2372, phone 877-563-9347 or WebPass for PPO, EPO and FEP members, and reviews may take up to 15 days.' },
+      { q: 'Can a BCBA and an RBT bill at the same time for a BCBSKS member?', a: 'No. "BCBSKS does not allow billing of ABA services concurrently. Only one provider will be reimbursed for overlapping session times." Put session times on the claim.' },
+      { q: 'Does BCBSKS cover ABA by telehealth?', a: 'Only parent education and direct supervision, and only if the member’s plan covers telehealth. Bill with POS 02 or 10 and modifier GT. BCBSKS recommends combining remote supervision with in-person supervision.' },
+      { q: 'How do I amend or correct an ABA session note for BCBSKS?', a: 'Policy Memo No. 1: on paper, draw one line through the error, write "error," the reason and the correct information, and sign with credentials, date and time. In an EHR, add a labelled addendum or amendment that refers to the original entry, dated and timed when written, as soon as possible and never antedated. The person who wrote the entry signs it.' },
+      { q: 'What is the BCBSKS timely filing limit?', a: '15 months from the date of service under Policy Memo No. 1 (January 2026), unless an employer group sets a different limit; late claims are rejected with the member held harmless.' },
+      { q: 'Which Kansas counties does BCBSKS cover?', a: 'BCBSKS says it "serves all counties in Kansas except Johnson and Wyandotte." Out-of-state Blue members are served through BlueCard: claims go to BCBSKS as the host plan, while the member’s home plan sets benefits and medical policy.' },
+      { q: 'What does BCBSKS pay for ABA?', a: 'We found no published BCBSKS ABA rate table. Under Policy Memo No. 1 contracting providers bill their usual charge and "accept payment allowances in all cases once notified of payment determination," and for BlueCard members "BCBSKS pricing is followed." For a public benchmark, KMAP’s Title XIX fee schedule (effective 10/1/2026) pays 97153 at $16.25 per 15-minute unit.' },
     ],
   },
 };

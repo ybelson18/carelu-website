@@ -963,11 +963,12 @@ export const vermontPayers: Record<string, PayerConfig> = {
         cites: [S.optumReimb, S.optumSCC],
       },
       noteSignature: {
-        value: 'Not addressed. The SCC set what must be documented for coverage, not who signs a session note or when.',
-        status: 'unverified',
-        cites: [S.optumSCC],
-        verifyVia: 'Optum Provider Express National Network Manual (documentation standards) and the participating-provider agreement.',
-        blocker: 'per-case',
+        value: 'Optum (UnitedHealthcare\'s behavioral health administrator) publishes the rule. Its ABA CPT FAQ: “Provider signature is required on progress notes. Parent/guardian signatures are not required on progress notes.” Its ABA documentation protocol (BH02325, June 1, 2026) asks for daily progress notes showing the place of service, the specific service, who attended and the “signature of the rendering provider,” with “Legible identity of the rendering provider with credentials.” On amendments: “All addendums, late entries and corrections should follow CMS guidelines,” “The date of signature must reflect the date the note is finalized,” and a note signed after the date of service must meet late-entry requirements and “clearly indicate the date the note was signed.” A 97155 note names the technician present (with credentials) and records any protocol modification and the direction given to the technician. The protocol says state law, Medicaid requirements or the member\'s benefit plan control where they set different standards, so a self-funded plan may add its own.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
+          { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' },
+        ],
       },
       placeOfService: {
         value: 'Not covered: services that are not ABA, "such as 1:1 aid delivered simultaneously during classroom instruction," or services covered under IDEA; school coordination is allowed. Vermont’s mandate requires coverage in the natural environment (home or child care).',

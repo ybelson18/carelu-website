@@ -39,7 +39,7 @@ const S: Record<string, PayerSource> = {
   fhPLR: { title: 'ForwardHealth Online Handbook — Reimbursement: Payer of Last Resort (topics 242, 251, 253, 255)', url: `${FH_KW}&s=5&c=29` },
   fhCOB: { title: 'ForwardHealth Online Handbook — Coordination of Benefits: Commercial Health Insurance (topics 19617, 18977)', url: `${FH_KW}&s=7&c=41` },
   fhContact: { title: 'ForwardHealth Online Handbook — Resources: Contact Information (Provider Services 800-947-9627)', url: `${FH_KW}&s=8&c=483` },
-  fhMaxFee: { title: 'ForwardHealth — Behavioral Treatment maximum allowable fee schedule (download dated 10/03/2026)', url: 'https://www.forwardhealth.wi.gov/MaxFee/behav_max_fee_20261003.csv' },
+  fhMaxFee: { title: 'ForwardHealth — Behavioral Treatment maximum allowable fee schedule (download dated 11/01/2026; ABA rates unchanged from 10/03/2026)', url: 'https://www.forwardhealth.wi.gov/MaxFee/behav_max_fee_20261101.csv' },
   fhMaxFeeSearch: { title: 'ForwardHealth — Interactive Max Fee Search (Behavioral Treatment service area)', url: 'https://www.forwardhealth.wi.gov/WIPortal/Subsystem/Publications/MaxFeeDynamicSearch.aspx' },
   fhCriteria: { title: 'ForwardHealth — Provider Enrollment Criteria: Behavioral Treatment specialties', url: 'https://www.forwardhealth.wi.gov/WIPortal/Subsystem/Certification/EnrollmentCriteria.aspx?topic=2' },
   fhMod52: { title: 'ForwardHealth — Behavioral Treatment Claim Details for Focused Treatment Services (modifier 52 guidance, 2026)', url: 'https://www.forwardhealth.wi.gov/WIPortal/cms/page/message/bt-claim-details-for-fts' },
@@ -109,6 +109,23 @@ const MANDATE_ROWS = {
   licensure: { label: 'Licensure', value: 'Yes: Wisconsin licenses behavior analysts (DSPS, Wis. Stat. § 440.312, on BACB certification); the mandate requires the Wisconsin license' },
 };
 
+/* ---------------- CPT 2027 adaptive-behavior code changes (weekly refresh 2026-11-01, G6) ---------------- */
+const CPT27_PFS: PayerSource = { title: 'CMS — CY 2027 Physician Fee Schedule proposed rule, 91 FR 43842 (July 16, 2026), section (47) Adaptive Behavior Services: 0362T/0373T deleted, 97151–97158 revised, six new codes', url: 'https://www.govinfo.gov/content/pkg/FR-2026-07-16/pdf/2026-14327.pdf' };
+const CPT27_AMA: PayerSource = { title: 'AMA — AMA releases CPT 2027 code set (Sept. 9, 2026; changes effective Jan. 1)', url: 'https://www.ama-assn.org/press-center/ama-press-releases/ama-releases-cpt-2027-code-set' };
+const CPT27_COALITION: PayerSource = { title: 'ABA Coding Coalition — Supplemental Guidance on Interpreting and Applying the 2027 CPT Codes for Adaptive Behavior Services (posted Oct. 5, 2026)', url: 'https://abacodes.org/wp-content/uploads/2026/10/2027-CPT-Supplemental-Guidance.pdf' };
+const CPT27_NATIONAL =
+  'What changes on Jan. 1, 2027. CMS records that at its September 2025 meeting the AMA CPT Editorial Panel "deleted CPT codes 0362T" and "0373T," "revised eight existing CPT codes" (97151 through 97158) and "created six new CPT codes" for adaptive behavior services; the AMA released the CPT 2027 code set on Sept. 9, 2026, with changes in effect on January 1. The ABA Coding Coalition’s 2027 guidance gives the final numbers: 97148 and add-on +97149 (behavior identification supporting assessment of harmful behavior, delivered by two technicians, additional technicians on the add-on), 97159 and add-on +97160 (adaptive behavior treatment of harmful behavior, same two-technician structure), 97173 (adaptive behavior treatment with analysis by a physician or other QHP, face-to-face with one patient) and 97180 (non-face-to-face services personally performed by the QHP, such as data review and modifying protocols). "Protocol modification" becomes "analysis" in the descriptors, and "since there is no grace period, 0362T and 0373T are invalid for dates of service on or after January 1, 2027." No state "approves" the codes themselves: they are Category I CPT codes that HIPAA requires on electronic claims, but, as the Coalition notes, HIPAA "does not, however, govern whether a payer covers a code / service, what a payer pays for a code / service, or what a payer requires to authorize" it, so each payer has to load them, price them and say how authorizations that list 0362T or 0373T carry over.';
+const CPT27_FAQ_Q = 'Has this plan adopted the 2027 ABA CPT codes (97148, 97159, 97173, 97180)?';
+const cpt27Section = (h2: string, local: string, cites: PayerSource[]) => ({
+  h2,
+  body: [CPT27_NATIONAL, local],
+  cites: [CPT27_PFS, CPT27_AMA, CPT27_COALITION, ...cites],
+});
+const CPT27_WI_UPD: PayerSource = { title: 'ForwardHealth — ForwardHealth Updates, 2026, filtered to the Behavioral Treatment Benefit (through Update 2026-34, Oct. 22, 2026)', url: 'https://www.forwardhealth.wi.gov/WIPortal/Subsystem/Publications/ForwardHealthCommunications.aspx?panel=Updates' };
+const CPT27_WI_2607: PayerSource = { title: 'ForwardHealth Update 2026-07 — CPT, HCPCS, and CDT Procedure Code Changes Effective January 1, 2026 (published March 30, 2026)', url: 'https://www.forwardhealth.wi.gov/kw/pdf/2026-07.pdf' };
+const CPT27_WI_STATE =
+  'Wisconsin Medicaid had published no ForwardHealth Update on the 2027 adaptive-behavior codes as of Nov. 1, 2026: the 2026 Updates filed for the Behavioral Treatment Benefit run to Update 2026-34 (Oct. 22, 2026), and none is about procedure codes after Update 2026-07. That Update announced the January 1, 2026 CPT changes only on March 30, 2026, so a notice for the 2027 codes may also arrive after they take effect. The Behavioral Treatment max fee file dated Nov. 1, 2026 still prices 97151–97158 only and lists none of the new codes.';
+
 export const wisconsinPayers: Record<string, PayerConfig> = {
   'wisconsin-medicaid': {
     slug: 'wisconsin-medicaid',
@@ -169,7 +186,7 @@ export const wisconsinPayers: Record<string, PayerConfig> = {
       {
         h2: 'Rates: the 2026 max fee schedule',
         body: [
-          'ForwardHealth’s Behavioral Treatment max fee file (downloaded October 2026, dated 10/03/2026) pays per 15-minute unit: 97151 $25.90; 97152 $22.93; 97153 with TG (comprehensive) $11.91; 97153 with TF (focused) $41.44 for provider specialties 34/400 and 34/403 and $20.84 for 34/401 and 34/404; 97153 TF-52 (focused, rendered by a technician, specialty 34/402) $11.91; 97155 $22.93; 97156 $28.03; and the group codes 97154 and 97158 at $12.71 or $6.39 by specialty, with 97154 at $3.65 for a technician as assisting provider. Most rates have been effective since February 1, 2023 (the group codes since December 1, 2022). The two $41.44 specialty codes are also the only ones allowed to bill 97151, which the handbook reserves for licensed supervisors. 97157, 0362T and 0373T are not on the schedule. The interactive search flags 97153 TG with "Age < 21."',
+          'ForwardHealth’s Behavioral Treatment max fee file (dated 11/01/2026; ABA rates unchanged since the 10/03/2026 file) pays per 15-minute unit: 97151 $25.90; 97152 $22.93; 97153 with TG (comprehensive) $11.91; 97153 with TF (focused) $41.44 for provider specialties 34/400 and 34/403 and $20.84 for 34/401 and 34/404; 97153 TF-52 (focused, rendered by a technician, specialty 34/402) $11.91; 97155 $22.93; 97156 $28.03; and the group codes 97154 and 97158 at $12.71 or $6.39 by specialty, with 97154 at $3.65 for a technician as assisting provider. Most rates have been effective since February 1, 2023 (the group codes since December 1, 2022). The two $41.44 specialty codes are also the only ones allowed to bill 97151, which the handbook reserves for licensed supervisors. 97157, 0362T and 0373T are not on the schedule. The interactive search flags 97153 TG with "Age < 21."',
           'Billing basics: claims go on the 837P or the 1500 form. Every line needs the TG or TF modifier, AM for team meetings, and TF-52 when a technician renders focused treatment. Since the modifier-52 guidance in 2026, providers who used 52 on focused claims not rendered by a technician must correct them. Claims must arrive within 365 days of the date of service. Claims picked for payment-integrity review need supporting documentation attached within seven days. EVV does not apply: Wisconsin’s EVV list covers personal care, supportive home care and home health codes, not the ABA codes.',
         ],
         cites: [S.fhMaxFee, S.fhMaxFeeSearch, S.fhCodes, S.fhMod52, S.fhClaims, S.fhResp, S.dhsEVV],
@@ -182,6 +199,7 @@ export const wisconsinPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.fhEnroll, S.fhCriteria, S.fhTele, S.s440],
       },
+      cpt27Section('CPT 2027: ForwardHealth has not announced the new ABA codes yet', CPT27_WI_STATE + ' Until ForwardHealth publishes an Update and the Behavioral Treatment max fee schedule shows the new codes, ask ForwardHealth Provider Services how 0362T/0373T prior authorizations and claims for dates of service from Jan. 1, 2027 should be handled.', [CPT27_WI_UPD, CPT27_WI_2607, S.fhMaxFee]),
     ],
     collect: [
       { title: 'ForwardHealth ID', desc: 'Medicaid, BadgerCare Plus or another ForwardHealth program. The HMO on the card does not matter: ABA goes to ForwardHealth fee-for-service.' },
@@ -274,6 +292,7 @@ export const wisconsinPayers: Record<string, PayerConfig> = {
       { q: 'What does Wisconsin Medicaid pay for ABA?', a: 'Per 15-minute unit on the October 2026 max fee schedule: 97151 $25.90, 97152 $22.93, 97153 $11.91 for comprehensive treatment (focused treatment pays $41.44 or $20.84 by provider level, $11.91 for a technician), 97155 $22.93, 97156 $28.03.' },
       { q: 'Can a BCBA licensed in another state treat Wisconsin Medicaid members by telehealth?', a: 'Not without a Wisconsin license. A licensed supervisor needs a Wisconsin DSPS behavior analyst license, and ForwardHealth’s telehealth-only border-status enrollment is open only to providers licensed in Wisconsin. Out-of-state providers without border status also need PA before telehealth.' },
       { q: 'What is the timely filing limit for Wisconsin Medicaid ABA claims?', a: '365 days from the date of service for claims, corrected claims and adjustments. Claims must be billed by the licensed supervisor on the plan of care, with the rendering provider on every line.' },
+      { q: CPT27_FAQ_Q, a: 'Not yet, as of Nov. 1, 2026. CPT 2027 deletes 0362T and 0373T, revises 97151–97158 and adds 97148/97149, 97159/97160, 97173 and 97180 from Jan. 1, 2027, but ForwardHealth has issued no Update on them; its Update for the January 2026 CPT changes came out on March 30, 2026. Ask Provider Services how PAs listing 0362T/0373T carry over.' },
     ],
   },
 
@@ -369,6 +388,7 @@ export const wisconsinPayers: Record<string, PayerConfig> = {
           { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
         ],
       },
+      cpt27Section('CPT 2027: what Aetna has and has not said', 'Aetna had published no 2027 adaptive-behavior code guidance as of Nov. 1, 2026: CPB 0648 (Autism Spectrum Disorders), last reviewed Oct. 20, 2026, still lists the current code set, including 0373T. ' + CPT27_WI_STATE + ' Ask Aetna how it will load and price the new codes and whether authorizations that list 0362T or 0373T carry over.', [{ title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/20/2026)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }]),
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured Wisconsin policy (§ 632.895(12m) applies) vs. self-funded private employer plan (plan document governs). Ask for the employer and check the card.' },
@@ -475,6 +495,7 @@ export const wisconsinPayers: Record<string, PayerConfig> = {
       { q: 'Does Aetna give single case agreements for ABA in Wisconsin?', a: 'Aetna publishes no single-case-agreement policy. Its provider manual offers an out-of-network referral request (approved, for example, when no in-network professional is available and the plan has out-of-network benefits) and transition of care for a member already in treatment with an out-of-network individual practitioner. ABA still needs precertification.' },
       { q: 'What should an Aetna ABA reconsideration in Wisconsin include?', a: 'Medical records and supporting documents, plus a dispute and appeal form or a letter with the member ID, patient name, TIN, claim ID, dates of service, billed amounts, and the codes and modifiers in dispute. File within 180 days of the claim decision; an appeal follows within 60 days of the reconsideration decision.' },
       { q: 'Is an Aetna ABA authorization in Wisconsin tied to the BCBA or to the group?', a: 'The precertification form identifies the provider or group by TIN or PIN, with the supervising clinician named separately. Aetna publishes no rule that moves an authorization to another agency, so a new agency requests its own precertification.' },
+      { q: CPT27_FAQ_Q, a: 'Not as of Nov. 1, 2026. CPB 0648 (last reviewed Oct. 20, 2026) still lists the current codes, including 0373T. CPT 2027 deletes 0362T and 0373T and adds 97148/97149, 97159/97160, 97173 and 97180 from Jan. 1, 2027, so ask Aetna how it will price them and handle existing authorizations.' },
     ],
   },
 
@@ -567,6 +588,7 @@ export const wisconsinPayers: Record<string, PayerConfig> = {
           { title: 'Evernorth Coverage Policy EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
         ],
       },
+      cpt27Section('CPT 2027: what Cigna has and has not said', 'Cigna had published no 2027 adaptive-behavior code guidance as of Nov. 1, 2026: Evernorth coverage policy EN0499 (Intensive Behavioral Interventions, effective May 15, 2026) still lists the current code set, including 0373T. ' + CPT27_WI_STATE + ' Ask Cigna how it will load and price the new codes and whether authorizations that list 0362T or 0373T carry over.', [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }]),
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured Wisconsin policy (§ 632.895(12m) applies) vs. self-funded employer plan (plan document governs).' },
@@ -665,6 +687,7 @@ export const wisconsinPayers: Record<string, PayerConfig> = {
       { q: 'What does Cigna pay for ABA in Wisconsin?', a: 'Cigna publishes no ABA rates. Your fee schedule is Exhibit A of your Evernorth Provider Agreement (Provider Services 800.926.2273). Wisconsin Medicaid’s 97153 rate ($11.91 per 15 minutes, comprehensive) is the only public benchmark.' },
       { q: 'Does Cigna give single case agreements for ABA in Wisconsin?', a: 'Cigna/Evernorth calls it a network exception. It needs prior authorization on the Evernorth ABA PA form, including for the 97151, 97152 and 0362T assessment codes that otherwise need none. HMO plans cover in-network providers only.' },
       { q: 'Is a Cigna ABA authorization in Wisconsin tied to the BCBA or to the clinic?', a: 'The PA form names the servicing clinic by TIN and the supervising provider by credential. Approvals are written per month on 97155. A new agency requests its own authorization, and two agencies in the same period must document coordination.' },
+      { q: CPT27_FAQ_Q, a: 'Not as of Nov. 1, 2026. Evernorth policy EN0499 (effective May 15, 2026) still lists the current codes, including 0373T. CPT 2027 deletes 0362T and 0373T and adds 97148/97149, 97159/97160, 97173 and 97180 from Jan. 1, 2027, so ask Cigna how it will price them and handle existing authorizations.' },
     ],
   },
 
@@ -764,6 +787,7 @@ export const wisconsinPayers: Record<string, PayerConfig> = {
           { title: 'Optum — ABA Request for Services Checklist (BH00853-25-QRG)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/BH00853-25-QRG_ABAQRG.pdf' },
         ],
       },
+      cpt27Section('CPT 2027: what UnitedHealthcare has and has not said', 'UnitedHealthcare (Optum Behavioral Health) had published no 2027 adaptive-behavior code guidance as of Nov. 1, 2026: Optum’s commercial ABA reimbursement policy (updated February 2026) still lists the current code set, including 0373T, and its ABA clinical resources page lists no 2027 code document. ' + CPT27_WI_STATE + ' Ask UnitedHealthcare how it will load and price the new codes and whether authorizations that list 0362T or 0373T carry over.', [{ title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated February 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: 'Optum Provider Express — Autism/ABA clinical resources', url: 'https://public.providerexpress.com/content/ope-provexpr/us/en/clinical-resources/autismABA2.html' }]),
     ],
     collect: [
       { title: 'Which card', desc: 'UnitedHealthcare commercial vs. a BadgerCare Plus or SSI HMO card. Medicaid ABA goes to ForwardHealth, not the HMO.' },
@@ -868,6 +892,7 @@ export const wisconsinPayers: Record<string, PayerConfig> = {
       { q: 'What supporting documents go with a UnitedHealthcare (Optum) ABA reconsideration in Wisconsin?', a: 'Member-specific treatment plans, clinical records, payment appendices or anything else showing why the decision was wrong, plus proof the claim was filed on time. Both steps must be filed within 12 months in total. At the appeal step, send only new material.' },
       { q: 'Is a UnitedHealthcare ABA authorization in Wisconsin tied to the BCBA or the group?', a: 'Optum says non-routine outpatient authorizations, ABA included, are “specific to the requesting clinician,” but any ABA supervisor credentialed under the same group contract can see the member. A different agency requests its own authorization.' },
       { q: 'What do HM, HN, HO and HP mean on a UnitedHealthcare ABA claim in Wisconsin?', a: 'HM = RBT, HN = BCaBA, HO = BCBA or master’s-level licensed provider, HP = BCBA-D or doctoral-level licensed provider. 97151 and 97155–97158 cannot carry HM; 0362T and 0373T take no modifier.' },
+      { q: CPT27_FAQ_Q, a: 'Not as of Nov. 1, 2026. Optum’s commercial ABA reimbursement policy (updated February 2026) still lists the current codes, including 0373T. CPT 2027 deletes 0362T and 0373T and adds 97148/97149, 97159/97160, 97173 and 97180 from Jan. 1, 2027, so ask UnitedHealthcare how it will price them and handle existing authorizations.' },
     ],
   },
 
@@ -951,6 +976,7 @@ export const wisconsinPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.anthemPM, S.anthemBC],
       },
+      cpt27Section('CPT 2027: what Anthem has and has not said', 'Anthem had published no 2027 adaptive-behavior code guidance for Wisconsin as of Nov. 1, 2026: its Wisconsin ABA provider resource guide still lists the current code set, including 0373T. ' + CPT27_WI_STATE + ' Ask Anthem how it will load and price the new codes and whether authorizations that list 0362T or 0373T carry over.', [{ title: 'Anthem Blue Cross and Blue Shield — ABA provider resource guide, Wisconsin', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-wi.pdf' }]),
     ],
     collect: [
       { title: 'Plan funding type and entity', desc: 'BCBSWI PPO, Compcare HMO/POS or WCIC Well Priority, and fully insured (§ 632.895(12m) applies) vs. self-funded or National Accounts.' },
@@ -1054,6 +1080,7 @@ export const wisconsinPayers: Record<string, PayerConfig> = {
       { q: 'What changed for Anthem ABA claims in Wisconsin in 2026?', a: 'From January 1, 2026, Anthem pays ABA against weekly approved units rather than the total authorization. Units over the weekly limit are ineligible for payment.' },
       { q: 'Can a BCBA and RBT both bill for the same time with Anthem in Wisconsin?', a: 'Yes, 97155 with 97153, but only when both are face-to-face with the patient and the BCBA is directing the technician.' },
       { q: 'Does Wisconsin cap ABA benefits?', a: 'No. Wisconsin sets minimum floors: for 2026, at least $74,240 a year for intensive-level services and $37,119 for nonintensive-level services. The insurer need not pay more than that unless the policy does.' },
+      { q: CPT27_FAQ_Q, a: 'Not as of Nov. 1, 2026. Anthem’s Wisconsin ABA provider resource guide still lists the current codes, including 0373T. CPT 2027 deletes 0362T and 0373T and adds 97148/97149, 97159/97160, 97173 and 97180, so ask Anthem how it will price them and handle existing authorizations.' },
     ],
   },
 };

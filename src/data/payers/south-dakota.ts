@@ -946,7 +946,8 @@ export const southDakotaPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis with a validated tool', desc: 'DSM-5-TR ASD and severity level, confirmed with a validated tool (ADI-R, ADOS-2 and others). Optum asks for the instrument.' },
       { title: 'Physician or psychologist order', desc: 'Under the SD mandate, treatment is care ordered by a licensed physician or psychologist.' },
     ],
-    sources: [ OPTUM_NNM_G5,S.optumSCC, S.optumSM, S.optumTele, S.optumReimb, S.optumNNM, S.sdclAba, S.sdcl3638, S.sdcl3452, S.sdclCred, S.sdclTele, S.sdclPrompt, S.sdcl17H, S.sdcl17I, S.sdcl18A, S.bacbLic, S.erisa, S.feeABA, S.claimManual],
+    sources: [
+      { title: 'Optum Behavioral Health National Provider Network Manual (published July 1, 2026; effective Sept. 1, 2026) — Compensation', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }, OPTUM_NNM_G5,S.optumSCC, S.optumSM, S.optumTele, S.optumReimb, S.optumNNM, S.sdclAba, S.sdcl3638, S.sdcl3452, S.sdclCred, S.sdclTele, S.sdclPrompt, S.sdcl17H, S.sdcl17I, S.sdcl18A, S.bacbLic, S.erisa, S.feeABA, S.claimManual],
     deliveryRules: {
       supervision: {
         value: 'Consistent with CASP standards, "direct case supervision is required 1–2 hours for every 10 hours of direct treatment per week." Optum does not recommend parents serving as their own child’s RBT. In South Dakota the supervising analyst must hold the state license (SDCL 36-38-6), and supervised technicians must pass a fingerprint background check (36-38-25).',
@@ -1032,6 +1033,7 @@ export const southDakotaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'What does UnitedHealthcare pay for ABA in South Dakota?', a: 'UnitedHealthcare\'s behavioral health network, Optum, publishes no ABA rate table. Its National Provider Network Manual (effective September 1, 2026) pays practitioners "The lesser of your customary charge, less any applicable co-payments, co-insurance and deductibles due from the member, or The Optum contracted rate," and warns that failing to follow "the terms and conditions as set forth on your fee schedule may result in claim denial(s)." Get rates from your Optum agreement. South Dakota Medicaid publishes its ABA fee schedule if you want a public benchmark.' },
       { q: 'Does UnitedHealthcare (Optum) require graphs for ABA continued-service reviews?', a: 'No. Optum’s criteria ask for progress on every target using the baseline measurement method, mastery rates and change scores, updated standardized adaptive measures, and an explanation of low hour use, but they do not require graphs.' },
       { q: 'What are UnitedHealthcare (Optum)’s claim filing deadlines for South Dakota ABA claims?', a: '90 calendar days from the date of service (or longer where state law or the plan allows), corrections within 90 days of the original claim’s receipt, and payment of complete claims within 45 days or the state’s shorter clock. No check-run schedule is published.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in South Dakota?', a: 'Yes, under Optum’s national ABA criteria for ASD, with South Dakota’s mandate layered on for the plans it reaches. Self-funded employer plans and ACA individual and small-group plans follow their own documents.' },

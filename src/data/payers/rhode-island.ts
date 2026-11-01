@@ -41,7 +41,7 @@ const S: Record<string, PayerSource> = {
   thpBH: { title: 'Tufts Health Public Plans Provider Manual 2026 — Behavioral Health (Rhode Island-specific services incl. HBTS)', url: 'https://www.point32health.org/documents/thpp-08-bh-pm' },
   uhcPM: { title: 'UnitedHealthcare Community Plan of Rhode Island — 2026 Care Provider Manual (PMI 08102026)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/RI-UHCCP-Care-Provider-Manual.pdf' },
   optRI: { title: 'Optum Provider Express — Welcome Rhode Island Behavioral Health Providers (RI Medicaid enrollment requirement)', url: 'https://public.providerexpress.com/content/ope-provexpr/us/en/our-network/welcomeNtwk/wRI.html' },
-  optRItele: { title: 'Optum Provider Alert BH5027 — RI Telehealth/Telephone-Only Guidance, Optum NHPRI & UHC (08/2023)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/ourNetworkMain/welcomeNtwk/RI/2023/5027_RI%20TMH_Guide.pdf' },
+  optRItele: { title: 'Optum Provider Alert BH02590 — Rhode Island Telehealth Billing Guidelines, UHC Commercial / Medicare Advantage / Community Plan (10/31/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/ourNetworkMain/welcomeNtwk/RI/RI_Telehealth_Guidance.pdf' },
   ch2011: { title: 'R.I. Gen. Laws ch. 27-20.11 — Autism Spectrum Disorders (§§ 27-20.11-1 to -8)', url: 'https://webserver.rilegislature.gov/Statutes/TITLE27/27-20.11/INDEX.htm' },
   m3: { title: 'R.I. Gen. Laws § 27-20.11-3 — Scope of coverage (benefits continue until age 15; in-state services)', url: 'https://webserver.rilegislature.gov/Statutes/TITLE27/27-20.11/27-20.11-3.htm' },
   m4: { title: 'R.I. Gen. Laws § 27-20.11-4 — Medical necessity; treatment plan signed by listed specialists, updates no more than quarterly', url: 'https://webserver.rilegislature.gov/Statutes/TITLE27/27-20.11/27-20.11-4.htm' },
@@ -612,7 +612,7 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
         cites: [S.uhcPM, S.hbts, S.lic2],
       },
       telehealth: {
-        value: 'Optum’s Rhode Island telehealth alert (BH5027, August 2023) says for UHC Medicaid: "Use standard outpatient CPT/HCPCS codes listed on your fee schedule," "No telehealth modifier needed," and "POS 10 for in the home POS 02 for outside of the home." The alert predates the 2026 contracts and names no ABA codes. Under its EOHHS contract the plan may not exclude a service only because it is delivered by telemedicine, pay behavioral health providers less, or impose stricter prior authorization.',
+        value: 'Optum’s Rhode Island telehealth billing alert (BH02590, October 31, 2026; it replaced the 2023 BH5027 alert) covers audio/video and audio-only services. For UnitedHealthcare Community Plan (Medicaid), in-network providers use the CPT/HCPCS codes on their fee schedule with “No telehealth modifier needed,” POS 10 when the member is at home and POS 02 when not; “Routine services provided by out-of-network providers are generally not reimbursable by Rhode Island Medicaid.” The alert names no ABA codes. Under its EOHHS contract the plan may not exclude a service only because it is delivered by telemedicine, pay behavioral health providers less, or impose stricter prior authorization.',
         status: 'plan-dependent',
         cites: [S.optRItele, S.uhcK],
         verifyVia: 'Optum Provider Services Rhode Island, 1-877-614-0484: confirm the alert still applies and which HBTS components may be delivered by telehealth.',
@@ -686,7 +686,7 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
       {
         h2: 'Claims: filing limits, required fields, appeals',
         body: [
-          'For first-time claims "the filing deadline is 90 calendar days from the date of service" for professional claims; claims after a primary carrier’s payment are due within 60 calendar days of that EOP. RITogether claims must carry "the attending/rendering physician’s name, NPI and Rhode Island license number." Tufts Health Public Plans is payer of last resort and wants the primary insurer’s EOP attached. Claim appeals "must be submitted within 60 calendar days of the date of the Explanation of Payment," with at most two levels, and appeals of timely-filing denials are considered only under narrow exceptions.',
+          'The standard filing deadline is "90 days from the date of service for professional (CMS-1500) claims" (Filing Deadline section revised 11/01/2026); claims after a primary carrier’s payment are due within 60 calendar days of that EOP. RITogether claims must carry "the attending/rendering physician’s name, NPI and Rhode Island license number." Tufts Health Public Plans is payer of last resort and wants the primary insurer’s EOP attached. Claim appeals "must be submitted within 60 calendar days of the date of the Explanation of Payment," with at most two levels, and appeals of timely-filing denials are considered only under narrow exceptions.',
         ],
         cites: [S.thpClaims],
       },
@@ -1314,11 +1314,12 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
         cites: [S.optumSCC],
       },
       noteSignature: {
-        value: 'Not addressed. The criteria set what must be documented for coverage, not who signs a session note or when.',
-        status: 'unverified',
-        cites: [S.optumSCC],
-        verifyVia: 'Optum National Network Manual documentation standards and the participating-provider agreement.',
-        blocker: 'per-case',
+        value: 'Optum (UnitedHealthcare\'s behavioral health administrator) publishes the rule. Its ABA CPT FAQ: “Provider signature is required on progress notes. Parent/guardian signatures are not required on progress notes.” Its ABA documentation protocol (BH02325, June 1, 2026) asks for daily progress notes showing the place of service, the specific service, who attended and the “signature of the rendering provider,” with “Legible identity of the rendering provider with credentials.” On amendments: “All addendums, late entries and corrections should follow CMS guidelines,” “The date of signature must reflect the date the note is finalized,” and a note signed after the date of service must meet late-entry requirements and “clearly indicate the date the note was signed.” A 97155 note names the technician present (with credentials) and records any protocol modification and the direction given to the technician. The protocol says state law, Medicaid requirements or the member\'s benefit plan control where they set different standards, so a self-funded plan may add its own.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
+          { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' },
+        ],
       },
       placeOfService: {
         value: 'Not covered: services that are not ABA, "such as 1:1 aid delivered simultaneously during classroom instruction," or services covered under IDEA; school coordination is allowed. Rhode Island’s mandate covers services delivered in the state unless unavailable in-network (§ 27-20.11-3(c)).',

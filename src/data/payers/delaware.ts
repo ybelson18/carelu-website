@@ -65,7 +65,7 @@ const S: Record<string, PayerSource> = {
   optumTele: { title: 'Optum — Telehealth Billing Quick Reference Guide (updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
   optumNNM: { title: 'Optum National Network Manual (BH02330, effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
   optumReimb: { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
-  hmAuth: { title: 'Highmark — List of Procedures/DME Requiring Authorization (eff. 10/01/2026; for PA, WV, DE & NY members)', url: 'https://providers.highmark.com/content/dam/highmark/en/providerresourcecenter/pdfs/procedurecode/commercial/Proc-Requiring-Auth-list.pdf' },
+  hmAuth: { title: 'Highmark — List of Procedures/DME Requiring Authorization (eff. 11/01/2026; for PA, WV, DE & NY members)', url: 'https://providers.highmark.com/content/dam/highmark/en/providerresourcecenter/pdfs/procedurecode/commercial/Proc-Requiring-Auth-list.pdf' },
   hmBHPA: { title: 'Highmark — Behavioral Health: Upcoming Prior Authorization Changes (published Nov 24, 2025; eff. March 1, 2026)', url: 'https://providers.highmark.com/communications-hub/news-and-updates/behavioral-health-upcoming-prior-authorization-changes.html' },
   hm97153: { title: 'Highmark — Reimbursement Update: CPT 97153 for ABA Therapy in DE, PA and WV (published Aug 17, 2026; eff. Oct 16, 2026)', url: 'https://providers.highmark.com/communications-hub/news-and-updates/reimbursement-update-cpt-code-97153-for-aba-therapy-in-de-pa-wv.html' },
   hmRP046: { title: 'Highmark Reimbursement Policy RP-046 — Telemedicine and Telehealth Services (version 2026.09.01; PA, WV, DE, NY)', url: 'https://providers.highmark.com/content/dam/highmark/en/providerresourcecenter/pdfs/claims/reimbursement-policies/rp-046.pdf' },
@@ -188,6 +188,16 @@ export const delawarePayers: Record<string, PayerConfig> = {
         ],
         cites: [S.gpm, S.acdePM, S.dfhBM, S.hhoPM, S.pract, S.dfhPM],
       },
+      {
+        h2: 'What happens when a practice fails a Delaware Medicaid audit?',
+        body: [
+          '"All DMAP providers are subject to routine review and/or audit" by the Surveillance and Utilization Review (SUR) staff, review teams, the DMAP Fraud Control Unit "or independent audit firms," to check "the accuracy and propriety of provider billings, compliance with Program policy and procedures, quality of care, and utilization of services"; providers must allow access to "all requested financial and medical records" (General Policy Manual 1.11). Every claim needs the minimum record in 1.12, and providers agree to "Making restitution for any overpayment promptly."',
+          'Outcomes. For less severe findings DMAP can require "approval prior to the submission of claims," withhold reimbursements, or recoup overpayments; it may exclude a provider "it determines has abused the Program" or suspend for fraud (1.11.3-1.11.4). Appeals (Appendix A): an appeal does not stop the adverse action unless the Director grants a stay. For a SUR finding the provider must first contact the SUR Unit, request a redetermination and receive the findings letter; findings from a state contractor, including the Recovery Audit Contractor, go through that entity\'s own process first. The DMAP Provider Appeals Form then goes to the Deputy Director "within sixty (60) calendar days," and a Director\'s review may be requested "within thirty (30) calendar days" of the Deputy Director\'s decision. "Providers may be held responsible for costs incurred by the State related to processing appeals." MCO findings start with that plan\'s appeal process.',
+        ],
+        cites: [
+          { title: 'DMAP — General Policy Manual (1.11 Provider Review/Audits; 1.12 General Documentation Requirements; Appendix A Appeal Procedures)', url: 'https://medicaidpublications.dhss.delaware.gov/docs/DesktopModules/Bring2mind/DMX/API/Entries/Download?Command=Core_Download&EntryId=1797&language=en-US&PortalId=0&TabId=94' },
+        ],
+      },
     ],
     collect: [
       { title: 'Which Medicaid plan', desc: 'AmeriHealth Caritas Delaware, Delaware First Health, Highmark Health Options, or fee-for-service. The MCO runs authorization, credentialing and payment.' },
@@ -216,11 +226,15 @@ export const delawarePayers: Record<string, PayerConfig> = {
         cites: [S.spa],
       },
       noteSignature: {
-        value: 'The state plan requires a treatment plan that names "the individual providers responsible for delivering the services" and how often progress is reported, and DMAP’s telehealth rules require evaluations and progress notes "the same as if the documentation had originated during an in-person visit," including the mode. No source read says who signs each ABA session note or by when.',
+        value:
+          'No ABA signer or amendment rule is published. The state plan requires a treatment plan that names "the individual providers responsible for delivering the services," and the General Policy Manual (1.12) sets the minimum record for every claim: a diagnosis consistent with the service, date of service, member name and Medicaid ID, "Name of providing agency," "Name of person providing the service," and the "Nature, extent, units and place of service," plus documentation that "substantiates the medical necessity of each service billed." The manual sets no co-signature, late-entry or signing-deadline rule for ABA.',
         status: 'unverified',
-        cites: [S.spa, S.pract],
-        verifyVia: 'DMAP General Policy Manual (record-keeping) and Provider Services, or the member’s MCO.',
-        blocker: 'document',
+        cites: [
+          { title: 'Delaware State Plan Amendment 16-010 — Behavioral Services to Treat Autism Spectrum Disorder pursuant to EPSDT', url: 'https://www.medicaid.gov/State-resource-center/Medicaid-State-Plan-Amendments/Downloads/DE/DE-16-010.pdf' },
+          { title: 'DMAP — General Policy Manual (1.11 Provider Review/Audits; 1.12 General Documentation Requirements; Appendix A Appeal Procedures)', url: 'https://medicaidpublications.dhss.delaware.gov/docs/DesktopModules/Bring2mind/DMX/API/Entries/Download?Command=Core_Download&EntryId=1797&language=en-US&PortalId=0&TabId=94' },
+        ],
+        verifyVia: 'The member\'s MCO provider manual (ACDE, HHO, DFH) for plan record standards; DMAP Provider Services for FFS. Checked: SPA 16-010, General Policy Manual 1.12, Practitioner manual 1.2 (does not cover ABA).',
+        blocker: 'per-case',
       },
       placeOfService: {
         value: 'ASD treatment is "designed to be delivered primarily in the home or in other community settings." By telehealth, the member’s residence is an approved originating site (no originating-site fee), billed with "02 Modifier as Place of Service."',
@@ -769,7 +783,7 @@ export const delawarePayers: Record<string, PayerConfig> = {
     family: 'bcbs',
     cardDesc: 'Delaware’s Blue plan: every ABA code on Highmark’s auth list (Highmark Behavioral Health), 97153 PPO rate $15.73 from 10/16/2026.',
     assessmentPA: {
-      value: 'Yes: 97151, 97152 and 0362T are on Highmark’s authorization list (effective 10/01/2026, "For PA, WV, DE & NY Members") under UM program Highmark Behavioral Health; Highmark notes "Some authorization requirements vary by member plan"',
+      value: 'Yes: 97151, 97152 and 0362T are on Highmark’s authorization list (effective 11/01/2026, "For PA, WV, DE & NY Members") under UM program Highmark Behavioral Health; Highmark notes "Some authorization requirements vary by member plan"',
       status: 'verified',
       cites: [S.hmAuth, S.hmBHPA],
     },
@@ -1072,11 +1086,13 @@ export const delawarePayers: Record<string, PayerConfig> = {
         cites: [S.aetnaGuide, S.m3570A, S.cap2026],
       },
       noteSignature: {
-        value: 'Not addressed. Aetna sets treatment-plan content, not who signs a session note or by when.',
-        status: 'unverified',
-        cites: [S.aetnaGuide],
-        verifyVia: 'The participating-provider agreement and Aetna Behavioral Health documentation standards.',
-        blocker: 'per-case',
+        value:
+          'Aetna\'s provider manual sets the record rule for participating practitioners: "All entries are dated," "All entries are legible to someone other than the writer," and "All entries in the record must contain the provider\'s signature/initials or electronic identifier," scored in medical-record audits "conducted no less than every two years" against an 85% goal. Neither the manual nor Aetna\'s ABA policies (CPB 0554, the ABA medical necessity guide) set a separate rule for amending a note, a supervisor co-signature, or a signing deadline.',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna — Health Care Professional Office Manual (Core components for medical records; Overpayment; post-payment audits)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+        ],
       },
       placeOfService: {
         value: 'Outpatient ABA is setting-neutral in Aetna’s guide; inpatient, residential or partial-hospitalization settings use that level of care’s criteria, and the guide expects coordination with the school. Delaware’s mandate bars visit limits "regardless of the locations in which services are provided" and leaves IEP obligations untouched.',

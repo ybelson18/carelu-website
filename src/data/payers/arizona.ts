@@ -89,11 +89,16 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       {
         h2: 'Rates: credential-tiered, and on the physician fee schedule',
         body: [
-          'AHCCCS converted the ABA codes from by-report to fixed rates effective November 1, 2023, tiered by the education level of whoever rendered the service. AHCCCS\'s own Modifier List defines the four tier modifiers as HM \u201cLess than bachelor degree level,\u201d HN \u201cBachelors degree level,\u201d HO \u201cMasters degree level\u201d and HP \u201cDoctoral level\u201d \u2014 degree levels, not BACB credentials; AHCCCS publishes no crosswalk to RBT, BCaBA or BCBA, so confirm with the health plan which modifier a bachelor\'s-level technician bills. Per 15-minute unit on the FFY26 ABA fee schedule (effective 10/1/2025, same dollars as 11/1/2023): 97151 assessment pays $30.06 / $35.78 / $44.73 at HN/HO/HP; 97152 pays $21.49 / $25.58 / $28.43 / $28.43 at HM/HN/HO/HP; 97153 direct treatment pays $17.91 / $21.32 / $23.69 / $23.69 at HM/HN/HO/HP; 97155 protocol modification pays $25.05 / $29.82 / $37.28 at HN/HO/HP; 97158 pays $6.26 / $7.46 / $9.32. 97151, 97155 and 97158 have no HM rate, and a line billed with no tier modifier is priced at the lowest tier listed. Home delivery (POS 12) pays roughly a 10% premium on every code \u2014 97153 at home runs $19.96\u2013$26.43. 97154 group treatment also carries a TJ (\u201cProgram group, child and/or adolescent\u201d) rate of $14.93, added to the schedule on 6/30/2026 with effect from 10/1/2025. 97156 (family training) and 97157 remain \u201cBR\u201d (By Report), so there is no fixed rate to quote. 0362T and 0373T are closed: AHCCCS\'s Medical Coding Unit stopped allowing them from July 1, 2023 and points providers to 97151\u201397158 instead. Two more traps: the 9715x codes are not on the Behavioral Health Outpatient fee schedule at all \u2014 they live on the physician fee schedule \u2014 so practices that look up "behavioral health rates" find nothing and assume ABA is unpriced; and these are fee-for-service rates, which the health plans are free to negotiate away from.',
+          'AHCCCS converted the ABA codes from by-report to fixed rates effective November 1, 2023, tiered by the education level of whoever rendered the service. AHCCCS\'s own Modifier List defines the four tier modifiers as HM \u201cLess than bachelor degree level,\u201d HN \u201cBachelors degree level,\u201d HO \u201cMasters degree level\u201d and HP \u201cDoctoral level\u201d \u2014 degree levels, not BACB credentials; AHCCCS publishes no crosswalk to RBT, BCaBA or BCBA, so confirm with the health plan which modifier a bachelor\'s-level technician bills. Per 15-minute unit on the FFY27 ABA fee schedule (effective 10/1/2026; the same dollars as FFY26 and 11/1/2023 for these codes): 97151 assessment pays $30.06 / $35.78 / $44.73 at HN/HO/HP ($33.27 / $39.60 / $49.50 in the home, POS 12); 97152 pays $21.49 / $25.58 / $28.43 / $28.43 at HM/HN/HO/HP; 97153 direct treatment pays $17.91 / $21.32 / $23.69 / $23.69 at HM/HN/HO/HP; 97155 protocol modification pays $25.05 / $29.82 / $37.28 at HN/HO/HP; 97158 pays $6.26 / $7.46 / $9.32. 97151, 97155 and 97158 have no HM rate, and a line billed with no tier modifier is priced at the lowest tier listed. Home delivery (POS 12) pays roughly a 10% premium on every code \u2014 97153 at home runs $19.96\u2013$26.43. 97154 group treatment pays $4.48 / $5.33 / $5.92 at HM/HN/HO-HP and also carries a TJ (\u201cProgram group, child and/or adolescent\u201d) rate, $16.95 from 10/1/2026 (it was $14.93, added on 6/30/2026 with effect from 10/1/2025). New on the FFY27 schedule: 97156 (family training) and 97157 (multiple-family group) have fixed rates for the first time from 10/1/2026 \u2014 97156 pays $23.97 / $28.53 / $35.67 at HN/HO/HP ($26.53 / $31.58 / $39.47 in the home) and 97157 pays $7.99 / $9.51 / $11.89 ($8.84 / $10.53 / $13.16 in the home), with no HM rate; on the FFY26 schedule both were \u201cBR\u201d (By Report). 0362T and 0373T are closed: AHCCCS\'s Medical Coding Unit stopped allowing them from July 1, 2023 and points providers to 97151\u201397158 instead. Two more traps: the 9715x codes are not on the Behavioral Health Outpatient fee schedule at all \u2014 they live on the physician fee schedule \u2014 so practices that look up "behavioral health rates" find nothing and assume ABA is unpriced; and these are fee-for-service rates, which the health plans are free to negotiate away from.',
           'Watch January 1, 2027. AHCCCS\'s October 2026 Medical Coding Newsletter says it will add the 2027 CPT codes to its system effective 1/1/2027 and that "ABA codes will also have some new code sets," pointing providers to the ABA coding coalition for detail. Expect the fee schedule and the Behavioral Health Services Matrix to change around that date.',
+          'Health-plan rates are a different question from fee-for-service rates, and AHCCCS publishes no ABA rate floor for its plans. Its ABA rate-setting FAQ says the fixed rates apply only to fee-for-service members (AIHP, Tribal ALTCS, DDD Tribal Health Program), have "no impact on the contracts that AHCCCS health plans negotiate with their providers," and that "MCOs and providers may negotiate any contracted rate that is agreed to by both parties." State law points the same way: A.R.S. \u00a7 36-2904(K) lets a plan pay subcontracting or noncontracting providers "according to the capped fee-for-service schedule adopted by the director ... or at lower rates as may be negotiated by the contractor" \u2014 the FFS schedule works as a ceiling a plan may use, not a minimum. AHCCCS\u2019s one directed-payment program, the Differential Adjusted Payment, does bind the plans ("AHCCCS managed care organizations (MCOs) will be required to pass through DAP increases to their contracted rates"), but the CYE 2027 notice (dates of service 10/1/2026\u20139/30/2027) names provider types such as Behavioral Health Outpatient Clinics (provider type 77), Integrated Clinics (IC) and Behavioral Health Therapeutic Homes (A5), and does not name the BCBA (BC) or ABA-organization (AB) provider types. So any number for a plan contract \u2014 including a percentage of the AHCCCS FFS rate \u2014 comes from the plan\u2019s offer, not from a published AHCCCS rule.',
         ],
         cites: [
           { title: 'AHCCCS — Final Public Notice, FFS rate changes 11/1/2023 (ABA codes)', url: 'https://www.azahcccs.gov/AHCCCS/Downloads/PublicNotices/rates/FinalPublicNotice_RateChanges_20231101_ABA.pdf' },
+          { title: 'AHCCCS — Final Applied Behavior Analysis (ABA) Fee Schedule, FFY27 (eff. 10/01/2026; last updated 6/22/2026)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA/FY27_ABA_WebsiteRates.xlsx' },
+          { title: 'AHCCCS — Applied Behavioral Analysis (ABA) FFS Rates & Codes (rates effective 10/1/2026, 10/1/2025, 10/1/2024, 11/1/2023)', url: 'https://www.azahcccs.gov/PlansProviders/RatesAndBilling/FFS/ABArates.html' },
+          { title: 'AHCCCS — CYE 2027 Differential Adjusted Payments, Final Public Notice (DOS 10/1/2026–9/30/2027)', url: 'https://www.azahcccs.gov/AHCCCS/Downloads/PublicNotices/CYE_2027_Final_DAP_Notice.pdf' },
+          { title: 'A.R.S. § 36-2904 — AHCCCS contracts; subsection K (contractor may pay at the capped FFS schedule or lower negotiated rates)', url: 'https://www.azleg.gov/ars/36/02904.htm' },
           { title: 'AHCCCS — Final Applied Behavior Analysis (ABA) Fee Schedule, FFY26 (eff. 10/01/2025; last updated 6/30/2026, TJ rate added)', url: 'https://azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA/FY26_Final_ABA_FeeSchedule.xlsx' },
           { title: 'AHCCCS — Modifier List and Descriptions (Medical Coding Resources, 2024)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/AHCCCS_ModifiersList2024.pdf' },
           { title: 'AHCCCS Medical Coding Unit — Code Closure memo: 0362T and 0373T not allowed from July 1, 2023 (6/21/2023)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/MEMO-0362T_0373T-CodeClosure.pdf' },
@@ -225,6 +230,8 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'AMPM 540 — Electronic Visit Verification (effective 08/06/26)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/500/540.pdf' },
       { title: 'AHCCCS — Electronic Visit Verification (What is EVV?, updated Oct. 22, 2025)', url: 'https://www.azahcccs.gov/AHCCCS/Initiatives/EVV/' },
       { title: 'AHCCCS — Claims Clues newsletter archive (DFSM monthly FFS provider newsletter)', url: 'https://www.azahcccs.gov/PlansProviders/RatesAndBilling/FFS/claimsclues.html' },
+      { title: 'AHCCCS — Final Applied Behavior Analysis (ABA) Fee Schedule, FFY27 (eff. 10/01/2026; last updated 6/22/2026)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA/FY27_ABA_WebsiteRates.xlsx' },
+      { title: 'AHCCCS — CYE 2027 Differential Adjusted Payments, Final Public Notice (DOS 10/1/2026–9/30/2027)', url: 'https://www.azahcccs.gov/AHCCCS/Downloads/PublicNotices/CYE_2027_Final_DAP_Notice.pdf' },
       { title: 'AHCCCS — Final Applied Behavior Analysis (ABA) Fee Schedule, FFY26 (eff. 10/01/2025; last updated 6/30/2026, TJ rate added)', url: 'https://azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA/FY26_Final_ABA_FeeSchedule.xlsx' },
       { title: 'AHCCCS — Modifier List and Descriptions (Medical Coding Resources, 2024)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/AHCCCS_ModifiersList2024.pdf' },
       { title: 'AHCCCS Medical Coding Unit — Code Closure memo: 0362T and 0373T not allowed from July 1, 2023 (6/21/2023)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/MEMO-0362T_0373T-CodeClosure.pdf' },
@@ -367,12 +374,14 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { q: 'How soon after an initial assessment must an AHCCCS member start ABA?', a: 'AHCCCS\u2019s behavioral health appointment standard (ACOM 417, current version eff. 10/1/2026) sets the clock for every ACC, ACC-RBHA, ALTCS E/PD and DDD plan: the initial assessment within seven calendar days of the referral or request, and the initial appointment \u201cno later than 21 days after the initial assessment\u201d for members under 18 (23 calendar days for adults), with later services no more than 45 calendar days from identification of need. For children in DCS custody and adopted children, the initial appointment is due no later than 21 calendar days after screening and evaluation. The standard binds the plan\'s network, so plans refer to agencies that can meet it. The treatment PA decision (14 calendar days in most plan manuals, 7 under the 2026 federal rule) has to fit inside the 21 days.' },
       { q: 'Does AHCCCS cover ABA therapy?', a: 'Yes — under AMPM 320-S, for members with autism spectrum disorder and/or other diagnoses as justified by medical necessity. Coverage runs through the member\'s ACC plan, or through a DDD Health Plan (Mercy Care DD or UHCCP DD) for ALTCS-DD members.' },
       { q: 'Does Arizona Medicaid require an autism diagnosis for ABA?', a: 'No — AMPM 320-S explicitly covers "other diagnoses as justified by medical necessity," and Optum\'s Arizona orientation states verbatim that an ASD diagnosis is not required for AHCCCS members. A qualified Behavioral Health Professional must still recommend the service based on assessment.' },
-      { q: 'What does AHCCCS pay for ABA?', a: 'Fixed rates since 11/1/2023, tiered by the rendering person\'s degree level (HM below bachelor\'s, HN bachelor\'s, HO master\'s, HP doctoral): 97153 pays $17.91 (HM) / $21.32 (HN) / $23.69 (HO/HP) per 15-minute unit, with home delivery about 10% higher. The codes live on the physician fee schedule, not the behavioral-health outpatient one. 97156 and 97157 are still \u201cBy Report\u201d on the FFY26 ABA fee schedule, and 0362T/0373T have not been billable since July 1, 2023.' },
-      { q: 'What do the HM, HN, HO and HP rates mean on the AHCCCS ABA fee schedule?', a: 'They are the education level of the person who delivered the service. AHCCCS\u2019s Modifier List defines HM as \u201cLess than bachelor degree level,\u201d HN \u201cBachelors degree level,\u201d HO \u201cMasters degree level\u201d and HP \u201cDoctoral level.\u201d So 97153 pays $17.91 per 15 minutes when the person delivering it is below bachelor\u2019s level and $21.32 at bachelor\u2019s level ($23.69 at master\u2019s or doctoral level; $19.96 / $23.79 / $26.43 in the home, POS 12). AHCCCS defines the tiers by degree, not by RBT/BCaBA/BCBA credential, and publishes no crosswalk, so ask the health plan which tier a bachelor\u2019s-level technician bills. Other modifiers on ABA lines: TJ (\u201cProgram group, child and/or adolescent\u201d) carries its own 97154 rate of $14.93, and GT (\u201cVia interactive audio and video telecommunication systems\u201d) marks telehealth. These are fee-for-service rates; the health plans negotiate their own.' },
+      { q: 'What does AHCCCS pay for ABA?', a: 'Fixed rates since 11/1/2023, tiered by the rendering person\'s degree level (HM below bachelor\'s, HN bachelor\'s, HO master\'s, HP doctoral): 97153 pays $17.91 (HM) / $21.32 (HN) / $23.69 (HO/HP) per 15-minute unit, with home delivery about 10% higher. The codes live on the physician fee schedule, not the behavioral-health outpatient one. From October 1, 2026 (FFY27 schedule) 97156 and 97157 have fixed rates for the first time \u2014 97156 pays $23.97 / $28.53 / $35.67 per unit at HN/HO/HP \u2014 after years as \u201cBy Report\u201d; 0362T/0373T have not been billable since July 1, 2023.' },
+      { q: 'What do the HM, HN, HO and HP rates mean on the AHCCCS ABA fee schedule?', a: 'They are the education level of the person who delivered the service. AHCCCS\u2019s Modifier List defines HM as \u201cLess than bachelor degree level,\u201d HN \u201cBachelors degree level,\u201d HO \u201cMasters degree level\u201d and HP \u201cDoctoral level.\u201d So 97153 pays $17.91 per 15 minutes when the person delivering it is below bachelor\u2019s level and $21.32 at bachelor\u2019s level ($23.69 at master\u2019s or doctoral level; $19.96 / $23.79 / $26.43 in the home, POS 12). AHCCCS defines the tiers by degree, not by RBT/BCaBA/BCBA credential, and publishes no crosswalk, so ask the health plan which tier a bachelor\u2019s-level technician bills. Other modifiers on ABA lines: TJ (\u201cProgram group, child and/or adolescent\u201d) carries its own 97154 rate ($16.95 from 10/1/2026; $14.93 before), and GT (\u201cVia interactive audio and video telecommunication systems\u201d) marks telehealth. These are fee-for-service rates; the health plans negotiate their own.' },
       { q: 'Which plans run AHCCCS ABA?', a: 'Six ACC plans — Arizona Complete Health, Banner-University Family Care, Blue Cross Blue Shield of Arizona Health Choice, Mercy Care, Molina, and UnitedHealthcare Community Plan — plus the two statewide DDD Health Plans (Mercy Care DD and UHCCP DD) for ALTCS-DD members. Prior-auth mechanics are plan-specific.' },
       { q: 'Can the ABA assessment or BCBA supervision be done by telehealth under AHCCCS?', a: 'Yes. AHCCCS\u2019s Telehealth Code Set lists 97151 through 97158 for interactive audio-video with the GT modifier, so the assessment (97151, 97152) and analyst direction of the technician (97155) can be remote. The place of service is where the member is (for example 12 home); AHCCCS does not use POS 02 or 10. Audio-only (FQ) is not listed for these codes.' },
       { q: 'Is ABA payable in school under AHCCCS?', a: 'The Behavioral Health Services Matrix lists POS 03 (school) as a valid place of service for 97151 through 97158. AMPM 320-S requires the treatment plan to name the settings but sets no school-specific restriction; ask the member\u2019s health plan how it handles school-based delivery alongside an IEP.' },
       { q: 'Do AHCCCS health plans pay the AHCCCS fee-for-service ABA rates?', a: 'Not necessarily. AHCCCS says its fixed ABA rates apply only to fee-for-service programs (AIHP, Tribal ALTCS, DDD Tribal Health Program), and “MCOs and providers may negotiate any contracted rate that is agreed to by both parties.” For a plan member, the rate is in your plan contract.' },
+      { q: 'What is the AHCCCS rate for 97151?', a: 'On the fee-for-service schedule effective October 1, 2026 (FFY27), 97151 pays per 15-minute unit $30.06 at bachelor\u2019s level (HN, or no tier modifier), $35.78 at master\u2019s level (HO) and $44.73 at doctoral level (HP); in the home (POS 12) it pays $33.27 / $39.60 / $49.50. There is no HM (below bachelor\u2019s) rate for 97151. These dollars are unchanged since November 1, 2023, and they bind only fee-for-service members (AIHP, tribal programs); an ACC or DDD plan pays its contracted rate.' },
+      { q: 'Is there a minimum an AHCCCS health plan must pay for ABA, or a set percentage of the FFS rate?', a: 'Not in anything AHCCCS publishes. Its ABA rate-setting FAQ says plans and providers \u201cmay negotiate any contracted rate that is agreed to by both parties,\u201d and A.R.S. \u00a7 36-2904(K) lets a plan pay \u201caccording to the capped fee-for-service schedule \u2026 or at lower rates as may be negotiated\u201d \u2014 a ceiling, not a floor. The only directed payment AHCCCS makes plans pass through, the Differential Adjusted Payment, does not list the BCBA (BC) or ABA-organization (AB) provider types for CYE 2027. Whether a plan\u2019s offer is close to the FFS rate is therefore per contract: ask each plan for its rate (or its percentage of the AHCCCS FFS schedule) in writing.' },
       { q: 'Can an out-of-state BCBA treat AHCCCS members in Arizona, including by telehealth?', a: 'Arizona requires a license (A.R.S. § 32-2091.02) but lets an out-of-state provider deliver telehealth after registering under A.R.S. § 36-3606. AHCCCS defines a Behavior Analyst as one licensed under A.R.S. § 32-2091, so plan on an Arizona license for Medicaid work.' },
       { q: 'Can AHCCCS ABA be authorized retroactively?', a: 'For fee-for-service members, AHCCCS’s FFS manual (Chapter 8) says no PA is required for “Services provided prior to the posting of the member’s retroactive eligibility.” Health plan members follow their plan’s retrospective-review rules, which differ by plan (see each plan guide).' },
       { q: 'What is AHCCCS’s timely filing limit for ABA claims?', a: 'Six months from the date of service (or from the date eligibility is posted, if later) for the first submission, and twelve months to get the claim to clean-claim status. A.R.S. § 36-2904(G) applies the same limits to AHCCCS fee-for-service and to its contracted health plans.' },
@@ -502,6 +511,8 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'Prior provider + active auths', desc: 'Ex-Action Behavior Centers / Centria families may arrive mid-authorization — get the history.' },
     ],
     sources: [
+      { title: 'AHCCCS — Final Applied Behavior Analysis (ABA) Fee Schedule, FFY27 (eff. 10/01/2026; last updated 6/22/2026)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA/FY27_ABA_WebsiteRates.xlsx' },
+      { title: 'AHCCCS — CYE 2027 Differential Adjusted Payments, Final Public Notice (DOS 10/1/2026–9/30/2027)', url: 'https://www.azahcccs.gov/AHCCCS/Downloads/PublicNotices/CYE_2027_Final_DAP_Notice.pdf' },
       { title: 'AHCCCS Behavioral Health Services Matrix (B2Matrix, October 2026 sheet)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/B2Matrix.xlsx' },
       { title: 'CMS — NCCI for Medicaid (methodologies required for Medicaid fee-for-service; optional for MCOs)', url: 'https://www.cms.gov/medicare/coding-billing/ncci-medicaid' },
       { title: 'CMS — Medicaid NCCI Edit Files (practitioner MUE table effective 10/1/2026)', url: 'https://www.cms.gov/medicare/coding-billing/ncci-medicaid/medicaid-ncci-edit-files' },
@@ -694,7 +705,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { q: 'Does Mercy Care cover ABA therapy?', a: 'Yes — on AMPM 320-S criteria (the plan links the state policy directly). Assessment codes 97151/97152 need no PA; treatment codes 97153–97158 require PA on the plan\'s ABA form, in 6-month authorization periods.' },
       { q: 'Is Mercy Care the same as Aetna?', a: 'Mercy Care is administered by Aetna Medicaid Administrators LLC, so the machinery is Aetna\'s — but it\'s a Medicaid plan on AHCCCS rules, not Aetna\'s commercial CPB 0554 policy. A family saying "we have Aetna" in Phoenix may well be a Mercy Care member.' },
       { q: 'How long do Mercy Care ABA authorizations last?', a: 'Six months, matching the state\'s 6-month progress-report cadence — build reauthorization requests from the AMPM 320-S progress report.' },
-      { q: 'What is Mercy Care\u2019s fee schedule for ABA?', a: 'There is no public plan fee schedule. AHCCCS says its fixed ABA rates (effective November 1, 2023) apply only to fee-for-service programs and have “no impact on the contracts that AHCCCS health plans negotiate with their providers”: “MCOs and providers may negotiate any contracted rate that is agreed to by both parties.” Your rate is in your contract with Mercy Care; the AHCCCS fee-for-service schedule does not bind the plan.' },
+      { q: 'What is Mercy Care\u2019s fee schedule for ABA?', a: 'There is no public plan fee schedule. AHCCCS says its fixed ABA rates (effective November 1, 2023) apply only to fee-for-service programs and have “no impact on the contracts that AHCCCS health plans negotiate with their providers”: “MCOs and providers may negotiate any contracted rate that is agreed to by both parties.” Your rate is in your contract with Mercy Care; the AHCCCS fee-for-service schedule does not bind the plan. AHCCCS publishes no minimum a plan must pay for ABA: A.R.S. \u00a7 36-2904(K) lets a plan pay \u201caccording to the capped fee-for-service schedule \u2026 or at lower rates as may be negotiated by the contractor\u201d (a ceiling, not a floor), and the CYE 2027 Differential Adjusted Payment that plans must pass through does not list the BCBA (BC) or ABA-organization (AB) provider types. From October 1, 2026 the FFS schedule (FFY27) also prices 97156 and 97157 for the first time \u2014 a benchmark to cite when you negotiate, not a rate the plan owes.' },
       { q: 'Can an out-of-state BCBA treat Mercy Care members in Arizona, including by telehealth?', a: 'Arizona requires a license (A.R.S. § 32-2091.02) but lets an out-of-state provider deliver telehealth after registering under A.R.S. § 36-3606. AHCCCS defines a Behavior Analyst as one licensed under A.R.S. § 32-2091, so plan on an Arizona license for Medicaid work.' },
       { q: 'What is Mercy Care’s timely filing limit for AHCCCS ABA claims?', a: 'Six months from the date of service (or from the date eligibility is posted, if later), and twelve months to reach clean-claim status. A.R.S. § 36-2904(G) sets those limits for every AHCCCS contracted health plan, Mercy Care included; the plan’s payment terms are in its contract and provider manual.' },
       { q: 'What do the HM, HN, HO and HP modifiers mean on an Arizona Medicaid ABA claim?', a: 'They mark the education level of whoever delivered the service, as AHCCCS defines them: HM less than bachelor’s degree, HN bachelor’s, HO master’s, HP doctoral. On the AHCCCS fee-for-service schedule they price 97153 at $17.91, $21.32, $23.69 and $23.69 per 15 minutes; the plan pays its contracted rate. AHCCCS does not map them to RBT/BCaBA/BCBA, so confirm the tier for a bachelor’s-level technician with the plan.' },
@@ -827,6 +838,8 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'AHCCCS registration status', desc: 'Agency as provider type 77, BCBA individually registered, rendering NPI for box 24J — verify before the first claim.' },
     ],
     sources: [
+      { title: 'AHCCCS — Final Applied Behavior Analysis (ABA) Fee Schedule, FFY27 (eff. 10/01/2026; last updated 6/22/2026)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA/FY27_ABA_WebsiteRates.xlsx' },
+      { title: 'AHCCCS — CYE 2027 Differential Adjusted Payments, Final Public Notice (DOS 10/1/2026–9/30/2027)', url: 'https://www.azahcccs.gov/AHCCCS/Downloads/PublicNotices/CYE_2027_Final_DAP_Notice.pdf' },
       { title: 'CMS — Medicaid NCCI Edit Files (practitioner MUE table effective 10/1/2026)', url: 'https://www.cms.gov/medicare/coding-billing/ncci-medicaid/medicaid-ncci-edit-files' },
       { title: 'AHCCCS Telehealth Code Set (guidelines eff. 01/01/2026; code sheet eff. 06/01/2026)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/TelehealthCodeSet.xlsx' },
       { title: 'AMPM 320-I — Telehealth (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320-I.pdf' },
@@ -990,7 +1003,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { q: 'Does UnitedHealthcare Community Plan of Arizona cover ABA?', a: 'Yes — through Optum\'s AZ AHCCCS ABA Program. Assessment codes 97151/97152 need no PA; all other ABA codes require authorization via Provider Express or fax, with a detailed treatment-request documentation list.' },
       { q: 'Does UHC require an autism diagnosis for AHCCCS ABA?', a: 'No — Optum\'s Arizona orientation states verbatim that an ASD diagnosis is not required for ABA services for Arizona Medicaid members. Medical necessity, supported by assessment, governs.' },
       { q: 'How do I submit an ABA authorization to UHC in Arizona?', a: 'The online ABA Treatment Form on providerexpress.com, or fax 1-888-541-6691. Claims go separately through UHCprovider.com (payer ID 03432) within 90 days of the date of service.' },
-      { q: 'What is UnitedHealthcare Community Plan\u2019s fee schedule for ABA?', a: 'There is no public plan fee schedule. AHCCCS says its fixed ABA rates (effective November 1, 2023) apply only to fee-for-service programs and have “no impact on the contracts that AHCCCS health plans negotiate with their providers”: “MCOs and providers may negotiate any contracted rate that is agreed to by both parties.” Your rate is in your contract with UnitedHealthcare Community Plan; the AHCCCS fee-for-service schedule does not bind the plan.' },
+      { q: 'What is UnitedHealthcare Community Plan\u2019s fee schedule for ABA?', a: 'There is no public plan fee schedule. AHCCCS says its fixed ABA rates (effective November 1, 2023) apply only to fee-for-service programs and have “no impact on the contracts that AHCCCS health plans negotiate with their providers”: “MCOs and providers may negotiate any contracted rate that is agreed to by both parties.” Your rate is in your contract with UnitedHealthcare Community Plan; the AHCCCS fee-for-service schedule does not bind the plan. AHCCCS publishes no minimum a plan must pay for ABA: A.R.S. \u00a7 36-2904(K) lets a plan pay \u201caccording to the capped fee-for-service schedule \u2026 or at lower rates as may be negotiated by the contractor\u201d (a ceiling, not a floor), and the CYE 2027 Differential Adjusted Payment that plans must pass through does not list the BCBA (BC) or ABA-organization (AB) provider types. From October 1, 2026 the FFS schedule (FFY27) also prices 97156 and 97157 for the first time \u2014 a benchmark to cite when you negotiate, not a rate the plan owes.' },
       { q: 'Can an out-of-state BCBA treat UnitedHealthcare Community Plan members in Arizona, including by telehealth?', a: 'Arizona requires a license (A.R.S. § 32-2091.02) but lets an out-of-state provider deliver telehealth after registering under A.R.S. § 36-3606. AHCCCS defines a Behavior Analyst as one licensed under A.R.S. § 32-2091, so plan on an Arizona license for Medicaid work.' },
       { q: 'Can UnitedHealthcare Community Plan of Arizona authorize ABA retroactively?', a: 'Plan on no. UHC does not approve retroactive authorizations for therapy services (it names PT, OT and speech); ask whether it applies that to ABA before treating without approval.' },
       { q: 'What is UnitedHealthcare Community Plan’s timely filing limit for AHCCCS ABA claims?', a: 'Six months from the date of service (or from the date eligibility is posted, if later), and twelve months to reach clean-claim status. A.R.S. § 36-2904(G) sets those outer limits for every AHCCCS plan, but UnitedHealthcare Community Plan’s Arizona manual requires network providers to submit within 90 days of the date of service (or your contract’s terms); non-participating providers get 180 days. Corrected claims are due within one year, secondary claims within 180 days of the date of service.' },
@@ -1134,6 +1147,8 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'Requested intensity vs. bands', desc: 'Fit requests to the 10–25 (focused) / 30–40 (comprehensive) hour bands, with supervision ratios in the plan.' },
     ],
     sources: [
+      { title: 'AHCCCS — Final Applied Behavior Analysis (ABA) Fee Schedule, FFY27 (eff. 10/01/2026; last updated 6/22/2026)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA/FY27_ABA_WebsiteRates.xlsx' },
+      { title: 'AHCCCS — CYE 2027 Differential Adjusted Payments, Final Public Notice (DOS 10/1/2026–9/30/2027)', url: 'https://www.azahcccs.gov/AHCCCS/Downloads/PublicNotices/CYE_2027_Final_DAP_Notice.pdf' },
       { title: 'CMS — Medicaid NCCI Edit Files (practitioner MUE table effective 10/1/2026)', url: 'https://www.cms.gov/medicare/coding-billing/ncci-medicaid/medicaid-ncci-edit-files' },
       { title: 'AHCCCS Telehealth Code Set (guidelines eff. 01/01/2026; code sheet eff. 06/01/2026)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/TelehealthCodeSet.xlsx' },
       { title: 'AMPM 320-I — Telehealth (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320-I.pdf' },
@@ -1296,7 +1311,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { q: 'Does Arizona Complete Health require an autism diagnosis?', a: 'CP.BH.104 asks for a confirmed ASD diagnosis, but its own text defers to "state-defined ABA criteria" — and Arizona\'s AMPM 320-S covers other diagnoses justified by medical necessity. For non-ASD cases, cite AMPM 320-S in the request.' },
       { q: 'Does Arizona Complete Health cap ABA hours?', a: 'No hard caps — CP.BH.104 uses guideline bands: 10–25 hours/week for focused ABA, 30–40 for comprehensive, with supervision at 1–2 hours per 10 direct hours.' },
       { q: 'What happened to Care1st?', a: 'Care1st no longer exists as a separate ACC plan — it merged into Arizona Complete Health, with northern-county members transitioned in 2024. Any "Care1st" card or listing is stale.' },
-      { q: 'What is Arizona Complete Health\u2019s fee schedule for ABA?', a: 'There is no public plan fee schedule. AHCCCS says its fixed ABA rates (effective November 1, 2023) apply only to fee-for-service programs and have “no impact on the contracts that AHCCCS health plans negotiate with their providers”: “MCOs and providers may negotiate any contracted rate that is agreed to by both parties.” Your rate is in your contract with Arizona Complete Health; the AHCCCS fee-for-service schedule does not bind the plan.' },
+      { q: 'What is Arizona Complete Health\u2019s fee schedule for ABA?', a: 'There is no public plan fee schedule. AHCCCS says its fixed ABA rates (effective November 1, 2023) apply only to fee-for-service programs and have “no impact on the contracts that AHCCCS health plans negotiate with their providers”: “MCOs and providers may negotiate any contracted rate that is agreed to by both parties.” Your rate is in your contract with Arizona Complete Health; the AHCCCS fee-for-service schedule does not bind the plan. AHCCCS publishes no minimum a plan must pay for ABA: A.R.S. \u00a7 36-2904(K) lets a plan pay \u201caccording to the capped fee-for-service schedule \u2026 or at lower rates as may be negotiated by the contractor\u201d (a ceiling, not a floor), and the CYE 2027 Differential Adjusted Payment that plans must pass through does not list the BCBA (BC) or ABA-organization (AB) provider types. From October 1, 2026 the FFS schedule (FFY27) also prices 97156 and 97157 for the first time \u2014 a benchmark to cite when you negotiate, not a rate the plan owes.' },
       { q: 'Can an out-of-state BCBA treat Arizona Complete Health members in Arizona, including by telehealth?', a: 'Arizona requires a license (A.R.S. § 32-2091.02) but lets an out-of-state provider deliver telehealth after registering under A.R.S. § 36-3606. AHCCCS defines a Behavior Analyst as one licensed under A.R.S. § 32-2091, so plan on an Arizona license for Medicaid work.' },
       { q: 'Can Arizona Complete Health authorize ABA retroactively?', a: 'Only in its listed cases; for outpatient care, when the request comes after treatment started but before the course is finished and completing it is needed for continuity of care.' },
       { q: 'What is Arizona Complete Health’s timely filing limit for AHCCCS ABA claims?', a: 'Six months from the date of service (or from the date eligibility is posted, if later), and twelve months to reach clean-claim status. A.R.S. § 36-2904(G) sets those outer limits for every AHCCCS plan, but AzCH’s Medicaid manual requires the claim to be accepted as clean within 120 days of the date of service unless your contract says otherwise. Resubmissions are due within 365 days; with other primary insurance, 120 days from the date of service or from the primary EOP, whichever is later.' },
@@ -1440,6 +1455,8 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'County + plan line', desc: 'ACC vs. ALTCS membership — Banner holds both, on different rules.' },
     ],
     sources: [
+      { title: 'AHCCCS — Final Applied Behavior Analysis (ABA) Fee Schedule, FFY27 (eff. 10/01/2026; last updated 6/22/2026)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA/FY27_ABA_WebsiteRates.xlsx' },
+      { title: 'AHCCCS — CYE 2027 Differential Adjusted Payments, Final Public Notice (DOS 10/1/2026–9/30/2027)', url: 'https://www.azahcccs.gov/AHCCCS/Downloads/PublicNotices/CYE_2027_Final_DAP_Notice.pdf' },
       { title: 'CMS — NCCI for Medicaid (methodologies required for Medicaid fee-for-service; optional for MCOs)', url: 'https://www.cms.gov/medicare/coding-billing/ncci-medicaid' },
       { title: 'CMS — Medicaid NCCI Edit Files (practitioner MUE table effective 10/1/2026)', url: 'https://www.cms.gov/medicare/coding-billing/ncci-medicaid/medicaid-ncci-edit-files' },
       { title: 'AHCCCS Telehealth Code Set (guidelines eff. 01/01/2026; code sheet eff. 06/01/2026)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/TelehealthCodeSet.xlsx' },
@@ -1627,7 +1644,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
     faq: [
       { q: 'Does Banner-University Family Care cover ABA?', a: 'Yes — as an AHCCCS ACC plan it covers Behavior Analysis Services under AMPM 320-S. 97155–97158 need PA on Banner’s ABA Prior Authorization Form (97153 and 97154 only out of network); the plan publishes no distinct clinical policy beyond the state baseline.' },
       { q: 'Does Banner require PA for the ABA assessment?', a: 'Not for in-network providers. Banner’s 2026 manual lists 97151 and 97152 for prior authorization “Non-Par only,” so an out-of-network provider needs PA for the assessment.' },
-      { q: 'What does Banner pay for ABA?', a: 'Not published. Benchmark against the AHCCCS physician fee schedule (97153 at $17.91–$23.69 per 15-minute unit by credential tier); your contract is the source of truth.' },
+      { q: 'What does Banner pay for ABA?', a: 'Not published. Benchmark against the AHCCCS fee-for-service ABA schedule (97153 at $17.91–$23.69 per 15-minute unit by degree tier); your contract is the source of truth. AHCCCS publishes no minimum a plan must pay for ABA: A.R.S. \u00a7 36-2904(K) lets a plan pay \u201caccording to the capped fee-for-service schedule \u2026 or at lower rates as may be negotiated by the contractor\u201d (a ceiling, not a floor), and the CYE 2027 Differential Adjusted Payment that plans must pass through does not list the BCBA (BC) or ABA-organization (AB) provider types. From October 1, 2026 the FFS schedule (FFY27) also prices 97156 and 97157 for the first time \u2014 a benchmark to cite when you negotiate, not a rate the plan owes.' },
       { q: 'Can an out-of-state BCBA treat Banner-University Family Care members in Arizona, including by telehealth?', a: 'Arizona requires a license (A.R.S. § 32-2091.02) but lets an out-of-state provider deliver telehealth after registering under A.R.S. § 36-3606. AHCCCS defines a Behavior Analyst as one licensed under A.R.S. § 32-2091, so plan on an Arizona license for Medicaid work.' },
       { q: 'Can Banner-University Family Care authorize ABA retroactively?', a: 'Only at its discretion for good cause: send the Retrospective Review Request Form with the claim, explaining why authorization was not obtained; decision within 30 days.' },
       { q: 'What is Banner–University Family Care’s timely filing limit for AHCCCS ABA claims?', a: '120 days from the date of service for contracted providers unless your contract says otherwise (six months for non-contracted providers), per Banner’s 2026 manual. Resubmissions must arrive within one year of the date of service, and secondary claims within 60 days of the primary payer’s remittance advice. A.R.S. § 36-2904(G) is the outer limit for every AHCCCS plan: six months to file, twelve to reach clean-claim status.' },
@@ -1770,6 +1787,8 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'Portal access', desc: 'providerportal.healthchoiceaz.com for submissions; PA phone and fax as fallback.' },
     ],
     sources: [
+      { title: 'AHCCCS — Final Applied Behavior Analysis (ABA) Fee Schedule, FFY27 (eff. 10/01/2026; last updated 6/22/2026)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA/FY27_ABA_WebsiteRates.xlsx' },
+      { title: 'AHCCCS — CYE 2027 Differential Adjusted Payments, Final Public Notice (DOS 10/1/2026–9/30/2027)', url: 'https://www.azahcccs.gov/AHCCCS/Downloads/PublicNotices/CYE_2027_Final_DAP_Notice.pdf' },
       { title: 'CMS — Medicaid NCCI Edit Files (practitioner MUE table effective 10/1/2026)', url: 'https://www.cms.gov/medicare/coding-billing/ncci-medicaid/medicaid-ncci-edit-files' },
       { title: 'AHCCCS Telehealth Code Set (guidelines eff. 01/01/2026; code sheet eff. 06/01/2026)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/TelehealthCodeSet.xlsx' },
       { title: 'AMPM 320-I — Telehealth (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320-I.pdf' },
@@ -1961,7 +1980,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { q: 'Does Blue Cross Blue Shield of Arizona Health Choice cover ABA?', a: 'Yes — as an AHCCCS ACC plan, on the AMPM 320-S baseline. It publishes no distinct ABA clinical policy; PA requirements live in its frequently-updated PA grids.' },
       { q: 'Does BCBSAZ Health Choice require PA for ABA codes?', a: 'Not published as a standing rule — check the current PA grid rows for 97151–97158 on healthchoiceaz.com, or call the PA line at 1-800-322-8670. Grids have revised at least seven times since early 2024.' },
       { q: 'Is Health Choice Arizona now Blue Cross Blue Shield of Arizona Health Choice?', a: 'Yes — AHCCCS\'s official health plan roster (revised 6/30/2026) lists it as "Blue Cross Blue Shield of Arizona Health Choice." It has been a BCBSAZ subsidiary since BCBSAZ acquired Steward Health Choice Arizona; the plan\'s AHCCCS contract, coverage, and mechanics are unchanged by the naming update.' },
-      { q: 'What is BCBSAZ Health Choice\u2019s fee schedule for ABA?', a: 'There is no public plan fee schedule. AHCCCS says its fixed ABA rates (effective November 1, 2023) apply only to fee-for-service programs and have “no impact on the contracts that AHCCCS health plans negotiate with their providers”: “MCOs and providers may negotiate any contracted rate that is agreed to by both parties.” Your rate is in your contract with BCBSAZ Health Choice; the AHCCCS fee-for-service schedule does not bind the plan.' },
+      { q: 'What is BCBSAZ Health Choice\u2019s fee schedule for ABA?', a: 'There is no public plan fee schedule. AHCCCS says its fixed ABA rates (effective November 1, 2023) apply only to fee-for-service programs and have “no impact on the contracts that AHCCCS health plans negotiate with their providers”: “MCOs and providers may negotiate any contracted rate that is agreed to by both parties.” Your rate is in your contract with BCBSAZ Health Choice; the AHCCCS fee-for-service schedule does not bind the plan. AHCCCS publishes no minimum a plan must pay for ABA: A.R.S. \u00a7 36-2904(K) lets a plan pay \u201caccording to the capped fee-for-service schedule \u2026 or at lower rates as may be negotiated by the contractor\u201d (a ceiling, not a floor), and the CYE 2027 Differential Adjusted Payment that plans must pass through does not list the BCBA (BC) or ABA-organization (AB) provider types. From October 1, 2026 the FFS schedule (FFY27) also prices 97156 and 97157 for the first time \u2014 a benchmark to cite when you negotiate, not a rate the plan owes.' },
       { q: 'Can an out-of-state BCBA treat Health Choice members in Arizona, including by telehealth?', a: 'Arizona requires a license (A.R.S. § 32-2091.02) but lets an out-of-state provider deliver telehealth after registering under A.R.S. § 36-3606. AHCCCS defines a Behavior Analyst as one licensed under A.R.S. § 32-2091, so plan on an Arizona license for Medicaid work.' },
       { q: 'What is Health Choice Arizona’s timely filing limit for AHCCCS ABA claims?', a: 'Six months from the date of service (or from the date eligibility is posted, if later), and twelve months to reach clean-claim status. A.R.S. § 36-2904(G) sets those limits for every AHCCCS contracted health plan, and Health Choice’s own manual states the same six and twelve months. Corrected claims go back whole with resubmission code A or 7 and the original CRN.' },
       { q: 'How fast does Health Choice Arizona pay a clean ABA claim?', a: 'Health Choice follows AHCCCS ACOM 203: 95% of clean claims adjudicated within 30 days and 99% within 60 unless your contract says otherwise, with interest on non-hospital clean claims paid after 45 days. No weekly cutoff or check-run day is published.' },
@@ -2086,6 +2105,8 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'Availity access', desc: 'Molina encourages Availity Essentials — have the workflow ready rather than defaulting to fax.' },
     ],
     sources: [
+      { title: 'AHCCCS — Final Applied Behavior Analysis (ABA) Fee Schedule, FFY27 (eff. 10/01/2026; last updated 6/22/2026)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA/FY27_ABA_WebsiteRates.xlsx' },
+      { title: 'AHCCCS — CYE 2027 Differential Adjusted Payments, Final Public Notice (DOS 10/1/2026–9/30/2027)', url: 'https://www.azahcccs.gov/AHCCCS/Downloads/PublicNotices/CYE_2027_Final_DAP_Notice.pdf' },
       { title: 'AHCCCS Behavioral Health Services Matrix (B2Matrix, October 2026 sheet)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/B2Matrix.xlsx' },
       { title: 'CMS — NCCI for Medicaid (methodologies required for Medicaid fee-for-service; optional for MCOs)', url: 'https://www.cms.gov/medicare/coding-billing/ncci-medicaid' },
       { title: 'CMS — Medicaid NCCI Edit Files (practitioner MUE table effective 10/1/2026)', url: 'https://www.cms.gov/medicare/coding-billing/ncci-medicaid/medicaid-ncci-edit-files' },
@@ -2274,6 +2295,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'What is Molina\u2019s fee schedule for ABA in Arizona?', a: 'There is no public plan fee schedule. AHCCCS says its fixed ABA rates apply only to fee-for-service programs and have \u201cno impact on the contracts that AHCCCS health plans negotiate with their providers\u201d: \u201cMCOs and providers may negotiate any contracted rate that is agreed to by both parties.\u201d Your rate is in your contract with Molina; the AHCCCS fee-for-service schedule does not bind the plan. AHCCCS publishes no minimum a plan must pay for ABA: A.R.S. \u00a7 36-2904(K) lets a plan pay \u201caccording to the capped fee-for-service schedule \u2026 or at lower rates as may be negotiated by the contractor\u201d (a ceiling, not a floor), and the CYE 2027 Differential Adjusted Payment that plans must pass through does not list the BCBA (BC) or ABA-organization (AB) provider types. From October 1, 2026 the FFS schedule (FFY27) also prices 97156 and 97157 for the first time \u2014 a benchmark to cite when you negotiate, not a rate the plan owes.' },
       { q: 'Does Molina Healthcare of Arizona cover ABA?', a: 'Yes — as an AHCCCS ACC plan on the AMPM 320-S baseline. Molina publishes no distinct ABA clinical policy; PA mechanics run through its Prior Auth and Pre-Service Review Guide and Availity Essentials.' },
       { q: 'Does Molina require PA for ABA in Arizona?', a: 'Yes for treatment: Molina’s Prior Auth and Pre-Service Review Guide lists ABA for autism among the services that need prior authorization. Code-level rules, including whether the 97151/97152 assessment needs PA, are in Molina’s PA lookup tool; or call Healthcare Services at (844) 782-2678 before booking.' },
       { q: 'Where does Molina operate in Arizona?', a: 'Three counties: Maricopa, Gila, and Pinal — the smallest ACC footprint, centered on Phoenix metro.' },
@@ -2413,6 +2435,8 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'Other DDD services in place', desc: 'Habilitation and respite hours shape the realistic ABA schedule.' },
     ],
     sources: [
+      { title: 'AHCCCS — Final Applied Behavior Analysis (ABA) Fee Schedule, FFY27 (eff. 10/01/2026; last updated 6/22/2026)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA/FY27_ABA_WebsiteRates.xlsx' },
+      { title: 'AHCCCS — CYE 2027 Differential Adjusted Payments, Final Public Notice (DOS 10/1/2026–9/30/2027)', url: 'https://www.azahcccs.gov/AHCCCS/Downloads/PublicNotices/CYE_2027_Final_DAP_Notice.pdf' },
       { title: 'A.R.S. § 36-2904 — AHCCCS contracts; claim submission time limits (subsection G)', url: 'https://www.azleg.gov/ars/36/02904.htm' },
       { title: 'UnitedHealthcare Community Plan of Arizona — Care Provider Manual, 2027 edition (posted 10/13/2026; ACC, ALTCS EPD, DDD)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/AZ-Provider-Manual.pdf' },
       { title: 'AHCCCS Behavioral Health Services Matrix (B2Matrix, October 2026 sheet)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/B2Matrix.xlsx' },
@@ -2603,10 +2627,250 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { q: 'How do DDD members get ABA in Arizona?', a: 'Through their chosen DDD Health Plan — Mercy Care DD or UHCCP DD, both statewide — on the same AMPM 320-S clinical rules and the same plan-level ABA PA machinery as those plans\' ACC lines.' },
       { q: 'Can a child get ABA through an ACC plan instead of DDD?', a: 'Yes — children under 21 can get ABA via their ACC plan under EPSDT even without DDD. If the child is ALTCS/DDD-eligible, the DDD path adds bundled services (habilitation, respite); over age 3, ALTCS approval is the gate.' },
       { q: 'Does county matter for DDD members?', a: 'No — both DDD Health Plans are statewide, unlike ACC plans, which are restricted to geographic service areas.' },
-      { q: 'What is the DDD Health Plans\u2019s fee schedule for ABA?', a: 'There is no public plan fee schedule. AHCCCS says its fixed ABA rates (effective November 1, 2023) apply only to fee-for-service programs and have “no impact on the contracts that AHCCCS health plans negotiate with their providers”: “MCOs and providers may negotiate any contracted rate that is agreed to by both parties.” Your rate is in your contract with the DDD Health Plans; the AHCCCS fee-for-service schedule does not bind the plan.' },
+      { q: 'What is the DDD Health Plans\u2019s fee schedule for ABA?', a: 'There is no public plan fee schedule. AHCCCS says its fixed ABA rates (effective November 1, 2023) apply only to fee-for-service programs and have “no impact on the contracts that AHCCCS health plans negotiate with their providers”: “MCOs and providers may negotiate any contracted rate that is agreed to by both parties.” Your rate is in your contract with the DDD Health Plans; the AHCCCS fee-for-service schedule does not bind the plan. AHCCCS publishes no minimum a plan must pay for ABA: A.R.S. \u00a7 36-2904(K) lets a plan pay \u201caccording to the capped fee-for-service schedule \u2026 or at lower rates as may be negotiated by the contractor\u201d (a ceiling, not a floor), and the CYE 2027 Differential Adjusted Payment that plans must pass through does not list the BCBA (BC) or ABA-organization (AB) provider types. From October 1, 2026 the FFS schedule (FFY27) also prices 97156 and 97157 for the first time \u2014 a benchmark to cite when you negotiate, not a rate the plan owes.' },
       { q: 'Can an out-of-state BCBA treat DDD members in Arizona, including by telehealth?', a: 'Arizona requires a license (A.R.S. § 32-2091.02) but lets an out-of-state provider deliver telehealth after registering under A.R.S. § 36-3606. AHCCCS defines a Behavior Analyst as one licensed under A.R.S. § 32-2091, so plan on an Arizona license for Medicaid work.' },
       { q: 'Does DDD require EVV for ABA?', a: 'Not as ABA. AMPM 540, which names DES/DDD among the programs it binds, limits EVV to personal care and home health services (attendant care, personal care, homemaker, habilitation, respite, in-home skilled nursing). DDD habilitation delivered in the home is a different matter — check AHCCCS’s provider-type, service-code and place-of-service list.' },
       { q: 'What do the HM, HN, HO and HP modifiers mean on an Arizona Medicaid ABA claim?', a: 'They mark the education level of whoever delivered the service, as AHCCCS defines them: HM less than bachelor’s degree, HN bachelor’s, HO master’s, HP doctoral. On the AHCCCS fee-for-service schedule they price 97153 at $17.91, $21.32, $23.69 and $23.69 per 15 minutes; the plan pays its contracted rate. AHCCCS does not map them to RBT/BCaBA/BCBA, so confirm the tier for a bachelor’s-level technician with the plan.' },
+    ],
+  },
+
+  'blue-cross-blue-shield-arizona': {
+    slug: 'blue-cross-blue-shield-arizona',
+    family: 'bcbs',
+    cardDesc: 'AZ Blue’s own ABA criteria O1203 (eff. 10/1/2026); no PA on 97151/97152 on the standard list, PA on 97153–97158; Steven’s Law layer.',
+    assessmentPA: {
+      value: 'Not on the standard list. AZ Blue’s Standard Prior Authorization Requirements Code List (updated 10/01/2026) lists 0362T, 0373T and 97153–97158 but not 97151 or 97152; the State of Arizona and Teamsters group lists are the same. FEP members differ: the FEP list includes 97151 and 97152. Some self-funded groups carry custom lists, so check the member in Availity or the prior authorization lookup',
+      status: 'verified',
+      cites: [
+        { title: 'AZ Blue — Prior Authorization Requirements Code Lists (xlsx; Standard list updated 10/01/2026)', url: 'https://edge.sitecorecloud.io/bluecross-6f8ea2ea/media/project/bcbs-az/azblue/data/media/files/providers/resources/code-lists/az-blue-prior-auth-code-lists.xlsx' },
+        { title: 'AZ Blue — Prior Authorization & Medical Policies (providers)', url: 'https://www.azblue.com/provider/resources/prior-authorization-and-medical-policies' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — 97153, 97154, 97155, 97156, 97157, 97158, 0362T and 0373T are on the Standard list (updated 10/01/2026) with AZ Blue as the PA administrator. Under criteria O1203 (effective 10/1/2026) authorization periods “range from 6 months to 1 year based on clinical presentation, symptom severity, and treatment needs,” and continuation needs an updated BCBA treatment plan and progress reports',
+      status: 'verified',
+      cites: [
+        { title: 'AZ Blue — Prior Authorization Requirements Code Lists (xlsx; Standard list updated 10/01/2026)', url: 'https://edge.sitecorecloud.io/bluecross-6f8ea2ea/media/project/bcbs-az/azblue/data/media/files/providers/resources/code-lists/az-blue-prior-auth-code-lists.xlsx' },
+        { title: 'AZ Blue Evidence-Based Criteria O1203 — Applied Behavior Analysis (ABA) (effective 10/01/26; last review 07/29/26)', url: 'https://edge.sitecorecloud.io/bluecross-6f8ea2ea/media/project/bcbs-az/medical-policies/clinical/medicine/applied-behavior-analysis.pdf' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes — a confirmed DSM ASD diagnosis made by a licensed psychiatrist, psychologist, developmental pediatrician, neurologist or family practitioner with specialized ASD training, validated by a comprehensive assessment and/or an evidence-based standardized ASD assessment, with the severity level in the report (O1203). ABA “for all other indications” is not medically necessary, and if a plan does not cover autism, ABA is a benefit-plan exclusion',
+      status: 'verified',
+      cites: [
+        { title: 'AZ Blue Evidence-Based Criteria O1203 — Applied Behavior Analysis (ABA) (effective 10/01/26; last review 07/29/26)', url: 'https://edge.sitecorecloud.io/bluecross-6f8ea2ea/media/project/bcbs-az/medical-policies/clinical/medicine/applied-behavior-analysis.pdf' },
+      ],
+    },
+    payer: 'Blue Cross Blue Shield of Arizona (AZ Blue, commercial)',
+    state: 'AZ', kind: 'commercial',
+    pill: 'Payer Guide · Blue Cross Blue Shield of Arizona',
+    h1: 'Blue Cross Blue Shield of Arizona (AZ Blue) ABA coverage: the intake guide.',
+    metaTitle: 'Blue Cross Blue Shield of Arizona ABA Coverage & Prior Auth Guide (Commercial) | Carelu',
+    metaDescription:
+      'How AZ Blue covers ABA for commercial members: its own Evidence-Based Criteria O1203 (effective 10/1/2026), which codes need prior authorization, supervision and caregiver-training minimums, 14-day Arizona PA decisions, and the Steven’s Law mandate.',
+    intro: [
+      'Blue Cross Blue Shield of Arizona — branded AZ Blue — is Arizona’s Blue plan for employer groups, individuals and federal employees. This guide covers its commercial plans. It is a different line from Blue Cross Blue Shield of Arizona Health Choice, the AHCCCS (Medicaid) plan, which has its own guide; and members with the IAZ prefix (ACA Health Choice network plans) are served by the Health Choice team.',
+      'AZ Blue now publishes its own Evidence-Based Criteria for ABA, O1203 “Applied Behavior Analysis (ABA),” with an original and current effective date of October 1, 2026. It sets diagnosis standards, a detailed treatment-plan checklist, intensity bands for comprehensive and focused ABA, a 1:10 supervision baseline and a two-hour monthly caregiver-training minimum. Prior authorization is code-driven: the standard list covers the treatment codes but not the 97151/97152 assessment.',
+    ],
+    atGlance: [
+      { label: 'Clinical criteria', value: 'AZ Blue Evidence-Based Criteria O1203 — ABA (effective 10/1/2026)' },
+      { label: 'Assessment PA', value: 'Not on the standard list (97151/97152); FEP requires it' },
+      { label: 'Treatment PA', value: 'Required — 97153–97158, 0362T, 0373T; authorizations 6–12 months' },
+      { label: 'PA decision clock', value: '14 days non-urgent / 5 days urgent after all information is received (A.R.S. § 20-3404)' },
+      { label: 'State mandate', value: 'Steven’s Law (A.R.S. § 20-826.04 for service corporations, with parallel sections for other insurers)' },
+      { label: 'Mandate caps', value: 'None in the current text — no dollar limits based solely on an autism diagnosis' },
+      { label: 'Mandate age', value: 'No age limit in the current text' },
+      { label: 'Exempt from mandate', value: 'Individual and small-employer contracts; limited benefit coverage; services outside Arizona' },
+      { label: 'Licensure', value: 'Arizona requires a behavior analyst license (A.R.S. § 32-2091.02)' },
+    ],
+    sections: [
+      {
+        h2: 'O1203: what AZ Blue requires to start ABA',
+        body: [
+          'AZ Blue’s criteria (O1203, original and current effective date 10/01/26, last review 07/29/26) open with a benefit check — “COVERAGE FOR APPLIED BEHAVIOR ANALYSIS DEPENDS ON BENEFIT PLAN TERMS” — and then require all of the following to start ABA. A confirmed DSM ASD diagnosis by a licensed psychiatrist, psychologist, developmental pediatrician, neurologist or family practitioner with specialized training in diagnosing ASD, validated by a documented comprehensive assessment and/or an evidence-based standardized ASD assessment, with the severity level stated in the diagnostic report. Clinically significant behavioral or skill deficits that interfere with home, community or age-appropriate activities, or a health or safety risk. And, for every new request, a formal treatment plan from the member’s BCBA or BCBA-D covering: proposed treatment type (comprehensive or focused), history and other therapies, baseline data, frequency, the total requested hours itemized by service code with individual and group services separated (direct treatment, supervision and caregiver training), anticipated duration, measurable goals based on a standardized assessment, data-collection methods, caregiver training with measurable goals, operationalized transition and discharge criteria, and group goals if group ABA is requested.',
+          'Intensity bands: comprehensive ABA is “generally provided at greater than 25 hours per week of direct treatment,” with up to 40 hours authorized when clinically justified; focused ABA is “generally provided at fewer than 25 hours per week,” with more allowed when justified (for example persistent high-risk behaviors). Requests above these levels must show coordination with other services and a plan for school, leisure time and rest. ABA must not duplicate other services, including support in an IEP or ISP or any obligation a public school has under IDEA. Authorization periods run 6 months to 1 year.',
+          'Continuation requires an updated BCBA treatment plan and progress reports at the end of each authorization with graphed data on behavior change, progress from baseline for each target, objective skill data, plan adjustments, revised timelines and — “If less than 80% of authorized treatment hours are delivered” — the barriers and how they were addressed. Caregivers must participate and show progress, and a barriers assessment is required when expected progress is not met. Step-down and discharge planning are written into the criteria, including discharge when a family prefers to stop or provider and family cannot align on treatment.',
+        ],
+        cites: [
+          { title: 'AZ Blue Evidence-Based Criteria O1203 — Applied Behavior Analysis (ABA) (effective 10/01/26; last review 07/29/26)', url: 'https://edge.sitecorecloud.io/bluecross-6f8ea2ea/media/project/bcbs-az/medical-policies/clinical/medicine/applied-behavior-analysis.pdf' },
+        ],
+      },
+      {
+        h2: 'Prior authorization: which codes, where, and how fast',
+        body: [
+          'AZ Blue publishes its prior authorization code lists as a spreadsheet. On the Standard list (updated 10/01/2026, “for coverage under medical benefits”), 97153, 97154, 97155, 97156, 97157, 97158, 0362T and 0373T require prior authorization administered by AZ Blue; 97151 and 97152 are not listed. The State of Arizona employee group list and the Teamsters list match on ABA. The FEP list adds 97151 and 97152, and at least one self-funded group’s custom list (Snell & Wilmer) has its own ABA rows, so check the member’s requirements in Availity Essentials or AZ Blue’s prior authorization lookup before booking. Requests go through Availity Essentials’ authorization feature or AZ Blue’s fax and online request forms.',
+          'Arizona law sets the clock for plans it governs. A.R.S. § 20-3404 requires notice of the decision “not later than fourteen days after receipt of all necessary information” for non-urgent requests and five days for urgent ones, plus a receipt acknowledging the information, and a denial must state the specific reason. A.R.S. § 20-3403 requires plans to publish all prior authorization requirements and the documentation needed for a complete request. On claims, A.R.S. § 20-3102 requires a clean claim to be adjudicated within thirty days (or the contract period) and paid within thirty days after adjudication, with interest if late.',
+        ],
+        cites: [
+          { title: 'AZ Blue — Prior Authorization Requirements Code Lists (xlsx; Standard list updated 10/01/2026)', url: 'https://edge.sitecorecloud.io/bluecross-6f8ea2ea/media/project/bcbs-az/azblue/data/media/files/providers/resources/code-lists/az-blue-prior-auth-code-lists.xlsx' },
+          { title: 'AZ Blue — Prior Authorization & Medical Policies (providers)', url: 'https://www.azblue.com/provider/resources/prior-authorization-and-medical-policies' },
+          { title: 'A.R.S. § 20-3404 — Prior authorization requirement timelines', url: 'https://www.azleg.gov/ars/20/03404.htm' },
+          { title: 'A.R.S. § 20-3403 — Prior authorization requirements; disclosures; access', url: 'https://www.azleg.gov/ars/20/03403.htm' },
+          { title: 'A.R.S. § 20-3102 — Timely payment of health care providers’ claims', url: 'https://www.azleg.gov/ars/20/03102.htm' },
+        ],
+      },
+      {
+        h2: 'Steven’s Law: what the Arizona mandate guarantees',
+        body: [
+          'A.R.S. § 20-826.04, the autism section for hospital and medical service corporations, bars excluding or denying coverage for a treatment, or imposing dollar limits, deductibles and coinsurance “based solely on the diagnosis of autism spectrum disorder” (treatment includes diagnosis, assessment and services), and bars excluding or denying “medically necessary behavioral therapy services,” which must be “provided or supervised by a licensed or certified provider.” Behavioral therapy is defined to include applied behavior analysis. The current text has no dollar cap and no age limit. It does not apply to a contract issued to an individual or a small employer, to limited benefit coverage, or to services outside Arizona, and coverage stays subject to the contract’s terms and ordinary cost sharing. Arizona also licenses behavior analysts: “A person who wishes to practice as a behavior analyst must be licensed” (A.R.S. § 32-2091.02).',
+        ],
+        cites: [
+          { title: 'A.R.S. § 20-826.04 — Subscription contracts; autism spectrum disorder; coverage', url: 'https://www.azleg.gov/ars/20/00826-04.htm' },
+          { title: 'A.R.S. § 32-2091.02 — Behavior analysts; qualifications of applicant', url: 'https://www.azleg.gov/ars/32/02091-02.htm' },
+        ],
+      },
+      {
+        h2: 'Rates and claims',
+        body: [
+          'AZ Blue publishes no commercial ABA fee schedule; rates are in your participating provider agreement. For a public benchmark, AHCCCS fee-for-service pays 97153 at $17.91–$23.69 and 97151 at $30.06–$44.73 per 15-minute unit by degree tier on its FFY27 schedule (effective 10/1/2026). Corrected claims go through Availity as frequency type 7 with the original claim number; a corrected rendering NPI uses AZ Blue’s corrected claim form with medical-record documentation of the rendering provider. AZ Blue’s Provider Operating Guide, which holds its filing limits and appeal rules, sits behind the provider login.',
+        ],
+        cites: [
+          { title: 'AZ Blue — Claims & Remits (providers)', url: 'https://www.azblue.com/provider/resources/claims-and-remits' },
+          { title: 'AHCCCS — Final Applied Behavior Analysis (ABA) Fee Schedule, FFY27 (eff. 10/01/2026)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA/FY27_ABA_WebsiteRates.xlsx' },
+        ],
+      },
+    ],
+    collect: [
+      { title: 'Plan line and prefix', desc: 'AZ Blue commercial, FEP, a self-funded group with a custom list, or IAZ (ACA Health Choice) — each has different PA rules.' },
+      { title: 'Group size and funding', desc: 'Steven’s Law does not reach individual or small-employer contracts.' },
+      { title: 'Diagnostic report', desc: 'From a qualified diagnostician, validated by a comprehensive or standardized assessment, with the severity level stated.' },
+      { title: 'IEP / ISP and other therapies', desc: 'O1203 bars ABA that duplicates school, speech, OT or other behavioral health services.' },
+      { title: 'Caregiver availability', desc: 'At least 2 hours a month of caregiver training is expected unless documented otherwise.' },
+    ],
+    sources: [
+      { title: 'AZ Blue Evidence-Based Criteria O1203 — Applied Behavior Analysis (ABA) (effective 10/01/26; last review 07/29/26)', url: 'https://edge.sitecorecloud.io/bluecross-6f8ea2ea/media/project/bcbs-az/medical-policies/clinical/medicine/applied-behavior-analysis.pdf' },
+      { title: 'AZ Blue — Prior Authorization Requirements Code Lists (xlsx; Standard list updated 10/01/2026)', url: 'https://edge.sitecorecloud.io/bluecross-6f8ea2ea/media/project/bcbs-az/azblue/data/media/files/providers/resources/code-lists/az-blue-prior-auth-code-lists.xlsx' },
+      { title: 'AZ Blue — Prior Authorization & Medical Policies (providers)', url: 'https://www.azblue.com/provider/resources/prior-authorization-and-medical-policies' },
+      { title: 'AZ Blue — Claims & Remits (providers)', url: 'https://www.azblue.com/provider/resources/claims-and-remits' },
+      { title: 'A.R.S. § 20-826.04 — Subscription contracts; autism spectrum disorder; coverage', url: 'https://www.azleg.gov/ars/20/00826-04.htm' },
+      { title: 'A.R.S. § 20-3404 — Prior authorization requirement timelines', url: 'https://www.azleg.gov/ars/20/03404.htm' },
+      { title: 'A.R.S. § 20-3403 — Prior authorization requirements; disclosures; access', url: 'https://www.azleg.gov/ars/20/03403.htm' },
+      { title: 'A.R.S. § 20-3102 — Timely payment of health care providers’ claims', url: 'https://www.azleg.gov/ars/20/03102.htm' },
+      { title: 'A.R.S. § 32-2091.02 — Behavior analysts; qualifications of applicant', url: 'https://www.azleg.gov/ars/32/02091-02.htm' },
+    ],
+    deliveryRules: {
+      supervision: {
+        value: 'O1203: “one to two hours of case supervision for every 10 hours of direct treatment delivered by unlicensed ABA staff (1:10 baseline) is the general standard of care,” adjusted to the member’s needs. BCBAs practice independently; BCaBAs practice and supervise RBTs only under a BCBA; RBTs work “under the direction and close supervision of a BCBA or BCaBA.” Caregiver training of at least 2 hours a month is required unless documentation shows it is not medically necessary or barriers are insurmountable.',
+        status: 'verified',
+        cites: [
+          { title: 'AZ Blue Evidence-Based Criteria O1203 — Applied Behavior Analysis (ABA) (effective 10/01/26; last review 07/29/26)', url: 'https://edge.sitecorecloud.io/bluecross-6f8ea2ea/media/project/bcbs-az/medical-policies/clinical/medicine/applied-behavior-analysis.pdf' },
+        ],
+      },
+      concurrentBilling: {
+        value: 'Not addressed. O1203 asks for hours itemized by service code with direct treatment, supervision and caregiver training separated, but says nothing about billing 97155 and 97153 for the same minutes.',
+        status: 'unverified',
+        cites: [
+          { title: 'AZ Blue Evidence-Based Criteria O1203 — Applied Behavior Analysis (ABA) (effective 10/01/26; last review 07/29/26)', url: 'https://edge.sitecorecloud.io/bluecross-6f8ea2ea/media/project/bcbs-az/medical-policies/clinical/medicine/applied-behavior-analysis.pdf' },
+        ],
+        verifyVia: 'AZ Blue Provider Operating Guide (login) or your provider liaison / Provider Partnerships. Checked this run: O1203 and the PA code lists.',
+        blocker: 'per-case',
+      },
+      dailyLimits: {
+        value: 'No per-day ceiling is published. O1203 sets weekly bands instead: comprehensive ABA generally above 25 hours a week of direct treatment, up to 40 when clinically justified; focused ABA generally below 25, more when justified. Steven’s Law bars dollar limits based solely on an autism diagnosis.',
+        status: 'verified',
+        cites: [
+          { title: 'AZ Blue Evidence-Based Criteria O1203 — Applied Behavior Analysis (ABA) (effective 10/01/26; last review 07/29/26)', url: 'https://edge.sitecorecloud.io/bluecross-6f8ea2ea/media/project/bcbs-az/medical-policies/clinical/medicine/applied-behavior-analysis.pdf' },
+          { title: 'A.R.S. § 20-826.04 — Subscription contracts; autism spectrum disorder; coverage', url: 'https://www.azleg.gov/ars/20/00826-04.htm' },
+        ],
+      },
+      noteSignature: {
+        value: 'Not published openly. O1203 sets treatment-plan and progress-report contents (authored by the BCBA or BCBA-D) but no session-note signature rule; AZ Blue’s documentation and billing rules are in its Provider Operating Guide, which requires a provider login.',
+        status: 'unverified',
+        cites: [
+          { title: 'AZ Blue Evidence-Based Criteria O1203 — Applied Behavior Analysis (ABA) (effective 10/01/26; last review 07/29/26)', url: 'https://edge.sitecorecloud.io/bluecross-6f8ea2ea/media/project/bcbs-az/medical-policies/clinical/medicine/applied-behavior-analysis.pdf' },
+        ],
+        verifyVia: 'AZ Blue Provider Operating Guide (azblue.com provider login) — medical record / documentation section.',
+        blocker: 'document',
+      },
+      placeOfService: {
+        value: '“ABA treatment may be delivered in a variety of settings” (O1203), but it must not duplicate services that support academic achievement in school, including IEP or ISP supports or any public-school obligation under IDEA. No list of payable POS codes is published.',
+        status: 'verified',
+        cites: [
+          { title: 'AZ Blue Evidence-Based Criteria O1203 — Applied Behavior Analysis (ABA) (effective 10/01/26; last review 07/29/26)', url: 'https://edge.sitecorecloud.io/bluecross-6f8ea2ea/media/project/bcbs-az/medical-policies/clinical/medicine/applied-behavior-analysis.pdf' },
+        ],
+      },
+      billAsProvider: {
+        value: 'Not published openly. O1203 says services may be rendered by RBTs or other trained paraprofessionals under the qualified provider’s supervision but not whose NPI goes on the claim; AZ Blue’s claims page only says a corrected rendering NPI needs medical-record documentation of the rendering provider.',
+        status: 'unverified',
+        cites: [
+          { title: 'AZ Blue — Claims & Remits (providers)', url: 'https://www.azblue.com/provider/resources/claims-and-remits' },
+        ],
+        verifyVia: 'AZ Blue Provider Operating Guide (login) or credentialing: ask whether RBT-delivered 97153 is billed under the supervising BCBA.',
+        blocker: 'document',
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value: 'None. O1203 sets no age bound (it describes autism as lifelong, with re-entry to treatment as needed), and the current text of A.R.S. § 20-826.04 has no age limit.',
+        status: 'verified',
+        cites: [
+          { title: 'AZ Blue Evidence-Based Criteria O1203 — Applied Behavior Analysis (ABA) (effective 10/01/26; last review 07/29/26)', url: 'https://edge.sitecorecloud.io/bluecross-6f8ea2ea/media/project/bcbs-az/medical-policies/clinical/medicine/applied-behavior-analysis.pdf' },
+          { title: 'A.R.S. § 20-826.04 — Subscription contracts; autism spectrum disorder; coverage', url: 'https://www.azleg.gov/ars/20/00826-04.htm' },
+        ],
+      },
+      dxRecency: {
+        value: 'No recency window. O1203 requires a confirmed, validated diagnosis with severity stated, but no maximum age for the evaluation; discharge is considered if the member “no longer meets diagnostic criteria” on standardized assessment.',
+        status: 'verified',
+        cites: [
+          { title: 'AZ Blue Evidence-Based Criteria O1203 — Applied Behavior Analysis (ABA) (effective 10/01/26; last review 07/29/26)', url: 'https://edge.sitecorecloud.io/bluecross-6f8ea2ea/media/project/bcbs-az/medical-policies/clinical/medicine/applied-behavior-analysis.pdf' },
+        ],
+      },
+      diagnosingProviders: {
+        value: '“Diagnosis of ASD is made by a licensed psychiatrist, psychologist, developmental pediatrician, neurologist, or family practitioner with specialized training in diagnosis of ASD” (O1203).',
+        status: 'verified',
+        cites: [
+          { title: 'AZ Blue Evidence-Based Criteria O1203 — Applied Behavior Analysis (ABA) (effective 10/01/26; last review 07/29/26)', url: 'https://edge.sitecorecloud.io/bluecross-6f8ea2ea/media/project/bcbs-az/medical-policies/clinical/medicine/applied-behavior-analysis.pdf' },
+        ],
+      },
+      diagnosticTools: {
+        value: 'No named instrument. The diagnosis “must be validated by a documented comprehensive assessment and/or results of an appropriate evidence-based autism spectrum disorder standardized assessment,” the report must identify the severity level, and treatment goals must rest on a standardized assessment with baseline data (functional behavioral, risk-behavior or age-normative skill assessments).',
+        status: 'verified',
+        cites: [
+          { title: 'AZ Blue Evidence-Based Criteria O1203 — Applied Behavior Analysis (ABA) (effective 10/01/26; last review 07/29/26)', url: 'https://edge.sitecorecloud.io/bluecross-6f8ea2ea/media/project/bcbs-az/medical-policies/clinical/medicine/applied-behavior-analysis.pdf' },
+        ],
+      },
+      referral: {
+        value: 'No physician order or referral is required by O1203 — the gate is the qualified diagnosis plus a formal treatment plan from the member’s BCBA or BCBA-D — and Steven’s Law adds none. Check the member’s plan for an HMO referral rule.',
+        status: 'verified',
+        cites: [
+          { title: 'AZ Blue Evidence-Based Criteria O1203 — Applied Behavior Analysis (ABA) (effective 10/01/26; last review 07/29/26)', url: 'https://edge.sitecorecloud.io/bluecross-6f8ea2ea/media/project/bcbs-az/medical-policies/clinical/medicine/applied-behavior-analysis.pdf' },
+          { title: 'A.R.S. § 20-826.04 — Subscription contracts; autism spectrum disorder; coverage', url: 'https://www.azleg.gov/ars/20/00826-04.htm' },
+        ],
+      },
+      telehealth: {
+        value: 'Not addressed in O1203 or the PA code lists; AZ Blue’s telehealth billing rules are in its login-only Provider Operating Guide.',
+        status: 'unverified',
+        cites: [
+          { title: 'AZ Blue Evidence-Based Criteria O1203 — Applied Behavior Analysis (ABA) (effective 10/01/26; last review 07/29/26)', url: 'https://edge.sitecorecloud.io/bluecross-6f8ea2ea/media/project/bcbs-az/medical-policies/clinical/medicine/applied-behavior-analysis.pdf' },
+        ],
+        verifyVia: 'AZ Blue Provider Operating Guide (login), telehealth section, or Provider Partnerships: which ABA codes are payable by telehealth and with what POS/modifier.',
+        blocker: 'document',
+      },
+      authTurnaround: {
+        value: 'For plans under Arizona law, A.R.S. § 20-3404: decision notice “not later than fourteen days after receipt of all necessary information” for non-urgent requests and five days for urgent ones, with a receipt acknowledging the information and a specific reason for any denial. O1203 authorizations run 6 months to 1 year.',
+        status: 'verified',
+        cites: [
+          { title: 'A.R.S. § 20-3404 — Prior authorization requirement timelines', url: 'https://www.azleg.gov/ars/20/03404.htm' },
+          { title: 'AZ Blue Evidence-Based Criteria O1203 — Applied Behavior Analysis (ABA) (effective 10/01/26; last review 07/29/26)', url: 'https://edge.sitecorecloud.io/bluecross-6f8ea2ea/media/project/bcbs-az/medical-policies/clinical/medicine/applied-behavior-analysis.pdf' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value: 'Not published openly — AZ Blue’s coordination-of-benefits rules sit in its login-only Provider Operating Guide. O1203 separately requires that ABA not duplicate services available through other providers or the school.',
+        status: 'unverified',
+        cites: [
+          { title: 'AZ Blue — Claims & Remits (providers)', url: 'https://www.azblue.com/provider/resources/claims-and-remits' },
+        ],
+        verifyVia: 'AZ Blue Provider Operating Guide (login), COB section, or AZ Blue provider services.',
+        blocker: 'document',
+      },
+    },
+    faq: [
+      { q: 'Does Blue Cross Blue Shield of Arizona require prior authorization for the ABA assessment?', a: 'Not on its standard commercial list: the Standard Prior Authorization Requirements Code List (updated 10/01/2026) lists 97153–97158, 0362T and 0373T but not 97151 or 97152. FEP members do need PA for 97151 and 97152, and some self-funded groups have custom lists, so check the member in Availity first.' },
+      { q: 'What does AZ Blue require to approve ABA?', a: 'Under criteria O1203 (effective 10/1/2026): a validated ASD diagnosis by a qualified diagnostician with the severity level stated, documented functional impairment or safety risk, and a formal BCBA treatment plan with itemized hours by code, measurable goals from a standardized assessment, caregiver training and discharge criteria.' },
+      { q: 'How many hours of ABA will AZ Blue authorize?', a: 'O1203 bands comprehensive ABA above 25 hours a week (up to 40 when justified) and focused ABA below 25 (more when justified). Authorizations run 6 months to 1 year.' },
+      { q: 'How fast must AZ Blue decide an ABA prior authorization?', a: 'For plans governed by Arizona law, within 14 days of receiving all necessary information (5 days if urgent), under A.R.S. § 20-3404.' },
+      { q: 'Is the AZ Blue commercial plan the same as Health Choice?', a: 'No. Blue Cross Blue Shield of Arizona Health Choice is the AHCCCS (Medicaid) plan and follows AHCCCS rules; see our Health Choice Arizona guide. IAZ-prefix ACA Health Choice network plans are also handled by the Health Choice team.' },
+      { q: 'What does AZ Blue pay for ABA?', a: 'Commercial rates are not published; they are in your provider agreement. AHCCCS’s FFS schedule (97153 $17.91–$23.69 per 15 minutes) is the public benchmark.' },
     ],
   },
 

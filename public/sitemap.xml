@@ -1165,6 +1165,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://carelu.com/payers/blue-cross-blue-shield-arizona</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://carelu.com/payers/molina-healthcare-arizona</loc>
     <lastmod>2026-07-20</lastmod>
     <changefreq>monthly</changefreq>
@@ -1549,6 +1555,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://carelu.com/payers/blue-cross-blue-shield-kansas</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://carelu.com/payers/new-york-medicaid</loc>
     <lastmod>2026-07-20</lastmod>
     <changefreq>monthly</changefreq>
@@ -1761,6 +1773,18 @@
   <url>
     <loc>https://carelu.com/payers/select-health-utah</loc>
     <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://carelu.com/payers/select-health-commercial-utah</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://carelu.com/payers/regence-bluecross-blueshield-utah</loc>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -1983,6 +2007,18 @@
   <url>
     <loc>https://carelu.com/payers/blue-cross-blue-shield-oklahoma</loc>
     <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://carelu.com/payers/blue-cross-blue-shield-texas</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://carelu.com/payers/blue-cross-blue-shield-new-mexico-commercial</loc>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -3597,6 +3633,12 @@
   <url>
     <loc>https://carelu.com/payers/asr-health-benefits</loc>
     <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://carelu.com/payers/umr</loc>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
