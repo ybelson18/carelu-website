@@ -2348,4 +2348,279 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { q: 'Does UnitedHealthcare require graphs for ABA reauthorization?', a: 'Optum’s criteria do not require graphs. They require updated progress for each target measured the same way as baseline: mastery rates, change scores, updated standardized adaptive measures and caregiver progress, plus an explanation and changed plan if progress lagged over six months.' },
     ],
   },
+  'blue-cross-blue-shield-kansas': {
+    slug: 'blue-cross-blue-shield-kansas',
+    family: 'bcbs',
+    cardDesc: 'Kansas’s Blue plan (all counties but Johnson and Wyandotte): ABA authorized by Lucet under policy 20.5.005, no concurrent ABA billing, K.S.A. 40-2,194 mandate.',
+    assessmentPA: {
+      value: 'Yes. BCBSKS lists "Applied Behavior Analysis (ABA) therapy services" among the medical services requiring prior authorization (assistance 877-563-9347), and Lucet, which reviews ABA for BCBSKS, runs a separate "ABA Pre-Treatment Assessment Request": the member must have a current-DSM ASD diagnosis from a qualified clinician, and "Hours requested are not more than is required to complete the pre-treatment assessment." Lucet’s manual says the authorization "must be in the name of the BCBA who will be performing the services (e.g., 97151 …)."',
+      status: 'verified',
+      cites: [
+        { title: 'BCBSKS — Prior authorization (medical services requiring prior authorization)', url: 'https://www.bcbsks.com/providers/precertification-prior-authorization' },
+        { title: 'Lucet medical policy 20.5.005 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (applies 1/1/2026–12/31/2026)', url: 'https://lucethealth.com/wp-content/uploads/2025/12/2026-Lucet-ABA-for-Treatment-of-ASD.pdf' },
+        { title: 'Lucet Managed Behavioral Health Provider & Facility Manual (July 2026) — ABA authorization; BCBSKS plan grid', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required. Lucet reviews an Initial ABA Treatment Authorization Request built from the Initial Treatment Plan form (on ProviderPortal.LucetHealth.com) plus the diagnostic evaluation, and later Continued ABA Treatment Authorization Requests showing benefit, new or continuing goals and an updated plan. For BCBSKS PPO, EPO and FEP members submit by fax 816-237-2372, phone 877-563-9347 or on WebPass. Treatment plans are "usually reviewed for medical necessity twice annually."',
+      status: 'verified',
+      cites: [
+        { title: 'BCBSKS Professional Provider Autism Manual (revision January 2026)', url: 'https://www.bcbsks.com/documents/professional-provider-autism-manual-2026' },
+        { title: 'Lucet medical policy 20.5.005 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (applies 1/1/2026–12/31/2026)', url: 'https://lucethealth.com/wp-content/uploads/2025/12/2026-Lucet-ABA-for-Treatment-of-ASD.pdf' },
+        { title: 'Lucet Managed Behavioral Health Provider & Facility Manual (July 2026) — ABA authorization; BCBSKS plan grid', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes — an ASD diagnosis "based on criteria used in the current DSM, from a clinician who is licensed and qualified to make such a diagnosis," documented with a clinical note deep enough to show concordance with DSM core symptoms. "Results of autism screening measures are not an autism diagnosis; a complete diagnostic evaluation must be completed, including an ASD-specific standardized assessment," and it must rule out conditions with similar presentations.',
+      status: 'verified',
+      cites: [
+        { title: 'Lucet medical policy 20.5.005 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (applies 1/1/2026–12/31/2026)', url: 'https://lucethealth.com/wp-content/uploads/2025/12/2026-Lucet-ABA-for-Treatment-of-ASD.pdf' },
+      ],
+    },
+    payer: 'Blue Cross and Blue Shield of Kansas',
+    state: 'KS', kind: 'commercial',
+    pill: 'Payer Guide · Blue Cross and Blue Shield of Kansas',
+    h1: 'Blue Cross and Blue Shield of Kansas ABA coverage: the intake guide.',
+    metaTitle: 'Blue Cross Blue Shield of Kansas ABA Coverage & Prior Auth Guide | Carelu',
+    metaDescription:
+      'How BCBSKS covers ABA: Lucet reviews the assessment and treatment under policy 20.5.005, the required diagnostic and baseline tests, no concurrent ABA billing, telehealth only for parent training and supervision, documentation and amendment rules, and the K.S.A. 40-2,194 autism mandate.',
+    intro: [
+      'Blue Cross and Blue Shield of Kansas is the Blue plan for Kansas; by its own description it "serves all counties in Kansas except Johnson and Wyandotte." For ABA it works through Lucet: BCBSKS says "Lucet’s medical policy is used to review and make benefit decisions for ABA service requests," and both the pre-treatment assessment and treatment need Lucet authorization. Its 2026 Autism manual adds the operating rules that decide claims: who can enroll, how many cases a BCBA should carry, no concurrent ABA billing, and telehealth limited to parent education and supervision.',
+    ],
+    atGlance: [
+      { label: 'Covers ABA?', value: 'Yes — for ASD, when Lucet’s medical necessity criteria (policy 20.5.005) are met and the member’s contract has the benefit' },
+      { label: 'Who reviews', value: 'Lucet — fax 816-237-2372, phone 877-563-9347 or WebPass; assessment and treatment both authorized' },
+      { label: 'State mandate', value: 'K.S.A. 40-2,194 (L. 2014, ch. 62; amended 2015 and by 2023 SB 24)' },
+      { label: 'Mandate age', value: 'Under 12 — large-group policies issued or renewed from 1/1/2015, grandfathered policies from 1/1/2016' },
+      { label: 'Mandate caps', value: '1,300 ABA hours/yr for 4 years if diagnosed between birth and age 5, otherwise 520 hours/yr under 12; exceedable with prior approval when medically necessary' },
+      { label: 'Mandate scope', value: 'Large employer = 51+ employees (2023 SB 24); small employers may get a waiver for a 2.5%+ premium increase' },
+      { label: 'Licensure', value: 'Kansas LBA / LaBA under K.S.A. 65-7503 since 7/1/2016 (BSRB)' },
+      { label: 'Telehealth', value: 'Parent education and direct supervision only, POS 02 or 10 with modifier GT, if the plan covers telehealth' },
+    ],
+    sections: [
+      {
+        h2: 'Authorization: Lucet runs both steps',
+        body: [
+          'BCBSKS puts "Applied Behavior Analysis (ABA) therapy services" on its list of medical services requiring prior authorization, with 877-563-9347 for assistance. Lucet’s plan grid for BCBSKS routes ABA authorization for PPO, EPO and FEP members to Lucet by fax 816-237-2372, phone 877-563-9347 or WebPass (it shows N/A for BCBSKS Medicare). Lucet’s policy 20.5.005 (in force 1/1/2026–12/31/2026) has three request types: a Pre-Treatment Assessment Request, an Initial ABA Treatment Authorization Request and a Continued ABA Treatment Authorization Request. The authorization "must be in the name of the BCBA who will be performing the services (e.g., 97151, 97155, 97156, 97157, 97158) or overseeing the technicians performing the services (e.g., 97152, 97153, 97154)."',
+          'Timing: Lucet asks for requests "at least two weeks prior to authorization expiration," says "Reviews of authorization requests may take up to 15 days," and uses an ABA Amended Request form for provider changes, more or fewer hours, a new service location or added codes. BCBSKS’s manual says treatment plans are "usually reviewed for medical necessity twice annually – frequency dependent upon the controlling state mandate"; on fully insured Kansas plans, K.S.A. 40-2,194 lets the insurer review the treatment plan "not more than once in a period of six consecutive months" unless the insurer and the treating physician or psychologist agree otherwise.',
+        ],
+        cites: [
+          { title: 'BCBSKS — Prior authorization (medical services requiring prior authorization)', url: 'https://www.bcbsks.com/providers/precertification-prior-authorization' },
+          { title: 'Lucet Managed Behavioral Health Provider & Facility Manual (July 2026) — ABA authorization; BCBSKS plan grid', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+          { title: 'Lucet medical policy 20.5.005 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (applies 1/1/2026–12/31/2026)', url: 'https://lucethealth.com/wp-content/uploads/2025/12/2026-Lucet-ABA-for-Treatment-of-ASD.pdf' },
+          { title: 'BCBSKS Professional Provider Autism Manual (revision January 2026)', url: 'https://www.bcbsks.com/documents/professional-provider-autism-manual-2026' },
+          { title: 'K.S.A. 40-2,194 — Health insurance coverage for autism spectrum disorder (Kansas Revisor of Statutes)', url: 'https://www.ksrevisor.gov/statutes/chapters/ch40/040_002_0194.html' },
+        ],
+      },
+      {
+        h2: 'What the diagnosis and baseline testing must include',
+        body: [
+          'The diagnosis must come from "a clinician who is licensed and qualified to make such a diagnosis. Such clinicians are usually neurologists, developmental pediatricians, pediatricians, psychiatrists, licensed clinical psychologists or medical doctors experienced in the diagnosis of ASD. State law may define eligible qualified clinicians." Screening results do not count. Lucet’s manual names the diagnostic instruments: one of the ADOS-2, the ADI-R or a DSM-5 Checklist "is required to meet the diagnostic criteria."',
+          'Treatment requests also need baseline data "completed no longer than five (5) years prior to or scheduled within ninety (90) days of the pre-treatment assessment": a developmental and cognitive evaluation, an autism-specific assessment of severity, an adaptive behavior assessment "completed within 6 months of start date of treatment," and a neurological evaluation as part of a physical exam. The manual lists the accepted adaptive tests (Vineland, ABAS, BASC, PDDBI) and cognitive tests (for example Bayley, Mullen, DAS, WPPSI, WISC) and treats VB-MAPP, ABLLS, PEAK, EFL and AFLS as optional curricular measures of progress.',
+        ],
+        cites: [
+          { title: 'Lucet medical policy 20.5.005 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (applies 1/1/2026–12/31/2026)', url: 'https://lucethealth.com/wp-content/uploads/2025/12/2026-Lucet-ABA-for-Treatment-of-ASD.pdf' },
+          { title: 'Lucet Managed Behavioral Health Provider & Facility Manual (July 2026) — Essential Components of ABA Treatment; assessment instruments', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+        ],
+      },
+      {
+        h2: 'Treatment intensity, caseloads and exclusions',
+        body: [
+          'BCBSKS classifies treatment two ways. Comprehensive ABA, "primarily directed to children ages three to eight years old," runs "from 25 to 40 total hours of direct services weekly" and requires caregiver training. Focused ABA "typically range[s] from 10 to 25 total hours of direct services per week." Authorized hours depend on Lucet’s policy, the treatment plan, the member’s age, symptom severity and developmental functioning. Recommended BCBA caseloads: focused treatment 10–15 without an IIS/BCaBA (16–24 with one); comprehensive treatment 6–12 without (12–16 with).',
+          'Excluded: services that duplicate school academics, respite, shadow, paraprofessional or companion services "in any setting," custodial care, ABA in residential facilities that replaces the facility’s own program, programs in "nonconventional settings" such as camps or resorts, and a long list of non-ABA therapies. "Services provided by tutors, special education teachers and paraprofessionals are not eligible under the Autism benefit."',
+        ],
+        cites: [
+          { title: 'BCBSKS Professional Provider Autism Manual (revision January 2026)', url: 'https://www.bcbsks.com/documents/professional-provider-autism-manual-2026' },
+        ],
+      },
+      {
+        h2: 'Billing: no concurrent ABA, own NPI, 15-month filing',
+        body: [
+          'BCBSKS’s Autism manual: "BCBSKS does not allow billing of ABA services concurrently. Only one provider will be reimbursed for overlapping session times." All ABA codes are billed in 15-minute units, and "Session times on claims are recommended to reduce duplicate claim denials." Contracting providers bill "under their own billing National Provider Identifier (NPI) or specific rendering provider number," and Policy Memo No. 1 adds that "BCBSKS does not recognize incident-to billing" and that the ordering provider’s name and NPI must appear on the claim "when applicable."',
+          'Policy Memo No. 1 (January 2026): "Claims must be filed within 15 months of the service date," or they are rejected with members held harmless. Only claims denied as not medically necessary can be appealed on the provider’s own behalf: a first-level written appeal within 60 days of the retrospective review determination, a second level within 60 days of that denial, and BCBSKS decides each within 60 days. For out-of-state Blue members (BlueCard), BCBSKS is the host plan: submit claims to BCBSKS unless the ID card says otherwise, while the home plan confirms benefits and applies its own medical policy.',
+        ],
+        cites: [
+          { title: 'BCBSKS Professional Provider Autism Manual (revision January 2026)', url: 'https://www.bcbsks.com/documents/professional-provider-autism-manual-2026' },
+          { title: 'BCBSKS Policy Memo No. 1 — Policies and Procedures (January 2026)', url: 'https://www.bcbsks.com/documents/2026-cap-policy-memo-1' },
+          { title: 'BCBSKS Professional Provider Manual (revision October 2026) — BlueCard', url: 'https://www.bcbsks.com/documents/professional-provider-manual-2026' },
+        ],
+      },
+      {
+        h2: 'Session notes, signatures and amendments',
+        body: [
+          'Policy Memo No. 1 sets the record rules: each entry must show the date of service and of the entry, "List start and stop times or total time for each CPT/CDT code/service performed on all timed codes," and "be authenticated by the person making the entry." A handwritten signature needs at least the first initial, full last name, credentials and date; an electronic signature must be automatically attached with the author’s name, credentials, date and time, and "After the entry is electronically signed, the text-editing feature should not be available for amending documentation." Rubber stamps are not allowed, and cloned or carried-forward notes "will not be considered."',
+          'Corrections follow a fixed format. On paper: a single line through the error, the word "error," the reason and the correct information, signed with credentials, date and time. In an EHR, an addendum adds information to a signed entry and an amendment clarifies it; both are labelled, dated and timed, refer back to the original entry, are written "as soon after the original note as possible," and "should not be antedated." Lucet’s treatment-record guidelines add that entries must identify the rendering provider and be signed "by the individual providing the services," with each day’s service documented separately.',
+        ],
+        cites: [
+          { title: 'BCBSKS Policy Memo No. 1 — Policies and Procedures (January 2026), §XI Medical Records', url: 'https://www.bcbsks.com/documents/2026-cap-policy-memo-1' },
+          { title: 'Lucet Managed Behavioral Health Provider & Facility Manual (July 2026) — Guidelines for Treatment Record Documentation', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+        ],
+      },
+      {
+        h2: 'The Kansas mandate: K.S.A. 40-2,194',
+        body: [
+          'K.S.A. 40-2,194 requires large-group policies, service-corporation contracts, fraternal benefit societies and HMOs issued or renewed from January 1, 2015 (grandfathered policies from January 1, 2016) to cover "the diagnosis and treatment of autism spectrum disorder in any covered individual whose age is less than 12 years." ABA is limited to 1,300 hours a year for four years for a child diagnosed between birth and age five, otherwise 520 hours a year under 12, but "Upon prior approval by the health benefit plan, such maximum benefit limit may be exceeded" when medically necessary. Since 2023 SB 24 a large employer is one with "at least 51 employees."',
+          'Other terms that matter at intake: ABA is covered "when required by a licensed physician, licensed psychologist or licensed specialist clinical social worker"; reimbursement goes only to providers "licensed or exempt from licensure under the applied behavior analysis licensure act" or qualified under the HCBS autism waiver; dollar limits, deductibles and coinsurance may not be less favorable than for physical illness; a child diagnosed under one DSM edition need not be re-evaluated when a new edition is adopted; and the law does not require payment for day care, "school-based rehabilitative services" or services schools must provide. Small employers can be granted a waiver if compliance raised premiums 2.5% or more.',
+        ],
+        cites: [
+          { title: 'K.S.A. 40-2,194 — Health insurance coverage for autism spectrum disorder (Kansas Revisor of Statutes)', url: 'https://www.ksrevisor.gov/statutes/chapters/ch40/040_002_0194.html' },
+        ],
+      },
+      {
+        h2: 'Licensure and enrollment in the BCBSKS network',
+        body: [
+          'Kansas requires a license to practise ABA: under K.S.A. 65-7503, since July 1, 2016 "no person shall practice applied behavior analysis in this state" unless a licensed behavior analyst, a licensed assistant working under one, a supervised trainee or a licensed psychologist, with exemptions for IDEA and Section 504 school services, HCBS autism waiver providers, and OTs, SLPs and other BSRB licensees within scope. BCBSKS credentials LBAs and LaBAs (license checked with the BSRB, CAQH profile required) and enrolls BCBA, BCBA-D, BCaBA, RBT, Autism Specialist and IIS providers as non-credentialed types, verified through the BACB or, for Autism Specialists and IIS, a KDADS HCBS autism waiver letter. Lucet requires a national criminal background check, including the National Sex Offender Registry, for every line therapist.',
+        ],
+        cites: [
+          { title: 'K.S.A. 65-7503 — Licensure required to practice applied behavior analysis; exceptions', url: 'https://www.ksrevisor.gov/statutes/chapters/ch65/065_075_0003.html' },
+          { title: 'BCBSKS Professional Provider Autism Manual (revision January 2026)', url: 'https://www.bcbsks.com/documents/professional-provider-autism-manual-2026' },
+          { title: 'Lucet Managed Behavioral Health Provider & Facility Manual (July 2026) — Board Certified Behavior Analyst (line therapists)', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+        ],
+      },
+    ],
+    intakeGates: {
+      ageLimit: {
+        value: 'Lucet’s policy and BCBSKS’s manual set no upper age; comprehensive ABA is "primarily directed to children ages three to eight." On fully insured large-group and grandfathered Kansas policies the mandate floor is "any covered individual whose age is less than 12 years"; coverage beyond that depends on the member’s contract.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'BCBSKS Professional Provider Autism Manual (revision January 2026)', url: 'https://www.bcbsks.com/documents/professional-provider-autism-manual-2026' },
+          { title: 'K.S.A. 40-2,194 — Health insurance coverage for autism spectrum disorder (Kansas Revisor of Statutes)', url: 'https://www.ksrevisor.gov/statutes/chapters/ch40/040_002_0194.html' },
+        ],
+        verifyVia: 'Checked the BCBSKS Autism manual (January 2026) and Lucet policy 20.5.005: no age cap stated. Confirm the member’s ABA benefit age limit with BCBSKS customer service (800-432-3990) or the benefit summary.',
+        blocker: 'per-case',
+      },
+      dxRecency: {
+        value: 'No expiry on the diagnosis itself is published, and K.S.A. 40-2,194(c) bars re-evaluation just because a new DSM edition is adopted. The baseline testing is dated: it must be "completed no longer than five (5) years prior to or scheduled within ninety (90) days of the pre-treatment assessment," with the adaptive behavior assessment "completed within 6 months of start date of treatment"; Lucet’s manual asks for the adaptive and cognitive tests within 90 days of the pre-treatment assessment.',
+        status: 'verified',
+        cites: [
+          { title: 'Lucet medical policy 20.5.005 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (applies 1/1/2026–12/31/2026)', url: 'https://lucethealth.com/wp-content/uploads/2025/12/2026-Lucet-ABA-for-Treatment-of-ASD.pdf' },
+          { title: 'Lucet Managed Behavioral Health Provider & Facility Manual (July 2026) — assessment instruments', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+          { title: 'K.S.A. 40-2,194 — Health insurance coverage for autism spectrum disorder (Kansas Revisor of Statutes)', url: 'https://www.ksrevisor.gov/statutes/chapters/ch40/040_002_0194.html' },
+        ],
+      },
+      diagnosingProviders: {
+        value: '"A clinician who is licensed and qualified to make such a diagnosis. Such clinicians are usually neurologists, developmental pediatricians, pediatricians, psychiatrists, licensed clinical psychologists or medical doctors experienced in the diagnosis of ASD. State law may define eligible qualified clinicians." Kansas’s mandate ties ABA to a licensed physician, licensed psychologist or licensed specialist clinical social worker.',
+        status: 'verified',
+        cites: [
+          { title: 'Lucet medical policy 20.5.005 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (applies 1/1/2026–12/31/2026)', url: 'https://lucethealth.com/wp-content/uploads/2025/12/2026-Lucet-ABA-for-Treatment-of-ASD.pdf' },
+          { title: 'K.S.A. 40-2,194 — Health insurance coverage for autism spectrum disorder (Kansas Revisor of Statutes)', url: 'https://www.ksrevisor.gov/statutes/chapters/ch40/040_002_0194.html' },
+        ],
+      },
+      diagnosticTools: {
+        value: 'One of the ADOS-2, the ADI-R or a DSM-5 Checklist "is required to meet the diagnostic criteria." Baseline also needs a standardized adaptive test (Vineland, ABAS, BASC or PDDBI) and a standardized cognitive test (for example Bayley, Mullen, DAS, WPPSI or WISC). VB-MAPP, ABLLS, PEAK, EFL and AFLS are optional.',
+        status: 'verified',
+        cites: [
+          { title: 'Lucet Managed Behavioral Health Provider & Facility Manual (July 2026) — assessment instruments', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+          { title: 'Lucet medical policy 20.5.005 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (applies 1/1/2026–12/31/2026)', url: 'https://lucethealth.com/wp-content/uploads/2025/12/2026-Lucet-ABA-for-Treatment-of-ASD.pdf' },
+        ],
+      },
+      referral: {
+        value: 'No BCBSKS referral form. The authorization packet is the diagnostic evaluation plus Lucet’s Initial Treatment Plan form, with supporting records such as early-intervention reports and IEPs. Under K.S.A. 40-2,194 ABA is covered "when required by a licensed physician, licensed psychologist or licensed specialist clinical social worker," so on insured plans keep that recommendation in the file. Policy Memo No. 1 requires the ordering provider’s name and NPI on the claim "when applicable."',
+        status: 'verified',
+        cites: [
+          { title: 'BCBSKS Professional Provider Autism Manual (revision January 2026)', url: 'https://www.bcbsks.com/documents/professional-provider-autism-manual-2026' },
+          { title: 'K.S.A. 40-2,194 — Health insurance coverage for autism spectrum disorder (Kansas Revisor of Statutes)', url: 'https://www.ksrevisor.gov/statutes/chapters/ch40/040_002_0194.html' },
+          { title: 'BCBSKS Policy Memo No. 1 — Policies and Procedures (January 2026)', url: 'https://www.bcbsks.com/documents/2026-cap-policy-memo-1' },
+        ],
+      },
+      telehealth: {
+        value: '"Telehealth/telemedicine for parent education and direct supervision activities can be covered if allowed as an eligible telehealth/telemedicine service under the member benefit plan," and BCBSKS recommends combining it with face-to-face supervision. Bill "with place of service 02 or 10 and the GT modifier." No other ABA code (assessment or technician treatment) is named as telehealth-eligible.',
+        status: 'verified',
+        cites: [
+          { title: 'BCBSKS Professional Provider Autism Manual (revision January 2026)', url: 'https://www.bcbsks.com/documents/professional-provider-autism-manual-2026' },
+          { title: 'BCBSKS Policy Memo No. 2 — Office/Outpatient Visit (January 2026), §VI Telemedicine', url: 'https://www.bcbsks.com/documents/2026-cap-policy-memo-2' },
+        ],
+      },
+      authTurnaround: {
+        value: 'Lucet: "Reviews of authorization requests may take up to 15 days." Submit continued-treatment requests "at least two weeks prior to authorization expiration."',
+        status: 'verified',
+        cites: [
+          { title: 'Lucet Managed Behavioral Health Provider & Facility Manual (July 2026) — ABA authorization', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+        ],
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value: 'No percentage rule is published; BCBSKS sets recommended BCBA caseloads instead: focused treatment 10–15 cases without an IIS/BCaBA (16–24 with one), comprehensive treatment 6–12 without (12–16 with), depending on complexity, hours, modality and support staff. Line therapists are RBTs or BCaBAs, the supervising BCBA is responsible for their compliance, and each needs a national criminal background check. Kansas law requires an LaBA to work under an LBA.',
+        status: 'verified',
+        cites: [
+          { title: 'BCBSKS Professional Provider Autism Manual (revision January 2026)', url: 'https://www.bcbsks.com/documents/professional-provider-autism-manual-2026' },
+          { title: 'Lucet Managed Behavioral Health Provider & Facility Manual (July 2026) — Board Certified Behavior Analyst (line therapists)', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+          { title: 'K.S.A. 65-7503 — Licensure required to practice applied behavior analysis; exceptions', url: 'https://www.ksrevisor.gov/statutes/chapters/ch65/065_075_0003.html' },
+        ],
+      },
+      concurrentBilling: {
+        value: 'Not allowed. "BCBSKS does not allow billing of ABA services concurrently. Only one provider will be reimbursed for overlapping session times." Put session times on claims to avoid duplicate denials. When the BCBA does the technician’s work, that time counts toward the technician code.',
+        status: 'verified',
+        cites: [
+          { title: 'BCBSKS Professional Provider Autism Manual (revision January 2026)', url: 'https://www.bcbsks.com/documents/professional-provider-autism-manual-2026' },
+        ],
+      },
+      dailyLimits: {
+        value: 'No per-day unit cap is published. Hours are set per authorization: comprehensive treatment 25–40 direct hours a week, focused 10–25. On fully insured plans K.S.A. 40-2,194 allows annual ABA caps of 1,300 hours (four years, diagnosed by age five) or 520 hours (under 12), exceedable with prior approval.',
+        status: 'verified',
+        cites: [
+          { title: 'BCBSKS Professional Provider Autism Manual (revision January 2026)', url: 'https://www.bcbsks.com/documents/professional-provider-autism-manual-2026' },
+          { title: 'K.S.A. 40-2,194 — Health insurance coverage for autism spectrum disorder (Kansas Revisor of Statutes)', url: 'https://www.ksrevisor.gov/statutes/chapters/ch40/040_002_0194.html' },
+        ],
+      },
+      noteSignature: {
+        value: 'Each entry must "be authenticated by the person making the entry" — the rendering provider signs their own note, and no supervisor co-signature rule is published. Handwritten: first initial, full last name, credentials and date; electronic: auto-attached name, credentials, date and time, with editing locked after signing; no rubber stamps. Start/stop times are required for timed codes. Corrections: on paper, strike through, mark "error," give the reason and sign with date and time; in an EHR, a labelled addendum or amendment, dated and timed, referring to the original entry and never antedated. Lucet requires each day’s service documented separately and signed by the person who provided it.',
+        status: 'verified',
+        cites: [
+          { title: 'BCBSKS Policy Memo No. 1 — Policies and Procedures (January 2026), §XI Medical Records', url: 'https://www.bcbsks.com/documents/2026-cap-policy-memo-1' },
+          { title: 'Lucet Managed Behavioral Health Provider & Facility Manual (July 2026) — Guidelines for Treatment Record Documentation', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+        ],
+      },
+      placeOfService: {
+        value: 'No payable place-of-service list is published. Lucet requires treatment "in the setting and intensity that is appropriate," and comprehensive ABA should start "in a structured setting with 1:1 staffing" and move to the least restrictive environment. Excluded: services duplicating school academics, ABA in residential facilities replacing their own program, and programs in "nonconventional settings" (spas, camps, recreational or vocational settings). Telehealth uses POS 02 or 10. The mandate does not require payment for "school-based rehabilitative services."',
+        status: 'verified',
+        cites: [
+          { title: 'BCBSKS Professional Provider Autism Manual (revision January 2026)', url: 'https://www.bcbsks.com/documents/professional-provider-autism-manual-2026' },
+          { title: 'Lucet medical policy 20.5.005 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (applies 1/1/2026–12/31/2026)', url: 'https://lucethealth.com/wp-content/uploads/2025/12/2026-Lucet-ABA-for-Treatment-of-ASD.pdf' },
+          { title: 'K.S.A. 40-2,194 — Health insurance coverage for autism spectrum disorder (Kansas Revisor of Statutes)', url: 'https://www.ksrevisor.gov/statutes/chapters/ch40/040_002_0194.html' },
+        ],
+      },
+      billAsProvider: {
+        value: 'Contracting providers bill "under their own billing National Provider Identifier (NPI) or specific rendering provider number," and "BCBSKS does not recognize incident-to billing." The Lucet authorization is issued in the name of the BCBA who performs the service or oversees the technicians, so technician codes (97152–97154) bill against the supervising BCBA’s authorization.',
+        status: 'verified',
+        cites: [
+          { title: 'BCBSKS Professional Provider Autism Manual (revision January 2026)', url: 'https://www.bcbsks.com/documents/professional-provider-autism-manual-2026' },
+          { title: 'BCBSKS Policy Memo No. 1 — Policies and Procedures (January 2026)', url: 'https://www.bcbsks.com/documents/2026-cap-policy-memo-1' },
+          { title: 'Lucet Managed Behavioral Health Provider & Facility Manual (July 2026) — ABA authorization', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+        ],
+      },
+    },
+    collect: [
+      { title: 'Plan and funding', desc: 'BCBSKS PPO, EPO/Solutions, FEP or BlueCard (out-of-state Blue); fully insured large group (mandate applies, under 12) or self-funded (plan document).' },
+      { title: 'Diagnostic evaluation', desc: 'Current-DSM ASD diagnosis by a qualified clinician, with an ADOS-2, ADI-R or DSM-5 checklist and a rule-out of similar conditions; screening alone is not enough.' },
+      { title: 'Baseline testing', desc: 'Developmental/cognitive, autism-severity and adaptive tests within 5 years (adaptive within 6 months of treatment start), plus a neurological exam as part of a physical.' },
+      { title: 'Prescriber recommendation', desc: 'On insured Kansas plans, ABA must be required by a licensed physician, psychologist or LSCSW — keep it in the file.' },
+      { title: 'Staff records', desc: 'LBA/LaBA license or BACB certification, KDADS letter for Autism Specialist/IIS, and a national background check for each line therapist.' },
+    ],
+    sources: [
+      { title: 'BCBSKS Professional Provider Autism Manual (revision January 2026)', url: 'https://www.bcbsks.com/documents/professional-provider-autism-manual-2026' },
+      { title: 'BCBSKS — Prior authorization (medical services requiring prior authorization)', url: 'https://www.bcbsks.com/providers/precertification-prior-authorization' },
+      { title: 'BCBSKS Policy Memo No. 1 — Policies and Procedures (January 2026)', url: 'https://www.bcbsks.com/documents/2026-cap-policy-memo-1' },
+      { title: 'BCBSKS Policy Memo No. 2 — Office/Outpatient Visit (January 2026), §VI Telemedicine', url: 'https://www.bcbsks.com/documents/2026-cap-policy-memo-2' },
+      { title: 'BCBSKS Professional Provider Manual (revision October 2026)', url: 'https://www.bcbsks.com/documents/professional-provider-manual-2026' },
+      { title: 'BCBSKS — Providers (service area: all Kansas counties except Johnson and Wyandotte)', url: 'https://www.bcbsks.com/providers' },
+      { title: 'Lucet medical policy 20.5.005 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (applies 1/1/2026–12/31/2026)', url: 'https://lucethealth.com/wp-content/uploads/2025/12/2026-Lucet-ABA-for-Treatment-of-ASD.pdf' },
+      { title: 'Lucet Managed Behavioral Health Provider & Facility Manual (July 2026)', url: 'https://lucethealth.com/wp-content/uploads/2024/09/Provider-Manual-July2026.pdf' },
+      { title: 'K.S.A. 40-2,194 — Health insurance coverage for autism spectrum disorder (Kansas Revisor of Statutes)', url: 'https://www.ksrevisor.gov/statutes/chapters/ch40/040_002_0194.html' },
+      { title: '2023 Kansas Session Laws ch. 3 (SB 24) — large employer redefined as 51+ employees', url: 'https://sos.ks.gov/publications/sessionlaws/2023/Chapter-03-SB-24.html' },
+      { title: 'K.S.A. 65-7503 — Licensure required to practice applied behavior analysis; exceptions', url: 'https://www.ksrevisor.gov/statutes/chapters/ch65/065_075_0003.html' },
+    ],
+    faq: [
+      { q: 'Does Blue Cross and Blue Shield of Kansas cover ABA therapy?', a: 'Yes, for autism spectrum disorder when Lucet’s medical necessity criteria (policy 20.5.005) are met and the member’s contract includes the benefit. Fully insured large-group and grandfathered Kansas policies must cover ASD treatment for children under 12 under K.S.A. 40-2,194.' },
+      { q: 'Does BCBSKS require prior authorization for the ABA assessment (97151)?', a: 'Yes. ABA therapy services are on BCBSKS’s prior-authorization list, and Lucet reviews a Pre-Treatment Assessment Request before the assessment, issued in the name of the BCBA who will perform it. Call 877-563-9347, fax 816-237-2372 or use WebPass.' },
+      { q: 'Who handles ABA authorizations for BCBSKS?', a: 'Lucet. BCBSKS’s Autism manual says Lucet’s medical policy is used for ABA benefit decisions; Lucet takes requests by fax 816-237-2372, phone 877-563-9347 or WebPass for PPO, EPO and FEP members, and reviews may take up to 15 days.' },
+      { q: 'Can a BCBA and an RBT bill at the same time for a BCBSKS member?', a: 'No. "BCBSKS does not allow billing of ABA services concurrently. Only one provider will be reimbursed for overlapping session times." Put session times on the claim.' },
+      { q: 'Does BCBSKS cover ABA by telehealth?', a: 'Only parent education and direct supervision, and only if the member’s plan covers telehealth. Bill with POS 02 or 10 and modifier GT. BCBSKS recommends combining remote supervision with in-person supervision.' },
+      { q: 'How do I amend or correct an ABA session note for BCBSKS?', a: 'Policy Memo No. 1: on paper, draw one line through the error, write "error," the reason and the correct information, and sign with credentials, date and time. In an EHR, add a labelled addendum or amendment that refers to the original entry, dated and timed when written, as soon as possible and never antedated. The person who wrote the entry signs it.' },
+      { q: 'What is the BCBSKS timely filing limit?', a: '15 months from the date of service under Policy Memo No. 1 (January 2026), unless an employer group sets a different limit; late claims are rejected with the member held harmless.' },
+      { q: 'Which Kansas counties does BCBSKS cover?', a: 'BCBSKS says it "serves all counties in Kansas except Johnson and Wyandotte." Out-of-state Blue members are served through BlueCard: claims go to BCBSKS as the host plan, while the member’s home plan sets benefits and medical policy.' },
+      { q: 'What does BCBSKS pay for ABA?', a: 'We found no published BCBSKS ABA rate table. Under Policy Memo No. 1 contracting providers bill their usual charge and "accept payment allowances in all cases once notified of payment determination," and for BlueCard members "BCBSKS pricing is followed." For a public benchmark, KMAP’s Title XIX fee schedule (effective 10/1/2026) pays 97153 at $16.25 per 15-minute unit.' },
+    ],
+  },
 };
