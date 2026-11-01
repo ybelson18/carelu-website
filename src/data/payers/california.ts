@@ -978,13 +978,12 @@ export const californiaPayers: Record<string, PayerConfig> = {
         ],
       },
       noteSignature: {
-        value: 'IEHP publishes no note-signature rule beyond documentation for each session and required exit reports and exit letters.',
-        status: 'unverified',
+        value: 'IEHP\'s February 19, 2026 notice to BHT providers (quoting its BHT Training Guide, p. 62) says "Each individual provider must document during the session." Each note must include the client name, session date, "Session start and end time," location, delivery method (in person or telehealth), procedure code, goals and progress, data, behaviors and interventions, barriers, improvements, parent training, interventionist training, a summary, and "Provider name printed, credentials, and signature." Staff must log their hours each session. A parent or caregiver over 18 "will need to sign off on the hours after each session," and "The BHT Provider may only submit claims for those hours signed by the parent or caregiver." Policy MC_07A requires "Valid signatures and credentials." The notice names no supervising-BCBA co-signature and no procedure for amending a note. Exit reports and exit letters are also required.',
+        status: 'verified',
         cites: [
+          { title: 'IEHP — Behavioral Health Treatment (BHT) Medical Records and Documentation Reminders (provider notice, February 19, 2026)', url: 'https://www.providerservices.iehp.org/content/dam/provider-services-rd/en/documents/providers/plan-updates/provider_notices/2026/02---february/20260219%20-%20Behavioral%20Health%20Treatment%20(BHT)%20Medical%20Records%20and%20Documentation%20Reminders.pdf' },
           { title: 'IEHP — BHT Provider FAQs (notice, 9/16/2025)', url: 'https://www.providerservices.iehp.org/content/dam/provider-services-rd/en/documents/providers/plan-updates/provider_notices/2025/09---september/20250916%20-%20BHT%20Provider%20FAQ.pdf' },
         ],
-        verifyVia: 'Your IEHP Behavioral Health Agreement, or IEHP’s current MC_12K3 text in its C360 policy search.',
-        blocker: 'per-case',
       },
       placeOfService: {
         value: 'Home or community-based settings, including clinics; school "if there is prior authorization from IEHP and the school agrees," including private and charter schools, with hours across settings "proportionate to the Member’s medical need for BHT services in each setting."',
