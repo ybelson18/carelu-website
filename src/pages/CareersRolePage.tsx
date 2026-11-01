@@ -28,7 +28,7 @@ const CARD: React.CSSProperties = {
 const FACTS = [
   { k: 'Location', v: 'New York City, in office' },
   { k: 'Salary', v: '$105K – $145K' },
-  { k: 'Equity', v: '0.2% – 0.4%' },
+  { k: 'Equity', v: '0.1% – 0.3%' },
   { k: 'Team', v: 'Solutions' },
 ];
 
@@ -51,7 +51,7 @@ export default function CareersRolePage() {
   useReveal();
   useSeo({
     title: 'Solutions Engineer — Careers at Carelu, New York',
-    description: 'Join Carelu in New York City. We are bringing AI to the behavioral healthcare front office. Hiring a Solutions Engineer: $105K–$145K, 0.2%–0.4% equity, in office.',
+    description: 'Join Carelu in New York City. We are bringing AI to the behavioral healthcare front office. Hiring a Solutions Engineer: $105K–$145K, 0.1%–0.3% equity, in office.',
     canonical: '/careers/solutions-engineer',
   });
 
