@@ -29,7 +29,7 @@ const S: Record<string, PayerSource> = {
   asdFee: { title: 'CMAP Autism Spectrum Disorder fee schedule (CSV, "Autism Spectrum Disorder 1/1/2026")', url: 'https://www.ctdssmap.com/CTPortal/Information/Get-Download-File?Filename=refw242_feesched_asd_82.csv&URI=fee_schedules/refw242_feesched_asd_82.csv' },
   feeInstr: { title: 'CMAP Fee Schedule Instructions (last updated 9/4/2026; rate types ASD and ASK)', url: 'https://www.ctdssmap.com/CTPortal/Portals/0/StaticContent/Publications/Fee_Schedule_Instructions.pdf' },
   pb2338: { title: 'CMAP Provider Bulletin 2023-38 — Revised Guidance for Services Rendered via Telehealth (eff. 5/12/2023)', url: 'https://www.ctdssmap.com/CTPortal/Information/Get-Download-File?Filename=pb23_38.pdf&URI=Bulletins/pb23_38.pdf' },
-  teleTable: { title: 'CMAP Telehealth Table (12-26-25)', url: 'https://www.ctdssmap.com/CTPortal/Portals/0/StaticContent/Publications/Telehealth_Table.xlsx' },
+  teleTable: { title: 'CMAP Telehealth Table (10-21-26)', url: 'https://www.ctdssmap.com/CTPortal/Portals/0/StaticContent/Publications/Telehealth_Table.xlsx' },
   handbook: { title: 'HUSKY Health Behavioral Health Provider Handbook, CT BHP / Carelon BH CT (revised 6/2026)', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/76/Provider-Handbook-2026-final.pdf' },
   locIndex: { title: 'CT BHP — Level of Care Guidelines (Autism Spectrum Disorder Services)', url: 'https://providers.ctbhp.com/providers/level-of-care-guidelines-2/' },
   loc1: { title: 'CT BHP Level of Care Guideline — Comprehensive Diagnostic Evaluation, ASD', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/76/1.-Comprehensive-Diagnostic-Evaluation-ASD.pdf' },
@@ -264,7 +264,7 @@ export const connecticutPayers: Record<string, PayerConfig> = {
         cites: [S.loc2, S.regs],
       },
       telehealth: {
-        value: 'Limited, and in person is the expectation. ASD services may be delivered by synchronous audio-video telehealth “only for procedure codes permitted in the CMAP Telehealth Table.” That table (12-26-25) lists 90791, H0031, H0046, H2014 and 97153 as telemedicine codes and T1016 as telemedicine or telephone. “Parent training (with or without the member present) is not permitted via telehealth and must be conducted in person.” Observation and direction may be done by synchronous video “as permitted under current telehealth policy.” Bill modifier GT or 95, with the place of service where the visit would have happened in person. Out-of-state telehealth practitioners need an active Connecticut license.',
+        value: 'Limited, and in person is the expectation. ASD services may be delivered by synchronous audio-video telehealth “only for procedure codes permitted in the CMAP Telehealth Table.” That table (10-21-26 edition) lists 90791, H0031, H0046, H2014 and 97153 as telemedicine codes and T1016 as telemedicine or telephone. “Parent training (with or without the member present) is not permitted via telehealth and must be conducted in person.” Observation and direction may be done by synchronous video “as permitted under current telehealth policy.” Bill modifier GT or 95, with the place of service where the visit would have happened in person. Out-of-state telehealth practitioners need an active Connecticut license.',
         status: 'verified',
         cites: [S.paRoles, S.teleTable, S.loc7, S.pb2338],
       },

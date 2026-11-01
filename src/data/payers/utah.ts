@@ -66,7 +66,7 @@ export const utahPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'Utah Medicaid Provider Manual — ASD Services, Ch. 8 (July 2023, archived)', url: 'https://web.archive.org/web/20240821082018/https://medicaid.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder7-23.pdf' },
-          { title: 'PRISM Coverage and Reimbursement Lookup (97151 PA flag)', url: 'https://health.utah.gov/stplan/lookup/CoverageLookup.php' },
+          { title: 'PRISM Coverage and Reimbursement Lookup (97151 PA flag)', url: 'https://stplan.dhhs.utah.gov/lookup/CoverageLookup.php' },
         ],
       },
       {
@@ -77,8 +77,7 @@ export const utahPayers: Record<string, PayerConfig> = {
           'Two eligibility facts set Utah apart. First, ASD services are available \'regardless of age\' — PRISM shows allowed ages 1 and older with adult plans included, so adults with ASD can get ABA, which almost no state Medicaid program offers. Second, third-party liability is enforced: commercial insurance must be exhausted first, and if the provider isn\'t paneled with the member\'s private plan and no out-of-network benefit exists, a transition (or enrollment with the insurer) must occur within 6 months of discovering the coverage — so ask about other insurance at intake, not at the first denied claim. Also worth flagging: telehealth works for supervision and parent training but not for technician-delivered 97153/97154 or group 97158, and school-based ABA on an IEP routes through the School-Based Skills Development benefit instead of FFS.',
         ],
         cites: [
-          { title: 'PRISM Coverage and Reimbursement Lookup (rates, PA flags, age limits — PAC 166)', url: 'https://health.utah.gov/stplan/lookup/CoverageLookup.php' },
-          { title: 'Utah Medicaid Coverage and Reimbursement Lookup (new host; PAC 166 by date of service, rates updated 06/12/2026)', url: 'https://stplan.dhhs.utah.gov/lookup/CoverageLookup.php' },
+          { title: 'PRISM Coverage and Reimbursement Lookup (rates, PA flags, age limits — PAC 166)', url: 'https://stplan.dhhs.utah.gov/lookup/CoverageLookup.php' },
           { title: 'ASD Related Services program page (services regardless of age)', url: 'https://medicaid.utah.gov/ltc-2/asd/' },
           { title: 'SPA UT-25-0007 — 4.19-B fee schedule incl. ASD services (archived)', url: 'https://web.archive.org/web/20260217123605/https://www.medicaid.gov/medicaid/spa/downloads/UT-25-0007.pdf' },
         ],
@@ -139,9 +138,9 @@ export const utahPayers: Record<string, PayerConfig> = {
       { title: 'ACO name (for PT/OT/ST only)', desc: 'Irrelevant to ABA routing, but the ACO handles ASD-related PT, OT, and speech for its enrollees.' },
     ],
     sources: [{ title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, { title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, 
-      { title: 'Utah Medicaid Fee Schedule Download (PAC 166 Applied Behavioral Analyst, DOS 9/24/2026)', url: 'https://health.utah.gov/stplan/lookup/FeeScheduleDownload.php' },
+      { title: 'Utah Medicaid Fee Schedule Download (PAC 166 Applied Behavioral Analyst, DOS 9/24/2026)', url: 'https://stplan.dhhs.utah.gov/lookup/FeeScheduleDownload.php' },
       { title: 'Utah Medicaid Provider Manual — ASD Services (July 2023 edition, archived)', url: 'https://web.archive.org/web/20240821082018/https://medicaid.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder7-23.pdf' },
-      { title: 'PRISM Coverage and Reimbursement Lookup (rates & PA flags)', url: 'https://health.utah.gov/stplan/lookup/CoverageLookup.php' },
+      { title: 'PRISM Coverage and Reimbursement Lookup (rates & PA flags)', url: 'https://stplan.dhhs.utah.gov/lookup/CoverageLookup.php' },
       { title: 'Accessing Medicaid Autism Related Services — family FAQ (archived)', url: 'https://web.archive.org/web/20260106200503/https://medicaid-documents.dhhs.utah.gov/Documents/pdfs/Accessing%20ASD%20Services%20FAX%20V2,%207-15-24.pdf' },
       { title: 'ASD Related Services program page', url: 'https://medicaid.utah.gov/ltc-2/asd/' },
       { title: 'SPA UT-25-0007 — fee schedule (archived)', url: 'https://web.archive.org/web/20260217123605/https://www.medicaid.gov/medicaid/spa/downloads/UT-25-0007.pdf' },
@@ -217,7 +216,7 @@ export const utahPayers: Record<string, PayerConfig> = {
           'No upper age limit. Utah offers ASD-related services regardless of age, and the PRISM coverage lookup shows allowed ages 1 and older with Traditional Adult and Targeted Adult plans among the covered eligibility groups — so adults with ASD are in scope, which almost no other state Medicaid program offers. One caveat: an older family-facing FAQ still live on medicaid.utah.gov (v2, 7/15/24) states eligibility as under 21 and CHEC/EPSDT-only, contradicting this; the PRISM lookup and the program page are the stronger sources, but confirm adult eligibility case-by-case in PRISM until the state reconciles the two documents.',
         status: 'verified',
         cites: [
-          { title: 'PRISM Coverage and Reimbursement Lookup (rates & PA flags)', url: 'https://health.utah.gov/stplan/lookup/CoverageLookup.php' },
+          { title: 'PRISM Coverage and Reimbursement Lookup (rates & PA flags)', url: 'https://stplan.dhhs.utah.gov/lookup/CoverageLookup.php' },
           { title: 'ASD Related Services program page', url: 'https://medicaid.utah.gov/ltc-2/asd/' },
         ],
       },
@@ -399,7 +398,7 @@ export const utahPayers: Record<string, PayerConfig> = {
           'No Select Health-specific ABA fee schedule (commercial or Community Care) was found published. For Community Care members, ABA rides Utah Medicaid FFS entirely, so the relevant benchmark is Utah Medicaid\'s own published PRISM rates ($19.67 per 15-minute unit on 97153; $37.51 on 97151/97155/97156, effective 7/1/2026) — not a Select Health rate at all. For commercial members, rates are contract-negotiated and live in your participating-provider agreement.',
         ],
         cites: [
-          { title: 'PRISM Coverage and Reimbursement Lookup (rates & PA flags)', url: 'https://health.utah.gov/stplan/lookup/CoverageLookup.php' },
+          { title: 'PRISM Coverage and Reimbursement Lookup (rates & PA flags)', url: 'https://stplan.dhhs.utah.gov/lookup/CoverageLookup.php' },
         ],
       },
       {
@@ -429,7 +428,7 @@ export const utahPayers: Record<string, PayerConfig> = {
       { title: 'Select Health — ABA Preauthorization Form (2026)', url: 'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/forms/sh-aba-pre-auth-form.pdf' },
       { title: 'Select Health — Preauthorization Forms & Reports', url: 'https://selecthealth.org/providers/preauthorization/forms-reports' },
       { title: 'Utah Code § 31A-22-642 (current, eff. 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.html' },
-      { title: 'PRISM Coverage and Reimbursement Lookup (rates & PA flags)', url: 'https://health.utah.gov/stplan/lookup/CoverageLookup.php' },
+      { title: 'PRISM Coverage and Reimbursement Lookup (rates & PA flags)', url: 'https://stplan.dhhs.utah.gov/lookup/CoverageLookup.php' },
       { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
       { title: 'Utah Medicaid Provider Manual — Section I: General Information, ch. 2-6 MCE Carve-Out Services (updated September 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid+Provider+Manuals/All+Providers+General+Information+Section+I/AllProvidersGeneralInfo_Section_1.pdf' },
       { title: 'ASD Related Services program page', url: 'https://medicaid.utah.gov/ltc-2/asd/' },
@@ -516,7 +515,7 @@ export const utahPayers: Record<string, PayerConfig> = {
           'For SelectHealth Community Care (Medicaid) members this is not a Select Health question: ABA is carved out of every Utah Medicaid ACO to state fee-for-service, so the Utah Medicaid rule governs — no upper age limit, PRISM showing ages 1 and older including adult plans. For Select Health commercial members, the Utah mandate sets the floor where it applies: Utah Code § 31A-22-642 imposes no age limit on individual and large-group plans entered or renewed since 1/1/2020, but small-group plans are not named by the statute and self-funded ERISA plans are exempt. Select Health\'s own Policy #630 independently backs this up for the plans it does bind: access to both comprehensive and focused ABA "should not be restricted by age, cognitive level, diagnosis, or co-occurring conditions," unless a state mandate says otherwise.',
         status: 'plan-dependent',
         cites: [
-          { title: 'PRISM Coverage and Reimbursement Lookup (rates & PA flags)', url: 'https://health.utah.gov/stplan/lookup/CoverageLookup.php' },
+          { title: 'PRISM Coverage and Reimbursement Lookup (rates & PA flags)', url: 'https://stplan.dhhs.utah.gov/lookup/CoverageLookup.php' },
           { title: 'ASD Related Services program page', url: 'https://medicaid.utah.gov/ltc-2/asd/' },
           { title: 'Utah Code § 31A-22-642 (current version, effective 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.html' },
           { title: 'Utah Medicaid Provider Manual — Section I: General Information, ch. 2-6 MCE Carve-Out Services (updated September 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid+Provider+Manuals/All+Providers+General+Information+Section+I/AllProvidersGeneralInfo_Section_1.pdf' },

@@ -68,11 +68,11 @@ const UT_PRISM_COMPANION_GUIDE = src(
   'Utah Medicaid 270/271 Companion Guide (SFY25, "July 2024 005010_270/271", 46pp) — fetched and text-extracted this pass. Managed-care (ACO) plan is reported by ORGANIZATION NAME (NM103) in Loop 2120C (Subscriber Benefit Related Entity Name), NM1 segment — there is NO numeric carrier-code table in the guide. Capitated/managed-care status is flagged in Loop 2110C EB01="3" (Active - Services Capitated); FFS = EB01 "1" (Active Coverage). Both real-time (<=20s) and batch supported; inquiry DTP03 accepts a single date or a date range not to exceed 3 months; benefit issuance is monthly. Utah Medicaid "does not return eligibility at the Procedure Code level" (default STC "30"), so the 271 does NOT surface that ABA specifically bills FFS — the carve-out is applied from policy, not read off the 271. Trading-partner receiver ID (ISA08): HT000004-001 = FFS (ABA), -002 = MCO, -801 = atypical providers; connectivity via UHIN (qualifier "ZZ").'
 );
 const UT_PRISM_FEE_CSV = src(
-  'https://health.utah.gov/stplan/lookup/output_csv.php',
+  'https://stplan.dhhs.utah.gov/lookup/output_csv.php',
   'PRISM Coverage & Reimbursement fee-schedule CSV export (POST: download_type=general, pac_code=166 [Applied Behavioral Analyst], plan_type=Traditional, service_date=07/01/2026) — fetched and parsed this pass; the authoritative current source for Utah ABA rates/PA/coverage. Every ABA row shows EffectiveStartDate 07/01/2026, UpdateOn 06/12/2026. Confirmed: 97151 $37.51 (PA No), 97153 $19.67 (PA Yes), 97154 $13.91 (PA Yes), 97155 $37.51 (PA Yes, HP/HO/HN), 97156 $37.51 (PA Yes), H0032 $37.51 (PA Yes); 97157 & 97158 flagged "Covered" but priced $0.00 (last effective 7/1/2022 — non-reimbursing at present); 97152, 0362T, 0373T = Not Covered.'
 );
 const UT_PRISM_LOOKUP = src(
-  'https://health.utah.gov/stplan/lookup/CoverageLookup.php',
+  'https://stplan.dhhs.utah.gov/lookup/CoverageLookup.php',
   'PRISM Coverage and Reimbursement Lookup (PAC 166) — 97151 shows "Prior Authorization Required? No"; ages 1+ with adult plans included. The interactive lookup POST returns only the empty form (session/JS-gated); authoritative rate/coverage data was obtained via the fee-schedule CSV export (see UT_PRISM_FEE_CSV).'
 );
 const UT_ASD_MANUAL = src(

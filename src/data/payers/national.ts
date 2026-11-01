@@ -1861,7 +1861,7 @@ export const nationalPayers: Record<string, PayerConfig> = {
       value: 'Depends on the Humana line — Healthy Horizons Medicaid plans set PA by state; ABA codes are not on Humana\'s Medicare Advantage/D-SNP PA list (eff. 7/1/2026); TRICARE East runs through Humana Military',
       status: 'plan-dependent',
       cites: [
-        { title: 'Humana — Medicare Advantage and D-SNP Prior Authorization and Notification List (eff. 7/1/2026, rev. 9/1/2026) (PDF)', url: 'https://assets.humana.com/is/content/humana/FINAL_Medicare%20and%20DSNP%20Prior%20Authorization%20and%20Notification%20List%20-%207-1-2026pdf' },
+        { title: 'Humana — Medicare Advantage and D-SNP Prior Authorization and Notification List (eff. 7/1/2026, rev. 11/2/2026) (PDF)', url: 'https://assets.humana.com/is/content/humana/FINAL_Medicare%20and%20DSNP%20Prior%20Authorization%20and%20Notification%20List%20-%207-1-2026pdf' },
         { title: 'Humana — Prior authorization lists (provider page)', url: 'https://provider.humana.com/coverage-claims/prior-authorizations/prior-authorization-lists' },
       ],
       verifyVia: 'Identify the line of business from the card, then use the matching guide: the state Healthy Horizons guide, the TRICARE East (Humana Military) guide, or, for Medicare Advantage, Humana provider services via Availity to confirm ABA is a covered benefit at all.',
@@ -1871,7 +1871,7 @@ export const nationalPayers: Record<string, PayerConfig> = {
       value: 'Depends on the Humana line — state-specific for Healthy Horizons Medicaid; not on the Medicare Advantage/D-SNP PA list; TRICARE East under Humana Military',
       status: 'plan-dependent',
       cites: [
-        { title: 'Humana — Medicare Advantage and D-SNP Prior Authorization and Notification List (eff. 7/1/2026, rev. 9/1/2026) (PDF)', url: 'https://assets.humana.com/is/content/humana/FINAL_Medicare%20and%20DSNP%20Prior%20Authorization%20and%20Notification%20List%20-%207-1-2026pdf' },
+        { title: 'Humana — Medicare Advantage and D-SNP Prior Authorization and Notification List (eff. 7/1/2026, rev. 11/2/2026) (PDF)', url: 'https://assets.humana.com/is/content/humana/FINAL_Medicare%20and%20DSNP%20Prior%20Authorization%20and%20Notification%20List%20-%207-1-2026pdf' },
         { title: 'Humana — Prior authorization lists (provider page)', url: 'https://provider.humana.com/coverage-claims/prior-authorizations/prior-authorization-lists' },
       ],
       verifyVia: 'Route by line of business first; the state Healthy Horizons PA list or the TRICARE East guide carries the operative rule.',
@@ -1901,7 +1901,7 @@ export const nationalPayers: Record<string, PayerConfig> = {
       { label: 'Employer group medical', value: 'Gone — exit announced Feb. 2023, finalized during 2025 (fully insured, self-funded and FEHB)' },
       { label: 'Remaining lines', value: 'Medicare Advantage, Medicare Supplement/PDP, Medicaid (state contracts), TRICARE East, specialty' },
       { label: 'Medicaid states (10-K)', value: 'FL, KY, IL, IN, LA, OH, OK, SC, VA, WI' },
-      { label: 'Medicare Advantage PA list', value: 'No ABA codes (eff. 7/1/2026, rev. 9/1/2026)' },
+      { label: 'Medicare Advantage PA list', value: 'No ABA codes (eff. 7/1/2026, rev. 11/2/2026)' },
       { label: 'ABA medical policy', value: 'Medicaid only (OK, SC, LA); no national or MA ABA policy' },
       { label: 'TRICARE East', value: 'Humana Military, T-5 contract since 1/1/2025 — use the TRICARE East guide' },
     ],
@@ -1934,7 +1934,7 @@ export const nationalPayers: Record<string, PayerConfig> = {
       {
         h2: 'Medicare Advantage and D-SNP: what the PA list says',
         cites: [
-          { title: 'Humana — Medicare Advantage and D-SNP Prior Authorization and Notification List (eff. 7/1/2026, rev. 9/1/2026) (PDF)', url: 'https://assets.humana.com/is/content/humana/FINAL_Medicare%20and%20DSNP%20Prior%20Authorization%20and%20Notification%20List%20-%207-1-2026pdf' },
+          { title: 'Humana — Medicare Advantage and D-SNP Prior Authorization and Notification List (eff. 7/1/2026, rev. 11/2/2026) (PDF)', url: 'https://assets.humana.com/is/content/humana/FINAL_Medicare%20and%20DSNP%20Prior%20Authorization%20and%20Notification%20List%20-%207-1-2026pdf' },
         ],
         body: [
           'Humana\'s Medicare Advantage and D-SNP prior authorization list (effective July 1, 2026, revised Sept. 1, 2026) has a behavioral health category with two entries: partial hospitalization and transcranial magnetic stimulation. No ABA code (97151–97158, 0362T, 0373T) appears on it. That tells you ABA is not on the PA list. It does not tell you ABA is a covered Medicare Advantage benefit. The list itself says "certain services may not be covered under the member\'s plan" and points to an Advance Coverage Determination for services whose coverage is uncertain. It also notes that, from Jan. 1, 2026, CMS requires prior authorization decisions within 7 days for certain medical items and services.',
@@ -1962,7 +1962,7 @@ export const nationalPayers: Record<string, PayerConfig> = {
       { title: 'Humana — Humana to Exit Employer Group Commercial Medical Products Business (Feb. 23, 2023)', url: 'https://humana.gcs-web.com/news-releases/news-release-details/humana-exit-employer-group-commercial-medical-products-business' },
       { title: 'Humana — Medical Coverage Policies library, keyword search "behavior" (read 2026-10-07)', url: 'https://mcp.humana.com/tad/tad_new/Search.aspx?criteria=behavior&searchtype=freetext&policyType=medical' },
       { title: 'Humana — Prior authorization lists (provider page)', url: 'https://provider.humana.com/coverage-claims/prior-authorizations/prior-authorization-lists' },
-      { title: 'Humana — Medicare Advantage and D-SNP Prior Authorization and Notification List (eff. 7/1/2026, rev. 9/1/2026) (PDF)', url: 'https://assets.humana.com/is/content/humana/FINAL_Medicare%20and%20DSNP%20Prior%20Authorization%20and%20Notification%20List%20-%207-1-2026pdf' },
+      { title: 'Humana — Medicare Advantage and D-SNP Prior Authorization and Notification List (eff. 7/1/2026, rev. 11/2/2026) (PDF)', url: 'https://assets.humana.com/is/content/humana/FINAL_Medicare%20and%20DSNP%20Prior%20Authorization%20and%20Notification%20List%20-%207-1-2026pdf' },
       { title: 'Humana — Commercial Summary of Medical Preauthorization and Notification List Changes (last updated Nov. 5, 2024) (PDF)', url: 'https://assets.humana.com/is/content/humana/Commercial%20SOCpdf' },
       { title: 'Humana — 2026 Provider Manual for physicians, hospitals and healthcare providers (773902ALL0725-A) (PDF)', url: 'https://assets.humana.com/is/content/humana/FINAL_773902ALL0725-A_2026_ProviderManual-Delegated_formattedpdf' },
       { title: 'Humana Military — Applied Behavior Analysis (ABA) provider FAQ (PDF)', url: 'https://assets.humana.com/is/content/humana/aba-provider-faqpdf-1' },
@@ -2050,7 +2050,7 @@ export const nationalPayers: Record<string, PayerConfig> = {
       referral: {
         value: 'Depends on the line. On Medicare Advantage HMO and PPO plans "the full list of prior authorization requirements applies," but no ABA code is on that list (eff. 7/1/2026). Medicaid referral and PA rules are state-specific, and TRICARE East follows TRICARE\'s rules through Humana Military.',
         status: 'plan-dependent',
-        cites: [{ title: 'Humana — Medicare Advantage and D-SNP Prior Authorization and Notification List (eff. 7/1/2026, rev. 9/1/2026) (PDF)', url: 'https://assets.humana.com/is/content/humana/FINAL_Medicare%20and%20DSNP%20Prior%20Authorization%20and%20Notification%20List%20-%207-1-2026pdf' }],
+        cites: [{ title: 'Humana — Medicare Advantage and D-SNP Prior Authorization and Notification List (eff. 7/1/2026, rev. 11/2/2026) (PDF)', url: 'https://assets.humana.com/is/content/humana/FINAL_Medicare%20and%20DSNP%20Prior%20Authorization%20and%20Notification%20List%20-%207-1-2026pdf' }],
         verifyVia: 'Route by line of business; the state Healthy Horizons guide or the TRICARE East guide carries the referral rule.',
         blocker: 'per-case',
       },
@@ -2064,7 +2064,7 @@ export const nationalPayers: Record<string, PayerConfig> = {
       authTurnaround: {
         value: 'Depends on the line. For Medicare Advantage, Humana\'s PA list notes that "effective Jan. 1, 2026, CMS requires prior authorization decisions within 7 days for certain medical items/services requests." Medicaid decision clocks are set by each state contract, and TRICARE by its own rules.',
         status: 'plan-dependent',
-        cites: [{ title: 'Humana — Medicare Advantage and D-SNP Prior Authorization and Notification List (eff. 7/1/2026, rev. 9/1/2026) (PDF)', url: 'https://assets.humana.com/is/content/humana/FINAL_Medicare%20and%20DSNP%20Prior%20Authorization%20and%20Notification%20List%20-%207-1-2026pdf' }],
+        cites: [{ title: 'Humana — Medicare Advantage and D-SNP Prior Authorization and Notification List (eff. 7/1/2026, rev. 11/2/2026) (PDF)', url: 'https://assets.humana.com/is/content/humana/FINAL_Medicare%20and%20DSNP%20Prior%20Authorization%20and%20Notification%20List%20-%207-1-2026pdf' }],
         verifyVia: 'The line-of-business guide (state Healthy Horizons or TRICARE East) for the decision clock that applies.',
         blocker: 'per-case',
       },

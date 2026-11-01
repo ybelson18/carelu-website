@@ -1451,7 +1451,7 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
           'Which codes: Evernorth’s autism resource guide (March 2025) says "All ABA services must be billed with CPT codes 97151–97158, 0362T, and 0373T ONLY," so state HCPCS ABA codes such as H0031, H0032, H2014 or H2019 are not billable to Cigna for ABA. The same guide says "All ABA CPT codes are covered telehealth services."',
         ],
         cites: [{ title: 'Cigna/Evernorth Autism Resource Guide (PCOMM-2025-225, March 2025): billing codes', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026): Claims filing deadline, Coordination of benefits, corrected claims, ERA, Appeals', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }, 
-          { title: 'Cigna for Health Care Professionals — When to File (timely filing policy)', url: 'https://static.cigna.com/assets/chcp/resourceLibrary/clinicalReimbursementPayment/medicalClinicalReimburseWhenToFile.html' },
+          { title: 'Cigna for Health Care Professionals — When to File (timely filing policy)', url: 'https://connections.cigna.com/chcp/resourceLibrary/clinicalReimbursementPayment/medicalClinicalReimburseWhenToFile' },
         ],
       },
       {

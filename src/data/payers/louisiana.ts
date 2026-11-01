@@ -52,7 +52,7 @@ const S: Record<string, PayerSource> = {
   abhCDE: { title: 'Aetna Better Health of Louisiana — Healthcare Professional Guidelines for Comprehensive Diagnostic Evaluations for ABA Services', url: 'https://ch.aetnabetterhealth.com/content/dam/aetna/medicaid/louisiana/providers/pdf/abhla_ABA_Guidelines.pdf' },
   abhPM: { title: 'Aetna Better Health of Louisiana — Provider Manual (LA-22-10-02, revised 11-09-2023; LDH-posted copy)', url: 'https://www.ldh.la.gov/assets/medicaid/MCPP/11.20.23/822_ABH_2023_ABHLA_Provider_Manual_LDH_Submission.pdf' },
   abhPM26: { title: 'Aetna Better Health of Louisiana — Provider Manual (revised 09-29-2026)', url: 'https://es.aetnabetterhealth.com/content/dam/aetna/medicaid/louisiana/providers/pdf/provider_manual.pdf' },
-  aclaHB: { title: 'AmeriHealth Caritas Louisiana — Provider Manual (published September 2026)', url: 'https://www.amerihealthcaritasla.com/pdf/provider/resources/manual/handbook.pdf' },
+  aclaHB: { title: 'AmeriHealth Caritas Louisiana — Provider Manual (October 2026 edition)', url: 'https://www.amerihealthcaritasla.com/pdf/provider/resources/manual/handbook.pdf' },
   aclaCCP: { title: 'AmeriHealth Caritas Louisiana — Clinical Policy CCP.4040, Applied Behavior Analysis (reviewed 3/2024; LDH-posted copy)', url: 'https://www.ldh.la.gov/assets/medicaid/MCPP/9.5.24/506_ACLA_ccp4040_applied_behavior_analysis_final.pdf' },
   aclaAlert: { title: 'AmeriHealth Caritas Louisiana — Provider Alert: ABA Prior Authorization Form (November 19, 2025)', url: 'https://www.amerihealthcaritasla.com/content/dam/amerihealth-caritas/acla/pdf/provider/newsletters/2025/112025-provider-alert-aba-authorization-form.pdf.coredownload.inline.pdf' },
   hbPM: { title: 'Healthy Blue Louisiana — Medicaid Provider Manual (April 2026 posting)', url: 'https://provider.healthybluela.com/docs/gpp/LA_CAID_ProviderManual.pdf?v=202604141511' },
@@ -597,7 +597,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
     metaDescription:
       'How AmeriHealth Caritas Louisiana covers ABA for Medicaid members under 21: clinical policy CCP.4040, the two-step authorization, 2:10 supervision, telehealth codes, PA turnaround, claims deadlines and disputes.',
     intro: [
-      'AmeriHealth Caritas Louisiana is one of the Healthy Louisiana plans that remain after the 2026 exits. Its ABA clinical policy, CCP.4040, is the LDH manual chapter almost word for word, and its September 2026 provider manual adds the operational detail: how fast it decides, how long you have to file, and how disputes work.',
+      'AmeriHealth Caritas Louisiana is one of the Healthy Louisiana plans that remain after the 2026 exits. Its ABA clinical policy, CCP.4040, is the LDH manual chapter almost word for word, and its October 2026 provider manual adds the operational detail: how fast it decides, how long you have to file, and how disputes work.',
     ],
     atGlance: [
       { label: 'Covers ABA?', value: 'Yes, members ages 0–20 with a qualifying CDE' },
@@ -618,7 +618,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       {
         h2: 'Turnaround, claims and disputes',
         body: [
-          'The September 2026 provider manual sets the clocks. Non-urgent prior authorizations: 80% "Within two (2) business days of receiving appropriate documentation," and "All standard Service Authorization shall be made no later than seven (7) Calendar Days following receipt of the request," extendable by up to 14 days; expedited requests within 72 hours. Claims, including those with a primary carrier’s EOB, are due within 365 calendar days of service; corrected or resubmitted claims within 180 days of the denial; retro-enrolled members allow 365 days from service or 180 days from the linkage date, whichever is later. The plan states it processes 90% of clean claims within 15 calendar days and all within 30. Claim disputes start with an independent review reconsideration within 180 days of the remittance advice (resolved within 45 days), then LDH independent review within 60 days. Members may appeal a denial within 60 calendar days of the notice.',
+          'The October 2026 provider manual sets the clocks. Non-urgent prior authorizations: 80% "Within two (2) business days of receiving appropriate documentation," and "All standard Service Authorization shall be made no later than seven (7) Calendar Days following receipt of the request," extendable by up to an additional seven calendar days; expedited requests within 72 hours. Claims, including those with a primary carrier’s EOB, are due within 365 calendar days of service; corrected or resubmitted claims within 180 days of the denial; retro-enrolled members allow 365 days from service or 180 days from the linkage date, whichever is later. The plan states it processes 90% of clean claims within 15 calendar days and all within 30. Claim disputes start with an independent review reconsideration within 180 days of the remittance advice (resolved within 45 days), then LDH independent review within 60 days. Members may appeal a denial within 60 calendar days of the notice.',
         ],
         cites: [S.aclaHB],
       },
@@ -630,7 +630,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       {
         h2: 'Technician credentials (RBT, grace period) and out-of-state BCBAs',
         body: [
-          'AmeriHealth Caritas Louisiana follows the Louisiana Medicaid rules. Its ABA policy CCP.4040 builds supervision around the state-certified assistant and the registered line technician (2:10 supervision) and adds no other technician credential; its provider manual (September 2026) sets no out-of-state ABA rule.',
+          'AmeriHealth Caritas Louisiana follows the Louisiana Medicaid rules. Its ABA policy CCP.4040 builds supervision around the state-certified assistant and the registered line technician (2:10 supervision) and adds no other technician credential; its provider manual (October 2026) sets no out-of-state ABA rule.',
           G1_LA_TECH,
           G1_LA_MCD_OOS,
         ],
@@ -710,7 +710,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
         cites: [S.aclaHB],
       },
       authTurnaround: {
-        value: 'Non-urgent: 80% within 2 business days of receiving the documentation, all within 7 calendar days of the request (extendable up to 14 days); expedited within 72 hours. That matches the federal 7-day cap for rating periods from January 1, 2026.',
+        value: 'Non-urgent: 80% within 2 business days of receiving the documentation, all within 7 calendar days of the request (extendable by up to seven more calendar days); expedited within 72 hours. That matches the federal 7-day cap for rating periods from January 1, 2026.',
         status: 'verified',
         cites: [S.aclaHB, S.cfr438],
       },
@@ -722,7 +722,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
     },
     faq: [
       { q: 'Does AmeriHealth Caritas Louisiana cover ABA?', a: 'Yes, for members ages 0–20 with a comprehensive diagnostic evaluation from a qualified health care professional, under clinical policy CCP.4040.' },
-      { q: 'How fast does AmeriHealth Caritas Louisiana decide ABA requests?', a: 'Its September 2026 manual says 80% of non-urgent requests within 2 business days of receiving documentation and all within 7 calendar days of the request; expedited requests within 72 hours.' },
+      { q: 'How fast does AmeriHealth Caritas Louisiana decide ABA requests?', a: 'Its October 2026 manual says 80% of non-urgent requests within 2 business days of receiving documentation and all within 7 calendar days of the request; expedited requests within 72 hours.' },
       { q: 'What is the timely filing limit for AmeriHealth Caritas Louisiana?', a: '365 calendar days from the date of service, 180 days to resubmit a denied claim, and later deadlines for retroactively enrolled members.' },
       { q: 'Does AmeriHealth Caritas Louisiana require RBT certification for ABA technicians?', a: 'AmeriHealth Caritas Louisiana follows Louisiana Medicaid: Louisiana’s technician credential is the registered line technician: 18 or older, high school diploma, registered with the Louisiana Behavior Analyst Board by the supervising LBA, and a state police background check started within 14 days of applying. Employing an unregistered line technician is a misdemeanor and no grace period is published, so register technicians before they start.' },
       { q: 'Can an out-of-state BCBA treat AmeriHealth Caritas Louisiana members by telehealth?', a: 'Not on another state’s license. Louisiana Medicaid requires a behavior analyst licensed by the Louisiana Behavior Analyst Board (or a licensed psychologist), and the board’s telehealth rule says licensees providing telehealth “must be licensed in Louisiana.” There is no telehealth-only registration.' },

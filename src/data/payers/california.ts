@@ -1702,7 +1702,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       value: 'Required — as a Kaiser authorization/referral, not a provider-initiated request: for outside providers "Prior authorization is required as a condition of payment for any inpatient and outpatient services (excluding emergency services)"',
       status: 'verified',
       cites: [
-        { title: 'KP Northern California HMO Provider Manual 2026 — Section 4, Utilization Management', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/hmo-utilization-management-and-resource-management-en.pdf' },
+        { title: 'KP Northern California HMO Provider Manual 2027 — Section 4, Utilization Management', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/hmo-utilization-management-and-resource-management-en.pdf' },
         { title: 'KP Southern California HMO Provider Manual 2026 (rev. 10-25)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/scal/ever/hmo-provider-manual-2026-en-scal.pdf' },
       ],
     },
@@ -1711,7 +1711,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       status: 'verified',
       cites: [
         { title: 'Kaiser Permanente Medi-Cal Member Handbook — 2026 Combined EOC (Northern and Southern California)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/health-plan-documents/eoc/ca/medicaid/evidence-of-coverage-medi-cal-2026.pdf' },
-        { title: 'KP Northern California HMO Provider Manual 2026 — Section 4, Utilization Management', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/hmo-utilization-management-and-resource-management-en.pdf' },
+        { title: 'KP Northern California HMO Provider Manual 2027 — Section 4, Utilization Management', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/hmo-utilization-management-and-resource-management-en.pdf' },
       ],
     },
     dxRequired: {
@@ -1746,11 +1746,11 @@ export const californiaPayers: Record<string, PayerConfig> = {
       {
         h2: 'Entry runs through a Kaiser physician',
         body: [
-          'The 2026 Medi-Cal member handbook covers BHT "for members under 21 years old through the Medi-Cal for Kids and Teens benefit," when it is "prescribed by a licensed doctor or psychologist, approved by us, and provided in a way that follows the approved treatment plan." Outside providers need "a referral or pre-approval." Kaiser’s Northern California provider manual explains the mechanics: a Plan Physician "may refer a Member to a non-plan Provider when the Member requires covered services … not available in Plan or cannot be provided in a timely manner," the provider receives "a written Authorization for Medical Care communication" stating "the level and scope of services authorized, and the number of visits and/or duration of treatment," and "Any additional services beyond the scope of the authorization must have prior approval … contact the referring physician." Kaiser’s Medi-Cal quick-reference guide adds that Regional Centers "refer Medi-Cal Members needing Autism Spectum Disorder (ASD)/Applied Behavioral Analysis (ABA) Services to their PCP."',
+          'The 2026 Medi-Cal member handbook covers BHT "for members under 21 years old through the Medi-Cal for Kids and Teens benefit," when it is "prescribed by a licensed doctor or psychologist, approved by us, and provided in a way that follows the approved treatment plan." Outside providers need "a referral or pre-approval." Kaiser’s Northern California provider manual explains the mechanics: a Plan Physician "may refer a Member to a non-plan Provider when the Member requires covered services … not available in Plan or cannot be provided within the timely access or geographic standards," the provider receives "a written Authorization for Medical Care communication" stating "the level and scope of services authorized, and the number of visits and/or duration of treatment," and "Any additional services beyond the scope of the authorization must have prior approval … contact the referring physician." Kaiser’s Medi-Cal quick-reference guide adds that Regional Centers "refer Medi-Cal Members needing Autism Spectum Disorder (ASD)/Applied Behavioral Analysis (ABA) Services to their PCP."',
         ],
         cites: [
           { title: 'Kaiser Permanente Medi-Cal Member Handbook — 2026 Combined EOC (Northern and Southern California)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/health-plan-documents/eoc/ca/medicaid/evidence-of-coverage-medi-cal-2026.pdf' },
-          { title: 'KP Northern California HMO Provider Manual 2026 — Section 4, Utilization Management', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/hmo-utilization-management-and-resource-management-en.pdf' },
+          { title: 'KP Northern California HMO Provider Manual 2027 — Section 4, Utilization Management', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/hmo-utilization-management-and-resource-management-en.pdf' },
           { title: 'KP — Contracted Provider Quick Reference Guide to Medi-Cal Managed Care (NCAL, 2026 supplement)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/quick-reference-guide-to-the-managed-medi-cal-program-as-of-en.pdf' },
         ],
       },
@@ -1767,11 +1767,11 @@ export const californiaPayers: Record<string, PayerConfig> = {
       {
         h2: 'Claims: filing limit and provider disputes',
         body: [
-          'Kaiser’s 2026 Southern California HMO provider manual says KP follows "the Knox-Keene Act, Medicare, or Medi-Cal requirements for claim processing, as applicable" and instructs: "Submit all claims for services provided to KP Members within 90 calendar days after the date of service or discharge, unless a different submission period is specified in your Agreement or required by law." Provider dispute notices "must be received by KP within 365 calendar days from our action" and are resolved within 45 business days. Corrected claims in California run on “same limits applicable to the original claim … from the date of the original Remittance Advice,” sent with frequency code 7 or 8 and the original KP claim number. KP publishes no weekly submission cutoff or check-run day. Under the DMHC claims rule a licensed HMO may not set a filing deadline under 90 days for contracted providers (180 for non-contracted), must give a secondary payer at least 90 days from the primary payer’s action, and must pay a complete claim within 30 calendar days of receipt: since January 1, 2026 AB 3275 applies H&S § 1371 to Medi-Cal managed care plans (W&I § 14093.08), with 15% annual interest from day 31.',
+          'Kaiser’s 2026 Southern California HMO provider manual says KP follows "the Knox-Keene Act, Medicare, or Medi-Cal requirements for claim processing, as applicable" and instructs: "Submit all claims for services provided to KP Members within 90 calendar days after the date of service or discharge, unless a different submission period is specified in your Agreement or required by law." Provider dispute notices are due "within 365 calendar days or one calendar year (if leap year) from the date on the EOP indicating the denial/adverse benefit determination of the claim" and are resolved within 45 business days. A corrected claim goes "to KP within the same time limits that apply to the original claim, unless a different timeline is specified" in the agreement, sent with frequency code 7 or 8 and the original KP claim number. KP publishes no weekly submission cutoff or check-run day. Under the DMHC claims rule a licensed HMO may not set a filing deadline under 90 days for contracted providers (180 for non-contracted), must give a secondary payer at least 90 days from the primary payer’s action, and must pay a complete claim within 30 calendar days of receipt: since January 1, 2026 AB 3275 applies H&S § 1371 to Medi-Cal managed care plans (W&I § 14093.08), with 15% annual interest from day 31.',
         ],
         cites: [
           { title: 'AB 3275 (Ch. 763, Stats. 2024) — claim reimbursement within 30 calendar days from 1/1/2026 (H&S § 1371, Ins. Code § 10123.13, W&I § 14093.08)', url: 'https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240AB3275' },
-          { title: 'KP HMO Provider Manual 2026 — Section 5, Claim Billing and Payment Policies and Procedures', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/hmo-billing-and-payment-en.pdf' },
+          { title: 'KP NCAL HMO Provider Manual 2027 — Section 5, Claim Billing, Payment Policy, and Procedures', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/hmo-billing-and-payment-en.pdf' },
           { title: '28 CCR § 1300.71 — Claims settlement practices (DMHC plans)', url: 'https://www.law.cornell.edu/regulations/california/28-CCR-1300.71' },
           { title: 'KP Southern California HMO Provider Manual 2026 (rev. 10-25)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/scal/ever/hmo-provider-manual-2026-en-scal.pdf' },
         ],
@@ -1787,12 +1787,12 @@ export const californiaPayers: Record<string, PayerConfig> = {
     sources: [
       { title: 'AB 3275 (Ch. 763, Stats. 2024) — claim reimbursement within 30 calendar days from 1/1/2026 (H&S § 1371, Ins. Code § 10123.13, W&I § 14093.08)', url: 'https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240AB3275' },
       { title: '28 CCR § 1300.71 — Claims settlement practices (DMHC plans)', url: 'https://www.law.cornell.edu/regulations/california/28-CCR-1300.71' },
-      { title: 'KP HMO Provider Manual 2026 — Section 5, Claim Billing and Payment Policies and Procedures', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/hmo-billing-and-payment-en.pdf' },
+      { title: 'KP NCAL HMO Provider Manual 2027 — Section 5, Claim Billing, Payment Policy, and Procedures', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/hmo-billing-and-payment-en.pdf' },
       { title: 'Kaiser Permanente Medi-Cal Member Handbook — 2026 Combined EOC (Northern and Southern California)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/health-plan-documents/eoc/ca/medicaid/evidence-of-coverage-medi-cal-2026.pdf' },
       { title: 'KP — Contracted Provider Quick Reference Guide to Medi-Cal Managed Care (NCAL, 2026 supplement)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/quick-reference-guide-to-the-managed-medi-cal-program-as-of-en.pdf' },
       { title: 'KFHP-SCAL — UM Criteria for BHT Services for Medi-Cal Members under EPSDT (UM Criteria 2024)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/health-plan-documents/notice/utilization-management/bht-epsdt-um-criteria-medi-cal-scal-en.pdf' },
-      { title: 'KP Northern California HMO Provider Manual 2026 — Section 4, Utilization Management', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/hmo-utilization-management-and-resource-management-en.pdf' },
-      { title: 'KP — Coordination of Benefits and Medi-Cal Cost Avoidance (provider letter, Oct 2025)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/coordination-of-benefits-and-medi-cal-cost-avoidance-en-2026.pdf' },
+      { title: 'KP Northern California HMO Provider Manual 2027 — Section 4, Utilization Management', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/hmo-utilization-management-and-resource-management-en.pdf' },
+      { title: 'KP — Coordination of Benefits and Medi-Cal Cost Avoidance (provider letter, October 2026)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/coordination-of-benefits-and-medi-cal-cost-avoidance-en-2026.pdf' },
       { title: 'KP Southern California HMO Provider Manual 2026 (rev. 10-25)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/scal/ever/hmo-provider-manual-2026-en-scal.pdf' },
       { title: 'KP NCAL — Provider Authorizations FAQ', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/provider-authorizations-faq-en.pdf' },
       { title: 'CHHS Open Data — Medi-Cal Managed Care Enrollment Report (August 2026)', url: 'https://data.chhs.ca.gov/dataset/medi-cal-managed-care-enrollment-report' },
@@ -1831,10 +1831,10 @@ export const californiaPayers: Record<string, PayerConfig> = {
         ],
       },
       referral: {
-        value: 'Yes, and it is the whole front door. Plan Physicians refer to a non-plan provider when the service is "not available in Plan or cannot be provided in a timely manner"; outside referrals are "managed at the local facility level," and out-of-network services need "a referral or pre-approval." An ABA agency cannot accept a Kaiser Medi-Cal family on its own — the family must be referred by a Kaiser physician and the agency must receive the written authorization.',
+        value: 'Yes, and it is the whole front door. Plan Physicians refer to a non-plan provider when the service is "not available in Plan or cannot be provided within the timely access or geographic standards"; outside referrals are "managed at the local facility level," and out-of-network services need "a referral or pre-approval." An ABA agency cannot accept a Kaiser Medi-Cal family on its own — the family must be referred by a Kaiser physician and the agency must receive the written authorization.',
         status: 'verified',
         cites: [
-          { title: 'KP Northern California HMO Provider Manual 2026 — Section 4, Utilization Management', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/hmo-utilization-management-and-resource-management-en.pdf' },
+          { title: 'KP Northern California HMO Provider Manual 2027 — Section 4, Utilization Management', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/hmo-utilization-management-and-resource-management-en.pdf' },
           { title: 'Kaiser Permanente Medi-Cal Member Handbook — 2026 Combined EOC (Northern and Southern California)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/health-plan-documents/eoc/ca/medicaid/evidence-of-coverage-medi-cal-2026.pdf' },
         ],
       },
@@ -1852,14 +1852,14 @@ export const californiaPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'Kaiser Permanente Medi-Cal Member Handbook — 2026 Combined EOC (Northern and Southern California)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/health-plan-documents/eoc/ca/medicaid/evidence-of-coverage-medi-cal-2026.pdf' },
-          { title: 'KP Northern California HMO Provider Manual 2026 — Section 4, Utilization Management', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/hmo-utilization-management-and-resource-management-en.pdf' },
+          { title: 'KP Northern California HMO Provider Manual 2027 — Section 4, Utilization Management', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/hmo-utilization-management-and-resource-management-en.pdf' },
         ],
       },
       coordinationOfBenefits: {
         value: 'Kaiser’s cost-avoidance letter makes contractors "responsible for identifying the primary payor, seeking authorization from the primary payor (if authorization is required), and billing the appropriate party." "If a Medi-Cal Member has active OHC and the requested service is covered by the OHC, you must instruct the member to seek the service through the OHC carrier," but "you must not refuse to provide covered services to Medi-Cal Members as authorized by Kaiser Permanente." Every prior-authorized service needs its authorization number on the claim — so keep Kaiser’s authorization even when Kaiser is secondary.',
         status: 'verified',
         cites: [
-          { title: 'KP — Coordination of Benefits and Medi-Cal Cost Avoidance (provider letter, Oct 2025)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/coordination-of-benefits-and-medi-cal-cost-avoidance-en-2026.pdf' },
+          { title: 'KP — Coordination of Benefits and Medi-Cal Cost Avoidance (provider letter, October 2026)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/coordination-of-benefits-and-medi-cal-cost-avoidance-en-2026.pdf' },
           { title: 'KP Southern California HMO Provider Manual 2026 (rev. 10-25)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/scal/ever/hmo-provider-manual-2026-en-scal.pdf' },
         ],
       },
@@ -1889,7 +1889,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'KP — Contracted Provider Quick Reference Guide to Medi-Cal Managed Care (NCAL, 2026 supplement)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/quick-reference-guide-to-the-managed-medi-cal-program-as-of-en.pdf' },
-          { title: 'KP Northern California HMO Provider Manual 2026 — Section 4, Utilization Management', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/hmo-utilization-management-and-resource-management-en.pdf' },
+          { title: 'KP Northern California HMO Provider Manual 2027 — Section 4, Utilization Management', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/hmo-utilization-management-and-resource-management-en.pdf' },
         ],
       },
       noteSignature: {
@@ -2007,7 +2007,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
           { title: 'Partnership HealthPlan CLPM-05 — Partnership HealthPlan of California Billing Limit (reviewed and approved 9/1/2026)', url: 'https://public.powerdms.com/PHC/documents/3548907' },
           { title: 'Partnership HealthPlan CLPM-15 — Claims Processing and Payment Standards (last reviewed 4/23/2026)', url: 'https://public.powerdms.com/PHC/documents/3548943' },
           { title: 'AB 3275 (Ch. 763, Stats. 2024) — claim reimbursement within 30 calendar days from 1/1/2026 (H&S § 1371, Ins. Code § 10123.13, W&I § 14093.08)', url: 'https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240AB3275' },
-          { title: 'Partnership HealthPlan CLPM-41 — Provider Claims Dispute Resolution Mechanism (approved 9/1/2025)', url: 'https://public.powerdms.com/PHC/documents/3548969' },
+          { title: 'Partnership HealthPlan CLPM-41 — Provider Claims Dispute Resolution Mechanism (last review 10/1/2026)', url: 'https://public.powerdms.com/PHC/documents/3548969' },
         ],
       },
     ],
@@ -2170,14 +2170,14 @@ export const californiaPayers: Record<string, PayerConfig> = {
       cites: [
         { title: 'Kaiser Permanente 2026 Combined Membership Agreement / EOC — Gold 80 HMO (NCAL + SCAL)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/health-plan-documents/eoc/ca/individual-family/2026/on-gold-80-ca-en.pdf' },
         { title: 'TPMG My Doctor Online (NCAL) — Interventions and Services for Children With ASD', url: 'https://mydoctor.kaiserpermanente.org/ncal/structured-content/interventions-and-services-for-children-with-autism-spectrum-disorder-asd-2263667' },
-        { title: 'KP Northern California HMO Provider Manual 2026 — Section 4, Utilization Management', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/hmo-utilization-management-and-resource-management-en.pdf' },
+        { title: 'KP Northern California HMO Provider Manual 2027 — Section 4, Utilization Management', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/hmo-utilization-management-and-resource-management-en.pdf' },
       ],
     },
     treatmentPA: {
       value: 'Required as a Kaiser authorization — treatment runs only under a written Authorization for Medical Care to an in-network agency; "Any additional services beyond the scope of the authorization must have prior approval"; NCAL BHT is "typically done for 12 months at a time" with mid-point and end reviews',
       status: 'verified',
       cites: [
-        { title: 'KP Northern California HMO Provider Manual 2026 — Section 4, Utilization Management', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/hmo-utilization-management-and-resource-management-en.pdf' },
+        { title: 'KP Northern California HMO Provider Manual 2027 — Section 4, Utilization Management', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/hmo-utilization-management-and-resource-management-en.pdf' },
         { title: 'TPMG My Doctor Online (NCAL) — Interventions and Services for Children With ASD', url: 'https://mydoctor.kaiserpermanente.org/ncal/structured-content/interventions-and-services-for-children-with-autism-spectrum-disorder-asd-2263667' },
       ],
     },
@@ -2218,7 +2218,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'Kaiser Permanente 2026 Combined Membership Agreement / EOC — Gold 80 HMO (NCAL + SCAL)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/health-plan-documents/eoc/ca/individual-family/2026/on-gold-80-ca-en.pdf' },
           { title: 'TPMG My Doctor Online (NCAL) — Interventions and Services for Children With ASD', url: 'https://mydoctor.kaiserpermanente.org/ncal/structured-content/interventions-and-services-for-children-with-autism-spectrum-disorder-asd-2263667' },
-          { title: 'KP Northern California HMO Provider Manual 2026 — Section 4, Utilization Management', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/hmo-utilization-management-and-resource-management-en.pdf' },
+          { title: 'KP Northern California HMO Provider Manual 2027 — Section 4, Utilization Management', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/hmo-utilization-management-and-resource-management-en.pdf' },
           { title: 'Kaiser Permanente — Utilization Management Process notice (September 2026, NCAL + SCAL)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/health-plan-documents/notice/utilization-management-process-ca.pdf' },
           { title: 'KP Southern California HMO Provider Manual 2026 (rev. 10-25)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/scal/ever/hmo-provider-manual-2026-en-scal.pdf' },
         ],
@@ -2247,18 +2247,18 @@ export const californiaPayers: Record<string, PayerConfig> = {
           { title: 'Business & Professions Code § 4999.200 — Qualified autism service provider (SB 402, eff. 1/1/2026)', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=BPC&sectionNum=4999.200' },
           { title: 'Business & Professions Code § 4999.202 — Qualified autism service paraprofessional (SB 402, eff. 1/1/2026)', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=BPC&sectionNum=4999.202' },
           { title: 'BACB — U.S. Licensure of Behavior Analysts (California absent; checked September 2026)', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
-          { title: 'KP NCAL HMO Provider Manual 2026 — Section 12, Additional Service Specific Information (§ 12.7 ASD Services)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/hmo-additional-service-specific-information-en.pdf' },
+          { title: 'KP NCAL HMO Provider Manual 2027 — Section 11, Additional Service Specific Information (§ 11.7 ASD Services)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/hmo-additional-service-specific-information-en.pdf' },
           { title: 'KP SCAL — Notice on BHT/ABA Cost Share Collection and Classification', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/scal/ever/cost-share-collection-and-classification-behavorial-health-notice-en.pdf' },
         ],
       },
       {
         h2: 'Claims: filing limit and provider disputes',
         body: [
-          'Kaiser’s 2026 HMO Provider Manual (Section 5, Claim Billing and Payment) says that in Northern and Southern California KP follows the Knox-Keene Act and instructs: "Submit all claims for services provided to KP Members within 90 calendar days after the date of service or discharge, unless a different submission period is specified in your Agreement or required by law." Professional claims go on the CMS-1500 with the KP authorization number for any prior-authorized service; COB information for California is due within 90 calendar days of the primary carrier’s EOB. Provider dispute notices "must be received by KP within 365 calendar days from our action," are acknowledged within 15 business days (two for online submissions), and are resolved within 45 business days. The DMHC floor underneath bars deadlines shorter than 90 days for contracted providers (180 for non-contracted) and requires payment of a complete claim within 30 calendar days of receipt since January 1, 2026 (H&S § 1371 as amended by AB 3275; the regulation’s 30 working days, 45 for an HMO, no longer control), with 15% annual interest from day 31. Corrected claims in California run on “same limits applicable to the original claim … from the date of the original Remittance Advice,” sent with frequency code 7 or 8 and the original KP claim number. KP publishes no weekly submission cutoff or check-run day.',
+          'Kaiser’s 2026 HMO Provider Manual (Section 5, Claim Billing and Payment) says that in Northern and Southern California KP follows the Knox-Keene Act and instructs: "Submit all claims for services provided to KP Members within 90 calendar days after the date of service or discharge, unless a different submission period is specified in your Agreement or required by law." Professional claims go on the CMS-1500 with the KP authorization number for any prior-authorized service; COB information for California is due within 90 calendar days of the primary carrier’s EOB. Provider dispute notices are due "within 365 calendar days or one calendar year (if leap year) from the date on the EOP indicating the denial/adverse benefit determination of the claim," are acknowledged within 2 business days of an electronic submission (15 business days for hard copy), and are resolved within 45 business days. The DMHC floor underneath bars deadlines shorter than 90 days for contracted providers (180 for non-contracted) and requires payment of a complete claim within 30 calendar days of receipt since January 1, 2026 (H&S § 1371 as amended by AB 3275; the regulation’s 30 working days, 45 for an HMO, no longer control), with 15% annual interest from day 31. A corrected claim goes "to KP within the same time limits that apply to the original claim, unless a different timeline is specified" in the agreement, sent with frequency code 7 or 8 and the original KP claim number. KP publishes no weekly submission cutoff or check-run day.',
         ],
         cites: [
           { title: 'AB 3275 (Ch. 763, Stats. 2024) — claim reimbursement within 30 calendar days from 1/1/2026 (H&S § 1371, Ins. Code § 10123.13, W&I § 14093.08)', url: 'https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240AB3275' },
-          { title: 'KP HMO Provider Manual 2026 — Section 5, Claim Billing and Payment Policies and Procedures', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/hmo-billing-and-payment-en.pdf' },
+          { title: 'KP NCAL HMO Provider Manual 2027 — Section 5, Claim Billing, Payment Policy, and Procedures', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/hmo-billing-and-payment-en.pdf' },
           { title: 'KP Southern California HMO Provider Manual 2026 (rev. 10-25)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/scal/ever/hmo-provider-manual-2026-en-scal.pdf' },
           { title: '28 CCR § 1300.71 — Claims settlement practices (DMHC plans)', url: 'https://www.law.cornell.edu/regulations/california/28-CCR-1300.71' },
           { title: '28 CCR § 1300.71.38 — Provider dispute resolution mechanism (DMHC plans)', url: 'https://www.law.cornell.edu/regulations/california/28-CCR-1300.71.38' },
@@ -2278,8 +2278,8 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'Kaiser Permanente — Utilization Management Process notice (September 2026, NCAL + SCAL)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/health-plan-documents/notice/utilization-management-process-ca.pdf' },
       { title: 'TPMG My Doctor Online (NCAL) — Interventions and Services for Children With ASD', url: 'https://mydoctor.kaiserpermanente.org/ncal/structured-content/interventions-and-services-for-children-with-autism-spectrum-disorder-asd-2263667' },
       { title: 'TPMG My Doctor Online (NCAL) — Evaluation for ASD in Children', url: 'https://mydoctor.kaiserpermanente.org/ncal/structured-content/evaluation-for-autism-spectrum-disorder-in-children-2259863' },
-      { title: 'KP Northern California HMO Provider Manual 2026 — Section 4, Utilization Management', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/hmo-utilization-management-and-resource-management-en.pdf' },
-      { title: 'KP NCAL HMO Provider Manual 2026 — Section 12, Additional Service Specific Information (§ 12.7 ASD Services)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/hmo-additional-service-specific-information-en.pdf' },
+      { title: 'KP Northern California HMO Provider Manual 2027 — Section 4, Utilization Management', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/hmo-utilization-management-and-resource-management-en.pdf' },
+      { title: 'KP NCAL HMO Provider Manual 2027 — Section 11, Additional Service Specific Information (§ 11.7 ASD Services)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/hmo-additional-service-specific-information-en.pdf' },
       { title: 'KP SCAL — Notice on BHT/ABA Cost Share Collection and Classification', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/scal/ever/cost-share-collection-and-classification-behavorial-health-notice-en.pdf' },
       { title: 'KP Southern California HMO Provider Manual 2026 (rev. 10-25)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/scal/ever/hmo-provider-manual-2026-en-scal.pdf' },
       { title: 'Health & Safety Code § 1374.73 (as amended by SB 402, eff. 1/1/2026)', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=HSC&sectionNum=1374.73' },
@@ -2357,7 +2357,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         value: 'For providers: "Authorization from KP is required even when KP is the secondary payor," and contractors identify the primary payer, seek its authorization, and bill the right party; as secondary, Kaiser pays "up to the primary payer’s allowable, not to exceed what KP would have paid as a primary payer." The DMHC floor (28 CCR 1300.67.13) sets the order between two parents’ plans — the employee’s plan before the dependent plan, then the parent "whose date of birth, excluding year of birth, occurs earlier in a calendar year" for non-separated parents — and excludes Medi-Cal from "Plan," so Medi-Cal pays last. TRICARE pays after Kaiser (10 U.S.C. 1079(i)(1)); CHAMPVA is "the last payer" (38 CFR 17.270(b)). A group EOC’s own COB clause can vary — confirm per member.',
         status: 'verified',
         cites: [
-          { title: 'KP Northern California HMO Provider Manual 2026 — Section 4, Utilization Management', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/hmo-utilization-management-and-resource-management-en.pdf' },
+          { title: 'KP Northern California HMO Provider Manual 2027 — Section 4, Utilization Management', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/hmo-utilization-management-and-resource-management-en.pdf' },
           { title: 'KP Southern California HMO Provider Manual 2026 (rev. 10-25)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/scal/ever/hmo-provider-manual-2026-en-scal.pdf' },
           { title: '28 CCR § 1300.67.13 — Coordination of benefits (DMHC plans)', url: 'https://www.law.cornell.edu/regulations/california/28-CCR-1300.67.13' },
           { title: '10 U.S.C. 1079 — TRICARE pays after other coverage except Medicaid', url: 'https://www.law.cornell.edu/uscode/text/10/1079' },
@@ -2370,7 +2370,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         value: 'Kaiser adds no numeric ratio. Contracted providers deliver BHT "in accordance with the requirements set forth in California Health and Safety Code Section 1374.73, including providing Services under a treatment plan described and administered by Qualified Autism Service Providers, Qualified Autism Service Professionals and/or Qualified Autism Service Paraprofessionals," with documentary evidence on request. NCAL describes a "3-tier treatment model" — a supervising professional writes the plan, behavior technicians implement it — and for group BHT "Parent training and involvement are required." (Kaiser’s documents still cite the pre-2026 subsection numbers of § 1374.73.)',
         status: 'verified',
         cites: [
-          { title: 'KP NCAL HMO Provider Manual 2026 — Section 12, Additional Service Specific Information (§ 12.7 ASD Services)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/hmo-additional-service-specific-information-en.pdf' },
+          { title: 'KP NCAL HMO Provider Manual 2027 — Section 11, Additional Service Specific Information (§ 11.7 ASD Services)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/hmo-additional-service-specific-information-en.pdf' },
           { title: 'TPMG My Doctor Online (NCAL) — Interventions and Services for Children With ASD', url: 'https://mydoctor.kaiserpermanente.org/ncal/structured-content/interventions-and-services-for-children-with-autism-spectrum-disorder-asd-2263667' },
         ],
       },
@@ -2378,7 +2378,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         value: 'Not published — no Kaiser document addresses billing 97153 and 97155 for the same clock time.',
         status: 'unverified',
         cites: [
-          { title: 'KP NCAL HMO Provider Manual 2026 — Section 12, Additional Service Specific Information (§ 12.7 ASD Services)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/hmo-additional-service-specific-information-en.pdf' },
+          { title: 'KP NCAL HMO Provider Manual 2027 — Section 11, Additional Service Specific Information (§ 11.7 ASD Services)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/hmo-additional-service-specific-information-en.pdf' },
         ],
         verifyVia: 'Your Kaiser (or NCAL Catalight network) provider agreement, or Kaiser Member Services Contact Center for providers (888) 576-6789.',
         blocker: 'per-case',
@@ -2397,7 +2397,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         value: 'Not published in any public Kaiser document read.',
         status: 'unverified',
         cites: [
-          { title: 'KP NCAL HMO Provider Manual 2026 — Section 12, Additional Service Specific Information (§ 12.7 ASD Services)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/hmo-additional-service-specific-information-en.pdf' },
+          { title: 'KP NCAL HMO Provider Manual 2027 — Section 11, Additional Service Specific Information (§ 11.7 ASD Services)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/hmo-additional-service-specific-information-en.pdf' },
         ],
         verifyVia: 'Your Kaiser or Catalight provider agreement (documentation standards).',
         blocker: 'per-case',
@@ -2444,9 +2444,10 @@ export const californiaPayers: Record<string, PayerConfig> = {
       ],
     },
     treatmentPA: {
-      value: 'Required for DMHC-regulated commercial HMO/PPO/EPO and, since 1/1/2026, self-funded and Shared Advantage plans (97153–97158, 0373T); but the July 2026 manual says CDI-regulated Blue Shield products need PA only for non-emergency MH/SUD admissions — check the card',
+      value: 'Required for DMHC-regulated commercial HMO/PPO/EPO and, since 1/1/2026, self-funded and Shared Advantage plans (97153–97158, 0373T); but the July 2026 manual says CDI-regulated Blue Shield products need PA only for non-emergency MH/SUD admissions — check the card. Since September 2026, PPO outpatient authorizations for "behavioral health (including ABA services)" can also be submitted in Availity Essentials (select "Blue Shield of California") for fully insured PPO, ASO self-funded and Shared Advantage plans',
       status: 'plan-dependent',
       cites: [
+        { title: 'Blue Shield of California — Provider news, September 9, 2026: Availity Essentials now available for eligible PPO outpatient authorizations', url: 'https://www.blueshieldca.com/en/provider/news-education/news' },
         { title: 'Blue Shield Independent Physician and Provider Manual (PPO / direct HMO), July 2026', url: 'https://www.blueshieldca.com/content/dam/bsca/en/provider/docs/7-26-A11421-IPP-Manual.pdf' },
         { title: 'Blue Shield of California — Prior Authorization List (eff. 10/1/2026)', url: 'https://www.blueshieldca.com/content/dam/bsca/en/provider/docs/BSC-Prior-Auth-List.pdf' },
       ],
@@ -2709,10 +2710,10 @@ export const californiaPayers: Record<string, PayerConfig> = {
     family: 'anthem',
     cardDesc: 'PA on every ABA code; fully insured reviewed on AACAP criteria (SB 855), self-funded on licensed MCG B-806-T.',
     assessmentPA: {
-      value: 'Required — 97151, 97152 and 0362T are on Anthem’s California PPO precertification list (updated 9/22/2026, eff. 10/1/2026) with Anthem — not Carelon — as the responsible party; "Although most services do not require preauthorization, ABA services do"',
+      value: 'Required — 97151, 97152 and 0362T are on Anthem’s California PPO precertification list (updated 10/20/2026, eff. 11/1/2026) with Anthem — not Carelon — as the responsible party; "Although most services do not require preauthorization, ABA services do"',
       status: 'verified',
       cites: [
-        { title: 'Anthem Blue Cross — Local PPO Precertification/Prior Authorization List, California Commercial (updated 9/22/2026, eff. 10/1/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_PPO_PA_List.pdf' },
+        { title: 'Anthem Blue Cross — Local PPO Precertification/Prior Authorization List, California Commercial (updated 10/20/2026, eff. 11/1/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_PPO_PA_List.pdf' },
         { title: 'Anthem Blue Cross — Behavioral Health Guide: Commercial BH and ABA Group Agreement (CABC-CM-082371-25)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_BHG_Groups.pdf' },
       ],
     },
@@ -2720,7 +2721,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       value: 'Required — 97153–97158, 0373T and the H-codes (H0031/H0032/H0046/H2012/H2014/H2019) are all on the list; "ABA services are authorized by CPT® code … Any codes billed without authorization are not allowed." The PPO list does not cover HMO or BlueCard members',
       status: 'verified',
       cites: [
-        { title: 'Anthem Blue Cross — Local PPO Precertification/Prior Authorization List, California Commercial (updated 9/22/2026, eff. 10/1/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_PPO_PA_List.pdf' },
+        { title: 'Anthem Blue Cross — Local PPO Precertification/Prior Authorization List, California Commercial (updated 10/20/2026, eff. 11/1/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_PPO_PA_List.pdf' },
         { title: 'Anthem Blue Cross — Behavioral Health Guide: Commercial BH and ABA Group Agreement (CABC-CM-082371-25)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_BHG_Groups.pdf' },
       ],
     },
@@ -2756,11 +2757,11 @@ export const californiaPayers: Record<string, PayerConfig> = {
       {
         h2: 'Anthem’s ABA rules in California',
         body: [
-          'Anthem’s California PPO precertification list (updated September 22, 2026, effective October 1, 2026) lists every ABA code — 97151–97158, 0362T, 0373T, H0031, H0032, H0046, H2012, H2014 and H2019 — with Anthem as the responsible party and "Contact Behavioral Health at the number on the member’s ID card." Its criteria column reads "American Academy of Child and Adolescent Psychiatry (AACAP)," with the comment "California Self-insured (ASO) benefit plans use MCG B-806-T Applied Behavioral Analysis." That is Anthem’s answer to SB 855’s requirement that fully insured plans use nonprofit-association criteria. Anthem’s national adaptive-behavior guideline (CG-BEH-02) is not on its California guideline index and is not cited for California. The list applies to "local fully-insured Anthem members and select members who are covered under self-insured (ASO) benefit plans" — not to HMO, BlueCard (out-of-state Blue cards follow the home plan), Medicare, Medicaid or FEP. Carelon is not the ABA reviewer on this list: the list names Carelon Medical Benefits Management only for cardiology, genetic testing, sleep, imaging, radiation oncology, musculoskeletal and similar programs, while every ABA row names Anthem.',
+          'Anthem’s California PPO precertification list (updated October 20, 2026, effective November 1, 2026) lists every ABA code — 97151–97158, 0362T, 0373T, H0031, H0032, H0046, H2012, H2014 and H2019 — with Anthem as the responsible party and "Contact Behavioral Health at the number on the member’s ID card." Its criteria column reads "American Academy of Child and Adolescent Psychiatry (AACAP)," with the comment "California Self-insured (ASO) benefit plans use MCG B-806-T Applied Behavioral Analysis." That is Anthem’s answer to SB 855’s requirement that fully insured plans use nonprofit-association criteria. Anthem’s national adaptive-behavior guideline (CG-BEH-02) is not on its California guideline index and is not cited for California. The list applies to "local fully-insured Anthem members and select members who are covered under self-insured (ASO) benefit plans" — not to HMO, BlueCard (out-of-state Blue cards follow the home plan), Medicare, Medicaid or FEP. Carelon is not the ABA reviewer on this list: the list names Carelon Medical Benefits Management only for cardiology, genetic testing, sleep, imaging, radiation oncology, musculoskeletal and similar programs, while every ABA row names Anthem.',
           'Anthem’s behavioral health group guide adds: "Always obtain authorization prior to rendering ABA services"; "ABA services are authorized by CPT® code, and claims will be processed by CPT code"; units must be whole numbers; and "Include the individual NPI of the rendering provider." Submit through Interactive Care Reviewer on Availity or "fill out the Adaptive Behavioral Treatment Request and fax the completed form to 866-582-2287." The current form is the Treatment Plan Request Form for Autism Spectrum Disorders (California commercial, April 2026): it asks who diagnosed the child, wants a diagnostic report by "a doctorate-level clinician or allowable qualified healthcare provider per state regulations" with DSM-5-TR criteria and a standardized tool (ADI-R, ADOS-2 or CARS-2 given as examples) for initial assessment requests, a treatment plan "dated within 30 days of the start date," and the BCBA\'s information and signature. Some Anthem plans carve mental health out to another company — the ID card says so.',
         ],
         cites: [
-          { title: 'Anthem Blue Cross — Local PPO Precertification/Prior Authorization List, California Commercial (updated 9/22/2026, eff. 10/1/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_PPO_PA_List.pdf' },
+          { title: 'Anthem Blue Cross — Local PPO Precertification/Prior Authorization List, California Commercial (updated 10/20/2026, eff. 11/1/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_PPO_PA_List.pdf' },
           { title: 'Anthem Blue Cross — Behavioral Health Guide: Commercial BH and ABA Group Agreement (CABC-CM-082371-25)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_BHG_Groups.pdf' },
           { title: 'Anthem Blue Cross — Treatment Plan Request Form for Autism Spectrum Disorders, California Commercial (CA-BC-CM-008578-26-S2508, April 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/CA_TPRF_00001.pdf' },
         ],
@@ -2789,7 +2790,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
           { title: 'Business & Professions Code § 4999.200 — Qualified autism service provider (SB 402, eff. 1/1/2026)', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=BPC&sectionNum=4999.200' },
           { title: 'Business & Professions Code § 4999.202 — Qualified autism service paraprofessional (SB 402, eff. 1/1/2026)', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=BPC&sectionNum=4999.202' },
           { title: 'BACB — U.S. Licensure of Behavior Analysts (California absent; checked September 2026)', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
-          { title: 'Anthem Blue Cross — Local PPO Precertification/Prior Authorization List, California Commercial (updated 9/22/2026, eff. 10/1/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_PPO_PA_List.pdf' },
+          { title: 'Anthem Blue Cross — Local PPO Precertification/Prior Authorization List, California Commercial (updated 10/20/2026, eff. 11/1/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_PPO_PA_List.pdf' },
         ],
       },
       {
@@ -2824,7 +2825,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
     ],
     sources: [
       { title: 'AB 3275 (Ch. 763, Stats. 2024) — claim reimbursement within 30 calendar days from 1/1/2026 (H&S § 1371, Ins. Code § 10123.13, W&I § 14093.08)', url: 'https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240AB3275' },
-      { title: 'Anthem Blue Cross — Local PPO Precertification/Prior Authorization List, California Commercial (updated 9/22/2026, eff. 10/1/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_PPO_PA_List.pdf' },
+      { title: 'Anthem Blue Cross — Local PPO Precertification/Prior Authorization List, California Commercial (updated 10/20/2026, eff. 11/1/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_PPO_PA_List.pdf' },
       { title: 'Anthem Blue Cross — Behavioral Health Guide: Commercial BH and ABA Group Agreement (CABC-CM-082371-25)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_BHG_Groups.pdf' },
       { title: 'Health & Safety Code § 1374.73 (as amended by SB 402, eff. 1/1/2026)', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=HSC&sectionNum=1374.73' },
       { title: 'Insurance Code § 10144.51 (as amended by SB 402, eff. 1/1/2026)', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=INS&sectionNum=10144.51' },
@@ -2843,7 +2844,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         value: 'No age limit on fully insured plans: Anthem’s California PA list and BH guide carry no age cap, and H&S § 1374.73 / Ins. § 10144.51 contain none. Self-funded (ASO) plans follow their own plan document and the licensed MCG B-806-T guideline.',
         status: 'plan-dependent',
         cites: [
-          { title: 'Anthem Blue Cross — Local PPO Precertification/Prior Authorization List, California Commercial (updated 9/22/2026, eff. 10/1/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_PPO_PA_List.pdf' },
+          { title: 'Anthem Blue Cross — Local PPO Precertification/Prior Authorization List, California Commercial (updated 10/20/2026, eff. 11/1/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_PPO_PA_List.pdf' },
           { title: 'Health & Safety Code § 1374.73 (as amended by SB 402, eff. 1/1/2026)', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=HSC&sectionNum=1374.73' },
         ],
         verifyVia: 'Benefits verification on the member ID — fully insured vs. self-funded, then the employer plan’s own terms for ASO groups.',
@@ -2929,7 +2930,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'Anthem Blue Cross — Treatment Plan Request Form for Autism Spectrum Disorders, California Commercial (CA-BC-CM-008578-26-S2508, April 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/CA_TPRF_00001.pdf' },
           { title: 'Anthem Blue Cross — Applied Behavior Analysis Provider Resource Guide, California Commercial (CABC-CM-084582-25, June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/aba-provider-resource-guide-abc-ca.pdf' },
-          { title: 'Anthem Blue Cross — Local PPO Precertification/Prior Authorization List, California Commercial (updated 9/22/2026, eff. 10/1/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_PPO_PA_List.pdf' },
+          { title: 'Anthem Blue Cross — Local PPO Precertification/Prior Authorization List, California Commercial (updated 10/20/2026, eff. 11/1/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_PPO_PA_List.pdf' },
           { title: 'Business & Professions Code § 4999.202 — Qualified autism service paraprofessional (SB 402, eff. 1/1/2026)', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=BPC&sectionNum=4999.202' },
         ],
         verifyVia: 'Anthem California Facility and Professional Provider Manual (Availity-gated) or the ABA group agreement.',

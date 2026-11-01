@@ -65,7 +65,7 @@ const S: Record<string, PayerSource> = {
   optumTele: { title: 'Optum — Telehealth Billing Quick Reference Guide (updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
   optumNNM: { title: 'Optum National Network Manual (BH02330, effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
   optumReimb: { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
-  hmAuth: { title: 'Highmark — List of Procedures/DME Requiring Authorization (eff. 10/01/2026; for PA, WV, DE & NY members)', url: 'https://providers.highmark.com/content/dam/highmark/en/providerresourcecenter/pdfs/procedurecode/commercial/Proc-Requiring-Auth-list.pdf' },
+  hmAuth: { title: 'Highmark — List of Procedures/DME Requiring Authorization (eff. 11/01/2026; for PA, WV, DE & NY members)', url: 'https://providers.highmark.com/content/dam/highmark/en/providerresourcecenter/pdfs/procedurecode/commercial/Proc-Requiring-Auth-list.pdf' },
   hmBHPA: { title: 'Highmark — Behavioral Health: Upcoming Prior Authorization Changes (published Nov 24, 2025; eff. March 1, 2026)', url: 'https://providers.highmark.com/communications-hub/news-and-updates/behavioral-health-upcoming-prior-authorization-changes.html' },
   hm97153: { title: 'Highmark — Reimbursement Update: CPT 97153 for ABA Therapy in DE, PA and WV (published Aug 17, 2026; eff. Oct 16, 2026)', url: 'https://providers.highmark.com/communications-hub/news-and-updates/reimbursement-update-cpt-code-97153-for-aba-therapy-in-de-pa-wv.html' },
   hmRP046: { title: 'Highmark Reimbursement Policy RP-046 — Telemedicine and Telehealth Services (version 2026.09.01; PA, WV, DE, NY)', url: 'https://providers.highmark.com/content/dam/highmark/en/providerresourcecenter/pdfs/claims/reimbursement-policies/rp-046.pdf' },
@@ -783,7 +783,7 @@ export const delawarePayers: Record<string, PayerConfig> = {
     family: 'bcbs',
     cardDesc: 'Delaware’s Blue plan: every ABA code on Highmark’s auth list (Highmark Behavioral Health), 97153 PPO rate $15.73 from 10/16/2026.',
     assessmentPA: {
-      value: 'Yes: 97151, 97152 and 0362T are on Highmark’s authorization list (effective 10/01/2026, "For PA, WV, DE & NY Members") under UM program Highmark Behavioral Health; Highmark notes "Some authorization requirements vary by member plan"',
+      value: 'Yes: 97151, 97152 and 0362T are on Highmark’s authorization list (effective 11/01/2026, "For PA, WV, DE & NY Members") under UM program Highmark Behavioral Health; Highmark notes "Some authorization requirements vary by member plan"',
       status: 'verified',
       cites: [S.hmAuth, S.hmBHPA],
     },

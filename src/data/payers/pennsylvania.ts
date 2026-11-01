@@ -1420,6 +1420,15 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'PerformCare HealthChoices Provider Manual (updated February 2023)', url: 'https://pa.performcare.org/content/dam/amerihealth-caritas/performcare-pa/pdf/providers/resources-information/provider-manual.pdf' }],
       },
+      {
+        h2: 'Can an IBHS/ABA claim to PerformCare carry an intellectual-disability diagnosis first?',
+        body: [
+          'No, not as the primary diagnosis, for dates of service on or after July 1, 2026. PerformCare notice IBHS 26-102 (August 17, 2026) says that after the July 2026 Behavioral Health Services Reporting Classification Chart update, "IBHS claims/encounters submitted with a primary diagnosis that qualifies as ID are expected to reject under PROMISe/BHSRCC validation" (F70, F71, F72, F73, F78, F79). An ID diagnosis may still appear "as a secondary or comorbid diagnosis when clinically applicable," but the primary diagnosis on the authorization request and the claim must be the behavioral health condition the IBHS service treats, and providers "must not change diagnosis sequencing solely to obtain payment." If the authorization documentation lists only an ID diagnosis, or lists ID first, PerformCare "may request clarification or updated documentation before completing review." Claims already sent with a primary ID diagnosis may deny and should be resubmitted as corrected claims.',
+        ],
+        cites: [
+          { title: 'PerformCare — Provider Notice IBHS 26-102: IBHS Services ID Coding Update (August 17, 2026)', url: 'https://pa.performcare.org/content/dam/amerihealth-caritas/performcare-pa/pdf/providers/resources-information/policies/ibhs/ibhs-26-102-service-id-coding-update.pdf.coredownload.inline.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Medicaid ID and county', desc: 'PerformCare covers Cumberland, Dauphin, Franklin, Fulton, Lancaster, Lebanon and Perry; CANS rules differ between the CABHC and Franklin/Fulton contracts.' },
@@ -1944,10 +1953,11 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
     family: 'bcbs',
     cardDesc: 'Medical Policy V-37 (ASD/ABA) + all ABA codes on the prior-auth list since March 1, 2026, managed in-house by Highmark Behavioral Health.',
     assessmentPA: {
-      value: 'Required. The ABA assessment codes 97151, 97152 and 0362T went onto Highmark’s prior authorization list on March 1, 2026. The current list (effective 09/01/2026) names them under UM program “Highmark Behavioral Health”. Highmark says the codes “usually require authorization (based on the member’s benefit plan/eligibility)”, so check the member’s plan in Availity.',
+      value: 'Required. The ABA assessment codes 97151, 97152 and 0362T went onto Highmark’s prior authorization list on March 1, 2026. The current list (effective 11/01/2026) names them under UM program “Highmark Behavioral Health”. Highmark says the codes “usually require authorization (based on the member’s benefit plan/eligibility)”, so check the member’s plan in Availity.',
       status: 'verified',
       cites: [
-        { title: 'Highmark — List of Procedures/DME Requiring Authorization (Commercial/MA, eff. 09/01/2026)', url: 'https://providers.highmark.com/content/dam/highmark/en/providerresourcecenter/pdfs/procedurecode/commercial/Proc-Requiring-Auth-list.pdf' },
+        { title: 'Highmark — Obtaining Authorizations (last updated Oct 30, 2026)', url: 'https://providers.highmark.com/authorization/obtaining-authorizations' },
+        { title: 'Highmark — List of Procedures/DME Requiring Authorization (Commercial/MA, eff. 11/01/2026)', url: 'https://providers.highmark.com/content/dam/highmark/en/providerresourcecenter/pdfs/procedurecode/commercial/Proc-Requiring-Auth-list.pdf' },
         { title: 'Highmark — Behavioral Health: Upcoming Prior Authorization Changes (published Nov 24, 2025; eff. March 1, 2026)', url: 'https://providers.highmark.com/communications-hub/news-and-updates/behavioral-health-upcoming-prior-authorization-changes.html' },
       ],
     },
@@ -1955,8 +1965,8 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       value: 'Required. 97153, 97154, 97155, 97156, 97157, 97158 and 0373T (plus H0032 and H2019, listed under the same ABA category) are on the authorization list, managed by Highmark Behavioral Health. None is marked Gold Card Eligible. Requests go through Availity. Under Act 62, Highmark may review the treatment plan once every six months unless a different interval is agreed.',
       status: 'verified',
       cites: [
-        { title: 'Highmark — List of Procedures/DME Requiring Authorization (Commercial/MA, eff. 09/01/2026)', url: 'https://providers.highmark.com/content/dam/highmark/en/providerresourcecenter/pdfs/procedurecode/commercial/Proc-Requiring-Auth-list.pdf' },
-        { title: 'Highmark — Obtaining Authorizations (last updated Sept 1, 2026)', url: 'https://providers.highmark.com/authorization/obtaining-authorizations' },
+        { title: 'Highmark — List of Procedures/DME Requiring Authorization (Commercial/MA, eff. 11/01/2026)', url: 'https://providers.highmark.com/content/dam/highmark/en/providerresourcecenter/pdfs/procedurecode/commercial/Proc-Requiring-Auth-list.pdf' },
+        { title: 'Highmark — Obtaining Authorizations (last updated Oct 30, 2026)', url: 'https://providers.highmark.com/authorization/obtaining-authorizations' },
         { title: 'Highmark Medical Policy V-37-044 — Autism Spectrum Disorders (PA commercial, eff. August 4, 2025)', url: 'https://securecms.highmark.com/content/medpolicy/en/highmark/pa/commercial/policies/Visits/V-37/V-37-044.html' },
       ],
     },
@@ -2001,12 +2011,12 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       {
         h2: 'Prior authorization: every ABA code since March 1, 2026',
         body: [
-          'Highmark announced in November 2025 that it would add 19 behavioral health codes to its prior authorization list on March 1, 2026. These include all ten ABA codes: 97151, 97152, 97153, 97154, 97155, 97156, 97157, 97158, 0362T and 0373T. The list effective 09/01/2026 carries them, plus H0032 and H2019, under “Applied Behavioral Analysis”, with “Highmark Behavioral Health” as the UM program. No ABA code is marked Gold Card Eligible. Submit through Availity Essentials (fax is the backup). Highmark Healthy Kids (CHIP) requests must be submitted electronically through Availity. The list says requirements vary by member plan: check the card number, Availity eligibility, or BlueExchange for out-of-area members.',
+          'Highmark announced in November 2025 that it would add 19 behavioral health codes to its prior authorization list on March 1, 2026. These include all ten ABA codes: 97151, 97152, 97153, 97154, 97155, 97156, 97157, 97158, 0362T and 0373T. The list effective 11/01/2026 carries them, plus H0032 and H2019, under “Applied Behavioral Analysis”, with “Highmark Behavioral Health” as the UM program. No ABA code is marked Gold Card Eligible. Submit through Availity Essentials (fax is the backup). Highmark Healthy Kids (CHIP) requests must be submitted electronically through Availity. The list says requirements vary by member plan: check the card number, Availity eligibility, or BlueExchange for out-of-area members.',
         ],
         cites: [
           { title: 'Highmark — Behavioral Health: Upcoming Prior Authorization Changes (published Nov 24, 2025; eff. March 1, 2026)', url: 'https://providers.highmark.com/communications-hub/news-and-updates/behavioral-health-upcoming-prior-authorization-changes.html' },
-          { title: 'Highmark — List of Procedures/DME Requiring Authorization (Commercial/MA, eff. 09/01/2026)', url: 'https://providers.highmark.com/content/dam/highmark/en/providerresourcecenter/pdfs/procedurecode/commercial/Proc-Requiring-Auth-list.pdf' },
-          { title: 'Highmark — Obtaining Authorizations (last updated Sept 1, 2026)', url: 'https://providers.highmark.com/authorization/obtaining-authorizations' },
+          { title: 'Highmark — List of Procedures/DME Requiring Authorization (Commercial/MA, eff. 11/01/2026)', url: 'https://providers.highmark.com/content/dam/highmark/en/providerresourcecenter/pdfs/procedurecode/commercial/Proc-Requiring-Auth-list.pdf' },
+          { title: 'Highmark — Obtaining Authorizations (last updated Oct 30, 2026)', url: 'https://providers.highmark.com/authorization/obtaining-authorizations' },
         ],
       },
       {
@@ -2094,7 +2104,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         body: [
           'Through a network gap exception. Highmark\'s Obtaining Authorizations page links a “Guide to Out-of-Network Gap Exception Requests” alongside its behavioral health tip sheet for authorization requests. Highmark publishes no ABA single-case-agreement rate; whether the member has out-of-network benefits depends on the product.',
         ],
-        cites: [{ title: 'Highmark — Obtaining Authorizations (last updated Sept 1, 2026)', url: 'https://providers.highmark.com/authorization/obtaining-authorizations' }],
+        cites: [{ title: 'Highmark — Obtaining Authorizations (last updated Oct 30, 2026)', url: 'https://providers.highmark.com/authorization/obtaining-authorizations' }],
       },
     ],
     collect: [
@@ -2105,9 +2115,9 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: 'Other coverage (Medicaid / PH-95)', desc: 'Many PA children with autism also have Medicaid. Highmark pays first and the BH-MCO pays second, so get Highmark’s authorization even when Medicaid will pick up the balance.' },
       { title: 'Setting and school involvement', desc: 'ABA in school is covered only under V-37’s strict criteria (entirely ABA, not educational). Record where services will happen.' },
     ],
-    sources: [ { title: 'Highmark — Obtaining Authorizations (last updated Sept 1, 2026)', url: 'https://providers.highmark.com/authorization/obtaining-authorizations' },
+    sources: [ { title: 'Highmark — Obtaining Authorizations (last updated Oct 30, 2026)', url: 'https://providers.highmark.com/authorization/obtaining-authorizations' },
       { title: 'Highmark Medical Policy V-37-044 — Autism Spectrum Disorders (PA commercial, eff. August 4, 2025)', url: 'https://securecms.highmark.com/content/medpolicy/en/highmark/pa/commercial/policies/Visits/V-37/V-37-044.html' },
-      { title: 'Highmark — List of Procedures/DME Requiring Authorization (Commercial/MA, eff. 09/01/2026)', url: 'https://providers.highmark.com/content/dam/highmark/en/providerresourcecenter/pdfs/procedurecode/commercial/Proc-Requiring-Auth-list.pdf' },
+      { title: 'Highmark — List of Procedures/DME Requiring Authorization (Commercial/MA, eff. 11/01/2026)', url: 'https://providers.highmark.com/content/dam/highmark/en/providerresourcecenter/pdfs/procedurecode/commercial/Proc-Requiring-Auth-list.pdf' },
       { title: 'Highmark — Behavioral Health: Upcoming Prior Authorization Changes (published Nov 24, 2025; eff. March 1, 2026)', url: 'https://providers.highmark.com/communications-hub/news-and-updates/behavioral-health-upcoming-prior-authorization-changes.html' },
       { title: 'Highmark Medical Policy Z-27-037 — Eligible Providers (PA commercial, eff. October 13, 2025)', url: 'https://securecms.highmark.com/content/medpolicy/en/highmark/pa/commercial/policies/Miscellaneous/Z-27/Z-27-037.html' },
       { title: 'Highmark Reimbursement Policy RP-046 — Telemedicine and Telehealth Services (version eff. Sept 1, 2026)', url: 'https://providers.highmark.com/content/dam/highmark/en/providerresourcecenter/pdfs/claims/reimbursement-policies/rp-046.pdf' },
@@ -2178,7 +2188,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'Highmark Medical Policy V-37-044 — Autism Spectrum Disorders (PA commercial, eff. August 4, 2025)', url: 'https://securecms.highmark.com/content/medpolicy/en/highmark/pa/commercial/policies/Visits/V-37/V-37-044.html' },
-          { title: 'Highmark — List of Procedures/DME Requiring Authorization (Commercial/MA, eff. 09/01/2026)', url: 'https://providers.highmark.com/content/dam/highmark/en/providerresourcecenter/pdfs/procedurecode/commercial/Proc-Requiring-Auth-list.pdf' },
+          { title: 'Highmark — List of Procedures/DME Requiring Authorization (Commercial/MA, eff. 11/01/2026)', url: 'https://providers.highmark.com/content/dam/highmark/en/providerresourcecenter/pdfs/procedurecode/commercial/Proc-Requiring-Auth-list.pdf' },
           { title: 'Act 62 of 2008 (HB 1150, PN 4115) — Insurance Company Law § 635.2 enacted text', url: 'https://www.palegis.us/legislation/bills/text/HTM/2007/0/HB1150/PN4115' },
         ],
       },
@@ -2725,11 +2735,11 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         h2: 'How fast must Independence Blue Cross pay a clean ABA claim in Pennsylvania?',
         body: [
           'Pennsylvania’s prompt-pay rule, 31 Pa. Code § 154.18, requires licensed insurers and managed care plans to pay clean claims "within 45 days of the licensed insurer’s or managed care plan’s receipt of the claim," with interest on late clean claims paid within 30 days of the claim payment. It applies to claims under health insurance policies.',
-          'IBX’s Billing chapter (November 2025): “Providers must submit claims within 365 days of the date of service per timely filing requirements.” A clean claim needs the group NPI, the performing provider’s NPI (claims without it are rejected), the tax ID, the practice address and the member’s ID and date of birth. If a group NPI is associated with more than one IBX specialty, “the Provider must include the appropriate Provider taxonomy code in addition to the NPI on all claims.” Corrected claims carry the original claim number and the same NPI as the original. Billing disputes run in two levels: the first within 180 days of the Provider EOB (decided within 30 days of complete information), the second within 60 days of the first-level decision (Appeals chapter, July 2025). The chapters do not mention a referring-provider field or EVV.',
+          'IBX’s Billing chapter (October 2026): “Providers must submit claims within 365 days of the date of service per timely filing requirements.” A clean claim needs the group NPI, the performing provider’s NPI (claims without it are rejected), the tax ID, the practice address and the member’s ID and date of birth. If a group NPI is associated with more than one IBX specialty, “the Provider must include the appropriate Provider taxonomy code in addition to the NPI on all claims.” Corrected claims carry the original claim number and the same NPI as the original. Billing disputes run in two levels: the first within 180 days of the Provider EOB (decided within 30 days of complete information), the second within 60 days of the first-level decision (Appeals chapter, July 2025). The chapters do not mention a referring-provider field or EVV.',
         ],
         cites: [
           { title: '31 Pa. Code § 154.18 — Prompt payment', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/031/chapter154/s154.18.html' },
-          { title: 'IBX Provider Manual — Chapter 9: Billing (November 2025)', url: 'https://provcomm.ibx.com/pnc-ibc/Manuals/Provider/IBX_Provider_09_Billing.pdf' },
+          { title: 'IBX Provider Manual — Chapter 9: Billing (October 2026)', url: 'https://provcomm.ibx.com/pnc-ibc/Manuals/Provider/IBX_Provider_09_Billing.pdf' },
           { title: 'IBX Provider Manual — Chapter 15: Appeals (July 2025)', url: 'https://provcomm.ibx.com/pnc-ibc/Manuals/Provider/IBX_Provider_15_Appeals.pdf' },
         ],
       },
@@ -2768,7 +2778,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: 'Act 146 of 2022 — Insurance Company Law Art. XXI amendments incl. § 2155 prior authorization review (Justia)', url: 'https://law.justia.com/codes/pennsylvania/2022/act-146/' },
       { title: 'PA State Board of Medicine — Behavior Specialist Licensure Requirements Snapshot', url: 'https://www.pa.gov/agencies/dos/department-and-offices/bpoa/boards-commissions/medicine/behavior-specialist-licensure-snapshot' },
       { title: 'Independence Blue Cross — Provider Manual, Section 16: BlueCard (October 2021)', url: 'https://provcomm.ibx.com/pnc-ibc/Manuals/Provider/IBX_Provider_16_BlueCard.pdf' },
-      { title: 'IBX Provider Manual — Chapter 9: Billing (November 2025)', url: 'https://provcomm.ibx.com/pnc-ibc/Manuals/Provider/IBX_Provider_09_Billing.pdf' },
+      { title: 'IBX Provider Manual — Chapter 9: Billing (October 2026)', url: 'https://provcomm.ibx.com/pnc-ibc/Manuals/Provider/IBX_Provider_09_Billing.pdf' },
       { title: 'IBX Provider Manual — Chapter 15: Appeals (July 2025)', url: 'https://provcomm.ibx.com/pnc-ibc/Manuals/Provider/IBX_Provider_15_Appeals.pdf' },
       { title: 'IBX — Provider News Center (provider news index)', url: 'https://provcomm.ibx.com/pnc-ibc/Pages/Home.aspx' },
       { title: 'IBX Provider News — Reminder: ABA services transitioned to IBX on April 1, 2026 (26-0101)', url: 'https://provcomm.ibx.com/pnc-ibc/news/Pages/Reminder-ABA-services-transitioned-to-IBX-on-April-1-2026.aspx' },
