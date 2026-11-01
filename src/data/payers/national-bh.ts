@@ -166,6 +166,14 @@ export const nationalBhPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'Carelon Behavioral Health — Provider Handbook (102_0426) (PDF)', url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/global/carelon-behavioral-health-provider-handbook.pdf' }],
       },
+      {
+        h2: 'Has Carelon announced the 2027 ABA CPT code changes?',
+        body: [
+          'The AMA CPT Editorial Panel accepted six new adaptive behavior codes, revised 97151–97158 and deleted 0362T and 0373T, effective January 2027. The AMA\'s CPT 2027 HCPAC vote document lists the new codes as 97148 and 97149 (supporting assessment of harmful behavior, two technicians), 97159 and 97160 (treatment of harmful behavior, two technicians), 97173 (treatment with analysis delivered by the physician or QHP) and 97180 (non-face-to-face services by the physician or QHP). The codes are national; what each payer decides is which ones it authorizes and pays, and how.',
+          'Carelon\'s national ABA authorization request form (effective 1/1/2026) still lists 0362T and 0373T alongside 97151–97158, and no Carelon notice on the 2027 codes could be found as of November 1, 2026. Ask Carelon which form and codes to use for requests covering dates of service from January 1, 2027.',
+        ],
+        cites: [{ title: 'AMA CPT Editorial Panel — Summary of Panel Actions, September 2025 (tab 56, Adaptive Behavior Services Revisions) (PDF)', url: 'https://www.ama-assn.org/system/files/sept-2025-summary-of-panel-actions.pdf' }, { title: 'AMA RUC HCPAC — Vote Totals, CPT 2027 (adaptive behavior code family) (PDF)', url: 'https://www.ama-assn.org/system/files/hcpac-voting-2027.pdf' }, { title: 'Carelon Behavioral Health — ABA Authorization Request Form (effective 1/1/2026) (PDF)', url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/global/clinical/aba-authorization-request-form.pdf' }],
+      },
     ],
     collect: [
       { title: 'A photo of BOTH sides of the card', desc: 'The behavioral health administrator and its phone number live on the back. Front-only card photos are the root cause of most carve-out misroutes.' },
@@ -491,9 +499,10 @@ export const nationalBhPayers: Record<string, PayerConfig> = {
       {
         h2: 'Magellan Care Guidelines change on November 14, 2026',
         body: [
-          'Magellan’s Provider Focus newsletter says “The 2026-2027 Magellan Care Guidelines update on Nov. 14, 2026 (rescheduled from Oct. 10).” The ABA criteria quoted on this page are from the 2025–2026 edition, which applies until then. Re-check the ABA guideline on MagellanProvider.com for requests decided on or after November 14, 2026.',
+          'Magellan’s Provider Focus newsletter says “The 2026-2027 Magellan Care Guidelines update on Nov. 14, 2026 (rescheduled from Oct. 10).” Magellan’s Summary of Revisions for that edition lists “MHC-40-2026: Outpatient Applied Behavior Analysis” with “No changes to criteria this review,” so the ABA criteria quoted on this page carry over into the 2026–2027 edition.',
+          'The CPT 2027 adaptive behavior code changes take effect January 1, 2027: six new codes, revised 97151–97158 and deleted 0362T and 0373T, per the AMA CPT Editorial Panel. The 2026–2027 Summary of Revisions does not mention them, and no Magellan notice on how it will authorize or pay the new codes could be found as of November 1, 2026. Ask Magellan before requesting units under the new codes for dates of service from January 1, 2027.',
         ],
-        cites: [{ title: 'Magellan Healthcare — Provider Focus: Medical necessity criteria update on Nov. 14 (Summer 2026)', url: 'https://provider.magellanhealthcare.com/w/medical-necessity-criteria-updates-to-occur-in-fall-2026' }, { title: '2025–2026 Magellan Care Guidelines — Outpatient Applied Behavior Analysis (eff. 11/8/2025)', url: 'https://www.magellanprovider.com/media/553052/mcg_2025-2026.pdf' }],
+        cites: [{ title: 'Magellan Healthcare — Provider Focus: Medical necessity criteria update on Nov. 14 (Summer 2026)', url: 'https://provider.magellanhealthcare.com/w/medical-necessity-criteria-updates-to-occur-in-fall-2026' }, { title: '2026–2027 Magellan Care Guidelines — Summary of Revisions (effective Nov. 14, 2026) (PDF)', url: 'https://www.magellanprovider.com/media/114562/mcg_summary.pdf' }, { title: 'AMA CPT Editorial Panel — Summary of Panel Actions, September 2025 (tab 56, Adaptive Behavior Services Revisions) (PDF)', url: 'https://www.ama-assn.org/system/files/sept-2025-summary-of-panel-actions.pdf' }],
       },
     ],
     collect: [

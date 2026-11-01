@@ -1,4 +1,23 @@
-import type { PayerConfig } from './types.js';
+import type { PayerConfig, PayerSource } from './types.js';
+
+/* ---------------- CPT 2027 adaptive-behavior code changes (weekly refresh 2026-11-01, G6) ---------------- */
+const CPT27_PFS: PayerSource = { title: 'CMS — CY 2027 Physician Fee Schedule proposed rule, 91 FR 43842 (July 16, 2026), section (47) Adaptive Behavior Services: 0362T/0373T deleted, 97151–97158 revised, six new codes', url: 'https://www.govinfo.gov/content/pkg/FR-2026-07-16/pdf/2026-14327.pdf' };
+const CPT27_AMA: PayerSource = { title: 'AMA — AMA releases CPT 2027 code set (Sept. 9, 2026; changes effective Jan. 1)', url: 'https://www.ama-assn.org/press-center/ama-press-releases/ama-releases-cpt-2027-code-set' };
+const CPT27_COALITION: PayerSource = { title: 'ABA Coding Coalition — Supplemental Guidance on Interpreting and Applying the 2027 CPT Codes for Adaptive Behavior Services (posted Oct. 5, 2026)', url: 'https://abacodes.org/wp-content/uploads/2026/10/2027-CPT-Supplemental-Guidance.pdf' };
+const CPT27_NATIONAL =
+  'What changes on Jan. 1, 2027. CMS records that at its September 2025 meeting the AMA CPT Editorial Panel "deleted CPT codes 0362T" and "0373T," "revised eight existing CPT codes" (97151 through 97158) and "created six new CPT codes" for adaptive behavior services; the AMA released the CPT 2027 code set on Sept. 9, 2026, with changes in effect on January 1. The ABA Coding Coalition’s 2027 guidance gives the final numbers: 97148 and add-on +97149 (behavior identification supporting assessment of harmful behavior, delivered by two technicians, additional technicians on the add-on), 97159 and add-on +97160 (adaptive behavior treatment of harmful behavior, same two-technician structure), 97173 (adaptive behavior treatment with analysis by a physician or other QHP, face-to-face with one patient) and 97180 (non-face-to-face services personally performed by the QHP, such as data review and modifying protocols). "Protocol modification" becomes "analysis" in the descriptors, and "since there is no grace period, 0362T and 0373T are invalid for dates of service on or after January 1, 2027." No state "approves" the codes themselves: they are Category I CPT codes that HIPAA requires on electronic claims, but, as the Coalition notes, HIPAA "does not, however, govern whether a payer covers a code / service, what a payer pays for a code / service, or what a payer requires to authorize" it, so each payer has to load them, price them and say how authorizations that list 0362T or 0373T carry over.';
+const CPT27_FAQ_Q = 'Has this plan adopted the 2027 ABA CPT codes (97148, 97159, 97173, 97180)?';
+const cpt27Section = (h2: string, local: string, cites: PayerSource[]) => ({
+  h2,
+  body: [CPT27_NATIONAL, local],
+  cites: [CPT27_PFS, CPT27_AMA, CPT27_COALITION, ...cites],
+});
+const CPT27_MI_BULL: PayerSource = { title: 'MDHHS — 2026 Medicaid policy bulletins (through MMP 26-48, issued Oct. 30, 2026)', url: 'https://www.michigan.gov/mdhhs/doing-business/providers/providers/medicaid/policyforms/2026-medicaid-policy-bulletins' };
+const CPT27_MI_4626: PayerSource = { title: 'MDHHS Bulletin MMP 26-46 — Updates to Coverage of Maternity Care Services (issued Oct. 30, 2026; applies 2027 CPT maternity changes)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Assistance-Programs/Medicaid-BPHASA/2026-Bulletins/Final-Bulletin-MMP-26-46-Practitioner.pdf?rev=160068c2d4ea48d5bf49eb4628097c8e&hash=F1F068B236E5821FC6FF232034BD8740' };
+const CPT27_MI_CHART: PayerSource = { title: 'MDHHS — SFY 2027 Behavioral Health Code Charts and Provider Qualifications (updated 09/30/2026)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/Reporting-Requirements/SFY2027_Behavioral_Health_Code_Charts_and_Provider_Qualifications.xlsx?rev=cb846b903b05453da55fb84f78300b6b' };
+const CPT27_MI_PROP: PayerSource = { title: 'MDHHS — Proposed Medicaid policy distributed for public comment (2026)', url: 'https://www.michigan.gov/mdhhs/doing-business/providers/providers/medicaid/policyforms/proposed-medicaid-changes' };
+const CPT27_MI_STATE =
+  'MDHHS had not announced how Michigan Medicaid will handle the 2027 adaptive-behavior codes as of Nov. 1, 2026. Its bulletins run to MMP 26-48 (issued Oct. 30, 2026); one of them, MMP 26-46, does apply a 2027 CPT change (maternity codes), but none addresses ABA. The SFY 2027 Behavioral Health Code Charts (updated Sept. 30, 2026), the code list for behavioral health encounters, still list 0362T and 0373T and none of the new codes, and none of the proposed policies posted for public comment concerns them.';
 
 export const michiganPayers: Record<string, PayerConfig> = {
   'michigan-medicaid': {
@@ -134,6 +153,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
           { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — General Information for Providers, claim filing limit', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
         ],
       },
+      cpt27Section('CPT 2027: MDHHS has not announced the new ABA codes yet', CPT27_MI_STATE + ' Expect a bulletin or a code-chart update before or soon after Jan. 1, 2027; until then, ask your PIHP how authorizations that list 0362T or 0373T will be handled.', [CPT27_MI_BULL, CPT27_MI_4626, CPT27_MI_CHART, CPT27_MI_PROP]),
     ],
     collect: [
       { title: 'County of residence', desc: 'Decides the PIHP and CMHSP that owns the evaluation and the ABA authorization — the health plan name on the card does not.' },
@@ -311,6 +331,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { q: 'What is Michigan Medicaid\'s fee schedule for ABA?', a: 'There is no public ABA fee screen. ABA is paid by the PIHP or CMHSP under your network contract, and the Medicaid Provider Manual (Section 18.13) says only that "All PIHPs will reimburse BHT-ABA services at a minimum to the rate outlined with the most recent executed PIHP contract." Ask the PIHP/CMHSP contracting office for its ABA rates.' },
       { q: 'What is the Michigan Medicaid timely filing limit?', a: 'Twelve months from the date of service for claims billed to MDHHS. ABA billed to a PIHP or CMHSP follows that entity’s own claims rules, which this guide has not yet verified.' },
       { q: 'What documents does Michigan Medicaid need at intake for ABA (BHT)?', a: 'The route runs through the PIHP. A PCP screening, typically at an EPSDT well-child visit, and a full medical and physical exam come first. The PCP refers the child to the PIHP\'s autism access point, and families may also self-refer. The PIHP arranges a comprehensive diagnostic evaluation by a qualified practitioner using valid tools (in practice ADOS-2, ADI-R and the DD-CGAS, plus cognitive and adaptive testing). It also arranges the behavioral assessment. A physician or other licensed practitioner recommends BHT, and PIHP utilization management authorizes it before services start. Re-evaluations are needed no more than every three years unless medically necessary.' },
+      { q: CPT27_FAQ_Q, a: 'Not yet, as of Nov. 1, 2026. CPT 2027 deletes 0362T and 0373T, revises 97151–97158 and adds 97148/97149, 97159/97160, 97173 and 97180 from Jan. 1, 2027. MDHHS bulletins through MMP 26-48 do not address ABA, and the SFY 2027 Behavioral Health Code Charts still list 0362T and 0373T. Ask your PIHP how existing authorizations carry over.' },
     ],
   },
 
@@ -414,6 +435,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
           { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
         ],
       },
+      cpt27Section('CPT 2027: the new ABA codes and DWIHN', CPT27_MI_STATE + ' DWIHN reports ABA encounters on those MDHHS code charts, and we found no DWIHN notice on the 2027 codes (its provider newsletter page, checked Nov. 1, 2026). Ask DWIHN how it will load the new codes and whether authorizations that list 0362T or 0373T carry over to dates of service from Jan. 1, 2027.', [CPT27_MI_BULL, CPT27_MI_CHART, { title: 'DWIHN — Provider newsletter', url: 'https://dwihn.org/provider-resources/provider-newsletter' }]),
     ],
     collect: [
       { title: 'Wayne County residence + Medicaid ID', desc: 'DWIHN serves Wayne County; Access checks insurance status on the first call.' },
@@ -607,6 +629,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { q: 'How do I start ABA with DWIHN?', a: 'Call the DWIHN Access Call Center at 1-800-241-4949. Access screens the child, and if autism signs are elevated schedules an evaluation at an independent evaluation center plus a support coordination appointment.' },
       { q: 'How long until therapy starts?', a: 'DWIHN says it may take up to 90 calendar days from the autism diagnosis to begin one-to-one ABA, depending on provider availability and completing the required appointments.' },
       { q: 'Does DWIHN cover ABA at school?', a: 'DWIHN lists home, clinic, community, and school or daycare settings "when appropriate"; state policy bars billing BHT for IDEA special-education services the school is responsible for.' },
+      { q: CPT27_FAQ_Q, a: 'Not yet, as of Nov. 1, 2026. MDHHS has not announced the 2027 ABA codes (its SFY 2027 code charts still list 0362T and 0373T), and we found no DWIHN notice. CPT 2027 deletes 0362T and 0373T and adds 97148/97149, 97159/97160, 97173 and 97180 from Jan. 1, 2027; ask DWIHN how authorizations carry over.' },
     ],
   },
 
@@ -698,6 +721,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
           { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
         ],
       },
+      cpt27Section('CPT 2027: the new ABA codes and OCHN', CPT27_MI_STATE + ' OCHN reports ABA encounters on those MDHHS code charts, and we found no OCHN notice on the 2027 codes (its news and information page, checked Nov. 1, 2026). Ask OCHN how it will load the new codes and whether authorizations that list 0362T or 0373T carry over to dates of service from Jan. 1, 2027.', [CPT27_MI_BULL, CPT27_MI_CHART, { title: 'Oakland Community Health Network — News and information', url: 'https://oaklandchn.org/category/news-and-information/' }]),
     ],
     collect: [
       { title: 'Oakland County residence + Medicaid ID', desc: 'OCHN Access verifies eligibility at screening.' },
@@ -886,6 +910,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { q: 'Who does the autism evaluation in Oakland County?', a: 'An OCHN clinical diagnostician, using a caregiver interview, records, developmental and cognitive testing, the DD-CGAS and the ADOS-2. OCHN then sends the documentation to MDHHS for approval.' },
       { q: 'How fast does ABA start after approval?', a: 'OCHN says MDHHS approves the documentation within 12–48 hours and eligible children are linked to a CPA/ABA provider within 7 days to begin coordination.' },
       { q: 'What are the eligibility rules?', a: 'Medicaid eligible, younger than 21, with an autism spectrum disorder diagnosis, plus the state manual’s medical-necessity criteria.' },
+      { q: CPT27_FAQ_Q, a: 'Not yet, as of Nov. 1, 2026. MDHHS has not announced the 2027 ABA codes (its SFY 2027 code charts still list 0362T and 0373T), and we found no OCHN notice. CPT 2027 deletes 0362T and 0373T and adds 97148/97149, 97159/97160, 97173 and 97180 from Jan. 1, 2027; ask OCHN how authorizations carry over.' },
     ],
   },
 
@@ -981,6 +1006,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
           { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
         ],
       },
+      cpt27Section('CPT 2027: the new ABA codes and MCCMH', CPT27_MI_STATE + ' MCCMH reports ABA encounters on those MDHHS code charts, and we found no MCCMH notice on the 2027 codes (its CMO updates page, checked Nov. 1, 2026). Ask MCCMH how it will load the new codes and whether authorizations that list 0362T or 0373T carry over to dates of service from Jan. 1, 2027.', [CPT27_MI_BULL, CPT27_MI_CHART, { title: 'MCCMH — CMO updates', url: 'https://www.mccmh.net/cmo-updates/' }]),
     ],
     collect: [
       { title: 'Medical exam within the past year', desc: 'Must show further ASD testing is needed and that hearing and vision were checked; MCCMH will not schedule the evaluation without it.' },
@@ -1155,6 +1181,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { q: 'How do I start the autism benefit in Macomb County?', a: 'Call MCCMH Customer Service at 855-99-MCCMH (855-996-2264). MCCMH screens by phone and schedules an intake with Easterseals MORC, Specialized Children & Family Services or Hope Network.' },
       { q: 'Can an ABA authorization be backdated?', a: 'No. MCCMH’s procedure requires the authorization request 14 or more days before the expected start date, with no backdating.' },
       { q: 'We have private insurance too. Who pays?', a: 'Private insurance is the primary payer and Medicaid pays last; the MCCMH case manager helps get the EOB and follow the private plan’s steps for testing and ABA.' },
+      { q: CPT27_FAQ_Q, a: 'Not yet, as of Nov. 1, 2026. MDHHS has not announced the 2027 ABA codes (its SFY 2027 code charts still list 0362T and 0373T), and we found no MCCMH notice. CPT 2027 deletes 0362T and 0373T and adds 97148/97149, 97159/97160, 97173 and 97180 from Jan. 1, 2027; ask MCCMH how authorizations carry over.' },
     ],
   },
 
@@ -1252,6 +1279,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
           { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
         ],
       },
+      cpt27Section('CPT 2027: the new ABA codes and MSHN', CPT27_MI_STATE + ' MSHN reports ABA encounters on those MDHHS code charts, and we found no MSHN notice on the 2027 codes (its news page, checked Nov. 1, 2026). Ask MSHN how it will load the new codes and whether authorizations that list 0362T or 0373T carry over to dates of service from Jan. 1, 2027.', [CPT27_MI_BULL, CPT27_MI_CHART, { title: 'Mid-State Health Network — News', url: 'https://midstatehealthnetwork.org/stakeholders-resources/about-us/news' }]),
     ],
     collect: [
       { title: 'County of residence', desc: 'Decides which of MSHN’s 12 CMHSPs handles the referral.' },
@@ -1441,6 +1469,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { q: 'Will Mid-State accept our private evaluation?', a: 'Often yes: MSHN tells its CMHSPs to accept an outside comprehensive diagnostic evaluation completed within the last three years, before BHT started, by a qualified licensed practitioner, meeting the content and DSM criteria. The CMHSP may ask a PIHP practitioner to review it.' },
       { q: 'Where do we call?', a: 'The Community Mental Health program for your county (for example, Clinton-Eaton-Ingham for the Lansing area or Saginaw County CMH). MSHN says there is no wrong door.' },
       { q: 'How long can an authorization decision take?', a: 'MSHN’s procedure (2024) allows 14 days for standard decisions and 72 hours for expedited ones, with a possible 14-day extension; federal rules shorten the standard cap to 7 days for contract periods starting on or after January 1, 2026.' },
+      { q: CPT27_FAQ_Q, a: 'Not yet, as of Nov. 1, 2026. MDHHS has not announced the 2027 ABA codes (its SFY 2027 code charts still list 0362T and 0373T), and we found no MSHN notice. CPT 2027 deletes 0362T and 0373T and adds 97148/97149, 97159/97160, 97173 and 97180 from Jan. 1, 2027; ask MSHN how authorizations carry over.' },
     ],
   },
 
@@ -1527,6 +1556,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
           { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
         ],
       },
+      cpt27Section('CPT 2027: the new ABA codes and SWMBH', CPT27_MI_STATE + ' SWMBH reports ABA encounters on those MDHHS code charts, and we found no SWMBH notice on the 2027 codes (its newsletters page, checked Nov. 1, 2026). Ask SWMBH how it will load the new codes and whether authorizations that list 0362T or 0373T carry over to dates of service from Jan. 1, 2027.', [CPT27_MI_BULL, CPT27_MI_CHART, { title: 'Southwest Michigan Behavioral Health — Newsletters', url: 'https://www.swmbh.org/news-events/newsletters-from-southwest-michigan-behavioral-health/' }]),
     ],
     collect: [
       { title: 'County of residence', desc: 'Picks which of SWMBH’s eight CMHSPs runs the screening and evaluation.' },
@@ -1693,6 +1723,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { q: 'Which autism benefit does SWMBH run?', a: 'The Medicaid, Healthy Michigan Plan and MIChild autism benefit for children under 21 in Kalamazoo, Calhoun, Berrien, Van Buren, St. Joseph, Branch, Cass and Barry counties.' },
       { q: 'What does the evaluation involve?', a: 'About three hours over two appointments using the ADOS-2, ADI-R and DD-CGAS; the results go to MDHHS for review and approval.' },
       { q: 'How much supervision does SWMBH expect?', a: 'One hour of BCBA or qualified behaviorist supervision per ten hours of technician treatment, matching the state rule.' },
+      { q: CPT27_FAQ_Q, a: 'Not yet, as of Nov. 1, 2026. MDHHS has not announced the 2027 ABA codes (its SFY 2027 code charts still list 0362T and 0373T), and we found no SWMBH notice. CPT 2027 deletes 0362T and 0373T and adds 97148/97149, 97159/97160, 97173 and 97180 from Jan. 1, 2027; ask SWMBH how authorizations carry over.' },
     ],
   },
 
@@ -1767,7 +1798,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
         h2: 'Prior authorization and billing',
         body: [
           'Blue Cross Behavioral Health manages autism prior authorizations for Blue Cross commercial, Medicare Plus Blue, BCN commercial and BCN Advantage. The procedure-code list (v.2026.3) marks 97151 through 97158 as requiring prior authorization for BCN HMO, Medicare Plus Blue PPO, and Blue Cross commercial "fully insured groups and … select self-funded groups," and the member page confirms "All Blue Care Network HMO plans require prior authorization" while "Some Blue Cross Blue Shield of Michigan PPO plans require prior authorization, but not all." Out-of-network providers submit through online ABA assessment and treatment request forms. Blue Cross also notes that its autism benefits comply with the Michigan mandate but "The mandate doesn’t apply to some self-funded employer groups," Medicare Advantage or Medigap plans, or Blue Cross Complete (Medicaid).',
-          'Billing: the supervising LBA bills all ABA, technician time included; behavior analysts must be Michigan-licensed to be paid (since Jan. 7, 2020); "There are no limits for billable ABA services" beyond the authorized units; each date of service goes on its own line with the authorization number. Blue Cross publishes no commercial ABA rates — they are contract terms.',
+          'Covered codes: Blue Cross’s autism billing guidelines give billing rules for every adaptive-behavior code, including group codes 97154 (technician-delivered group) and 97158 (LBA-delivered group), 97157 (multiple-family caregiver training), and 0362T and 0373T (LBA with two or more technicians for destructive behavior, billed by date of service in 15-minute units); none of them is listed as excluded. Billing: the supervising LBA bills all ABA, technician time included; behavior analysts must be Michigan-licensed to be paid (since Jan. 7, 2020); "There are no limits for billable ABA services" beyond the authorized units; each date of service goes on its own line with the authorization number. Blue Cross publishes no commercial ABA rates — they are contract terms.',
         ],
         cites: [
           { title: 'BCBSM / BCN — Autism Services (provider prior authorization page)', url: 'https://authorizations.bcbsm.com/prov-ref-autism' },
@@ -1830,6 +1861,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
           { title: 'BCBSM The Record — "Do you know about our BlueCard processes?" (May 2023)', url: 'https://www.bcbsm.com/content/dam/microsites/corpcomm/provider/the_record/2023/may/Record_0523a.html' },
         ],
       },
+      cpt27Section('CPT 2027: what Blue Cross Blue Shield of Michigan has and has not said', 'Blue Cross Blue Shield of Michigan had published no 2027 adaptive-behavior code guidance as of Nov. 1, 2026: its autism billing guidelines and procedure codes document and its autism provider reference page still describe the current code set, including 0373T, and its new ABA utilization management criteria effective Jan. 1, 2027 list no procedure codes. MDHHS has not announced the 2027 codes for Michigan Medicaid either. Ask Blue Cross how it will load and price the new codes and whether autism authorizations that list 0362T or 0373T carry over.', [{ title: 'Blue Cross Blue Shield of Michigan — Autism billing guidelines and procedure codes', url: 'https://authorizations.bcbsm.com/static-assets/documents/autism-billing-guidelines-procedure-codes.pdf' }, { title: 'Blue Cross Blue Shield of Michigan — Autism provider reference', url: 'https://authorizations.bcbsm.com/prov-ref-autism' }, { title: 'Blue Cross Blue Shield of Michigan / BCN — Utilization management criteria for ABA treatment of ASD (effective January 1, 2027)', url: 'https://www.bcbsm.com/amslibs/content/dam/public/important-information/documents/bh-um-aba-criteria-jan-27.pdf' }]),
     ],
     collect: [
       { title: 'BCN (HMO) or Blue Cross PPO, and funding type', desc: 'All BCN HMO plans require ABA prior authorization; PPO depends on the group. Self-funded groups may sit outside the mandate.' },
@@ -2019,6 +2051,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { q: 'Is there an hour or unit limit?', a: 'Blue Cross says there are no limits for billable ABA services beyond the units authorized. A fully insured plan may still apply the mandate’s annual dollar maximums for members through age 18 if its certificate does.' },
       { q: 'What is Blue Cross Blue Shield of Michigan’s clean-claim payment turnaround in Michigan?', a: 'Within 45 days of receipt for a clean claim on an insured plan (MCL 500.2006(8)), with 12% interest after that. Self-funded plans are not covered.' },
       { q: 'How does BlueCard work for Blue Cross Blue Shield of Michigan members treated out of state?', a: 'The out-of-state provider files the claim with its own local Blue plan, which routes it to Blue Cross Blue Shield of Michigan as the home plan. Blue Cross still requires prior authorization for outpatient ABA on its commercial plans, conducted by Blue Cross Behavioral Health. A non-Michigan provider submits it through Electronic Provider Access in its local Blue\'s portal, or through Availity if registered. Michigan providers treating another plan\'s member submit claims to Blue Cross Blue Shield of Michigan within 180 days of service.' },
+      { q: CPT27_FAQ_Q, a: 'Not as of Nov. 1, 2026. Its autism billing guidelines still list the current codes, including 0373T. CPT 2027 deletes 0362T and 0373T and adds 97148/97149, 97159/97160, 97173 and 97180, so ask Blue Cross how it will price them and handle existing authorizations.' },
     ],
   },
 
@@ -2116,6 +2149,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
           { title: 'Priority Health Provider Manual — Behavioral health provider billing (page last updated 6/20/25)', url: 'https://www.priorityhealth.com/provider/manual/billing/bh-billing' },
         ],
       },
+      cpt27Section('CPT 2027: what Priority Health has and has not said', 'Priority Health had published no 2027 adaptive-behavior code guidance as of Nov. 1, 2026: its provider news page (which does announce other Jan. 1, 2027 changes, such as the new provider portal) and its behavioral health billing page say nothing about the ABA codes. Ask Priority Health how it will load and price the new codes and whether authorizations that list 0362T or 0373T carry over.', [{ title: 'Priority Health — Provider news', url: 'https://www.priorityhealth.com/provider/manual/news/priority-health' }, { title: 'Priority Health provider manual — Behavioral health billing', url: 'https://www.priorityhealth.com/provider/manual/billing/bh-billing' }]),
     ],
     collect: [
       { title: 'Plan type and funding', desc: 'Commercial vs. Priority Medicaid (routes to the PIHP), and fully insured vs. self-funded.' },
@@ -2297,6 +2331,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { q: 'What supervision does Priority Health require?', a: 'A BCBA must supervise the treatment plan, with line-staff supervision of at least one hour for every 15 hours of treatment.' },
       { q: 'My child has Priority Medicaid. Does Priority Health approve ABA?', a: 'No. Priority Health’s policy notes that these services for Priority Medicaid and Healthy Michigan Plan members are paid through the state’s community mental health system (the PIHP).' },
       { q: 'What is Priority Health’s clean-claim payment turnaround in Michigan?', a: 'Within 45 days of receipt for a clean claim on an insured plan (MCL 500.2006(8)), with 12% interest after that. Self-funded plans are not covered.' },
+      { q: CPT27_FAQ_Q, a: 'Not as of Nov. 1, 2026. Its provider news and behavioral health billing pages say nothing about the 2027 ABA codes. CPT 2027 deletes 0362T and 0373T and adds 97148/97149, 97159/97160, 97173 and 97180, so ask Priority Health how it will price them and handle existing authorizations.' },
     ],
   },
 
@@ -2399,6 +2434,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
           { title: 'MCL 500.2006 — timely payment of claims (Michigan Insurance Code)', url: 'https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-500-2006' },
         ],
       },
+      cpt27Section('CPT 2027: what HAP has and has not said', 'We found no HAP notice on the 2027 adaptive-behavior codes on its provider pages as of Nov. 1, 2026. Ask HAP how it will load and price the new codes and whether authorizations that list 0362T or 0373T carry over.', [{ title: 'HAP — Provider pages', url: 'https://www.hap.org/providers' }]),
     ],
     collect: [
       { title: 'HAP product and funding type', desc: 'Commercial HMO/PPO vs. HAP CareSource (Medicaid, routes to the PIHP); fully insured vs. self-funded.' },
@@ -2603,6 +2639,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { q: 'How fast must HAP decide?', a: 'HAP says non-urgent requests are approved if it takes no action within 7 calendar days and urgent requests within 72 hours, per Michigan’s prior-authorization law. Self-funded employer plans follow federal ERISA timelines.' },
       { q: 'My child has HAP CareSource. Who approves ABA?', a: 'HAP CareSource is a Medicaid plan; Michigan Medicaid assigns ABA to the PIHP for the child’s county, not the health plan.' },
       { q: 'What is HAP’s clean-claim payment turnaround in Michigan?', a: 'Within 45 days of receipt for a clean claim on an insured plan (MCL 500.2006(8)), with 12% interest after that. Self-funded plans are not covered.' },
+      { q: CPT27_FAQ_Q, a: 'We found no HAP notice as of Nov. 1, 2026. CPT 2027 deletes 0362T and 0373T and adds 97148/97149, 97159/97160, 97173 and 97180, so ask HAP how it will price them and handle existing authorizations.' },
     ],
   },
 
@@ -2723,6 +2760,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
           { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
         ],
       },
+      cpt27Section('CPT 2027: what Aetna has and has not said', 'Aetna had published no 2027 adaptive-behavior code guidance as of Nov. 1, 2026: CPB 0648 (Autism Spectrum Disorders), last reviewed Oct. 20, 2026, still lists the current code set, including 0373T. Ask Aetna how it will load and price the new codes and whether authorizations that list 0362T or 0373T carry over.', [{ title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/20/2026)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }]),
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Michigan mandate applies, with its age-18 and dollar-cap options) vs. self-funded ERISA (exempt).' },
@@ -2907,6 +2945,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { q: 'Does Aetna give single case agreements for ABA in Michigan?', a: 'Aetna publishes no single-case-agreement policy. Its provider manual offers an out-of-network referral request (approved, for example, when no in-network professional is available and the plan has out-of-network benefits) and transition of care for a member already in treatment with an out-of-network individual practitioner. ABA still needs precertification.' },
       { q: 'What should an Aetna ABA reconsideration in Michigan include?', a: 'Medical records and supporting documents, plus a dispute and appeal form or a letter with the member ID, patient name, TIN, claim ID, dates of service, billed amounts, and the codes and modifiers in dispute. File within 180 days of the claim decision; an appeal follows within 60 days of the reconsideration decision.' },
       { q: 'Is an Aetna ABA authorization in Michigan tied to the BCBA or to the group?', a: 'The precertification form identifies the provider or group by TIN or PIN, with the supervising clinician named separately. Aetna publishes no rule that moves an authorization to another agency, so a new agency requests its own precertification.' },
+      { q: CPT27_FAQ_Q, a: 'Not as of Nov. 1, 2026. CPB 0648 (last reviewed Oct. 20, 2026) still lists the current codes, including 0373T. CPT 2027 deletes 0362T and 0373T and adds 97148/97149, 97159/97160, 97173 and 97180 from Jan. 1, 2027, so ask Aetna how it will price them and handle existing authorizations.' },
     ],
   },
 
@@ -3020,6 +3059,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
           { title: 'Evernorth Coverage Policy EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
         ],
       },
+      cpt27Section('CPT 2027: what Cigna has and has not said', 'Cigna had published no 2027 adaptive-behavior code guidance as of Nov. 1, 2026: Evernorth coverage policy EN0499 (Intensive Behavioral Interventions, effective May 15, 2026) still lists the current code set, including 0373T. Ask Cigna how it will load and price the new codes and whether authorizations that list 0362T or 0373T carry over.', [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }]),
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Michigan mandate) vs. self-funded ERISA (exempt); Cigna’s Coverage Confirmation Grid returns benefits within one business day.' },
@@ -3199,6 +3239,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { q: 'What documents does Cigna (Evernorth) need for ABA in Michigan?', a: 'EN0499 (effective 5/15/2026) requires a confirmed DSM-5-TR ASD diagnosis from an independently licensed clinician whose scope includes diagnosis. The record must give "the name, credentials, and type of licensure" of the diagnosing clinician and "the date on which the diagnosis was most recently made." A provisional or rule-out diagnosis, or an IDEA educational identification, does not count. For treatment, the BCBA\'s assessment must use a current-edition standardized instrument, completed in full and administered "within 60 days prior to the start of treatment," with score tables. The treatment plan\'s goals must match the deficits it found.' },
       { q: 'Does Cigna give single case agreements for ABA in Michigan?', a: 'Cigna/Evernorth calls it a network exception. It needs prior authorization on the Evernorth ABA PA form, including for the 97151, 97152 and 0362T assessment codes that otherwise need none. HMO plans cover in-network providers only.' },
       { q: 'Is a Cigna ABA authorization in Michigan tied to the BCBA or to the clinic?', a: 'The PA form names the servicing clinic by TIN and the supervising provider by credential. Approvals are written per month on 97155. A new agency requests its own authorization, and two agencies in the same period must document coordination.' },
+      { q: CPT27_FAQ_Q, a: 'Not as of Nov. 1, 2026. Evernorth policy EN0499 (effective May 15, 2026) still lists the current codes, including 0373T. CPT 2027 deletes 0362T and 0373T and adds 97148/97149, 97159/97160, 97173 and 97180 from Jan. 1, 2027, so ask Cigna how it will price them and handle existing authorizations.' },
     ],
   },
 
@@ -3321,6 +3362,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
           { title: 'Optum — ABA Request for Services Checklist (BH00853-25-QRG)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/BH00853-25-QRG_ABAQRG.pdf' },
         ],
       },
+      cpt27Section('CPT 2027: what UnitedHealthcare has and has not said', 'UnitedHealthcare (Optum Behavioral Health) had published no 2027 adaptive-behavior code guidance as of Nov. 1, 2026: Optum’s commercial ABA reimbursement policy (updated February 2026) still lists the current code set, including 0373T, and its ABA clinical resources page lists no 2027 code document. Ask UnitedHealthcare how it will load and price the new codes and whether authorizations that list 0362T or 0373T carry over.', [{ title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated February 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: 'Optum Provider Express — Autism/ABA clinical resources', url: 'https://public.providerexpress.com/content/ope-provexpr/us/en/clinical-resources/autismABA2.html' }]),
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Michigan mandate) vs. self-funded ERISA (exempt).' },
@@ -3509,6 +3551,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { q: 'What supporting documents go with a UnitedHealthcare (Optum) ABA reconsideration in Michigan?', a: 'Member-specific treatment plans, clinical records, payment appendices or anything else showing why the decision was wrong, plus proof the claim was filed on time. Both steps must be filed within 12 months in total. At the appeal step, send only new material.' },
       { q: 'Is a UnitedHealthcare ABA authorization in Michigan tied to the BCBA or the group?', a: 'Optum says non-routine outpatient authorizations, ABA included, are “specific to the requesting clinician,” but any ABA supervisor credentialed under the same group contract can see the member. A different agency requests its own authorization.' },
       { q: 'What do HM, HN, HO and HP mean on a UnitedHealthcare ABA claim in Michigan?', a: 'HM = RBT, HN = BCaBA, HO = BCBA or master’s-level licensed provider, HP = BCBA-D or doctoral-level licensed provider. 97151 and 97155–97158 cannot carry HM; 0362T and 0373T take no modifier.' },
+      { q: CPT27_FAQ_Q, a: 'Not as of Nov. 1, 2026. Optum’s commercial ABA reimbursement policy (updated February 2026) still lists the current codes, including 0373T. CPT 2027 deletes 0362T and 0373T and adds 97148/97149, 97159/97160, 97173 and 97180 from Jan. 1, 2027, so ask UnitedHealthcare how it will price them and handle existing authorizations.' },
     ],
   },
 };

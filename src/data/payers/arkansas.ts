@@ -144,6 +144,25 @@ const CFR438408_G5 = { title: '42 CFR 438.408 — Resolution and notification of
 const MCO_APPEAL_BODY_G5 =
   'Appealing a denied or reduced ABA authorization. Federal Medicaid managed-care rules set the floor every plan must meet. After an adverse benefit determination the family “has 60 calendar days from the date on the adverse benefit determination notice” to appeal to the plan, and the plan may have only one level of appeal. A provider may file the appeal on the child’s behalf “with the written consent of the enrollee” where state law permits. The plan must resolve a standard appeal within 30 calendar days and an expedited one within 72 hours (both extendable under the rule), and after an upheld appeal the family has 90 to 120 days to request a State fair hearing. A plan that misses these notice and timing rules is treated as having exhausted its appeal process, so the family can go straight to a fair hearing. Claim-payment disputes by the provider are a separate process set in the plan’s provider manual and contract.';
 
+/* Technician credentials (RBT / grace period) and out-of-state providers — weekly refresh 2026-11-01 (G1).
+   National payer rules read 2026-11-01 from each payer's own document. */
+const G1_OPTUM_NNM = { title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): Applied Behavior Analysis network requirements; Telehealth', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' };
+const G1_OPTUM_FAQ = { title: 'Optum — Autism/Applied Behavior Analysis (ABA) Using CPT Codes FAQ (Q60, technician credentials)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' };
+const G1_AETNA_NPC = { title: 'Aetna — Provider and facility participation criteria (8100606-01-01, 5/26): Applied behavior analyst (ABA) services provider additional criteria', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' };
+const G1_AETNA_MNG = { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' };
+const G1_EN0499 = { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' };
+const G1_EBH_ADMIN = { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026): Behavioral virtual services', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' };
+const G1_OPTUM_TECH =
+  'Optum’s technician rule (UnitedHealthcare commercial). The National Network Manual (BH02330, effective 9/1/2026) says: “Paraprofessionals or Behavior Technicians are required to be a Registered Behavior Technician (RBT), a Board-Certified Autism Technician (BCAT), or a certified Applied Behavior Analysis Technician (ABAT). Any alternate certification must be approved in writing by an authorized Optum Behavioral Health contract representative,” adding that “State regulatory requirements may supplement, modify, or in some cases, supersede this policy.” Optum’s ABA CPT FAQ (Q60) applies the same list to every technician working 1:1. No Optum document gives a grace or provisional period for uncertified staff, so a technician without RBT, BCAT or ABAT certification needs Optum’s written approval of an alternate credential before you bill for them. Supervising analysts need active BCBA certification “and/or state license in those states that license behavior analysts/specialists.” For telehealth, “Providers offering telehealth visits must be licensed in the state where the member is located at the time of service.”';
+const G1_AETNA_TECH =
+  'Aetna’s technician rule. Aetna’s participation criteria for ABA providers say services must be provided directly or supervised by state-licensed or BACB-certified BCBAs, and supervised staff may be a BCaBA or “a paraprofessional.” “All BCBAs, BCaBAs and paraprofessionals must meet state requirements. If state requirements are not defined, all BCBAs, BCaBAs and paraprofessionals must meet Aetna standards.” For unlicensed or noncertified paraprofessionals the criteria require written supervision policies, “A minimum of one hour of face-to-face supervision … for each 10 hours of applied behavior analysis,” and a supervisor on site with the child at least one hour a month. Aetna’s ABA medical necessity guide likewise allows unlicensed or non-certified staff only with supervision “in line with practice standards.” Neither document names RBT certification or a grace period, so ask Aetna whether your agreement requires RBT certification. Aetna also requires its providers to meet state licensing rules, so an out-of-state BCBA follows the state rules described here.';
+const G1_CIGNA_TECH =
+  'Cigna’s technician rule. Evernorth’s ABA policy (EN0499, effective 5/15/2026) has case supervision done by a BCBA, LBA or independently licensed clinician with ABA training, with direct supervision of “either the Registered Behavior Technician® [RBT®] or the Board Certified Assistant Behavior Analyst® [BCaBA®],” but it sets no technician-credential requirement and no grace period, and neither do the Evernorth Behavioral Health Administrative Guidelines (September 2026). For remote care the guidelines say providers “must meet all state requirements to provide virtual behavioral services, including any licenses and certifications.” Ask Evernorth (the behavioral health number on the card) whether an uncertified technician may render 97153 under your agreement.';
+const G1_AR_MCD_TECH =
+  'Technician credential. Arkansas Medicaid requires a registered behavior technician to hold “registered behavior technician certification in good-standing from the Behavior Analyst Certification Board,” with a six-month grace period: “An individual in the process of completing the training and testing required to receive RBT certification may be provisionally treated as an RBT … for up to six (6) months. If the individual has not received RBT certification within six (6) months, then they are prohibited from providing applied behavior analysis therapy services until RBT certification is obtained” (ABA manual § 202.300). Every individual delivering ABA, RBTs included, enrolls individually with Arkansas Medicaid, and a BCBA observes at least 5% of each technician’s treatment hours in person.';
+const G1_AR_MCD_OOS =
+  'Out-of-state providers. Providers in Arkansas, or within 50 miles of the state line in a bordering state, enroll in the usual way; a provider 50 or more miles away, or in a non-bordering state, may serve an Arkansas Medicaid child only as a limited provider under a separate single case agreement for each beneficiary. For telehealth (97155 and 97156 only), Section I requires a provider treating Arkansas clients by telemedicine to be “fully licensed or certified to practice in Arkansas,” with an exception only for episodic consultation.';
+
 export const arkansasPayers: Record<string, PayerConfig> = {
   'arkansas-medicaid': {
     slug: 'arkansas-medicaid',
@@ -224,6 +243,13 @@ export const arkansasPayers: Record<string, PayerConfig> = {
           'Acentra decides ABA requests within seven calendar days and reconsiderations within 30. A provider has 65 calendar days after an adverse decision to ask the reviewing agent for reconsideration, and 65 days to appeal to the Office of Medicaid Provider Appeals after the notice or the reconsideration decision; each clock “begins to run five (5) days after the date of the written notice.” A beneficiary appeal to the DHS Office of Appeals and Hearings must arrive within 30 days. Acentra issues a 65-day “Continuation of Service” approval while a family decides whether to appeal, extended if an appeal is filed.',
         ],
         cites: [S.acentraPPT, S.secI, S.abaII],
+      },
+      {
+        h2: 'Technician credential: RBT, with a six-month provisional period',
+        body: [
+          G1_AR_MCD_TECH,
+        ],
+        cites: [S.abaII],
       },
     ],
     collect: [
@@ -317,6 +343,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
       { q: 'Can Arkansas Medicaid ABA be done by telehealth?', a: 'Only 97155 (BCBA protocol modification) and 97156 (family training), live video, with parent consent, billed with the telehealth place of service and no modifier. The assessment and technician sessions must be in person.' },
       { q: 'Can a BCBA licensed in another state treat an Arkansas Medicaid child?', a: 'Providers within 50 miles of the Arkansas line in a bordering state can enroll normally; others need a single case agreement per child. For telehealth, Section I requires providers treating Arkansas clients to be “fully licensed or certified to practice in Arkansas,” so confirm with Provider Enrollment first. Arkansas’s 2025 registration law offers temporary registration for short-term practice.' },
       { q: 'What is the timely filing limit and is EVV required?', a: 'Claims must reach the fiscal agent within 12 months of the date of service. EVV does not apply to ABA: Section I’s EVV code list covers personal care, attendant care, respite and home health only.' },
+      { q: 'Does Arkansas Medicaid require RBT certification, and is there a grace period?', a: 'Yes, with a six-month grace period. A technician must hold BACB RBT certification in good standing, but someone completing RBT training and testing may work as a provisional RBT for up to six months; without certification by then they must stop delivering ABA until certified (ABA manual § 202.300).' },
     ],
   },
 
@@ -378,6 +405,15 @@ export const arkansasPayers: Record<string, PayerConfig> = {
         h2: 'Out-of-network care and single case agreements',
         body: [MCO_OON_BODY_G5],
         cites: [CFR438206_G5],
+      },
+      {
+        h2: 'Technician credentials (RBT, grace period) and out-of-state BCBAs',
+        body: [
+          'Arkansas Total Care follows the Arkansas Medicaid rules. Its ABA policy AR.CP.BH.104 (revised 07/26) and 2026 provider manual add no technician credential or out-of-state rule of their own.',
+          G1_AR_MCD_TECH,
+          G1_AR_MCD_OOS,
+        ],
+        cites: [S.atcPolicy, S.atcPM, S.abaII, S.secI],
       },
     ],
     collect: [
@@ -470,6 +506,8 @@ export const arkansasPayers: Record<string, PayerConfig> = {
       { q: 'How many ABA hours will Arkansas Total Care approve?', a: 'Up to six hours a day and 30 a week without extra justification, and usually under 20 a week for a child in full-time school. More needs documented clinical need.' },
       { q: 'How fast does Arkansas Total Care decide an ABA request?', a: 'Within two business days of having all necessary information, or 14 calendar days from receipt if sooner; urgent requests within one business day or three calendar days.' },
       { q: 'Can Arkansas Total Care ABA be delivered by telehealth?', a: 'The plan follows the state rule: only 97155 and 97156 by live telemedicine with parent consent; assessments and technician sessions are in person.' },
+      { q: 'Does Arkansas Total Care require RBT certification, and is there a grace period?', a: 'Arkansas Total Care follows Arkansas Medicaid: with a six-month grace period. A technician must hold BACB RBT certification in good standing, but someone completing RBT training and testing may work as a provisional RBT for up to six months; without certification by then they must stop delivering ABA until certified (ABA manual § 202.300).' },
+      { q: 'Can an out-of-state BCBA treat Arkansas Total Care members?', a: 'Only within the Arkansas Medicaid rules: providers in Arkansas or within 50 miles of the state line enroll normally, others only under a per-child single case agreement, and a telemedicine provider must be fully licensed or certified to practice in Arkansas (Section I).' },
     ],
   },
 
@@ -531,6 +569,15 @@ export const arkansasPayers: Record<string, PayerConfig> = {
         h2: 'Out-of-network care and single case agreements',
         body: [MCO_OON_BODY_G5],
         cites: [CFR438206_G5],
+      },
+      {
+        h2: 'Technician credentials (RBT, grace period) and out-of-state BCBAs',
+        body: [
+          'CareSource PASSE follows the Arkansas Medicaid rules. Its ABA policy AR PASSE-MM-1227 (effective 05/01/2026) says all ABA services must be provided by a BACB-certified professional “or appropriately supervised paraprofessional,” lists the RBT among practitioners, and states that DHS and Medicaid guidance supersedes the policy.',
+          G1_AR_MCD_TECH,
+          G1_AR_MCD_OOS,
+        ],
+        cites: [S.csMM, S.abaII, S.secI],
       },
     ],
     collect: [
@@ -620,6 +667,8 @@ export const arkansasPayers: Record<string, PayerConfig> = {
       { q: 'Does CareSource PASSE cover ABA?', a: 'Yes, for PASSE members aged 18 months to 21 with ASD, under medical policy MM-1227, which follows the Arkansas Medicaid ABA manual.' },
       { q: 'Does the ABA assessment need prior authorization with CareSource PASSE?', a: 'Yes. Every covered ABA service, starting with the behavior identification assessment, must be reviewed for medical necessity before it is delivered.' },
       { q: 'What is CareSource PASSE’s timely filing limit?', a: '365 calendar days from the date of service; corrected claims within 180 days; reconsiderations within 65 calendar days of the adverse notice.' },
+      { q: 'Does CareSource PASSE require RBT certification, and is there a grace period?', a: 'CareSource PASSE follows Arkansas Medicaid: with a six-month grace period. A technician must hold BACB RBT certification in good standing, but someone completing RBT training and testing may work as a provisional RBT for up to six months; without certification by then they must stop delivering ABA until certified (ABA manual § 202.300).' },
+      { q: 'Can an out-of-state BCBA treat CareSource PASSE members?', a: 'Only within the Arkansas Medicaid rules: providers in Arkansas or within 50 miles of the state line enroll normally, others only under a per-child single case agreement, and a telemedicine provider must be fully licensed or certified to practice in Arkansas (Section I).' },
     ],
   },
 
@@ -686,6 +735,15 @@ export const arkansasPayers: Record<string, PayerConfig> = {
         h2: 'Out-of-network care and single case agreements',
         body: [MCO_OON_BODY_G5],
         cites: [CFR438206_G5],
+      },
+      {
+        h2: 'Technician credentials (RBT, grace period) and out-of-state BCBAs',
+        body: [
+          'Empower Healthcare Solutions follows the Arkansas Medicaid rules. Its provider handbook (version 9.08.2026) adds no technician credential or out-of-state ABA rule of its own.',
+          G1_AR_MCD_TECH,
+          G1_AR_MCD_OOS,
+        ],
+        cites: [S.empHB, S.abaII, S.secI],
       },
     ],
     collect: [
@@ -780,6 +838,8 @@ export const arkansasPayers: Record<string, PayerConfig> = {
       { q: 'Does Empower Healthcare Solutions cover ABA?', a: 'Yes. Its handbook lists Applied Behavioral Analysis as a state plan service, and the Arkansas Medicaid ABA manual sets the rules for PASSE members aged 18 months to 21.' },
       { q: 'Which ABA codes need prior authorization with Empower?', a: '97151, 97153, 97155 and 97156 are all marked PA required on Empower’s April 2026 list. Submit through the portal or the BH/IDD PA form.' },
       { q: 'What is Empower’s timely filing limit?', a: '365 days from the date of service for the original clean claim; corrections within 180 days of the payment or denial notice.' },
+      { q: 'Does Empower Healthcare Solutions require RBT certification, and is there a grace period?', a: 'Empower Healthcare Solutions follows Arkansas Medicaid: with a six-month grace period. A technician must hold BACB RBT certification in good standing, but someone completing RBT training and testing may work as a provisional RBT for up to six months; without certification by then they must stop delivering ABA until certified (ABA manual § 202.300).' },
+      { q: 'Can an out-of-state BCBA treat Empower Healthcare Solutions members?', a: 'Only within the Arkansas Medicaid rules: providers in Arkansas or within 50 miles of the state line enroll normally, others only under a per-child single case agreement, and a telemedicine provider must be fully licensed or certified to practice in Arkansas (Section I).' },
     ],
   },
 
@@ -843,6 +903,15 @@ export const arkansasPayers: Record<string, PayerConfig> = {
         h2: 'Member appeals and State fair hearings (federal floor)',
         body: [MCO_APPEAL_BODY_G5],
         cites: [CFR438402_G5, CFR438408_G5],
+      },
+      {
+        h2: 'Technician credentials (RBT, grace period) and out-of-state BCBAs',
+        body: [
+          'Summit Community Care follows the Arkansas Medicaid rules. Its provider manual (July 1, 2026) adds no technician credential or out-of-state ABA rule of its own.',
+          G1_AR_MCD_TECH,
+          G1_AR_MCD_OOS,
+        ],
+        cites: [S.sccPM, S.abaII, S.secI],
       },
     ],
     collect: [
@@ -936,6 +1005,8 @@ export const arkansasPayers: Record<string, PayerConfig> = {
     faq: [
       { q: 'Does Summit Community Care cover ABA?', a: 'Yes, for PASSE members under the Arkansas Medicaid ABA manual (EPSDT, ages 18 months to 21), with prior authorization on the ABA codes.' },
       { q: 'How fast does Summit decide an ABA authorization?', a: 'Within two business days of receiving all necessary information, and never more than seven calendar days from the request; urgent requests within one business day, no more than 72 hours.' },
+      { q: 'Does Summit Community Care require RBT certification, and is there a grace period?', a: 'Summit Community Care follows Arkansas Medicaid: with a six-month grace period. A technician must hold BACB RBT certification in good standing, but someone completing RBT training and testing may work as a provisional RBT for up to six months; without certification by then they must stop delivering ABA until certified (ABA manual § 202.300).' },
+      { q: 'Can an out-of-state BCBA treat Summit Community Care members?', a: 'Only within the Arkansas Medicaid rules: providers in Arkansas or within 50 miles of the state line enroll normally, others only under a per-child single case agreement, and a telemedicine provider must be fully licensed or certified to practice in Arkansas (Section I).' },
     ],
   },
 
@@ -1014,6 +1085,13 @@ export const arkansasPayers: Record<string, PayerConfig> = {
           S.abcbsMHguide,
           S.abcbsBlueCard,
         ],
+      },
+      {
+        h2: 'Technician credentials (RBT, grace period)',
+        body: [
+          'Arkansas Blue Cross’s technician rule. Coverage policy 2011053 says “Direct line therapy services are provided in a manner consistent with the Lucet Provider Manual, the Ethics Code for Behavior Analysts, and applicable state laws. In the absence of a state law, line therapy services are to be provided by a Registered Behavior Technician (RBT), Board Certified Assistant Behavior Analyst, or Master level or Doctoral level Board Certified Behavior Analyst.” Arkansas law registers behavior analysts only and sets no technician credential, so line therapists need RBT (or BCaBA/BCBA) certification. The policy gives no grace period.',
+        ],
+        cites: [S.abcbs, S.act432],
       },
     ],
     collect: [
@@ -1115,6 +1193,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
       { q: 'Can ABA be delivered by telehealth with Arkansas Blue Cross?', a: 'Direct technician ABA (97153 and similar) is not covered by telehealth. Parent training, supervision and some assessment may be, if the plan allows, up to 50% of services by code.' },
       { q: 'What diagnosis does Arkansas Blue Cross need?', a: 'A multidisciplinary evaluation by a physician specialist, a speech therapist and a child psychologist who are not school employees, including autism-specific testing such as ADOS, ADI-R or CARS.' },
       { q: 'Can I bill Arkansas Blue Cross for a child covered by another state’s Blue plan?', a: 'Yes, through BlueCard: Arkansas Blue Cross prices the claim at its network rates and forwards it to the child’s home plan, which decides the benefits and which provider types it pays. Some BlueCard ABA claims deny as "provider not allowed to render these services" and must be written off under the provider contract, so check the home plan’s ABA benefit and authorization rules first.' },
+      { q: 'Does Arkansas Blue Cross require RBT certification for ABA technicians, and is there a grace period?', a: 'Yes. Policy 2011053 says that, absent a state law, line therapy is to be provided by an RBT, BCaBA or BCBA, and Arkansas sets no technician credential. The policy gives no grace or provisional period.' },
     ],
   },
 
@@ -1191,6 +1270,13 @@ export const arkansasPayers: Record<string, PayerConfig> = {
         h2: 'Disputes, appeals and transition of care (Aetna)',
         body: [AETNA_APPEALS_BODY_G5, AETNA_TOC_BODY_G5],
         cites: [AETNA_OM_G5],
+      },
+      {
+        h2: 'Technician credentials (RBT, grace period)',
+        body: [
+          G1_AETNA_TECH,
+        ],
+        cites: [G1_AETNA_NPC, G1_AETNA_MNG, S.act432],
       },
     ],
     collect: [
@@ -1294,6 +1380,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
       { q: 'Does Aetna cover ABA therapy in Arkansas?', a: 'Yes, under its national ABA medical necessity guide for ASD, with Arkansas’s § 23-99-418 mandate layered on for fully insured group plans. Self-funded employer plans follow their own documents.' },
       { q: 'Does the Aetna ABA assessment need precertification in Arkansas?', a: 'Yes. 97151 and the other nine ABA codes are on Aetna’s behavioral health precertification list. A provider with an Arkansas gold-card exemption under Act 575 may be exempt on a fully insured plan.' },
       { q: 'What does Aetna pay for ABA in Arkansas?', a: 'Aetna publishes no ABA rates; they are in your participation agreement. Arkansas Medicaid’s 97153 rate ($15.00 per 15 minutes) is the only public benchmark.' },
+      { q: 'Does Aetna require RBT certification for ABA technicians in Arkansas, and is there a grace period?', a: 'Aetna’s participation criteria require paraprofessionals to “meet state requirements” (or Aetna standards where the state defines none) with at least one hour of face-to-face supervision per 10 hours, but name no RBT requirement and no grace period; ask Aetna whether your agreement requires RBT certification. Arkansas law registers behavior analysts only and sets no technician credential.' },
     ],
   },
 
@@ -1368,6 +1455,13 @@ export const arkansasPayers: Record<string, PayerConfig> = {
         h2: 'Appeals and out-of-network care (Evernorth)',
         body: [EBH_APPEALS_BODY_G5, EBH_OON_BODY_G5],
         cites: [EBH_ADMIN_G5],
+      },
+      {
+        h2: 'Technician credentials (RBT, grace period)',
+        body: [
+          G1_CIGNA_TECH,
+        ],
+        cites: [G1_EN0499, G1_EBH_ADMIN, S.act432],
       },
     ],
     collect: [
@@ -1464,6 +1558,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
       { q: 'Does Cigna cover ABA therapy in Arkansas?', a: 'Yes, under Evernorth policy EN0499 for ASD, with Arkansas’s § 23-99-418 mandate for fully insured group plans.' },
       { q: 'Does the Cigna ABA assessment need prior authorization in Arkansas?', a: 'No, for 97151, 97152 and 0362T with an autism diagnosis when the provider is independently licensed or a BCBA. PA starts at treatment.' },
       { q: 'Can Cigna recoup an ABA claim years later in Arkansas?', a: 'For fully insured plans, Evernorth’s Arkansas addendum limits recoupment to 18 months after payment (except fraud) and allows a corrected claim within six months after a recoupment.' },
+      { q: 'Does Cigna require RBT certification for ABA technicians in Arkansas, and is there a grace period?', a: 'Evernorth’s ABA policy (EN0499) and administrative guidelines set no technician credential and no grace period; ask Evernorth whether an uncertified technician may render 97153 under your agreement. Arkansas law registers behavior analysts only and sets no technician credential.' },
     ],
   },
 
@@ -1539,6 +1634,13 @@ export const arkansasPayers: Record<string, PayerConfig> = {
         h2: 'Appeals, authorizations and changing providers (Optum)',
         body: [OPTUM_APPEALS_BODY_G5, OPTUM_AUTH_BODY_G5],
         cites: [OPTUM_NNM_G5],
+      },
+      {
+        h2: 'Technician credentials (RBT, grace period)',
+        body: [
+          G1_OPTUM_TECH,
+        ],
+        cites: [G1_OPTUM_NNM, G1_OPTUM_FAQ, S.act432],
       },
     ],
     collect: [
@@ -1637,6 +1739,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
       { q: 'Does Optum have Arkansas-specific ABA criteria?', a: 'No. Optum’s July 2026 ABA State Mandates supplement does not list Arkansas.' },
       { q: 'Can ABA be delivered by telehealth with UnitedHealthcare in Arkansas?', a: 'Only 97155, 97156 and 97157 on commercial plans, billed POS 02 or 10. The 97151 assessment and 97153 are not on Optum’s list.' },
       { q: 'Does UnitedHealthcare require RBT certification for ABA technicians?', a: 'The HM modifier’s approved rendering provider is a Registered Behavior Technician, and the criteria expect technicians to be RBTs or otherwise appropriately certified.' },
+      { q: 'Does UnitedHealthcare require RBT certification for ABA technicians in Arkansas, and is there a grace period?', a: 'Yes, or an equivalent: Optum requires technicians to be an RBT, BCAT or ABAT, and any other certification must be approved in writing by Optum. Optum publishes no grace or provisional period for uncertified technicians. Arkansas law registers behavior analysts only and sets no technician credential.' },
     ],
   },
 };

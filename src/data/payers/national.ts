@@ -169,6 +169,14 @@ export const nationalPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }],
       },
+      {
+        h2: 'Has Aetna announced the 2027 ABA CPT code changes?',
+        body: [
+          'The AMA CPT Editorial Panel accepted six new adaptive behavior codes, revised 97151–97158 and deleted 0362T and 0373T, effective January 2027. The AMA\'s CPT 2027 HCPAC vote document lists the new codes as 97148 and 97149 (supporting assessment of harmful behavior, two technicians), 97159 and 97160 (treatment of harmful behavior, two technicians), 97173 (treatment with analysis delivered by the physician or QHP) and 97180 (non-face-to-face services by the physician or QHP). The codes are national; what each payer decides is which ones it authorizes and pays, and how.',
+          'Aetna\'s behavioral health precertification list (last updated August 1, 2024) still lists 97151–97158, 0362T and 0373T for ABA, and no Aetna notice on the 2027 codes could be found as of November 1, 2026. Ask Aetna which of the new codes need precertification for dates of service from January 1, 2027, and whether an authorization that spans January 1 has to be updated to the new codes.',
+        ],
+        cites: [{ title: 'AMA CPT Editorial Panel — Summary of Panel Actions, September 2025 (tab 56, Adaptive Behavior Services Revisions) (PDF)', url: 'https://www.ama-assn.org/system/files/sept-2025-summary-of-panel-actions.pdf' }, { title: 'AMA RUC HCPAC — Vote Totals, CPT 2027 (adaptive behavior code family) (PDF)', url: 'https://www.ama-assn.org/system/files/hcpac-voting-2027.pdf' }, { title: 'Aetna — Behavioral health precertification list (effective August 1, 2024) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' }],
+      },
     ],
     collect: [
       { title: 'Member ID, group ID & subscriber', desc: 'Plus a card photo — enough to run verification without a callback.' },
@@ -496,6 +504,14 @@ export const nationalPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'Cigna EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
       },
+      {
+        h2: 'Has Cigna announced the 2027 ABA CPT code changes?',
+        body: [
+          'The AMA CPT Editorial Panel accepted six new adaptive behavior codes, revised 97151–97158 and deleted 0362T and 0373T, effective January 2027. The AMA\'s CPT 2027 HCPAC vote document lists the new codes as 97148 and 97149 (supporting assessment of harmful behavior, two technicians), 97159 and 97160 (treatment of harmful behavior, two technicians), 97173 (treatment with analysis delivered by the physician or QHP) and 97180 (non-face-to-face services by the physician or QHP). The codes are national; what each payer decides is which ones it authorizes and pays, and how.',
+          'Cigna\'s ABA coverage policy (0499, effective 5/15/2026, next review 12/15/2026) and Evernorth\'s ABA billing-code page still list 0362T and 0373T, and no Cigna or Evernorth notice on the 2027 codes could be found as of November 1, 2026. Ask Evernorth which of the new codes need authorization from January 1, 2027, and re-check policy 0499 after its December review.',
+        ],
+        cites: [{ title: 'AMA CPT Editorial Panel — Summary of Panel Actions, September 2025 (tab 56, Adaptive Behavior Services Revisions) (PDF)', url: 'https://www.ama-assn.org/system/files/sept-2025-summary-of-panel-actions.pdf' }, { title: 'AMA RUC HCPAC — Vote Totals, CPT 2027 (adaptive behavior code family) (PDF)', url: 'https://www.ama-assn.org/system/files/hcpac-voting-2027.pdf' }, { title: 'Cigna Medical Coverage Policy 0499 — Intensive Behavioral Interventions (effective 5/15/2026) (PDF)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Evernorth — Billing codes for ABA', url: 'https://static.evernorth.com/assets/evernorth/provider/resourceLibrary/behavioralResources/doingBusinessWithUs/cbhDBwCBillingCodesForABA.html' }],
+      },
     ],
     collect: [
       { title: 'Member ID + plan details', desc: 'Card photo, subscriber info, and whether the plan actually includes the ABA benefit.' },
@@ -789,8 +805,9 @@ export const nationalPayers: Record<string, PayerConfig> = {
         body: [
           'Optum’s commercial ABA reimbursement policy 2022RP501A (updated June 2026) applies to network and non-network providers on Commercial and Individual Exchange plans. Modifiers: HM for an RBT (“less than a bachelor’s degree level”), HN for a BCaBA (bachelor’s level), HO for a master’s-level BCBA or licensed mental health provider, HP for a BCBA-D or doctoral licensed provider. The allowed modifiers by code are: 97151 HN, HO or HP; 97152, 97153 and 97154 HN, HM, HO or HP; 97155, 97156, 97157 and 97158 HN, HO or HP. 0362T and 0373T “do not require modifiers.” So an RBT (HM) may not bill 97151 or 97155–97158, while a BCaBA (HN) may bill every code. A supervisor’s work “should be billed with the applicable CPT code(s) and the HO modifier.” Bill “only one provider-level modifier per ABA service line.” On HM the policy adds: “State regulatory requirements may supplement, modify or supersede this policy.”',
           'Optum’s CPT FAQ says a BCaBA “can serve as a BCBA extender for services outlined on your fee schedule and billed with modifiers,” including supervising technicians. Technicians working 1:1 “are required to be a Registered Behavior Technician (RBT), a Board-Certified Autism Technician (BCAT), and certified Applied Behavior Analysis Technician (ABAT), or hold an alternative certification (if alternative certification is approved by Network management).”',
+          'Grace period: none is published. Optum’s Supplemental Clinical Criteria, its ABA FAQ, its CPT FAQ and policy 2022RP501A set the technician credential but offer no grace or provisional period for a technician whose certification is still pending. The CPT FAQ adds that “State regulatory requirements may supplement, modify, or supersede this policy.” Before scheduling a technician who is not yet certified, ask Optum’s Provider Service Line, 1-877-614-0484 (8 a.m.–8 p.m. ET, Monday–Friday, per the CPT FAQ).',
         ],
-        cites: [{ title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' }],
+        cites: [{ title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' }, { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'Optum ABA FAQ (Provider Express)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaFAQ.pdf' }],
       },
       {
         h2: 'Paying privately instead of using UnitedHealthcare: self-pay rules and the Good Faith Estimate',
@@ -808,6 +825,14 @@ export const nationalPayers: Record<string, PayerConfig> = {
           'Goals may target behaviors “presenting a safety risk to self, others, or property,” and 0362T and 0373T cover assessment and treatment with two or more technicians for a patient “who exhibits destructive behavior.” Optum sets no notice period for a provider-initiated discharge; state law and the participation agreement decide that.',
         ],
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
+      },
+      {
+        h2: 'Has UnitedHealthcare / Optum announced the 2027 ABA CPT code changes?',
+        body: [
+          'The AMA CPT Editorial Panel accepted six new adaptive behavior codes, revised 97151–97158 and deleted 0362T and 0373T, effective January 2027. The AMA\'s CPT 2027 HCPAC vote document lists the new codes as 97148 and 97149 (supporting assessment of harmful behavior, two technicians), 97159 and 97160 (treatment of harmful behavior, two technicians), 97173 (treatment with analysis delivered by the physician or QHP) and 97180 (non-face-to-face services by the physician or QHP). The codes are national; what each payer decides is which ones it authorizes and pays, and how.',
+          'Optum\'s commercial ABA reimbursement policy (2022RP501A) still carries unit and MUE charts for 0362T and 0373T, and no Optum notice on the 2027 codes could be found as of November 1, 2026. Ask Optum which of the new codes it will authorize, and with which credential modifiers, for dates of service from January 1, 2027.',
+        ],
+        cites: [{ title: 'AMA CPT Editorial Panel — Summary of Panel Actions, September 2025 (tab 56, Adaptive Behavior Services Revisions) (PDF)', url: 'https://www.ama-assn.org/system/files/sept-2025-summary-of-panel-actions.pdf' }, { title: 'AMA RUC HCPAC — Vote Totals, CPT 2027 (adaptive behavior code family) (PDF)', url: 'https://www.ama-assn.org/system/files/hcpac-voting-2027.pdf' }, { title: 'Optum — ABA reimbursement policy 2022RP501A (PDF)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
       },
     ],
     collect: [
@@ -870,7 +895,7 @@ export const nationalPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
       },
       noteSignature: {
-        value: '“Provider signature is required on progress notes. Parent/guardian signatures are not required on progress notes” (Optum ABA CPT FAQ). Each daily session note records place of service, start and stop time, who rendered the service, the specific service, who attended and the interventions. Optum’s ABA documentation protocol (June 1, 2026) requires the “signature of the rendering provider” and “Legible identity of the rendering provider with credentials,” and “The date of signature must reflect the date the note is finalized” — a note signed after the date of service must follow late-entry rules and show the date it was signed. Same-date services must be “separate, distinct, and clearly documented in the progress notes,” or the claim may be denied.',
+        value: '“Provider signature is required on progress notes. Parent/guardian signatures are not required on progress notes” (Optum ABA CPT FAQ). Each daily session note records place of service, start and stop time, who rendered the service, the specific service, who attended and the interventions. Optum’s ABA documentation protocol (June 1, 2026) requires the “signature of the rendering provider” and “Legible identity of the rendering provider with credentials,” and “The date of signature must reflect the date the note is finalized” — a note signed after the date of service must follow late-entry rules and show the date it was signed. On amending a note, the protocol says “All addendums, late entries and corrections should follow CMS guidelines”; it names no co-signature requirement for an amendment. Same-date services must be “separate, distinct, and clearly documented in the progress notes,” or the claim may be denied.',
         status: 'verified',
         cites: [
           { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
@@ -1219,6 +1244,270 @@ export const nationalPayers: Record<string, PayerConfig> = {
       { q: 'Does Meritain Health cover ABA therapy?', a: 'It depends on the employer. Meritain administers self-funded employer plans, so the employer\'s plan document decides whether ABA is covered and whether it needs precertification. Meritain\'s own guidance tells members to consult their benefits guide. Registered providers can read the plan document in Meritain\'s provider portal.' },
       { q: 'Is Meritain Health the same as Aetna?', a: 'No. Meritain is a subsidiary of Aetna and CVS Health, and most of its plan sponsors (over 90%, per Meritain) use the Aetna Choice POS II network. It administers employer-funded plans rather than insuring them, though, and Aetna\'s ABA precertification form does not list Meritain among the plans it applies to. Confirm the group\'s medical policy rather than assuming Aetna\'s.' },
       { q: 'Does my state\'s autism mandate apply to a Meritain plan?', a: 'Often not directly. State autism mandates regulate insurance, and ERISA says a self-funded employer plan is not deemed an insurer for purposes of state insurance law. Governmental and church plans are outside ERISA and have to be checked separately. Find out the plan type before relying on a mandate.' },
+    ],
+  },
+
+  'umr': {
+    slug: 'umr',
+    cardDesc: 'UnitedHealthcare\'s TPA for self-funded employer plans — ABA requirements form UMF0035, portal submission, and a plan-by-plan prior auth answer.',
+    family: 'unitedhealthcare',
+    assessmentPA: {
+      value: 'Plan-dependent — UMR says "Not all plans require prior authorization for ABA therapy; however, a predetermination medical necessity review for ABA therapy is recommended even if prior authorization is not needed." The member\'s own requirement shows in UMR\'s Prior Authorization Requirement Search tool',
+      status: 'plan-dependent',
+      cites: [
+        { title: 'UMR — Behavioral Health ABA Therapy Documentation Requirements (UMF0035 0824) (PDF)', url: 'https://www.umr.com/print/UMF0035.pdf' },
+        { title: 'UMR — Prior authorization requirement search and submission tool: a guide for provider users (UM1927 0426) (PDF)', url: 'https://www.umr.com/print/UM1927.pdf' },
+      ],
+      verifyVia: 'Sign in to the UMR provider portal (umr.com, One Healthcare ID), run Member search and the Prior Authorization Requirement Search for 97151 on this member and date of service, and keep the Decision ID it returns.',
+      blocker: 'per-case',
+    },
+    treatmentPA: {
+      value: 'Plan-dependent — the same UMR rule applies to treatment: some plans require prior authorization, and UMR recommends a predetermination review where they do not. After the assessment, the treatment request goes in through the UMR portal with the treatment plan',
+      status: 'plan-dependent',
+      cites: [
+        { title: 'UMR — Behavioral Health ABA Therapy Documentation Requirements (UMF0035 0824) (PDF)', url: 'https://www.umr.com/print/UMF0035.pdf' },
+        { title: 'UMR — Prior authorization requirement search and submission tool: a guide for provider users (UM1927 0426) (PDF)', url: 'https://www.umr.com/print/UM1927.pdf' },
+      ],
+      verifyVia: 'The Prior Authorization Requirement Search in the UMR provider portal, run for each treatment code (97153, 97155, 97156) on this member — it shows whether prior authorization is required or a predetermination is recommended.',
+      blocker: 'per-case',
+    },
+    dxRequired: {
+      value: 'Yes — for an initial ABA evaluation, or a member new to UMR who is already in services, UMR says "you must submit proof of an autism diagnosis via the diagnostic evaluation," and "IEPs and school evaluations are NOT acceptable as the sole proof of diagnosis." UMR\'s form names no ICD-10 code list; the diagnosis codes a plan accepts come from the plan',
+      status: 'verified',
+      cites: [
+        { title: 'UMR — Behavioral Health ABA Therapy Documentation Requirements (UMF0035 0824) (PDF)', url: 'https://www.umr.com/print/UMF0035.pdf' },
+      ],
+    },
+    payer: 'UMR',
+    state: 'US', kind: 'commercial',
+    pill: 'Payer Guide · UMR',
+    h1: 'UMR ABA coverage: the intake guide.',
+    metaTitle: 'UMR ABA Therapy — Diagnosis Requirements & Prior Auth | Carelu',
+    metaDescription:
+      'UMR (UnitedHealthcare\'s third-party administrator) ABA requirements: proof of an autism diagnosis from the diagnostic evaluation, the four-year rule for older reports, plan-specific prior authorization, portal-only submission, and a 15-day review clock.',
+    intro: [
+      'UMR is a third-party administrator, not an insurer. UnitedHealthcare describes it as "a wholly owned subsidiary of UnitedHealthcare, a part of UnitedHealth Group," and "a third-party administrator (TPA) for self-funded plans." The employer funds the claims and writes the plan, so two UMR cards can carry different ABA benefits.',
+      'UMR does publish one ABA document of its own: form UMF0035, ABA Therapy Documentation Requirements. It sets the diagnosis proof UMR wants, what every treatment plan must contain, how requests are submitted and how long a review takes. Whether a given member needs prior authorization at all is answered per plan, in UMR\'s online requirement search.',
+    ],
+    atGlance: [
+      { label: 'What it is', value: 'Third-party administrator for self-funded plans; a UnitedHealthcare subsidiary' },
+      { label: 'Diagnosis proof', value: 'The diagnostic evaluation; an IEP or school evaluation alone is not accepted' },
+      { label: 'Older reports', value: 'Report over 4 years old: add current documentation of behaviors and deficits' },
+      { label: 'Prior auth', value: 'Plan-specific; predetermination recommended where PA is not required' },
+      { label: 'How to submit', value: 'UMR provider portal (umr.com, One Healthcare ID)' },
+      { label: 'Review time', value: 'Up to 15 days for ABA prior auth; ABA is not treated as urgent' },
+      { label: 'Claims', value: 'Payer ID 39026; UMR, P.O. Box 211762, Eagan, MN 55121' },
+    ],
+    sections: [
+      {
+        h2: 'What UMR needs to see before ABA starts',
+        cites: [
+          { title: 'UMR — Behavioral Health ABA Therapy Documentation Requirements (UMF0035 0824) (PDF)', url: 'https://www.umr.com/print/UMF0035.pdf' },
+          { title: 'UMR — Form center', url: 'https://www.umr.com/form-center' },
+        ],
+        body: [
+          'UMR\'s ABA form (UMF0035, edition 0824, the version its Form center links) tells providers to "disregard any prior UMR Applied Behavior Analysis (ABA) documents and use this form only." For "initial evaluations for ABA therapy or if this is a new member with UMR receiving ongoing services, you must submit proof of an autism diagnosis via the diagnostic evaluation." It adds that "IEPs and school evaluations are NOT acceptable as the sole proof of diagnosis."',
+          'An older report is not rejected outright. "If the diagnostic report is more than four years old, please submit current documentation, reflecting the child\'s current behaviors and deficits (examples: IEP; physician\'s progress note/well-visit exam; mental health therapy note)." An IEP can therefore update an old diagnosis, but cannot replace it.',
+          'The form does not say which credentials may make the diagnosis, which instrument (ADOS-2 or another) must be used, or which ICD-10 codes qualify. Collect the full evaluation with the diagnosing clinician\'s credentials, the instrument and scores, and the ICD-10 code, and ask UMR about anything the plan requires beyond that.',
+        ],
+      },
+      {
+        h2: 'Prior authorization is decided plan by plan',
+        cites: [
+          { title: 'UMR — Prior authorization (provider)', url: 'https://www.umr.com/provider/prior-authorization' },
+          { title: 'UMR — Prior authorization requirement search and submission tool: a guide for provider users (UM1927 0426) (PDF)', url: 'https://www.umr.com/print/UM1927.pdf' },
+          { title: 'UMR — Predetermination Request Form (UMF0060 0924) (PDF)', url: 'https://www.umr.com/print/UMF0060.pdf' },
+          { title: 'UMR — West Virginia PEIA Pre-Certification list as of 01/17/2024 (UMC0209) (PDF)', url: 'https://www.umr.com/print/UMC0209.pdf' },
+        ],
+        body: [
+          'UMR\'s Prior Authorization Requirement Search and Submission Tool "is now available for most UMR-administered group health care plans through the secure provider portal on umr.com." UMR describes its purpose as answering "Is a prior auth required or a pre determination recommended for this member, for this service, on this date, performed by this provider?" Results can read prior authorization required, medical necessity review needed/predetermination recommended, no coverage for this service, or no procedure-code requirements found. Some results depend on "patient age, dollar amount or visit threshold." Store the Decision ID each search returns.',
+          'A predetermination is a courtesy review. UMR\'s predetermination form says predeterminations "have no time frame for determination," "are not considered urgent or expedited and cannot be reviewed if the service has been provided."',
+          'Two UMR-administered plans route differently. GEHA members go through geha.com\'s provider portal. For West Virginia PEIA members, UMR\'s precertification list (as of 01/17/2024) names "Autism Spectrum Disorder Services" among the services requiring precertification.',
+        ],
+      },
+      {
+        h2: 'Submitting the assessment and treatment request',
+        cites: [
+          { title: 'UMR — Behavioral Health ABA Therapy Documentation Requirements (UMF0035 0824) (PDF)', url: 'https://www.umr.com/print/UMF0035.pdf' },
+          { title: 'CMS-0057-F — Interoperability and Prior Authorization final rule, 89 FR 8758 (Feb. 8, 2024)', url: 'https://www.govinfo.gov/content/pkg/FR-2024-02-08/html/2024-00895.htm' },
+          { title: 'AMA CPT Editorial Panel — Summary of Panel Actions, September 2025 (tab 56, Adaptive Behavior Services Revisions) (PDF)', url: 'https://www.ama-assn.org/system/files/sept-2025-summary-of-panel-actions.pdf' },
+        ],
+        body: [
+          '"All ABA therapy clinical and required information must be submitted for review via the UMR portal (umr.com), using your One Healthcare ID," and the status of every ABA request can be checked there. An older (2023) UMR copy of this form sent ABA paperwork to an outpatient behavioral fax line; the current form replaces that with portal submission. Every submission names the facility and address, the supervising BCBA\'s name and credentials, the member\'s name, date of birth, UMR ID and case reference number, the codes, hours and dates requested, and a facility contact with a valid phone number.',
+          'Treatment plans must include the member\'s individualized goals with target dates, the ABA evaluation or functional assessment, documentation of progress for concurrent reviews, parent training goals, a transition/discharge plan, and the other services the child receives (including school) with documentation of care coordination. The form\'s code grid requests 97151, 97152 and 0362T in hours per six months, 97153 and 0373T in hours per week, and 97154 to 97158 in hours per week or month. 0362T and 0373T are deleted from CPT on January 1, 2027, when six new adaptive behavior codes take effect; UMR\'s form had not been updated for that as of November 1, 2026, so ask UMR which codes to request for dates of service from January 1, 2027.',
+          'Decisions: "ABA preauthorization reviews have up to 15 days for rendered determination: no timeframe for predeterminations. ABA cases are not considered urgent or expedited." Prior authorization decisions are communicated by phone call and mailed letter; predeterminations by letter only.',
+          'The federal Interoperability and Prior Authorization rule (CMS-0057-F) does not change this. It covers Medicare Advantage, Medicaid and CHIP, and QHP issuers on the federal exchanges; CMS says its authority "does not apply to health insurance issuers and group health plans outside the FFEs." A self-funded employer plan administered by UMR is not one of its impacted payers.',
+        ],
+      },
+      {
+        h2: 'Settle the funding question before quoting a mandate',
+        cites: [
+          { title: '29 U.S.C. § 1144 — ERISA preemption, including the “deemer” clause at (b)(2)(B)', url: 'https://www.govinfo.gov/content/pkg/USCODE-2024-title29/html/USCODE-2024-title29-chap18-subchapI-subtitleB-part5-sec1144.htm' },
+          { title: '29 U.S.C. § 1003 — ERISA coverage and exceptions (governmental and church plans)', url: 'https://www.govinfo.gov/content/pkg/USCODE-2024-title29/html/USCODE-2024-title29-chap18-subchapI-subtitleA-sec1003.htm' },
+          { title: 'UnitedHealthcare | UMR Medical & Drug Policies (UHCprovider.com)', url: 'https://www.uhcprovider.com/en/policies-protocols/commercial-policies/umr-medical-drug-policies.html' },
+        ],
+        body: [
+          'State autism mandates regulate insurance. Under ERISA\'s "deemer" clause, an employee benefit plan shall not "be deemed to be an insurance company or other insurer … for purposes of any law of any State purporting to regulate insurance companies, insurance contracts." A self-funded employer plan administered by UMR is therefore generally outside the state mandate\'s direct reach, and the plan document is the answer. Governmental and most church plans are outside ERISA (29 U.S.C. § 1003(b)) and follow their own terms and whatever state law reaches them.',
+          'UnitedHealthcare\'s UMR medical-policy page says the same from the payer side: "Benefit coverage for health services is determined by the member specific benefit plan document," and "In the event of a conflict, the member specific benefit plan document supersedes these policies." The UMR medical policy list on that page has no ABA or autism policy.',
+        ],
+      },
+      {
+        h2: 'UMR claims, appeals and phone numbers',
+        cites: [
+          { title: 'UMR — Claim submissions (provider)', url: 'https://www.umr.com/provider/Claimsubmissions' },
+          { title: 'UMR — Contact us', url: 'https://www.umr.com/contact-us' },
+          { title: 'UMR — Post-Service Appeal Request Form (UMF0010 0726) (PDF)', url: 'https://www.umr.com/print/UMF0010.pdf' },
+          { title: 'UMR — Prior authorization requirement search and submission tool: a guide for provider users (UM1927 0426) (PDF)', url: 'https://www.umr.com/print/UM1927.pdf' },
+          { title: 'UMR — Peer-to-Peer (P2P) Request Form (UMF0057 1023) (PDF)', url: 'https://www.umr.com/print/UMF0057.pdf' },
+        ],
+        body: [
+          'Claims: electronic claims use payer ID 39026 "with 275 attachments enabled through your clearinghouse," or online through Optum iEDI with the same payer ID. Paper claims go to UMR, P.O. Box 211762, Eagan, MN 55121.',
+          'Phone: call "the provider services number located on the plan member\'s ID card." Without the card, UMR lists 877-233-1800.',
+          'Disputes: a pre-service appeal of a prior authorization decision is filed from the request in UMR\'s online tool. A post-service appeal of a denied claim uses form UMF0010, mailed to UMR – Claim Appeals, P.O. Box 30546, Salt Lake City, UT 84130-0546. A peer-to-peer discussion is requested on form UMF0057, sent by encrypted email to UHC_PeerToPeer_Scheduling@uhc.com.',
+        ],
+      },
+    ],
+    collect: [
+      { title: 'Employer name and group number', desc: 'The benefit lives in the employer\'s plan document. UMR\'s own tools answer prior authorization per member, per plan.' },
+      { title: 'The full diagnostic evaluation', desc: 'UMR wants proof of the autism diagnosis from the diagnostic evaluation. An IEP or school evaluation alone is not accepted.' },
+      { title: 'Date of the diagnostic report', desc: 'Over four years old: also collect current documentation of behaviors and deficits, such as a recent physician progress note or well-visit, a mental health therapy note, or an IEP.' },
+      { title: 'Plan type', desc: 'Self-funded ERISA, governmental or church plan? This decides whether ERISA rules and any state mandate apply.' },
+      { title: 'Member ID card, both sides', desc: 'UMR routes provider calls to the number on the card, and GEHA and WV PEIA members follow their own prior authorization paths.' },
+      { title: 'Other coverage', desc: 'The other parent\'s plan, Medicaid, TRICARE or CHAMPVA. UMR collects other-insurance details from the member to coordinate benefits.' },
+    ],
+    sources: [
+      { title: 'UMR — Behavioral Health ABA Therapy Documentation Requirements (UMF0035 0824) (PDF)', url: 'https://www.umr.com/print/UMF0035.pdf' },
+      { title: 'UMR — Prior authorization (provider)', url: 'https://www.umr.com/provider/prior-authorization' },
+      { title: 'UMR — Prior authorization requirement search and submission tool: a guide for provider users (UM1927 0426) (PDF)', url: 'https://www.umr.com/print/UM1927.pdf' },
+      { title: 'UMR — Predetermination Request Form (UMF0060 0924) (PDF)', url: 'https://www.umr.com/print/UMF0060.pdf' },
+      { title: 'UMR — West Virginia PEIA Pre-Certification list as of 01/17/2024 (UMC0209) (PDF)', url: 'https://www.umr.com/print/UMC0209.pdf' },
+      { title: 'UMR — Form center', url: 'https://www.umr.com/form-center' },
+      { title: 'UMR — Claim submissions (provider)', url: 'https://www.umr.com/provider/Claimsubmissions' },
+      { title: 'UMR — Contact us', url: 'https://www.umr.com/contact-us' },
+      { title: 'UMR — Post-Service Appeal Request Form (UMF0010 0726) (PDF)', url: 'https://www.umr.com/print/UMF0010.pdf' },
+      { title: 'UMR — Peer-to-Peer (P2P) Request Form (UMF0057 1023) (PDF)', url: 'https://www.umr.com/print/UMF0057.pdf' },
+      { title: 'UMR — Request for Other Medical Insurance Information (UMF0021) (PDF)', url: 'https://www.umr.com/print/UMF0021.pdf' },
+      { title: 'UnitedHealthcare | UMR Medical & Drug Policies (UHCprovider.com)', url: 'https://www.uhcprovider.com/en/policies-protocols/commercial-policies/umr-medical-drug-policies.html' },
+      { title: '29 U.S.C. § 1144 — ERISA preemption', url: 'https://www.govinfo.gov/content/pkg/USCODE-2024-title29/html/USCODE-2024-title29-chap18-subchapI-subtitleB-part5-sec1144.htm' },
+      { title: '29 U.S.C. § 1003 — ERISA coverage and exceptions (governmental and church plans)', url: 'https://www.govinfo.gov/content/pkg/USCODE-2024-title29/html/USCODE-2024-title29-chap18-subchapI-subtitleA-sec1003.htm' },
+      { title: '29 CFR § 2560.503-1 — ERISA claims procedure', url: 'https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XXV/subchapter-F/part-2560/section-2560.503-1' },
+      { title: 'CMS-0057-F — Interoperability and Prior Authorization final rule, 89 FR 8758 (Feb. 8, 2024)', url: 'https://www.govinfo.gov/content/pkg/FR-2024-02-08/html/2024-00895.htm' },
+    ],
+    deliveryRules: {
+      supervision: {
+        value: 'UMR asks every ABA submission to name the supervising BCBA and that BCBA\'s credentials. It publishes no supervision ratio, frequency or supervision-log requirement; any such rule comes from the plan and the criteria it applies.',
+        status: 'plan-dependent',
+        cites: [{ title: 'UMR — Behavioral Health ABA Therapy Documentation Requirements (UMF0035 0824) (PDF)', url: 'https://www.umr.com/print/UMF0035.pdf' }],
+        verifyVia: 'The number on the member\'s ID card, or the predetermination review itself — ask what BCBA supervision (hours of 97155 per hours of 97153, and any supervision documentation) the plan expects.',
+        blocker: 'per-case',
+      },
+      concurrentBilling: {
+        value: 'Not published by UMR. UMR\'s ABA form lists 97151 to 97158, 0362T and 0373T but says nothing about billing 97153 and 97155 for the same clock time.',
+        status: 'unverified',
+        cites: [{ title: 'UMR — Behavioral Health ABA Therapy Documentation Requirements (UMF0035 0824) (PDF)', url: 'https://www.umr.com/print/UMF0035.pdf' }],
+        verifyVia: 'Provider services on the member\'s ID card — ask whether 97153 and 97155 may overlap for this plan.',
+        blocker: 'per-case',
+      },
+      dailyLimits: {
+        value: 'Not published by UMR. Hours are requested per code on UMR\'s form (per six months for assessment codes, per week or month for treatment codes); any cap on hours, visits or dollars is set by the employer\'s plan, and UMR\'s requirement search can return limits that depend on "patient age, dollar amount or visit threshold."',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'UMR — Behavioral Health ABA Therapy Documentation Requirements (UMF0035 0824) (PDF)', url: 'https://www.umr.com/print/UMF0035.pdf' },
+          { title: 'UMR — Prior authorization requirement search and submission tool: a guide for provider users (UM1927 0426) (PDF)', url: 'https://www.umr.com/print/UM1927.pdf' },
+        ],
+        verifyVia: 'The Prior Authorization Requirement Search for the member, plus provider services — ask for any ABA hour, visit or dollar limit and how much has been used.',
+        blocker: 'per-case',
+      },
+      noteSignature: {
+        value: 'Not published by UMR. UMR\'s ABA form sets treatment-plan contents and requires progress documentation for concurrent reviews, but it says nothing about who signs session notes, or how late entries and amendments must be made.',
+        status: 'unverified',
+        cites: [{ title: 'UMR — Behavioral Health ABA Therapy Documentation Requirements (UMF0035 0824) (PDF)', url: 'https://www.umr.com/print/UMF0035.pdf' }],
+        verifyVia: 'Provider services on the member\'s ID card — ask which documentation standard applies at audit for this plan, including signatures and corrections to session notes.',
+        blocker: 'per-case',
+      },
+      placeOfService: {
+        value: 'Not published by UMR for ABA. UMR\'s requirement search can return place-of-service criteria for a member, so payable settings (home, clinic, school, telehealth) are a plan question.',
+        status: 'plan-dependent',
+        cites: [{ title: 'UMR — Prior authorization requirement search and submission tool: a guide for provider users (UM1927 0426) (PDF)', url: 'https://www.umr.com/print/UM1927.pdf' }],
+        verifyVia: 'Run the Prior Authorization Requirement Search with the intended place of service, and ask provider services whether school-based ABA is excluded.',
+        blocker: 'per-case',
+      },
+      billAsProvider: {
+        value: 'Not published by UMR. Whose NPI carries a technician-delivered 97153 claim, and whether credential modifiers are required, depends on the plan and the provider\'s network agreement.',
+        status: 'unverified',
+        cites: [{ title: 'UMR — Claim submissions (provider)', url: 'https://www.umr.com/provider/Claimsubmissions' }],
+        verifyVia: 'Provider services on the member\'s ID card — confirm rendering versus billing NPI and modifiers before the first claim.',
+        blocker: 'per-case',
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value: 'Set by the plan document. UMR\'s ABA form states no age limit, and a self-funded ERISA plan is generally outside state insurance mandates, so a mandate\'s age band may not apply.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'UMR — Behavioral Health ABA Therapy Documentation Requirements (UMF0035 0824) (PDF)', url: 'https://www.umr.com/print/UMF0035.pdf' },
+          { title: '29 U.S.C. § 1144 — ERISA preemption', url: 'https://www.govinfo.gov/content/pkg/USCODE-2024-title29/html/USCODE-2024-title29-chap18-subchapI-subtitleB-part5-sec1144.htm' },
+        ],
+        verifyVia: 'The Prior Authorization Requirement Search (results can depend on patient age) or provider services — ask for any ABA age limit in the plan.',
+        blocker: 'per-case',
+      },
+      dxRecency: {
+        value: 'No hard expiry. "If the diagnostic report is more than four years old, please submit current documentation, reflecting the child\'s current behaviors and deficits (examples: IEP; physician\'s progress note/well-visit exam; mental health therapy note)."',
+        status: 'verified',
+        cites: [{ title: 'UMR — Behavioral Health ABA Therapy Documentation Requirements (UMF0035 0824) (PDF)', url: 'https://www.umr.com/print/UMF0035.pdf' }],
+      },
+      diagnosingProviders: {
+        value: 'Not published by UMR. Its ABA form requires the diagnostic evaluation as proof, but does not say which credentials may make the diagnosis. LCSW: no UMR answer is published.',
+        status: 'unverified',
+        cites: [{ title: 'UMR — Behavioral Health ABA Therapy Documentation Requirements (UMF0035 0824) (PDF)', url: 'https://www.umr.com/print/UMF0035.pdf' }],
+        verifyVia: 'Provider services on the member\'s ID card, or the predetermination review — ask which diagnosing credentials the plan accepts before booking the assessment.',
+        blocker: 'per-case',
+      },
+      diagnosticTools: {
+        value: 'Not published by UMR. Its ABA form names no required instrument, and UMR\'s medical policy list has no ABA policy. Collect the instrument, date and scores from the evaluation anyway.',
+        status: 'unverified',
+        cites: [
+          { title: 'UMR — Behavioral Health ABA Therapy Documentation Requirements (UMF0035 0824) (PDF)', url: 'https://www.umr.com/print/UMF0035.pdf' },
+          { title: 'UnitedHealthcare | UMR Medical & Drug Policies (UHCprovider.com)', url: 'https://www.uhcprovider.com/en/policies-protocols/commercial-policies/umr-medical-drug-policies.html' },
+        ],
+        verifyVia: 'Provider services on the member\'s ID card — ask whether the plan requires a specific diagnostic instrument (ADOS-2 or similar).',
+        blocker: 'per-case',
+      },
+      referral: {
+        value: 'UMR\'s ABA form asks for the diagnostic evaluation, not a physician referral, order or prescription. Whether a plan also needs a referral is plan-specific; the requirement search shows prior authorization, not referrals.',
+        status: 'plan-dependent',
+        cites: [{ title: 'UMR — Behavioral Health ABA Therapy Documentation Requirements (UMF0035 0824) (PDF)', url: 'https://www.umr.com/print/UMF0035.pdf' }],
+        verifyVia: 'Provider services on the member\'s ID card — ask whether ABA needs a physician referral or order under this plan.',
+        blocker: 'per-case',
+      },
+      telehealth: {
+        value: 'Not published by UMR for ABA, including whether 97151 may be done by telehealth. It is a plan question.',
+        status: 'unverified',
+        cites: [{ title: 'UMR — Behavioral Health ABA Therapy Documentation Requirements (UMF0035 0824) (PDF)', url: 'https://www.umr.com/print/UMF0035.pdf' }],
+        verifyVia: 'Run the Prior Authorization Requirement Search with the telehealth place of service, and ask provider services which ABA codes are payable by telehealth and with which modifier.',
+        blocker: 'per-case',
+      },
+      authTurnaround: {
+        value: '"ABA preauthorization reviews have up to 15 days for rendered determination: no timeframe for predeterminations. ABA cases are not considered urgent or expedited." For a self-funded ERISA plan, federal rules also cap a pre-service decision at "not later than 15 days after receipt of the claim by the plan," extendable once "for up to 15 days."',
+        status: 'verified',
+        cites: [
+          { title: 'UMR — Behavioral Health ABA Therapy Documentation Requirements (UMF0035 0824) (PDF)', url: 'https://www.umr.com/print/UMF0035.pdf' },
+          { title: '29 CFR § 2560.503-1 — ERISA claims procedure (decision deadlines)', url: 'https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XXV/subchapter-F/part-2560/section-2560.503-1' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value: 'Set by the plan document\'s coordination-of-benefits terms. UMR asks members to report all other coverage, including, for a child of parents who are divorced or not living together, who has custody and whether a court decree assigns responsibility for health coverage.',
+        status: 'plan-dependent',
+        cites: [{ title: 'UMR — Request for Other Medical Insurance Information (UMF0021) (PDF)', url: 'https://www.umr.com/print/UMF0021.pdf' }],
+        verifyVia: 'Provider services on the member\'s ID card — confirm UMR has the other coverage on file and which plan is primary for the child.',
+        blocker: 'per-case',
+      },
+    },
+    faq: [
+      { q: 'What are UMR\'s autism diagnosis requirements for ABA?', a: 'UMR\'s ABA form (UMF0035) says that for an initial ABA evaluation, or a member new to UMR already in services, you must submit proof of an autism diagnosis from the diagnostic evaluation. An IEP or school evaluation alone is not accepted. If the report is more than four years old, add current documentation of the child\'s behaviors and deficits, such as a physician progress note or well-visit, a mental health therapy note, or an IEP. UMR does not publish which credentials may diagnose, which instrument is required or which ICD-10 codes qualify, so ask about the specific plan.' },
+      { q: 'Does UMR require prior authorization for ABA?', a: 'It depends on the employer plan. UMR says not all plans require prior authorization for ABA, and recommends a predetermination review even when prior authorization is not needed. Check the member in UMR\'s Prior Authorization Requirement Search in the provider portal.' },
+      { q: 'Can I fax an ABA request to UMR?', a: 'UMR\'s current ABA form says all ABA clinical and required information must be submitted through the UMR portal at umr.com with a One Healthcare ID. An older 2023 version listed a fax line; the current form replaced it with the portal.' },
+      { q: 'Is UMR the same as UnitedHealthcare?', a: 'UMR is a wholly owned subsidiary of UnitedHealthcare and a third-party administrator for self-funded plans. The employer funds the benefit and writes the plan, so a UMR card is not a UnitedHealthcare insured plan, and its ABA rules come from UMR\'s forms and the employer\'s plan document.' },
     ],
   },
 

@@ -87,13 +87,15 @@ const CO_RATE_BULLETIN_B2500528 = src(
 );
 const CO_RATE_BULLETIN_B2500530 = src(
   'https://web.archive.org/web/20260114194341/https://hcpf.colorado.gov/sites/hcpf/files/Health%20First%20Colorado%20Provider%20Bulletin%20B2500530.pdf',
-  'Health First Colorado Provider Bulletin B2500530 (Oct 2025) — retrieved via Wayback archive this pass; corroborates the 10/1/2025 PBT reductions including the 97151 flat assessment at $866.88 (paid at an 8-hr / 32-unit increment x $27.09/unit). WATCHLIST: the FY25-26 1.6% increase was REPEALED effective 10/1/2025 (the cuts stand, not restored), and a further across-the-board -2.0% reduction plus a "reset of pediatric behavioral rates" is approved effective 7/1/2026 (FY2026-27, HB26-1410) — so DOS-on/after-7/1/2026 rates are likely BELOW the figures shipped here; the 7/1/2026 fee schedule could not be located (no archived copy). Re-pull 01_CO_Fee Schedule 07012026 to confirm current rates.',
+  'Health First Colorado Provider Bulletin B2500530 (Oct 2025) — retrieved via Wayback archive this pass; corroborates the 10/1/2025 PBT reductions including the 97151 flat assessment at $866.88 (paid at an 8-hr / 32-unit increment x $27.09/unit). WATCHLIST: the FY25-26 1.6% increase was REPEALED effective 10/1/2025 (the cuts stand, not restored), and a further across-the-board -2.0% reduction plus a "reset of pediatric behavioral rates" is approved effective 7/1/2026 (FY2026-27, HB26-1410) — that watch is now settled: the July 1, 2026 fee schedule (v1.3, re-read as v1.5 on 2026-11-01) carries the unchanged post-October-2025 PBT rates, and HCPF told MPRRAC at its June 26/July 10, 2026 meeting that "PBT was exempt from the July 1 across-the-board reduction."',
   true
 );
 const CO_FEE_SCHEDULE_2026 = src(
   'https://hcpf.colorado.gov/sites/hcpf/files/01_CO_Fee%20Schedule_Health%20First%20Colorado_07012026%20v1.3.xlsx',
   'Health First Colorado Fee Schedule, July 1, 2026 v1.3 (the latest posted on hcpf.colorado.gov/provider-rates-fee-schedule as of 2026-09-25) — downloaded with curl + browser UA and parsed (sheet "Fee Schedule 07-1-2026", column "Total Allowable Amount 07-01-2026 Rates"). PBT rows: 97151-TJ $39.61; 97151 $866.88; 97153 $17.20; 97154 $8.81; 97155 $25.80; 97158 $9.34 — all "Prior Authorization Needed: Yes". Identical to the January 1, 2026 v1.8 schedule, so the 10/1/2025 reduced rates carry into FY2026-27 unchanged (no further PBT cut on 7/1/2026). The 97151-TJ unit rate is $39.61 on both 2026 schedules, not the $40.24 of the July 2025 schedule.'
 );
+const CO_FEE_SCHEDULE_2026_V15: SourceRef = { url: 'https://hcpf.colorado.gov/sites/g/files/lrnvjt4251/files/01_CO_Fee%20Schedule_Health%20First%20Colorado_07012026%20v1.5.xlsx', accessDate: '2026-11-01', note: 'Health First Colorado Fee Schedule, July 1, 2026 v1.5 (the version linked as "July 2026 Fee Schedule (XLSX) (07/26)" on 2026-11-01; curl with Chrome UA + Referer). PBT rows unchanged from v1.3/v1.4: 97151-TJ $39.61; 97151 $866.88; 97153 $17.20; 97154 $8.81; 97155 $25.80; 97158 $9.34, all "Prior Authorization Needed: Yes".' };
+const CO_MPRRAC_0626_SUMMARY: SourceRef = { url: 'https://hcpf.colorado.gov/sites/hcpf/files/Medicaid%20Provider%20Rate%20Review%20Advisory%20Committee%20Meeting%20Summary%20-%20June%2026%20and%20July%2010%202026.pdf', accessDate: '2026-11-01', note: 'MPRRAC meeting summary, June 26 and July 10, 2026: HCPF "confirmed that the benchmark analysis reflects the most current rates and that PBT was exempt from the July 1 across-the-board reduction."' };
 const CIGNA_AUTISM_RESOURCE_GUIDE = src(
   'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf',
   'Cigna Autism Resource Guide (Mar 2025) — fetched and parsed this pass; states verbatim "Use Evernorth payer ID 62308" for ABA/autism claims submitted through Cigna\'s EDI vendors, confirming ABA rides the SAME payer ID as Cigna medical (no separate Evernorth EDI hop).'
@@ -292,7 +294,7 @@ const coloradoMedicaidRates: RateTable = {
     '97155': { rate: '$25.80 per 15-min unit (cut from $26.62, DOS on/after 10/1/2025)', unit: '15min' },
     '97158': { rate: '$9.34 per 15-min unit (cut from $17.83, -48%, DOS on/after 10/1/2025)', unit: '15min' },
   },
-  sources: [CO_FEE_SCHEDULE_2026, CO_FEE_SCHEDULE, CO_RATE_BULLETIN_B2500528, CO_RATE_BULLETIN_B2500530],
+  sources: [CO_FEE_SCHEDULE_2026_V15, CO_FEE_SCHEDULE_2026, CO_MPRRAC_0626_SUMMARY, CO_FEE_SCHEDULE, CO_RATE_BULLETIN_B2500528, CO_RATE_BULLETIN_B2500530],
 };
 
 const coloradoMedicaidEdi: EdiRouting = {

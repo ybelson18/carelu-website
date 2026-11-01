@@ -190,6 +190,27 @@ const CFR438408_G5 = { title: '42 CFR 438.408 — Resolution and notification of
 const MCO_APPEAL_BODY_G5 =
   'Appealing a denied or reduced ABA authorization. Federal Medicaid managed-care rules set the floor every plan must meet. After an adverse benefit determination the family “has 60 calendar days from the date on the adverse benefit determination notice” to appeal to the plan, and the plan may have only one level of appeal. A provider may file the appeal on the child’s behalf “with the written consent of the enrollee” where state law permits. The plan must resolve a standard appeal within 30 calendar days and an expedited one within 72 hours (both extendable under the rule), and after an upheld appeal the family has 90 to 120 days to request a State fair hearing. A plan that misses these notice and timing rules is treated as having exhausted its appeal process, so the family can go straight to a fair hearing. Claim-payment disputes by the provider are a separate process set in the plan’s provider manual and contract.';
 
+/* Technician credentials (RBT / grace period) and out-of-state providers — weekly refresh 2026-11-01 (G1).
+   National payer rules read 2026-11-01 from each payer's own document. */
+const G1_OPTUM_NNM = { title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): Applied Behavior Analysis network requirements; Telehealth', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' };
+const G1_OPTUM_FAQ = { title: 'Optum — Autism/Applied Behavior Analysis (ABA) Using CPT Codes FAQ (Q60, technician credentials)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' };
+const G1_AETNA_NPC = { title: 'Aetna — Provider and facility participation criteria (8100606-01-01, 5/26): Applied behavior analyst (ABA) services provider additional criteria', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' };
+const G1_AETNA_MNG = { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' };
+const G1_EN0499 = { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' };
+const G1_EBH_ADMIN = { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026): Behavioral virtual services', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' };
+const G1_OPTUM_TECH =
+  'Optum’s technician rule (UnitedHealthcare commercial). The National Network Manual (BH02330, effective 9/1/2026) says: “Paraprofessionals or Behavior Technicians are required to be a Registered Behavior Technician (RBT), a Board-Certified Autism Technician (BCAT), or a certified Applied Behavior Analysis Technician (ABAT). Any alternate certification must be approved in writing by an authorized Optum Behavioral Health contract representative,” adding that “State regulatory requirements may supplement, modify, or in some cases, supersede this policy.” Optum’s ABA CPT FAQ (Q60) applies the same list to every technician working 1:1. No Optum document gives a grace or provisional period for uncertified staff, so a technician without RBT, BCAT or ABAT certification needs Optum’s written approval of an alternate credential before you bill for them. Supervising analysts need active BCBA certification “and/or state license in those states that license behavior analysts/specialists.” For telehealth, “Providers offering telehealth visits must be licensed in the state where the member is located at the time of service.”';
+const G1_AETNA_TECH =
+  'Aetna’s technician rule. Aetna’s participation criteria for ABA providers say services must be provided directly or supervised by state-licensed or BACB-certified BCBAs, and supervised staff may be a BCaBA or “a paraprofessional.” “All BCBAs, BCaBAs and paraprofessionals must meet state requirements. If state requirements are not defined, all BCBAs, BCaBAs and paraprofessionals must meet Aetna standards.” For unlicensed or noncertified paraprofessionals the criteria require written supervision policies, “A minimum of one hour of face-to-face supervision … for each 10 hours of applied behavior analysis,” and a supervisor on site with the child at least one hour a month. Aetna’s ABA medical necessity guide likewise allows unlicensed or non-certified staff only with supervision “in line with practice standards.” Neither document names RBT certification or a grace period, so ask Aetna whether your agreement requires RBT certification. Aetna also requires its providers to meet state licensing rules, so an out-of-state BCBA follows the state rules described here.';
+const G1_CIGNA_TECH =
+  'Cigna’s technician rule. Evernorth’s ABA policy (EN0499, effective 5/15/2026) has case supervision done by a BCBA, LBA or independently licensed clinician with ABA training, with direct supervision of “either the Registered Behavior Technician® [RBT®] or the Board Certified Assistant Behavior Analyst® [BCaBA®],” but it sets no technician-credential requirement and no grace period, and neither do the Evernorth Behavioral Health Administrative Guidelines (September 2026). For remote care the guidelines say providers “must meet all state requirements to provide virtual behavioral services, including any licenses and certifications.” Ask Evernorth (the behavioral health number on the card) whether an uncertified technician may render 97153 under your agreement.';
+const G1_LA_LAB3 = { title: 'Louisiana Behavior Analyst Board — Rules, Chapter 3, § 304 Registration of Line Technicians (LAC 46:VIII)', url: 'https://lababoard.org/rules-chapter-3/' };
+const G1_LA_LAB5 = { title: 'Louisiana Behavior Analyst Board — Rules, Chapter 5, Subchapter B: Supervision Requirements for Registered Line Technicians', url: 'https://lababoard.org/rules-chapter-5/' };
+const G1_LA_TECH =
+  'Louisiana technician rule. Louisiana does not require the RBT. Its technician credential is the board’s registered line technician (RLT): at least 18 with a high school diploma or equivalent, registered with the Louisiana Behavior Analyst Board by the supervising LBA, a state police criminal background report initiated within 14 days of applying, and registration renewed every year by the LBA (La. R.S. 37:3708; LAC 46:VIII § 304). It is a misdemeanor to “employ as a line technician, a line technician who is not registered” (R.S. 37:3716), and neither the statute nor the board’s rules give a grace period, so register technicians before they work. RLTs implement, not design, the behavior plan and work under an LBA’s direct supervision, which an LBA or state-certified assistant may provide (board rules ch. 5).';
+const G1_LA_MCD_OOS =
+  'Medicaid’s staffing rule. The Medicaid Services Manual requires ABA to be provided by, or supervised by, a behavior analyst licensed by the Louisiana Behavior Analyst Board (or a licensed psychologist or medical psychologist); RLTs must be registered with the board and supervised by an LBA, with background checks at hire, and providers send each MCO a list of their RLTs at enrollment and every quarter. A BCBA licensed only in another state cannot treat a Louisiana Medicaid member, including by telehealth: “Licensees who provide telehealth must be licensed in Louisiana and must also be licensed in the state where the client is located, if licensing is required” (LAC 46:VIII § 204(C)).';
+
 export const louisianaPayers: Record<string, PayerConfig> = {
   'louisiana-medicaid': {
     slug: 'louisiana-medicaid',
@@ -274,6 +295,13 @@ export const louisianaPayers: Record<string, PayerConfig> = {
           'UnitedHealthcare’s participation in Louisiana Medicaid ended March 31, 2026, and its members moved to other plans on April 1, 2026. Healthy Blue ends its contract December 31, 2026. Its members have a special enrollment period from October 15 to November 16, 2026 and are otherwise auto-assigned, with new plans starting January 1, 2027. For ABA families the key rule is continuity: "HBL prior authorizations will be honored for up to 60 days (or through the authorization end date, whichever occurs first) by the receiving MCO," which may not deny solely because the provider is out of network. Providers must submit new requests to the new plan before that window closes, and Healthy Blue keeps paying claims through its 365-day filing window. Providers contracted only with Healthy Blue should contract with at least one of the four remaining plans.',
         ],
         cites: [S.ib2603, S.uhcLA, S.ib2612, S.t2027],
+      },
+      {
+        h2: 'Technician credentials: registered line technicians, not RBTs',
+        body: [
+          G1_LA_TECH,
+        ],
+        cites: [S.rs3708, S.rs3716, G1_LA_LAB3, G1_LA_LAB5, S.msm],
       },
     ],
     collect: [
@@ -370,6 +398,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       { q: 'Does Louisiana Medicaid want graphs with an ABA reauthorization?', a: 'The all-plan uniform ABA form asks renewals to include the functional behavioral assessment with a baseline data graph and progress, plus objective measures of progress toward each goal.' },
       { q: 'Does a CDE expire for Louisiana Medicaid ABA?', a: 'No. Plans may not deny services based solely on the age of the CDE, and it only has to be sent with the first request to each provider. A plan that wants a new one must arrange it without pausing services.' },
       { q: 'What happens to ABA authorizations when Healthy Blue ends?', a: 'Healthy Blue leaves Medicaid on December 31, 2026. The new plan must honor Healthy Blue authorizations for up to 60 days or until they end, whichever comes first, even if the provider is out of network. Submit a new request to the new plan before then.' },
+      { q: 'Does Louisiana Medicaid require RBT certification for ABA technicians, and is there a grace period?', a: 'No. Louisiana’s technician credential is the registered line technician: 18 or older, high school diploma, registered with the Louisiana Behavior Analyst Board by the supervising LBA, and a state police background check started within 14 days of applying. Employing an unregistered line technician is a misdemeanor and no grace period is published, so register technicians before they start.' },
     ],
   },
 
@@ -436,6 +465,15 @@ export const louisianaPayers: Record<string, PayerConfig> = {
         h2: 'Member appeals and State fair hearings (federal floor)',
         body: [MCO_APPEAL_BODY_G5],
         cites: [CFR438402_G5, CFR438408_G5],
+      },
+      {
+        h2: 'Technician credentials (RBT, grace period) and out-of-state BCBAs',
+        body: [
+          'Aetna Better Health of Louisiana follows the Louisiana Medicaid rules. Its ABA policy 7000.11 and provider manual (revised 09-29-2026) add no technician credential or out-of-state rule of their own.',
+          G1_LA_TECH,
+          G1_LA_MCD_OOS,
+        ],
+        cites: [S.abhPol, S.abhPM26, S.rs3708, S.rs3716, G1_LA_LAB3, G1_LA_LAB5, S.msm, S.labRules2],
       },
     ],
     collect: [
@@ -527,6 +565,8 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       { q: 'Does Aetna Better Health of Louisiana require prior authorization for ABA?', a: 'Yes, for the assessment and for treatment, under Policy 7000.11. Requests are judged against the LDH ABA manual and MCG’s ABA guideline, with the LDH manual controlling where they differ.' },
       { q: 'Does my child need an autism diagnosis for ABA through Aetna Better Health of Louisiana?', a: 'No. Louisiana Medicaid covers ABA for any condition ABA is recognized to treat, including autism, after a comprehensive diagnostic evaluation. The plan’s own guidance says so.' },
       { q: 'How is ABA telehealth billed to Aetna Better Health of Louisiana?', a: 'Codes 97151–97158 with place of service 02 or 10 (by where the child is) and modifier 95. An existing authorization does not need an addendum.' },
+      { q: 'Does Aetna Better Health of Louisiana require RBT certification for ABA technicians?', a: 'Aetna Better Health of Louisiana follows Louisiana Medicaid: Louisiana’s technician credential is the registered line technician: 18 or older, high school diploma, registered with the Louisiana Behavior Analyst Board by the supervising LBA, and a state police background check started within 14 days of applying. Employing an unregistered line technician is a misdemeanor and no grace period is published, so register technicians before they start.' },
+      { q: 'Can an out-of-state BCBA treat Aetna Better Health of Louisiana members by telehealth?', a: 'Not on another state’s license. Louisiana Medicaid requires a behavior analyst licensed by the Louisiana Behavior Analyst Board (or a licensed psychologist), and the board’s telehealth rule says licensees providing telehealth “must be licensed in Louisiana.” There is no telehealth-only registration.' },
     ],
   },
 
@@ -586,6 +626,15 @@ export const louisianaPayers: Record<string, PayerConfig> = {
         h2: 'Out-of-network care and single case agreements',
         body: [MCO_OON_BODY_G5],
         cites: [CFR438206_G5],
+      },
+      {
+        h2: 'Technician credentials (RBT, grace period) and out-of-state BCBAs',
+        body: [
+          'AmeriHealth Caritas Louisiana follows the Louisiana Medicaid rules. Its ABA policy CCP.4040 builds supervision around the state-certified assistant and the registered line technician (2:10 supervision) and adds no other technician credential; its provider manual (September 2026) sets no out-of-state ABA rule.',
+          G1_LA_TECH,
+          G1_LA_MCD_OOS,
+        ],
+        cites: [S.aclaCCP, S.aclaHB, S.rs3708, S.rs3716, G1_LA_LAB3, G1_LA_LAB5, S.msm, S.labRules2],
       },
     ],
     collect: [
@@ -675,6 +724,8 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       { q: 'Does AmeriHealth Caritas Louisiana cover ABA?', a: 'Yes, for members ages 0–20 with a comprehensive diagnostic evaluation from a qualified health care professional, under clinical policy CCP.4040.' },
       { q: 'How fast does AmeriHealth Caritas Louisiana decide ABA requests?', a: 'Its September 2026 manual says 80% of non-urgent requests within 2 business days of receiving documentation and all within 7 calendar days of the request; expedited requests within 72 hours.' },
       { q: 'What is the timely filing limit for AmeriHealth Caritas Louisiana?', a: '365 calendar days from the date of service, 180 days to resubmit a denied claim, and later deadlines for retroactively enrolled members.' },
+      { q: 'Does AmeriHealth Caritas Louisiana require RBT certification for ABA technicians?', a: 'AmeriHealth Caritas Louisiana follows Louisiana Medicaid: Louisiana’s technician credential is the registered line technician: 18 or older, high school diploma, registered with the Louisiana Behavior Analyst Board by the supervising LBA, and a state police background check started within 14 days of applying. Employing an unregistered line technician is a misdemeanor and no grace period is published, so register technicians before they start.' },
+      { q: 'Can an out-of-state BCBA treat AmeriHealth Caritas Louisiana members by telehealth?', a: 'Not on another state’s license. Louisiana Medicaid requires a behavior analyst licensed by the Louisiana Behavior Analyst Board (or a licensed psychologist), and the board’s telehealth rule says licensees providing telehealth “must be licensed in Louisiana.” There is no telehealth-only registration.' },
     ],
   },
 
@@ -741,6 +792,15 @@ export const louisianaPayers: Record<string, PayerConfig> = {
         h2: 'Member appeals and State fair hearings (federal floor)',
         body: [MCO_APPEAL_BODY_G5],
         cites: [CFR438402_G5, CFR438408_G5],
+      },
+      {
+        h2: 'Technician credentials (RBT, grace period) and out-of-state BCBAs',
+        body: [
+          'Healthy Blue Louisiana follows the Louisiana Medicaid rules. Its provider manual (April 2026 posting) refers to registered line technicians and adds no other technician credential or out-of-state ABA rule.',
+          G1_LA_TECH,
+          G1_LA_MCD_OOS,
+        ],
+        cites: [S.hbPM, S.rs3708, S.rs3716, G1_LA_LAB3, G1_LA_LAB5, S.msm, S.labRules2],
       },
     ],
     collect: [
@@ -832,6 +892,8 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       { q: 'Is Healthy Blue leaving Louisiana Medicaid?', a: 'Yes. Healthy Blue’s Medicaid contract ends December 31, 2026. Members can pick a new plan from October 15 to November 16, 2026, or are assigned one, effective January 1, 2027.' },
       { q: 'What happens to my child’s Healthy Blue ABA authorization in 2027?', a: 'The new plan must honor it for up to 60 days or until it ends, whichever is first, even if your ABA provider is out of its network. The provider must send a new request to the new plan before then.' },
       { q: 'Does Healthy Blue require prior authorization for ABA?', a: 'Yes, for every ABA code, including the 97151 assessment. Submit through Availity, by fax to 844-432-6028, or by phone at 844-521-6942.' },
+      { q: 'Does Healthy Blue Louisiana require RBT certification for ABA technicians?', a: 'Healthy Blue Louisiana follows Louisiana Medicaid: Louisiana’s technician credential is the registered line technician: 18 or older, high school diploma, registered with the Louisiana Behavior Analyst Board by the supervising LBA, and a state police background check started within 14 days of applying. Employing an unregistered line technician is a misdemeanor and no grace period is published, so register technicians before they start.' },
+      { q: 'Can an out-of-state BCBA treat Healthy Blue Louisiana members by telehealth?', a: 'Not on another state’s license. Louisiana Medicaid requires a behavior analyst licensed by the Louisiana Behavior Analyst Board (or a licensed psychologist), and the board’s telehealth rule says licensees providing telehealth “must be licensed in Louisiana.” There is no telehealth-only registration.' },
     ],
   },
 
@@ -896,6 +958,15 @@ export const louisianaPayers: Record<string, PayerConfig> = {
         h2: 'Member appeals and State fair hearings (federal floor)',
         body: [MCO_APPEAL_BODY_G5],
         cites: [CFR438402_G5, CFR438408_G5],
+      },
+      {
+        h2: 'Technician credentials (RBT, grace period) and out-of-state BCBAs',
+        body: [
+          'Humana Healthy Horizons in Louisiana follows the Louisiana Medicaid rules. Its ABA policy LA.CLI.022.003 names the registered line technician (RLT) as the technician, adds no other credential, and its provider manual requires prior authorization for out-of-network and out-of-state provider services, with listed exceptions.',
+          G1_LA_TECH,
+          G1_LA_MCD_OOS,
+        ],
+        cites: [S.humCLI, S.humPM, S.rs3708, S.rs3716, G1_LA_LAB3, G1_LA_LAB5, S.msm, S.labRules2],
       },
     ],
     collect: [
@@ -985,6 +1056,8 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       { q: 'Does Humana Healthy Horizons in Louisiana cover ABA?', a: 'Yes, for members under 21 with a qualifying diagnosis (autism or another condition ABA treats), a comprehensive diagnostic evaluation and a QHCP prescription or CDE recommendation.' },
       { q: 'Where do I send a Humana Louisiana ABA authorization?', a: 'Through Availity (preferred) or by fax to 1-833-974-0059, on Humana’s ABA authorization form with the CDE, treatment plan and IEP.' },
       { q: 'How quickly does Humana Healthy Horizons in Louisiana decide?', a: 'Within 2 business days of getting the information it needs, and no later than 7 calendar days after the request, unless extended.' },
+      { q: 'Does Humana Healthy Horizons in Louisiana require RBT certification for ABA technicians?', a: 'Humana Healthy Horizons in Louisiana follows Louisiana Medicaid: Louisiana’s technician credential is the registered line technician: 18 or older, high school diploma, registered with the Louisiana Behavior Analyst Board by the supervising LBA, and a state police background check started within 14 days of applying. Employing an unregistered line technician is a misdemeanor and no grace period is published, so register technicians before they start.' },
+      { q: 'Can an out-of-state BCBA treat Humana Healthy Horizons in Louisiana members by telehealth?', a: 'Not on another state’s license. Louisiana Medicaid requires a behavior analyst licensed by the Louisiana Behavior Analyst Board (or a licensed psychologist), and the board’s telehealth rule says licensees providing telehealth “must be licensed in Louisiana.” There is no telehealth-only registration.' },
     ],
   },
 
@@ -1049,6 +1122,15 @@ export const louisianaPayers: Record<string, PayerConfig> = {
         h2: 'Member appeals and State fair hearings (federal floor)',
         body: [MCO_APPEAL_BODY_G5],
         cites: [CFR438402_G5, CFR438408_G5],
+      },
+      {
+        h2: 'Technician credentials (RBT, grace period) and out-of-state BCBAs',
+        body: [
+          'Louisiana Healthcare Connections follows the Louisiana Medicaid rules. Its ABA criteria LA.UM.49 add no technician credential or out-of-state rule of their own.',
+          G1_LA_TECH,
+          G1_LA_MCD_OOS,
+        ],
+        cites: [S.lhccUM49, S.rs3708, S.rs3716, G1_LA_LAB3, G1_LA_LAB5, S.msm, S.labRules2],
       },
     ],
     collect: [
@@ -1138,6 +1220,8 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       { q: 'Does Louisiana Healthcare Connections still use Magellan for ABA?', a: 'Its November 2025 notice moved ABA requests to a uniform form sent to LHCC’s own ABA department and warns the process may differ from what providers knew under Magellan.' },
       { q: 'Why is my LHCC ABA authorization pending?', a: 'If the child has other insurance that covers ABA, LHCC holds the authorization until you send the primary insurer’s approval or denial. Medicaid pays last.' },
       { q: 'How far ahead should I request ABA from LHCC?', a: 'At least 7 business days before services start. Most routine requests are processed within 2 business days; complex ones can take up to 7 calendar days.' },
+      { q: 'Does Louisiana Healthcare Connections require RBT certification for ABA technicians?', a: 'Louisiana Healthcare Connections follows Louisiana Medicaid: Louisiana’s technician credential is the registered line technician: 18 or older, high school diploma, registered with the Louisiana Behavior Analyst Board by the supervising LBA, and a state police background check started within 14 days of applying. Employing an unregistered line technician is a misdemeanor and no grace period is published, so register technicians before they start.' },
+      { q: 'Can an out-of-state BCBA treat Louisiana Healthcare Connections members by telehealth?', a: 'Not on another state’s license. Louisiana Medicaid requires a behavior analyst licensed by the Louisiana Behavior Analyst Board (or a licensed psychologist), and the board’s telehealth rule says licensees providing telehealth “must be licensed in Louisiana.” There is no telehealth-only registration.' },
     ],
   },
 
@@ -1205,6 +1289,14 @@ export const louisianaPayers: Record<string, PayerConfig> = {
         h2: 'Disputes, appeals and transition of care (Aetna)',
         body: [AETNA_APPEALS_BODY_G5, AETNA_TOC_BODY_G5],
         cites: [AETNA_OM_G5],
+      },
+      {
+        h2: 'Technician credentials: the payer’s rule and Louisiana’s line-technician registration',
+        body: [
+          G1_AETNA_TECH,
+          G1_LA_TECH,
+        ],
+        cites: [G1_AETNA_NPC, G1_AETNA_MNG, S.rs3708, S.rs3716, G1_LA_LAB3, G1_LA_LAB5],
       },
     ],
     collect: [
@@ -1311,6 +1403,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       { q: 'What does the Louisiana autism mandate require?', a: 'Fully insured plans must cover diagnosis and treatment of autism, including ABA, for people under 21, with no visit limits, up to $36,000 a year. Treatment must be ordered by a Louisiana-licensed physician or psychologist.' },
       { q: 'Can a BCBA licensed in another state treat an Aetna member in Louisiana by telehealth?', a: 'Aetna requires providers to hold the licensure their state requires, and Louisiana licenses behavior analysts; practicing without a Louisiana license is a misdemeanor. Ask the Louisiana Behavior Analyst Board about its out-of-state telehealth route.' },
       { q: 'How fast must Aetna pay a clean ABA claim in Louisiana?', a: 'For fully insured plans, Louisiana law requires electronic clean claims to be paid, denied or pended within 25 days (paper within 45), with 12% a year interest when late. Self-funded plans are outside the statute.' },
+      { q: 'Does Aetna require RBT certification for ABA technicians in Louisiana, and is there a grace period?', a: 'Aetna’s participation criteria require paraprofessionals to “meet state requirements” (or Aetna standards where the state defines none) with at least one hour of face-to-face supervision per 10 hours, but name no RBT requirement and no grace period; ask Aetna whether your agreement requires RBT certification. Separately, Louisiana law requires every line technician to be registered with the Louisiana Behavior Analyst Board before working.' },
     ],
   },
 
@@ -1378,6 +1471,14 @@ export const louisianaPayers: Record<string, PayerConfig> = {
         h2: 'Appeals and out-of-network care (Evernorth)',
         body: [EBH_APPEALS_BODY_G5, EBH_OON_BODY_G5],
         cites: [EBH_ADMIN_G5],
+      },
+      {
+        h2: 'Technician credentials: the payer’s rule and Louisiana’s line-technician registration',
+        body: [
+          G1_CIGNA_TECH,
+          G1_LA_TECH,
+        ],
+        cites: [G1_EN0499, G1_EBH_ADMIN, S.rs3708, S.rs3716, G1_LA_LAB3, G1_LA_LAB5],
       },
     ],
     collect: [
@@ -1481,6 +1582,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       { q: 'Does Cigna require prior authorization for an ABA assessment in Louisiana?', a: 'No, for 97151, 97152 and 0362T with an autism diagnosis when the provider is independently licensed or a BCBA and the plan covers ABA. Treatment needs the ABA Prior Authorization Form.' },
       { q: 'Does Louisiana cap ABA benefits?', a: 'For fully insured plans, R.S. 22:1050 covers autism treatment for people under 21 up to $36,000 a year, with no visit limits. Self-funded plans follow their own documents.' },
       { q: 'Can a BCBA and technician bill the same time with Cigna?', a: 'Yes for 97155 with 97153 or 97154, when the BCBA directs the technician and both are face-to-face with the patient. Otherwise only one provider bills a unit of time.' },
+      { q: 'Does Cigna require RBT certification for ABA technicians in Louisiana, and is there a grace period?', a: 'Evernorth’s ABA policy (EN0499) and administrative guidelines set no technician credential and no grace period; ask Evernorth whether an uncertified technician may render 97153 under your agreement. Separately, Louisiana law requires every line technician to be registered with the Louisiana Behavior Analyst Board before working.' },
     ],
   },
 
@@ -1550,6 +1652,14 @@ export const louisianaPayers: Record<string, PayerConfig> = {
         h2: 'Appeals, authorizations and changing providers (Optum)',
         body: [OPTUM_APPEALS_BODY_G5, OPTUM_AUTH_BODY_G5],
         cites: [OPTUM_NNM_G5],
+      },
+      {
+        h2: 'Technician credentials: the payer’s rule and Louisiana’s line-technician registration',
+        body: [
+          G1_OPTUM_TECH,
+          G1_LA_TECH,
+        ],
+        cites: [G1_OPTUM_NNM, G1_OPTUM_FAQ, S.rs3708, S.rs3716, G1_LA_LAB3, G1_LA_LAB5],
       },
     ],
     collect: [
@@ -1654,6 +1764,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       { q: 'Who manages ABA for UnitedHealthcare in Louisiana?', a: 'Optum Behavioral Health, under its ABA supplemental clinical criteria and commercial ABA reimbursement policy.' },
       { q: 'Which ABA codes can be billed by telehealth to UnitedHealthcare?', a: 'For commercial plans Optum lists only 97155, 97156 and 97157, with POS 02 or 10. Fully insured Louisiana plans are also subject to the state telehealth statute, so confirm with Optum.' },
       { q: 'Is UnitedHealthcare still a Louisiana Medicaid plan?', a: 'No. UnitedHealthcare Community Plan left Healthy Louisiana on March 31, 2026; its members moved to other plans on April 1, 2026.' },
+      { q: 'Does UnitedHealthcare require RBT certification for ABA technicians in Louisiana, and is there a grace period?', a: 'Yes, or an equivalent: Optum requires technicians to be an RBT, BCAT or ABAT, and any other certification must be approved in writing by Optum. Optum publishes no grace or provisional period for uncertified technicians. Separately, Louisiana law requires every line technician to be registered with the Louisiana Behavior Analyst Board before working.' },
     ],
   },
 
@@ -1739,6 +1850,14 @@ export const louisianaPayers: Record<string, PayerConfig> = {
           S.lablueBC,
           S.lablue56,
         ],
+      },
+      {
+        h2: 'Technician credentials: Louisiana Blue and Louisiana’s line-technician registration',
+        body: [
+          'Louisiana Blue’s technician rule. Medical policy 00816 (current effective 05/01/2026) builds supervision around the state-certified assistant and the registered line technician (RLT), and for school-based ABA says RLTs “should be trained and certified in ABA therapy and preferably have at least 6 months of experience in ABA therapy.” It names no RBT requirement or grace period outside schools. Out-of-state providers submit initial and concurrent ABA requests by fax rather than through iLink Blue.',
+          G1_LA_TECH,
+        ],
+        cites: [S.labPol, S.rs3708, S.rs3716, G1_LA_LAB3, G1_LA_LAB5],
       },
     ],
     collect: [
@@ -1841,6 +1960,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       { q: 'How do I bill RLT and SCABA services to Louisiana Blue?', a: 'Through the supervising LBA: SCABA with modifier TF, RLT with a bachelor’s degree with HN, RLT without one with no modifier. The LBA bills directly with TG.' },
       { q: 'Can ABA be delivered at school under Louisiana Blue?', a: 'Yes, under policy 00816’s limits: the technician is there for identified high-support periods, does no academic teaching, and school ABA generally stays under 6 hours a day.' },
       { q: 'How does BlueCard work for ABA with Louisiana Blue?', a: 'A Louisiana Blue network provider files claims for other Blue plans’ members with Louisiana Blue, which routes them to the member’s home plan; authorization comes from the home plan, reached through iLinkBlue by entering the member’s prefix. An out-of-state provider treating a Louisiana Blue member files with its own local Blue plan and reaches Louisiana Blue’s authorization rules through that plan’s portal. Autism benefits can differ for BlueCard and self-funded members, so check them first.' },
+      { q: 'Does Louisiana Blue require RBT certification for ABA technicians?', a: 'Policy 00816 names no RBT requirement. Technicians are registered line technicians under Louisiana law (registered with the Louisiana Behavior Analyst Board before working), and for school-based ABA the policy says RLTs should be trained and certified in ABA therapy, preferably with 6 months of experience.' },
     ],
   },
 };

@@ -73,10 +73,12 @@ export const utahPayers: Record<string, PayerConfig> = {
         h2: 'Rates, caps, and who\'s covered',
         body: [
           'Utah publishes its ABA rates in the PRISM coverage lookup. Effective July 1, 2026, per 15-minute unit: 97153 direct treatment pays $19.67, and 97151, 97155, and 97156 all pay $37.51 — 97155 reported with a credential modifier (HP psychologist/BCBA-D, HO BCBA, HN BCaBA/analyst-in-training) but a single published rate across tiers. The caps are generous: 97153 up to 780 hours per 26 weeks (30 hours/week), supervision (97155 plus H0032) capped at 84 combined hours per 26 weeks, with overage requests possible through secondary review. Parent training (97156) carries a recommended minimum of 3 episodes per 26 weeks. Supervision has a floor, too: the QHP must supervise at least 10% of technician direct-service time, at least half of it directly.',
+          'Utah moves these rates on July 1, and the lookup keeps the history: querying Provider Allowable Code 166 by date of service shows 97153 at $19.02 (7/1/2024\u20136/30/2025), $19.32 (7/1/2025\u20136/30/2026) and $19.67 from 7/1/2026, and 97151 at $36.27 (4/1/2023\u20136/30/2025), $36.84 (7/1/2025\u20136/30/2026) and $37.51 from 7/1/2026; 97155 and 97156 were $36.84 for 2025-26 and are $37.51 now. Each step was an increase of under 2%. The current rows show "Updated On: 06/12/2026" and no end date, and Utah has published no proposed ABA rate for July 1, 2027. The lookup now lives at stplan.dhhs.utah.gov.',
           'Two eligibility facts set Utah apart. First, ASD services are available \'regardless of age\' — PRISM shows allowed ages 1 and older with adult plans included, so adults with ASD can get ABA, which almost no state Medicaid program offers. Second, third-party liability is enforced: commercial insurance must be exhausted first, and if the provider isn\'t paneled with the member\'s private plan and no out-of-network benefit exists, a transition (or enrollment with the insurer) must occur within 6 months of discovering the coverage — so ask about other insurance at intake, not at the first denied claim. Also worth flagging: telehealth works for supervision and parent training but not for technician-delivered 97153/97154 or group 97158, and school-based ABA on an IEP routes through the School-Based Skills Development benefit instead of FFS.',
         ],
         cites: [
           { title: 'PRISM Coverage and Reimbursement Lookup (rates, PA flags, age limits — PAC 166)', url: 'https://health.utah.gov/stplan/lookup/CoverageLookup.php' },
+          { title: 'Utah Medicaid Coverage and Reimbursement Lookup (new host; PAC 166 by date of service, rates updated 06/12/2026)', url: 'https://stplan.dhhs.utah.gov/lookup/CoverageLookup.php' },
           { title: 'ASD Related Services program page (services regardless of age)', url: 'https://medicaid.utah.gov/ltc-2/asd/' },
           { title: 'SPA UT-25-0007 — 4.19-B fee schedule incl. ASD services (archived)', url: 'https://web.archive.org/web/20260217123605/https://www.medicaid.gov/medicaid/spa/downloads/UT-25-0007.pdf' },
         ],
@@ -290,6 +292,7 @@ export const utahPayers: Record<string, PayerConfig> = {
       { q: 'Does Utah Medicaid cover ABA therapy?', a: 'Yes — as a state-plan ASD service, fee-for-service, regardless of age (PRISM shows ages 1 and older, adult plans included). No PA on assessments; treatment requires PA in 26-week periods, with a 10-business-day grace to submit after starting services.' },
       { q: 'My client is on Molina / SelectHealth / Healthy U / Health Choice — where does the ABA request go?', a: 'To Utah Medicaid directly. ABA is carved out of all four ACO contracts to state fee-for-service — the ACO handles only ASD-related PT/OT/ST. There are no per-plan ABA portals, forms, or criteria in Utah.' },
       { q: 'What does Utah Medicaid pay for ABA?', a: 'Published in the PRISM lookup, effective 7/1/2026 per 15-minute unit: 97153 pays $19.67; 97151, 97155, and 97156 each pay $37.51 (97155 with credential modifiers HP/HO/HN but one published rate).' },
+      { q: 'Has Utah Medicaid changed its ABA rates recently, and what about 2027?', a: 'Utah has raised them slightly each July 1: 97153 went from $19.02 (2024-25) to $19.32 (2025-26) to $19.67 (from 7/1/2026), and 97151 from $36.27 to $36.84 to $37.51 per 15-minute unit, per the Coverage and Reimbursement Lookup (PAC 166). No end date is set on the current rates and no July 2027 ABA rate has been published; check the lookup by date of service after July 1.' },
       { q: 'Which insurance pays the highest ABA rates in Utah?', a: 'Only Utah Medicaid publishes its ABA rates, so it is the only payer whose rates can be compared from public sources. For dates of service on and after July 1, 2026 its PRISM fee schedule (Provider Allowable Code 166, Applied Behavioral Analyst) pays per 15-minute unit: 97153 $19.67; 97151, 97155, 97156 and indirect supervision H0032 $37.51; group 97154 $13.91; 97157 and 97158 are covered at $0.00 and 97152 is not covered. Commercial ABA rates in Utah (Select Health commercial, Aetna, Cigna, UnitedHealthcare/Optum) are not published; they are negotiated in each participating-provider agreement, so no public source can say which commercial plan pays most \u2014 use the Medicaid schedule as the benchmark in negotiation. SelectHealth Community Care members are not a separate rate: their ABA is paid by Utah Medicaid fee-for-service at the same schedule.' },
       { q: 'Can adults get ABA under Utah Medicaid?', a: 'Yes — Utah\'s ASD services are not an EPSDT child-only benefit. The state offers them regardless of age, and PRISM lists Traditional Adult and Targeted Adult plans among covered eligibility groups.' },
       { q: 'Can the 97151 assessment or BCBA supervision be done by telehealth under Utah Medicaid?', a: 'Yes, when clinically appropriate. The ASD manual allows behavior identification assessments and supervision of a technician or assistant analyst by synchronous two-way video, plus parent training. Technician-delivered 97153/97154 and group 97158 are not covered by telehealth. Bill POS 02 (or POS 10); from January 1, 2027 add modifier 95.' },
@@ -337,7 +340,7 @@ export const utahPayers: Record<string, PayerConfig> = {
     metaDescription:
       'Select Health in Utah is two different products for ABA purposes: SelectHealth Community Care (the Medicaid ACO) rides Utah Medicaid\'s FFS carve-out, while Select Health commercial plans run their own ABA policy (#630) with a dedicated preauthorization form. What intake needs to ask.',
     intro: [
-      'A family saying "we have Select Health" in Utah could mean two structurally different things, and getting it right changes where the ABA request goes. SelectHealth Community Care is one of Utah Medicaid\'s four ACOs (alongside Health Choice Utah, Healthy U, and Molina) — and Utah Medicaid carves ABA out of every ACO to state fee-for-service, so a Community Care member\'s ABA request never touches Select Health at all; it goes straight to Utah Medicaid, exactly as our Utah Medicaid guide describes. Select Health also separately sells commercial insurance — employer group and individual/marketplace plans, branded simply "Select Health" — and for those members, Select Health runs its own ABA clinical policy, its own prior-authorization form, and its own utilization-management team. Select Health (the parent brand) is a wholly owned subsidiary of Intermountain Health. This guide covers both paths.',
+      'A family saying "we have Select Health" in Utah could mean two structurally different things, and getting it right changes where the ABA request goes. SelectHealth Community Care is one of Utah Medicaid\'s four ACOs (alongside Health Choice Utah, Healthy U, and Molina) — and Utah Medicaid carves ABA out of every ACO to state fee-for-service, so a Community Care member\'s ABA request never touches Select Health at all; it goes straight to Utah Medicaid, exactly as our Utah Medicaid guide describes. Select Health also separately sells commercial insurance — employer group and individual/marketplace plans, branded simply "Select Health" — and for those members, Select Health runs its own ABA clinical policy, its own prior-authorization form, and its own utilization-management team. Select Health (the parent brand) is a wholly owned subsidiary of Intermountain Health. This guide covers both paths; for commercial members only, see also our Select Health commercial (Utah) guide.',
     ],
     atGlance: [
       { label: 'Two products, one name', value: 'SelectHealth Community Care (Medicaid ACO) vs. Select Health commercial (employer/individual)' },
@@ -609,6 +612,249 @@ export const utahPayers: Record<string, PayerConfig> = {
       { q: 'What does Select Health pay for ABA?', a: 'No published fee schedule exists for either product. Community Care members\' ABA is paid at Utah Medicaid\'s own PRISM rates (not a Select Health rate); commercial rates are negotiated in your participating-provider agreement.' },
       { q: 'What is Select Health’s timely filing limit?', a: 'Twelve months from the date of service (Select Health provider reference manual).' },
       { q: 'Does Select Health require HM, HN, HO or HP modifiers on commercial ABA claims?', a: 'Not in its published documents: Select Health’s behavioral health medical policies (March 2026), its commercial provider reference manual (April 2026) and its ABA pre-authorization form (June 2026) name no rate-tier modifiers. Policy #630 requires services to be provided directly or supervised by a licensed behavior analyst, BCBA or licensed psychologist. For SelectHealth Community Care (Medicaid) members, ABA is billed to Utah Medicaid fee-for-service, which uses HP, HO and HN on supervision codes. Ask Select Health how your contract prices technician lines.' },
+    ],
+  },
+
+  'select-health-commercial-utah': {
+    slug: 'select-health-commercial-utah',
+    cardDesc: 'Select Health’s own Policy #630, the ABA Preauthorization Form (14-day Utah decision) and the Utah Code § 31A-22-642 mandate layer.',
+    assessmentPA: {
+      value: 'Not settled from public documents. Select Health’s ABA Preauthorization Form has an “Initial request” path (submit the diagnostic evaluation report) and Policy #630 gives an assessment-unit guide (functional analysis 8–16 units, focused 16–24, comprehensive 32), but the code-by-code commercial preauthorization list the provider manual points to is not published openly, so whether 97151 alone needs preauthorization is unconfirmed',
+      status: 'unverified',
+      cites: [
+        { title: 'Select Health — ABA Preauthorization Form (3868050, 04/26)', url: 'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/forms/sh-aba-pre-auth-form.pdf' },
+        { title: 'Select Health Medical Policy #630 — Applied Behavior Analysis (rev. 1/1/26), in Behavioral Health Policies (01/26)', url: 'https://selecthealth.org/content/dam/selecthealth/Archive%20PDFs/medical-policies/beh-policies.pdf' },
+        { title: 'Select Health Provider Reference Manual — Commercial and Government Plans (January 2025): 18.0 Preauthorization', url: 'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/Reference%20Manuals/prm-comm-govt.pdf' },
+      ],
+      verifyVia: 'The commercial preauthorization list in Select Health’s Preauth & Care Plan Tool / Provider Benefit Tool (login), or Select Health UM intake (commercialUMintake@imail.org): ask whether 97151, 97152 and 0362T need preauthorization on their own or only within the initial ABA request. Checked this run: Policy #630, the ABA Preauthorization Form and the provider manual — none lists codes.',
+      blocker: 'document',
+    },
+    treatmentPA: {
+      value: 'Required — submit Select Health’s ABA Preauthorization Form with clinical notes to commercialUMintake@imail.org (fax 801-442-0825), or use the online Preauth & Care Plan Tool. Initial requests carry the diagnostic evaluation report; concurrent requests carry “the updated individualized treatment plan with progress from previous authorization and/or assessment.” Policy #630 reviews continued authorization “up to every 6 consecutive months,” and Utah commercial decisions are due in 14 days unless expedited',
+      status: 'verified',
+      cites: [
+        { title: 'Select Health — ABA Preauthorization Form (3868050, 04/26)', url: 'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/forms/sh-aba-pre-auth-form.pdf' },
+        { title: 'Select Health Medical Policy #630 — Applied Behavior Analysis (rev. 1/1/26), in Behavioral Health Policies (01/26)', url: 'https://selecthealth.org/content/dam/selecthealth/Archive%20PDFs/medical-policies/beh-policies.pdf' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes — a DSM-5 autism spectrum disorder diagnosis (ICD-10 F84.0; F84.3–F84.9) from an appropriately licensed provider; Select Health “considers ABA therapy experimental/investigational for all other indications other than ASD”',
+      status: 'verified',
+      cites: [
+        { title: 'Select Health Medical Policy #630 — Applied Behavior Analysis (rev. 1/1/26), in Behavioral Health Policies (01/26)', url: 'https://selecthealth.org/content/dam/selecthealth/Archive%20PDFs/medical-policies/beh-policies.pdf' },
+      ],
+    },
+    payer: 'Select Health (commercial, Utah)',
+    state: 'UT', kind: 'commercial',
+    pill: 'Payer Guide · Select Health · Utah commercial',
+    h1: 'Select Health commercial ABA coverage in Utah: the intake guide.',
+    metaTitle: 'Select Health Commercial ABA Coverage in Utah: Policy #630, Prior Auth & Mandate | Carelu',
+    metaDescription:
+      'How Select Health covers ABA for employer-group, self-funded and individual members in Utah — Medical Policy #630 criteria, the ABA Preauthorization Form and its 14-day Utah decision clock, supervision and intensity guides, claims and appeal deadlines, and the Utah Code § 31A-22-642 mandate.',
+    intro: [
+      'Select Health is Utah’s home-grown insurer, part of Intermountain Health, and its commercial plans — large and small employer groups, self-funded employer plans and individual plans — run ABA through Select Health’s own medical policy, its own ABA Preauthorization Form and its own utilization-management intake. This guide covers those commercial members only. A family whose card says Select Health Community Care is on Utah Medicaid, and Utah carves ABA out of its Medicaid plans to fee-for-service; see our Select Health (Utah) guide for that split and our Utah Medicaid guide for the state rules.',
+      'For a Utah intake team a Select Health commercial card means three layers: Policy #630 (the clinical criteria), the preauthorization mechanics on the ABA form, and the Utah autism mandate, which binds individual and large-group plans but not small-group or self-funded ones. Ask which market segment the member is in before quoting what the mandate guarantees.',
+    ],
+    atGlance: [
+      { label: 'Clinical policy', value: 'Select Health Medical Policy #630 — Applied Behavior Analysis (rev. 1/1/2026)' },
+      { label: 'Prior auth', value: 'Required for treatment — ABA Preauthorization Form or the Preauth & Care Plan Tool; reviews up to every 6 months' },
+      { label: 'Decision clock', value: '14 days for Utah commercial plans, unless expedited' },
+      { label: 'Diagnosis', value: 'ASD only (F84.0, F84.3–F84.9); ABA for anything else is experimental/investigational' },
+      { label: 'State mandate', value: 'Utah Code § 31A-22-642' },
+      { label: 'Mandate markets', value: 'Individual + large group only — small group NOT covered' },
+      { label: 'Mandate age', value: 'No age limit (plans entered/renewed on or after 1/1/2020)' },
+      { label: 'Mandate caps', value: 'No hour limit since 2020; 600 hr/yr floor on legacy pre-2020 plans' },
+      { label: 'Timely filing', value: '12 months from the date of service (contracts can vary)' },
+      { label: 'Fee schedule', value: 'Not published — rates are in your Select Health participating provider agreement' },
+    ],
+    sections: [
+      {
+        h2: 'Policy #630: what Select Health requires to start ABA',
+        body: [
+          'Select Health’s commercial (and CHIP) criteria live in Medical Policy #630, Applied Behavior Analysis — implemented 3/14/2019, last revised 1/1/2026. To qualify the member needs a DSM-5 ASD diagnosis (ICD-10 F84.0; F84.3–F84.9) from a provider licensed to make it under state law; for Utah the policy repeats the statute: a licensed physician board certified in neurology, psychiatry or pediatrics with experience diagnosing ASD, or a licensed psychologist with that experience. ABA “must be recommended or prescribed by a qualified treating healthcare professional experienced in the diagnosis and treatment of ASD, as defined by state law.”',
+          'The essential elements: identifiable target behaviors that keep the member from participating in developmentally appropriate activities such as school, or a significant risk of harm to self or others; treatment that is not custodial; and an individualized treatment plan that is member-centric, names parent/caregiver goals, documents collaboration with family, pediatric providers, school psychologists and behavior analysts, identifies every staff member who will work with the member and the start date, sets baselines by objective measures with quantifiable progress and mastery criteria, and includes reinforcers, generalization strategies, fading and discharge criteria. Policy #630 says either focused or comprehensive ABA is allowed and access to either “should not be restricted by age, cognitive level, diagnosis, or co-occurring conditions,” unless a state mandate says otherwise.',
+          'Intensity is set by a severity guide rather than a cap. Policy #630’s table assigns hours per week by how far below the norm the member scores in each of three domains — maladaptive behavior, social communication and self-care — at 0 hours (less than 1 SD below), 1–4 (mild, more than 1 SD), 4–7 (moderate, more than 1.5 SD) and 7–10 (severe, more than 2 SD), and “The chart hours are intended to be additive.” QHP protocol modification may be authorized at 1 to 2 hours per 10 hours of treatment by protocol, and caregiver training in a “Clinically Approved Dosage” based on clinical recommendations. Select Health considers ABA experimental/investigational for every indication other than ASD.',
+        ],
+        cites: [
+          { title: 'Select Health Medical Policy #630 — Applied Behavior Analysis (rev. 1/1/26), in Behavioral Health Policies (01/26)', url: 'https://selecthealth.org/content/dam/selecthealth/Archive%20PDFs/medical-policies/beh-policies.pdf' },
+        ],
+      },
+      {
+        h2: 'Preauthorization mechanics: the ABA form, the inboxes and the clock',
+        body: [
+          'Select Health’s ABA Preauthorization Form (form 3868050, revised 04/26) is the request. Mark it initial or concurrent: “For initial requests submit the diagnostic evaluation report”; “For concurrent request submit the updated individualized treatment plan with progress from previous authorization and/or assessment.” Commercial plans (“Large/Small Employer, Self-Funded, Ind.”) go to commercialUMintake@imail.org or fax 801-442-0825 — a different inbox from Community Care (Medicaid/CHIP) and Medicare. The form also asks for the member’s weekly ABA schedule by day, time span and location (office, home or other), the school and other-therapy schedule, the school program (public, private, home), whether an IEP, ISP, 504 or ARD is in place, other PT/OT/speech services and whether care is coordinated. Select Health points providers to its online Preauth & Care Plan Tool to cut turnaround, where “Some requests even qualify for auto-approval.”',
+          'The clock: “Once Select Health receives this form, we have the following decision time frames ... For Commercial Plans: 14 days (Utah)” unless an expedited review is requested. The provider manual asks for at least 14 days’ notice before services where reasonably possible, says preauthorization “is not a guarantee of payment,” and warns that where a member uses a non-panel facility, failure to preauthorize can cut standard benefits by up to 50 percent of eligible charges. Policy #630 reviews continued authorization “up to every 6 consecutive months,” adjusting hours up or down on intensity and severity, and expects the plan of care to be updated with validated scales such as the Vineland-3, ABAS, VB-MAPP or ABLLS.',
+        ],
+        cites: [
+          { title: 'Select Health — ABA Preauthorization Form (3868050, 04/26)', url: 'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/forms/sh-aba-pre-auth-form.pdf' },
+          { title: 'Select Health Provider Reference Manual — Commercial and Government Plans (January 2025): 18.0 Preauthorization', url: 'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/Reference%20Manuals/prm-comm-govt.pdf' },
+          { title: 'Select Health Medical Policy #630 — Applied Behavior Analysis (rev. 1/1/26), in Behavioral Health Policies (01/26)', url: 'https://selecthealth.org/content/dam/selecthealth/Archive%20PDFs/medical-policies/beh-policies.pdf' },
+          { title: 'Select Health — Preauthorization Forms & Reports', url: 'https://selecthealth.org/providers/preauthorization/forms-reports' },
+        ],
+      },
+      {
+        h2: 'The Utah mandate: what it guarantees (and doesn’t)',
+        body: [
+          'Utah Code § 31A-22-642 requires a health benefit plan “offered in the individual market or the large group market and entered into or renewed on or after January 1, 2020” to cover the diagnosis and treatment of autism spectrum disorder, and for those plans behavioral health treatment “may not have a limit on the number of hours covered”; the 600-hours-a-year floor and the ages-2-to-under-10 window belong to legacy plans entered or renewed from 2016 to 2019. Small-group plans are not named, and self-funded employer plans fall outside state insurance law — Select Health’s ABA form routes “Large/Small Employer, Self-Funded, Ind.” through one inbox, so the form does not tell you which rules bind. The statute also sets operating rules: the provider submits a treatment plan within 14 business days of starting treatment, the insurer may request a review “not more than once every three months,” and the plan network must include both board certified behavior analysts and qualified mental health providers. From the 2026 amendment, every health benefit plan must report to the Insurance Department before July 1, 2027, and each July after, its average wait for an autism assessment, whether it has prior-authorization requirements for autism assessment or treatment, and ABA hours and cost.',
+        ],
+        cites: [
+          { title: 'Utah Code § 31A-22-642 (current version, effective 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.html' },
+          { title: 'Select Health — ABA Preauthorization Form (3868050, 04/26)', url: 'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/forms/sh-aba-pre-auth-form.pdf' },
+        ],
+      },
+      {
+        h2: 'Rates, claims and appeals',
+        body: [
+          'Select Health publishes no commercial ABA fee schedule; the rate is in your participating provider agreement, and the provider manual sends “fee schedule issues” to your Provider Relations representative rather than the provider appeal process. Rates change by contract, not by a published schedule, so ask Provider Relations what your agreement says about fee-schedule updates. For a public benchmark, Utah Medicaid pays 97153 at $19.67 and 97151, 97155 and 97156 at $37.51 per 15-minute unit from July 1, 2026.',
+          'Claims go on the CMS-1500 (“HCFA 1500”) “within 12 months of the date of service”; later claims are denied unless the provider shows notice was given as soon as reasonably possible, and the manual notes that filing periods can vary by contract. When Select Health is secondary, the supporting information must arrive within 12 months after the primary plan processed the claim, and a claim filed to the wrong primary insurer can be re-filed to the right one within 24 months of the date of service. Member appeals on commercial plans are due within 180 days of the denial notice. Provider appeals (coding issues such as modifiers) go through the Provider Benefit Tool or the Provider Appeal form within 180 days of the date the claim was processed, and Select Health answers in writing within 60 days.',
+        ],
+        cites: [
+          { title: 'Select Health Provider Reference Manual — Commercial and Government Plans (January 2025): 5.0 Claims Filing Deadlines; member appeals; 20.0 Provider Appeals', url: 'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/Reference%20Manuals/prm-comm-govt.pdf' },
+          { title: 'Utah Medicaid Coverage and Reimbursement Lookup (PAC 166, rates effective 7/1/2026)', url: 'https://stplan.dhhs.utah.gov/lookup/CoverageLookup.php' },
+        ],
+      },
+    ],
+    collect: [
+      { title: 'Market segment and funding', desc: 'Individual, small group, large group or self-funded — the Utah mandate binds only individual and large-group plans.' },
+      { title: 'Diagnostic evaluation report', desc: 'Required with the initial request; it must show a DSM-5 ASD diagnosis by a qualified physician (neurology, psychiatry or pediatrics) or licensed psychologist.' },
+      { title: 'ABA recommendation or prescription', desc: 'From a qualified treating professional experienced in diagnosing and treating ASD.' },
+      { title: 'Weekly schedules', desc: 'The planned ABA schedule by day, time and setting, plus school and other-therapy schedules — the form asks for both.' },
+      { title: 'School and therapy context', desc: 'School program, IEP/ISP/504/ARD status, other PT/OT/speech services and care coordination.' },
+      { title: 'Other insurance', desc: 'A second commercial plan, Medicaid or TRICARE changes who pays first.' },
+    ],
+    sources: [
+      { title: 'Select Health Medical Policy #630 — Applied Behavior Analysis (rev. 1/1/26), in Behavioral Health Policies (01/26)', url: 'https://selecthealth.org/content/dam/selecthealth/Archive%20PDFs/medical-policies/beh-policies.pdf' },
+      { title: 'Select Health — ABA Preauthorization Form (3868050, 04/26)', url: 'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/forms/sh-aba-pre-auth-form.pdf' },
+      { title: 'Select Health Provider Reference Manual — Commercial and Government Plans (January 2025)', url: 'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/Reference%20Manuals/prm-comm-govt.pdf' },
+      { title: 'Select Health — Preauthorization Forms & Reports', url: 'https://selecthealth.org/providers/preauthorization/forms-reports' },
+      { title: 'Utah Code § 31A-22-642 (current version, effective 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.html' },
+      { title: 'Utah Medicaid Coverage and Reimbursement Lookup (PAC 166)', url: 'https://stplan.dhhs.utah.gov/lookup/CoverageLookup.php' },
+    ],
+    deliveryRules: {
+      supervision: {
+        value: 'Policy #630: ABA must be provided directly or supervised by licensed behavior analysts (in states that license them), board-certified behavior analysts, or licensed psychologists whose scope covers behavior analysis, with unlicensed or non-certified staff supervised “in line with practice standards,” unless state mandates, plan documents or contracts say otherwise. “Services should be supervised at a minimum of 5% of direct service hours and should be supervised at least monthly.” QHP protocol modification may additionally be authorized at 1 to 2 hours per 10 hours of treatment by protocol.',
+        status: 'verified',
+        cites: [
+          { title: 'Select Health Medical Policy #630 — Applied Behavior Analysis (rev. 1/1/26), in Behavioral Health Policies (01/26)', url: 'https://selecthealth.org/content/dam/selecthealth/Archive%20PDFs/medical-policies/beh-policies.pdf' },
+        ],
+      },
+      concurrentBilling: {
+        value: 'Not addressed. Policy #630 lists 97151–97158, 0362T, 0373T and 96202/96203 as covered when criteria are met and allows 1–2 hours of QHP protocol modification per 10 hours of technician treatment, but says nothing about billing 97155 and 97153 for the same clock time.',
+        status: 'unverified',
+        cites: [
+          { title: 'Select Health Medical Policy #630 — Applied Behavior Analysis (rev. 1/1/26), in Behavioral Health Policies (01/26)', url: 'https://selecthealth.org/content/dam/selecthealth/Archive%20PDFs/medical-policies/beh-policies.pdf' },
+        ],
+        verifyVia: 'Select Health Provider Relations or your participating provider agreement: ask whether 97155 and 97153 may be billed for the same minutes. Checked this run: Policy #630 and the provider manual — neither addresses it.',
+        blocker: 'per-case',
+      },
+      dailyLimits: {
+        value: 'No per-day unit ceiling is published. Policy #630 sets hours by a severity guide — 0, 1–4, 4–7 or 7–10 hours per week in each of three domains (maladaptive behavior, social communication, self-care), “intended to be additive” — and an assessment-unit guide (functional analysis 8–16 units, focused 16–24, comprehensive 32). For individual and large-group plans entered or renewed since 1/1/2020, Utah Code § 31A-22-642 bars any limit on the number of covered behavioral-health hours.',
+        status: 'verified',
+        cites: [
+          { title: 'Select Health Medical Policy #630 — Applied Behavior Analysis (rev. 1/1/26), in Behavioral Health Policies (01/26)', url: 'https://selecthealth.org/content/dam/selecthealth/Archive%20PDFs/medical-policies/beh-policies.pdf' },
+          { title: 'Utah Code § 31A-22-642 (current version, effective 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.html' },
+        ],
+      },
+      noteSignature: {
+        value: 'Select Health has a general medical-record rule, not an ABA-specific one. Its Provider Office Medical Record Standards say “All entries in the medical record should contain author identification,” which “may be handwritten, stamped, or electronic” (signing office notes is optional in a solo practice), and “Each entry should have a date indicating the date of the visit.” Policy #630 sets no session-note or amendment rule of its own.',
+        status: 'verified',
+        cites: [
+          { title: 'Select Health Provider Reference Manual — Commercial and Government Plans (January 2025): Medical Records Audit Standards', url: 'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/Reference%20Manuals/prm-comm-govt.pdf' },
+        ],
+      },
+      placeOfService: {
+        value: 'Office, home and other settings. The ABA Preauthorization Form records the servicing location (office, home or other) and asks for each day’s schedule by setting, and Policy #630 wants community-based treatment optimized, for example school engagement. Neither document publishes a list of payable POS codes or a school-setting rule, so confirm school delivery with Select Health.',
+        status: 'verified',
+        cites: [
+          { title: 'Select Health — ABA Preauthorization Form (3868050, 04/26)', url: 'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/forms/sh-aba-pre-auth-form.pdf' },
+          { title: 'Select Health Medical Policy #630 — Applied Behavior Analysis (rev. 1/1/26), in Behavioral Health Policies (01/26)', url: 'https://selecthealth.org/content/dam/selecthealth/Archive%20PDFs/medical-policies/beh-policies.pdf' },
+        ],
+      },
+      billAsProvider: {
+        value: 'Not published. The ABA form collects a requesting and a servicing provider (each with NPI) and a tax ID, and Policy #630 says who may provide or supervise, but neither says whether technician time is billed under the technician or the supervising analyst.',
+        status: 'unverified',
+        cites: [
+          { title: 'Select Health — ABA Preauthorization Form (3868050, 04/26)', url: 'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/forms/sh-aba-pre-auth-form.pdf' },
+        ],
+        verifyVia: 'Select Health Provider Relations / credentialing: ask whose NPI goes in the rendering field for 97153 delivered by an RBT. Checked this run: Policy #630, the ABA form and the provider manual.',
+        blocker: 'per-case',
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value: 'None in Select Health’s policy: access to comprehensive and focused ABA “should not be restricted by age, cognitive level, diagnosis, or co-occurring conditions” unless a state mandate says otherwise. Utah’s mandate sets no age limit for individual and large-group plans entered or renewed since 1/1/2020 (the 2-to-under-10 window applies only to 2016–2019 plans); small-group and self-funded plans follow the plan document.',
+        status: 'verified',
+        cites: [
+          { title: 'Select Health Medical Policy #630 — Applied Behavior Analysis (rev. 1/1/26), in Behavioral Health Policies (01/26)', url: 'https://selecthealth.org/content/dam/selecthealth/Archive%20PDFs/medical-policies/beh-policies.pdf' },
+          { title: 'Utah Code § 31A-22-642 (current version, effective 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.html' },
+        ],
+      },
+      dxRecency: {
+        value: 'No recency window is published. The initial request must include the diagnostic evaluation report, and Policy #630 requires a DSM-5 ASD diagnosis, but neither says how old the evaluation may be.',
+        status: 'verified',
+        cites: [
+          { title: 'Select Health — ABA Preauthorization Form (3868050, 04/26)', url: 'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/forms/sh-aba-pre-auth-form.pdf' },
+          { title: 'Select Health Medical Policy #630 — Applied Behavior Analysis (rev. 1/1/26), in Behavioral Health Policies (01/26)', url: 'https://selecthealth.org/content/dam/selecthealth/Archive%20PDFs/medical-policies/beh-policies.pdf' },
+        ],
+      },
+      diagnosingProviders: {
+        value: 'For Utah, Policy #630 repeats the statute: the diagnosis must be “Performed by a licensed physician who is board certified in neurology, psychiatry, or pediatrics and has experience diagnosing autism spectrum disorder, or a licensed psychologist with experience diagnosing autism spectrum disorder” (Utah Code § 31A-22-642).',
+        status: 'verified',
+        cites: [
+          { title: 'Select Health Medical Policy #630 — Applied Behavior Analysis (rev. 1/1/26), in Behavioral Health Policies (01/26)', url: 'https://selecthealth.org/content/dam/selecthealth/Archive%20PDFs/medical-policies/beh-policies.pdf' },
+          { title: 'Utah Code § 31A-22-642 (current version, effective 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.html' },
+        ],
+      },
+      diagnosticTools: {
+        value: 'No diagnostic instrument is mandated. Policy #630 requires baselines “established through objective measures” and, for continued authorization, a plan of care “updated utilizing validated scales (e.g. Vineland Adaptive Behavior Scales 3 (VABS-3), the Adaptive Behavior Assessment Scale (ABAS), VB-MAPP, or ABLLS)”; its intensity guide is keyed to standard-deviation scores below the norm.',
+        status: 'verified',
+        cites: [
+          { title: 'Select Health Medical Policy #630 — Applied Behavior Analysis (rev. 1/1/26), in Behavioral Health Policies (01/26)', url: 'https://selecthealth.org/content/dam/selecthealth/Archive%20PDFs/medical-policies/beh-policies.pdf' },
+        ],
+      },
+      referral: {
+        value: 'A recommendation or prescription is required: ABA “must be recommended or prescribed by a qualified treating healthcare professional experienced in the diagnosis and treatment of ASD, as defined by state law” (Policy #630). Under the Utah mandate, covered treatment is care “prescribed or ordered” by the qualifying physician or licensed psychologist. Neither sets a validity period for the order.',
+        status: 'verified',
+        cites: [
+          { title: 'Select Health Medical Policy #630 — Applied Behavior Analysis (rev. 1/1/26), in Behavioral Health Policies (01/26)', url: 'https://selecthealth.org/content/dam/selecthealth/Archive%20PDFs/medical-policies/beh-policies.pdf' },
+          { title: 'Utah Code § 31A-22-642 (current version, effective 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.html' },
+        ],
+      },
+      telehealth: {
+        value: 'Not addressed for ABA. Policy #630, the ABA Preauthorization Form (whose setting choices are office, home or other) and the provider manual state no ABA telehealth rule, so whether 97151 or 97155 may be delivered remotely is a question for Select Health.',
+        status: 'unverified',
+        cites: [
+          { title: 'Select Health Medical Policy #630 — Applied Behavior Analysis (rev. 1/1/26), in Behavioral Health Policies (01/26)', url: 'https://selecthealth.org/content/dam/selecthealth/Archive%20PDFs/medical-policies/beh-policies.pdf' },
+          { title: 'Select Health — ABA Preauthorization Form (3868050, 04/26)', url: 'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/forms/sh-aba-pre-auth-form.pdf' },
+        ],
+        verifyVia: 'Select Health UM intake or Provider Relations: ask which ABA codes are payable by telehealth and with what POS/modifier. Checked this run: Policy #630, the ABA form and the provider manual.',
+        blocker: 'per-case',
+      },
+      authTurnaround: {
+        value: '“Once Select Health receives this form, we have the following decision time frames to make a benefit determination (unless an expedited review is requested): For Commercial Plans: 14 days (Utah)” (ABA Preauthorization Form, 04/26). The provider manual asks for at least 14 days’ notice before services where reasonably possible; continued authorization is reviewed up to every 6 months (Policy #630).',
+        status: 'verified',
+        cites: [
+          { title: 'Select Health — ABA Preauthorization Form (3868050, 04/26)', url: 'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/forms/sh-aba-pre-auth-form.pdf' },
+          { title: 'Select Health Provider Reference Manual — Commercial and Government Plans (January 2025): 18.0 Preauthorization', url: 'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/Reference%20Manuals/prm-comm-govt.pdf' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value: 'The provider manual follows the standard order: the plan covering the person other than as a dependent pays first; for a child of parents who are not separated or divorced, “The benefits of the plan of the parent whose birthday falls earlier in the calendar year are determined before those of the plan of the parent whose birthday falls later in the year” (month and day only). Because of the government’s role, CHAMPUS/TRICARE and Medicaid “are always considered secondary,” so Select Health commercial pays before a child’s Medicaid or TRICARE. When Select Health is secondary, the information must reach it within 12 months after the primary plan processed the claim.',
+        status: 'verified',
+        cites: [
+          { title: 'Select Health Provider Reference Manual — Commercial and Government Plans (January 2025): Coordination of Benefits; 5.0 Claims Filing Deadlines', url: 'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/Reference%20Manuals/prm-comm-govt.pdf' },
+        ],
+      },
+    },
+    faq: [
+      { q: 'Does Select Health commercial cover ABA in Utah?', a: 'Yes, for autism spectrum disorder under Medical Policy #630, when the essential elements are met and the plan covers it. Select Health treats ABA for any other indication as experimental/investigational. Individual and large-group plans also answer to Utah Code § 31A-22-642.' },
+      { q: 'How do I request ABA authorization from Select Health?', a: 'Send the ABA Preauthorization Form with clinical notes to commercialUMintake@imail.org (fax 801-442-0825), or use the Preauth & Care Plan Tool. Include the diagnostic evaluation report on an initial request and the updated treatment plan with progress on a concurrent request.' },
+      { q: 'How long does Select Health take to decide an ABA request in Utah?', a: 'Fourteen days for Utah commercial plans unless you ask for expedited review, per the ABA Preauthorization Form.' },
+      { q: 'Does the ABA assessment (97151) need prior authorization with Select Health?', a: 'Not settled from public documents. The form has an initial-request path and Policy #630 gives an assessment-unit guide, but the code-level commercial preauthorization list is behind Select Health’s login. Ask UM intake before scheduling the assessment.' },
+      { q: 'How much supervision does Select Health require?', a: 'At least 5% of direct service hours, and at least monthly (Policy #630). QHP protocol modification can be authorized at 1–2 hours per 10 hours of technician treatment.' },
+      { q: 'What does Select Health pay for ABA?', a: 'Select Health publishes no commercial ABA rates; they are in your participating provider agreement, and fee-schedule questions go to your Provider Relations representative. Utah Medicaid’s published rates (97153 $19.67 per 15 minutes from 7/1/2026) are the public benchmark.' },
+      { q: 'What is Select Health’s timely filing limit?', a: 'Twelve months from the date of service on the CMS-1500, unless your contract says otherwise. Secondary claims need the primary plan’s information within 12 months of the primary’s processing.' },
+      { q: 'Does the Utah autism mandate apply to every Select Health plan?', a: 'No. It covers individual and large-group plans. Small-group and self-funded employer plans are outside it, even though Select Health’s ABA form sends all commercial requests to the same inbox.' },
     ],
   },
 
@@ -936,22 +1182,20 @@ export const utahPayers: Record<string, PayerConfig> = {
     family: 'cigna',
     cardDesc: 'EN0499 + autism resource guide + the Utah Code § 31A-22-642 mandate layer.',
     assessmentPA: {
-      value: 'Not required for assessment codes 97151, 97152, 0362T (per Cigna\'s autism resource guide — EN0499 itself states no prior-authorization rule)',
-      status: 'unverified',
+      value: 'Not required for 97151, 97152 and 0362T with an autism diagnosis when the provider is independently licensed or a BCBA and the policy covers ABA — "Prior authorization is no longer required for assessment ... codes 97151, 97152, or 0362T with a diagnosis of autism" (Cigna/Evernorth autism resource guide, March 2025); submit claims for the assessment. EN0499 itself states no PA rule',
+      status: 'verified',
       cites: [
+        { title: 'Cigna/Evernorth Autism Resource Guide (March 2025, PCOMM-2025-225)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
         { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
       ],
-      verifyVia: 'Cigna/Evernorth\'s precertification list via CignaforHCP. EN0499 (read in full 9/17/2026) sets medical-necessity criteria but states no prior-authorization requirement for any ABA code, so the PA answer cannot be sourced to it.',
-      blocker: 'document',
     },
     treatmentPA: {
-      value: 'Required — assessment + treatment plan with the ABA PA form (see Cigna\'s autism resource guide; EN0499 sets the clinical criteria, not the PA rule)',
-      status: 'unverified',
+      value: 'Required — "After you complete the assessment and treatment plan, complete the Applied Behavior Analysis Prior Authorization Form" (autism resource guide, March 2025). Evernorth encourages requests "up to 30 days in advance of or two weeks after the start date of service"; a later request may go to retrospective review, delaying the decision up to 30 days. EN0499 sets the clinical criteria',
+      status: 'verified',
       cites: [
+        { title: 'Cigna/Evernorth Autism Resource Guide (March 2025, PCOMM-2025-225)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
         { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
       ],
-      verifyVia: 'Cigna/Evernorth\'s precertification list via CignaforHCP. EN0499 (read in full 9/17/2026) sets medical-necessity criteria but states no prior-authorization requirement for any ABA code, so the PA answer cannot be sourced to it.',
-      blocker: 'document',
     },
     dxRequired: {
       value: 'Yes — ASD only; Rett syndrome (F84.2) excluded under EN0499',

@@ -46,6 +46,11 @@
      current State Plan rate was found. Layer 4 therefore ships mostly
      'unverified' for Kansas, which is the honest per-spec answer, not
      an incomplete pass.
+     UPDATE 2026-11-01: superseded. The KMAP Fee Schedules page now
+     answers plain curl with a cookie jar, and the current Title XIX
+     Medicaid-rate file (effective 10/1/2026) lists every CCTS/IIS
+     code, so Layer 4 now carries verified per-unit rates (see
+     KMAP_FEE_SCHEDULE_20261001 for the retrieval recipe).
    - National commercial payer IDs (Aetna 00001/60054, Cigna
      00004/62308, UnitedHealthcare 00192/87726) are reused verbatim
      from georgia.ts/indiana.ts: the SAME national pVerify/Availity
@@ -106,11 +111,15 @@ const KMAP_HCBS_FY2026 = src(
   'https://www.sunflowerhealthplan.com/newsroom/kmap-25122.html',
   'KMAP Bulletin — Updated HCBS Rate Increase for Fiscal Year 2026 (eff. 7/1/2025), checked this pass: same BI/TA/I-DD HCBS-only scope as the FY2025 bulletin — no State Plan CCTS/IIS 9715x rate figures published.'
 );
-const KMAP_FEE_LOOKUP = src(
-  'https://portal.kmap-state-ks.us/PublicPage/ProviderPricing/FeeSchedules',
-  'KMAP interactive fee-schedule lookup — the stated source of truth for current rates, but redirects to an OAM/SSO login wall on every attempt this pass (same wall blocking the companion-guide portal page); not machine-accessible.',
-  true
-);
+/* 2026-11-01 weekly refresh: the KMAP fee-schedule page answered plain curl with a cookie
+   jar. Its Kendo grids read JSON endpoints (GetFeeScheduleProgram / GetFeeScheduleRateType /
+   FeeSheduleSearchCurrentResultList, POST program=TXIX&ratetype=DEF) and each listed file
+   downloads from DownloadFSFile?arg1=<filename> as a zipped fixed-width text file. */
+const KMAP_FEE_SCHEDULE_20261001 = {
+  url: 'https://portal.kmap-state-ks.us/PublicPage/ProviderPricing/FeeSchedules',
+  accessDate: '2026-11-01',
+  note: 'KMAP Title XIX "Medicaid rate" fee schedule FeeSchedule_20261001_TXIX_DEF.txt (current version, effective 10/1/2026; program TXIX, rate type Medicaid). MAX Fee rows: 97151 $43.75 (eff. 04/01/2019), 97152 $31.25 (04/01/2019), 97153 $16.25 (07/01/2024), 97154 $8.35 (01/01/2019), 97155 $24.00 (04/01/2019), 97156 $37.50 (04/01/2019), 97158 $8.35 (01/01/2019); no rows for 97157, 0362T or 0373T. The 6/1/2024 historical version lists 97153 at $11.75 (eff. 04/01/2019) and has no 97154/97158 rows.',
+} satisfies SourceRef;
 const PVERIFY_PAYER_LIST = src(
   'https://pverify.com/wp-content/uploads/2026/03/pVerifyPayers_All-Payers-List-3-2026.pdf',
   'pVerify public payer list, dated March 2026 — re-fetched and parsed with layout-preserving extraction this pass.'
@@ -233,21 +242,18 @@ const FANOUT_KS_AVRS_FLOW: SourceRef = {
 function kansasMedicaidRates(): RateTable {
   return {
     source:
-      'KMAP interactive fee-schedule lookup is the stated source of truth but is not machine-accessible (SSO wall; re-confirmed blocked 2026-10-01). Last dated anchor for most codes: KMAP Bulletin 18259 set 97151 at $17.50/15-min unit effective 1/1/2019; KMAP Bulletin 19029 raised rates effective 4/1/2019 without publishing amounts; the 7/1/2022 BH increase (Bulletin 22128) explicitly excluded 9715x codes; the FY2024/2025/2026 HCBS rate bulletins (checked this pass) cover only BI/TA/I-DD HCBS waiver services and the separate HCBS Autism waiver code T2040, not State Plan CCTS/IIS. One exception found 2026-10-01: KMAP Bulletin 24125 verifies 97153 at $16.25/15-min unit ($65/hr) effective 7/1/2024 — the one current, dated rate in this table. Every other code remains unverified beyond the stale 2019 anchor.',
-    effectiveDate: '2019-01-01',
+      'KMAP Title XIX Medicaid fee schedule, current version effective 10/1/2026 (FeeSchedule_20261001_TXIX_DEF), read 2026-11-01 from the KMAP Fee Schedules page. Per-unit MAX Fee for the CCTS/IIS codes; each row carries its own rate effective date: 97151, 97152, 97155 and 97156 since 4/1/2019, 97153 since 7/1/2024 ($11.75 before that, per the 6/1/2024 version; KMAP Bulletin 24125 announced the $65/hr rate), 97154 and 97158 rows dated 1/1/2019 (first listed after Bulletin 24125 opened them to CCTS/IIS from 7/1/2024). 97157, 0362T and 0373T have no Medicaid-rate row. MCOs pay under their own contracts (UHC/Optum commits to the Kansas Medicaid autism-services rates).',
+    effectiveDate: '2026-10-01',
     byCode: {
-      '97151': {
-        rate: '$17.50 (stale 2019 anchor — raised 4/1/2019 by an unpublished amount; current figure unverified)',
-        unit: '15min',
-      },
-      '97152': { rate: 'unverified — pull from the KMAP interactive fee-schedule lookup', unit: '15min' },
-      '97153': { rate: '$16.25 (verified, eff. 7/1/2024 — KMAP Bulletin 24125; equivalent to $65/hr)', unit: '15min' },
-      '97154': { rate: 'unverified — pull from the KMAP interactive fee-schedule lookup', unit: '15min' },
-      '97155': { rate: 'unverified — pull from the KMAP interactive fee-schedule lookup', unit: '15min' },
-      '97156': { rate: 'unverified — pull from the KMAP interactive fee-schedule lookup', unit: '15min' },
-      '97158': { rate: 'unverified — pull from the KMAP interactive fee-schedule lookup', unit: '15min' },
+      '97151': { rate: '$43.75 (rate effective 4/1/2019)', unit: '15min' },
+      '97152': { rate: '$31.25 (rate effective 4/1/2019)', unit: '15min' },
+      '97153': { rate: '$16.25 (rate effective 7/1/2024; was $11.75; $65/hr per KMAP Bulletin 24125)', unit: '15min' },
+      '97154': { rate: '$8.35 (row dated 1/1/2019)', unit: '15min' },
+      '97155': { rate: '$24.00 (rate effective 4/1/2019)', unit: '15min' },
+      '97156': { rate: '$37.50 (rate effective 4/1/2019)', unit: '15min' },
+      '97158': { rate: '$8.35 (row dated 1/1/2019)', unit: '15min' },
     },
-    sources: [KMAP_BULLETIN_18259, KMAP_BULLETIN_19029, KMAP_BULLETIN_22128, KMAP_BULLETIN_24125, KMAP_HCBS_FY2025, KMAP_HCBS_FY2026, KMAP_FEE_LOOKUP],
+    sources: [KMAP_FEE_SCHEDULE_20261001, KMAP_BULLETIN_24125, KMAP_BULLETIN_18259, KMAP_BULLETIN_19029, KMAP_BULLETIN_22128, KMAP_HCBS_FY2025, KMAP_HCBS_FY2026],
   };
 }
 
@@ -434,7 +440,7 @@ const kansasMedicaidVobContact: VobContact = {
   benefitsByPhone: true,
   requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
-    'What is the current per-unit reimbursement rate for 97152, 97153, 97154, 97155, 97156, and 97158 under the State Plan CCTS/IIS benefit?',
+    'Do the KMAP Medicaid-rate MAX Fees (10/1/2026 schedule: 97151 $43.75, 97152 $31.25, 97153 $16.25, 97154 $8.35, 97155 $24.00, 97156 $37.50, 97158 $8.35 per unit) apply unchanged to provider type 11 specialty 403/404, or is a specialty-specific adjustment applied?',
     'What POS codes and telehealth modifiers are accepted for CCTS/IIS billing?',
     'Is there a numeric MCO carrier-code table for the 271 response, or is MCO enrollment still identified by a free-text plan description only?',
     'What eligibility-span granularity does a live 271 return — monthly, daily, or real-time?',
@@ -550,7 +556,7 @@ const uhcCommunityPlanKansasVobContact: VobContact = {
   requiresIndividualNpi: 'unverified',
   scriptedQuestions: [
     'Does ABA claims routing use a distinct Optum Behavioral Health payer ID, or the shared UHG002 medical payer ID?',
-    'What is the current KanCare autism-services rate for 97152 through 97158 that Optum has committed to matching?',
+    'Does Optum pay the KMAP Medicaid-rate MAX Fees (10/1/2026 schedule: 97151 $43.75 … 97158 $8.35 per unit) for this contract, and from which date does it load KMAP rate changes?',
     'Is eligibility checking real-time or batch for payer ID UHG002?',
     'What POS codes and telehealth modifiers does Optum accept for CCTS/IIS billing in Kansas?',
   ],

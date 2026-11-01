@@ -83,7 +83,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
     deliveryRules: {
       supervision: {
         value:
-          'Massachusetts publishes a supervision band, and it is the field with live money attached. LABA supervision must be delivered to Behavior Technician-level staff \u201cduring direct service with the Member, as clinically indicated but no less than 10 percent of direct service hours and should not exceed 25 percent of direct hours without documented clinical rationale.\u201d For members engaged in 10 hours or less of direct treatment per month, the LABA must deliver a minimum of one hour of direct supervision per month. The Behavior Technician works under the direct supervision of a LABA licensed per 262 CMR 10.00 \u2014 a BCBA certificate alone does not qualify \u2014 and the provider agency must ensure LABAs supervise all BTs and that every staff member has had a background record check. Falling below the band is not theoretical: the CY2024 encounter audit recouped against a 1:10 floor, so staff and schedule to at least one supervision hour per ten direct hours.',
+          'Massachusetts publishes a supervision band, and it is the field with live money attached. LABA supervision must be delivered to Behavior Technician-level staff \u201cduring direct service with the Member, as clinically indicated but no less than 10 percent of direct service hours and should not exceed 25 percent of direct hours without documented clinical rationale.\u201d For members engaged in 10 hours or less of direct treatment per month, the LABA must deliver a minimum of one hour of direct supervision per month. The Behavior Technician works under the direct supervision of a LABA licensed per 262 CMR 10.00 \u2014 a BCBA certificate alone does not qualify \u2014 and the provider agency must ensure LABAs supervise all BTs and that every staff member has had a background record check. Falling below the band is not theoretical: the CY2024 encounter audit recouped against a 1:10 floor, so staff and schedule to at least one supervision hour per ten direct hours. On paperwork, the spec asks for “evidence of supervision and training, including policies, procedures, and implementation” in the complete medical record, and for the LABA and the Behavior Technician to each document every contact in a progress report or note; it prescribes no separate monthly supervision form, log template or RBT/LABA co-signature, so the session and progress notes have to show the supervision that was delivered against the 10% floor.',
         status: 'verified',
         cites: [{ title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
       },
@@ -104,9 +104,9 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       },
       noteSignature: {
         value:
-          'Both clinicians document, and the spec says what the note must contain rather than who countersigns it. \u201cThe LABA and BT document each contact in a progress report or notes in the ABA provider\u2019s file for the Member,\u201d and session notes must include how treatment time was utilized, the treatment interventions utilized, and the member\u2019s response to treatment. The complete record must also hold referral and assessment documentation, treatment plans and progress reports, \u201cevidence of supervision and training, including policies, procedures, and implementation,\u201d the IEP and IFSP where applicable, and documentation confirming PCP physical examinations. No co-signature requirement and no signing deadline are stated.',
+          'Both clinicians document, and the spec says what the note must contain rather than who countersigns it. \u201cThe LABA and BT document each contact in a progress report or notes in the ABA provider\u2019s file for the Member,\u201d and session notes must include how treatment time was utilized, the treatment interventions utilized, and the member\u2019s response to treatment. The complete record must also hold referral and assessment documentation, treatment plans and progress reports, \u201cevidence of supervision and training, including policies, procedures, and implementation,\u201d the IEP and IFSP where applicable, and documentation confirming PCP physical examinations. No co-signature requirement and no signing deadline are stated, and the spec has no rule for amending or correcting a note. MassHealth\'s general recordkeeping regulation fills that gap only by reference: records must be legible and “comply with generally accepted standards for recordkeeping within the applicable provider type” as set by the relevant board of registration, professional treatises and professional organizations, and MassHealth will not pay without “adequate documentation to substantiate the provision of services.” So an addendum or late entry follows professional recordkeeping practice (dated, attributed, original left readable) rather than a MassHealth-specific procedure; ask the member\'s plan before altering a billed note.',
         status: 'verified',
-        cites: [{ title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
+        cites: [{ title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }, { title: '130 CMR 450.205 — Recordkeeping and Disclosure (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/massachusetts/130-CMR-450-205' }],
       },
       placeOfService: {
         value:
@@ -181,9 +181,11 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       {
         h2: 'Rates: single-tier, and frozen',
         body: [
-          '101 CMR 358.03 pays a single rate per code — no credential-tier modifiers; each rate is "full compensation" including necessary administration and professional supervision. Per 15-minute unit: 97151, 97155, and 97156 at $30.73; 97153 at $16.37 (about $65.48/hour); 97154 at $13.91; 97157 at $26.12 — effective September 27, 2024 (published as the October 1, 2024 schedule). Confirmed directly against EOHHS\'s own filing (accessed 10/1/2026): EOHHS filed a proposed re-adoption of 101 CMR 358.00 on May 22, 2026, held a remote public hearing on June 17, 2026, and both the proposed regulation text and the staff testimony state the same conclusion verbatim — "the proposed amendments maintain all rates established in 101 CMR 358.00 at their existing levels," for dates of service on or after December 1, 2026. As of this review the regulation is still in proposed/hearing-record status (no final-adoption notice for the 12/1/2026 cycle was located) — a rate freeze some providers are contesting, noting 97153 at ~$65/hour trails states like Arizona (~$88) and Maryland (~$83) per a secondary tracker; MCEs generally pay at or near this schedule, but plan contracts govern — whether a given plan pays exactly the schedule is a contracting question, not a lookup.',
+          '101 CMR 358.03 pays a single rate per code — no credential-tier modifiers; each rate is "full compensation" including necessary administration and professional supervision. Per 15-minute unit: 97151, 97155, and 97156 at $30.73; 97153 at $16.37 (about $65.48/hour); 97154 at $13.91; 97157 at $26.12 — effective September 27, 2024 (published as the October 1, 2024 schedule). Confirmed directly against EOHHS\'s own filing (accessed 10/1/2026): EOHHS filed a proposed re-adoption of 101 CMR 358.00 on May 22, 2026, held a remote public hearing on June 17, 2026, and both the proposed regulation text and the staff testimony state the same conclusion verbatim — "the proposed amendments maintain all rates established in 101 CMR 358.00 at their existing levels," for dates of service on or after December 1, 2026. As of this review the regulation is still in proposed/hearing-record status (no final-adoption notice for the 12/1/2026 cycle was located, and on 11/1/2026 mass.gov\'s 101 CMR 358.00 page still carried the 10/01/2024 version) — a rate freeze some providers are contesting, noting 97153 at ~$65/hour trails states like Arizona (~$88) and Maryland (~$83) per a secondary tracker; MCEs generally pay at or near this schedule, but plan contracts govern — whether a given plan pays exactly the schedule is a contracting question, not a lookup.',
+          'The 2027 CPT changes to the adaptive behavior codes (effective January 1, 2027) are not in the pending MassHealth rate rule. The proposed 101 CMR 358.00 re-adoption, for dates of service on or after December 1, 2026, prices only the six current codes — 97151, 97153, 97154, 97155, 97156 and 97157. Until EOHHS files a rate amendment that names the new codes, ask the member\'s plan (or MassHealth for fee-for-service) how it will pay them.',
         ],
         cites: [
+          { title: 'EOHHS — 101 CMR 358.00: Rates for Applied Behavior Analysis, regulation page (version dated 10/01/2024; checked 11/1/2026)', url: 'https://www.mass.gov/regulations/101-CMR-35800-rates-for-applied-behavior-analysis' },
           { title: '101 CMR 358.03 Rate Provisions (Cornell LII mirror)', url: 'https://www.law.cornell.edu/regulations/massachusetts/101-CMR-358-03' },
           { title: 'EOHHS — Proposed Regulation, 101 CMR 358.00: Rates for Applied Behavior Analysis (filed 5/22/2026, proposed eff. 12/1/2026) (accessed 10/1/2026)', url: 'https://www.mass.gov/doc/proposed-regulation-date-filed-may-22-2026/download' },
           { title: 'EOHHS — Staff testimony, Rates for Applied Behavior Analysis, remote public hearing June 17, 2026 (accessed 10/1/2026)', url: 'https://www.mass.gov/doc/staff-testimony-for-rates-for-applied-behavior-analysis-presented-at-the-remote-public-hearing-on-june-17-2026-0/download' },
@@ -204,6 +206,17 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
           { title: '262 CMR 8.04 — Standards of Conduct for LABAs/LAABAs (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/massachusetts/262-CMR-8-04' },
           { title: '262 CMR 10.03 — Applied Behavior Analyst Licensure (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/massachusetts/262-CMR-10-03' },
           { title: '42 CFR 455.436 — Federal database checks (Cornell LII)', url: 'https://www.law.cornell.edu/cfr/text/42/455.436' },
+        ],
+      },
+      {
+        h2: 'Can an out-of-state ABA provider serve a MassHealth member?',
+        body: [
+          'Rarely, and never as a way around the Massachusetts license. MassHealth covers services provided in another state only in four circumstances — a medical emergency; when the member\'s health would be endangered by travelling to Massachusetts; when it is the general practice for members in a particular locality to use medical resources in another state; or when MassHealth determines on medical advice that the needed services are more readily available in the other state — and even then “subject to all applicable limitations, including service coverage, prior authorization, and provider enrollment.” Services outside the United States and its territories are never covered.',
+          'For ABA delivered to a member in Massachusetts, including by telehealth, the staffing rules above still apply: the performance specification requires the supervising analyst to be a Licensed Applied Behavior Analyst under 262 CMR 10.00, so a BCBA licensed only in another state does not qualify as the case supervisor, and the provider still has to meet MassHealth\'s provider-enrollment requirements. Confirm out-of-state and out-of-network arrangements with the member\'s MassHealth plan before starting.',
+        ],
+        cites: [
+          { title: '130 CMR 450.109 — Out-of-state Services (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/massachusetts/130-CMR-450-109' },
+          { title: 'Carelon/MBHP Performance Specifications — Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' },
         ],
       },
       {
@@ -405,9 +418,9 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       },
       noteSignature: {
         value:
-          'Both clinicians document, and the spec says what the note must contain rather than who countersigns it. \u201cThe LABA and BT document each contact in a progress report or notes in the ABA provider\u2019s file for the Member,\u201d and session notes must include how treatment time was utilized, the treatment interventions utilized, and the member\u2019s response to treatment. The complete record must also hold referral and assessment documentation, treatment plans and progress reports, \u201cevidence of supervision and training, including policies, procedures, and implementation,\u201d the IEP and IFSP where applicable, and documentation confirming PCP physical examinations. No co-signature requirement and no signing deadline are stated.',
+          'Both clinicians document, and the spec says what the note must contain rather than who countersigns it. \u201cThe LABA and BT document each contact in a progress report or notes in the ABA provider\u2019s file for the Member,\u201d and session notes must include how treatment time was utilized, the treatment interventions utilized, and the member\u2019s response to treatment. The complete record must also hold referral and assessment documentation, treatment plans and progress reports, \u201cevidence of supervision and training, including policies, procedures, and implementation,\u201d the IEP and IFSP where applicable, and documentation confirming PCP physical examinations. No co-signature requirement and no signing deadline are stated, and the spec has no rule for amending or correcting a note. MassHealth\'s general recordkeeping regulation fills that gap only by reference: records must be legible and “comply with generally accepted standards for recordkeeping within the applicable provider type” as set by the relevant board of registration, professional treatises and professional organizations, and MassHealth will not pay without “adequate documentation to substantiate the provision of services.” So an addendum or late entry follows professional recordkeeping practice (dated, attributed, original left readable) rather than a MassHealth-specific procedure; ask the member\'s plan before altering a billed note.',
         status: 'verified',
-        cites: [{ title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
+        cites: [{ title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }, { title: '130 CMR 450.205 — Recordkeeping and Disclosure (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/massachusetts/130-CMR-450-205' }],
       },
       placeOfService: {
         value:
@@ -594,6 +607,15 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
         verifyVia:
           'WellSense\u2019s own ABA medical policy and its reimbursement policies in PolicyTech \u2014 the plan\u2019s medical-policy notices direct providers to \u201creview the Plan\u2019s reimbursement policies for Plan billing guidelines.\u201d',
+        blocker: 'document',
+      },
+      noteSignature: {
+        value:
+          'No plan-specific session-note rule (who signs, by when, or how a signed note is amended) is published that we could read. The MassHealth-wide ABA specification is the floor: \u201cThe LABA and BT document each contact in a progress report or notes in the ABA provider\u2019s file for the Member,\u201d session notes record how treatment time was used, the interventions and the member\u2019s response, and the record must include evidence of supervision and training. It states no co-signature, no signing deadline and no amendment procedure.',
+        status: 'unverified',
+        cites: [{ title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
+        verifyVia:
+          'WellSense\u2019s own ABA medical policy and its reimbursement policies in PolicyTech (bostonmedicalcenter.policytech.com), or WellSense provider services: ask who must sign an ABA session note, by when, and how a signed note may be amended.',
         blocker: 'document',
       },
       concurrentBilling: {
@@ -809,6 +831,15 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
           'Point32Health provider services / the Tufts Health Public Plans provider manual; note the Together MCO was slated for discontinuation effective January 1, 2026, so confirm the member\u2019s current product first.',
         blocker: 'document',
       },
+      noteSignature: {
+        value:
+          'No plan-specific session-note rule (who signs, by when, or how a signed note is amended) is published that we could read. The MassHealth-wide ABA specification is the floor: \u201cThe LABA and BT document each contact in a progress report or notes in the ABA provider\u2019s file for the Member,\u201d session notes record how treatment time was used, the interventions and the member\u2019s response, and the record must include evidence of supervision and training. It states no co-signature, no signing deadline and no amendment procedure.',
+        status: 'unverified',
+        cites: [{ title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
+        verifyVia:
+          'Point32Health provider services / the Tufts Health Public Plans provider manual: ask who must sign an ABA session note, by when, and how a signed note may be amended; confirm the member\u2019s current product first.',
+        blocker: 'document',
+      },
       concurrentBilling: {
         value:
           'Not published for 97153 with 97155. Point32Health\u2019s ABA payment policy (rev. 05/2026), which applies to Tufts Health Together, does not reimburse \u201cServices provided concurrent with another treatment modality, such as occupational or speech therapy, where the ABA provider\u2019s role is to escort/accompany the member to the appointment.\u201d Its General Coding and Claims Editing policy applies generic incidental and mutually-exclusive edits but no ABA rule.',
@@ -863,7 +894,6 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'Point32Health — ABA policy and coverage updates (Oct 2025)', url: 'https://www.point32health.org/provider/applied-behavioral-analysis-policy-and-coverage-updates-102025' },
           { title: 'MassHealth — All Provider Bulletin 410: Changes to MassHealth\'s ACOs on January 1, 2026', url: 'https://www.mass.gov/doc/all-provider-bulletin-410-changes-to-masshealths-accountable-care-organizations-on-january-1-2026/download' },
-          { title: 'Point32Health — Reminder: Tufts Health Together MCO discontinuing as of Jan. 1', url: 'https://www.point32health.org/provider/reminder-tufts-health-together-mco-discontinuing-jan-1-112025' },
           { title: 'Point32Health — Applied Behavioral Analysis Prior Authorization Form (effective Jan. 1, 2026; Tufts Health Together)', url: 'https://www.point32health.org/documents/applied-behavioral-analysis-form' },
           { title: 'Tufts Health Public Plans Provider Manual — Referrals, Prior Authorizations and Notifications chapter (2026)', url: 'https://www.point32health.org/documents/thpp-04-referrals-pa-notification-pm' },
         ],
@@ -925,7 +955,6 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
     sources: [ { title: 'Tufts Health Public Plans Provider Manual — Utilization Management chapter (2026, rev. 4/7/2026)', url: 'https://www.point32health.org/documents/thpp-06-um-pm' },
       { title: 'Point32Health — ABA services: authorization and accreditation updates (Feb 2026)', url: 'https://www.point32health.org/provider/aba-services-authorization-and-accreditation-updates-022026' },
       { title: 'MassHealth — All Provider Bulletin 410: Changes to MassHealth\'s ACOs on January 1, 2026', url: 'https://www.mass.gov/doc/all-provider-bulletin-410-changes-to-masshealths-accountable-care-organizations-on-january-1-2026/download' },
-      { title: 'Point32Health — Reminder: Tufts Health Together MCO discontinuing as of Jan. 1', url: 'https://www.point32health.org/provider/reminder-tufts-health-together-mco-discontinuing-jan-1-112025' },
       { title: 'Point32Health — ABA policy and coverage updates (Oct 2025)', url: 'https://www.point32health.org/provider/applied-behavioral-analysis-policy-and-coverage-updates-102025' },
       { title: 'Point32Health — Medical Necessity Guideline: Applied Behavior Analysis (ABA) Therapy for Autism Spectrum Disorder for Tufts Health Together (eff. 1/1/2026)', url: 'https://www.point32health.org/documents/aba-tuftsheath-together-mng' },
       { title: 'MassHealth Managed Care Options — plan/BH-vendor map (April 2023)', url: 'https://abh.memberclicks.net/assets/docs/KeepingCoverage/2023%20MassHealth%20Accountable%20and%20Managed%20Care%20Options%20031723.pdf' },
@@ -1053,6 +1082,15 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
         verifyVia:
           'Carelon Behavioral Health provider relations for the Fallon line of business \u2014 confirm whether the MBHP performance specification is applied verbatim.',
+        blocker: 'per-case',
+      },
+      noteSignature: {
+        value:
+          'No plan-specific session-note rule (who signs, by when, or how a signed note is amended) is published that we could read. The MassHealth-wide ABA specification is the floor: \u201cThe LABA and BT document each contact in a progress report or notes in the ABA provider\u2019s file for the Member,\u201d session notes record how treatment time was used, the interventions and the member\u2019s response, and the record must include evidence of supervision and training. It states no co-signature, no signing deadline and no amendment procedure.',
+        status: 'unverified',
+        cites: [{ title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
+        verifyVia:
+          'Carelon Behavioral Health provider relations for the Fallon line of business: confirm whether the MBHP performance specification\u2019s documentation section applies verbatim, and how a signed note may be amended.',
         blocker: 'per-case',
       },
       dailyLimits: {
@@ -1459,6 +1497,15 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum ABA State Mandates BH803ABASTM12026 \u2014 NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }, { title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
         verifyVia:
           'Optum Care Advocate / Provider Express for the Mass General Brigham Health Plan line of business.',
+        blocker: 'per-case',
+      },
+      noteSignature: {
+        value:
+          'No plan-specific session-note rule (who signs, by when, or how a signed note is amended) is published that we could read. The MassHealth-wide ABA specification is the floor: \u201cThe LABA and BT document each contact in a progress report or notes in the ABA provider\u2019s file for the Member,\u201d session notes record how treatment time was used, the interventions and the member\u2019s response, and the record must include evidence of supervision and training. It states no co-signature, no signing deadline and no amendment procedure.',
+        status: 'unverified',
+        cites: [{ title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
+        verifyVia:
+          'Optum Care Advocate / Provider Express for the Mass General Brigham Health Plan line of business: ask who must sign an ABA session note, by when, and how a signed note may be amended.',
         blocker: 'per-case',
       },
       dailyLimits: {
@@ -2243,7 +2290,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum \u2014 Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
       },
       noteSignature: {
-        value: '“Provider signature is required on progress notes. Parent/guardian signatures are not required on progress notes” (Optum ABA CPT FAQ). Each daily session note records place of service, start and stop time, who rendered the service, the specific service, who attended and the interventions. Optum’s ABA documentation protocol (June 1, 2026) requires the “signature of the rendering provider” and “Legible identity of the rendering provider with credentials,” and “The date of signature must reflect the date the note is finalized” — a note signed after the date of service must follow late-entry rules and show the date it was signed. Same-date services must be “separate, distinct, and clearly documented in the progress notes,” or the claim may be denied.',
+        value: '“Provider signature is required on progress notes. Parent/guardian signatures are not required on progress notes” (Optum ABA CPT FAQ). Each daily session note records place of service, start and stop time, who rendered the service, the specific service, who attended and the interventions. Optum’s ABA documentation protocol (June 1, 2026) requires the “signature of the rendering provider” and “Legible identity of the rendering provider with credentials,” and “The date of signature must reflect the date the note is finalized” — a note signed after the date of service must follow late-entry rules and show the date it was signed. Corrections are covered too: “All addendums, late entries and corrections should follow CMS guidelines.” Same-date services must be “separate, distinct, and clearly documented in the progress notes,” or the claim may be denied.',
         status: 'verified',
         cites: [
           { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },

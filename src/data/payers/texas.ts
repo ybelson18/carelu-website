@@ -1,5 +1,33 @@
 import type { PayerConfig } from './types.js';
 
+/* Technician credentials (RBT / grace period) and out-of-state providers — weekly refresh 2026-11-01 (G1).
+   National payer rules read 2026-11-01 from each payer's own document. */
+const G1_OPTUM_NNM = { title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): Applied Behavior Analysis network requirements; Telehealth', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' };
+const G1_OPTUM_FAQ = { title: 'Optum — Autism/Applied Behavior Analysis (ABA) Using CPT Codes FAQ (Q60, technician credentials)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' };
+const G1_AETNA_NPC = { title: 'Aetna — Provider and facility participation criteria (8100606-01-01, 5/26): Applied behavior analyst (ABA) services provider additional criteria', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' };
+const G1_AETNA_MNG = { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' };
+const G1_EN0499 = { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' };
+const G1_EBH_ADMIN = { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026): Behavioral virtual services', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' };
+const G1_OPTUM_TECH =
+  'Optum’s technician rule (UnitedHealthcare commercial). The National Network Manual (BH02330, effective 9/1/2026) says: “Paraprofessionals or Behavior Technicians are required to be a Registered Behavior Technician (RBT), a Board-Certified Autism Technician (BCAT), or a certified Applied Behavior Analysis Technician (ABAT). Any alternate certification must be approved in writing by an authorized Optum Behavioral Health contract representative,” adding that “State regulatory requirements may supplement, modify, or in some cases, supersede this policy.” Optum’s ABA CPT FAQ (Q60) applies the same list to every technician working 1:1. No Optum document gives a grace or provisional period for uncertified staff, so a technician without RBT, BCAT or ABAT certification needs Optum’s written approval of an alternate credential before you bill for them. Supervising analysts need active BCBA certification “and/or state license in those states that license behavior analysts/specialists.” For telehealth, “Providers offering telehealth visits must be licensed in the state where the member is located at the time of service.”';
+const G1_AETNA_TECH =
+  'Aetna’s technician rule. Aetna’s participation criteria for ABA providers say services must be provided directly or supervised by state-licensed or BACB-certified BCBAs, and supervised staff may be a BCaBA or “a paraprofessional.” “All BCBAs, BCaBAs and paraprofessionals must meet state requirements. If state requirements are not defined, all BCBAs, BCaBAs and paraprofessionals must meet Aetna standards.” For unlicensed or noncertified paraprofessionals the criteria require written supervision policies, “A minimum of one hour of face-to-face supervision … for each 10 hours of applied behavior analysis,” and a supervisor on site with the child at least one hour a month. Aetna’s ABA medical necessity guide likewise allows unlicensed or non-certified staff only with supervision “in line with practice standards.” Neither document names RBT certification or a grace period, so ask Aetna whether your agreement requires RBT certification. Aetna also requires its providers to meet state licensing rules, so an out-of-state BCBA follows the state rules described here.';
+const G1_CIGNA_TECH =
+  'Cigna’s technician rule. Evernorth’s ABA policy (EN0499, effective 5/15/2026) has case supervision done by a BCBA, LBA or independently licensed clinician with ABA training, with direct supervision of “either the Registered Behavior Technician® [RBT®] or the Board Certified Assistant Behavior Analyst® [BCaBA®],” but it sets no technician-credential requirement and no grace period, and neither do the Evernorth Behavioral Health Administrative Guidelines (September 2026). For remote care the guidelines say providers “must meet all state requirements to provide virtual behavioral services, including any licenses and certifications.” Ask Evernorth (the behavioral health number on the card) whether an uncertified technician may render 97153 under your agreement.';
+const G1_TX_TMPPM_CS = { title: 'TMPPM Children’s Services Handbook, § 2.3.6 ABA Provider Requirements (§ 2.3.6.1 LBA, § 2.3.6.3 Behavior Technicians)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' };
+const G1_TX_TMPPM_ENR = { title: 'TMPPM Vol. 1, Section 1: Provider Enrollment and Responsibilities — § 1.1 Provider Enrollment and § 1.9 Enrollment Criteria for Out-of-State Providers (1 TAC § 352.17)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/1_01_Provider_Enrollment/1_01_Provider_Enrollment.htm' };
+const G1_TX_TMPPM_TEL = { title: 'TMPPM Telecommunication Services Handbook, § 2 Enrollment and § 3.5.1 Distant Site (telehealth)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_19_Telecommunication_Srvs/2_19_Telecommunication_Srvs.htm' };
+const G1_TX_OCC251 = { title: 'Tex. Occ. Code § 506.251 — License Required', url: 'https://texas.public.law/statutes/tex._occ._code_section_506.251' };
+const G1_TX_OCC054 = { title: 'Tex. Occ. Code § 506.054 — Paraprofessionals', url: 'https://texas.public.law/statutes/tex._occ._code_section_506.054' };
+const G1_TX_OCC057 = { title: 'Tex. Occ. Code § 506.057 — Temporary Services of Behavior Analyst from Another State', url: 'https://texas.public.law/statutes/tex._occ._code_section_506.057' };
+const G1_TX_OCC256 = { title: 'Tex. Occ. Code § 506.256 — Reciprocity', url: 'https://texas.public.law/statutes/tex._occ._code_section_506.256' };
+const G1_TX_MCD_TECH =
+  'Technician credential. Texas Medicaid requires every behavior technician (BT) to hold one of three certifications: Registered Behavior Technician (RBT), Board Certified Autism Technician (BCAT) or Applied Behavior Analysis Technician (ABAT) (TMPPM Children’s Services Handbook § 2.3.6.3). A BT is a high-school-graduate-level paraprofessional working under an LBA (or an LBA and an LaBA), and neither BTs nor LaBAs may enroll in Texas Medicaid. The handbook says “All BTs must have certification” and sets no grace or provisional period, so an uncertified new hire cannot deliver Medicaid ABA until certified. Texas law does not license technicians: the behavior analyst licensing chapter does not apply to a paraprofessional working “under the extended authority and direction” of an LBA or LaBA and designated an “applied behavior analysis technician,” “behavior technician,” “tutor,” or “front-line therapist” (Occ. Code § 506.054). The certification requirement comes from Medicaid, not from the licensing law.';
+const G1_TX_MCD_OOS =
+  'Out-of-state BCBAs and telehealth. A BCBA licensed only in another state cannot bill Texas Medicaid. The LBA must “have a current, unrestricted state-issued license and meet all applicable Texas licensure requirements” (§ 2.3.6.1), and the telehealth handbook defines the distant-site provider as a health professional “licensed, certified, or otherwise entitled to practice in Texas” who serves a patient in Texas (§ 3.5.1). TDLR issues the LBA license, and a behavior analyst licensed in a state with similar requirements can apply for a reciprocal Texas license (Occ. Code § 506.256). The statute’s exemption for out-of-state analysts working in Texas no more than 20 days a calendar year (§ 506.057) exempts them from the licensing chapter only; it does not meet Medicaid’s license requirement. Enrollment is a second gate. Under 1 TAC § 352.17 (TMPPM § 1.9) a provider is out-of-state when the physical address where its services are rendered, or where they “originate” for a recipient in Texas, is outside Texas, and an out-of-state applicant “is ineligible to participate in Medicaid unless HHSC or its designee approves the enrollment” under listed criteria. Those include services limited or not readily available in Texas, and good cause such as existing Medicaid MCO participation that makes care more cost-effective. Approval is often time-limited. Providers within 50 miles’ driving distance of the Texas border count as in-state. “All providers must be enrolled in Texas Medicaid before enrollment can be approved for any other service or program, including … Medicaid managed care,” and TMHP must receive out-of-state providers’ claims within 365 days of the date of service.';
+const G1_TX_LAW =
+  'Texas law for commercial plans. A person may not practice applied behavior analysis in Texas without a license from TDLR (Occ. Code § 506.251). Technicians fall outside the licensing chapter when they work under an LBA’s or LaBA’s “extended authority and direction” and are designated an “applied behavior analysis technician,” “behavior technician,” “tutor,” or “front-line therapist” (§ 506.054), so Texas sets no technician credential of its own and any RBT requirement comes from the payer. A behavior analyst licensed in another jurisdiction, or BACB-certified, may work in Texas without a Texas license only within their customary practice and “not more than 20 days in a calendar year,” and must tell the family that they are not licensed in Texas and that the services are time-limited (§ 506.057). Beyond that an out-of-state BCBA needs a Texas license, which TDLR issues by reciprocity to analysts licensed in states with similar requirements (§ 506.256).';
+
 export const texasPayers: Record<string, PayerConfig> = {
   'texas-medicaid': {
     slug: 'texas-medicaid',
@@ -153,6 +181,14 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'TMPPM Vol. 1, Section 6: Claims Filing, § 6.1.4 Claims Filing Deadlines', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/1_06_Claims_Filing/1_06_Claims_Filing.htm' },
           { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.9.1 (Filing Deadlines) and 2.10 (MCO Appeals)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
         ],
+      },
+      {
+        h2: 'Technician credentials (RBT, grace period) and out-of-state BCBAs',
+        body: [
+          G1_TX_MCD_TECH,
+          G1_TX_MCD_OOS,
+        ],
+        cites: [G1_TX_TMPPM_CS, G1_TX_TMPPM_ENR, G1_TX_TMPPM_TEL, G1_TX_OCC054, G1_TX_OCC057, G1_TX_OCC256],
       },
     ],
     collect: [
@@ -322,6 +358,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'Does the referring doctor have to be on Texas Medicaid ABA claims?', a: 'Yes. ABA needs a prescriber referral, and TMPPM § 6.4.2.4 requires every claim for a service that needs a physician order or referral to carry the ordering or referring provider’s NPI (CMS-1500 block 17 with qualifier DN, NPI in 17b). That prescriber must be enrolled in Texas Medicaid, at least as an ordering/referring-only provider; a missing or unenrolled NPI can lead to denial on retrospective review.' },
       { q: 'What do the HO, HN and HM modifiers mean on a Texas Medicaid ABA claim?', a: 'They name who rendered the service: HO licensed behavior analyst, HN licensed assistant behavior analyst, HM behavior technician (TMPPM Children’s Services Handbook, ABA reimbursement and billing guidelines). 97151 requires HO; 97155, 97156 and 97158 require HO or HN; on 97153 and 97154 the modifiers are informational only. Modifier 95 marks telehealth.' },
       { q: 'Is a Texas Medicaid ABA authorization tied to the individual provider or to the group?', a: 'To the group. Under TMPPM § 2.3.9 (Change of Provider), when a child moves to a new performing provider within the same group, the new provider uses the same evaluation and plan of care and “The authorization period will not change.” When the child moves to a provider outside the current group, the new provider must start a new authorization request with all initial-evaluation documentation plus a change-of-therapy-provider letter signed by the responsible adult (end date with the old provider, and both providers’ names).' },
+      { q: 'Does Texas Medicaid require RBT certification, and is there a grace period?', a: 'Every behavior technician must hold RBT, BCAT or ABAT certification (TMPPM § 2.3.6.3). The handbook gives no grace or provisional period for uncertified staff, and technicians do not enroll in Texas Medicaid; they render under the enrolled LBA.' },
+      { q: 'Can an out-of-state BCBA provide Texas Medicaid ABA, including by telehealth?', a: 'Only with a Texas LBA license and Texas Medicaid enrollment. The LBA needs a current Texas license; telehealth distant-site providers must be licensed, certified or otherwise entitled to practice in Texas; and a provider whose services originate outside Texas is “out-of-state” under 1 TAC § 352.17 and cannot enroll unless HHSC approves it under one of the listed criteria, often for a limited period. Providers within 50 miles of the Texas border count as in-state.' },
     ],
   },
 
@@ -415,6 +453,15 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.9.1 (Filing Deadlines) and 2.10 (MCO Appeals)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
           { title: 'Superior HealthPlan — Provider Manual (Rev. 09012026), Timely Claim Filing', url: 'https://www.superiorhealthplan.com/content/dam/centene/Superior/Provider/PDFs/medicaid-provider-manual.pdf' },
         ],
+      },
+      {
+        h2: 'Technician credentials (RBT, grace period) and out-of-state BCBAs',
+        body: [
+          'Superior HealthPlan’s provider manual (Rev. 09012026, checked 2026-11-01) sets no behavior-technician credential and no out-of-state or telehealth-licensing rule of its own, and a provider must be enrolled in Texas Medicaid before any MCO can contract it, so the Texas Medicaid rules apply to Superior HealthPlan members.',
+          G1_TX_MCD_TECH,
+          G1_TX_MCD_OOS,
+        ],
+        cites: [G1_TX_TMPPM_CS, G1_TX_TMPPM_ENR, G1_TX_TMPPM_TEL, G1_TX_OCC054, G1_TX_OCC057, G1_TX_OCC256],
       },
     ],
     collect: [
@@ -577,6 +624,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'What is the timely filing limit for Superior (Texas Medicaid)?', a: 'Ninety-five days from the date of service. HHSC’s Uniform Managed Care Claims Manual sets it for every Texas Medicaid MCO, and Superior’s own manual states the same deadline. Claim appeals get 120 days from the disposition date.' },
       { q: 'How fast does Superior have to pay a clean claim?', a: 'HHSC requires every Texas Medicaid MCO to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days.' },
       { q: 'Is a Texas Medicaid ABA authorization tied to the individual provider or to the group?', a: 'The plan follows the Texas Medicaid rule. To the group. Under TMPPM § 2.3.9 (Change of Provider), when a child moves to a new performing provider within the same group, the new provider uses the same evaluation and plan of care and “The authorization period will not change.” When the child moves to a provider outside the current group, the new provider must start a new authorization request with all initial-evaluation documentation plus a change-of-therapy-provider letter signed by the responsible adult (end date with the old provider, and both providers’ names).' },
+      { q: 'Does Superior HealthPlan require RBT certification for ABA technicians, and is there a grace period?', a: 'Superior HealthPlan follows the Texas Medicaid rule: every behavior technician must hold RBT, BCAT or ABAT certification (TMPPM § 2.3.6.3), with no grace or provisional period stated. Its provider manual adds no technician rule of its own.' },
+      { q: 'Can an out-of-state BCBA treat Superior HealthPlan members by telehealth?', a: 'Only with a Texas LBA license and Texas Medicaid enrollment, which every Superior HealthPlan network provider needs first. The LBA needs a current Texas license; telehealth distant-site providers must be licensed, certified or otherwise entitled to practice in Texas; and a provider whose services originate outside Texas is “out-of-state” under 1 TAC § 352.17 and cannot enroll unless HHSC approves it under one of the listed criteria, often for a limited period. Providers within 50 miles of the Texas border count as in-state.' },
     ],
   },
 
@@ -663,6 +712,15 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'HHSC Uniform Managed Care Manual, Chapter 2.0 — Uniform Managed Care Claims Manual (v2.14)', url: 'https://www.hhs.texas.gov/sites/default/files/documents/laws-regulations/handbooks/umcm/2-0.pdf' },
           { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.9.1 (Filing Deadlines) and 2.10 (MCO Appeals)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
         ],
+      },
+      {
+        h2: 'Technician credentials (RBT, grace period) and out-of-state BCBAs',
+        body: [
+          'Texas Children’s Health Plan’s provider manual (Sept. 1, 2026, checked 2026-11-01) sets no behavior-technician credential and no out-of-state or telehealth-licensing rule of its own, and a provider must be enrolled in Texas Medicaid before any MCO can contract it, so the Texas Medicaid rules apply to Texas Children’s Health Plan members.',
+          G1_TX_MCD_TECH,
+          G1_TX_MCD_OOS,
+        ],
+        cites: [G1_TX_TMPPM_CS, G1_TX_TMPPM_ENR, G1_TX_TMPPM_TEL, G1_TX_OCC054, G1_TX_OCC057, G1_TX_OCC256],
       },
     ],
     collect: [
@@ -821,6 +879,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'What is the timely filing limit for Texas Children’s Health Plan (Texas Medicaid)?', a: 'Ninety-five days from the date of service. HHSC’s Uniform Managed Care Claims Manual sets it for every Texas Medicaid MCO. Claim appeals get 120 days from the disposition date.' },
       { q: 'How fast does Texas Children’s Health Plan have to pay a clean claim?', a: 'HHSC requires every Texas Medicaid MCO to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days.' },
       { q: 'Is a Texas Medicaid ABA authorization tied to the individual provider or to the group?', a: 'The plan follows the Texas Medicaid rule. To the group. Under TMPPM § 2.3.9 (Change of Provider), when a child moves to a new performing provider within the same group, the new provider uses the same evaluation and plan of care and “The authorization period will not change.” When the child moves to a provider outside the current group, the new provider must start a new authorization request with all initial-evaluation documentation plus a change-of-therapy-provider letter signed by the responsible adult (end date with the old provider, and both providers’ names).' },
+      { q: 'Does Texas Children’s Health Plan require RBT certification for ABA technicians, and is there a grace period?', a: 'Texas Children’s Health Plan follows the Texas Medicaid rule: every behavior technician must hold RBT, BCAT or ABAT certification (TMPPM § 2.3.6.3), with no grace or provisional period stated. Its provider manual adds no technician rule of its own.' },
+      { q: 'Can an out-of-state BCBA treat Texas Children’s Health Plan members by telehealth?', a: 'Only with a Texas LBA license and Texas Medicaid enrollment, which every Texas Children’s Health Plan network provider needs first. The LBA needs a current Texas license; telehealth distant-site providers must be licensed, certified or otherwise entitled to practice in Texas; and a provider whose services originate outside Texas is “out-of-state” under 1 TAC § 352.17 and cannot enroll unless HHSC approves it under one of the listed criteria, often for a limited period. Providers within 50 miles of the Texas border count as in-state.' },
     ],
   },
 
@@ -910,6 +970,15 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.9.1 (Filing Deadlines) and 2.10 (MCO Appeals)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
           { title: 'Wellpoint Texas — Provider Manual, STAR/STAR Kids/STAR+PLUS/CHIP, § 6.11.1 Timely filing; Payment disputes', url: 'https://provider.wellpoint.com/content/dam/digital/wellpoint/documents/provider/texas/government/general/TX_WLP_CAID_ProviderManual.pdf' },
         ],
+      },
+      {
+        h2: 'Technician credentials (RBT, grace period) and out-of-state BCBAs',
+        body: [
+          'Wellpoint Texas’s provider manual (January 2026, checked 2026-11-01) sets no behavior-technician credential and no out-of-state or telehealth-licensing rule of its own, and a provider must be enrolled in Texas Medicaid before any MCO can contract it, so the Texas Medicaid rules apply to Wellpoint Texas members.',
+          G1_TX_MCD_TECH,
+          G1_TX_MCD_OOS,
+        ],
+        cites: [G1_TX_TMPPM_CS, G1_TX_TMPPM_ENR, G1_TX_TMPPM_TEL, G1_TX_OCC054, G1_TX_OCC057, G1_TX_OCC256],
       },
     ],
     collect: [
@@ -1072,6 +1141,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'How fast does Wellpoint have to pay a clean claim?', a: 'HHSC requires every Texas Medicaid MCO to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days.' },
       { q: 'Is a Texas Medicaid ABA authorization tied to the individual provider or to the group?', a: 'The plan follows the Texas Medicaid rule. To the group. Under TMPPM § 2.3.9 (Change of Provider), when a child moves to a new performing provider within the same group, the new provider uses the same evaluation and plan of care and “The authorization period will not change.” When the child moves to a provider outside the current group, the new provider must start a new authorization request with all initial-evaluation documentation plus a change-of-therapy-provider letter signed by the responsible adult (end date with the old provider, and both providers’ names).' },
       { q: 'What does Wellpoint (formerly Amerigroup Texas) pay for ABA?', a: 'Its contracted rates are not published. The public benchmark is the Texas Medicaid fee schedule (dated 9/14/2026): per 15 minutes, 97151 $27.56, 97153 $14.50, 97154 $1.63, 97155 $20.08 (HN) or $25.10 (HO), 97156 $18.40 (HN) or $23.01 (HO), 97158 $2.25 (HN) or $2.81 (HO). Ask the plan for its ABA fee schedule before contracting.' },
+      { q: 'Does Wellpoint Texas require RBT certification for ABA technicians, and is there a grace period?', a: 'Wellpoint Texas follows the Texas Medicaid rule: every behavior technician must hold RBT, BCAT or ABAT certification (TMPPM § 2.3.6.3), with no grace or provisional period stated. Its provider manual adds no technician rule of its own.' },
+      { q: 'Can an out-of-state BCBA treat Wellpoint Texas members by telehealth?', a: 'Only with a Texas LBA license and Texas Medicaid enrollment, which every Wellpoint Texas network provider needs first. The LBA needs a current Texas license; telehealth distant-site providers must be licensed, certified or otherwise entitled to practice in Texas; and a provider whose services originate outside Texas is “out-of-state” under 1 TAC § 352.17 and cannot enroll unless HHSC approves it under one of the listed criteria, often for a limited period. Providers within 50 miles of the Texas border count as in-state.' },
     ],
   },
 
@@ -1162,6 +1233,15 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.9.1 (Filing Deadlines) and 2.10 (MCO Appeals)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
           { title: 'UnitedHealthcare Community Plan of Texas — 2026 Care Provider Manual (Oct. 7, 2026), claims and reconsiderations', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/TX-UHCCP-Care-Provider-Manual.pdf' },
         ],
+      },
+      {
+        h2: 'Technician credentials (RBT, grace period) and out-of-state BCBAs',
+        body: [
+          'UnitedHealthcare Community Plan of Texas’s provider manual (Oct. 7, 2026, checked 2026-11-01) sets no behavior-technician credential and no out-of-state or telehealth-licensing rule of its own, and a provider must be enrolled in Texas Medicaid before any MCO can contract it, so the Texas Medicaid rules apply to UnitedHealthcare Community Plan of Texas members.',
+          G1_TX_MCD_TECH,
+          G1_TX_MCD_OOS,
+        ],
+        cites: [G1_TX_TMPPM_CS, G1_TX_TMPPM_ENR, G1_TX_TMPPM_TEL, G1_TX_OCC054, G1_TX_OCC057, G1_TX_OCC256],
       },
     ],
     collect: [
@@ -1327,6 +1407,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'How fast does UnitedHealthcare Community Plan have to pay a clean claim?', a: 'HHSC requires every Texas Medicaid MCO to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days.' },
       { q: 'Is a Texas Medicaid ABA authorization tied to the individual provider or to the group?', a: 'The plan follows the Texas Medicaid rule. To the group. Under TMPPM § 2.3.9 (Change of Provider), when a child moves to a new performing provider within the same group, the new provider uses the same evaluation and plan of care and “The authorization period will not change.” When the child moves to a provider outside the current group, the new provider must start a new authorization request with all initial-evaluation documentation plus a change-of-therapy-provider letter signed by the responsible adult (end date with the old provider, and both providers’ names).' },
       { q: 'What does UnitedHealthcare Community Plan of Texas pay for ABA?', a: 'Its contracted rates are not published. The public benchmark is the Texas Medicaid fee schedule (dated 9/14/2026): per 15 minutes, 97151 $27.56, 97153 $14.50, 97154 $1.63, 97155 $20.08 (HN) or $25.10 (HO), 97156 $18.40 (HN) or $23.01 (HO), 97158 $2.25 (HN) or $2.81 (HO). Ask the plan for its ABA fee schedule before contracting.' },
+      { q: 'Does UnitedHealthcare Community Plan of Texas require RBT certification for ABA technicians, and is there a grace period?', a: 'UnitedHealthcare Community Plan of Texas follows the Texas Medicaid rule: every behavior technician must hold RBT, BCAT or ABAT certification (TMPPM § 2.3.6.3), with no grace or provisional period stated. Its provider manual adds no technician rule of its own.' },
+      { q: 'Can an out-of-state BCBA treat UnitedHealthcare Community Plan of Texas members by telehealth?', a: 'Only with a Texas LBA license and Texas Medicaid enrollment, which every UnitedHealthcare Community Plan of Texas network provider needs first. The LBA needs a current Texas license; telehealth distant-site providers must be licensed, certified or otherwise entitled to practice in Texas; and a provider whose services originate outside Texas is “out-of-state” under 1 TAC § 352.17 and cannot enroll unless HHSC approves it under one of the listed criteria, often for a limited period. Providers within 50 miles of the Texas border count as in-state.' },
     ],
   },
 
@@ -1422,6 +1504,15 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.9.1 (Filing Deadlines) and 2.10 (MCO Appeals)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
           { title: 'Aetna Better Health of Texas — Medicaid (STAR, STAR Kids) and CHIP Provider Manual 2025–2026 (published August 2026)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
         ],
+      },
+      {
+        h2: 'Technician credentials (RBT, grace period) and out-of-state BCBAs',
+        body: [
+          'Aetna Better Health of Texas’s provider manual (2025–2026 edition, checked 2026-11-01) sets no behavior-technician credential and no out-of-state or telehealth-licensing rule of its own, and a provider must be enrolled in Texas Medicaid before any MCO can contract it, so the Texas Medicaid rules apply to Aetna Better Health of Texas members.',
+          G1_TX_MCD_TECH,
+          G1_TX_MCD_OOS,
+        ],
+        cites: [G1_TX_TMPPM_CS, G1_TX_TMPPM_ENR, G1_TX_TMPPM_TEL, G1_TX_OCC054, G1_TX_OCC057, G1_TX_OCC256],
       },
     ],
     collect: [
@@ -1588,6 +1679,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'How fast does Aetna Better Health of Texas have to pay a clean claim?', a: 'HHSC requires every Texas Medicaid MCO to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days. The plan’s manual pays 18 percent annual interest on clean claims left un-adjudicated past 30 days. No weekly cutoff or check-run day is published.' },
       { q: 'Is a Texas Medicaid ABA authorization tied to the individual provider or to the group?', a: 'The plan follows the Texas Medicaid rule. To the group. Under TMPPM § 2.3.9 (Change of Provider), when a child moves to a new performing provider within the same group, the new provider uses the same evaluation and plan of care and “The authorization period will not change.” When the child moves to a provider outside the current group, the new provider must start a new authorization request with all initial-evaluation documentation plus a change-of-therapy-provider letter signed by the responsible adult (end date with the old provider, and both providers’ names).' },
       { q: 'What does Aetna Better Health of Texas pay for ABA?', a: 'Its contracted rates are not published. The public benchmark is the Texas Medicaid fee schedule (dated 9/14/2026): per 15 minutes, 97151 $27.56, 97153 $14.50, 97154 $1.63, 97155 $20.08 (HN) or $25.10 (HO), 97156 $18.40 (HN) or $23.01 (HO), 97158 $2.25 (HN) or $2.81 (HO). Ask the plan for its ABA fee schedule before contracting.' },
+      { q: 'Does Aetna Better Health of Texas require RBT certification for ABA technicians, and is there a grace period?', a: 'Aetna Better Health of Texas follows the Texas Medicaid rule: every behavior technician must hold RBT, BCAT or ABAT certification (TMPPM § 2.3.6.3), with no grace or provisional period stated. Its provider manual adds no technician rule of its own.' },
+      { q: 'Can an out-of-state BCBA treat Aetna Better Health of Texas members by telehealth?', a: 'Only with a Texas LBA license and Texas Medicaid enrollment, which every Aetna Better Health of Texas network provider needs first. The LBA needs a current Texas license; telehealth distant-site providers must be licensed, certified or otherwise entitled to practice in Texas; and a provider whose services originate outside Texas is “out-of-state” under 1 TAC § 352.17 and cannot enroll unless HHSC approves it under one of the listed criteria, often for a limited period. Providers within 50 miles of the Texas border count as in-state.' },
     ],
   },
 
@@ -1680,6 +1773,15 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'HHSC Uniform Managed Care Manual, Chapter 2.0 — Uniform Managed Care Claims Manual (v2.14)', url: 'https://www.hhs.texas.gov/sites/default/files/documents/laws-regulations/handbooks/umcm/2-0.pdf' },
           { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.9.1 (Filing Deadlines) and 2.10 (MCO Appeals)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
         ],
+      },
+      {
+        h2: 'Technician credentials (RBT, grace period) and out-of-state BCBAs',
+        body: [
+          'Molina Healthcare of Texas’s provider manual (2026, checked 2026-11-01) sets no behavior-technician credential and no out-of-state or telehealth-licensing rule of its own, and a provider must be enrolled in Texas Medicaid before any MCO can contract it, so the Texas Medicaid rules apply to Molina Healthcare of Texas members.',
+          G1_TX_MCD_TECH,
+          G1_TX_MCD_OOS,
+        ],
+        cites: [G1_TX_TMPPM_CS, G1_TX_TMPPM_ENR, G1_TX_TMPPM_TEL, G1_TX_OCC054, G1_TX_OCC057, G1_TX_OCC256],
       },
     ],
     collect: [
@@ -1865,6 +1967,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'How fast does Molina Healthcare of Texas have to pay a clean claim?', a: 'HHSC requires every Texas Medicaid MCO to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days.' },
       { q: 'Is a Texas Medicaid ABA authorization tied to the individual provider or to the group?', a: 'The plan follows the Texas Medicaid rule. To the group. Under TMPPM § 2.3.9 (Change of Provider), when a child moves to a new performing provider within the same group, the new provider uses the same evaluation and plan of care and “The authorization period will not change.” When the child moves to a provider outside the current group, the new provider must start a new authorization request with all initial-evaluation documentation plus a change-of-therapy-provider letter signed by the responsible adult (end date with the old provider, and both providers’ names).' },
       { q: 'What does Molina Healthcare of Texas pay for ABA?', a: 'Its contracted rates are not published. The public benchmark is the Texas Medicaid fee schedule (dated 9/14/2026): per 15 minutes, 97151 $27.56, 97153 $14.50, 97154 $1.63, 97155 $20.08 (HN) or $25.10 (HO), 97156 $18.40 (HN) or $23.01 (HO), 97158 $2.25 (HN) or $2.81 (HO). Ask the plan for its ABA fee schedule before contracting.' },
+      { q: 'Does Molina Healthcare of Texas require RBT certification for ABA technicians, and is there a grace period?', a: 'Molina Healthcare of Texas follows the Texas Medicaid rule: every behavior technician must hold RBT, BCAT or ABAT certification (TMPPM § 2.3.6.3), with no grace or provisional period stated. Its provider manual adds no technician rule of its own.' },
+      { q: 'Can an out-of-state BCBA treat Molina Healthcare of Texas members by telehealth?', a: 'Only with a Texas LBA license and Texas Medicaid enrollment, which every Molina Healthcare of Texas network provider needs first. The LBA needs a current Texas license; telehealth distant-site providers must be licensed, certified or otherwise entitled to practice in Texas; and a provider whose services originate outside Texas is “out-of-state” under 1 TAC § 352.17 and cannot enroll unless HHSC approves it under one of the listed criteria, often for a limited period. Providers within 50 miles of the Texas border count as in-state.' },
     ],
   },
 
@@ -1952,6 +2056,15 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.9.1 (Filing Deadlines) and 2.10 (MCO Appeals)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
           { title: 'Community First Health Plans — STAR Provider Manual (posted 4/15/2026), Time Limit for Submission of Claims', url: 'https://medicaid.communityfirsthealthplans.com/wp-content/uploads/sites/2/2026/04/STAR_ProviderManual_2025_web_04.15.26.pdf' },
         ],
+      },
+      {
+        h2: 'Technician credentials (RBT, grace period) and out-of-state BCBAs',
+        body: [
+          'Community First Health Plans’s provider manual (posted 4/15/2026, checked 2026-11-01) sets no behavior-technician credential and no out-of-state or telehealth-licensing rule of its own, and a provider must be enrolled in Texas Medicaid before any MCO can contract it, so the Texas Medicaid rules apply to Community First Health Plans members.',
+          G1_TX_MCD_TECH,
+          G1_TX_MCD_OOS,
+        ],
+        cites: [G1_TX_TMPPM_CS, G1_TX_TMPPM_ENR, G1_TX_TMPPM_TEL, G1_TX_OCC054, G1_TX_OCC057, G1_TX_OCC256],
       },
     ],
     collect: [
@@ -2110,6 +2223,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'What is the timely filing limit for Community First (Texas Medicaid)?', a: 'Ninety-five days from the date of service. HHSC’s Uniform Managed Care Claims Manual sets it for every Texas Medicaid MCO, and Community First’s own manual states the same deadline. Claim appeals get 120 days from the disposition date.' },
       { q: 'How fast does Community First have to pay a clean claim?', a: 'HHSC requires every Texas Medicaid MCO to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days.' },
       { q: 'Is a Texas Medicaid ABA authorization tied to the individual provider or to the group?', a: 'The plan follows the Texas Medicaid rule. To the group. Under TMPPM § 2.3.9 (Change of Provider), when a child moves to a new performing provider within the same group, the new provider uses the same evaluation and plan of care and “The authorization period will not change.” When the child moves to a provider outside the current group, the new provider must start a new authorization request with all initial-evaluation documentation plus a change-of-therapy-provider letter signed by the responsible adult (end date with the old provider, and both providers’ names).' },
+      { q: 'Does Community First Health Plans require RBT certification for ABA technicians, and is there a grace period?', a: 'Community First Health Plans follows the Texas Medicaid rule: every behavior technician must hold RBT, BCAT or ABAT certification (TMPPM § 2.3.6.3), with no grace or provisional period stated. Its provider manual adds no technician rule of its own.' },
+      { q: 'Can an out-of-state BCBA treat Community First Health Plans members by telehealth?', a: 'Only with a Texas LBA license and Texas Medicaid enrollment, which every Community First Health Plans network provider needs first. The LBA needs a current Texas license; telehealth distant-site providers must be licensed, certified or otherwise entitled to practice in Texas; and a provider whose services originate outside Texas is “out-of-state” under 1 TAC § 352.17 and cannot enroll unless HHSC approves it under one of the listed criteria, often for a limited period. Providers within 50 miles of the Texas border count as in-state.' },
     ],
   },
 
@@ -2201,6 +2316,15 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.9.1 (Filing Deadlines) and 2.10 (MCO Appeals)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
           { title: 'Driscoll Health Plan — Provider Manual (September 2026), Section VIII Billing and Claims', url: 'https://driscollhealthplan.com/wp-content/uploads/DHP-Provider-Manual-September-2026.pdf' },
         ],
+      },
+      {
+        h2: 'Technician credentials (RBT, grace period) and out-of-state BCBAs',
+        body: [
+          'Driscoll Health Plan’s provider manual (September 2026, checked 2026-11-01) sets no behavior-technician credential and no out-of-state or telehealth-licensing rule of its own, and a provider must be enrolled in Texas Medicaid before any MCO can contract it, so the Texas Medicaid rules apply to Driscoll Health Plan members.',
+          G1_TX_MCD_TECH,
+          G1_TX_MCD_OOS,
+        ],
+        cites: [G1_TX_TMPPM_CS, G1_TX_TMPPM_ENR, G1_TX_TMPPM_TEL, G1_TX_OCC054, G1_TX_OCC057, G1_TX_OCC256],
       },
     ],
     collect: [
@@ -2361,6 +2485,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'How fast does Driscoll have to pay a clean claim?', a: 'HHSC requires every Texas Medicaid MCO to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days.' },
       { q: 'Is a Texas Medicaid ABA authorization tied to the individual provider or to the group?', a: 'The plan follows the Texas Medicaid rule. To the group. Under TMPPM § 2.3.9 (Change of Provider), when a child moves to a new performing provider within the same group, the new provider uses the same evaluation and plan of care and “The authorization period will not change.” When the child moves to a provider outside the current group, the new provider must start a new authorization request with all initial-evaluation documentation plus a change-of-therapy-provider letter signed by the responsible adult (end date with the old provider, and both providers’ names).' },
       { q: 'What does Driscoll Health Plan pay for ABA?', a: 'Its contracted rates are not published. The public benchmark is the Texas Medicaid fee schedule (dated 9/14/2026): per 15 minutes, 97151 $27.56, 97153 $14.50, 97154 $1.63, 97155 $20.08 (HN) or $25.10 (HO), 97156 $18.40 (HN) or $23.01 (HO), 97158 $2.25 (HN) or $2.81 (HO). Ask the plan for its ABA fee schedule before contracting.' },
+      { q: 'Does Driscoll Health Plan require RBT certification for ABA technicians, and is there a grace period?', a: 'Driscoll Health Plan follows the Texas Medicaid rule: every behavior technician must hold RBT, BCAT or ABAT certification (TMPPM § 2.3.6.3), with no grace or provisional period stated. Its provider manual adds no technician rule of its own.' },
+      { q: 'Can an out-of-state BCBA treat Driscoll Health Plan members by telehealth?', a: 'Only with a Texas LBA license and Texas Medicaid enrollment, which every Driscoll Health Plan network provider needs first. The LBA needs a current Texas license; telehealth distant-site providers must be licensed, certified or otherwise entitled to practice in Texas; and a provider whose services originate outside Texas is “out-of-state” under 1 TAC § 352.17 and cannot enroll unless HHSC approves it under one of the listed criteria, often for a limited period. Providers within 50 miles of the Texas border count as in-state.' },
     ],
   },
 
@@ -2462,6 +2588,15 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.9.1 (Filing Deadlines) and 2.10 (MCO Appeals)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
           { title: 'Community Health Choice — STAR, CHIP, CHIP-Perinatal & STAR+PLUS Provider Manual (March 2026)', url: 'https://provider.communityhealthchoice.org/wp-content/uploads/sites/2/2026/04/HHS_Provider_Manual_010226-Final-1.pdf' },
         ],
+      },
+      {
+        h2: 'Technician credentials (RBT, grace period) and out-of-state BCBAs',
+        body: [
+          'Community Health Choice’s provider manual (posted April 2026, checked 2026-11-01) sets no behavior-technician credential and no out-of-state or telehealth-licensing rule of its own, and a provider must be enrolled in Texas Medicaid before any MCO can contract it, so the Texas Medicaid rules apply to Community Health Choice members.',
+          G1_TX_MCD_TECH,
+          G1_TX_MCD_OOS,
+        ],
+        cites: [G1_TX_TMPPM_CS, G1_TX_TMPPM_ENR, G1_TX_TMPPM_TEL, G1_TX_OCC054, G1_TX_OCC057, G1_TX_OCC256],
       },
     ],
     collect: [
@@ -2624,6 +2759,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'What is the timely filing limit for Community Health Choice (Texas Medicaid)?', a: 'Ninety-five days from the date of service. HHSC’s Uniform Managed Care Claims Manual sets it for every Texas Medicaid MCO, and Community Health Choice’s own manual states the same deadline. Claim appeals get 120 days from the disposition date.' },
       { q: 'How fast does Community Health Choice have to pay a clean claim?', a: 'HHSC requires every Texas Medicaid MCO to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days.' },
       { q: 'Is a Texas Medicaid ABA authorization tied to the individual provider or to the group?', a: 'The plan follows the Texas Medicaid rule. To the group. Under TMPPM § 2.3.9 (Change of Provider), when a child moves to a new performing provider within the same group, the new provider uses the same evaluation and plan of care and “The authorization period will not change.” When the child moves to a provider outside the current group, the new provider must start a new authorization request with all initial-evaluation documentation plus a change-of-therapy-provider letter signed by the responsible adult (end date with the old provider, and both providers’ names).' },
+      { q: 'Does Community Health Choice require RBT certification for ABA technicians, and is there a grace period?', a: 'Community Health Choice follows the Texas Medicaid rule: every behavior technician must hold RBT, BCAT or ABAT certification (TMPPM § 2.3.6.3), with no grace or provisional period stated. Its provider manual adds no technician rule of its own.' },
+      { q: 'Can an out-of-state BCBA treat Community Health Choice members by telehealth?', a: 'Only with a Texas LBA license and Texas Medicaid enrollment, which every Community Health Choice network provider needs first. The LBA needs a current Texas license; telehealth distant-site providers must be licensed, certified or otherwise entitled to practice in Texas; and a provider whose services originate outside Texas is “out-of-state” under 1 TAC § 352.17 and cannot enroll unless HHSC approves it under one of the listed criteria, often for a limited period. Providers within 50 miles of the Texas border count as in-state.' },
     ],
   },
 
@@ -2716,6 +2853,22 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.9.1 (Filing Deadlines) and 2.10 (MCO Appeals)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
           { title: 'BCBSTX — Texas Medicaid STAR, CHIP, and STAR Kids Provider Manual (2025), Claim Form Filing Limits; Provider Appeal', url: 'https://www.bcbstx.com/docs/provider/tx/provider-medicaid/education/tx-medicaid-star-chip-starkids-provider-manual-handbook-2025.pdf' },
         ],
+      },
+      {
+        h2: 'Technician credentials (RBT, grace period) and out-of-state BCBAs',
+        body: [
+          'BCBSTX Medicaid’s provider manual (2025, checked 2026-11-01) sets no behavior-technician credential and no out-of-state or telehealth-licensing rule of its own, and a provider must be enrolled in Texas Medicaid before any MCO can contract it, so the Texas Medicaid rules apply to BCBSTX Medicaid members.',
+          G1_TX_MCD_TECH,
+          G1_TX_MCD_OOS,
+        ],
+        cites: [G1_TX_TMPPM_CS, G1_TX_TMPPM_ENR, G1_TX_TMPPM_TEL, G1_TX_OCC054, G1_TX_OCC057, G1_TX_OCC256],
+      },
+      {
+        h2: 'BCBSTX commercial plans: RBT requirement and line-therapist rules',
+        body: [
+          'BCBSTX commercial plans (not Medicaid): technician and supervisor rules. BCBSTX has no separate commercial guide in this directory yet, so its commercial ABA rules are recorded here. BCBSTX’s ABA Clinical Service Request Form for commercial plans (rev. 10/2025) sets these “Requirements for line staff providing 1:1 therapy: 1) 18+ years of age; 2) High school diploma or GED; 3) criminal background check prior to active employment; 4) via practice expense, completed training of ASD and behavioral related subjects/evidence based techniques (40 hours) and 5) have on-going supervisory oversight by the BCBA or ABA treatment supervisor for a minimum of 5% of hours directly worked with members.” The form does not require RBT certification, so there is no RBT grace period to track. The training time is “not billable to BCBSTX or members of BCBSTX,” and by signing, the supervisor certifies that the line therapists billed meet these qualifications and that “if staff changes at any time, new staff must meet the same qualifications.” The ABA supervisor also attests to following the BACB’s supervision guidelines and to having “an active license in the state where this member’s services are rendered,” which for a child in Texas means a Texas LBA license. Supervision by telehealth needs a separate BCBSTX request and attestation. BCBSTX posts separate ABA forms for ERS and TRS (state employee and teacher) plans, so use those plans’ own forms. For STAR and STAR Kids members, the Texas Medicaid rules above apply instead.',
+        ],
+        cites: [{ title: 'BCBSTX — Applied Behavior Analysis Clinical Service Request Form (commercial plans, rev. 10/2025): Line Therapist Requirements; Certification of Provider Qualifications', url: 'https://www.bcbstx.com/docs/provider/tx/education/forms/other-bcbstx-plans/aba-clinical-serv-req.pdf' }, { title: 'BCBSTX — ABA Supervision via Telehealth Request & Attestation', url: 'https://www.bcbstx.com/docs/provider/tx/education/forms/other-bcbstx-plans/bh-aba-telehealth-req-attest.pdf' }, { title: 'BCBSTX — Behavioral Health Care Management Program (provider page listing the commercial, ERS and TRS ABA forms)', url: 'https://www.bcbstx.com/provider/clinical/clinical-resources/behavioral-health' }],
       },
     ],
     collect: [
@@ -2880,6 +3033,9 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'How fast does BCBSTX have to pay a clean claim?', a: 'HHSC requires every Texas Medicaid MCO to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days.' },
       { q: 'Is a Texas Medicaid ABA authorization tied to the individual provider or to the group?', a: 'The plan follows the Texas Medicaid rule. To the group. Under TMPPM § 2.3.9 (Change of Provider), when a child moves to a new performing provider within the same group, the new provider uses the same evaluation and plan of care and “The authorization period will not change.” When the child moves to a provider outside the current group, the new provider must start a new authorization request with all initial-evaluation documentation plus a change-of-therapy-provider letter signed by the responsible adult (end date with the old provider, and both providers’ names).' },
       { q: 'What does Blue Cross Blue Shield of Texas (Medicaid) pay for ABA?', a: 'Its contracted rates are not published. The public benchmark is the Texas Medicaid fee schedule (dated 9/14/2026): per 15 minutes, 97151 $27.56, 97153 $14.50, 97154 $1.63, 97155 $20.08 (HN) or $25.10 (HO), 97156 $18.40 (HN) or $23.01 (HO), 97158 $2.25 (HN) or $2.81 (HO). Ask the plan for its ABA fee schedule before contracting.' },
+      { q: 'Does BCBSTX Medicaid require RBT certification for ABA technicians, and is there a grace period?', a: 'BCBSTX Medicaid follows the Texas Medicaid rule: every behavior technician must hold RBT, BCAT or ABAT certification (TMPPM § 2.3.6.3), with no grace or provisional period stated. Its provider manual adds no technician rule of its own.' },
+      { q: 'Can an out-of-state BCBA treat BCBSTX Medicaid members by telehealth?', a: 'Only with a Texas LBA license and Texas Medicaid enrollment, which every BCBSTX Medicaid network provider needs first. The LBA needs a current Texas license; telehealth distant-site providers must be licensed, certified or otherwise entitled to practice in Texas; and a provider whose services originate outside Texas is “out-of-state” under 1 TAC § 352.17 and cannot enroll unless HHSC approves it under one of the listed criteria, often for a limited period. Providers within 50 miles of the Texas border count as in-state.' },
+      { q: 'Does BCBS Texas commercial require RBT certification, and is there a grace period?', a: 'No RBT requirement is published for BCBSTX commercial plans. BCBSTX’s ABA Clinical Service Request Form (rev. 10/2025) requires line staff to be 18 or older with a high school diploma or GED, a criminal background check before starting work, 40 hours of ASD and behavioral training (paid by the practice, not billable), and BCBA supervision of at least 5% of the hours they work with members. Because RBT certification is not required, there is no grace period. The supervisor must hold an active license in the state where the member’s services are rendered.' },
     ],
   },
 
@@ -2969,6 +3125,15 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'HHSC Uniform Managed Care Manual, Chapter 2.0 — Uniform Managed Care Claims Manual (v2.14)', url: 'https://www.hhs.texas.gov/sites/default/files/documents/laws-regulations/handbooks/umcm/2-0.pdf' },
           { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.9.1 (Filing Deadlines) and 2.10 (MCO Appeals)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
         ],
+      },
+      {
+        h2: 'Technician credentials (RBT, grace period) and out-of-state BCBAs',
+        body: [
+          'Cook Children’s Health Plan’s provider manual (rev. 02/13/26, checked 2026-11-01) sets no behavior-technician credential and no out-of-state or telehealth-licensing rule of its own, and a provider must be enrolled in Texas Medicaid before any MCO can contract it, so the Texas Medicaid rules apply to Cook Children’s Health Plan members.',
+          G1_TX_MCD_TECH,
+          G1_TX_MCD_OOS,
+        ],
+        cites: [G1_TX_TMPPM_CS, G1_TX_TMPPM_ENR, G1_TX_TMPPM_TEL, G1_TX_OCC054, G1_TX_OCC057, G1_TX_OCC256],
       },
     ],
     collect: [
@@ -3131,6 +3296,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'What is the timely filing limit for Cook Children’s Health Plan (Texas Medicaid)?', a: 'Ninety-five days from the date of service. HHSC’s Uniform Managed Care Claims Manual sets it for every Texas Medicaid MCO. Claim appeals get 120 days from the disposition date.' },
       { q: 'How fast does Cook Children’s Health Plan have to pay a clean claim?', a: 'HHSC requires every Texas Medicaid MCO to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days.' },
       { q: 'Is a Texas Medicaid ABA authorization tied to the individual provider or to the group?', a: 'The plan follows the Texas Medicaid rule. To the group. Under TMPPM § 2.3.9 (Change of Provider), when a child moves to a new performing provider within the same group, the new provider uses the same evaluation and plan of care and “The authorization period will not change.” When the child moves to a provider outside the current group, the new provider must start a new authorization request with all initial-evaluation documentation plus a change-of-therapy-provider letter signed by the responsible adult (end date with the old provider, and both providers’ names).' },
+      { q: 'Does Cook Children’s Health Plan require RBT certification for ABA technicians, and is there a grace period?', a: 'Cook Children’s Health Plan follows the Texas Medicaid rule: every behavior technician must hold RBT, BCAT or ABAT certification (TMPPM § 2.3.6.3), with no grace or provisional period stated. Its provider manual adds no technician rule of its own.' },
+      { q: 'Can an out-of-state BCBA treat Cook Children’s Health Plan members by telehealth?', a: 'Only with a Texas LBA license and Texas Medicaid enrollment, which every Cook Children’s Health Plan network provider needs first. The LBA needs a current Texas license; telehealth distant-site providers must be licensed, certified or otherwise entitled to practice in Texas; and a provider whose services originate outside Texas is “out-of-state” under 1 TAC § 352.17 and cannot enroll unless HHSC approves it under one of the listed criteria, often for a limited period. Providers within 50 miles of the Texas border count as in-state.' },
     ],
   },
 
@@ -3219,6 +3386,15 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.9.1 (Filing Deadlines) and 2.10 (MCO Appeals)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
           { title: 'Parkland Community Health Plan — 2025 Provider Manual, STAR Medicaid and CHIP (Rev 4/25), Timely Filing; Provider Claim Appeals', url: 'https://providers.parklandhealthplan.com/Uploads/Public/Documents/Provider/PCHP%20Provider%20Manual_20260504.pdf' },
         ],
+      },
+      {
+        h2: 'Technician credentials (RBT, grace period) and out-of-state BCBAs',
+        body: [
+          'Parkland Community Health Plan’s provider manual (May 2026 posting, checked 2026-11-01) sets no behavior-technician credential and no out-of-state or telehealth-licensing rule of its own, and a provider must be enrolled in Texas Medicaid before any MCO can contract it, so the Texas Medicaid rules apply to Parkland Community Health Plan members.',
+          G1_TX_MCD_TECH,
+          G1_TX_MCD_OOS,
+        ],
+        cites: [G1_TX_TMPPM_CS, G1_TX_TMPPM_ENR, G1_TX_TMPPM_TEL, G1_TX_OCC054, G1_TX_OCC057, G1_TX_OCC256],
       },
     ],
     collect: [
@@ -3382,6 +3558,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'How fast does Parkland Community Health Plan have to pay a clean claim?', a: 'HHSC requires every Texas Medicaid MCO to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days.' },
       { q: 'Is a Texas Medicaid ABA authorization tied to the individual provider or to the group?', a: 'The plan follows the Texas Medicaid rule. To the group. Under TMPPM § 2.3.9 (Change of Provider), when a child moves to a new performing provider within the same group, the new provider uses the same evaluation and plan of care and “The authorization period will not change.” When the child moves to a provider outside the current group, the new provider must start a new authorization request with all initial-evaluation documentation plus a change-of-therapy-provider letter signed by the responsible adult (end date with the old provider, and both providers’ names).' },
       { q: 'What does Parkland Community Health Plan pay for ABA?', a: 'Its contracted rates are not published. The public benchmark is the Texas Medicaid fee schedule (dated 9/14/2026): per 15 minutes, 97151 $27.56, 97153 $14.50, 97154 $1.63, 97155 $20.08 (HN) or $25.10 (HO), 97156 $18.40 (HN) or $23.01 (HO), 97158 $2.25 (HN) or $2.81 (HO). Ask the plan for its ABA fee schedule before contracting.' },
+      { q: 'Does Parkland Community Health Plan require RBT certification for ABA technicians, and is there a grace period?', a: 'Parkland Community Health Plan follows the Texas Medicaid rule: every behavior technician must hold RBT, BCAT or ABAT certification (TMPPM § 2.3.6.3), with no grace or provisional period stated. Its provider manual adds no technician rule of its own.' },
+      { q: 'Can an out-of-state BCBA treat Parkland Community Health Plan members by telehealth?', a: 'Only with a Texas LBA license and Texas Medicaid enrollment, which every Parkland Community Health Plan network provider needs first. The LBA needs a current Texas license; telehealth distant-site providers must be licensed, certified or otherwise entitled to practice in Texas; and a provider whose services originate outside Texas is “out-of-state” under 1 TAC § 352.17 and cannot enroll unless HHSC approves it under one of the listed criteria, often for a limited period. Providers within 50 miles of the Texas border count as in-state.' },
     ],
   },
 
@@ -3472,6 +3650,15 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.9.1 (Filing Deadlines) and 2.10 (MCO Appeals)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
           { title: 'El Paso Health — Provider Manual, CHIP, STAR & STAR+PLUS (April 2025), Claim Submission Timelines', url: 'https://www.elpasohealth.com/pdf/EPH_SP_MCCO-COMMS_Provider%20Manual.pdf' },
         ],
+      },
+      {
+        h2: 'Technician credentials (RBT, grace period) and out-of-state BCBAs',
+        body: [
+          'El Paso Health’s provider manual (April 2025, checked 2026-11-01) sets no behavior-technician credential and no out-of-state or telehealth-licensing rule of its own, and a provider must be enrolled in Texas Medicaid before any MCO can contract it, so the Texas Medicaid rules apply to El Paso Health members.',
+          G1_TX_MCD_TECH,
+          G1_TX_MCD_OOS,
+        ],
+        cites: [G1_TX_TMPPM_CS, G1_TX_TMPPM_ENR, G1_TX_TMPPM_TEL, G1_TX_OCC054, G1_TX_OCC057, G1_TX_OCC256],
       },
     ],
     collect: [
@@ -3638,6 +3825,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'How fast does El Paso Health have to pay a clean claim?', a: 'HHSC requires every Texas Medicaid MCO to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days.' },
       { q: 'Is a Texas Medicaid ABA authorization tied to the individual provider or to the group?', a: 'The plan follows the Texas Medicaid rule. To the group. Under TMPPM § 2.3.9 (Change of Provider), when a child moves to a new performing provider within the same group, the new provider uses the same evaluation and plan of care and “The authorization period will not change.” When the child moves to a provider outside the current group, the new provider must start a new authorization request with all initial-evaluation documentation plus a change-of-therapy-provider letter signed by the responsible adult (end date with the old provider, and both providers’ names).' },
       { q: 'What does El Paso Health pay for ABA?', a: 'Its contracted rates are not published. The public benchmark is the Texas Medicaid fee schedule (dated 9/14/2026): per 15 minutes, 97151 $27.56, 97153 $14.50, 97154 $1.63, 97155 $20.08 (HN) or $25.10 (HO), 97156 $18.40 (HN) or $23.01 (HO), 97158 $2.25 (HN) or $2.81 (HO). Ask the plan for its ABA fee schedule before contracting.' },
+      { q: 'Does El Paso Health require RBT certification for ABA technicians, and is there a grace period?', a: 'El Paso Health follows the Texas Medicaid rule: every behavior technician must hold RBT, BCAT or ABAT certification (TMPPM § 2.3.6.3), with no grace or provisional period stated. Its provider manual adds no technician rule of its own.' },
+      { q: 'Can an out-of-state BCBA treat El Paso Health members by telehealth?', a: 'Only with a Texas LBA license and Texas Medicaid enrollment, which every El Paso Health network provider needs first. The LBA needs a current Texas license; telehealth distant-site providers must be licensed, certified or otherwise entitled to practice in Texas; and a provider whose services originate outside Texas is “out-of-state” under 1 TAC § 352.17 and cannot enroll unless HHSC approves it under one of the listed criteria, often for a limited period. Providers within 50 miles of the Texas border count as in-state.' },
     ],
   },
 
@@ -3727,6 +3916,15 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.9.1 (Filing Deadlines) and 2.10 (MCO Appeals)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
           { title: 'FirstCare — 2026 STAR and CHIP Provider Manual, § 11.5 Claims Filing Deadlines', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR-CHIP-Provider-Manual.pdf' },
         ],
+      },
+      {
+        h2: 'Technician credentials (RBT, grace period) and out-of-state BCBAs',
+        body: [
+          'FirstCare’s provider manual (2026, checked 2026-11-01) sets no behavior-technician credential and no out-of-state or telehealth-licensing rule of its own, and a provider must be enrolled in Texas Medicaid before any MCO can contract it, so the Texas Medicaid rules apply to FirstCare members.',
+          G1_TX_MCD_TECH,
+          G1_TX_MCD_OOS,
+        ],
+        cites: [G1_TX_TMPPM_CS, G1_TX_TMPPM_ENR, G1_TX_TMPPM_TEL, G1_TX_OCC054, G1_TX_OCC057, G1_TX_OCC256],
       },
     ],
     collect: [
@@ -3903,6 +4101,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'What is the timely filing limit for FirstCare (Texas Medicaid)?', a: 'Ninety-five days from the date of service. HHSC’s Uniform Managed Care Claims Manual sets it for every Texas Medicaid MCO, and FirstCare’s own manual states the same deadline. Claim appeals get 120 days from the disposition date.' },
       { q: 'How fast does FirstCare have to pay a clean claim?', a: 'HHSC requires every Texas Medicaid MCO to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days.' },
       { q: 'Is a Texas Medicaid ABA authorization tied to the individual provider or to the group?', a: 'The plan follows the Texas Medicaid rule. To the group. Under TMPPM § 2.3.9 (Change of Provider), when a child moves to a new performing provider within the same group, the new provider uses the same evaluation and plan of care and “The authorization period will not change.” When the child moves to a provider outside the current group, the new provider must start a new authorization request with all initial-evaluation documentation plus a change-of-therapy-provider letter signed by the responsible adult (end date with the old provider, and both providers’ names).' },
+      { q: 'Does FirstCare require RBT certification for ABA technicians, and is there a grace period?', a: 'FirstCare follows the Texas Medicaid rule: every behavior technician must hold RBT, BCAT or ABAT certification (TMPPM § 2.3.6.3), with no grace or provisional period stated. Its provider manual adds no technician rule of its own.' },
+      { q: 'Can an out-of-state BCBA treat FirstCare members by telehealth?', a: 'Only with a Texas LBA license and Texas Medicaid enrollment, which every FirstCare network provider needs first. The LBA needs a current Texas license; telehealth distant-site providers must be licensed, certified or otherwise entitled to practice in Texas; and a provider whose services originate outside Texas is “out-of-state” under 1 TAC § 352.17 and cannot enroll unless HHSC approves it under one of the listed criteria, often for a limited period. Providers within 50 miles of the Texas border count as in-state.' },
     ],
   },
 
@@ -4014,6 +4214,15 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.9.1 (Filing Deadlines) and 2.10 (MCO Appeals)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
           { title: 'RightCare from Baylor Scott & White — 2026 Provider Manual', url: 'https://rightcare.swhp.org/-/media/project/bsw/sites/rightcare/documents/provider-manual.pdf' },
         ],
+      },
+      {
+        h2: 'Technician credentials (RBT, grace period) and out-of-state BCBAs',
+        body: [
+          'RightCare from Baylor Scott & White’s provider manual (2026, checked 2026-11-01) sets no behavior-technician credential and no out-of-state or telehealth-licensing rule of its own, and a provider must be enrolled in Texas Medicaid before any MCO can contract it, so the Texas Medicaid rules apply to RightCare from Baylor Scott & White members.',
+          G1_TX_MCD_TECH,
+          G1_TX_MCD_OOS,
+        ],
+        cites: [G1_TX_TMPPM_CS, G1_TX_TMPPM_ENR, G1_TX_TMPPM_TEL, G1_TX_OCC054, G1_TX_OCC057, G1_TX_OCC256],
       },
     ],
     collect: [
@@ -4189,6 +4398,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'What is the timely filing limit for RightCare (Texas Medicaid)?', a: 'Ninety-five days from the date of service. HHSC’s Uniform Managed Care Claims Manual sets it for every Texas Medicaid MCO, and RightCare’s own manual states the same deadline. Claim appeals get 120 days from the disposition date.' },
       { q: 'How fast does RightCare have to pay a clean claim?', a: 'HHSC requires every Texas Medicaid MCO to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days.' },
       { q: 'Is a Texas Medicaid ABA authorization tied to the individual provider or to the group?', a: 'The plan follows the Texas Medicaid rule. To the group. Under TMPPM § 2.3.9 (Change of Provider), when a child moves to a new performing provider within the same group, the new provider uses the same evaluation and plan of care and “The authorization period will not change.” When the child moves to a provider outside the current group, the new provider must start a new authorization request with all initial-evaluation documentation plus a change-of-therapy-provider letter signed by the responsible adult (end date with the old provider, and both providers’ names).' },
+      { q: 'Does RightCare from Baylor Scott & White require RBT certification for ABA technicians, and is there a grace period?', a: 'RightCare from Baylor Scott & White follows the Texas Medicaid rule: every behavior technician must hold RBT, BCAT or ABAT certification (TMPPM § 2.3.6.3), with no grace or provisional period stated. Its provider manual adds no technician rule of its own.' },
+      { q: 'Can an out-of-state BCBA treat RightCare from Baylor Scott & White members by telehealth?', a: 'Only with a Texas LBA license and Texas Medicaid enrollment, which every RightCare from Baylor Scott & White network provider needs first. The LBA needs a current Texas license; telehealth distant-site providers must be licensed, certified or otherwise entitled to practice in Texas; and a provider whose services originate outside Texas is “out-of-state” under 1 TAC § 352.17 and cannot enroll unless HHSC approves it under one of the listed criteria, often for a limited period. Providers within 50 miles of the Texas border count as in-state.' },
     ],
   },
 
@@ -4296,6 +4507,15 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'HHSC Uniform Managed Care Manual, Chapter 2.0 — Uniform Managed Care Claims Manual (v2.14)', url: 'https://www.hhs.texas.gov/sites/default/files/documents/laws-regulations/handbooks/umcm/2-0.pdf' },
           { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.9.1 (Filing Deadlines) and 2.10 (MCO Appeals)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
         ],
+      },
+      {
+        h2: 'Technician credentials (RBT, grace period) and out-of-state BCBAs',
+        body: [
+          'Dell Children’s Health Plan’s provider manual (FY27, September 2026, checked 2026-11-01) sets no behavior-technician credential and no out-of-state or telehealth-licensing rule of its own, and a provider must be enrolled in Texas Medicaid before any MCO can contract it, so the Texas Medicaid rules apply to Dell Children’s Health Plan members.',
+          G1_TX_MCD_TECH,
+          G1_TX_MCD_OOS,
+        ],
+        cites: [G1_TX_TMPPM_CS, G1_TX_TMPPM_ENR, G1_TX_TMPPM_TEL, G1_TX_OCC054, G1_TX_OCC057, G1_TX_OCC256],
       },
     ],
     collect: [
@@ -4461,6 +4681,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'What is the timely filing limit for Dell Children’s Health Plan (Texas Medicaid)?', a: 'Ninety-five days from the date of service. HHSC’s Uniform Managed Care Claims Manual sets it for every Texas Medicaid MCO. Claim appeals get 120 days from the disposition date.' },
       { q: 'How fast does Dell Children’s Health Plan have to pay a clean claim?', a: 'HHSC requires every Texas Medicaid MCO to adjudicate 98 percent of clean claims within 30 days of receipt and 99 percent within 90 days.' },
       { q: 'Is a Texas Medicaid ABA authorization tied to the individual provider or to the group?', a: 'The plan follows the Texas Medicaid rule. To the group. Under TMPPM § 2.3.9 (Change of Provider), when a child moves to a new performing provider within the same group, the new provider uses the same evaluation and plan of care and “The authorization period will not change.” When the child moves to a provider outside the current group, the new provider must start a new authorization request with all initial-evaluation documentation plus a change-of-therapy-provider letter signed by the responsible adult (end date with the old provider, and both providers’ names).' },
+      { q: 'Does Dell Children’s Health Plan require RBT certification for ABA technicians, and is there a grace period?', a: 'Dell Children’s Health Plan follows the Texas Medicaid rule: every behavior technician must hold RBT, BCAT or ABAT certification (TMPPM § 2.3.6.3), with no grace or provisional period stated. Its provider manual adds no technician rule of its own.' },
+      { q: 'Can an out-of-state BCBA treat Dell Children’s Health Plan members by telehealth?', a: 'Only with a Texas LBA license and Texas Medicaid enrollment, which every Dell Children’s Health Plan network provider needs first. The LBA needs a current Texas license; telehealth distant-site providers must be licensed, certified or otherwise entitled to practice in Texas; and a provider whose services originate outside Texas is “out-of-state” under 1 TAC § 352.17 and cannot enroll unless HHSC approves it under one of the listed criteria, often for a limited period. Providers within 50 miles of the Texas border count as in-state.' },
     ],
   },
 
@@ -4578,6 +4800,14 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Aetna — Disputes and appeals overview (reconsideration and appeal time frames and contents)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' },
           { title: 'Aetna — Provider appeals: state exceptions to the 180-day dispute filing standard', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/provider-appeals.html' },
         ],
+      },
+      {
+        h2: 'Technician credentials (RBT, grace period) and out-of-state BCBAs',
+        body: [
+          G1_AETNA_TECH,
+          G1_TX_LAW,
+        ],
+        cites: [G1_AETNA_NPC, G1_AETNA_MNG, G1_TX_OCC251, G1_TX_OCC054, G1_TX_OCC057, G1_TX_OCC256],
       },
     ],
     collect: [
@@ -4769,6 +4999,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'What does Aetna pay for ABA in Texas?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the Texas Medicaid fee schedule (97153 at $14.50 per 15-minute unit effective 9/1/2025), and treat rate-setting as part of contracting.' },
       { q: 'What is Aetna’s timely filing limit in Texas?', a: 'For fully insured plans, 95 days from the date of service under Tex. Ins. Code §§ 1301.102 and 843.337; Aetna’s manual adds no shorter limit. Self-funded plans follow the contract and plan document.' },
       { q: 'Does Aetna require HM, HN, HO or HP modifiers on ABA claims?', a: 'Not in any public Aetna ABA document: the medical necessity guide, provider manual and ABA precertification form name no rate-tier modifiers. Services must be provided or billed by an appropriately licensed or certified provider; ask Aetna whether your contract prices technician lines by modifier.' },
+      { q: 'Does Aetna require RBT certification for ABA technicians in Texas, and is there a grace period?', a: 'Aetna’s participation criteria require paraprofessionals to “meet state requirements” (or Aetna standards where the state defines none) with at least one hour of face-to-face supervision per 10 hours, but name no RBT requirement and no grace period; ask Aetna whether your agreement requires RBT certification. Texas itself licenses only behavior analysts, not technicians.' },
+      { q: 'Can an out-of-state BCBA treat a Aetna member in Texas by telehealth?', a: 'Only for short stints without a Texas license: Texas exempts an analyst licensed elsewhere, or BACB-certified, for no more than 20 days a calendar year, with written notice to the family (Occ. Code § 506.057). Otherwise the BCBA needs a Texas LBA license (reciprocity is available from states with similar licensing).' },
     ],
   },
 
@@ -4777,13 +5009,11 @@ export const texasPayers: Record<string, PayerConfig> = {
     family: 'cigna',
     cardDesc: 'EN0499 (no TX carve-out) + the Tex. Ins. Code § 1355.015 mandate layer; no TX Medicaid plan.',
     assessmentPA: {
-      value: 'Not required for assessment codes 97151, 97152, 0362T (per Cigna\'s autism resource guide — EN0499 itself states no prior-authorization rule)',
-      status: 'unverified',
+      value: 'Not required for 97151, 97152 or 0362T "with a diagnosis of autism, as long as the provider is independently licensed or a Board Certified Behavior Analyst" and the member’s policy covers ABA; submit the claim for the assessment.',
+      status: 'verified',
       cites: [
-        { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        { title: 'Evernorth autism resource guide for behavioral health providers (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
       ],
-      verifyVia: 'Cigna/Evernorth\'s precertification list via CignaforHCP. EN0499 (read in full 9/17/2026) sets medical-necessity criteria but states no prior-authorization requirement for any ABA code, so the PA answer cannot be sourced to it.',
-      blocker: 'document',
     },
     treatmentPA: {
       value: 'Required — assessment + treatment plan with the ABA PA form (see Cigna\'s autism resource guide; EN0499 sets the clinical criteria, not the PA rule)',
@@ -4900,6 +5130,14 @@ export const texasPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191): Provider payment appeals', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
         ],
+      },
+      {
+        h2: 'Technician credentials (RBT, grace period) and out-of-state BCBAs',
+        body: [
+          G1_CIGNA_TECH,
+          G1_TX_LAW,
+        ],
+        cites: [G1_EN0499, G1_EBH_ADMIN, G1_TX_OCC251, G1_TX_OCC054, G1_TX_OCC057, G1_TX_OCC256],
       },
     ],
     collect: [
@@ -5065,6 +5303,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'Does Cigna credential RBTs?', a: 'No. Evernorth does not credential nonlicensed or noncertified staff; their services are billed under the supervising provider.' },
       { q: 'What is Cigna (Evernorth)’s timely filing limit in Texas?', a: 'For state-regulated plans, 95 days (Tex. Ins. Code and Evernorth’s Texas Regulatory Addendum). Evernorth’s general limit elsewhere is 90 days from the date of service.' },
       { q: 'Does Cigna / Evernorth require HM, HN, HO or HP modifiers on ABA claims?', a: 'No modifier tiers are published. Evernorth’s autism resource guide says technician and BCaBA services (97152–97154) are billed by the supervising BCBA, BCBA-D or licensed provider, and noncredentialed staff are billed under the supervising provider. Modifier 95 (with POS 02) marks telehealth.' },
+      { q: 'Does Cigna require RBT certification for ABA technicians in Texas, and is there a grace period?', a: 'Evernorth’s ABA policy (EN0499) and administrative guidelines set no technician credential and no grace period; ask Evernorth whether an uncertified technician may render 97153 under your agreement. Texas itself licenses only behavior analysts, not technicians.' },
+      { q: 'Can an out-of-state BCBA treat a Cigna member in Texas by telehealth?', a: 'Only for short stints without a Texas license: Texas exempts an analyst licensed elsewhere, or BACB-certified, for no more than 20 days a calendar year, with written notice to the family (Occ. Code § 506.057). Otherwise the BCBA needs a Texas LBA license (reciprocity is available from states with similar licensing).' },
     ],
   },
 
@@ -5189,6 +5429,14 @@ export const texasPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): Provider Reconsideration and Appeal Process', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
         ],
+      },
+      {
+        h2: 'Technician credentials (RBT, grace period) and out-of-state BCBAs',
+        body: [
+          G1_OPTUM_TECH,
+          G1_TX_LAW,
+        ],
+        cites: [G1_OPTUM_NNM, G1_OPTUM_FAQ, G1_TX_OCC251, G1_TX_OCC054, G1_TX_OCC057, G1_TX_OCC256],
       },
     ],
     collect: [
@@ -5362,6 +5610,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'How do I join the UnitedHealthcare (Optum) ABA network?', a: 'Meet Optum\'s criteria (BACB certification, Texas LBA license, six months of supervised ABA experience, liability coverage) and apply through the "Join Our Autism/ABA Network" section of Provider Express.' },
       { q: 'What is UnitedHealthcare’s timely filing limit in Texas?', a: 'For fully insured plans, 95 days from the date of service under the Texas Insurance Code; UnitedHealthcare’s guide defers to state law and the provider agreement.' },
       { q: 'What do HM, HN, HO and HP mean on a UnitedHealthcare / Optum ABA claim?', a: 'They identify who rendered the service: HM an RBT (less than bachelor’s level), HN a BCaBA (bachelor’s level), HO a master’s-level BCBA or licensed clinician, HP a BCBA-D or doctoral-level clinician. One per line; 97151 and 97155–97158 cannot take HM; 0362T/0373T take none (Optum ABA Reimbursement Policy 2022RP501A, June 2026).' },
+      { q: 'Does UnitedHealthcare require RBT certification for ABA technicians in Texas, and is there a grace period?', a: 'Yes, or an equivalent: Optum requires technicians to be an RBT, BCAT or ABAT, and any other certification must be approved in writing by Optum. Optum publishes no grace or provisional period for uncertified technicians. Texas itself licenses only behavior analysts, not technicians.' },
+      { q: 'Can an out-of-state BCBA treat a UnitedHealthcare member in Texas by telehealth?', a: 'Only for short stints without a Texas license: Texas exempts an analyst licensed elsewhere, or BACB-certified, for no more than 20 days a calendar year, with written notice to the family (Occ. Code § 506.057). Otherwise the BCBA needs a Texas LBA license (reciprocity is available from states with similar licensing). Optum also requires telehealth providers to be licensed in the state where the member is located.' },
     ],
   },
 };

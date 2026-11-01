@@ -147,6 +147,20 @@ export const newYorkPayers: Record<string, PayerConfig> = {
           { title: 'eMedNY Cycle Processing Calendar', url: 'https://www.emedny.org/hipaa/news/PDFS/CYCLE_CALENDAR.pdf' },
         ],
       },
+      {
+        h2: 'What happens when a practice fails a New York Medicaid audit?',
+        body: [
+          'Every enrolled provider agrees "to prepare and to maintain contemporaneous records demonstrating its right to receive payment," to keep for six years "all records necessary to disclose the nature and extent of services furnished," and "to permit audits ... of all books and records or, in the discretion of the auditing agency, a sample thereof" (18 NYCRR 504.3). For fee-for-service providers, claims are "subject to audit for a period of six years" (517.3(b)).',
+          'The audit process (Part 517). After a closing conference on a field audit, or after an in-house post-payment review, a draft audit report identifies "the items which are being disallowed" and the basis. The provider may "object to the proposed action within 30 days of receipt," with "a statement detailing the specific items of the draft report to which the provider objects" and supporting documents; receipt is presumed five days after the report date, and failure to object "may result in the adoption of the proposed action as the final agency action" (517.5). The final audit report states the findings, the action and an effective date "not less than 20 days from the date of the final audit report," and the right to request an administrative hearing (517.6). At the hearing the provider may not "raise any new matter not considered by the department upon submission of objections to a draft audit" (519.18), so the 30-day objection is where the documentation has to go in.',
+        ],
+        cites: [
+          { title: '18 NYCRR § 504.3 — Duties of the provider (contemporaneous records; audits; LII)', url: 'https://www.law.cornell.edu/regulations/new-york/18-NYCRR-504.3' },
+          { title: '18 NYCRR § 517.3 — Audit and record retention (LII)', url: 'https://www.law.cornell.edu/regulations/new-york/18-NYCRR-517.3' },
+          { title: '18 NYCRR § 517.5 — Draft audit report (LII)', url: 'https://www.law.cornell.edu/regulations/new-york/18-NYCRR-517.5' },
+          { title: '18 NYCRR § 517.6 — Final audit report (LII)', url: 'https://www.law.cornell.edu/regulations/new-york/18-NYCRR-517.6' },
+          { title: '18 NYCRR § 519.18 — Hearing procedure (LII)', url: 'https://www.law.cornell.edu/regulations/new-york/18-NYCRR-519.18' },
+        ],
+      },
     ],
     collect: [
       { title: 'FFS or which MMC plan', desc: 'The single fact that decides whether there\'s a PA at all — get the card, not the family\'s guess.' },
@@ -2043,6 +2057,17 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'Aetna — Provider manual (8102800-01-01, 6/26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }],
       },
+      {
+        h2: 'What happens when a practice fails an Aetna audit in New York?',
+        body: [
+          'Aetna\'s post-payment audits examine paid claims "to ensure the claims were properly billed and include the necessary supporting documentation"; if errors are found "the payer may request repayment, recoupment or other penalties in accordance with applicable law." For commercial plans Aetna notifies overpayments "typically within 24 months of the original payment issue date or other time frame as required by applicable law."',
+          'New York limits commercial recoupment. Under Insurance Law § 3224-b(b), "Other than recovery for duplicate payments, a health plan shall provide thirty days written notice to health care providers" before engaging in overpayment recovery, and "A health plan shall not initiate overpayment recovery efforts more than twenty-four months after the original payment" was received. The time limit does not apply to recovery "based on a reasonable belief of fraud or other intentional misconduct, or abusive billing," to recovery "required by, or initiated at the request of, a self-insured plan," or to recovery required or authorized by a state or federal government program.',
+        ],
+        cites: [
+          { title: 'Aetna — Health Care Professional Office Manual (Core components for medical records; Overpayment; post-payment audits)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'NY Insurance Law § 3224-b — Overpayment recovery (30-day notice; 24-month limit) (NY Senate)', url: 'https://www.nysenate.gov/legislation/laws/ISC/3224-B' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -2156,12 +2181,13 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
       noteSignature: {
         value:
-          'Not published in the ABA policies. Aetna\u2019s documentation and signature expectations for ABA sit in its general medical-record standards and the participating-provider agreement rather than in CPB 0554 or CPB 0648, and New York\u2019s mandate imposes no note-signature rule on commercial plans.',
-        status: 'unverified',
-        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
-        verifyVia:
-          'Aetna\u2019s provider manual medical-records standards and your participating-provider agreement.',
-        blocker: 'document',
+          'Aetna\'s provider manual sets the record rule for participating practitioners: "All entries are dated," "All entries are legible to someone other than the writer," and "All entries in the record must contain the provider\'s signature/initials or electronic identifier," scored in medical-record audits "conducted no less than every two years" against an 85% goal. Neither the manual nor Aetna\'s ABA policies (CPB 0554, the ABA medical necessity guide) set a separate rule for amending a note, a supervisor co-signature, or a signing deadline. New York\'s licensing rules require every licensee to keep "a record for each patient which accurately reflects the evaluation and treatment of the patient" (8 NYCRR 29.2(a)(3)) but set no correction procedure.',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna — Health Care Professional Office Manual (Core components for medical records; Overpayment; post-payment audits)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+          { title: '8 NYCRR § 29.2 — General provisions: unprofessional conduct (record for each patient; LII)', url: 'https://www.law.cornell.edu/regulations/new-york/8-NYCRR-29.2' },
+        ],
       },
       placeOfService: {
         value:
@@ -2281,6 +2307,17 @@ export const newYorkPayers: Record<string, PayerConfig> = {
           'Evernorth\'s Behavioral Health Administrative Guidelines (September 2026) describe out-of-network use by plan type. On Open Access Plus, “Services from out-of-network providers are covered at a reduced benefit level,” and patients “whose plans include out-of-network benefits can use these benefits for services covered under their plan; however, in doing so, these patients will generally incur higher out-of-pocket costs.” An out-of-network provider who wants to contract is pointed to “the Join the Network page on the Evernorth Provider website.” On appeals, Evernorth says an appeal “must be submitted within 180 calendar days from the claim denial unless determined otherwise by plan or state regulation,” and that “out-of-network providers requesting a standard appeal must submit a valid Appointments of Representative form signed by the patient” in some circumstances. Evernorth publishes no single-case-agreement process or out-of-network ABA rate; benefits depend on the member\'s plan.',
         ],
         cites: [{ title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }],
+      },
+      {
+        h2: 'What happens when a practice fails a Cigna audit in New York?',
+        body: [
+          'Evernorth audits the recordkeeping of "select high-volume providers" by requesting three blinded records against an 80 percent goal; on overpayments, "In states where permitted," it offsets against later claims and "Until overpayment is resolved, payment on additional claims may be suspended."',
+          'New York limits commercial recoupment. Under Insurance Law § 3224-b(b), "Other than recovery for duplicate payments, a health plan shall provide thirty days written notice to health care providers" before engaging in overpayment recovery, and "A health plan shall not initiate overpayment recovery efforts more than twenty-four months after the original payment" was received. The time limit does not apply to recovery "based on a reasonable belief of fraud or other intentional misconduct, or abusive billing," to recovery "required by, or initiated at the request of, a self-insured plan," or to recovery required or authorized by a state or federal government program.',
+        ],
+        cites: [
+          { title: 'Evernorth Behavioral Health — Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+          { title: 'NY Insurance Law § 3224-b — Overpayment recovery (30-day notice; 24-month limit) (NY Senate)', url: 'https://www.nysenate.gov/legislation/laws/ISC/3224-B' },
+        ],
       },
     ],
     collect: [
@@ -2517,6 +2554,17 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
       },
+      {
+        h2: 'What happens when a practice fails an UnitedHealthcare audit in New York?',
+        body: [
+          'Optum reviews ABA records against its documentation protocol: "Documentation must be sufficient to independently validate the total billable time reported, including but not limited to recorded session start and stop times," and "All addendums, late entries and corrections should follow CMS guidelines."',
+          'New York limits commercial recoupment. Under Insurance Law § 3224-b(b), "Other than recovery for duplicate payments, a health plan shall provide thirty days written notice to health care providers" before engaging in overpayment recovery, and "A health plan shall not initiate overpayment recovery efforts more than twenty-four months after the original payment" was received. The time limit does not apply to recovery "based on a reasonable belief of fraud or other intentional misconduct, or abusive billing," to recovery "required by, or initiated at the request of, a self-insured plan," or to recovery required or authorized by a state or federal government program.',
+        ],
+        cites: [
+          { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' },
+          { title: 'NY Insurance Law § 3224-b — Overpayment recovery (30-day notice; 24-month limit) (NY Senate)', url: 'https://www.nysenate.gov/legislation/laws/ISC/3224-B' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -2628,7 +2676,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         ],
       },
       noteSignature: {
-        value: '“Provider signature is required on progress notes. Parent/guardian signatures are not required on progress notes” (Optum ABA CPT FAQ). Each daily session note records place of service, start and stop time, who rendered the service, the specific service, who attended and the interventions. Optum’s ABA documentation protocol (June 1, 2026) requires the “signature of the rendering provider” and “Legible identity of the rendering provider with credentials,” and “The date of signature must reflect the date the note is finalized” — a note signed after the date of service must follow late-entry rules and show the date it was signed. Same-date services must be “separate, distinct, and clearly documented in the progress notes,” or the claim may be denied.',
+        value: '“Provider signature is required on progress notes. Parent/guardian signatures are not required on progress notes” (Optum ABA CPT FAQ). Each daily session note records place of service, start and stop time, who rendered the service, the specific service, who attended and the interventions. Optum’s ABA documentation protocol (June 1, 2026) requires the “signature of the rendering provider” and “Legible identity of the rendering provider with credentials,” says “All addendums, late entries and corrections should follow CMS guidelines,” and “The date of signature must reflect the date the note is finalized” — a note signed after the date of service must follow late-entry rules and show the date it was signed. Same-date services must be “separate, distinct, and clearly documented in the progress notes,” or the claim may be denied.',
         status: 'verified',
         cites: [
           { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
@@ -4060,6 +4108,15 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'Anthem Blue Cross and Blue Shield — New York Provider Manual (effective July 1, 2026)', url: 'https://www.anthembluecross.com/content/dam/digital/docs/anthembluecross/provider/commercial/manuals/PM_NY_000016.pdf' },
+        ],
+      },
+      {
+        h2: 'What happens when a practice fails an Anthem Blue Cross Blue Shield audit in New York?',
+        body: [
+          'New York limits commercial recoupment. Under Insurance Law § 3224-b(b), "Other than recovery for duplicate payments, a health plan shall provide thirty days written notice to health care providers" before engaging in overpayment recovery, and "A health plan shall not initiate overpayment recovery efforts more than twenty-four months after the original payment" was received. The time limit does not apply to recovery "based on a reasonable belief of fraud or other intentional misconduct, or abusive billing," to recovery "required by, or initiated at the request of, a self-insured plan," or to recovery required or authorized by a state or federal government program.',
+        ],
+        cites: [
+          { title: 'NY Insurance Law § 3224-b — Overpayment recovery (30-day notice; 24-month limit) (NY Senate)', url: 'https://www.nysenate.gov/legislation/laws/ISC/3224-B' },
         ],
       },
     ],

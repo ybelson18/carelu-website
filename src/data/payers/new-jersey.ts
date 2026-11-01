@@ -119,11 +119,15 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       },
       noteSignature: {
         value:
-          'Not addressed by the state. The founding newsletter sets codes, rates, unit guidance, provider specialties and place of service but carries no session-note signature rule and no timeframe.',
-        status: 'unverified',
-        verifyVia:
-          'The member\u2019s MCO provider manual; DMAHS\u2019s dedicated Autism Line for ABA and DIR services (609-588-8522 / MAHS.ASDinquiries@dhs.nj.gov) is the state-side route.',
-        blocker: 'per-case',
+          'New Jersey\'s licensing rule for behavior analysts governs amendments on every plan: licensees "shall make contemporaneous, permanent entries into client records," and "Corrections and/or additions to existing records may be made to a client record, provided that each change is clearly identified as such, dated, and initialed by the licensee making the change" (N.J.A.C. 13:42B-6.5(b)). So an amended or late-added session note must be marked as a correction or addition and dated and initialed by the person making the change; the rule names no supervisor co-signature. Each record must also carry "The name, title, and license number of the licensee who provided services," and a licensee who delegates interventions to a technician stays "responsible for the care a client receives" (13:42B-5.2(d)). DMAHS adds no amendment rule of its own. Providers must keep "such records as are necessary to disclose fully the extent of services provided," and "where such records do not document the extent of services billed, payment adjustments shall be necessary" (N.J.A.C. 10:49-9.8(b)). The managed care contract makes every MCO set medical-record standards under which "All entries are dated" and "All entries are identified as to author" (Standard XII), so the member\'s MCO manual supplies the plan-level signer rule.',
+        status: 'verified',
+        cites: [
+          { title: 'N.J.A.C. 13:42B-6.5 — Recordkeeping, NJ Board of Applied Behavior Analyst Examiners (eff. 5/6/2024; LII)', url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-13-42B-6-5' },
+          { title: 'N.J.A.C. 13:42B-5.2 — Delegation to a paraprofessional technician (eff. 5/6/2024; LII)', url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-13-42B-5-2' },
+          { title: 'N.J.A.C. 10:49-9.8 — Provider certification and recordkeeping (LII)', url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-10-49-9-8' },
+          { title: 'NJ FamilyCare Managed Care Contract (01/2026) — Standard XII Medical Record Standards; Art. 7.36.5 Recoveries and Overpayments', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' },
+        ],
+        verifyVia: 'The member\'s MCO provider manual; DMAHS Autism Line (609-588-8522 / MAHS.ASDinquiries@dhs.nj.gov).',
       },
       placeOfService: {
         value:
@@ -282,6 +286,20 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
           'Yes, by contract. DMAHS\'s managed care contract (01/2026 edition) makes every NJ FamilyCare MCO an any-willing-provider plan for behavioral health, ABA included: “Any Willing Qualified Behavioral Health Provider: The Contractor shall be required to contract with any willing qualified BH provider defined by the provider specifications in the BH services dictionary in Section B.4.4 until specified by DMAHS.” ABA is one of the services in that dictionary (Appendix B.4.4), whose provider specifications require agency fingerprinting before enrollment and that each provider meet the requirements of the State Board of Applied Behavior Analyst Examiners. MCOs also had to start contracting with “all active fee-for-service behavioral health providers no later than September 1, 2024.” So a qualified, licensed ABA provider that meets those specifications cannot simply be turned away for a full network, until DMAHS says otherwise; credentialing timelines still apply.',
         ],
         cites: [{ title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 4.8.1.P any willing qualified BH provider; App. B.4.4 Behavioral Health Services Dictionary (ABA)', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' }],
+      },
+      {
+        h2: 'What happens when a practice fails a NJ FamilyCare audit?',
+        body: [
+          'Every enrolled provider agrees "To keep such records as are necessary to disclose fully the extent of services provided," to furnish them on request, and "That where such records do not document the extent of services billed, payment adjustments shall be necessary" (N.J.A.C. 10:49-9.8(b)). When services come from staff who do not meet program requirements, "The Division may recover from the enrolled Medicaid or NJ FamilyCare provider the Medicaid or NJ FamilyCare reimbursement paid" (9.8(c)).',
+          'Most ABA runs through the MCOs, and the contract splits recoveries: each MCO "shall have the right to recover directly from providers ... for the audits and investigations the Contractor solely conducts," must "refer all cases of suspected fraud to the MFD," and the Medicaid Fraud Division may recover directly from network providers and have the MCO "withhold all or a percentage of payments to a provider in its network" (contract 7.36.5). On "reliable evidence of fraud or willful misrepresentation" the Division withholds payments, including payments an HMO owes a network provider (N.J.A.C. 10:49-9.10).',
+          'A provider may get a fair hearing on "issues involving the provider\'s status; for example, termination, debarment, suspension" or "issues arising out of the claims payment process" (N.J.A.C. 10:49-9.14). Disputes with an MCO go through that plan\'s appeal and arbitration route; see the plan\'s guide.',
+        ],
+        cites: [
+          { title: 'N.J.A.C. 10:49-9.8 — Provider certification and recordkeeping (LII)', url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-10-49-9-8' },
+          { title: 'NJ FamilyCare Managed Care Contract (01/2026) — Standard XII Medical Record Standards; Art. 7.36.5 Recoveries and Overpayments', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' },
+          { title: 'N.J.A.C. 10:49-9.10 — Withholding of provider payments (LII)', url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-10-49-9-10' },
+          { title: 'N.J.A.C. 10:49-9.14 — Provisions for appeals; fair hearings (LII)', url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-10-49-9-14' },
+        ],
       },
     ],
     collect: [
@@ -467,11 +485,13 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       },
       noteSignature: {
         value:
-          'Neither the state nor Horizon NJ Health publishes a session-note signature rule for ABA \u2014 no named signer and no timeframe.',
-        status: 'unverified',
-        verifyVia:
-          'Horizon NJ Health\u2019s provider manual documentation chapter, or DMAHS\u2019s Autism Line (609-588-8522).',
-        blocker: 'document',
+          'New Jersey\'s licensing rule for behavior analysts governs amendments on every plan: licensees "shall make contemporaneous, permanent entries into client records," and "Corrections and/or additions to existing records may be made to a client record, provided that each change is clearly identified as such, dated, and initialed by the licensee making the change" (N.J.A.C. 13:42B-6.5(b)). So an amended or late-added session note must be marked as a correction or addition and dated and initialed by the person making the change; the rule names no supervisor co-signature. Each record must also carry "The name, title, and license number of the licensee who provided services," and a licensee who delegates interventions to a technician stays "responsible for the care a client receives" (13:42B-5.2(d)). Horizon NJ Health\'s medical record-keeping standards (manual section 12.19): "All entries in the medical record contain author\'s identification. Author identification may be a handwritten signature, unique electronic identifier, initials or a stamped signature," and "All entries are dated." The plan names no ABA co-signature and no signing deadline; compliance "will be audited through periodic on-site review of physician offices and chart sampling."',
+        status: 'verified',
+        cites: [
+          { title: 'N.J.A.C. 13:42B-6.5 — Recordkeeping, NJ Board of Applied Behavior Analyst Examiners (eff. 5/6/2024; LII)', url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-13-42B-6-5' },
+          { title: 'N.J.A.C. 13:42B-5.2 — Delegation to a paraprofessional technician (eff. 5/6/2024; LII)', url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-13-42B-5-2' },
+          { title: 'Horizon NJ Health — Provider Administrative Manual (approved by DHS 7/14/2026)', url: 'https://www.horizonnjhealth.com/provider-admin-manual' },
+        ],
       },
       placeOfService: {
         value:
@@ -575,6 +595,20 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
           'Yes, by contract. The state\'s managed care contract (01/2026 edition) makes Horizon NJ Health, like every NJ FamilyCare MCO, an any-willing-provider plan for behavioral health, ABA included: “Any Willing Qualified Behavioral Health Provider: The Contractor shall be required to contract with any willing qualified BH provider defined by the provider specifications in the BH services dictionary in Section B.4.4 until specified by DMAHS.” ABA is one of the services in that dictionary (Appendix B.4.4), whose provider specifications require agency fingerprinting before enrollment and that each provider meet the requirements of the State Board of Applied Behavior Analyst Examiners. MCOs also had to start contracting with “all active fee-for-service behavioral health providers no later than September 1, 2024.” So a qualified, licensed ABA provider that meets those specifications cannot simply be turned away for a full network, until DMAHS says otherwise; credentialing timelines still apply.',
         ],
         cites: [{ title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 4.8.1.P any willing qualified BH provider; App. B.4.4 Behavioral Health Services Dictionary (ABA)', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' }],
+      },
+      {
+        h2: 'What happens when a practice fails a Horizon NJ Health audit?',
+        body: [
+          'Record audits are routine. Horizon NJ Health\'s record-keeping standards "will be audited through periodic on-site review of physician offices and chart sampling," and the plan "has the right to request and review medical records in connection with services provided to our members"; providers must send copies "within the time frame set forth." The state rule underneath every NJ FamilyCare claim is that "where such records do not document the extent of services billed, payment adjustments shall be necessary" (N.J.A.C. 10:49-9.8(b)), and the managed care contract gives the plan "the right to recover directly from providers ... for the audits and investigations the Contractor solely conducts."',
+          'Corrective action and sanctions (manual sections 12.30-12.31). Deficiencies go to the medical director and the Quality Peer Review Committee, and "the provider is notified and given the opportunity to respond before a final determination is made." "Failure to comply with Horizon\'s request for medical record documentation" is listed as a Level 1 administrative sanction. Actions range from education, a corrective action plan and a site visit to "Freezing of patient panel and/or incentive payment" and "Termination from the physician network." A requested corrective action plan "is due within 30 days of receipt of our letter"; a provider who disagrees with a Level 1-3 sanction may appeal "in writing to the Quality Management Department within 30 days," to a hearing committee that includes a clinical peer, and that first-level decision is final.',
+          'Money and fraud. The plan\'s manual cites HCAPPA for the duty to "return overpayments to Horizon NJ Health within 60 days of self-identifying the overpayment." Suspected fraud goes to Horizon\'s Special Investigations Unit, and every MCO "must refer all cases of suspected fraud" to the Medicaid Fraud Division (MFD), which may audit managed-care claims itself, "recover directly from providers," and have the plan "withhold all or a percentage of payments" (contract 7.36.5). On reliable evidence of fraud the state withholds payment, and a network provider "shall have any payments for services rendered to Medicaid and NJ FamilyCare beneficiaries withheld by the HMO" (N.J.A.C. 10:49-9.10). A payment denial or recovery on an individual claim can be appealed on DOBI\'s claim appeal form within 90 days, then taken to binding arbitration (PICPA) within 90 days of the appeal decision. The manual states no look-back period for plan-initiated recoveries.',
+        ],
+        cites: [
+          { title: 'Horizon NJ Health — Provider Administrative Manual (approved by DHS 7/14/2026)', url: 'https://www.horizonnjhealth.com/provider-admin-manual' },
+          { title: 'NJ FamilyCare Managed Care Contract (01/2026) — Standard XII Medical Record Standards; Art. 7.36.5 Recoveries and Overpayments', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' },
+          { title: 'N.J.A.C. 10:49-9.8 — Provider certification and recordkeeping (LII)', url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-10-49-9-8' },
+          { title: 'N.J.A.C. 10:49-9.10 — Withholding of provider payments (LII)', url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-10-49-9-10' },
+        ],
       },
     ],
     collect: [
@@ -732,11 +766,14 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       },
       noteSignature: {
         value:
-          'No ABA-specific rule, but the plan\'s minimum medical-record standards for all practitioners apply: "Signatures — entries are signed and dated by the responsible licensed provider; the responsible licensed provider countersigns care rendered by ancillary personnel; alterations of the record are signed and dated," and every entry must identify its author. Read for ABA, a technician\'s session note needs the supervising licensed provider\'s countersignature. No signing deadline is set, but records the plan requests "must be sent to us within 14 days of our request."',
+          'New Jersey\'s licensing rule for behavior analysts governs amendments on every plan: licensees "shall make contemporaneous, permanent entries into client records," and "Corrections and/or additions to existing records may be made to a client record, provided that each change is clearly identified as such, dated, and initialed by the licensee making the change" (N.J.A.C. 13:42B-6.5(b)). So an amended or late-added session note must be marked as a correction or addition and dated and initialed by the person making the change; the rule names no supervisor co-signature. Each record must also carry "The name, title, and license number of the licensee who provided services," and a licensee who delegates interventions to a technician stays "responsible for the care a client receives" (13:42B-5.2(d)). Aetna Better Health\'s own minimum medical-record standards add: "Signatures — entries are signed and dated by the responsible licensed provider; the responsible licensed provider countersigns care rendered by ancillary personnel; alterations of the record are signed and dated," and every entry must identify its author. Read for ABA, a technician\'s session note needs the supervising licensed provider\'s countersignature, and an altered note must be signed and dated. No signing deadline is set, but records the plan requests must be provided "within fourteen (14) days of request."',
         status: 'verified',
-        cites: [{ title: 'Aetna Better Health of New Jersey — Provider Manual', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/new-jersey-medicaid/provider/pdf/aetna_provider_manual.pdf' }],
-        verifyVia:
-          'Aetna Better Health of New Jersey provider services (1-855-232-3596) — confirm who may countersign technician notes (LBA/BCBA) on audit.',
+        cites: [
+          { title: 'N.J.A.C. 13:42B-6.5 — Recordkeeping, NJ Board of Applied Behavior Analyst Examiners (eff. 5/6/2024; LII)', url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-13-42B-6-5' },
+          { title: 'N.J.A.C. 13:42B-5.2 — Delegation to a paraprofessional technician (eff. 5/6/2024; LII)', url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-13-42B-5-2' },
+          { title: 'Aetna Better Health of New Jersey — Provider Manual', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/new-jersey-medicaid/provider/pdf/aetna_provider_manual.pdf' },
+        ],
+        verifyVia: 'Aetna Better Health of New Jersey provider services (1-855-232-3596) - confirm who may countersign technician notes (LBA/BCBA) on audit.',
       },
       placeOfService: {
         value:
@@ -848,6 +885,17 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
           'Yes, by contract. The state\'s managed care contract (01/2026 edition) makes Aetna Better Health of New Jersey, like every NJ FamilyCare MCO, an any-willing-provider plan for behavioral health, ABA included: “Any Willing Qualified Behavioral Health Provider: The Contractor shall be required to contract with any willing qualified BH provider defined by the provider specifications in the BH services dictionary in Section B.4.4 until specified by DMAHS.” ABA is one of the services in that dictionary (Appendix B.4.4), whose provider specifications require agency fingerprinting before enrollment and that each provider meet the requirements of the State Board of Applied Behavior Analyst Examiners. MCOs also had to start contracting with “all active fee-for-service behavioral health providers no later than September 1, 2024.” So a qualified, licensed ABA provider that meets those specifications cannot simply be turned away for a full network, until DMAHS says otherwise; credentialing timelines still apply.',
         ],
         cites: [{ title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 4.8.1.P any willing qualified BH provider; App. B.4.4 Behavioral Health Services Dictionary (ABA)', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' }],
+      },
+      {
+        h2: 'What happens when a practice fails an Aetna Better Health of New Jersey audit?',
+        body: [
+          'The plan "conducts routine medical record audits of all types of providers to assess compliance with established standards," and providers "must respond to these requests promptly within fourteen (14) days of request." Records must also be available to DMAHS and CMS.',
+          'Recoveries follow HCAPPA: the plan "may only seek reimbursement for overpayment of a claim ... within 18 months after the date the first payment on the claim was made," once per claim, with longer reach "if there is evidence of fraud, if a physician or health care professional with a pattern of inappropriate billing submits the claim, or if the claim is subject to Coordination of Benefits." An offset against future claims needs at least 45 calendar days\' notice and "will be stayed pending an internal appeal and state-sponsored binding arbitration"; the notice period may be extended to 90 days. Where fraud has been reported to the Office of the Insurance Fraud Prosecutor, recapture may happen without the 45-day notice. Under the state contract the Medicaid Fraud Division can also audit and recover directly (contract 7.36.5).',
+        ],
+        cites: [
+          { title: 'Aetna Better Health of New Jersey — Provider Manual', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/new-jersey-medicaid/provider/pdf/aetna_provider_manual.pdf' },
+          { title: 'NJ FamilyCare Managed Care Contract (01/2026) — Standard XII Medical Record Standards; Art. 7.36.5 Recoveries and Overpayments', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' },
+        ],
       },
     ],
     collect: [
@@ -1005,11 +1053,13 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       },
       noteSignature: {
         value:
-          'Neither the state nor Fidelis Care New Jersey publishes a session-note signature rule for ABA \u2014 no named signer and no timeframe.',
-        status: 'unverified',
-        verifyVia:
-          'Fidelis Care New Jersey\u2019s provider manual documentation chapter, or DMAHS\u2019s Autism Line (609-588-8522).',
-        blocker: 'document',
+          'New Jersey\'s licensing rule for behavior analysts governs amendments on every plan: licensees "shall make contemporaneous, permanent entries into client records," and "Corrections and/or additions to existing records may be made to a client record, provided that each change is clearly identified as such, dated, and initialed by the licensee making the change" (N.J.A.C. 13:42B-6.5(b)). So an amended or late-added session note must be marked as a correction or addition and dated and initialed by the person making the change; the rule names no supervisor co-signature. Each record must also carry "The name, title, and license number of the licensee who provided services," and a licensee who delegates interventions to a technician stays "responsible for the care a client receives" (13:42B-5.2(d)). Fidelis Care\'s manual sets the late-entry format: "Documentation of late entries should include the date and time of the occurrence and the date and time of documentation," and the record must carry "A signature by the Provider of service" and "Provider identification by name and profession of the rendering Provider." It names no ABA co-signature.',
+        status: 'verified',
+        cites: [
+          { title: 'N.J.A.C. 13:42B-6.5 — Recordkeeping, NJ Board of Applied Behavior Analyst Examiners (eff. 5/6/2024; LII)', url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-13-42B-6-5' },
+          { title: 'N.J.A.C. 13:42B-5.2 — Delegation to a paraprofessional technician (eff. 5/6/2024; LII)', url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-13-42B-5-2' },
+          { title: 'Fidelis Care Medicaid/NJ FamilyCare Provider Manual (effective April 15, 2026)', url: 'https://www.fideliscarenj.com/content/dam/centene/wellcare/nj/pdfs/Prov/NJ_Medicaid_Provider_Manual_R.pdf' },
+        ],
       },
       placeOfService: {
         value:
@@ -1107,6 +1157,16 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
           'Yes, by contract. The state\'s managed care contract (01/2026 edition) makes Fidelis Care New Jersey, like every NJ FamilyCare MCO, an any-willing-provider plan for behavioral health, ABA included: “Any Willing Qualified Behavioral Health Provider: The Contractor shall be required to contract with any willing qualified BH provider defined by the provider specifications in the BH services dictionary in Section B.4.4 until specified by DMAHS.” ABA is one of the services in that dictionary (Appendix B.4.4), whose provider specifications require agency fingerprinting before enrollment and that each provider meet the requirements of the State Board of Applied Behavior Analyst Examiners. MCOs also had to start contracting with “all active fee-for-service behavioral health providers no later than September 1, 2024.” So a qualified, licensed ABA provider that meets those specifications cannot simply be turned away for a full network, until DMAHS says otherwise; credentialing timelines still apply.',
         ],
         cites: [{ title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 4.8.1.P any willing qualified BH provider; App. B.4.4 Behavioral Health Services Dictionary (ABA)', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' }],
+      },
+      {
+        h2: 'What happens when a practice fails a Fidelis Care New Jersey audit?',
+        body: [
+          'Fidelis Care "will proactively identify and attempt to correct inappropriate payments," and follows New Jersey law (L. 2005, c. 352) to "limit its notice of retroactive denial to 18 months from the original payment date"; that limit does not apply "to fraudulent or abusive billing for which there is no deadline." The written notice names the claims, reason and amount, and gives the provider "45 days for the Provider to send in the refund, request further information, appeal or dispute the retroactive denial." "Failure of the Provider to respond within the above time frame will constitute acceptance of the terms in the letter and will result in offsets to future payments." The Medicaid Fraud Division can also audit and recover directly under the state contract (7.36.5).',
+        ],
+        cites: [
+          { title: 'Fidelis Care Medicaid/NJ FamilyCare Provider Manual (effective April 15, 2026)', url: 'https://www.fideliscarenj.com/content/dam/centene/wellcare/nj/pdfs/Prov/NJ_Medicaid_Provider_Manual_R.pdf' },
+          { title: 'NJ FamilyCare Managed Care Contract (01/2026) — Standard XII Medical Record Standards; Art. 7.36.5 Recoveries and Overpayments', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' },
+        ],
       },
     ],
     collect: [
@@ -1258,11 +1318,13 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       },
       noteSignature: {
         value:
-          'Neither the state nor UnitedHealthcare Community Plan publishes a session-note signature rule for ABA \u2014 no named signer and no timeframe.',
-        status: 'unverified',
-        verifyVia:
-          'UnitedHealthcare Community Plan\u2019s provider manual documentation chapter, or DMAHS\u2019s Autism Line (609-588-8522).',
-        blocker: 'document',
+          'New Jersey\'s licensing rule for behavior analysts governs amendments on every plan: licensees "shall make contemporaneous, permanent entries into client records," and "Corrections and/or additions to existing records may be made to a client record, provided that each change is clearly identified as such, dated, and initialed by the licensee making the change" (N.J.A.C. 13:42B-6.5(b)). So an amended or late-added session note must be marked as a correction or addition and dated and initialed by the person making the change; the rule names no supervisor co-signature. Each record must also carry "The name, title, and license number of the licensee who provided services," and a licensee who delegates interventions to a technician stays "responsible for the care a client receives" (13:42B-5.2(d)). UnitedHealthcare Community Plan\'s New Jersey manual (Chapter 13, Medical records) wants "Entries dated and the author identified," and its medical-record audit tool scores whether "All entries are signed and dated." It names no ABA co-signature and no signing deadline.',
+        status: 'verified',
+        cites: [
+          { title: 'N.J.A.C. 13:42B-6.5 — Recordkeeping, NJ Board of Applied Behavior Analyst Examiners (eff. 5/6/2024; LII)', url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-13-42B-6-5' },
+          { title: 'N.J.A.C. 13:42B-5.2 — Delegation to a paraprofessional technician (eff. 5/6/2024; LII)', url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-13-42B-5-2' },
+          { title: 'UnitedHealthcare Community Plan of New Jersey — Care Provider Manual (Ch. 13 Medical records)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NJ-Care-Provider-Manual.pdf' },
+        ],
       },
       placeOfService: {
         value:
@@ -1514,11 +1576,13 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       },
       noteSignature: {
         value:
-          'Neither the state nor Wellpoint New Jersey publishes a session-note signature rule for ABA \u2014 no named signer and no timeframe.',
-        status: 'unverified',
-        verifyVia:
-          'Wellpoint New Jersey\u2019s provider manual documentation chapter, or DMAHS\u2019s Autism Line (609-588-8522).',
-        blocker: 'document',
+          'New Jersey\'s licensing rule for behavior analysts governs amendments on every plan: licensees "shall make contemporaneous, permanent entries into client records," and "Corrections and/or additions to existing records may be made to a client record, provided that each change is clearly identified as such, dated, and initialed by the licensee making the change" (N.J.A.C. 13:42B-6.5(b)). So an amended or late-added session note must be marked as a correction or addition and dated and initialed by the person making the change; the rule names no supervisor co-signature. Each record must also carry "The name, title, and license number of the licensee who provided services," and a licensee who delegates interventions to a technician stays "responsible for the care a client receives" (13:42B-5.2(d)). Wellpoint\'s New Jersey medical record standards: "All entries must be dated and author identified," reviewed with "the New Jersey Medical Record Review Audit tool." It names no ABA co-signature and no signing deadline.',
+        status: 'verified',
+        cites: [
+          { title: 'N.J.A.C. 13:42B-6.5 — Recordkeeping, NJ Board of Applied Behavior Analyst Examiners (eff. 5/6/2024; LII)', url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-13-42B-6-5' },
+          { title: 'N.J.A.C. 13:42B-5.2 — Delegation to a paraprofessional technician (eff. 5/6/2024; LII)', url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-13-42B-5-2' },
+          { title: 'Wellpoint New Jersey — Provider Manual (Medicaid/NJ FamilyCare)', url: 'https://www.provider.wellpoint.com/docs/gpp/NJ_WLP_Provider_Manual.pdf' },
+        ],
       },
       placeOfService: {
         value:
@@ -1631,6 +1695,16 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
           'Yes, by contract. The state\'s managed care contract (01/2026 edition) makes Wellpoint New Jersey, like every NJ FamilyCare MCO, an any-willing-provider plan for behavioral health, ABA included: “Any Willing Qualified Behavioral Health Provider: The Contractor shall be required to contract with any willing qualified BH provider defined by the provider specifications in the BH services dictionary in Section B.4.4 until specified by DMAHS.” ABA is one of the services in that dictionary (Appendix B.4.4), whose provider specifications require agency fingerprinting before enrollment and that each provider meet the requirements of the State Board of Applied Behavior Analyst Examiners. MCOs also had to start contracting with “all active fee-for-service behavioral health providers no later than September 1, 2024.” So a qualified, licensed ABA provider that meets those specifications cannot simply be turned away for a full network, until DMAHS says otherwise; credentialing timelines still apply.',
         ],
         cites: [{ title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 4.8.1.P any willing qualified BH provider; App. B.4.4 Behavioral Health Services Dictionary (ABA)', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' }],
+      },
+      {
+        h2: 'What happens when a practice fails a Wellpoint New Jersey audit?',
+        body: [
+          'Wellpoint\'s Special Investigations Unit may respond with "Written warning and/or education," "Medical record review" of previously paid claims, "Prepayment Review" by a certified coder, and "Recoveries: We recover overpayments directly from the Provider. Failure of the Provider to return the overpayment may result in reduced payment on future claims and/or further legal action." Wellpoint "is entitled to offset claims and recoup an amount equal to any overpayments" if a refund is not received in the time the notice sets, and an appeal "shall not suspend Wellpoint\'s right to recoup the Overpayment Amount during the appeal process unless required by Regulatory Requirements." Overpayment disputes go to Cost Containment - Disputes via Availity, mail (P.O. Box 62427, Virginia Beach, VA 23466) or fax 866-920-1874. Medical records are reviewed with "the New Jersey Medical Record Review Audit tool." The Medicaid Fraud Division can also audit and recover directly under the state contract (7.36.5).',
+        ],
+        cites: [
+          { title: 'Wellpoint New Jersey — Provider Manual (Medicaid/NJ FamilyCare)', url: 'https://www.provider.wellpoint.com/docs/gpp/NJ_WLP_Provider_Manual.pdf' },
+          { title: 'NJ FamilyCare Managed Care Contract (01/2026) — Standard XII Medical Record Standards; Art. 7.36.5 Recoveries and Overpayments', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' },
+        ],
       },
     ],
     collect: [
@@ -1800,11 +1874,13 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       },
       noteSignature: {
         value:
-          'Not published in Aetna\u2019s ABA materials \u2014 no rule on who signs a session note or within what window.',
-        status: 'unverified',
-        verifyVia:
-          'The Aetna provider manual and your participation agreement\u2019s documentation clause.',
-        blocker: 'per-case',
+          'New Jersey\'s licensing rule for behavior analysts governs amendments on every plan: licensees "shall make contemporaneous, permanent entries into client records," and "Corrections and/or additions to existing records may be made to a client record, provided that each change is clearly identified as such, dated, and initialed by the licensee making the change" (N.J.A.C. 13:42B-6.5(b)). So an amended or late-added session note must be marked as a correction or addition and dated and initialed by the person making the change; the rule names no supervisor co-signature. Each record must also carry "The name, title, and license number of the licensee who provided services," and a licensee who delegates interventions to a technician stays "responsible for the care a client receives" (13:42B-5.2(d)). Aetna\'s provider manual adds that "All entries are dated" and "All entries in the record must contain the provider\'s signature/initials or electronic identifier." Aetna\'s ABA materials set no co-signature rule and no signing deadline.',
+        status: 'verified',
+        cites: [
+          { title: 'N.J.A.C. 13:42B-6.5 — Recordkeeping, NJ Board of Applied Behavior Analyst Examiners (eff. 5/6/2024; LII)', url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-13-42B-6-5' },
+          { title: 'N.J.A.C. 13:42B-5.2 — Delegation to a paraprofessional technician (eff. 5/6/2024; LII)', url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-13-42B-5-2' },
+          { title: 'Aetna — Health Care Professional Office Manual (Core components for medical records; Overpayment; post-payment audits)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+        ],
       },
       placeOfService: {
         value:
@@ -1948,6 +2024,17 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
           'Aetna\'s provider manual (6/26) uses transition of care (TOC) and continuity of care rather than the term single case agreement. TOC “allows certain qualifying members the ability to request to continue receiving care from their current out-of-network provider at in-network cost level for a defined period of time,” typically at plan enrollment or renewal; continuity of care does the same when a provider leaves the network mid-treatment. The member must be in “an active course of covered treatment,” and the treating provider must be an individual practitioner (the manual\'s examples are a specialist, physical therapist or speech therapist) or home care agency that is not contracted in the member\'s plan. Steps: the member gets a Transition Coverage Request Form from Member Services or the employer, completes it with the non-participating provider\'s help, faxes it to Aetna, and Aetna sends a decision letter stating how long the transition benefits last. The process does not apply to Traditional Choice plans. Aetna publishes no ABA rate for this; ask Aetna behavioral health whether the ABA agency qualifies before the first session.',
         ],
         cites: [{ title: 'Aetna — Provider manual (8102800-01-01, 6/26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }],
+      },
+      {
+        h2: 'What happens when a practice fails a Aetna audit in New Jersey?',
+        body: [
+          'Aetna\'s provider manual describes post-payment audits that examine paid claims "to ensure the claims were properly billed and include the necessary supporting documentation"; if errors are found "the payer may request repayment, recoupment or other penalties in accordance with applicable law," and providers must send medical records on request. For commercial plans Aetna notifies overpayments "typically within 24 months of the original payment issue date or other time frame as required by applicable law" - on an insured New Jersey plan, that means the 18-month HCAPPA limit.',
+          'On fully insured New Jersey plans, state law limits the recovery. HCAPPA: "With the exception of claims that were submitted fraudulently or submitted by health care providers that have a pattern of inappropriate billing or claims that were subject to coordination of benefits, no payer shall seek reimbursement for overpayment of a claim previously paid ... later than 18 months after the date the first payment on the claim was made," and only once per claim. The request must come with "written documentation that identifies the error," may not rest on "extrapolation of other claims" except in proceedings, fraud cases, or where "relevant records required to be maintained by the health care provider have been improperly altered or reconstructed," and the payer cannot collect before the 45th day or while a timely appeal is pending. Self-funded employer plans are not regulated by the state law; ask the administrator for its recovery terms.',
+        ],
+        cites: [
+          { title: 'Aetna — Health Care Professional Office Manual (Core components for medical records; Overpayment; post-payment audits)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'P.L.2005, c.352 — Health Claims Authorization, Processing and Payment Act (N.J.S.A. 17B:30-48 et seq.; prompt pay in 17B:26-9.1, 17B:27-44.2, 17:48E-10.1, 26:2J-8.1)', url: 'https://pub.njleg.state.nj.us/Bills/2004/PL05/352_.PDF' },
+        ],
       },
     ],
     collect: [
@@ -2115,11 +2202,13 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       },
       noteSignature: {
         value:
-          'Not published in the autism resource guide \u2014 no rule on who signs a session note or when.',
-        status: 'unverified',
-        verifyVia:
-          'The Evernorth Behavioral Health provider administrative guide and your participation agreement.',
-        blocker: 'per-case',
+          'New Jersey\'s licensing rule for behavior analysts governs amendments on every plan: licensees "shall make contemporaneous, permanent entries into client records," and "Corrections and/or additions to existing records may be made to a client record, provided that each change is clearly identified as such, dated, and initialed by the licensee making the change" (N.J.A.C. 13:42B-6.5(b)). So an amended or late-added session note must be marked as a correction or addition and dated and initialed by the person making the change; the rule names no supervisor co-signature. Each record must also carry "The name, title, and license number of the licensee who provided services," and a licensee who delegates interventions to a technician stays "responsible for the care a client receives" (13:42B-5.2(d)). Evernorth\'s administrative guidelines (September 2026): "Treatment record entries should be legible, signed with the clinician\'s name and credentials in ink, dated, and maintained in a consistent chronological order," and where state recordkeeping laws are stricter "these laws shall prevail." No ABA co-signature rule or signing deadline.',
+        status: 'verified',
+        cites: [
+          { title: 'N.J.A.C. 13:42B-6.5 — Recordkeeping, NJ Board of Applied Behavior Analyst Examiners (eff. 5/6/2024; LII)', url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-13-42B-6-5' },
+          { title: 'N.J.A.C. 13:42B-5.2 — Delegation to a paraprofessional technician (eff. 5/6/2024; LII)', url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-13-42B-5-2' },
+          { title: 'Evernorth Behavioral Health — Administrative Guidelines (September 2026, PCOMM-2026-191): Treatment records', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
       },
       placeOfService: {
         value:
@@ -2256,6 +2345,17 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
           'Evernorth\'s Behavioral Health Administrative Guidelines (September 2026) describe out-of-network use by plan type. On Open Access Plus, “Services from out-of-network providers are covered at a reduced benefit level,” and patients “whose plans include out-of-network benefits can use these benefits for services covered under their plan; however, in doing so, these patients will generally incur higher out-of-pocket costs.” An out-of-network provider who wants to contract is pointed to “the Join the Network page on the Evernorth Provider website.” On appeals, Evernorth says an appeal “must be submitted within 180 calendar days from the claim denial unless determined otherwise by plan or state regulation,” and that “out-of-network providers requesting a standard appeal must submit a valid Appointments of Representative form signed by the patient” in some circumstances. Evernorth publishes no single-case-agreement process or out-of-network ABA rate; benefits depend on the member\'s plan.',
         ],
         cites: [{ title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }],
+      },
+      {
+        h2: 'What happens when a practice fails a Cigna audit in New Jersey?',
+        body: [
+          'Evernorth audits the "recordkeeping practices of select high-volume providers" by requesting three blinded records, against an 80 percent performance goal. On overpayments, "In states where permitted," the plan offsets against later claims, and "Until overpayment is resolved, payment on additional claims may be suspended"; otherwise it sends a refund letter.',
+          'On fully insured New Jersey plans, state law limits the recovery. HCAPPA: "With the exception of claims that were submitted fraudulently or submitted by health care providers that have a pattern of inappropriate billing or claims that were subject to coordination of benefits, no payer shall seek reimbursement for overpayment of a claim previously paid ... later than 18 months after the date the first payment on the claim was made," and only once per claim. The request must come with "written documentation that identifies the error," may not rest on "extrapolation of other claims" except in proceedings, fraud cases, or where "relevant records required to be maintained by the health care provider have been improperly altered or reconstructed," and the payer cannot collect before the 45th day or while a timely appeal is pending. Self-funded employer plans are not regulated by the state law; ask the administrator for its recovery terms.',
+        ],
+        cites: [
+          { title: 'Evernorth Behavioral Health — Administrative Guidelines (September 2026, PCOMM-2026-191): Treatment records', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+          { title: 'P.L.2005, c.352 — Health Claims Authorization, Processing and Payment Act (N.J.S.A. 17B:30-48 et seq.; prompt pay in 17B:26-9.1, 17B:27-44.2, 17:48E-10.1, 26:2J-8.1)', url: 'https://pub.njleg.state.nj.us/Bills/2004/PL05/352_.PDF' },
+        ],
       },
     ],
     collect: [
@@ -2425,9 +2525,12 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum \u2014 Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
       },
       noteSignature: {
-        value: '“Provider signature is required on progress notes. Parent/guardian signatures are not required on progress notes” (Optum ABA CPT FAQ). Each daily session note records place of service, start and stop time, who rendered the service, the specific service, who attended and the interventions. Optum’s ABA documentation protocol (June 1, 2026) requires the “signature of the rendering provider” and “Legible identity of the rendering provider with credentials,” and “The date of signature must reflect the date the note is finalized” — a note signed after the date of service must follow late-entry rules and show the date it was signed. Same-date services must be “separate, distinct, and clearly documented in the progress notes,” or the claim may be denied.',
+        value:
+          'New Jersey\'s licensing rule for behavior analysts governs amendments on every plan: licensees "shall make contemporaneous, permanent entries into client records," and "Corrections and/or additions to existing records may be made to a client record, provided that each change is clearly identified as such, dated, and initialed by the licensee making the change" (N.J.A.C. 13:42B-6.5(b)). So an amended or late-added session note must be marked as a correction or addition and dated and initialed by the person making the change; the rule names no supervisor co-signature. Each record must also carry "The name, title, and license number of the licensee who provided services," and a licensee who delegates interventions to a technician stays "responsible for the care a client receives" (13:42B-5.2(d)). Optum adds: "Provider signature is required on progress notes. Parent/guardian signatures are not required on progress notes" (ABA CPT FAQ). Its ABA documentation protocol (June 1, 2026) requires the "signature of the rendering provider" and "Legible identity of the rendering provider with credentials," says "All addendums, late entries and corrections should follow CMS guidelines," and "The date of signature must reflect the date the note is finalized" - a note signed after the date of service must follow late-entry rules and show the date it was signed. Same-date services must be "separate, distinct, and clearly documented in the progress notes," or the claim may be denied.',
         status: 'verified',
         cites: [
+          { title: 'N.J.A.C. 13:42B-6.5 — Recordkeeping, NJ Board of Applied Behavior Analyst Examiners (eff. 5/6/2024; LII)', url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-13-42B-6-5' },
+          { title: 'N.J.A.C. 13:42B-5.2 — Delegation to a paraprofessional technician (eff. 5/6/2024; LII)', url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-13-42B-5-2' },
           { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
           { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' },
           { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
@@ -2569,6 +2672,17 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
           'Not for ABA. Optum\u2019s National Network Manual (effective September 1, 2026), which governs UnitedHealthcare behavioral health claims including ABA, lists what a Form 1500 claim should carry: member and subscriber names and dates of birth, member ID, ICD diagnosis, dates of service, length of session, type and duration of service, and the clinician\u2019s name, credentials, tax ID and NPI. A referring provider is not on the list. UnitedHealthcare\u2019s 2026 Administrative Guide asks for a valid billing NPI, rendering NPI and taxonomy on all claims and adds \u201cwe encourage you to submit the referring health care provider\u2019s NPI\u201d; it makes the referring provider\u2019s name and NPI mandatory only on \u201claboratory, DME, imaging and home health claims.\u201d',
         ],
         cites: [{ title: 'Optum National Network Manual (BH02330, effective Sept. 1, 2026) — claim submission requirements', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide — Chapter 10, claims and NPI', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }],
+      },
+      {
+        h2: 'What happens when a practice fails a UnitedHealthcare audit in New Jersey?',
+        body: [
+          'Optum reviews ABA claims against its documentation protocol: "Documentation must be sufficient to independently validate the total billable time reported, including but not limited to recorded session start and stop times," and "All addendums, late entries and corrections should follow CMS guidelines."',
+          'On fully insured New Jersey plans, state law limits the recovery. HCAPPA: "With the exception of claims that were submitted fraudulently or submitted by health care providers that have a pattern of inappropriate billing or claims that were subject to coordination of benefits, no payer shall seek reimbursement for overpayment of a claim previously paid ... later than 18 months after the date the first payment on the claim was made," and only once per claim. The request must come with "written documentation that identifies the error," may not rest on "extrapolation of other claims" except in proceedings, fraud cases, or where "relevant records required to be maintained by the health care provider have been improperly altered or reconstructed," and the payer cannot collect before the 45th day or while a timely appeal is pending. Self-funded employer plans are not regulated by the state law; ask the administrator for its recovery terms.',
+        ],
+        cites: [
+          { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' },
+          { title: 'P.L.2005, c.352 — Health Claims Authorization, Processing and Payment Act (N.J.S.A. 17B:30-48 et seq.; prompt pay in 17B:26-9.1, 17B:27-44.2, 17:48E-10.1, 26:2J-8.1)', url: 'https://pub.njleg.state.nj.us/Bills/2004/PL05/352_.PDF' },
+        ],
       },
     ],
     collect: [
@@ -2770,14 +2884,15 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       },
       noteSignature: {
         value:
-          'Horizon sets note content, not a session-note signer or deadline. The medical policy wants narrative session notes tied to treatment-plan goals, start/stop times (breaks and snacks not billable), who worked with the member and their credential, prompt level, and data per opportunity; session data summaries are "submitted upon request on a case-by-case basis." The treatment plan must carry the "Signature of the ordering health care provider (i.e., BCBA)," and both the assessment report and the progress report end with the "Signature, title, and credential of the author of the report as well as the supervising BCBA, if different than the author."',
-        status: 'unverified',
+          'New Jersey\'s licensing rule for behavior analysts governs amendments on every plan: licensees "shall make contemporaneous, permanent entries into client records," and "Corrections and/or additions to existing records may be made to a client record, provided that each change is clearly identified as such, dated, and initialed by the licensee making the change" (N.J.A.C. 13:42B-6.5(b)). So an amended or late-added session note must be marked as a correction or addition and dated and initialed by the person making the change; the rule names no supervisor co-signature. Each record must also carry "The name, title, and license number of the licensee who provided services," and a licensee who delegates interventions to a technician stays "responsible for the care a client receives" (13:42B-5.2(d)). Horizon\'s medical policy sets note content rather than a signer: narrative session notes tied to treatment-plan goals, start/stop times, who worked with the member and their credential, prompt level and data per opportunity. The treatment plan must carry the "Signature of the ordering health care provider (i.e., BCBA)," and assessment and progress reports end with the "Signature, title, and credential of the author of the report as well as the supervising BCBA, if different than the author." Horizon\'s own record-keeping standards page is behind Availity login, so any extra Horizon amendment rule could not be read.',
+        status: 'verified',
         cites: [
+          { title: 'N.J.A.C. 13:42B-6.5 — Recordkeeping, NJ Board of Applied Behavior Analyst Examiners (eff. 5/6/2024; LII)', url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-13-42B-6-5' },
+          { title: 'N.J.A.C. 13:42B-5.2 — Delegation to a paraprofessional technician (eff. 5/6/2024; LII)', url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-13-42B-5-2' },
           { title: 'Horizon BCBSNJ Medical Policy 165 — Applied Behavior Analysis in the Treatment of ASD (effective 7/15/2026)', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/medical-policies/detail/01240ce2-1507-c5e4-b8aa-52f103dbf80c' },
           { title: 'Horizon BCBSNJ — Applied Behavior Analysis Provider Report Guidelines (August 2024)', url: 'https://www.horizonblue.com/sites/default/files/ABA_Report_Guidelines%208.2024.pdf' },
         ],
-        verifyVia: 'Your Horizon participation agreement and Horizon\'s record-keeping standards: ask who must sign each session note and by when.',
-        blocker: 'per-case',
+        verifyVia: 'Availity > Payer Spaces > Horizon BCBSNJ > Provider Reference Materials > "Practitioner Office Site Quality and Medical/Behavioral Health Record Keeping Standards".',
       },
       placeOfService: {
         value:
@@ -2924,6 +3039,19 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
           'On a fully insured New Jersey plan, a payment dispute (underpayment, coding, denial for non-clinical reasons) goes on DOBI\'s Health Care Provider Application to Appeal a Claims Determination, which carriers must make available “to both participating and non-participating health care providers.” Use one form per claim, signed and dated, and attach “The relevant claim form,” “The relevant Explanation(s) of Benefits or Remittance Advice,” “A statement specifying the line items that you are appealing,” any information the carrier asked for, the contract provisions you say are not being followed, pertinent correspondence, NCCI or other coding support when codes are disputed, and “Other documents you may believe support your position in this dispute (this may include medical records).” Medical-necessity denials go to the Stage 1 UM appeal instead. After the carrier\'s decision, disputes of “$1,000 or more” (claims can be combined by member or by CPT code) can go to PICPA arbitration within 90 days; PICPA excludes self-funded plans and the State Health Benefits Program. Horizon\'s Professional Provider Manual follows the same route: HCAPPA “affects only insured products offered by Horizon BCBSNJ” (not ASO plans, SHBP/SEHBP, FEP or Medicare); written appeals “must be initiated on the New Jersey Department of Banking and Insurance\'s (DOBI) required form on or before 90 calendar days following receipt of the health insurer\'s claim determination,” including “all pertinent information and documents necessary to explain your position,” mailed to Horizon BCBSNJ Appeals Department, PO Box 10129, Newark, NJ 07101-3129. Horizon must decide within 30 calendar days and, if it rules for the provider, pay within 30 days with any prompt-pay interest. External arbitration requests go directly to MAXIMUS, not through Horizon, within 90 calendar days of Horizon\'s internal decision.',
         ],
         cites: [{ title: 'Horizon BCBSNJ — Professional Provider Manual: Inquiries, Complaints and Appeals', url: 'https://www.horizonblue.com/providers/resources/working-us-information-education-resources/manuals-user-guides/professional-provider-manual/inquiries-complaints-and-appeals' }, { title: 'NJ DOBI — Instructions for the Health Care Provider Application to Appeal a Claims Determination', url: 'https://www.nj.gov/dobi/chap352/352instructapplication.pdf' }, { title: 'NJ DOBI — Health Care Provider Application to Appeal a Claims Determination (generic form DOBICAPPGEN 10/10)', url: 'https://www.nj.gov/dobi/chap352/352genapplication.pdf' }, { title: 'NJ DOBI — Claims Handling Appeals and the Program for Independent Claims Payment Arbitration (PICPA) FAQ', url: 'https://www.nj.gov/dobi/chap352/352appealqanda.html' }],
+      },
+      {
+        h2: 'What happens when a practice fails a Horizon BCBSNJ audit?',
+        body: [
+          'Horizon\'s Clinical Auditing and Monitoring Unit (CAMU) runs medical-necessity audits when "Providers are outliers when compared to their professional peers" or services fall outside accepted standards, and "If the review finds other potential irregularities (i.e., upcoding, fraud, investigational/experimental services), Horizon has the right to review." Registered-nurse Clinical Audit Analysts work with Horizon medical directors, and "All adverse determinations are made by an MD." While a practice is in audit, each claim for the audited service goes to an analyst, who can release it, investigate further, or deny it "based on coding standards and/or medical policy." To leave the audit program "the provider must demonstrate, over a period of time defined by Horizon, that they made changes that comply with the standards." Letters of medical necessity "are not valid for medical necessity review."',
+          'Appeals. A denial letter gives the reason, the policy and the appeal steps. Every member contract has a first-level appeal, but the appeal is only advanced on "New, Pertinent Medical Documentation" that addresses the rationale in the denial; resending the same records gets an "Insufficient letter." An out-of-network provider also needs the member\'s signed consent. Payment disputes on insured plans go on DOBI\'s claim appeal form and then to state-sponsored arbitration (see the appeals section).',
+          'Recoupment limits on insured New Jersey plans (HCAPPA). Horizon may seek an overpayment only "within 18 months after the date the first payment on the claim was made," only once per claim, except for fraud, "a pattern of inappropriate billing," or coordination of benefits. It needs "at least 45 calendar days" notice before offsetting future claims, and "An offset will be stayed pending an internal appeal and state-sponsored binding arbitration"; Horizon "may extend the notice period up to 90 days." Where Horizon has reported fraud to the Office of the Insurance Fraud Prosecutor it may recapture without the 45-day notice. The statute also bars basing a recovery on "extrapolation of other claims" except in proceedings, fraud, or where "relevant records required to be maintained by the health care provider have been improperly altered or reconstructed." These limits do not cover BlueCard claims for other Blue plans, FEP, or self-funded (ASO) plans including SHBP/SEHBP.',
+        ],
+        cites: [
+          { title: 'Horizon BCBSNJ — Clinical Auditing and Monitoring Unit (CAMU) Medical Necessity Audit FAQs', url: 'https://www.horizonblue.com/providers/policies-procedures/claim-submission-billing/pre-payment-correct-coding-reviews/clinical-auditing-and-monitoring-unit-camu-medical-necessity-audit-faqs' },
+          { title: 'Horizon BCBSNJ — Professional Provider Manual: Claims Submissions and Reimbursement (Reimbursement Requests for Under- and Overpayments)', url: 'https://www.horizonblue.com/providers/resources/working-us-information-education-resources/manuals-user-guides/professional-provider-manual/claims-submissions-and-reimbursement' },
+          { title: 'P.L.2005, c.352 — Health Claims Authorization, Processing and Payment Act (N.J.S.A. 17B:30-48 et seq.; prompt pay in 17B:26-9.1, 17B:27-44.2, 17:48E-10.1, 26:2J-8.1)', url: 'https://pub.njleg.state.nj.us/Bills/2004/PL05/352_.PDF' },
+        ],
       },
     ],
     collect: [

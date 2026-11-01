@@ -33,6 +33,32 @@ const CFR438206_G5 = { title: '42 CFR 438.206 — Availability of services (out-
 const MCO_OON_BODY_G5 =
   'Out-of-network ABA and single case agreements. Federal Medicaid managed-care rules set the floor: “If the provider network is unable to provide necessary services, covered under the contract, to a particular enrollee,” the plan “must adequately and timely cover these services out of network for the enrollee, for as long as” its network cannot provide them, must require out-of-network providers “to coordinate with” the plan for payment, and must keep the enrollee’s cost no greater than in network (42 CFR 438.206(b)(4)-(5)). That is the basis for asking for a single case agreement when no in-network ABA provider can serve the child within the plan’s access standards. The terms and rate of any such agreement are set case by case, so document the network gap (who you called, wait times) and ask the plan’s utilization management or provider contracting team.';
 
+/* Technician credentials (RBT / grace period) and out-of-state providers — weekly refresh 2026-11-01 (G1).
+   National payer rules read 2026-11-01 from each payer's own document. */
+const G1_OPTUM_NNM = { title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): Applied Behavior Analysis network requirements; Telehealth', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' };
+const G1_OPTUM_FAQ = { title: 'Optum — Autism/Applied Behavior Analysis (ABA) Using CPT Codes FAQ (Q60, technician credentials)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' };
+const G1_AETNA_NPC = { title: 'Aetna — Provider and facility participation criteria (8100606-01-01, 5/26): Applied behavior analyst (ABA) services provider additional criteria', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' };
+const G1_AETNA_MNG = { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' };
+const G1_EN0499 = { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' };
+const G1_EBH_ADMIN = { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026): Behavioral virtual services', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' };
+const G1_OPTUM_TECH =
+  'Optum’s technician rule (UnitedHealthcare commercial). The National Network Manual (BH02330, effective 9/1/2026) says: “Paraprofessionals or Behavior Technicians are required to be a Registered Behavior Technician (RBT), a Board-Certified Autism Technician (BCAT), or a certified Applied Behavior Analysis Technician (ABAT). Any alternate certification must be approved in writing by an authorized Optum Behavioral Health contract representative,” adding that “State regulatory requirements may supplement, modify, or in some cases, supersede this policy.” Optum’s ABA CPT FAQ (Q60) applies the same list to every technician working 1:1. No Optum document gives a grace or provisional period for uncertified staff, so a technician without RBT, BCAT or ABAT certification needs Optum’s written approval of an alternate credential before you bill for them. Supervising analysts need active BCBA certification “and/or state license in those states that license behavior analysts/specialists.” For telehealth, “Providers offering telehealth visits must be licensed in the state where the member is located at the time of service.”';
+const G1_AETNA_TECH =
+  'Aetna’s technician rule. Aetna’s participation criteria for ABA providers say services must be provided directly or supervised by state-licensed or BACB-certified BCBAs, and supervised staff may be a BCaBA or “a paraprofessional.” “All BCBAs, BCaBAs and paraprofessionals must meet state requirements. If state requirements are not defined, all BCBAs, BCaBAs and paraprofessionals must meet Aetna standards.” For unlicensed or noncertified paraprofessionals the criteria require written supervision policies, “A minimum of one hour of face-to-face supervision … for each 10 hours of applied behavior analysis,” and a supervisor on site with the child at least one hour a month. Aetna’s ABA medical necessity guide likewise allows unlicensed or non-certified staff only with supervision “in line with practice standards.” Neither document names RBT certification or a grace period, so ask Aetna whether your agreement requires RBT certification. Aetna also requires its providers to meet state licensing rules, so an out-of-state BCBA follows the state rules described here.';
+const G1_CIGNA_TECH =
+  'Cigna’s technician rule. Evernorth’s ABA policy (EN0499, effective 5/15/2026) has case supervision done by a BCBA, LBA or independently licensed clinician with ABA training, with direct supervision of “either the Registered Behavior Technician® [RBT®] or the Board Certified Assistant Behavior Analyst® [BCaBA®],” but it sets no technician-credential requirement and no grace period, and neither do the Evernorth Behavioral Health Administrative Guidelines (September 2026). For remote care the guidelines say providers “must meet all state requirements to provide virtual behavioral services, including any licenses and certifications.” Ask Evernorth (the behavioral health number on the card) whether an uncertified technician may render 97153 under your agreement.';
+const G1_OK_R311 = { title: 'OAC 317:30-5-311 — ABA eligible providers and requirements [Revised 09-01-25]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/medical-providers-fee-for-service/individual-providers-and-specialties/applied-behavior-analysis-services/eligible-provider-and-requirements.html' };
+const G1_OK_R327 = { title: 'OAC 317:30-3-27 — Telehealth [Revised 03-13-26]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/medical-providers-fee-for-service/general-provider-policies/general-scope-and-administration/telehealth.html' };
+const G1_OK_OOSP = { title: 'OHCA — SoonerCare Out-of-State Services Rule Changes (HB 2341; 50-mile rule, out-of-state prior authorization)', url: 'https://oklahoma.gov/ohca/policies-and-rules/sooner-care-out-of-state-services-rule-changes.html' };
+const G1_OK_S1928 = { title: '59 O.S. § 1928 — Behavior analyst licensure (version in force through 10/31/2026: OKDHS Developmental Disabilities Services) — OSCN', url: 'https://www.oscn.net/applications/oscn/DeliverDocument.asp?CiteID=553182' };
+const G1_OK_S1557 = { title: '59 O.S. § 1928 — as amended by SB 1557 (Laws 2026, c. 392), eff. 11/1/2026: State Board of Examiners of Psychologists — OSCN', url: 'https://www.oscn.net/applications/oscn/DeliverDocument.asp?CiteID=456318' };
+const G1_OK_MCD_TECH =
+  'Technician credential. SoonerCare recognizes one technician credential, the Registered Behavior Technician: an RBT must “Be currently certified by the national-accrediting BACB as an RBT,” work under a SoonerCare-contracted BCBA, and “Be fully contracted with SoonerCare as a provider” (OAC 317:30-5-311(b)(3)), and “All staff providing ABA services must be contracted with the OHCA.” The rule names no other technician credential (no BCAT or ABAT) and no grace or provisional period, so an uncertified technician cannot deliver SoonerCare ABA. RBTs need supervision for at least 5% of their service hours each calendar month.';
+const G1_OK_MCD_OOS =
+  'Out-of-state BCBAs. SoonerCare requires a BCBA to be “currently licensed” as a behavior analyst in Oklahoma (the rule still names OKDHS DDS; 59 O.S. § 1928 makes licensure the gate to practice), and “All contracted providers must reside in the state of Oklahoma, or within 50 miles of the Oklahoma border” (OAC 317:30-5-311(b)(5)). The telehealth rule (OAC 317:30-3-27, revised 3/13/2026) requires the provider to be “contracted with SoonerCare and appropriately licensed or certified,” and a provider outside Oklahoma must also follow the laws of its own location. OHCA’s out-of-state policy requires an out-of-state prior authorization for a provider more than 50 miles from the border, received 10 days ahead, and does not allow single-case agreements. In practice, a BCBA licensed only in another state and based more than 50 miles from the border cannot contract for routine SoonerCare ABA.';
+const G1_OK_LAW =
+  'Oklahoma law for commercial plans. Oklahoma licenses behavior analysts: “No person shall practice applied behavior analysis without obtaining a license or certification,” and supervisees practise only under a licensed behavior analyst (59 O.S. § 1928; since November 1, 2026 the State Board of Examiners of Psychologists, not OKDHS, issues the license under SB 1557). The statute sets no separate credential for technicians, so an RBT requirement for commercial members comes from the payer. A BCBA in another state treating an Oklahoma child, including by telehealth, should hold an Oklahoma license.';
+
 export const oklahomaPayers: Record<string, PayerConfig> = {
   'oklahoma-medicaid': {
     slug: 'oklahoma-medicaid',
@@ -151,9 +177,9 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
         ],
       },
       {
-        h2: 'Licensure: who issues it is changing on November 1, 2026',
+        h2: 'Licensure: the Board of Examiners of Psychologists issues it from November 1, 2026',
         body: [
-          'Oklahoma licenses behavior analysts. Under 59 O.S. § 1928 as in force through October 31, 2026, a "Licensed behavior analyst" is a BCBA "licensed by the Developmental Disabilities Services Division" of OKDHS, a certified assistant behavior analyst is a BCaBA certified by DDS, "No person shall practice applied behavior analysis without obtaining a license or certification," and supervisees practise only under a licensed behavior analyst; licensed human services professionals (psychologists, LPCs, LCSWs, OTs, SLPs and others) may practise ABA within scope. SB 1557 (Laws 2026, c. 392) moves licensure to the State Board of Examiners of Psychologists effective November 1, 2026, adds a national criminal history check for applicants, and keeps renewal on April 30 of odd-numbered years. OHCA\'s rule still reads "licensed by ... OKDHS DDS", so expect the SoonerCare enrollment documents to follow the move.',
+          'Oklahoma licenses behavior analysts. Under 59 O.S. § 1928 as in force through October 31, 2026, a "Licensed behavior analyst" is a BCBA "licensed by the Developmental Disabilities Services Division" of OKDHS, a certified assistant behavior analyst is a BCaBA certified by DDS, "No person shall practice applied behavior analysis without obtaining a license or certification," and supervisees practise only under a licensed behavior analyst; licensed human services professionals (psychologists, LPCs, LCSWs, OTs, SLPs and others) may practise ABA within scope. SB 1557 (Laws 2026, c. 392) moved licensure to the State Board of Examiners of Psychologists effective November 1, 2026, added a national criminal history check for applicants, and kept renewal on April 30 of odd-numbered years. OHCA\'s rule still reads "licensed by ... OKDHS DDS", so expect the SoonerCare enrollment documents to follow the move.',
         ],
         cites: [
           { title: '59 O.S. § 1928 — Behavior analyst licensure (version in force through 10/31/2026: OKDHS Developmental Disabilities Services) — OSCN', url: 'https://www.oscn.net/applications/oscn/DeliverDocument.asp?CiteID=553182' },
@@ -197,6 +223,14 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
           { title: 'OAC 317:30-3-27 — Telehealth [Revised 03-13-26]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/medical-providers-fee-for-service/general-provider-policies/general-scope-and-administration/telehealth.html' },
           { title: 'OHCA — Medical codes allowed for Telehealth (updated 8-10-26)', url: 'https://oklahoma.gov/content/dam/ok/en/okhca/docs/providers/telehealth/Medical%20codes%20allowed%20for%20Telehealth.pdf' },
         ],
+      },
+      {
+        h2: 'Technician credentials (RBT, grace period) and out-of-state BCBAs',
+        body: [
+          G1_OK_MCD_TECH,
+          G1_OK_MCD_OOS,
+        ],
+        cites: [G1_OK_R311, G1_OK_R327, G1_OK_OOSP, G1_OK_S1928, G1_OK_S1557],
       },
     ],
     collect: [
@@ -380,6 +414,8 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       { q: 'What happens when a family switches ABA agencies under SoonerCare?', a: 'A discharge notification form goes to OHCA when a member moves to a new provider, and the diagnostic evaluation or clinical assessment is required again during the new agency’s initial authorization period.' },
       { q: 'What is SoonerCare’s timely filing limit for ABA claims?', a: 'Six months from the date of service — for fee-for-service claims to OHCA (OAC 317:30-3-11) and for claims to the SoonerSelect plans (OAC 317:55-5-25). A denied claim counts as proof of timely filing.' },
       { q: 'Which telehealth modifier does SoonerCare require for ABA?', a: 'OHCA’s rules require “the appropriate modifier” on telehealth claims but do not name it, so confirm with OHCA or the plan. Only 97151, 97155 and 97156 are on OHCA’s telehealth code list.' },
+      { q: 'Does SoonerCare require RBT certification, and is there a grace period?', a: 'Yes. SoonerCare accepts only the BACB Registered Behavior Technician as a technician credential, the RBT must be currently certified and individually contracted with OHCA, and OAC 317:30-5-311 gives no grace or provisional period for uncertified staff.' },
+      { q: 'Can an out-of-state BCBA serve SoonerCare members by telehealth?', a: 'Not for routine care. SoonerCare BCBAs must hold an Oklahoma behavior analyst license and contracted providers must reside in Oklahoma or within 50 miles of the border (OAC 317:30-5-311). The telehealth rule also requires a SoonerCare contract and appropriate licensure, and a provider more than 50 miles out needs an out-of-state prior authorization from OHCA.' },
     ],
   },
 
@@ -491,6 +527,15 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
         h2: 'Out-of-network care and single case agreements',
         body: [MCO_OON_BODY_G5],
         cites: [CFR438206_G5],
+      },
+      {
+        h2: 'Technician credentials (RBT, grace period) and out-of-state BCBAs',
+        body: [
+          'Aetna Better Health of Oklahoma follows the SoonerCare rules. Its provider manual (published 8/20/2026) lists the registered behavior technician (RBT) among the practitioner types it credentials and adds no other technician credential or grace period. For out-of-state care it says “All services provided by out-of-state providers/practitioners greater than 50 miles from the state border require prior authorization,” reviewed case by case with “detailed verification of unavailability within Oklahoma,” and services must come from a provider contracted with Aetna Better Health.',
+          G1_OK_MCD_TECH,
+          G1_OK_MCD_OOS,
+        ],
+        cites: [{ title: 'Aetna Better Health of Oklahoma — Provider Manual (published 8/20/2026): credentialed practitioner types; Out-of-state providers', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/oklahoma/pdf/abhok_provider_manual.pdf' }, G1_OK_R311, G1_OK_R327, G1_OK_OOSP, G1_OK_S1928, G1_OK_S1557],
       },
     ],
     collect: [
@@ -656,6 +701,8 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       { q: 'How do I join Aetna Better Health of Oklahoma’s ABA network?', a: 'Credential once through the Availity SoonerSelect portal, which all three plans use. The manual says credentialing is completed within 60 calendar days of a complete application.' },
       { q: 'What is Aetna Better Health of Oklahoma’s timely filing limit?', a: 'Six months from the date of service for a new claim, with resubmissions due within a further six months (August 2026 provider manual).' },
       { q: 'Does Aetna Better Health of Oklahoma require taxonomy on the claim?', a: 'Yes. Its manual requires the taxonomy code, with the NPI, in both the billing and the rendering provider sections of the claim.' },
+      { q: 'Does Aetna Better Health of Oklahoma require RBT certification, and is there a grace period?', a: 'Aetna Better Health of Oklahoma follows SoonerCare: technicians must be currently BACB-certified RBTs contracted with OHCA (OAC 317:30-5-311), with no grace or provisional period.' },
+      { q: 'Can an out-of-state BCBA treat Aetna Better Health of Oklahoma members?', a: 'Not for routine care. SoonerCare BCBAs must hold an Oklahoma behavior analyst license and contracted providers must reside in Oklahoma or within 50 miles of the border (OAC 317:30-5-311). The telehealth rule also requires a SoonerCare contract and appropriate licensure, and a provider more than 50 miles out needs an out-of-state prior authorization from OHCA.' },
     ],
   },
 
@@ -780,6 +827,15 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
         h2: 'Out-of-network care and single case agreements',
         body: [MCO_OON_BODY_G5],
         cites: [CFR438206_G5],
+      },
+      {
+        h2: 'Technician credentials (RBT, grace period) and out-of-state BCBAs',
+        body: [
+          'Oklahoma Complete Health follows the SoonerCare rules. Its ABA policy OK.CP.BH.500 (revised 08/26) refers to training and supervision of BCaBAs and registered behavior technicians and adds no other technician credential or grace period; it accepts a diagnostic evaluation from an out-of-state provider only if it meets the same documentation standard and comes from a qualified provider type.',
+          G1_OK_MCD_TECH,
+          G1_OK_MCD_OOS,
+        ],
+        cites: [{ title: 'Oklahoma Complete Health clinical policy OK.CP.BH.500 — Applied Behavioral Analysis (last revised 08/26)', url: 'https://www.oklahomacompletehealth.com/content/dam/centene/oklahoma-complete-health/policies/clinical-policies/OK.CP.BH.500.pdf' }, G1_OK_R311, G1_OK_R327, G1_OK_OOSP, G1_OK_S1928, G1_OK_S1557],
       },
     ],
     collect: [
@@ -956,6 +1012,8 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       { q: 'What happens if a family switches ABA agencies with Oklahoma Complete Health?', a: 'The diagnostic evaluation or clinical assessment is required again during the new agency’s initial authorization period, and an OHCA discharge notification form is filed when a member transfers to a new provider.' },
       { q: 'What does Oklahoma Complete Health pay for ABA?', a: 'Rates are set in your contract, but state law (56 O.S. § 4002.12) requires SoonerSelect plans to pay in-network providers at least 100% of the OHCA fee schedule rate (97153 is $17.35 per unit from 7/1/2026).' },
       { q: 'What is Oklahoma Complete Health’s timely filing limit for ABA claims?', a: '180 calendar days from the date of service for a first-time claim, and 180 days from the EOP for an adjustment (Provider Billing Manual).' },
+      { q: 'Does Oklahoma Complete Health require RBT certification, and is there a grace period?', a: 'Oklahoma Complete Health follows SoonerCare: technicians must be currently BACB-certified RBTs contracted with OHCA (OAC 317:30-5-311), with no grace or provisional period.' },
+      { q: 'Can an out-of-state BCBA treat Oklahoma Complete Health members?', a: 'Not for routine care. SoonerCare BCBAs must hold an Oklahoma behavior analyst license and contracted providers must reside in Oklahoma or within 50 miles of the border (OAC 317:30-5-311). The telehealth rule also requires a SoonerCare contract and appropriate licensure, and a provider more than 50 miles out needs an out-of-state prior authorization from OHCA.' },
     ],
   },
 
@@ -967,7 +1025,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       value: 'Required — the Prior Authorization and Notification List (eff. 7/1/2026) lists "Applied behavioral analysis therapy — 97151, 97153, 97155, 97156." Policy HUM-OK-2663-000 allows up to 24 units (6 hours) for the initial assessment and up to 16 units (4 hours) every 6 months for a reassessment billed 97151-TS, with exceptions for complex cases.',
       status: 'verified',
       cites: [
-        { title: 'Humana Healthy Horizons in Oklahoma — Prior Authorization and Notification List (eff. 7/1/2026, rev. 9/28/2026)', url: 'https://assets.humana.com/is/content/humana/OK%20MCD%20PAL%20Apdf-1' },
+        { title: 'Humana Healthy Horizons in Oklahoma — Prior Authorization and Notification List (eff. 7/1/2026, rev. 11/1/2026)', url: 'https://assets.humana.com/is/content/humana/OK%20MCD%20PAL%20Apdf-1' },
         { title: 'Humana Medicaid coverage policy HUM-OK-2663-000 — Applied Behavior Analysis (effective 9/16/2026)', url: 'https://assets.humana.com/is/content/humana/MCD%20Applied%20Behavior%20Analysis%20HUM-OK-2663-000%20ed%209.16.26pdf' },
         { title: 'Humana Healthy Horizons in Oklahoma — ABA assessment and reassessment parameters notice (6/18/2026; eff. 9/16/2026)', url: 'https://assets.humana.com/is/content/humana/FINAL_ABA%20Assessment%20Notice%201pdf' },
       ],
@@ -976,7 +1034,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       value: 'Required — 97153, 97155 and 97156 are on the PA list; the plan says "We follow state manual PART 30," so OHCA’s 1–6 month authorizations and seven-day extension window apply. Request PA at least 14 days before the service date.',
       status: 'verified',
       cites: [
-        { title: 'Humana Healthy Horizons in Oklahoma — Prior Authorization and Notification List (eff. 7/1/2026, rev. 9/28/2026)', url: 'https://assets.humana.com/is/content/humana/OK%20MCD%20PAL%20Apdf-1' },
+        { title: 'Humana Healthy Horizons in Oklahoma — Prior Authorization and Notification List (eff. 7/1/2026, rev. 11/1/2026)', url: 'https://assets.humana.com/is/content/humana/OK%20MCD%20PAL%20Apdf-1' },
         { title: 'Humana Medicaid coverage policy HUM-OK-2663-000 — Applied Behavior Analysis (effective 9/16/2026)', url: 'https://assets.humana.com/is/content/humana/MCD%20Applied%20Behavior%20Analysis%20HUM-OK-2663-000%20ed%209.16.26pdf' },
         { title: 'Humana Healthy Horizons in Oklahoma — provider manual effective 12/23/2026 (NPC996103OK0526; same ABA/UM/TPL text as the May 2026 edition)', url: 'https://assets.humana.com/is/content/humana/OK_Provider%20Manual_effective_12232026pdf' },
         { title: 'OAC 317:30-5-315 — ABA extension requests [Revised 09-01-25]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/medical-providers-fee-for-service/individual-providers-and-specialties/applied-behavior-analysis-services/aba-extension-requests.html' },
@@ -1021,7 +1079,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'Humana Healthy Horizons in Oklahoma — provider manual effective 12/23/2026 (NPC996103OK0526; same ABA/UM/TPL text as the May 2026 edition)', url: 'https://assets.humana.com/is/content/humana/OK_Provider%20Manual_effective_12232026pdf' },
           { title: 'Humana Medicaid coverage policy HUM-OK-2663-000 — Applied Behavior Analysis (effective 9/16/2026)', url: 'https://assets.humana.com/is/content/humana/MCD%20Applied%20Behavior%20Analysis%20HUM-OK-2663-000%20ed%209.16.26pdf' },
-          { title: 'Humana Healthy Horizons in Oklahoma — Prior Authorization and Notification List (eff. 7/1/2026, rev. 9/28/2026)', url: 'https://assets.humana.com/is/content/humana/OK%20MCD%20PAL%20Apdf-1' },
+          { title: 'Humana Healthy Horizons in Oklahoma — Prior Authorization and Notification List (eff. 7/1/2026, rev. 11/1/2026)', url: 'https://assets.humana.com/is/content/humana/OK%20MCD%20PAL%20Apdf-1' },
           { title: 'OAC 317:30-5-314 — Prior authorization, service limitations, and exclusions to treatment [Revised 09-01-25]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/medical-providers-fee-for-service/individual-providers-and-specialties/applied-behavior-analysis-services/prior-authorization-service-limitations-and-exclusions-to-treatment.html' },
         ],
       },
@@ -1033,7 +1091,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'Humana Healthy Horizons in Oklahoma — ABA assessment and reassessment parameters notice (6/18/2026; eff. 9/16/2026)', url: 'https://assets.humana.com/is/content/humana/FINAL_ABA%20Assessment%20Notice%201pdf' },
           { title: 'Humana Healthy Horizons in Oklahoma — ABA case supervision update (7/14/2026; eff. 10/12/2026)', url: 'https://assets.humana.com/is/content/humana/ABACaseSupervisionNoticepdf' },
-          { title: 'Humana Healthy Horizons in Oklahoma — Prior Authorization and Notification List (eff. 7/1/2026, rev. 9/28/2026)', url: 'https://assets.humana.com/is/content/humana/OK%20MCD%20PAL%20Apdf-1' },
+          { title: 'Humana Healthy Horizons in Oklahoma — Prior Authorization and Notification List (eff. 7/1/2026, rev. 11/1/2026)', url: 'https://assets.humana.com/is/content/humana/OK%20MCD%20PAL%20Apdf-1' },
           { title: 'Humana Healthy Horizons in Oklahoma — provider manual effective 12/23/2026 (NPC996103OK0526; same ABA/UM/TPL text as the May 2026 edition)', url: 'https://assets.humana.com/is/content/humana/OK_Provider%20Manual_effective_12232026pdf' },
         ],
       },
@@ -1067,6 +1125,15 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
         body: [MCO_OON_BODY_G5],
         cites: [CFR438206_G5],
       },
+      {
+        h2: 'Technician credentials (RBT, grace period) and out-of-state BCBAs',
+        body: [
+          'Humana Healthy Horizons in Oklahoma follows the SoonerCare rules. Its ABA policy HUM-OK-2663-000 describes the RBT as holding “a paraprofessional certification” and working under a BCBA or BCaBA, and its provider manual lists the RBT among credentialed practitioner types; neither adds a grace period. The manual lets members use providers within 50 miles of the border, and uses out-of-state providers beyond that only after exhausting in-state options.',
+          G1_OK_MCD_TECH,
+          G1_OK_MCD_OOS,
+        ],
+        cites: [{ title: 'Humana Medicaid coverage policy HUM-OK-2663-000 — Applied Behavior Analysis (ed. 9.16.26)', url: 'https://assets.humana.com/is/content/humana/MCD%20Applied%20Behavior%20Analysis%20HUM-OK-2663-000%20ed%209.16.26pdf' }, { title: 'Humana Healthy Horizons in Oklahoma — provider manual (effective 12/23/2026): credentialed practitioner types; out-of-state services', url: 'https://assets.humana.com/is/content/humana/OK_Provider%20Manual_effective_12232026pdf' }, G1_OK_R311, G1_OK_R327, G1_OK_OOSP, G1_OK_S1928, G1_OK_S1557],
+      },
     ],
     collect: [
       { title: 'Plan assignment', desc: 'Confirm Humana Healthy Horizons on the member ID card or through the OHCA Provider Helpline (800-522-0114, option 1). ABD and waiver children stay in fee-for-service.' },
@@ -1078,7 +1145,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
     ],
     sources: [ CFR438206_G5,
       { title: 'Humana Healthy Horizons in Oklahoma — provider manual effective 12/23/2026 (NPC996103OK0526; same ABA/UM/TPL text as the May 2026 edition)', url: 'https://assets.humana.com/is/content/humana/OK_Provider%20Manual_effective_12232026pdf' },
-      { title: 'Humana Healthy Horizons in Oklahoma — Prior Authorization and Notification List (eff. 7/1/2026, rev. 9/28/2026)', url: 'https://assets.humana.com/is/content/humana/OK%20MCD%20PAL%20Apdf-1' },
+      { title: 'Humana Healthy Horizons in Oklahoma — Prior Authorization and Notification List (eff. 7/1/2026, rev. 11/1/2026)', url: 'https://assets.humana.com/is/content/humana/OK%20MCD%20PAL%20Apdf-1' },
       { title: 'Humana Medicaid coverage policy HUM-OK-2663-000 — Applied Behavior Analysis (effective 9/16/2026)', url: 'https://assets.humana.com/is/content/humana/MCD%20Applied%20Behavior%20Analysis%20HUM-OK-2663-000%20ed%209.16.26pdf' },
       { title: 'Humana Healthy Horizons in Oklahoma — ABA assessment and reassessment parameters notice (6/18/2026; eff. 9/16/2026)', url: 'https://assets.humana.com/is/content/humana/FINAL_ABA%20Assessment%20Notice%201pdf' },
       { title: 'Humana Healthy Horizons in Oklahoma — ABA case supervision update (7/14/2026; eff. 10/12/2026)', url: 'https://assets.humana.com/is/content/humana/ABACaseSupervisionNoticepdf' },
@@ -1138,7 +1205,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'Humana Medicaid coverage policy HUM-OK-2663-000 — Applied Behavior Analysis (effective 9/16/2026)', url: 'https://assets.humana.com/is/content/humana/MCD%20Applied%20Behavior%20Analysis%20HUM-OK-2663-000%20ed%209.16.26pdf' },
-          { title: 'Humana Healthy Horizons in Oklahoma — Prior Authorization and Notification List (eff. 7/1/2026, rev. 9/28/2026)', url: 'https://assets.humana.com/is/content/humana/OK%20MCD%20PAL%20Apdf-1' },
+          { title: 'Humana Healthy Horizons in Oklahoma — Prior Authorization and Notification List (eff. 7/1/2026, rev. 11/1/2026)', url: 'https://assets.humana.com/is/content/humana/OK%20MCD%20PAL%20Apdf-1' },
           { title: 'OAC 317:30-5-314 — Prior authorization, service limitations, and exclusions to treatment [Revised 09-01-25]', url: 'https://oklahoma.gov/ohca/policies-and-rules/xpolicy/medical-providers-fee-for-service/individual-providers-and-specialties/applied-behavior-analysis-services/prior-authorization-service-limitations-and-exclusions-to-treatment.html' },
         ],
       },
@@ -1239,6 +1306,8 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       { q: 'What does Humana Healthy Horizons in Oklahoma pay for ABA?', a: 'Rates are contracted, with a state-law floor of 100% of the OHCA fee schedule for in-network providers. Preauthorized out-of-network services are paid at 90% of the Oklahoma Medicaid fee schedule.' },
       { q: 'What is Humana Healthy Horizons in Oklahoma’s timely filing limit?', a: 'Six months from the date of service (2026 provider manual).' },
       { q: 'Does Humana Healthy Horizons in Oklahoma require taxonomy on ABA claims?', a: 'Yes. Billing and rendering taxonomy codes must match the OHCA Master Provider List, along with the billing and rendering addresses.' },
+      { q: 'Does Humana Healthy Horizons in Oklahoma require RBT certification, and is there a grace period?', a: 'Humana Healthy Horizons in Oklahoma follows SoonerCare: technicians must be currently BACB-certified RBTs contracted with OHCA (OAC 317:30-5-311), with no grace or provisional period.' },
+      { q: 'Can an out-of-state BCBA treat Humana Healthy Horizons in Oklahoma members?', a: 'Not for routine care. SoonerCare BCBAs must hold an Oklahoma behavior analyst license and contracted providers must reside in Oklahoma or within 50 miles of the border (OAC 317:30-5-311). The telehealth rule also requires a SoonerCare contract and appropriate licensure, and a provider more than 50 miles out needs an out-of-state prior authorization from OHCA.' },
     ],
   },
 
@@ -1348,6 +1417,14 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
         h2: 'Disputes, appeals and transition of care (Aetna)',
         body: [AETNA_APPEALS_BODY_G5, AETNA_TOC_BODY_G5],
         cites: [AETNA_OM_G5],
+      },
+      {
+        h2: 'Technician credentials (RBT, grace period) and out-of-state BCBAs',
+        body: [
+          G1_AETNA_TECH,
+          G1_OK_LAW,
+        ],
+        cites: [G1_AETNA_NPC, G1_AETNA_MNG, G1_OK_S1928, G1_OK_S1557],
       },
     ],
     collect: [
@@ -1510,6 +1587,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       { q: 'Does Aetna cover ABA therapy in Oklahoma?', a: 'Yes, for autism spectrum disorder under Aetna’s national policy, with precertification for every ABA code. Insured Oklahoma plans also carry Nick’s Law; self-funded employer plans follow their plan document.' },
       { q: 'Does Oklahoma’s autism mandate still cap ABA hours or age?', a: 'No. Since SB 1240 took effect on November 1, 2022, 36 O.S. § 6060.21 has no age window, no visit limits, and no ABA-specific hour or dollar cap; the old 25 hours a week and $25,000 a year cap is repealed.' },
       { q: 'What does Aetna pay for ABA in Oklahoma?', a: 'Commercial rates are negotiated in the participating-provider agreement and are not published. SoonerCare’s July 2026 fee schedule ($17.35 per unit of 97153, $23.55 for 97151, 97155 and 97156) is the public benchmark.' },
+      { q: 'Does Aetna require RBT certification for ABA technicians in Oklahoma, and is there a grace period?', a: 'Aetna’s participation criteria require paraprofessionals to “meet state requirements” (or Aetna standards where the state defines none) with at least one hour of face-to-face supervision per 10 hours, but name no RBT requirement and no grace period; ask Aetna whether your agreement requires RBT certification.' },
     ],
   },
 
@@ -1619,7 +1697,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
           'Which codes: Evernorth’s autism resource guide (March 2025) says "All ABA services must be billed with CPT codes 97151–97158, 0362T, and 0373T ONLY," so state HCPCS ABA codes such as H0031, H0032, H2014 or H2019 are not billable to Cigna for ABA. The same guide says "All ABA CPT codes are covered telehealth services."',
         ],
         cites: [{ title: 'Cigna/Evernorth Autism Resource Guide (PCOMM-2025-225, March 2025): billing codes', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026): Claims filing deadline, Coordination of benefits, corrected claims, ERA, Appeals', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }, 
-          { title: 'Cigna for Health Care Professionals — When to File (timely filing policy)', url: 'https://static.cigna.com/assets/chcp/resourceLibrary/clinicalReimbursementPayment/medicalClinicalReimburseWhenToFile.html' },
+          { title: 'Cigna for Health Care Professionals — When to File (timely filing policy)', url: 'https://connections.cigna.com/chcp/resourceLibrary/clinicalReimbursementPayment/medicalClinicalReimburseWhenToFile' },
         ],
       },
       {
@@ -1633,6 +1711,14 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
         h2: 'Appeals and out-of-network care (Evernorth)',
         body: [EBH_APPEALS_BODY_G5, EBH_OON_BODY_G5],
         cites: [EBH_ADMIN_G5],
+      },
+      {
+        h2: 'Technician credentials (RBT, grace period) and out-of-state BCBAs',
+        body: [
+          G1_CIGNA_TECH,
+          G1_OK_LAW,
+        ],
+        cites: [G1_EN0499, G1_EBH_ADMIN, G1_OK_S1928, G1_OK_S1557],
       },
     ],
     collect: [
@@ -1785,6 +1871,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       { q: 'Is Cigna’s ABA network open to new providers in Oklahoma?', a: 'Evernorth says it is “committed to expanding our network of autism providers.” Apply with the provider information form (individuals) or the autism clinic screening application; allow up to 90 days, then 60–90 days of credentialing per provider.' },
       { q: 'Does Cigna credential RBTs?', a: 'No. Evernorth does not credential nonlicensed or noncertified staff; their services are billed under the supervising provider.' },
       { q: 'What is Cigna’s timely filing limit in Oklahoma?', a: '90 days from the date of service for a participating provider and 180 days out of network, unless your agreement or applicable law allows longer (Cigna’s When to File policy).' },
+      { q: 'Does Cigna require RBT certification for ABA technicians in Oklahoma, and is there a grace period?', a: 'Evernorth’s ABA policy (EN0499) and administrative guidelines set no technician credential and no grace period; ask Evernorth whether an uncertified technician may render 97153 under your agreement.' },
     ],
   },
 
@@ -1912,6 +1999,14 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
         h2: 'Appeals, authorizations and changing providers (Optum)',
         body: [OPTUM_APPEALS_BODY_G5, OPTUM_AUTH_BODY_G5],
         cites: [OPTUM_NNM_G5],
+      },
+      {
+        h2: 'Technician credentials (RBT, grace period) and out-of-state BCBAs',
+        body: [
+          G1_OPTUM_TECH,
+          G1_OK_LAW,
+        ],
+        cites: [G1_OPTUM_NNM, G1_OPTUM_FAQ, G1_OK_S1928, G1_OK_S1557],
       },
     ],
     collect: [
@@ -2080,6 +2175,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       { q: 'What is UnitedHealthcare’s ABA fee schedule in Oklahoma?', a: 'Rates are contracted. Optum pays participating providers “based on your contracted rate” for the codes on their fee schedule; non-contracted providers call the Behavioral Health number on the member’s card.' },
       { q: 'Can the ABA assessment be done by telehealth with UnitedHealthcare?', a: 'Not on commercial plans. Optum allows telehealth only for 97155, 97156 and 97157 after a virtual-visits attestation, so 97151 is in person.' },
       { q: 'What is UnitedHealthcare’s timely filing limit for ABA in Oklahoma?', a: '90 calendar days from the date of service under Optum’s National Provider Network Manual, unless state law, federal law or the member’s plan allows longer.' },
+      { q: 'Does UnitedHealthcare require RBT certification for ABA technicians in Oklahoma, and is there a grace period?', a: 'Yes, or an equivalent: Optum requires technicians to be an RBT, BCAT or ABAT, and any other certification must be approved in writing by Optum. Optum publishes no grace or provisional period for uncertified technicians.' },
     ],
   },
 
@@ -2210,6 +2306,14 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'BCBSOK — Commercial Provider Reference Manual (updated September 2026)', url: 'https://www.bcbsok.com/docs/provider/ok/standards/manuals/bcbsok-commercial-provider-reference-manual.pdf' },
         ],
+      },
+      {
+        h2: 'Technician credentials (RBT, grace period) and out-of-state BCBAs',
+        body: [
+          'BCBSOK’s technician rule. BCBSOK’s ABA Clinical Service Request Form (rev. 10/2025) sets these “Requirements for line staff providing 1:1 therapy: 1) 18+ years of age; 2) High school diploma or GED; 3) criminal background check prior to active employment; 4) via practice expense, completed training of ASD and behavioral related subjects/evidence based techniques (40 hours) and 5) have on-going supervisory oversight by the BCBA or ABA treatment supervisor for a minimum of 5% of hours directly worked with members.” It does not require RBT certification, so there is no RBT grace period. The training time is not billable to BCBSOK or its members, the signing supervisor certifies that billed line therapists (and any new staff) meet these qualifications, and the ABA supervisor attests to having “an active license in the state where this member’s services are rendered.”',
+          G1_OK_LAW,
+        ],
+        cites: [{ title: 'BCBSOK — ABA Clinical Service Request Form (rev. 10/2025): Line Therapist Requirements; Certification of Provider Qualifications', url: 'https://www.bcbsok.com/docs/provider/ok/education/forms/ok-aba-clinicalservicerequestform.pdf' }, G1_OK_S1928, G1_OK_S1557],
       },
     ],
     collect: [
@@ -2381,6 +2485,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       { q: 'What criteria does BCBSOK use for ABA medical necessity?', a: 'Since January 1, 2026, MCG guidelines (Applied Behavioral Analysis, B-806-T) replaced BCBSOK’s own ABA medical policy. MCG is licensed and available to providers through Availity.' },
       { q: 'Can my agency treat a child covered by another state’s Blue Cross plan through BCBSOK?', a: 'Usually, through BlueCard. File the claim with BCBSOK, your local plan; it forwards the claim to the child’s home plan, which applies the child’s benefits. Get prior authorization from the home plan, through Electronic Provider Access in BCBSOK’s portal (enter the member’s prefix) or BlueCard Eligibility at 800-676-2583. Medicaid plans, Medicare Advantage and the Federal Employee Program are not part of BlueCard.' },
       { q: 'What is BCBSOK’s timely filing limit for ABA claims?', a: '180 days from the date of service under BCBSOK’s Commercial Provider Reference Manual (September 2026), unless the member’s coverage agreement allows longer. Clean claims are adjudicated within 30 days of receipt, and appeals are due within 180 days of the adverse determination notice.' },
+      { q: 'Does BCBSOK require RBT certification for ABA technicians, and is there a grace period?', a: 'No RBT requirement is published. BCBSOK’s ABA request form requires line staff to be 18 or older with a high school diploma or GED, a criminal background check before starting, 40 hours of ASD and behavioral training (not billable), and BCBA supervision of at least 5% of their hours. With no RBT requirement there is no grace period. The supervisor must be licensed in the state where the member’s services are rendered.' },
     ],
   },
 };

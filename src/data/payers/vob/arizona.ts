@@ -12,8 +12,8 @@
      and the POS 12 (home) premium (~10–11.5% above office). CRITICAL
      corrections applied vs. the guide prose: 97155 has NO HM rate —
      $25.05 is HN (not HM), $29.82 HO, $37.28 HP; same no-HM pattern for
-     97151 and 97158. 97156 and 97157 remain "By Report" (no fixed
-     rate) — shipped 'unverified'. 0362T and 0373T are NOT on the AHCCCS
+     97151 and 97158. 97156 and 97157 were "By Report" through FFY26;
+     the FFY27 schedule (eff. 10/1/2026, read 2026-11-01) prices them. 0362T and 0373T are NOT on the AHCCCS
      ABA fee schedule at all — shipped 'unverified' (check the physician
      fee schedule / code lookup). The 9715x codes live on the AHCCCS
      PHYSICIAN fee schedule, not the Behavioral Health Outpatient one.
@@ -66,6 +66,8 @@ const AHCCCS_FEE_SCHEDULE_FY26 = src(
   'https://azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA/FY26_Final_ABA_FeeSchedule.xlsx',
   'AHCCCS ABA Fee Schedule, FFY26 (eff. 10/1/2025) — identical fixed dollar figures to FFY24 (eff. 11/1/2023) for all fixed codes; 97156/97157 remain "BR" (By Report); adds a TJ modifier on 97154 = $14.93 (row added 6/30/2026, effective 10/1/2025). 0362T/0373T are not on this schedule (closed by AHCCCS 7/1/2023). Re-read 2026-10-25. Cross-confirms the 2023 notice.'
 );
+const AHCCCS_FEE_SCHEDULE_FY27: SourceRef = { url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA/FY27_ABA_WebsiteRates.xlsx', accessDate: '2026-11-01', note: 'AHCCCS Final ABA Fee Schedule, FFY27 (eff. 10/01/2026; "Last Updated on 6/22/2026"), linked as "Rates Effective October 1, 2026" on the AHCCCS ABA FFS Rates & Codes page. 97151/97152/97153/97155/97158 and the untiered 97154 rows carry the same dollars as FFY26 (effective date 10/1/2024). New for 10/1/2026: 97156 priced at $23.97 (HN/none) · $28.53 (HO) · $35.67 (HP), home (POS 12) $26.53 / $31.58 / $39.47; 97157 at $7.99 · $9.51 · $11.89, home $8.84 / $10.53 / $13.16 (both were "BR" on FFY26); 97154 TJ $16.95 (was $14.93). Read 2026-11-01.' };
+const AHCCCS_ARS_2904: SourceRef = { url: 'https://www.azleg.gov/ars/36/02904.htm', accessDate: '2026-11-01', note: 'A.R.S. § 36-2904(K): "A contractor may require that a subcontracting or noncontracting provider shall be paid for covered services, other than hospital services, according to the capped fee-for-service schedule adopted by the director ... or at lower rates as may be negotiated by the contractor." Read 2026-11-01.' };
 const AHCCCS_MODIFIER_LIST: SourceRef = { url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/AHCCCS_ModifiersList2024.pdf', accessDate: '2026-10-25', note: 'AHCCCS Modifier List and Descriptions (Medical Coding Resources, Sept 2024): HM "Less than bachelor degree level", HN "Bachelors degree level", HO "Masters degree level", HP "Doctoral level", TJ "Program group, child and/or adolescent", GT "Via interactive audio and video telecommunication systems". Read 2026-10-25.' };
 const AHCCCS_0362T_CLOSURE: SourceRef = { url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/MEMO-0362T_0373T-CodeClosure.pdf', accessDate: '2026-10-25', note: 'AHCCCS Medical Coding Unit memo, June 21, 2023: "Codes 0362T and 0373T will no longer be allowed for reporting starting July 1, 2023"; possible code options are 97151-97158. Read 2026-10-25.' };
 const AHCCCS_COMPANION_GUIDE = src(
@@ -126,40 +128,40 @@ const CIGNA_AUTISM_GUIDE = src(
 
 const AZ_AHCCCS_RATES: RateTable = {
   source:
-    'AHCCCS ABA fee schedule (physician fee schedule), fixed rates eff. 11/1/2023, verified unchanged through FFY26 (eff. 10/1/2025). Per-15-min by rate-tier modifier, which the AHCCCS Modifier List (2024) defines by the rendering person\'s degree level: HM "Less than bachelor degree level", HN "Bachelors degree level", HO "Masters degree level", HP "Doctoral level" (AHCCCS publishes no crosswalk to RBT/BCaBA/BCBA). A line with no tier modifier is priced at the lowest listed tier. Rates below are the non-home (office/community) tier; POS 12 (home) pays a ~10–11.5% premium (given inline).',
-  effectiveDate: '2023-11-01',
+    'AHCCCS ABA fee schedule (physician fee schedule), fixed rates eff. 11/1/2023, unchanged through FFY26 (eff. 10/1/2025); the FFY27 schedule (eff. 10/1/2026) keeps those dollars and adds fixed rates for 97156 and 97157 (previously By Report) and a higher 97154 TJ rate. Per-15-min by rate-tier modifier, which the AHCCCS Modifier List (2024) defines by the rendering person\'s degree level: HM "Less than bachelor degree level", HN "Bachelors degree level", HO "Masters degree level", HP "Doctoral level" (AHCCCS publishes no crosswalk to RBT/BCaBA/BCBA). A line with no tier modifier is priced at the lowest listed tier. Rates below are the non-home (office/community) tier; POS 12 (home) pays a ~10–11.5% premium (given inline).',
+  effectiveDate: '2026-10-01',
   byCode: {
     '97151': { rate: 'No HM tier. Office: $30.06 (HN) · $35.78 (HO) · $44.73 (HP). Home (POS 12): $33.27 / $39.60 / $49.50.', unit: '15min', modifierTiers: { HN: '$30.06', HO: '$35.78', HP: '$44.73' } },
     '97152': { rate: 'Office: $21.49 (HM) · $25.58 (HN) · $28.43 (HO/HP). Home: $23.95 / $28.54 / $31.71.', unit: '15min', modifierTiers: { HM: '$21.49', HN: '$25.58', HO: '$28.43', HP: '$28.43' } },
     '97153': { rate: 'Office: $17.91 (HM) · $21.32 (HN) · $23.69 (HO/HP). Home: $19.96 / $23.79 / $26.43.', unit: '15min', modifierTiers: { HM: '$17.91', HN: '$21.32', HO: '$23.69', HP: '$23.69' } },
-    '97154': { rate: 'Office: $4.48 (HM) · $5.33 (HN) · $5.92 (HO/HP). Home: $4.99 / $5.95 / $6.61. FY26 adds TJ modifier = $14.93 (eff. 10/1/2025).', unit: '15min', modifierTiers: { HM: '$4.48', HN: '$5.33', HO: '$5.92', HP: '$5.92', TJ: '$14.93 (eff. 10/1/2025)' } },
+    '97154': { rate: 'Office: $4.48 (HM) · $5.33 (HN) · $5.92 (HO/HP). Home: $4.99 / $5.95 / $6.61. TJ modifier = $16.95 from 10/1/2026 (FFY27; was $14.93 eff. 10/1/2025).', unit: '15min', modifierTiers: { HM: '$4.48', HN: '$5.33', HO: '$5.92', HP: '$5.92', TJ: '$16.95 (eff. 10/1/2026)' } },
     '97155': { rate: 'No HM tier. Office: $25.05 (HN) · $29.82 (HO) · $37.28 (HP). Home: $27.72 / $33.00 / $41.25.', unit: '15min', modifierTiers: { HN: '$25.05', HO: '$29.82', HP: '$37.28' } },
-    '97156': { rate: 'unverified — "By Report" on the AHCCCS ABA fee schedule (eff. 2019-01-01, unchanged through FY26); not in the 2023 fixed-rate notice', unit: 'unverified' },
-    '97157': { rate: 'unverified — "By Report" on the AHCCCS ABA fee schedule; not in the 2023 fixed-rate notice', unit: 'unverified' },
+    '97156': { rate: 'No HM tier. From 10/1/2026 (FFY27; By Report before): Office $23.97 (HN) · $28.53 (HO) · $35.67 (HP). Home (POS 12): $26.53 / $31.58 / $39.47.', unit: '15min', modifierTiers: { HN: '$23.97', HO: '$28.53', HP: '$35.67' } },
+    '97157': { rate: 'No HM tier. From 10/1/2026 (FFY27; By Report before): Office $7.99 (HN) · $9.51 (HO) · $11.89 (HP). Home (POS 12): $8.84 / $10.53 / $13.16.', unit: '15min', modifierTiers: { HN: '$7.99', HO: '$9.51', HP: '$11.89' } },
     '97158': { rate: 'No HM tier. Office: $6.26 (HN) · $7.46 (HO) · $9.32 (HP). Home: $6.93 / $8.25 / $10.31.', unit: '15min', modifierTiers: { HN: '$6.26', HO: '$7.46', HP: '$9.32' } },
     '0362T': { rate: 'Not payable — AHCCCS Medical Coding Unit closed 0362T for reporting from 7/1/2023 (memo 6/21/2023); report the service with 97151–97158', unit: 'n/a' },
     '0373T': { rate: 'Not payable — AHCCCS Medical Coding Unit closed 0373T for reporting from 7/1/2023 (memo 6/21/2023); report the service with 97151–97158', unit: 'n/a' },
   },
-  sources: [AHCCCS_RATE_NOTICE_2023, AHCCCS_FEE_SCHEDULE_FY26, AHCCCS_MODIFIER_LIST, AHCCCS_0362T_CLOSURE],
+  sources: [AHCCCS_RATE_NOTICE_2023, AHCCCS_FEE_SCHEDULE_FY26, AHCCCS_FEE_SCHEDULE_FY27, AHCCCS_MODIFIER_LIST, AHCCCS_0362T_CLOSURE],
 };
 
 function azBenchmarkRates(planName: string): RateTable {
   return {
-    source: `Not separately published by ${planName}. AHCCCS ACC/DDD plans are capitated, but ABA tracks the AHCCCS physician fee schedule (see arizona-ahcccs rates) as the public benchmark — ${planName}'s actual contracted rate is not published (and is NOT a statutory floor, unlike New Mexico).`,
-    effectiveDate: '2023-11-01 (AHCCCS benchmark)',
+    source: `Not separately published by ${planName}. AHCCCS ACC/DDD plans are capitated, but ABA tracks the AHCCCS physician fee schedule (see arizona-ahcccs rates) as the public benchmark — ${planName}'s actual contracted rate is not published (and is NOT a statutory floor, unlike New Mexico). A.R.S. § 36-2904(K) lets a contractor pay subcontracting or noncontracting providers "according to the capped fee-for-service schedule adopted by the director ... or at lower rates as may be negotiated by the contractor" — the FFS schedule works as a cap, not a floor.`,
+    effectiveDate: '2026-10-01 (AHCCCS FFY27 benchmark)',
     byCode: {
       '97151': { rate: 'Benchmark: $30.06 (HN) / $35.78 (HO) / $44.73 (HP) office — see arizona-ahcccs', unit: '15min' },
       '97152': { rate: 'Benchmark: $21.49 (HM) / $25.58 (HN) / $28.43 (HO/HP) office — see arizona-ahcccs', unit: '15min' },
       '97153': { rate: 'Benchmark: $17.91 (HM) / $21.32 (HN) / $23.69 (HO/HP) office — see arizona-ahcccs', unit: '15min' },
       '97154': { rate: 'Benchmark: $4.48 (HM) / $5.33 (HN) / $5.92 (HO/HP) office — see arizona-ahcccs', unit: '15min' },
       '97155': { rate: 'Benchmark: $25.05 (HN) / $29.82 (HO) / $37.28 (HP) office — see arizona-ahcccs', unit: '15min' },
-      '97156': { rate: 'unverified — By Report at AHCCCS', unit: 'unverified' },
-      '97157': { rate: 'unverified — By Report at AHCCCS', unit: 'unverified' },
+      '97156': { rate: 'Benchmark from 10/1/2026: $23.97 (HN) / $28.53 (HO) / $35.67 (HP) office — see arizona-ahcccs', unit: '15min' },
+      '97157': { rate: 'Benchmark from 10/1/2026: $7.99 (HN) / $9.51 (HO) / $11.89 (HP) office — see arizona-ahcccs', unit: '15min' },
       '97158': { rate: 'Benchmark: $6.26 (HN) / $7.46 (HO) / $9.32 (HP) office — see arizona-ahcccs', unit: '15min' },
       '0362T': { rate: 'Closed by AHCCCS for reporting from 7/1/2023 (Medical Coding Unit memo) — confirm the plan does not still accept it', unit: 'n/a' },
       '0373T': { rate: 'Closed by AHCCCS for reporting from 7/1/2023 (Medical Coding Unit memo) — confirm the plan does not still accept it', unit: 'n/a' },
     },
-    sources: [AHCCCS_RATE_NOTICE_2023, AHCCCS_FEE_SCHEDULE_FY26, AHCCCS_MODIFIER_LIST, AHCCCS_0362T_CLOSURE],
+    sources: [AHCCCS_RATE_NOTICE_2023, AHCCCS_FEE_SCHEDULE_FY26, AHCCCS_FEE_SCHEDULE_FY27, AHCCCS_MODIFIER_LIST, AHCCCS_0362T_CLOSURE, AHCCCS_ARS_2904],
   };
 }
 
@@ -812,7 +814,7 @@ const ahcccsContact: VobContact = {
   scriptedQuestions: [
     'Which AHCCCS-contracted plan is the member enrolled in — ACC or DDD — so I route the PA to the right plan?',
     ...AHCCCS_DDD_GRID_QUESTIONS,
-    'What’s the current rate for 97156 and 97157 — are they still paid “By Report”?',
+    'Is this claim fee-for-service (AIHP/tribal) — so the FFY27 ABA fee schedule applies, including the new 97156/97157 rates effective 10/1/2026?',
     'Are 0362T and 0373T covered and separately reimbursed for this member, since neither is on the ABA fee schedule?',
   ],
   benefitsByPhone: true,
@@ -826,7 +828,7 @@ const mercyCareContact: VobContact = {
     'Is there a daily or weekly unit cap for 97153–97155, and what capPeriod applies?',
     'Is telehealth allowed for ABA treatment codes, and if so what POS or modifier should I use?',
     'What POS codes (home, clinic, school, community) does Mercy Care actually accept on ABA claims?',
-    'What’s the current authorized rate for 97156/97157, since they’re “By Report” at the state level?',
+    'What does our contract pay for 97156/97157 — AHCCCS FFS priced them from 10/1/2026 (97156 $23.97–$35.67 by tier), but that schedule does not bind the plan?',
   ],
   benefitsByPhone: true,
   requiresIndividualNpi: false,
@@ -843,7 +845,7 @@ const uhcCommunityAzContact: VobContact = {
     'Is there a daily or weekly unit cap for 97153–97155 treatment codes?',
     'Does telehealth require a specific modifier (GT/95) for ABA codes under this member’s ACC/DD plan?',
     'What POS codes are accepted for home vs. clinic ABA sessions?',
-    'What’s the current rate for 97156/97157, since AHCCCS lists them “By Report”?',
+    'What does our contract pay for 97156/97157 — AHCCCS FFS priced them from 10/1/2026, but that schedule does not bind the plan?',
   ],
   benefitsByPhone: true,
   requiresIndividualNpi: 'unverified',

@@ -1,5 +1,29 @@
 import type { PayerConfig } from './types.js';
 
+/* Technician credentials (RBT / grace period) and out-of-state providers — weekly refresh 2026-11-01 (G1).
+   National payer rules read 2026-11-01 from each payer's own document. */
+const G1_OPTUM_NNM = { title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): Applied Behavior Analysis network requirements; Telehealth', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' };
+const G1_OPTUM_FAQ = { title: 'Optum — Autism/Applied Behavior Analysis (ABA) Using CPT Codes FAQ (Q60, technician credentials)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' };
+const G1_AETNA_NPC = { title: 'Aetna — Provider and facility participation criteria (8100606-01-01, 5/26): Applied behavior analyst (ABA) services provider additional criteria', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' };
+const G1_AETNA_MNG = { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' };
+const G1_EN0499 = { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' };
+const G1_EBH_ADMIN = { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026): Behavioral virtual services', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' };
+const G1_OPTUM_TECH =
+  'Optum’s technician rule (UnitedHealthcare commercial). The National Network Manual (BH02330, effective 9/1/2026) says: “Paraprofessionals or Behavior Technicians are required to be a Registered Behavior Technician (RBT), a Board-Certified Autism Technician (BCAT), or a certified Applied Behavior Analysis Technician (ABAT). Any alternate certification must be approved in writing by an authorized Optum Behavioral Health contract representative,” adding that “State regulatory requirements may supplement, modify, or in some cases, supersede this policy.” Optum’s ABA CPT FAQ (Q60) applies the same list to every technician working 1:1. No Optum document gives a grace or provisional period for uncertified staff, so a technician without RBT, BCAT or ABAT certification needs Optum’s written approval of an alternate credential before you bill for them. Supervising analysts need active BCBA certification “and/or state license in those states that license behavior analysts/specialists.” For telehealth, “Providers offering telehealth visits must be licensed in the state where the member is located at the time of service.”';
+const G1_AETNA_TECH =
+  'Aetna’s technician rule. Aetna’s participation criteria for ABA providers say services must be provided directly or supervised by state-licensed or BACB-certified BCBAs, and supervised staff may be a BCaBA or “a paraprofessional.” “All BCBAs, BCaBAs and paraprofessionals must meet state requirements. If state requirements are not defined, all BCBAs, BCaBAs and paraprofessionals must meet Aetna standards.” For unlicensed or noncertified paraprofessionals the criteria require written supervision policies, “A minimum of one hour of face-to-face supervision … for each 10 hours of applied behavior analysis,” and a supervisor on site with the child at least one hour a month. Aetna’s ABA medical necessity guide likewise allows unlicensed or non-certified staff only with supervision “in line with practice standards.” Neither document names RBT certification or a grace period, so ask Aetna whether your agreement requires RBT certification. Aetna also requires its providers to meet state licensing rules, so an out-of-state BCBA follows the state rules described here.';
+const G1_CIGNA_TECH =
+  'Cigna’s technician rule. Evernorth’s ABA policy (EN0499, effective 5/15/2026) has case supervision done by a BCBA, LBA or independently licensed clinician with ABA training, with direct supervision of “either the Registered Behavior Technician® [RBT®] or the Board Certified Assistant Behavior Analyst® [BCaBA®],” but it sets no technician-credential requirement and no grace period, and neither do the Evernorth Behavioral Health Administrative Guidelines (September 2026). For remote care the guidelines say providers “must meet all state requirements to provide virtual behavioral services, including any licenses and certifications.” Ask Evernorth (the behavioral health number on the card) whether an uncertified technician may render 97153 under your agreement.';
+const G1_BACB_LIC = { title: 'BACB — U.S. Licensure of Behavior Analysts (state table, read 11/1/2026)', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' };
+const G1_NM_BHM = { title: 'HCA — Behavioral Health Policy and Billing Manual (April 1, 2025), Applied Behavior Analysis: provider types; Instructions for ABA Telehealth Providers; billing table', url: 'https://www.hca.nm.gov/wp-content/uploads/BH-Manual-Section-Final-Version-4.1.25-1-1.pdf' };
+const G1_NM_S2413 = { title: 'MAD Supplement 24-13 — Applied Behavior Analysis (ABA) Guidance (9/17/2024): Non-certified Behavior Technician; § 3.2.1 telemedicine', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' };
+const G1_NM_MCD_TECH =
+  'Technician credential. New Mexico Medicaid does not require the RBT on day one. A behavior technician may be an RBT, a BCAT, or a time-limited non-certified behavior technician (MAD Supplement 24-13; the HCA Behavioral Health Policy and Billing Manual lists the MAD-880 non-certified technician attestation). A non-certified technician must be at least 18, have a high school diploma or equivalent, pass the New Mexico criminal background registry check, and complete four hours of ASD training and at least 20 of the 40 RBT or BCAT training hours before rendering services. All 40 hours are due within 90 days of approval, the other testing requirements within 180 days, and the technician must “secure and hold a RBT or BCAT certificate within the first continuous six-months of approval.” A technician who misses that deadline “must not render ABA Stage 2 or 3 services” until certified.';
+const G1_NM_MCD_OOS =
+  'Out-of-state providers and telehealth. New Mexico does not license behavior analysts (it is not on the BACB’s table of licensing states, read 11/1/2026), so Medicaid qualifies a behavior analyst by BCBA or BCBA-D certification (or ABPP certification for a psychologist) plus the MAD attestation and background check. HCA “does not require in-state ABA providers to have a telemedicine license. However, if the AEP is an out-of-state provider, the New Mexico Medical Board does require this practitioner to obtain a telemedicine license (or a full New Mexico medical license)” (Behavioral Health Policy and Billing Manual; Supplement 24-13 § 3.2.1). Telemedicine must be real-time interactive audio and video under 8.310.2 NMAC. Neither document sets a residency rule for an out-of-state BCBA or agency, so ask the MAD ABA Manager how an out-of-state agency enrolls before serving a Turquoise Care member remotely.';
+const G1_NM_LAW =
+  'New Mexico law for commercial plans. New Mexico does not license behavior analysts or technicians (it is not on the BACB’s table of licensing states, read 11/1/2026), so there is no New Mexico license for an out-of-state BCBA to obtain, and any technician credential comes from the payer.';
+
 export const newMexicoPayers: Record<string, PayerConfig> = {
   'new-mexico-medicaid': {
     slug: 'new-mexico-medicaid',
@@ -149,6 +173,13 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
           { title: '8.302.2.11 NMAC — Billing and claims filing limitations (srca.nm.gov)', url: 'https://www.srca.nm.gov/parts/title08/08.302.0002.html' },
         ],
       },
+      {
+        h2: 'Out-of-state BCBAs and telehealth providers',
+        body: [
+          G1_NM_MCD_OOS,
+        ],
+        cites: [G1_NM_BHM, G1_NM_S2413, G1_BACB_LIC],
+      },
     ],
     collect: [
       { title: 'Turquoise Care MCO (or FFS)', desc: 'BCBSNM, Molina, Presbyterian, UHC Community Plan, or FFS/TPA — same clinical criteria, different submission machinery.' },
@@ -207,7 +238,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
         ],
-        verifyVia: 'MAD Behavioral Health Policy and Billing Manual / Supplement 24-13 via the HCA ABA provider information page — hca.nm.gov blocked automated retrieval this cycle (CloudFront geo-block), so pull the MAD Behavioral Health Policy and Billing Manual and Supplement 24-13 from the HCA ABA provider page by hand, or ask the MAD ABA Manager.',
+        verifyVia: 'Checked 2026-11-01: the HCA Behavioral Health Policy and Billing Manual (April 1, 2025) ABA section names Stage 1 screening tools (Level 1, e.g. M-CHAT; Level 2, e.g. STAT, encouraged but not required) and defines “diagnosed with ASD” as a documented diagnosis based on the current DSM or ICD, but requires no specific diagnostic instrument. Ask the plan if it expects a particular tool.',
         blocker: 'per-case',
       },
       referral: {
@@ -248,14 +279,11 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
         ],
       },
       concurrentBilling: {
-        value: 'Not resolved in the rule text. NMAC 8.321.2.13 publishes no same-clock-time billing rule for ABA, and it defers billing instructions to the MAD Behavioral Health Policy and Billing Manual. What is clear is that the model assumes concurrent delivery: the 97155 observation floor is expressed as units rendered with the recipient present against units of 97153/97154/97156, which is supervision alongside direct service. Whether both are payable for the same clock minutes still needs the billing manual.',
+        value: 'No same-clock-time rule for 97153 and 97155 is published. HCA’s Behavioral Health Policy and Billing Manual (April 1, 2025) describes 97155 as “Administered by QHP, which may include simultaneous direction of technician,” requires at least four units of 97155 for every 80 units of combined 97153, 97154 and 97156, and names concurrency only for two codes: T1026 UD (clinical management and case supervision) “may be billed concurrently with” 97153, 97154, 97155 (without telemedicine), and 97156, 97157 or 97158 when a BA renders them to a mentored BA or BAA, but not with 0373T; and 0373T may not be billed concurrently with 97151, 97152 or T1026 UD. Neither 8.321.2.13 NMAC nor Supplement 24-13 says whether 97153 and 97155 may be billed for the same minutes, so ask before billing them together.',
         status: 'unverified',
-        cites: [
-          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
-          { title: 'MAD Supplement 24-13 — Applied Behavior Analysis (ABA) Guidance (9/17/2024)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
-        ],
-        verifyVia: 'MAD Behavioral Health Policy and Billing Manual, ABA billing instructions — hca.nm.gov blocked automated retrieval this cycle (CloudFront geo-block), so pull the MAD Behavioral Health Policy and Billing Manual and Supplement 24-13 from the HCA ABA provider page by hand, or ask the MAD ABA Manager.',
-        blocker: 'document',
+        cites: [G1_NM_BHM, { title: '8.321.2.13 NMAC — Applied Behavior Analysis (srca.nm.gov)', url: 'https://www.srca.nm.gov/parts/title08/08.321.0002.html' }],
+        verifyVia: 'Checked 2026-11-01: 8.321.2.13 NMAC, the HCA Behavioral Health Policy and Billing Manual (April 1, 2025) ABA billing table and MAD Supplement 24-13 — none states whether 97153 and 97155 may be billed for the same clock minutes. Ask the MAD ABA Manager or the plan’s claims line before billing them together.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value: 'MAD publishes no per-day unit ceiling for ABA. The limits that bite are authorization-gated intensity thresholds, and one of them inverts the usual logic: per the guide’s reading of Supplement 24-13 (3.17.1(A)), comprehensive treatment rendered at LESS than 20 hours a week on average requires prior authorization from the MCO or the third-party assessor — scrutiny lands on under-dosed programmes rather than high-hour ones. Contemplated bands are 30–40 hours a week for comprehensive, 10–25 for focused, and 10–40 for adult comprehensive services. Requests above two hours of case supervision, or two hours of clinical management, per 10 hours of stage-three intervention also require PA, and the PA request must document hours allocated to other services in the ISP so the UR contractor can judge whether the requested intensity is feasible.' + ' Underneath the program rule sit federal claim edits, which are a different thing from the authorization: section 6507 of the Affordable Care Act requires state Medicaid programs to apply CMS’s Medicaid NCCI methodologies, including medically unlikely edits (MUEs), to fee-for-service claims (a state may ask CMS to deactivate an individual edit; for managed care plans it is optional). CMS’s published Medicaid MUE table for practitioner services, dates of service October 1 – December 31, 2026, sets the per-provider, per-member, per-day values at 97151 32 units, 97152 16, 97153 32, 97154 18, 97155 24, 97156 16, 97157 16, 97158 16, 0362T 16 and 0373T 32. MAD publishes no per-code edit of its own; the authorization sets the units.',
@@ -266,13 +294,11 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
         ],
       },
       noteSignature: {
-        value: 'NMAC assigns responsibility but not signature mechanics: the supervising behavior analyst is responsible for the recipient’s assessment, the selection and measurement of goals, and treatment plan formulation and documentation, and the rule then defers to the MAD Behavioral Health Policy and Billing Manual for documentation detail. Who must sign a session note, and within what window, is not stated in the rule.',
+        value: 'No ABA-specific session-note signature rule is published. The Behavioral Health Policy and Billing Manual’s ABA section (April 1, 2025) and 8.321.2.13 NMAC set none; the general Medicaid rule (8.302.1.17 NMAC) requires records “sufficiently detailed to substantiate the date, time, eligible recipient name, rendering, attending, ordering or prescribing provider; level and quantity of services; length of a session of service billed, diagnosis and medical necessity,” and for time-based codes the actual time spent and the services provided in it. Services not substantiated in the record are subject to recoupment. Neither source sets a rule for amending or co-signing notes.',
         status: 'unverified',
-        cites: [
-          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
-        ],
-        verifyVia: 'MAD Behavioral Health Policy and Billing Manual (ABA documentation requirements) — hca.nm.gov blocked automated retrieval this cycle (CloudFront geo-block), so pull the MAD Behavioral Health Policy and Billing Manual and Supplement 24-13 from the HCA ABA provider page by hand, or ask the MAD ABA Manager.',
-        blocker: 'document',
+        cites: [G1_NM_BHM, { title: '8.302.1.17 NMAC — Record keeping and documentation requirements (srca.nm.gov)', url: 'https://www.srca.nm.gov/parts/title08/08.302.0001.html' }],
+        verifyVia: 'Checked 2026-11-01: 8.321.2.13 NMAC, 8.302.1.17 NMAC and the HCA Behavioral Health Policy and Billing Manual (April 1, 2025) ABA section set no session-note signature, co-signature or amendment rule. Ask the plan or the MAD ABA Manager who must sign 97153 notes.',
+        blocker: 'per-case',
       },
       placeOfService: {
         value: 'NMAC sets the boundaries by exclusion and by setting. Not covered: activities that take place in school settings and have the potential to supplant educational services. Residential and institutional settings are handled explicitly — where a recipient is in a residential facility that is not itself an enrolled ABA provider, the facility must locate a MAD-enrolled stage two and three ABA provider and agree terms allowing that provider to render services on site. Treatment foster care is not treated as a residential facility, so ABA may be delivered outside the TFC agency; a recipient in a residential treatment centre, accredited residential treatment centre or group home may receive ABA to the extent the residential provider can deliver it. The shared Turquoise Care Level of Care Guidelines add that out-of-home placement is otherwise an exclusion, apart from time-limited ABA authorized for transition back to a community provider.',
@@ -305,6 +331,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { q: 'How much parent training does New Mexico Medicaid require?', a: 'Every treatment plan "must include ample units" of 97156 and 97157 and a Family Set goal. 97156 needs no PA, up to 32 units (8 hours) per week for the whole Family Set and 16 units per day; 97157 is up to 16 units (4 hours) per day.' },
       { q: 'What is the New Mexico Medicaid timely filing limit?', a: 'Ninety calendar days from the date of service for fee-for-service claims (8.302.2.11 NMAC); with a primary payer, 90 days from its EOB and no more than 210 days from service.' },
       { q: 'Does New Mexico Medicaid use HM, HN, HO or HP modifiers for ABA?', a: 'No. The ABA fee schedule marks the rendering credential with U modifiers: U5 Qualifying Psychologist, U4 BCBA-D, U3 BCBA, U9 BCaBA, U1 behavior technician (with or without a bachelor’s degree). 97153, for example, pays $38.02 / $37.99 / $32.31 / $23.35 / $19.85 per 15 minutes down those tiers (effective 1/1/2025, LOD #53).' },
+      { q: 'Can an out-of-state BCBA serve New Mexico Medicaid members by telehealth?', a: 'New Mexico has no behavior analyst license, so Medicaid qualifies BCBAs by certification and MAD attestation. HCA does not require in-state ABA providers to hold a telemedicine license; an out-of-state diagnosing physician (AEP) needs a New Mexico Medical Board telemedicine or full license. No published rule addresses an out-of-state ABA agency enrolling, so ask the MAD ABA Manager first.' },
     ],
   },
 
@@ -416,6 +443,15 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
           { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
         ],
       },
+      {
+        h2: 'Technician credentials (RBT, grace period) and out-of-state BCBAs',
+        body: [
+          'BCBSNM (Turquoise Care) follows the state rules: its Turquoise Care Provider Reference Manual (July 2026) sets no behavior-technician credential or out-of-state ABA rule of its own (checked 2026-11-01), and the Turquoise Care Behavioral Health Level of Care Guidelines defer to NMAC 8.321.2.',
+          G1_NM_MCD_TECH,
+          G1_NM_MCD_OOS,
+        ],
+        cites: [G1_NM_S2413, G1_NM_BHM, G1_BACB_LIC],
+      },
     ],
     collect: [
       { title: 'Realistic start date', desc: 'The request form must land at least 2 weeks (and no more than 60 days) before treatment starts — work backwards from the family\'s target.' },
@@ -472,7 +508,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
           { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
           { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
         ],
-        verifyVia: 'MAD Behavioral Health Policy and Billing Manual / Supplement 24-13 — hca.nm.gov blocked automated retrieval this cycle (CloudFront geo-block), so pull the MAD Behavioral Health Policy and Billing Manual and Supplement 24-13 from the HCA ABA provider page by hand, or ask the MAD ABA Manager.',
+        verifyVia: 'Checked 2026-11-01: the HCA Behavioral Health Policy and Billing Manual (April 1, 2025) ABA section names Stage 1 screening tools (Level 1, e.g. M-CHAT; Level 2, e.g. STAT, encouraged but not required) and defines “diagnosed with ASD” as a documented diagnosis based on the current DSM or ICD, but requires no specific diagnostic instrument. Ask the plan if it expects a particular tool.',
         blocker: 'per-case',
       },
       referral: {
@@ -580,6 +616,8 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { q: 'What is BCBSNM Turquoise Care’s timely filing limit?', a: 'Submit within 90 days of the date of service; anything billed beyond 180 days from service is not reimbursable.' },
       { q: 'Does BCBSNM Turquoise Care require taxonomy on the claim?', a: 'Yes, for the billing, rendering and attending NPIs, and it must match the provider’s New Mexico HCA enrollment.' },
       { q: 'Which modifiers mark the rendering credential on a New Mexico Turquoise Care ABA claim?', a: 'U modifiers from the state ABA fee schedule (LOD #53): U5 Qualifying Psychologist, U4 BCBA-D, U3 BCBA, U9 BCaBA, U1 behavior technician. New Mexico does not use HM/HN/HO/HP, and the MCO may not pay less than the fee-schedule rate for the tier.' },
+      { q: 'Does BCBSNM (Turquoise Care) require RBT certification, and is there a grace period?', a: 'BCBSNM (Turquoise Care) follows New Mexico Medicaid: a technician may start as a non-certified behavior technician (18+, diploma, background check, 4 hours of ASD training and 20 of the 40 RBT/BCAT training hours first) but must hold an RBT or BCAT certificate within six continuous months of approval, or stop rendering services until certified.' },
+      { q: 'Can an out-of-state BCBA treat BCBSNM (Turquoise Care) members by telehealth?', a: 'New Mexico has no behavior analyst license, so Medicaid qualifies BCBAs by certification and MAD attestation. HCA does not require in-state ABA providers to hold a telemedicine license; an out-of-state diagnosing physician (AEP) needs a New Mexico Medical Board telemedicine or full license. No published rule addresses an out-of-state ABA agency enrolling, so ask the MAD ABA Manager first.' },
     ],
   },
 
@@ -691,6 +729,15 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
           { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
         ],
       },
+      {
+        h2: 'Technician credentials (RBT, grace period) and out-of-state BCBAs',
+        body: [
+          'Presbyterian (Turquoise Care) follows the state rules: its Turquoise Care Practitioner and Provider Manual (2026) sets no behavior-technician credential or out-of-state ABA rule of its own (checked 2026-11-01), and the Turquoise Care Behavioral Health Level of Care Guidelines defer to NMAC 8.321.2.',
+          G1_NM_MCD_TECH,
+          G1_NM_MCD_OOS,
+        ],
+        cites: [G1_NM_S2413, G1_NM_BHM, G1_BACB_LIC],
+      },
     ],
     collect: [
       { title: 'Line of business', desc: 'Presbyterian Medicaid (Turquoise Care, in-house BH) vs. commercial/Medicare (Magellan) — it decides where the auth goes.' },
@@ -747,7 +794,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
           { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
           { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
         ],
-        verifyVia: 'MAD Behavioral Health Policy and Billing Manual / Supplement 24-13 — hca.nm.gov blocked automated retrieval this cycle (CloudFront geo-block), so pull the MAD Behavioral Health Policy and Billing Manual and Supplement 24-13 from the HCA ABA provider page by hand, or ask the MAD ABA Manager.',
+        verifyVia: 'Checked 2026-11-01: the HCA Behavioral Health Policy and Billing Manual (April 1, 2025) ABA section names Stage 1 screening tools (Level 1, e.g. M-CHAT; Level 2, e.g. STAT, encouraged but not required) and defines “diagnosed with ASD” as a documented diagnosis based on the current DSM or ICD, but requires no specific diagnostic instrument. Ask the plan if it expects a particular tool.',
         blocker: 'per-case',
       },
       referral: {
@@ -792,15 +839,11 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
         ],
       },
       concurrentBilling: {
-        value: 'Not resolved. NMAC publishes no same-clock-time billing rule for ABA and defers to the MAD Behavioral Health Policy and Billing Manual; no plan-specific concurrent-billing rule was found for this MCO.',
+        value: 'Presbyterian publishes no ABA concurrent-billing rule of its own, so the state rule applies. No same-clock-time rule for 97153 and 97155 is published. HCA’s Behavioral Health Policy and Billing Manual (April 1, 2025) describes 97155 as “Administered by QHP, which may include simultaneous direction of technician,” requires at least four units of 97155 for every 80 units of combined 97153, 97154 and 97156, and names concurrency only for two codes: T1026 UD (clinical management and case supervision) “may be billed concurrently with” 97153, 97154, 97155 (without telemedicine), and 97156, 97157 or 97158 when a BA renders them to a mentored BA or BAA, but not with 0373T; and 0373T may not be billed concurrently with 97151, 97152 or T1026 UD. Neither 8.321.2.13 NMAC nor Supplement 24-13 says whether 97153 and 97155 may be billed for the same minutes, so ask before billing them together.',
         status: 'unverified',
-        cites: [
-          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
-          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
-          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
-        ],
-        verifyVia: 'The plan’s provider portal or claims line, plus the MAD Behavioral Health Policy and Billing Manual — hca.nm.gov blocked automated retrieval this cycle (CloudFront geo-block), so pull the MAD Behavioral Health Policy and Billing Manual and Supplement 24-13 from the HCA ABA provider page by hand, or ask the MAD ABA Manager.',
-        blocker: 'document',
+        cites: [G1_NM_BHM, { title: '8.321.2.13 NMAC — Applied Behavior Analysis (srca.nm.gov)', url: 'https://www.srca.nm.gov/parts/title08/08.321.0002.html' }],
+        verifyVia: 'Checked 2026-11-01: 8.321.2.13 NMAC, the HCA Behavioral Health Policy and Billing Manual (April 1, 2025) ABA billing table and MAD Supplement 24-13 — none states whether 97153 and 97155 may be billed for the same clock minutes. Ask the MAD ABA Manager or the plan’s claims line before billing them together.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value: 'Follows the New Mexico Medicaid rule: no per-day unit ceiling, with authorization-gated intensity thresholds instead — including the inverted quirk that comprehensive treatment averaging under 20 hours a week requires prior authorization — and PA on supervision or clinical management above two hours per 10 hours of stage-three service. No plan-specific hour caps were found for this MCO.',
@@ -812,15 +855,9 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
         ],
       },
       noteSignature: {
-        value: 'Not resolved at the state level: NMAC makes the supervising behavior analyst responsible for treatment plan formulation and documentation but defers session-note mechanics to the MAD Behavioral Health Policy and Billing Manual, and no plan-specific documentation standard was found for this MCO.',
-        status: 'unverified',
-        cites: [
-          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
-          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
-          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
-        ],
-        verifyVia: 'MAD Behavioral Health Policy and Billing Manual (ABA documentation requirements) — hca.nm.gov blocked automated retrieval this cycle (CloudFront geo-block), so pull the MAD Behavioral Health Policy and Billing Manual and Supplement 24-13 from the HCA ABA provider page by hand, or ask the MAD ABA Manager.',
-        blocker: 'document',
+        value: 'Presbyterian’s manual (2026, § 16) sets the amendment rule: “A late entry, an addendum or a correction to the medical record bears the current date of that entry and is signed by the person making the addition or change”; a correction draws a single line through the error, keeps it legible, and is signed and dated with the reason; electronic corrections must track the original entry and the correction with date, time and reason. It lists “Medical record amendments and late entries not signed by the provider or not signed in a timely manner prior to billing claims” as a documentation deficiency, and says one clinician may not sign for another even in the same group. Beyond that, the state rule applies: no ABA-specific session-note signature rule is published. The Behavioral Health Policy and Billing Manual’s ABA section (April 1, 2025) and 8.321.2.13 NMAC set none; the general Medicaid rule (8.302.1.17 NMAC) requires records “sufficiently detailed to substantiate the date, time, eligible recipient name, rendering, attending, ordering or prescribing provider; level and quantity of services; length of a session of service billed, diagnosis and medical necessity,” and for time-based codes the actual time spent and the services provided in it. Services not substantiated in the record are subject to recoupment. Neither source sets a rule for amending or co-signing notes.',
+        status: 'verified',
+        cites: [{ title: 'Presbyterian Turquoise Care Practitioner and Provider Manual (2026), § 16 Fraud, Waste and Abuse: Documentation Guidelines for Amended Medical Documents', url: 'https://onbaseext.phs.org/PEL/DisplayDocument?ContentID=OB_000000001114' }, G1_NM_BHM, { title: '8.302.1.17 NMAC — Record keeping and documentation requirements (srca.nm.gov)', url: 'https://www.srca.nm.gov/parts/title08/08.302.0001.html' }],
       },
       placeOfService: {
         value: 'Follows the New Mexico Medicaid rule: school-setting activities with the potential to supplant educational services are excluded; a residential facility that is not itself an ABA provider must contract a MAD-enrolled ABA provider to render on site; treatment foster care is not treated as out-of-home placement; and out-of-home placement is otherwise an exclusion under the shared Turquoise Care Level of Care Guidelines apart from time-limited transition services.',
@@ -851,6 +888,8 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { q: 'How much parent training does Presbyterian expect for Turquoise Care?', a: 'Presbyterian publishes no figure; the state rule applies — every plan "must include ample units" of 97156/97157, with 97156 up to 32 units per week for the Family Set. Presbyterian\'s PA guide lists 97156/97157 among its ABA codes, so confirm whether a request is needed.' },
       { q: 'What is Presbyterian Turquoise Care’s timely filing limit?', a: 'Ninety days from the date of service for in-network claims; corrections and appeals within 12 months of the date of service.' },
       { q: 'Which modifiers mark the rendering credential on a New Mexico Turquoise Care ABA claim?', a: 'U modifiers from the state ABA fee schedule (LOD #53): U5 Qualifying Psychologist, U4 BCBA-D, U3 BCBA, U9 BCaBA, U1 behavior technician. New Mexico does not use HM/HN/HO/HP, and the MCO may not pay less than the fee-schedule rate for the tier.' },
+      { q: 'Does Presbyterian (Turquoise Care) require RBT certification, and is there a grace period?', a: 'Presbyterian (Turquoise Care) follows New Mexico Medicaid: a technician may start as a non-certified behavior technician (18+, diploma, background check, 4 hours of ASD training and 20 of the 40 RBT/BCAT training hours first) but must hold an RBT or BCAT certificate within six continuous months of approval, or stop rendering services until certified.' },
+      { q: 'Can an out-of-state BCBA treat Presbyterian (Turquoise Care) members by telehealth?', a: 'New Mexico has no behavior analyst license, so Medicaid qualifies BCBAs by certification and MAD attestation. HCA does not require in-state ABA providers to hold a telemedicine license; an out-of-state diagnosing physician (AEP) needs a New Mexico Medical Board telemedicine or full license. No published rule addresses an out-of-state ABA agency enrolling, so ask the MAD ABA Manager first.' },
     ],
   },
 
@@ -962,6 +1001,15 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
           { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
         ],
       },
+      {
+        h2: 'Technician credentials (RBT, grace period) and out-of-state BCBAs',
+        body: [
+          'Molina Healthcare of New Mexico follows the state rules: its Turquoise Care provider manual (May 2024 edition, the latest readable) sets no behavior-technician credential or out-of-state ABA rule of its own (checked 2026-11-01), and the Turquoise Care Behavioral Health Level of Care Guidelines defer to NMAC 8.321.2.',
+          G1_NM_MCD_TECH,
+          G1_NM_MCD_OOS,
+        ],
+        cites: [G1_NM_S2413, G1_NM_BHM, G1_BACB_LIC],
+      },
     ],
     collect: [
       { title: 'Availity Essentials access', desc: 'Molina mandates electronic PA submission — confirm your organization\'s Availity registration covers Molina NM before the first case.' },
@@ -1018,7 +1066,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
           { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
           { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
         ],
-        verifyVia: 'MAD Behavioral Health Policy and Billing Manual / Supplement 24-13 — hca.nm.gov blocked automated retrieval this cycle (CloudFront geo-block), so pull the MAD Behavioral Health Policy and Billing Manual and Supplement 24-13 from the HCA ABA provider page by hand, or ask the MAD ABA Manager.',
+        verifyVia: 'Checked 2026-11-01: the HCA Behavioral Health Policy and Billing Manual (April 1, 2025) ABA section names Stage 1 screening tools (Level 1, e.g. M-CHAT; Level 2, e.g. STAT, encouraged but not required) and defines “diagnosed with ASD” as a documented diagnosis based on the current DSM or ICD, but requires no specific diagnostic instrument. Ask the plan if it expects a particular tool.',
         blocker: 'per-case',
       },
       referral: {
@@ -1032,15 +1080,9 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
         ],
       },
       telehealth: {
-        value: 'No verified rule. NMAC 8.321.2.13 carries no telehealth provision for ABA and the shared Turquoise Care Level of Care Guidelines set none for ABA Stage 3, and no plan-specific ABA telehealth policy was found for this MCO.',
-        status: 'unverified',
-        cites: [
-          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
-          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
-          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
-        ],
-        verifyVia: 'The plan’s provider portal or behavioral health UM line, plus the MAD Behavioral Health Policy and Billing Manual — hca.nm.gov blocked automated retrieval this cycle (CloudFront geo-block), so pull the MAD Behavioral Health Policy and Billing Manual and Supplement 24-13 from the HCA ABA provider page by hand, or ask the MAD ABA Manager.',
-        blocker: 'per-case',
+        value: 'Molina’s Turquoise Care provider manual (May 2024 edition, the latest readable) publishes no ABA telehealth rule of its own, so the state rule applies. MAD Supplement 24-13 (§ 3.2.1) says MAD “allows and encourages the utilization of telemedicine to deliver MAD ABA services” under 8.310.2 NMAC, which requires real-time interactive audio and video. In-state BCBAs, BCaBAs, RBTs, BCATs and non-certified technicians need no telemedicine license; an out-of-state MD/DO diagnostician needs a New Mexico Medical Board telemedicine or full license. 97155 may be delivered by telemedicine when the BA directs the technician with the recipient present. Confirm claim coding with Molina.',
+        status: 'verified',
+        cites: [G1_NM_S2413, G1_NM_BHM, { title: '8.310.2.12(M) NMAC — Telehealth services (srca.nm.gov, amended 1/1/2025)', url: 'https://www.srca.nm.gov/parts/title08/08.310.0002.html' }, { title: 'Molina Healthcare of New Mexico — Medicaid Provider Manual (May 2024 edition)', url: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/NM_2024/Medicaid/Provider-Manual.pdf' }],
       },
       authTurnaround: {
         value:
@@ -1066,15 +1108,11 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
         ],
       },
       concurrentBilling: {
-        value: 'Not resolved. NMAC publishes no same-clock-time billing rule for ABA and defers to the MAD Behavioral Health Policy and Billing Manual; no plan-specific concurrent-billing rule was found for this MCO.',
+        value: 'The plan publishes no ABA concurrent-billing rule of its own, so the state rule applies. No same-clock-time rule for 97153 and 97155 is published. HCA’s Behavioral Health Policy and Billing Manual (April 1, 2025) describes 97155 as “Administered by QHP, which may include simultaneous direction of technician,” requires at least four units of 97155 for every 80 units of combined 97153, 97154 and 97156, and names concurrency only for two codes: T1026 UD (clinical management and case supervision) “may be billed concurrently with” 97153, 97154, 97155 (without telemedicine), and 97156, 97157 or 97158 when a BA renders them to a mentored BA or BAA, but not with 0373T; and 0373T may not be billed concurrently with 97151, 97152 or T1026 UD. Neither 8.321.2.13 NMAC nor Supplement 24-13 says whether 97153 and 97155 may be billed for the same minutes, so ask before billing them together.',
         status: 'unverified',
-        cites: [
-          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
-          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
-          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
-        ],
-        verifyVia: 'The plan’s provider portal or claims line, plus the MAD Behavioral Health Policy and Billing Manual — hca.nm.gov blocked automated retrieval this cycle (CloudFront geo-block), so pull the MAD Behavioral Health Policy and Billing Manual and Supplement 24-13 from the HCA ABA provider page by hand, or ask the MAD ABA Manager.',
-        blocker: 'document',
+        cites: [G1_NM_BHM, { title: '8.321.2.13 NMAC — Applied Behavior Analysis (srca.nm.gov)', url: 'https://www.srca.nm.gov/parts/title08/08.321.0002.html' }],
+        verifyVia: 'Checked 2026-11-01: 8.321.2.13 NMAC, the HCA Behavioral Health Policy and Billing Manual (April 1, 2025) ABA billing table and MAD Supplement 24-13 — none states whether 97153 and 97155 may be billed for the same clock minutes. Ask the MAD ABA Manager or the plan’s claims line before billing them together.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value: 'Follows the New Mexico Medicaid rule: no per-day unit ceiling, with authorization-gated intensity thresholds instead — including the inverted quirk that comprehensive treatment averaging under 20 hours a week requires prior authorization — and PA on supervision or clinical management above two hours per 10 hours of stage-three service. No plan-specific hour caps were found for this MCO.',
@@ -1086,15 +1124,11 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
         ],
       },
       noteSignature: {
-        value: 'Not resolved at the state level: NMAC makes the supervising behavior analyst responsible for treatment plan formulation and documentation but defers session-note mechanics to the MAD Behavioral Health Policy and Billing Manual, and no plan-specific documentation standard was found for this MCO.',
+        value: 'The plan publishes no ABA documentation rule of its own, so the state rule applies. No ABA-specific session-note signature rule is published. The Behavioral Health Policy and Billing Manual’s ABA section (April 1, 2025) and 8.321.2.13 NMAC set none; the general Medicaid rule (8.302.1.17 NMAC) requires records “sufficiently detailed to substantiate the date, time, eligible recipient name, rendering, attending, ordering or prescribing provider; level and quantity of services; length of a session of service billed, diagnosis and medical necessity,” and for time-based codes the actual time spent and the services provided in it. Services not substantiated in the record are subject to recoupment. Neither source sets a rule for amending or co-signing notes.',
         status: 'unverified',
-        cites: [
-          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
-          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
-          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
-        ],
-        verifyVia: 'MAD Behavioral Health Policy and Billing Manual (ABA documentation requirements) — hca.nm.gov blocked automated retrieval this cycle (CloudFront geo-block), so pull the MAD Behavioral Health Policy and Billing Manual and Supplement 24-13 from the HCA ABA provider page by hand, or ask the MAD ABA Manager.',
-        blocker: 'document',
+        cites: [G1_NM_BHM, { title: '8.302.1.17 NMAC — Record keeping and documentation requirements (srca.nm.gov)', url: 'https://www.srca.nm.gov/parts/title08/08.302.0001.html' }],
+        verifyVia: 'Checked 2026-11-01: 8.321.2.13 NMAC, 8.302.1.17 NMAC and the HCA Behavioral Health Policy and Billing Manual (April 1, 2025) ABA section set no session-note signature, co-signature or amendment rule. Ask the plan or the MAD ABA Manager who must sign 97153 notes.',
+        blocker: 'per-case',
       },
       placeOfService: {
         value: 'Follows the New Mexico Medicaid rule: school-setting activities with the potential to supplant educational services are excluded; a residential facility that is not itself an ABA provider must contract a MAD-enrolled ABA provider to render on site; treatment foster care is not treated as out-of-home placement; and out-of-home placement is otherwise an exclusion under the shared Turquoise Care Level of Care Guidelines apart from time-limited transition services.',
@@ -1123,6 +1157,8 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { q: 'How much parent training does Molina New Mexico expect?', a: 'Molina requires caregivers able to "participate and commit meaningfully" to ABA; the hours follow the state rule — "ample units" of 97156/97157 in every plan, with 97156 up to 32 units per week without PA.' },
       { q: 'What is Molina New Mexico’s timely filing limit for ABA claims?', a: 'Ninety calendar days from the date of service, per Molina’s Turquoise Care manual (2024 edition). Confirm against the current manual.' },
       { q: 'Which modifiers mark the rendering credential on a New Mexico Turquoise Care ABA claim?', a: 'U modifiers from the state ABA fee schedule (LOD #53): U5 Qualifying Psychologist, U4 BCBA-D, U3 BCBA, U9 BCaBA, U1 behavior technician. New Mexico does not use HM/HN/HO/HP, and the MCO may not pay less than the fee-schedule rate for the tier.' },
+      { q: 'Does Molina Healthcare of New Mexico require RBT certification, and is there a grace period?', a: 'Molina Healthcare of New Mexico follows New Mexico Medicaid: a technician may start as a non-certified behavior technician (18+, diploma, background check, 4 hours of ASD training and 20 of the 40 RBT/BCAT training hours first) but must hold an RBT or BCAT certificate within six continuous months of approval, or stop rendering services until certified.' },
+      { q: 'Can an out-of-state BCBA treat Molina Healthcare of New Mexico members by telehealth?', a: 'New Mexico has no behavior analyst license, so Medicaid qualifies BCBAs by certification and MAD attestation. HCA does not require in-state ABA providers to hold a telemedicine license; an out-of-state diagnosing physician (AEP) needs a New Mexico Medical Board telemedicine or full license. No published rule addresses an out-of-state ABA agency enrolling, so ask the MAD ABA Manager first.' },
     ],
   },
 
@@ -1235,6 +1271,15 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
           { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
         ],
       },
+      {
+        h2: 'Technician credentials (RBT, grace period) and out-of-state BCBAs',
+        body: [
+          'UnitedHealthcare Community Plan of New Mexico follows the state rules: its 2026 Turquoise Care Care Provider Manual sets no behavior-technician credential or out-of-state ABA rule of its own (checked 2026-11-01), and the Turquoise Care Behavioral Health Level of Care Guidelines defer to NMAC 8.321.2.',
+          G1_NM_MCD_TECH,
+          G1_NM_MCD_OOS,
+        ],
+        cites: [G1_NM_S2413, G1_NM_BHM, G1_BACB_LIC],
+      },
     ],
     collect: [
       { title: 'Diagnosis or at-risk documentation', desc: 'State rule: ASD dx within 3 years of referral, or the at-risk pathway — then book the assessment; no PA on 97151.' },
@@ -1291,7 +1336,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
           { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
           { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
         ],
-        verifyVia: 'MAD Behavioral Health Policy and Billing Manual / Supplement 24-13 — hca.nm.gov blocked automated retrieval this cycle (CloudFront geo-block), so pull the MAD Behavioral Health Policy and Billing Manual and Supplement 24-13 from the HCA ABA provider page by hand, or ask the MAD ABA Manager.',
+        verifyVia: 'Checked 2026-11-01: the HCA Behavioral Health Policy and Billing Manual (April 1, 2025) ABA section names Stage 1 screening tools (Level 1, e.g. M-CHAT; Level 2, e.g. STAT, encouraged but not required) and defines “diagnosed with ASD” as a documented diagnosis based on the current DSM or ICD, but requires no specific diagnostic instrument. Ask the plan if it expects a particular tool.',
         blocker: 'per-case',
       },
       referral: {
@@ -1337,15 +1382,11 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
         ],
       },
       concurrentBilling: {
-        value: 'Not resolved. NMAC publishes no same-clock-time billing rule for ABA and defers to the MAD Behavioral Health Policy and Billing Manual; no plan-specific concurrent-billing rule was found for this MCO.',
+        value: 'The plan publishes no ABA concurrent-billing rule of its own, so the state rule applies. No same-clock-time rule for 97153 and 97155 is published. HCA’s Behavioral Health Policy and Billing Manual (April 1, 2025) describes 97155 as “Administered by QHP, which may include simultaneous direction of technician,” requires at least four units of 97155 for every 80 units of combined 97153, 97154 and 97156, and names concurrency only for two codes: T1026 UD (clinical management and case supervision) “may be billed concurrently with” 97153, 97154, 97155 (without telemedicine), and 97156, 97157 or 97158 when a BA renders them to a mentored BA or BAA, but not with 0373T; and 0373T may not be billed concurrently with 97151, 97152 or T1026 UD. Neither 8.321.2.13 NMAC nor Supplement 24-13 says whether 97153 and 97155 may be billed for the same minutes, so ask before billing them together.',
         status: 'unverified',
-        cites: [
-          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
-          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
-          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
-        ],
-        verifyVia: 'The plan’s provider portal or claims line, plus the MAD Behavioral Health Policy and Billing Manual — hca.nm.gov blocked automated retrieval this cycle (CloudFront geo-block), so pull the MAD Behavioral Health Policy and Billing Manual and Supplement 24-13 from the HCA ABA provider page by hand, or ask the MAD ABA Manager.',
-        blocker: 'document',
+        cites: [G1_NM_BHM, { title: '8.321.2.13 NMAC — Applied Behavior Analysis (srca.nm.gov)', url: 'https://www.srca.nm.gov/parts/title08/08.321.0002.html' }],
+        verifyVia: 'Checked 2026-11-01: 8.321.2.13 NMAC, the HCA Behavioral Health Policy and Billing Manual (April 1, 2025) ABA billing table and MAD Supplement 24-13 — none states whether 97153 and 97155 may be billed for the same clock minutes. Ask the MAD ABA Manager or the plan’s claims line before billing them together.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value: 'Follows the New Mexico Medicaid rule: no per-day unit ceiling, with authorization-gated intensity thresholds instead — including the inverted quirk that comprehensive treatment averaging under 20 hours a week requires prior authorization — and PA on supervision or clinical management above two hours per 10 hours of stage-three service. No plan-specific hour caps were found for this MCO.',
@@ -1357,15 +1398,11 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
         ],
       },
       noteSignature: {
-        value: 'Not resolved at the state level: NMAC makes the supervising behavior analyst responsible for treatment plan formulation and documentation but defers session-note mechanics to the MAD Behavioral Health Policy and Billing Manual, and no plan-specific documentation standard was found for this MCO.',
+        value: 'The plan publishes no ABA documentation rule of its own, so the state rule applies. No ABA-specific session-note signature rule is published. The Behavioral Health Policy and Billing Manual’s ABA section (April 1, 2025) and 8.321.2.13 NMAC set none; the general Medicaid rule (8.302.1.17 NMAC) requires records “sufficiently detailed to substantiate the date, time, eligible recipient name, rendering, attending, ordering or prescribing provider; level and quantity of services; length of a session of service billed, diagnosis and medical necessity,” and for time-based codes the actual time spent and the services provided in it. Services not substantiated in the record are subject to recoupment. Neither source sets a rule for amending or co-signing notes.',
         status: 'unverified',
-        cites: [
-          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
-          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
-          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
-        ],
-        verifyVia: 'MAD Behavioral Health Policy and Billing Manual (ABA documentation requirements) — hca.nm.gov blocked automated retrieval this cycle (CloudFront geo-block), so pull the MAD Behavioral Health Policy and Billing Manual and Supplement 24-13 from the HCA ABA provider page by hand, or ask the MAD ABA Manager.',
-        blocker: 'document',
+        cites: [G1_NM_BHM, { title: '8.302.1.17 NMAC — Record keeping and documentation requirements (srca.nm.gov)', url: 'https://www.srca.nm.gov/parts/title08/08.302.0001.html' }],
+        verifyVia: 'Checked 2026-11-01: 8.321.2.13 NMAC, 8.302.1.17 NMAC and the HCA Behavioral Health Policy and Billing Manual (April 1, 2025) ABA section set no session-note signature, co-signature or amendment rule. Ask the plan or the MAD ABA Manager who must sign 97153 notes.',
+        blocker: 'per-case',
       },
       placeOfService: {
         value: 'Follows the New Mexico Medicaid rule: school-setting activities with the potential to supplant educational services are excluded; a residential facility that is not itself an ABA provider must contract a MAD-enrolled ABA provider to render on site; treatment foster care is not treated as out-of-home placement; and out-of-home placement is otherwise an exclusion under the shared Turquoise Care Level of Care Guidelines apart from time-limited transition services.',
@@ -1399,6 +1436,8 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { q: 'How much parent training does UnitedHealthcare Community Plan expect in New Mexico?', a: 'No plan-specific figure; the state rule applies — every plan "must include ample units" of 97156/97157, with 97156 PA-free up to 32 units per week for the Family Set.' },
       { q: 'How long do I have to dispute a UnitedHealthcare Community Plan of New Mexico claim?', a: 'Ninety calendar days for a claim reconsideration, then 60 calendar days for a formal appeal; each is answered within 30 calendar days.' },
       { q: 'Which modifiers mark the rendering credential on a New Mexico Turquoise Care ABA claim?', a: 'U modifiers from the state ABA fee schedule (LOD #53): U5 Qualifying Psychologist, U4 BCBA-D, U3 BCBA, U9 BCaBA, U1 behavior technician. New Mexico does not use HM/HN/HO/HP, and the MCO may not pay less than the fee-schedule rate for the tier.' },
+      { q: 'Does UnitedHealthcare Community Plan of New Mexico require RBT certification, and is there a grace period?', a: 'UnitedHealthcare Community Plan of New Mexico follows New Mexico Medicaid: a technician may start as a non-certified behavior technician (18+, diploma, background check, 4 hours of ASD training and 20 of the 40 RBT/BCAT training hours first) but must hold an RBT or BCAT certificate within six continuous months of approval, or stop rendering services until certified.' },
+      { q: 'Can an out-of-state BCBA treat UnitedHealthcare Community Plan of New Mexico members by telehealth?', a: 'New Mexico has no behavior analyst license, so Medicaid qualifies BCBAs by certification and MAD attestation. HCA does not require in-state ABA providers to hold a telemedicine license; an out-of-state diagnosing physician (AEP) needs a New Mexico Medical Board telemedicine or full license. No published rule addresses an out-of-state ABA agency enrolling, so ask the MAD ABA Manager first.' },
     ],
   },
 
@@ -1567,6 +1606,14 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
           { title: 'Aetna — Provider appeals: state exceptions to the 180-day dispute filing standard', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/provider-appeals.html' },
         ],
       },
+      {
+        h2: 'Technician credentials (RBT, grace period) and out-of-state BCBAs',
+        body: [
+          G1_AETNA_TECH,
+          G1_NM_LAW,
+        ],
+        cites: [G1_AETNA_NPC, G1_AETNA_MNG, G1_BACB_LIC],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -1722,6 +1769,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { q: 'How long do I have to appeal an Aetna claim decision in New Mexico?', a: '180 calendar days from the initial claim decision to request a reconsideration, then 60 calendar days from the reconsideration decision to appeal.' },
       { q: 'Does Aetna require a referring provider (box 17) on ABA claims?', a: 'Aetna publishes no such requirement for ABA. A referral has to accompany a claim only when the member’s plan requires PCP referrals for specialist care. Behavioral health is a direct-access benefit in Aetna’s behavioral health manual.' },
       { q: 'Does Aetna require HM, HN, HO or HP modifiers on ABA claims?', a: 'Not in any public Aetna ABA document: the medical necessity guide, provider manual and ABA precertification form name no rate-tier modifiers. Services must be provided or billed by an appropriately licensed or certified provider; ask Aetna whether your contract prices technician lines by modifier.' },
+      { q: 'Does Aetna require RBT certification for ABA technicians in New Mexico, and is there a grace period?', a: 'Aetna’s participation criteria require paraprofessionals to “meet state requirements” (or Aetna standards where the state defines none) with at least one hour of face-to-face supervision per 10 hours, but name no RBT requirement and no grace period; ask Aetna whether your agreement requires RBT certification. New Mexico itself licenses neither behavior analysts nor technicians.' },
     ],
   },
 
@@ -1890,6 +1938,14 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
           { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191): Provider payment appeals', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
         ],
       },
+      {
+        h2: 'Technician credentials (RBT, grace period) and out-of-state BCBAs',
+        body: [
+          G1_CIGNA_TECH,
+          G1_NM_LAW,
+        ],
+        cites: [G1_EN0499, G1_EBH_ADMIN, G1_BACB_LIC],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -2038,6 +2094,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { q: 'What is Cigna’s timely filing limit in New Mexico?', a: 'Ninety days from the date of service under Evernorth’s administrative guidelines, unless your provider agreement or a longer state-law limit says otherwise.' },
       { q: 'Does Cigna require a referring provider (box 17) on ABA claims?', a: 'No. Evernorth’s complete-claim definition for the CMS-1500 lists the rendering and billing providers but no referring provider. If you report a referring provider on an electronic claim, include both the name and the NPI.' },
       { q: 'Does Cigna / Evernorth require HM, HN, HO or HP modifiers on ABA claims?', a: 'No modifier tiers are published. Evernorth’s autism resource guide says technician and BCaBA services (97152–97154) are billed by the supervising BCBA, BCBA-D or licensed provider, and noncredentialed staff are billed under the supervising provider. Modifier 95 (with POS 02) marks telehealth.' },
+      { q: 'Does Cigna require RBT certification for ABA technicians in New Mexico, and is there a grace period?', a: 'Evernorth’s ABA policy (EN0499) and administrative guidelines set no technician credential and no grace period; ask Evernorth whether an uncertified technician may render 97153 under your agreement. New Mexico itself licenses neither behavior analysts nor technicians.' },
     ],
   },
 
@@ -2197,6 +2254,14 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
           { title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): Provider Reconsideration and Appeal Process', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
         ],
       },
+      {
+        h2: 'Technician credentials (RBT, grace period) and out-of-state BCBAs',
+        body: [
+          G1_OPTUM_TECH,
+          G1_NM_LAW,
+        ],
+        cites: [G1_OPTUM_NNM, G1_OPTUM_FAQ, G1_BACB_LIC],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -2351,6 +2416,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { q: 'Does UnitedHealthcare require a taxonomy code on the claim in New Mexico?', a: 'Yes. The 2026 administrative guide requires a valid billing NPI, rendering NPI and relevant taxonomy code on all claims and encounters.' },
       { q: 'Does UnitedHealthcare require a referring provider (box 17) on ABA claims?', a: 'No. Optum’s claim requirements do not include a referring provider. UnitedHealthcare makes the referring name and NPI mandatory only for lab, DME, imaging and home health claims. For other claims it encourages the referring NPI but does not require it.' },
       { q: 'What do HM, HN, HO and HP mean on a UnitedHealthcare / Optum ABA claim?', a: 'They identify who rendered the service: HM an RBT (less than bachelor’s level), HN a BCaBA (bachelor’s level), HO a master’s-level BCBA or licensed clinician, HP a BCBA-D or doctoral-level clinician. One per line; 97151 and 97155–97158 cannot take HM; 0362T/0373T take none (Optum ABA Reimbursement Policy 2022RP501A, June 2026).' },
+      { q: 'Does UnitedHealthcare require RBT certification for ABA technicians in New Mexico, and is there a grace period?', a: 'Yes, or an equivalent: Optum requires technicians to be an RBT, BCAT or ABAT, and any other certification must be approved in writing by Optum. Optum publishes no grace or provisional period for uncertified technicians. New Mexico itself licenses neither behavior analysts nor technicians.' },
     ],
   },
 };

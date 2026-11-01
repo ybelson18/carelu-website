@@ -4,7 +4,7 @@ Every payer and state Medicaid program in the directory, with the official page 
 
 Use this list to subscribe the **payer-news@carelu.com** inbox: the *Email sign-up* column is the subscribe page where one exists. *Login* = the archive (or the newsletter itself) sits behind a provider portal login.
 
-Compiled 2026-10-18. 319 distinct lists covering 304 of 331 payer guides (49 of 51 state Medicaid programs; no public archive found for Alaska Medicaid and New Hampshire Medicaid). 110 lists have an email sign-up; 1 public list needs a provider login to read, and 7 payers keep provider news only inside a login-gated portal (listed at the end).
+Compiled 2026-10-18; updated 2026-11-01 (weekly inbox check: added the Montana Claim Jumper archive, moved the Empower Provider Alerts row out of the no-archive table). 321 distinct lists covering 304 of 331 payer guides (49 of 51 state Medicaid programs; no public archive found for Alaska Medicaid and New Hampshire Medicaid). 111 lists have an email sign-up; 1 public list needs a provider login to read, and 7 payers keep provider news only inside a login-gated portal (listed at the end).
 
 **Per-state Aetna, Cigna and UnitedHealthcare commercial guides** (`aetna-<state>`, `cigna-<state>`, `unitedhealthcare-<state>`) publish no state newsletter; they are covered by the national indexes on the `aetna`, `cigna` and `unitedhealthcare-optum` guides (first rows).
 
@@ -31,6 +31,7 @@ Compiled 2026-10-18. 319 distinct lists covering 304 of 331 payer guides (49 of 
 | AR | Arkansas Total Care | Arkansas Total Care Provider News | <https://www.arkansastotalcare.com/providers/providernews.html> |  | no | `arkansas-total-care` |
 | AR | CareSource PASSE | CareSource PASSE Updates & Announcements | <https://www.caresource.com/ar/providers/tools-resources/updates-announcements/caresource-passe/> |  | no | `caresource-passe-arkansas` |
 | AR | Empower Healthcare Solutions | Empower Provider Newsletter | <https://getempowerhealth.com/provider-newsletter/> | <https://getempowerhealth.com/newsletter-signup/> | no | `empower-healthcare-solutions-arkansas` |
+| AR | Empower Healthcare Solutions | Provider Alerts | <https://getempowerhealth.com/provider-alerts/> | <https://getempowerhealth.com/newsletter-signup/> | no | `empower-healthcare-solutions-arkansas` |
 | AR | Summit Community Care | Summit Community Care Provider News | <https://providernews.summitcommunitycare.com/> |  | no | `summit-community-care-arkansas` |
 | AZ | AHCCCS (Arizona Medicaid) | AHCCCS Claims Clues | <https://www.azahcccs.gov/PlansProviders/RatesAndBilling/FFS/claimsclues.html> | <https://www.azahcccs.gov/PlansProviders/AHCCCSlistserve.html> | no | `arizona-ahcccs` |
 | AZ | Arizona Complete Health - Complete Care Plan | AzCH Medicaid Provider News | <https://www.azcompletehealth.com/providers/provider-news/medicaid-news.html> | <https://www.azcompletehealth.com/providers/provider-news/provider-update-signup.html> | no | `arizona-complete-health` |
@@ -144,7 +145,7 @@ Compiled 2026-10-18. 319 distinct lists covering 304 of 331 payer guides (49 of 
 | ME | Harvard Pilgrim Health Care (Maine) | Point32Health Insights and Updates for Providers | <https://www.point32health.org/provider/office-resources/provider-newsletter> |  | no | `harvard-pilgrim-maine`, `tufts-health-together`, `harvard-pilgrim-new-hampshire` |
 | ME | MaineCare (Maine Medicaid) | MaineCare Bulletins (provider e-messages) | <https://www.maine.gov/dhhs/oms/about-us/mainecare-bulletins> | <https://public.govdelivery.com/accounts/MEHHS/subscriber/new?preferences> | no | `maine-medicaid` |
 | MI | Blue Cross Blue Shield of Michigan | The Record | <https://www.bcbsm.com/content/dam/microsites/corpcomm/provider/the_record/Assets/common/archive.html> | <https://www.bcbsm.com/providers/newsletters/subscribe/> | no | `blue-cross-blue-shield-michigan` |
-| MI | Blue Cross Blue Shield of Michigan | BCN Provider News | <https://www.bcbsm.com/content/dam/microsites/corpcomm/provider/BCNPN/Assets/index.html> | <https://www.bcbsm.com/providers/newsletters/subscribe/> | no | `blue-cross-blue-shield-michigan` |
+| MI | Blue Cross Blue Shield of Michigan | BCN Provider News (being merged, with Blues Brief, into The Record per the Nov–Dec 2026 issue; keep watching The Record) | <https://www.bcbsm.com/content/dam/microsites/corpcomm/provider/BCNPN/Assets/index.html> | <https://www.bcbsm.com/providers/newsletters/subscribe/> | no | `blue-cross-blue-shield-michigan` |
 | MI | Detroit Wayne Integrated Health Network (DWIHN) | DWIHN Provider Network News | <https://dwihn.org/provider-resources/provider-newsletter> |  | no | `detroit-wayne-integrated-health-network-michigan` |
 | MI | Macomb County Community Mental Health (MCCMH) | MCCMH CMO Updates | <https://www.mccmh.net/cmo-updates/> |  | no | `macomb-county-community-mental-health-michigan` |
 | MI | Michigan Medicaid | Michigan Medicaid Policy Bulletins (MMP) | <https://www.michigan.gov/mdhhs/doing-business/providers/providers/medicaid/policyforms/2026-medicaid-policy-bulletins> | <https://public.govdelivery.com/accounts/MIDHHS/subscriber/new> | no | `michigan-medicaid` |
@@ -168,6 +169,7 @@ Compiled 2026-10-18. 319 distinct lists covering 304 of 331 payer guides (49 of 
 | MT | Blue Cross and Blue Shield of Montana | BCBSMT News and Updates | <https://www.bcbsmt.com/provider/education-and-reference/education/news-and-updates> |  | no | `blue-cross-blue-shield-montana` |
 | MT | Blue Cross and Blue Shield of Montana | Blue Review | <https://www.bcbsmt.com/provider/education-and-reference/education/newsletter> |  | no | `blue-cross-blue-shield-montana` |
 | MT | Montana Medicaid | Montana Medicaid Recent Website Posts | <https://medicaidprovider.mt.gov/newposts> | <https://medicaidprovider.mt.gov/cjregistration> | no | `montana-medicaid` |
+| MT | Montana Medicaid | Claim Jumper (monthly provider newsletter) | <https://medicaidprovider.mt.gov/cjnewsletters> | <https://medicaidprovider.mt.gov/cjregistration> | no | `montana-medicaid` |
 | NC | Alliance Health (NC Tailored Plan) | Alliance Provider Updates | <https://www.alliancehealthplan.org/provider-updates/> | <https://alliancebhc.us3.list-manage.com/subscribe?u=5b13b3bfafc28a5fdf4a11dfc&id=bb4c4ac331> | no | `alliance-health-north-carolina` |
 | NC | AmeriHealth Caritas North Carolina | ACNC Provider Newsletters and Updates | <https://www.amerihealthcaritasnc.com/provider/newsletters-and-updates/index.aspx> |  | no | `amerihealth-caritas-north-carolina` |
 | NC | Blue Cross Blue Shield of North Carolina | Blue Cross NC Provider News | <https://www.bluecrossnc.com/providers/provider-news> | <https://www.bluecrossnc.com/modals/forms/provider-email-registry-form> | no | `blue-cross-north-carolina` |
@@ -370,4 +372,3 @@ The URL is the payer's official index, but no automated route could read it on 2
 | OR | AllCare CCO |  | no | No provider newsletter or bulletin archive found on allcarehealth.com. |
 | SD | Wellmark Blue Cross and Blue Shield of South Dakota |  | yes | Only login-gated portal; no public newsletter/news archive found. |
 | WA | Regence BlueShield (Washington) | <https://web.regence.com/ProviderSubscription> | no | Candidate index (unverified): https://www.regence.com/provider/whats-new-publications. news.regence.com is the corporate newsroom, not provider news. Sign-up page confirms bimonthly 'The Connection' + monthly policy bulletins. |
-| AR | Empower Healthcare Solutions | Provider Alerts | <https://getempowerhealth.com/provider-alerts/> | <https://getempowerhealth.com/newsletter-signup/> | no | `empower-healthcare-solutions-arkansas` |

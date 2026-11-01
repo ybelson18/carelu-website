@@ -114,6 +114,26 @@ export const californiaPayers: Record<string, PayerConfig> = {
         ],
       },
       {
+        h2: 'Out-of-state and remote BHT providers',
+        body: [
+          'Medi-Cal\'s telehealth policy (provider-requirements page updated May 2026) says a provider delivering a Medi-Cal service by telehealth "must be licensed in California and enrolled as a Medi-Cal rendering provider or affiliated with an enrolled Medi-Cal provider group that is physically located in California." That group "must be located in California or a border community." The May 2026 change adds that, "Subject to very limited exceptions for some provider types," the Established Place of Business requirements (22 CCR § 51000.60) apply in full. For "fully remote, non-California based health care providers who offer services exclusively through telehealth," those requirements are "not waived." On that text, an ABA agency with no California (or border-community) location cannot enroll to bill Medi-Cal for remote BHT. The policy does not say how its licensure wording applies to BCBAs, since California does not license behavior analysts. Managed-care members get BHT through their plan\'s network, so ask the plan about any contracting exception.',
+        ],
+        cites: [
+          { title: 'Medi-Cal Provider Manual — Telehealth Modalities (tele mod), provider requirements page updated May 2026', url: 'https://mcweb.apps.prd.cammis.medi-cal.ca.gov/file/manual?fn=telemod.pdf' },
+          { title: 'Medi-Cal Provider Manual — Behavioral Health Treatment (bht), Nov 2025', url: 'https://mcweb.apps.prd.cammis.medi-cal.ca.gov/file/manual?fn=bht.pdf' },
+        ],
+      },
+      {
+        h2: 'The 2027 CPT changes: nothing announced yet',
+        body: [
+          'At its September 2025 meeting the CPT Editorial Panel deleted 0362T and 0373T, revised eight existing codes (97151–97158) and added six new adaptive behavior codes, which CMS\'s CY 2027 Physician Fee Schedule proposed rule lists under placeholder numbers (97X1X–97X6X). As of November 1, 2026 the Medi-Cal Provider Manual\'s BHT section (pages last updated November 2025) still lists 97151–97158 as the billable ABA codes, with no 0362T or 0373T. No 2027 code update had been posted to that section. Managed-care members follow their plan\'s claim edits, so ask the plan before billing a new 2027 code.',
+        ],
+        cites: [
+          { title: 'Medi-Cal Provider Manual — Behavioral Health Treatment (bht), Nov 2025', url: 'https://mcweb.apps.prd.cammis.medi-cal.ca.gov/file/manual?fn=bht.pdf' },
+          { title: 'CMS — CY 2027 Physician Fee Schedule proposed rule, 91 FR 43891 (July 16, 2026), section (47) Adaptive Behavior Services', url: 'https://www.govinfo.gov/content/pkg/FR-2026-07-16/pdf/2026-14327.pdf' },
+        ],
+      },
+      {
         h2: 'Changing ABA providers or plans, and joining the network',
         body: [
           'Medi-Cal managed-care members get BHT from their plan\'s network, so a provider joins each county plan (or its behavioral-health delegate) it wants to serve; fee-for-service members may use an enrolled Medi-Cal BHT provider that bills DHCS directly, or their Regional Center. No state document says whether a given plan\'s BHT network is open or closed; ask each plan\'s provider relations team.',
@@ -244,7 +264,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
     },
     deliveryRules: {
       supervision: {
-        value: 'The State Plan sets tiers, not ratios. QAS Professionals are "supervised by a qualified autism service provider"; QAS Paraprofessionals are supervised by a QAS provider or professional; only QAS Providers (BCBA or licensed practitioner — the fee-for-service manual adds that a licensed practitioner needs "twelve semester units in ABA and … two years of experience") assess and develop the treatment plan, which must be reviewed at least every six months. The treatment plan itself must list the hours of "observation and direction" (APL 23-010). No state document sets a supervision percentage or ratio; each plan applies its own.',
+        value: 'The State Plan sets tiers, not ratios. QAS Professionals are "supervised by a qualified autism service provider"; QAS Paraprofessionals are supervised by a QAS provider or professional; only QAS Providers (BCBA or licensed practitioner — the fee-for-service manual adds that a licensed practitioner needs "twelve semester units in ABA and … two years of experience") assess and develop the treatment plan, which must be reviewed at least every six months. The treatment plan itself must list the hours of "observation and direction" (APL 23-010). No state document sets a supervision percentage or ratio; each plan applies its own. Nor does any state BHT document prescribe a supervision log or form, signatures on it, or a monthly supervision-percentage report; the fee-for-service manual only requires providers to keep a current list of every QAS provider, professional and paraprofessional and make it available to DHCS on request.',
         status: 'plan-dependent',
         cites: [
           { title: 'Medi-Cal State Plan — Supplement 6 to Att. 3.1-A, BHT Services Chart (TN CA-26-0012, eff. 1/1/2026)', url: 'https://www.dhcs.ca.gov/file/supplement-6-to-attachment-3-1-a-pdf/' },
@@ -273,7 +293,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         ],
       },
       noteSignature: {
-        value: 'No BHT session-note signature rule in the state documents. The fee-for-service manual lists documentation elements only for S5110/S5111 (date and duration, "Name and credentials of the provider," family members trained, goals, method, response, link to the plan), and says telehealth documentation "should be the same as for a comparable in-person service."',
+        value: 'No BHT session-note signature rule in the state documents. The fee-for-service manual lists documentation elements only for S5110/S5111 (date and duration, "Name and credentials of the provider," family members trained, goals, method, response, link to the plan), and says telehealth documentation "should be the same as for a comparable in-person service." Neither section addresses amending or correcting a session note (addenda, late entries, co-signature), so that rule comes from the member\'s plan.',
         status: 'unverified',
         cites: [
           { title: 'Medi-Cal Provider Manual — Behavioral Health Treatment (bht), Nov 2025', url: 'https://mcweb.apps.prd.cammis.medi-cal.ca.gov/file/manual?fn=bht.pdf' },
@@ -1408,13 +1428,14 @@ export const californiaPayers: Record<string, PayerConfig> = {
         ],
       },
       noteSignature: {
-        value: 'Not addressed in the Anthem ABA documents beyond the provider signature and license on the request form.',
+        value: 'No BHT session-note signature rule. The Anthem ABA documents require only the provider signature and license on the request form. Anthem\'s California Medi-Cal records policy CA_QMXX_045 (last reviewed 12/18/2023) sets general charting standards. It requires electronic record systems to "authenticate electronic signatures" and to "ensure that recorded input is unalterable." It names no co-signer, signing deadline or addendum procedure for ABA notes.',
         status: 'unverified',
         cites: [
           { title: 'Anthem Blue Cross — Treatment Plan Request Form for Autism Spectrum Disorders, Medi-Cal (May 2026)', url: 'https://providers.anthem.com/docs/gpp/california-provider/CA_CAID_ASDTreatmentRequestForm.pdf' },
+          { title: 'Anthem Blue Cross (Medi-Cal) policy CA_QMXX_045 — Medical Record Documentation and Confidentiality Standards (last review 12/18/2023)', url: 'https://mss.anthem.com/california-medicaid/ca_qmxx_045.pdf' },
         ],
-        verifyVia: 'Anthem policy CA_QMXX_045 "Medical Record Documentation and Confidentiality Standards" on mss.anthem.com (not read this cycle).',
-        blocker: 'document',
+        verifyVia: 'Anthem Medi-Cal provider services (866-398-1922) or your Anthem BHT provider agreement: ask whether session notes need a supervising BCBA co-signature and how amendments must be marked.',
+        blocker: 'per-case',
       },
       placeOfService: {
         value: 'The request form’s setting boxes are Home, Clinic, "School (if allowed)," "Telehealth (if allowed)" and Other. The state rule underneath (APL 23-010) covers home, clinic, community and school settings and bars limiting BHT on school attendance.',
@@ -1566,11 +1587,12 @@ export const californiaPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'Policy 482 accepts "clinical psychologists, developmental pediatrician, pediatric neurologist, psychiatrist, or other licensed clinicians permitted under applicable state law to diagnose ASD," working as a multidisciplinary team, plus "Documentation from the Member’s primary care physician noting initial developmental concerns." The referral forms are signed by an "M.D. or Licensed Clinical Psychologist." LCSW: only if California law permits an LCSW to diagnose ASD (Policy 482\'s "other licensed clinicians" category), and the referral forms still need an M.D. or licensed clinical psychologist signature. California\'s LCSW scope statute (B&P § 4996.9) could not be fetched this run, so whether an LCSW counts as qualified to diagnose in California is not confirmed here — ask the plan before relying on an LCSW-only diagnosis.',
+        value: 'Policy 482 accepts "clinical psychologists, developmental pediatrician, pediatric neurologist, psychiatrist, or other licensed clinicians permitted under applicable state law to diagnose ASD," working as a multidisciplinary team, plus "Documentation from the Member’s primary care physician noting initial developmental concerns." The referral forms are signed by an "M.D. or Licensed Clinical Psychologist." LCSW: only if California law permits an LCSW to diagnose ASD (Policy 482\'s "other licensed clinicians" category), and the referral forms still need an M.D. or licensed clinical psychologist signature. California\'s LCSW scope statute, B&P § 4996.9, defines clinical social work to include "counseling and using applied psychotherapy of a nonmedical nature" and does not mention diagnosis (read in FindLaw\'s unofficial copy, current as of January 1, 2026; the official leginfo page blocks automated reads). It neither expressly grants nor bars an LCSW autism diagnosis, so ask the plan before relying on an LCSW-only diagnosis.',
         status: 'verified',
         cites: [
           { title: 'Molina Clinical Policy No. 482 — Applied Behavioral Analysis for ASD (approved 6/10/2026)', url: 'https://www.molinaclinicalpolicy.com/molinaclinicalpolicy/-/media/Molina/PublicWebsite/PDF/Common/Molina-Clinical-Policy/Applied-Behavioral-Analysis-for-Autism-Spectrum-Disorder_R.ashx' },
           { title: 'Molina Healthcare of California — Applied Behavior Analysis Services & ABA Referral Form', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/CA/Prior-Auth/ABA-Referral-Form.pdf' },
+          { title: 'Business & Professions Code § 4996.9 — Practice of clinical social work (FindLaw unofficial copy, current as of January 1, 2026)', url: 'https://codes.findlaw.com/ca/business-and-professions-code/bpc-sect-4996-9/' },
         ],
       },
       diagnosticTools: {
@@ -2562,10 +2584,11 @@ export const californiaPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'A "licensed, qualified health care provider" — BSC3.01’s initial-evaluation text gives examples: "an appropriate provider (e.g., pediatrician, pediatric neurologist, developmental pediatrician, psychologist)." No closed list. LCSW: not named in BSC3.01\'s examples. California\'s LCSW scope statute (B&P § 4996.9) could not be fetched this run, so whether an LCSW counts as qualified to diagnose in California is not confirmed here — ask the plan before relying on an LCSW-only diagnosis.',
+        value: 'A "licensed, qualified health care provider" — BSC3.01’s initial-evaluation text gives examples: "an appropriate provider (e.g., pediatrician, pediatric neurologist, developmental pediatrician, psychologist)." No closed list. LCSW: not named in BSC3.01\'s examples. California\'s LCSW scope statute, B&P § 4996.9, defines clinical social work to include "counseling and using applied psychotherapy of a nonmedical nature" and does not mention diagnosis (read in FindLaw\'s unofficial copy, current as of January 1, 2026; the official leginfo page blocks automated reads). It neither expressly grants nor bars an LCSW autism diagnosis, so ask the plan before relying on an LCSW-only diagnosis.',
         status: 'verified',
         cites: [
           { title: 'Blue Shield Medical Policy BSC3.01 — BHT for ASD or PDD (eff. 12/1/2025)', url: 'https://www.blueshieldca.com/content/dam/bsca/en/provider/docs/medical-policies/Behavioral-Health-TX-Autism-Spectrum-Disorders.pdf' },
+          { title: 'Business & Professions Code § 4996.9 — Practice of clinical social work (FindLaw unofficial copy, current as of January 1, 2026)', url: 'https://codes.findlaw.com/ca/business-and-professions-code/bpc-sect-4996-9/' },
         ],
       },
       diagnosticTools: {
@@ -3410,12 +3433,13 @@ export const californiaPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'A DSM-5 ASD diagnosis "obtained by an appropriate provider" — the guide names a "licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice"; CPB 0648 lists professionals appropriate to ASD evaluation (BCBA, developmental pediatrician, neurologist, OT, PT, primary care provider, psychiatrist, psychologist, SLP and audiologist). Aetna’s California-only record-review items add "If member is 0-6 years of age, there is documentation of screening for autism spectrum disorder." LCSW: Aetna\'s test is scope of practice. California\'s LCSW scope statute (B&P § 4996.9) could not be fetched this run, so whether an LCSW counts as qualified to diagnose in California is not confirmed here — ask the plan before relying on an LCSW-only diagnosis.',
+        value: 'A DSM-5 ASD diagnosis "obtained by an appropriate provider" — the guide names a "licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice"; CPB 0648 lists professionals appropriate to ASD evaluation (BCBA, developmental pediatrician, neurologist, OT, PT, primary care provider, psychiatrist, psychologist, SLP and audiologist). Aetna’s California-only record-review items add "If member is 0-6 years of age, there is documentation of screening for autism spectrum disorder." LCSW: Aetna\'s test is scope of practice. California\'s LCSW scope statute, B&P § 4996.9, defines clinical social work to include "counseling and using applied psychotherapy of a nonmedical nature" and does not mention diagnosis (read in FindLaw\'s unofficial copy, current as of January 1, 2026; the official leginfo page blocks automated reads). It neither expressly grants nor bars an LCSW autism diagnosis, so ask the plan before relying on an LCSW-only diagnosis.',
         status: 'verified',
         cites: [
           { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
           { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
           { title: 'Aetna Provider Manual (6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Business & Professions Code § 4996.9 — Practice of clinical social work (FindLaw unofficial copy, current as of January 1, 2026)', url: 'https://codes.findlaw.com/ca/business-and-professions-code/bpc-sect-4996-9/' },
         ],
       },
       diagnosticTools: {
@@ -3708,11 +3732,12 @@ export const californiaPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: 'A healthcare professional "who is licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice" (EN0499); the PA form offers medical doctor, licensed psychologist or other. LCSW: Evernorth\'s test is independent licensure with diagnosis in scope. California\'s LCSW scope statute (B&P § 4996.9) could not be fetched this run, so whether an LCSW counts as qualified to diagnose in California is not confirmed here — ask the plan before relying on an LCSW-only diagnosis.',
+        value: 'A healthcare professional "who is licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice" (EN0499); the PA form offers medical doctor, licensed psychologist or other. LCSW: Evernorth\'s test is independent licensure with diagnosis in scope. California\'s LCSW scope statute, B&P § 4996.9, defines clinical social work to include "counseling and using applied psychotherapy of a nonmedical nature" and does not mention diagnosis (read in FindLaw\'s unofficial copy, current as of January 1, 2026; the official leginfo page blocks automated reads). It neither expressly grants nor bars an LCSW autism diagnosis, so ask the plan before relying on an LCSW-only diagnosis.',
         status: 'verified',
         cites: [
           { title: 'Evernorth Coverage Policy EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
           { title: 'Evernorth — Applied Behavior Analysis Prior Authorization Form (rev. July 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/applied-behavior-analysis.pdf' },
+          { title: 'Business & Professions Code § 4996.9 — Practice of clinical social work (FindLaw unofficial copy, current as of January 1, 2026)', url: 'https://codes.findlaw.com/ca/business-and-professions-code/bpc-sect-4996-9/' },
         ],
       },
       diagnosticTools: {
@@ -4011,11 +4036,12 @@ export const californiaPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosingProviders: {
-        value: '"A state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis according to … DSM-5-TR" (Optum criteria). Psychologist diagnostic testing is billed under Optum’s general behavioral health network, not the autism contract. LCSW: Optum\'s test is a state-licensed clinician qualified to diagnose. California\'s LCSW scope statute (B&P § 4996.9) could not be fetched this run, so whether an LCSW counts as qualified to diagnose in California is not confirmed here — ask the plan before relying on an LCSW-only diagnosis.',
+        value: '"A state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis according to … DSM-5-TR" (Optum criteria). Psychologist diagnostic testing is billed under Optum’s general behavioral health network, not the autism contract. LCSW: Optum\'s test is a state-licensed clinician qualified to diagnose. California\'s LCSW scope statute, B&P § 4996.9, defines clinical social work to include "counseling and using applied psychotherapy of a nonmedical nature" and does not mention diagnosis (read in FindLaw\'s unofficial copy, current as of January 1, 2026; the official leginfo page blocks automated reads). It neither expressly grants nor bars an LCSW autism diagnosis, so ask the plan before relying on an LCSW-only diagnosis.',
         status: 'verified',
         cites: [
           { title: 'Optum — ABA Supplemental Clinical Criteria (BH803ABASCC, interim review 4/21/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
           { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
+          { title: 'Business & Professions Code § 4996.9 — Practice of clinical social work (FindLaw unofficial copy, current as of January 1, 2026)', url: 'https://codes.findlaw.com/ca/business-and-professions-code/bpc-sect-4996-9/' },
         ],
       },
       diagnosticTools: {

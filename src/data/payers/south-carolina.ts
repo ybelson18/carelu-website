@@ -14,6 +14,7 @@ import type { PayerConfig, PayerSource } from './types.js';
 
 const S: Record<string, PayerSource> = {
   asdManual: { title: 'SCDHHS — Autism Spectrum Disorder (ASD) Services Provider Manual (July 1, 2026)', url: 'https://www.scdhhs.gov/sites/dhhs/files/documents/ASD%20Services%20Provider%20Manual%207.1.26.pdf' },
+  asdManualCur: { title: 'SCDHHS — ASD Services Provider Manual (July 1, 2026 file linked from the SCDHHS ASD manual page, 59 pp.)', url: 'https://provider.scdhhs.gov/internet/pdf/manuals/autism/Manual.pdf' },
   asdTraining: { title: 'SCDHHS — ASD Services Provider Manual Policy Updates, provider training (July 9, 2026)', url: 'https://scdhhs.gov/sites/dhhs/files/ASD%20provider%20training%20_%20July%202026%20Update.pdf' },
   asdBulletin: { title: 'SCDHHS Medicaid Bulletin MB# 26-015 — Updates to ASD Services Provider Manual (May 15, 2026; effective July 1, 2026)', url: 'https://www.scdhhs.gov/communications/updates-asd-services-provider-manual' },
   asdFee: { title: 'SCDHHS — ASD Services Fee Schedule (file dated 7-1-2026; page header "Effective: 8/13/2026")', url: 'https://www.scdhhs.gov/sites/dhhs/files/ASD%20Services%20FEE%20SCHEDULE%20%207-1-2026.pdf' },
@@ -82,10 +83,10 @@ const SC_MCO_RESPONSIBLE =
   'SCDHHS says in its July 2026 manual bulletin that the "Medicaid managed care organizations (MCOs) are responsible for the authorizations, coverage and reimbursement" of ASD services "for members enrolled in an MCO," and the ASD manual itself says that for MCO members "providers must follow the member’s MCO’s policies and requirements."';
 
 const SC_TELEHEALTH_STATE =
-  'Under the SCDHHS ASD manual (July 1, 2026), only two ABA codes may be delivered by telehealth: 97156 (family guidance), with the GT modifier and no extra authorization, and 97155 (protocol modification), only when the QIO approves it during prior authorization, for up to 25% of authorized and rendered 97155 units, for a member receiving in-home ABA in a rural location with limited access. Telehealth must be synchronous audio and video, GT goes in the secondary modifier position, and POS is 02 or 10. "The BIA can not be completed by telehealth," and 97152, 97153, 97154, 97157, 97158, 0362T and 0373T are not deliverable by telehealth. An ASD diagnosis made by telehealth is not valid.';
+  'Under the SCDHHS ASD manual (July 1, 2026), only two ABA codes may be delivered by telehealth: 97156 (family guidance), which "may be delivered by telehealth, using the GT modifier," and 97155 (protocol modification), for a member receiving home-based ABA whose plan of care addresses maladaptive and impairing behaviors, when the ABA provider clearly establishes severe access-to-care concerns: "Up to 25% of the total units approved for 97155 may be rendered via telehealth only when authorized by the QIO," billed with GT, and the provider must be physically located in the SCMSA and able to travel to deliver most 97155 in person. Telehealth must be synchronous audio and video, GT goes in the secondary modifier position, and POS is 02 or 10; the member or parent must consent to telehealth, with proof kept in the record. "The BIA cannot be completed via telehealth," and 97152, 97153, 97154, 97157, 97158, 0362T and 0373T are not deliverable by telehealth. An ASD diagnosis made by telehealth is not valid.';
 
 const SC_SUPERVISION_STATE =
-  'BACB supervision applies: "each RBT must be supervised for a minimum of 5% of the hours spent providing ABA services per month," with at least two face-to-face, real-time contacts a month, one of which observes the RBT with the member; that professional supervision is not billable. Caseload caps: a BCBA may carry 12 cases (16 with a BCaBA), a BCaBA 12, where 30–40 hours a week is one case, 10–25 hours half a case and under 10 hours a quarter case. A behavior technician gets one 90-day grace period to earn the RBT credential, and may work only in a clinic with a BCBA on site during it.';
+  'BACB supervision applies: "Following BACB guidelines, case supervision must be provided by a BCBA-D, BCBA or BCaBA," and the enrolled provider must keep its BACB duty to supervise its RBTs separate from billing — billable treatment frequency reflects only services delivered directly to the member, and "Indirect BT/RBT case supervision is not reimbursable under the code 97155." (The BACB’s own floor is supervision for at least 5% of an RBT’s monthly service hours, with two face-to-face, real-time contacts a month, one observing the RBT with a client.) Caseload caps: a BCBA may carry 12 cases (16 with a BCaBA), a BCaBA 12, where 30–40 hours a week is one case, 10–25 hours half a case and under 10 hours a quarter case. A behavior technician gets one 90-day grace period to earn the RBT credential, and may work only in a clinic with a BCBA on site during it.';
 
 const SC_DX_PROVIDERS_STATE =
   'The comprehensive diagnostic assessment must be administered directly by a licensed physician (MD/DO), licensed psychologist (PhD/PsyD) or licensed psycho-educational specialist (LPES). A medical-care-home physician may confirm a prior diagnosis, or make an initial diagnosis for a medically uncomplicated child aged 18–36 months. SCDHHS "does NOT accept autism evaluations completed by any other provider type," naming nurse practitioners, physician assistants, LISWs, ABA providers and ST/OT/PT; a school IDEA designation of ASD or a BHDD-OIDD autism eligibility determination counts once a physician confirms it. Diagnoses made by telehealth are not valid.';
@@ -114,14 +115,14 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
     slug: 'south-carolina-medicaid',
     cardDesc: 'Healthy Connections covers ABA under 21 through the ASD Services manual; five MCOs run it for most children, Acentra (QIO) authorizes FFS, and the July 2026 manual narrowed telehealth.',
     assessmentPA: {
-      value: 'Fee-for-service: no. "97151 does not require prior authorization," but SCDHHS reviews and can recoup it if the member cannot start 97153 within one month or the BIA was done by telehealth. 97152 does need prior authorization. MCO members follow their plan',
+      value: 'Fee-for-service: no. "97151 does not require prior authorization," but claims face post-payment review and recoupment if the member cannot begin 97153 within one month of the BIA or receives services the BIA and IPOC do not show as medically necessary, and the BIA cannot be done by telehealth. 97152 does need prior authorization. MCO members follow their plan',
       status: 'verified',
-      cites: [S.asdManual, S.asdTraining],
+      cites: [S.asdManualCur, S.asdManual, S.asdTraining],
     },
     treatmentPA: {
-      value: 'Fee-for-service: yes. "All ASD services must be determined medically necessary and have a prior authorization by the QIO" (Acentra), reviewed against InterQual’s ABA criteria; authorizations last six months',
+      value: 'Fee-for-service: yes. "All ASD treatment services must be determined medically necessary and require prior authorization from the QIO" (Acentra); approved treatment is authorized for 6 months, then a new request is due',
       status: 'verified',
-      cites: [S.asdManual],
+      cites: [S.asdManualCur],
     },
     dxRequired: {
       value: 'Yes, or a recognized equivalent: a DSM diagnosis of ASD, an IDEA school designation of ASD or a BHDD-OIDD autism eligibility determination confirmed by a physician; children 18–36 months at risk can be presumptively eligible until age 6',
@@ -159,12 +160,12 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
         cites: [S.asdManual, S.asdTraining],
       },
       {
-        h2: 'Prior authorization: the QIO, InterQual, and what the packet needs',
+        h2: 'Prior authorization: the QIO and what the packet needs',
         body: [
-          'For fee-for-service members, "All ASD services must be determined medically necessary and have a prior authorization by the QIO." The QIO is Acentra (scdhhs.acentra.com; phone (855) 326-5219; fax (855) 300-0082), which "will use InterQual’s Applied Behavior Analysis Treatment Criteria," and "All prior authorizations will be valid for a period of six months." The exception is the assessment: "97151 does not require prior authorization," though SCDHHS reviews and can recoup it if the member cannot start 97153 within one month of the assessment, if the assessment was done by telehealth, or if the provider has no capacity to deliver the treatment it recommends. 97152 requires prior authorization.',
+          'For fee-for-service members, "All ASD treatment services must be determined medically necessary and require prior authorization from the QIO." The QIO is Acentra (scdhhs.acentra.com; phone (855) 326-5219; fax (855) 300-0082); "If approved, treatment services will be authorized for a period of 6 months, at which time a new prior authorization request must be submitted to the QIO." (The July 2026 manual as posted on the SCDHHS ASD manual page no longer names InterQual; an earlier file of the same edition did.) The exception is the assessment: "97151 does not require prior authorization," though claims are subject to post-payment review and recoupment if the member cannot begin 97153 within one month of completing the BIA, or receives services the resulting BIA and IPOC do not identify as medically necessary; and the BIA cannot be completed via telehealth. 97152 requires prior authorization.',
           'An initial request needs the diagnostic documentation, the behavior identification assessment (BIA), a functional behavior assessment whenever maladaptive behavior is targeted, more than 15 hours a week of 97153 is requested, or services are planned at school, current ST/OT/PT treatment plans, and the individualized plan of care (IPOC). The BIA must include a Vineland interview (all domains), the Behavioral Health Index, a QABF or FAST administered to the caregiver, and at least one skills assessment (PEAK, VB-MAPP with barriers and transitions, ABLLS-R, SRS, AFLS, EFL, ESDM or PAS-BOS). Every request must show 97153, 97155 and 97156 together: SCDHHS will not authorize ABA "without routine and consistent delivery of 97156," and requires at least one hour of 97156 in each month of 97153. Continued requests go in 30 to 10 days before the authorization ends.',
         ],
-        cites: [S.asdManual, S.asdTraining],
+        cites: [S.asdManualCur, S.asdManual, S.asdTraining],
       },
       {
         h2: 'Managed care: the five plans own authorization and payment',
@@ -227,7 +228,7 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
       supervision: {
         value: SC_SUPERVISION_STATE + ' BCaBAs must be supervised by a BCBA-D or BCBA and must disclose that supervision to the family in the consent form.',
         status: 'verified',
-        cites: [S.asdManual, S.asdTraining],
+        cites: [S.asdManual, S.asdTraining, { title: 'SCDHHS — ASD Services Provider Manual (July 1, 2026 file linked from the SCDHHS ASD manual page, 59 pp.)', url: 'https://provider.scdhhs.gov/internet/pdf/manuals/autism/Manual.pdf' }],
       },
       concurrentBilling: {
         value: 'Limited. The manual excludes "Concurrent billing of 97153 with any other service" except as detailed in section 8, and "Two enrolled ABA providers billing at the same time under one CPT code." The July 2026 training spells out the exceptions: 97155 may be billed with 97153 when the notes show two providers each delivering a direct service to the member at the same time (not while teaching an RBT the initial protocol), and 97153 may run alongside 97156 when the RBT works with the child in a separate space from the BCBA training the caregiver. 0373T may not be billed with 97155, and 97152 may not be billed with any treatment code. ABA alongside speech, OT or PT: the manual\'s non-covered list is explicit — "Concurrent billing of 97153 with any other service or therapy is excluded except as detailed in Section 8," and Section 8\'s exceptions are ABA-with-ABA only. It also excludes "ABA services while the member is at another medical appointment," and, in the other direction, ABA treatment "that precludes, or requires the member\'s family to stop engaging with other critical supports … speech therapy, occupational therapy, or IDEA recommended school-based curriculum and supports." So speech and ABA can both continue, but not on the same clock time as a billed 97153 unit. The manual also binds providers to the National Correct Coding Initiative edits and related coding policy unless it says otherwise.',
@@ -235,9 +236,9 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
         cites: [S.asdManual, S.asdTraining],
       },
       dailyLimits: {
-        value: 'Section 8 limits: 97151, 32 units a year and 12 a day; 97152, 21 units a day; 0362T, 16 a day; 97153, 160 units a week; 97154 and 97158, groups of 2–6 for up to 6 hours a day; 97155, up to 10% of rendered 97153 and no more than 64 units a month; 0373T, 32 a day; 97156, 96 units (24 hours) a year; 97157, 16 a day.',
+        value: 'Section 8 limits (all codes in 15-minute units): 97151, 32 units per 12 months and up to 8 units per date of service; 97152, 16 units per date of service; 0362T, 16 per date of service; 97153, 160 units a week and no more than 32 per date of service; 97154, groups of 2–6 for up to 18 units per date of service; 97155, up to 10% of rendered 97153 hours, no more than 64 units a month and 16 a week (GT telehealth needs prior authorization); 0373T, 24 per date of service, billed by an on-site BCBA-D, BCBA or BCaBA; 97156, 96 units per 12 months with at least 4 units a month and no more than 16 per date of service; 97157, 16 per date of service; 97158, groups of 2–6 for up to 16 units per date of service. Units above these limits need QIO prior approval with supporting documentation.',
         status: 'verified',
-        cites: [S.asdManual],
+        cites: [S.asdManual, { title: 'SCDHHS — ASD Services Provider Manual (July 1, 2026 file linked from the SCDHHS ASD manual page, 59 pp.)', url: 'https://provider.scdhhs.gov/internet/pdf/manuals/autism/Manual.pdf' }],
       },
       noteSignature: {
         value: 'Each discrete service needs its own clinical service note, signed, titled and dated "by both the enrolled BCBA, BCaBA, or LIP as applicable, as well as the BT/RBT rendering the service," and records must be signed before the claim is filed. A BT also writes the date their 90-day grace period began. SCDHHS does not allow a group to designate a general "authorized signee," and notes may not be copied forward.',
@@ -284,7 +285,7 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
       telehealth: {
         value: SC_TELEHEALTH_STATE + ' The member must be at a referring site inside the SCMSA, and the ABA provider must also be located in the SCMSA.',
         status: 'verified',
-        cites: [S.asdManual, S.asdTraining, S.asdBulletin, S.asdFee],
+        cites: [S.asdManual, S.asdTraining, S.asdBulletin, S.asdFee, { title: 'SCDHHS — ASD Services Provider Manual (July 1, 2026 file linked from the SCDHHS ASD manual page, 59 pp.)', url: 'https://provider.scdhhs.gov/internet/pdf/manuals/autism/Manual.pdf' }],
       },
       authTurnaround: {
         value: 'The ASD manual sets no decision clock for the QIO. The federal fee-for-service floor applies: since January 1, 2026 the state agency must decide a standard request "in no case later than 7 calendar days after receiving the request" (extendable by up to 14 days) and an expedited one within 72 hours. Continued and annual requests go in 30 to 10 days before the authorization expires. MCO members follow their plan’s clock (42 CFR 438.210(d): 7 calendar days for rating periods starting on or after January 1, 2026).',
@@ -377,7 +378,7 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
       supervision: {
         value: 'Absolute Total Care publishes no ABA supervision ratio of its own; its ASD form only requires the supervising provider to attest to "actively participating in the treatment plan." The SCDHHS ASD manual sets the state baseline, which the plan may apply: ' + SC_SUPERVISION_STATE,
         status: 'plan-dependent',
-        cites: [S.atcASD, S.asdManual],
+        cites: [S.atcASD, S.asdManual, { title: 'SCDHHS — ASD Services Provider Manual (July 1, 2026 file linked from the SCDHHS ASD manual page, 59 pp.)', url: 'https://provider.scdhhs.gov/internet/pdf/manuals/autism/Manual.pdf' }],
         verifyVia: 'Absolute Total Care behavioral health UM, 1-866-534-5976: ask whether it applies the SCDHHS ASD manual’s supervision and caseload rules.',
         blocker: 'per-case',
       },
@@ -450,7 +451,7 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
       telehealth: {
         value: 'Absolute Total Care publishes no ABA telehealth rule. The state baseline: ' + SC_TELEHEALTH_STATE,
         status: 'plan-dependent',
-        cites: [S.atcPM, S.asdManual],
+        cites: [S.atcPM, S.asdManual, { title: 'SCDHHS — ASD Services Provider Manual (July 1, 2026 file linked from the SCDHHS ASD manual page, 59 pp.)', url: 'https://provider.scdhhs.gov/internet/pdf/manuals/autism/Manual.pdf' }],
         verifyVia: 'Absolute Total Care behavioral health UM, 1-866-534-5976: ask which ABA codes it pays by telehealth and with what modifier and POS.',
         blocker: 'per-case',
       },
@@ -542,7 +543,7 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
       supervision: {
         value: 'Healthy Blue uses the SCDHHS Autism Provider Manual as its autism criteria, so the state rules apply: ' + SC_SUPERVISION_STATE,
         status: 'verified',
-        cites: [S.hbPOM, S.asdManual],
+        cites: [S.hbPOM, S.asdManual, { title: 'SCDHHS — ASD Services Provider Manual (July 1, 2026 file linked from the SCDHHS ASD manual page, 59 pp.)', url: 'https://provider.scdhhs.gov/internet/pdf/manuals/autism/Manual.pdf' }],
       },
       concurrentBilling: {
         value: 'Healthy Blue publishes no rule of its own. Under the SCDHHS manual it applies, 97153 may not be billed concurrently except as section 8 allows (97155 with 97153 when both providers deliver a direct service; 97153 with 97156 in separate spaces), and two providers may not bill the same code at the same time. On ABA alongside other therapies, Healthy Blue publishes nothing of its own; the state baseline: the SCDHHS ASD manual\'s non-covered list is explicit — "Concurrent billing of 97153 with any other service or therapy is excluded except as detailed in Section 8," and Section 8\'s exceptions are ABA-with-ABA only. It also excludes "ABA services while the member is at another medical appointment," and, in the other direction, ABA treatment "that precludes, or requires the member\'s family to stop engaging with other critical supports … speech therapy, occupational therapy, or IDEA recommended school-based curriculum and supports." So speech and ABA can both continue, but not on the same clock time as a billed 97153 unit. The manual also binds providers to the National Correct Coding Initiative edits and related coding policy unless it says otherwise.',
@@ -607,7 +608,7 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
       telehealth: {
         value: 'Healthy Blue publishes no ABA telehealth rule and uses the SCDHHS Autism Provider Manual as its criteria. The state rule: ' + SC_TELEHEALTH_STATE,
         status: 'plan-dependent',
-        cites: [S.hbPOM, S.asdManual],
+        cites: [S.hbPOM, S.asdManual, { title: 'SCDHHS — ASD Services Provider Manual (July 1, 2026 file linked from the SCDHHS ASD manual page, 59 pp.)', url: 'https://provider.scdhhs.gov/internet/pdf/manuals/autism/Manual.pdf' }],
         verifyVia: 'Healthy Blue Provider Services, 866-757-8286: confirm it has adopted the July 1, 2026 telehealth limits.',
         blocker: 'per-case',
       },
@@ -702,7 +703,7 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
       supervision: {
         value: 'Molina publishes no ABA supervision rule for South Carolina. The state baseline in the SCDHHS ASD manual: ' + SC_SUPERVISION_STATE,
         status: 'plan-dependent',
-        cites: [S.molPM, S.asdManual],
+        cites: [S.molPM, S.asdManual, { title: 'SCDHHS — ASD Services Provider Manual (July 1, 2026 file linked from the SCDHHS ASD manual page, 59 pp.)', url: 'https://provider.scdhhs.gov/internet/pdf/manuals/autism/Manual.pdf' }],
         verifyVia: 'Molina SC Provider Services, (855) 237-6178: ask whether the SCDHHS supervision and caseload rules apply to its network.',
         blocker: 'per-case',
       },
@@ -779,7 +780,7 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
       telehealth: {
         value: 'Molina publishes no ABA telehealth rule for South Carolina. The state baseline: ' + SC_TELEHEALTH_STATE,
         status: 'plan-dependent',
-        cites: [S.molPM, S.asdManual],
+        cites: [S.molPM, S.asdManual, { title: 'SCDHHS — ASD Services Provider Manual (July 1, 2026 file linked from the SCDHHS ASD manual page, 59 pp.)', url: 'https://provider.scdhhs.gov/internet/pdf/manuals/autism/Manual.pdf' }],
         verifyVia: 'Molina SC Provider Services, (855) 237-6178: ask which ABA codes it pays by telehealth.',
         blocker: 'per-case',
       },
@@ -869,7 +870,7 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
       supervision: {
         value: 'Select Health applies the medical-necessity requirements "outlined for each service in the SCDHHS Autism Spectrum Disorder Services Manual," which sets: ' + SC_SUPERVISION_STATE,
         status: 'verified',
-        cites: [S.shPM, S.asdManual],
+        cites: [S.shPM, S.asdManual, { title: 'SCDHHS — ASD Services Provider Manual (July 1, 2026 file linked from the SCDHHS ASD manual page, 59 pp.)', url: 'https://provider.scdhhs.gov/internet/pdf/manuals/autism/Manual.pdf' }],
       },
       concurrentBilling: {
         value: 'Select Health publishes no rule of its own; the SCDHHS manual it follows bars concurrent 97153 billing except as section 8 allows (97155 with 97153 when both deliver a direct service; 97153 with 97156 in separate spaces). On ABA alongside other therapies, Select Health publishes nothing of its own; the state baseline: the SCDHHS ASD manual\'s non-covered list is explicit — "Concurrent billing of 97153 with any other service or therapy is excluded except as detailed in Section 8," and Section 8\'s exceptions are ABA-with-ABA only. It also excludes "ABA services while the member is at another medical appointment," and, in the other direction, ABA treatment "that precludes, or requires the member\'s family to stop engaging with other critical supports … speech therapy, occupational therapy, or IDEA recommended school-based curriculum and supports." So speech and ABA can both continue, but not on the same clock time as a billed 97153 unit. The manual also binds providers to the National Correct Coding Initiative edits and related coding policy unless it says otherwise.',
@@ -932,7 +933,7 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
       telehealth: {
         value: 'Select Health publishes no ABA telehealth rule but follows the SCDHHS ASD manual’s medical-necessity requirements per service. The state rule: ' + SC_TELEHEALTH_STATE,
         status: 'plan-dependent',
-        cites: [S.shPM, S.asdManual],
+        cites: [S.shPM, S.asdManual, { title: 'SCDHHS — ASD Services Provider Manual (July 1, 2026 file linked from the SCDHHS ASD manual page, 59 pp.)', url: 'https://provider.scdhhs.gov/internet/pdf/manuals/autism/Manual.pdf' }],
         verifyVia: 'Select Health Behavioral Health UM, 1-866-341-8765: confirm the July 2026 telehealth limits and its modifier rules.',
         blocker: 'per-case',
       },
@@ -1026,7 +1027,7 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
       supervision: {
         value: 'Humana adheres to the SCDHHS ASD manual, which sets: ' + SC_SUPERVISION_STATE + ' The ABA form asks for the supervising BCBA’s name and certification number.',
         status: 'verified',
-        cites: [S.humPM, S.humABA, S.asdManual],
+        cites: [S.humPM, S.humABA, S.asdManual, { title: 'SCDHHS — ASD Services Provider Manual (July 1, 2026 file linked from the SCDHHS ASD manual page, 59 pp.)', url: 'https://provider.scdhhs.gov/internet/pdf/manuals/autism/Manual.pdf' }],
       },
       concurrentBilling: {
         value: 'Humana publishes no rule of its own; the SCDHHS manual it follows bars concurrent 97153 billing except as section 8 allows. On ABA alongside other therapies, Humana publishes nothing of its own; the state baseline: the SCDHHS ASD manual\'s non-covered list is explicit — "Concurrent billing of 97153 with any other service or therapy is excluded except as detailed in Section 8," and Section 8\'s exceptions are ABA-with-ABA only. It also excludes "ABA services while the member is at another medical appointment," and, in the other direction, ABA treatment "that precludes, or requires the member\'s family to stop engaging with other critical supports … speech therapy, occupational therapy, or IDEA recommended school-based curriculum and supports." So speech and ABA can both continue, but not on the same clock time as a billed 97153 unit. The manual also binds providers to the National Correct Coding Initiative edits and related coding policy unless it says otherwise.',
@@ -1091,7 +1092,7 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
       telehealth: {
         value: 'Humana publishes no ABA telehealth rule and follows the SCDHHS manual, but cites the September 2025 edition. The current state rule: ' + SC_TELEHEALTH_STATE,
         status: 'plan-dependent',
-        cites: [S.humPM, S.asdManual],
+        cites: [S.humPM, S.asdManual, { title: 'SCDHHS — ASD Services Provider Manual (July 1, 2026 file linked from the SCDHHS ASD manual page, 59 pp.)', url: 'https://provider.scdhhs.gov/internet/pdf/manuals/autism/Manual.pdf' }],
         verifyVia: 'Humana Healthy Horizons in South Carolina, 866-432-0001: confirm it applies the July 1, 2026 telehealth limits.',
         blocker: 'per-case',
       },
@@ -1215,14 +1216,14 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
     sources: [S.aetnaGuide, S.aetnaCPB, S.aetnaCPB648, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.aetnaTele, S.sc280, S.doiBull, S.sc3859, S.sc3870, S.reg6943, S.t40c75, S.bacbLic, S.erisa, S.cfr147, S.asdFee, { title: 'S.C. Code § 40-63-20 — Social work definitions (clinical social work: assessment, diagnosis, and treatment of mental, emotional, and behavioral disorders)', url: 'https://www.scstatehouse.gov/code/t40c063.php' }, { title: 'Aetna — Disputes and appeals overview (provider reconsiderations and appeals; checked 10/25/2026)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' }],
     deliveryRules: {
       supervision: {
-        value: 'Aetna’s Network Participation Criteria (5/26): ABA services "must be provided directly or supervised by individuals licensed by the state or certified by the Behavior Analyst Certification Board," supervised staff may be a BCaBA "or a paraprofessional," and Aetna requires "A minimum of one hour of face-to-face supervision" of an unlicensed or noncertified paraprofessional "for each 10 hours of applied behavior analysis," plus the supervisor "onsite with the child at least one hour a month." South Carolina has no state license, so BACB certification is the qualifying credential.',
+        value: 'Aetna’s Network Participation Criteria (5/26): ABA services "must be provided directly or supervised by individuals licensed by the state or certified by the Behavior Analyst Certification Board," supervised staff may be a BCaBA "or a paraprofessional," and Aetna requires "A minimum of one hour of face-to-face supervision" of an unlicensed or noncertified paraprofessional "for each 10 hours of applied behavior analysis," plus the supervisor "onsite with the child at least one hour a month." South Carolina has no state license, so BACB certification is the qualifying credential. Supervision documentation: Aetna’s network participation criteria (May 2026) require that “policies and procedures for the supervision of paraprofessionals must be documented,” with a minimum of one hour of face-to-face supervision by a BCBA or licensed psychologist (or behavioral health professional) for each 10 hours of ABA by the supervised paraprofessional and the supervisor onsite with the child at least one hour a month; Aetna publishes no supervision log, form or sign-off schedule. The monthly BACB record (at least 5% of RBT service hours supervised each calendar month, two face-to-face contacts, records of dates, duration, format and observations kept 7 years) is a certification requirement, not a payer rule.',
         status: 'verified',
-        cites: [S.aetnaNPC, S.aetnaGuide, S.t40c75],
+        cites: [S.aetnaNPC, S.aetnaGuide, S.t40c75, { title: 'BACB — Registered Behavior Technician Handbook (updated 10/2026), Ongoing Supervision and Supervision Documentation', url: 'https://www.bacb.com/rbt-handbook/' }],
       },
       concurrentBilling: {
         value: 'Not addressed in Aetna’s published ABA policies (the medical necessity guide, CPB 0554, CPB 0648). ABA alongside speech, OT or PT: Aetna\'s ABA medical necessity guide has no same-clock-time rule for ABA with another therapy; it requires "ongoing collaboration and coordination with existing providers and/or the school district, as applicable."',
         status: 'unverified',
-        cites: [S.aetnaGuide, S.aetnaCPB, { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+        cites: [S.aetnaGuide, S.aetnaCPB],
         verifyVia: 'Aetna provider services, your participating-provider agreement, or a written coding determination from Aetna Behavioral Health.',
         blocker: 'per-case',
       },
@@ -1410,9 +1411,9 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
     sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.sc280, S.doiBull, S.sc3859, S.sc3870, S.reg6943, S.t40c75, S.bacbLic, S.erisa, S.cfr147, S.asdFee, { title: 'S.C. Code § 40-63-20 — Social work definitions (clinical social work: assessment, diagnosis, and treatment of mental, emotional, and behavioral disorders)', url: 'https://www.scstatehouse.gov/code/t40c063.php' }, { title: 'Evernorth — Applied Behavior Analysis Prior Authorization Form (PCOMM-2025-224; file dated 7/1/2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/applied-behavior-analysis.pdf' }],
     deliveryRules: {
       supervision: {
-        value: 'Case supervision by a BCBA, a Licensed Behavior Analyst, or an independently licensed mental health professional with ABA training, at one to two hours per ten hours of direct treatment; at 10 hours a week or less, at least one to two hours a week. The supervisor’s name and credentials must be documented.',
+        value: 'Case supervision by a BCBA, a Licensed Behavior Analyst, or an independently licensed mental health professional with ABA training, at one to two hours per ten hours of direct treatment; at 10 hours a week or less, at least one to two hours a week. The supervisor’s name and credentials must be documented. Supervision documentation: EN0499 (effective 5/15/2026) asks for the supervisor’s name and credentials in the treatment plan and a separate written record for each service by CPT code with start and end times, location, focus, a description of the intervention, the individuals present, the specific service delivered (e.g., direct service, supervision, stakeholder training) and the name, credential and signature of the provider who rendered it; it prescribes no separate supervision log or monthly sign-off. The monthly BACB record (at least 5% of RBT service hours supervised each calendar month, two face-to-face contacts, records of dates, duration, format and observations kept 7 years) is a certification requirement, not a payer rule.',
         status: 'verified',
-        cites: [S.en0499],
+        cites: [S.en0499, { title: 'BACB — Registered Behavior Technician Handbook (updated 10/2026), Ongoing Supervision and Supervision Documentation', url: 'https://www.bacb.com/rbt-handbook/' }],
       },
       concurrentBilling: {
         value: '"Only one provider can bill for a unit of time, with the exception of CPT codes 97153, 97154, and 97155 (direct supervision when the BCBA/qualified health care provider directs the technician and both are face-to-face with the patient at the same time)." ABA alongside speech or occupational therapy: EN0499 (effective 5/15/2026) states that "Provision of ABA treatment is not covered or reimbursable when delivered to the same individual, at the same time as any other treatment modality (e.g., ABA and speech therapy, or ABA and occupational therapy)." Same-day sessions at different times are not barred; overlapping clock time is.',
@@ -1598,14 +1599,14 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
     sources: [S.optumSCC, S.optumSM, S.optumTele, S.optumNNM, S.optumReimb, S.mcoList, S.sc280, S.doiBull, S.sc3859, S.sc3870, S.reg6943, S.t40c75, S.bacbLic, S.erisa, S.cfr147, S.asdFee, { title: 'S.C. Code § 40-63-20 — Social work definitions (clinical social work: assessment, diagnosis, and treatment of mental, emotional, and behavioral disorders)', url: 'https://www.scstatehouse.gov/code/t40c063.php' }],
     deliveryRules: {
       supervision: {
-        value: 'Direct case supervision is required at 1–2 hours for every 10 hours of direct treatment. Technicians work under a BCBA or licensed clinician, and Optum does not recommend parents serving as their own child’s RBT.',
+        value: 'Direct case supervision is required at 1–2 hours for every 10 hours of direct treatment. Technicians work under a BCBA or licensed clinician, and Optum does not recommend parents serving as their own child’s RBT. Supervision documentation: Optum’s ABA documentation protocol (June 2026), used for UnitedHealthcare record reviews, asks each 97155 note to record actual start and stop times, the participants including the technician and credentials, any protocol modification (or that none occurred) and the direction given to the technician, and each daily note to carry the rendering provider’s signature; it prescribes no separate supervision log or monthly sign-off. The monthly BACB record (at least 5% of RBT service hours supervised each calendar month, two face-to-face contacts, records of dates, duration, format and observations kept 7 years) is a certification requirement, not a payer rule.',
         status: 'verified',
-        cites: [S.optumSCC],
+        cites: [S.optumSCC, { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (June 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' }, { title: 'BACB — Registered Behavior Technician Handbook (updated 10/2026), Ongoing Supervision and Supervision Documentation', url: 'https://www.bacb.com/rbt-handbook/' }],
       },
       concurrentBilling: {
         value: 'Not addressed in the SCC, which define direct case supervision as happening during treatment without stating the billing consequence. ABA alongside speech, OT or PT: Optum publishes no same-clock-time rule for ABA with another therapy. Its supplemental clinical criteria say "ABA services do not duplicate the services provided to or available to the individual by other medical or behavioral services," and require documented coordination with other allied health providers ("occupational therapy, speech therapy, physical therapy and any other applicable providers") "to reduce the likelihood of unnecessary duplication of services"; Optum\'s ABA CPT FAQ adds that ABA providers should know the child\'s other therapies, how often they occur and their goals, with ongoing communication documented.',
         status: 'unverified',
-        cites: [S.optumSCC, { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'Optum — ABA CPT code FAQs', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' }],
+        cites: [S.optumSCC, { title: 'Optum — ABA CPT code FAQs', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' }],
         verifyVia: 'Optum National Network Manual and your participating-provider agreement, or a written coding determination from Optum.',
         blocker: 'per-case',
       },
@@ -1777,7 +1778,7 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
       concurrentBilling: {
         value: '"Two ABA providers billing at the same time" is not medically necessary under CAM 387. The policy does not carve out an exception for 97155 with 97153. ABA alongside other therapies: CAM 387 makes non-duplication a coverage condition — "The ABA services recommended do not duplicate services provided or available to the member by other medical or behavioral health professionals," naming "occupational, physical, and speech therapies" among the examples — but sets no explicit same-clock-time billing rule.',
         status: 'plan-dependent',
-        cites: [S.bcCAM, { title: 'BlueCross BlueShield of South Carolina — CAM 387, Applied Behavioral Analysis Services', url: 'https://www.southcarolinablues.com/web/public/brands/medicalpolicy/external-policies/applied-behavioral-analysis-services/' }],
+        cites: [S.bcCAM],
         verifyVia: 'Companion Benefit Alternatives, 800-868-1032: ask whether 97155 and 97153 may be billed for the same clock time.',
         blocker: 'per-case',
       },

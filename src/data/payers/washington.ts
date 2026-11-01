@@ -17,6 +17,8 @@ const S: Record<string, PayerSource> = {
   hcaMC: { title: 'HCA — Apple Health managed care (plan list and phone numbers)', url: 'https://www.hca.wa.gov/free-or-low-cost-health-care/i-need-medical-dental-or-vision-care/apple-health-managed-care' },
   teleBG: { title: 'HCA — Washington Apple Health Telemedicine Policy and Billing Guide (January 1, 2026)', url: 'https://www.hca.wa.gov/assets/billers-and-providers/telemedicine-policy-and-billing-bg-20260101.pdf' },
   wac0165: { title: 'WAC 182-501-0165 — Medical necessity determination process (agency decision timeframes)', url: 'https://app.leg.wa.gov/WAC/default.aspx?cite=182-501-0165' },
+  wac0020: { title: 'WAC 182-502-0020 — Health care record requirements (records authenticated by the person who provided the care; WSR 13-03-068, eff. 2/14/2013)', url: 'https://app.leg.wa.gov/WAC/default.aspx?cite=182-502-0020' },
+  hcaGuides: { title: 'HCA — Provider billing guides and fee schedules (ABA: billing guide January 1, 2026 and fee schedule July 1, 2026 are the newest posted, checked November 1, 2026)', url: 'https://www.hca.wa.gov/billers-providers-partners/prior-authorization-claims-and-billing/provider-billing-guides-and-fee-schedules' },
   wac0200: { title: 'WAC 182-501-0200 — Third-party resources', url: 'https://app.leg.wa.gov/WAC/default.aspx?cite=182-501-0200' },
   wac0150: { title: 'WAC 182-502-0150 — Time limits for providers to bill the agency', url: 'https://app.leg.wa.gov/WAC/default.aspx?cite=182-502-0150' },
   wac526: { title: 'WAC 182-526-0200 — Enrollee appeals of a managed care organization action (hearing deadlines)', url: 'https://app.leg.wa.gov/WAC/default.aspx?cite=182-526-0200' },
@@ -200,6 +202,13 @@ export const washingtonPayers: Record<string, PayerConfig> = {
         cites: [S.abaFee, S.abaBG, S.wac531a],
       },
       {
+        h2: 'The 2027 CPT changes: nothing announced yet',
+        body: [
+          'At its September 2025 meeting the CPT Editorial Panel deleted 0362T and 0373T, revised eight existing codes (97151–97158) and added six new adaptive behavior codes, which CMS\'s CY 2027 Physician Fee Schedule proposed rule lists under placeholder numbers (97X1X–97X6X). As of November 1, 2026 HCA had not published how Apple Health will adopt them. Its billing-guides page still lists the January 1, 2026 ABA billing guide and the July 1, 2026 ABA fee schedule as the newest editions, and both still price 0362T and 0373T. Check that page, or ask HCA\'s ABA program, before billing a 2027 code. MCO members follow their plan\'s claim edits.',
+        ],
+        cites: [S.hcaGuides, S.abaBG, S.abaFee, { title: 'CMS — CY 2027 Physician Fee Schedule proposed rule, 91 FR 43891 (July 16, 2026), section (47) Adaptive Behavior Services', url: 'https://www.govinfo.gov/content/pkg/FR-2026-07-16/pdf/2026-14327.pdf' }],
+      },
+      {
         h2: 'Licensure, enrollment and out-of-state BCBAs',
         body: [
           'Washington licenses behavior analysts. Apple Health ABA is delivered by DOH-credentialed licensed behavior analysts (LBA), licensed assistant behavior analysts (LABA) and certified behavior technicians (CBT). The LBAT must be a DOH-licensed LBA, a LABA supervised by an LBA or licensed psychologist, or a licensed mental health counselor, marriage and family therapist, independent clinical or advanced social worker, or psychologist with a BCBA or BCaBA attestation (form HCA 13-0008) on file; the LBAT enrolls as a servicing provider authorized to supervise ancillary providers (WAC 182-531A-0800). A BCBA licensed in another state cannot treat an Apple Health client from out of state on that license alone: chapter 18.380 RCW requires a Washington license or temporary license to practice ABA, and HCA pays telemedicine to a client in Washington only when the practitioner is licensed in Washington or holds a compact license Washington recognizes. DOH offers reciprocity for substantially equivalent state licenses and a non-renewable 180-day temporary license for nonresidents licensed elsewhere.',
@@ -266,9 +275,9 @@ export const washingtonPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'CMS — NCCI for Medicaid (ACA § 6507: states must apply compatible NCCI methodologies to Medicaid fee-for-service claims; optional for MCOs; deactivation requests)', url: 'https://www.cms.gov/medicare/coding-billing/ncci-medicaid' }, { title: 'CMS — Medicaid NCCI MUE edit file, practitioner services, effective October 1, 2026 (dates of service 10/1–12/31/2026)', url: 'https://www.cms.gov/medicare/coding-billing/ncci-medicaid/medicaid-ncci-edit-files' }, S.abaFee, S.abaBG, S.wac531a],
       },
       noteSignature: {
-        value: 'The LBAT must sign the treatment plan and get the family’s signed approval. A CBT must document each visit (target behavior, interventions, response, technique changes, plan for next visit, graphed data) and "Maintain signed and dated documentation of family’s confirmation that a visit occurred." Daily documentation must include the client’s name, date, time in the program, clinicians, goals and strategies, format, data, and "The signature, title and credentials of the person completing the daily documentation"; supervision notes and a service log (dates, times, type and location of service) must be kept.',
+        value: 'The LBAT must sign the treatment plan and get the family’s signed approval. A CBT must document each visit (target behavior, interventions, response, technique changes, plan for next visit, graphed data) and "Maintain signed and dated documentation of family’s confirmation that a visit occurred." Daily documentation must include the client’s name, date, time in the program, clinicians, goals and strategies, format, data, and "The signature, title and credentials of the person completing the daily documentation"; supervision notes and a service log (dates, times, type and location of service) must be kept. Amending a note: HCA sets no ABA-specific addendum or late-entry procedure and requires no supervisor co-signature on a correction; the general Apple Health rule requires "legible, accurate, and complete charts and records" and that charts be "authenticated by the person who gave the order, provided the care, or performed the observation, examination, assessment, treatment or other service to which the entry pertains" (WAC 182-502-0020(2), (4)), so whoever makes an amendment signs it.',
         status: 'verified',
-        cites: [S.abaBG, S.wac531a],
+        cites: [S.abaBG, S.wac531a, S.wac0020],
       },
       placeOfService: {
         value: AH_PLACE,
