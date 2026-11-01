@@ -9,6 +9,8 @@ import SegmentPage from './pages/SegmentPage'
 import BrandProposal from './pages/BrandProposal'
 import Gateway from './pages/Gateway'
 import SolutionsPage from './pages/SolutionsPage'
+import CareersPage from './pages/CareersPage'
+import CareersRolePage from './pages/CareersRolePage'
 import ProductPage from './pages/ProductPage'
 import TermsPage from './pages/TermsPage'
 import PrivacyPolicy from './pages/PrivacyPolicy'
@@ -89,6 +91,8 @@ export default function App() {
         <Route path="/for/:slug" element={<SegmentPage />} />
         <Route path="/product" element={<ProductPage />} />
         <Route path="/solutions/:slug" element={<SolutionsPage />} />
+        <Route path="/careers" element={<CareersPage />} />
+        <Route path="/careers/solutions-engineer" element={<CareersRolePage />} />
         {/* Static resource pages must precede the :slug catch-all (static wins in v6 ranking anyway) */}
         <Route path="/resources/pediatrician-referral-contacts" element={<ReferralContactsPage />} />
         <Route path="/resources/pediatrician-referral-contacts/:state" element={<ReferralContactsStatePage />} />

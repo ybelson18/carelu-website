@@ -452,10 +452,10 @@ function Careers() {
               Come build with us.
             </h2>
             <p style={{ fontSize: 'clamp(15px, 1.3vw, 17px)', color: 'rgba(255,255,255,0.7)', lineHeight: 1.7, margin: '16px auto 30px', maxWidth: 540 }}>
-              We're always hiring exceptional engineering and customer-facing talent.
-              Email us your resume and why you'd be a good fit.
+              We're hiring in New York, starting with a Solutions Engineer
+              to bring AI to the front office of behavioral healthcare.
             </p>
-            <a href="mailto:careers@carelu.com?subject=Joining%20Carelu" style={{
+            <a href="/careers" style={{
               display: 'inline-flex', alignItems: 'center', gap: 9,
               padding: '14px 28px', borderRadius: 100,
               background: '#fff', color: INK, fontSize: 15, fontWeight: 600, textDecoration: 'none',
@@ -464,8 +464,8 @@ function Careers() {
               onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 12px 32px rgba(0,0,0,0.35)'; }}
               onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; }}
             >
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke={INK} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 7-10 5L2 7" /></svg>
-              careers@carelu.com
+              See open roles
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke={INK} strokeWidth="2.5" strokeLinecap="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
             </a>
           </div>
         </div>

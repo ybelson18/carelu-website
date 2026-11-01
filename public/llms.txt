@@ -42,6 +42,8 @@ ABA and behavioral-health providers lose a large share of new families to slow o
 - [Multi-site groups](https://carelu.com/solutions/multi-site): Carelu across multiple locations.
 - [Enterprise](https://carelu.com/solutions/enterprise): Carelu for enterprise provider networks.
 - [Company](https://carelu.com/carelu/company): About Carelu.
+- [Careers](https://carelu.com/careers): Open roles at Carelu in New York City, including Solutions Engineer.
+- [Solutions Engineer](https://carelu.com/careers/solutions-engineer): Forward-deployed Solutions Engineer role in New York City, $120K–$160K plus 0.2%–0.4% equity.
 - [Book a demo](https://carelu.com/demo): See Carelu handle a live intake.
 
 ## Original research & tools

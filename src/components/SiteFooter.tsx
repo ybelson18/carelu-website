@@ -43,7 +43,7 @@ const HREFS: Record<string, string> = {
   'Multi-Site': '/solutions/multi-site',
   'Enterprise': '/solutions/enterprise',
   'About': '/carelu/company',
-  'Careers': '/carelu/company#careers',
+  'Careers': '/careers',
   'News': '/news',
   'Contact': '/demo',
   'Blog': '/blog',

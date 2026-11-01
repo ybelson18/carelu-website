@@ -105,11 +105,60 @@ function Counter({ target, suffix = '', prefix = '', from = 0, dur = 2200, delay
 /* ================================================================
    NAV
    ================================================================ */
+// Hover dropdown for the desktop nav (Solutions, Company).
+function NavMenu({ label, items, linkStyle, align }: {
+  label: string;
+  items: { t: string; d: string; href: string }[];
+  linkStyle: React.CSSProperties;
+  align: 'left' | 'right';
+}) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="hide-mobile" style={{ position: 'relative', display: 'inline-flex', alignItems: 'center' }}
+      onMouseEnter={() => setOpen(true)}
+      onMouseLeave={() => setOpen(false)}
+    >
+      <button className="nav-link" aria-expanded={open} style={{
+        ...linkStyle, background: 'none', border: 'none', cursor: 'pointer',
+        display: 'inline-flex', alignItems: 'center', gap: 6, fontFamily: 'inherit', height: 58,
+      }}>
+        {label}
+        <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{
+          transform: open ? 'rotate(180deg)' : 'none', transition: 'transform 0.25s var(--ease-dramatic)',
+        }}><path d="M6 9l6 6 6-6" /></svg>
+      </button>
+      {open && (
+        <div style={{ position: 'absolute', top: '100%', [align]: 8, paddingTop: 4, zIndex: 101 }}>
+          <div style={{
+            background: 'rgba(250,248,243,0.96)',
+            backdropFilter: 'blur(28px) saturate(1.3)', WebkitBackdropFilter: 'blur(28px) saturate(1.3)',
+            border: '1px solid rgba(43,42,38,0.08)', borderRadius: 16,
+            boxShadow: '0 12px 40px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.04)',
+            padding: 8, minWidth: 200,
+          }}>
+            {items.map(l => (
+              <NavA key={l.t} href={l.href} style={{
+                display: 'block', padding: '10px 14px', borderRadius: 10,
+                textDecoration: 'none', transition: 'background 0.15s',
+              }}
+                onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(43,42,38,0.05)'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; }}
+              >
+                <span style={{ display: 'block', fontSize: 14, fontWeight: 500, color: '#1A1A1A' }}>{l.t}</span>
+                <span style={{ display: 'block', fontSize: 12, color: 'rgba(43,42,38,0.55)', marginTop: 1 }}>{l.d}</span>
+              </NavA>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 // `base` prefixes the section-anchor links so the same nav works from other
 // routes (e.g. /solutions/*) — pass base="/carelu" there.
 export function Nav({ base = '', onDark = false }: { base?: string; onDark?: boolean }) {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [solutionsOpen, setSolutionsOpen] = useState(false);
   // See-through over the hero sky; the bone veil fades in once the page scrolls
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
@@ -160,48 +209,11 @@ export function Nav({ base = '', onDark = false }: { base?: string; onDark?: boo
                   onMouseEnter={(e) => { e.currentTarget.style.opacity = '0.6'; }}
                   onMouseLeave={(e) => { e.currentTarget.style.opacity = '1'; }}
                 >Product</NavA>
-                <div className="hide-mobile" style={{ position: 'relative', display: 'inline-flex', alignItems: 'center' }}
-                  onMouseEnter={() => setSolutionsOpen(true)}
-                  onMouseLeave={() => setSolutionsOpen(false)}
-                >
-                  <button className="nav-link" aria-expanded={solutionsOpen} style={{
-                    ...link, background: 'none', border: 'none', cursor: 'pointer',
-                    display: 'inline-flex', alignItems: 'center', gap: 6, fontFamily: 'inherit', height: 58,
-                  }}>
-                    Solutions
-                    <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{
-                      transform: solutionsOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.25s var(--ease-dramatic)',
-                    }}><path d="M6 9l6 6 6-6" /></svg>
-                  </button>
-                  {solutionsOpen && (
-                    <div style={{ position: 'absolute', top: '100%', left: 8, paddingTop: 4, zIndex: 101 }}>
-                      <div style={{
-                        background: 'rgba(250,248,243,0.96)',
-                        backdropFilter: 'blur(28px) saturate(1.3)', WebkitBackdropFilter: 'blur(28px) saturate(1.3)',
-                        border: '1px solid rgba(43,42,38,0.08)', borderRadius: 16,
-                        boxShadow: '0 12px 40px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.04)',
-                        padding: 8, minWidth: 200,
-                      }}>
-                        {[
-                          { t: 'Single-Site', d: 'One clinic, full front office', href: '/solutions/single-site' },
-                          { t: 'Multi-Site', d: 'Every location, one system', href: '/solutions/multi-site' },
-                          { t: 'Enterprise', d: 'Scale, integrations, security', href: '/solutions/enterprise' },
-                        ].map(l => (
-                          <NavA key={l.t} href={l.href} style={{
-                            display: 'block', padding: '10px 14px', borderRadius: 10,
-                            textDecoration: 'none', transition: 'background 0.15s',
-                          }}
-                            onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(43,42,38,0.05)'; }}
-                            onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; }}
-                          >
-                            <span style={{ display: 'block', fontSize: 14, fontWeight: 500, color: '#1A1A1A' }}>{l.t}</span>
-                            <span style={{ display: 'block', fontSize: 12, color: 'rgba(43,42,38,0.55)', marginTop: 1 }}>{l.d}</span>
-                          </NavA>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
+                <NavMenu label="Solutions" linkStyle={link} align="left" items={[
+                  { t: 'Single-Site', d: 'One clinic, full front office', href: '/solutions/single-site' },
+                  { t: 'Multi-Site', d: 'Every location, one system', href: '/solutions/multi-site' },
+                  { t: 'Enterprise', d: 'Scale, integrations, security', href: '/solutions/enterprise' },
+                ]} />
               </div>
 
               {/* Center: the wordmark, alone in open air */}
@@ -219,10 +231,10 @@ export function Nav({ base = '', onDark = false }: { base?: string; onDark?: boo
                   onMouseEnter={(e) => { e.currentTarget.style.opacity = '0.6'; }}
                   onMouseLeave={(e) => { e.currentTarget.style.opacity = '1'; }}
                 >Blog</NavA>
-                <NavA href="/carelu/company" className="hide-mobile nav-link" style={link}
-                  onMouseEnter={(e) => { e.currentTarget.style.opacity = '0.6'; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.opacity = '1'; }}
-                >Company</NavA>
+                <NavMenu label="Company" linkStyle={link} align="right" items={[
+                  { t: 'About', d: 'Our story and team', href: '/carelu/company' },
+                  { t: 'Careers', d: 'Join us in New York', href: '/careers' },
+                ]} />
                 <NavA href={LOGIN_URL} className="hide-mobile nav-link" style={link}
                   onMouseEnter={(e) => { e.currentTarget.style.opacity = '0.6'; }}
                   onMouseLeave={(e) => { e.currentTarget.style.opacity = '1'; }}
@@ -274,6 +286,7 @@ export function Nav({ base = '', onDark = false }: { base?: string; onDark?: boo
             { t: 'FAQ',          href: `${base}#faq` },
             { t: 'Blog',         href: '/blog' },
             { t: 'Company',      href: '/carelu/company' },
+            { t: 'Careers',      href: '/careers' },
             { t: 'Log in',       href: LOGIN_URL },
           ].map(l => (
             <NavA key={l.t} href={l.href} style={{ fontSize: 22, fontWeight: 400, fontFamily: 'var(--font-display)', color: '#2B2A26', textDecoration: 'none', padding: '20px 0', borderBottom: '1px solid rgba(43,42,38,0.06)' }}>{l.t}</NavA>
