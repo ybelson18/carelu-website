@@ -53,6 +53,8 @@ export default function CareersRolePage() {
     title: 'Solutions Engineer — Careers at Carelu, New York',
     description: 'Join Carelu in New York City. We are bringing AI to the behavioral healthcare front office. Hiring a Solutions Engineer: $120K–$160K, 0.1%–0.3% equity, in office.',
     canonical: '/careers/solutions-engineer',
+    image: '/og-careers.jpg',
+    imageAlt: 'The Carelu team. We are hiring in New York.',
   });
 
   return (

@@ -55,6 +55,15 @@ function withHead(html, head, route, markdownHref) {
     html = setMeta(html, 'name', 'twitter:description', head.description);
   }
   if (head.robots) html = setMeta(html, 'name', 'robots', head.robots);
+  if (head.image) {
+    html = setMeta(html, 'property', 'og:image', head.image);
+    html = setMeta(html, 'name', 'twitter:image', head.image);
+    html = setMeta(html, 'property', 'og:image:type', head.image.endsWith('.png') ? 'image/png' : 'image/jpeg');
+    if (head.imageAlt) {
+      html = setMeta(html, 'property', 'og:image:alt', head.imageAlt);
+      html = setMeta(html, 'name', 'twitter:image:alt', head.imageAlt);
+    }
+  }
   html = html.replace(/<link rel="canonical" href="[^"]*"\s*\/?>/, `<link rel="canonical" href="${esc(url)}" />`);
   html = setMeta(html, 'property', 'og:url', url);
   const extra = [];

@@ -8,6 +8,8 @@ export interface SsrHead {
   description?: string;
   canonical?: string;
   robots?: string;
+  image?: string;
+  imageAlt?: string;
   jsonLd: { id: string; json: string }[];
 }
 
@@ -18,5 +20,7 @@ export function resetSsrHead() {
   ssrHead.description = undefined;
   ssrHead.canonical = undefined;
   ssrHead.robots = undefined;
+  ssrHead.image = undefined;
+  ssrHead.imageAlt = undefined;
   ssrHead.jsonLd = [];
 }

@@ -15,6 +15,8 @@ type SeoOptions = {
   description?: string;
   canonical?: string; // absolute URL or path (defaults to current pathname)
   noindex?: boolean;
+  image?: string; // share image path (1200×630); defaults to the site image in index.html
+  imageAlt?: string;
 };
 
 function upsertMeta(attr: 'name' | 'property', key: string, content: string) {
@@ -37,12 +39,14 @@ function upsertLink(rel: string, href: string) {
   el.setAttribute('href', href);
 }
 
-export function useSeo({ title, description, canonical, noindex }: SeoOptions) {
+export function useSeo({ title, description, canonical, noindex, image, imageAlt }: SeoOptions) {
   if (import.meta.env.SSR) {
     ssrHead.title = title;
     ssrHead.description = description;
     ssrHead.canonical = canonical ? (canonical.startsWith('http') ? canonical : BASE + canonical) : undefined;
     ssrHead.robots = noindex ? 'noindex, nofollow' : DEFAULT_ROBOTS;
+    ssrHead.image = image ? BASE + image : undefined;
+    ssrHead.imageAlt = imageAlt;
   }
   useEffect(() => {
     document.title = title;
@@ -62,5 +66,15 @@ export function useSeo({ title, description, canonical, noindex }: SeoOptions) {
     upsertMeta('property', 'og:url', url);
 
     upsertMeta('name', 'robots', noindex ? 'noindex, nofollow' : DEFAULT_ROBOTS);
-  }, [title, description, canonical, noindex]);
+
+    if (image) {
+      upsertMeta('property', 'og:image', BASE + image);
+      upsertMeta('name', 'twitter:image', BASE + image);
+      upsertMeta('property', 'og:image:type', image.endsWith('.png') ? 'image/png' : 'image/jpeg');
+      if (imageAlt) {
+        upsertMeta('property', 'og:image:alt', imageAlt);
+        upsertMeta('name', 'twitter:image:alt', imageAlt);
+      }
+    }
+  }, [title, description, canonical, noindex, image, imageAlt]);
 }
