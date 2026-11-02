@@ -89,7 +89,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'DMAS — SPA 26-018, Autism Spectrum Disorder Service Updates notice (Item 291.WW.2; pending CMS approval, accessed 10/1/2026)', url: 'https://dmas.virginia.gov/media/unifn0g3/spa-26-018_autism-spectrum-disorder-service-updates.pdf' },
-          { title: 'DMAS bulletin — Applied Behavior Analysis (ABA) Policy Changes (7/28/2026; re-checked 10/7/2026)', url: 'https://vamedicaid.dmas.virginia.gov/bulletin/applied-behavior-analysis-aba-policy-changes' },
+          { title: 'DMAS bulletin — Applied Behavior Analysis (ABA) Policy Changes (7/28/2026; re-checked 11/2/2026)', url: 'https://vamedicaid.dmas.virginia.gov/bulletin/applied-behavior-analysis-aba-policy-changes' },
         ],
       },
       {
