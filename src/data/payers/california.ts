@@ -3997,7 +3997,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'Physician or psychologist prescription', desc: 'The California mandate keys covered BHT to a physician prescription or a psychologist-developed plan.' },
       { title: 'Other coverage', desc: 'Birthday rule between parents; UHC pays before Medi-Cal, TRICARE and CHAMPVA.' },
     ],
-    sources: [
+    sources: [{ title: 'UnitedHealthcare — Prior auth reductions continue for members under 18 (Network News, Nov. 2026)', url: 'https://www.uhcprovider.com/en/resource-library/news/2026/prior-auth-reduction-members-under-18.html' }, { title: 'UnitedHealthcare — Procedure codes with reduced prior authorization requirements, commercial plans (eff. Dec. 1, 2026, revised Nov. 6, 2026) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/PA-Reduction-Codes-18-Commercial-QRG.pdf' }, 
       { title: 'AB 3275 (Ch. 763, Stats. 2024) — claim reimbursement within 30 calendar days from 1/1/2026 (H&S § 1371, Ins. Code § 10123.13, W&I § 14093.08)', url: 'https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240AB3275' },
       { title: 'Optum — ABA Supplemental Clinical Criteria (BH803ABASCC, interim review 4/21/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
       { title: 'Optum — ABA State Mandates (BH 803ABA STM72026, eff. July 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
@@ -4150,6 +4150,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare still require prior authorization for ABA for members under 18 after Dec. 1, 2026?', a: 'Only two ABA codes change. From Dec. 1, 2026, UnitedHealthcare no longer requires prior authorization for 0362T and 0373T when provided to members younger than 18 on its commercial plans (commercial code list revised Nov. 6, 2026). 97151–97158 are not on the list and still need authorization, and the Individual Exchange and Community Plan lists name no ABA code. UHC says to check plan-specific exceptions in the Prior Authorization and Advance Notification tool. 0362T and 0373T are deleted from CPT on Jan. 1, 2027, so the change covers December 2026 dates of service.' },
       { q: 'Does UnitedHealthcare / Optum give single case agreements for ABA?', a: 'Not automatically. Optum\'s ABA FAQ says an SCA may be approved "In exception cases, based on clinical need, new business implementations, or other gaps in the network" after review with the clinical team. Credentialing takes 45 to 120 days, and new agencies also need a site audit.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in California?', a: 'Yes — through Optum Behavioral Health, for autism, with prior authorization on every ABA service. Fully insured California plans also fall under the state mandate and Optum’s California-specific criteria.' },
       { q: 'Can UHC deny ABA because the child has an IEP?', a: 'Not on that basis alone for California commercial members: Optum’s California State Mandates entry and H&S § 1374.72(h) bar limiting coverage because special education, an IEP or Medicaid could provide the service.' },

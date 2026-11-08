@@ -65,6 +65,9 @@ const S: Record<string, PayerSource> = {
   lhccUniform: { title: 'Louisiana Healthcare Connections — Uniform ABA Prior Authorization Form Now Available (11/17/25)', url: 'https://www.louisianahealthconnect.com/newsroom/uniform-aba-prior-authorization-form-now-available.html' },
   lhccForm: { title: 'Uniform (all-MCO) Applied Behavioral Analysis Authorization form, Louisiana Healthcare Connections copy (11/2025)', url: 'https://www.louisianahealthconnect.com/content/dam/centene/louisiana-health-connect/pdfs/medicaid-provider/LHCC%20ALL%20MCO%20ABA%20AUTH%20FORM%20112025.pdf' },
   lhccPA: { title: 'Louisiana Healthcare Connections — Prior Authorization (provider resources)', url: 'https://louisianahealthconnect.com/providers/resources/prior-authorization.html' },
+  rs221009: { title: 'La. R.S. 22:1009 — Health care provider credentialing (90 days from complete information; Acts 2015, No. 63)', url: 'https://legis.la.gov/Legis/Law.aspx?d=507854' },
+  lhccPM: { title: 'Louisiana Healthcare Connections — Provider Manual (last revised August 2026)', url: 'https://www.louisianahealthconnect.com/content/dam/centene/louisiana-health-connect/pdfs/medicaid-provider/LA_Healthcare_Connections_Provider_Manual.pdf' },
+  lhccZelis: { title: 'Louisiana Healthcare Connections — Provider Payment Transition to Zelis: Enroll Now to Prepare (11/02/26)', url: 'https://www.louisianahealthconnect.com/newsroom/provider-payment-transition-to-zelis---enroll-now-to-prepare.html' },
   aetnaGuide: { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026, 7244850-01-01)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
   aetnaPrecert: { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
   aetnaNPC: { title: 'Aetna — Provider and facility participation criteria (8100606-01-01, 5/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' },
@@ -210,6 +213,10 @@ const G1_LA_TECH =
   'Louisiana technician rule. Louisiana does not require the RBT. Its technician credential is the board’s registered line technician (RLT): at least 18 with a high school diploma or equivalent, registered with the Louisiana Behavior Analyst Board by the supervising LBA, a state police criminal background report initiated within 14 days of applying, and registration renewed every year by the LBA (La. R.S. 37:3708; LAC 46:VIII § 304). It is a misdemeanor to “employ as a line technician, a line technician who is not registered” (R.S. 37:3716), and neither the statute nor the board’s rules give a grace period, so register technicians before they work. RLTs implement, not design, the behavior plan and work under an LBA’s direct supervision, which an LBA or state-certified assistant may provide (board rules ch. 5).';
 const G1_LA_MCD_OOS =
   'Medicaid’s staffing rule. The Medicaid Services Manual requires ABA to be provided by, or supervised by, a behavior analyst licensed by the Louisiana Behavior Analyst Board (or a licensed psychologist or medical psychologist); RLTs must be registered with the board and supervised by an LBA, with background checks at hire, and providers send each MCO a list of their RLTs at enrollment and every quarter. A BCBA licensed only in another state cannot treat a Louisiana Medicaid member, including by telehealth: “Licensees who provide telehealth must be licensed in Louisiana and must also be licensed in the state where the client is located, if licensing is required” (LAC 46:VIII § 204(C)).';
+
+/* ---- Credentialing clock for insured plans (T7, weekly refresh 2026-11-08; legis.la.gov) ---- */
+const LA_COMM_CRED =
+  'Louisiana puts a credentialing clock in statute. La. R.S. 22:1009 says any health insurance issuer that requires a provider to be credentialed before treating its insureds "shall complete a credentialing process within ninety days from the date on which the issuer has received all the information needed for credentialing," including the correctly completed application, attestations and every verification it needs. Within 30 days of receiving an application the issuer must tell you every defect it knows of, and it must tell you if a verification has not arrived within 60 days of its request. Issuers must accept either the Louisiana Standardized Credentialing Application or the CAQH format. The section reaches insurers, HMOs, PPOs that credential their networks and the Office of Group Benefits. A provider already credentialed with the issuer at one Louisiana location is credentialed at another once they give written notice, if a credentialed provider has practiced there for at least 30 days. To add a new BCBA, finish their CAQH profile or the Louisiana standardized application, with attestations, before you submit: the 90 days run only from complete information.';
 
 export const louisianaPayers: Record<string, PayerConfig> = {
   'louisiana-medicaid': {
@@ -475,6 +482,13 @@ export const louisianaPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.abhPol, S.abhPM26, S.rs3708, S.rs3716, G1_LA_LAB3, G1_LA_LAB5, S.msm, S.labRules2],
       },
+      {
+        h2: 'Credentialing timeline (adding a new BCBA)',
+        body: [
+          'Aetna Better Health of Louisiana’s provider manual (revised 09-29-2026): "ABHLA will completely process all credentialing applications within 60 days of receiving a clean contracting and credentialing packet (applications that include all necessary documentation and attachments and a signed provider agreement)." The manual adds the Louisiana Medicaid enrollment step for newly contracted, credentialed providers: an invitation letter arrives, and "you must complete your enrollment for each provider type within 120 days or claims will deny." Enrollment itself "takes several weeks to complete."',
+        ],
+        cites: [S.abhPM26],
+      },
     ],
     collect: [
       { title: 'Member ID', desc: 'Confirm Aetna Better Health of Louisiana is the plan on the date of service.' },
@@ -567,6 +581,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       { q: 'How is ABA telehealth billed to Aetna Better Health of Louisiana?', a: 'Codes 97151–97158 with place of service 02 or 10 (by where the child is) and modifier 95. An existing authorization does not need an addendum.' },
       { q: 'Does Aetna Better Health of Louisiana require RBT certification for ABA technicians?', a: 'Aetna Better Health of Louisiana follows Louisiana Medicaid: Louisiana’s technician credential is the registered line technician: 18 or older, high school diploma, registered with the Louisiana Behavior Analyst Board by the supervising LBA, and a state police background check started within 14 days of applying. Employing an unregistered line technician is a misdemeanor and no grace period is published, so register technicians before they start.' },
       { q: 'Can an out-of-state BCBA treat Aetna Better Health of Louisiana members by telehealth?', a: 'Not on another state’s license. Louisiana Medicaid requires a behavior analyst licensed by the Louisiana Behavior Analyst Board (or a licensed psychologist), and the board’s telehealth rule says licensees providing telehealth “must be licensed in Louisiana.” There is no telehealth-only registration.' },
+      { q: 'How long does Aetna Better Health of Louisiana credentialing take?', a: '60 days from a clean contracting and credentialing packet, including a signed provider agreement, per the September 2026 manual. Then finish Louisiana Medicaid enrollment within 120 days of the invitation letter, or claims deny.' },
     ],
   },
 
@@ -635,6 +650,13 @@ export const louisianaPayers: Record<string, PayerConfig> = {
           G1_LA_MCD_OOS,
         ],
         cites: [S.aclaCCP, S.aclaHB, S.rs3708, S.rs3716, G1_LA_LAB3, G1_LA_LAB5, S.msm, S.labRules2],
+      },
+      {
+        h2: 'Credentialing timeline (adding a new BCBA)',
+        body: [
+          'AmeriHealth Caritas Louisiana’s provider manual (October 2026 edition) says that as part of practitioner credentialing it "processes completely within 60 calendar days of receipt of a completed application including all necessary documentation and attachments, and a signed provider contract," and that a denial can be appealed within 30 calendar days of the written decision. Medicaid enrollment is a separate clock: providers "will have 120 days to complete an enrollment" after the invitation letter, and those who miss it face "denied claims and deactivation from the Louisiana Medicaid program."',
+        ],
+        cites: [S.aclaHB],
       },
     ],
     collect: [
@@ -726,6 +748,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       { q: 'What is the timely filing limit for AmeriHealth Caritas Louisiana?', a: '365 calendar days from the date of service, 180 days to resubmit a denied claim, and later deadlines for retroactively enrolled members.' },
       { q: 'Does AmeriHealth Caritas Louisiana require RBT certification for ABA technicians?', a: 'AmeriHealth Caritas Louisiana follows Louisiana Medicaid: Louisiana’s technician credential is the registered line technician: 18 or older, high school diploma, registered with the Louisiana Behavior Analyst Board by the supervising LBA, and a state police background check started within 14 days of applying. Employing an unregistered line technician is a misdemeanor and no grace period is published, so register technicians before they start.' },
       { q: 'Can an out-of-state BCBA treat AmeriHealth Caritas Louisiana members by telehealth?', a: 'Not on another state’s license. Louisiana Medicaid requires a behavior analyst licensed by the Louisiana Behavior Analyst Board (or a licensed psychologist), and the board’s telehealth rule says licensees providing telehealth “must be licensed in Louisiana.” There is no telehealth-only registration.' },
+      { q: 'How long does AmeriHealth Caritas Louisiana credentialing take?', a: 'Up to 60 calendar days from a completed application with all documentation and a signed provider contract, per ACLA’s October 2026 manual. Louisiana Medicaid enrollment must also be finished within 120 days of the invitation letter.' },
     ],
   },
 
@@ -801,6 +824,13 @@ export const louisianaPayers: Record<string, PayerConfig> = {
           G1_LA_MCD_OOS,
         ],
         cites: [S.hbPM, S.rs3708, S.rs3716, G1_LA_LAB3, G1_LA_LAB5, S.msm, S.labRules2],
+      },
+      {
+        h2: 'Credentialing timeline (adding a new BCBA)',
+        body: [
+          'Healthy Blue’s Louisiana Medicaid provider manual (April 2026 posting): "Healthy Blue will completely process credentialing applications from all types of provider types within sixty (60) calendar days of receipt of a completed credentialing application, including all necessary documentation and attachments, and a signed provider agreement." When something cannot be verified, the credentialing department contacts the practitioner within 30 calendar days of finding the issue. Healthy Blue leaves Healthy Louisiana on December 31, 2026, so weigh new credentialing against the exit date.',
+        ],
+        cites: [S.hbPM, S.ib2612],
       },
     ],
     collect: [
@@ -894,6 +924,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       { q: 'Does Healthy Blue require prior authorization for ABA?', a: 'Yes, for every ABA code, including the 97151 assessment. Submit through Availity, by fax to 844-432-6028, or by phone at 844-521-6942.' },
       { q: 'Does Healthy Blue Louisiana require RBT certification for ABA technicians?', a: 'Healthy Blue Louisiana follows Louisiana Medicaid: Louisiana’s technician credential is the registered line technician: 18 or older, high school diploma, registered with the Louisiana Behavior Analyst Board by the supervising LBA, and a state police background check started within 14 days of applying. Employing an unregistered line technician is a misdemeanor and no grace period is published, so register technicians before they start.' },
       { q: 'Can an out-of-state BCBA treat Healthy Blue Louisiana members by telehealth?', a: 'Not on another state’s license. Louisiana Medicaid requires a behavior analyst licensed by the Louisiana Behavior Analyst Board (or a licensed psychologist), and the board’s telehealth rule says licensees providing telehealth “must be licensed in Louisiana.” There is no telehealth-only registration.' },
+      { q: 'How long does Healthy Blue Louisiana credentialing take?', a: 'Up to 60 calendar days from a complete application with all attachments and a signed provider agreement, per Healthy Blue’s April 2026 manual. Healthy Blue leaves Healthy Louisiana on December 31, 2026.' },
     ],
   },
 
@@ -967,6 +998,13 @@ export const louisianaPayers: Record<string, PayerConfig> = {
           G1_LA_MCD_OOS,
         ],
         cites: [S.humCLI, S.humPM, S.rs3708, S.rs3716, G1_LA_LAB3, G1_LA_LAB5, S.msm, S.labRules2],
+      },
+      {
+        h2: 'Credentialing timeline (adding a new BCBA)',
+        body: [
+          'Humana Healthy Horizons in Louisiana’s 2026 provider manual: it credentials practitioners "within 60 calendar days of receipt of a completed application," and "complete credentialing applications are processed within 60 calendar days." A denial based on credentialing criteria can be reconsidered if requested within 30 days of the notice.',
+        ],
+        cites: [S.humPM],
       },
     ],
     collect: [
@@ -1058,6 +1096,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       { q: 'How quickly does Humana Healthy Horizons in Louisiana decide?', a: 'Within 2 business days of getting the information it needs, and no later than 7 calendar days after the request, unless extended.' },
       { q: 'Does Humana Healthy Horizons in Louisiana require RBT certification for ABA technicians?', a: 'Humana Healthy Horizons in Louisiana follows Louisiana Medicaid: Louisiana’s technician credential is the registered line technician: 18 or older, high school diploma, registered with the Louisiana Behavior Analyst Board by the supervising LBA, and a state police background check started within 14 days of applying. Employing an unregistered line technician is a misdemeanor and no grace period is published, so register technicians before they start.' },
       { q: 'Can an out-of-state BCBA treat Humana Healthy Horizons in Louisiana members by telehealth?', a: 'Not on another state’s license. Louisiana Medicaid requires a behavior analyst licensed by the Louisiana Behavior Analyst Board (or a licensed psychologist), and the board’s telehealth rule says licensees providing telehealth “must be licensed in Louisiana.” There is no telehealth-only registration.' },
+      { q: 'How long does Humana Healthy Horizons in Louisiana credentialing take?', a: '60 calendar days from a completed application, per Humana’s 2026 Louisiana provider manual.' },
     ],
   },
 
@@ -1132,6 +1171,15 @@ export const louisianaPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.lhccUM49, S.rs3708, S.rs3716, G1_LA_LAB3, G1_LA_LAB5, S.msm, S.labRules2],
       },
+      {
+        h2: 'Claims deadlines, payments and credentialing',
+        body: [
+          'LHCC’s provider manual (last revised August 2026) sets the filing clocks. "Original claims (first time claims) must be submitted to Louisiana Healthcare Connections within 365 calendar days from the date services were rendered"; when LHCC is the secondary payer, the 365 days run from "the final determination of the primary payer." "All corrected claims, request for reconsiderations and/or claim appeals must be received within 180 calendar days from the date of notification of payment or denial." The manual adds that the 365-day limit applies to EPSDT claims too, although providers are encouraged to file them within 60 days of service.',
+          'Payments are moving. LHCC announced on November 2, 2026 that, after Zelis acquired PaySpan, it will "transition to Zelis for both claims and non-claims payments," in phases, "with Medicare, Medicaid, Behavioral Health, and Ambetter programs moving during December and into early 2027." Practices already on Zelis ZAPP Edge need do nothing. Others should enroll now, either in ZAPP Edge or a virtual card (Zelis, 855-496-1571) or in the no-cost Centene Claims ePayment Center EFT/ERA; anyone who does neither is paid by paper check.',
+          'Credentialing: the manual says LHCC "will completely process credentialing applications from all types of providers within sixty (60) calendar days of receipt of a completed credentialing application, including all necessary documentation and attachments," and that providers "must be credentialed prior to accepting or treating members without authorization." Start a new BCBA’s application well before their first LHCC session.',
+        ],
+        cites: [S.lhccPM, S.lhccZelis],
+      },
     ],
     collect: [
       { title: 'Member ID', desc: 'Confirm Louisiana Healthcare Connections on the date of service.' },
@@ -1139,7 +1187,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       { title: 'IEP or IFSP', desc: 'Dated copy, if the child has one; the form asks whether services happen at school.' },
       { title: 'Primary insurer decision', desc: 'Required when the child has other coverage; without it the authorization stays pending.' },
     ],
-    sources: [ CFR438402_G5, CFR438408_G5, CFR438206_G5,S.lhccUM49, S.lhccUniform, S.lhccForm, S.lhccPA, S.msm, S.fee, S.cfr438, S.cfr433, { title: 'Louisiana Healthcare Connections — Newsroom (provider notices archive)', url: 'https://www.louisianahealthconnect.com/newsroom.html' }],
+    sources: [ CFR438402_G5, CFR438408_G5, CFR438206_G5,S.lhccUM49, S.lhccUniform, S.lhccForm, S.lhccPA, S.lhccPM, S.lhccZelis, S.msm, S.fee, S.cfr438, S.cfr433, { title: 'Louisiana Healthcare Connections — Newsroom (provider notices archive)', url: 'https://www.louisianahealthconnect.com/newsroom.html' }],
     deliveryRules: {
       supervision: {
         value: 'LA.UM.49 follows and attaches the LDH manual, whose ratio applies. ' + LA_MCD_SUPERVISION,
@@ -1221,6 +1269,8 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       { q: 'Why is my LHCC ABA authorization pending?', a: 'If the child has other insurance that covers ABA, LHCC holds the authorization until you send the primary insurer’s approval or denial. Medicaid pays last.' },
       { q: 'How far ahead should I request ABA from LHCC?', a: 'At least 7 business days before services start. Most routine requests are processed within 2 business days; complex ones can take up to 7 calendar days.' },
       { q: 'Does Louisiana Healthcare Connections require RBT certification for ABA technicians?', a: 'Louisiana Healthcare Connections follows Louisiana Medicaid: Louisiana’s technician credential is the registered line technician: 18 or older, high school diploma, registered with the Louisiana Behavior Analyst Board by the supervising LBA, and a state police background check started within 14 days of applying. Employing an unregistered line technician is a misdemeanor and no grace period is published, so register technicians before they start.' },
+      { q: 'What is Louisiana Healthcare Connections’ timely filing limit?', a: 'Original claims within 365 calendar days of the date of service (or of the primary payer’s final decision when LHCC is secondary). Corrected claims, reconsiderations and claim appeals within 180 calendar days of the payment or denial notice.' },
+      { q: 'How long does LHCC credentialing take?', a: 'LHCC’s manual commits to processing a credentialing application within 60 calendar days of receiving it complete, with all documentation and attachments. Providers must be credentialed before treating members without authorization.' },
       { q: 'Can an out-of-state BCBA treat Louisiana Healthcare Connections members by telehealth?', a: 'Not on another state’s license. Louisiana Medicaid requires a behavior analyst licensed by the Louisiana Behavior Analyst Board (or a licensed psychologist), and the board’s telehealth rule says licensees providing telehealth “must be licensed in Louisiana.” There is no telehealth-only registration.' },
     ],
   },
@@ -1298,6 +1348,13 @@ export const louisianaPayers: Record<string, PayerConfig> = {
         ],
         cites: [G1_AETNA_NPC, G1_AETNA_MNG, S.rs3708, S.rs3716, G1_LA_LAB3, G1_LA_LAB5],
       },
+      {
+        h2: 'Credentialing timeline (adding a new BCBA)',
+        body: [
+          LA_COMM_CRED,
+        ],
+        cites: [S.rs221009],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (R.S. 22:1050 applies) vs. self-funded ERISA (plan document governs). Ask for the employer and check the card.' },
@@ -1306,7 +1363,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       { title: 'Standardized functional measure', desc: 'From the past 12 months (for example Vineland-3, ABAS, VB-MAPP or ABLLS).' },
       { title: 'Louisiana prescriber', desc: 'The mandate covers treatment ordered by a Louisiana-licensed physician or psychologist.' },
     ],
-    sources: [ AETNA_OM_G5,S.aetnaGuide, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.rs1050, S.rs3702, S.rs3706, S.rs3708, S.rs3715, S.rs3716, S.rs3704, S.rs12234, S.labRules2, S.labRules3, S.rs3718, S.rs1821, S.rs1832, S.rs1833, S.rs1836, S.bacbLic, S.fee, S.erisa, S.cfr433, S.tricare, S.champva, S.aetnaCPB, S.aetnaTele],
+    sources: [ AETNA_OM_G5,S.aetnaGuide, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.rs1050, S.rs3702, S.rs3706, S.rs3708, S.rs3715, S.rs3716, S.rs3704, S.rs12234, S.labRules2, S.labRules3, S.rs3718, S.rs1821, S.rs1832, S.rs1833, S.rs1836, S.bacbLic, S.fee, S.erisa, S.cfr433, S.tricare, S.champva, S.aetnaCPB, S.aetnaTele, S.rs221009],
     deliveryRules: {
       supervision: {
         value: 'Aetna’s participation criteria (5/26): ABA services "must be provided directly or supervised by individuals licensed by the state or certified by the Behavior Analyst Certification Board," with "A minimum of one hour of face-to-face supervision" of an unlicensed or noncertified paraprofessional "for each 10 hours of applied behavior analysis" and the supervisor "onsite with the child at least one hour a month." Staff "must meet state requirements," and in Louisiana that means a licensed LBA and registered line technicians (R.S. 37:3708, 37:3716).' + ' Aetna’s guide and Network Participation Criteria publish no cap on the number of technicians one BCBA may supervise.',
@@ -1404,6 +1461,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       { q: 'Can a BCBA licensed in another state treat an Aetna member in Louisiana by telehealth?', a: 'Aetna requires providers to hold the licensure their state requires, and Louisiana licenses behavior analysts; practicing without a Louisiana license is a misdemeanor. Ask the Louisiana Behavior Analyst Board about its out-of-state telehealth route.' },
       { q: 'How fast must Aetna pay a clean ABA claim in Louisiana?', a: 'For fully insured plans, Louisiana law requires electronic clean claims to be paid, denied or pended within 25 days (paper within 45), with 12% a year interest when late. Self-funded plans are outside the statute.' },
       { q: 'Does Aetna require RBT certification for ABA technicians in Louisiana, and is there a grace period?', a: 'Aetna’s participation criteria require paraprofessionals to “meet state requirements” (or Aetna standards where the state defines none) with at least one hour of face-to-face supervision per 10 hours, but name no RBT requirement and no grace period; ask Aetna whether your agreement requires RBT certification. Separately, Louisiana law requires every line technician to be registered with the Louisiana Behavior Analyst Board before working.' },
+      { q: 'How long does credentialing take with a Louisiana commercial plan?', a: 'Louisiana law (La. R.S. 22:1009) gives an insurer 90 days from the date it has all the information it needs, including a correctly completed application and the verifications. It must list any defects in your application within 30 days of receiving it.' },
     ],
   },
 
@@ -1480,6 +1538,13 @@ export const louisianaPayers: Record<string, PayerConfig> = {
         ],
         cites: [G1_EN0499, G1_EBH_ADMIN, S.rs3708, S.rs3716, G1_LA_LAB3, G1_LA_LAB5],
       },
+      {
+        h2: 'Credentialing timeline (adding a new BCBA)',
+        body: [
+          LA_COMM_CRED,
+        ],
+        cites: [S.rs221009],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (R.S. 22:1050 applies) vs. self-funded ERISA (plan document governs).' },
@@ -1488,7 +1553,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       { title: 'Louisiana prescriber', desc: 'The mandate covers treatment ordered by a Louisiana-licensed physician or psychologist.' },
       { title: 'Other coverage', desc: 'Second parent’s plan, Medicaid, TRICARE or CHAMPVA.' },
     ],
-    sources: [ EBH_ADMIN_G5,S.en0499, S.cignaARG, S.ebhAdmin, S.rs1050, S.rs3702, S.rs3706, S.rs3708, S.rs3715, S.rs3716, S.rs3704, S.rs12234, S.labRules2, S.labRules3, S.rs3718, S.rs1821, S.rs1832, S.rs1833, S.rs1836, S.bacbLic, S.fee, S.erisa, S.cfr433, S.tricare, S.champva],
+    sources: [ EBH_ADMIN_G5,S.en0499, S.cignaARG, S.ebhAdmin, S.rs1050, S.rs3702, S.rs3706, S.rs3708, S.rs3715, S.rs3716, S.rs3704, S.rs12234, S.labRules2, S.labRules3, S.rs3718, S.rs1821, S.rs1832, S.rs1833, S.rs1836, S.bacbLic, S.fee, S.erisa, S.cfr433, S.tricare, S.champva, S.rs221009],
     deliveryRules: {
       supervision: {
         value: 'Case supervision by a BCBA, LBA or independently licensed clinician trained in ABA, "consistent with the general accepted standard of care of one to two hours per ten hours of direct treatment," and at least 1–2 hours a week of direct supervision when direct treatment is 10 hours a week or less; the supervisor’s name and credentials must be documented. In Louisiana, technicians must also be registered line technicians (R.S. 37:3708).' + ' EN0499 publishes no cap on the number of technicians one supervisor may oversee.',
@@ -1583,6 +1648,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       { q: 'Does Louisiana cap ABA benefits?', a: 'For fully insured plans, R.S. 22:1050 covers autism treatment for people under 21 up to $36,000 a year, with no visit limits. Self-funded plans follow their own documents.' },
       { q: 'Can a BCBA and technician bill the same time with Cigna?', a: 'Yes for 97155 with 97153 or 97154, when the BCBA directs the technician and both are face-to-face with the patient. Otherwise only one provider bills a unit of time.' },
       { q: 'Does Cigna require RBT certification for ABA technicians in Louisiana, and is there a grace period?', a: 'Evernorth’s ABA policy (EN0499) and administrative guidelines set no technician credential and no grace period; ask Evernorth whether an uncertified technician may render 97153 under your agreement. Separately, Louisiana law requires every line technician to be registered with the Louisiana Behavior Analyst Board before working.' },
+      { q: 'How long does credentialing take with a Louisiana commercial plan?', a: 'Louisiana law (La. R.S. 22:1009) gives an insurer 90 days from the date it has all the information it needs, including a correctly completed application and the verifications. It must list any defects in your application within 30 days of receiving it.' },
     ],
   },
 
@@ -1661,6 +1727,13 @@ export const louisianaPayers: Record<string, PayerConfig> = {
         ],
         cites: [G1_OPTUM_NNM, G1_OPTUM_FAQ, S.rs3708, S.rs3716, G1_LA_LAB3, G1_LA_LAB5],
       },
+      {
+        h2: 'Credentialing timeline (adding a new BCBA)',
+        body: [
+          LA_COMM_CRED,
+        ],
+        cites: [S.rs221009],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (R.S. 22:1050 applies) vs. self-funded ERISA (plan document governs).' },
@@ -1668,7 +1741,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       { title: 'Staff credentials', desc: 'Each line needs the credential modifier (HM, HN, HO, HP); technicians must be registered line technicians in Louisiana.' },
       { title: 'Louisiana prescriber', desc: 'The mandate covers treatment ordered by a Louisiana-licensed physician or psychologist.' },
     ],
-    sources: [ OPTUM_NNM_G5,S.optumSCC, S.optumReimb, S.optumTele, S.optumNNM, S.rs1050, S.rs3702, S.rs3706, S.rs3708, S.rs3715, S.rs3716, S.rs3704, S.rs12234, S.labRules2, S.labRules3, S.rs3718, S.rs1821, S.rs1832, S.rs1833, S.rs1836, S.bacbLic, S.fee, S.erisa, S.cfr433, S.tricare, S.champva, S.ib2603],
+    sources: [{ title: 'UnitedHealthcare — Prior auth reductions continue for members under 18 (Network News, Nov. 2026)', url: 'https://www.uhcprovider.com/en/resource-library/news/2026/prior-auth-reduction-members-under-18.html' }, { title: 'UnitedHealthcare — Procedure codes with reduced prior authorization requirements, commercial plans (eff. Dec. 1, 2026, revised Nov. 6, 2026) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/PA-Reduction-Codes-18-Commercial-QRG.pdf' },  OPTUM_NNM_G5,S.optumSCC, S.optumReimb, S.optumTele, S.optumNNM, S.rs1050, S.rs3702, S.rs3706, S.rs3708, S.rs3715, S.rs3716, S.rs3704, S.rs12234, S.labRules2, S.labRules3, S.rs3718, S.rs1821, S.rs1832, S.rs1833, S.rs1836, S.bacbLic, S.fee, S.erisa, S.cfr433, S.tricare, S.champva, S.ib2603, S.rs221009],
     deliveryRules: {
       supervision: {
         value: 'BCaBAs and technicians work "under the direct supervision of a BCBA or licensed behavioral health clinician"; technicians should be RBTs "or another appropriately certified behavior technician as allowable by state mandate." Optum publishes no numeric ratio in these criteria. Louisiana requires line technicians to be registered with the board by their supervising LBA.' + ' Optum’s criteria publish no cap on the number of technicians per BCBA.',
@@ -1758,6 +1831,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare still require prior authorization for ABA for members under 18 after Dec. 1, 2026?', a: 'Only two ABA codes change. From Dec. 1, 2026, UnitedHealthcare no longer requires prior authorization for 0362T and 0373T when provided to members younger than 18 on its commercial plans (commercial code list revised Nov. 6, 2026). 97151–97158 are not on the list and still need authorization, and the Individual Exchange and Community Plan lists name no ABA code. UHC says to check plan-specific exceptions in the Prior Authorization and Advance Notification tool. 0362T and 0373T are deleted from CPT on Jan. 1, 2027, so the change covers December 2026 dates of service.' },
       { q: 'Does UnitedHealthcare accept H0031 or H2019 for ABA?', a: 'No. Optum’s commercial ABA policy uses CPT 97151–97158 with credential modifiers, plus 0362T and 0373T without modifiers.' },
       { q: 'Does Optum require graphs for an ABA reauthorization?', a: 'The criteria ask for progress measured the same way as baseline, mastery rates, change scores and updated standardized adaptive measures; graphs are not named.' },
       { q: 'What is UnitedHealthcare’s timely filing limit for ABA claims?', a: 'Optum: 90 calendar days from the date of service unless state law or the plan allows longer, with corrections within 90 days of the first claim’s receipt.' },
@@ -1765,6 +1839,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       { q: 'Which ABA codes can be billed by telehealth to UnitedHealthcare?', a: 'For commercial plans Optum lists only 97155, 97156 and 97157, with POS 02 or 10. Fully insured Louisiana plans are also subject to the state telehealth statute, so confirm with Optum.' },
       { q: 'Is UnitedHealthcare still a Louisiana Medicaid plan?', a: 'No. UnitedHealthcare Community Plan left Healthy Louisiana on March 31, 2026; its members moved to other plans on April 1, 2026.' },
       { q: 'Does UnitedHealthcare require RBT certification for ABA technicians in Louisiana, and is there a grace period?', a: 'Yes, or an equivalent: Optum requires technicians to be an RBT, BCAT or ABAT, and any other certification must be approved in writing by Optum. Optum publishes no grace or provisional period for uncertified technicians. Separately, Louisiana law requires every line technician to be registered with the Louisiana Behavior Analyst Board before working.' },
+      { q: 'How long does credentialing take with a Louisiana commercial plan?', a: 'Louisiana law (La. R.S. 22:1009) gives an insurer 90 days from the date it has all the information it needs, including a correctly completed application and the verifications. It must list any defects in your application within 30 days of receiving it.' },
     ],
   },
 
@@ -1859,6 +1934,13 @@ export const louisianaPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.labPol, S.rs3708, S.rs3716, G1_LA_LAB3, G1_LA_LAB5],
       },
+      {
+        h2: 'Credentialing timeline (adding a new BCBA)',
+        body: [
+          LA_COMM_CRED,
+        ],
+        cites: [S.rs221009],
+      },
     ],
     collect: [
       { title: 'Plan type and autism benefit', desc: 'Louisiana Blue, HMO Louisiana, FEP, BlueCard or self-funded; check autism coverage and the annual maximum in iLinkBlue.' },
@@ -1867,7 +1949,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       { title: 'School plan', desc: 'If ABA is at school: the high-support periods, teacher interviews and expected hours per day.' },
       { title: 'Louisiana prescriber', desc: 'The mandate covers treatment ordered by a Louisiana-licensed physician or psychologist.' },
     ],
-    sources: [S.labPol, S.labFAQ, S.labAut, S.labBH, S.labClaims, S.rs1050, S.rs3702, S.rs3706, S.rs3708, S.rs3715, S.rs3716, S.rs3704, S.rs12234, S.labRules2, S.labRules3, S.rs3718, S.rs1821, S.rs1832, S.rs1833, S.rs1836, S.bacbLic, S.fee, S.erisa, S.cfr433, S.tricare, S.champva, { title: 'Louisiana Blue — Provider newsletters (Provider Network News, current issues + archive)', url: 'https://providers.lablue.com/newsletters' }],
+    sources: [S.labPol, S.labFAQ, S.labAut, S.labBH, S.labClaims, S.rs1050, S.rs3702, S.rs3706, S.rs3708, S.rs3715, S.rs3716, S.rs3704, S.rs12234, S.labRules2, S.labRules3, S.rs3718, S.rs1821, S.rs1832, S.rs1833, S.rs1836, S.bacbLic, S.fee, S.erisa, S.cfr433, S.tricare, S.champva, { title: 'Louisiana Blue — Provider newsletters (Provider Network News, current issues + archive)', url: 'https://providers.lablue.com/newsletters' }, S.rs221009],
     deliveryRules: {
       supervision: {
         value: 'Louisiana Blue publishes no numeric ratio. SCABAs and RLTs "Cannot bill directly" and are billed through the supervising LBA, and the school rules expect RLTs to be trained and certified in ABA, preferably with 6 months’ experience. State law requires RLTs to be registered by their supervising LBA.',
@@ -1961,6 +2043,7 @@ export const louisianaPayers: Record<string, PayerConfig> = {
       { q: 'Can ABA be delivered at school under Louisiana Blue?', a: 'Yes, under policy 00816’s limits: the technician is there for identified high-support periods, does no academic teaching, and school ABA generally stays under 6 hours a day.' },
       { q: 'How does BlueCard work for ABA with Louisiana Blue?', a: 'A Louisiana Blue network provider files claims for other Blue plans’ members with Louisiana Blue, which routes them to the member’s home plan; authorization comes from the home plan, reached through iLinkBlue by entering the member’s prefix. An out-of-state provider treating a Louisiana Blue member files with its own local Blue plan and reaches Louisiana Blue’s authorization rules through that plan’s portal. Autism benefits can differ for BlueCard and self-funded members, so check them first.' },
       { q: 'Does Louisiana Blue require RBT certification for ABA technicians?', a: 'Policy 00816 names no RBT requirement. Technicians are registered line technicians under Louisiana law (registered with the Louisiana Behavior Analyst Board before working), and for school-based ABA the policy says RLTs should be trained and certified in ABA therapy, preferably with 6 months of experience.' },
+      { q: 'How long does credentialing take with a Louisiana commercial plan?', a: 'Louisiana law (La. R.S. 22:1009) gives an insurer 90 days from the date it has all the information it needs, including a correctly completed application and the verifications. It must list any defects in your application within 30 days of receiving it.' },
     ],
   },
 };

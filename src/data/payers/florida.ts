@@ -511,6 +511,13 @@ export const floridaPayers: Record<string, PayerConfig> = {
           { title: 'Fla. Stat. § 641.3155 (2026) — Prompt payment of claims', url: 'https://www.flsenate.gov/Laws/Statutes/2026/641.3155' },
         ],
       },
+      {
+        h2: 'Credentialing timeline (adding a new BCBA)',
+        body: [
+          'Sunshine’s 2026 provider manual: "Once a practitioner or provider submits an application, the credentialing staff takes up to 60 calendar days to complete the credentialing process," which includes verifying the application with primary sources.',
+        ],
+        cites: [{ title: 'Sunshine Health — Provider Manual (SH_11287, 2026)', url: 'https://www.sunshinehealth.com/content/dam/centene/Sunshine/pdfs/Provider%20Manual.pdf' }],
+      },
     ],
     collect: [
       { title: 'Exact Sunshine line of business', desc: 'MMA vs. Child Welfare vs. SMI — and a CMS Health Plan card now means Molina, not Sunshine, from 10/1/2026.' },
@@ -554,6 +561,7 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { q: 'What happens when a Sunshine Health member switches BA providers?', a: 'AHCA\u2019s BA coverage policy, which every MMA plan must follow, says “a full assessment may be requested if there is a change in provider,” and a change in a practitioner\u2019s credential (an RBT becoming a BCaBA) is not grounds for a reassessment. Expect the new agency to request its own assessment and treatment authorization; ask Sunshine Health how it closes the previous provider\u2019s authorization.' },
       { q: 'What is the payment turnaround for Sunshine Health ABA claims?', a: 'Florida law binds Sunshine Health as an MMA plan (§ 409.967(2)(j) → § 641.3155): pay or send a denial/contest notice within 20 days of an electronic claim (40 for paper), pay or deny within 90 days (120 for paper), and 12% interest on late payments. Sunshine’s own manual is faster and stricter: clean EDI claims are paid or denied within 20 days, and participating providers must file within 180 days of the date of service, send corrected claims within 90 days of the EOP, and file COB claims within 90 days of the primary payer’s EOP.' },
       { q: 'What documents does Sunshine Health need at intake for ABA?', a: 'The state packet applies: a referral from an independent physician or qualifying practitioner, a physician\'s order for BA services, and the Comprehensive Diagnostic Evaluation, filed with the initial assessment request. Since August 1, 2026, every new BA authorization also needs the original signed PCP Acknowledgement and Care Coordination Form. Sunshine says requests without it "will not be approved." Each request carries the complete Vineland-3 and BASC-3 PRQ scoring reports, and the PA form asks for the most recent and previous scores of each. A family switching providers needs a new initial request with current instruments plus a Change of Provider Form.' },
+      { q: 'How long does Sunshine Health credentialing take?', a: 'Up to 60 calendar days from the application, per Sunshine’s 2026 provider manual. Check the BA network status for your region first: Sunshine paused adding practitioners to existing BA groups outside Regions A and B, later lifting the pause in Regions E and F.' },
     ],
   },
 
@@ -636,13 +644,14 @@ export const floridaPayers: Record<string, PayerConfig> = {
       },
       authTurnaround: {
         value:
-          'Shorter than the MMA standard. The CMS Plan exhibit of the AHCA contract overrides the 5-day MMA standard: the plan “shall provide standard authorization decisions within no more than three (3) days following receipt of the request for service.” Expedited decisions follow the core contract: “no later than two (2) days after receipt,” extendable by one day. Molina publishes the same 3 days for CMS Title 19 and Title 21 — its BA guide says business days, its CMS training deck says calendar days — and urgent requests within 2 calendar days. Submit reauthorizations “as early as 30 days prior to the authorization end date, but no later than 10 days before the end date”; routine reauthorizations should not be sent as expedited. Before 10/1/2026 Sunshine’s CMS Health Plan manual published a 7-calendar-day standard clock; that no longer applies.',
+          'Shorter than the MMA standard. The CMS Plan exhibit of the AHCA contract overrides the 5-day MMA standard: the plan “shall provide standard authorization decisions within no more than three (3) days following receipt of the request for service.” Expedited decisions follow the core contract: “no later than two (2) days after receipt,” extendable by one day. Molina publishes the same 3 days for CMS Title 19 and Title 21, and its September 9, 2026 Florida Medicaid manual settles the unit: “For CMS Plan, Molina makes determinations and provides notification for standard authorization request within three (3) calendar days after we receive the initial request for service.” (Its BA guide still says business days.) Urgent requests are decided within 2 calendar days. Submit reauthorizations “as early as 30 days prior to the authorization end date, but no later than 10 days before the end date”; routine reauthorizations should not be sent as expedited. Before 10/1/2026 Sunshine’s CMS Health Plan manual published a 7-calendar-day standard clock; that no longer applies.',
         status: 'verified',
         cites: [
           { title: 'AHCA SMMC Model Health Plan Contract — Exhibit II-C, Children’s Medical Services Health Plan (July 2026 update), §V.6', url: 'https://ahca.myflorida.com/file/medicaid/Health_Exhibit%20II-C%20CMSPlan_July%202026.pdf' },
           { title: 'AHCA SMMC Model Health Plan Contract — Attachment II Core Provisions (update 7/1/2026), §V.F.6', url: 'https://ahca.myflorida.com/file/medicaid/Health_Attachment%20II%20-Core%20Contract%20Provisions_July%202026.pdf' },
           { title: 'Molina Healthcare of Florida — Behavioral Analysis Services: Authorization & Documentation Guide (Comprehensive BA QRG, effective July 2026)', url: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/fl/medicaid/08-07-26-MHFL-Comprehensive-BA-QRG-508.ashx' },
           { title: 'CMS Plan by Molina Healthcare — Provider Orientation: Behavior Analysis Services (August 2026)', url: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/fl/medicaid/09-03-26-MHFL-CMS-Plan-BA-Training-508.pdf' },
+          { title: 'Molina Healthcare of Florida — Medicaid Provider Manual for Molina Medicaid and CMS Plan members (9/9/2026)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/FL/Manuals/09-09-26-MHFL-Molina-Provider-Handbook-CMS-and-SMMC-508.pdf' },
         ],
       },
       coordinationOfBenefits: {
@@ -768,6 +777,13 @@ export const floridaPayers: Record<string, PayerConfig> = {
           { title: 'Fla. Stat. § 641.3155 (2026) — Prompt payment of claims', url: 'https://www.flsenate.gov/Laws/Statutes/2026/641.3155' },
         ],
       },
+      {
+        h2: 'Credentialing timeline (adding a new BCBA)',
+        body: [
+          'The CMS Plan runs on Molina’s Florida Medicaid provider manual (9/9/2026), which covers Molina Medicaid and CMS Plan members: "Molina completes initial credentialing of Practitioners within 60 calendar days. The 60 calendar days is measured from the date Molina receives a full and complete credentialing application." Practitioners and groups "must be credentialed prior to the contract being implemented."',
+        ],
+        cites: [{ title: 'Molina Healthcare of Florida — Medicaid Provider Manual for Molina Medicaid and CMS Plan members (9/9/2026)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/FL/Manuals/09-09-26-MHFL-Molina-Provider-Handbook-CMS-and-SMMC-508.pdf' }],
+      },
     ],
     collect: [
       { title: 'Sunshine authorization on file', desc: 'Copy the current Sunshine authorization number and end date — Molina keeps the number, and it decides whether you need a continuation request (ending 9/30–11/30) or a full new request.' },
@@ -797,11 +813,12 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { q: 'Who runs the CMS Health Plan now?', a: 'Molina Healthcare of Florida, from October 1, 2026. Sunshine Health operated the plan through September 30, 2026, and members moved to Molina automatically. Benefits did not change; the payer ID (Molina 51062), portal (Availity) and BA documentation rules did.' },
       { q: 'Will Molina honor my Sunshine BA authorization?', a: 'Yes, during continuity of care: up to 240 days (through May 29, 2027) for members who transferred from Sunshine, or until Molina finalizes a new care plan. Molina keeps the Sunshine authorization number. Authorizations ending September 30–November 30 need a continuation request; later ones and all new services need a full new request.' },
       { q: 'Does the CMS Health Plan cover ABA?', a: 'Yes — Behavior Analysis for members under 21, on the Florida Medicaid criteria. No autism diagnosis is required as such, but Molina\'s CDE must state a formal diagnosis (ASD or another qualifying condition), and the PCP\'s signed referral must accompany the first request.' },
-      { q: 'How fast does the CMS Plan decide BA authorizations?', a: 'Within 3 days for standard requests under the CMS Plan contract exhibit (Molina says 3 business days in its BA guide), and 2 days for expedited ones. That is shorter than the 5-day standard the core contract sets for the MMA plans.' },
+      { q: 'How fast does the CMS Plan decide BA authorizations?', a: 'Within 3 days for standard requests under the CMS Plan contract exhibit (Molina’s September 2026 manual says 3 calendar days), and 2 days for expedited ones. That is shorter than the 5-day standard the core contract sets for the MMA plans.' },
       { q: 'Is the CMS Health Plan\u2019s BA network open to new providers?', a: 'Not published as a yes or no. Florida law lets MMA plans “limit the providers in their networks based on credentials, quality indicators, and price” (s. 409.975(1), F.S.), so a plan may decline a new BA group. Ask the CMS Health Plan\u2019s provider relations or contracting team whether it is adding BA groups in your region.' },
       { q: 'What happens when a the CMS Health Plan member switches BA providers?', a: 'AHCA\u2019s BA coverage policy, which every MMA plan must follow, says “a full assessment may be requested if there is a change in provider,” and a change in a practitioner\u2019s credential (an RBT becoming a BCaBA) is not grounds for a reassessment. Expect the new agency to request its own assessment and treatment authorization; ask the CMS Health Plan how it closes the previous provider\u2019s authorization.' },
       { q: 'What is the payment turnaround for Children’s Medical Services Health Plan ABA claims?', a: 'Florida law binds Children’s Medical Services Health Plan as an MMA plan (§ 409.967(2)(j) → § 641.3155): pay or send a denial/contest notice within 20 days of an electronic claim (40 for paper), pay or deny within 90 days (120 for paper), and 12% interest on late payments. The statute also requires providers to file within 6 months of the date of service.' },
       { q: 'What documents does the CMS Health Plan (Molina) need at intake for ABA?', a: 'Molina\'s checklist for the initial request includes the Comprehensive Diagnostic Evaluation and a signed referral from the member\'s assigned PCP that specifies ABA services. It also needs Vineland-3 and BASC-3 PRQ scoring reports, a behavior plan covering the full period (up to six months), an FBA/BIP for any behavior-reduction goal, and a weekly schedule by code and place of service. Add other services the child receives, caregiver-training goals, the supervision plan and a transition or discharge plan. The CDE has no set expiry, but Molina may ask for a new one after a significant change.' },
+      { q: 'How long does credentialing take for the CMS Health Plan (Molina)?', a: 'Molina’s September 2026 Florida manual, which covers CMS Plan members, commits to initial credentialing within 60 calendar days of a full and complete application.' },
     ],
   },
 
@@ -1683,13 +1700,14 @@ export const floridaPayers: Record<string, PayerConfig> = {
       },
       authTurnaround: {
         value:
-          'Molina’s July 2026 BA guide publishes a faster clock than its manual: standard BA decisions for MMA within “4 business days” (its CMS Plan BA training slide gives the same figure as 4 calendar days). The March 2026 manual still says “no later than contractual requirements or seven (7) calendar days,” and expedited “no later than contractual requirements or two (2) calendar days.” The contractual requirement is the AHCA clock of 5 days standard and 2 days expedited. Reauthorizations go in “as early as 30 days prior to the authorization end date, but no later than 10 days before the end date,” at least every 180 days; routine reauthorizations should not be sent as expedited. Molina does not retroactively authorize services that need PA.',
+          'Molina’s September 9, 2026 Florida Medicaid manual now sets standard decisions at “no later than contractual requirements or four (4) calendar days after we receive the initial request for service,” and expedited ones at “no later than contractual requirements or two (2) calendar days.” That replaces the March 2026 manual’s seven calendar days. The July 2026 BA guide gives the same 4 days but calls them “business days”; the manual’s calendar days is the stricter reading. The contractual requirement is the AHCA clock of 5 days standard and 2 days expedited. Reauthorizations go in “as early as 30 days prior to the authorization end date, but no later than 10 days before the end date,” at least every 180 days; routine reauthorizations should not be sent as expedited. Molina does not retroactively authorize services that need PA.',
         status: 'verified',
         cites: [
           { title: 'Molina Healthcare of Florida — Behavioral Analysis Services: Authorization & Documentation Guide (Comprehensive BA QRG, effective July 2026)', url: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/fl/medicaid/08-07-26-MHFL-Comprehensive-BA-QRG-508.ashx' },
           { title: 'CMS Plan by Molina Healthcare — Provider Orientation: Behavior Analysis Services (August 2026)', url: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/fl/medicaid/09-03-26-MHFL-CMS-Plan-BA-Training-508.pdf' },
           { title: 'Molina Healthcare of Florida — Medicaid Provider Manual (3/18/2026)', url: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/fl/medicaid/3-18-26-MHFL-Medicaid-Provider-Handbook-508.ashx' },
           { title: 'AHCA SMMC Model Health Plan Contract — Attachment II Core Provisions (update 10/1/2025), §V.6 and §XI.D', url: 'https://ahca.myflorida.com/content/download/27248/file/Attachment%20II-%20-%20Core%20Contract%20Provisions%20Oct%202025.pdf' },
+          { title: 'Molina Healthcare of Florida — Medicaid Provider Manual for Molina Medicaid and CMS Plan members (9/9/2026)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/FL/Manuals/09-09-26-MHFL-Molina-Provider-Handbook-CMS-and-SMMC-508.pdf' },
         ],
       },
       coordinationOfBenefits: {
@@ -1753,7 +1771,7 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { label: 'Plan type', value: 'SMMC MMA plan (Molina), in-house UM; also runs the CMS Plan from 10/1/2026' },
       { label: 'Clinical rules', value: 'AHCA BA Coverage Policy, plus Molina\'s July 2026 BA authorization & documentation guide' },
       { label: 'Prior auth', value: 'Availity Essentials; 97151 exempt, 97153–97156 require PA; UM 855-322-4076' },
-      { label: 'Decisions', value: 'Standard 4 business days (BA guide); expedited 2 calendar days; reauth 30–10 days before end' },
+      { label: 'Decisions', value: 'Standard 4 calendar days (Sept. 2026 manual); expedited 2 calendar days; reauth 30–10 days before end' },
       { label: 'Units', value: 'Authorized as a weekly hour total — claims may not exceed the week' },
       { label: 'Claims', value: 'CMS-1500 via Availity or EDI payer ID 51062' },
     ],
@@ -1762,7 +1780,7 @@ export const floridaPayers: Record<string, PayerConfig> = {
         h2: 'What Molina\'s BA guide requires',
         body: [
           'Molina\'s guide is built around a complete first request. The CDE must be performed by a listed practitioner — including a licensed school psychologist, but not an unlicensed one — and must state a formal diagnosis. Scores from CARS or ADOS alone are not a diagnosis, and school accommodation letters are not enough. The Vineland-3 and BASC-3 PRQ go in as a separate behavior assessment with complete scoring reports, at the start and every 12 months; scores buried in a private CDE do not count. Every behavior-reduction goal needs an FBA/BIP with the child\'s own frequency, rate, duration and severity data. The request also needs a weekly schedule that matches the hours the child is actually available, the PCP\'s signed referral, and a transition plan from day one.',
-          'Authorization mechanics: 97151 needs no prior authorization; 97153–97156 do, before services begin and at least every 180 days. Submit through Availity Essentials. Reauthorizations go in between 30 and 10 days before the end date. The guide gives MMA standard decisions as 4 business days, faster than the 7 calendar days in Molina\'s March 2026 manual and inside the AHCA contract\'s 5. Services are authorized and billed against a weekly hour total. A privately paid CDE is accepted if it meets the standard, and Molina may ask for a new CDE after a significant developmental change.',
+          'Authorization mechanics: 97151 needs no prior authorization; 97153–97156 do, before services begin and at least every 180 days. Submit through Availity Essentials. Reauthorizations go in between 30 and 10 days before the end date. Molina\'s September 2026 manual gives MMA standard decisions as 4 calendar days (the BA guide says 4 business days), inside the AHCA contract\'s 5. Services are authorized and billed against a weekly hour total. A privately paid CDE is accepted if it meets the standard, and Molina may ask for a new CDE after a significant developmental change.',
         ],
         cites: [
           { title: 'Molina Healthcare of Florida — Behavioral Analysis Services: Authorization & Documentation Guide (Comprehensive BA QRG, effective July 2026)', url: 'https://myhealthinhand.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/fl/medicaid/08-07-26-MHFL-Comprehensive-BA-QRG-508.ashx' },
@@ -1781,6 +1799,13 @@ export const floridaPayers: Record<string, PayerConfig> = {
           { title: 'Fla. Stat. § 409.967 (2026) — Managed care plan accountability (prompt payment, (2)(j))', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.967' },
           { title: 'Fla. Stat. § 641.3155 (2026) — Prompt payment of claims', url: 'https://www.flsenate.gov/Laws/Statutes/2026/641.3155' },
         ],
+      },
+      {
+        h2: 'Credentialing timeline (adding a new BCBA)',
+        body: [
+          'Molina’s Florida Medicaid provider manual (9/9/2026, covering Molina Medicaid and CMS Plan members): "Molina completes initial credentialing of Practitioners within 60 calendar days. The 60 calendar days is measured from the date Molina receives a full and complete credentialing application." Practitioners and groups "must be credentialed prior to the contract being implemented."',
+        ],
+        cites: [{ title: 'Molina Healthcare of Florida — Medicaid Provider Manual for Molina Medicaid and CMS Plan members (9/9/2026)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/FL/Manuals/09-09-26-MHFL-Molina-Provider-Handbook-CMS-and-SMMC-508.pdf' }],
       },
     ],
     collect: [
@@ -1809,6 +1834,7 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { q: 'What happens when a Molina member switches BA providers?', a: 'AHCA\u2019s BA coverage policy, which every MMA plan must follow, says “a full assessment may be requested if there is a change in provider,” and a change in a practitioner\u2019s credential (an RBT becoming a BCaBA) is not grounds for a reassessment. Expect the new agency to request its own assessment and treatment authorization; ask Molina how it closes the previous provider\u2019s authorization.' },
       { q: 'What is the payment turnaround for Molina Healthcare of Florida ABA claims?', a: 'Florida law binds Molina Healthcare of Florida as an MMA plan (§ 409.967(2)(j) → § 641.3155): pay or send a denial/contest notice within 20 days of an electronic claim (40 for paper), pay or deny within 90 days (120 for paper), and 12% interest on late payments. The statute also requires providers to file within 6 months of the date of service.' },
       { q: 'What documents does Molina Healthcare of Florida need at intake for ABA?', a: 'Molina\'s July 2026 guide requires a signed referral from the member\'s assigned PCP that specifies ABA services, with the CDE and Vineland-3/BASC-3 scoring reports. It also needs a behavior plan for the full period (up to six months), an FBA/BIP for any behavior-reduction goal, a weekly schedule by code and place of service, other services the child receives, caregiver-training goals, the supervision plan and a transition or discharge plan. Submit through Availity Essentials.' },
+      { q: 'How long does Molina Healthcare of Florida credentialing take?', a: 'Molina’s September 2026 Florida manual commits to initial credentialing within 60 calendar days of a full and complete application. The same manual covers the CMS Plan.' },
     ],
   },
 
@@ -1981,6 +2007,13 @@ export const floridaPayers: Record<string, PayerConfig> = {
           { title: 'Fla. Stat. § 641.3155 (2026) — Prompt payment of claims', url: 'https://www.flsenate.gov/Laws/Statutes/2026/641.3155' },
         ],
       },
+      {
+        h2: 'Credentialing timeline (adding a new BCBA)',
+        body: [
+          'Community Care Plan’s MMA provider manual (3/11/2026) says credentialing "takes up to 60 days to complete the credentialing process for MMA providers, and up to 90 days for all other providers." The application needs the CCP application or the CAQH Provider Data Collection form, malpractice coverage, a W-9, board certification where held, a CV, ownership disclosure and the other listed documents.',
+        ],
+        cites: [{ title: 'Community Care Plan — MMA Provider Manual (3/11/2026)', url: 'https://ccpcares.org/wp-content/uploads/CCP-MMA-Provider-Manual_03.11.26.pdf' }],
+      },
     ],
     collect: [
       { title: 'TNFL portal access', desc: 'Auths at asp.healthsystemone.com/hs1providers, status and claims at therapynetwork.com — set both up first.' },
@@ -2008,6 +2041,7 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { q: 'What happens when a Community Care Plan member switches BA providers?', a: 'AHCA\u2019s BA coverage policy, which every MMA plan must follow, says “a full assessment may be requested if there is a change in provider,” and a change in a practitioner\u2019s credential (an RBT becoming a BCaBA) is not grounds for a reassessment. Expect the new agency to request its own assessment and treatment authorization; ask Community Care Plan how it closes the previous provider\u2019s authorization.' },
       { q: 'What is the payment turnaround for Community Care Plan ABA claims?', a: 'Florida law binds Community Care Plan as an MMA plan (§ 409.967(2)(j) → § 641.3155): pay or send a denial/contest notice within 20 days of an electronic claim (40 for paper), pay or deny within 90 days (120 for paper), and 12% interest on late payments. The statute also requires providers to file within 6 months of the date of service.' },
       { q: 'What documents does Community Care Plan need at intake for ABA?', a: 'First on CCP\'s checklist for authorizing the behavior assessment: the prescription or referral form from an independent physician or qualified practitioner, carrying the diagnosis and an order for BA services, plus the CDE. All BA fee-schedule codes need prior authorization from Therapy Network of Florida through its portal. Reassessments are due every six months, and the core instruments annually unless a new behavior emerges or more hours are requested.' },
+      { q: 'How long does Community Care Plan credentialing take?', a: 'Up to 60 days for MMA providers and up to 90 days for other providers, per CCP’s March 2026 MMA provider manual.' },
     ],
   },
 
@@ -2173,6 +2207,13 @@ export const floridaPayers: Record<string, PayerConfig> = {
           { title: 'Fla. Stat. § 641.3155 (2026) — Prompt payment of claims', url: 'https://www.flsenate.gov/Laws/Statutes/2026/641.3155' },
         ],
       },
+      {
+        h2: 'Credentialing timeline (adding a new BCBA)',
+        body: [
+          'Florida Community Care’s provider handbook says "FCC will complete the credentialing and onboarding process within 60 days of the receipt of a clean/complete application," and that finishing the application "do[es] not guarantee inclusion" in the network. FCC staff contact the provider when more information is needed, and a slow reply delays the clock.',
+        ],
+        cites: [{ title: 'Florida Community Care — Provider Handbook (rev. 3)', url: 'https://fcchealthplan.com/wp-content/uploads/2025/01/2M2609-FCC-Prov-Manual-r3.pdf' }],
+      },
     ],
     collect: [
       { title: 'Referral + order + CDE', desc: 'The state eligibility gate applies; no autism diagnosis required — existing CIDD records often cover much of it.' },
@@ -2199,6 +2240,7 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { q: 'What happens when a Florida Community Care member switches BA providers?', a: 'AHCA\u2019s BA coverage policy, which every MMA plan must follow, says “a full assessment may be requested if there is a change in provider,” and a change in a practitioner\u2019s credential (an RBT becoming a BCaBA) is not grounds for a reassessment. Expect the new agency to request its own assessment and treatment authorization; ask Florida Community Care how it closes the previous provider\u2019s authorization.' },
       { q: 'What is the payment turnaround for Florida Community Care ABA claims?', a: 'Florida law binds Florida Community Care as an MMA plan (§ 409.967(2)(j) → § 641.3155): pay or send a denial/contest notice within 20 days of an electronic claim (40 for paper), pay or deny within 90 days (120 for paper), and 12% interest on late payments. The statute also requires providers to file within 6 months of the date of service.' },
       { q: 'What documents does Florida Community Care need at intake for ABA?', a: 'The state packet (an independent physician\'s referral and order for BA services plus a CDE), submitted on FCC\'s own ABA Prior Authorization Request Form by fax, email or the provider portal. For members under 21, the form also asks who established the ASD diagnosis: "Documentation must be within the last 24 months by a MD, PhD in Psychology or PsyD. Diagnosis must meet DSM-5 criterion to diagnose ASD. Validated assessment tools must be included." Expect an older diagnostic report to come back.' },
+      { q: 'How long does Florida Community Care credentialing take?', a: 'FCC’s handbook commits to completing credentialing and onboarding within 60 days of a clean, complete application.' },
     ],
   },
 
@@ -2950,7 +2992,7 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis report', desc: 'DSM-5-TR ASD with a validated tool for the standard path — or the Down syndrome diagnosis for the Florida mandate path.' },
       { title: 'Age + diagnosis-age history', desc: 'The mandate keys to under-18 (or in high school) with the developmental-disability dx made by age 8 — flag edge cases for parity analysis.' },
     ],
-    sources: [
+    sources: [{ title: 'UnitedHealthcare — Prior auth reductions continue for members under 18 (Network News, Nov. 2026)', url: 'https://www.uhcprovider.com/en/resource-library/news/2026/prior-auth-reduction-members-under-18.html' }, { title: 'UnitedHealthcare — Procedure codes with reduced prior authorization requirements, commercial plans (eff. Dec. 1, 2026, revised Nov. 6, 2026) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/PA-Reduction-Codes-18-Commercial-QRG.pdf' }, 
       { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
       { title: 'Optum — ABA State Mandates supplemental criteria (BH 803ABA STM12026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
       { title: 'Fla. Stat. § 627.6686 (2024)', url: 'https://www.flsenate.gov/Laws/statutes/2024/627.6686' },
@@ -2970,6 +3012,7 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { title: 'UnitedHealthcare Community Plan of Florida — 2026 Care Provider Manual, Statewide Medicaid Managed Care', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/FL-Care-Provider-Manual-Statewide-Medicaid-Managed-Care.pdf' },
     ],
     faq: [
+      { q: 'Does UnitedHealthcare still require prior authorization for ABA for members under 18 after Dec. 1, 2026?', a: 'Only two ABA codes change. From Dec. 1, 2026, UnitedHealthcare no longer requires prior authorization for 0362T and 0373T when provided to members younger than 18 on its commercial plans (commercial code list revised Nov. 6, 2026). 97151–97158 are not on the list and still need authorization, and the Individual Exchange and Community Plan lists name no ABA code. UHC says to check plan-specific exceptions in the Prior Authorization and Advance Notification tool. 0362T and 0373T are deleted from CPT on Jan. 1, 2027, so the change covers December 2026 dates of service.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in Florida?', a: 'Yes — under Optum\'s national two-step authorization for ASD, layered on Florida\'s Geller Act (§ 627.6686) for covered fully-insured group plans. Self-funded, individual, and small-group plans sit outside the mandate, so verify plan funding type first.' },
       { q: 'Does UnitedHealthcare cover ABA for Down syndrome in Florida?', a: 'For mid- and large-group fully-insured Florida plans, yes — Optum\'s ABA State Mandates supplement explicitly covers ABA for the treatment of Down syndrome, mirroring the Florida mandate\'s unusual Down syndrome extension. It does not apply to individual or small-group plans; confirm funding type and group size.' },
       { q: 'What does the Florida autism mandate require?', a: 'For covered group plans: screening, speech, OT, PT, and ABA for eligible individuals — under 18 (or 18+ in high school) diagnosed with a developmental disability by age 8 — with ABA capped at $36,000/year and $200,000 lifetime (CPI-adjusted). Federal parity limits how hard the dollar caps can be enforced against group plans.' },

@@ -124,7 +124,7 @@ const WV_PROMPT_PAY =
   'West Virginia’s prompt-pay law, W. Va. Code § 33-45-2, requires an insurer to "either pay or deny a clean claim within 40 days of receipt of the claim if submitted manually and within 30 days of receipt of the claim if submitted electronically," to ask for any missing information within 30 days of receipt, and to pay interest at 10 percent a year on claims paid after the 40-day period.';
 
 const MCD_FEE_LINE =
-  'BMS’s ABA fee schedule ("Contracts & Codes for: ABA - Medicaid") pays per 15-minute unit: 97151 $29.14, 97152 $9.90, 97153 $9.90, 97154 $4.50, 97155 $29.14, 97156 $17.43, 97158 $11.79, and H0031 (the annual functional assessment) $120.00 per event. Legacy lines remain for H0032 and H2012 ($29.14), H2014 ($11.79; U4 $5.50, U5 $2.50) and H2019 ($29.14). 97157, 0362T and 0373T are not on the schedule.';
+  'BMS’s ABA fee schedule ("Contracts & Codes for: ABA - Medicaid") pays per 15-minute unit: 97151 $29.14, 97152 $9.90, 97153 $9.90, 97154 $4.50, 97155 $29.14, 97156 $17.43, 97158 $11.79, and H0031 (the annual functional assessment) $120.00 per event. Code effective dates on the schedule are April 1, 2020 for 97151, 97155, 97156, 97158 and H0031 and April 1, 2021 for 97152, 97153 and 97154, all with a term date of 12/31/2078 (schedule re-checked November 8, 2026). Legacy lines remain for H0032 and H2012 ($29.14), H2014 ($11.79; U4 $5.50, U5 $2.50) and H2019 ($29.14). 97157, 0362T and 0373T are not on the schedule.';
 
 export const westVirginiaPayers: Record<string, PayerConfig> = {
   'west-virginia-medicaid': {
@@ -161,7 +161,7 @@ export const westVirginiaPayers: Record<string, PayerConfig> = {
       { label: 'Structure', value: 'Carved in to Mountain Health Trust (4 MCOs) and Mountain Health Promise (Aetna); FFS for the rest' },
       { label: 'Prior auth', value: 'Required on every ABA code, before services; no retro authorizations' },
       { label: 'Hour cap', value: '40 hours/week and/or 8 hours per 24 hours across 97151–97156, 97158' },
-      { label: 'FFS rates (per 15 min)', value: '97151/97155 $29.14 · 97156 $17.43 · 97158 $11.79 · 97152/97153 $9.90 · 97154 $4.50 · H0031 $120/assessment' },
+      { label: 'FFS rates (per 15 min)', value: '97151/97155 $29.14 · 97156 $17.43 · 97158 $11.79 · 97152/97153 $9.90 · 97154 $4.50 · H0031 $120/assessment (97153 effective 4/1/2021; unchanged on the BMS schedule 11/8/2026)' },
       { label: 'Who may deliver', value: 'BCBA/BCBA-D; BCaBA and RBT under supervision, all with current BACB certification' },
       { label: 'Licensure', value: 'None: WV does not license behavior analysts; BACB certification governs' },
       { label: 'Timely filing', value: '12 months from date of service (FFS); MCOs set their own' },
@@ -237,11 +237,11 @@ export const westVirginiaPayers: Record<string, PayerConfig> = {
       },
       dailyLimits: { value: WV_MCD_LIMITS, status: 'verified', cites: [S.aba519] },
       noteSignature: {
-        value: 'Policy 519.23 requires legible, organized records with no copied or boilerplate language and discharge reports at closure, and Policy 519.17 requires telehealth notes to record the telehealth mode. No BMS source read says who must sign each session note or by when.',
+        value: 'Policy 519.23 requires legible, organized records with no copied or boilerplate language and discharge reports at closure, and Policy 519.17 requires telehealth notes to record the telehealth mode. Chapter 100 lists as non-covered "Services documented with verbiage exactly like or like previous entries (cloned documentation)," which "includes photocopying of previous documentation including signatures," and Chapter 300 says "An electronic signature is acceptable on all documents with the required verification information." Neither chapter, nor Policy 519.23, says who must sign each ABA session note or by when (re-checked November 8, 2026).',
         status: 'unverified',
-        cites: [S.aba519, S.tele519],
-        verifyVia: 'BMS Chapter 100/300 record-keeping sections, or Gainwell provider services (the BMS fiscal agent): ask the ABA session-note signature and timing standard used in retrospective review.',
-        blocker: 'document',
+        cites: [S.aba519, S.tele519, S.ch100, S.ch300],
+        verifyVia: 'Gainwell provider services (the BMS fiscal agent) or BMS behavioral health policy staff: ask the ABA session-note signature and timing standard used in retrospective review.',
+        blocker: 'per-case',
       },
       placeOfService: {
         value: 'Therapeutic activities "may be provided to a member in his/her natural environment through a structured program." Services must not "supplant or duplicate those provided by educational authorities," "Services that are educational in nature cannot be authorized," and school-administered services (Chapter 538) are carved out of managed care. Telehealth uses POS 02, or POS 10 in the member’s home.',
@@ -1290,7 +1290,7 @@ export const westVirginiaPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis with a validated tool', desc: 'DSM-5 ASD and severity level, confirmed with a validated tool (ADI-R, ADOS-2 and others).' },
       { title: 'Physician or psychologist order', desc: 'Required by the West Virginia mandate on insured group plans.' },
     ],
-    sources: [S.optumSCC, S.optumSM, S.optumTele, S.optumReimb, S.optumNNM, S.mht, S.c3316v, S.c3324k, S.c3325Aj, S.c5167, S.c3324s, S.c3345, S.c3357, S.bacbLic, S.c30, S.erisa, S.abaFee, S.ch100, S.tricare, S.champva, { title: 'W. Va. Code § 30-30-11 — Scope of practice for a licensed certified social worker (may "determine behavioral health diagnosis")', url: 'https://code.wvlegislature.gov/30-30-11/' }],
+    sources: [{ title: 'UnitedHealthcare — Prior auth reductions continue for members under 18 (Network News, Nov. 2026)', url: 'https://www.uhcprovider.com/en/resource-library/news/2026/prior-auth-reduction-members-under-18.html' }, { title: 'UnitedHealthcare — Procedure codes with reduced prior authorization requirements, commercial plans (eff. Dec. 1, 2026, revised Nov. 6, 2026) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/PA-Reduction-Codes-18-Commercial-QRG.pdf' }, S.optumSCC, S.optumSM, S.optumTele, S.optumReimb, S.optumNNM, S.mht, S.c3316v, S.c3324k, S.c3325Aj, S.c5167, S.c3324s, S.c3345, S.c3357, S.bacbLic, S.c30, S.erisa, S.abaFee, S.ch100, S.tricare, S.champva, { title: 'W. Va. Code § 30-30-11 — Scope of practice for a licensed certified social worker (may "determine behavioral health diagnosis")', url: 'https://code.wvlegislature.gov/30-30-11/' }],
     deliveryRules: {
       supervision: {
         value: 'Consistent with CASP standards, direct case supervision of 1–2 hours for every 10 hours of direct treatment. Optum does not recommend parents serving as their own child’s RBT. West Virginia’s mandate requires ABA "provided or supervised by a certified behavior analyst." Supervision documentation: Optum’s ABA documentation protocol (June 2026), used for UnitedHealthcare record reviews, asks each 97155 note to record actual start and stop times, the participants including the technician and credentials, any protocol modification (or that none occurred) and the direction given to the technician, and each daily note to carry the rendering provider’s signature; it prescribes no separate supervision log or monthly sign-off. The monthly BACB record (at least 5% of RBT service hours supervised each calendar month, two face-to-face contacts, records of dates, duration, format and observations kept 7 years) is a certification requirement, not a payer rule.',
@@ -1374,6 +1374,7 @@ export const westVirginiaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare still require prior authorization for ABA for members under 18 after Dec. 1, 2026?', a: 'Only two ABA codes change. From Dec. 1, 2026, UnitedHealthcare no longer requires prior authorization for 0362T and 0373T when provided to members younger than 18 on its commercial plans (commercial code list revised Nov. 6, 2026). 97151–97158 are not on the list and still need authorization, and the Individual Exchange and Community Plan lists name no ABA code. UHC says to check plan-specific exceptions in the Prior Authorization and Advance Notification tool. 0362T and 0373T are deleted from CPT on Jan. 1, 2027, so the change covers December 2026 dates of service.' },
       { q: 'Does UnitedHealthcare (Optum) require graphs for ABA continued-service reviews?', a: 'No. Optum’s criteria ask for progress on every target using the baseline measurement method, mastery rates and change scores, updated standardized adaptive measures, and an explanation of low hour use, but they do not require graphs.' },
       { q: 'What are UnitedHealthcare (Optum)’s claim filing deadlines for West Virginia ABA claims?', a: '90 calendar days from the date of service (or longer where state law or the plan allows), corrections within 90 days of the original claim’s receipt, and payment of complete claims within 45 days or the state’s shorter clock. No check-run schedule is published.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in West Virginia?', a: 'Yes, under Optum’s national ABA criteria for ASD, with West Virginia’s autism mandate layered on for fully insured group plans. Self-funded employer plans follow their own documents.' },
@@ -1423,7 +1424,7 @@ export const westVirginiaPayers: Record<string, PayerConfig> = {
       { label: 'Mandate caps', value: 'ABA may be capped at $30,000/yr for 3 years from start, then $2,000/month to age 18' },
       { label: 'Exempt from mandate', value: 'Self-funded ERISA plans; small employers (25 or fewer eligible employees)' },
       { label: 'Licensure', value: 'None: WV does not license behavior analysts; the mandate requires BACB (or similar) certification' },
-      { label: 'Fee schedule', value: 'Not public — contracted rates' },
+      { label: 'Fee schedule', value: 'Contracted rates, except 97153: WV PPO $14.53 office / $13.78 non-office per 15 min, effective 10/16/2026 (Highmark notice, Aug. 17, 2026)' },
     ],
     sections: [
       {

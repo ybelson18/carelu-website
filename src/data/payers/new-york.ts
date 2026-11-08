@@ -1,5 +1,20 @@
 import type { PayerConfig } from './types.js';
 
+/* ---- New York credentialing clock (Ins. Law § 4803, PHL § 4406-d; read on nysenate.gov 2026-11-08) ---- */
+const NY_CRED_SRC = [
+  { title: 'N.Y. Insurance Law § 4803 — Health care professional applications and terminations (60-day credentialing decision; provisional credentialing)', url: 'https://www.nysenate.gov/legislation/laws/ISC/4803' },
+  { title: 'N.Y. Public Health Law § 4406-d — Health care professional applications and terminations (Article 44 health care plans: 60-day credentialing decision)', url: 'https://www.nysenate.gov/legislation/laws/PBH/4406-D' },
+];
+const NY_CRED_SECTION = {
+  h2: 'How long does credentialing take? New York’s 60-day clock',
+  body: [
+    'New York sets a statutory clock for credentialing decisions. An insurer offering a managed care product (Insurance Law § 4803(a)(1)) and a health care plan under Public Health Law Article 44 (§ 4406-d(1)(a)) must, "within sixty days of receiving a health care professional\'s completed application," tell the professional whether they are credentialed or whether more time is needed because a third party has not sent required documentation; in that case the plan must "make a final determination within twenty-one days of receiving the necessary documentation." The clock starts only from a completed application, so adding a new BCBA starts with a complete credentialing application for that clinician (and, in New York, an LBA license, since a BCBA certificate alone does not permit practice).',
+    'Provisional credentialing is narrow. If the application is neither approved nor declined within 60 days, a professional who is newly licensed, or who recently moved to New York and has not practiced here before, and who joins a group practice whose members all participate in the plan\'s network, may be "provisionally credentialed," provided the group agrees in writing to refund in-network payments above out-of-network rates if the application is later denied and not to bill the member beyond the copayment. A provisionally credentialed physician cannot be named a member\'s primary care physician until fully credentialed. The statutes set no turnaround for adding a clinician to an existing contract beyond this; ask the plan\'s provider services for its current processing time.',
+  ],
+  cites: NY_CRED_SRC,
+};
+const NY_CRED_FAQ = { q: 'How long does it take to credential a new BCBA (LBA) with this plan in New York?', a: 'New York law gives an insurer offering a managed care product (Ins. Law § 4803) or an Article 44 health care plan (PHL § 4406-d) 60 days from a completed application to say whether the professional is credentialed, plus 21 days from receipt of any documentation a third party still owes. Newly licensed or newly relocated professionals joining an all-in-network group can be provisionally credentialed if the plan misses the 60 days. The clinician must hold a New York LBA license; a BCBA alone is not enough.' };
+
 export const newYorkPayers: Record<string, PayerConfig> = {
   'new-york-medicaid': {
     slug: 'new-york-medicaid',
@@ -428,6 +443,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'Fidelis Care Medicaid Provider Manual (V26.0, 1/1/2026) — Section 19: Authorizations for Non-Par Providers', url: 'https://www.fideliscare.org/Portals/0/Providers/ProviderManuals/Provider-Manual-Medicaid-English.pdf' }],
       },
+      NY_CRED_SECTION,
     ],
     collect: [
       { title: 'Diagnostic evaluation + dates', desc: 'Two clocks: dx evaluation within 2 years of the request; validated diagnostic tool within 60 months for initial requests.' },
@@ -436,7 +452,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { title: 'Credentialing + MMIS status', desc: 'Both must be complete before serving Fidelis members — confirm before quoting start dates.' },
       { title: 'Waitlist-workaround eligibility', desc: 'If no diagnostic slot within 6 months and the member is in/recently in ABA, pursue the letter of confirmation.' },
     ],
-    sources: [ { title: 'Fidelis Care Medicaid Provider Manual (V26.0, 1/1/2026) — Section 19: Authorizations for Non-Par Providers', url: 'https://www.fideliscare.org/Portals/0/Providers/ProviderManuals/Provider-Manual-Medicaid-English.pdf' },
+    sources: [...NY_CRED_SRC,  { title: 'Fidelis Care Medicaid Provider Manual (V26.0, 1/1/2026) — Section 19: Authorizations for Non-Par Providers', url: 'https://www.fideliscare.org/Portals/0/Providers/ProviderManuals/Provider-Manual-Medicaid-English.pdf' },
       { title: 'NYS DOH — NYS Medicaid Provider Revalidation and Enrollment Moratoriums', url: 'https://health.ny.gov/health_care/medicaid/integrity/provider_revalidation.htm' },
       { title: 'NYS DOH Bureau of Provider Enrollment — Office Hours slides: revalidation, risk designations, temporary moratorium (October 1, 2026)', url: 'https://health.ny.gov/health_care/medicaid/integrity/docs/2026-09-17_bpe_call-in_hour_slide.pdf' },
       { title: 'eMedNY — Applied Behavior Analysis provider enrollment', url: 'https://www.emedny.org/info/providerenrollment/ABA/' },
@@ -547,6 +563,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      NY_CRED_FAQ,
       { q: 'Does Fidelis Care give single case agreements to out-of-network ABA providers in New York?', a: 'Yes, when Fidelis has no participating provider nearby or with the right training and experience. The authorization must be requested before services start, and the provider must accept “the negotiated fee via single case agreement” and follow Fidelis\'s authorization and treatment-plan rules.' },
       { q: 'Is Fidelis Care accepting new ABA providers for New York Medicaid?', a: 'Not providers who still need NYS Medicaid enrollment. New York has had a temporary enrollment moratorium on ABA providers since July 27, 2026, lasting at least 6 months, and Medicaid enrollment is a prerequisite for joining any Medicaid managed care network. Already-enrolled LBAs can ask Fidelis Care about contracting. Its provider documents state no ABA network status, so whether it has room is up to its provider contracting team.' },
       { q: 'Does Fidelis allow ABA by telehealth, including the assessment?', a: 'Case by case. Fidelis\u2019s ABA policy says some telehealth \u201cmay be allowed when clinically appropriate and in alignment with the\u201d NYS telehealth manual, and it must be documented in the treatment plan. No code is pre-approved, so get the telehealth plan approved with the authorization.' },
@@ -657,6 +674,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'UnitedHealthcare Community Plan 2026 Care Provider Manual — New York (Doc# PMI 10132026), Ch. 7, 12 and 13', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NY-UHCCP-Dual-LTC-CHIP-Care-Provider-Manual.pdf' }],
       },
+      NY_CRED_SECTION,
     ],
     collect: [
       { title: 'Complete state referral packet', desc: 'The state\'s 2-year referral with DSM-5 checklist is the clinical core of the Optum PA — collect it first.' },
@@ -665,7 +683,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { title: 'Unit runway', desc: 'Additional units need a new PA — track burn-down and file before the auth exhausts.' },
       { title: 'Telehealth provider status', desc: 'Virtual 97155/97156/97157 requires virtual-visits approval; bill POS 02.' },
     ],
-    sources: [ { title: 'UnitedHealthcare Community Plan 2026 Care Provider Manual — New York (Doc# PMI 10132026), Ch. 7, 12 and 13', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NY-UHCCP-Dual-LTC-CHIP-Care-Provider-Manual.pdf' },
+    sources: [...NY_CRED_SRC,  { title: 'UnitedHealthcare Community Plan 2026 Care Provider Manual — New York (Doc# PMI 10132026), Ch. 7, 12 and 13', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NY-UHCCP-Dual-LTC-CHIP-Care-Provider-Manual.pdf' },
       { title: 'NYS DOH — NYS Medicaid Provider Revalidation and Enrollment Moratoriums', url: 'https://health.ny.gov/health_care/medicaid/integrity/provider_revalidation.htm' },
       { title: 'NYS DOH Bureau of Provider Enrollment — Office Hours slides: revalidation, risk designations, temporary moratorium (October 1, 2026)', url: 'https://health.ny.gov/health_care/medicaid/integrity/docs/2026-09-17_bpe_call-in_hour_slide.pdf' },
       { title: 'eMedNY — Applied Behavior Analysis provider enrollment', url: 'https://www.emedny.org/info/providerenrollment/ABA/' },
@@ -774,6 +792,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      NY_CRED_FAQ,
       { q: 'Does UnitedHealthcare Community Plan of New York give single case agreements for ABA?', a: 'Yes, when in-network services are not available. The SCA pays only “the established Medicaid rate,” the provider must be NYS Medicaid-registered, and prior authorization and the SCA must be in place before any service. Call Provider Services at 1-866-362-3368.' },
       { q: 'Is UnitedHealthcare Community Plan accepting new ABA providers for New York Medicaid?', a: 'Not providers who still need NYS Medicaid enrollment. New York has had a temporary enrollment moratorium on ABA providers since July 27, 2026, lasting at least 6 months, and Medicaid enrollment is a prerequisite for joining any Medicaid managed care network. Already-enrolled LBAs can ask UnitedHealthcare Community Plan about contracting. Its provider documents state no ABA network status, so whether it has room is up to its provider contracting team.' },
       { q: 'Does UnitedHealthcare Community Plan of New York cover ABA?', a: 'Yes — for NY Medicaid members under 21 with ASD or Rett syndrome, on the state\'s clinical criteria, but with prior authorization required on all ABA services through Optum\'s providerexpress.com portal.' },
@@ -873,6 +892,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
           { title: 'eMedNY — Applied Behavior Analysis provider enrollment', url: 'https://www.emedny.org/info/providerenrollment/ABA/' },
         ],
       },
+      NY_CRED_SECTION,
     ],
     collect: [
       { title: 'BCBA/QHCP details', desc: 'The form requires the treating analyst\'s information — have credentials and NPI ready before submission.' },
@@ -880,7 +900,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { title: 'Comprehensive vs. Focused framing', desc: 'Classify the request deliberately and align requested hours with the model.' },
       { title: 'Complete state referral packet', desc: 'The state eligibility baseline still applies — referral, dx, severity, DSM-5 checklist.' },
     ],
-    sources: [
+    sources: [...NY_CRED_SRC, 
       { title: 'NYS DOH — NYS Medicaid Provider Revalidation and Enrollment Moratoriums', url: 'https://health.ny.gov/health_care/medicaid/integrity/provider_revalidation.htm' },
       { title: 'NYS DOH Bureau of Provider Enrollment — Office Hours slides: revalidation, risk designations, temporary moratorium (October 1, 2026)', url: 'https://health.ny.gov/health_care/medicaid/integrity/docs/2026-09-17_bpe_call-in_hour_slide.pdf' },
       { title: 'eMedNY — Applied Behavior Analysis provider enrollment', url: 'https://www.emedny.org/info/providerenrollment/ABA/' },
@@ -999,6 +1019,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      NY_CRED_FAQ,
       { q: 'Is Anthem HealthPlus accepting new ABA providers for New York Medicaid?', a: 'Not providers who still need NYS Medicaid enrollment. New York has had a temporary enrollment moratorium on ABA providers since July 27, 2026, lasting at least 6 months, and Medicaid enrollment is a prerequisite for joining any Medicaid managed care network. Already-enrolled LBAs can ask Anthem HealthPlus about contracting. Its provider documents state no ABA network status, so whether it has room is up to its provider contracting team.' },
       { q: 'Does Anthem HealthPlus cover ABA in New York?', a: 'Yes — it carries the NY Medicaid ABA carve-in for members under 21 with ASD/Rett, with treatment authorized via its Treatment Plan Request Form submitted through Availity. The June 2026 form revision confirms it remains an active NY ABA payer.' },
       { q: 'Does the ABA assessment need prior authorization at Anthem NY?', a: 'Yes. Anthem\u2019s ABA Services FAQ for New York providers says authorizations are required and marks 97151 and 97152, like every other ABA code, \u201cAuthorization required: Yes.\u201d' },
@@ -1077,14 +1098,14 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         body: [
           'Healthfirst sets its own filing limit in its provider agreement and manual; New York law sets the floor. Ins. Law § 3224-a, which covers New York insurers, Article 43 corporations and Article 44 HMOs, requires claims to be submitted within 120 days of the date of service unless the contract is more favorable to the provider — and for Medicaid managed care contracts lets the parties agree on a different period "but in no event less than ninety days." Undisputed claims must be paid within 30 days of receipt when submitted electronically and 45 days on paper, with interest at the greater of the corporate-tax rate or 12% per annum when paid late.',
           'Electronic Visit Verification does not reach ABA: the Department of Health’s EVV list for fee-for-service and managed care Medicaid covers personal care and home health care codes (CDPAP, home care, HCBS habilitation and respite) and no ABA code (97151–97158).',
-          'Healthfirst’s own rules, from its New York Provider Manual (updated 10/1/2026), §17.3: “Providers should submit all claims within 30 (thirty) days of the date of service for prompt adjudication and payment,” the binding limit is the one in your Healthfirst agreement, and “In no event will Healthfirst pay claims submitted more than 180 (one hundred eighty) days after the date of service.” Late-claim exceptions run 60 calendar days from the time submission came within the provider’s control — including “Medicare or other third-party processing delays” and an original claim rejected or denied for a reason unrelated to the 180-day rule (submit with the original EOP). Corrected claims are stamped “CORRECTED” with the original claim number and “must follow timely filing guidelines for new claims”; a resubmitted rejected claim “is always treated as a new claim.” Healthfirst “adjudicates and pays all claims for its Medicaid, CHPlus, and commercial plans according to Section 3224-a.” No payment-cycle day or submission cut-off is published.',
+          'Healthfirst’s own rules, from its New York Provider Manual (updated 11/2/2026), §17.3: “Providers should submit all claims within 30 (thirty) days of the date of service for prompt adjudication and payment,” the binding limit is the one in your Healthfirst agreement, and “In no event will Healthfirst pay claims submitted more than 180 (one hundred eighty) days after the date of service.” Late-claim exceptions run 60 calendar days from the time submission came within the provider’s control — including “Medicare or other third-party processing delays” and an original claim rejected or denied for a reason unrelated to the 180-day rule (submit with the original EOP). Corrected claims are stamped “CORRECTED” with the original claim number and “must follow timely filing guidelines for new claims”; a resubmitted rejected claim “is always treated as a new claim.” Healthfirst “adjudicates and pays all claims for its Medicaid, CHPlus, and commercial plans according to Section 3224-a.” No payment-cycle day or submission cut-off is published.',
           'For Medicaid managed care specifically, the state’s model contract adds a payment rule: the plan “shall make payments to Participating Providers and to Non-Participating Providers, as applicable, for items and services covered under this Agreement on a timely basis, consistent with the claims payment procedures described in SIL § 3224-a,” and must comply with 42 CFR 447.45(d)(5) and (6).',
           'Code set: Healthfirst publishes no ABA code list of its own in the documents we checked (its New York Provider Manual updated 10/1/2026 and its ABA provider pages), so the state’s applies: New York Medicaid’s ABA fee schedule (effective October 1, 2026) and the eMedNY manual’s billing table carry only CPT 97151–97158 — no 0362T or 0373T and no HCPCS H-code (H0031, H0032, H2019, H2014). Bill ABA on the CPT codes; confirm the plan’s fee schedule before billing anything else.',
         ],
         cites: [
           { title: 'NY Insurance Law § 3224-a — Standards for prompt, fair and equitable settlement of claims (NY Senate, rev. 9/19/2025)', url: 'https://www.nysenate.gov/legislation/laws/ISC/3224-A' },
           { title: 'NYSDOH — Electronic Visit Verification (EVV) Applicable Billing Codes (FFS and Managed Care, rev. March 2022)', url: 'https://www.health.ny.gov/health_care/medicaid/redesign/evv/repository/app_billing_codes.htm' },
-          { title: 'Healthfirst New York Provider Manual (updated 10/1/2026), §17.3 Time Frames for Claim Submission, Adjudication, and Payment', url: 'https://assets.healthfirst.org/pdf_9432a72611d0176a1f6a5503a1d88d94' },
+          { title: 'Healthfirst New York Provider Manual (updated 11/2/2026), §17.3 Time Frames for Claim Submission, Adjudication, and Payment', url: 'https://assets.healthfirst.org/pdf_9432a72611d0176a1f6a5503a1d88d94' },
           { title: 'NYS Medicaid Managed Care / FHPlus / HIV SNP / HARP Model Contract (March 1, 2019), §22.6 Timely Payment', url: 'https://www.health.ny.gov/health_care/managed_care/docs/medicaid_managed_care_fhp_hiv-snp_model_contract.pdf' },
           { title: 'NYS Medicaid ABA Fee Schedule (effective October 1, 2026)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Fee_Schedule.xls' },
           { title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' },
@@ -1108,6 +1129,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'Healthfirst New York Provider Manual (updated 10/1/2026)', url: 'https://assets.healthfirst.org/pdf_9432a72611d0176a1f6a5503a1d88d94' }],
       },
+      NY_CRED_SECTION,
     ],
     collect: [
       { title: 'Current authorization policy', desc: 'The policy text is unpublished — pull the live version from hfproviders.org or provider services before quoting timelines.' },
@@ -1115,7 +1137,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { title: 'Availity payer selection', desc: 'Submit PA through Availity Essentials with "Healthfirst (New York)" as the payer.' },
       { title: 'Line of business', desc: 'Medicaid vs. Healthfirst commercial — on commercial group plans, all of 97151–97158 require PA.' },
     ],
-    sources: [ { title: 'Healthfirst New York Provider Manual (updated 10/1/2026)', url: 'https://assets.healthfirst.org/pdf_9432a72611d0176a1f6a5503a1d88d94' },
+    sources: [...NY_CRED_SRC,  { title: 'Healthfirst New York Provider Manual (updated 10/1/2026)', url: 'https://assets.healthfirst.org/pdf_9432a72611d0176a1f6a5503a1d88d94' },
       { title: 'Healthfirst — Important Update: NPI and TIN Requirements for Claims Submission (released October 2026; effective December 1, 2026)', url: 'https://hfproviders.org/resource-posts/npi-and-tin-requirements-for-claims-submission' },
       { title: 'NYS DOH — NYS Medicaid Provider Revalidation and Enrollment Moratoriums', url: 'https://health.ny.gov/health_care/medicaid/integrity/provider_revalidation.htm' },
       { title: 'NYS DOH Bureau of Provider Enrollment — Office Hours slides: revalidation, risk designations, temporary moratorium (October 1, 2026)', url: 'https://health.ny.gov/health_care/medicaid/integrity/docs/2026-09-17_bpe_call-in_hour_slide.pdf' },
@@ -1238,6 +1260,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      NY_CRED_FAQ,
       { q: 'Will Healthfirst approve an out-of-network ABA provider?', a: 'Only by prior authorization, when Healthfirst decides an in-network provider cannot supply the care and the service is medically necessary. Its manual names no ABA single-case-agreement rate.' },
       { q: 'What changes for Healthfirst ABA claims on December 1, 2026?', a: 'NPI and TIN edits, for all Healthfirst lines of business. The NPI on the claim must match your Healthfirst enrollment record and the right NPI type: Type 1 for an individual provider, Type 2 for an organization. Healthfirst will no longer accept an SSN in place of the TIN. Claims that fail are rejected and must be corrected and resubmitted. For ABA, check that the LBA billing and rendering NPIs on the claim match how each is enrolled.' },
       { q: 'Is Healthfirst accepting new ABA providers for New York Medicaid?', a: 'Not providers who still need NYS Medicaid enrollment. New York has had a temporary enrollment moratorium on ABA providers since July 27, 2026, lasting at least 6 months, and Medicaid enrollment is a prerequisite for joining any Medicaid managed care network. Already-enrolled LBAs can ask Healthfirst about contracting. Its provider documents state no ABA network status, so whether it has room is up to its provider contracting team.' },
@@ -1349,6 +1372,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'MetroPlusHealth Provider Manual (updated June 2026, PRV-26073)', url: 'https://metroplus.org/wp-content/uploads/2026/07/H0423_PRV26_3833_C-06162026-PRV-26073_Jun26-Provider-Manual_R8_UA.pdf' }],
       },
+      NY_CRED_SECTION,
     ],
     collect: [
       { title: 'Comprehensive autism evaluation', desc: 'By a NYS-licensed clinician — it must accompany or precede the diagnosis, and an LBA\'s attestation doesn\'t count.' },
@@ -1356,7 +1380,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { title: 'CSS submission package', desc: 'Auth request + clinical information by fax, email or the provider portal; for fax or email, use a template and confirm receipt.' },
       { title: 'Complete state referral packet', desc: 'The state baseline (under 21, ASD/Rett, referral with DSM-5 checklist) still applies.' },
     ],
-    sources: [ { title: 'MetroPlusHealth Provider Manual (updated June 2026, PRV-26073)', url: 'https://metroplus.org/wp-content/uploads/2026/07/H0423_PRV26_3833_C-06162026-PRV-26073_Jun26-Provider-Manual_R8_UA.pdf' },
+    sources: [...NY_CRED_SRC,  { title: 'MetroPlusHealth Provider Manual (updated June 2026, PRV-26073)', url: 'https://metroplus.org/wp-content/uploads/2026/07/H0423_PRV26_3833_C-06162026-PRV-26073_Jun26-Provider-Manual_R8_UA.pdf' },
       { title: 'NYS DOH — NYS Medicaid Provider Revalidation and Enrollment Moratoriums', url: 'https://health.ny.gov/health_care/medicaid/integrity/provider_revalidation.htm' },
       { title: 'NYS DOH Bureau of Provider Enrollment — Office Hours slides: revalidation, risk designations, temporary moratorium (October 1, 2026)', url: 'https://health.ny.gov/health_care/medicaid/integrity/docs/2026-09-17_bpe_call-in_hour_slide.pdf' },
       { title: 'eMedNY — Applied Behavior Analysis provider enrollment', url: 'https://www.emedny.org/info/providerenrollment/ABA/' },
@@ -1477,6 +1501,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      NY_CRED_FAQ,
       { q: 'Does MetroPlusHealth give single case agreements to out-of-network ABA providers?', a: 'Yes, when in-network services are not available for a child\'s clinical needs. The participating referring provider requests prior authorization with a rationale for using the non-participating provider and the proposed treatment and visit frequency.' },
       { q: 'Is MetroPlusHealth accepting new ABA providers for New York Medicaid?', a: 'Not providers who still need NYS Medicaid enrollment. New York has had a temporary enrollment moratorium on ABA providers since July 27, 2026, lasting at least 6 months, and Medicaid enrollment is a prerequisite for joining any Medicaid managed care network. Already-enrolled LBAs can ask MetroPlusHealth about contracting. Its provider documents state no ABA network status, so whether it has room is up to its provider contracting team.' },
       { q: 'Does MetroPlusHealth cover ABA therapy?', a: 'Yes — it carries the NY Medicaid ABA carve-in for NYC members under 21 with ASD/Rett, with authorization requests and clinical information submitted by fax (212-908-5182), email (MetroPlusABA@Metroplus.org) or the provider portal, per its 2026 BH/HCBS PA Request Guide.' },
@@ -1547,11 +1572,12 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         body: [
           'EmblemHealth sets its own filing limit in its provider agreement and manual; New York law sets the floor. Ins. Law § 3224-a, which covers New York insurers, Article 43 corporations and Article 44 HMOs, requires claims to be submitted within 120 days of the date of service unless the contract is more favorable to the provider — and for Medicaid managed care contracts lets the parties agree on a different period "but in no event less than ninety days." Undisputed claims must be paid within 30 days of receipt when submitted electronically and 45 days on paper, with interest at the greater of the corporate-tax rate or 12% per annum when paid late.',
           'Electronic Visit Verification does not reach ABA: the Department of Health’s EVV list for fee-for-service and managed care Medicaid covers personal care and home health care codes (CDPAP, home care, HCBS habilitation and respite) and no ABA code (97151–97158).',
+          'EmblemHealth’s own Timely Filing page (Claims Corner) states the numbers. "Unless otherwise specified by the applicable participation agreement or the member’s self-funded plan’s provisions, new claims must be received within 120 days of the" date of service, or of the primary carrier’s explanation of payment when EmblemHealth is secondary; non-participating providers get 15 months for Medicaid and Child Health Plus. But "Behavioral health providers should reference the Carelon Behavioral Health Provider Handbook for applicable timely filing limits," and that handbook says participating providers "must file or submit claims within 90 calendar days from the date of service" unless the provider agreement says otherwise. Because Emblem’s behavioral health runs through Carelon, plan on 90 days for ABA unless your agreement gives longer, and note that Emblem may cut reimbursement "by up to 25%" on a late-filing denial overturned on appeal.',
           'For Medicaid managed care specifically, the state’s model contract adds a payment rule: the plan “shall make payments to Participating Providers and to Non-Participating Providers, as applicable, for items and services covered under this Agreement on a timely basis, consistent with the claims payment procedures described in SIL § 3224-a,” and must comply with 42 CFR 447.45(d)(5) and (6).',
           'Code set: EmblemHealth publishes no ABA code list of its own in the documents we checked (its Medicaid ABA benefit page and provider-manual chapters), so the state’s applies: New York Medicaid’s ABA fee schedule (effective October 1, 2026) and the eMedNY manual’s billing table carry only CPT 97151–97158 — no 0362T or 0373T and no HCPCS H-code (H0031, H0032, H2019, H2014). Bill ABA on the CPT codes; confirm the plan’s fee schedule before billing anything else.',
           'Taxonomy is mandatory on Medicaid claims. EmblemHealth’s NPI and taxonomy guide: “Taxonomy codes are required on Medicaid claims… If not included on an electronic submission, the claim will reject as an unclean claim,” and “Paper claims will be denied for missing information.” On the CMS-1500, always include the billing provider’s taxonomy in box 33b with qualifier ZZ and the rendering provider’s in box 24J with ZZ in 24I; use the codes registered in NPPES, not generic ones.',
         ],
-        cites: [
+        cites: [{ title: 'EmblemHealth — Claims Corner: Timely Filing (participating 120 days; Medicaid/CHPlus non-participating 15 months; behavioral health per Carelon handbook)', url: 'https://www.emblemhealth.com/providers/claims-corner/submissions/claims-submission-timely-filing' }, { title: 'Carelon Behavioral Health Provider Handbook (§ 9.04 Claim Submission Guidelines: 90 calendar days)', url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/global/carelon-behavioral-health-provider-handbook.pdf' }, 
           { title: 'NY Insurance Law § 3224-a — Standards for prompt, fair and equitable settlement of claims (NY Senate, rev. 9/19/2025)', url: 'https://www.nysenate.gov/legislation/laws/ISC/3224-A' },
           { title: 'NYSDOH — Electronic Visit Verification (EVV) Applicable Billing Codes (FFS and Managed Care, rev. March 2022)', url: 'https://www.health.ny.gov/health_care/medicaid/redesign/evv/repository/app_billing_codes.htm' },
           { title: 'NYS Medicaid Managed Care / FHPlus / HIV SNP / HARP Model Contract (March 1, 2019), §22.6 Timely Payment', url: 'https://www.health.ny.gov/health_care/managed_care/docs/medicaid_managed_care_fhp_hiv-snp_model_contract.pdf' },
@@ -1579,13 +1605,14 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'EmblemHealth Provider Manual — Utilization and Care Management (generated 06-26-2026)', url: 'https://www.emblemhealth.com/content/dam/emblemhealth/pdfs/provider-manual/care-management.pdf' }],
       },
+      NY_CRED_SECTION,
     ],
     collect: [
       { title: 'Complete state referral packet', desc: 'Emblem\'s published criteria are the state\'s — the under-21 ASD/Rett referral with DSM-5 checklist is the clinical core.' },
       { title: 'PA confirmation in writing', desc: 'Authorization specifics are unpublished — confirm assessment and treatment PA per case via the portal.' },
       { title: 'HIP entity on the card', desc: 'Greater NY, Westchester, or Nassau — capture the exact entity for eligibility checks.' },
     ],
-    sources: [ { title: 'EmblemHealth Provider Manual — Utilization and Care Management (generated 06-26-2026)', url: 'https://www.emblemhealth.com/content/dam/emblemhealth/pdfs/provider-manual/care-management.pdf' },
+    sources: [{ title: 'EmblemHealth — Claims Corner: Timely Filing (participating 120 days; Medicaid/CHPlus non-participating 15 months; behavioral health per Carelon handbook)', url: 'https://www.emblemhealth.com/providers/claims-corner/submissions/claims-submission-timely-filing' }, { title: 'Carelon Behavioral Health Provider Handbook (§ 9.04 Claim Submission Guidelines: 90 calendar days)', url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/global/carelon-behavioral-health-provider-handbook.pdf' }, ...NY_CRED_SRC,  { title: 'EmblemHealth Provider Manual — Utilization and Care Management (generated 06-26-2026)', url: 'https://www.emblemhealth.com/content/dam/emblemhealth/pdfs/provider-manual/care-management.pdf' },
       { title: 'NYS DOH — NYS Medicaid Provider Revalidation and Enrollment Moratoriums', url: 'https://health.ny.gov/health_care/medicaid/integrity/provider_revalidation.htm' },
       { title: 'NYS DOH Bureau of Provider Enrollment — Office Hours slides: revalidation, risk designations, temporary moratorium (October 1, 2026)', url: 'https://health.ny.gov/health_care/medicaid/integrity/docs/2026-09-17_bpe_call-in_hour_slide.pdf' },
       { title: 'eMedNY — Applied Behavior Analysis provider enrollment', url: 'https://www.emedny.org/info/providerenrollment/ABA/' },
@@ -1706,12 +1733,13 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      NY_CRED_FAQ,
       { q: 'Will EmblemHealth approve an out-of-network ABA provider?', a: 'Only with the Managing Entity\'s preauthorization. EmblemHealth reviews each request against the member\'s benefits, its network and medical necessity, and publishes no ABA single-case-agreement rate.' },
       { q: 'Is EmblemHealth accepting new ABA providers for New York Medicaid?', a: 'Not providers who still need NYS Medicaid enrollment. New York has had a temporary enrollment moratorium on ABA providers since July 27, 2026, lasting at least 6 months, and Medicaid enrollment is a prerequisite for joining any Medicaid managed care network. Already-enrolled LBAs can ask EmblemHealth about contracting. Its provider documents state no ABA network status, so whether it has room is up to its provider contracting team.' },
       { q: 'Does EmblemHealth cover ABA therapy?', a: 'Yes — its Medicaid plans carry the NY ABA carve-in on the state criteria, restated verbatim in its published benefit content: under 21, ASD/Rett per DSM-5, with the state practitioner referral.' },
       { q: 'Does EmblemHealth require prior authorization for ABA?', a: 'The plan publishes no ABA-specific PA details — no distinct clinical policy was located. Verify the authorization workflow through the emblemhealth.com provider portal before booking, and get the answer in writing.' },
       { q: 'How many RBTs can a BCBA supervise for EmblemHealth Medicaid members in New York?', a: 'Six at a time. New York Medicaid, which applies the rule to fee-for-service and managed care alike, says an LBA "can supervise no more than six CBAAs/unlicensed individuals at a time," must supervise each for at least 5% of their monthly service hours, and must hold at least two face-to-face real-time contacts a month, observing service delivery in one. In New York the supervisor must be a NYSED-licensed behavior analyst; BCBA certification alone is not a license.' },
-      { q: 'What is the timely filing limit for EmblemHealth Medicaid ABA claims?', a: 'Your contract sets it, but New York Ins. Law § 3224-a bars a Medicaid managed care contract from setting less than 90 days from the date of service (120 days is the default without a contract term). Clean electronic claims must be paid within 30 days, paper within 45.' },
+      { q: 'What is the timely filing limit for EmblemHealth Medicaid ABA claims?', a: 'EmblemHealth’s Timely Filing page gives participating providers 120 days from the date of service, but sends behavioral health providers to the Carelon Behavioral Health Provider Handbook, whose limit is 90 calendar days from the date of service unless the provider agreement says otherwise; New York Ins. Law § 3224-a bars a Medicaid managed care contract from setting less than 90 days. Clean electronic claims must be paid within 30 days, paper within 45.' },
       { q: 'Does EmblemHealth accept H0031 or H0032 for ABA?', a: 'Not on anything EmblemHealth publishes. It posts no ABA code list of its own, and the New York Medicaid ABA fee schedule it builds on lists only CPT 97151–97158, with no H-codes and no 0362T/0373T. Bill ABA on the CPT codes.' },
     ],
   },
@@ -1819,6 +1847,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
           { title: 'eMedNY — Applied Behavior Analysis provider enrollment', url: 'https://www.emedny.org/info/providerenrollment/ABA/' },
         ],
       },
+      NY_CRED_SECTION,
     ],
     collect: [
       { title: 'Current plan identity', desc: 'Affinity and TotalCare ("TONY") cards are Molina now — verify against live eligibility, not the card art.' },
@@ -1828,7 +1857,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { title: 'Weekly unit plan', desc: 'From 9/15/2026 Molina pays against approved weekly units. Schedule and bill each week within the approved number.' },
       { title: 'Current submission channel', desc: 'Ignore anything referencing Beacon or eviCore — route through Molina\'s own portal/Availity.' },
     ],
-    sources: [
+    sources: [...NY_CRED_SRC, 
       { title: 'NYS DOH — NYS Medicaid Provider Revalidation and Enrollment Moratoriums', url: 'https://health.ny.gov/health_care/medicaid/integrity/provider_revalidation.htm' },
       { title: 'NYS DOH Bureau of Provider Enrollment — Office Hours slides: revalidation, risk designations, temporary moratorium (October 1, 2026)', url: 'https://health.ny.gov/health_care/medicaid/integrity/docs/2026-09-17_bpe_call-in_hour_slide.pdf' },
       { title: 'eMedNY — Applied Behavior Analysis provider enrollment', url: 'https://www.emedny.org/info/providerenrollment/ABA/' },
@@ -1946,6 +1975,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      NY_CRED_FAQ,
       { q: 'Is Molina Healthcare of New York accepting new ABA providers for New York Medicaid?', a: 'Not providers who still need NYS Medicaid enrollment. New York has had a temporary enrollment moratorium on ABA providers since July 27, 2026, lasting at least 6 months, and Medicaid enrollment is a prerequisite for joining any Medicaid managed care network. Already-enrolled LBAs can ask Molina Healthcare of New York about contracting. Its provider documents state no ABA network status, so whether it has room is up to its provider contracting team.' },
       { q: 'Does Molina Healthcare of New York cover ABA?', a: 'Yes — it carries the NY Medicaid ABA benefit for members under 21 with ASD/Rett. Prior authorization is required before services on 97151, 97152, 97153 and 97155, and since September 15, 2026 Molina reviews requests against its own clinical policy, MCP 482, which replaced MCG criteria.' },
       { q: 'What changed for Molina NY ABA on September 15, 2026?', a: 'Two things. Molina Clinical Policy MCP 482 became the medical-necessity standard, with a documentation package: a diagnosis using at least one validated tool (ADI-R, ADOS-2, CARS-2 or DISCO), a Vineland or ABAS baseline, measurable goals and reassessment at least every 6 months. And billing moved to weekly approved units, so claims above the approved weekly number are denied or adjusted. Existing authorizations and those crossing September 15 were not affected.' },
@@ -2068,6 +2098,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
           { title: 'NY Insurance Law § 3224-b — Overpayment recovery (30-day notice; 24-month limit) (NY Senate)', url: 'https://www.nysenate.gov/legislation/laws/ISC/3224-B' },
         ],
       },
+      NY_CRED_SECTION,
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -2076,7 +2107,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis report', desc: 'DSM-5 ASD diagnosis, diagnosing provider and credentials, evaluation date.' },
       { title: 'Supervising LBA', desc: 'Mandated ABA must be LBA/CBAA-provided or supervised — confirm the NYSED license, not just BCBA status.' },
     ],
-    sources: [
+    sources: [...NY_CRED_SRC, 
       { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
       { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
       { title: 'DFS Insurance Circular Letter No. 6 (2014)', url: 'https://www.dfs.ny.gov/industry_guidance/circular_letters/cl2014_06' },
@@ -2208,6 +2239,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      NY_CRED_FAQ,
       { q: 'Can an out-of-network ABA provider keep treating an Aetna member?', a: 'Possibly, through Aetna\'s transition-of-care or continuity-of-care process. The member must be in an active course of covered treatment; the member requests a Transition Coverage Request Form, completes it with the provider and faxes it to Aetna, which issues a time-limited decision. Aetna\'s manual names individual practitioners and home care agencies as eligible, so confirm with Aetna behavioral health that an ABA agency qualifies.' },
       { q: 'Does Aetna cover ABA therapy in New York?', a: 'Yes — under the carrier\'s national policy for ASD, layered on New York\'s autism mandate for fully-insured plans: no age limit, no ABA-only visit caps, LBA-delivered. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the New York autism mandate require?', a: 'State-regulated plans must cover screening, diagnosis, and treatment of ASD including ABA, with no age limit; and no limits on visits may be applied solely to ASD treatment — the 680-hour cap was repealed effective 1/1/2020, and the older $45,000 dollar figure is not in current guidance either, and mandated ABA must be provided or supervised by NYSED-licensed LBAs/CBAAs.' },
@@ -2319,6 +2351,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
           { title: 'NY Insurance Law § 3224-b — Overpayment recovery (30-day notice; 24-month limit) (NY Senate)', url: 'https://www.nysenate.gov/legislation/laws/ISC/3224-B' },
         ],
       },
+      NY_CRED_SECTION,
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -2327,7 +2360,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis report', desc: 'DSM-5 ASD diagnosis, diagnosing provider and credentials, evaluation date — flag Rett (F84.2), which EN0499 excludes.' },
       { title: 'Supervising LBA', desc: 'Mandated ABA must be LBA/CBAA-provided or supervised — confirm the NYSED license, not just BCBA status.' },
     ],
-    sources: [
+    sources: [...NY_CRED_SRC, 
       { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
       { title: 'Cigna autism resource guide', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
       { title: 'DFS Insurance Circular Letter No. 6 (2014)', url: 'https://www.dfs.ny.gov/industry_guidance/circular_letters/cl2014_06' },
@@ -2438,6 +2471,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      NY_CRED_FAQ,
       { q: 'Does Cigna pay out-of-network ABA providers?', a: 'Only if the member\'s plan has out-of-network benefits; on Open Access Plus, out-of-network services “are covered at a reduced benefit level.” Evernorth publishes no single case agreement process or rate. Appeals are due within 180 calendar days of the denial, and an out-of-network provider may need an Appointment of Representative form signed by the patient.' },
       { q: 'Does Cigna cover ABA therapy in New York?', a: 'Yes — under national policy EN0499 (which applies fully in New York, with no state carve-out), layered on New York\'s autism mandate for fully-insured plans: no age limit, no ABA-only visit caps, LBA-delivered. Self-funded plans are exempt from the mandate, so verify plan funding type first.' },
       { q: 'What does the New York autism mandate require?', a: 'State-regulated plans must cover screening, diagnosis, and treatment of ASD including ABA, with no age limit; and no limits on visits may be applied solely to ASD treatment — the 680-hour cap was repealed effective 1/1/2020, and the older $45,000 dollar figure is not in current guidance either, and mandated ABA must be provided or supervised by NYSED-licensed LBAs/CBAAs.' },
@@ -2565,6 +2599,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
           { title: 'NY Insurance Law § 3224-b — Overpayment recovery (30-day notice; 24-month limit) (NY Senate)', url: 'https://www.nysenate.gov/legislation/laws/ISC/3224-B' },
         ],
       },
+      NY_CRED_SECTION,
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -2573,7 +2608,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis report', desc: 'DSM-5-TR ASD confirmed with a validated tool (ADI-R, ADOS-2, etc.), diagnosing provider and credentials, evaluation date.' },
       { title: 'Supervising LBA', desc: 'Mandated ABA must be LBA/CBAA-provided or supervised — confirm the NYSED license, not just BCBA status.' },
     ],
-    sources: [ { title: 'UnitedHealthcare — Information on payment of out-of-network benefits', url: 'https://www.uhc.com/legal/information-on-payment-of-out-of-network-benefits' },
+    sources: [{ title: 'UnitedHealthcare — Prior auth reductions continue for members under 18 (Network News, Nov. 2026)', url: 'https://www.uhcprovider.com/en/resource-library/news/2026/prior-auth-reduction-members-under-18.html' }, { title: 'UnitedHealthcare — Procedure codes with reduced prior authorization requirements, commercial plans (eff. Dec. 1, 2026, revised Nov. 6, 2026) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/PA-Reduction-Codes-18-Commercial-QRG.pdf' }, ...NY_CRED_SRC,  { title: 'UnitedHealthcare — Information on payment of out-of-network benefits', url: 'https://www.uhc.com/legal/information-on-payment-of-out-of-network-benefits' },
       { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
       { title: 'Optum ABA State Mandates supplemental criteria (BH 803ABA, Jan 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
       { title: 'DFS Insurance Circular Letter No. 6 (2014)', url: 'https://www.dfs.ny.gov/industry_guidance/circular_letters/cl2014_06' },
@@ -2701,6 +2736,8 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare still require prior authorization for ABA for members under 18 after Dec. 1, 2026?', a: 'Only two ABA codes change. From Dec. 1, 2026, UnitedHealthcare no longer requires prior authorization for 0362T and 0373T when provided to members younger than 18 on its commercial plans (commercial code list revised Nov. 6, 2026). 97151–97158 are not on the list and still need authorization, and the Individual Exchange and Community Plan lists name no ABA code. UHC says to check plan-specific exceptions in the Prior Authorization and Advance Notification tool. 0362T and 0373T are deleted from CPT on Jan. 1, 2027, so the change covers December 2026 dates of service.' },
+      NY_CRED_FAQ,
       { q: 'Does UnitedHealthcare pay out-of-network ABA providers?', a: 'Only under the member\'s out-of-network benefits, priced by a method the plan sets (a percentage of CMS rates, FAIR Health, Viant or a negotiated rate). On commercial HMO plans an out-of-network provider can be approved when no network provider is available in time or nearby; the PCP requests an out-of-network prior authorization, and the member then pays only in-network cost-sharing.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in New York?', a: 'Yes — under the carrier\'s national policy for ASD via Optum\'s two-step authorization, layered on New York\'s autism mandate for fully-insured plans: no age limit, no ABA-only visit caps, LBA-delivered. Self-funded plans are exempt from the mandate, so verify plan funding type first.' },
       { q: 'What does the New York autism mandate require?', a: 'State-regulated plans must cover screening, diagnosis, and treatment of ASD including ABA, with no age limit; and no limits on visits may be applied solely to ASD treatment — the 680-hour cap was repealed effective 1/1/2020, and the older $45,000 dollar figure is not in current guidance either, and mandated ABA must be provided or supervised by NYSED-licensed LBAs/CBAAs.' },
@@ -2824,6 +2861,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
           { title: 'eMedNY — Applied Behavior Analysis provider enrollment', url: 'https://www.emedny.org/info/providerenrollment/ABA/' },
         ],
       },
+      NY_CRED_SECTION,
     ],
     collect: [
       { title: 'Complete state referral packet', desc: 'Under-21 ASD/Rett dx, referral with severity and DSM-5 checklist — the clinical baseline Excellus\'s medical policy sits on top of.' },
@@ -2832,7 +2870,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { title: 'PA confirmation in writing', desc: 'Outpatient ABA PA specifics aren\'t published — confirm the process and turnaround through Provider Services before booking.' },
       { title: 'Telehealth confirmation', desc: 'ABA-code telehealth coverage isn\'t confirmed by any Excellus document we found — verify per case.' },
     ],
-    sources: [
+    sources: [...NY_CRED_SRC, 
       { title: 'NYS DOH — NYS Medicaid Provider Revalidation and Enrollment Moratoriums', url: 'https://health.ny.gov/health_care/medicaid/integrity/provider_revalidation.htm' },
       { title: 'NYS DOH Bureau of Provider Enrollment — Office Hours slides: revalidation, risk designations, temporary moratorium (October 1, 2026)', url: 'https://health.ny.gov/health_care/medicaid/integrity/docs/2026-09-17_bpe_call-in_hour_slide.pdf' },
       { title: 'eMedNY — Applied Behavior Analysis provider enrollment', url: 'https://www.emedny.org/info/providerenrollment/ABA/' },
@@ -2956,6 +2994,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      NY_CRED_FAQ,
       { q: 'Is Excellus BCBS accepting new ABA providers for New York Medicaid?', a: 'Not providers who still need NYS Medicaid enrollment. New York has had a temporary enrollment moratorium on ABA providers since July 27, 2026, lasting at least 6 months, and Medicaid enrollment is a prerequisite for joining any Medicaid managed care network. Already-enrolled LBAs can ask Excellus BCBS about contracting. Its provider documents state no ABA network status, so whether it has room is up to its provider contracting team.' },
       { q: 'Does Excellus BlueCross BlueShield cover ABA therapy?', a: 'Yes — it carries the NY Medicaid ABA carve-in and publishes its own ABA Medical Policy (3.01.11) naming the covered codes (97151–97158, 0362T, 0373T) and documentation requirements, layered on the state\'s under-21 ASD/Rett baseline.' },
       { q: 'Does Excellus require prior authorization for ABA?', a: 'Not published for the specific codes — Excellus\'s guidance directs providers to check eMedNY for code-level Medicaid coverage first, then confirm any plan-level PA process with Provider Services; no standalone outpatient ABA PA form was found.' },
@@ -3086,6 +3125,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
           { title: 'eMedNY — Applied Behavior Analysis provider enrollment', url: 'https://www.emedny.org/info/providerenrollment/ABA/' },
         ],
       },
+      NY_CRED_SECTION,
     ],
     collect: [
       { title: 'Complete state-style referral packet', desc: 'NYS-licensed, Medicaid-enrolled referring provider; dx + initial dx date, comorbidities, severity, DSM-5 checklist, statement of medical necessity; referral valid 2 years.' },
@@ -3094,7 +3134,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { title: 'Billing-code check for 0362T/0373T', desc: 'Both are Medicaid-excluded at MVP despite appearing covered elsewhere — verify before billing to avoid a denial.' },
       { title: 'Telehealth status per case', desc: 'MVP\'s telehealth ABA language is tied to an expired federal waiver reference — confirm current reimbursement status before delivering remotely.' },
     ],
-    sources: [
+    sources: [...NY_CRED_SRC, 
       { title: 'NYS DOH — NYS Medicaid Provider Revalidation and Enrollment Moratoriums', url: 'https://health.ny.gov/health_care/medicaid/integrity/provider_revalidation.htm' },
       { title: 'NYS DOH Bureau of Provider Enrollment — Office Hours slides: revalidation, risk designations, temporary moratorium (October 1, 2026)', url: 'https://health.ny.gov/health_care/medicaid/integrity/docs/2026-09-17_bpe_call-in_hour_slide.pdf' },
       { title: 'eMedNY — Applied Behavior Analysis provider enrollment', url: 'https://www.emedny.org/info/providerenrollment/ABA/' },
@@ -3214,6 +3254,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      NY_CRED_FAQ,
       { q: 'Is MVP Health Care accepting new ABA providers for New York Medicaid?', a: 'Not providers who still need NYS Medicaid enrollment. New York has had a temporary enrollment moratorium on ABA providers since July 27, 2026, lasting at least 6 months, and Medicaid enrollment is a prerequisite for joining any Medicaid managed care network. Already-enrolled LBAs can ask MVP Health Care about contracting. Its provider documents state no ABA network status, so whether it has room is up to its provider contracting team.' },
       { q: 'Does MVP Health Plan cover ABA therapy?', a: 'Yes — MVP carries the NY Medicaid ABA carve-in and publishes its own ABA Payment Policy, with prior authorization required for both assessment and treatment and in-house behavioral health utilization management (no vendor carve-out).' },
       { q: 'Are all ABA codes billable to MVP Medicaid?', a: 'Not quite — 0362T and 0373T appear on MVP\'s general covered-code list but are explicitly excluded from Medicaid Managed Care reimbursement specifically. Confirm code-by-code before billing.' },
@@ -3341,6 +3382,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
           { title: 'CDPHP — Provider updates (claims, payment and COB changes effective January 1, 2027; last updated 10/28/2026)', url: 'https://blog.cdphp.com/provider-updates/' },
         ],
       },
+      NY_CRED_SECTION,
     ],
     collect: [
       { title: 'Complete state referral packet', desc: 'Under-21 ASD/Rett dx, referral with severity and DSM-5 checklist — the clinical baseline CDPHP\'s POAM sits on top of.' },
@@ -3349,7 +3391,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { title: 'Telehealth confirmation', desc: 'No CDPHP-specific ABA telehealth billing policy was found — verify POS/modifier requirements before delivering remotely.' },
       { title: 'Timely filing window', desc: 'The exact day-count for claims filing isn\'t stated in the public POAM sections — confirm with Provider Services (518-641-3500 / 1-800-926-7526).' },
     ],
-    sources: [
+    sources: [...NY_CRED_SRC, 
       { title: 'NYS DOH — NYS Medicaid Provider Revalidation and Enrollment Moratoriums', url: 'https://health.ny.gov/health_care/medicaid/integrity/provider_revalidation.htm' },
       { title: 'NYS DOH Bureau of Provider Enrollment — Office Hours slides: revalidation, risk designations, temporary moratorium (October 1, 2026)', url: 'https://health.ny.gov/health_care/medicaid/integrity/docs/2026-09-17_bpe_call-in_hour_slide.pdf' },
       { title: 'eMedNY — Applied Behavior Analysis provider enrollment', url: 'https://www.emedny.org/info/providerenrollment/ABA/' },
@@ -3473,6 +3515,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      NY_CRED_FAQ,
       { q: 'Is CDPHP accepting new ABA providers for New York Medicaid?', a: 'Not providers who still need NYS Medicaid enrollment. New York has had a temporary enrollment moratorium on ABA providers since July 27, 2026, lasting at least 6 months, and Medicaid enrollment is a prerequisite for joining any Medicaid managed care network. Already-enrolled LBAs can ask CDPHP about contracting. Its provider documents state no ABA network status, so whether it has room is up to its provider contracting team.' },
       { q: 'Does CDPHP cover ABA therapy?', a: 'Yes — CDPHP\'s Provider Office Administrative Manual names ABA (CPT 97151–97158) as a covered Medicaid–Select Plan and Medicaid–HARP benefit with no maximum benefit limit, provided or supervised by a NYS-licensed BCBA/BCBA-D.' },
       { q: 'Does CDPHP require prior authorization for ABA?', a: 'Not confirmed from public materials — CDPHP states that "certain" behavioral health services in its Medicaid lines require prior authorization via the Behavioral Health Access Center, but doesn\'t specify whether ABA codes are among them. Confirm per case at 518-641-3600 / 1-888-320-9584.' },
@@ -3585,6 +3628,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
           { title: 'eMedNY — Applied Behavior Analysis provider enrollment', url: 'https://www.emedny.org/info/providerenrollment/ABA/' },
         ],
       },
+      NY_CRED_SECTION,
     ],
     collect: [
       { title: 'Complete state referral packet', desc: 'Under-21 ASD/Rett dx, referral with severity and DSM-5 checklist — the clinical baseline MediSource sits on top of.' },
@@ -3593,7 +3637,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { title: 'PA confirmation in writing', desc: 'ABA-specific PA requirements aren\'t published — confirm per case via Member Services (716-250-7183 / 1-833-891-9372) or the provider portal.' },
       { title: 'County/plan match', desc: 'Independent Health\'s MediSource footprint is Erie County — confirm the member is actually in-service-area before assuming coverage.' },
     ],
-    sources: [
+    sources: [...NY_CRED_SRC, 
       { title: 'NYS DOH — NYS Medicaid Provider Revalidation and Enrollment Moratoriums', url: 'https://health.ny.gov/health_care/medicaid/integrity/provider_revalidation.htm' },
       { title: 'NYS DOH Bureau of Provider Enrollment — Office Hours slides: revalidation, risk designations, temporary moratorium (October 1, 2026)', url: 'https://health.ny.gov/health_care/medicaid/integrity/docs/2026-09-17_bpe_call-in_hour_slide.pdf' },
       { title: 'eMedNY — Applied Behavior Analysis provider enrollment', url: 'https://www.emedny.org/info/providerenrollment/ABA/' },
@@ -3724,6 +3768,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      NY_CRED_FAQ,
       { q: 'Is Independent Health accepting new ABA providers for New York Medicaid?', a: 'Not providers who still need NYS Medicaid enrollment. New York has had a temporary enrollment moratorium on ABA providers since July 27, 2026, lasting at least 6 months, and Medicaid enrollment is a prerequisite for joining any Medicaid managed care network. Already-enrolled LBAs can ask Independent Health about contracting. Its provider documents state no ABA network status, so whether it has room is up to its provider contracting team.' },
       { q: 'Does Independent Health cover ABA therapy?', a: 'Yes — its MediSource Medicaid plan covers ABA for members under 21 with ASD and/or Rett syndrome, delivered by an LBA or an LBA-supervised CBAA, per the current member handbook.' },
       { q: 'Does Carelon handle ABA authorizations for Independent Health?', a: 'Carelon manages general behavioral health for Independent Health\'s state products, but ABA appears to be administered by Independent Health directly based on how the member handbook separates the two benefits — not confirmed in one explicit sentence, so verify with Provider Services before routing a case.' },
@@ -3852,6 +3897,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
           { title: 'eMedNY — Applied Behavior Analysis provider enrollment', url: 'https://www.emedny.org/info/providerenrollment/ABA/' },
         ],
       },
+      NY_CRED_SECTION,
     ],
     collect: [
       { title: 'Complete state referral packet', desc: 'Under-21 ASD/Rett dx, referral with severity and DSM-5 checklist — the clinical baseline underneath the plan\'s own PA process.' },
@@ -3860,7 +3906,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { title: 'Delegate confirmation', desc: 'Confirm with Provider Services whether Wellpoint Partnership Plan or Carelon is the operative BH/ABA reviewer for this case before submitting.' },
       { title: 'Telehealth currency check', desc: 'The only telehealth guidance found is a COVID-era bulletin — confirm it\'s still operative before billing 97151/97153/97155/97156/97157 via telehealth.' },
     ],
-    sources: [
+    sources: [...NY_CRED_SRC, 
       { title: 'NYS DOH — NYS Medicaid Provider Revalidation and Enrollment Moratoriums', url: 'https://health.ny.gov/health_care/medicaid/integrity/provider_revalidation.htm' },
       { title: 'NYS DOH Bureau of Provider Enrollment — Office Hours slides: revalidation, risk designations, temporary moratorium (October 1, 2026)', url: 'https://health.ny.gov/health_care/medicaid/integrity/docs/2026-09-17_bpe_call-in_hour_slide.pdf' },
       { title: 'eMedNY — Applied Behavior Analysis provider enrollment', url: 'https://www.emedny.org/info/providerenrollment/ABA/' },
@@ -3980,6 +4026,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      NY_CRED_FAQ,
       { q: 'Is Highmark Western and Northeastern New York accepting new ABA providers for New York Medicaid?', a: 'Not providers who still need NYS Medicaid enrollment. New York has had a temporary enrollment moratorium on ABA providers since July 27, 2026, lasting at least 6 months, and Medicaid enrollment is a prerequisite for joining any Medicaid managed care network. Already-enrolled LBAs can ask Highmark Western and Northeastern New York about contracting. Its provider documents state no ABA network status, so whether it has room is up to its provider contracting team.' },
       { q: 'Does Highmark Western New York cover ABA therapy?', a: 'Yes — for NY Medicaid Managed Care, HARP, and Child Health Plus members under 21 with ASD/Rett, effective 1/1/2023, subject to a stated $45,000-per-calendar-year benefit maximum and prior authorization.' },
       { q: 'Does the ABA assessment require prior authorization at Highmark WNY?', a: 'Yes — a standalone Autism Spectrum Disorder Testing authorization form gates the diagnostic workup and explicitly asks whether the request is meant to access ABA services, submitted via Availity Essentials or fax before services are rendered.' },
@@ -4129,6 +4176,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
           { title: 'NY Insurance Law § 3224-b — Overpayment recovery (30-day notice; 24-month limit) (NY Senate)', url: 'https://www.nysenate.gov/legislation/laws/ISC/3224-B' },
         ],
       },
+      NY_CRED_SECTION,
     ],
     collect: [
       { title: 'Plan funding type, first', desc: 'Fully insured New York plan (the mandate and its no-cap rules apply) vs. self-funded ERISA (preempted; federal parity and the plan document govern). Nothing else on this page is reliable until you know which.' },
@@ -4138,7 +4186,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { title: 'NYSED license numbers', desc: 'LBA for the supervising analyst, CBAA for assistants. A BCBA credential alone will not support coverage in New York.' },
       { title: 'School hours and IEP services', desc: 'The mandate lets a plan deny treatment provided under an IEP while preserving supplemental services outside the educational setting. Capture the school schedule and IEP services so the request draws that line explicitly.' },
     ],
-    sources: [
+    sources: [...NY_CRED_SRC, 
       { title: 'NY S.1507-C (Ch. 57 of the Laws of 2019), Part BB, Subpart A', url: 'https://www.nysenate.gov/legislation/bills/2019/S1507/amendment/C' },
       { title: 'NY Insurance Law § 3216 (current)', url: 'https://law.justia.com/codes/new-york/isc/article-32/3216/' },
       { title: 'NY Insurance Law § 3221 (current)', url: 'https://law.justia.com/codes/new-york/isc/article-32/3221/' },
@@ -4259,6 +4307,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      NY_CRED_FAQ,
       { q: 'Is ABA still capped at 680 hours a year in New York?', a: 'No. The 680-hour ceiling was written into NY Insurance Law §§ 3216(i)(25), 3221(l)(17) and 4303(ee), and Chapter 57 of the Laws of 2019 struck it from all three, effective for policies issued, renewed, modified, altered or amended on or after January 1, 2020. The current statute carries no hour cap, no dollar cap and no age limit, and forbids visit limits applied solely to autism. Bills to reinstate the 680 hours have been introduced repeatedly and none has passed.' },
       { q: 'Is Empire BlueCross BlueShield the same as Anthem in New York?', a: 'Yes. Empire was rebranded Anthem effective January 1, 2024 and the underwriting entities were renamed Anthem HealthChoice Assurance, Inc. and Anthem HealthChoice HMO, Inc. Member ID numbers did not change and existing provider agreements were unaffected.' },
       { q: 'Does Anthem cover all of New York State?', a: 'No — 28 counties, split between 17 southeastern counties trading as "Anthem Blue Cross and Blue Shield" and 11 northeastern counties trading as "Anthem Blue Cross." Elsewhere in the state the Blue plan is Excellus, Highmark, MVP, CDPHP or Independent Health.' },

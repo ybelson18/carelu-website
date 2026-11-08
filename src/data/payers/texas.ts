@@ -49,6 +49,18 @@ const G1_BCBSTX_I843 = { title: 'Tex. Ins. Code § 843.348 — Preauthorization 
 const G1_BCBSTX_ERISA = { title: '29 CFR 2560.503-1(f)(2) — ERISA group health plan claim decision timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' };
 const G1_BCBSTX_TDLR = { title: 'TDLR — How to Apply for a Behavior Analyst License', url: 'https://www.tdlr.texas.gov/bhv/bhvapply.htm' };
 
+/* Credentialing timeline — Texas law (weekly refresh 2026-11-08, read 2026-11-08). */
+const TX_1452_G8 = { title: 'Tex. Ins. Code ch. 1452 — Physician and Provider Credentials (Subchapters A–E: HMO credentialing, standardized form, expedited credentialing for physicians, podiatrists and therapeutic optometrists)', url: 'https://statutes.capitol.texas.gov/Docs/IN/htm/IN.1452.htm' };
+const TX_HB586_G8 = { title: 'Texas Legislature Online — H.B. 586 (89th Leg., R.S., 2025), expedited credentialing for licensed behavior analysts: history (last action 3/3/2025, referred to Insurance)', url: 'https://capitol.texas.gov/BillLookup/History.aspx?LegSess=89R&Bill=HB586' };
+const TX_CRED_SECTION_G8 = {
+  h2: 'How long credentialing a new BCBA takes: what Texas law adds',
+  body: [
+    'Texas sets no statutory deadline for a commercial plan to credential a behavior analyst. Insurance Code chapter 1452 covers HMO credentialing practice (license verification, site visits), a standardized credentialing form for physicians, advanced practice nurses and physician assistants, and an expedited process under which a plan must pay a new provider who joins an already-contracted group as if the provider "were a participating provider" while the application is pending. Those expedited subchapters apply "only to" a physician, a podiatrist or a therapeutic optometrist joining an established, contracted practice (§§ 1452.102, 1452.152, 1452.202).',
+    'A 2025 bill to give licensed behavior analysts the same expedited process (H.B. 586, 89th Legislature, adding a Subchapter F to chapter 1452) was referred to the House Insurance Committee on March 3, 2025 and went no further; the chapter in force has no behavior-analyst subchapter. A new BCBA added to a contracted Texas group is therefore not paid as in-network until the plan finishes credentialing, on the plan\'s own timeline. Ask the plan for its turnaround when you apply.',
+  ],
+  cites: [TX_1452_G8, TX_HB586_G8],
+};
+
 export const texasPayers: Record<string, PayerConfig> = {
   'texas-medicaid': {
     slug: 'texas-medicaid',
@@ -4823,6 +4835,7 @@ export const texasPayers: Record<string, PayerConfig> = {
         ],
         cites: [G1_AETNA_NPC, G1_AETNA_MNG, G1_TX_OCC251, G1_TX_OCC054, G1_TX_OCC057, G1_TX_OCC256],
       },
+      TX_CRED_SECTION_G8,
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -4831,7 +4844,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'Member ID + card photo', desc: 'Enough to run a live benefits verification — the only reliable answer on limits and cost-sharing.' },
       { title: 'Diagnosis report', desc: 'DSM-5 ASD diagnosis, diagnosing provider and credentials, evaluation date.' },
     ],
-    sources: [
+    sources: [ TX_1452_G8,
       { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
       { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
       { title: 'Tex. Ins. Code § 1355.015 (full text + history)', url: 'https://texas.public.law/statutes/tex._ins._code_section_1355.015' },
@@ -4903,13 +4916,13 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       billAsProvider: {
         value:
-          'Not addressed in Aetna\'s clinical bulletins. In Texas the licensure structure is the constraint: only Licensed Behavior Analysts and Licensed Assistant Behavior Analysts may practise (Occupations Code Ch. 506, TDLR), with technicians exempt while working under an LBA or LaBA\'s authority and direction.',
-        status: 'unverified',
+          'The analyst bills, not the technician. Aetna\'s ABA medical necessity guide says "Services must be provided directly or billed by licensed behavior analysts (in states with behavior analyst licensure laws), board-certified behavior analysts, or licensed psychologists where behavior analysis is within their scope of practice definition, unless state mandates, plan documents or contracts require otherwise." Texas is a licensure state: only Licensed Behavior Analysts and Licensed Assistant Behavior Analysts may practise (Occupations Code Ch. 506, TDLR), with technicians exempt while working under an LBA or LaBA\'s authority and direction, so the claim goes out under the LBA. The escape clause ("unless ... contracts require otherwise") means your Aetna agreement can move the line, so check it before loading technicians as rendering providers.',
+        status: 'verified',
         cites: [
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026, 7244850-01-01; re-read 2026-11-08)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
           { title: 'TDLR — Behavior Analysts program (Occupations Code Ch. 506)', url: 'https://www.tdlr.texas.gov/bhv/' },
-          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
         ],
-        verifyVia: 'Aetna provider relations and the participating-provider agreement — rendering-versus-supervising NPI rules are contractual, not in CPB 0554.',
+        verifyVia: 'Aetna provider relations and the participating-provider agreement, if your contract sets a different rendering rule.',
         blocker: 'per-case',
       },
     },
@@ -5015,6 +5028,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'Does Aetna require HM, HN, HO or HP modifiers on ABA claims?', a: 'Not in any public Aetna ABA document: the medical necessity guide, provider manual and ABA precertification form name no rate-tier modifiers. Services must be provided or billed by an appropriately licensed or certified provider; ask Aetna whether your contract prices technician lines by modifier.' },
       { q: 'Does Aetna require RBT certification for ABA technicians in Texas, and is there a grace period?', a: 'Aetna’s participation criteria require paraprofessionals to “meet state requirements” (or Aetna standards where the state defines none) with at least one hour of face-to-face supervision per 10 hours, but name no RBT requirement and no grace period; ask Aetna whether your agreement requires RBT certification. Texas itself licenses only behavior analysts, not technicians.' },
       { q: 'Can an out-of-state BCBA treat a Aetna member in Texas by telehealth?', a: 'Only for short stints without a Texas license: Texas exempts an analyst licensed elsewhere, or BACB-certified, for no more than 20 days a calendar year, with written notice to the family (Occ. Code § 506.057). Otherwise the BCBA needs a Texas LBA license (reciprocity is available from states with similar licensing).' },
+      { q: 'How long does it take to credential a new BCBA with Aetna in Texas?', a: 'Texas law sets no deadline for behavior analysts. The expedited credentialing and pay-while-pending rules in Insurance Code chapter 1452 cover only physicians, podiatrists and therapeutic optometrists joining a contracted group; a 2025 bill to add behavior analysts (H.B. 586) died in committee. The plan\'s own turnaround governs, so ask for it when you apply.' },
     ],
   },
 
@@ -5153,6 +5167,7 @@ export const texasPayers: Record<string, PayerConfig> = {
         ],
         cites: [G1_EN0499, G1_EBH_ADMIN, G1_TX_OCC251, G1_TX_OCC054, G1_TX_OCC057, G1_TX_OCC256],
       },
+      TX_CRED_SECTION_G8,
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -5160,7 +5175,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'Member ID + card photo', desc: 'Enough to run a live benefits verification — the only reliable answer on limits and cost-sharing.' },
       { title: 'Diagnosis report', desc: 'DSM-5 ASD diagnosis, diagnosing provider and credentials, evaluation date.' },
     ],
-    sources: [
+    sources: [ TX_1452_G8,
       { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
       { title: 'Cigna autism resource guide', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
       { title: 'Tex. Ins. Code § 1355.015 (full text + history)', url: 'https://texas.public.law/statutes/tex._ins._code_section_1355.015' },
@@ -5319,6 +5334,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'Does Cigna / Evernorth require HM, HN, HO or HP modifiers on ABA claims?', a: 'No modifier tiers are published. Evernorth’s autism resource guide says technician and BCaBA services (97152–97154) are billed by the supervising BCBA, BCBA-D or licensed provider, and noncredentialed staff are billed under the supervising provider. Modifier 95 (with POS 02) marks telehealth.' },
       { q: 'Does Cigna require RBT certification for ABA technicians in Texas, and is there a grace period?', a: 'Evernorth’s ABA policy (EN0499) and administrative guidelines set no technician credential and no grace period; ask Evernorth whether an uncertified technician may render 97153 under your agreement. Texas itself licenses only behavior analysts, not technicians.' },
       { q: 'Can an out-of-state BCBA treat a Cigna member in Texas by telehealth?', a: 'Only for short stints without a Texas license: Texas exempts an analyst licensed elsewhere, or BACB-certified, for no more than 20 days a calendar year, with written notice to the family (Occ. Code § 506.057). Otherwise the BCBA needs a Texas LBA license (reciprocity is available from states with similar licensing).' },
+      { q: 'How long does it take to credential a new BCBA with Cigna in Texas?', a: 'Texas law sets no deadline for behavior analysts. The expedited credentialing and pay-while-pending rules in Insurance Code chapter 1452 cover only physicians, podiatrists and therapeutic optometrists joining a contracted group; a 2025 bill to add behavior analysts (H.B. 586) died in committee. The plan\'s own turnaround governs, so ask for it when you apply.' },
     ],
   },
 
@@ -5452,6 +5468,7 @@ export const texasPayers: Record<string, PayerConfig> = {
         ],
         cites: [G1_OPTUM_NNM, G1_OPTUM_FAQ, G1_TX_OCC251, G1_TX_OCC054, G1_TX_OCC057, G1_TX_OCC256],
       },
+      TX_CRED_SECTION_G8,
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -5460,7 +5477,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'Member ID + card photo', desc: 'Enough to run a live benefits verification — the only reliable answer on limits and cost-sharing.' },
       { title: 'Diagnosis report', desc: 'DSM-5 ASD diagnosis, diagnosing provider and credentials, evaluation date.' },
     ],
-    sources: [
+    sources: [{ title: 'UnitedHealthcare — Prior auth reductions continue for members under 18 (Network News, Nov. 2026)', url: 'https://www.uhcprovider.com/en/resource-library/news/2026/prior-auth-reduction-members-under-18.html' }, { title: 'UnitedHealthcare — Procedure codes with reduced prior authorization requirements, commercial plans (eff. Dec. 1, 2026, revised Nov. 6, 2026) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/PA-Reduction-Codes-18-Commercial-QRG.pdf' },  TX_1452_G8,
       { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
       { title: 'Optum — ABA State Mandates supplemental criteria (BH803ABA STM 1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
       { title: 'Tex. Ins. Code § 1355.015 (full text + history)', url: 'https://texas.public.law/statutes/tex._ins._code_section_1355.015' },
@@ -5614,6 +5631,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare still require prior authorization for ABA for members under 18 after Dec. 1, 2026?', a: 'Only two ABA codes change. From Dec. 1, 2026, UnitedHealthcare no longer requires prior authorization for 0362T and 0373T when provided to members younger than 18 on its commercial plans (commercial code list revised Nov. 6, 2026). 97151–97158 are not on the list and still need authorization, and the Individual Exchange and Community Plan lists name no ABA code. UHC says to check plan-specific exceptions in the Prior Authorization and Advance Notification tool. 0362T and 0373T are deleted from CPT on Jan. 1, 2027, so the change covers December 2026 dates of service.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in Texas?', a: 'Yes — under Optum\'s national clinical criteria for ASD, layered on Texas\'s mandate (Tex. Ins. Code § 1355.015) for state-regulated group plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the Texas autism mandate require?', a: 'For covered group plans: treatment coverage from the date of diagnosis, provided the ASD diagnosis was made before the child\'s 10th birthday (coverage continues once eligible), with no dollar cap under 10 and a $36,000/year ABA cap at 10+ that federal parity arguably limits for large-group plans.' },
       { q: 'Does Optum have Texas-specific ABA criteria?', a: 'No — Optum\'s ABA State Mandates supplement contains no Texas entry, so its standard national criteria apply, with the Texas mandate as the legal floor for state-regulated plans.' },
@@ -5626,6 +5644,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'What do HM, HN, HO and HP mean on a UnitedHealthcare / Optum ABA claim?', a: 'They identify who rendered the service: HM an RBT (less than bachelor’s level), HN a BCaBA (bachelor’s level), HO a master’s-level BCBA or licensed clinician, HP a BCBA-D or doctoral-level clinician. One per line; 97151 and 97155–97158 cannot take HM; 0362T/0373T take none (Optum ABA Reimbursement Policy 2022RP501A, June 2026).' },
       { q: 'Does UnitedHealthcare require RBT certification for ABA technicians in Texas, and is there a grace period?', a: 'Yes, or an equivalent: Optum requires technicians to be an RBT, BCAT or ABAT, and any other certification must be approved in writing by Optum. Optum publishes no grace or provisional period for uncertified technicians. Texas itself licenses only behavior analysts, not technicians.' },
       { q: 'Can an out-of-state BCBA treat a UnitedHealthcare member in Texas by telehealth?', a: 'Only for short stints without a Texas license: Texas exempts an analyst licensed elsewhere, or BACB-certified, for no more than 20 days a calendar year, with written notice to the family (Occ. Code § 506.057). Otherwise the BCBA needs a Texas LBA license (reciprocity is available from states with similar licensing). Optum also requires telehealth providers to be licensed in the state where the member is located.' },
+      { q: 'How long does it take to credential a new BCBA with UnitedHealthcare in Texas?', a: 'Texas law sets no deadline for behavior analysts. The expedited credentialing and pay-while-pending rules in Insurance Code chapter 1452 cover only physicians, podiatrists and therapeutic optometrists joining a contracted group; a 2025 bill to add behavior analysts (H.B. 586) died in committee. The plan\'s own turnaround governs, so ask for it when you apply.' },
     ],
   },
   'blue-cross-blue-shield-texas': {
@@ -5715,6 +5734,17 @@ export const texasPayers: Record<string, PayerConfig> = {
         ],
         cites: [G1_BCBSTX_BLUECARD],
       },
+      TX_CRED_SECTION_G8,
+      {
+        h2: 'What BCBSTX pays for ABA, and how to get your rates',
+        body: [
+          'BCBSTX publishes no ABA rate table: commercial rates are the contracted allowances in your participation agreement. A participating provider can look them up. BCBSTX\'s Availity Fee Schedule tool "allows professional providers participating with BCBSTX to electronically request a range of up to 20 procedure codes and immediately receive the contracted price allowance" (Availity Essentials, Claims & Payments menu). Without Availity access, use the Professional Fee Schedule Request form, which applies to "Participating Physicians and Professional Providers Only." Both routes serve participating providers only, so a practice still joining the network gets its rates through the contracting process.',
+        ],
+        cites: [
+          { title: 'BCBSTX — Fee Schedules via Availity (Professional Providers) (read 2026-11-08)', url: 'https://www.bcbstx.com/provider/education/education/tools/fee-sched-via-availity-prof-pvdrs' },
+          { title: 'BCBSTX — Professional Fee Schedule Request (read 2026-11-08)', url: 'https://www.bcbstx.com/provider/standards/standards-requirements/gri/prof-fee-sched-request' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan type and funding', desc: 'PPO, Blue HPN, HMO, ERS or TRS; fully insured group (Texas mandate) or self-funded (plan document).' },
@@ -5723,7 +5753,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'Skills assessment within 30 days', desc: 'VB-MAPP, ABLLS, AFLS, ABAS or Vineland, dated within the last 30 days of the request.' },
       { title: 'Line staff roster', desc: '18+, high school diploma or GED, background check, 40 hours of training, BCBA oversight of at least 5% of hours worked.' },
     ],
-    sources: [G1_BCBSTX_FORM, G1_BCBSTX_ASSESS, G1_BCBSTX_TELEATT, G1_BCBSTX_CHANGE, G1_BCBSTX_BHPAGE, G1_BCBSTX_CALL, G1_BCBSTX_CLAIMNEWS, G1_BCBSTX_CPCP, G1_BCBSTX_RP033, G1_BCBSTX_ADM, G1_BCBSTX_PRM, G1_BCBSTX_BLUECARD, G1_BCBSTX_M015, G1_BCBSTX_M002, G1_BCBSTX_M003, G1_BCBSTX_I1301, G1_BCBSTX_I843, G1_BCBSTX_TDLR],
+    sources: [
+      { title: 'BCBSTX — Fee Schedules via Availity (Professional Providers)', url: 'https://www.bcbstx.com/provider/education/education/tools/fee-sched-via-availity-prof-pvdrs' }, TX_1452_G8,G1_BCBSTX_FORM, G1_BCBSTX_ASSESS, G1_BCBSTX_TELEATT, G1_BCBSTX_CHANGE, G1_BCBSTX_BHPAGE, G1_BCBSTX_CALL, G1_BCBSTX_CLAIMNEWS, G1_BCBSTX_CPCP, G1_BCBSTX_RP033, G1_BCBSTX_ADM, G1_BCBSTX_PRM, G1_BCBSTX_BLUECARD, G1_BCBSTX_M015, G1_BCBSTX_M002, G1_BCBSTX_M003, G1_BCBSTX_I1301, G1_BCBSTX_I843, G1_BCBSTX_TDLR],
     intakeGates: {
       ageLimit: {
       value: 'No age limit appears in BCBSTX’s ABA forms or CPCP011; medical necessity sits in licensed MCG criteria. For fully insured group plans § 1355.015 covers a child diagnosed before the 10th birthday from the date of diagnosis, and lets the plan cap ABA at $36,000 a year from age 10. Self-funded groups follow their plan document.',
@@ -5807,6 +5838,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'Does the Texas autism mandate have an age limit?', a: 'It covers a child whose autism diagnosis was in place before the 10th birthday, from the date of diagnosis, and lets an insured plan cap ABA at $36,000 a year from age 10. It does not reach ERS, UT/A&M or self-funded plans.' },
       { q: 'What is BCBSTX’s timely filing limit for ABA claims?', a: '365 days from the date of service, per BCBSTX’s PPO and Blue HPN provider manual (September 2026). Clean electronic claims must be paid within 30 days under the Texas Prompt Pay Act (45 days on paper).' },
       { q: 'Can an out-of-state BCBA treat a BCBSTX member in Texas?', a: 'Only briefly without a Texas license: Texas exempts an analyst licensed elsewhere, or BACB-certified, for no more than 20 days a calendar year, with written notice to the family (Occ. Code § 506.057). BCBSTX’s request form also has the supervisor attest to a license in the state where the member is served, and its telehealth policy requires the license needed to treat members of the plan’s state.' },
+      { q: 'How long does it take to credential a new BCBA with BCBSTX in Texas?', a: 'Texas law sets no deadline for behavior analysts. The expedited credentialing and pay-while-pending rules in Insurance Code chapter 1452 cover only physicians, podiatrists and therapeutic optometrists joining a contracted group; a 2025 bill to add behavior analysts (H.B. 586) died in committee. The plan\'s own turnaround governs, so ask for it when you apply.' },
     ],
   },
 };

@@ -63,8 +63,10 @@ export const utahPayers: Record<string, PayerConfig> = {
         body: [
           'The manual is explicit: ABA therapy requires prior authorization — but that requirement \'does not apply to initial or ongoing behavior identification assessments.\' The live PRISM lookup confirms it: 97151 shows \'Prior Authorization Required? No,\' limited to one assessment per 26 weeks at up to 24 units, with reassessment roughly every 6 months. So with a diagnosis in hand, intake can book and bill the assessment immediately.',
           'Treatment codes (97153, 97155, 97156, group codes, H0032) do need PA, submitted to the state PA unit through the PRISM portal on the ABA Services Prior Authorization Form, in 26-week authorization periods. Utah then adds a rare cushion: a 10-business-day grace period to submit the PA after starting services — initial and recertification alike — so a completed assessment can flow straight into treatment without an authorization gap. Miss the window and the authorization starts on the completed-submission date instead, so treat day one of treatment as the PA clock. The initial packet is substantial: the PA form, a copy of the written ASD diagnosis with the completed diagnostic tool, an order or prescription for ABA (renewed annually), and a treatment plan with assessment-tool copies, baseline data, measurable goals, weekly service amounts by code, and settings including telehealth hours. Reauthorization adds progress-versus-baseline data using the same measurement method, and requests above the maximum allowed units go to secondary medical review.',
+          'Coming January 1, 2027: electronic prior authorization. The November 2026 Medicaid Information Bulletin (item 26-101) says Utah Medicaid\'s FHIR-based Interoperability Prior Authorization (Coverage Requirements Discovery and Prior Authorization Support) goes live on January 1, 2027 and “provides streamlined decisions for all services directly billed to Utah Medicaid,” which includes the fee-for-service ABA carve-out. Your EHR calls the API; sandbox testing registration is open at medicaid.utah.gov/interoperability. Published timeframes: urgent within 72 hours, standard “Within 7 calendar days,” and up to 14 calendar days when more information is requested. File attachments are disabled in the API, so supporting documents still go into the PRISM portal under the PA tracking number the API returns. The same bulletin\'s behavioral health code standardization (item 26-109) moves 90791, 90792, 90846, 90847, 90849 and 90853 to one unit per day from January 2027; no ABA code (97151–97158, H0032) is on that list, so ABA units stay at 15 minutes.',
         ],
         cites: [
+          { title: 'Utah Medicaid Information Bulletin, November 2026 (items 26-101 ePA go-live, 26-109 BH code standardization) (PDF)', url: 'https://medicaid.utah.gov/Documents/manuals/pdfs/Medicaid%20Information%20Bulletins/Traditional%20Medicaid%20Program/2026/November2026-MIB.pdf' },
           { title: 'Utah Medicaid Provider Manual — ASD Services, Ch. 8 (July 2023, archived)', url: 'https://web.archive.org/web/20240821082018/https://medicaid.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder7-23.pdf' },
           { title: 'PRISM Coverage and Reimbursement Lookup (97151 PA flag)', url: 'https://stplan.dhhs.utah.gov/lookup/CoverageLookup.php' },
         ],
@@ -871,12 +873,12 @@ export const utahPayers: Record<string, PayerConfig> = {
       blocker: 'per-case',
     },
     treatmentPA: {
-      value: 'Depends on the member contract. The treatment policy BH18 applies only to contracts “subject to preauthorization” for ABA “as specified by their group plan.” BH18 was revised effective November 1, 2026, and the revised text was not posted at Regence’s policy links on 11/1/2026, which still serve the 8/1/2025 version',
+      value: 'Depends on the member contract. The treatment policy BH18 applies only to contracts “subject to preauthorization” for ABA “as specified by their group plan.” The revised BH18 (effective November 1, 2026, read November 8, 2026) keeps that wording and adds “Please check the preauthorization website for the member contract to confirm requirements.”',
       status: 'plan-dependent',
       cites: [
-        { title: 'Regence Medical Policy BH18 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (link serves the 8/1/2025 version, noting a revision effective 11/1/2026)', url: 'https://beonbrand.getbynder.com/m/e4646f415eb7f4eb/' },
+        { title: 'Regence Medical Policy BH18 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (effective 11/1/2026, last review June 2026)', url: 'https://beonbrand.getbynder.com/m/e4646f415eb7f4eb/' },
       ],
-      verifyVia: 'Regence’s preauthorization list for the member contract, and the revised BH18 (effective 11/1/2026) from Regence’s medical policy library or provider relations.',
+      verifyVia: 'Regence’s preauthorization list for the member contract (Availity / regence.com provider preauthorization).',
       blocker: 'per-case',
     },
     dxRequired: {
@@ -921,10 +923,10 @@ export const utahPayers: Record<string, PayerConfig> = {
       {
         h2: 'BH18: treatment criteria, and the November 2026 revision',
         body: [
-          'BH18 is Regence’s treatment policy. The version every Regence link served on November 1, 2026 is dated “Effective: August 1, 2025” and carries the banner “This policy has been revised. The revised policy will be effective November 1, 2026.” In that 2025 text, starting treatment needs a documented ABA assessment and an individualized treatment plan covering targeted behaviors with objective measures and at least one standardized assessment, evidence-based interventions, caregiver training, clinical justification for days and hours (including supervision hours, with CPT codes and units for the authorization period) and measurable discharge goals; continuation needs objective measurement at least every six months and standardized assessment annually, with documents due within five business days before the authorization ends (and no more than 30 days before). Treat those details as the prior policy until the November 2026 revision can be read; ask Regence provider relations for the current BH18 before relying on them.',
+          'BH18 is Regence’s treatment policy. The revised edition (“Effective: November 1, 2026,” last review June 2026) is now served at Regence’s policy link and was read on November 8, 2026. Starting treatment needs a documented ABA assessment and an individualized treatment plan covering targeted behaviors with objective measures and at least one standardized assessment, evidence-based interventions, caregiver training, clinical justification for days and hours (including supervision hours, with CPT codes and units for the authorization period) and measurable discharge goals; continuation needs objective measurement at least every six months and standardized assessment annually, with documents due within five business days before the authorization ends (and no more than 30 days before). The revision also asks for the member’s most recent date of service with any previous ABA provider and the reason for discharge, a clinical rationale and modification plan wherever goals are not progressing, clinical justification for intensive group treatment and for above-standard hours of supervision, assessment, social skills or parent training, and it says members are limited to “one authorized ABA provider at any given time.” Its coding note adds: “Code 0373T may not be billed concurrently with 97153 or 97155.”',
         ],
         cites: [
-          { title: 'Regence Medical Policy BH18 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (link serves the 8/1/2025 version, noting a revision effective 11/1/2026)', url: 'https://beonbrand.getbynder.com/m/e4646f415eb7f4eb/' },
+          { title: 'Regence Medical Policy BH18 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (effective 11/1/2026, last review June 2026)', url: 'https://beonbrand.getbynder.com/m/e4646f415eb7f4eb/' },
         ],
       },
       {
@@ -944,7 +946,7 @@ export const utahPayers: Record<string, PayerConfig> = {
           'Regence publishes no commercial ABA fee schedule; rates are in your Regence agreement. BH18’s code table lists 97151–97158, 0362T and 0373T and says “Providers are expected to bill using the appropriate CPT codes, including modifiers.” For a public benchmark, Utah Medicaid pays 97153 at $19.67 and 97151, 97155 and 97156 at $37.51 per 15-minute unit from July 1, 2026. Regence’s provider manuals and claims pages are client-rendered and could not be read automatically this run.',
         ],
         cites: [
-          { title: 'Regence Medical Policy BH18 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (link serves the 8/1/2025 version, noting a revision effective 11/1/2026)', url: 'https://beonbrand.getbynder.com/m/e4646f415eb7f4eb/' },
+          { title: 'Regence Medical Policy BH18 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (effective 11/1/2026, last review June 2026)', url: 'https://beonbrand.getbynder.com/m/e4646f415eb7f4eb/' },
           { title: 'Utah Medicaid Coverage and Reimbursement Lookup (PAC 166, rates effective 7/1/2026)', url: 'https://stplan.dhhs.utah.gov/lookup/CoverageLookup.php' },
         ],
       },
@@ -958,20 +960,18 @@ export const utahPayers: Record<string, PayerConfig> = {
     ],
     sources: [
       { title: 'Regence Medical Policy BH33 — ABA Initial Assessment for the Treatment of Autism Spectrum Disorder (effective 8/1/2025)', url: 'https://beonbrand.getbynder.com/m/8360cc45444cab46/' },
-      { title: 'Regence Medical Policy BH18 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (link serves the 8/1/2025 version, noting a revision effective 11/1/2026)', url: 'https://beonbrand.getbynder.com/m/e4646f415eb7f4eb/' },
+      { title: 'Regence Medical Policy BH18 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (effective 11/1/2026, last review June 2026)', url: 'https://beonbrand.getbynder.com/m/e4646f415eb7f4eb/' },
       { title: 'Utah Code § 31A-22-642 (current version, effective 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.html' },
       { title: 'Utah Code § 31A-22-650 — Health care preauthorization requirements (version effective 1/1/2027)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S650_2026050620270101.html' },
       { title: 'Utah Medicaid Coverage and Reimbursement Lookup (PAC 166)', url: 'https://stplan.dhhs.utah.gov/lookup/CoverageLookup.php' },
     ],
     deliveryRules: {
       supervision: {
-        value: 'Unconfirmed for the policy in force. The 8/1/2025 BH18 text treats BCBAs and BCBA-Ds as independent providers and puts BCaBAs, behavior analysts in training and RBTs/behavior technicians under BCBA supervision per BACB standards, with supervision hours justified in the treatment plan, but BH18 was revised effective 11/1/2026 and the revision was not readable.',
-        status: 'unverified',
+        value: 'BH18 (effective 11/1/2026): BCBAs and BCBA-Ds “are considered independently qualified providers and may oversee all aspects of assessment, treatment planning, and supervision of support staff in accordance with BACB guidelines.” BCaBAs “must work under the supervision of a BCBA or BCBA-D” and “may not practice independently”; behavior analysts in training must be supervised by a BCBA or BCBA-D; RBTs “must be under the ongoing supervision of a BCBA, BCBA-D, or qualified supervisor.” All supervision follows BACB standards, and the treatment plan must justify the hours of face-to-face supervision; above-standard supervision hours need clinical justification. No numeric supervision ratio is set.',
+        status: 'verified',
         cites: [
-          { title: 'Regence Medical Policy BH18 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (link serves the 8/1/2025 version, noting a revision effective 11/1/2026)', url: 'https://beonbrand.getbynder.com/m/e4646f415eb7f4eb/' },
+          { title: 'Regence Medical Policy BH18 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (effective 11/1/2026, last review June 2026)', url: 'https://beonbrand.getbynder.com/m/e4646f415eb7f4eb/' },
         ],
-        verifyVia: 'The revised BH18 (effective 11/1/2026) from Regence’s medical policy library (regence.com, client-rendered) or Regence provider relations.',
-        blocker: 'document',
       },
       concurrentBilling: {
         value: 'Not addressed in BH33 or the available BH18 text.',
@@ -999,19 +999,17 @@ export const utahPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       placeOfService: {
-        value: 'Not stated as a POS list. BH33 and the 2025 BH18 text tie medical necessity to functioning in home and community activities, and the 2025 BH18 text excludes ABA used “for educational, vocational or custodial purposes”; whether that survives the 11/1/2026 revision is unconfirmed.',
-        status: 'unverified',
+        value: 'Not stated as a POS list. BH33 and BH18 (effective 11/1/2026) tie medical necessity to functioning in “age-appropriate home or community activities,” BH18 asks the treatment plan to include “observation of the child in their natural setting,” and BH18 treats ABA “used for educational, vocational or custodial purposes” as not medically necessary. Neither names payable POS codes; confirm school or clinic billing with Regence provider relations.',
+        status: 'verified',
         cites: [
-          { title: 'Regence Medical Policy BH18 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (link serves the 8/1/2025 version, noting a revision effective 11/1/2026)', url: 'https://beonbrand.getbynder.com/m/e4646f415eb7f4eb/' },
+          { title: 'Regence Medical Policy BH18 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (effective 11/1/2026, last review June 2026)', url: 'https://beonbrand.getbynder.com/m/e4646f415eb7f4eb/' },
         ],
-        verifyVia: 'The revised BH18 and Regence’s provider manual / provider relations for payable settings (home, clinic, school).',
-        blocker: 'document',
       },
       billAsProvider: {
-        value: 'Not published in the readable documents. The 2025 BH18 text says providers bill “using the appropriate CPT codes, including modifiers,” without saying whose NPI goes on technician lines.',
+        value: 'Not published in the readable documents. BH18 (effective 11/1/2026) says providers bill “using the appropriate CPT codes, including modifiers,” without saying whose NPI goes on technician lines.',
         status: 'unverified',
         cites: [
-          { title: 'Regence Medical Policy BH18 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (link serves the 8/1/2025 version, noting a revision effective 11/1/2026)', url: 'https://beonbrand.getbynder.com/m/e4646f415eb7f4eb/' },
+          { title: 'Regence Medical Policy BH18 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (effective 11/1/2026, last review June 2026)', url: 'https://beonbrand.getbynder.com/m/e4646f415eb7f4eb/' },
         ],
         verifyVia: 'Regence provider manual / credentialing: whether RBT-delivered 97153 is billed under the supervising BCBA, and which modifiers apply.',
         blocker: 'document',
@@ -1043,13 +1041,11 @@ export const utahPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosticTools: {
-        value: 'Unconfirmed for the policy in force. The 8/1/2025 BH18 text requires “at least one standardized assessment” per targeted behavior (examples: SRS-2, Vineland-3, ABAS-3, SSIS, BRIEF-2, PDDBI) and allows criterion-referenced tools (VB-MAPP, PEAK, ABLLS-R, AFLS) for treatment planning; BH18 was revised effective 11/1/2026.',
-        status: 'unverified',
+        value: 'BH18 (effective 11/1/2026) names no diagnostic instrument. For treatment it requires, for each targeted behavior, objective measurement and “at least one standardized assessment” (examples: SRS-2, Vineland-3, ABAS-3, SSIS, BRIEF-2, PDDBI), standardized assessment of treatment goals annually, and the same measurement tool at baseline and at each progress update; curriculum or criterion-referenced tools (VB-MAPP, PEAK, ABLLS-R, AFLS, MOTAS) guide treatment planning.',
+        status: 'verified',
         cites: [
-          { title: 'Regence Medical Policy BH18 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (link serves the 8/1/2025 version, noting a revision effective 11/1/2026)', url: 'https://beonbrand.getbynder.com/m/e4646f415eb7f4eb/' },
+          { title: 'Regence Medical Policy BH18 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (effective 11/1/2026, last review June 2026)', url: 'https://beonbrand.getbynder.com/m/e4646f415eb7f4eb/' },
         ],
-        verifyVia: 'The revised BH18 (effective 11/1/2026) from Regence’s medical policy library or provider relations.',
-        blocker: 'document',
       },
       referral: {
         value: 'Yes — BH33 requires ABA to be “recommended or prescribed by a qualified treating health care professional ... experienced in the diagnosis and treatment of autism,” documented as a “Written recommendation, clinical order, or prescription for ABA services.” Utah’s mandate covers treatment “prescribed or ordered” by the qualifying physician or psychologist. No validity period is stated.',
@@ -1875,7 +1871,7 @@ export const utahPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis report + validated tool', desc: 'Optum wants DSM-5-TR ASD confirmed with a validated instrument (ADI-R, ADOS-2, etc.); the mandate separately names diagnosing-provider credentials.' },
       { title: 'Treatment start date', desc: 'The mandate\'s treatment plan is due to the insurer within 14 business days of starting treatment — put the clock on the calendar.' },
     ],
-    sources: [
+    sources: [{ title: 'UnitedHealthcare — Prior auth reductions continue for members under 18 (Network News, Nov. 2026)', url: 'https://www.uhcprovider.com/en/resource-library/news/2026/prior-auth-reduction-members-under-18.html' }, { title: 'UnitedHealthcare — Procedure codes with reduced prior authorization requirements, commercial plans (eff. Dec. 1, 2026, revised Nov. 6, 2026) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/PA-Reduction-Codes-18-Commercial-QRG.pdf' }, 
       { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
       { title: 'Optum — ABA State Mandates supplemental criteria (no Utah entry)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
       { title: 'Utah Code § 31A-22-642 (current, eff. 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.pdf' },
@@ -2026,6 +2022,7 @@ export const utahPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare still require prior authorization for ABA for members under 18 after Dec. 1, 2026?', a: 'Only two ABA codes change. From Dec. 1, 2026, UnitedHealthcare no longer requires prior authorization for 0362T and 0373T when provided to members younger than 18 on its commercial plans (commercial code list revised Nov. 6, 2026). 97151–97158 are not on the list and still need authorization, and the Individual Exchange and Community Plan lists name no ABA code. UHC says to check plan-specific exceptions in the Prior Authorization and Advance Notification tool. 0362T and 0373T are deleted from CPT on Jan. 1, 2027, so the change covers December 2026 dates of service.' },
       { q: 'Does UnitedHealthcare require graphs for ABA reassessments?', a: 'Optum’s criteria require updated progress data in the same measures used at baseline (mastery rates, change scores, updated standardized adaptive measures) at every continued review; they do not require graphs as such.' },
       { q: 'Does UnitedHealthcare accept H0031 or H0032 for ABA?', a: 'Optum’s commercial ABA reimbursement policy lists only CPT 97151–97158, 0362T and 0373T as reimbursable ABA codes, each with a credential modifier; no H-code (H0031, H0032, H2014, H2019) is on the list.' },
       { q: 'What is UnitedHealthcare’s timely filing limit for ABA claims, and when does it pay?', a: 'Optum requires everything needed to process the claim within 90 calendar days of the date of service and corrections within 90 days of first receipt; clean, authorized claims are paid within 45 calendar days or as state law requires. No weekly payment cutoff is published.' },

@@ -354,8 +354,9 @@ export const delawarePayers: Record<string, PayerConfig> = {
         h2: 'Authorization, claims and appeals',
         body: [
           'Behavioral health authorization requests go on the plan’s Behavioral Health Prior Authorization Request Form, "via our NantHealth/Navinet provider portal system or fax … at 877-234-4273," with the treatment plan and progress notes. The provider manual says standard decisions come "no later than 10 calendar days after AmeriHealth Caritas Delaware receives the request" (plus up to 14 more), and expedited ones within three business days. In-network claims are due "within 120 days from the date of service," and claims with a primary insurer’s EOB "within 60 days of the date on the primary insurer’s EOB." The plan says it pays or denies 90% of clean claims within 30 calendar days and 99% within 90. A provider claim complaint may be filed up to 12 months from the date of service or 60 calendar days after the payment, denial or recoupment, whichever is later.',
+          'Rates: the plan publishes no ABA rate table. Its 2026 provider manual says "The AmeriHealth Caritas Delaware fee schedule is reviewed regularly and rates are adjusted as necessary"; a network provider gets each change as a "Rate Notice," which is "an official amendment to your Provider Agreement," with 30 days\' notice, and should contact its Account Executive about any payment discrepancy. So the 97153 rate is the one in your agreement and its latest Rate Notice; ask your Account Executive for it. The DMAP fee-for-service ABA schedule (97153 $15.68 base, $21.34 HN, $31.25 HO, $31.82 HP) is the public benchmark.',
         ],
-        cites: [S.acdeBHPA, S.acdePM],
+        cites: [S.acdeBHPA, S.acdePM, S.abaFS],
       },
     ],
     collect: [
@@ -672,8 +673,9 @@ export const delawarePayers: Record<string, PayerConfig> = {
         h2: 'Decisions, claims and credentialing',
         body: [
           'Standard pre-service decisions come "Within 7 calendar days," expedited ones within 72 hours, and concurrent reviews within 72 hours. Providers may appeal an adverse benefit determination in writing "within 60 days from the date of the Notice of Adverse Benefit Determination letter." First-time claims are due "no more than one hundred twenty (120) calendar days from the Date of Service." The plan adjudicates 90% of clean non-pharmacy claims within 14 calendar days and 99% within 60. Credentialing is "completely processed within 45 calendar days" of a complete file.',
+          'Rates: Delaware First Health publishes no ABA rate table; network providers are paid "in accordance with the fee schedule in their agreement." Its 2025 provider manual (v11.2, August 30, 2026) lists "Request fee schedule information" among the reasons to contact your Provider Engagement Account Manager, who is assigned after credentialing and contracting. The DMAP fee-for-service ABA schedule (97153 $15.68 base, $21.34 HN, $31.25 HO, $31.82 HP) is the public benchmark.',
         ],
-        cites: [S.dfhPM, S.dfhBM],
+        cites: [S.dfhPM, S.dfhBM, S.abaFS],
       },
     ],
     collect: [
@@ -1449,7 +1451,7 @@ export const delawarePayers: Record<string, PayerConfig> = {
       { title: 'Physician or psychologist order', desc: 'The Delaware mandate covers treatment prescribed or ordered by a licensed physician or psychologist.' },
       { title: 'Child’s age and ABA dollars used', desc: 'Mandate coverage runs under 21, with a $38,601.65 ABA maximum (April 2026–March 2027) on fully insured plans.' },
     ],
-    sources: [S.optumSCC, S.optumSM, S.optumTele, S.optumNNM, S.optumReimb, S.dshp, S.m3366, S.m3570A, S.cap2026, S.pa35, S.reg2102, S.reg1307, S.reg1310, S.bacbLic, S.ch30, S.psych1, S.psych3, S.erisa, S.abaFS, S.gpm, S.tricare, S.champva, { title: '24 Del. C. § 3902 — Social work definitions ("licensed clinical social work" includes assessment and diagnosis of mental and emotional disorders and developmental disabilities)', url: 'https://delcode.delaware.gov/title24/c039/index.html' }],
+    sources: [{ title: 'UnitedHealthcare — Prior auth reductions continue for members under 18 (Network News, Nov. 2026)', url: 'https://www.uhcprovider.com/en/resource-library/news/2026/prior-auth-reduction-members-under-18.html' }, { title: 'UnitedHealthcare — Procedure codes with reduced prior authorization requirements, commercial plans (eff. Dec. 1, 2026, revised Nov. 6, 2026) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/PA-Reduction-Codes-18-Commercial-QRG.pdf' }, S.optumSCC, S.optumSM, S.optumTele, S.optumNNM, S.optumReimb, S.dshp, S.m3366, S.m3570A, S.cap2026, S.pa35, S.reg2102, S.reg1307, S.reg1310, S.bacbLic, S.ch30, S.psych1, S.psych3, S.erisa, S.abaFS, S.gpm, S.tricare, S.champva, { title: '24 Del. C. § 3902 — Social work definitions ("licensed clinical social work" includes assessment and diagnosis of mental and emotional disorders and developmental disabilities)', url: 'https://delcode.delaware.gov/title24/c039/index.html' }],
     deliveryRules: {
       supervision: {
         value: 'Optum’s criteria require direct case supervision of 1–2 hours for every 10 hours of direct treatment a week; technicians work under a BCBA or licensed clinician and should be RBTs or otherwise certified, and Optum does not recommend parents as RBTs for their own child. For fully insured Delaware plans the DHSS floor applies: not less than 1.5 hours of BCBA supervision per 10 hours a week (16 Del. Admin. Code 2102).',
@@ -1535,6 +1537,7 @@ export const delawarePayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare still require prior authorization for ABA for members under 18 after Dec. 1, 2026?', a: 'Only two ABA codes change. From Dec. 1, 2026, UnitedHealthcare no longer requires prior authorization for 0362T and 0373T when provided to members younger than 18 on its commercial plans (commercial code list revised Nov. 6, 2026). 97151–97158 are not on the list and still need authorization, and the Individual Exchange and Community Plan lists name no ABA code. UHC says to check plan-specific exceptions in the Prior Authorization and Advance Notification tool. 0362T and 0373T are deleted from CPT on Jan. 1, 2027, so the change covers December 2026 dates of service.' },
       { q: 'Does UnitedHealthcare (Optum) require graphs for ABA continued-service reviews?', a: 'No. Optum’s criteria ask for progress on every target using the baseline measurement method, mastery rates and change scores, updated standardized adaptive measures, and an explanation of low hour use, but they do not require graphs.' },
       { q: 'What are UnitedHealthcare (Optum)’s claim filing deadlines for Delaware ABA claims?', a: '90 calendar days from the date of service (or longer where state law or the plan allows), corrections within 90 days of the original claim’s receipt, and payment of complete claims within 45 days or the state’s shorter clock. No check-run schedule is published.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in Delaware?', a: 'Yes, under Optum’s ABA criteria for ASD, with Delaware’s mandate layered on for fully insured plans. Self-funded employer plans follow their own documents.' },

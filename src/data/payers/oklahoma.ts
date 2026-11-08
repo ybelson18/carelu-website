@@ -59,6 +59,18 @@ const G1_OK_MCD_OOS =
 const G1_OK_LAW =
   'Oklahoma law for commercial plans. Oklahoma licenses behavior analysts: “No person shall practice applied behavior analysis without obtaining a license or certification,” and supervisees practise only under a licensed behavior analyst (59 O.S. § 1928; since November 1, 2026 the State Board of Examiners of Psychologists, not OKDHS, issues the license under SB 1557). The statute sets no separate credential for technicians, so an RBT requirement for commercial members comes from the payer. A BCBA in another state treating an Oklahoma child, including by telehealth, should hold an Oklahoma license.';
 
+/* Credentialing timeline — Oklahoma law (weekly refresh 2026-11-08, OSCN read 2026-11-08). */
+const OK_4405_G8 = { title: '36 O.S. § 4405.1 — Credentialing or recredentialing of physicians and health care providers (as amended by SB 1631, Laws 2024, c. 233, eff. 11/1/2024) — OSCN', url: 'https://www.oscn.net/applications/oscn/DeliverDocument.asp?CiteID=263926' };
+const OK_CRED_SECTION_G8 = {
+  h2: 'How long credentialing a new BCBA takes: Oklahoma\'s 45/180-day clock',
+  body: [
+    'Oklahoma puts a clock on credentialing for every "health benefit plan" — group coverage, HMOs, PPOs, MEWAs and employer self-insured plans that are not ERISA-exempt; individual plans are excluded, and ERISA-exempt self-funded plans fall outside it (36 O.S. § 4405.1). Providers apply on the uniform credentialing application with the plan\'s checklist of required materials. The plan must tell you in writing within 10 calendar days if the application is incomplete, and must start primary-source verification and the malpractice-history request within 7 days once it is complete.',
+    'Once verification is back and the file is "clean," the plan "shall have forty-five (45) calendar days within which to credential or recredential a physician or other health care provider." A file that is not clean may be extended 60 days; if documents are still missing then, you get a certified-mail notice and must extend in writing within 10 days or the application is deemed withdrawn. "In no event shall the entire credentialing or recredentialing process exceed one hundred eighty (180) calendar days." Within 31 days after credentialing, the plan "shall consider the provider in-network for purposes of reimbursement." A denial comes in writing with the reason within 10 days, and lack of board certification alone cannot be the reason.',
+    'The statute speaks of "physicians and other health care providers" and does not single out behavior analysts. Because the 45 days start only after verification returns, treat it as a ceiling on the plan\'s review, not as 45 days from submission, and keep the dated receipt of a complete application.',
+  ],
+  cites: [OK_4405_G8],
+};
+
 export const oklahomaPayers: Record<string, PayerConfig> = {
   'oklahoma-medicaid': {
     slug: 'oklahoma-medicaid',
@@ -1426,6 +1438,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
         ],
         cites: [G1_AETNA_NPC, G1_AETNA_MNG, G1_OK_S1928, G1_OK_S1557],
       },
+      OK_CRED_SECTION_G8,
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Nick’s Law applies: no age limit, no hour or dollar cap) vs. self-funded ERISA (the plan document governs). Ask for the employer and check the card.' },
@@ -1434,7 +1447,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       { title: 'Standardized functioning score from the last 12 months', desc: 'Vineland-3, ABAS, VB-MAPP or ABLLS showing impairment at least one standard deviation below the mean.' },
       { title: 'Physician or doctoral psychologist order', desc: 'For insured plans the mandate covers treatment prescribed or ordered by a licensed physician or licensed doctoral-level psychologist.' },
     ],
-    sources: [ AETNA_OM_G5,
+    sources: [ OK_4405_G8, AETNA_OM_G5,
       { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 10/14/2026)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
       { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
       { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026, 7244850-01-01)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
@@ -1588,6 +1601,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       { q: 'Does Oklahoma’s autism mandate still cap ABA hours or age?', a: 'No. Since SB 1240 took effect on November 1, 2022, 36 O.S. § 6060.21 has no age window, no visit limits, and no ABA-specific hour or dollar cap; the old 25 hours a week and $25,000 a year cap is repealed.' },
       { q: 'What does Aetna pay for ABA in Oklahoma?', a: 'Commercial rates are negotiated in the participating-provider agreement and are not published. SoonerCare’s July 2026 fee schedule ($17.35 per unit of 97153, $23.55 for 97151, 97155 and 97156) is the public benchmark.' },
       { q: 'Does Aetna require RBT certification for ABA technicians in Oklahoma, and is there a grace period?', a: 'Aetna’s participation criteria require paraprofessionals to “meet state requirements” (or Aetna standards where the state defines none) with at least one hour of face-to-face supervision per 10 hours, but name no RBT requirement and no grace period; ask Aetna whether your agreement requires RBT certification.' },
+      { q: 'How long does it take to credential a new BCBA with Aetna in Oklahoma?', a: 'Under 36 O.S. § 4405.1, once verification is back on a clean application the plan has 45 calendar days to decide, the whole process may not exceed 180 days, and the plan must treat the provider as in-network for reimbursement within 31 days after credentialing. Individual plans and ERISA-exempt self-funded plans are outside the statute.' },
     ],
   },
 
@@ -1720,6 +1734,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
         ],
         cites: [G1_EN0499, G1_EBH_ADMIN, G1_OK_S1928, G1_OK_S1557],
       },
+      OK_CRED_SECTION_G8,
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Nick’s Law applies) vs. self-funded ERISA (plan document governs).' },
@@ -1728,7 +1743,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       { title: 'Target start date', desc: 'File the treatment PA up to 30 days before, or within two weeks after, the start.' },
       { title: 'Other therapies schedule', desc: 'EN0499 will not pay ABA delivered at the same time as speech, OT or any other modality.' },
     ],
-    sources: [ EBH_ADMIN_G5,
+    sources: [ OK_4405_G8, EBH_ADMIN_G5,
       { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
       { title: 'Evernorth autism resource guide for behavioral health providers (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
       { title: '36 O.S. § 6060.21 — Health coverage for individuals with autism (Nick’s Law; as amended by SB 1240, eff. 11/1/2022) — OSCN', url: 'https://www.oscn.net/applications/oscn/DeliverDocument.asp?CiteID=478381' },
@@ -1872,6 +1887,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       { q: 'Does Cigna credential RBTs?', a: 'No. Evernorth does not credential nonlicensed or noncertified staff; their services are billed under the supervising provider.' },
       { q: 'What is Cigna’s timely filing limit in Oklahoma?', a: '90 days from the date of service for a participating provider and 180 days out of network, unless your agreement or applicable law allows longer (Cigna’s When to File policy).' },
       { q: 'Does Cigna require RBT certification for ABA technicians in Oklahoma, and is there a grace period?', a: 'Evernorth’s ABA policy (EN0499) and administrative guidelines set no technician credential and no grace period; ask Evernorth whether an uncertified technician may render 97153 under your agreement.' },
+      { q: 'How long does it take to credential a new BCBA with Cigna in Oklahoma?', a: 'Under 36 O.S. § 4405.1, once verification is back on a clean application the plan has 45 calendar days to decide, the whole process may not exceed 180 days, and the plan must treat the provider as in-network for reimbursement within 31 days after credentialing. Individual plans and ERISA-exempt self-funded plans are outside the statute.' },
     ],
   },
 
@@ -2008,6 +2024,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
         ],
         cites: [G1_OPTUM_NNM, G1_OPTUM_FAQ, G1_OK_S1928, G1_OK_S1557],
       },
+      OK_CRED_SECTION_G8,
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Nick’s Law applies) vs. self-funded ERISA (plan document governs).' },
@@ -2016,7 +2033,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       { title: 'Family availability', desc: 'Optum reviews utilization under 80% of authorized hours over two weeks. Set hours the family can actually keep.' },
       { title: 'School and IEP status', desc: 'Optum will not pay a 1:1 classroom aide or IDEA-covered services, but covers school coordination, teacher training and observation.' },
     ],
-    sources: [ OPTUM_NNM_G5,{ title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial): Timely filing of corrected claims; Subrogation and COB', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, 
+    sources: [{ title: 'UnitedHealthcare — Prior auth reductions continue for members under 18 (Network News, Nov. 2026)', url: 'https://www.uhcprovider.com/en/resource-library/news/2026/prior-auth-reduction-members-under-18.html' }, { title: 'UnitedHealthcare — Procedure codes with reduced prior authorization requirements, commercial plans (eff. Dec. 1, 2026, revised Nov. 6, 2026) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/PA-Reduction-Codes-18-Commercial-QRG.pdf' },  OK_4405_G8, OPTUM_NNM_G5,{ title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial): Timely filing of corrected claims; Subrogation and COB', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, 
       { title: 'Optum ABA Supplemental Clinical Criteria BH803ABASCC (interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
       { title: 'Optum FAQ — Autism/ABA using CPT codes (BH00083-24)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
       { title: 'Optum Provider Express — Applied Behavior Analysis providers page (state list has no Oklahoma page)', url: 'https://public.providerexpress.com/content/ope-provexpr/us/en/clinical-resources/autismABA2.html' },
@@ -2167,6 +2184,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare still require prior authorization for ABA for members under 18 after Dec. 1, 2026?', a: 'Only two ABA codes change. From Dec. 1, 2026, UnitedHealthcare no longer requires prior authorization for 0362T and 0373T when provided to members younger than 18 on its commercial plans (commercial code list revised Nov. 6, 2026). 97151–97158 are not on the list and still need authorization, and the Individual Exchange and Community Plan lists name no ABA code. UHC says to check plan-specific exceptions in the Prior Authorization and Advance Notification tool. 0362T and 0373T are deleted from CPT on Jan. 1, 2027, so the change covers December 2026 dates of service.' },
       { q: 'Does UnitedHealthcare require graphs for ABA reassessments?', a: 'Optum’s criteria require updated progress data in the same measures used at baseline (mastery rates, change scores, updated standardized adaptive measures) at every continued review; they do not require graphs as such.' },
       { q: 'Does UnitedHealthcare accept H0031 or H0032 for ABA?', a: 'Optum’s commercial ABA reimbursement policy lists only CPT 97151–97158, 0362T and 0373T as reimbursable ABA codes, with a credential modifier on 97151–97158 (0362T and 0373T “do not require modifiers”); no H-code (H0031, H0032, H2014, H2019) is on the list.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in Oklahoma?', a: 'Yes, for ASD under Optum’s ABA Supplemental Clinical Criteria, with prior authorization for assessment and treatment. Insured Oklahoma plans also carry Nick’s Law; self-funded plans follow their plan document.' },
@@ -2176,6 +2194,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       { q: 'Can the ABA assessment be done by telehealth with UnitedHealthcare?', a: 'Not on commercial plans. Optum allows telehealth only for 97155, 97156 and 97157 after a virtual-visits attestation, so 97151 is in person.' },
       { q: 'What is UnitedHealthcare’s timely filing limit for ABA in Oklahoma?', a: '90 calendar days from the date of service under Optum’s National Provider Network Manual, unless state law, federal law or the member’s plan allows longer.' },
       { q: 'Does UnitedHealthcare require RBT certification for ABA technicians in Oklahoma, and is there a grace period?', a: 'Yes, or an equivalent: Optum requires technicians to be an RBT, BCAT or ABAT, and any other certification must be approved in writing by Optum. Optum publishes no grace or provisional period for uncertified technicians.' },
+      { q: 'How long does it take to credential a new BCBA with UnitedHealthcare in Oklahoma?', a: 'Under 36 O.S. § 4405.1, once verification is back on a clean application the plan has 45 calendar days to decide, the whole process may not exceed 180 days, and the plan must treat the provider as in-network for reimbursement within 31 days after credentialing. Individual plans and ERISA-exempt self-funded plans are outside the statute.' },
     ],
   },
 
@@ -2315,6 +2334,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'BCBSOK — ABA Clinical Service Request Form (rev. 10/2025): Line Therapist Requirements; Certification of Provider Qualifications', url: 'https://www.bcbsok.com/docs/provider/ok/education/forms/ok-aba-clinicalservicerequestform.pdf' }, G1_OK_S1928, G1_OK_S1557],
       },
+      OK_CRED_SECTION_G8,
     ],
     collect: [
       { title: 'Plan type and funding', desc: 'Blue Choice PPO, Blue Choice Preferred PPO, Blue Traditional, HMO or FEP; fully insured (Nick’s Law) or self-funded (plan document).' },
@@ -2323,7 +2343,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       { title: 'Start date', desc: 'Call to start the preservice request at least two weeks (and no more than 60 days) before treatment starts.' },
       { title: 'Line staff roster', desc: '18+, high school diploma or GED, background check, 40 hours of training, and BCBA oversight of at least 5% of hours worked.' },
     ],
-    sources: [
+    sources: [ OK_4405_G8,
       { title: 'BCBSOK CPCP011 — Applied Behavior Analysis (plan effective 3/20/2026)', url: 'https://www.bcbsok.com/docs/provider/ok/standards/cpcp/2026/cpcp011-3-20-2026.pdf' },
       { title: 'BCBSOK — 2026 Commercial Outpatient Behavioral Health Prior Authorization Codes (eff. 1/1/2026)', url: 'https://www.bcbsok.com/docs/provider/ok/claims/um/2026-commercial-outpatient-behavioral-health-prior-authorization-codes.pdf' },
       { title: 'BCBSOK — 2026 Commercial Prior Authorization Requirements Summary (eff. 1/1/2026)', url: 'https://www.bcbsok.com/docs/provider/ok/claims/um/2026-prior-authorization-requirements-summary-of-services.pdf' },
@@ -2486,6 +2506,7 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
       { q: 'Can my agency treat a child covered by another state’s Blue Cross plan through BCBSOK?', a: 'Usually, through BlueCard. File the claim with BCBSOK, your local plan; it forwards the claim to the child’s home plan, which applies the child’s benefits. Get prior authorization from the home plan, through Electronic Provider Access in BCBSOK’s portal (enter the member’s prefix) or BlueCard Eligibility at 800-676-2583. Medicaid plans, Medicare Advantage and the Federal Employee Program are not part of BlueCard.' },
       { q: 'What is BCBSOK’s timely filing limit for ABA claims?', a: '180 days from the date of service under BCBSOK’s Commercial Provider Reference Manual (September 2026), unless the member’s coverage agreement allows longer. Clean claims are adjudicated within 30 days of receipt, and appeals are due within 180 days of the adverse determination notice.' },
       { q: 'Does BCBSOK require RBT certification for ABA technicians, and is there a grace period?', a: 'No RBT requirement is published. BCBSOK’s ABA request form requires line staff to be 18 or older with a high school diploma or GED, a criminal background check before starting, 40 hours of ASD and behavioral training (not billable), and BCBA supervision of at least 5% of their hours. With no RBT requirement there is no grace period. The supervisor must be licensed in the state where the member’s services are rendered.' },
+      { q: 'How long does it take to credential a new BCBA with BCBSOK in Oklahoma?', a: 'Under 36 O.S. § 4405.1, once verification is back on a clean application the plan has 45 calendar days to decide, the whole process may not exceed 180 days, and the plan must treat the provider as in-network for reimbursement within 31 days after credentialing. Individual plans and ERISA-exempt self-funded plans are outside the statute.' },
     ],
   },
 };

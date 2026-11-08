@@ -155,6 +155,17 @@ const FANOUT_CIG_AUTISM: SourceRef = {
   note: 'Evernorth/Cigna Autism resource guide, March 2025 (PCOMM-2025-225): "It is important to confirm a patient\'s ABA eligibility and benefits before performing an assessment. This information can be confirmed by: ... Calling the Autism Care Coordinator team at 877.279.7603". Provider Services 800.926.2273 "handles questions regarding billing, benefits, and eligibility for autism-related treatment, such as ABA."',
 };
 
+const EVN_ABA_PA_FORM: SourceRef = {
+  url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/applied-behavior-analysis.pdf',
+  accessDate: '2026-11-08',
+  note: 'Evernorth Behavioral Health Applied Behavior Analysis Prior Authorization Form (PCOMM-2025-224, 07/26): "Evernorth Behavioral Health (Evernorth) requires prior authorization for the applied behavior analysis (ABA) level of care, including network exception requests. For standard requests, ABA assessment Current Procedural Terminology (CPT) codes (i.e., 97151, 97152, and 0362T) no longer require prior authorization. To request a network exception for an ABA assessment, please complete this form." Submit to ABA@Evernorth.com or fax 860.687.9230.',
+};
+const UHC_PA_UNDER18_COMMERCIAL: SourceRef = {
+  url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/PA-Reduction-Codes-18-Commercial-QRG.pdf',
+  accessDate: '2026-11-08',
+  note: 'UnitedHealthcare "Procedure codes with reduced prior authorization requirements for UnitedHealthcare commercial plans", effective Dec. 1, 2026, revised Nov. 6, 2026 (PCA-3-26-02229-Clinical-QRG_11052026): 0362T and 0373T listed under "Prior authorization is no longer required when provided to members younger than 18 years of age." No 97151-97158 on the list; the Individual Exchange and Community Plan lists name no ABA code. Plan-specific exceptions: Prior Authorization and Advance Notification tool. Notice: https://www.uhcprovider.com/en/resource-library/news/2026/prior-auth-reduction-members-under-18.html',
+};
+
 /* ==================== aetna (national commercial) ==================== */
 
 const aetnaEdi: EdiRouting = {
@@ -252,16 +263,16 @@ const cignaEdi: EdiRouting = {
 };
 
 const cignaCodeGridNotes: Record<string, string> = {
-  '97151': "unverified — EN0499 does not state a per-code PA requirement (confirm via Cigna/Evernorth provider services or the precertification list)",
-  '97152': "unverified — EN0499 does not state a per-code PA requirement (confirm via Cigna/Evernorth provider services or the precertification list)",
-  '97153': "unverified — EN0499 does not state a per-code PA requirement (confirm via Cigna/Evernorth provider services or the precertification list)",
-  '97154': "unverified — EN0499 does not state a per-code PA requirement (confirm via Cigna/Evernorth provider services or the precertification list)",
-  '97155': "unverified — EN0499 does not state a per-code PA requirement (confirm via Cigna/Evernorth provider services or the precertification list)",
-  '97156': "unverified — EN0499 does not state a per-code PA requirement (confirm via Cigna/Evernorth provider services or the precertification list)",
-  '97157': "unverified — EN0499 does not state a per-code PA requirement (confirm via Cigna/Evernorth provider services or the precertification list)",
-  '97158': "unverified — EN0499 does not state a per-code PA requirement (confirm via Cigna/Evernorth provider services or the precertification list)",
-  '0362T': "unverified — EN0499 does not state a per-code PA requirement (confirm via Cigna/Evernorth provider services or the precertification list)",
-  '0373T': "unverified — EN0499 does not state a per-code PA requirement (confirm via Cigna/Evernorth provider services or the precertification list)",
+  '97151': 'Not required for standard requests — Evernorth ABA PA form (07/26): assessment codes 97151, 97152 and 0362T "no longer require prior authorization"; the form is used for an assessment only to request a network exception',
+  '97152': 'Not required for standard requests — Evernorth ABA PA form (07/26): assessment codes 97151, 97152 and 0362T "no longer require prior authorization"; the form is used for an assessment only to request a network exception',
+  '97153': 'Required — Evernorth "requires prior authorization for the applied behavior analysis (ABA) level of care" (ABA PA form 07/26); only the assessment codes are exempt',
+  '97154': 'Required — Evernorth "requires prior authorization for the applied behavior analysis (ABA) level of care" (ABA PA form 07/26); only the assessment codes are exempt',
+  '97155': 'Required — Evernorth "requires prior authorization for the applied behavior analysis (ABA) level of care" (ABA PA form 07/26); only the assessment codes are exempt',
+  '97156': 'Required — Evernorth "requires prior authorization for the applied behavior analysis (ABA) level of care" (ABA PA form 07/26); only the assessment codes are exempt',
+  '97157': 'Required — Evernorth "requires prior authorization for the applied behavior analysis (ABA) level of care" (ABA PA form 07/26); only the assessment codes are exempt',
+  '97158': 'Required — Evernorth "requires prior authorization for the applied behavior analysis (ABA) level of care" (ABA PA form 07/26); only the assessment codes are exempt',
+  '0362T': 'Not required for standard requests — Evernorth ABA PA form (07/26): assessment codes 97151, 97152 and 0362T "no longer require prior authorization"; the form is used for an assessment only to request a network exception',
+  '0373T': 'Required — Evernorth "requires prior authorization for the applied behavior analysis (ABA) level of care" (ABA PA form 07/26); only the assessment codes are exempt',
   '99366': 'unverified — EN0499 does not address interdisciplinary team-meeting billing',
 };
 
@@ -279,16 +290,16 @@ const cignaCodeGrid: Record<string, CodeGridEntry> = Object.fromEntries(
       posAllowed: ['plan-dependent'],
       telehealth: code === '99366' ? 'unverified — not addressed by EN0499 or the autism resource guide' : 'Yes — "all ABA CPT codes are covered telehealth services" per Cigna\'s March 2025 provider guide',
       modifiers: ['plan-dependent — no telehealth modifier list published nationally'],
-      notes: 'Verify via: Cigna/Evernorth provider services — EN0499 is a medical-necessity policy only; per-code PA status, unit caps, and POS are plan-dependent or unconfirmed nationally.',
+      notes: 'Verify via: Cigna/Evernorth provider services — EN0499 is a medical-necessity policy only; per-code PA status comes from the Evernorth ABA PA form (07/26); unit caps and POS are plan-dependent or unconfirmed nationally.',
       fieldStatus: {
         covered: code === '99366' ? 'unverified' : 'verified',
-        paRequired: 'unverified',
+        paRequired: code === '99366' ? 'unverified' : 'verified',
         unitCap: 'plan-dependent',
         posAllowed: 'plan-dependent',
         telehealth: code === '99366' ? 'unverified' : 'verified',
         modifiers: 'plan-dependent',
       },
-      sources: code === '99366' ? [CIGNA_EN0499] : [CIGNA_EN0499, CIGNA_AUTISM_RESOURCE_GUIDE],
+      sources: code === '99366' ? [CIGNA_EN0499] : [CIGNA_EN0499, CIGNA_AUTISM_RESOURCE_GUIDE, EVN_ABA_PA_FORM],
     },
   ])
 );
@@ -359,12 +370,15 @@ const UHC_OPTUM_MODIFIERS: Record<string, string[]> = {
 
 function unitedhealthcareOptumEntry(code: string): CodeGridEntry {
   const is99366 = code === '99366';
+  const isMultiStaff = code === '0362T' || code === '0373T';
   const optumCap = UHC_OPTUM_UNIT_CAPS[code];
   return {
     covered: is99366 ? "unverified — 99366 is not addressed in Optum's ABA Supplemental Clinical Criteria or Reimbursement Policy 2022RP501A" : 'Yes',
     paRequired: is99366
       ? 'unverified'
-      : "Required — step 1 of Optum's two-step authorization (assessment auth via Provider Express), then step 2 treatment auth; continued-service reviews every 4–6 months",
+      : isMultiStaff
+        ? "Required — step 1 of Optum's two-step authorization (assessment auth via Provider Express), then step 2 treatment auth; continued-service reviews every 4–6 months. From Dec. 1, 2026, UnitedHealthcare commercial plans no longer require prior authorization for this code for members younger than 18 (commercial code list rev. 11/6/2026; not on the Individual Exchange or Community Plan lists); check plan-specific exceptions in the Prior Authorization and Advance Notification tool. Code deleted from CPT 1/1/2027"
+        : "Required — step 1 of Optum's two-step authorization (assessment auth via Provider Express), then step 2 treatment auth; continued-service reviews every 4–6 months",
     unitCap: is99366
       ? 'unverified'
       : `plan-dependent — Optum's national Reimbursement Policy 2022RP501A default is ${optumCap}; state mandates and ASO/fully-insured plan terms can override this figure`,
@@ -384,7 +398,7 @@ function unitedhealthcareOptumEntry(code: string): CodeGridEntry {
       telehealth: is99366 ? 'unverified' : 'verified',
       modifiers: is99366 ? 'unverified' : (UHC_OPTUM_MODIFIERS[code]?.length ? 'inferred' : 'plan-dependent'),
     },
-    sources: is99366 ? [OPTUM_SCC] : [OPTUM_SCC, OPTUM_REIMBURSEMENT_POLICY, OPTUM_ABA_FAQ],
+    sources: is99366 ? [OPTUM_SCC] : isMultiStaff ? [OPTUM_SCC, OPTUM_REIMBURSEMENT_POLICY, OPTUM_ABA_FAQ, UHC_PA_UNDER18_COMMERCIAL] : [OPTUM_SCC, OPTUM_REIMBURSEMENT_POLICY, OPTUM_ABA_FAQ],
   };
 }
 

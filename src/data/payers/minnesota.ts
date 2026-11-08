@@ -51,8 +51,8 @@ const S: Record<string, PayerSource> = {
   mcoSec: { title: 'MHCP Provider Manual — Managed Care Organizations (carve-outs, MCO and state appeal rights)', url: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_DYNAMIC_CONVERSION&RevisionSelectionMethod=LatestReleased&dDocName=id_008923' },
   spa2410: { title: 'CMS-approved Minnesota SPA MN-24-0010, Attachment 4.19-B — EIDBI rates (effective Jan. 1, 2024)', url: 'https://www.medicaid.gov/medicaid/spa/downloads/MN-24-0010.pdf' },
   elistSA: { title: 'DHS DSD eList — EIDBI service authorization update (Oct. 16, 2026: Acentra backlog resolved as of Oct. 1; seven-day reviews)', url: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_DYNAMIC_CONVERSION&RevisionSelectionMethod=LatestReleased&dDocName=MNDHS-087705' },
-  elistMorat: { title: 'DHS DSD eList — Extension of temporary moratorium on enrolling new EIDBI provider agencies (announced Oct. 23, 2026; effective Nov. 1, 2026 through April 30, 2027)', url: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_DYNAMIC_CONVERSION&RevisionSelectionMethod=LatestReleased&dDocName=MNDHS-087875' },
-  elistCpt: { title: 'DHS DSD eList — 2027 EIDBI CPT code updates (announced Oct. 23, 2026; 0373T becomes 97159 effective Jan. 1, 2027)', url: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_DYNAMIC_CONVERSION&RevisionSelectionMethod=LatestReleased&dDocName=MNDHS-087861' },
+  elistMorat: { title: 'DHS DSD eList — Extension of temporary moratorium on enrolling new EIDBI provider agencies (eList dated Oct. 27, 2026; effective Nov. 1, 2026 through April 30, 2027)', url: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_DYNAMIC_CONVERSION&RevisionSelectionMethod=LatestReleased&dDocName=MNDHS-087875' },
+  elistCpt: { title: 'DHS DSD eList — 2027 EIDBI CPT code updates (eList dated Oct. 27, 2026; 0373T becomes 97159 effective Jan. 1, 2027)', url: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_DYNAMIC_CONVERSION&RevisionSelectionMethod=LatestReleased&dDocName=MNDHS-087861' },
   provNews: { title: 'MN DHS — MHCP provider news and updates', url: 'https://mn.gov/dhs/partners-and-providers/news-initiatives-reports-workgroups/minnesota-health-care-programs/provider-news/' },
   eidbiLic: { title: 'MN DHS — EIDBI licensing (provisional licensure; new-agency enrollment paused since Nov. 1, 2025)', url: 'https://mn.gov/dhs/partners-and-providers/licensing/eidbi/' },
   ucareBull: { title: 'DHS MHCP provider bulletin — Medica acquiring UCare clarifications (Dec. 18, 2025)', url: 'https://content.govdelivery.com/accounts/MNDHS/bulletins/400969b' },
@@ -78,6 +78,15 @@ const S: Record<string, PayerSource> = {
   imcUM: { title: 'IMCare — 2025 Utilization Management Medical-Necessity Criteria', url: 'https://www.itascacountymn.gov/DocumentCenter/View/11795/2025-Utilization-Management-Criteria-PDF' },
   imcHome: { title: 'IMCare (Itasca Medical Care) home page — "your local County health plan"', url: 'http://imcare.org/' },
   imcProv: { title: 'IMCare — Providers & Partners (forms, provider portal)', url: 'https://www.itascacountymn.gov/357/Providers-Partners' },
+  imcBasics: { title: 'IMCare Provider Manual — Provider Basics (revised 06/15/2026; timely filing, corrected claims, prompt payment, claim appeals)', url: 'https://www.itascacountymn.gov/DocumentCenter/View/10174/Provider-Basics-PDF-Updated-06152026' },
+  imcEidbi: { title: 'IMCare Provider Manual — Early Intensive Developmental and Behavioral Intervention (EIDBI) Benefit (revised 08/28/2026)', url: 'https://www.itascacountymn.gov/DocumentCenter/View/6318/Early-Intensive-Developmental-and-Behavioral-Intervention-PDF-Updated-08282026' },
+  imcManual: { title: 'IMCare — Provider Manual (chapter index)', url: 'https://www.itascacountymn.gov/375/Provider-Manual' },
+  imcUpdates: { title: 'IMCare — Provider Updates (bulletin archive)', url: 'https://www.itascacountymn.gov/373/Provider-Updates' },
+  imcU2631: { title: 'IMCare Provider Update #2026-31 — 2027 EIDBI CPT code updates (Oct. 27, 2026)', url: 'https://www.itascacountymn.gov/DocumentCenter/View/13118/2026-31-EIDBI-CPT-code-updates-PDF' },
+  imcU2610: { title: 'IMCare Provider Update #2026-10 — EIDBI updates related to ITPs, observation and direction, and exception requests (March 11, 2026)', url: 'https://www.itascacountymn.gov/DocumentCenter/View/12654/2026-10-EIDBI-Updates-Related-to-ITPs-and-Observation--Direction-and-Exception-Requests-PDF' },
+  imcU2629: { title: 'IMCare Provider Update #2026-29 — Credentialing, contracting and supervision agreements (Sept. 2, 2026)', url: 'https://www.itascacountymn.gov/DocumentCenter/View/13012/2026-29-Credentialing-Contracting-and-Supervision-Agreements-PDF' },
+  medTF: { title: 'Medica — Timely Filing and Late Claims Policy (all Medica products; 180 days from date of service)', url: 'https://partner.medica.com/-/media/documents/provider/timely-filing-and-late-claims-policy.pdf' },
+  medHub: { title: 'Medica — UCare member transition hub for providers (payer ID 71890 and Medica policies for transitioned members from Oct. 1, 2026)', url: 'https://partner.medica.com/providers/ucare-member-transition' },
   opMN: { title: 'Optum Provider Express — Welcome Minnesota Providers (Medica behavioral health; Medicaid EIDBI forms)', url: 'https://www.providerexpress.com/content/ope-provexpr/us/en/our-network/welcomeNtwk/wMN.html' },
   opEidbi: { title: 'Optum / Medica Behavioral Health — Guide to providing EIDBI services (BH02483-26-QRG, 10/13/2026)', url: 'https://www.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/mnABA/mnEIDBIOverview.pdf' },
   opMedQRG: { title: 'Optum — Information and resources for working with Medica Behavioral Health (BH5236, 10/2023)', url: 'https://www.providerexpress.com/content/dam/ope-provexpr/us/pdfs/ourNetworkMain/medica/5236MedicaQRG.pdf' },
@@ -131,8 +140,14 @@ const EIDBI_TELE =
 const EIDBI_COB =
   'Medical Assistance is still the payer of last resort, but EIDBI is "pay and chase." DHS: "EIDBI providers are not required to bill a member’s commercial insurance before billing Medicaid. MHCP or the MCO will seek reimbursement from third parties … This ‘pay and chase’ process applies to both fee-for-service and managed care members," though a payment received from another source must still be reported. That matches the federal rule letting states pay EPSDT claims and recover later (42 CFR 433.139(b)(3)(i)). For authorization, DHS tells providers with privately insured members to "follow the primary insurance’s authorization procedures."';
 
+const EIDBI_H0032 =
+  'H0032 UB (ITP development and progress monitoring), per DHS’s August 2026 billing grid: "1 = per encounter," "May be billed as clinically necessary," no service agreement (authorization) needed, and "Encounter codes are billed one time per day per provider per member"; QSP and Level I bill 100% ("$94.80/unit"), Level II 80%. From "July 1, 2027, or upon federal approval, whichever is later," § 256B.0949, subd. 20 caps "individual treatment and planning" at "300 units per year per recipient," and the commissioner "must grant exceptions" when more is medically necessary.';
+
+const EIDBI_H0032_MCO =
+  ' ' + EIDBI_H0032 + ' The statute routes exceptions to the commissioner; no plan has yet published how it will apply the 2027 cap or take exception requests for its members, so ask the plan before July 2027.';
+
 const MN_MORATORIUM_BODY =
-  'Minnesota is not enrolling new EIDBI agencies. DHS "paused enrolling new EIDBI agencies, effective Nov. 1, 2025," and on Oct. 23, 2026 announced that it "received approval from the Centers for Medicare & Medicaid Services (CMS) to extend the temporary moratorium on enrolling new EIDBI provider agencies. The extension is effective beginning Nov. 1, 2026, through April 30, 2027." During the extension "New EIDBI provider agency enrollment remains restricted"; "EIDBI agencies approved for a provisional license before Dec. 31, 2026, may enroll new locations"; and "Individual EIDBI providers may continue to enroll and affiliate with currently enrolled and provisionally licensed EIDBI agencies." The moratorium "does not affect member enrollment," and DHS "may extend the moratorium in six-month increments if necessary." The provisional-license application in the Provider Hub is likewise "closed to new agencies."';
+  'Minnesota is not enrolling new EIDBI agencies. DHS "paused enrolling new EIDBI agencies, effective Nov. 1, 2025," and in a DSD eList dated Oct. 27, 2026 (relayed in MHCP’s Nov. 2 Provider Connect) said it "received approval from the Centers for Medicare & Medicaid Services (CMS) to extend the temporary moratorium on enrolling new EIDBI provider agencies. The extension is effective Nov. 1, 2026, through April 30, 2027." During the extension "New EIDBI provider agency enrollment remains restricted"; "EIDBI agencies approved for a provisional license before Dec. 31, 2026, may enroll new locations"; and "Individual EIDBI providers may continue to enroll and affiliate with currently enrolled and provisionally licensed EIDBI agencies." The moratorium "does not affect member enrollment," and DHS "may extend the moratorium in six-month increments if necessary." The provisional-license application in the Provider Hub is likewise "closed to new agencies."';
 
 const MN_CPT2027_BODY =
   'DHS: "Effective Jan. 1, 2027, EIDBI high-intensity intervention services will transition from CPT code 0373T to the new permanent CPT code 97159." DHS will update the EIDBI billing grid, the EIDBI Benefit Policy Manual and its systems, and "will not add any other additional service codes included in the 2027 CPT code set to the EIDBI benefit at this time." Until DHS publishes the updated grid, the 0373T rules on this page are the current ones; DHS has not yet said how each carries over to 97159. DHS tells providers to "Contact each payer (e.g., commercial insurers, managed care organizations [MCOs], Medicaid) to confirm and understand their implementation processes, authorization requirements, billing guidance and timelines," because "Payers establish their own coverage, authorization and reimbursement policies."';
@@ -140,8 +155,8 @@ const MN_CPT2027_BODY =
 const MN_MCO_2027 = {
   h2: '2027 changes: 0373T becomes 97159, and no new EIDBI agencies',
   body: [
-    'Two DHS announcements of Oct. 23, 2026 reach every Medical Assistance plan. First, MHCP "will transition the EIDBI high-intensity intervention service from CPT code 0373T to the new permanent CPT code 97159 effective Jan. 1, 2027." DHS adds that "Payers establish their own coverage, authorization and reimbursement policies" and tells providers to contact each MCO "to confirm and understand their implementation processes, authorization requirements, billing guidance and timelines," so confirm with this plan how its 0373T authorization and billing rules move to 97159.',
-    'Second, DHS extended the temporary moratorium on enrolling new EIDBI provider agencies "beginning Nov. 1, 2026, through April 30, 2027": new agency enrollment "remains restricted," agencies "approved for a provisional license before Dec. 31, 2026, may enroll new locations," and individual providers "may continue to enroll and affiliate with currently enrolled and provisionally licensed EIDBI agencies." It "does not affect member enrollment."',
+    'Two DHS eList announcements dated Oct. 27, 2026 reach every Medical Assistance plan. First, "Effective Jan. 1, 2027, EIDBI high-intensity intervention services will transition from CPT code 0373T to the new permanent CPT code 97159," and DHS will "Update definitions and policies that affect other existing EIDBI services" and the billing grid; it "will not add any other additional service codes included in the 2027 CPT code set." DHS adds that "Payers establish their own coverage, authorization and reimbursement policies" and tells providers to contact each MCO "to confirm and understand their implementation processes, authorization requirements, billing guidance and timelines," so confirm with this plan how its 0373T authorization and billing rules move to 97159.',
+    'Second, DHS extended the temporary moratorium on enrolling new EIDBI provider agencies, effective "Nov. 1, 2026, through April 30, 2027": new agency enrollment "remains restricted," agencies "approved for a provisional license before Dec. 31, 2026, may enroll new locations," and individual providers "may continue to enroll and affiliate with currently enrolled and provisionally licensed EIDBI agencies." It "does not affect member enrollment."',
   ],
   cites: [S.elistCpt, S.elistMorat, S.provNews],
 };
@@ -314,9 +329,9 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
         cites: [S.services, S.grid],
       },
       dailyLimits: {
-        value: 'From the August 2026 billing grid: 97151 8 hours a day and 80 units a calendar year; 97153 and 0373T 8 hours a day; 97154 4.5 hours a day (up to 8 people); 97155 6 hours a day and "approximately 20% of the total authorized intervention time" unless the ITP justifies otherwise; 97156 and 97157 4 hours a day; H0032 and T1024 as clinically necessary. Medical-necessity guidance is at least 10 hours a week and no more than 20 for a person over seven without an exception. Statutory weekly limits (40 hours intensive, 20 hours observation and direction, 2 hours travel a day, 300 ITP units a year) take effect July 1, 2027 or on federal approval.',
+        value: 'From the August 2026 billing grid: 97151 8 hours a day and 80 units a calendar year; 97153 and 0373T 8 hours a day; 97154 4.5 hours a day (up to 8 people); 97155 6 hours a day and "approximately 20% of the total authorized intervention time" unless the ITP justifies otherwise; 97156 and 97157 4 hours a day; H0032 and T1024 as clinically necessary. Medical-necessity guidance is at least 10 hours a week and no more than 20 for a person over seven without an exception. Statutory weekly limits (40 hours intensive, 20 hours observation and direction, 2 hours travel a day, 300 ITP units a year) take effect July 1, 2027 or on federal approval, whichever is later. ' + EIDBI_H0032,
         status: 'verified',
-        cites: [S.grid, S.mednec, S.sl121],
+        cites: [S.grid, S.mednec, S.sl121, S.stat0949],
       },
       noteSignature: {
         value: EIDBI_NOTES,
@@ -477,9 +492,9 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       dailyLimits: {
-        value: 'Blue Plus aligns with DHS’s billing grid ("Blue Cross is aligning with the DHS Claims guidelines published in the EIDBI Billing Grid"), so the grid’s daily limits apply: 97153 and 0373T 8 hours, 97154 4.5 hours, 97155 6 hours, 97156/97157 4 hours, 97151 8 hours a day and 80 units a year.',
+        value: 'Blue Plus aligns with DHS’s billing grid ("Blue Cross is aligning with the DHS Claims guidelines published in the EIDBI Billing Grid"), so the grid’s daily limits apply: 97153 and 0373T 8 hours, 97154 4.5 hours, 97155 6 hours, 97156/97157 4 hours, 97151 8 hours a day and 80 units a year.' + EIDBI_H0032_MCO,
         status: 'verified',
-        cites: [S.bcP55, S.grid],
+        cites: [S.bcP55, S.grid, S.stat0949],
       },
       noteSignature: {
         value: 'Blue Plus publishes no EIDBI note rule of its own. ' + EIDBI_NOTES,
@@ -627,9 +642,9 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       dailyLimits: {
-        value: 'HealthPartners points to the grid’s limits: "Claims that do not adhere to these standards cannot be paid." Grid daily limits: 97153 and 0373T 8 hours, 97154 4.5 hours, 97155 6 hours, 97156/97157 4 hours; 97151 80 units a calendar year. Hours framework: up to 40 a week through age seven and up to 20 from seven, absent an exception.',
+        value: 'HealthPartners points to the grid’s limits: "Claims that do not adhere to these standards cannot be paid." Grid daily limits: 97153 and 0373T 8 hours, 97154 4.5 hours, 97155 6 hours, 97156/97157 4 hours; 97151 80 units a calendar year. Hours framework: up to 40 a week through age seven and up to 20 from seven, absent an exception.' + EIDBI_H0032_MCO,
         status: 'verified',
-        cites: [S.hpTips, S.grid, S.hpPolicy],
+        cites: [S.hpTips, S.grid, S.hpPolicy, S.stat0949],
       },
       noteSignature: {
         value: 'HealthPartners excludes services "Not documented in the person’s health service record or ITP." ' + EIDBI_NOTES,
@@ -834,20 +849,16 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
   'imcare-minnesota': {
     slug: 'imcare-minnesota',
     family: 'imcare',
-    cardDesc: 'Itasca County’s local county health plan: EIDBI authorized by fax or secure email; most plan-specific EIDBI rules are unpublished.',
+    cardDesc: 'Itasca County’s local county health plan: its EIDBI manual says no authorization (post-payment utilization review); DHS billing grid, 180-day filing.',
     assessmentPA: {
-      value: 'Not stated. DHS’s grid says only that "Select services require authorization" at IMCare (and all services for noncontracted providers); IMCare publishes no EIDBI code list',
-      status: 'unverified',
-      cites: [S.mcoGrid, S.imcProv],
-      verifyVia: 'IMCare Member/Provider Services, 218-327-6188 or 800-843-9536: ask whether 97151 UB (CMDE) needs authorization.',
-      blocker: 'document',
+      value: 'No. IMCare’s EIDBI manual chapter (revised 08/28/2026): "IMCare does not require authorization for EIDBI services, but instead completes post utilization review." (DHS’s October 2026 grid still says "All services require prior authorization for noncontracted providers.")',
+      status: 'verified',
+      cites: [S.imcEidbi, S.mcoGrid],
     },
     treatmentPA: {
-      value: '"Select services require authorization" for contracted providers and "All services require prior authorization for noncontracted providers" (DHS grid); IMCare publishes no EIDBI code list',
-      status: 'unverified',
-      cites: [S.mcoGrid],
-      verifyVia: 'IMCare, 218-327-6188 or 800-843-9536 (fax 218-327-5545, IMCareAuths@co.itasca.mn.us): ask which EIDBI codes need authorization.',
-      blocker: 'document',
+      value: 'No, per IMCare’s own manual: "IMCare does not require authorization for EIDBI services, but instead completes post utilization review" (EIDBI chapter, revised 08/28/2026). Two older or third-party sources still speak of authorization: DHS’s October 2026 grid ("Select services require authorization"; all services for noncontracted providers) and IMCare’s March 2026 update (use the new DHS-7109 "to avoid rejections or delayed authorizations"; observation-and-direction exceptions over 20% "are reviewed and approved by IMCare"). Confirm with IMCare, 218-327-6188, before the first session, especially out of network',
+      status: 'verified',
+      cites: [S.imcEidbi, S.mcoGrid, S.imcU2610],
     },
     dxRequired: {
       value: 'Yes: the statutory EIDBI rule binds every Medical Assistance plan: ASD or a related condition diagnosed by a physician, APRN, PA or mental health professional (§ 256B.0949, subd. 4). IMCare publishes nothing different',
@@ -862,14 +873,14 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
     metaDescription:
       'How IMCare, Itasca County’s Medical Assistance plan, handles ABA under the EIDBI benefit: authorization contacts, what the state rules guarantee, appeal deadlines, and the plan-specific facts to confirm by phone.',
     intro: [
-      'IMCare (Itasca Medical Care) describes itself as "your local County health plan" for Itasca County residents on Minnesota Health Care Programs. It is one of the eight plans on DHS’s October 2026 EIDBI MCO grid. IMCare publishes forms and a utilization-management criteria summary but no EIDBI-specific policy, so most plan-level details on this page are things to confirm by phone; the statutory EIDBI rules apply regardless.',
+      'IMCare (Itasca Medical Care) describes itself as "your local County health plan" for Itasca County residents on Minnesota Health Care Programs. It is one of the eight plans on DHS’s October 2026 EIDBI MCO grid. Its provider manual has an EIDBI chapter (revised 08/28/2026) that follows DHS’s EIDBI Benefit Policy Manual and billing grid, says IMCare reviews EIDBI after the fact rather than authorizing it up front, and sits beside a Provider Basics chapter with the claim deadlines.',
     ],
     atGlance: [
       { label: 'Covers ABA?', value: 'Yes, as EIDBI for members under 21' },
-      { label: 'Prior auth', value: 'Select services (contracted); all services (noncontracted)' },
+      { label: 'Prior auth', value: 'None for EIDBI per IMCare’s manual (post utilization review); DHS’s grid still lists authorization, so confirm' },
       { label: 'Submit via', value: 'Fax 218-327-5545 or secure email IMCareAuths@co.itasca.mn.us' },
       { label: 'Referral', value: 'None required (DHS grid)' },
-      { label: 'Claims', value: 'Electronic only; free MN E-connect or Office Ally submission' },
+      { label: 'Claims', value: 'Electronic only; 180 days from date of service; corrected claims 180 days from the remittance advice' },
       { label: 'Appeals', value: '60 days to appeal; state fair hearing within 120 days of IMCare’s decision' },
     ],
     sections: [
@@ -879,6 +890,29 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
           'DHS’s October 2026 EIDBI MCO grid is the most specific public source for IMCare: member services 218-327-6188 or 800-843-9536; authorizations by fax to 218-327-5545 or secure email to IMCareAuths@co.itasca.mn.us; "No referral requirements"; "Select services require authorization" for contracted providers and "All services require prior authorization for noncontracted providers"; and claims "must be submitted electronically," with two free direct-entry options (MN E-connect from Infotech Global, and Office Ally). The grid also lists an IMCare "EIDBI billing and policy FAQ," which we could not locate on IMCare’s site. IMCare’s utilization-management summary says it relies on DHS criteria, InterQual and its own policies, and allows 90-day transitions for most services when a member arrives from other coverage.',
         ],
         cites: [S.mcoGrid, S.imcUM, S.imcProv, S.imcHome],
+      },
+      {
+        h2: 'What IMCare’s EIDBI manual chapter says',
+        body: [
+          'IMCare’s EIDBI chapter (revised 08/28/2026) defines eligibility as DHS does (ASD or a related condition, a CMDE establishing medical need, MA/MinnesotaCare/TEFRA, under 21) and says: "IMCare does not require authorization for EIDBI services, but instead completes post utilization review." For billing it sends providers to the DHS EIDBI billing grid for codes, rates, modifiers, "Provider limits and requirements," "Units," "Service limits" and the H0032 UB and H0046 UB rates. It adds its own continuous-delivery rule: providers "may only bill for time during which medically necessary EIDBI services are actively being delivered," billing "must stop" during any provider break (restroom, meals, phone calls, administrative tasks, fetching supplies), and billing break time "constitutes inaccurate billing and may result in payment recoupment."',
+          'Claims go on the 837P with the pay-to provider, the procedure code and modifiers, "The Unique Minnesota Provider Identifier (UMPI) or National Provider Identifier (NPI) of the rendering provider who delivered the service" and "The supervising provider for any services that require the supervision of a QSP"; Level III claims always carry the rendering provider. Bill each day on its own line, POS 12 for community services in the ITP, POS 11 for office and non-direct work (treatment planning without the client present), and POS 03 for school. Telehealth has "the same service thresholds, reimbursement rates and authorization requirements" as in-person care, and telehealth POS and modifiers "must not be used for nondirect or nonclient-facing services." Other insurance is pay-and-chase: providers "are not required to bill a member’s commercial insurance before billing Medicaid."',
+          'IMCare’s March 2026 update required the revised DHS-7109 ITP form for new ITPs from April 1, 2026 and for all ITPs from September 1, 2026, and said observation and direction must be "less than or equal to 20 percent of the person’s total of direct intervention services" unless a person-specific exception is approved by IMCare. Its October 27, 2026 update (#2026-31) relays DHS’s move from 0373T to 97159 on January 1, 2027 and points providers to the DHS eList.',
+        ],
+        cites: [S.imcEidbi, S.imcU2610, S.imcU2631, S.grid],
+      },
+      {
+        h2: 'Timely filing and claim deadlines',
+        body: [
+          'IMCare’s Provider Basics chapter (revised 06/15/2026): "Claims must be submitted correctly and received by IMCare no later than 180 days from the date of service (DOS). Medicare and TPL claims must be received within 180 days of payment resolution with the primary payer." "Corrected claims must be submitted and received by IMCare within 180 days from the date of the Remittance Advice (RA)" (the corrected-claim subsection words it as 180 days "from the date of incorrect payment"). Claims that do not cross over from Medicare are due within 180 days of the Medicare determination or 365 days from service, whichever is greater, and claims denied for enrollment changes within six months of service or the county correction, whichever is greater. Claims must be filed electronically; IMCare pays or denies clean claims within 30 days and complex claims (replacements, crossovers, TPL, attachments) within 90. Claim appeals, with the IMCare Provider Appeal Form, are due "no later than 60 days from the date the claim or service authorization request decision for covered services was denied."',
+        ],
+        cites: [S.imcBasics, S.stat69],
+      },
+      {
+        h2: 'Joining IMCare: contracting, credentialing and supervision agreements',
+        body: [
+          'IMCare’s September 2, 2026 update (#2026-29): providers must be enrolled with MHCP first, then request a contract (imcare.contractingcredentialing@itasca.onmicrosoft.com); "IMCare only credentials contracted providers." IMCare "makes the final decision whether to approve or deny a practitioner’s initial credentialing application within 45 calendar days of receipt of the application, when the file is considered a clean file," with "an additional 30 days" for a non-clean file. Until approval the individual "is not eligible to submit claims," and "IMCare does not back date credentialing approval dates." Clinical trainees and other staff who need supervision must have "a written supervision agreement in place with an approved supervisor per the licensing board," licensed and credentialed providers bill under their own NPI, and annual post-utilization reviews recoup claims with no supervision agreement or the wrong rendering provider. For EIDBI, DHS’s manual separately requires MCOs to credential Level I, II, III and QSP providers from DHS enrollment data within 45 days of a clean application.',
+        ],
+        cites: [S.imcU2629, S.mhcpEidbi],
       },
       {
         h2: 'Appeals',
@@ -900,40 +934,32 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
     ],
     collect: [
       { title: 'Member ID', desc: 'Confirm IMCare enrollment (Itasca County service area) on the date of service.' },
-      { title: 'CMDE and ITP', desc: 'Have both ready; ask IMCare which codes it authorizes.' },
-      { title: 'Network status', desc: 'Noncontracted providers need authorization for every service.' },
+      { title: 'CMDE and ITP', desc: 'Keep both on file on the current DHS forms (DHS-7109 required for all ITPs since Sept. 1, 2026); IMCare reviews EIDBI after payment.' },
+      { title: 'Network status', desc: 'DHS’s grid says noncontracted providers need authorization for every service; confirm with IMCare.' },
     ],
-    sources: [S.staffSup, S.stat245I04, S.elistCpt, S.elistMorat, S.provNews, S.mcoGrid, S.imcHome, S.imcProv, S.imcUM, S.imcAppeal, S.stat0949, S.sl95, S.mhcpEidbi, S.stat62M01, S.stat62M05, S.cfr438, S.cfr433, { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' } ],
+    sources: [S.imcEidbi, S.imcBasics, S.imcManual, S.imcUpdates, S.imcU2631, S.imcU2610, S.imcU2629, S.grid, S.services, S.stat69, S.staffSup, S.stat245I04, S.elistCpt, S.elistMorat, S.provNews, S.mcoGrid, S.imcHome, S.imcProv, S.imcUM, S.imcAppeal, S.stat0949, S.sl95, S.mhcpEidbi, S.stat62M01, S.stat62M05, S.cfr438, S.cfr433, { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' } ],
     deliveryRules: {
       supervision: { value: 'IMCare publishes no EIDBI supervision rule of its own. ' + EIDBI_SUPERVISION, status: 'verified', cites: [S.stat0949, S.sl95, S.clinsup, S.staffSup] },
       concurrentBilling: {
-        value: 'Not published by IMCare.',
-        status: 'unverified',
-        cites: [S.mcoGrid],
-        verifyVia: 'IMCare, 218-327-6188: ask whether it follows DHS’s simultaneous-services rule for 97153 with 97155.',
-        blocker: 'document',
+        value: 'IMCare’s EIDBI chapter defers to DHS for services and billing ("Refer to the EIDBI services section of the EIDBI Benefit Policy Manual"; the billing grid for "Provider limits and requirements"), and DHS says "Multiple providers may deliver a combination of EIDBI services at the same time (e.g., one provider delivers individual intervention, and another provider delivers observation and direction) as medically necessary," so 97153 and 97155 by two providers may run in the same clock time. IMCare adds that billing must stop during any provider break.',
+        status: 'verified',
+        cites: [S.imcEidbi, S.services, S.grid],
       },
       dailyLimits: {
-        value: 'Not published by IMCare.',
-        status: 'unverified',
-        cites: [S.mcoGrid],
-        verifyVia: 'IMCare, 218-327-6188: ask whether DHS’s EIDBI billing-grid limits apply (the EIDBI billing and policy FAQ listed on DHS’s grid may answer this).',
-        blocker: 'document',
+        value: 'DHS’s billing grid: IMCare’s EIDBI chapter sends providers to the grid for "Units" and "Service limits" (97151 8 hours a day and 80 units a year; 97153 and 0373T 8 hours a day; 97154 4.5 hours; 97155 6 hours and about 20% of intervention time; 97156/97157 4 hours), and its March 2026 update holds observation and direction to 20% of direct intervention unless IMCare approves an exception.' + EIDBI_H0032_MCO,
+        status: 'verified',
+        cites: [S.imcEidbi, S.imcU2610, S.grid, S.stat0949],
       },
       noteSignature: { value: 'IMCare publishes no EIDBI note rule of its own. ' + EIDBI_NOTES, status: 'verified', cites: [S.sl95, S.services] },
       placeOfService: {
-        value: 'Not published by IMCare.',
-        status: 'unverified',
-        cites: [S.mcoGrid],
-        verifyVia: 'IMCare, 218-327-6188: confirm POS codes for EIDBI (DHS uses 11, 12, and 02/10 for telehealth).',
-        blocker: 'document',
+        value: 'IMCare’s EIDBI chapter: POS 12 (home and community) for community services "as outlined in the person’s Individual Treatment Plan"; POS 11 (office) for office services and for nondirect work such as treatment planning without the client present; POS 03 for "a facility where the main purpose is education." Telehealth needs the correct telehealth POS, and telehealth POS and modifiers "must not be used for nondirect or nonclient-facing services."',
+        status: 'verified',
+        cites: [S.imcEidbi],
       },
       billAsProvider: {
-        value: 'Not published by IMCare.',
-        status: 'unverified',
-        cites: [S.mcoGrid],
-        verifyVia: 'IMCare, 218-327-6188: ask whether the rendering provider and supervising QSP must both be on the claim, as DHS requires.',
-        blocker: 'document',
+        value: 'Both. IMCare’s EIDBI chapter: the 837P must include "The Unique Minnesota Provider Identifier (UMPI) or National Provider Identifier (NPI) of the rendering provider who delivered the service" and "The supervising provider for any services that require the supervision of a QSP"; "All claims submitted for any services delivered by a Level III provider must have the UMPI or NPI number of the rendering provider." So 97153 carries the technician (Level I–III) as rendering and the QSP as supervising.',
+        status: 'verified',
+        cites: [S.imcEidbi, S.grid],
       },
     },
     intakeGates: {
@@ -942,17 +968,20 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       diagnosingProviders: { value: EIDBI_DIAGNOSERS, status: 'verified', cites: [S.stat0949, S.stat245I04, S.elig] },
       diagnosticTools: { value: EIDBI_TOOLS, status: 'verified', cites: [S.elig, S.cmde] },
       referral: { value: 'No. DHS’s October 2026 grid, for IMCare: "No referral requirements."', status: 'verified', cites: [S.mcoGrid] },
-      telehealth: { value: 'IMCare publishes no EIDBI telehealth rule of its own. ' + EIDBI_TELE, status: 'verified', cites: [S.stat0949, S.tele, S.mhcpTele] },
+      telehealth: { value: 'IMCare: telehealth EIDBI services "have the same service thresholds, reimbursement rates and authorization requirements as services delivered in-person"; no connection, origination or site fees. ' + EIDBI_TELE, status: 'verified', cites: [S.imcEidbi, S.stat0949, S.tele, S.mhcpTele] },
       authTurnaround: {
-        value: 'IMCare publishes no EIDBI decision clock. State and federal law apply: since January 1, 2026 standard determinations are due within five business days of a complete request and expedited ones within 48 hours including a business day (§§ 62M.01, subd. 3(b), 62M.05), inside the federal 7-calendar-day ceiling (42 CFR 438.210(d)).',
+        value: 'IMCare’s EIDBI manual says it does not require authorization for EIDBI (post utilization review), so no up-front decision applies to in-network EIDBI. Where IMCare does decide a request, state and federal law apply: since January 1, 2026 standard determinations are due within five business days of a complete request and expedited ones within 48 hours including a business day (§§ 62M.01, subd. 3(b), 62M.05), inside the federal 7-calendar-day ceiling (42 CFR 438.210(d)).',
         status: 'verified',
         cites: [S.stat62M01, S.stat62M05, S.cfr438],
       },
-      coordinationOfBenefits: { value: EIDBI_COB, status: 'verified', cites: [S.mhcpEidbi, S.cfr433] },
+      coordinationOfBenefits: { value: 'IMCare’s EIDBI chapter: "EIDBI providers are not required to bill a member’s commercial insurance before billing Medicaid. IMCare will seek reimbursement from third parties"; third-party payments received must still be reported. ' + EIDBI_COB, status: 'verified', cites: [S.imcEidbi, S.mhcpEidbi, S.cfr433] },
     },
     faq: [
       { q: 'Does IMCare cover ABA?', a: 'Yes, through the EIDBI benefit for Medical Assistance members under 21 in its service area.' },
-      { q: 'How do I send an EIDBI authorization to IMCare?', a: 'Fax 218-327-5545 or secure email IMCareAuths@co.itasca.mn.us. Noncontracted providers need authorization for every service.' },
+      { q: 'Does IMCare require prior authorization for EIDBI?', a: 'Its EIDBI manual chapter (revised 08/28/2026) says no: "IMCare does not require authorization for EIDBI services, but instead completes post utilization review." DHS’s October 2026 grid still says select services need authorization (all services for noncontracted providers), so confirm at 218-327-6188; if asked for one, fax 218-327-5545 or email IMCareAuths@co.itasca.mn.us.' },
+      { q: 'How long does IMCare credentialing take?', a: 'IMCare decides a clean initial credentialing application within 45 calendar days of receipt (30 more days for a non-clean file), credentials only contracted providers, and does not back-date approval; no claims before the approval date (Provider Update #2026-29).' },
+      { q: 'What is IMCare’s timely filing limit?', a: '180 days from the date of service for initial claims; corrected claims 180 days from the remittance advice; Medicare and TPL claims 180 days from the primary payer’s resolution; claim appeals 60 days from the denial (IMCare Provider Basics, revised 06/15/2026).' },
+      { q: 'Does IMCare limit ITP (H0032) units differently from Medicaid fee-for-service?', a: 'No. IMCare’s EIDBI chapter sends providers to DHS’s billing grid for units and service limits: H0032 UB is one unit per encounter, billed as clinically necessary, once per day per provider per member, with no authorization. The statutory 300-units-a-year cap starts July 1, 2027 or on federal approval, whichever is later; IMCare has not yet said how it will apply it.' },
     ],
   },
 
@@ -991,6 +1020,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       { label: 'Prior auth', value: 'Intervention, observation and direction, family training, travel time (not the CMDE, in network); fax ITP and CMDE to 855-454-8155' },
       { label: 'Provider Services', value: '800-848-8327 (also after hours for BH)' },
       { label: 'EDI payer ID', value: '87726 (Medica Behavioral Health)' },
+      { label: 'Timely filing', value: '180 days from date of service; adjustments 12 months from processing date' },
       { label: 'Referral', value: 'None required (DHS grid)' },
     ],
     sections: [
@@ -1014,6 +1044,13 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
           'Every Medical Assistance plan must deliver EIDBI as § 256B.0949 defines it: under 21, CMDE first, an ITP supervised by a QSP, at least one hour of clinical supervision per 16 hours of direct treatment, monthly QSP observation and direction, and documentation entered within 72 hours. DHS’s manual requires MCOs to credential Level I, II, III and QSP providers from DHS enrollment data within 45 days of a clean application. Since January 1, 2026 the Minnesota Utilization Review Act’s five-business-day standard applies to Medical Assistance managed care.',
         ],
         cites: [S.stat0949, S.sl95, S.mhcpEidbi, S.stat62M01, S.stat62M05],
+      },
+      {
+        h2: 'Timely filing and claim adjustments',
+        body: [
+          'Medica’s Timely Filing and Late Claims Policy, which its administrative manual points to for "claim submission, resubmission, adjustment, exception and late claim appeal requirements," covers "all products where Medica is the primary payer": original claims "must be received at the designated claims address no more than 180 days after the date of service," and when Medica is secondary, 180 days from the primary carrier’s remittance or EOB payment date. Adjustments (a corrected modifier or code on a processed claim) must be received "within 12 months of the processing date on the provider remittance advice," and provider appeals of provider-liability denials within 12 months of the check date. A claim denied for missing prior authorization "cannot be appealed." Late claims between 180 days and 18 months can be appealed with a Medica Claim Adjustment or Appeal Request Form and accounts-receivable notes. For MHCP, Medica adds that DHS claim requirements must also be followed. Medica’s EIDBI claims go to Optum as Medica Behavioral Health (payer ID 87726), and the Optum EIDBI guide sets no separate filing limit; Minnesota requires plans to "use a six-month timely filing standard" (§ 256B.69, subd. 5a). Questions: Medica Provider Service Center 1-800-458-5512.',
+        ],
+        cites: [S.medTF, S.opEidbi, S.stat69],
       },
       MN_MCO_2027,
       {
@@ -1043,7 +1080,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       { title: 'CMDE and ITP', desc: 'Fax both to Medica Behavioral Health, 855-454-8155.' },
       { title: 'Optum enrollment', desc: 'Network participation is through Optum Provider Services, 877-614-0484.' },
     ],
-    sources: [S.staffSup, S.stat245I04, S.opEidbi, S.grid, S.services, S.elistCpt, S.elistMorat, S.provNews, S.mcoGrid, S.opMN, S.opMedQRG, S.stat0949, S.sl95, S.mhcpEidbi, S.stat62M01, S.stat62M05, S.cfr438, S.cfr433, S.ucareFaq, { title: 'Medica — News for Providers (Connections monthly newsletter archive)', url: 'https://partner.medica.com/providers/news' }, { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },  { title: 'DHS — EIDBI billing grid (August 2026)', url: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_FILE&RevisionSelectionMethod=LatestReleased&Rendition=Primary&allowInterrupt=1&noSaveAs=1&dDocName=DHS16_195657' }, { title: 'Optum / Medica Behavioral Health — Guide to providing EIDBI services (BH02483-26-QRG, 10/13/2026)', url: 'https://www.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/mnABA/mnEIDBIOverview.pdf' } ],
+    sources: [S.medTF, S.staffSup, S.stat245I04, S.opEidbi, S.grid, S.services, S.elistCpt, S.elistMorat, S.provNews, S.mcoGrid, S.opMN, S.opMedQRG, S.stat0949, S.sl95, S.mhcpEidbi, S.stat62M01, S.stat62M05, S.cfr438, S.cfr433, S.ucareFaq, { title: 'Medica — News for Providers (Connections monthly newsletter archive)', url: 'https://partner.medica.com/providers/news' }, { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },  { title: 'DHS — EIDBI billing grid (August 2026)', url: 'https://www.dhs.state.mn.us/main/idcplg?IdcService=GET_FILE&RevisionSelectionMethod=LatestReleased&Rendition=Primary&allowInterrupt=1&noSaveAs=1&dDocName=DHS16_195657' }, { title: 'Optum / Medica Behavioral Health — Guide to providing EIDBI services (BH02483-26-QRG, 10/13/2026)', url: 'https://www.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/mnABA/mnEIDBIOverview.pdf' } ],
     deliveryRules: {
       supervision: { value: 'Medica publishes no EIDBI supervision rule of its own. ' + EIDBI_SUPERVISION, status: 'verified', cites: [S.stat0949, S.sl95, S.clinsup, S.staffSup] },
       concurrentBilling: {
@@ -1052,9 +1089,9 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
         cites: [S.opEidbi, S.services, S.grid],
       },
       dailyLimits: {
-        value: 'DHS’s billing grid, which Medica’s Optum guide tells providers to follow for claims ("Medica Behavioral Health follows DHS guidelines and rates. Please refer to the … EIDBI billing grid"): 97151 8 hours a day and 80 units a calendar year; 97153 and 0373T 8 hours a day; 97154 4.5 hours a day; 97155 6 hours a day; 97156 and 97157 4 hours a day.',
+        value: 'DHS’s billing grid, which Medica’s Optum guide tells providers to follow for claims ("Medica Behavioral Health follows DHS guidelines and rates. Please refer to the … EIDBI billing grid"): 97151 8 hours a day and 80 units a calendar year; 97153 and 0373T 8 hours a day; 97154 4.5 hours a day; 97155 6 hours a day; 97156 and 97157 4 hours a day.' + EIDBI_H0032_MCO,
         status: 'verified',
-        cites: [S.opEidbi, S.grid],
+        cites: [S.opEidbi, S.grid, S.stat0949],
       },
       noteSignature: { value: 'Medica publishes no EIDBI note rule of its own. ' + EIDBI_NOTES, status: 'verified', cites: [S.sl95, S.services] },
       placeOfService: {
@@ -1084,6 +1121,8 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
     },
     faq: [
       { q: 'Who handles EIDBI for Medica Medical Assistance members?', a: 'Optum, as Medica Behavioral Health. Fax the CMDE and ITP to 855-454-8155; Provider Services is 800-848-8327.' },
+      { q: 'What is Medica’s timely filing limit for EIDBI claims?', a: '180 days from the date of service ("all products where Medica is the primary payer"), 180 days from the primary payer’s payment date when Medica is secondary, and 12 months from the remittance processing date for adjustments (Medica Timely Filing and Late Claims Policy).' },
+      { q: 'Does Medica limit ITP (H0032) units differently from Medicaid fee-for-service?', a: 'No published difference. Optum’s Medica EIDBI guide says "Medica Behavioral Health follows DHS guidelines and rates" and points to the DHS billing grid, where H0032 UB is one unit per encounter, billed as clinically necessary and not on Optum’s authorization list. The statutory 300-units-a-year cap starts July 1, 2027 or on federal approval; Medica has not said how it will apply it.' },
       { q: 'Is Medica One Health Plan the same as Medica?', a: 'Both are Medica. Medica One Health Plan is the former UCare Medical Assistance business, which moved to Medica on October 1, 2026; DHS’s grid lists it separately with the same Optum contacts.' },
       { q: 'Which EIDBI provider level can bill 97155 in Minnesota?', a: 'A QSP or Level I provider at 100% of the rate, or a Level II provider at 80%. Level III cannot bill 97155. Every EIDBI line carries the UB modifier; the provider level comes from the enrollment specialty (DE, DF, DG, QP), not a modifier.' },
     ],
@@ -1101,9 +1140,9 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       blocker: 'document',
     },
     treatmentPA: {
-      value: '"Select services require authorization. Fax ITP and CMDE requests to: 855-454-8155"; noncontracted providers need prior authorization for all services (DHS grid)',
+      value: '"Select services require authorization. Fax ITP and CMDE requests to: 855-454-8155"; noncontracted providers need prior authorization for all services (DHS grid). Optum’s EIDBI guide (Oct. 13, 2026), which routes callers to "Medica One Health Plan provider services at 1-800-850-6141," lists the services needing authorization: family or caregiver training, individual and group intervention, higher-intensity intervention, observation and direction, and travel time',
       status: 'verified',
-      cites: [S.mcoGrid],
+      cites: [S.mcoGrid, S.opEidbi],
     },
     dxRequired: {
       value: 'Yes: the statutory rule binds every Medical Assistance plan (ASD or a related condition diagnosed by a physician, APRN, PA or mental health professional, § 256B.0949, subd. 4)',
@@ -1127,6 +1166,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       { label: 'Contact', value: 'Member or Provider Services 800-850-6141' },
       { label: 'Network', value: 'Optum Provider Services 877-614-0484; providerexpress.com' },
       { label: 'Referral', value: 'None required (DHS grid)' },
+      { label: 'Timely filing', value: '180 days from date of service (Medica policy, which applies to transitioned members from Oct. 1, 2026)' },
     ],
     sections: [
       {
@@ -1136,6 +1176,13 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
           'For EIDBI the October 2026 DHS grid gives Medica One Health Plan the same behavioral-health fax as Medica (855-454-8155, "Fax ITP and CMDE requests"), "No referral requirements," authorization of all services for noncontracted providers, Member or Provider Services at 800-850-6141, and network contracting through Optum Provider Services (877-614-0484). No EIDBI policy specific to Medica One Health Plan is published.',
         ],
         cites: [S.ucareBull, S.ucareFaq, S.mcoSec, S.mcoGrid],
+      },
+      {
+        h2: 'Claims after October 1, 2026: payer ID and timely filing',
+        body: [
+          'Medica’s UCare transition hub: "Effective October 1, 2026, the Payer ID will change: Existing Medica Payer ID: 71890 will replace UCare payer ID 55413," and providers should "Begin using Medica policies and resources for all transitioned members." Medica’s Timely Filing and Late Claims Policy covers "all products where Medica is the primary payer": original claims within 180 days of the date of service (180 days from the primary payer’s payment date when Medica is secondary), adjustments within 12 months of the remittance processing date, and provider appeals within 12 months of the check date. For EIDBI specifically, Optum’s EIDBI guide (which names Medica One Health Plan provider services, 1-800-850-6141) says claims follow DHS guidelines and rates and to "Use Payor ID: 87726," so confirm with Provider Services which payer ID applies to Medica One EIDBI claims. Minnesota law requires a six-month filing standard for Medical Assistance plans (§ 256B.69, subd. 5a).',
+        ],
+        cites: [S.medHub, S.medTF, S.opEidbi, S.stat69],
       },
       MN_MCO_2027,
       {
@@ -1153,37 +1200,29 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       { title: 'Existing authorization', desc: 'Capture any UCare EIDBI authorization; a new plan must honor prior authorizations.' },
       { title: 'CMDE and ITP', desc: 'Fax both to 855-454-8155.' },
     ],
-    sources: [S.staffSup, S.stat245I04, S.elistCpt, S.elistMorat, S.provNews, S.ucareBull, S.ucareFaq, S.mcoGrid, S.mcoSec, S.stat0949, S.sl95, S.mhcpEidbi, S.stat62M01, S.stat62M05, S.cfr438, S.cfr433, { title: 'Medica — News for Providers (Connections monthly newsletter archive)', url: 'https://partner.medica.com/providers/news' }, { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' } ],
+    sources: [S.medHub, S.medTF, S.opEidbi, S.grid, S.staffSup, S.stat245I04, S.elistCpt, S.elistMorat, S.provNews, S.ucareBull, S.ucareFaq, S.mcoGrid, S.mcoSec, S.stat0949, S.sl95, S.mhcpEidbi, S.stat62M01, S.stat62M05, S.cfr438, S.cfr433, { title: 'Medica — News for Providers (Connections monthly newsletter archive)', url: 'https://partner.medica.com/providers/news' }, { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' } ],
     deliveryRules: {
       supervision: { value: 'No plan-specific EIDBI supervision rule is published. ' + EIDBI_SUPERVISION, status: 'verified', cites: [S.stat0949, S.sl95, S.clinsup, S.staffSup] },
       concurrentBilling: {
-        value: 'Not published by Medica One Health Plan.',
-        status: 'unverified',
-        cites: [S.mcoGrid],
-        verifyVia: 'Medica One Health Plan Provider Services, 800-850-6141.',
-        blocker: 'document',
+        value: 'DHS’s rule, which Optum’s EIDBI guide for Medica and Medica One adopts ("Medica Behavioral Health follows DHS guidelines and rates"): "Multiple providers may deliver a combination of EIDBI services at the same time (e.g., one provider delivers individual intervention, and another provider delivers observation and direction) as medically necessary," so 97153 and 97155 by two providers may be billed for the same clock time; 0373T is billed once per period however many staff are present.',
+        status: 'verified',
+        cites: [S.opEidbi, S.services, S.grid],
       },
       dailyLimits: {
-        value: 'Not published by Medica One Health Plan.',
-        status: 'unverified',
-        cites: [S.mcoGrid],
-        verifyVia: 'Medica One Health Plan Provider Services, 800-850-6141: ask whether DHS’s billing-grid limits apply.',
-        blocker: 'document',
+        value: 'DHS’s billing grid. Optum’s EIDBI guide, which covers Medica One Health Plan, says "Medica Behavioral Health follows DHS guidelines and rates. Please refer to the … EIDBI billing grid": 97151 8 hours a day and 80 units a calendar year; 97153 and 0373T 8 hours a day; 97154 4.5 hours; 97155 6 hours; 97156 and 97157 4 hours.' + EIDBI_H0032_MCO,
+        status: 'verified',
+        cites: [S.opEidbi, S.grid, S.stat0949],
       },
       noteSignature: { value: 'No plan-specific note rule is published. ' + EIDBI_NOTES, status: 'verified', cites: [S.sl95, S.services] },
       placeOfService: {
-        value: 'Not published by Medica One Health Plan.',
-        status: 'unverified',
-        cites: [S.mcoGrid],
-        verifyVia: 'Medica One Health Plan Provider Services, 800-850-6141: confirm EIDBI POS codes.',
-        blocker: 'document',
+        value: 'DHS’s rules, which Optum’s EIDBI guide for Medica and Medica One says claims follow: POS 12 for home and community services in the ITP, POS 11 for office-based and non-direct work, POS 02/10 for telehealth. EIDBI may run during school hours or on school grounds when "clearly documented in the person’s ITP," but must not "duplicate or replace school responsibilities."',
+        status: 'verified',
+        cites: [S.opEidbi, S.services, S.grid, S.mhcpEidbi],
       },
       billAsProvider: {
-        value: 'Not published by Medica One Health Plan.',
-        status: 'unverified',
-        cites: [S.mcoGrid],
-        verifyVia: 'Medica One Health Plan Provider Services, 800-850-6141: ask whether rendering provider and supervising QSP must both be on the claim.',
-        blocker: 'document',
+        value: 'DHS’s grid, which Optum’s EIDBI guide for Medica and Medica One says to follow: the claim carries the rendering provider, and "The QSP must be on all other EIDBI claims as the supervising professional" (CMDEs excepted).',
+        status: 'verified',
+        cites: [S.opEidbi, S.grid],
       },
     },
     intakeGates: {
@@ -1202,6 +1241,8 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
     },
     faq: [
       { q: 'What happened to UCare Medical Assistance?', a: 'UCare’s Medical Assistance plans moved to Medica and became Medica One Health Plan on October 1, 2026. UCare itself is in court-supervised rehabilitation.' },
+      { q: 'What is Medica One Health Plan’s timely filing limit?', a: 'From October 1, 2026 Medica tells providers to use Medica policies for transitioned members, and Medica’s Timely Filing and Late Claims Policy sets 180 days from the date of service for all Medica products (12 months for adjustments). UCare’s rehabilitation plan changed some deadlines for older UCare claims; 2026 claims are not affected.' },
+      { q: 'Does Medica One limit ITP (H0032) units differently from Medicaid fee-for-service?', a: 'No published difference. Optum’s EIDBI guide, which covers Medica One, says claims follow DHS guidelines and the billing grid: H0032 UB is one unit per encounter, billed as clinically necessary and not on Optum’s authorization list. The statutory 300-units-a-year cap starts July 1, 2027 or on federal approval; Medica One has not said how it will apply it.' },
       { q: 'Does an existing UCare EIDBI authorization carry over?', a: 'DHS requires a plan to provide medically necessary services that a previous MCO or fee-for-service had authorized before enrollment. Send the new plan the current authorization, CMDE and ITP and confirm.' },
     ],
   },
@@ -1296,9 +1337,9 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
         cites: [S.pwEidbi, S.services],
       },
       dailyLimits: {
-        value: '"Do not exceed 9 hours a day for any individual or group intervention units." Otherwise PrimeWest refers to DHS’s billing grid for service limits, and caps observation and direction at about 20% of direct treatment hours without extra justification.',
+        value: '"Do not exceed 9 hours a day for any individual or group intervention units." Otherwise PrimeWest refers to DHS’s billing grid for service limits, and caps observation and direction at about 20% of direct treatment hours without extra justification.' + EIDBI_H0032_MCO,
         status: 'verified',
-        cites: [S.pwEidbi, S.grid],
+        cites: [S.pwEidbi, S.grid, S.stat0949],
       },
       noteSignature: {
         value: 'PrimeWest does not pay for services "not documented in the member’s health service record or in the manner required by this manual or by Minnesota Rules, part 9505.2175." ' + EIDBI_NOTES,
@@ -1407,9 +1448,9 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       {
         h2: 'Claims, telehealth and appeals',
         body: [
-          'Since January 1, 2024, claims "must be received by South Country no later than 180 days from the date of service"; corrected claims within 180 days of the remittance advice; Medicare and TPL claims within six months of the primary’s payment or denial, or 180 days from service if later. Claims use the NPI or UMPI and must be submitted electronically. New electronic funds transfer (EFT) enrollment “is temporarily paused while South Country transitions to a new enrollment process” (October 2026 chapter). Telehealth claims "require Place of Service 02 or 10," with modifier 93 for audio-only. Members must file appeals "within 60 days of the date of the" notice of action.',
+          'Since January 1, 2024, claims "must be received by South Country no later than 180 days from the date of service"; corrected claims within 180 days of the remittance advice; Medicare and TPL claims within six months of the primary’s payment or denial, or 180 days from service if later. Claims use the NPI or UMPI and must be submitted electronically. New electronic funds transfer (EFT) enrollment “is temporarily paused while South Country transitions to a new enrollment process” (October 2026 chapter); South Country’s October 28, 2026 bulletin names the new platform, PaymentWorks, says "all EFT enrollment requests will be paused, Effective Immediately," and that providers already on EFT "will continue to receive payments as usual." Telehealth claims "require Place of Service 02 or 10," with modifier 93 for audio-only. Members must file appeals "within 60 days of the date of the" notice of action.',
         ],
-        cites: [S.scCh4, S.scCh33, S.scCh14],
+        cites: [S.scCh4, S.scCh33, S.scCh14, { title: 'South Country Health Alliance bulletin — New payment management system: PaymentWorks (10/28/2026; EFT enrollment paused)', url: 'https://www.mnscha.org/wp-content/uploads/7815.pdf' }],
       },
       MN_MCO_2027,
       {
@@ -1438,9 +1479,9 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       dailyLimits: {
-        value: 'South Country’s list: "Thresholds vary, see DHS Billing Grid," and for 97151 "80 units per calendar year (1 CMDE allowed annually), limit of 8 hours per day." Grid daily limits: 97153 and 0373T 8 hours, 97154 4.5 hours, 97155 6 hours, 97156/97157 4 hours.',
+        value: 'South Country’s list: "Thresholds vary, see DHS Billing Grid," and for 97151 "80 units per calendar year (1 CMDE allowed annually), limit of 8 hours per day." Grid daily limits: 97153 and 0373T 8 hours, 97154 4.5 hours, 97155 6 hours, 97156/97157 4 hours.' + EIDBI_H0032_MCO,
         status: 'verified',
-        cites: [S.scBhPa, S.grid],
+        cites: [S.scBhPa, S.grid, S.stat0949],
       },
       noteSignature: { value: 'South Country publishes no EIDBI note rule of its own. ' + EIDBI_NOTES, status: 'verified', cites: [S.sl95, S.services] },
       placeOfService: {
@@ -1986,7 +2027,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis with a validated tool', desc: 'DSM-5-TR ASD with severity, confirmed with a validated tool (ADI-R, ADOS-2 and others).' },
       { title: 'Treatment plan from the physician or mental health professional', desc: '§ 62A.3094 ties covered treatment to it; updates at most every six months.' },
     ],
-    sources: [S.optumSCC, S.optumSM, S.optumTele, S.optumReimb, S.optumNNM, S.mcoGrid, S.stat3094, S.stat62Q18, S.stat62Q47, S.stat62Q75, S.stat62M05, S.stat62M07, S.stat62A673, S.lic9981, S.lic9983, S.lic9986, S.lic9987, S.bacbLic, S.erisa, S.cfr433, S.mhcpEidbi, S.tricare, S.champva, S.spa2410, { title: 'Optum — FAQ: Autism/ABA Using CPT Codes', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial, Exchange, MA)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, { title: 'UnitedHealthcare — Information on payment of out-of-network benefits', url: 'https://www.uhc.com/legal/information-on-payment-of-out-of-network-benefits' }, { title: 'Optum — ABA Request for Services Checklist (BH00853-25-QRG)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/BH00853-25-QRG_ABAQRG.pdf' } ],
+    sources: [{ title: 'UnitedHealthcare — Prior auth reductions continue for members under 18 (Network News, Nov. 2026)', url: 'https://www.uhcprovider.com/en/resource-library/news/2026/prior-auth-reduction-members-under-18.html' }, { title: 'UnitedHealthcare — Procedure codes with reduced prior authorization requirements, commercial plans (eff. Dec. 1, 2026, revised Nov. 6, 2026) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/PA-Reduction-Codes-18-Commercial-QRG.pdf' }, S.optumSCC, S.optumSM, S.optumTele, S.optumReimb, S.optumNNM, S.mcoGrid, S.stat3094, S.stat62Q18, S.stat62Q47, S.stat62Q75, S.stat62M05, S.stat62M07, S.stat62A673, S.lic9981, S.lic9983, S.lic9986, S.lic9987, S.bacbLic, S.erisa, S.cfr433, S.mhcpEidbi, S.tricare, S.champva, S.spa2410, { title: 'Optum — FAQ: Autism/ABA Using CPT Codes', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial, Exchange, MA)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, { title: 'UnitedHealthcare — Information on payment of out-of-network benefits', url: 'https://www.uhc.com/legal/information-on-payment-of-out-of-network-benefits' }, { title: 'Optum — ABA Request for Services Checklist (BH00853-25-QRG)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/BH00853-25-QRG_ABAQRG.pdf' } ],
     deliveryRules: {
       supervision: {
         value: 'Direct case supervision "1 – 2 hours for every 10 hours of direct treatment per week," consistent with CASP; technicians work under a BCBA or licensed clinician and should be RBTs or otherwise certified; Optum does not recommend parents as their own child’s RBT. In Minnesota the supervisor must hold the Minnesota license (§ 148.9986).',
@@ -2074,6 +2115,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare still require prior authorization for ABA for members under 18 after Dec. 1, 2026?', a: 'Only two ABA codes change. From Dec. 1, 2026, UnitedHealthcare no longer requires prior authorization for 0362T and 0373T when provided to members younger than 18 on its commercial plans (commercial code list revised Nov. 6, 2026). 97151–97158 are not on the list and still need authorization, and the Individual Exchange and Community Plan lists name no ABA code. UHC says to check plan-specific exceptions in the Prior Authorization and Advance Notification tool. 0362T and 0373T are deleted from CPT on Jan. 1, 2027, so the change covers December 2026 dates of service.' },
       { q: 'Does UnitedHealthcare (Optum) require graphs for ABA continued-service reviews?', a: 'No. Optum’s criteria ask for progress on every target using the baseline measurement method, mastery rates and change scores, updated standardized adaptive measures, and an explanation of low hour use, but they do not require graphs.' },
       { q: 'What are UnitedHealthcare (Optum)’s claim filing deadlines for Minnesota ABA claims?', a: '90 calendar days from the date of service (or longer where state law or the plan allows), corrections within 90 days of the original claim’s receipt, and payment of complete claims within 45 days or the state’s shorter clock. No check-run schedule is published.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in Minnesota?', a: 'Yes, under Optum’s national ABA criteria for ASD, with Minnesota’s mandate layered on for fully insured large-employer plans and children under 18.' },

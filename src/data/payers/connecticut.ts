@@ -44,6 +44,7 @@ const S: Record<string, PayerSource> = {
   bhpBulletins: { title: 'CT BHP — Provider Bulletins and Alerts', url: 'https://providers.ctbhp.com/providers/bulletins/' },
   bhpOverview: { title: 'Connecticut Behavioral Health Partnership (CT BHP) 101 — Carelon BH CT presentation to the BHP Oversight Council (March 2026)', url: 'https://prdext3.cga.ct.gov/ph/BHPOC/related%5C20260101_2026%5C20260311/CT%20BHP-Carelon%20Overview%202026.pdf' },
   dssOverview: { title: 'CT DSS — Overview of HUSKY Health: Quality and Cost Trends (December 2020)', url: 'https://portal.ct.gov/-/media/departments-and-agencies/dss/communications/husky-health-overview-of-quality-and-cost-trends-presentation-121020.pdf' },
+  ch5: { title: 'CMAP Provider Manual — Chapter 5, Claim Submission Information (V 4.5, April 2, 2025; § 5.6 Timely Filing Guidelines)', url: 'https://www.ctdssmap.com/CTPortal/Information/Get-Download-File?Filename=Chapter_5_Claim_Sub_Info.pdf&URI=Manuals/Chapter_5_Claim_Sub_Info.pdf' },
   cfr433: { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
   cfr440: { title: '42 CFR 440.230(e) — State Medicaid agency prior-authorization timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-440/subpart-B/section-440.230' },
   erisa: { title: '29 CFR 2560.503-1 — ERISA claims procedure (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
@@ -193,6 +194,14 @@ export const connecticutPayers: Record<string, PayerConfig> = {
         body: [CT_LICENSURE_BODY, CT_TELEHEALTH_LICENSE + ' For HUSKY specifically, DSS is explicit. An in-state Medicaid provider that contracts with out-of-state practitioners for telehealth must be able to provide in-person care when needed, and “the out-of-state practitioner must hold an active CT license.” Out-of-state practitioners not contracted with an in-state Medicaid provider cannot enroll to bill telehealth, except under 42 CFR 431.52.'],
         cites: [S.ch382a, S.dphBA, S.bacbLic, S.s19a906, S.pb2338, S.paRoles],
       },
+      {
+        h2: 'Claim filing deadline: one year from the date of service',
+        body: [
+          'HUSKY claims go to Gainwell Technologies, the state’s fiscal agent, and the CMAP Provider Manual sets one deadline for all of them: “It is the provider’s responsibility to ensure that all claims for services provided to a client are submitted within one (1) year from the actual date of service.” A claim past the limit posts to the remittance advice with the message “Claim exceeds timely filing limit.”',
+          'For behavioral health services under HUSKY A, B, C and D the manual waives the limit in set cases: “Providers have one (1) year from the paid date (claim cycle date) indicating a denial to resubmit the claim, provided the denial was not for timely filing”; the date of service must fall within one year of the issue date on another insurer’s denial (keep that carrier’s EOB in the client’s file); and a provider has one year from the date the client’s eligibility was added to the MMIS to submit a claim for retroactive eligibility. Adjustments can be made electronically without a paper PCAR. DSS does not accept paper claims except from out-of-state providers and special-handling claims.',
+        ],
+        cites: [S.ch5],
+      },
     ],
     collect: [
       { title: 'HUSKY ID and program', desc: 'HUSKY A, B, C or D: all four cover ASD services under 21. Check eligibility in AEVS before each session.' },
@@ -202,7 +211,7 @@ export const connecticutPayers: Record<string, PayerConfig> = {
       { title: 'Birth to Three (under 3)', desc: 'For a child under 3, document that Birth to Three services were explored and exhausted.' },
       { title: 'Caregiver availability', desc: 'An adult caregiver (18 or older) must be present at all times during home and community sessions.' },
     ],
-    sources: [S.dssOverview, S.bhpOverview, S.handbook, S.regs, S.pb2530, S.pb2557, S.asdIM, S.pb2606, S.asdFee, S.feeInstr, S.grid, S.loc1, S.loc2, S.loc5, S.loc7, S.paRBT, S.paRoles, S.paADE, S.paHuskyB, S.pb2338, S.teleTable, S.ch382a, S.dphBA, S.s19a906, S.cfr433, S.cfr440, { title: 'CT Medical Assistance Program — Publications (provider bulletin search + interChange provider newsletters)', url: 'https://www.ctdssmap.com/CTPortal/Information/Publications' },
+    sources: [S.dssOverview, S.bhpOverview, S.handbook, S.regs, S.pb2530, S.pb2557, S.asdIM, S.pb2606, S.asdFee, S.feeInstr, S.grid, S.loc1, S.loc2, S.loc5, S.loc7, S.paRBT, S.paRoles, S.paADE, S.paHuskyB, S.pb2338, S.teleTable, S.ch382a, S.dphBA, S.s19a906, S.cfr433, S.cfr440, S.ch5, { title: 'CT Medical Assistance Program — Publications (provider bulletin search + interChange provider newsletters)', url: 'https://www.ctdssmap.com/CTPortal/Information/Publications' },
       { title: 'BACB — U.S. Licensure of Behavior Analysts (Connecticut: 2017, CT State Department of Public Health)', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
     ],
     deliveryRules: {
@@ -285,6 +294,7 @@ export const connecticutPayers: Record<string, PayerConfig> = {
       { q: 'What does Connecticut Medicaid pay for ABA?', a: 'From January 1, 2026: 97153 (technician) $14.00 per 15 minutes, H2014 (BCBA or clinician) $15.24 per 15 minutes, H0031 behavior assessment $87.98, H0032 plan of care $87.98, H0032-TS program book $60.70, H0046 observation and direction $22.00, 97156 parent training $21.20, 97158 group $3.08 and T1016 case management $11.33.' },
       { q: 'Can a BCBA do the autism diagnostic evaluation for HUSKY?', a: 'No. Evaluations by BCBAs, provisionally licensed clinicians or other unlicensed professionals “do not meet requirements, even if co-signed by a licensed professional.” Use an independently licensed physician, psychologist, APRN, LCSW, LPC or LMFT experienced in ASD evaluation.' },
       { q: 'Can HUSKY ABA be delivered by telehealth?', a: 'Only for the codes on the CMAP Telehealth Table: 90791, H0031, H0046, H2014 and 97153 by video, and T1016 by video or phone. Parent training must be in person. Carelon expects in-person delivery as far as clinically appropriate.' },
+      { q: 'What is the timely filing limit for HUSKY ABA claims?', a: 'One year from the date of service, under Chapter 5 of the CMAP Provider Manual. A claim denied for any reason other than timely filing can be resubmitted within one year of the paid date on the denial, and a claim after another insurer’s denial within one year of that denial’s issue date.' },
       CT_LIC_FAQ,
     ],
   },
@@ -349,6 +359,13 @@ export const connecticutPayers: Record<string, PayerConfig> = {
         body: [CT_LICENSURE_BODY, CT_TELEHEALTH_LICENSE + ' Carelon’s qualification packet asks for a “current professional clinical license” plus the BCBA certificate. DSS requires an active Connecticut license for out-of-state practitioners delivering HUSKY telehealth, and it treats an out-of-state provider as a border provider only if their home is within 45 minutes of the state line.'],
         cites: [S.ch382a, S.dphBA, S.s19a906, S.paRoles, S.pb2338],
       },
+      {
+        h2: 'Claims go to Gainwell: one-year filing limit',
+        body: [
+          'Carelon authorizes but does not pay: DSS and Gainwell handle “Enrollment and claims only.” The filing deadline is therefore the CMAP one. Chapter 5 of the CMAP Provider Manual says “all claims for services provided to a client are submitted within one (1) year from the actual date of service,” and for HUSKY behavioral health services a provider has “one (1) year from the paid date (claim cycle date) indicating a denial to resubmit the claim, provided the denial was not for timely filing.” After another insurer’s denial, the date of service must fall within one year of that denial’s issue date.',
+        ],
+        cites: [S.paRoles, S.ch5],
+      },
     ],
     collect: [
       { title: 'HUSKY ID', desc: 'Any HUSKY program (A, B, C or D) for a member under 21. Verify eligibility in AEVS, which also flags other insurance.' },
@@ -357,7 +374,7 @@ export const connecticutPayers: Record<string, PayerConfig> = {
       { title: 'IEP / IFSP', desc: 'Include it with the request if the child has one. It is required at continued-stay reviews after a year of service.' },
       { title: 'Need help finding care?', desc: 'Carelon’s ASD care coordination team helps families get a diagnosis and find providers, at any age.' },
     ],
-    sources: [S.paRoles, S.handbook, S.loc1, S.loc2, S.loc5, S.loc7, S.locIndex, S.grid, S.paRBT, S.paADE, S.paHuskyB, S.bhpOverview, S.bhpBulletins, S.teleTable, S.pb2338, S.ch382a, S.dphBA, S.s19a906, S.cfr433, S.cfr440, { title: 'CT BHP (Carelon) — Provider newsletters archive', url: 'https://providers.ctbhp.com/ct-bhp-provider-newsletters/' },
+    sources: [S.paRoles, S.handbook, S.ch5, S.loc1, S.loc2, S.loc5, S.loc7, S.locIndex, S.grid, S.paRBT, S.paADE, S.paHuskyB, S.bhpOverview, S.bhpBulletins, S.teleTable, S.pb2338, S.ch382a, S.dphBA, S.s19a906, S.cfr433, S.cfr440, { title: 'CT BHP (Carelon) — Provider newsletters archive', url: 'https://providers.ctbhp.com/ct-bhp-provider-newsletters/' },
       { title: 'DSS Regulation 14-07, Requirements for Payment of Autism Spectrum Disorder Services (RCSA §§ 17b-262-1051 to 17b-262-1065) — final wording posted with the notice of decision, 5/21/2015', url: 'https://portal.ct.gov/-/media/sots/regulations/notices_of_intent/nod2015052101finalwordingpdf.pdf?la=en' },
     ],
     deliveryRules: {
@@ -437,6 +454,7 @@ export const connecticutPayers: Record<string, PayerConfig> = {
     faq: [
       { q: 'Is Carelon a Medicaid health plan in Connecticut?', a: 'No. Connecticut has no Medicaid MCOs. Carelon BH CT is the administrative services organization for the Connecticut Behavioral Health Partnership. It qualifies providers and authorizes services, while Gainwell pays claims and DSS controls enrollment.' },
       { q: 'How do I become a HUSKY ASD provider?', a: 'Qualify with Carelon BH CT first (background check, CV, license, BCBA certificate, two redacted work samples, insurance), then enroll with DSS through Gainwell, attaching Carelon’s qualification letter. Enrollment takes about 4–8 weeks.' },
+      { q: 'What is the claim filing deadline for HUSKY ABA authorized by Carelon?', a: 'One year from the date of service. Claims go to Gainwell, not Carelon, under Chapter 5 of the CMAP Provider Manual; a non-timely-filing denial can be resubmitted within one year of its paid date.' },
       { q: 'How long does Carelon take to decide an ABA request?', a: 'Within 7 calendar days for non-urgent requests, which includes ASD services, and 30 days for retrospective ones. Submit ASD requests on or before the start date, once staff are identified.' },
       CT_LIC_FAQ,
     ],
@@ -1091,7 +1109,7 @@ export const connecticutPayers: Record<string, PayerConfig> = {
       { title: 'Order from a licensed clinician', desc: 'The mandate covers ABA ordered by a licensed physician, psychologist or LCSW.' },
       { title: 'Credential of each rendering staff member', desc: 'Every claim line needs the right HM/HN/HO/HP modifier.' },
     ],
-    sources: [ { title: 'UnitedHealthcare — Information on payment of out-of-network benefits', url: 'https://www.uhc.com/legal/information-on-payment-of-out-of-network-benefits' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (commercial)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },S.optumSCC, S.optumSM, S.optumTele, S.optumReimb, S.optumNNM, S.s38a514b, S.s38a488b, S.s38a526a, S.s38a591d, S.s38a816, S.ch382a, S.dphBA, S.bacbLic, S.s19a906, S.erisa, S.handbook, S.cfr433, S.tricare, S.champva, S.asdFee],
+    sources: [{ title: 'UnitedHealthcare — Prior auth reductions continue for members under 18 (Network News, Nov. 2026)', url: 'https://www.uhcprovider.com/en/resource-library/news/2026/prior-auth-reduction-members-under-18.html' }, { title: 'UnitedHealthcare — Procedure codes with reduced prior authorization requirements, commercial plans (eff. Dec. 1, 2026, revised Nov. 6, 2026) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/PA-Reduction-Codes-18-Commercial-QRG.pdf' },  { title: 'UnitedHealthcare — Information on payment of out-of-network benefits', url: 'https://www.uhc.com/legal/information-on-payment-of-out-of-network-benefits' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (commercial)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },S.optumSCC, S.optumSM, S.optumTele, S.optumReimb, S.optumNNM, S.s38a514b, S.s38a488b, S.s38a526a, S.s38a591d, S.s38a816, S.ch382a, S.dphBA, S.bacbLic, S.s19a906, S.erisa, S.handbook, S.cfr433, S.tricare, S.champva, S.asdFee],
     deliveryRules: {
       supervision: {
         value: '“Consistent with CASP standards of care, direct case supervision is required 1–2 hours for every 10 hours of direct treatment per week.” Technicians work under a BCBA or licensed behavioral health clinician and “should be registered behavior technicians (RBT) or another appropriately certified behavior technician.” For Connecticut, Optum’s state-mandate entry applies at least one hour of face-to-face supervision per ten hours by a licensed behavior analyst, physician or psychologist.' + ' Optum’s criteria publish no cap on the number of technicians per BCBA.',
@@ -1176,6 +1194,7 @@ export const connecticutPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare still require prior authorization for ABA for members under 18 after Dec. 1, 2026?', a: 'Only two ABA codes change. From Dec. 1, 2026, UnitedHealthcare no longer requires prior authorization for 0362T and 0373T when provided to members younger than 18 on its commercial plans (commercial code list revised Nov. 6, 2026). 97151–97158 are not on the list and still need authorization, and the Individual Exchange and Community Plan lists name no ABA code. UHC says to check plan-specific exceptions in the Prior Authorization and Advance Notification tool. 0362T and 0373T are deleted from CPT on Jan. 1, 2027, so the change covers December 2026 dates of service.' },
       { q: 'Does UnitedHealthcare pay out-of-network ABA providers?', a: 'Only under the member\'s out-of-network benefits, priced by a method the plan sets (a percentage of CMS rates, FAIR Health, Viant or a negotiated rate). On commercial HMO plans an out-of-network provider can be approved when no network provider is available in time or nearby; the PCP requests an out-of-network prior authorization, and the member then pays only in-network cost-sharing.' },
       { q: 'Does UnitedHealthcare accept H0031 or H2019 for ABA?', a: 'No. Optum’s commercial ABA policy uses CPT 97151–97158, 0362T and 0373T with credential modifiers.' },
       { q: 'Does Optum require graphs for an ABA reauthorization?', a: 'The criteria ask for progress measured the same way as baseline, mastery rates, change scores and updated standardized adaptive measures; graphs are not named.' },
